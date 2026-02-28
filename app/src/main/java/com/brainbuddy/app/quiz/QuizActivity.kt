@@ -45,14 +45,18 @@ class QuizActivity : AppCompatActivity() {
         questions = when {
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
-                wrongIds.mapNotNull { all[it] }
+                val found = wrongIds.mapNotNull { all[it] }
+                if (found.isEmpty()) {
+                    val count = quizPrefs.questionsPerSession()
+                    repo.pickQuizQuestions(levelGroup, count, quizPrefs.difficulty(), quizPrefs.selectedCategories())
+                } else found
             }
             retryWrongMode -> repo.pickRetryWrongQuestions(levelGroup)
             else -> {
-            val count = quizPrefs.questionsPerSession()
-            val diff = quizPrefs.difficulty()
-            val cats = quizPrefs.selectedCategories()
-            repo.pickQuizQuestions(levelGroup, count, diff, cats)
+                val count = quizPrefs.questionsPerSession()
+                val diff = quizPrefs.difficulty()
+                val cats = quizPrefs.selectedCategories()
+                repo.pickQuizQuestions(levelGroup, count, diff, cats)
             }
         }
 
@@ -62,6 +66,7 @@ class QuizActivity : AppCompatActivity() {
 
         b.nextBtn.isEnabled = false
 
+        // Only show "soru yok" for retry mode with no wrong questions; never for filter/JSON issues
         if (questions.isEmpty()) {
             b.subjectChip.text = "Soru bulunamadı"
             b.questionText.text = if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!" else "Soru havuzunda soru yok."

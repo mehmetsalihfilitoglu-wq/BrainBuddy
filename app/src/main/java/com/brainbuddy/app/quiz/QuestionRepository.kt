@@ -3,6 +3,7 @@ package com.brainbuddy.app.quiz
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.Toast
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
@@ -13,30 +14,59 @@ import java.util.concurrent.TimeUnit
 
 class QuestionRepository(private val context: Context) {
 
+    companion object {
+        private const val TAG = "QuestionRepository"
+    }
+
     private val historyStore = QuestionHistoryStore(context)
 
-    fun loadAllQuestions(): List<Question> {
+    /** @return Pair(questions, parseStats) - stats used for debug toast */
+    fun loadAllQuestions(): List<Question> = loadAllQuestionsWithStats().first
+
+    fun loadAllQuestionsWithStats(): Pair<List<Question>, LoadStats> {
         return try {
             val json = context.assets.open("questions_tr.json").use { input ->
                 input.readBytes().toString(Charset.forName("UTF-8"))
             }
             val arr = JSONArray(json)
             val out = ArrayList<Question>(arr.length())
+            var parseFailCount = 0
             for (i in 0 until arr.length()) {
                 try {
                     val o = arr.getJSONObject(i)
                     out.add(parseQuestion(o))
-                } catch (_: Exception) { /* skip malformed question */ }
+                } catch (e: Exception) {
+                    parseFailCount++
+                    Log.w(TAG, "Parse failed for question index $i: ${e.message}", e)
+                }
             }
+            val stats = LoadStats(
+                fileFound = true,
+                totalInJson = arr.length(),
+                parsedTotal = out.size,
+                parseFailed = parseFailCount
+            )
+            Log.i(TAG, "questions_tr.json: found=true, totalInJson=${arr.length()}, parsed=$out.size, failed=$parseFailCount")
             if (out.isEmpty()) {
                 showFallbackToast()
-                getFallbackQuestions()
-            } else out
+                Pair(getFallbackQuestions(), stats)
+            } else {
+                Pair(out, stats)
+            }
         } catch (e: Exception) {
+            Log.e(TAG, "questions_tr.json: found=false, error=${e.message}", e)
+            val stats = LoadStats(fileFound = false, totalInJson = 0, parsedTotal = 0, parseFailed = 0)
             showFallbackToast()
-            getFallbackQuestions()
+            Pair(getFallbackQuestions(), stats)
         }
     }
+
+    data class LoadStats(
+        val fileFound: Boolean,
+        val totalInJson: Int,
+        val parsedTotal: Int,
+        val parseFailed: Int
+    )
 
     private fun showFallbackToast() {
         Handler(Looper.getMainLooper()).post {
@@ -63,8 +93,13 @@ class QuestionRepository(private val context: Context) {
     )
 
     private fun parseQuestion(o: JSONObject): Question {
-        val choicesArr = o.getJSONArray("choices")
-        val choices = (0 until choicesArr.length()).map { idx -> choicesArr.getString(idx) }
+        val choicesArr = o.optJSONArray("choices")
+            ?: throw IllegalArgumentException("Missing 'choices' array")
+        val raw = (0 until choicesArr.length()).map { idx ->
+            choicesArr.optString(idx, "").ifEmpty { choicesArr.opt(idx)?.toString() ?: "-" }
+        }.filter { it.isNotBlank() }
+        if (raw.isEmpty()) throw IllegalArgumentException("Choices array empty")
+        val choices = if (raw.size >= 4) raw.take(4) else raw + List(4 - raw.size) { "-" }
         val diffStr = o.optString("difficulty", "MEDIUM")
         val difficulty = try {
             QuizDifficulty.valueOf(diffStr)
@@ -119,23 +154,26 @@ class QuestionRepository(private val context: Context) {
         difficulty: QuizDifficulty,
         categories: Set<String> = emptySet()
     ): List<Question> {
-        val all = loadAllQuestions()
-        var pool = buildPoolWithFallback(all, levelGroup, difficulty, categories)
-        if (pool.isEmpty()) {
-            pool = getFallbackQuestions()
-        }
+        val (all, loadStats) = loadAllQuestionsWithStats()
+        val (pool, filterStats) = buildPoolWithFallback(all, levelGroup, difficulty, categories)
+        val finalPool = if (pool.isEmpty()) {
+            Log.w(TAG, "Pool empty after filters, using fallback questions")
+            getFallbackQuestions()
+        } else pool
+
+        showDebugToast(loadStats, filterStats, finalPool.size, count)
 
         val wrongIds = historyStore.getWrongQuestionIds(7)
         val now = System.currentTimeMillis()
         val cooldownMs = TimeUnit.DAYS.toMillis(2)
 
-        val wrongPool = pool.filter { it.id in wrongIds }
-        val cooldownExcluded = pool.filter { q ->
+        val wrongPool = finalPool.filter { it.id in wrongIds }
+        val cooldownExcluded = finalPool.filter { q ->
             val h = historyStore.getHistory(q.id) ?: return@filter true
             if (h.lastResult != "correct") return@filter true
             (now - h.lastSeenAt) < cooldownMs
         }
-        val available = pool.filter { it !in cooldownExcluded }
+        val available = finalPool.filter { it !in cooldownExcluded }
 
         val selected = mutableSetOf<String>()
         val result = ArrayList<Question>()
@@ -158,8 +196,36 @@ class QuestionRepository(private val context: Context) {
             selected.add(q.id)
         }
 
+        // 3) If still empty (e.g. all in cooldown, no wrong), ignore cooldown and use pool
+        if (result.isEmpty() && finalPool.isNotEmpty()) {
+            Log.i(TAG, "Result empty after selection, using pool (ignoring cooldown)")
+            return finalPool.shuffled().take(count)
+        }
+
         return result.shuffled()
     }
+
+    private fun showDebugToast(load: LoadStats, filter: FilterStats, poolSize: Int, count: Int) {
+        val msg = buildString {
+            append("Quiz Debug: ")
+            append("JSON=${if (load.fileFound) "OK" else "MISSING"}, ")
+            append("parsed=${load.parsedTotal}/${load.totalInJson}")
+            if (load.parseFailed > 0) append(" (${load.parseFailed} failed)")
+            append(" | after filters: ")
+            append("diff=${filter.afterDifficulty}, cat=${filter.afterCategory}, ")
+            append("grade=${filter.afterGrade}, pool=$poolSize, count=$count")
+        }
+        Log.i(TAG, msg)
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(context.applicationContext, msg, Toast.LENGTH_LONG).show()
+        }
+    }
+
+    data class FilterStats(
+        val afterDifficulty: Int,
+        val afterCategory: Int,
+        val afterGrade: Int
+    )
 
     /** Progressive fallback: relax category first, then difficulty, then try alternate level groups. */
     private fun buildPoolWithFallback(
@@ -167,21 +233,28 @@ class QuestionRepository(private val context: Context) {
         levelGroup: LevelGroup,
         difficulty: QuizDifficulty,
         categories: Set<String>
-    ): List<Question> {
+    ): Pair<List<Question>, FilterStats> {
+        val afterDiff = all.filter { it.levelGroup == levelGroup && it.difficulty == difficulty }
+        val afterCat = if (categories.isNotEmpty()) afterDiff.filter { it.subject.name in categories } else afterDiff
+
         // 1) Full filter: levelGroup + difficulty + category
-        var pool = all.filter { it.levelGroup == levelGroup && it.difficulty == difficulty }
-        if (categories.isNotEmpty()) {
-            pool = pool.filter { it.subject.name in categories }
+        if (afterCat.isNotEmpty()) {
+            Log.d(TAG, "Filter: afterDifficulty=${afterDiff.size}, afterCategory=${afterCat.size}, afterGrade=${afterCat.size}")
+            return Pair(afterCat, FilterStats(afterDiff.size, afterCat.size, afterCat.size))
         }
-        if (pool.isNotEmpty()) return pool
 
         // 2) Relax category: levelGroup + difficulty only
-        pool = all.filter { it.levelGroup == levelGroup && it.difficulty == difficulty }
-        if (pool.isNotEmpty()) return pool
+        if (afterDiff.isNotEmpty()) {
+            Log.d(TAG, "Filter (relaxed category): afterDifficulty=${afterDiff.size}")
+            return Pair(afterDiff, FilterStats(afterDiff.size, 0, afterDiff.size))
+        }
 
         // 3) Relax difficulty: levelGroup only
-        pool = all.filter { it.levelGroup == levelGroup }
-        if (pool.isNotEmpty()) return pool
+        val afterGrade = all.filter { it.levelGroup == levelGroup }
+        if (afterGrade.isNotEmpty()) {
+            Log.d(TAG, "Filter (relaxed difficulty): afterGrade=${afterGrade.size}")
+            return Pair(afterGrade, FilterStats(0, 0, afterGrade.size))
+        }
 
         // 4) For AGE_3_5 or GRADE_1_4, fallback to GRADE_5_8 questions (closest match)
         val fallbackGroups = when (levelGroup) {
@@ -190,17 +263,35 @@ class QuestionRepository(private val context: Context) {
             LevelGroup.GRADE_5_8 -> listOf(LevelGroup.GRADE_9_12)
         }
         for (alt in fallbackGroups) {
-            pool = all.filter { it.levelGroup == alt }
-            if (pool.isNotEmpty()) return pool
+            val pool = all.filter { it.levelGroup == alt }
+            if (pool.isNotEmpty()) {
+                Log.d(TAG, "Filter (fallback levelGroup=$alt): pool=${pool.size}")
+                return Pair(pool, FilterStats(0, 0, pool.size))
+            }
         }
-        return emptyList()
+        Log.w(TAG, "Filter: no questions after all fallbacks")
+        return Pair(emptyList(), FilterStats(0, 0, 0))
     }
 
     fun pickRetryWrongQuestions(levelGroup: LevelGroup): List<Question> {
         val wrongIds = historyStore.getAllWrongIds()
         if (wrongIds.isEmpty()) return emptyList()
-        val all = loadAllQuestions().filter { it.levelGroup == levelGroup }.associateBy { it.id }
-        return wrongIds.mapNotNull { all[it] }
+        val allByLevel = loadAllQuestions().groupBy { it.levelGroup }
+        val allMap = (allByLevel[levelGroup] ?: emptyList()).associateBy { it.id }
+        var result = wrongIds.mapNotNull { allMap[it] }
+        if (result.isEmpty()) {
+            val fallbackGroups = when (levelGroup) {
+                LevelGroup.AGE_3_5, LevelGroup.GRADE_1_4 -> listOf(LevelGroup.GRADE_5_8, LevelGroup.GRADE_9_12)
+                LevelGroup.GRADE_9_12 -> listOf(LevelGroup.GRADE_5_8)
+                LevelGroup.GRADE_5_8 -> listOf(LevelGroup.GRADE_9_12)
+            }
+            for (alt in fallbackGroups) {
+                val altMap = (allByLevel[alt] ?: emptyList()).associateBy { it.id }
+                result = wrongIds.mapNotNull { altMap[it] }
+                if (result.isNotEmpty()) break
+            }
+        }
+        return result
     }
 
     fun getLevelGroupFromPrefs(): LevelGroup {
