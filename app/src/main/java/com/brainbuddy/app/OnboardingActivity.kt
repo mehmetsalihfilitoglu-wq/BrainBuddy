@@ -67,7 +67,7 @@ class OnboardingActivity : AppCompatActivity() {
                 currentPage++
                 showPage()
             } else {
-                OnboardingPrefs(this).setOnboardingCompleted()
+                OnboardingPrefs.setDone(this, true)
                 startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }

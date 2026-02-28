@@ -10,8 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val prefs = OnboardingPrefs(this)
-        val target = if (prefs.hasCompletedOnboarding()) {
+        val target = if (OnboardingPrefs.isDone(this)) {
             HomeActivity::class.java
         } else {
             OnboardingActivity::class.java
