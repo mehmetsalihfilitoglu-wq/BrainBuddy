@@ -26,7 +26,40 @@
         </activity>
 
         <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BrainBuddy" />
+
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".SimpleHomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.BlockedAppsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.TimeLimitsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.QuizSettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.PinLockActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.ParentActivity"
             android:exported="false" />
 
         <activity

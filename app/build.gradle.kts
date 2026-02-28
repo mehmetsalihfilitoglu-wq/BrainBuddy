@@ -50,4 +50,5 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.work:work-runtime-ktx:2.9.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 }

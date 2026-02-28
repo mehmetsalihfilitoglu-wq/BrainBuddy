@@ -1,11 +1,11 @@
 package com.brainbuddy.app.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.databinding.ActivityParentBinding
-import com.brainbuddy.app.security.ProtectedNav
 import java.util.concurrent.TimeUnit
 
 class ParentActivity : ComponentActivity() {
@@ -18,7 +18,13 @@ class ParentActivity : ComponentActivity() {
         setContentView(b.root)
 
         b.openSettings.setOnClickListener {
-            ProtectedNav.open(this, SettingsActivity::class.java, "Ebeveyn PIN’i gir")
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+        b.changePin.setOnClickListener {
+            startActivity(Intent(this, PinLockActivity::class.java).apply {
+                putExtra(PinLockActivity.EXTRA_MODE, "change")
+                putExtra(PinLockActivity.EXTRA_TARGET, "ParentActivity")
+            })
         }
     }
 

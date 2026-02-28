@@ -1,119 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="18dp">
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <TextView
-            android:text="@string/settings_title"
-            android:textColor="@color/bb_text"
-            android:textSize="24sp"
-            android:textStyle="bold"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/bb_turquoise_dark"
+            app:titleTextColor="@color/white"
+            app:title="@string/settings_title"/>
 
         <com.google.android.material.card.MaterialCardView
-            style="@style/BB.Card"
+            style="@style/BB.HomeCard"
+            android:id="@+id/cardProtection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp">
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/white">
 
             <LinearLayout
-                android:padding="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:text="Koruma"
+                    android:textColor="@color/bb_text_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
                 <Switch
                     android:id="@+id/switchProtection"
-                    android:text="Koruma açık"
+                    android:text="Uygulama engelleme açık"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"/>
 
                 <TextView
-                    android:layout_marginTop="12dp"
-                    android:textColor="@color/bb_text_muted"
-                    android:text="Cooldown: 10 dakika (sabit)"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_marginTop="12dp"
-                    android:textColor="@color/bb_text"
-                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/bb_text_dark_muted"
                     android:text="Öğrenci Seviyesi"
+                    android:textSize="14sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"/>
 
                 <RadioGroup
                     android:id="@+id/levelGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp">
 
                     <RadioButton
                         android:id="@+id/levelAges3to5"
                         android:text="Yaş 3–5"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"/>
 
                     <RadioButton
                         android:id="@+id/levelGrades1to4"
                         android:text="Sınıf 1–4"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"/>
 
                     <RadioButton
                         android:id="@+id/levelGrades5to8"
                         android:text="Sınıf 5–8"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"/>
 
                     <RadioButton
                         android:id="@+id/levelGrades9to12"
                         android:text="Sınıf 9–12"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"/>
                 </RadioGroup>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBlockedApps"
+            style="@style/BB.HomeCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
 
                 <TextView
-                    android:layout_marginTop="12dp"
-                    android:textColor="@color/bb_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Engellenen Uygulamalar"
+                    android:textSize="16sp"
                     android:textStyle="bold"
-                    android:text="Engelli Uygulamalar (paket adı, satır satır)"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <EditText
-                    android:id="@+id/blockedPackages"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:gravity="top"
-                    android:hint="Örnek:\ncom.google.android.youtube\ncom.zhiliaoapp.musically"
-                    android:inputType="textMultiLine" />
-
-                <Button
-                    android:id="@+id/saveBtn"
-                    style="@style/BB.Button"
-                    android:layout_marginTop="14dp"
-                    android:text="Kaydet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:textColor="@color/bb_text_dark"/>
 
                 <TextView
-                    android:id="@+id/saveStatus"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/bb_text_muted"
-                    android:textSize="14sp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="24sp"
+                    android:textColor="@color/bb_turquoise"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTimeLimits"
+            style="@style/BB.HomeCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Zaman Limitleri"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bb_text_dark"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="24sp"
+                    android:textColor="@color/bb_turquoise"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardQuizSettings"
+            style="@style/BB.HomeCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Test Ayarları (Zorluk, Soru Sayısı)"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bb_text_dark"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="24sp"
+                    android:textColor="@color/bb_turquoise"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

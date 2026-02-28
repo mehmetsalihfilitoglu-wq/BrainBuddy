@@ -1,31 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:orientation="vertical">
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quiz Sonucu"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvLevel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Seviye: -" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tebrikler! 🎉"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/tvScore"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Skor: -" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginTop="24dp">
 
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="28dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvScoreBig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8/10"
+                    android:textSize="48sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bb_turquoise"/>
+
+                <TextView
+                    android:id="@+id/tvScoreLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Doğru cevap"
+                    android:textSize="16sp"
+                    android:textColor="@color/bb_text_dark_muted"
+                    android:layout_marginTop="4dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progressCircle"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:max="100"
+                    android:progress="80"
+                    android:progressTint="@color/bb_turquoise"
+                    android:progressBackgroundTint="#E0E0E0"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="24dp">
+
+                    <TextView
+                        android:id="@+id/tvPoints"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+50 puan"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_turquoise"/>
+
+                    <TextView
+                        android:id="@+id/tvStreak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:text="🔥 3 gün seri"
+                        android:textSize="16sp"
+                        android:textColor="@color/bb_text_dark"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/btnRetryWrong"
+            style="@style/BB.Button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:text="Yanlışları Tekrarla"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btnPlayAgain"
+            style="@style/BB.Button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="Tekrar Oyna"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btnHome"
+            style="@style/BBButtonAlt"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:text="Ana Sayfa"
+            android:textAllCaps="false"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wrongSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:id="@+id/tvWrongTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yanlış cevaplar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerWrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintTop_toBottomOf="@id/tvWrongTitle"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</ScrollView>

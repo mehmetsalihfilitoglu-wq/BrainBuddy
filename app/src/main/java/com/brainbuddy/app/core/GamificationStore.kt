@@ -19,6 +19,8 @@ class GamificationStore(context: Context) {
 
     fun streakDays(): Int = prefs.getInt(KEY_STREAK_DAYS, 0)
 
+    fun lastCompletedMs(): Long = prefs.getLong(KEY_LAST_COMPLETED_MS, 0L)
+
     fun recordQuizCompletion(nowMs: Long) {
         val lastMs = prefs.getLong(KEY_LAST_COMPLETED_MS, 0L)
         val lastDay = dayIndex(lastMs)

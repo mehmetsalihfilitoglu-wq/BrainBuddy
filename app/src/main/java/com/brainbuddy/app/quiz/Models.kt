@@ -26,8 +26,15 @@ data class Question(
     val choices: List<String>,
     val correctIndex: Int,
     val hint: String?,
-    val imageAsset: String? // ör: "images/q1.png"
+    val imageAsset: String?,
+    val difficulty: QuizDifficulty = QuizDifficulty.MEDIUM
 )
+
+enum class QuizDifficulty(val tr: String) {
+    EASY("Kolay"),
+    MEDIUM("Orta"),
+    HARD("Zor")
+}
 
 data class AnswerRecord(
     val questionId: String,

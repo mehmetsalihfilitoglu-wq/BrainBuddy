@@ -78,7 +78,15 @@
                     android:id="@+id/openSettings"
                     style="@style/BB.Button"
                     android:layout_marginTop="14dp"
-                    android:text="Ayarlar (PIN)"
+                    android:text="Ayarlar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/changePin"
+                    style="@style/BBButtonAlt"
+                    android:layout_marginTop="10dp"
+                    android:text="PIN Değiştir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
