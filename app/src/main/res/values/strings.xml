@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BrainBuddy</string>
+
+    <!-- Parent & Settings -->
+    <string name="parent_title">Ebeveyn Paneli</string>
+    <string name="settings_title">Ayarlar</string>
+    <string name="parent_permission_required">Ebeveyn izni gerekiyor</string>
+
+    <!-- PIN -->
+    <string name="pin_len_4">4 haneli PIN</string>
+    <string name="pin_len_6">6 haneli PIN</string>
+    <string name="enter_pin">PIN gir</string>
+    <string name="confirm_pin">PIN tekrar</string>
+    <string name="unlock">Kilidi Aç</string>
+    <string name="set_pin">PIN Ayarla</string>
+    <string name="pin_saved">PIN kaydedildi</string>
+
+    <string name="pin_length_error">PIN uzunluğu hatalı</string>
+    <string name="pin_length_error_generic">PIN 4 veya 6 haneli olmalı</string>
+    <string name="pin_mismatch">PINler eslesmiyor</string>
+    <string name="pin_incorrect">PIN yanlış</string>
+
+    <!-- Accessibility -->
+    <string name="protection_inactive_title">Koruma Kapalı</string>
+    <string name="protection_inactive_body">
+        Uygulama engelleme aktif değil. Lütfen Erişilebilirlik iznini aç.
+    </string>
+    <string name="open_accessibility_settings">
+        Erişilebilirlik Ayarlarını Aç
+    </string>
+    <string name="accessibility_service_desc">
+        Uygulama engelleme ve odak modu için gerekli servis
+    </string>
+
+    <!-- Quiz -->
+    <string name="quiz_title">Test</string>
+    <string name="submit_answer">Cevapla</string>
+    <string name="next_question">Sonraki</string>
+
+    <!-- Results -->
+    <string name="results_title">Sonuçlar</string>
+    <string name="retry_wrong">Yanlışları Tekrar Çöz</string>
+
+</resources>

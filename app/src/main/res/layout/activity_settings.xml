@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_gradient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="18dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="@string/settings_title"
+            android:textColor="@color/bb_text"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/BB.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp">
+
+            <LinearLayout
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Switch
+                    android:id="@+id/switchProtection"
+                    android:text="Koruma açık"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/bb_text_muted"
+                    android:text="Cooldown: 10 dakika (sabit)"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/bb_text"
+                    android:textStyle="bold"
+                    android:text="Öğrenci Seviyesi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <RadioGroup
+                    android:id="@+id/levelGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/levelAges3to5"
+                        android:text="Yaş 3–5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/levelGrades1to4"
+                        android:text="Sınıf 1–4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/levelGrades5to8"
+                        android:text="Sınıf 5–8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RadioButton
+                        android:id="@+id/levelGrades9to12"
+                        android:text="Sınıf 9–12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/bb_text"
+                    android:textStyle="bold"
+                    android:text="Engelli Uygulamalar (paket adı, satır satır)"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/blockedPackages"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:gravity="top"
+                    android:hint="Örnek:\ncom.google.android.youtube\ncom.zhiliaoapp.musically"
+                    android:inputType="textMultiLine" />
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    style="@style/BB.Button"
+                    android:layout_marginTop="14dp"
+                    android:text="Kaydet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/saveStatus"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/bb_text_muted"
+                    android:textSize="14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

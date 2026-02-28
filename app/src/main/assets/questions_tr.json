@@ -1,0 +1,29 @@
+[
+  {
+    "id": "q1",
+    "levelGroup": "GRADE_5_8",
+    "subject": "MAT",
+    "gradeTag": "6. sınıf",
+    "stem": "Bir kutuda 24 kalem vardır. Kalemlerin 1/3'ü kırmızı, geri kalanı mavidir. Kaç mavi kalem vardır?",
+    "choices": ["8", "12", "16", "18"],
+    "correctIndex": 2,
+    "hint": "Önce 1/3'ünü bul, sonra 24'ten çıkar.",
+    "imageAsset": ""
+  },
+  {
+    "id": "q2",
+    "levelGroup": "GRADE_5_8",
+    "subject": "TURKCE",
+    "gradeTag": "6. sınıf",
+    "stem": "Aşağıdaki cümlelerin hangisinde yazım yanlışı vardır?",
+    "choices": [
+      "Bu akşam ki toplantıya katılacağım.",
+      "Birazdan seni arayacağım.",
+      "Herkesin fikrine saygı duymalıyız.",
+      "Yarın sabah erken kalkacağım."
+    ],
+    "correctIndex": 0,
+    "hint": "\"-ki\" eki yazımı kuralını hatırla.",
+    "imageAsset": ""
+  }
+]
