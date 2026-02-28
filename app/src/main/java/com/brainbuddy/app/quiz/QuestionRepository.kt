@@ -1,6 +1,9 @@
 package com.brainbuddy.app.quiz
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
+import android.widget.Toast
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import org.json.JSONArray
@@ -13,17 +16,96 @@ class QuestionRepository(private val context: Context) {
     private val historyStore = QuestionHistoryStore(context)
 
     fun loadAllQuestions(): List<Question> {
-        val json = context.assets.open("questions_tr.json").use { input ->
-            input.readBytes().toString(Charset.forName("UTF-8"))
+        return try {
+            val json = context.assets.open("questions_tr.json").use { input ->
+                input.readBytes().toString(Charset.forName("UTF-8"))
+            }
+            val arr = JSONArray(json)
+            val out = ArrayList<Question>(arr.length())
+            for (i in 0 until arr.length()) {
+                val o = arr.getJSONObject(i)
+                out.add(parseQuestion(o))
+            }
+            out
+        } catch (e: Exception) {
+            showFallbackToast()
+            getFallbackQuestions()
         }
-        val arr = JSONArray(json)
-        val out = ArrayList<Question>(arr.length())
-        for (i in 0 until arr.length()) {
-            val o = arr.getJSONObject(i)
-            out.add(parseQuestion(o))
-        }
-        return out
     }
+
+    private fun showFallbackToast() {
+        Handler(Looper.getMainLooper()).post {
+            Toast.makeText(
+                context.applicationContext,
+                "Soru dosyası bulunamadı, varsayılan sorular yüklendi.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+    /** In-code fallback so quiz never crashes when asset is missing. */
+    private fun getFallbackQuestions(): List<Question> = listOf(
+        Question(
+            id = "fb1",
+            levelGroup = LevelGroup.GRADE_5_8,
+            subject = Subject.MAT,
+            gradeTag = "6. sınıf",
+            stem = "12 × 15 işleminin sonucu kaçtır?",
+            choices = listOf("160", "170", "180", "190"),
+            correctIndex = 2,
+            hint = "12×10=120, 12×5=60",
+            imageAsset = null,
+            difficulty = QuizDifficulty.EASY
+        ),
+        Question(
+            id = "fb2",
+            levelGroup = LevelGroup.GRADE_5_8,
+            subject = Subject.TURKCE,
+            gradeTag = "6. sınıf",
+            stem = "Türkiye'nin başkenti neresidir?",
+            choices = listOf("İstanbul", "İzmir", "Ankara", "Bursa"),
+            correctIndex = 2,
+            hint = "Mustafa Kemal Atatürk'ün kararıyla.",
+            imageAsset = null,
+            difficulty = QuizDifficulty.EASY
+        ),
+        Question(
+            id = "fb3",
+            levelGroup = LevelGroup.GRADE_5_8,
+            subject = Subject.FEN,
+            gradeTag = "6. sınıf",
+            stem = "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?",
+            choices = listOf("Venüs", "Mars", "Jüpiter", "Satürn"),
+            correctIndex = 1,
+            hint = "Merkür, Venüs, Dünya, Mars...",
+            imageAsset = null,
+            difficulty = QuizDifficulty.EASY
+        ),
+        Question(
+            id = "fb4",
+            levelGroup = LevelGroup.GRADE_5_8,
+            subject = Subject.ING,
+            gradeTag = "6. sınıf",
+            stem = "\"Hello\" kelimesinin Türkçe karşılığı nedir?",
+            choices = listOf("Hoşça kal", "Merhaba", "Teşekkürler", "Evet"),
+            correctIndex = 1,
+            hint = "Selamlama sözcüğü.",
+            imageAsset = null,
+            difficulty = QuizDifficulty.EASY
+        ),
+        Question(
+            id = "fb5",
+            levelGroup = LevelGroup.GRADE_5_8,
+            subject = Subject.SOSYAL,
+            gradeTag = "7. sınıf",
+            stem = "Türkiye Cumhuriyeti hangi yıl kurulmuştur?",
+            choices = listOf("1920", "1922", "1923", "1924"),
+            correctIndex = 2,
+            hint = "Lozan Antlaşması sonrası.",
+            imageAsset = null,
+            difficulty = QuizDifficulty.EASY
+        )
+    )
 
     private fun parseQuestion(o: JSONObject): Question {
         val choicesArr = o.getJSONArray("choices")
@@ -42,8 +124,8 @@ class QuestionRepository(private val context: Context) {
             stem = o.getString("stem"),
             choices = choices,
             correctIndex = o.getInt("correctIndex"),
-            hint = o.optString("hint", null),
-            imageAsset = o.optString("imageAsset", null),
+            hint = o.optString("hint", "").takeIf { it.isNotEmpty() },
+            imageAsset = o.optString("imageAsset", "").takeIf { it.isNotEmpty() },
             difficulty = difficulty
         )
     }
