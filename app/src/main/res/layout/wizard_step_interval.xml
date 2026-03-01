@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quiz Aralığı"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/bb_text"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Engellenen uygulamayı açmak için kaç dakikada bir test gerekli?"
+        android:textSize="14sp"
+        android:textColor="@color/bb_text_muted"/>
+
+    <RadioGroup
+        android:id="@+id/intervalGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+        <RadioButton android:id="@+id/interval30" android:text="30 dakika" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <RadioButton android:id="@+id/interval45" android:text="45 dakika" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <RadioButton android:id="@+id/interval60" android:text="60 dakika" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnNext"
+        style="@style/BB.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Bitir"/>
+</LinearLayout>

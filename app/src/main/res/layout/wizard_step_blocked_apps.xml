@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Engellenen Uygulamalar"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/bb_text"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Hangi uygulamalar test geçmeden açılamayacak? Sosyal medya preset'ini kullanabilir veya seçim yapabilirsiniz."
+        android:textSize="14sp"
+        android:textColor="@color/bb_text_muted"/>
+
+    <Button
+        android:id="@+id/btnPresetSocial"
+        style="@style/BBButtonAlt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Sosyal Medya Ekle"/>
+
+    <Button
+        android:id="@+id/btnSelectApps"
+        style="@style/BBButtonAlt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Uygulama Seç"/>
+
+    <Button
+        android:id="@+id/btnNext"
+        style="@style/BB.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="İleri"/>
+</LinearLayout>
