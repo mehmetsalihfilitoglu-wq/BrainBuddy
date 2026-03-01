@@ -15,7 +15,8 @@ class BossTestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (ProtectionPrefs(this).userLocked()) {
+        val prefs = ProtectionPrefs(this)
+        if (prefs.userLocked() || prefs.isPermissionLocked()) {
             startActivity(Intent(this, com.brainbuddy.app.LockScreenActivity::class.java)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
             finish()

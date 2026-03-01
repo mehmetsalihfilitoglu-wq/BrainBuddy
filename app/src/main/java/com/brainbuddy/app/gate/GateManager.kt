@@ -23,7 +23,9 @@ object GateManager {
 
     private fun getStatus(context: Context): GateStatus {
         val prefs = ProtectionPrefs(context)
+        // FAILED gate always blocks; permission lock (accessibility/usage disabled) requires Parent PIN
         if (prefs.userLocked()) return GateStatus.REQUIRED
+        if (prefs.isPermissionLocked()) return GateStatus.REQUIRED
 
         if (!prefs.isProtectionEnabled()) return GateStatus.PASSED_UNTIL(Long.MAX_VALUE)
 
@@ -61,7 +63,6 @@ object GateManager {
     /** Call when user PASSES gate quiz. Sets gateStatus = PASSED_UNTIL(now + interval). */
     fun onGatePassed(context: Context) {
         val prefs = ProtectionPrefs(context)
-        val intervalMs = prefs.quizIntervalMinutes() * 60 * 1000L
         prefs.setLastQuizPassedAtMs(System.currentTimeMillis())
         prefs.setUserLocked(false)
     }

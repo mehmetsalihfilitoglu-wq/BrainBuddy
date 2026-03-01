@@ -17,9 +17,10 @@ object PermissionMonitorLauncher {
                 if (resumedCount == 1) {
                     if (PermissionMonitor.checkAndLockIfDisabled(a)) {
                         val intent = Intent(a, LockScreenActivity::class.java).apply {
-                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NO_HISTORY)
                         }
                         a.startActivity(intent)
+                        a.finishAffinity()
                     }
                 }
             }

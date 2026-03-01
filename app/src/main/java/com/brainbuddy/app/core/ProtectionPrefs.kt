@@ -26,7 +26,7 @@ class ProtectionPrefs(context: Context) {
     fun setStudentLevel(level: StudentLevel) =
         prefs.edit().putString(KEY_LEVEL, level.name).apply()
 
-    fun lastQuizPassedAtMs(): Long = prefs.getLong(KEY_LAST_QUIZ_PASSED_AT, 0L)
+    fun lastQuizPassedAtMs(): Long = prefs.getLong(KEY_LAST_QUIZ_PASSED_AT, 0L).coerceAtLeast(0L)
     fun setLastQuizPassedAtMs(v: Long) = prefs.edit().putLong(KEY_LAST_QUIZ_PASSED_AT, v).apply()
 
     fun isQuizInProgress(): Boolean = prefs.getBoolean(KEY_QUIZ_IN_PROGRESS, false)
@@ -38,7 +38,7 @@ class ProtectionPrefs(context: Context) {
     fun lastFailedWrongIds(): List<String> =
         prefs.getStringSet(KEY_LAST_FAILED_WRONG_IDS, emptySet())?.toList() ?: emptyList()
     fun setLastFailedWrongIds(ids: List<String>) =
-        prefs.edit().putStringSet(KEY_LAST_FAILED_WRONG_IDS, ids.toSet()).apply()
+        prefs.edit().putStringSet(KEY_LAST_FAILED_WRONG_IDS, ids.take(500).toSet()).apply()
 
     fun lastFailedQuizId(): String = prefs.getString(KEY_LAST_FAILED_QUIZ_ID, "") ?: ""
     fun setLastFailedQuizId(id: String) = prefs.edit().putString(KEY_LAST_FAILED_QUIZ_ID, id).apply()

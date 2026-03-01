@@ -27,15 +27,22 @@ class PinManager(context: Context) {
     }
 
     fun verifyPin(pin: CharArray): Boolean {
-        val saltB64 = prefs.getString(KEY_SALT, null) ?: return false
-        val hashB64 = prefs.getString(KEY_HASH, null) ?: return false
+        return try {
+            val saltB64 = prefs.getString(KEY_SALT, null) ?: return false
+            val hashB64 = prefs.getString(KEY_HASH, null) ?: return false
+            if (saltB64.isBlank() || hashB64.isBlank()) return false
 
-        val salt = Base64.decode(saltB64, Base64.NO_WRAP)
-        val expected = Base64.decode(hashB64, Base64.NO_WRAP)
-        val actual = pbkdf2(pin, salt)
+            val salt = Base64.decode(saltB64, Base64.NO_WRAP)
+            val expected = Base64.decode(hashB64, Base64.NO_WRAP)
+            if (salt.isEmpty() || expected.isEmpty()) return false
+            val actual = pbkdf2(pin, salt)
 
-        pin.fill('\u0000')
-        return constantTimeEquals(expected, actual)
+            pin.fill('\u0000')
+            constantTimeEquals(expected, actual)
+        } catch (_: Exception) {
+            pin.fill('\u0000')
+            false
+        }
     }
 
     private fun pbkdf2(pin: CharArray, salt: ByteArray): ByteArray {

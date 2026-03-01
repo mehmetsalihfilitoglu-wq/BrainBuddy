@@ -17,7 +17,7 @@ class BrainBuddyApp : Application() {
 
         val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
 
-        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+        Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
             try {
                 val text = buildString {
                     append("CRASH!\n\n")
@@ -26,7 +26,7 @@ class BrainBuddyApp : Application() {
                     throwable.stackTrace.take(80).forEach {
                         append(it.toString()).append("\n")
                     }
-                }
+                }.take(50_000) // Avoid TransactionTooLargeException
 
                 val i = Intent(this, CrashActivity::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)

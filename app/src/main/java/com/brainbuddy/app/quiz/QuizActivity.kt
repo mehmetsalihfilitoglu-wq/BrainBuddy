@@ -277,7 +277,7 @@ class QuizActivity : AppCompatActivity() {
 
         repo.recordAnswers(answerRecords)
 
-        val passed = wrongCount <= 3
+        val passed = (wrongCount <= 3 && wrongCount >= 0)
         val completedAt = System.currentTimeMillis()
         val session = QuizSession(
             quizId = quizId,
@@ -295,14 +295,14 @@ class QuizActivity : AppCompatActivity() {
         val protectionPrefs = ProtectionPrefs(this)
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
-        if (passed && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
+        if (passed && wrongCount <= 3 && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
             com.brainbuddy.app.gate.GateManager.onGatePassed(this)
         }
         val passedBossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         if (passed && passedBossLevel > 0) {
             BossTestStore(this).markBossPassed(passedBossLevel)
         }
-        if (!passed && !isRetryOfLockedQuiz && !isRemedial) {
+        if (!passed && wrongCount >= 4 && !isRetryOfLockedQuiz && !isRemedial) {
             com.brainbuddy.app.core.ReportStore(this).recordLockEvent()
             com.brainbuddy.app.gate.GateManager.onGateFailed(this)
             protectionPrefs.setLastFailedWrongIds(wrongIds)

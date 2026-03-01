@@ -20,38 +20,50 @@ class RewardAdHelper(private val activity: Activity) {
     private var rewardedAd: RewardedAd? = null
 
     fun loadAd(onLoaded: () -> Unit = {}, onFailed: () -> Unit = {}) {
-        val adRequest = AdRequest.Builder().build()
-        RewardedAd.load(activity, AD_UNIT_ID, adRequest, object : RewardedAdLoadCallback() {
-            override fun onAdLoaded(ad: RewardedAd) {
-                rewardedAd = ad
-                onLoaded()
-            }
-            override fun onAdFailedToLoad(error: LoadAdError) {
-                rewardedAd = null
-                Log.w(TAG, "Rewarded ad failed to load: ${error.message}")
-                onFailed()
-            }
-        })
+        try {
+            val adRequest = AdRequest.Builder().build()
+            RewardedAd.load(activity, AD_UNIT_ID, adRequest, object : RewardedAdLoadCallback() {
+                override fun onAdLoaded(ad: RewardedAd) {
+                    rewardedAd = ad
+                    try { onLoaded() } catch (e: Exception) { Log.e(TAG, "onLoaded callback error", e) }
+                }
+                override fun onAdFailedToLoad(error: LoadAdError) {
+                    rewardedAd = null
+                    Log.w(TAG, "Rewarded ad failed to load: ${error.message}")
+                    try { onFailed() } catch (e: Exception) { Log.e(TAG, "onFailed callback error", e) }
+                }
+            })
+        } catch (e: Exception) {
+            Log.e(TAG, "loadAd error", e)
+            onFailed()
+        }
     }
 
     fun showAd(onRewarded: () -> Unit, onDismissed: () -> Unit = {}, onFailed: () -> Unit = {}) {
         val ad = rewardedAd
         if (ad == null) {
-            onFailed()
+            try { onFailed() } catch (e: Exception) { Log.e(TAG, "onFailed callback error", e) }
             return
         }
-        ad.fullScreenContentCallback = object : FullScreenContentCallback() {
-            override fun onAdDismissedFullScreenContent() {
-                rewardedAd = null
-                onDismissed()
+        try {
+            ad.fullScreenContentCallback = object : FullScreenContentCallback() {
+                override fun onAdDismissedFullScreenContent() {
+                    rewardedAd = null
+                    try { onDismissed() } catch (e: Exception) { Log.e(TAG, "onDismissed callback error", e) }
+                }
+                override fun onAdFailedToShowFullScreenContent(error: AdError) {
+                    rewardedAd = null
+                    Log.w(TAG, "Ad failed to show: ${error.message}")
+                    try { onFailed() } catch (e: Exception) { Log.e(TAG, "onFailed callback error", e) }
+                }
             }
-            override fun onAdFailedToShowFullScreenContent(error: AdError) {
-                rewardedAd = null
-                onFailed()
+            ad.show(activity) {
+                try { onRewarded() } catch (e: Exception) { Log.e(TAG, "onRewarded callback error", e) }
             }
-        }
-        ad.show(activity) { rewardItem ->
-            onRewarded()
+        } catch (e: Exception) {
+            Log.e(TAG, "showAd error", e)
+            rewardedAd = null
+            onFailed()
         }
     }
 

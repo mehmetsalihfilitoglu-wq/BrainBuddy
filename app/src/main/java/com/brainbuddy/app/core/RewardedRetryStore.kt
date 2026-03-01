@@ -12,8 +12,8 @@ class RewardedRetryStore(context: Context) {
     fun getRetriesUsedToday(profileId: String): Int {
         if (premiumStore.isPremium()) return 0
         val dayKey = "retries_day_$profileId"
-        val lastDay = prefs.getLong("${dayKey}_ts", 0L)
-        val today = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis())
+        val lastDay = prefs.getLong("${dayKey}_ts", 0L).coerceAtLeast(0L)
+        val today = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis()).coerceAtLeast(0L)
         if (lastDay != today) return 0
         return prefs.getInt(dayKey, 0).coerceIn(0, MAX_RETRIES_PER_DAY)
     }

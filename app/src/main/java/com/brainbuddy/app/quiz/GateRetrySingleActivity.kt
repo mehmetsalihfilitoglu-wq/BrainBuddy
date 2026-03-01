@@ -50,7 +50,12 @@ class GateRetrySingleActivity : AppCompatActivity() {
 
         if (question == null) {
             b.questionText.text = "Soru bulunamadı."
-            b.nextBtn.isEnabled = false
+            b.nextBtn.isEnabled = true
+            b.nextBtn.text = "Ana Sayfaya Dön"
+            b.nextBtn.setOnClickListener {
+                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                finish()
+            }
             return
         }
 

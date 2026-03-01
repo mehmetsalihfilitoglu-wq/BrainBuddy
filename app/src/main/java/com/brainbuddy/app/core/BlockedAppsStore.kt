@@ -6,7 +6,7 @@ class BlockedAppsStore(context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
     fun getBlockedPackages(): Set<String> =
-        prefs.getStringSet(KEY_BLOCKED, emptySet()) ?: emptySet()
+        prefs.getStringSet(KEY_BLOCKED, emptySet())?.filter { it.isNotBlank() }?.toSet() ?: emptySet()
 
     fun setBlockedPackages(pkgs: Set<String>) {
         prefs.edit().putStringSet(KEY_BLOCKED, pkgs).apply()

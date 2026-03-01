@@ -25,8 +25,9 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (ProtectionPrefs(this).userLocked()) {
-            startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+        val protectionPrefs = ProtectionPrefs(this)
+        if (protectionPrefs.userLocked() || protectionPrefs.isPermissionLocked()) {
+            startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
             finish()
             return
         }
@@ -128,9 +129,10 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (!contentSet || ProtectionPrefs(this).userLocked()) {
-            if (ProtectionPrefs(this).userLocked()) {
-                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+        val protectionPrefs = ProtectionPrefs(this)
+        if (!contentSet || protectionPrefs.userLocked() || protectionPrefs.isPermissionLocked()) {
+            if (protectionPrefs.userLocked() || protectionPrefs.isPermissionLocked()) {
+                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
                 finish()
             }
             return

@@ -9,10 +9,13 @@ class CrashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        val crashText = try {
+            (intent.getStringExtra("crash_text") ?: "Bilinmeyen hata").take(50_000)
+        } catch (_: Exception) { "Hata raporu yüklenemedi" }
         val tv = TextView(this).apply {
             textSize = 14f
             setPadding(24, 24, 24, 24)
-            text = intent.getStringExtra("crash_text") ?: "Bilinmeyen hata"
+            text = crashText
         }
         setContentView(tv)
     }

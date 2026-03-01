@@ -16,12 +16,14 @@ class GamificationStore(context: Context) {
 
     fun xp(): Int {
         if (!prefs.contains(KEY_XP) && prefs.contains("points")) {
-            prefs.edit().putInt(KEY_XP, prefs.getInt("points", 0)).apply()
+            prefs.edit().putInt(KEY_XP, prefs.getInt("points", 0).coerceIn(0, Int.MAX_VALUE)).apply()
         }
-        return prefs.getInt(KEY_XP, 0)
+        return prefs.getInt(KEY_XP, 0).coerceIn(0, 2_000_000_000)
     }
     fun addXp(delta: Int) {
-        prefs.edit().putInt(KEY_XP, (xp() + delta).coerceAtLeast(0)).apply()
+        val safeDelta = delta.coerceIn(Int.MIN_VALUE, Int.MAX_VALUE)
+        val newXp = (xp().toLong() + safeDelta).coerceIn(0L, 2_000_000_000L).toInt()
+        prefs.edit().putInt(KEY_XP, newXp).apply()
     }
 
     fun points(): Int = xp()
