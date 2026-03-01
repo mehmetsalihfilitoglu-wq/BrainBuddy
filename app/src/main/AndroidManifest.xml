@@ -148,6 +148,31 @@
             android:name=".ui.ProfileSelectionActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".coach.CoachScreen"
+            android:exported="false" />
+
+        <activity
+            android:name=".classroom.ClassroomActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".avatar.AvatarShopScreen"
+            android:exported="false" />
+
+        <activity
+            android:name=".reward.RewardContractActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".social.LeagueScreen"
+            android:exported="false" />
+
+        <activity
+            android:name=".quiz.BossTestActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BrainBuddy" />
+
     </application>
 
 </manifest>
