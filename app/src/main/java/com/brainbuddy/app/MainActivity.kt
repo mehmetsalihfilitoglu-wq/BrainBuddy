@@ -7,6 +7,10 @@ import com.brainbuddy.app.core.OnboardingPrefs
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
 
+/**
+ * Launcher activity. Always routes to appropriate screen on app (re)launch.
+ * Gate/Result must not stay stuck - clear task ensures fresh navigation.
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             else -> HomeActivity::class.java
         }
         startActivity(Intent(this, target).addFlags(
-            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         ))
         finish()
     }

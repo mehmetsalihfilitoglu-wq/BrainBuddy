@@ -17,6 +17,7 @@ import com.brainbuddy.app.core.RewardedRetryStore
 import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.core.TestPerformance
 import com.brainbuddy.app.core.TopicCounts
+import com.brainbuddy.app.quiz.ExamType
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
@@ -118,7 +119,9 @@ class QuizResultActivity : AppCompatActivity() {
                         correctIndex = o.optInt("correctIndex", 0),
                         hint = if (o.isNull("hint")) null else o.getString("hint"),
                         imageAsset = if (o.isNull("imageAsset")) null else o.optString("imageAsset", "").takeIf { it.isNotEmpty() },
-                        difficulty = diff
+                        difficulty = diff,
+                        examType = try { ExamType.valueOf(o.optString("examType", "GENERAL")) } catch (_: Exception) { ExamType.GENERAL },
+                        topic = o.optString("topic", "").takeIf { it.isNotEmpty() }
                     )
                 }
             } catch (_: Exception) { emptyList() }
@@ -303,6 +306,19 @@ class QuizResultActivity : AppCompatActivity() {
         val adSection = findViewById<View>(R.id.adRetrySection)
         val btnWatchAd = findViewById<android.widget.Button>(R.id.btnWatchAd)
         val tvAdRetryInfo = findViewById<android.widget.TextView>(R.id.tvAdRetryInfo)
+        val remedialSection = findViewById<View>(R.id.remedialRetrySection)
+        val btnRemedial = findViewById<android.widget.Button>(R.id.btnRemedialMiniTest)
+        if (locked && wrongIds.isNotEmpty()) {
+            remedialSection.visibility = View.VISIBLE
+            btnRemedial.setOnClickListener {
+                startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java).apply {
+                    putExtra(com.brainbuddy.app.quiz.QuizActivity.EXTRA_REMEDIAL, true)
+                })
+                finish()
+            }
+        } else {
+            remedialSection.visibility = View.GONE
+        }
         if (locked && isGateMode && wrongIds.isNotEmpty()) {
             val adsPrefs = AdsPrefs(this)
             val premiumStore = PremiumStore(this)
@@ -311,31 +327,48 @@ class QuizResultActivity : AppCompatActivity() {
             val eligibleQuestion = wrongIds.shuffled().firstOrNull { qId ->
                 retryStore.canRetryWithAd(profileId, s.quizId, qId)
             }
-            val canShowAd = !premiumStore.isPremium() && adsPrefs.isAdsEnabled() && eligibleQuestion != null
-            if (canShowAd) {
+            val isPremium = premiumStore.isPremium()
+            val canShowAd = !isPremium && adsPrefs.isAdsEnabled() && eligibleQuestion != null
+            val canShowPremiumRetry = isPremium && eligibleQuestion != null
+            if (canShowAd || canShowPremiumRetry) {
                 adSection.visibility = View.VISIBLE
-                val remaining = retryStore.getRemainingRetriesToday(profileId)
-                tvAdRetryInfo.text = "Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin. Bugün kalan: $remaining"
-                btnWatchAd.text = "Reklam İzle → Tekrar Dene"
-                val adHelper = RewardAdHelper(this)
-                adHelper.loadAd(onFailed = { btnWatchAd.isEnabled = false })
-                btnWatchAd.setOnClickListener {
-                    if (adHelper.isLoaded()) {
-                        adHelper.showAd(
-                            onRewarded = {
-                                retryStore.recordRetryUsed(profileId, s.quizId, eligibleQuestion!!)
-                                startActivity(Intent(this, GateRetrySingleActivity::class.java).apply {
-                                    putExtra(GateRetrySingleActivity.EXTRA_QUIZ_ID, s.quizId)
-                                    putExtra(GateRetrySingleActivity.EXTRA_QUESTION_ID, eligibleQuestion)
-                                    putExtra(GateRetrySingleActivity.EXTRA_SESSION_JSON, encodeSession(s))
-                                    putExtra(GateRetrySingleActivity.EXTRA_QUESTIONS_JSON, intent.getStringExtra(EXTRA_QUESTIONS_JSON))
-                                })
-                                finish()
-                            },
-                            onFailed = { adHelper.loadAd() }
-                        )
-                    } else {
-                        adHelper.loadAd()
+                if (isPremium) {
+                    tvAdRetryInfo.text = "Premium: Bir yanlış soruyu tekrar cevapla (sınırsız)."
+                    btnWatchAd.text = "Tekrar Dene"
+                    btnWatchAd.setOnClickListener {
+                        val q = wrongIds.shuffled().firstOrNull { retryStore.canRetryWithAd(profileId, s.quizId, it) } ?: wrongIds.first()
+                        retryStore.recordRetryUsed(profileId, s.quizId, q)
+                        startActivity(Intent(this, GateRetrySingleActivity::class.java).apply {
+                            putExtra(GateRetrySingleActivity.EXTRA_QUIZ_ID, s.quizId)
+                            putExtra(GateRetrySingleActivity.EXTRA_QUESTION_ID, q)
+                            putExtra(GateRetrySingleActivity.EXTRA_SESSION_JSON, encodeSession(s))
+                            putExtra(GateRetrySingleActivity.EXTRA_QUESTIONS_JSON, intent.getStringExtra(EXTRA_QUESTIONS_JSON))
+                        })
+                        finish()
+                    }
+                } else {
+                    tvAdRetryInfo.text = "Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin. Bugün kalan: ${retryStore.getRemainingRetriesToday(profileId)}"
+                    btnWatchAd.text = "Reklam İzle → Tekrar Dene"
+                    val adHelper = RewardAdHelper(this)
+                    adHelper.loadAd(onFailed = { btnWatchAd.isEnabled = false })
+                    btnWatchAd.setOnClickListener {
+                        if (adHelper.isLoaded()) {
+                            adHelper.showAd(
+                                onRewarded = {
+                                    retryStore.recordRetryUsed(profileId, s.quizId, eligibleQuestion!!)
+                                    startActivity(Intent(this, GateRetrySingleActivity::class.java).apply {
+                                        putExtra(GateRetrySingleActivity.EXTRA_QUIZ_ID, s.quizId)
+                                        putExtra(GateRetrySingleActivity.EXTRA_QUESTION_ID, eligibleQuestion)
+                                        putExtra(GateRetrySingleActivity.EXTRA_SESSION_JSON, encodeSession(s))
+                                        putExtra(GateRetrySingleActivity.EXTRA_QUESTIONS_JSON, intent.getStringExtra(EXTRA_QUESTIONS_JSON))
+                                    })
+                                    finish()
+                                },
+                                onFailed = { adHelper.loadAd() }
+                            )
+                        } else {
+                            adHelper.loadAd()
+                        }
                     }
                 }
             } else {

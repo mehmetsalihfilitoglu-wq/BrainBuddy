@@ -1,12 +1,14 @@
 package com.brainbuddy.app.ui
 
 import android.os.Bundle
-import android.widget.RadioButton
+import android.widget.CheckBox
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.ExamPackStore
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
+import com.brainbuddy.app.quiz.ExamType
 import com.brainbuddy.app.quiz.QuizDifficulty
 
 class QuizSettingsActivity : AppCompatActivity() {
@@ -56,6 +58,36 @@ class QuizSettingsActivity : AppCompatActivity() {
             }
             prefs.setQuestionsPerSession(count)
         }
+
+        val examStore = ExamPackStore(this)
+        val active = examStore.getActiveExamTypes()
+        findViewById<CheckBox>(R.id.checkLGS).apply {
+            isChecked = ExamType.LGS in active
+            setOnCheckedChangeListener { _, _ ->
+                updateExamPacks(examStore)
+            }
+        }
+        findViewById<CheckBox>(R.id.checkTYT).apply {
+            isChecked = ExamType.TYT in active
+            setOnCheckedChangeListener { _, _ -> updateExamPacks(examStore) }
+        }
+        findViewById<CheckBox>(R.id.checkAYT).apply {
+            isChecked = ExamType.AYT in active
+            setOnCheckedChangeListener { _, _ -> updateExamPacks(examStore) }
+        }
+        findViewById<CheckBox>(R.id.checkGeneral).apply {
+            isChecked = active.isEmpty() || ExamType.GENERAL in active
+            setOnCheckedChangeListener { _, _ -> updateExamPacks(examStore) }
+        }
+    }
+
+    private fun updateExamPacks(examStore: ExamPackStore) {
+        val set = mutableSetOf<ExamType>()
+        if (findViewById<CheckBox>(R.id.checkLGS).isChecked) set.add(ExamType.LGS)
+        if (findViewById<CheckBox>(R.id.checkTYT).isChecked) set.add(ExamType.TYT)
+        if (findViewById<CheckBox>(R.id.checkAYT).isChecked) set.add(ExamType.AYT)
+        if (findViewById<CheckBox>(R.id.checkGeneral).isChecked) set.add(ExamType.GENERAL)
+        examStore.setActiveExamTypes(if (set.isEmpty()) setOf(ExamType.GENERAL) else set)
     }
 
     override fun onSupportNavigateUp(): Boolean {

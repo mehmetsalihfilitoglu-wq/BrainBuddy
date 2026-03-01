@@ -6,8 +6,9 @@ import com.brainbuddy.app.quiz.QuizDifficulty
 class QuizPrefs(context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun difficulty(): QuizDifficulty =
-        QuizDifficulty.valueOf(prefs.getString(KEY_DIFFICULTY, QuizDifficulty.MEDIUM.name)!!)
+    fun difficulty(): QuizDifficulty = try {
+        QuizDifficulty.valueOf(prefs.getString(KEY_DIFFICULTY, QuizDifficulty.MEDIUM.name) ?: QuizDifficulty.MEDIUM.name)
+    } catch (_: Exception) { QuizDifficulty.MEDIUM }
 
     fun setDifficulty(d: QuizDifficulty) =
         prefs.edit().putString(KEY_DIFFICULTY, d.name).apply()

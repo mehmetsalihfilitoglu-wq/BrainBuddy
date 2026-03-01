@@ -30,6 +30,8 @@ class ReloadSettingsWorker(
                     )
                 } catch (_: Exception) { /* best-effort */ }
             }
+            // Clear stuck quiz-in-progress to avoid gate deadlock after reboot/update
+            prefs.setQuizInProgress(false)
             ListenableWorker.Result.success()
         } catch (e: Exception) {
             android.util.Log.e("ReloadSettingsWorker", "doWork error", e)

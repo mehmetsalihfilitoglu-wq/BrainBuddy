@@ -12,6 +12,7 @@ import com.brainbuddy.app.gate.GateHelper
 /**
  * Foreground app blocker: detects when blocked app comes to foreground,
  * launches GateActivity for quiz. Debounced to prevent race conditions.
+ * Battery: Only TYPE_WINDOW_STATE_CHANGED, debounce 800ms, early-exit when not blocked.
  */
 class ForegroundAppBlockerService : AccessibilityService() {
 
@@ -34,6 +35,7 @@ class ForegroundAppBlockerService : AccessibilityService() {
             // When userLocked (failed quiz), MUST still block: launch Gate so they must pass to use blocked app
             // Do NOT return - gateRequiredNow will be true when userLocked
 
+            // Blocked apps MUST NOT open when gate required (wrongCount>=4 or cooldown expired)
             if (!GateHelper.gateRequiredNow(this)) return
             // Debounce: prevent multiple Gate launches in quick succession (race condition)
             val now = System.currentTimeMillis()
@@ -58,11 +60,7 @@ class ForegroundAppBlockerService : AccessibilityService() {
 
     override fun onServiceConnected() {
         super.onServiceConnected()
-        val prefs = ProtectionPrefs(this)
-        if (prefs.isPermissionLocked()) {
-            prefs.setPermissionDisabledLockReason("")
-            prefs.setUserLocked(false)
-        }
+        // Do NOT clear permission lock here - prevents bypass: user must enter Parent PIN to unlock
     }
 
     override fun onDestroy() {

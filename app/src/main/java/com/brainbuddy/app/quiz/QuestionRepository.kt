@@ -79,10 +79,14 @@ class QuestionRepository(private val context: Context) {
         }
     }
 
-    /** Global pool: all questions from load + fallback. Never empty. */
+    /** Global pool: all questions from load + fallback, filtered by active exam packs. Never empty. */
     private fun getGlobalPool(): List<Question> {
         val (all, _) = loadAllQuestionsWithStats()
-        return if (all.isNotEmpty()) all else getFallbackQuestions()
+        val base = if (all.isNotEmpty()) all else getFallbackQuestions()
+        val examStore = com.brainbuddy.app.core.ExamPackStore(context)
+        val active = examStore.getActiveExamTypes()
+        val filtered = if (active.isEmpty()) base else base.filter { examStore.isPackActive(it.examType) }
+        return if (filtered.isEmpty()) base else filtered
     }
 
     /** In-code fallback so quiz never crashes when asset is missing or pool is empty. */
@@ -158,6 +162,9 @@ class QuestionRepository(private val context: Context) {
         } catch (_: Exception) {
             Subject.MAT
         }
+        val examStr = o.optString("examType", "GENERAL")
+        val examType = try { com.brainbuddy.app.quiz.ExamType.valueOf(examStr) } catch (_: Exception) { com.brainbuddy.app.quiz.ExamType.GENERAL }
+        val topic = o.optString("topic", "").takeIf { it.isNotEmpty() }
         return Question(
             id = o.optString("id", "q_${System.currentTimeMillis()}"),
             levelGroup = levelGroup,
@@ -168,7 +175,9 @@ class QuestionRepository(private val context: Context) {
             correctIndex = o.optInt("correctIndex", 0).coerceIn(0, 3),
             hint = o.optString("hint", "").takeIf { it.isNotEmpty() },
             imageAsset = o.optString("imageAsset", "").takeIf { it.isNotEmpty() },
-            difficulty = difficulty
+            difficulty = difficulty,
+            examType = examType,
+            topic = topic
         )
     }
 
@@ -202,11 +211,12 @@ class QuestionRepository(private val context: Context) {
 
         showDebugToast(loadStats, filterStats, finalPool.size, count)
 
+        val profileId = ProfileStore(context).getCurrentProfileId()
         val wrongIds = historyStore.getWrongQuestionIds(7)
         val now = System.currentTimeMillis()
         val cooldownMs = TimeUnit.DAYS.toMillis(2)
 
-        val recentIds = historyStore.getRecentlySeenIds(100)
+        val recentIds = historyStore.getRecentlySeenIdsForProfile(profileId, 100)
         val wrongPool = finalPool.filter { it.id in wrongIds }
         val cooldownExcluded = finalPool.filter { q ->
             val h = historyStore.getHistory(q.id) ?: return@filter true
@@ -252,15 +262,18 @@ class QuestionRepository(private val context: Context) {
         // 3) If still empty (e.g. all in cooldown, no wrong), ignore cooldown and use pool
         if (result.isEmpty() && finalPool.isNotEmpty()) {
             Log.i(TAG, "Result empty after selection, using pool (ignoring cooldown)")
-            return finalPool.shuffled().take(count)
+            val fallback = finalPool.shuffled().take(count)
+            recordSeenForQuiz(profileId, fallback.map { it.id })
+            return fallback
         }
 
-        return result.shuffled()
+        val finalResult = result.shuffled()
+        recordSeenForQuiz(profileId, finalResult.map { it.id })
+        return finalResult
     }
 
     private fun showDebugToast(load: LoadStats, filter: FilterStats, poolSize: Int, count: Int) {
-        val msg = "Quiz: JSON=${if (load.fileFound) "OK" else "MISSING"}, parsed=${load.parsedTotal}, pool=$poolSize"
-        Log.i(TAG, msg)
+        Log.i(TAG, "Quiz: JSON=${if (load.fileFound) "OK" else "MISSING"}, parsed=${load.parsedTotal}, pool=$poolSize, count=$count")
     }
 
     data class FilterStats(
@@ -324,8 +337,9 @@ class QuestionRepository(private val context: Context) {
     }
 
     /** Remedial mini-quiz: focused on weak topics. Prefer lastFailedWrongIds from ProtectionPrefs.
-     * weakTopic pool -> if empty -> global pool. Never returns empty. */
-    fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = 10, weakTopicIds: List<String> = emptyList()): List<Question> {
+     * weakTopic pool -> if empty -> global pool -> fallback. Never returns empty.
+     * @return Pair(questions, usedFallbackDueToEmptyPool) - when true, parent should be warned. */
+    fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = 10, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
         val global = getGlobalPool()
         val all = global.associateBy { it.id }
         val wrongIds = weakTopicIds.ifEmpty { historyStore.getWrongQuestionIds(14).toList() }
@@ -341,7 +355,8 @@ class QuestionRepository(private val context: Context) {
         if (pool.isEmpty()) {
             pool = global.toMutableList()
         }
-        val recentIds = historyStore.getRecentlySeenIds(100)
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val recentIds = historyStore.getRecentlySeenIdsForProfile(profileId, 100)
         val sessionIds = mutableSetOf<String>()
         val result = mutableListOf<Question>()
         for (q in pool.shuffled()) {
@@ -351,7 +366,9 @@ class QuestionRepository(private val context: Context) {
             result.add(q)
             sessionIds.add(q.id)
         }
-        return result.ifEmpty { pool.shuffled().take(count) }.ifEmpty { getFallbackQuestions().shuffled().take(count) }
+        val questions = result.ifEmpty { pool.shuffled().take(count) }.ifEmpty { getFallbackQuestions().shuffled().take(count) }
+        val usedFallback = pool.isEmpty() || result.isEmpty()
+        return Pair(questions, usedFallback)
     }
 
     fun pickRetryWrongQuestions(levelGroup: LevelGroup): List<Question> {
@@ -402,6 +419,11 @@ class QuestionRepository(private val context: Context) {
         val finalList = result.ifEmpty { pool.shuffled().take(count) }.shuffled()
         historyStore.recordSeenIdsForProfile(profileId, finalList.map { it.id })
         return finalList
+    }
+
+    /** Records seen IDs for pickQuizQuestions per-user variety (avoids repeat across attempts). */
+    fun recordSeenForQuiz(profileId: String, questionIds: List<String>) {
+        historyStore.recordSeenIdsForProfile(profileId, questionIds)
     }
 
     fun getLevelGroupFromPrefs(): LevelGroup {

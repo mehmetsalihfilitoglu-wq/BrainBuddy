@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AppModeManager
+import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.security.PinManager
 
 class PinLockActivity : AppCompatActivity() {
@@ -66,6 +67,11 @@ class PinLockActivity : AppCompatActivity() {
                     }
                     if (pinManager.verifyPin(pin)) {
                         pin.fill('\u0000')
+                        val prefs = ProtectionPrefs(this)
+                        if (prefs.isPermissionLocked()) {
+                            prefs.setPermissionDisabledLockReason("")
+                            prefs.setUserLocked(false)
+                        }
                         AppModeManager.enterParentMode()
                         navigateToTarget()
                         finish()

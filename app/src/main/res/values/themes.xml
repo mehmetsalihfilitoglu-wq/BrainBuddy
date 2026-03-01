@@ -8,9 +8,11 @@
         <item name="colorOnSecondary">@color/white</item>
         <item name="colorTertiary">@color/bb_accent</item>
         <item name="colorOnTertiary">@color/black</item>
-        <item name="android:windowBackground">@color/bb_bg</item>
+        <item name="colorError">@color/bb_error</item>
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
         <item name="android:textColorPrimary">@color/bb_text</item>
         <item name="android:textColorSecondary">@color/bb_text_muted</item>
+        <item name="materialButtonStyle">@style/BBButton</item>
     </style>
 
 </resources>

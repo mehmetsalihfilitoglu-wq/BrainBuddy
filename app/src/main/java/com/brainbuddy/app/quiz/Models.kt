@@ -17,6 +17,14 @@ enum class Subject(val tr: String) {
     ING("İngilizce")
 }
 
+/** Exam pack types for Turkish education system. */
+enum class ExamType(val displayName: String) {
+    LGS("LGS"),
+    TYT("TYT"),
+    AYT("AYT"),
+    GENERAL("Genel")
+}
+
 data class Question(
     val id: String,
     val levelGroup: LevelGroup,
@@ -27,7 +35,9 @@ data class Question(
     val correctIndex: Int,
     val hint: String?,
     val imageAsset: String?,
-    val difficulty: QuizDifficulty = QuizDifficulty.MEDIUM
+    val difficulty: QuizDifficulty = QuizDifficulty.MEDIUM,
+    val examType: ExamType = ExamType.GENERAL,
+    val topic: String? = null
 )
 
 enum class QuizDifficulty(val tr: String) {

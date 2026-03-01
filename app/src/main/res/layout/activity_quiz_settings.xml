@@ -123,6 +123,63 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sınav paketleri (2000+ soru desteklenir)"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text_dark"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Boş bırakılırsa tüm sorular kullanılır."
+                        android:textSize="14sp"
+                        android:textColor="@color/bb_text_muted"
+                        android:layout_marginTop="4dp"/>
+
+                    <CheckBox
+                        android:id="@+id/checkLGS"
+                        android:text="LGS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"/>
+
+                    <CheckBox
+                        android:id="@+id/checkTYT"
+                        android:text="TYT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <CheckBox
+                        android:id="@+id/checkAYT"
+                        android:text="AYT"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <CheckBox
+                        android:id="@+id/checkGeneral"
+                        android:text="Genel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

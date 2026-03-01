@@ -168,6 +168,23 @@
                 android:textAllCaps="false"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/remedialRetrySection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="12dp">
+
+            <Button
+                android:id="@+id/btnRemedialMiniTest"
+                style="@style/BB.Button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Pratik Mini Test"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
         <Button
             android:id="@+id/btnRetryTest"
             style="@style/BB.Button"

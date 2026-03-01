@@ -47,7 +47,15 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(b.root)
+        try {
+            initQuiz(savedInstanceState)
+        } catch (e: Exception) {
+            android.util.Log.e("QuizActivity", "init error", e)
+            finish()
+        }
+    }
 
+    private fun initQuiz(savedInstanceState: Bundle?) {
         repo = QuestionRepository(this)
         quizPrefs = QuizPrefs(this)
         retryWrongMode = intent.getBooleanExtra(EXTRA_RETRY_WRONG, false)
@@ -60,10 +68,15 @@ class QuizActivity : AppCompatActivity() {
         val protectionPrefs = ProtectionPrefs(this)
         val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
+        var remedialFallbackWarning = false
         questions = when {
             bossLevel > 0 -> repo.pickBossQuestions(levelGroup, 15)
             isGateMode -> repo.pickGateQuestions(levelGroup, 10)
-            isRemedial -> repo.pickRemedialQuestions(levelGroup, 10, protectionPrefs.lastFailedWrongIds())
+            isRemedial -> {
+                val (q, usedFallback) = repo.pickRemedialQuestions(levelGroup, 10, protectionPrefs.lastFailedWrongIds())
+                remedialFallbackWarning = usedFallback
+                q
+            }
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 val found = wrongIds.mapNotNull { all[it] }
@@ -100,9 +113,22 @@ class QuizActivity : AppCompatActivity() {
                 finish()
             }
         } else {
-            startedAt = System.currentTimeMillis()
+            if (remedialFallbackWarning) {
+                android.widget.Toast.makeText(
+                    this,
+                    "Soru havuzu sınırlı. Veli: Daha fazla soru paketi ekleyin.",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+            }
             render()
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("quiz_index", index)
+        outState.putString("quiz_id", quizId)
+        outState.putLong("quiz_started", startedAt)
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -153,7 +179,8 @@ class QuizActivity : AppCompatActivity() {
             if (sel >= 0) {
                 answers[q.id] = sel
                 if (index == questions.size - 1) {
-                    b.nextBtn.postDelayed({ if (!isFinishing) finishTest() }, 800)
+                    // Auto-submit on last question - no Finish Test button
+                    b.nextBtn.postDelayed({ if (!isFinishing) finishTest() }, 600)
                 }
             }
         }
@@ -165,7 +192,8 @@ class QuizActivity : AppCompatActivity() {
         }
 
         b.nextBtn.isEnabled = true
-        b.nextBtn.text = if (index < questions.size - 1) "Sonraki Soru →" else "Bitir"
+        b.nextBtn.text = if (index < questions.size - 1) "Sonraki Soru →" else "Gönder"
+        b.nextBtn.visibility = View.VISIBLE
 
         hintAvailable = false
         b.hintBtn.isEnabled = false
