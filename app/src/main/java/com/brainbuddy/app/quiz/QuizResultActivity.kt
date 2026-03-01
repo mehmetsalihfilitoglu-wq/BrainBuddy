@@ -373,14 +373,14 @@ class QuizResultActivity : AppCompatActivity() {
             val sel = s.answers[id] ?: -1
             val userChoice = if (sel in 0..3) q.choices.getOrNull(sel) ?: "?" else "-"
             val correctChoice = q.choices.getOrNull(q.correctIndex) ?: "?"
-            WrongItem(q.stem, userChoice, correctChoice, q.hint)
+            WrongItem(q.stem, userChoice, correctChoice, q.hint, showCorrect = false)
         }
         val recycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recyclerWrong)
         recycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         recycler.adapter = WrongAnswersAdapter(items)
     }
 
-    data class WrongItem(val question: String, val userChoice: String, val correctAnswer: String, val hint: String?)
+    data class WrongItem(val question: String, val userChoice: String, val correctAnswer: String, val hint: String?, val showCorrect: Boolean = false)
 
     class WrongAnswersAdapter(private val items: List<WrongItem>) :
         androidx.recyclerview.widget.RecyclerView.Adapter<WrongAnswersAdapter.VH>() {
@@ -397,15 +397,16 @@ class QuizResultActivity : AppCompatActivity() {
             holder.view.findViewById<android.widget.TextView>(R.id.tvQuestion).text = item.question
             holder.view.findViewById<android.widget.TextView>(R.id.tvUserChoice).apply {
                 visibility = android.view.View.VISIBLE
-                text = "Senin cevabın: ${item.userChoice}"
+                text = "Senin cevabın: ${item.userChoice}\n❌ Yanlış"
                 setTextColor(holder.view.context.getColor(R.color.bb_error))
             }
-            holder.view.findViewById<android.widget.TextView>(R.id.tvCorrect).text = "✓ Doğru: ${item.correctAnswer}"
+            holder.view.findViewById<android.widget.TextView>(R.id.tvCorrect).apply {
+                visibility = if (item.showCorrect) android.view.View.VISIBLE else android.view.View.GONE
+                text = "✓ Doğru: ${item.correctAnswer}"
+            }
             holder.view.findViewById<android.widget.TextView>(R.id.tvHint).apply {
-                if (!item.hint.isNullOrBlank()) {
-                    visibility = android.view.View.VISIBLE
-                    text = "💡 ${item.hint}"
-                } else visibility = android.view.View.GONE
+                visibility = if (item.showCorrect && !item.hint.isNullOrBlank()) android.view.View.VISIBLE else android.view.View.GONE
+                text = "💡 ${item.hint}"
             }
         }
 

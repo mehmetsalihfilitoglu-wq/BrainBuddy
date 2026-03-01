@@ -25,10 +25,8 @@ class ForegroundAppBlockerService : AccessibilityService() {
 
         val prefs = ProtectionPrefs(this)
         if (!prefs.isProtectionEnabled()) return
-        if (prefs.userLocked()) {
-            // Show LockScreen instead - handled by MainActivity routing
-            return
-        }
+        // When userLocked (failed quiz), MUST still block: launch Gate so they must pass to use blocked app
+        // Do NOT return - gateRequiredNow will be true when userLocked
 
         if (GateHelper.gateRequiredNow(this)) {
             TamperStore(this).logEvent(TamperStore.TamperType.BYPASS_ATTEMPT)

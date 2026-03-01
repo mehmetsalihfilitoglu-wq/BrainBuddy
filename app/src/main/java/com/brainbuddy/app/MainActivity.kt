@@ -19,7 +19,9 @@ class MainActivity : AppCompatActivity() {
             ProfileStore(this).getProfiles().size > 1 -> com.brainbuddy.app.ui.ProfileSelectionActivity::class.java
             else -> HomeActivity::class.java
         }
-        startActivity(Intent(this, target))
+        startActivity(Intent(this, target).addFlags(
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        ))
         finish()
     }
 }

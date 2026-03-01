@@ -2,11 +2,14 @@ package com.brainbuddy.app.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.ComponentActivity
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityParentBinding
+import com.brainbuddy.app.quiz.WrongAnswerReviewActivity
 import java.util.concurrent.TimeUnit
 
 class ParentActivity : ComponentActivity() {
@@ -20,6 +23,19 @@ class ParentActivity : ComponentActivity() {
         b = ActivityParentBinding.inflate(layoutInflater)
         setContentView(b.root)
 
+        val protectionPrefs = ProtectionPrefs(this)
+        val wrongIds = protectionPrefs.lastFailedWrongIds()
+        val sessionJson = protectionPrefs.lastFailedSessionJson()
+        b.btnReviewWrong.visibility = if (wrongIds.isNotEmpty()) View.VISIBLE else View.GONE
+        b.btnReviewWrong.setOnClickListener {
+            if (wrongIds.isNotEmpty()) {
+                startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
+                    putStringArrayListExtra(WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
+                    if (sessionJson.isNotEmpty()) putExtra(WrongAnswerReviewActivity.EXTRA_SESSION_JSON, sessionJson)
+                    putExtra(WrongAnswerReviewActivity.EXTRA_IS_PARENT_REVIEW, true)
+                })
+            }
+        }
         b.openSettings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }

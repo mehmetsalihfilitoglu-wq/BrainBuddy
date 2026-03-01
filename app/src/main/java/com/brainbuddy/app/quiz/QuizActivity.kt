@@ -41,6 +41,7 @@ class QuizActivity : AppCompatActivity() {
     private val answers = mutableMapOf<String, Int>()
     private var hintTimer: CountDownTimer? = null
     private var hintAvailable = false
+    private var isFinishing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,8 +59,10 @@ class QuizActivity : AppCompatActivity() {
         val levelGroup = repo.getLevelGroupFromPrefs()
         val protectionPrefs = ProtectionPrefs(this)
         val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
+        val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         questions = when {
             bossLevel > 0 -> repo.pickBossQuestions(levelGroup, 15)
+            isGateMode -> repo.pickGateQuestions(levelGroup, 10)
             isRemedial -> repo.pickRemedialQuestions(levelGroup, 10, protectionPrefs.lastFailedWrongIds())
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
@@ -67,9 +70,9 @@ class QuizActivity : AppCompatActivity() {
                 if (found.isEmpty()) {
                     val count = quizPrefs.questionsPerSession()
                     repo.pickQuizQuestions(levelGroup, count, quizPrefs.difficulty(), quizPrefs.selectedCategories())
-                } else found
+                } else found.shuffled()
             }
-            retryWrongMode -> repo.pickRetryWrongQuestions(levelGroup)
+            retryWrongMode -> repo.pickRetryWrongQuestions(levelGroup).shuffled()
             else -> {
                 val count = quizPrefs.questionsPerSession()
                 val diff = quizPrefs.difficulty()
@@ -79,16 +82,15 @@ class QuizActivity : AppCompatActivity() {
         }
 
         b.submitBtn.visibility = View.GONE
+        b.finishTestBtn.visibility = View.GONE
         b.nextBtn.setOnClickListener { goNext() }
         b.hintBtn.setOnClickListener { showHintIfAllowed() }
-        b.finishTestBtn.setOnClickListener { finishTest() }
 
         if (questions.isEmpty()) {
             b.subjectChip.text = "Soru bulunamadı"
-            b.questionText.text = if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!" else "Soru havuzunda soru yok."
+            b.questionText.text = if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!" else "Soru havuzunda soru yok. Lütfen soru ekleyin veya içe aktarın."
             b.hintBtn.isEnabled = false
             b.nextBtn.isEnabled = false
-            b.finishTestBtn.isEnabled = false
         } else {
             startedAt = System.currentTimeMillis()
             render()
@@ -140,7 +142,12 @@ class QuizActivity : AppCompatActivity() {
                 b.optD.id -> 3
                 else -> -1
             }
-            if (sel >= 0) answers[q.id] = sel
+            if (sel >= 0) {
+                answers[q.id] = sel
+                if (index == questions.size - 1) {
+                    b.nextBtn.postDelayed({ if (!isFinishing) finishTest() }, 800)
+                }
+            }
         }
 
         b.feedbackText.visibility = View.GONE
@@ -150,7 +157,7 @@ class QuizActivity : AppCompatActivity() {
         }
 
         b.nextBtn.isEnabled = true
-        b.nextBtn.text = if (index < questions.size - 1) "Sonraki Soru →" else "Testi Bitir"
+        b.nextBtn.text = if (index < questions.size - 1) "Sonraki Soru →" else "Bitir"
 
         hintAvailable = false
         b.hintBtn.isEnabled = false
@@ -205,6 +212,8 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun finishTest() {
+        if (isFinishing) return
+        isFinishing = true
         saveCurrentSelection()
         hintTimer?.cancel()
 
@@ -252,7 +261,7 @@ class QuizActivity : AppCompatActivity() {
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
         if (passed && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
             protectionPrefs.setLastQuizPassedAtMs(System.currentTimeMillis())
-            if (isRetryOfLockedQuiz || isRemedial) protectionPrefs.setUserLocked(false)
+            if (isGateMode || isRetryOfLockedQuiz || isRemedial) protectionPrefs.setUserLocked(false)
         }
         val passedBossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         if (passed && passedBossLevel > 0) {

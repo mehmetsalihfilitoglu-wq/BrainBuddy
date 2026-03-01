@@ -7,6 +7,9 @@ import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityStatsBinding
+import com.brainbuddy.app.ui.BarChartView
+import com.brainbuddy.app.ui.LineChartView
+import com.brainbuddy.app.ui.ProgressRingView
 
 class StatsActivity : AppCompatActivity() {
 
@@ -29,9 +32,22 @@ class StatsActivity : AppCompatActivity() {
         b.tvXp.text = "${gam.xp()} XP"
         b.tvStreak.text = "🔥 ${gam.streakDays()} gün seri"
         val counts = analytics.getOverallCounts()
+        val accuracyPct = if (counts.total > 0) 100.0 * counts.correct / counts.total else 0.0
         b.tvOverallAccuracy.text = if (counts.total > 0) {
-            "${counts.correct}/${counts.total} doğru (${"%.1f".format(100.0 * counts.correct / counts.total)}%)"
+            "${counts.correct}/${counts.total} doğru (${"%.1f".format(accuracyPct)}%)"
         } else "Henüz veri yok"
+
+        findViewById<ProgressRingView>(R.id.progressRing).progress = accuracyPct.toFloat()
+
+        val topicCounts = analytics.getTopicMasteryWithCounts()
+        val barData = topicCounts.map { (topic, tc) ->
+            BarChartView.BarData(topic, tc.correct, tc.total)
+        }.take(6)
+        findViewById<BarChartView>(R.id.barChart).data = barData
+
+        val recent = analytics.getLastTests(10)
+        val trendValues = recent.map { it.accuracy }
+        findViewById<LineChartView>(R.id.lineChart).values = trendValues
 
         val strongest = analytics.getStrongestTopicsWithCounts(3)
         b.tvStrongTopics.text = if (strongest.isEmpty()) "-" else strongest.joinToString("\n") { (topic, tc) ->
@@ -41,11 +57,6 @@ class StatsActivity : AppCompatActivity() {
         val weakest = analytics.getWeakestTopicsWithCounts(3)
         b.tvWeakTopics.text = if (weakest.isEmpty()) "-" else weakest.joinToString("\n") { (topic, tc) ->
             "$topic: ${tc.correct}/${tc.total} doğru (${tc.wrong} yanlış)"
-        }
-
-        val recent = analytics.getLastTests(10)
-        b.tvRecentTrend.text = if (recent.isEmpty()) "Henüz veri yok" else recent.joinToString(" → ") { p ->
-            "${p.correctCount}/${p.effectiveTotal}"
         }
 
         b.tvPerTestDetail.text = if (recent.isEmpty()) "-" else recent.takeLast(5).mapIndexed { i, p ->

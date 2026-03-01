@@ -13,7 +13,7 @@ data class AvatarItem(
 
 enum class AvatarCategory { HAIR, BACKGROUND, BADGE_FRAME, MASCOT }
 
-class AvatarStore(context: Context) {
+class AvatarStore(private val context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
     private val gamification = com.brainbuddy.app.core.GamificationStore(context)
 

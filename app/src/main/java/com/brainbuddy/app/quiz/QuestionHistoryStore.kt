@@ -81,6 +81,24 @@ class QuestionHistoryStore(context: Context) {
         }.toSet()
     }
 
+    /** Record question IDs as recently seen (for gate/remedial variety). Call after quiz generation, not completion. */
+    fun recordSeenIds(ids: List<String>) {
+        val now = System.currentTimeMillis()
+        prefs.edit().apply {
+            ids.forEach { id ->
+                val h = getHistory(id) ?: HistoryEntry(id, 0L, 0, 0, "")
+                val o = org.json.JSONObject().apply {
+                    put("lastSeenAt", now)
+                    put("timesCorrect", h.timesCorrect)
+                    put("timesWrong", h.timesWrong)
+                    put("lastResult", h.lastResult)
+                }
+                putString("q_$id", o.toString())
+            }
+            apply()
+        }
+    }
+
     companion object {
         private const val PREFS = "bb_question_history"
     }
