@@ -287,6 +287,14 @@ class QuestionRepository(private val context: Context) {
         return Pair(emptyList(), FilterStats(0, 0, 0))
     }
 
+    /** Boss test: harder question pool. */
+    fun pickBossQuestions(levelGroup: LevelGroup, count: Int = 15): List<Question> {
+        val (all, _) = loadAllQuestionsWithStats()
+        val hardPool = all.filter { it.levelGroup == levelGroup && it.difficulty == QuizDifficulty.HARD }
+        val pool = if (hardPool.size >= count) hardPool else all.filter { it.levelGroup == levelGroup }
+        return pool.shuffled().take(count)
+    }
+
     /** Remedial mini-quiz: focused on weak topics. Prefer lastFailedWrongIds from ProtectionPrefs. */
     fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = 10, weakTopicIds: List<String> = emptyList()): List<Question> {
         val all = loadAllQuestions().associateBy { it.id }

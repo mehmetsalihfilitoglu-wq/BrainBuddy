@@ -167,7 +167,15 @@ class QuizResultActivity : AppCompatActivity() {
         val today = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis())
         val lastDay = TimeUnit.MILLISECONDS.toDays(gam.lastCompletedMs())
         val isStreakDay = gam.lastCompletedMs() == 0L || lastDay == today || lastDay == today - 1
+        val streakBefore = gam.streakDays()
         gam.recordQuizCompletion(System.currentTimeMillis())
+        val newStreak = gam.streakDays()
+        val newMilestone = when {
+            newStreak >= 100 && streakBefore < 100 -> "Legend Streak!"
+            newStreak >= 30 && streakBefore < 30 -> "30-Day Avatar Unlock!"
+            newStreak >= 7 && streakBefore < 7 -> "7-Day Streak Badge!"
+            else -> null
+        }
         val xpBefore = gam.xp()
         gam.addXpForQuiz(s.correctCount, s.wrongCount, isStreakDay)
         val xpEarned = gam.xp() - xpBefore
@@ -258,6 +266,14 @@ class QuizResultActivity : AppCompatActivity() {
         findViewById<android.widget.Button>(R.id.btnPlayAgain).setOnClickListener {
             startActivity(Intent(this, QuizActivity::class.java))
             finish()
+        }
+
+        newMilestone?.let { msg ->
+            android.app.AlertDialog.Builder(this)
+                .setTitle("🎉 Kutlama!")
+                .setMessage(msg)
+                .setPositiveButton("Harika!", null)
+                .show()
         }
 
         findViewById<android.widget.Button>(R.id.btnHome).setOnClickListener {

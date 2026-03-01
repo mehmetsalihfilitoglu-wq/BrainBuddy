@@ -88,6 +88,15 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<View>(R.id.cardBackup)?.setOnClickListener {
             BackupManager.exportBackup(this)
         }
+        findViewById<View>(R.id.cardRewardContracts)?.setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.reward.RewardContractActivity::class.java))
+        }
+        val switchShopDisabled = findViewById<android.widget.Switch>(R.id.switchShopDisabled)
+        val avatarStore = com.brainbuddy.app.avatar.AvatarStore(this)
+        switchShopDisabled.isChecked = avatarStore.isShopDisabledByParent()
+        switchShopDisabled.setOnCheckedChangeListener { _, isChecked ->
+            avatarStore.setShopDisabledByParent(isChecked)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

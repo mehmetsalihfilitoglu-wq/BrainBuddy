@@ -99,6 +99,7 @@ class PinLockActivity : AppCompatActivity() {
         val targetName = intent.getStringExtra(EXTRA_TARGET)
         val target = when (targetName) {
             "ParentActivity" -> ParentActivity::class.java
+            "ClassroomJoin", "ClassroomLeave" -> com.brainbuddy.app.classroom.ClassroomActivity::class.java
             "SettingsActivity" -> SettingsActivity::class.java
             "BlockedAppsActivity" -> BlockedAppsActivity::class.java
             "TimeLimitsActivity" -> TimeLimitsActivity::class.java
@@ -106,6 +107,7 @@ class PinLockActivity : AppCompatActivity() {
             "ProtectionInactiveActivity" -> ProtectionInactiveActivity::class.java
             "PermissionsChecklistActivity" -> PermissionsChecklistActivity::class.java
             "ProfileManageActivity" -> ProfileManageActivity::class.java
+            "RewardContractActivity" -> com.brainbuddy.app.reward.RewardContractActivity::class.java
             else -> ParentActivity::class.java
         }
         startActivity(Intent(this, target))

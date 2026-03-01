@@ -24,6 +24,7 @@ class QuizActivity : AppCompatActivity() {
         const val EXTRA_GATE_MODE = "gate_mode"
         const val EXTRA_BLOCKED_PACKAGE = "blocked_package"
         const val EXTRA_REMEDIAL = "remedial"
+        const val EXTRA_BOSS_LEVEL = "boss_level"
     }
 
     private lateinit var b: ActivityQuizBinding
@@ -56,7 +57,9 @@ class QuizActivity : AppCompatActivity() {
 
         val levelGroup = repo.getLevelGroupFromPrefs()
         val protectionPrefs = ProtectionPrefs(this)
+        val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         questions = when {
+            bossLevel > 0 -> repo.pickBossQuestions(levelGroup, 15)
             isRemedial -> repo.pickRemedialQuestions(levelGroup, 10, protectionPrefs.lastFailedWrongIds())
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
@@ -250,6 +253,10 @@ class QuizActivity : AppCompatActivity() {
         if (passed && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
             protectionPrefs.setLastQuizPassedAtMs(System.currentTimeMillis())
             if (isRetryOfLockedQuiz || isRemedial) protectionPrefs.setUserLocked(false)
+        }
+        val passedBossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
+        if (passed && passedBossLevel > 0) {
+            BossTestStore(this).markBossPassed(passedBossLevel)
         }
         if (!passed && !isRetryOfLockedQuiz && !isRemedial) {
             com.brainbuddy.app.core.ReportStore(this).recordLockEvent()

@@ -2,11 +2,14 @@ package com.brainbuddy.app
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.quiz.BossTestActivity
+import com.brainbuddy.app.quiz.BossTestStore
 import com.brainbuddy.app.security.PinManager
 import com.brainbuddy.app.ui.BlockedAppsActivity
 import com.brainbuddy.app.ui.ParentActivity
@@ -29,9 +32,22 @@ class HomeActivity : AppCompatActivity() {
 
         val gam = GamificationStore(this)
         val analytics = AnalyticsStore(this)
+        val weeklyReward = com.brainbuddy.app.core.WeeklyRewardStore(this)
 
-        // Header badges
-        findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri"
+        // Reward contract notification
+        val contractStore = com.brainbuddy.app.reward.RewardContractStore(this)
+        val pending = contractStore.getPendingReached()
+        if (pending.isNotEmpty()) {
+            AlertDialog.Builder(this)
+                .setTitle("Ödül!")
+                .setMessage(pending.joinToString("\n") { "${it.targetXP} XP: ${it.description}" })
+                .setPositiveButton("Tamam", null)
+                .show()
+        }
+
+        // Header badges - streak flame + count + freeze tokens
+        val freezeTxt = if (gam.freezeTokens() > 0) " (${gam.freezeTokens()} 🧊)" else ""
+        findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri$freezeTxt"
         findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
         findViewById<android.widget.TextView>(R.id.levelBadge).text = "Seviye ${gam.level()}"
 
@@ -47,10 +63,40 @@ class HomeActivity : AppCompatActivity() {
 
         // CTA clicks - Student can only access Quiz, Stats, Parent Area (PIN required)
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTest).setOnClickListener {
-            startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java))
+            val bossStore = BossTestStore(this)
+            val lvl = gam.level()
+            val bossLevel = (lvl / 10) * 10
+            if (bossLevel > 0 && lvl > bossLevel && !bossStore.isBossPassed(bossLevel)) {
+                startActivity(Intent(this, BossTestActivity::class.java).putExtra(BossTestActivity.EXTRA_BOSS_LEVEL, bossLevel))
+            } else {
+                startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java))
+            }
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardStats).setOnClickListener {
             startActivity(Intent(this, StatsActivity::class.java))
+        }
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardCoach).setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.coach.CoachScreen::class.java))
+        }
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardLeague).setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.social.LeagueScreen::class.java))
+        }
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardClassroom).setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.classroom.ClassroomActivity::class.java))
+        }
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardAvatarShop).setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.avatar.AvatarShopScreen::class.java))
+        }
+        val cardWeeklyChest = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWeeklyChest)
+        cardWeeklyChest?.setOnClickListener {
+            val tokens = weeklyReward.claimWeeklyChest()
+            if (tokens > 0) {
+                android.widget.Toast.makeText(this, "+$tokens donma jetonu!", android.widget.Toast.LENGTH_SHORT).show()
+                val freezeTxt = if (gam.freezeTokens() > 0) " (${gam.freezeTokens()} 🧊)" else ""
+                findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri$freezeTxt"
+            } else if (weeklyReward.canClaimWeeklyChest()) {
+                android.widget.Toast.makeText(this, "Daha fazla XP kazanın (Silver: 80, Gold: 150)", android.widget.Toast.LENGTH_SHORT).show()
+            }
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardVeli).setOnClickListener {
             val pinManager = PinManager(this)
@@ -86,7 +132,8 @@ class HomeActivity : AppCompatActivity() {
         }
         // Refresh badges when returning
         val gam = GamificationStore(this)
-        findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri"
+        val freezeTxtResume = if (gam.freezeTokens() > 0) " (${gam.freezeTokens()} 🧊)" else ""
+        findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri$freezeTxtResume"
         findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
         findViewById<android.widget.TextView>(R.id.levelBadge).text = "Seviye ${gam.level()}"
         // Refresh parent-only cards visibility (session may have expired)

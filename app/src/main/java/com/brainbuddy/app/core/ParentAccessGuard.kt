@@ -15,6 +15,7 @@ object ParentAccessGuard {
      */
     val PARENT_ONLY_ACTIVITIES = setOf(
         "com.brainbuddy.app.ui.SettingsActivity",
+        "com.brainbuddy.app.reward.RewardContractActivity",
         "com.brainbuddy.app.ui.BlockedAppsActivity",
         "com.brainbuddy.app.ui.TimeLimitsActivity",
         "com.brainbuddy.app.ui.QuizSettingsActivity",
