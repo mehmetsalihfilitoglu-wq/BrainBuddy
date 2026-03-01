@@ -92,9 +92,61 @@
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name="com.brainbuddy.app.accessibility.ForegroundAppBlockerService"
+            android:exported="false"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_foreground_blocker" />
+        </service>
+
+        <receiver
+            android:name=".deviceadmin.BrainBuddyDeviceAdminReceiver"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".gate.GateActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BrainBuddy"
+            android:excludeFromRecents="true" />
+
+        <activity
+            android:name=".ui.PermissionsChecklistActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.ReportsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.SchedulesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.ProfileManageActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.ProfileSelectionActivity"
+            android:exported="false" />
 
     </application>
 

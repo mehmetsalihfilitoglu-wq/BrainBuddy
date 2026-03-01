@@ -167,6 +167,7 @@ class QuestionRepository(private val context: Context) {
         val now = System.currentTimeMillis()
         val cooldownMs = TimeUnit.DAYS.toMillis(2)
 
+        val recentIds = historyStore.getRecentlySeenIds(100)
         val wrongPool = finalPool.filter { it.id in wrongIds }
         val cooldownExcluded = finalPool.filter { q ->
             val h = historyStore.getHistory(q.id) ?: return@filter true
@@ -174,26 +175,39 @@ class QuestionRepository(private val context: Context) {
             (now - h.lastSeenAt) < cooldownMs
         }
         val available = finalPool.filter { it !in cooldownExcluded }
-
+        val topicCap = (count / 3).coerceAtLeast(1)
         val selected = mutableSetOf<String>()
         val result = ArrayList<Question>()
+        val topicCount = mutableMapOf<String, Int>()
 
-        // 1) Add wrong questions first (up to count)
+        fun canAdd(q: Question): Boolean {
+            if (q.id in selected) return false
+            val topic = q.subject.tr
+            if ((topicCount[topic] ?: 0) >= topicCap) return false
+            return true
+        }
+
+        // 1) Add wrong questions first (adaptive: weak topics)
         wrongPool.shuffled().forEach { q ->
             if (result.size >= count) return@forEach
-            if (q.id !in selected) {
+            if (canAdd(q)) {
                 result.add(q)
                 selected.add(q.id)
+                topicCount[q.subject.tr] = (topicCount[q.subject.tr] ?: 0) + 1
             }
         }
 
-        // 2) Fill remaining with least-recently-seen
-        val rest = available.filter { it.id !in selected }
-            .sortedBy { historyStore.getHistory(it.id)?.lastSeenAt ?: 0L }
+        // 2) Fill with least-recently-seen, prefer non-recent
+        var rest = available.filter { it.id !in selected }
+        if (rest.size > count) rest = rest.filter { it.id !in recentIds }.ifEmpty { rest }
+        rest = rest.sortedBy { historyStore.getHistory(it.id)?.lastSeenAt ?: 0L }
         rest.forEach { q ->
             if (result.size >= count) return@forEach
-            result.add(q)
-            selected.add(q.id)
+            if (canAdd(q) && (q.id !in recentIds || available.size < count * 2)) {
+                result.add(q)
+                selected.add(q.id)
+                topicCount[q.subject.tr] = (topicCount[q.subject.tr] ?: 0) + 1
+            }
         }
 
         // 3) If still empty (e.g. all in cooldown, no wrong), ignore cooldown and use pool
@@ -271,6 +285,30 @@ class QuestionRepository(private val context: Context) {
         }
         Log.w(TAG, "Filter: no questions after all fallbacks")
         return Pair(emptyList(), FilterStats(0, 0, 0))
+    }
+
+    /** Remedial mini-quiz: focused on weak topics. Prefer lastFailedWrongIds from ProtectionPrefs. */
+    fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = 10, weakTopicIds: List<String> = emptyList()): List<Question> {
+        val all = loadAllQuestions().associateBy { it.id }
+        val wrongIds = weakTopicIds.ifEmpty { historyStore.getWrongQuestionIds(14).toList() }
+        val weakTopics = wrongIds.mapNotNull { all[it]?.subject?.tr }.distinct()
+        val byTopic = all.values.groupBy { it.subject.tr }
+        val pool = mutableListOf<Question>()
+        for (topic in weakTopics) {
+            byTopic[topic]?.let { pool.addAll(it.filter { it.levelGroup == levelGroup }) }
+        }
+        if (pool.isEmpty()) pool.addAll(all.values.filter { it.levelGroup == levelGroup })
+        val recentIds = historyStore.getRecentlySeenIds(100)
+        val sessionIds = mutableSetOf<String>()
+        val result = mutableListOf<Question>()
+        for (q in pool.shuffled()) {
+            if (result.size >= count) break
+            if (q.id in sessionIds) continue
+            if (q.id in recentIds && pool.size > count * 2) continue
+            result.add(q)
+            sessionIds.add(q.id)
+        }
+        return result.ifEmpty { pool.shuffled().take(count) }
     }
 
     fun pickRetryWrongQuestions(levelGroup: LevelGroup): List<Question> {

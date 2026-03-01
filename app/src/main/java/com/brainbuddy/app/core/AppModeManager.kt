@@ -15,7 +15,7 @@ enum class AppMode {
 
 object AppModeManager {
 
-    private val SESSION_TIMEOUT_MS = TimeUnit.MINUTES.toMillis(5)
+    private val SESSION_TIMEOUT_MS = TimeUnit.MINUTES.toMillis(3)
 
     @Volatile
     private var currentMode: AppMode = AppMode.StudentMode

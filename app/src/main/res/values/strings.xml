@@ -38,9 +38,67 @@
     <string name="quiz_title">Test</string>
     <string name="submit_answer">Cevapla</string>
     <string name="next_question">Sonraki</string>
+    <string name="btn_start_quiz">Teste Başla</string>
+    <string name="btn_practice">Pratik Yap (Mini Test)</string>
+
+    <!-- Gate -->
+    <string name="gate_title">Sınava Gerek Var</string>
+    <string name="gate_quiz_required">Engellenen uygulamayı kullanmak için önce testi geçmelisin.</string>
+
+    <!-- Lock screen -->
+    <string name="lock_failed_title">Test Başarısız</string>
+    <string name="lock_failed_message">3\'ten fazla yanlış cevap verdin. Testi geçene veya pratik yapana kadar uygulama kilitli.</string>
+    <string name="lock_permission_title">Engelleme İzni Kapatıldı</string>
+    <string name="lock_permission_message">Uygulama engelleme izni kapatıldı. Ebeveyn PIN\'i ile ayarlardan yeniden açabilirsiniz.</string>
+    <string name="btn_parent_unlock">Ebeveyn PIN ile Aç</string>
+
+    <!-- Permissions checklist -->
+    <string name="perm_checklist_title">İzin Kontrolü</string>
+    <string name="perm_accessibility">Erişilebilirlik (Zorunlu)</string>
+    <string name="perm_usage">Kullanım Erişimi (Opsiyonel)</string>
+    <string name="perm_notification">Bildirimler (Opsiyonel)</string>
+    <string name="perm_battery">Pil Optimizasyonu Dışı (Önerilen)</string>
+    <string name="perm_status_ok">Aktif</string>
+    <string name="perm_status_missing">Eksik</string>
+    <string name="perm_status_optional">Opsiyonel</string>
+    <string name="perm_status_recommended">Önerilen</string>
+    <string name="perm_enable">Etkinleştir</string>
+    <string name="perm_recheck">Kontrol Et</string>
+    <string name="perm_open_settings">Ayarları Aç</string>
+    <string name="perm_device_owner_note">Tam kısıtlama için Cihaz Sahibi modu gerekir.</string>
 
     <!-- Results -->
     <string name="results_title">Sonuçlar</string>
-    <string name="retry_wrong">Yanlışları Tekrar Çöz</string>
+    <string name="retry_wrong">Yanlışları İncele</string>
+    <string name="btn_retry_test">Testi Tekrarla</string>
+
+    <!-- Reports -->
+    <string name="reports_title">Raporlar</string>
+    <string name="report_daily">Günlük Özet</string>
+    <string name="report_weekly">Haftalık Özet</string>
+    <string name="report_share">Raporu Paylaş</string>
+
+    <!-- Profiles -->
+    <string name="profiles_title">Profiller</string>
+    <string name="profile_select">Profil Seç</string>
+
+    <!-- Backup -->
+    <string name="backup_export">Yedek Al</string>
+    <string name="backup_import">Yedekten Geri Yükle</string>
+
+    <!-- Schedule -->
+    <string name="schedule_title">Zaman Çizelgeleri</string>
+    <string name="schedule_add">Kural Ekle</string>
+    <string name="schedule_empty">Henüz kural yok</string>
+    <string name="schedule_added">Kural eklendi</string>
+
+    <!-- Profile -->
+    <string name="profile_add">Profil Ekle</string>
+
+    <!-- App presets -->
+    <string name="preset_all">Tümü</string>
+    <string name="preset_social">Sosyal</string>
+    <string name="preset_games">Oyunlar</string>
+    <string name="preset_browsers">Tarayıcılar</string>
 
 </resources>

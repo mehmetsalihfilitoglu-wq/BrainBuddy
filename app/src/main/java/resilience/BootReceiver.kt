@@ -13,11 +13,17 @@ import androidx.work.WorkManager
  */
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
-        val work = OneTimeWorkRequestBuilder<ReloadSettingsWorker>().build()
-        WorkManager.getInstance(context).enqueueUniqueWork(
-            "brainbuddy_reload_settings",
-            ExistingWorkPolicy.REPLACE,
-            work
-        )
+        when (intent?.action) {
+            Intent.ACTION_BOOT_COMPLETED,
+            Intent.ACTION_LOCKED_BOOT_COMPLETED,
+            Intent.ACTION_MY_PACKAGE_REPLACED -> {
+                val work = OneTimeWorkRequestBuilder<ReloadSettingsWorker>().build()
+                WorkManager.getInstance(context).enqueueUniqueWork(
+                    "brainbuddy_reload_settings",
+                    ExistingWorkPolicy.REPLACE,
+                    work
+                )
+            }
+        }
     }
 }

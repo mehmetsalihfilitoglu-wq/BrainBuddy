@@ -15,7 +15,19 @@ class ReloadSettingsWorker(
 ) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): ListenableWorker.Result {
-        // Burada ileride ayarları restore edeceksin.
+        val ctx = applicationContext
+        val prefs = com.brainbuddy.app.core.ProtectionPrefs(ctx)
+        val blocked = com.brainbuddy.app.core.BlockedAppsStore(ctx)
+        if (!com.brainbuddy.app.accessibility.AccessibilityUtils.isServiceEnabled(
+                ctx, com.brainbuddy.app.accessibility.ForegroundAppBlockerService::class.java
+            ) && prefs.isProtectionEnabled()
+        ) {
+            prefs.setUserLocked(true)
+            prefs.setPermissionDisabledLockReason("accessibility_disabled")
+            com.brainbuddy.app.core.TamperStore(ctx).logEvent(
+                com.brainbuddy.app.core.TamperStore.TamperType.SERVICE_DISABLED
+            )
+        }
         return ListenableWorker.Result.success()
     }
 }

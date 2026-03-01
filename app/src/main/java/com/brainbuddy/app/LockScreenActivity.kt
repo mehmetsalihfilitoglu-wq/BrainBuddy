@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.security.PinManager
 import com.brainbuddy.app.databinding.ActivityLockScreenBinding
 
 /**
@@ -20,13 +21,25 @@ class LockScreenActivity : AppCompatActivity() {
         b = ActivityLockScreenBinding.inflate(layoutInflater)
         setContentView(b.root)
 
-        b.tvFailedTitle.text = "Test Başarısız ❌"
-        b.tvFailedMessage.text = "3'ten fazla yanlış cevap verdin. Testi geçene kadar uygulama kilitli."
-
         val protectionPrefs = ProtectionPrefs(this)
+        val permLocked = protectionPrefs.isPermissionLocked()
+        if (permLocked) {
+            b.tvFailedTitle.text = getString(R.string.lock_permission_title)
+            b.tvFailedMessage.text = getString(R.string.lock_permission_message)
+            b.btnParentPin.visibility = android.view.View.VISIBLE
+        } else {
+            b.tvFailedTitle.text = getString(R.string.lock_failed_title)
+            b.tvFailedMessage.text = getString(R.string.lock_failed_message)
+            b.btnParentPin.visibility = android.view.View.GONE
+        }
+
         val wrongIds = protectionPrefs.lastFailedWrongIds()
         val quizId = protectionPrefs.lastFailedQuizId()
         val questionIds = protectionPrefs.lastFailedQuestionIds()
+
+        b.btnReviewWrong.visibility = if (permLocked) android.view.View.GONE else android.view.View.VISIBLE
+        b.btnRetryTest.visibility = if (permLocked) android.view.View.GONE else android.view.View.VISIBLE
+        b.btnPractice.visibility = if (permLocked) android.view.View.GONE else android.view.View.VISIBLE
 
         b.btnReviewWrong.setOnClickListener {
             if (wrongIds.isNotEmpty()) {
@@ -50,9 +63,17 @@ class LockScreenActivity : AppCompatActivity() {
 
         b.btnPractice.setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java).apply {
-                putExtra(com.brainbuddy.app.quiz.QuizActivity.EXTRA_RETRY_WRONG, true)
+                putExtra(com.brainbuddy.app.quiz.QuizActivity.EXTRA_REMEDIAL, true)
             })
             finish()
+        }
+
+        b.btnParentPin.setOnClickListener {
+            val pinManager = PinManager(this)
+            startActivity(Intent(this, com.brainbuddy.app.ui.PinLockActivity::class.java).apply {
+                putExtra(com.brainbuddy.app.ui.PinLockActivity.EXTRA_TARGET, "PermissionsChecklistActivity")
+                putExtra(com.brainbuddy.app.ui.PinLockActivity.EXTRA_MODE, if (pinManager.isPinSet()) "verify" else "set")
+            })
         }
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {

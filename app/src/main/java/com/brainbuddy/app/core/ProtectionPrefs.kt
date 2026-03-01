@@ -45,6 +45,12 @@ class ProtectionPrefs(context: Context) {
     fun lastFailedSessionJson(): String = prefs.getString(KEY_LAST_FAILED_SESSION_JSON, "") ?: ""
     fun setLastFailedSessionJson(json: String) = prefs.edit().putString(KEY_LAST_FAILED_SESSION_JSON, json).apply()
 
+    /** When accessibility is disabled, we lock with this reason. Only Parent PIN can fix. */
+    fun permissionDisabledLockReason(): String = prefs.getString(KEY_PERMISSION_LOCK_REASON, "") ?: ""
+    fun setPermissionDisabledLockReason(reason: String) = prefs.edit().putString(KEY_PERMISSION_LOCK_REASON, reason).apply()
+
+    fun isPermissionLocked(): Boolean = permissionDisabledLockReason().isNotEmpty()
+
     companion object {
         private const val PREFS = "bb_protection_prefs"
         private const val KEY_ENABLED = "protection_enabled"
@@ -57,6 +63,7 @@ class ProtectionPrefs(context: Context) {
         private const val KEY_LAST_FAILED_QUESTION_IDS = "last_failed_question_ids"
         private const val KEY_LAST_FAILED_SESSION_JSON = "last_failed_session_json"
         private const val KEY_QUIZ_INTERVAL = "quiz_interval_minutes"
+        private const val KEY_PERMISSION_LOCK_REASON = "permission_lock_reason"
     }
 }
 

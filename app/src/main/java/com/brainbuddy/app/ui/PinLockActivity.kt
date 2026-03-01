@@ -104,6 +104,8 @@ class PinLockActivity : AppCompatActivity() {
             "TimeLimitsActivity" -> TimeLimitsActivity::class.java
             "QuizSettingsActivity" -> QuizSettingsActivity::class.java
             "ProtectionInactiveActivity" -> ProtectionInactiveActivity::class.java
+            "PermissionsChecklistActivity" -> PermissionsChecklistActivity::class.java
+            "ProfileManageActivity" -> ProfileManageActivity::class.java
             else -> ParentActivity::class.java
         }
         startActivity(Intent(this, target))

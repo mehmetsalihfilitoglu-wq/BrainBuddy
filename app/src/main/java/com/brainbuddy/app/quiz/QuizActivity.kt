@@ -21,6 +21,9 @@ class QuizActivity : AppCompatActivity() {
         const val EXTRA_QUIZ_ID = "quiz_id"
         const val EXTRA_IS_RETRY = "is_retry"
         const val EXTRA_QUESTIONS_JSON = "questions_json"
+        const val EXTRA_GATE_MODE = "gate_mode"
+        const val EXTRA_BLOCKED_PACKAGE = "blocked_package"
+        const val EXTRA_REMEDIAL = "remedial"
     }
 
     private lateinit var b: ActivityQuizBinding
@@ -47,11 +50,14 @@ class QuizActivity : AppCompatActivity() {
         quizPrefs = QuizPrefs(this)
         retryWrongMode = intent.getBooleanExtra(EXTRA_RETRY_WRONG, false)
         isRetryOfLockedQuiz = intent.getBooleanExtra(EXTRA_IS_RETRY, false)
+        val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
         quizId = intent.getStringExtra(EXTRA_QUIZ_ID) ?: UUID.randomUUID().toString()
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS)
 
         val levelGroup = repo.getLevelGroupFromPrefs()
+        val protectionPrefs = ProtectionPrefs(this)
         questions = when {
+            isRemedial -> repo.pickRemedialQuestions(levelGroup, 10, protectionPrefs.lastFailedWrongIds())
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 val found = wrongIds.mapNotNull { all[it] }
@@ -239,7 +245,14 @@ class QuizActivity : AppCompatActivity() {
         )
 
         val protectionPrefs = ProtectionPrefs(this)
-        if (!passed && !isRetryOfLockedQuiz) {
+        val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
+        val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
+        if (passed && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
+            protectionPrefs.setLastQuizPassedAtMs(System.currentTimeMillis())
+            if (isRetryOfLockedQuiz || isRemedial) protectionPrefs.setUserLocked(false)
+        }
+        if (!passed && !isRetryOfLockedQuiz && !isRemedial) {
+            com.brainbuddy.app.core.ReportStore(this).recordLockEvent()
             protectionPrefs.setUserLocked(true)
             protectionPrefs.setLastFailedWrongIds(wrongIds)
             protectionPrefs.setLastFailedQuizId(quizId)

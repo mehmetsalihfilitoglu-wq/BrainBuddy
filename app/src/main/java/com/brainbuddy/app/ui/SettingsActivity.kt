@@ -2,9 +2,11 @@ package com.brainbuddy.app.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.BackupManager
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.StudentLevel
 
@@ -63,7 +65,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardPermissions).setOnClickListener {
-            startActivity(Intent(this, ProtectionInactiveActivity::class.java))
+            startActivity(Intent(this, PermissionsChecklistActivity::class.java))
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardBlockedApps).setOnClickListener {
             startActivity(Intent(this, BlockedAppsActivity::class.java))
@@ -73,6 +75,18 @@ class SettingsActivity : AppCompatActivity() {
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardQuizSettings).setOnClickListener {
             startActivity(Intent(this, QuizSettingsActivity::class.java))
+        }
+        findViewById<View>(R.id.cardReports)?.setOnClickListener {
+            startActivity(Intent(this, ReportsActivity::class.java))
+        }
+        findViewById<View>(R.id.cardSchedules)?.setOnClickListener {
+            startActivity(Intent(this, SchedulesActivity::class.java))
+        }
+        findViewById<View>(R.id.cardProfiles)?.setOnClickListener {
+            startActivity(Intent(this, ProfileManageActivity::class.java))
+        }
+        findViewById<View>(R.id.cardBackup)?.setOnClickListener {
+            BackupManager.exportBackup(this)
         }
     }
 

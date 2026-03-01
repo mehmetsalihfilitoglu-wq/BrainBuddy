@@ -111,7 +111,7 @@ class QuizResultActivity : AppCompatActivity() {
                         choices = choices,
                         correctIndex = o.optInt("correctIndex", 0),
                         hint = if (o.isNull("hint")) null else o.getString("hint"),
-                        imageAsset = if (o.isNull("imageAsset")) null else o.optString("imageAsset", null),
+                        imageAsset = if (o.isNull("imageAsset")) null else o.optString("imageAsset", "").takeIf { it.isNotEmpty() },
                         difficulty = diff
                     )
                 }

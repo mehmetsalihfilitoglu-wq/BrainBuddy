@@ -62,6 +62,16 @@ class QuestionHistoryStore(context: Context) {
         }.toSet()
     }
 
+    fun getRecentlySeenIds(limit: Int = 100): Set<String> {
+        val allKeys = prefs.all.keys.filter { it.startsWith("q_") }
+        val withTime = allKeys.mapNotNull { key ->
+            val id = key.removePrefix("q_")
+            val h = getHistory(id) ?: return@mapNotNull null
+            id to h.lastSeenAt
+        }
+        return withTime.sortedByDescending { it.second }.take(limit).map { it.first }.toSet()
+    }
+
     fun getAllWrongIds(): Set<String> {
         val allKeys = prefs.all.keys.filter { it.startsWith("q_") }
         return allKeys.mapNotNull { key ->

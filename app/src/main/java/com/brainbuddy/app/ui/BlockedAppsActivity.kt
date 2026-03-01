@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.AppGroupPresets
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.ParentAccessGuard
 
@@ -56,6 +57,35 @@ class BlockedAppsActivity : AppCompatActivity() {
         }
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
+
+        val chipAll = findViewById<com.google.android.material.chip.Chip>(R.id.chipAll)
+        val chipSocial = findViewById<com.google.android.material.chip.Chip>(R.id.chipSocial)
+        val chipGames = findViewById<com.google.android.material.chip.Chip>(R.id.chipGames)
+        val chipBrowsers = findViewById<com.google.android.material.chip.Chip>(R.id.chipBrowsers)
+        chipSocial?.setOnClickListener {
+            val inst = com.brainbuddy.app.core.AppGroupPresets.getInstalledFromGroup(this, "social")
+            val set = blockedStore.getBlockedPackages().toMutableSet()
+            set.addAll(inst)
+            blockedStore.setBlockedPackages(set)
+            adapter.updateList(allApps)
+            adapter.notifyDataSetChanged()
+        }
+        chipGames?.setOnClickListener {
+            val inst = com.brainbuddy.app.core.AppGroupPresets.getInstalledFromGroup(this, "games")
+            val set = blockedStore.getBlockedPackages().toMutableSet()
+            set.addAll(inst)
+            blockedStore.setBlockedPackages(set)
+            adapter.updateList(allApps)
+            adapter.notifyDataSetChanged()
+        }
+        chipBrowsers?.setOnClickListener {
+            val inst = com.brainbuddy.app.core.AppGroupPresets.getInstalledFromGroup(this, "browsers")
+            val set = blockedStore.getBlockedPackages().toMutableSet()
+            set.addAll(inst)
+            blockedStore.setBlockedPackages(set)
+            adapter.updateList(allApps)
+            adapter.notifyDataSetChanged()
+        }
 
         searchBox.addTextChangedListener(object : android.text.TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
