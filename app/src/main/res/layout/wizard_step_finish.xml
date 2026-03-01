@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kurulum Tamamlandı"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/bb_text"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="BrainBuddy hazır! Engellenen uygulamaları açmak için önce testi geçmek gerekecek."
+        android:textSize="16sp"
+        android:textColor="@color/bb_text_muted"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btnFinish"
+        style="@style/BB.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Başla"/>
+</LinearLayout>
