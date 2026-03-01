@@ -13,13 +13,13 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Header -->
+        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingBottom="16dp">
+            android:paddingBottom="8dp">
 
             <TextView
                 android:layout_width="0dp"
@@ -29,40 +29,124 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/bb_text"/>
+
+            <ImageButton
+                android:id="@+id/btnPermissions"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/parent_permissions"
+                android:padding="8dp"
+                android:src="@drawable/ic_permission"
+                app:tint="@color/bb_primary"/>
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/parent_settings"
+                android:padding="8dp"
+                android:src="@drawable/ic_settings_24"
+                app:tint="@color/bb_primary"/>
         </LinearLayout>
 
-        <!-- Status pills row -->
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvLastUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="16dp"
+            android:textSize="12sp"
+            android:textColor="@color/bb_text_muted"
+            tools:text="Son güncelleme: 1 Mart 2025, 14:30"/>
 
-            <TextView
-                android:id="@+id/pillScreenTime"
-                android:layout_width="wrap_content"
+        <!-- SECTION 1: Quick Summary Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/BB.HomeCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/bb_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_badge"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:visibility="gone"/>
+                android:orientation="horizontal"
+                android:padding="20dp">
 
-            <TextView
-                android:id="@+id/pillGatePass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/bg_badge"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="8dp"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                tools:text="Geçiş: 85%"/>
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-        <!-- Gamification Card -->
+                    <TextView
+                        android:id="@+id/quickTestValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_primary"
+                        tools:text="5"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/parent_quick_test"
+                        android:textSize="12sp"
+                        android:textColor="@color/bb_text_muted"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/quickAccuracyValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_primary"
+                        tools:text="85"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/parent_quick_success"
+                        android:textSize="12sp"
+                        android:textColor="@color/bb_text_muted"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/quickDenemeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text"
+                        tools:text="Instagram 0"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/parent_quick_deneme"
+                        android:textSize="12sp"
+                        android:textColor="@color/bb_text_muted"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- SECTION 2: Progress Card (Level/XP/Streak) -->
         <com.google.android.material.card.MaterialCardView
             style="@style/BB.HomeCard"
             android:layout_width="match_parent"
@@ -76,106 +160,40 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/parent_gamification"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="16dp"
                     android:gravity="center_vertical">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tvLevelNum"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_primary"
+                        tools:text="Seviye 1"/>
 
-                        <TextView
-                            android:id="@+id/tvLevelNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1"
-                            android:textSize="32sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_primary"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Seviye"
-                            android:textSize="12sp"
-                            android:textColor="@color/bb_text_muted"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/tvXpNum"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <TextView
-                            android:id="@+id/tvXpNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="32sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_accent"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="XP"
-                            android:textSize="12sp"
-                            android:textColor="@color/bb_text_muted"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <TextView
-                            android:id="@+id/tvStreakNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="32sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_text"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="🔥 Seri"
-                            android:textSize="12sp"
-                            android:textColor="@color/bb_text_muted"/>
-                    </LinearLayout>
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_accent"
+                        tools:text="150 XP"/>
                 </LinearLayout>
 
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/badgeChips"
+                <TextView
+                    android:id="@+id/tvXpToNext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    app:chipSpacingHorizontal="8dp"
-                    app:chipSpacingVertical="8dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Sonraki seviye"
+                    android:layout_marginTop="8dp"
                     android:textSize="12sp"
-                    android:textColor="@color/bb_text_muted"/>
+                    android:textColor="@color/bb_text_muted"
+                    tools:text="Seviye 2'ye 50 XP kaldı"/>
 
                 <ProgressBar
                     android:id="@+id/progressToNextLevel"
@@ -184,13 +202,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:max="100"
-                    android:progress="0"
+                    android:progress="50"
                     android:progressTint="@color/bb_primary"
                     android:progressBackgroundTint="#20000000"/>
+
+                <TextView
+                    android:id="@+id/tvStreakNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="12dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/bb_text"
+                    tools:text="🔥 Seri: 3 gün"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Weekly Summary Card -->
+        <!-- SECTION 3: Weekly Success Card (Donut + Counts) -->
         <com.google.android.material.card.MaterialCardView
             style="@style/BB.HomeCard"
             android:layout_width="match_parent"
@@ -207,7 +235,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/parent_weekly_summary"
+                    android:text="@string/parent_weekly_success"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/bb_text"/>
@@ -216,94 +244,51 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp">
 
                     <com.brainbuddy.app.ui.DonutChartView
                         android:id="@+id/donutChart"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         tools:progress="75"/>
 
-                    <com.brainbuddy.app.ui.MiniBarChartView
-                        android:id="@+id/miniBarChart"
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:layout_marginStart="16dp"/>
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:id="@+id/tvWeeklyCorrect"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/bb_text"
+                            tools:text="Doğru: 42"/>
+                        <TextView
+                            android:id="@+id/tvWeeklyWrong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/bb_text"
+                            tools:text="Yanlış: 8"/>
+                        <TextView
+                            android:id="@+id/tvWeeklyBlank"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/bb_text"
+                            tools:text="Boş: 0"/>
+                    </LinearLayout>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/tvWeeklyTests"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="0"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:id="@+id/tvWeeklyQuestions"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="0"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:id="@+id/tvWeeklyCorrect"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="0"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_primary"/>
-                    <TextView
-                        android:id="@+id/tvWeeklyAccuracy"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="0%"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_primary"/>
-                    <TextView
-                        android:id="@+id/tvWeeklyXp"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="0 XP"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_accent"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:gravity="center"
-                    android:text="Test | Soru | Doğru | Başarı | Kazanılan XP"
-                    android:textSize="10sp"
-                    android:textColor="@color/bb_text_muted"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Performance Section -->
+        <!-- SECTION 4: Topic Performance Card (Bar Chart) -->
         <com.google.android.material.card.MaterialCardView
             style="@style/BB.HomeCard"
             android:layout_width="match_parent"
@@ -320,7 +305,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/parent_performance"
+                    android:text="@string/parent_topic_performance"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/bb_text"/>
@@ -330,64 +315,81 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:minHeight="100dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Güçlü konular"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_primary"/>
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:scrollbars="none">
-
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/chipStrong"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipSpacingHorizontal="8dp"/>
-                </HorizontalScrollView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Geliştirilecek"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_error"/>
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:scrollbars="none">
-
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/chipWeak"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipSpacingHorizontal="8dp"/>
-                </HorizontalScrollView>
+                    android:minHeight="140dp"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Controls Section -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- SECTION 5: Strong/Weak (Two cards side by side) -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:text="@string/parent_controls"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/bb_text"/>
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
 
+            <com.google.android.material.card.MaterialCardView
+                style="@style/BB.HomeCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/bb_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/parent_strong_topics"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_primary"/>
+
+                    <LinearLayout
+                        android:id="@+id/containerStrong"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/BB.HomeCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardBackgroundColor="@color/bb_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/parent_weak_topics"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_error"/>
+
+                    <LinearLayout
+                        android:id="@+id/containerWeak"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- SECTION 6: Controls List -->
         <include layout="@layout/item_parent_control_row"
             android:id="@+id/controlReviewWrong"/>
 
@@ -404,18 +406,10 @@
             android:id="@+id/controlAvatarShop"/>
 
         <include layout="@layout/item_parent_control_row"
-            android:id="@+id/controlPermissions"/>
-
-        <include layout="@layout/item_parent_control_row"
-            android:id="@+id/controlSettings"/>
-
-        <include layout="@layout/item_parent_control_row"
             android:id="@+id/controlChangePin"/>
 
-        <LinearLayout
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp"/>
+            android:layout_height="24dp"/>
     </LinearLayout>
 </ScrollView>
