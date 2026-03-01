@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
+import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.security.PinManager
 import com.brainbuddy.app.ui.BlockedAppsActivity
 import com.brainbuddy.app.ui.ParentActivity
@@ -18,6 +19,11 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (ProtectionPrefs(this).userLocked()) {
+            startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+            finish()
+            return
+        }
         setContentView(R.layout.activity_home)
 
         val gam = GamificationStore(this)
@@ -25,7 +31,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Header badges
         findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri"
-        findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.points()} puan"
+        findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
         findViewById<android.widget.TextView>(R.id.levelBadge).text = "Seviye ${gam.level()}"
 
         // Daily goal: 1 quiz per day
@@ -41,6 +47,9 @@ class HomeActivity : AppCompatActivity() {
         // CTA clicks
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTest).setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java))
+        }
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardStats).setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java))
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardSettings).setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
@@ -63,10 +72,15 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        if (ProtectionPrefs(this).userLocked()) {
+            startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+            finish()
+            return
+        }
         // Refresh badges when returning
         val gam = GamificationStore(this)
         findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri"
-        findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.points()} puan"
+        findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
         findViewById<android.widget.TextView>(R.id.levelBadge).text = "Seviye ${gam.level()}"
     }
 }

@@ -7,16 +7,20 @@ import android.os.CountDownTimer
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuizBinding
+import java.util.UUID
 
 class QuizActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_RETRY_WRONG = "retry_wrong"
         const val EXTRA_WRONG_IDS = "wrong_ids"
+        const val EXTRA_QUIZ_ID = "quiz_id"
+        const val EXTRA_IS_RETRY = "is_retry"
+        const val EXTRA_QUESTIONS_JSON = "questions_json"
     }
 
     private lateinit var b: ActivityQuizBinding
@@ -26,8 +30,11 @@ class QuizActivity : AppCompatActivity() {
     private var questions: List<Question> = emptyList()
     private var index = 0
     private var retryWrongMode = false
+    private var isRetryOfLockedQuiz = false
+    private var quizId: String = ""
+    private var startedAt: Long = 0L
 
-    private val answers = ArrayList<AnswerRecord>()
+    private val answers = mutableMapOf<String, Int>()
     private var hintTimer: CountDownTimer? = null
     private var hintAvailable = false
 
@@ -39,6 +46,8 @@ class QuizActivity : AppCompatActivity() {
         repo = QuestionRepository(this)
         quizPrefs = QuizPrefs(this)
         retryWrongMode = intent.getBooleanExtra(EXTRA_RETRY_WRONG, false)
+        isRetryOfLockedQuiz = intent.getBooleanExtra(EXTRA_IS_RETRY, false)
+        quizId = intent.getStringExtra(EXTRA_QUIZ_ID) ?: UUID.randomUUID().toString()
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS)
 
         val levelGroup = repo.getLevelGroupFromPrefs()
@@ -60,20 +69,19 @@ class QuizActivity : AppCompatActivity() {
             }
         }
 
-        b.submitBtn.setOnClickListener { onSubmit() }
+        b.submitBtn.visibility = View.GONE
         b.nextBtn.setOnClickListener { goNext() }
         b.hintBtn.setOnClickListener { showHintIfAllowed() }
+        b.finishTestBtn.setOnClickListener { finishTest() }
 
-        b.nextBtn.isEnabled = false
-
-        // Only show "soru yok" for retry mode with no wrong questions; never for filter/JSON issues
         if (questions.isEmpty()) {
             b.subjectChip.text = "Soru bulunamadı"
             b.questionText.text = if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!" else "Soru havuzunda soru yok."
-            b.submitBtn.isEnabled = false
             b.hintBtn.isEnabled = false
             b.nextBtn.isEnabled = false
+            b.finishTestBtn.isEnabled = false
         } else {
+            startedAt = System.currentTimeMillis()
             render()
         }
     }
@@ -92,7 +100,7 @@ class QuizActivity : AppCompatActivity() {
 
         if (!q.imageAsset.isNullOrBlank()) {
             try {
-                assets.open(q.imageAsset!!).use {
+                assets.open(q.imageAsset!!.trim()).use {
                     b.questionImage.setImageBitmap(BitmapFactory.decodeStream(it))
                     b.questionImage.visibility = View.VISIBLE
                 }
@@ -101,41 +109,52 @@ class QuizActivity : AppCompatActivity() {
             }
         } else b.questionImage.visibility = View.GONE
 
-        b.optionsGroup.clearCheck()
         b.optA.text = q.choices.getOrNull(0) ?: "-"
         b.optB.text = q.choices.getOrNull(1) ?: "-"
         b.optC.text = q.choices.getOrNull(2) ?: "-"
         b.optD.text = q.choices.getOrNull(3) ?: "-"
 
-        b.submitBtn.isEnabled = true
-        b.submitBtn.text = "Cevabı Kontrol Et"
-        b.nextBtn.isEnabled = false
+        b.optionsGroup.setOnCheckedChangeListener(null)
+        val saved = answers[q.id] ?: -1
+        when (saved) {
+            0 -> b.optA.isChecked = true
+            1 -> b.optB.isChecked = true
+            2 -> b.optC.isChecked = true
+            3 -> b.optD.isChecked = true
+            else -> b.optionsGroup.clearCheck()
+        }
+        b.optionsGroup.setOnCheckedChangeListener { _, checkedId ->
+            val sel = when (checkedId) {
+                b.optA.id -> 0
+                b.optB.id -> 1
+                b.optC.id -> 2
+                b.optD.id -> 3
+                else -> -1
+            }
+            if (sel >= 0) answers[q.id] = sel
+        }
+
+        b.feedbackText.visibility = View.GONE
+        listOf(b.optA, b.optB, b.optC, b.optD).forEach {
+            it.alpha = 1f
+            it.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+        }
+
+        b.nextBtn.isEnabled = true
+        b.nextBtn.text = if (index < questions.size - 1) "Sonraki Soru →" else "Testi Bitir"
 
         hintAvailable = false
         b.hintBtn.isEnabled = false
         b.hintBtn.alpha = 0.5f
         b.hintText.visibility = View.GONE
-        b.feedbackText.visibility = View.GONE
-
-        listOf(b.optA, b.optB, b.optC, b.optD).forEach {
-            it.alpha = 1f
-            it.scaleX = 1f
-            it.scaleY = 1f
-            it.setBackgroundColor(android.graphics.Color.TRANSPARENT)
-        }
-
         startHintCountdown(30)
     }
 
     private fun startHintCountdown(seconds: Int) {
         hintTimer?.cancel()
         b.hintTimer.text = "İpucu: ${seconds}s"
-
         hintTimer = object : CountDownTimer(seconds * 1000L, 1000L) {
-            override fun onTick(ms: Long) {
-                b.hintTimer.text = "İpucu: ${(ms / 1000).toInt()}s"
-            }
-
+            override fun onTick(ms: Long) { b.hintTimer.text = "İpucu: ${(ms / 1000).toInt()}s" }
             override fun onFinish() {
                 hintAvailable = true
                 b.hintTimer.text = "İpucu hazır ✨"
@@ -146,87 +165,95 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun showHintIfAllowed() {
-        val hint = questions[index].hint
         if (!hintAvailable) return
-        b.hintText.text = hint ?: "Bu soru için ipucu yok."
+        b.hintText.text = questions[index].hint ?: "Bu soru için ipucu yok."
         b.hintText.visibility = View.VISIBLE
         b.hintBtn.isEnabled = false
         b.hintBtn.alpha = 0.5f
     }
 
-    private fun onSubmit() {
-        val q = questions[index]
-        val selected = when (b.optionsGroup.checkedRadioButtonId) {
+    private fun goNext() {
+        saveCurrentSelection()
+        hintTimer?.cancel()
+        if (index < questions.size - 1) {
+            index++
+            render()
+        } else {
+            finishTest()
+        }
+    }
+
+    private fun saveCurrentSelection() {
+        val q = questions.getOrNull(index) ?: return
+        val sel = when (b.optionsGroup.checkedRadioButtonId) {
             b.optA.id -> 0
             b.optB.id -> 1
             b.optC.id -> 2
             b.optD.id -> 3
             else -> -1
         }
-
-        if (selected == -1) {
-            b.feedbackText.text = "Önce bir şık seç! 😊"
-            b.feedbackText.setTextColor(ContextCompat.getColor(this, android.R.color.holo_orange_dark))
-            b.feedbackText.visibility = View.VISIBLE
-            return
-        }
-
-        val correct = selected == q.correctIndex
-        answers.add(AnswerRecord(q.id, selected, q.correctIndex))
-
-        // Feedback
-        b.feedbackText.visibility = View.VISIBLE
-        if (correct) {
-            b.feedbackText.text = "Harika! Doğru cevap! 🎉"
-            b.feedbackText.setTextColor(ContextCompat.getColor(this, android.R.color.holo_green_dark))
-        } else {
-            b.feedbackText.text = "Yanlış. Doğru cevap: ${q.choices.getOrNull(q.correctIndex) ?: "?"}"
-            b.feedbackText.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark))
-        }
-
-        // Visual feedback on choice buttons (subtle)
-        val optViews = listOf(b.optA, b.optB, b.optC, b.optD)
-        optViews.forEachIndexed { i, v ->
-            val color = when {
-                i == selected && correct -> ContextCompat.getColor(this, android.R.color.holo_green_light)
-                i == selected -> ContextCompat.getColor(this, android.R.color.holo_red_light)
-                i == q.correctIndex -> ContextCompat.getColor(this, android.R.color.holo_green_light)
-                else -> android.graphics.Color.TRANSPARENT
-            }
-            v.setBackgroundColor(color)
-        }
-
-        // Simple scale animation
-        b.feedbackText.animate().scaleX(1.1f).scaleY(1.1f).setDuration(150).withEndAction {
-            b.feedbackText.animate().scaleX(1f).scaleY(1f).setDuration(100).start()
-        }.start()
-
-        b.submitBtn.isEnabled = false
-        b.nextBtn.isEnabled = true
-        b.nextBtn.text = if (index < questions.size - 1) "Sonraki Soru →" else "Sonuçları Gör"
-        hintTimer?.cancel()
+        if (sel >= 0) answers[q.id] = sel
     }
 
-    private fun goNext() {
+    private fun finishTest() {
+        saveCurrentSelection()
         hintTimer?.cancel()
 
-        if (index < questions.size - 1) {
-            index++
-            render()
-        } else {
-            repo.recordAnswers(answers)
-            val intent = Intent(this, QuizResultActivity::class.java).apply {
-                putExtra(QuizResultActivity.EXTRA_ANSWERS_JSON, QuizResultActivity.encodeAnswers(answers))
-                putExtra(QuizResultActivity.EXTRA_LEVEL, repo.getLevelGroupFromPrefs().name)
-                putExtra(QuizResultActivity.EXTRA_RETRY_WRONG, retryWrongMode)
+        var correctCount = 0
+        var wrongCount = 0
+        val wrongIds = mutableListOf<String>()
+        val answerRecords = mutableListOf<AnswerRecord>()
+
+        for (q in questions) {
+            val sel = answers[q.id] ?: -1
+            when {
+                sel < 0 -> { }
+                sel == q.correctIndex -> {
+                    correctCount++
+                    answerRecords.add(AnswerRecord(q.id, sel, q.correctIndex))
+                }
+                else -> {
+                    wrongCount++
+                    wrongIds.add(q.id)
+                    answerRecords.add(AnswerRecord(q.id, sel, q.correctIndex))
+                }
             }
-            startActivity(intent)
-            finish()
         }
-    }
+        val blankCount = questions.size - correctCount - wrongCount
 
-    override fun onDestroy() {
-        hintTimer?.cancel()
-        super.onDestroy()
+        repo.recordAnswers(answerRecords)
+
+        val passed = wrongCount <= 3
+        val completedAt = System.currentTimeMillis()
+        val session = QuizSession(
+            quizId = quizId,
+            startedAt = if (startedAt > 0L) startedAt else completedAt - 60000,
+            questionIds = questions.map { it.id },
+            answers = answers.toMap(),
+            completedAt = completedAt,
+            correctCount = correctCount,
+            wrongCount = wrongCount,
+            blankCount = blankCount,
+            passed = passed,
+            wrongQuestionIds = wrongIds
+        )
+
+        val protectionPrefs = ProtectionPrefs(this)
+        if (!passed && !isRetryOfLockedQuiz) {
+            protectionPrefs.setUserLocked(true)
+            protectionPrefs.setLastFailedWrongIds(wrongIds)
+            protectionPrefs.setLastFailedQuizId(quizId)
+            protectionPrefs.setLastFailedQuestionIds(questions.map { it.id })
+            protectionPrefs.setLastFailedSessionJson(QuizResultActivity.encodeSession(session))
+        } else if (passed && isRetryOfLockedQuiz) {
+            protectionPrefs.setUserLocked(false)
+        }
+
+        startActivity(Intent(this, QuizResultActivity::class.java).apply {
+            putExtra(QuizResultActivity.EXTRA_SESSION, QuizResultActivity.encodeSession(session))
+            putExtra(QuizResultActivity.EXTRA_QUESTIONS_JSON, QuizResultActivity.encodeQuestions(questions))
+            putExtra(QuizResultActivity.EXTRA_IS_RETRY, isRetryOfLockedQuiz)
+        })
+        finish()
     }
 }

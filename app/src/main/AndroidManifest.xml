@@ -70,6 +70,18 @@
             android:name=".quiz.QuizResultActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".quiz.WrongAnswerReviewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LockScreenActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".StatsActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".resilience.BootReceiver"
             android:exported="true"
