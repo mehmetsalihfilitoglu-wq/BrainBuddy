@@ -2,6 +2,10 @@ package com.brainbuddy.app
 
 import android.app.Application
 import com.brainbuddy.app.core.AppModeManager
+import com.brainbuddy.app.core.CrashRecoveryPrefs
+import com.brainbuddy.app.report.ReportScheduler
+import com.brainbuddy.app.core.KillSwitchPrefs
+import com.brainbuddy.app.core.ProtectionPrefs
 import com.google.android.gms.ads.MobileAds
 import com.brainbuddy.app.core.PermissionMonitorLauncher
 import android.content.Intent
@@ -14,11 +18,16 @@ class BrainBuddyApp : Application() {
         MobileAds.initialize(this) {}
         AppModeManager.registerLifecycle(this)
         PermissionMonitorLauncher.scheduleCheck(this)
-
-        val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
+        ReportScheduler.schedule(this)
 
         Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
             try {
+                CrashRecoveryPrefs.recordCrash(this)
+                if (CrashRecoveryPrefs.shouldDisableProtectionDueToCrashes(this)) {
+                    CrashRecoveryPrefs.setProtectionDisabledByCrash(this, true)
+                    ProtectionPrefs(this).setProtectionEnabled(false)
+                    KillSwitchPrefs(this).deactivateKillSwitch()
+                }
                 val text = buildString {
                     append("CRASH!\n\n")
                     append(throwable.toString())
@@ -40,7 +49,6 @@ class BrainBuddyApp : Application() {
                 // ignore
             }
 
-            // default handler'a bırakmadan direkt çıkıyoruz (yoksa sistem ekranı basıyor)
             Process.killProcess(Process.myPid())
             exitProcess(10)
         }

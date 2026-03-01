@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AdsPrefs
+import com.brainbuddy.app.core.NotificationPrefs
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.BackupManager
 import com.brainbuddy.app.core.ProtectionPrefs
@@ -95,8 +96,17 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<View>(R.id.cardJuniorModule)?.setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.junior.JuniorSettingsActivity::class.java))
         }
+        findViewById<View>(R.id.cardPrivacyPolicy)?.setOnClickListener {
+            startActivity(Intent(this, PrivacyPolicyActivity::class.java))
+        }
+        findViewById<View>(R.id.cardAccessibilityUsage)?.setOnClickListener {
+            startActivity(Intent(this, AccessibilityUsageActivity::class.java))
+        }
         findViewById<View>(R.id.cardBackup)?.setOnClickListener {
             BackupManager.exportBackup(this)
+        }
+        findViewById<View>(R.id.cardRestore)?.setOnClickListener {
+            startActivity(Intent(this, BackupImportActivity::class.java))
         }
         findViewById<View>(R.id.cardRewardContracts)?.setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.reward.RewardContractActivity::class.java))
@@ -108,6 +118,13 @@ class SettingsActivity : AppCompatActivity() {
             adsPrefs.setAdsEnabled(!isChecked)
         }
 
+        val notifPrefs = NotificationPrefs(this)
+        findViewById<android.widget.Switch>(R.id.switchMotivationNotifications).apply {
+            isChecked = notifPrefs.areMotivationNotificationsEnabled()
+            setOnCheckedChangeListener { _, isChecked ->
+                notifPrefs.setMotivationNotificationsEnabled(isChecked)
+            }
+        }
         val switchShopDisabled = findViewById<android.widget.Switch>(R.id.switchShopDisabled)
         val avatarStore = com.brainbuddy.app.avatar.AvatarStore(this)
         switchShopDisabled.isChecked = avatarStore.isShopDisabledByParent()

@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.security.EmergencyCodeManager
 import com.brainbuddy.app.security.PinManager
 import com.brainbuddy.app.databinding.ActivityLockScreenBinding
 
@@ -74,6 +75,13 @@ class LockScreenActivity : AppCompatActivity() {
                 putExtra(com.brainbuddy.app.ui.PinLockActivity.EXTRA_TARGET, "PermissionsChecklistActivity")
                 putExtra(com.brainbuddy.app.ui.PinLockActivity.EXTRA_MODE, if (pinManager.isPinSet()) "verify" else "set")
             })
+        }
+
+        val emergencyManager = EmergencyCodeManager(this)
+        b.btnEmergencyUnlock.visibility = if (permLocked && emergencyManager.isEmergencyCodeSet()) android.view.View.VISIBLE else android.view.View.GONE
+        b.btnEmergencyUnlock.setText(R.string.btn_emergency_unlock)
+        b.btnEmergencyUnlock.setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.ui.EmergencyUnlockActivity::class.java))
         }
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {

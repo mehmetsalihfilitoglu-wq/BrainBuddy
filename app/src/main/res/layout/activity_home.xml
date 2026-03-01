@@ -12,6 +12,19 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- Kill Switch Banner -->
+        <TextView
+            android:id="@+id/tvKillSwitchBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bb_error"
+            android:padding="10dp"
+            android:text="@string/kill_switch_banner_text"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
         <!-- Turquoise gradient header -->
         <LinearLayout
             android:layout_width="match_parent"

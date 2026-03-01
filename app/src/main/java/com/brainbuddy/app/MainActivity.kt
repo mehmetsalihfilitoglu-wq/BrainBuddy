@@ -3,6 +3,7 @@ package com.brainbuddy.app
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.brainbuddy.app.core.CrashRecoveryPrefs
 import com.brainbuddy.app.core.OnboardingPrefs
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         val prefs = ProtectionPrefs(this)
         val target = when {
             prefs.userLocked() || prefs.isPermissionLocked() -> LockScreenActivity::class.java
-            !OnboardingPrefs.isDone(this) -> OnboardingActivity::class.java
+            CrashRecoveryPrefs.isProtectionDisabledByCrash(this) -> CrashRecoveryWarningActivity::class.java
+            !OnboardingPrefs.isDone(this) -> OnboardingWizardActivity::class.java
             ProfileStore(this).getProfiles().size > 1 -> com.brainbuddy.app.ui.ProfileSelectionActivity::class.java
             else -> HomeActivity::class.java
         }

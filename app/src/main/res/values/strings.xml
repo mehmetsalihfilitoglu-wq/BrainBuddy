@@ -82,6 +82,14 @@
     <string name="lock_permission_title">Engelleme İzni Kapatıldı</string>
     <string name="lock_permission_message">Uygulama engelleme izni kapatıldı. Ebeveyn PIN\'i ile ayarlardan yeniden açabilirsiniz.</string>
     <string name="btn_parent_unlock">Ebeveyn PIN ile Aç</string>
+    <string name="btn_emergency_unlock">Acil Durum Kodu ile Aç</string>
+    <string name="emergency_unlock_title">Acil Durum Kilidi Açma</string>
+    <string name="emergency_unlock_subtitle">Gate veya ekran takılıysa, acil durum kodunuzla veli alanına erişin.</string>
+    <string name="emergency_code_hint">Acil durum kodu (min. 6 karakter)</string>
+    <string name="emergency_unlock_btn">Kilidi Aç</string>
+    <string name="emergency_back">Geri</string>
+    <string name="emergency_code_too_short">Kod en az 6 karakter olmalı</string>
+    <string name="emergency_code_incorrect">Kod yanlış</string>
 
     <!-- Permissions checklist -->
     <string name="perm_checklist_title">İzin Kontrolü</string>
@@ -116,6 +124,7 @@
     <!-- Backup -->
     <string name="backup_export">Yedek Al</string>
     <string name="backup_import">Yedekten Geri Yükle</string>
+    <string name="backup_import_summary">%1$d profil, %2$d engellenen uygulama</string>
 
     <!-- Schedule -->
     <string name="schedule_title">Zaman Çizelgeleri</string>
@@ -126,13 +135,57 @@
     <!-- Profile -->
     <string name="profile_add">Profil Ekle</string>
 
+    <!-- Protection notification -->
+    <string name="notif_channel_protection">BrainBuddy Koruma</string>
+    <string name="notif_protection_off_title">BrainBuddy koruması kapalı!</string>
+    <string name="notif_protection_off_text">Erişilebilirlik izni kapatıldı. Dokunarak ayarlardan yeniden açın.</string>
+
     <!-- Play Store: Replace with your actual privacy policy URL before release -->
+    <string name="privacy_policy_title">Gizlilik Politikası</string>
     <string name="privacy_policy_url">https://example.com/privacy-policy</string>
+    <string name="accessibility_usage_title">Erişilebilirlik Kullanımı</string>
+    <string name="accessibility_usage_explanation">BrainBuddy, uygulama engelleme özelliği için Android Erişilebilirlik Hizmeti kullanır. Bu izin yalnızca engellenen uygulamaların ekranda açılıp açılmadığını tespit etmek ve test geçmeden kullanılmasını engellemek amacıyla kullanılır. Hiçbir kişisel veri toplanmaz veya üçüncü taraflarla paylaşılmaz. Tüm veriler cihazınızda kalır.</string>
 
     <!-- App presets -->
     <string name="preset_all">Tümü</string>
     <string name="preset_social">Sosyal</string>
     <string name="preset_games">Oyunlar</string>
     <string name="preset_browsers">Tarayıcılar</string>
+
+    <!-- Auth -->
+    <string name="auth_login_title">Giriş Yap</string>
+    <string name="auth_register_title">Kayıt Ol</string>
+    <string name="auth_email">E-posta</string>
+    <string name="auth_password">Şifre</string>
+    <string name="auth_confirm_password">Şifre Tekrar</string>
+    <string name="auth_login">Giriş</string>
+    <string name="auth_register">Kayıt Ol</string>
+    <string name="auth_forgot_password">Şifremi unuttum</string>
+    <string name="auth_no_account_register">Hesabım yok, kayıt ol</string>
+    <string name="auth_has_account_login">Zaten hesabım var, giriş yap</string>
+    <string name="auth_fill_all">Tüm alanları doldurun</string>
+    <string name="auth_password_short">Şifre en az 6 karakter olmalı</string>
+    <string name="auth_password_mismatch">Şifreler eşleşmiyor</string>
+
+    <!-- Email Reports -->
+    <string name="report_ready_title">BrainBuddy Raporu Hazır</string>
+    <string name="report_ready_text">Dokunarak manuel gönderebilirsiniz</string>
+    <string name="report_channel_name">Raporlar</string>
+    <string name="report_share_prompt">Raporu Gönder</string>
+
+    <!-- Motivation notifications -->
+    <string name="notif_motivation_channel">Motivasyon</string>
+    <string name="notif_daily_reminder_title">BrainBuddy</string>
+    <string name="notif_daily_reminder_text">Bugün test çözmedin</string>
+    <string name="notif_streak_title">BrainBuddy</string>
+    <string name="notif_streak_text">Seri bitiyor!</string>
+
+    <!-- Kill Switch -->
+    <string name="kill_switch_banner_text">Koruma geçici kapalı</string>
+    <string name="kill_switch_toggle">Tüm Engellemeleri Geçici Kapat</string>
+    <string name="kill_switch_expire_15m">15 dakika</string>
+    <string name="kill_switch_expire_1h">1 saat</string>
+    <string name="kill_switch_expire_24h">24 saat</string>
+    <string name="kill_switch_expire_manual">Manuel kapatana kadar</string>
 
 </resources>

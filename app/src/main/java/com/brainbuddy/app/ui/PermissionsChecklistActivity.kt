@@ -37,6 +37,7 @@ class PermissionsChecklistActivity : AppCompatActivity() {
 
     private fun refreshStatus() {
         val accEnabled = AccessibilityUtils.isServiceEnabled(this, ForegroundAppBlockerService::class.java)
+        if (accEnabled) com.brainbuddy.app.core.PermissionMonitor.cancelProtectionOffNotification(this)
         b.permAccessibilityStatus.text = if (accEnabled) getString(R.string.perm_status_ok) else getString(R.string.perm_status_missing)
         b.permAccessibilityStatus.setTextColor(if (accEnabled) getColor(R.color.bb_turquoise) else getColor(R.color.bb_error))
         b.btnAccessibility.setText(if (accEnabled) R.string.perm_recheck else R.string.perm_enable)

@@ -21,9 +21,14 @@ object PermissionMonitor {
                 prefs.setUserLocked(true)
                 prefs.setPermissionDisabledLockReason("accessibility_disabled")
                 try { TamperStore(context).logEvent(TamperStore.TamperType.SERVICE_DISABLED) } catch (_: Exception) { }
+                try { ProtectionNotificationHelper.showProtectionOffNotification(context) } catch (_: Exception) { }
                 true
             } else false
         } catch (_: Exception) { false }
+    }
+
+    fun cancelProtectionOffNotification(context: Context) {
+        try { ProtectionNotificationHelper.cancelProtectionOffNotification(context) } catch (_: Exception) { }
     }
 
     fun isAccessibilityEnabled(context: Context): Boolean =

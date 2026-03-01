@@ -71,6 +71,7 @@ class PinLockActivity : AppCompatActivity() {
                         if (prefs.isPermissionLocked()) {
                             prefs.setPermissionDisabledLockReason("")
                             prefs.setUserLocked(false)
+                            com.brainbuddy.app.core.PermissionMonitor.cancelProtectionOffNotification(this)
                         }
                         AppModeManager.enterParentMode()
                         navigateToTarget()

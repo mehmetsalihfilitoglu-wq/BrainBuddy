@@ -4,10 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.auth.AuthProvider
 import com.brainbuddy.app.core.AnalyticsStore
+import com.brainbuddy.app.core.EmailReportPrefs
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.ReportStore
+import com.brainbuddy.app.report.ReportScheduler
 import java.util.concurrent.TimeUnit
 
 class ReportsActivity : AppCompatActivity() {
@@ -61,6 +64,48 @@ class ReportsActivity : AppCompatActivity() {
             }
         }
 
+        val emailPrefs = EmailReportPrefs(this)
+        val auth = AuthProvider.get(this)
+        val switchDaily = findViewById<android.widget.Switch>(R.id.switchDailyReport)
+        val switchWeekly = findViewById<android.widget.Switch>(R.id.switchWeeklyReport)
+        val btnLogin = findViewById<android.widget.TextView>(R.id.btnLoginForReports)
+
+        switchDaily.isChecked = emailPrefs.isDailyReportEnabled()
+        switchWeekly.isChecked = emailPrefs.isWeeklyReportEnabled()
+
+        fun updateReportToggles() {
+            val signedIn = auth.isSignedIn()
+            if (!signedIn) {
+                switchDaily.isChecked = false
+                switchWeekly.isChecked = false
+                emailPrefs.setDailyReportEnabled(false)
+                emailPrefs.setWeeklyReportEnabled(false)
+            }
+            switchDaily.isEnabled = signedIn
+            switchWeekly.isEnabled = signedIn
+            btnLogin.visibility = if (signedIn) android.view.View.GONE else android.view.View.VISIBLE
+        }
+        updateReportToggles()
+
+        btnLogin.setOnClickListener {
+            startActivityForResult(Intent(this, LoginActivity::class.java), REQ_LOGIN)
+        }
+
+        switchDaily.setOnCheckedChangeListener { _, isChecked ->
+            if (auth.isSignedIn()) {
+                emailPrefs.setDailyReportEnabled(isChecked)
+                emailPrefs.setReportEmail(auth.currentEmail() ?: "")
+                ReportScheduler.schedule(this)
+            }
+        }
+        switchWeekly.setOnCheckedChangeListener { _, isChecked ->
+            if (auth.isSignedIn()) {
+                emailPrefs.setWeeklyReportEnabled(isChecked)
+                emailPrefs.setReportEmail(auth.currentEmail() ?: "")
+                ReportScheduler.schedule(this)
+            }
+        }
+
         findViewById<android.widget.Button>(R.id.btnShareReport).setOnClickListener {
             val text = buildString {
                 append("BrainBuddy Rapor\n")
@@ -76,8 +121,17 @@ class ReportsActivity : AppCompatActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: android.content.Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQ_LOGIN && resultCode == RESULT_OK) recreate()
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
         return true
+    }
+
+    companion object {
+        private const val REQ_LOGIN = 1001
     }
 }

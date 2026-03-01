@@ -15,6 +15,7 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AppGroupPresets
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.receiver.PackageChangeReceiver
 
 class BlockedAppsActivity : AppCompatActivity() {
 
@@ -95,6 +96,24 @@ class BlockedAppsActivity : AppCompatActivity() {
                 adapter.updateList(allApps.filter { it.label.lowercase().contains(q) || it.packageName.lowercase().contains(q) })
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (PackageChangeReceiver.isDirty(this)) {
+            PackageChangeReceiver.clearDirtyFlag(this)
+            val pm = packageManager
+            allApps = pm.getInstalledApplications(PackageManager.GET_META_DATA)
+                .filter { it.packageName != packageName }
+                .filter { pm.getLaunchIntentForPackage(it.packageName) != null }
+                .mapNotNull { app ->
+                    try {
+                        AppInfo(app.packageName, app.loadLabel(pm).toString(), app.loadIcon(pm))
+                    } catch (_: Exception) { null }
+                }
+                .sortedBy { it.label.lowercase() }
+            adapter.updateList(allApps)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

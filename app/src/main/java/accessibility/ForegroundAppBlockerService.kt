@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import com.brainbuddy.app.HomeActivity
 import com.brainbuddy.app.core.BlockedAppsStore
+import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.TamperStore
 import com.brainbuddy.app.gate.GateActivity
@@ -39,6 +40,7 @@ class ForegroundAppBlockerService : AccessibilityService() {
 
             val prefs = ProtectionPrefs(this)
             if (!prefs.isProtectionEnabled()) return
+            if (KillSwitchPrefs(this).isKillSwitchActive()) return  // Gate disabled by kill switch
             if (!GateHelper.gateRequiredNow(this)) return
 
             val now = System.currentTimeMillis()

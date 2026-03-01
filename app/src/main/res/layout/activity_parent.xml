@@ -59,6 +59,71 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Kill Switch Banner -->
+        <TextView
+            android:id="@+id/tvKillSwitchBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@color/bb_error"
+            android:padding="12dp"
+            android:text="@string/kill_switch_banner_text"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <!-- Kill Switch Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/BB.HomeCard"
+            android:id="@+id/cardKillSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="@color/bb_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/kill_switch_toggle"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text"/>
+
+                    <Switch
+                        android:id="@+id/switchKillSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/killSwitchExpireGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton android:id="@+id/killExpire15m" android:text="@string/kill_switch_expire_15m" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <RadioButton android:id="@+id/killExpire1h" android:text="@string/kill_switch_expire_1h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
+                    <RadioButton android:id="@+id/killExpire24h" android:text="@string/kill_switch_expire_24h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
+                    <RadioButton android:id="@+id/killExpireManual" android:text="@string/kill_switch_expire_manual" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp"/>
+                </RadioGroup>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <TextView
             android:id="@+id/tvLastUpdate"
             android:layout_width="match_parent"

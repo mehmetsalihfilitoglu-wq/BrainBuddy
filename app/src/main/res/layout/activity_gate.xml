@@ -50,4 +50,14 @@
         android:layout_height="56dp"
         android:text="@string/btn_start_quiz"
         android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/btnGateEmergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/bb_primary"
+        android:textSize="14sp"
+        android:visibility="gone"
+        android:text="@string/btn_emergency_unlock"/>
 </LinearLayout>

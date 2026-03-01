@@ -13,6 +13,7 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.avatar.AvatarStore
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
+import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.PackageNameHelper
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.ProtectionPrefs
@@ -80,6 +81,40 @@ class ParentActivity : ComponentActivity() {
                 putExtra(PinLockActivity.EXTRA_TARGET, "ParentActivity")
             })
         }
+
+        val killSwitch = KillSwitchPrefs(this)
+        b.switchKillSwitch.setOnCheckedChangeListener(null)
+        b.switchKillSwitch.isChecked = killSwitch.isKillSwitchActive()
+        b.killSwitchExpireGroup.visibility = if (killSwitch.isKillSwitchActive()) View.VISIBLE else View.GONE
+        when (killSwitch.getExpireOption()) {
+            KillSwitchPrefs.ExpireOption.MINUTES_15 -> b.killSwitchExpireGroup.check(R.id.killExpire15m)
+            KillSwitchPrefs.ExpireOption.HOUR_1 -> b.killSwitchExpireGroup.check(R.id.killExpire1h)
+            KillSwitchPrefs.ExpireOption.HOURS_24 -> b.killSwitchExpireGroup.check(R.id.killExpire24h)
+            else -> b.killSwitchExpireGroup.check(R.id.killExpireManual)
+        }
+        b.switchKillSwitch.setOnCheckedChangeListener { _, isChecked ->
+            val opt = when (b.killSwitchExpireGroup.checkedRadioButtonId) {
+                R.id.killExpire15m -> KillSwitchPrefs.ExpireOption.MINUTES_15
+                R.id.killExpire1h -> KillSwitchPrefs.ExpireOption.HOUR_1
+                R.id.killExpire24h -> KillSwitchPrefs.ExpireOption.HOURS_24
+                else -> KillSwitchPrefs.ExpireOption.MANUAL
+            }
+            killSwitch.setKillSwitchActive(isChecked, if (isChecked) opt else KillSwitchPrefs.ExpireOption.MANUAL)
+            b.killSwitchExpireGroup.visibility = if (isChecked) View.VISIBLE else View.GONE
+            b.tvKillSwitchBanner.visibility = if (isChecked) View.VISIBLE else View.GONE
+        }
+        b.killSwitchExpireGroup.setOnCheckedChangeListener { _, _ ->
+            if (b.switchKillSwitch.isChecked) {
+                val opt = when (b.killSwitchExpireGroup.checkedRadioButtonId) {
+                    R.id.killExpire15m -> KillSwitchPrefs.ExpireOption.MINUTES_15
+                    R.id.killExpire1h -> KillSwitchPrefs.ExpireOption.HOUR_1
+                    R.id.killExpire24h -> KillSwitchPrefs.ExpireOption.HOURS_24
+                    else -> KillSwitchPrefs.ExpireOption.MANUAL
+                }
+                killSwitch.setKillSwitchActive(true, opt)
+            }
+        }
+        b.tvKillSwitchBanner.visibility = if (killSwitch.isKillSwitchActive()) View.VISIBLE else View.GONE
     }
 
     private fun setupControlRow(
@@ -136,9 +171,11 @@ class ParentActivity : ComponentActivity() {
         val accuracyPercentLast7Days = if (totalQuestions > 0) (100.0 * totalCorrect / totalQuestions).toInt() else 0
 
         val blockedToday = reportStore.getBlockedAttemptsSince(todayStart)
+        val totalBlockedToday = blockedToday.values.sum()
         val topBlocked = blockedToday.entries.maxByOrNull { it.value }
         val denemeText = when {
-            topBlocked != null && topBlocked.value > 0 -> "${PackageNameHelper.getFriendlyName(topBlocked.key)} ${topBlocked.value}"
+            topBlocked != null && topBlocked.value > 0 -> "${PackageNameHelper.getFriendlyName(topBlocked.key)} ${topBlocked.value}${if (totalBlockedToday > topBlocked.value) " • Toplam $totalBlockedToday" else ""}"
+            totalBlockedToday > 0 -> "Toplam $totalBlockedToday"
             else -> "0"
         }
 

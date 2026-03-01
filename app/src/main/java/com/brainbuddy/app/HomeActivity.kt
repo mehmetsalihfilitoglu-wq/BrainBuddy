@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.GamificationStore
+import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.quiz.BossTestActivity
 import com.brainbuddy.app.quiz.BossTestStore
@@ -43,6 +44,9 @@ class HomeActivity : AppCompatActivity() {
         }
         setContentView(R.layout.activity_home)
         contentSet = true
+
+        val killSwitchBanner = findViewById<android.widget.TextView>(R.id.tvKillSwitchBanner)
+        killSwitchBanner?.visibility = if (KillSwitchPrefs(this).isKillSwitchActive()) android.view.View.VISIBLE else android.view.View.GONE
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -190,5 +194,7 @@ class HomeActivity : AppCompatActivity() {
             cardBlockedApps.setOnClickListener { startActivity(Intent(this, BlockedAppsActivity::class.java)) }
             cardTimeLimits.setOnClickListener { startActivity(Intent(this, TimeLimitsActivity::class.java)) }
         }
+        val killBanner = findViewById<android.widget.TextView>(R.id.tvKillSwitchBanner)
+        killBanner?.visibility = if (KillSwitchPrefs(this).isKillSwitchActive()) android.view.View.VISIBLE else android.view.View.GONE
     }
 }

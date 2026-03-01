@@ -42,6 +42,16 @@ class GateActivity : AppCompatActivity() {
             finish()
         }
 
+        val btnEmergency = findViewById<android.widget.TextView>(R.id.btnGateEmergency)
+        if (btnEmergency != null && com.brainbuddy.app.security.EmergencyCodeManager(this).isEmergencyCodeSet()) {
+            btnEmergency.visibility = android.view.View.VISIBLE
+            btnEmergency.setText(R.string.btn_emergency_unlock)
+            btnEmergency.setOnClickListener {
+                startActivity(Intent(this, com.brainbuddy.app.ui.EmergencyUnlockActivity::class.java))
+                finish()
+            }
+        }
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 // Consume back - no escape

@@ -2,10 +2,15 @@ package com.brainbuddy.app.core
 
 import android.content.Context
 
-class ProtectionPrefs(context: Context) {
+class ProtectionPrefs(private val context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun isProtectionEnabled(): Boolean = prefs.getBoolean(KEY_ENABLED, false)
+    fun isProtectionEnabled(): Boolean {
+        if (!prefs.getBoolean(KEY_ENABLED, false)) return false
+        val killSwitch = KillSwitchPrefs(context)
+        return !killSwitch.isKillSwitchActive()
+    }
+    fun isProtectionEnabledRaw(): Boolean = prefs.getBoolean(KEY_ENABLED, false)
     fun setProtectionEnabled(v: Boolean) = prefs.edit().putBoolean(KEY_ENABLED, v).apply()
 
     /** Quiz gate cooldown (30, 45, or 60 min).
