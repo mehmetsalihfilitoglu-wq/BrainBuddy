@@ -34,7 +34,12 @@ class RewardedRetryStore(context: Context) {
     }
 
     fun recordRetryUsed(profileId: String, quizId: String, questionId: String) {
+        if (quizId.isBlank() || questionId.isBlank()) return
         prefs.edit().putBoolean("retry_${quizId}_${questionId}", true).apply()
+        val historyKey = "retry_history"
+        val existing = prefs.getStringSet(historyKey, emptySet()) ?: emptySet()
+        val entry = "$profileId|$quizId|$questionId|${System.currentTimeMillis()}"
+        prefs.edit().putStringSet(historyKey, existing + entry).apply()
         if (premiumStore.isPremium()) return
         val dayKey = "retries_day_$profileId"
         val today = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis())
@@ -44,6 +49,21 @@ class RewardedRetryStore(context: Context) {
             .putInt(dayKey, nextCount)
             .apply()
     }
+
+    /** Parent review: get retry history entries (profileId, quizId, questionId, timestampMs). */
+    fun getRetryHistory(): List<RetryHistoryEntry> {
+        val historyKey = "retry_history"
+        val set = prefs.getStringSet(historyKey, emptySet()) ?: return emptyList()
+        return set.mapNotNull { s ->
+            val parts = s.split("|")
+            if (parts.size >= 4) {
+                val ts = parts[3].toLongOrNull() ?: return@mapNotNull null
+                RetryHistoryEntry(parts[0], parts[1], parts[2], ts)
+            } else null
+        }.sortedByDescending { it.timestampMs }.take(100)
+    }
+
+    data class RetryHistoryEntry(val profileId: String, val quizId: String, val questionId: String, val timestampMs: Long)
 
     companion object {
         private const val PREFS = "bb_rewarded_retry"

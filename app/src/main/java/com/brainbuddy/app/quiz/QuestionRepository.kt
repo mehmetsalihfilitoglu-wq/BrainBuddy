@@ -84,8 +84,7 @@ class QuestionRepository(private val context: Context) {
         val (all, _) = loadAllQuestionsWithStats()
         val base = if (all.isNotEmpty()) all else getFallbackQuestions()
         val examStore = com.brainbuddy.app.core.ExamPackStore(context)
-        val active = examStore.getActiveExamTypes()
-        val filtered = if (active.isEmpty()) base else base.filter { examStore.isPackActive(it.examType) }
+        val filtered = base.filter { examStore.isPackActive(it.examType) }
         return if (filtered.isEmpty()) base else filtered
     }
 

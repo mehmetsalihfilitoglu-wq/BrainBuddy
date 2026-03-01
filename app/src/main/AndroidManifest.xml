@@ -56,6 +56,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.ExamPackActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.PinLockActivity"
             android:exported="false" />
 
@@ -87,7 +91,8 @@
 
         <activity
             android:name=".LockScreenActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
 
         <activity
             android:name=".StatsActivity"
@@ -183,7 +188,8 @@
 
         <activity
             android:name=".quiz.GateRetrySingleActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
 
     </application>
 

@@ -49,9 +49,20 @@ class QuizActivity : AppCompatActivity() {
         setContentView(b.root)
         try {
             initQuiz(savedInstanceState)
+        } catch (e: OutOfMemoryError) {
+            android.util.Log.e("QuizActivity", "OOM", e)
+            android.widget.Toast.makeText(this, "Bellek yetersiz. Uygulamayı yeniden başlatın.", android.widget.Toast.LENGTH_LONG).show()
+            finish()
         } catch (e: Exception) {
             android.util.Log.e("QuizActivity", "init error", e)
             finish()
+        }
+    }
+
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        if (level >= android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_MODERATE) {
+            hintTimer?.cancel()
         }
     }
 
@@ -137,6 +148,8 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun render() {
+        if (questions.isEmpty()) return
+        index = index.coerceIn(0, questions.size - 1)
         val q = questions[index]
 
         b.progressText.text = "${index + 1}/${questions.size}"

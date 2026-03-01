@@ -105,6 +105,7 @@ class GateRetrySingleActivity : AppCompatActivity() {
             startActivity(Intent(this, QuizResultActivity::class.java).apply {
                 putExtra(QuizResultActivity.EXTRA_SESSION, QuizResultActivity.encodeSession(updatedSession))
                 putExtra(QuizResultActivity.EXTRA_QUESTIONS_JSON, intent.getStringExtra(EXTRA_QUESTIONS_JSON))
+                putExtra(QuizResultActivity.EXTRA_IS_GATE_MODE, true)
             })
         } else {
             GateManager.onGateFailed(this)

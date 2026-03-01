@@ -42,6 +42,11 @@ class ForegroundAppBlockerService : AccessibilityService() {
             if (now - lastGateLaunchMs < DEBOUNCE_MS) return
             lastGateLaunchMs = now
 
+            // Bring user to home so blocked app does not stay visible; then show gate
+            try {
+                performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_HOME)
+            } catch (_: Exception) { /* best-effort */ }
+
             TamperStore(this).logEvent(TamperStore.TamperType.BYPASS_ATTEMPT)
             try {
                 com.brainbuddy.app.core.ReportStore(this).recordBlockedAppAttempt(pkg)

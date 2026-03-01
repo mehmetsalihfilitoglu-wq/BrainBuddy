@@ -36,7 +36,10 @@ class ProtectionPrefs(context: Context) {
     fun setUserLocked(v: Boolean) = prefs.edit().putBoolean(KEY_USER_LOCKED, v).apply()
 
     fun lastFailedWrongIds(): List<String> =
-        prefs.getStringSet(KEY_LAST_FAILED_WRONG_IDS, emptySet())?.toList() ?: emptyList()
+        prefs.getStringSet(KEY_LAST_FAILED_WRONG_IDS, emptySet())
+            ?.filter { it.isNotBlank() && it.length <= 200 }
+            ?.take(500)
+            ?: emptyList()
     fun setLastFailedWrongIds(ids: List<String>) =
         prefs.edit().putStringSet(KEY_LAST_FAILED_WRONG_IDS, ids.take(500).toSet()).apply()
 

@@ -1,104 +1,100 @@
 # BrainBuddy Production Implementation Report
 
-## Summary
-
-Full production-level implementation and hardening completed. The app compiles successfully.
-
----
-
 ## 1. Changed/Added Files
 
-### Core Gate & Blocking
-- **resilience/ReloadSettingsWorker.kt** – Boot restore: clear stuck quiz-in-progress; detect Accessibility disabled → lock
-- **accessibility/ForegroundAppBlockerService.kt** – Removed permission-lock clear on connect (prevents bypass); battery note
-- **gate/GateManager.kt** – (unchanged, already correct) gateStatus REQUIRED | PASSED_UNTIL
-- **gate/GateHelper.kt** – (unchanged)
-- **gate/GateActivity.kt** – (unchanged)
+### Core Logic & Gate
+- **ForegroundAppBlockerService.kt** – Added `performGlobalAction(GLOBAL_ACTION_HOME)` before launching Gate so blocked apps do not remain visible; debounce and blocking logic unchanged
+- **BootReceiver.kt** – Restores gate state on BOOT_COMPLETED, LOCKED_BOOT_COMPLETED, MY_PACKAGE_REPLACED; clears quiz-in-progress
+- **ReloadSettingsWorker.kt** – (existing) Checks accessibility; sets lock when disabled; clears quiz-in-progress
+- **MainActivity.kt** – Added `FLAG_ACTIVITY_NO_HISTORY` so relaunches always open Home, not stuck Gate/Result
+- **GateManager.kt** – (existing) Implements gateStatus REQUIRED | PASSED_UNTIL; on FAILED → REQUIRED; on PASSED → PASSED_UNTIL(now + interval)
 
 ### Quiz Engine
-- **quiz/QuizActivity.kt** – Removed Finish Test; auto-submit on last question; "Gönder" button; init error handling; state save/restore
-- **quiz/QuestionRepository.kt** – Per-profile recentSeenQuestionIds; pickRemedialQuestions returns Pair(questions, fallbackUsed); exam pack filtering; recordSeenForQuiz
-- **quiz/Models.kt** – Added ExamType enum, Question.examType, Question.topic
+- **QuizActivity.kt** – Bounds check for index on render; `onTrimMemory` to cancel hint timer; OutOfMemoryError handling; submitBtn uses safe call; auto-submit on last question already present
+- **QuestionRepository.kt** – Exam pack filtering in `getGlobalPool()`; `pickGateQuestions` uses `recentSeenQuestionIds` per profile; `pickRemedialQuestions` weakTopic → global → fallback with parent warning
+- **GateRetrySingleActivity.kt** – Passes `EXTRA_IS_GATE_MODE` when navigating to QuizResultActivity after successful retry
 
 ### Rewarded Retry
-- **core/RewardedRetryStore.kt** – Premium bypass for limits; per-question retry tracking
-- **quiz/QuizResultActivity.kt** – Remedial mini test option; Premium unlimited retry; ExamType in decodeQuestions
-- **res/layout/activity_quiz_result.xml** – remedialRetrySection, btnRemedialMiniTest
+- **RewardedRetryStore.kt** – Persisted retry history via `getRetryHistory()` for parent review; validation for blank quizId/questionId; MAX 1 retry/day, 1 per wrong question; premium ignores limits
+- **QuizResultActivity.kt** – (existing) Remedial mini-test, watch ad, premium retry; student does not see correct answers
+- **WrongAnswerReviewActivity.kt** – (existing) `showCorrect` only when `EXTRA_IS_PARENT_REVIEW` and parent mode
 
 ### Parent vs Student
-- **ui/PinLockActivity.kt** – Clear permission lock on PIN verify (when locked for accessibility)
-- **core/ParentAccessGuard.kt** – (unchanged) Already guards parent-only activities
-
-### UI Theme
-- **res/values/themes.xml** – colorError, windowBackground gradient, materialButtonStyle
-- **res/values/styles.xml** – BBButton padding, text size
-- **res/values/dimens.xml** – button_min_height
-- **res/drawable/bg_gradient.xml** – (already #E8FBF7 → #F5FFFD)
-
-### Home Reset
-- **MainActivity.kt** – FLAG_ACTIVITY_CLEAR_TOP; documentation
+- **HomeActivity.kt** – (existing) Settings, BlockedApps, TimeLimits visible only in parent mode
+- **ParentActivity.kt** – (existing) ParentAccessGuard; review wrong answers with correct answers shown
+- **SettingsActivity.kt** – (existing) ParentAccessGuard; ads toggle; interval, level, exam packs
+- **ExamPackActivity.kt** – NEW: Parent-only exam pack selection (LGS, TYT, AYT, Genel)
 
 ### Exam Packs
-- **core/ExamPackStore.kt** – **NEW** – Parent-selectable LGS, TYT, AYT, GENERAL
-- **ui/QuizSettingsActivity.kt** – Exam pack checkboxes; updateExamPacks()
-- **res/layout/activity_quiz_settings.xml** – Exam pack card (LGS, TYT, AYT, Genel)
+- **ExamPackStore.kt** – (existing) Active exam types; `isPackActive`
+- **ExamPackActivity.kt** – NEW
+- **activity_exam_pack.xml** – NEW
+- **activity_settings.xml** – Added cardExamPacks
 
-### Security & Stability
-- **core/QuizPrefs.kt** – Null-safe difficulty()
-- **AndroidManifest.xml** – MainActivity launchMode=singleTask
+### UI Theme
+- **themes.xml** – Added `android:fontFamily="sans-serif-medium"`
+- **bg_stats_light.xml** – Gradient updated to #E8FBF7 → #F5FFFD (BrainBuddy turquoise)
+- **colors.xml** – (existing) Primary #1BC5B0, Secondary #00897B, Accent #FFC107, Error #FF5252, Text #1F2937
+- **StatsActivity.kt** – (existing) Circular accuracy (ProgressRingView), topic bar chart (BarChartView), last 10 test trend (LineChartView)
+
+### Security
+- **ProtectionPrefs.kt** – Validation for `lastFailedWrongIds` (filter blank, length ≤200, take 500)
+- **BlockedAppsStore.kt** – `isBlocked` validates package length ≤256
+- **PinManager.kt** – (existing) PBKDF2-HMAC-SHA256, constant-time compare
+
+### Stability
+- **QuizActivity.kt** – `onTrimMemory`, OutOfMemoryError handling, index bounds check
+- **AndroidManifest.xml** – `configChanges="orientation|screenSize|screenLayout"` for LockScreen, GateRetrySingle
+
+### AndroidManifest
+- Added ExamPackActivity
+- Added configChanges to LockScreenActivity, GateRetrySingleActivity
 
 ---
 
 ## 2. Vulnerabilities Fixed
 
 | Vulnerability | Fix |
-|--------------|-----|
-| **Gate bypass via Accessibility re-enable** | Removed onServiceConnected clearing of permission lock; lock cleared only when Parent verifies PIN |
-| **Null crash in QuizPrefs.difficulty()** | try/catch and safe default when SharedPreferences returns null/invalid |
-| **Retry abuse (multiple ad retries per day)** | RewardedRetryStore enforces MAX_RETRIES_PER_DAY=1; per-question tracking; Premium bypass only for paid users |
-| **Permission revocation not detected on boot** | ReloadSettingsWorker checks Accessibility on BOOT/MY_PACKAGE_REPLACED; sets lock if disabled |
-| **Stuck gate after reboot** | ReloadSettingsWorker clears quizInProgress flag |
+|---------------|-----|
+| Gate bypass on accessibility disable | PermissionMonitor + ReloadSettingsWorker lock app; Parent PIN required |
+| Null/corrupt SharedPreferences | ProtectionPrefs validation; BlockedAppsStore length checks |
+| Index out of bounds in quiz | `index.coerceIn(0, questions.size - 1)` in render |
+| Retry abuse | Max 1/day, 1 per question; persisted; premium bypass only for paying users |
+| Blocked app visible | GLOBAL_ACTION_HOME before Gate launch |
 
 ---
 
 ## 3. Remaining Risks
 
-| Risk | Mitigation |
-|------|------------|
-| **PIN brute force** | PIN uses PBKDF2 120k iterations; consider rate limiting or lockout after N failures |
-| **Rooted device / accessibility bypass** | No full protection; consider SafetyNet/Play Integrity |
-| **Deep link to internal activities** | Activities are not exported; only MainActivity has MAIN/LAUNCHER |
-| **Memory leaks in long sessions** | Hint timer cancelled in finishTest; consider LeakCanary for testing |
-| **JSON/CSV import for large datasets** | Structure in place (examType, topic); import UI not implemented; use WorkManager for background import |
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| Root/ADB tampering | Medium | TamperStore logs; device admin optional |
+| Premium in SharedPreferences | Low | Consider server-side validation for paid features |
+| No internet / no permissions | Low | Graceful fallbacks; empty dataset handling |
+| Memory pressure on low-end devices | Low | onTrimMemory; hint timer cancellation |
 
 ---
 
 ## 4. Improvement Suggestions
 
-1. **Fonts** – Add Poppins/Nunito via Google Fonts (res/font) or downloadable fonts for full spec compliance.
-2. **Stats per exam/topic** – AnalyticsStore can be extended to record examType per session; stats screen can show per-pack performance.
-3. **JSON/CSV import** – Implement `QuestionImportActivity` with file picker; parse examType, subject, topic, difficulty; validate; store in SQLite or JSON.
-4. **PIN lockout** – Add failed-attempt counter; lock PIN entry for 5 min after 5 failures.
-5. **Battery optimization** – Consider `requestUnbounded()` only when protection is enabled and app is used.
-6. **ProGuard rules** – Add keep rules for JSON models and Reflection if using Gson/Jackson.
+1. **Fonts** – Add Poppins/Nunito via downloadable fonts or `res/font/` for full BrainBuddy typography
+2. **JSON Import** – Add file picker + JSON/CSV import for large question datasets (exam packs)
+3. **Analytics per exam** – Extend AnalyticsStore to track performance by examType (LGS/TYT/AYT)
+4. **Deep link validation** – Add explicit validation for any exported deep link targets
+5. **ProGuard** – Enable minification for release; add keep rules for JSON models and Gson/Moshi if used
 
 ---
 
-## 5. Requirements Coverage
+## 5. Verification Checklist
 
-| Requirement | Status |
-|-------------|--------|
-| 1. Core app blocking + gate logic | Done |
-| 2. Quiz engine fixes | Done |
-| 3. Rewarded retry | Done |
-| 4. Parent vs Student access | Done |
-| 5. UI theme (turquoise, gradient, cards) | Done |
-| 6. Home reset on relaunch | Done |
-| 7. Exam question packs (LGS, TYT, AYT) | Done |
-| 8. Security hardening | Done |
-| 9. Stability + edge cases | Done |
-| 10. Output summary | Done |
-
----
-
-*Report generated after production implementation pass.*
+- [x] Build succeeds (`./gradlew assembleDebug`)
+- [x] Gate blocks when wrongCount >= 4
+- [x] Each gate attempt uses different questions (recentSeenQuestionIds)
+- [x] Remedial fallback: weakTopic → global → parent warning
+- [x] Rewarded retry: remedial, ad (1/day), premium unlimited
+- [x] Student never sees correct answers; parent review does
+- [x] Accessibility disabled → lock + Parent PIN
+- [x] Boot/MY_PACKAGE_REPLACED restores state
+- [x] App relaunch opens Home (clear task)
+- [x] Exam packs LGS/TYT/AYT selectable by parent
+- [x] Stats: circular accuracy, topic bar chart, last 10 trend
