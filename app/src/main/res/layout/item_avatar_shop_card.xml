@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp"
-    app:cardBackgroundColor="@color/white">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/bb_card">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:textSize="10sp"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="2dp"
-                app:chipBackgroundColor="@color/bb_turquoise"
+                app:chipBackgroundColor="@color/bb_primary"
                 tools:text="Yaygın"/>
 
             <View
@@ -63,7 +63,7 @@
             android:layout_marginTop="8dp"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_text_dark"
+            android:textColor="@color/bb_text"
             android:maxLines="1"
             android:ellipsize="end"
             tools:text="Klasik Saç"/>
@@ -93,7 +93,7 @@
                 android:paddingVertical="2dp"
                 android:text="Lv 3"
                 android:textSize="11sp"
-                android:textColor="@color/bb_turquoise"/>
+                android:textColor="@color/bb_primary"/>
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,8 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lig / Arkadaşlar"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/bb_text"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,11 +33,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Güvenli tepkiler: 👍 Like, 👏 Bravo, 🎉 Congrats"
-        android:textSize="12sp"/>
+        android:textSize="12sp"
+        android:textColor="@color/bb_text_muted"/>
 
     <Button
         android:id="@+id/btnLeagueBack"
+        style="@style/BBButtonAlt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="Geri"/>
 </LinearLayout>

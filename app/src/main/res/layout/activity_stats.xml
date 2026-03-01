@@ -27,12 +27,12 @@
             android:text="İstatistikler"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_text_dark"/>
+            android:textColor="@color/bb_text"/>
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="4dp"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="16dp">
@@ -64,7 +64,7 @@
                         android:text="Seviye 1"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text_dark"/>
+                        android:textColor="@color/bb_text"/>
 
                     <TextView
                         android:id="@+id/tvXp"
@@ -73,7 +73,7 @@
                         android:layout_marginTop="4dp"
                         android:text="0 XP"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_text_dark_muted"/>
+                        android:textColor="@color/bb_text_muted"/>
 
                     <TextView
                         android:id="@+id/tvStreak"
@@ -82,7 +82,7 @@
                         android:layout_marginTop="4dp"
                         android:text="🔥 0 gün seri"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_text_dark_muted"/>
+                        android:textColor="@color/bb_text_muted"/>
 
                     <TextView
                         android:id="@+id/tvOverallAccuracy"
@@ -91,7 +91,7 @@
                         android:layout_marginTop="8dp"
                         android:text="Genel doğruluk: 0%"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_turquoise"
+                        android:textColor="@color/bb_primary"
                         android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
@@ -100,7 +100,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="4dp"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="20dp">
@@ -117,7 +117,7 @@
                     android:text="Konulara Göre (Doğru/Toplam)"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <com.brainbuddy.app.ui.BarChartView
                     android:id="@+id/barChart"
@@ -131,7 +131,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="4dp"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="16dp">
@@ -148,7 +148,7 @@
                     android:text="Son 10 Test Başarı Trendi"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <com.brainbuddy.app.ui.LineChartView
                     android:id="@+id/lineChart"
@@ -161,7 +161,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="4dp"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="16dp">
@@ -178,7 +178,7 @@
                     android:text="Konu özeti"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
@@ -224,7 +224,7 @@
                     android:text="Son testler"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerRecentTests"

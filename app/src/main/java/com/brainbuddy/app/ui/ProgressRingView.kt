@@ -26,7 +26,7 @@ class ProgressRingView @JvmOverloads constructor(
         style = Paint.Style.STROKE
         strokeWidth = 24f
         strokeCap = Paint.Cap.ROUND
-        color = context.getColor(R.color.bb_turquoise)
+        color = context.getColor(R.color.bb_primary)
     }
     private val rect = RectF()
     var progress: Float = 0f

@@ -22,10 +22,10 @@ class LineChartView @JvmOverloads constructor(
         strokeWidth = 4f
         strokeJoin = Paint.Join.ROUND
         strokeCap = Paint.Cap.ROUND
-        color = context.getColor(R.color.bb_turquoise)
+        color = context.getColor(R.color.bb_primary)
     }
     private val dotPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = context.getColor(R.color.bb_turquoise)
+        color = context.getColor(R.color.bb_primary)
     }
     private val path = Path()
     var values: List<Float> = emptyList()

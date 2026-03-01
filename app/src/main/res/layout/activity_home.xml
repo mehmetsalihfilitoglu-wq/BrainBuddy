@@ -117,14 +117,14 @@
                     android:text="Teste Başla"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="▶"
                     android:textSize="20sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -151,14 +151,14 @@
                     android:text="🧒 BrainBuddy Junior"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="▶"
                     android:textSize="20sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -184,7 +184,7 @@
                     android:text="Koç"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -216,7 +216,7 @@
                     android:text="Lig"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -248,7 +248,7 @@
                     android:text="Sınıf"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -280,7 +280,7 @@
                     android:text="Avatar Mağazası"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -312,7 +312,7 @@
                     android:text="İstatistikler"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -344,7 +344,7 @@
                     android:text="Ayarlar"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -376,7 +376,7 @@
                     android:text="Haftalık Sandık"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -408,7 +408,7 @@
                     android:text="Veli Alanı"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -440,7 +440,7 @@
                     android:text="Engellenen Uygulamalar"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -473,7 +473,7 @@
                     android:text="Zaman Limitleri"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"

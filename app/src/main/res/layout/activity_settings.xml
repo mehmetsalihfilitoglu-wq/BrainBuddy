@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/bb_turquoise_dark"
+            android:background="@color/bb_secondary"
             app:titleTextColor="@color/white"
             app:title="@string/settings_title"/>
 
@@ -36,7 +36,7 @@
 
                 <TextView
                     android:text="Koruma"
-                    android:textColor="@color/bb_text_dark"
+                    android:textColor="@color/bb_text"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_width="match_parent"
@@ -132,14 +132,14 @@
                     android:text="Erişilebilirlik / Kullanım izinleri"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -165,14 +165,14 @@
                     android:text="Engellenen Uygulamalar"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -198,14 +198,14 @@
                     android:text="Zaman Limitleri"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -231,14 +231,14 @@
                     android:text="@string/reports_title"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -264,14 +264,14 @@
                     android:text="@string/schedule_title"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -297,14 +297,14 @@
                     android:text="@string/profiles_title"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -330,14 +330,14 @@
                     android:text="Ödül Sözleşmeleri"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -368,7 +368,7 @@
                         android:text="Reklamları devre dışı bırak"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text_dark"/>
+                        android:textColor="@color/bb_text"/>
 
                     <Switch
                         android:id="@+id/switchAdsDisabled"
@@ -405,7 +405,7 @@
                         android:text="Avatar satın alma kapalı"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text_dark"/>
+                        android:textColor="@color/bb_text"/>
 
                     <Switch
                         android:id="@+id/switchShopDisabled"
@@ -437,14 +437,14 @@
                     android:text="@string/backup_export"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -470,14 +470,14 @@
                     android:text="Test Ayarları (Zorluk, Soru Sayısı)"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -503,14 +503,14 @@
                     android:text="BrainBuddy Junior (1. Sınıf Okuma-Yazma)"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -536,14 +536,14 @@
                     android:text="Soru Paketi İçe Aktar"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -570,14 +570,14 @@
                     android:text="Sınav Paketleri (LGS, TYT, AYT)"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="›"
                     android:textSize="24sp"
-                    android:textColor="@color/bb_turquoise"/>
+                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

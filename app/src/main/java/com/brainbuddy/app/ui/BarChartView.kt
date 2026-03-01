@@ -24,15 +24,15 @@ class BarChartView @JvmOverloads constructor(
     }
     private val fillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = context.getColor(R.color.bb_turquoise)
+        color = context.getColor(R.color.bb_primary)
     }
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = 36f
-        color = context.getColor(R.color.bb_text_dark)
+        color = context.getColor(R.color.bb_text)
     }
     private val labelPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = 32f
-        color = context.getColor(R.color.bb_text_dark_muted)
+        color = context.getColor(R.color.bb_text_muted)
     }
 
     var data: List<BarData> = emptyList()
@@ -57,9 +57,9 @@ class BarChartView @JvmOverloads constructor(
             canvas.drawText(label, paddingStart.toFloat(), y + barHeight - 4, labelPaint)
             val barFullW = chartWidth * (d.total.toFloat() / maxTotal)
             val barFillW = if (d.total > 0) barFullW * (d.correct.toFloat() / d.total) else 0f
-            canvas.drawRoundRect(startX, y, startX + barFullW, y + barHeight - 4, 4f, 4f, bgPaint)
+            canvas.drawRoundRect(startX, y, startX + barFullW, y + barHeight - 4, 6f, 6f, bgPaint)
             if (barFillW > 0) {
-                canvas.drawRoundRect(startX, y, startX + barFillW, y + barHeight - 4, 4f, 4f, fillPaint)
+                canvas.drawRoundRect(startX, y, startX + barFillW, y + barHeight - 4, 6f, 6f, fillPaint)
             }
         }
     }
