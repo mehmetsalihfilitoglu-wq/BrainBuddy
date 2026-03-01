@@ -7,9 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.HomeActivity
 import com.brainbuddy.app.LockScreenActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.AdsPrefs
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
+import com.brainbuddy.app.core.PremiumStore
+import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.core.RewardedRetryStore
+import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.core.TestPerformance
 import com.brainbuddy.app.core.TopicCounts
 import org.json.JSONArray
@@ -22,6 +27,7 @@ class QuizResultActivity : AppCompatActivity() {
         const val EXTRA_SESSION = "extra_session"
         const val EXTRA_QUESTIONS_JSON = "extra_questions_json"
         const val EXTRA_IS_RETRY = "extra_is_retry"
+        const val EXTRA_IS_GATE_MODE = "extra_is_gate_mode"
 
         @Deprecated("Use EXTRA_SESSION")
         const val EXTRA_ANSWERS_JSON = "extra_answers_json"
@@ -286,11 +292,57 @@ class QuizResultActivity : AppCompatActivity() {
         }
 
         val locked = ProtectionPrefs(this).userLocked()
+        val isGateMode = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false)
         findViewById<android.widget.Button>(R.id.btnRetryTest).apply {
             visibility = if (locked) View.VISIBLE else View.GONE
         }
         findViewById<android.widget.Button>(R.id.btnPlayAgain).apply {
             visibility = if (locked) View.GONE else View.VISIBLE
+        }
+
+        val adSection = findViewById<View>(R.id.adRetrySection)
+        val btnWatchAd = findViewById<android.widget.Button>(R.id.btnWatchAd)
+        val tvAdRetryInfo = findViewById<android.widget.TextView>(R.id.tvAdRetryInfo)
+        if (locked && isGateMode && wrongIds.isNotEmpty()) {
+            val adsPrefs = AdsPrefs(this)
+            val premiumStore = PremiumStore(this)
+            val retryStore = RewardedRetryStore(this)
+            val profileId = ProfileStore(this).getCurrentProfileId()
+            val eligibleQuestion = wrongIds.shuffled().firstOrNull { qId ->
+                retryStore.canRetryWithAd(profileId, s.quizId, qId)
+            }
+            val canShowAd = !premiumStore.isPremium() && adsPrefs.isAdsEnabled() && eligibleQuestion != null
+            if (canShowAd) {
+                adSection.visibility = View.VISIBLE
+                val remaining = retryStore.getRemainingRetriesToday(profileId)
+                tvAdRetryInfo.text = "Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin. Bugün kalan: $remaining"
+                btnWatchAd.text = "Reklam İzle → Tekrar Dene"
+                val adHelper = RewardAdHelper(this)
+                adHelper.loadAd(onFailed = { btnWatchAd.isEnabled = false })
+                btnWatchAd.setOnClickListener {
+                    if (adHelper.isLoaded()) {
+                        adHelper.showAd(
+                            onRewarded = {
+                                retryStore.recordRetryUsed(profileId, s.quizId, eligibleQuestion!!)
+                                startActivity(Intent(this, GateRetrySingleActivity::class.java).apply {
+                                    putExtra(GateRetrySingleActivity.EXTRA_QUIZ_ID, s.quizId)
+                                    putExtra(GateRetrySingleActivity.EXTRA_QUESTION_ID, eligibleQuestion)
+                                    putExtra(GateRetrySingleActivity.EXTRA_SESSION_JSON, encodeSession(s))
+                                    putExtra(GateRetrySingleActivity.EXTRA_QUESTIONS_JSON, intent.getStringExtra(EXTRA_QUESTIONS_JSON))
+                                })
+                                finish()
+                            },
+                            onFailed = { adHelper.loadAd() }
+                        )
+                    } else {
+                        adHelper.loadAd()
+                    }
+                }
+            } else {
+                adSection.visibility = View.GONE
+            }
+        } else {
+            adSection.visibility = View.GONE
         }
     }
 

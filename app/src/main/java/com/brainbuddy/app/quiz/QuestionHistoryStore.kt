@@ -62,15 +62,8 @@ class QuestionHistoryStore(context: Context) {
         }.toSet()
     }
 
-    fun getRecentlySeenIds(limit: Int = 100): Set<String> {
-        val allKeys = prefs.all.keys.filter { it.startsWith("q_") }
-        val withTime = allKeys.mapNotNull { key ->
-            val id = key.removePrefix("q_")
-            val h = getHistory(id) ?: return@mapNotNull null
-            id to h.lastSeenAt
-        }
-        return withTime.sortedByDescending { it.second }.take(limit).map { it.first }.toSet()
-    }
+    fun getRecentlySeenIds(limit: Int = 100): Set<String> =
+        getRecentlySeenIdsForProfile(DEFAULT_PROFILE, limit)
 
     fun getAllWrongIds(): Set<String> {
         val allKeys = prefs.all.keys.filter { it.startsWith("q_") }
@@ -83,6 +76,20 @@ class QuestionHistoryStore(context: Context) {
 
     /** Record question IDs as recently seen (for gate/remedial variety). Call after quiz generation, not completion. */
     fun recordSeenIds(ids: List<String>) {
+        recordSeenIdsForProfile(DEFAULT_PROFILE, ids)
+    }
+
+    /** Per-profile recent seen (rolling window ~100). Gate uses this to avoid repeats. */
+    fun getRecentlySeenIdsForProfile(profileId: String, limit: Int = 100): Set<String> {
+        val key = "recent_seen_$profileId"
+        val json = prefs.getString(key, "[]") ?: "[]"
+        return try {
+            val arr = org.json.JSONArray(json)
+            (0 until arr.length()).mapNotNull { i -> arr.optString(i, null).takeIf { it.isNotBlank() } }.take(limit).toSet()
+        } catch (_: Exception) { emptySet() }
+    }
+
+    fun recordSeenIdsForProfile(profileId: String, ids: List<String>) {
         val now = System.currentTimeMillis()
         prefs.edit().apply {
             ids.forEach { id ->
@@ -95,11 +102,20 @@ class QuestionHistoryStore(context: Context) {
                 }
                 putString("q_$id", o.toString())
             }
+            val key = "recent_seen_$profileId"
+            val existing = (prefs.getString(key, "[]") ?: "[]").let { s ->
+                try { org.json.JSONArray(s) } catch (_: Exception) { org.json.JSONArray() }
+            }
+            val list = (0 until existing.length()).mapNotNull { i -> existing.optString(i, null).takeIf { it.isNotBlank() } }.toMutableList()
+            ids.forEach { id -> if (id !in list) list.add(0, id) }
+            val trimmed = list.take(100)
+            putString(key, org.json.JSONArray(trimmed).toString())
             apply()
         }
     }
 
     companion object {
+        private const val DEFAULT_PROFILE = "default"
         private const val PREFS = "bb_question_history"
     }
 }

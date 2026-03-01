@@ -3,24 +3,23 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
-    <color name="bb_bg">#0B1220</color>
-    <color name="bb_card">#121B2D</color>
+    <!-- Turquoise onboarding style -->
+    <color name="bb_primary">#1BC5B0</color>
+    <color name="bb_secondary">#00897B</color>
+    <color name="bb_accent">#FFC107</color>
+    <color name="bb_error">#FF5252</color>
+    <color name="bb_text">#1F2937</color>
+    <color name="bb_text_muted">#6B7280</color>
 
-    <color name="bb_text">#EAF0FF</color>
-    <color name="bb_text_muted">#A9B4D0</color>
+    <color name="bb_bg">#E8FBF7</color>
+    <color name="bb_card">#FFFFFF</color>
 
-    <color name="bb_primary">#19C6B3</color>
-    <color name="bb_secondary">#38BDF8</color>
-    <color name="bb_tertiary">#A78BFA</color>
-
-    <color name="bb_error">#FF5C5C</color>
-
-    <!-- Turquoise theme -->
-    <color name="bb_turquoise">#19C6B3</color>
-    <color name="bb_turquoise_dark">#0D9488</color>
+    <!-- Legacy compatibility -->
+    <color name="bb_turquoise">#1BC5B0</color>
+    <color name="bb_turquoise_dark">#00897B</color>
     <color name="bb_turquoise_light">#5EEAD4</color>
+    <color name="bb_tertiary">#1BC5B0</color>
 
-    <!-- Light mode text on white cards -->
-    <color name="bb_text_dark">#1E293B</color>
-    <color name="bb_text_dark_muted">#64748B</color>
+    <color name="bb_text_dark">#1F2937</color>
+    <color name="bb_text_dark_muted">#6B7280</color>
 </resources>

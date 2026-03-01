@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.BrainBuddy" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Material3 temel renkler -->
+    <style name="Theme.BrainBuddy" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/bb_primary</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/bb_secondary</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="colorTertiary">@color/bb_tertiary</item>
-        <item name="colorOnTertiary">@color/white</item>
-
-        <!-- Arkaplan / yazı -->
+        <item name="colorTertiary">@color/bb_accent</item>
+        <item name="colorOnTertiary">@color/black</item>
         <item name="android:windowBackground">@color/bb_bg</item>
         <item name="android:textColorPrimary">@color/bb_text</item>
         <item name="android:textColorSecondary">@color/bb_text_muted</item>

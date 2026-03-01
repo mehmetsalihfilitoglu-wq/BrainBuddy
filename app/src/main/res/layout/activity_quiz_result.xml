@@ -19,7 +19,7 @@
             android:text="Tebrikler! 🎉"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="@color/bb_text_dark"
             android:gravity="center"/>
 
         <com.google.android.material.card.MaterialCardView
@@ -142,6 +142,32 @@
             android:text="Yanlışları İncele"
             android:textAllCaps="false"/>
 
+        <LinearLayout
+            android:id="@+id/adRetrySection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:id="@+id/tvAdRetryInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin."
+                android:textSize="14sp"
+                android:textColor="@color/bb_text_dark_muted"
+                android:paddingBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btnWatchAd"
+                style="@style/BBButtonAlt"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Reklam İzle → Tekrar Dene"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
         <Button
             android:id="@+id/btnRetryTest"
             style="@style/BB.Button"
@@ -183,7 +209,7 @@
                 android:text="Yanlış cevaplar"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/white"
+                android:textColor="@color/bb_text_dark"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 

@@ -82,7 +82,6 @@ class QuizActivity : AppCompatActivity() {
         }
 
         b.submitBtn.visibility = View.GONE
-        b.finishTestBtn.visibility = View.GONE
         b.nextBtn.setOnClickListener { goNext() }
         b.hintBtn.setOnClickListener { showHintIfAllowed() }
 
@@ -260,8 +259,7 @@ class QuizActivity : AppCompatActivity() {
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
         if (passed && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
-            protectionPrefs.setLastQuizPassedAtMs(System.currentTimeMillis())
-            if (isGateMode || isRetryOfLockedQuiz || isRemedial) protectionPrefs.setUserLocked(false)
+            com.brainbuddy.app.gate.GateManager.onGatePassed(this)
         }
         val passedBossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         if (passed && passedBossLevel > 0) {
@@ -269,19 +267,18 @@ class QuizActivity : AppCompatActivity() {
         }
         if (!passed && !isRetryOfLockedQuiz && !isRemedial) {
             com.brainbuddy.app.core.ReportStore(this).recordLockEvent()
-            protectionPrefs.setUserLocked(true)
+            com.brainbuddy.app.gate.GateManager.onGateFailed(this)
             protectionPrefs.setLastFailedWrongIds(wrongIds)
             protectionPrefs.setLastFailedQuizId(quizId)
             protectionPrefs.setLastFailedQuestionIds(questions.map { it.id })
             protectionPrefs.setLastFailedSessionJson(QuizResultActivity.encodeSession(session))
-        } else if (passed && isRetryOfLockedQuiz) {
-            protectionPrefs.setUserLocked(false)
         }
 
         startActivity(Intent(this, QuizResultActivity::class.java).apply {
             putExtra(QuizResultActivity.EXTRA_SESSION, QuizResultActivity.encodeSession(session))
             putExtra(QuizResultActivity.EXTRA_QUESTIONS_JSON, QuizResultActivity.encodeQuestions(questions))
             putExtra(QuizResultActivity.EXTRA_IS_RETRY, isRetryOfLockedQuiz)
+            putExtra(QuizResultActivity.EXTRA_IS_GATE_MODE, isGateMode)
         })
         finish()
     }

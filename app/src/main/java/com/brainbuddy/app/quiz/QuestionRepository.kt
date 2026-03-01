@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.widget.Toast
+import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import org.json.JSONArray
@@ -258,19 +259,8 @@ class QuestionRepository(private val context: Context) {
     }
 
     private fun showDebugToast(load: LoadStats, filter: FilterStats, poolSize: Int, count: Int) {
-        val msg = buildString {
-            append("Quiz Debug: ")
-            append("JSON=${if (load.fileFound) "OK" else "MISSING"}, ")
-            append("parsed=${load.parsedTotal}/${load.totalInJson}")
-            if (load.parseFailed > 0) append(" (${load.parseFailed} failed)")
-            append(" | after filters: ")
-            append("diff=${filter.afterDifficulty}, cat=${filter.afterCategory}, ")
-            append("grade=${filter.afterGrade}, pool=$poolSize, count=$count")
-        }
+        val msg = "Quiz: JSON=${if (load.fileFound) "OK" else "MISSING"}, parsed=${load.parsedTotal}, pool=$poolSize"
         Log.i(TAG, msg)
-        Handler(Looper.getMainLooper()).post {
-            Toast.makeText(context.applicationContext, msg, Toast.LENGTH_LONG).show()
-        }
     }
 
     data class FilterStats(
@@ -385,11 +375,12 @@ class QuestionRepository(private val context: Context) {
         return result
     }
 
-    /** Gate quiz: prefer questions not in recentSeenQuestionIds, shuffle order. Updates recentSeen on generation. */
+    /** Gate quiz: prefer questions not in recentSeenQuestionIds (per profile), shuffle order. Updates recentSeen at generation to avoid immediate repeats in fail-loop. */
     fun pickGateQuestions(levelGroup: LevelGroup, count: Int = 10): List<Question> {
+        val profileId = ProfileStore(context).getCurrentProfileId()
         val global = getGlobalPool()
         val pool = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
-        val recentIds = historyStore.getRecentlySeenIds(100)
+        val recentIds = historyStore.getRecentlySeenIdsForProfile(profileId, 100)
         val preferFresh = pool.filter { it.id !in recentIds }.shuffled()
         val fillFrom = pool.filter { it.id in recentIds }.shuffled()
         val result = mutableListOf<Question>()
@@ -409,7 +400,7 @@ class QuestionRepository(private val context: Context) {
             }
         }
         val finalList = result.ifEmpty { pool.shuffled().take(count) }.shuffled()
-        historyStore.recordSeenIds(finalList.map { it.id })
+        historyStore.recordSeenIdsForProfile(profileId, finalList.map { it.id })
         return finalList
     }
 

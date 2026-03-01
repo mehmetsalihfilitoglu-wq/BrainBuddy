@@ -2,6 +2,7 @@ package com.brainbuddy.app
 
 import android.app.Application
 import com.brainbuddy.app.core.AppModeManager
+import com.google.android.gms.ads.MobileAds
 import com.brainbuddy.app.core.PermissionMonitorLauncher
 import android.content.Intent
 import android.os.Process
@@ -10,6 +11,7 @@ class BrainBuddyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        MobileAds.initialize(this) {}
         AppModeManager.registerLifecycle(this)
         PermissionMonitorLauncher.scheduleCheck(this)
 

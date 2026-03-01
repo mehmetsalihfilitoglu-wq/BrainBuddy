@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
+import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.databinding.ActivityWrongAnswerReviewBinding
 
 /**
@@ -40,7 +41,8 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         analyticsStore = AnalyticsStore(this)
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS) ?: arrayListOf()
         val sessionJson = intent.getStringExtra(EXTRA_SESSION_JSON)
-        isParentReview = intent.getBooleanExtra(EXTRA_IS_PARENT_REVIEW, false)
+        val requestedParent = intent.getBooleanExtra(EXTRA_IS_PARENT_REVIEW, false)
+        isParentReview = requestedParent && AppModeManager.isParentMode()
         val session = QuizResultActivity.decodeSession(sessionJson)
         sessionAnswers = session?.answers ?: emptyMap()
 

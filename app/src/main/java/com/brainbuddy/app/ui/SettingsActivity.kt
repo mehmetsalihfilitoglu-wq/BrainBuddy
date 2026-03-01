@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.AdsPrefs
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.BackupManager
 import com.brainbuddy.app.core.ProtectionPrefs
@@ -91,6 +92,13 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<View>(R.id.cardRewardContracts)?.setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.reward.RewardContractActivity::class.java))
         }
+        val adsPrefs = AdsPrefs(this)
+        val switchAdsDisabled = findViewById<android.widget.Switch>(R.id.switchAdsDisabled)
+        switchAdsDisabled.isChecked = !adsPrefs.isAdsEnabled()
+        switchAdsDisabled.setOnCheckedChangeListener { _, isChecked ->
+            adsPrefs.setAdsEnabled(!isChecked)
+        }
+
         val switchShopDisabled = findViewById<android.widget.Switch>(R.id.switchShopDisabled)
         val avatarStore = com.brainbuddy.app.avatar.AvatarStore(this)
         switchShopDisabled.isChecked = avatarStore.isShopDisabledByParent()
