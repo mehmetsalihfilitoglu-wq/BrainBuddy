@@ -50,6 +50,25 @@
                     android:layout_marginTop="8dp"/>
 
                 <TextView
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/bb_text_dark_muted"
+                    android:text="Quiz aralığı (dakika)"
+                    android:textSize="14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <RadioGroup
+                    android:id="@+id/intervalGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+                    <RadioButton android:id="@+id/interval30" android:text="30" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <RadioButton android:id="@+id/interval45" android:text="45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
+                    <RadioButton android:id="@+id/interval60" android:text="60" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
+                </RadioGroup>
+
+                <TextView
                     android:layout_marginTop="8dp"
                     android:textColor="@color/bb_text_dark_muted"
                     android:text="Öğrenci Seviyesi"
@@ -88,6 +107,39 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                 </RadioGroup>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPermissions"
+            style="@style/BB.HomeCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Erişilebilirlik / Kullanım izinleri"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bb_text_dark"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="24sp"
+                    android:textColor="@color/bb_turquoise"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

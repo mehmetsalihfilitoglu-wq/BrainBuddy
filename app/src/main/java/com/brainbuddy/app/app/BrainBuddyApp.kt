@@ -1,6 +1,7 @@
 package com.brainbuddy.app
 
 import android.app.Application
+import com.brainbuddy.app.core.AppModeManager
 import android.content.Intent
 import android.os.Process
 
@@ -8,6 +9,7 @@ class BrainBuddyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        AppModeManager.registerLifecycle(this)
 
         val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
 

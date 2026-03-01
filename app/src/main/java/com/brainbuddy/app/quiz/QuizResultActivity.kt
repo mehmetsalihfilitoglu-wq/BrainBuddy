@@ -11,6 +11,7 @@ import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.TestPerformance
+import com.brainbuddy.app.core.TopicCounts
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
@@ -184,7 +185,7 @@ class QuizResultActivity : AppCompatActivity() {
             if (s.passed) "Tebrikler! 🎉" else "Test Başarısız"
         findViewById<android.widget.TextView>(R.id.tvScoreBig).text = "${s.correctCount}/${total}"
         findViewById<android.widget.TextView>(R.id.tvScoreLabel).text =
-            "Doğru: ${s.correctCount} | Yanlış: ${s.wrongCount} | Boş: ${s.blankCount}"
+            "Doğru: ${s.correctCount}/$total | Yanlış: ${s.wrongCount}/$total | Boş: ${s.blankCount}/$total"
         findViewById<android.widget.TextView>(R.id.tvPercentage).apply {
             visibility = View.VISIBLE
             text = "%.0f%%".format(pct)
@@ -208,12 +209,14 @@ class QuizResultActivity : AppCompatActivity() {
             text = "Seviye ${gam.level()} ($into/$of XP)"
         }
 
-        val (strongest, weakest, suggested) = computeAnalyticsSummary(analytics, perf)
+        val (strongest, weakest, suggested) = computeAnalyticsSummaryWithCounts(perf)
         findViewById<android.widget.TextView>(R.id.tvAnalytics).apply {
             visibility = View.VISIBLE
             text = buildString {
-                append("En güçlü konu: $strongest\n")
-                append("Çalışılacak: $weakest\n")
+                append(strongest)
+                append("\n")
+                append(weakest)
+                append("\n")
                 append("Öneri: $suggested pratik yap")
             }
         }
@@ -276,27 +279,38 @@ class QuizResultActivity : AppCompatActivity() {
     }
 
     private fun buildTestPerformance(s: com.brainbuddy.app.quiz.QuizSession): TestPerformance {
-        val allMap = questions.associateBy { it.id }
-        val byTopic = mutableMapOf<String, MutableList<Pair<Int, Int>>>()
-        val byDiff = mutableMapOf<String, MutableList<Pair<Int, Int>>>()
+        val byTopicCounts = mutableMapOf<String, MutableList<Triple<Int, Int, Int>>>()
+        val byDiffCounts = mutableMapOf<String, MutableList<Triple<Int, Int, Int>>>()
         for (q in questions) {
             val sel = s.answers[q.id] ?: -1
-            val correct = sel == q.correctIndex
+            val (c, w, b) = when {
+                sel == q.correctIndex -> Triple(1, 0, 0)
+                sel == -1 -> Triple(0, 0, 1)
+                else -> Triple(0, 1, 0)
+            }
             val topic = q.subject.tr
-            byTopic.getOrPut(topic) { mutableListOf() }.add(1 to if (correct) 1 else 0)
+            byTopicCounts.getOrPut(topic) { mutableListOf() }.add(Triple(c, w, b))
             val diff = q.difficulty.name.lowercase()
-            byDiff.getOrPut(diff) { mutableListOf() }.add(1 to if (correct) 1 else 0)
+            byDiffCounts.getOrPut(diff) { mutableListOf() }.add(Triple(c, w, b))
         }
-        val topicAcc = byTopic.mapValues { (_, pairs) ->
-            val total = pairs.sumOf { it.first }
-            val correct = pairs.sumOf { it.second }
-            if (total > 0) 100f * correct / total else 0f
+        val topicCounts = byTopicCounts.mapValues { (_, list) ->
+            TopicCounts(
+                correct = list.sumOf { it.first },
+                wrong = list.sumOf { it.second },
+                blank = list.sumOf { it.third },
+                total = list.size
+            )
         }
-        val diffAcc = byDiff.mapValues { (_, pairs) ->
-            val total = pairs.sumOf { it.first }
-            val correct = pairs.sumOf { it.second }
-            if (total > 0) 100f * correct / total else 0f
+        val diffCounts = byDiffCounts.mapValues { (_, list) ->
+            TopicCounts(
+                correct = list.sumOf { it.first },
+                wrong = list.sumOf { it.second },
+                blank = list.sumOf { it.third },
+                total = list.size
+            )
         }
+        val topicAcc = topicCounts.mapValues { it.value.accuracy }
+        val diffAcc = diffCounts.mapValues { it.value.accuracy }
         return TestPerformance(
             quizId = s.quizId,
             tsMs = s.completedAt ?: System.currentTimeMillis(),
@@ -304,17 +318,34 @@ class QuizResultActivity : AppCompatActivity() {
             correctCount = s.correctCount,
             wrongCount = s.wrongCount,
             blankCount = s.blankCount,
+            totalQuestions = s.totalCount,
             passed = s.passed,
             wrongQuestionIds = s.wrongQuestionIds,
             byTopic = topicAcc,
-            byDifficulty = diffAcc
+            byDifficulty = diffAcc,
+            byTopicCounts = topicCounts,
+            byDifficultyCounts = diffCounts
         )
     }
 
-    private fun computeAnalyticsSummary(analytics: AnalyticsStore, perf: TestPerformance): Triple<String, String, String> {
-        val strongest = perf.byTopic.maxByOrNull { it.value }?.key ?: "-"
-        val weakest = perf.byTopic.minByOrNull { it.value }?.key ?: "-"
-        val suggested = if (perf.byTopic.any { it.value < 80f }) weakest else strongest
+    private fun computeAnalyticsSummaryWithCounts(perf: TestPerformance): Triple<String, String, String> {
+        val counts = perf.byTopicCounts
+        val strongest = if (counts.isEmpty()) {
+            perf.byTopic.maxByOrNull { it.value }?.let { "En güçlü konu: ${it.key} (${"%.0f".format(it.value)}%)" } ?: "En güçlü konu: -"
+        } else {
+            counts.maxByOrNull { it.value.accuracy }?.let { (topic, tc) ->
+                "En güçlü konu: $topic ${tc.correct}/${tc.total} doğru (${tc.wrong} yanlış)"
+            } ?: "En güçlü konu: -"
+        }
+        val weakest = if (counts.isEmpty()) {
+            perf.byTopic.minByOrNull { it.value }?.let { "Çalışılacak: ${it.key} (${"%.0f".format(it.value)}%)" } ?: "Çalışılacak: -"
+        } else {
+            counts.minByOrNull { it.value.accuracy }?.let { (topic, tc) ->
+                "Çalışılacak: $topic ${tc.correct}/${tc.total} doğru (${tc.wrong} yanlış)"
+            } ?: "Çalışılacak: -"
+        }
+        val suggested = perf.byTopicCounts.minByOrNull { it.value.accuracy }?.key
+            ?: perf.byTopic.minByOrNull { it.value }?.key ?: "-"
         return Triple(strongest, weakest, suggested)
     }
 

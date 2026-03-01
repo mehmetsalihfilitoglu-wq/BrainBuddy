@@ -5,6 +5,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.TimeLimitPrefs
 
 class TimeLimitsActivity : AppCompatActivity() {
@@ -13,6 +14,8 @@ class TimeLimitsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!ParentAccessGuard.checkAndRedirect(this, TimeLimitsActivity::class.java)) return
+
         setContentView(R.layout.activity_time_limits)
 
         prefs = TimeLimitPrefs(this)

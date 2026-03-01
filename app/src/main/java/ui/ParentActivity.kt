@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
+import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.databinding.ActivityParentBinding
 import java.util.concurrent.TimeUnit
 
@@ -14,6 +15,8 @@ class ParentActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!ParentAccessGuard.checkAndRedirect(this, ParentActivity::class.java)) return
+
         b = ActivityParentBinding.inflate(layoutInflater)
         setContentView(b.root)
 

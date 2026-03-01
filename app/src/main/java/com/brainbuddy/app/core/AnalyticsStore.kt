@@ -35,12 +35,40 @@ class AnalyticsStore(context: Context) {
             .put("correctCount", perf.correctCount)
             .put("wrongCount", perf.wrongCount)
             .put("blankCount", perf.blankCount)
+            .put("totalQuestions", perf.totalQuestions)
             .put("passed", perf.passed)
             .put("wrongQuestionIds", JSONArray(perf.wrongQuestionIds))
             .put("byTopic", JSONObject(perf.byTopic))
             .put("byDifficulty", JSONObject(perf.byDifficulty))
+            .put("byTopicCounts", encodeTopicCountsMap(perf.byTopicCounts))
+            .put("byDifficultyCounts", encodeTopicCountsMap(perf.byDifficultyCounts))
         arr.put(obj)
         trimAndSave(arr, KEY_PERFORMANCES, 200)
+    }
+
+    private fun encodeTopicCountsMap(m: Map<String, TopicCounts>): JSONObject {
+        val o = JSONObject()
+        m.forEach { (k, tc) ->
+            o.put(k, JSONObject()
+                .put("correct", tc.correct)
+                .put("wrong", tc.wrong)
+                .put("blank", tc.blank)
+                .put("total", tc.total))
+        }
+        return o
+    }
+
+    private fun decodeTopicCountsMap(obj: JSONObject?): Map<String, TopicCounts> {
+        if (obj == null) return emptyMap()
+        return obj.keys().asSequence().associateWith { key ->
+            val t = obj.getJSONObject(key)
+            TopicCounts(
+                correct = t.optInt("correct", 0),
+                wrong = t.optInt("wrong", 0),
+                blank = t.optInt("blank", 0),
+                total = t.optInt("total", 0)
+            )
+        }
     }
 
     fun getTestPerformances(): List<TestPerformance> {
@@ -54,19 +82,28 @@ class AnalyticsStore(context: Context) {
             val diffObj = o.optJSONObject("byDifficulty") ?: JSONObject()
             val byTopic = topicObj.keys().asSequence().associateWith { topicObj.getDouble(it).toFloat() }
             val byDiff = diffObj.keys().asSequence().associateWith { diffObj.getDouble(it).toFloat() }
+            val totalQ = o.optInt("totalQuestions", 0)
+            val correct = o.optInt("correctCount", 0)
+            val wrong = o.optInt("wrongCount", 0)
+            val blank = o.optInt("blankCount", 0)
+            val byTc = decodeTopicCountsMap(o.optJSONObject("byTopicCounts"))
+            val byDc = decodeTopicCountsMap(o.optJSONObject("byDifficultyCounts"))
             out.add(
                 TestPerformance(
                     quizId = o.optString("quizId", ""),
                     tsMs = o.getLong("tsMs"),
                     userId = o.optString("userId", "default"),
                     accuracy = o.optDouble("accuracy", 0.0).toFloat(),
-                    correctCount = o.optInt("correctCount", 0),
-                    wrongCount = o.optInt("wrongCount", 0),
-                    blankCount = o.optInt("blankCount", 0),
+                    correctCount = correct,
+                    wrongCount = wrong,
+                    blankCount = blank,
+                    totalQuestions = if (totalQ > 0) totalQ else (correct + wrong + blank),
                     passed = o.optBoolean("passed", true),
                     wrongQuestionIds = wrongIds,
                     byTopic = byTopic,
-                    byDifficulty = byDiff
+                    byDifficulty = byDiff,
+                    byTopicCounts = byTc,
+                    byDifficultyCounts = byDc
                 )
             )
         }
@@ -102,6 +139,63 @@ class AnalyticsStore(context: Context) {
 
     fun getWeakestTopics(n: Int = 3): List<Pair<String, Float>> =
         getTopicMastery().toList().sortedBy { it.second }.filter { it.second < 100f }.take(n)
+
+    /** Overall counts for X/Y display (correct/wrong/blank/total). */
+    fun getOverallCounts(): OverallCounts {
+        val perfs = getTestPerformances()
+        var correct = 0
+        var wrong = 0
+        var blank = 0
+        perfs.forEach { p ->
+            correct += p.correctCount
+            wrong += p.wrongCount
+            blank += p.blankCount
+        }
+        return OverallCounts(correct, wrong, blank, correct + wrong + blank)
+    }
+
+    /** Topic mastery with counts (correct/total per topic). */
+    fun getTopicMasteryWithCounts(): Map<String, TopicCounts> {
+        val perfs = getTestPerformances()
+        val agg = mutableMapOf<String, MutableList<TopicCounts>>()
+        perfs.forEach { p ->
+            p.byTopicCounts.forEach { (topic, tc) ->
+                agg.getOrPut(topic) { mutableListOf() }.add(tc)
+            }
+        }
+        return agg.mapValues { (_, list) ->
+            TopicCounts(
+                correct = list.sumOf { it.correct },
+                wrong = list.sumOf { it.wrong },
+                blank = list.sumOf { it.blank },
+                total = list.sumOf { it.total }
+            )
+        }
+    }
+
+    fun getUserStats(): UserStats {
+        val counts = getOverallCounts()
+        val topicCounts = getTopicMasteryWithCounts()
+        return UserStats(
+            overallCorrect = counts.correct,
+            overallWrong = counts.wrong,
+            overallBlank = counts.blank,
+            overallTotal = counts.total,
+            topicMasteryCounts = topicCounts
+        )
+    }
+
+    fun getStrongestTopicsWithCounts(n: Int = 3): List<Pair<String, TopicCounts>> =
+        getTopicMasteryWithCounts().toList()
+            .filter { it.second.total > 0 }
+            .sortedByDescending { it.second.accuracy }
+            .take(n)
+
+    fun getWeakestTopicsWithCounts(n: Int = 3): List<Pair<String, TopicCounts>> =
+        getTopicMasteryWithCounts().toList()
+            .filter { it.second.total > 0 && it.second.accuracy < 100f }
+            .sortedBy { it.second.accuracy }
+            .take(n)
 
     /** Store review corrections count (when user gets a question right during wrong-answer review). */
     fun recordReviewCorrection() {

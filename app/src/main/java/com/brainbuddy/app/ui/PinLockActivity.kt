@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.security.PinManager
 
 class PinLockActivity : AppCompatActivity() {
@@ -65,6 +66,7 @@ class PinLockActivity : AppCompatActivity() {
                     }
                     if (pinManager.verifyPin(pin)) {
                         pin.fill('\u0000')
+                        AppModeManager.enterParentMode()
                         navigateToTarget()
                         finish()
                     } else {
@@ -85,6 +87,7 @@ class PinLockActivity : AppCompatActivity() {
                     pin.fill('\u0000')
                     confirm.fill('\u0000')
                     Toast.makeText(this, R.string.pin_saved, Toast.LENGTH_SHORT).show()
+                    AppModeManager.enterParentMode()
                     navigateToTarget()
                     finish()
                 }
@@ -97,6 +100,10 @@ class PinLockActivity : AppCompatActivity() {
         val target = when (targetName) {
             "ParentActivity" -> ParentActivity::class.java
             "SettingsActivity" -> SettingsActivity::class.java
+            "BlockedAppsActivity" -> BlockedAppsActivity::class.java
+            "TimeLimitsActivity" -> TimeLimitsActivity::class.java
+            "QuizSettingsActivity" -> QuizSettingsActivity::class.java
+            "ProtectionInactiveActivity" -> ProtectionInactiveActivity::class.java
             else -> ParentActivity::class.java
         }
         startActivity(Intent(this, target))

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.core.AnalyticsStore
+import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.security.PinManager
@@ -44,15 +45,12 @@ class HomeActivity : AppCompatActivity() {
         progress.max = 1
         progress.progress = if (sessionsToday >= 1) 1 else 0
 
-        // CTA clicks
+        // CTA clicks - Student can only access Quiz, Stats, Parent Area (PIN required)
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTest).setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java))
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardStats).setOnClickListener {
             startActivity(Intent(this, StatsActivity::class.java))
-        }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardSettings).setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardVeli).setOnClickListener {
             val pinManager = PinManager(this)
@@ -62,11 +60,20 @@ class HomeActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardBlockedApps).setOnClickListener {
-            startActivity(Intent(this, BlockedAppsActivity::class.java))
-        }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTimeLimits).setOnClickListener {
-            startActivity(Intent(this, TimeLimitsActivity::class.java))
+        val cardSettings = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardSettings)
+        val cardBlockedApps = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardBlockedApps)
+        val cardTimeLimits = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTimeLimits)
+        if (AppModeManager.isParentMode()) {
+            cardSettings.visibility = android.view.View.VISIBLE
+            cardBlockedApps.visibility = android.view.View.VISIBLE
+            cardTimeLimits.visibility = android.view.View.VISIBLE
+            cardSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
+            cardBlockedApps.setOnClickListener { startActivity(Intent(this, BlockedAppsActivity::class.java)) }
+            cardTimeLimits.setOnClickListener { startActivity(Intent(this, TimeLimitsActivity::class.java)) }
+        } else {
+            cardSettings.visibility = android.view.View.GONE
+            cardBlockedApps.visibility = android.view.View.GONE
+            cardTimeLimits.visibility = android.view.View.GONE
         }
     }
 
@@ -82,5 +89,18 @@ class HomeActivity : AppCompatActivity() {
         findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri"
         findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
         findViewById<android.widget.TextView>(R.id.levelBadge).text = "Seviye ${gam.level()}"
+        // Refresh parent-only cards visibility (session may have expired)
+        val cardSettings = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardSettings)
+        val cardBlockedApps = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardBlockedApps)
+        val cardTimeLimits = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTimeLimits)
+        val visible = AppModeManager.isParentMode()
+        cardSettings.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
+        cardBlockedApps.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
+        cardTimeLimits.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
+        if (visible) {
+            cardSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
+            cardBlockedApps.setOnClickListener { startActivity(Intent(this, BlockedAppsActivity::class.java)) }
+            cardTimeLimits.setOnClickListener { startActivity(Intent(this, TimeLimitsActivity::class.java)) }
+        }
     }
 }

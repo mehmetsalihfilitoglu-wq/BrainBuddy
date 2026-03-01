@@ -8,11 +8,11 @@ class ProtectionPrefs(context: Context) {
     fun isProtectionEnabled(): Boolean = prefs.getBoolean(KEY_ENABLED, false)
     fun setProtectionEnabled(v: Boolean) = prefs.edit().putBoolean(KEY_ENABLED, v).apply()
 
-    /**
-     * Cooldown sabit: 10 dakika.
+    /** Quiz gate cooldown (30, 45, or 60 min).
      * UI’da gösterilir ama kullanıcı değiştiremez.
      */
-    fun quizIntervalMinutes(): Int = 10
+    fun quizIntervalMinutes(): Int = prefs.getInt(KEY_QUIZ_INTERVAL, 30)
+    fun setQuizIntervalMinutes(v: Int) = prefs.edit().putInt(KEY_QUIZ_INTERVAL, v.coerceIn(30, 60)).apply()
 
     fun studentLevel(): StudentLevel =
         StudentLevel.valueOf(prefs.getString(KEY_LEVEL, StudentLevel.AGE_3_5.name)!!)
@@ -56,6 +56,7 @@ class ProtectionPrefs(context: Context) {
         private const val KEY_LAST_FAILED_QUIZ_ID = "last_failed_quiz_id"
         private const val KEY_LAST_FAILED_QUESTION_IDS = "last_failed_question_ids"
         private const val KEY_LAST_FAILED_SESSION_JSON = "last_failed_session_json"
+        private const val KEY_QUIZ_INTERVAL = "quiz_interval_minutes"
     }
 }
 

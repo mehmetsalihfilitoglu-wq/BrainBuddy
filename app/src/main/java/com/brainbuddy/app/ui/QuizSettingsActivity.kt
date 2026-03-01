@@ -5,6 +5,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.quiz.QuizDifficulty
 
@@ -14,6 +15,8 @@ class QuizSettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!ParentAccessGuard.checkAndRedirect(this, QuizSettingsActivity::class.java)) return
+
         setContentView(R.layout.activity_quiz_settings)
 
         prefs = QuizPrefs(this)

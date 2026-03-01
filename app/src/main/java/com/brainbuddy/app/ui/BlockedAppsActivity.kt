@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.BlockedAppsStore
+import com.brainbuddy.app.core.ParentAccessGuard
 
 class BlockedAppsActivity : AppCompatActivity() {
 
@@ -22,6 +23,8 @@ class BlockedAppsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!ParentAccessGuard.checkAndRedirect(this, BlockedAppsActivity::class.java)) return
+
         setContentView(R.layout.activity_blocked_apps)
 
         blockedStore = BlockedAppsStore(this)

@@ -28,16 +28,30 @@ class StatsActivity : AppCompatActivity() {
         b.tvLevel.text = "Seviye ${gam.level()}"
         b.tvXp.text = "${gam.xp()} XP"
         b.tvStreak.text = "🔥 ${gam.streakDays()} gün seri"
-        b.tvOverallAccuracy.text = "%.1f%%".format(analytics.getOverallAccuracy())
+        val counts = analytics.getOverallCounts()
+        b.tvOverallAccuracy.text = if (counts.total > 0) {
+            "${counts.correct}/${counts.total} doğru (${"%.1f".format(100.0 * counts.correct / counts.total)}%)"
+        } else "Henüz veri yok"
 
-        val strongest = analytics.getStrongestTopics(3)
-        b.tvStrongTopics.text = if (strongest.isEmpty()) "-" else strongest.joinToString(", ") { "${it.first} (${"%.0f".format(it.second)}%)" }
+        val strongest = analytics.getStrongestTopicsWithCounts(3)
+        b.tvStrongTopics.text = if (strongest.isEmpty()) "-" else strongest.joinToString("\n") { (topic, tc) ->
+            "$topic: ${tc.correct}/${tc.total} doğru (${tc.wrong} yanlış)"
+        }
 
-        val weakest = analytics.getWeakestTopics(3)
-        b.tvWeakTopics.text = if (weakest.isEmpty()) "-" else weakest.joinToString(", ") { "${it.first} (${"%.0f".format(it.second)}%)" }
+        val weakest = analytics.getWeakestTopicsWithCounts(3)
+        b.tvWeakTopics.text = if (weakest.isEmpty()) "-" else weakest.joinToString("\n") { (topic, tc) ->
+            "$topic: ${tc.correct}/${tc.total} doğru (${tc.wrong} yanlış)"
+        }
 
-        val recent = analytics.getLastAccuracies(10)
-        b.tvRecentTrend.text = if (recent.isEmpty()) "Henüz veri yok" else recent.joinToString(" → ") { "%.0f".format(it) }
+        val recent = analytics.getLastTests(10)
+        b.tvRecentTrend.text = if (recent.isEmpty()) "Henüz veri yok" else recent.joinToString(" → ") { p ->
+            "${p.correctCount}/${p.effectiveTotal}"
+        }
+
+        b.tvPerTestDetail.text = if (recent.isEmpty()) "-" else recent.takeLast(5).mapIndexed { i, p ->
+            val t = p.effectiveTotal
+            "Test ${i + 1}: Doğru ${p.correctCount}/$t, Yanlış ${p.wrongCount}/$t, Boş ${p.blankCount}/$t"
+        }.joinToString("\n")
 
         b.btnBack.setOnClickListener { finish() }
     }
