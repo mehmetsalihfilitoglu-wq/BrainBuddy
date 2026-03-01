@@ -17,5 +17,5 @@ object PackageNameHelper {
         "com.whatsapp" to "WhatsApp"
     )
 
-    fun getFriendlyName(pkg: String): String = knownPackages[pkg] ?: pkg.takeLast(20)
+    fun getFriendlyName(pkg: String): String = knownPackages[pkg] ?: "Uygulama"
 }

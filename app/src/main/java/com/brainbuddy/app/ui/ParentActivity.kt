@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.activity.ComponentActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.avatar.AvatarStore
@@ -48,7 +49,7 @@ class ParentActivity : ComponentActivity() {
         val protectionPrefs = ProtectionPrefs(this)
         val wrongIds = protectionPrefs.lastFailedWrongIds()
 
-        setupControlRow(b.controlReviewWrong.root, getString(R.string.parent_review_wrong), getString(R.string.parent_review_wrong_sub)) {
+        setupControlRow(b.controlReviewWrong.root, R.drawable.ic_review, getString(R.string.parent_review_wrong), getString(R.string.parent_review_wrong_sub)) {
             if (wrongIds.isNotEmpty()) {
                 val sessionJson = protectionPrefs.lastFailedSessionJson()
                 startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
@@ -61,19 +62,19 @@ class ParentActivity : ComponentActivity() {
             }
         }
 
-        setupControlRow(b.controlBlockedApps.root, getString(R.string.parent_blocked_apps), getString(R.string.parent_blocked_apps_sub)) {
+        setupControlRow(b.controlBlockedApps.root, R.drawable.ic_block, getString(R.string.parent_blocked_apps), getString(R.string.parent_blocked_apps_sub)) {
             startActivity(Intent(this, BlockedAppsActivity::class.java))
         }
-        setupControlRow(b.controlTimeSettings.root, getString(R.string.parent_time_settings), getString(R.string.parent_time_settings_sub)) {
+        setupControlRow(b.controlTimeSettings.root, R.drawable.ic_timer, getString(R.string.parent_time_settings), getString(R.string.parent_time_settings_sub)) {
             startActivity(Intent(this, TimeLimitsActivity::class.java))
         }
-        setupControlRow(b.controlQuestionPacks.root, getString(R.string.parent_question_packs), getString(R.string.parent_question_packs_sub)) {
+        setupControlRow(b.controlQuestionPacks.root, R.drawable.ic_quiz, getString(R.string.parent_question_packs), getString(R.string.parent_question_packs_sub)) {
             startActivity(Intent(this, ExamPackActivity::class.java))
         }
-        setupControlRow(b.controlAvatarShop.root, getString(R.string.parent_avatar_shop), null) {
+        setupControlRow(b.controlAvatarShop.root, R.drawable.ic_avatar, getString(R.string.parent_avatar_shop), null) {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
-        setupControlRow(b.controlChangePin.root, getString(R.string.parent_change_pin), getString(R.string.parent_change_pin_sub)) {
+        setupControlRow(b.controlChangePin.root, R.drawable.ic_lock, getString(R.string.parent_change_pin), getString(R.string.parent_change_pin_sub)) {
             startActivity(Intent(this, PinLockActivity::class.java).apply {
                 putExtra(PinLockActivity.EXTRA_MODE, "change")
                 putExtra(PinLockActivity.EXTRA_TARGET, "ParentActivity")
@@ -83,10 +84,14 @@ class ParentActivity : ComponentActivity() {
 
     private fun setupControlRow(
         root: View,
+        iconRes: Int,
         title: String,
         subtitle: String?,
         onClick: (() -> Unit)? = null
     ) {
+        root.findViewById<android.widget.ImageView>(R.id.icon)?.setImageDrawable(
+            ContextCompat.getDrawable(this, iconRes)
+        )
         root.findViewById<TextView>(R.id.title)?.text = title
         val subTv = root.findViewById<TextView>(R.id.subtitle)
         if (subtitle != null) {
@@ -164,12 +169,11 @@ class ParentActivity : ComponentActivity() {
 
         val topicCounts = analytics.getTopicMasteryWithCounts()
         val subjectOrder = listOf(Subject.MAT, Subject.TURKCE, Subject.FEN, Subject.SOSYAL, Subject.ING)
-        val orderedData = subjectOrder.map { subj ->
+        val barData = subjectOrder.map { subj ->
             val tc = topicCounts[subj.tr] ?: TopicCounts(0, 0, 0, 0)
             BarChartView.BarData(subj.tr, tc.correct, tc.total)
-        }.filter { it.total > 0 }
-        val barData = if (orderedData.isNotEmpty()) orderedData else subjectOrder.map { BarChartView.BarData(it.tr, 0, 0) }
-        b.barChart.data = barData.take(6)
+        }
+        b.barChart.data = barData
 
         val strongest = analytics.getStrongestTopicsWithCounts(3)
         b.containerStrong.removeAllViews()
