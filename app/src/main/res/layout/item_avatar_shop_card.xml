@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <View
+                android:id="@+id/previewThumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bb_turquoise_light"/>
+
+            <TextView
+                android:id="@+id/tvRarity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:background="@color/bb_turquoise"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:textSize="10sp"
+                android:textColor="@color/white"
+                android:text="Yaygın"/>
+
+            <View
+                android:id="@+id/lockOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/iconLock"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:src="@android:drawable/ic_lock_lock"
+                app:tint="@color/white"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/bb_text_dark"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="Klasik Saç"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:textColor="@color/bb_text_muted"
+                tools:text="50 XP"/>
+
+            <TextView
+                android:id="@+id/chipLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="Lv 3"
+                android:textSize="11sp"
+                android:textColor="@color/bb_turquoise"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
