@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.ReportStore
 import java.util.concurrent.TimeUnit
 
@@ -45,6 +46,20 @@ class ReportsActivity : AppCompatActivity() {
         findViewById<android.widget.TextView>(R.id.tvDailyQuizzes).text = "$dailySessions"
         findViewById<android.widget.TextView>(R.id.tvWeeklyQuizzes).text = "$weeklySessions"
         findViewById<android.widget.TextView>(R.id.tvPassRate).text = "%.0f%%".format(passRate)
+
+        val protectionPrefs = ProtectionPrefs(this)
+        val lastWrongIds = protectionPrefs.lastFailedWrongIds()
+        val lastSessionJson = protectionPrefs.lastFailedSessionJson()
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardReviewWrong)?.let { card ->
+            card.visibility = if (lastWrongIds.isNotEmpty() && lastSessionJson.isNotEmpty()) android.view.View.VISIBLE else android.view.View.GONE
+            findViewById<android.widget.Button>(R.id.btnReviewWrongParent)?.setOnClickListener {
+                startActivity(Intent(this, com.brainbuddy.app.quiz.WrongAnswerReviewActivity::class.java).apply {
+                    putStringArrayListExtra(com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(lastWrongIds))
+                    putExtra(com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_SESSION_JSON, lastSessionJson)
+                    putExtra(com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_IS_PARENT_REVIEW, true)
+                })
+            }
+        }
 
         findViewById<android.widget.Button>(R.id.btnShareReport).setOnClickListener {
             val text = buildString {

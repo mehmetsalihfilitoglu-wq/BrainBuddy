@@ -1,17 +1,7 @@
 package com.brainbuddy.app.avatar
 
 import android.content.Context
-import org.json.JSONArray
 import org.json.JSONObject
-
-data class AvatarItem(
-    val id: String,
-    val type: AvatarCategory,
-    val priceXP: Int,
-    val unlocked: Boolean
-)
-
-enum class AvatarCategory { HAIR, BACKGROUND, BADGE_FRAME, MASCOT }
 
 class AvatarStore(private val context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -20,24 +10,37 @@ class AvatarStore(private val context: Context) {
     fun isShopDisabledByParent(): Boolean = prefs.getBoolean(KEY_SHOP_DISABLED, false)
     fun setShopDisabledByParent(v: Boolean) = prefs.edit().putBoolean(KEY_SHOP_DISABLED, v).apply()
 
-    fun getAvatarItems(): List<AvatarItem> {
-        val default = defaultItems()
+    fun getCatalog(): List<AvatarItem> = AvatarCatalog.items()
+
+    fun isUnlocked(itemId: String): Boolean {
         val unlocked = prefs.getStringSet(KEY_UNLOCKED, emptySet()) ?: emptySet()
-        val has30DayBadge = com.brainbuddy.app.core.GamificationStore(context).milestoneBadges().contains(com.brainbuddy.app.core.GamificationStore.MILESTONE_30)
-        return default.map { item ->
-            val isUnlocked = item.id in unlocked || item.priceXP == 0 ||
-                (item.id == "mascot_30d" && has30DayBadge)
-            item.copy(unlocked = isUnlocked)
-        }
+        if (itemId in unlocked) return true
+        val item = getCatalog().find { it.id == itemId } ?: return false
+        if (item.priceXp == 0 && item.requiredLevel <= 1) return true
+        if (item.id == "mascot_30d" && gamification.milestoneBadges().contains(com.brainbuddy.app.core.GamificationStore.MILESTONE_30)) return true
+        return false
+    }
+
+    init {
+        ensureDefaultEquipped()
+    }
+
+    fun canPurchase(item: AvatarItem): Triple<Boolean, String?, String?> {
+        if (isUnlocked(item.id)) return Triple(true, null, null)
+        if (isShopDisabledByParent()) return Triple(false, "Mağaza kapalı", null)
+        val userLevel = gamification.level()
+        val userXp = gamification.xp()
+        if (userLevel < item.requiredLevel) return Triple(false, "Bu öğe Seviye ${item.requiredLevel} gerektirir.", null)
+        if (userXp < item.priceXp) return Triple(false, "Yetersiz XP", null)
+        return Triple(true, null, null)
     }
 
     fun unlockWithXP(itemId: String): Boolean {
-        if (isShopDisabledByParent()) return false
-        val items = getAvatarItems()
-        val item = items.find { it.id == itemId } ?: return false
-        if (item.unlocked) return true
-        if (gamification.xp() < item.priceXP) return false
-        gamification.addXp(-item.priceXP)
+        val (can, _, _) = canPurchase(getCatalog().find { it.id == itemId } ?: return false)
+        if (!can) return false
+        if (isUnlocked(itemId)) return true
+        val item = getCatalog().find { it.id == itemId } ?: return false
+        if (item.priceXp > 0) gamification.addXp(-item.priceXp)
         val set = (prefs.getStringSet(KEY_UNLOCKED, emptySet()) ?: emptySet()).toMutableSet()
         set.add(itemId)
         prefs.edit().putStringSet(KEY_UNLOCKED, set).apply()
@@ -49,14 +52,13 @@ class AvatarStore(private val context: Context) {
         return try {
             val o = JSONObject(arr)
             AvatarCategory.entries.associateWith { cat ->
-                o.optString(cat.name, "").takeIf { it.isNotEmpty() } ?: defaultItems().firstOrNull { it.type == cat && it.unlocked }?.id ?: ""
-            }.filterValues { it.isNotEmpty() }
+                o.optString(cat.name, "").takeIf { it.isNotEmpty() } ?: ""
+            }.filterValues { it.isNotEmpty() && isUnlocked(it) }
         } catch (_: Exception) { emptyMap() }
     }
 
     fun equipItem(category: AvatarCategory, itemId: String) {
-        val items = getAvatarItems()
-        val item = items.find { it.id == itemId && it.unlocked } ?: return
+        if (!isUnlocked(itemId)) return
         val map = getEquippedItems().toMutableMap()
         map[category] = itemId
         val o = JSONObject()
@@ -64,18 +66,28 @@ class AvatarStore(private val context: Context) {
         prefs.edit().putString(KEY_EQUIPPED, o.toString()).apply()
     }
 
-    private fun defaultItems(): List<AvatarItem> = listOf(
-        AvatarItem("hair_default", AvatarCategory.HAIR, 0, true),
-        AvatarItem("hair_1", AvatarCategory.HAIR, 50, false),
-        AvatarItem("hair_2", AvatarCategory.HAIR, 100, false),
-        AvatarItem("bg_default", AvatarCategory.BACKGROUND, 0, true),
-        AvatarItem("bg_1", AvatarCategory.BACKGROUND, 75, false),
-        AvatarItem("bg_2", AvatarCategory.BACKGROUND, 150, false),
-        AvatarItem("frame_default", AvatarCategory.BADGE_FRAME, 0, true),
-        AvatarItem("frame_gold", AvatarCategory.BADGE_FRAME, 200, false),
-        AvatarItem("mascot_default", AvatarCategory.MASCOT, 0, true),
-        AvatarItem("mascot_30d", AvatarCategory.MASCOT, 0, false)
-    )
+    fun ensureDefaultEquipped() {
+        val current = getEquippedItems()
+        val catalog = getCatalog()
+        var changed = false
+        val map = current.toMutableMap()
+        for (cat in AvatarCategory.entries) {
+            val currentId = map[cat]
+            if (currentId.isNullOrEmpty() || !isUnlocked(currentId)) {
+                val defaultItem = catalog.find { it.category == cat && (it.priceXp == 0 || it.requiredLevel <= 1) }
+                    ?: catalog.find { it.category == cat }
+                if (defaultItem != null && isUnlocked(defaultItem.id)) {
+                    map[cat] = defaultItem.id
+                    changed = true
+                }
+            }
+        }
+        if (changed) {
+            val o = JSONObject()
+            map.filterValues { it.isNotEmpty() }.forEach { (k, v) -> o.put(k.name, v) }
+            prefs.edit().putString(KEY_EQUIPPED, o.toString()).apply()
+        }
+    }
 
     companion object {
         private const val PREFS = "bb_avatar"

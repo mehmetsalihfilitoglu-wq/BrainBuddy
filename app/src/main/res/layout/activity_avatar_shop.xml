@@ -1,50 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
     android:background="@drawable/bg_gradient">
 
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/bb_turquoise"
+        app:titleTextColor="@color/white"
+        app:title="Avatar Mağazası"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Avatar Mağazası"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XP Bakiye"
+                    android:textSize="12sp"
+                    android:textColor="@color/bb_text_muted"/>
+                <TextView
+                    android:id="@+id/tvXpBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 XP"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bb_turquoise"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="40dp"
+                android:background="@color/bb_text_muted"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seviye"
+                    android:textSize="12sp"
+                    android:textColor="@color/bb_text_muted"/>
+                <TextView
+                    android:id="@+id/tvLevelBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lv 1"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bb_secondary"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tvShopDisabled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Mağaza veli tarafından kapatıldı."
+        android:layout_margin="16dp"
+        android:text="Mağaza veli tarafından kapatıldı. Sadece önizleme yapabilirsiniz."
+        android:textColor="@color/bb_error"
         android:visibility="gone"/>
 
-    <TextView
-        android:id="@+id/tvXpBalance"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabCategories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        android:background="@color/white"
+        app:tabMode="scrollable"
+        app:tabTextColor="@color/bb_text_muted"
+        app:tabSelectedTextColor="@color/bb_turquoise"
+        app:tabIndicatorColor="@color/bb_turquoise"/>
 
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/previewSection"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvPreviewLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Önizleme"
+            android:textSize="14sp"
+            android:textColor="@color/bb_text_muted"/>
+
+        <LinearLayout
+            android:id="@+id/previewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/previewBg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@color/bb_turquoise_light"/>
+            <View
+                android:id="@+id/previewMascot"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@color/bb_turquoise"/>
+            <View
+                android:id="@+id/previewFrame"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_badge"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollShop"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="12dp">
+        android:fillViewport="true">
 
-        <LinearLayout
-            android:id="@+id/containerItems"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerItems"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
-    </ScrollView>
+            android:padding="16dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_avatar_shop_card"/>
+    </androidx.core.widget.NestedScrollView>
 
     <Button
         android:id="@+id/btnShopBack"
+        style="@style/BBButtonAlt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_margin="16dp"
         android:text="Geri"/>
 </LinearLayout>

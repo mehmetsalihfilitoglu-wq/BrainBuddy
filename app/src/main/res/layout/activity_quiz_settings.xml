@@ -90,7 +90,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Oturum başına soru sayısı"
+                        android:text="Oturum başına soru sayısı (minimum 20)"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/bb_text_dark"/>
@@ -103,20 +103,26 @@
                         android:orientation="vertical">
 
                         <RadioButton
-                            android:id="@+id/q5"
-                            android:text="5 soru"
+                            android:id="@+id/q20"
+                            android:text="20 soru"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
 
                         <RadioButton
-                            android:id="@+id/q10"
-                            android:text="10 soru"
+                            android:id="@+id/q30"
+                            android:text="30 soru"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
 
                         <RadioButton
-                            android:id="@+id/q15"
-                            android:text="15 soru"
+                            android:id="@+id/q40"
+                            android:text="40 soru"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <RadioButton
+                            android:id="@+id/q50"
+                            android:text="50 soru"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </RadioGroup>

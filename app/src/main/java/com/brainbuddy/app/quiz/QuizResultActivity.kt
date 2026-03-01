@@ -197,9 +197,16 @@ class QuizResultActivity : AppCompatActivity() {
 
         val total = s.totalCount
         val pct = if (total > 0) (100f * s.correctCount / total) else 0f
+        val accuracy = if (total > 0) s.correctCount.toFloat() / total else 0f
+        val isGateMode = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false)
 
-        findViewById<android.widget.TextView>(R.id.tvTitle).text =
-            if (s.passed) "Tebrikler! 🎉" else "Test Başarısız"
+        val titleText = when {
+            !s.passed -> "Başarısız"
+            isGateMode && s.wrongCount < 4 -> if (accuracy >= 0.4f) "Tebrikler! 🎉" else "Tamamlandı"
+            s.passed -> if (accuracy >= 0.4f) "Tebrikler! 🎉" else "Tamamlandı"
+            else -> "Tamamlandı"
+        }
+        findViewById<android.widget.TextView>(R.id.tvTitle).text = titleText
         findViewById<android.widget.TextView>(R.id.tvScoreBig).text = "${s.correctCount}/${total}"
         findViewById<android.widget.TextView>(R.id.tvScoreLabel).text =
             "Doğru: ${s.correctCount}/$total | Yanlış: ${s.wrongCount}/$total | Boş: ${s.blankCount}/$total"
@@ -209,7 +216,12 @@ class QuizResultActivity : AppCompatActivity() {
         }
         findViewById<android.widget.TextView>(R.id.tvPassFail).apply {
             visibility = View.VISIBLE
-            text = if (s.passed) "✅ GEÇTİ" else "❌ KALDI (3'ten fazla yanlış)"
+            val gateFail = isGateMode && s.wrongCount >= 4
+            text = when {
+                s.passed -> "✅ GEÇTİ"
+                gateFail -> "❌ BAŞARISIZ"
+                else -> "❌ BAŞARISIZ"
+            }
             setTextColor(if (s.passed) getColor(R.color.bb_turquoise) else getColor(R.color.bb_error))
         }
 
@@ -277,25 +289,26 @@ class QuizResultActivity : AppCompatActivity() {
             finish()
         }
 
-        newMilestone?.let { msg ->
-            android.app.AlertDialog.Builder(this)
-                .setTitle("🎉 Kutlama!")
-                .setMessage(msg)
-                .setPositiveButton("Harika!", null)
-                .show()
+        if (s.passed) {
+            newMilestone?.let { msg ->
+                android.app.AlertDialog.Builder(this)
+                    .setTitle("🎉 Kutlama!")
+                    .setMessage(msg)
+                    .setPositiveButton("Harika!", null)
+                    .show()
+            }
         }
 
         findViewById<android.widget.Button>(R.id.btnHome).setOnClickListener {
             if (ProtectionPrefs(this).userLocked()) {
-                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
             } else {
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP))
             }
-            finishAffinity()
+            finish()
         }
 
         val locked = ProtectionPrefs(this).userLocked()
-        val isGateMode = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false)
         findViewById<android.widget.Button>(R.id.btnRetryTest).apply {
             visibility = if (locked) View.VISIBLE else View.GONE
         }

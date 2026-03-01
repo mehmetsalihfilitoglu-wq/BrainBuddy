@@ -14,10 +14,10 @@ class QuizPrefs(context: Context) {
         prefs.edit().putString(KEY_DIFFICULTY, d.name).apply()
 
     fun questionsPerSession(): Int =
-        prefs.getInt(KEY_QUESTIONS_PER_SESSION, 10).coerceIn(5, 15)
+        prefs.getInt(KEY_QUESTIONS_PER_SESSION, 20).coerceIn(20, 50)
 
     fun setQuestionsPerSession(count: Int) =
-        prefs.edit().putInt(KEY_QUESTIONS_PER_SESSION, count.coerceIn(5, 15)).apply()
+        prefs.edit().putInt(KEY_QUESTIONS_PER_SESSION, count.coerceIn(20, 50)).apply()
 
     fun selectedCategories(): Set<String> =
         prefs.getStringSet(KEY_CATEGORIES, null) ?: emptySet()

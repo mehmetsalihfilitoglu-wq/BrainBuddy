@@ -37,12 +37,17 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         b = ActivityWrongAnswerReviewBinding.inflate(layoutInflater)
         setContentView(b.root)
 
+        val requestedParent = intent.getBooleanExtra(EXTRA_IS_PARENT_REVIEW, false)
+        if (requestedParent && !AppModeManager.isParentMode()) {
+            com.brainbuddy.app.core.ParentAccessGuard.checkAndRedirect(this, WrongAnswerReviewActivity::class.java)
+            return
+        }
+        isParentReview = requestedParent
+
         repo = QuestionRepository(this)
         analyticsStore = AnalyticsStore(this)
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS) ?: arrayListOf()
         val sessionJson = intent.getStringExtra(EXTRA_SESSION_JSON)
-        val requestedParent = intent.getBooleanExtra(EXTRA_IS_PARENT_REVIEW, false)
-        isParentReview = requestedParent && AppModeManager.isParentMode()
         val session = QuizResultActivity.decodeSession(sessionJson)
         sessionAnswers = session?.answers ?: emptyMap()
 

@@ -80,38 +80,41 @@ class QuizActivity : AppCompatActivity() {
         val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         var remedialFallbackWarning = false
+        val targetCount = QuestionRepository.MIN_QUESTIONS_PER_TEST
         questions = when {
-            bossLevel > 0 -> repo.pickBossQuestions(levelGroup, 15)
-            isGateMode -> repo.pickGateQuestions(levelGroup, 10)
+            bossLevel > 0 -> repo.pickBossQuestions(levelGroup, targetCount)
+            isGateMode -> repo.pickGateQuestions(levelGroup, targetCount)
             isRemedial -> {
-                val (q, usedFallback) = repo.pickRemedialQuestions(levelGroup, 10, protectionPrefs.lastFailedWrongIds())
+                val (q, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, protectionPrefs.lastFailedWrongIds())
                 remedialFallbackWarning = usedFallback
                 q
             }
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 val found = wrongIds.mapNotNull { all[it] }
-                if (found.isEmpty()) {
-                    val count = quizPrefs.questionsPerSession()
-                    repo.pickQuizQuestions(levelGroup, count, quizPrefs.difficulty(), quizPrefs.selectedCategories())
-                } else found.shuffled()
+                if (found.size < targetCount) {
+                    repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories())
+                } else found.shuffled().take(targetCount)
             }
-            retryWrongMode -> repo.pickRetryWrongQuestions(levelGroup).shuffled()
-            else -> {
-                val count = quizPrefs.questionsPerSession()
-                val diff = quizPrefs.difficulty()
-                val cats = quizPrefs.selectedCategories()
-                repo.pickQuizQuestions(levelGroup, count, diff, cats)
+            retryWrongMode -> {
+                val wrong = repo.pickRetryWrongQuestions(levelGroup)
+                if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories())
+                else wrong.shuffled().take(targetCount)
             }
+            else -> repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories())
         }
 
         b.submitBtn.visibility = View.GONE
         b.nextBtn.setOnClickListener { goNext() }
         b.hintBtn.setOnClickListener { showHintIfAllowed() }
 
-        if (questions.isEmpty()) {
+        if (questions.isEmpty() || questions.size < QuestionRepository.MIN_QUESTIONS_PER_TEST) {
             b.subjectChip.text = "Soru bulunamadı"
-            b.questionText.text = if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!" else "Soru havuzunda soru yok. Lütfen soru ekleyin veya içe aktarın."
+            val msg = if (questions.isEmpty()) {
+                if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!"
+                else "Soru havuzu yetersiz (en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} soru gerekli). Veli: Soru paketi ekleyin veya içe aktarın."
+            } else "Soru havuzu yetersiz (${questions.size} soru mevcut, en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} gerekli)."
+            b.questionText.text = msg
             b.hintBtn.isEnabled = false
             b.nextBtn.isEnabled = false
             b.nextBtn.text = "Ana Sayfaya Dön"
@@ -290,7 +293,14 @@ class QuizActivity : AppCompatActivity() {
 
         repo.recordAnswers(answerRecords)
 
-        val passed = (wrongCount <= 3 && wrongCount >= 0)
+        val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
+        val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
+        val total = questions.size
+        val accuracy = if (total > 0) correctCount.toFloat() / total else 0f
+        val passed = when {
+            isGateMode || isRetryOfLockedQuiz || isRemedial -> wrongCount < 4
+            else -> accuracy >= 0.6f
+        }
         val completedAt = System.currentTimeMillis()
         val session = QuizSession(
             quizId = quizId,
@@ -306,9 +316,7 @@ class QuizActivity : AppCompatActivity() {
         )
 
         val protectionPrefs = ProtectionPrefs(this)
-        val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
-        val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
-        if (passed && wrongCount <= 3 && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
+        if (passed && wrongCount < 4 && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
             com.brainbuddy.app.gate.GateManager.onGatePassed(this)
         }
         val passedBossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)

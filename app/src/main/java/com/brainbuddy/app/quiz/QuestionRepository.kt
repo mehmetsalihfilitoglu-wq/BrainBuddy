@@ -17,6 +17,8 @@ class QuestionRepository(private val context: Context) {
 
     companion object {
         private const val TAG = "QuestionRepository"
+        /** Every test (gate, normal, remedial, boss) has exactly this many questions. */
+        const val MIN_QUESTIONS_PER_TEST = 20
     }
 
     private val historyStore = QuestionHistoryStore(context)
@@ -328,7 +330,7 @@ class QuestionRepository(private val context: Context) {
     }
 
     /** Boss test: harder question pool. */
-    fun pickBossQuestions(levelGroup: LevelGroup, count: Int = 15): List<Question> {
+    fun pickBossQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         val (all, _) = loadAllQuestionsWithStats()
         val hardPool = all.filter { it.levelGroup == levelGroup && it.difficulty == QuizDifficulty.HARD }
         val pool = if (hardPool.size >= count) hardPool else all.filter { it.levelGroup == levelGroup }
@@ -338,7 +340,7 @@ class QuestionRepository(private val context: Context) {
     /** Remedial mini-quiz: focused on weak topics. Prefer lastFailedWrongIds from ProtectionPrefs.
      * weakTopic pool -> if empty -> global pool -> fallback. Never returns empty.
      * @return Pair(questions, usedFallbackDueToEmptyPool) - when true, parent should be warned. */
-    fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = 10, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
+    fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
         val global = getGlobalPool()
         val all = global.associateBy { it.id }
         val wrongIds = weakTopicIds.ifEmpty { historyStore.getWrongQuestionIds(14).toList() }
@@ -392,7 +394,7 @@ class QuestionRepository(private val context: Context) {
     }
 
     /** Gate quiz: prefer questions not in recentSeenQuestionIds (per profile), shuffle order. Updates recentSeen at generation to avoid immediate repeats in fail-loop. */
-    fun pickGateQuestions(levelGroup: LevelGroup, count: Int = 10): List<Question> {
+    fun pickGateQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         val profileId = ProfileStore(context).getCurrentProfileId()
         val global = getGlobalPool()
         val pool = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }

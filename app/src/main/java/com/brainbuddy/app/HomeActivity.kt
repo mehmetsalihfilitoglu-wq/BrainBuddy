@@ -10,6 +10,7 @@ import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.quiz.BossTestActivity
 import com.brainbuddy.app.quiz.BossTestStore
+import androidx.activity.OnBackPressedCallback
 import com.brainbuddy.app.security.PinManager
 import com.brainbuddy.app.ui.BlockedAppsActivity
 import com.brainbuddy.app.ui.ParentActivity
@@ -33,6 +34,12 @@ class HomeActivity : AppCompatActivity() {
         }
         setContentView(R.layout.activity_home)
         contentSet = true
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finishAffinity()
+            }
+        })
 
         val gam = GamificationStore(this)
         val analytics = AnalyticsStore(this)
@@ -88,7 +95,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardStats).setOnClickListener {
-            startActivity(Intent(this, StatsActivity::class.java))
+            startActivity(Intent(this, StatsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardCoach).setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.coach.CoachScreen::class.java))
@@ -100,7 +107,7 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, com.brainbuddy.app.classroom.ClassroomActivity::class.java))
         }
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardAvatarShop).setOnClickListener {
-            startActivity(Intent(this, com.brainbuddy.app.avatar.AvatarShopScreen::class.java))
+            startActivity(Intent(this, com.brainbuddy.app.avatar.AvatarShopScreen::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
         }
         val cardWeeklyChest = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWeeklyChest)
         cardWeeklyChest?.setOnClickListener {

@@ -2,14 +2,22 @@ package com.brainbuddy.app
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.core.TestPerformance
 import com.brainbuddy.app.databinding.ActivityStatsBinding
 import com.brainbuddy.app.ui.BarChartView
 import com.brainbuddy.app.ui.LineChartView
 import com.brainbuddy.app.ui.ProgressRingView
+import com.google.android.material.chip.Chip
 
 class StatsActivity : AppCompatActivity() {
 
@@ -37,33 +45,68 @@ class StatsActivity : AppCompatActivity() {
             "${counts.correct}/${counts.total} doğru (${"%.1f".format(accuracyPct)}%)"
         } else "Henüz veri yok"
 
-        findViewById<ProgressRingView>(R.id.progressRing).progress = accuracyPct.toFloat()
+        b.progressRing.progress = accuracyPct.toFloat()
 
         val topicCounts = analytics.getTopicMasteryWithCounts()
         val barData = topicCounts.map { (topic, tc) ->
             BarChartView.BarData(topic, tc.correct, tc.total)
         }.take(6)
-        findViewById<BarChartView>(R.id.barChart).data = barData
+        b.barChart.data = barData
 
         val recent = analytics.getLastTests(10)
         val trendValues = recent.map { it.accuracy }
-        findViewById<LineChartView>(R.id.lineChart).values = trendValues
+        b.lineChart.values = trendValues
 
         val strongest = analytics.getStrongestTopicsWithCounts(3)
-        b.tvStrongTopics.text = if (strongest.isEmpty()) "-" else strongest.joinToString("\n") { (topic, tc) ->
-            "$topic: ${tc.correct}/${tc.total} doğru (${tc.wrong} yanlış)"
+        b.chipGroupStrong.removeAllViews()
+        if (strongest.isEmpty()) {
+            val chip = Chip(this).apply { text = "-"; isClickable = false }
+            b.chipGroupStrong.addView(chip)
+        } else {
+            strongest.forEach { (topic, tc) ->
+                val chip = Chip(this).apply {
+                    text = "$topic ${tc.correct}/${tc.total}"
+                    isClickable = false
+                }
+                b.chipGroupStrong.addView(chip)
+            }
         }
 
         val weakest = analytics.getWeakestTopicsWithCounts(3)
-        b.tvWeakTopics.text = if (weakest.isEmpty()) "-" else weakest.joinToString("\n") { (topic, tc) ->
-            "$topic: ${tc.correct}/${tc.total} doğru (${tc.wrong} yanlış)"
+        b.chipGroupWeak.removeAllViews()
+        if (weakest.isEmpty()) {
+            val chip = Chip(this).apply { text = "-"; isClickable = false }
+            b.chipGroupWeak.addView(chip)
+        } else {
+            weakest.forEach { (topic, tc) ->
+                val chip = Chip(this).apply {
+                    text = "$topic ${tc.correct}/${tc.total}"
+                    isClickable = false
+                }
+                b.chipGroupWeak.addView(chip)
+            }
         }
 
-        b.tvPerTestDetail.text = if (recent.isEmpty()) "-" else recent.takeLast(5).mapIndexed { i, p ->
-            val t = p.effectiveTotal
-            "Test ${i + 1}: Doğru ${p.correctCount}/$t, Yanlış ${p.wrongCount}/$t, Boş ${p.blankCount}/$t"
-        }.joinToString("\n")
+        b.recyclerRecentTests.layoutManager = LinearLayoutManager(this)
+        b.recyclerRecentTests.adapter = RecentTestsAdapter(recent.takeLast(5).reversed())
 
         b.btnBack.setOnClickListener { finish() }
     }
+}
+
+class RecentTestsAdapter(private val items: List<TestPerformance>) : RecyclerView.Adapter<RecentTestsAdapter.VH>() {
+    class VH(val view: View) : RecyclerView.ViewHolder(view)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_stats_test_row, parent, false)
+        return VH(v)
+    }
+
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        val p = items[position]
+        holder.view.findViewById<TextView>(R.id.tvTestIndex).text = "Test ${items.size - position}"
+        holder.view.findViewById<TextView>(R.id.tvTestScore).text = "${p.correctCount}/${p.effectiveTotal}"
+    }
+
+    override fun getItemCount() = items.size
 }

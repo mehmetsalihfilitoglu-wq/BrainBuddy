@@ -36,9 +36,10 @@ class QuizSettingsActivity : AppCompatActivity() {
         }
 
         when (prefs.questionsPerSession()) {
-            5 -> questionsGroup.check(R.id.q5)
-            15 -> questionsGroup.check(R.id.q15)
-            else -> questionsGroup.check(R.id.q10)
+            30 -> questionsGroup.check(R.id.q30)
+            40 -> questionsGroup.check(R.id.q40)
+            50 -> questionsGroup.check(R.id.q50)
+            else -> questionsGroup.check(R.id.q20)
         }
 
         difficultyGroup.setOnCheckedChangeListener { _, id ->
@@ -52,9 +53,10 @@ class QuizSettingsActivity : AppCompatActivity() {
 
         questionsGroup.setOnCheckedChangeListener { _, id ->
             val count = when (id) {
-                R.id.q5 -> 5
-                R.id.q15 -> 15
-                else -> 10
+                R.id.q30 -> 30
+                R.id.q40 -> 40
+                R.id.q50 -> 50
+                else -> 20
             }
             prefs.setQuestionsPerSession(count)
         }
