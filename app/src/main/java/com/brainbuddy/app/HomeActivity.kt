@@ -66,6 +66,17 @@ class HomeActivity : AppCompatActivity() {
         progress.progress = if (sessionsToday >= 1) 1 else 0
 
         // CTA clicks - Student can only access Quiz, Stats, Parent Area (PIN required)
+        val juniorPrefs = com.brainbuddy.app.junior.JuniorPrefs(this)
+        val cardJunior = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardJunior)
+        if (juniorPrefs.isJuniorEnabled()) {
+            cardJunior.visibility = android.view.View.VISIBLE
+            cardJunior.setOnClickListener {
+                startActivity(Intent(this, com.brainbuddy.app.junior.JuniorHubActivity::class.java))
+            }
+        } else {
+            cardJunior.visibility = android.view.View.GONE
+        }
+
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTest).setOnClickListener {
             val bossStore = BossTestStore(this)
             val lvl = gam.level()
@@ -151,6 +162,13 @@ class HomeActivity : AppCompatActivity() {
         cardSettings.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
         cardBlockedApps.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
         cardTimeLimits.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
+        val cardJuniorResume = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardJunior)
+        if (com.brainbuddy.app.junior.JuniorPrefs(this).isJuniorEnabled()) {
+            cardJuniorResume.visibility = android.view.View.VISIBLE
+            cardJuniorResume.setOnClickListener { startActivity(Intent(this, com.brainbuddy.app.junior.JuniorHubActivity::class.java)) }
+        } else {
+            cardJuniorResume.visibility = android.view.View.GONE
+        }
         if (visible) {
             cardSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
             cardBlockedApps.setOnClickListener { startActivity(Intent(this, BlockedAppsActivity::class.java)) }

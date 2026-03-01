@@ -1,0 +1,34 @@
+{
+  "letterOrder": ["E", "L", "A", "K", "İ", "N", "O", "M", "U", "T", "Ü", "Y", "Ö", "R", "I", "D", "S", "B", "Z", "Ç", "G", "Ş", "C", "P", "H", "V", "Ğ", "F", "J"],
+  "letterNames": {
+    "E": "e", "L": "el", "A": "a", "K": "ke", "İ": "i", "N": "ne", "O": "o", "M": "me", "U": "u",
+    "T": "te", "Ü": "ü", "Y": "ye", "Ö": "ö", "R": "re", "I": "ı", "D": "de", "S": "se", "B": "be",
+    "Z": "ze", "Ç": "çe", "G": "ge", "Ş": "şe", "C": "ce", "P": "pe", "H": "he", "V": "ve", "Ğ": "yumuşak g", "F": "fe", "J": "je"
+  },
+  "syllables": [
+    ["E", "L", "EL"], ["L", "E", "LE"], ["A", "L", "AL"], ["L", "A", "LA"],
+    ["E", "K", "EK"], ["K", "E", "KE"], ["A", "K", "AK"], ["K", "A", "KA"],
+    ["İ", "L", "İL"], ["L", "İ", "Lİ"], ["İ", "N", "İN"], ["N", "İ", "Nİ"],
+    ["A", "N", "AN"], ["N", "A", "NA"], ["E", "N", "EN"], ["N", "E", "NE"],
+    ["O", "K", "OK"], ["K", "O", "KO"], ["O", "L", "OL"], ["L", "O", "LO"],
+    ["U", "N", "UN"], ["N", "U", "NU"], ["U", "T", "UT"], ["T", "U", "TU"],
+    ["Ü", "N", "ÜN"], ["N", "Ü", "NÜ"], ["Y", "E", "YE"], ["Y", "A", "YA"]
+  ],
+  "words": [
+    {"word": "EL", "meaning": "el"},
+    {"word": "ELMA", "meaning": "elma"},
+    {"word": "ANNE", "meaning": "anne"},
+    {"word": "AL", "meaning": "al"},
+    {"word": "EK", "meaning": "ek"},
+    {"word": "KALE", "meaning": "kale"},
+    {"word": "İNEK", "meaning": "inek"},
+    {"word": "NİNE", "meaning": "nine"},
+    {"word": "OKUL", "meaning": "okul"},
+    {"word": "KOL", "meaning": "kol"},
+    {"word": "UN", "meaning": "un"},
+    {"word": "TUT", "meaning": "tut"},
+    {"word": "ÜZÜM", "meaning": "üzüm"},
+    {"word": "YE", "meaning": "ye"},
+    {"word": "AY", "meaning": "ay"}
+  ]
+}

@@ -24,7 +24,9 @@ object ParentAccessGuard {
         "com.brainbuddy.app.ui.PermissionsChecklistActivity",
         "com.brainbuddy.app.ui.ReportsActivity",
         "com.brainbuddy.app.ui.SchedulesActivity",
-        "com.brainbuddy.app.ui.ProfileManageActivity"
+        "com.brainbuddy.app.ui.ProfileManageActivity",
+        "com.brainbuddy.app.junior.JuniorSettingsActivity",
+        "com.brainbuddy.app.junior.JuniorReportActivity"
     )
 
     /**

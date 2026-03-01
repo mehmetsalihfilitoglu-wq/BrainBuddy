@@ -89,6 +89,9 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<View>(R.id.cardProfiles)?.setOnClickListener {
             startActivity(Intent(this, ProfileManageActivity::class.java))
         }
+        findViewById<View>(R.id.cardJuniorModule)?.setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.junior.JuniorSettingsActivity::class.java))
+        }
         findViewById<View>(R.id.cardBackup)?.setOnClickListener {
             BackupManager.exportBackup(this)
         }

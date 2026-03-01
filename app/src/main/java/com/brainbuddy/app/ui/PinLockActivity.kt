@@ -114,6 +114,8 @@ class PinLockActivity : AppCompatActivity() {
             "PermissionsChecklistActivity" -> PermissionsChecklistActivity::class.java
             "ProfileManageActivity" -> ProfileManageActivity::class.java
             "RewardContractActivity" -> com.brainbuddy.app.reward.RewardContractActivity::class.java
+            "JuniorSettingsActivity" -> com.brainbuddy.app.junior.JuniorSettingsActivity::class.java
+            "JuniorReportActivity" -> com.brainbuddy.app.junior.JuniorReportActivity::class.java
             else -> ParentActivity::class.java
         }
         startActivity(Intent(this, target))
