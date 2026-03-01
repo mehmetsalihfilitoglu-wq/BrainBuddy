@@ -90,6 +90,15 @@ class QuizActivity : AppCompatActivity() {
             b.questionText.text = if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!" else "Soru havuzunda soru yok. Lütfen soru ekleyin veya içe aktarın."
             b.hintBtn.isEnabled = false
             b.nextBtn.isEnabled = false
+            b.nextBtn.text = "Ana Sayfaya Dön"
+            b.nextBtn.setOnClickListener {
+                if (intent.getBooleanExtra(EXTRA_GATE_MODE, false) && ProtectionPrefs(this).userLocked()) {
+                    startActivity(Intent(this, com.brainbuddy.app.LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                } else {
+                    startActivity(Intent(this, com.brainbuddy.app.HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                }
+                finish()
+            }
         } else {
             startedAt = System.currentTimeMillis()
             render()

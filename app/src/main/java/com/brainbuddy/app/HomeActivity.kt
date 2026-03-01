@@ -21,6 +21,8 @@ import java.util.concurrent.TimeUnit
 
 class HomeActivity : AppCompatActivity() {
 
+    private var contentSet = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (ProtectionPrefs(this).userLocked()) {
@@ -29,6 +31,7 @@ class HomeActivity : AppCompatActivity() {
             return
         }
         setContentView(R.layout.activity_home)
+        contentSet = true
 
         val gam = GamificationStore(this)
         val analytics = AnalyticsStore(this)
@@ -125,9 +128,11 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (ProtectionPrefs(this).userLocked()) {
-            startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-            finish()
+        if (!contentSet || ProtectionPrefs(this).userLocked()) {
+            if (ProtectionPrefs(this).userLocked()) {
+                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                finish()
+            }
             return
         }
         // Refresh badges when returning

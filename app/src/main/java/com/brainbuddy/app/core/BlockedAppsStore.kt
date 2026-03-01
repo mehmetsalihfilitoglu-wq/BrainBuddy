@@ -12,7 +12,8 @@ class BlockedAppsStore(context: Context) {
         prefs.edit().putStringSet(KEY_BLOCKED, pkgs).apply()
     }
 
-    fun isBlocked(pkg: String): Boolean = getBlockedPackages().contains(pkg)
+    fun isBlocked(pkg: String): Boolean =
+        pkg.isNotBlank() && getBlockedPackages().contains(pkg.trim())
 
     companion object {
         private const val PREFS = "bb_blocked_apps"

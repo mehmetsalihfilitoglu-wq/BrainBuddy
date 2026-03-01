@@ -38,7 +38,7 @@ class GateRetrySingleActivity : AppCompatActivity() {
         val questionId = intent.getStringExtra(EXTRA_QUESTION_ID) ?: ""
         val sessionJson = intent.getStringExtra(EXTRA_SESSION_JSON)
         session = QuizResultActivity.decodeSession(sessionJson)
-        wrongCount = session?.wrongCount ?: 4
+        wrongCount = (session?.wrongCount ?: 4).coerceAtLeast(1)
 
         val questions = QuizResultActivity.decodeQuestions(intent.getStringExtra(EXTRA_QUESTIONS_JSON))
         question = questions.find { it.id == questionId }
@@ -84,7 +84,7 @@ class GateRetrySingleActivity : AppCompatActivity() {
         if (sel < 0) return
 
         val correct = sel == q.correctIndex
-        val newWrongCount = if (correct) wrongCount - 1 else wrongCount
+        val newWrongCount = if (correct) (wrongCount - 1).coerceAtLeast(0) else wrongCount
 
         QuestionRepository(this).recordAnswers(listOf(AnswerRecord(q.id, sel, q.correctIndex)))
 

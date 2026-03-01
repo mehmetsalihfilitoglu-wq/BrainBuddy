@@ -39,8 +39,8 @@ class QuestionHistoryStore(context: Context) {
         val newEntry = HistoryEntry(
             questionId = questionId,
             lastSeenAt = now,
-            timesCorrect = h.timesCorrect + if (correct) 1 else 0,
-            timesWrong = h.timesWrong + if (correct) 0 else 1,
+            timesCorrect = (h.timesCorrect + if (correct) 1 else 0).coerceIn(0, MAX_COUNT_CAP),
+            timesWrong = (h.timesWrong + if (correct) 0 else 1).coerceIn(0, MAX_COUNT_CAP),
             lastResult = if (correct) "correct" else "wrong"
         )
         val o = JSONObject().apply {
@@ -117,5 +117,6 @@ class QuestionHistoryStore(context: Context) {
     companion object {
         private const val DEFAULT_PROFILE = "default"
         private const val PREFS = "bb_question_history"
+        private const val MAX_COUNT_CAP = 10000
     }
 }

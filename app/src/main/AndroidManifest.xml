@@ -72,7 +72,8 @@
 
         <activity
             android:name=".quiz.QuizActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
 
         <activity
             android:name=".quiz.QuizResultActivity"
@@ -130,7 +131,8 @@
             android:name=".gate.GateActivity"
             android:exported="false"
             android:theme="@style/Theme.BrainBuddy"
-            android:excludeFromRecents="true" />
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|screenSize|screenLayout" />
 
         <activity
             android:name=".ui.PermissionsChecklistActivity"

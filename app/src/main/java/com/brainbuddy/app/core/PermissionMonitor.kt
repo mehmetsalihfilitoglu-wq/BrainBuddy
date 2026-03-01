@@ -12,17 +12,18 @@ import com.brainbuddy.app.accessibility.ForegroundAppBlockerService
 object PermissionMonitor {
 
     fun checkAndLockIfDisabled(context: Context): Boolean {
-        val enabled = com.brainbuddy.app.accessibility.AccessibilityUtils.isServiceEnabled(
-            context, ForegroundAppBlockerService::class.java
-        )
-        if (!enabled) {
-            val prefs = ProtectionPrefs(context)
-            prefs.setUserLocked(true)
-            prefs.setPermissionDisabledLockReason("accessibility_disabled")
-            TamperStore(context).logEvent(TamperStore.TamperType.SERVICE_DISABLED)
-            return true
-        }
-        return false
+        return try {
+            val enabled = com.brainbuddy.app.accessibility.AccessibilityUtils.isServiceEnabled(
+                context, ForegroundAppBlockerService::class.java
+            )
+            if (!enabled) {
+                val prefs = ProtectionPrefs(context)
+                prefs.setUserLocked(true)
+                prefs.setPermissionDisabledLockReason("accessibility_disabled")
+                try { TamperStore(context).logEvent(TamperStore.TamperType.SERVICE_DISABLED) } catch (_: Exception) { }
+                true
+            } else false
+        } catch (_: Exception) { false }
     }
 
     fun isAccessibilityEnabled(context: Context): Boolean =

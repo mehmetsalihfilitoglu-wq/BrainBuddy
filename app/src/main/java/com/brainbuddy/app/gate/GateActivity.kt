@@ -28,7 +28,7 @@ class GateActivity : AppCompatActivity() {
             android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE) ?: ""
+        val blockedPkg = (intent.getStringExtra(EXTRA_BLOCKED_PACKAGE) ?: "").trim().takeIf { it.isNotEmpty() } ?: ""
 
         findViewById<android.widget.TextView>(R.id.tvGateMessage).text =
             getString(R.string.gate_quiz_required)

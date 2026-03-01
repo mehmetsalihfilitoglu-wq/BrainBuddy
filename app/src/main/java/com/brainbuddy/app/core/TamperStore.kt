@@ -26,10 +26,9 @@ class TamperStore(context: Context) {
         val start = (arr.length() - limit).coerceAtLeast(0)
         for (i in start until arr.length()) {
             val o = arr.getJSONObject(i)
-            out.add(TamperEvent(
-                type = TamperType.valueOf(o.optString("type", TamperType.SERVICE_DISABLED.name)),
-                tsMs = o.optLong("tsMs", 0L)
-            ))
+            val typeStr = o.optString("type", TamperType.SERVICE_DISABLED.name)
+            val type = try { TamperType.valueOf(typeStr) } catch (_: Exception) { TamperType.SERVICE_DISABLED }
+            out.add(TamperEvent(type = type, tsMs = o.optLong("tsMs", 0L)))
         }
         return out.reversed()
     }

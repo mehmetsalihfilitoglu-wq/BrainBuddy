@@ -25,7 +25,7 @@ object PermissionMonitorLauncher {
             }
             override fun onActivityPaused(a: android.app.Activity) {}
             override fun onActivityStopped(a: android.app.Activity) {
-                resumedCount--
+                resumedCount = (resumedCount - 1).coerceAtLeast(0)
             }
             override fun onActivitySaveInstanceState(a: android.app.Activity, b: android.os.Bundle) {}
             override fun onActivityDestroyed(a: android.app.Activity) {}

@@ -14,7 +14,7 @@ class RewardedRetryStore(context: Context) {
         val lastDay = prefs.getLong("${dayKey}_ts", 0L)
         val today = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis())
         if (lastDay != today) return 0
-        return prefs.getInt(dayKey, 0)
+        return prefs.getInt(dayKey, 0).coerceIn(0, MAX_RETRIES_PER_DAY)
     }
 
     fun getRemainingRetriesToday(profileId: String): Int =
@@ -34,12 +34,12 @@ class RewardedRetryStore(context: Context) {
     fun recordRetryUsed(profileId: String, quizId: String, questionId: String) {
         val dayKey = "retries_day_$profileId"
         val today = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis())
-        prefs.edit().apply {
-            putLong("${dayKey}_ts", today)
-            putInt(dayKey, getRetriesUsedToday(profileId) + 1)
-            putBoolean("retry_${quizId}_${questionId}", true)
-            apply()
-        }
+        val nextCount = (getRetriesUsedToday(profileId) + 1).coerceIn(0, MAX_RETRIES_PER_DAY)
+        prefs.edit()
+            .putLong("${dayKey}_ts", today)
+            .putInt(dayKey, nextCount)
+            .putBoolean("retry_${quizId}_${questionId}", true)
+            .apply()
     }
 
     companion object {

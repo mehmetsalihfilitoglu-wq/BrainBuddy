@@ -21,7 +21,8 @@ class ProfileStore(context: Context) {
     fun setCurrentProfileId(id: String) = prefs.edit().putString(KEY_CURRENT, id).apply()
 
     fun getProfiles(): List<Profile> {
-        val arr = JSONArray(prefs.getString(KEY_PROFILES, "[]"))
+        val raw = prefs.getString(KEY_PROFILES, "[]") ?: "[]"
+        val arr = try { JSONArray(raw) } catch (_: Exception) { return listOf(Profile(DEFAULT_ID, "Öğrenci", true)) }
         if (arr.length() == 0) {
             // Ensure default exists
             setProfiles(listOf(Profile(DEFAULT_ID, "Öğrenci", true)))

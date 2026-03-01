@@ -11,11 +11,17 @@ class ProtectionPrefs(context: Context) {
     /** Quiz gate cooldown (30, 45, or 60 min).
      * UI’da gösterilir ama kullanıcı değiştiremez.
      */
-    fun quizIntervalMinutes(): Int = prefs.getInt(KEY_QUIZ_INTERVAL, 30)
+    fun quizIntervalMinutes(): Int = prefs.getInt(KEY_QUIZ_INTERVAL, 30).coerceIn(30, 60)
     fun setQuizIntervalMinutes(v: Int) = prefs.edit().putInt(KEY_QUIZ_INTERVAL, v.coerceIn(30, 60)).apply()
 
-    fun studentLevel(): StudentLevel =
-        StudentLevel.valueOf(prefs.getString(KEY_LEVEL, StudentLevel.AGE_3_5.name)!!)
+    fun studentLevel(): StudentLevel {
+        val raw = prefs.getString(KEY_LEVEL, StudentLevel.AGE_3_5.name) ?: StudentLevel.AGE_3_5.name
+        return try {
+            StudentLevel.valueOf(raw)
+        } catch (_: Exception) {
+            StudentLevel.AGE_3_5
+        }
+    }
 
     fun setStudentLevel(level: StudentLevel) =
         prefs.edit().putString(KEY_LEVEL, level.name).apply()
