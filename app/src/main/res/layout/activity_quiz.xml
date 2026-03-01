@@ -135,40 +135,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <TextView
-            android:id="@+id/hintTimer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="İpucu: 30s"
-            android:textSize="13sp"
-            android:textColor="@color/bb_text_muted"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/feedbackText"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <Button
-            android:id="@+id/hintBtn"
-            style="@style/BBButtonAlt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="💡 İpucu"
-            android:layout_marginStart="12dp"
-            app:layout_constraintTop_toBottomOf="@id/feedbackText"
-            app:layout_constraintStart_toEndOf="@id/hintTimer"/>
-
-        <TextView
-            android:id="@+id/hintText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="İpucu metni"
-            android:textSize="14sp"
-            android:textColor="@color/bb_text_muted"
-            android:visibility="gone"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/hintTimer"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
         <Button
             android:id="@+id/submitBtn"
             style="@style/BB.Button"
@@ -177,7 +143,7 @@
             android:text="Cevabı Kontrol Et"
             android:visibility="gone"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/hintText"
+            app:layout_constraintTop_toBottomOf="@id/optionsGroup"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -188,9 +154,14 @@
             android:layout_height="56dp"
             android:text="Sonraki"
             android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/hintText"
+            app:layout_constraintTop_toBottomOf="@id/optionsGroup"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Stub views for activities that hide hints (GateRetrySingleActivity, QuizActivityRetryWrong) -->
+        <TextView android:id="@+id/hintTimer" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+        <Button android:id="@+id/hintBtn" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+        <TextView android:id="@+id/hintText" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

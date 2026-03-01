@@ -20,23 +20,24 @@
             android:layout_width="match_parent"
             android:layout_height="100dp">
 
-            <View
+            <ImageView
                 android:id="@+id/previewThumb"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/bb_turquoise_light"/>
+                android:scaleType="centerCrop"
+                android:background="@drawable/avatar_bg_white"
+                tools:src="@drawable/avatar_mascot_brainy"/>
 
-            <TextView
-                android:id="@+id/tvRarity"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRarity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|end"
-                android:background="@color/bb_turquoise"
+                android:textSize="10sp"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="2dp"
-                android:textSize="10sp"
-                android:textColor="@color/white"
-                android:text="Yaygın"/>
+                app:chipBackgroundColor="@color/bb_turquoise"
+                tools:text="Yaygın"/>
 
             <View
                 android:id="@+id/lockOverlay"

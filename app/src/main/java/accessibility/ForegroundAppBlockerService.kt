@@ -2,7 +2,11 @@ package com.brainbuddy.app.accessibility
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.accessibility.AccessibilityEvent
+import com.brainbuddy.app.HomeActivity
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.TamperStore
@@ -12,14 +16,17 @@ import com.brainbuddy.app.gate.GateHelper
 /**
  * Foreground app blocker: detects when blocked app comes to foreground,
  * launches GateActivity for quiz. Debounced to prevent race conditions.
- * Battery: Only TYPE_WINDOW_STATE_CHANGED, debounce 800ms, early-exit when not blocked.
+ * Never calls finishAffinity/exitProcess. Uses robust intent flags.
  */
 class ForegroundAppBlockerService : AccessibilityService() {
 
     companion object {
+        private const val TAG = "ForegroundAppBlocker"
         private const val DEBOUNCE_MS = 800L
+        private const val DELAY_AFTER_HOME_MS = 150L
     }
     private var lastGateLaunchMs = 0L
+    private val handler = Handler(Looper.getMainLooper())
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         try {
@@ -32,32 +39,48 @@ class ForegroundAppBlockerService : AccessibilityService() {
 
             val prefs = ProtectionPrefs(this)
             if (!prefs.isProtectionEnabled()) return
-            // When userLocked (failed quiz), MUST still block: launch Gate so they must pass to use blocked app
-            // Do NOT return - gateRequiredNow will be true when userLocked
-
-            // Blocked apps MUST NOT open when gate required (wrongCount>=4 or cooldown expired)
             if (!GateHelper.gateRequiredNow(this)) return
-            // Debounce: prevent multiple Gate launches in quick succession (race condition)
+
             val now = System.currentTimeMillis()
             if (now - lastGateLaunchMs < DEBOUNCE_MS) return
             lastGateLaunchMs = now
 
-            // Bring user to home so blocked app does not stay visible; then show gate
-            try {
-                performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_HOME)
-            } catch (_: Exception) { /* best-effort */ }
-
             TamperStore(this).logEvent(TamperStore.TamperType.BYPASS_ATTEMPT)
             try {
                 com.brainbuddy.app.core.ReportStore(this).recordBlockedAppAttempt(pkg)
-            } catch (_: Exception) { /* best-effort logging */ }
+            } catch (_: Exception) { /* best-effort */ }
+
+            try {
+                performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME)
+            } catch (_: Exception) { /* best-effort */ }
+
+            handler.postDelayed({
+                launchGate(pkg)
+            }, DELAY_AFTER_HOME_MS)
+        } catch (e: Exception) {
+            Log.e(TAG, "onAccessibilityEvent error", e)
+        }
+    }
+
+    private fun launchGate(blockedPackage: String) {
+        try {
             val intent = Intent(this, GateActivity::class.java).apply {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-                putExtra(GateActivity.EXTRA_BLOCKED_PACKAGE, pkg)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                putExtra(GateActivity.EXTRA_BLOCKED_PACKAGE, blockedPackage)
             }
             startActivity(intent)
         } catch (e: Exception) {
-            android.util.Log.e("ForegroundAppBlocker", "onAccessibilityEvent error", e)
+            Log.e(TAG, "Failed to launch GateActivity", e)
+            try {
+                val fallback = Intent(this, HomeActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    putExtra("open_gate", true)
+                    putExtra(GateActivity.EXTRA_BLOCKED_PACKAGE, blockedPackage)
+                }
+                startActivity(fallback)
+            } catch (e2: Exception) {
+                Log.e(TAG, "Fallback to HomeActivity also failed", e2)
+            }
         }
     }
 
@@ -65,11 +88,9 @@ class ForegroundAppBlockerService : AccessibilityService() {
 
     override fun onServiceConnected() {
         super.onServiceConnected()
-        // Do NOT clear permission lock here - prevents bypass: user must enter Parent PIN to unlock
     }
 
     override fun onDestroy() {
-        // Service disabled - PermissionMonitor will set lock
         super.onDestroy()
     }
 }

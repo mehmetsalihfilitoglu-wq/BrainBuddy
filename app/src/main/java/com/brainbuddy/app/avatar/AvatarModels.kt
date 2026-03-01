@@ -10,7 +10,7 @@ data class AvatarItem(
     val priceXp: Int,
     val requiredLevel: Int,
     val rarity: AvatarRarity,
-    val previewAsset: String? = null
+    val previewDrawableRes: Int = 0
 )
 
 enum class AvatarCategory(val tr: String) {

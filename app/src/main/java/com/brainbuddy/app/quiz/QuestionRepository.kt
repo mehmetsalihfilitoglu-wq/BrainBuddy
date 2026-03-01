@@ -1,10 +1,7 @@
 package com.brainbuddy.app.quiz
 
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
-import android.widget.Toast
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
@@ -23,10 +20,25 @@ class QuestionRepository(private val context: Context) {
 
     private val historyStore = QuestionHistoryStore(context)
 
+    private val importedFile get() = java.io.File(context.filesDir, "imported_questions.json")
+
     /** @return Pair(questions, parseStats) - stats used for debug toast */
     fun loadAllQuestions(): List<Question> = loadAllQuestionsWithStats().first
 
     fun loadAllQuestionsWithStats(): Pair<List<Question>, LoadStats> {
+        val fromAssets = loadFromAssets()
+        val fromImported = loadFromImported()
+        val merged = (fromAssets + fromImported).distinctBy { it.id }
+        val stats = LoadStats(
+            fileFound = fromAssets.isNotEmpty() || fromImported.isNotEmpty(),
+            totalInJson = fromAssets.size + fromImported.size,
+            parsedTotal = merged.size,
+            parseFailed = 0
+        )
+        return Pair(if (merged.isEmpty()) getFallbackQuestions() else merged, stats)
+    }
+
+    private fun loadFromAssets(): List<Question> {
         return try {
             val json = context.assets.open("questions_tr.json").use { input ->
                 input.readBytes().toString(Charset.forName("UTF-8"))
@@ -43,25 +55,66 @@ class QuestionRepository(private val context: Context) {
                     Log.w(TAG, "Parse failed for question index $i: ${e.message}", e)
                 }
             }
-            val stats = LoadStats(
-                fileFound = true,
-                totalInJson = arr.length(),
-                parsedTotal = out.size,
-                parseFailed = parseFailCount
-            )
-            Log.i(TAG, "questions_tr.json: found=true, totalInJson=${arr.length()}, parsed=$out.size, failed=$parseFailCount")
-            if (out.isEmpty()) {
-                showFallbackToast()
-                Pair(getFallbackQuestions(), stats)
-            } else {
-                Pair(out, stats)
-            }
+            Log.i(TAG, "questions_tr.json: loaded=${out.size}")
+            out
         } catch (e: Exception) {
-            Log.e(TAG, "questions_tr.json: found=false, error=${e.message}", e)
-            val stats = LoadStats(fileFound = false, totalInJson = 0, parsedTotal = 0, parseFailed = 0)
+            Log.e(TAG, "questions_tr.json: error=${e.message}", e)
             showFallbackToast()
-            Pair(getFallbackQuestions(), stats)
+            emptyList()
         }
+    }
+
+    private fun loadFromImported(): List<Question> {
+        if (!importedFile.exists()) return emptyList()
+        return try {
+            val json = importedFile.readText(Charsets.UTF_8)
+            val arr = JSONArray(json)
+            val out = ArrayList<Question>()
+            for (i in 0 until arr.length()) {
+                try {
+                    out.add(parseQuestion(arr.getJSONObject(i)))
+                } catch (_: Exception) { }
+            }
+            Log.i(TAG, "imported_questions.json: loaded=${out.size}")
+            out
+        } catch (e: Exception) {
+            Log.e(TAG, "imported load error", e)
+            emptyList()
+        }
+    }
+
+    /** Merge and persist imported questions. Returns count of newly added. */
+    fun mergeImportedQuestions(arr: JSONArray): Int {
+        val current = loadFromImported()
+        val existingIds = current.map { it.id }.toSet().toMutableSet()
+        val toAdd = ArrayList<Question>()
+        for (i in 0 until arr.length()) {
+            try {
+                val q = parseQuestion(arr.getJSONObject(i))
+                if (q.id !in existingIds) {
+                    toAdd.add(q)
+                    existingIds.add(q.id)
+                }
+            } catch (_: Exception) { }
+        }
+        if (toAdd.isEmpty()) return 0
+        val merged = current + toAdd
+        val jsonArr = JSONArray()
+        merged.forEach { q ->
+            jsonArr.put(org.json.JSONObject().apply {
+                put("id", q.id)
+                put("levelGroup", q.levelGroup.name)
+                put("subject", q.subject.name)
+                put("gradeTag", q.gradeTag)
+                put("stem", q.stem)
+                put("choices", org.json.JSONArray(q.choices))
+                put("correctIndex", q.correctIndex)
+                put("difficulty", q.difficulty.name)
+                put("examType", q.examType.name)
+            })
+        }
+        importedFile.writeText(jsonArr.toString(), Charsets.UTF_8)
+        return toAdd.size
     }
 
     data class LoadStats(
@@ -72,13 +125,7 @@ class QuestionRepository(private val context: Context) {
     )
 
     private fun showFallbackToast() {
-        Handler(Looper.getMainLooper()).post {
-            Toast.makeText(
-                context.applicationContext,
-                "Soru dosyası bulunamadı, varsayılan sorular yüklendi.",
-                Toast.LENGTH_LONG
-            ).show()
-        }
+        Log.w(TAG, "Soru dosyası bulunamadı veya boş, varsayılan sorular kullanılıyor.")
     }
 
     /** Global pool: all questions from load + fallback, filtered by active exam packs. Never empty. */
@@ -268,7 +315,16 @@ class QuestionRepository(private val context: Context) {
             return fallback
         }
 
-        val finalResult = result.shuffled()
+        var finalResult = result.shuffled()
+        if (finalResult.size < count) {
+            val fillPool = finalPool.shuffled()
+            var idx = 0
+            while (finalResult.size < count && fillPool.isNotEmpty()) {
+                finalResult = (finalResult + fillPool[idx % fillPool.size]).toMutableList()
+                idx++
+            }
+            finalResult = finalResult.take(count).shuffled()
+        }
         recordSeenForQuiz(profileId, finalResult.map { it.id })
         return finalResult
     }
@@ -332,9 +388,20 @@ class QuestionRepository(private val context: Context) {
     /** Boss test: harder question pool. */
     fun pickBossQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         val (all, _) = loadAllQuestionsWithStats()
-        val hardPool = all.filter { it.levelGroup == levelGroup && it.difficulty == QuizDifficulty.HARD }
-        val pool = if (hardPool.size >= count) hardPool else all.filter { it.levelGroup == levelGroup }
-        return pool.shuffled().take(count)
+        val allPool = if (all.isEmpty()) getFallbackQuestions() else all
+        val hardPool = allPool.filter { it.levelGroup == levelGroup && it.difficulty == QuizDifficulty.HARD }
+        val pool = if (hardPool.isNotEmpty()) hardPool else allPool.filter { it.levelGroup == levelGroup }
+        val base = if (pool.isEmpty()) allPool else pool
+        val result = base.shuffled().take(count).toMutableList()
+        if (result.size < count && base.isNotEmpty()) {
+            var idx = 0
+            val shuffled = base.shuffled()
+            while (result.size < count) {
+                result.add(shuffled[idx % shuffled.size])
+                idx++
+            }
+        }
+        return result.shuffled()
     }
 
     /** Remedial mini-quiz: focused on weak topics. Prefer lastFailedWrongIds from ProtectionPrefs.
@@ -367,7 +434,18 @@ class QuestionRepository(private val context: Context) {
             result.add(q)
             sessionIds.add(q.id)
         }
-        val questions = result.ifEmpty { pool.shuffled().take(count) }.ifEmpty { getFallbackQuestions().shuffled().take(count) }
+        var questions: List<Question> = result.ifEmpty { pool.shuffled().take(count) }.ifEmpty { getFallbackQuestions().shuffled().take(count) }
+        if (questions.size < count && questions.isNotEmpty()) {
+            val fill = questions.toMutableList()
+            var idx = 0
+            while (fill.size < count) {
+                fill.add(questions[idx % questions.size])
+                idx++
+            }
+            questions = fill.shuffled()
+        } else if (questions.isEmpty()) {
+            questions = getFallbackQuestions().shuffled().take(count)
+        }
         val usedFallback = pool.isEmpty() || result.isEmpty()
         return Pair(questions, usedFallback)
     }
@@ -417,9 +495,18 @@ class QuestionRepository(private val context: Context) {
                 used.add(q.id)
             }
         }
-        val finalList = result.ifEmpty { pool.shuffled().take(count) }.shuffled()
-        historyStore.recordSeenIdsForProfile(profileId, finalList.map { it.id })
-        return finalList
+        var finalList = result.ifEmpty { pool.shuffled().take(count) }.toMutableList()
+        if (finalList.size < count && pool.isNotEmpty()) {
+            var idx = 0
+            val shuffled = pool.shuffled()
+            while (finalList.size < count) {
+                finalList.add(shuffled[idx % shuffled.size])
+                idx++
+            }
+        }
+        val toReturn = finalList.shuffled()
+        historyStore.recordSeenIdsForProfile(profileId, toReturn.map { it.id })
+        return toReturn
     }
 
     /** Records seen IDs for pickQuizQuestions per-user variety (avoids repeat across attempts). */

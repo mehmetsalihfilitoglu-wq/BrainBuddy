@@ -62,6 +62,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".quiz.QuestionImportActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.PinLockActivity"
             android:exported="false" />
 

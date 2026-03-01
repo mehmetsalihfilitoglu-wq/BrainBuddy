@@ -58,6 +58,8 @@ class AvatarStore(private val context: Context) {
     }
 
     fun equipItem(category: AvatarCategory, itemId: String) {
+        val item = getCatalog().find { it.id == itemId } ?: return
+        if (gamification.level() < item.requiredLevel) return
         if (!isUnlocked(itemId)) return
         val map = getEquippedItems().toMutableMap()
         map[category] = itemId

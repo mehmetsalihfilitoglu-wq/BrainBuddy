@@ -26,6 +26,15 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (intent.getBooleanExtra("open_gate", false)) {
+            val blockedPkg = intent.getStringExtra(com.brainbuddy.app.gate.GateActivity.EXTRA_BLOCKED_PACKAGE) ?: ""
+            startActivity(Intent(this, com.brainbuddy.app.gate.GateActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                putExtra(com.brainbuddy.app.gate.GateActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
+            })
+            finish()
+            return
+        }
         val protectionPrefs = ProtectionPrefs(this)
         if (protectionPrefs.userLocked() || protectionPrefs.isPermissionLocked()) {
             startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))

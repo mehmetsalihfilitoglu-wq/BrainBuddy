@@ -3,7 +3,6 @@ package com.brainbuddy.app.quiz
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -39,8 +38,6 @@ class QuizActivity : AppCompatActivity() {
     private var startedAt: Long = 0L
 
     private val answers = mutableMapOf<String, Int>()
-    private var hintTimer: CountDownTimer? = null
-    private var hintAvailable = false
     private var isFinishing = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,12 +56,6 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    override fun onTrimMemory(level: Int) {
-        super.onTrimMemory(level)
-        if (level >= android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_MODERATE) {
-            hintTimer?.cancel()
-        }
-    }
 
     private fun initQuiz(savedInstanceState: Bundle?) {
         repo = QuestionRepository(this)
@@ -106,16 +97,14 @@ class QuizActivity : AppCompatActivity() {
 
         b.submitBtn.visibility = View.GONE
         b.nextBtn.setOnClickListener { goNext() }
-        b.hintBtn.setOnClickListener { showHintIfAllowed() }
 
         if (questions.isEmpty() || questions.size < QuestionRepository.MIN_QUESTIONS_PER_TEST) {
-            b.subjectChip.text = "Soru bulunamadı"
+            b.subjectChip.text = "Soru havuzu yetersiz"
             val msg = if (questions.isEmpty()) {
                 if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!"
                 else "Soru havuzu yetersiz (en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} soru gerekli). Veli: Soru paketi ekleyin veya içe aktarın."
             } else "Soru havuzu yetersiz (${questions.size} soru mevcut, en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} gerekli)."
             b.questionText.text = msg
-            b.hintBtn.isEnabled = false
             b.nextBtn.isEnabled = false
             b.nextBtn.text = "Ana Sayfaya Dön"
             b.nextBtn.setOnClickListener {
@@ -210,39 +199,10 @@ class QuizActivity : AppCompatActivity() {
         b.nextBtn.isEnabled = true
         b.nextBtn.text = if (index < questions.size - 1) "Sonraki Soru →" else "Gönder"
         b.nextBtn.visibility = View.VISIBLE
-
-        hintAvailable = false
-        b.hintBtn.isEnabled = false
-        b.hintBtn.alpha = 0.5f
-        b.hintText.visibility = View.GONE
-        startHintCountdown(30)
-    }
-
-    private fun startHintCountdown(seconds: Int) {
-        hintTimer?.cancel()
-        b.hintTimer.text = "İpucu: ${seconds}s"
-        hintTimer = object : CountDownTimer(seconds * 1000L, 1000L) {
-            override fun onTick(ms: Long) { b.hintTimer.text = "İpucu: ${(ms / 1000).toInt()}s" }
-            override fun onFinish() {
-                hintAvailable = true
-                b.hintTimer.text = "İpucu hazır ✨"
-                b.hintBtn.isEnabled = true
-                b.hintBtn.alpha = 1f
-            }
-        }.start()
-    }
-
-    private fun showHintIfAllowed() {
-        if (!hintAvailable) return
-        b.hintText.text = questions[index].hint ?: "Bu soru için ipucu yok."
-        b.hintText.visibility = View.VISIBLE
-        b.hintBtn.isEnabled = false
-        b.hintBtn.alpha = 0.5f
     }
 
     private fun goNext() {
         saveCurrentSelection()
-        hintTimer?.cancel()
         if (index < questions.size - 1) {
             index++
             render()
@@ -267,7 +227,6 @@ class QuizActivity : AppCompatActivity() {
         if (isFinishing) return
         isFinishing = true
         saveCurrentSelection()
-        hintTimer?.cancel()
 
         var correctCount = 0
         var wrongCount = 0

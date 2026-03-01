@@ -105,7 +105,7 @@
     <FrameLayout
         android:id="@+id/previewSection"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:layout_margin="16dp"
         android:background="@color/white"
         android:padding="16dp">
@@ -114,34 +114,49 @@
             android:id="@+id/tvPreviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Önizleme"
+            android:text="Avatar Önizleme"
             android:textSize="14sp"
             android:textColor="@color/bb_text_muted"/>
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/previewContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/avatar_frame_default"
+            android:padding="6dp">
+
             <View
                 android:id="@+id/previewBg"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@color/bb_turquoise_light"/>
-            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/avatar_bg_white"/>
+
+            <ImageView
                 android:id="@+id/previewMascot"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="8dp"
-                android:background="@color/bb_turquoise"/>
-            <View
-                android:id="@+id/previewFrame"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/bg_badge"/>
-        </LinearLayout>
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/avatar_mascot_brainy"/>
+
+            <ImageView
+                android:id="@+id/previewHair"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/previewAccessory"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="4dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"/>
+        </FrameLayout>
     </FrameLayout>
 
     <androidx.core.widget.NestedScrollView

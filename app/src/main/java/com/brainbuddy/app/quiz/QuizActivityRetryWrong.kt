@@ -2,7 +2,6 @@ package com.brainbuddy.app.quiz
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -20,9 +19,6 @@ class QuizActivityRetryWrong : AppCompatActivity() {
     private var questions: List<Question> = emptyList()
     private var index = 0
 
-    private var hintTimer: CountDownTimer? = null
-    private var hintAvailable = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityQuizBinding.inflate(layoutInflater)
@@ -36,7 +32,10 @@ class QuizActivityRetryWrong : AppCompatActivity() {
 
         b.submitBtn.setOnClickListener { onSubmit() }
         b.nextBtn.setOnClickListener { goNext() }
-        b.hintBtn.setOnClickListener { showHintIfAllowed() }
+        b.submitBtn.visibility = View.VISIBLE
+        b.hintBtn.visibility = View.GONE
+        b.hintTimer.visibility = View.GONE
+        b.hintText.visibility = View.GONE
 
         b.nextBtn.isEnabled = false
 
@@ -44,7 +43,6 @@ class QuizActivityRetryWrong : AppCompatActivity() {
             b.subjectChip.text = "Yanlış soru yok"
             b.questionText.text = "Tekrar çözüm için yanlış soru bulunamadı."
             b.submitBtn.isEnabled = false
-            b.hintBtn.isEnabled = false
             b.nextBtn.isEnabled = false
         } else {
             render()
@@ -85,42 +83,6 @@ class QuizActivityRetryWrong : AppCompatActivity() {
 
         b.submitBtn.isEnabled = true
         b.nextBtn.isEnabled = false
-
-        hintAvailable = false
-        b.hintBtn.isEnabled = false
-        b.hintBtn.alpha = 0.5f
-        b.hintText.visibility = View.GONE
-
-        startHintCountdown(40)
-    }
-
-    private fun startHintCountdown(seconds: Int) {
-        hintTimer?.cancel()
-        b.hintTimer.text = "İpucu: ${seconds}s"
-
-        hintTimer = object : CountDownTimer(seconds * 1000L, 1000L) {
-            override fun onTick(millisUntilFinished: Long) {
-                val s = (millisUntilFinished / 1000L).toInt()
-                b.hintTimer.text = "İpucu: ${s}s"
-            }
-
-            override fun onFinish() {
-                hintAvailable = true
-                b.hintTimer.text = "İpucu hazır"
-                b.hintBtn.isEnabled = true
-                b.hintBtn.alpha = 1f
-            }
-        }.start()
-    }
-
-    private fun showHintIfAllowed() {
-        val q = questions[index]
-        if (!hintAvailable) return
-        val hint = q.hint
-        b.hintText.text = if (hint.isNullOrBlank()) "Bu soru için ipucu yok." else hint
-        b.hintText.visibility = View.VISIBLE
-        b.hintBtn.isEnabled = false
-        b.hintBtn.alpha = 0.5f
     }
 
     private fun onSubmit() {
@@ -138,7 +100,6 @@ class QuizActivityRetryWrong : AppCompatActivity() {
             return
         }
 
-        // “Doğru/yanlış” anında göstermiyoruz.
         b.feedbackText.text = "Cevabın kaydedildi."
         b.feedbackText.visibility = View.VISIBLE
 
@@ -148,8 +109,6 @@ class QuizActivityRetryWrong : AppCompatActivity() {
 
     private fun goNext() {
         b.feedbackText.visibility = View.GONE
-        b.hintText.visibility = View.GONE
-        hintTimer?.cancel()
 
         if (index < questions.size - 1) {
             index++
@@ -157,10 +116,5 @@ class QuizActivityRetryWrong : AppCompatActivity() {
         } else {
             finish()
         }
-    }
-
-    override fun onDestroy() {
-        hintTimer?.cancel()
-        super.onDestroy()
     }
 }

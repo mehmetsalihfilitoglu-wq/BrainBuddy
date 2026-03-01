@@ -77,6 +77,9 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardQuizSettings).setOnClickListener {
             startActivity(Intent(this, QuizSettingsActivity::class.java))
         }
+        findViewById<View>(R.id.cardQuestionImport)?.setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.quiz.QuestionImportActivity::class.java))
+        }
         findViewById<View>(R.id.cardExamPacks)?.setOnClickListener {
             startActivity(Intent(this, ExamPackActivity::class.java))
         }
