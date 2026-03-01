@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BrainBuddy</string>
+    <string name="parent_title">Parent Panel</string>
+    <string name="settings_title">Settings</string>
+    <string name="gate_title">Quiz Required</string>
+    <string name="gate_quiz_required">You must pass the quiz to use blocked apps.</string>
+    <string name="btn_start_quiz">Start Quiz</string>
+    <string name="lock_failed_title">Test Failed</string>
+    <string name="lock_failed_message">More than 3 wrong answers. App locked until you pass.</string>
+    <string name="lock_permission_title">Blocking Permission Disabled</string>
+    <string name="lock_permission_message">App blocking permission was disabled. Parent PIN can fix in settings.</string>
+    <string name="btn_parent_unlock">Unlock with Parent PIN</string>
+    <string name="btn_practice">Practice (Mini Test)</string>
+    <string name="perm_checklist_title">Permissions</string>
+    <string name="perm_status_ok">OK</string>
+    <string name="perm_status_missing">Missing</string>
+    <string name="perm_status_optional">Optional</string>
+    <string name="perm_status_recommended">Recommended</string>
+    <string name="perm_enable">Enable</string>
+    <string name="perm_recheck">Check</string>
+    <string name="perm_open_settings">Open Settings</string>
+    <string name="reports_title">Reports</string>
+    <string name="report_daily">Daily</string>
+    <string name="report_weekly">Weekly</string>
+    <string name="report_share">Share Report</string>
+    <string name="schedule_title">Schedules</string>
+    <string name="profiles_title">Profiles</string>
+    <string name="profile_select">Select Profile</string>
+</resources>
