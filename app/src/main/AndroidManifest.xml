@@ -93,6 +93,18 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.ScreenTimeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.TestSettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.SecurityActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.ProtectionInactiveActivity"
             android:exported="false" />
 
