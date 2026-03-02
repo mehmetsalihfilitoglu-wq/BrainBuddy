@@ -39,7 +39,7 @@
                 android:id="@+id/greeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Merhaba! 👋"
+                android:text="@string/wise_coach_default"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold"/>

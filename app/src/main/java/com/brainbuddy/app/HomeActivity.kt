@@ -4,11 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.brainbuddy.app.coach.WiseCoachGreeting
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.league.LeagueStore
 import com.brainbuddy.app.quiz.BossTestActivity
 import com.brainbuddy.app.quiz.BossTestStore
 import androidx.activity.OnBackPressedCallback
@@ -56,7 +58,11 @@ class HomeActivity : AppCompatActivity() {
 
         val gam = GamificationStore(this)
         val analytics = AnalyticsStore(this)
+        val leagueStore = LeagueStore(this)
         val weeklyReward = com.brainbuddy.app.core.WeeklyRewardStore(this)
+
+        val wiseCoach = WiseCoachGreeting(this, gam, analytics, leagueStore)
+        findViewById<android.widget.TextView>(R.id.greeting).text = wiseCoach.getGreeting()
 
         // Reward contract notification
         val contractStore = com.brainbuddy.app.reward.RewardContractStore(this)
@@ -196,5 +202,8 @@ class HomeActivity : AppCompatActivity() {
         }
         val killBanner = findViewById<android.widget.TextView>(R.id.tvKillSwitchBanner)
         killBanner?.visibility = if (KillSwitchPrefs(this).isKillSwitchActive()) android.view.View.VISIBLE else android.view.View.GONE
+
+        val wiseCoach = WiseCoachGreeting(this, GamificationStore(this), AnalyticsStore(this), LeagueStore(this))
+        findViewById<android.widget.TextView>(R.id.greeting)?.text = wiseCoach.getGreeting()
     }
 }
