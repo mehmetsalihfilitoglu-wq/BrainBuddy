@@ -36,6 +36,15 @@
     <color name="bb_text_dark">#1F2937</color>
     <color name="bb_text_dark_muted">#6B7280</color>
 
+    <!-- Global UI consistency (title/subtitle) -->
+    <color name="app_title">#0F172A</color>
+    <color name="app_subtitle">#475569</color>
+    <!-- Hero banner chips: white 15% alpha -->
+    <color name="chip_hero_bg">#26FFFFFF</color>
+    <!-- Softer hero gradient (lower saturation) -->
+    <color name="emerald_hero_start">#14B5A5</color>
+    <color name="emerald_hero_end">#0D8A7D</color>
+
     <!-- League zones (emerald-toned) -->
     <color name="bb_promotion_zone">@color/emerald_light</color>
     <color name="bb_demotion_zone">#FFEBEE</color>

@@ -15,6 +15,12 @@
     <dimen name="reports_card_inner">16dp</dimen>
     <dimen name="reports_title_content">8dp</dimen>
 
+    <!-- App card (Home + Parent Panel consistency) -->
+    <dimen name="app_card_radius">22dp</dimen>
+    <dimen name="app_card_elevation">5dp</dimen>
+    <dimen name="app_card_stroke_width">1.5dp</dimen>
+    <dimen name="app_accent_bar_height">4dp</dimen>
+
     <!-- Legacy / compatibility -->
     <dimen name="dot_size">12dp</dimen>
     <dimen name="card_corner_radius">24dp</dimen>

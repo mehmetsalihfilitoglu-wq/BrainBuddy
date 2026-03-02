@@ -43,7 +43,7 @@
                 android:layout_marginBottom="@dimen/space_16">
 
                 <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.BrainBuddy.ParentEmeraldCard"
+                    style="@style/Widget.BrainBuddy.AppCardWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -52,41 +52,52 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/space_16"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_timer"
-                            android:tint="@color/text_on_emerald"
-                            app:tint="@color/text_on_emerald"
-                            android:contentDescription="@null" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/app_accent_bar_height"
+                            android:background="@color/emerald_primary" />
 
-                        <TextView
-                            android:id="@+id/tvTodayScreenTime"
-                            style="@style/TextAppearance.BrainBuddy.Parent.Title"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_4"
-                            android:text="0 dk"
-                            android:maxLines="1"
-                            android:ellipsize="end" />
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_16"
+                            android:gravity="center">
 
-                        <TextView
-                            style="@style/TextAppearance.BrainBuddy.Parent.Caption"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_4"
-                            android:text="@string/parent_summary_screen_time"
-                            android:maxLines="1"
-                            android:ellipsize="end" />
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_timer"
+                                android:tint="@color/emerald_primary"
+                                app:tint="@color/emerald_primary"
+                                android:contentDescription="@null" />
+
+                            <TextView
+                                android:id="@+id/tvTodayScreenTime"
+                                style="@style/TextAppearance.BrainBuddy.AppTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="0 dk"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+
+                            <TextView
+                                style="@style/TextAppearance.BrainBuddy.AppSubtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="@string/parent_summary_screen_time"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.BrainBuddy.ParentEmeraldCard"
+                    style="@style/Widget.BrainBuddy.AppCardWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -95,41 +106,52 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/space_16"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_quiz"
-                            android:tint="@color/text_on_emerald"
-                            app:tint="@color/text_on_emerald"
-                            android:contentDescription="@null" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/app_accent_bar_height"
+                            android:background="@color/emerald_primary" />
 
-                        <TextView
-                            android:id="@+id/tvTodayTests"
-                            style="@style/TextAppearance.BrainBuddy.Parent.Title"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_4"
-                            android:text="0"
-                            android:maxLines="1"
-                            android:ellipsize="end" />
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_16"
+                            android:gravity="center">
 
-                        <TextView
-                            style="@style/TextAppearance.BrainBuddy.Parent.Caption"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_4"
-                            android:text="@string/parent_summary_tests"
-                            android:maxLines="1"
-                            android:ellipsize="end" />
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_quiz"
+                                android:tint="@color/emerald_primary"
+                                app:tint="@color/emerald_primary"
+                                android:contentDescription="@null" />
+
+                            <TextView
+                                android:id="@+id/tvTodayTests"
+                                style="@style/TextAppearance.BrainBuddy.AppTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="0"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+
+                            <TextView
+                                style="@style/TextAppearance.BrainBuddy.AppSubtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="@string/parent_summary_tests"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.BrainBuddy.ParentEmeraldCard"
+                    style="@style/Widget.BrainBuddy.AppCardWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -138,36 +160,47 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="@dimen/space_16"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_block"
-                            android:tint="@color/text_on_emerald"
-                            app:tint="@color/text_on_emerald"
-                            android:contentDescription="@null" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/app_accent_bar_height"
+                            android:background="@color/emerald_primary" />
 
-                        <TextView
-                            android:id="@+id/tvBlockedAppsCount"
-                            style="@style/TextAppearance.BrainBuddy.Parent.Title"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_4"
-                            android:text="0"
-                            android:maxLines="1"
-                            android:ellipsize="end" />
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_16"
+                            android:gravity="center">
 
-                        <TextView
-                            style="@style/TextAppearance.BrainBuddy.Parent.Caption"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_4"
-                            android:text="@string/parent_summary_blocked"
-                            android:maxLines="1"
-                            android:ellipsize="end" />
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_block"
+                                android:tint="@color/emerald_primary"
+                                app:tint="@color/emerald_primary"
+                                android:contentDescription="@null" />
+
+                            <TextView
+                                android:id="@+id/tvBlockedAppsCount"
+                                style="@style/TextAppearance.BrainBuddy.AppTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="0"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+
+                            <TextView
+                                style="@style/TextAppearance.BrainBuddy.AppSubtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="@string/parent_summary_blocked"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>

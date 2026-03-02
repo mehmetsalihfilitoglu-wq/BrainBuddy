@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
+    android:background="@color/white"
     android:fillViewport="true"
     android:overScrollMode="never">
 
@@ -11,7 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingStart="@dimen/space_24"
+        android:paddingEnd="@dimen/space_24"
+        android:paddingTop="@dimen/space_16"
+        android:paddingBottom="@dimen/space_24">
 
         <!-- Kill Switch Chip -->
         <TextView
@@ -26,21 +30,22 @@
             android:textSize="12sp"
             android:visibility="gone"/>
 
-        <!-- Özet Kartı -->
+        <!-- Özet Kartı (Hero Banner) - Softer emerald gradient -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/bb_card">
+            android:layout_marginTop="@dimen/space_8"
+            app:cardCornerRadius="@dimen/app_card_radius"
+            app:cardElevation="@dimen/app_card_elevation"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:strokeWidth="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp"
-                android:background="@drawable/bg_header_turquoise">
+                android:padding="@dimen/space_24"
+                android:background="@drawable/bg_header_hero_soft">
 
                 <TextView
                     android:id="@+id/greeting"
@@ -55,13 +60,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="14dp">
+                    android:layout_marginTop="@dimen/space_12">
 
                     <TextView
                         android:id="@+id/streakBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_badge"
+                        android:background="@color/chip_hero_bg"
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="5dp"
                         android:text="🔥 0 gün seri"
@@ -72,8 +77,8 @@
                         android:id="@+id/pointsBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_badge"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:background="@color/chip_hero_bg"
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="5dp"
                         android:text="⭐ 0 XP"
@@ -84,8 +89,8 @@
                         android:id="@+id/levelBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_badge"
+                        android:layout_marginStart="@dimen/space_8"
+                        android:background="@color/chip_hero_bg"
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="5dp"
                         android:text="Seviye 1"
@@ -97,7 +102,7 @@
                     android:id="@+id/dailyGoalLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="@dimen/space_12"
                     android:text="Günlük hedef (1 test)"
                     android:textColor="@color/white"
                     android:textSize="13sp"/>
@@ -107,19 +112,19 @@
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="@dimen/space_4"
                     android:max="1"
                     android:progress="0"
                     android:progressTint="@color/white"
-                    android:progressBackgroundTint="#40FFFFFF"/>
+                    android:progressBackgroundTint="@color/chip_hero_bg"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- 4 Ana Kart (2x2 Grid) -->
+        <!-- 4 Ana Kart (2x2 Grid) - AppCardWhite style -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/space_24"
             android:orientation="vertical">
 
             <LinearLayout
@@ -130,89 +135,101 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardCalis"
-                    style="@style/BB.HomeCard"
+                    style="@style/Widget.BrainBuddy.AppCardWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    app:cardBackgroundColor="@color/bb_card"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    android:layout_marginEnd="@dimen/space_4">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="20dp"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:text="🎯"
-                            android:textSize="28sp"
-                            android:gravity="center"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/app_accent_bar_height"
+                            android:background="@color/emerald_primary" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Çalış"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_text"/>
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_16"
+                            android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Test, Koç, Sınıf"
-                            android:textSize="12sp"
-                            android:textColor="@color/bb_text_muted"/>
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_quiz"
+                                android:tint="@color/emerald_primary"
+                                app:tint="@color/emerald_primary"
+                                android:contentDescription="@null"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_8"
+                                android:text="Çalış"
+                                style="@style/TextAppearance.BrainBuddy.AppTitle"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="Test, Koç, Sınıf"
+                                style="@style/TextAppearance.BrainBuddy.AppSubtitle"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardGelisim"
-                    style="@style/BB.HomeCard"
+                    style="@style/Widget.BrainBuddy.AppCardWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:cardBackgroundColor="@color/bb_card"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    android:layout_marginHorizontal="@dimen/space_4">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="20dp"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:text="🏆"
-                            android:textSize="28sp"
-                            android:gravity="center"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/app_accent_bar_height"
+                            android:background="@color/emerald_primary" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Gelişim"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_text"/>
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_16"
+                            android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Lig, İstatistikler"
-                            android:textSize="12sp"
-                            android:textColor="@color/bb_text_muted"/>
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_league"
+                                android:tint="@color/emerald_primary"
+                                app:tint="@color/emerald_primary"
+                                android:contentDescription="@null"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_8"
+                                android:text="Gelişim"
+                                style="@style/TextAppearance.BrainBuddy.AppTitle"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="Lig, İstatistikler"
+                                style="@style/TextAppearance.BrainBuddy.AppSubtitle"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
@@ -220,102 +237,110 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/space_12"
                 android:orientation="horizontal"
                 android:baselineAligned="false">
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardProfil"
-                    style="@style/BB.HomeCard"
+                    style="@style/Widget.BrainBuddy.AppCardWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    app:cardBackgroundColor="@color/bb_card"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    android:layout_marginEnd="@dimen/space_4">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="20dp"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:text="👤"
-                            android:textSize="28sp"
-                            android:gravity="center"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/app_accent_bar_height"
+                            android:background="@color/emerald_primary" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Profil"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_text"/>
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_16"
+                            android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="İsim, avatar"
-                            android:textSize="12sp"
-                            android:textColor="@color/bb_text_muted"/>
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_avatar"
+                                android:tint="@color/emerald_primary"
+                                app:tint="@color/emerald_primary"
+                                android:contentDescription="@null"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_8"
+                                android:text="Profil"
+                                style="@style/TextAppearance.BrainBuddy.AppTitle"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="İsim, avatar"
+                                style="@style/TextAppearance.BrainBuddy.AppSubtitle"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardVeli"
-                    style="@style/BB.HomeCard"
+                    style="@style/Widget.BrainBuddy.AppCardWhite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:cardBackgroundColor="@color/bb_card"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    android:layout_marginStart="@dimen/space_4">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="20dp"
-                        android:gravity="center">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:text="👨‍👩‍👧"
-                            android:textSize="28sp"
-                            android:gravity="center"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/app_accent_bar_height"
+                            android:background="@color/emerald_primary" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Veli"
-                            android:textSize="17sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_text"/>
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_16"
+                            android:gravity="center">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="PIN ile giriş"
-                            android:textSize="12sp"
-                            android:textColor="@color/bb_text_muted"/>
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_lock"
+                                android:tint="@color/emerald_primary"
+                                app:tint="@color/emerald_primary"
+                                android:contentDescription="@null"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_8"
+                                android:text="Veli"
+                                style="@style/TextAppearance.BrainBuddy.AppTitle"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="PIN ile giriş"
+                                style="@style/TextAppearance.BrainBuddy.AppSubtitle"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
     </LinearLayout>
 </ScrollView>

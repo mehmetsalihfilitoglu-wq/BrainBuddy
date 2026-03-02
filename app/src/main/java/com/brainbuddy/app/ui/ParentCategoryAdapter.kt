@@ -38,7 +38,7 @@ class ParentCategoryAdapter(
             b.title.setText(item.titleRes)
             b.subtitle.setText(item.subtitleRes)
             b.icon.setImageResource(item.iconRes)
-            b.icon.imageTintList = ContextCompat.getColorStateList(b.icon.context, R.color.text_on_emerald)
+            b.icon.imageTintList = ContextCompat.getColorStateList(b.icon.context, R.color.emerald_primary)
             b.cardRoot.setOnClickListener { item.onClick() }
         }
     }
