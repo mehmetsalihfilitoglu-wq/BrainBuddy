@@ -1,6 +1,7 @@
 package com.brainbuddy.app.quiz
 
 import android.content.Context
+import com.brainbuddy.app.core.ProfileScopedPrefs
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
@@ -9,7 +10,7 @@ import java.util.concurrent.TimeUnit
  * Used for: wrong questions reappearing in future tests, parent improvement stats.
  */
 class WrongQuestionStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.wrongQuestion(context)
 
     /** Record a wrong answer. */
     fun recordWrong(questionId: String, topic: String) {
@@ -99,7 +100,6 @@ class WrongQuestionStore(context: Context) {
     private data class WrongEntry(val wrongCount: Int, val fixed: Boolean)
 
     companion object {
-        private const val PREFS = "bb_wrong_question_store"
         private const val MAX_CAP = 1000
     }
 }

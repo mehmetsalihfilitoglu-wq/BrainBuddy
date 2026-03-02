@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 
 /** Tracks lock events and blocked app attempts for reports. */
 class ReportStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.reports(context)
 
     fun recordLockEvent() {
         val arr = JSONArray(prefs.getString(KEY_LOCK_EVENTS, "[]"))
@@ -51,7 +51,6 @@ class ReportStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_reports"
         private const val KEY_LOCK_EVENTS = "lock_events"
         private const val KEY_ATTEMPTS = "blocked_attempts"
     }

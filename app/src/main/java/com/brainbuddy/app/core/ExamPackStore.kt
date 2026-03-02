@@ -8,7 +8,7 @@ import com.brainbuddy.app.quiz.ExamType
  * Supports LGS, TYT, AYT. JSON/CSV import can tag questions with examType.
  */
 class ExamPackStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.examPacks(context)
 
     /** Active exam packs. If empty, use all questions (backward compatible). */
     fun getActiveExamTypes(): Set<ExamType> {
@@ -28,7 +28,6 @@ class ExamPackStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_exam_packs"
         private const val KEY_ACTIVE = "active_exam_types"
     }
 }

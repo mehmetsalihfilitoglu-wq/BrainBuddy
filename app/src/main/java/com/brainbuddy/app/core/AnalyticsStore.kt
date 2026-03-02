@@ -12,7 +12,7 @@ data class QuizSession(
 )
 
 class AnalyticsStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.analytics(context)
 
     fun recordSession(session: QuizSession) {
         val arr = JSONArray(prefs.getString(KEY_SESSIONS, "[]"))
@@ -229,7 +229,6 @@ class AnalyticsStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_analytics"
         private const val KEY_SESSIONS = "sessions_json"
         private const val KEY_PERFORMANCES = "test_performances"
         private const val KEY_REVIEW_CORRECTIONS = "review_corrections_total"

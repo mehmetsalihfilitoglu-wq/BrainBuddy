@@ -1,22 +1,25 @@
 package com.brainbuddy.app
 
 import android.app.Application
-import com.brainbuddy.app.core.AppModeManager
-import com.brainbuddy.app.core.CrashRecoveryPrefs
-import com.brainbuddy.app.league.LeagueScheduler
-import com.brainbuddy.app.report.ReportScheduler
-import com.brainbuddy.app.core.KillSwitchPrefs
-import com.brainbuddy.app.core.ProtectionPrefs
-import com.google.android.gms.ads.MobileAds
-import com.brainbuddy.app.core.PermissionMonitorLauncher
 import android.content.Intent
 import android.os.Process
+import com.brainbuddy.app.core.ActiveProfileManager
+import com.brainbuddy.app.core.AppModeManager
+import com.brainbuddy.app.core.CrashRecoveryPrefs
+import com.brainbuddy.app.core.KillSwitchPrefs
+import com.brainbuddy.app.core.PermissionMonitorLauncher
+import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.league.LeagueScheduler
+import com.brainbuddy.app.report.ReportScheduler
+import com.google.android.gms.ads.MobileAds
 
 class BrainBuddyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
         MobileAds.initialize(this) {}
+        // Ensure we always have a valid active profile on app start.
+        ActiveProfileManager.getActiveProfileId(this)
         AppModeManager.registerLifecycle(this)
         PermissionMonitorLauncher.scheduleCheck(this)
         ReportScheduler.schedule(this)

@@ -1,12 +1,13 @@
 package com.brainbuddy.app.league
 
 import android.content.Context
+import com.brainbuddy.app.core.ProfileScopedPrefs
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
 class LeagueStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.league(context)
 
     fun getCurrentTier(): LeagueTier {
         val name = prefs.getString(KEY_TIER, LeagueTier.BASLANGIC.name) ?: LeagueTier.BASLANGIC.name
@@ -126,7 +127,6 @@ class LeagueStore(context: Context) {
     )
 
     companion object {
-        private const val PREFS = "bb_league"
         private const val KEY_TIER = "tier"
         private const val KEY_WEEKLY_SCORE = "weekly_score"
         private const val KEY_WEEK_START_MS = "week_start_ms"

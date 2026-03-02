@@ -8,7 +8,7 @@ import org.json.JSONObject
  * Time schedule rules: e.g. Weekdays 19:00-21:00 → Social apps always blocked.
  */
 class ScheduleStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.schedules(context)
 
     data class ScheduleRule(
         val id: String,
@@ -90,7 +90,6 @@ class ScheduleStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_schedules"
         private const val KEY_RULES = "schedule_rules"
     }
 }

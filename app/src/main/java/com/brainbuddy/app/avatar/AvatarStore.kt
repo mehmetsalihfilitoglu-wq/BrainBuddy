@@ -1,10 +1,11 @@
 package com.brainbuddy.app.avatar
 
 import android.content.Context
+import com.brainbuddy.app.core.ProfileScopedPrefs
 import org.json.JSONObject
 
 class AvatarStore(private val context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.avatar(context)
     private val gamification = com.brainbuddy.app.core.GamificationStore(context)
 
     fun isShopDisabledByParent(): Boolean = prefs.getBoolean(KEY_SHOP_DISABLED, false)
@@ -92,7 +93,6 @@ class AvatarStore(private val context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_avatar"
         private const val KEY_UNLOCKED = "unlocked_ids"
         private const val KEY_EQUIPPED = "equipped_json"
         private const val KEY_SHOP_DISABLED = "shop_disabled_by_parent"

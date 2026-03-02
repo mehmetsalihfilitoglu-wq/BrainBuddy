@@ -1,6 +1,7 @@
 package com.brainbuddy.app.reward
 
 import android.content.Context
+import com.brainbuddy.app.core.ProfileScopedPrefs
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -12,7 +13,7 @@ data class RewardContract(
 )
 
 class RewardContractStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.rewardContracts(context)
     private val gamification = com.brainbuddy.app.core.GamificationStore(context)
 
     fun getContracts(): List<RewardContract> {
@@ -61,7 +62,6 @@ class RewardContractStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_reward_contract"
         private const val KEY_CONTRACTS = "contracts_json"
     }
 }

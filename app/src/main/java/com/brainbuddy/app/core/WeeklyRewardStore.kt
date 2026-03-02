@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit
 
 /** Weekly Reward Chest: awards freeze tokens based on weekly XP tier. */
 class WeeklyRewardStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.weeklyReward(context)
     private val gamification = GamificationStore(context)
     private val analytics = AnalyticsStore(context)
 
@@ -57,7 +57,6 @@ class WeeklyRewardStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_weekly_reward"
         private const val KEY_LAST_CLAIMED_WEEK = "last_claimed_week"
     }
 }

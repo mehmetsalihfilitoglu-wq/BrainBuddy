@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.math.floor
 
 class GamificationStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    private val prefs = ProfileScopedPrefs.gamification(context)
 
     private val xpPerLevel = 100
     private val baseXp = 10
@@ -124,7 +124,6 @@ class GamificationStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_gamification"
         private const val KEY_XP = "xp"
         private const val KEY_STREAK_DAYS = "streak_days"
         private const val KEY_LAST_COMPLETED_MS = "last_completed_ms"

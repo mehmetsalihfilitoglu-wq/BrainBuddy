@@ -5,6 +5,11 @@ import android.content.Context
 class ProtectionPrefs(private val context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
+    private fun profileKey(base: String): String {
+        val profileId = ActiveProfileManager.getActiveProfileId(context)
+        return "profile_${profileId}_$base"
+    }
+
     fun isProtectionEnabled(): Boolean {
         if (!prefs.getBoolean(KEY_ENABLED, false)) return false
         val killSwitch = KillSwitchPrefs(context)
@@ -20,7 +25,17 @@ class ProtectionPrefs(private val context: Context) {
     fun setQuizIntervalMinutes(v: Int) = prefs.edit().putInt(KEY_QUIZ_INTERVAL, v.coerceIn(30, 60)).apply()
 
     fun studentLevel(): StudentLevel {
-        val raw = prefs.getString(KEY_LEVEL, StudentLevel.AGE_3_5.name) ?: StudentLevel.AGE_3_5.name
+        val scopedKey = profileKey(KEY_LEVEL)
+        val rawProfile = prefs.getString(scopedKey, null)
+        val raw = when {
+            rawProfile != null -> rawProfile
+            else -> {
+                val legacy = prefs.getString(KEY_LEVEL, StudentLevel.AGE_3_5.name) ?: StudentLevel.AGE_3_5.name
+                // Migrate legacy global value into profile-scoped key for active profile.
+                prefs.edit().putString(scopedKey, legacy).apply()
+                legacy
+            }
+        }
         return try {
             StudentLevel.valueOf(raw)
         } catch (_: Exception) {
@@ -28,39 +43,132 @@ class ProtectionPrefs(private val context: Context) {
         }
     }
 
-    fun setStudentLevel(level: StudentLevel) =
-        prefs.edit().putString(KEY_LEVEL, level.name).apply()
+    fun setStudentLevel(level: StudentLevel) {
+        val scopedKey = profileKey(KEY_LEVEL)
+        prefs.edit().putString(scopedKey, level.name).apply()
+    }
 
-    fun lastQuizPassedAtMs(): Long = prefs.getLong(KEY_LAST_QUIZ_PASSED_AT, 0L).coerceAtLeast(0L)
-    fun setLastQuizPassedAtMs(v: Long) = prefs.edit().putLong(KEY_LAST_QUIZ_PASSED_AT, v).apply()
+    fun lastQuizPassedAtMs(): Long {
+        val scopedKey = profileKey(KEY_LAST_QUIZ_PASSED_AT)
+        if (!prefs.contains(scopedKey) && prefs.contains(KEY_LAST_QUIZ_PASSED_AT)) {
+            val v = prefs.getLong(KEY_LAST_QUIZ_PASSED_AT, 0L).coerceAtLeast(0L)
+            prefs.edit().putLong(scopedKey, v).apply()
+        }
+        return prefs.getLong(scopedKey, 0L).coerceAtLeast(0L)
+    }
 
-    fun isQuizInProgress(): Boolean = prefs.getBoolean(KEY_QUIZ_IN_PROGRESS, false)
-    fun setQuizInProgress(v: Boolean) = prefs.edit().putBoolean(KEY_QUIZ_IN_PROGRESS, v).apply()
+    fun setLastQuizPassedAtMs(v: Long) {
+        val scopedKey = profileKey(KEY_LAST_QUIZ_PASSED_AT)
+        prefs.edit().putLong(scopedKey, v).apply()
+    }
 
-    fun userLocked(): Boolean = prefs.getBoolean(KEY_USER_LOCKED, false)
-    fun setUserLocked(v: Boolean) = prefs.edit().putBoolean(KEY_USER_LOCKED, v).apply()
+    fun isQuizInProgress(): Boolean {
+        val scopedKey = profileKey(KEY_QUIZ_IN_PROGRESS)
+        if (!prefs.contains(scopedKey) && prefs.contains(KEY_QUIZ_IN_PROGRESS)) {
+            val v = prefs.getBoolean(KEY_QUIZ_IN_PROGRESS, false)
+            prefs.edit().putBoolean(scopedKey, v).apply()
+        }
+        return prefs.getBoolean(scopedKey, false)
+    }
 
-    fun lastFailedWrongIds(): List<String> =
-        prefs.getStringSet(KEY_LAST_FAILED_WRONG_IDS, emptySet())
+    fun setQuizInProgress(v: Boolean) {
+        val scopedKey = profileKey(KEY_QUIZ_IN_PROGRESS)
+        prefs.edit().putBoolean(scopedKey, v).apply()
+    }
+
+    fun userLocked(): Boolean {
+        val scopedKey = profileKey(KEY_USER_LOCKED)
+        if (!prefs.contains(scopedKey) && prefs.contains(KEY_USER_LOCKED)) {
+            val v = prefs.getBoolean(KEY_USER_LOCKED, false)
+            prefs.edit().putBoolean(scopedKey, v).apply()
+        }
+        return prefs.getBoolean(scopedKey, false)
+    }
+
+    fun setUserLocked(v: Boolean) {
+        val scopedKey = profileKey(KEY_USER_LOCKED)
+        prefs.edit().putBoolean(scopedKey, v).apply()
+    }
+
+    fun lastFailedWrongIds(): List<String> {
+        val scopedKey = profileKey(KEY_LAST_FAILED_WRONG_IDS)
+        val fromProfile = prefs.getStringSet(scopedKey, null)
+        val source = fromProfile ?: prefs.getStringSet(KEY_LAST_FAILED_WRONG_IDS, emptySet())
+        val list = source
             ?.filter { it.isNotBlank() && it.length <= 200 }
             ?.take(500)
             ?: emptyList()
-    fun setLastFailedWrongIds(ids: List<String>) =
-        prefs.edit().putStringSet(KEY_LAST_FAILED_WRONG_IDS, ids.take(500).toSet()).apply()
+        if (fromProfile == null && list.isNotEmpty()) {
+            prefs.edit().putStringSet(scopedKey, list.toSet()).apply()
+        }
+        return list
+    }
 
-    fun lastFailedQuizId(): String = prefs.getString(KEY_LAST_FAILED_QUIZ_ID, "") ?: ""
-    fun setLastFailedQuizId(id: String) = prefs.edit().putString(KEY_LAST_FAILED_QUIZ_ID, id).apply()
+    fun setLastFailedWrongIds(ids: List<String>) {
+        val scopedKey = profileKey(KEY_LAST_FAILED_WRONG_IDS)
+        prefs.edit().putStringSet(scopedKey, ids.take(500).toSet()).apply()
+    }
 
-    fun lastFailedQuestionIds(): List<String> =
-        prefs.getStringSet(KEY_LAST_FAILED_QUESTION_IDS, emptySet())?.toList() ?: emptyList()
-    fun setLastFailedQuestionIds(ids: List<String>) =
-        prefs.edit().putStringSet(KEY_LAST_FAILED_QUESTION_IDS, ids.toSet()).apply()
+    fun lastFailedQuizId(): String {
+        val scopedKey = profileKey(KEY_LAST_FAILED_QUIZ_ID)
+        val fromProfile = prefs.getString(scopedKey, null)
+        val value = fromProfile ?: prefs.getString(KEY_LAST_FAILED_QUIZ_ID, "") ?: ""
+        if (fromProfile == null && value.isNotEmpty()) {
+            prefs.edit().putString(scopedKey, value).apply()
+        }
+        return value
+    }
 
-    fun lastFailedSessionJson(): String = prefs.getString(KEY_LAST_FAILED_SESSION_JSON, "") ?: ""
-    fun setLastFailedSessionJson(json: String) = prefs.edit().putString(KEY_LAST_FAILED_SESSION_JSON, json).apply()
+    fun setLastFailedQuizId(id: String) {
+        val scopedKey = profileKey(KEY_LAST_FAILED_QUIZ_ID)
+        prefs.edit().putString(scopedKey, id).apply()
+    }
 
-    fun lastFailedQuestionsJson(): String = prefs.getString(KEY_LAST_FAILED_QUESTIONS_JSON, "") ?: ""
-    fun setLastFailedQuestionsJson(json: String) = prefs.edit().putString(KEY_LAST_FAILED_QUESTIONS_JSON, json.take(500000)).apply()
+    fun lastFailedQuestionIds(): List<String> {
+        val scopedKey = profileKey(KEY_LAST_FAILED_QUESTION_IDS)
+        val fromProfile = prefs.getStringSet(scopedKey, null)
+        val source = fromProfile ?: prefs.getStringSet(KEY_LAST_FAILED_QUESTION_IDS, emptySet())
+        val list = source?.toList() ?: emptyList()
+        if (fromProfile == null && list.isNotEmpty()) {
+            prefs.edit().putStringSet(scopedKey, list.toSet()).apply()
+        }
+        return list
+    }
+
+    fun setLastFailedQuestionIds(ids: List<String>) {
+        val scopedKey = profileKey(KEY_LAST_FAILED_QUESTION_IDS)
+        prefs.edit().putStringSet(scopedKey, ids.toSet()).apply()
+    }
+
+    fun lastFailedSessionJson(): String {
+        val scopedKey = profileKey(KEY_LAST_FAILED_SESSION_JSON)
+        val fromProfile = prefs.getString(scopedKey, null)
+        val value = fromProfile ?: prefs.getString(KEY_LAST_FAILED_SESSION_JSON, "") ?: ""
+        if (fromProfile == null && value.isNotEmpty()) {
+            prefs.edit().putString(scopedKey, value).apply()
+        }
+        return value
+    }
+
+    fun setLastFailedSessionJson(json: String) {
+        val scopedKey = profileKey(KEY_LAST_FAILED_SESSION_JSON)
+        prefs.edit().putString(scopedKey, json).apply()
+    }
+
+    fun lastFailedQuestionsJson(): String {
+        val scopedKey = profileKey(KEY_LAST_FAILED_QUESTIONS_JSON)
+        val fromProfile = prefs.getString(scopedKey, null)
+        val value = fromProfile ?: prefs.getString(KEY_LAST_FAILED_QUESTIONS_JSON, "") ?: ""
+        if (fromProfile == null && value.isNotEmpty()) {
+            prefs.edit().putString(scopedKey, value).apply()
+        }
+        return value
+    }
+
+    fun setLastFailedQuestionsJson(json: String) {
+        val scopedKey = profileKey(KEY_LAST_FAILED_QUESTIONS_JSON)
+        prefs.edit().putString(scopedKey, json.take(500000)).apply()
+    }
 
     /** When accessibility is disabled, we lock with this reason. Only Parent PIN can fix. */
     fun permissionDisabledLockReason(): String = prefs.getString(KEY_PERMISSION_LOCK_REASON, "") ?: ""
