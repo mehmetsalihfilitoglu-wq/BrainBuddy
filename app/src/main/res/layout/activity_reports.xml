@@ -45,6 +45,8 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="@string/parent_weekly_success"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -192,6 +194,8 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="@string/parent_topic_performance"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -255,6 +259,8 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Son 10 Test Başarı Trendi"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -318,6 +324,8 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Son Testler"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -381,6 +389,8 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Yanlış Cevapları İncele"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -461,6 +471,8 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="En çok denenen uygulamalar"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -519,16 +531,20 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="E-posta Raporları"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/bb_text"/>
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="E-posta raporları yakında."
                         android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"
-                        android:layout_marginTop="4dp"/>
+                        android:textColor="@color/bb_text_muted"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnEmailSetup"
@@ -559,14 +575,18 @@
                     android:padding="16dp">
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="@string/report_share"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_text"
-                        android:layout_weight="1"/>
+                        android:textColor="@color/bb_text"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnShareReport"
                         style="@style/BBButtonAlt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Paylaş"
                         android:minWidth="0dp"
                         android:minHeight="0dp"

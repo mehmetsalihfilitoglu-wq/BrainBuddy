@@ -38,6 +38,8 @@
                 android:padding="24dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Günlük Limit"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -86,6 +88,8 @@
                 android:padding="24dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Uyku Modu"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -113,6 +117,8 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Başlangıç"
                             android:textSize="12sp"
                             android:textColor="@color/bb_text_muted"/>
@@ -153,6 +159,8 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Bitiş"
                             android:textSize="12sp"
                             android:textColor="@color/bb_text_muted"/>
@@ -198,6 +206,8 @@
                 android:padding="24dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Hızlı İzin"
                     android:textSize="18sp"
                     android:textStyle="bold"

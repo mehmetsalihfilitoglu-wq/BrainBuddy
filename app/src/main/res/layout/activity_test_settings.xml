@@ -38,6 +38,8 @@
                 android:padding="20dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Test Uzunluğu"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -69,6 +71,8 @@
                 android:padding="20dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Başarısız Tekrar Kuralı"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -101,6 +105,8 @@
                 android:padding="20dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Günlük Hedef (Opsiyonel)"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -139,16 +145,20 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Soru Paketleri"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/bb_text"/>
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
                         android:text="LGS / TYT / AYT / Junior"
                         android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"
-                        android:layout_marginTop="4dp"/>
+                        android:textColor="@color/bb_text_muted"/>
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton

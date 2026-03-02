@@ -38,6 +38,8 @@
                 android:padding="24dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/parent_change_pin"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -77,6 +79,8 @@
                 android:padding="24dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/perm_accessibility"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -127,6 +131,8 @@
                 android:padding="24dp">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/perm_usage"
                     android:textSize="18sp"
                     android:textStyle="bold"
