@@ -1,21 +1,26 @@
 package com.brainbuddy.app.quiz
 
+import java.util.concurrent.TimeUnit
+
 /**
- * G2: Adaptif soru seçici.
- * - %40 dueWrong (yanlış yapılan, due olan sorular)
- * - %60 fresh (yeni / uzun süredir görülmeyen)
- * - Aynı soru aynı test içinde asla tekrar gelmez
- * - Son 2 testte çıkan sorular öncelik düşürülür
+ * G3: Adaptif soru seçici - 20 soruluk test, kesin oran.
+ * - 8 soru (%40): dueWrong (yanlış yapılan + due)
+ * - 12 soru (%60): fresh (yeni / uzun süredir görülmeyen / farklı konu)
+ * - Aynı soru aynı testte asla tekrar etmez (Set garanti)
+ * - Son 2 testte çıkan sorular fresh'te öncelik düşürülür
  */
 class AdaptiveQuestionPicker(
     private val historyStore: QuestionHistoryStore
 ) {
+    private val now get() = System.currentTimeMillis()
+    private val globalTestIndex get() = historyStore.getGlobalTestIndex()
+    private val longAgoMs = TimeUnit.DAYS.toMillis(3)
+
     /**
      * @param pool Soru havuzu
-     * @param testSize Test boyutu (örn 20)
-     * @param profileId Profil (son 2 test takibi için)
-     * @param excludeIds Bu testte zaten seçilmiş ID'ler (boş olabilir)
-     * @return Seçilen sorular (testSize kadar veya daha az)
+     * @param testSize Test boyutu (20)
+     * @param profileId Profil (son 2 test takibi)
+     * @param excludeIds Bu testte zaten seçilmiş ID'ler
      */
     fun pick(
         pool: List<Question>,
@@ -23,92 +28,76 @@ class AdaptiveQuestionPicker(
         profileId: String = "default",
         excludeIds: Set<String> = emptySet()
     ): List<Question> {
-        val inLast2Tests = historyStore.getQuestionIdsFromLastNTests(profileId, 2)
+        val exclude = excludeIds.toMutableSet()
 
-        // G2.1: dueWrong = due olan VE son cevap yanlış olan sorular
-        val dueWrong = pool.filter { q ->
-            q.id !in excludeIds &&
-            historyStore.isDue(q.id) &&
+        // G3: dueWrongPool = dueAt <= now AND lastWasWrong
+        val dueWrongPool = pool.filter { q ->
+            q.id !in exclude && historyStore.isDue(q.id) && historyStore.lastWasWrong(q.id)
+        }
+
+        // reinforcementPool = lastWasWrong ama dueAt > now (dueWrong yetersizse)
+        val reinforcementPool = pool.filter { q ->
+            q.id !in exclude &&
+            !historyStore.isDue(q.id) &&
             historyStore.lastWasWrong(q.id)
         }
 
-        // G2.2: fresh = due değil VEYA hiç görülmemiş sorular
-        val fresh = pool.filter { q ->
-            q.id !in excludeIds &&
-            (q.id !in dueWrong.map { it.id }) &&
-            (!historyStore.isDue(q.id) || historyStore.neverSeen(q.id))
+        // freshPool = neverSeen OR (uzun süredir görülmedi) OR (globalTestIndex - lastSeenTestIndex >= 3)
+        val freshPool = pool.filter { q ->
+            q.id !in exclude &&
+            q.id !in dueWrongPool.map { it.id } &&
+            q.id !in reinforcementPool.map { it.id } &&  // reinforcement only for wrong fill
+            (historyStore.neverSeen(q.id) ||
+             (globalTestIndex - (historyStore.getHistory(q.id)?.lastSeenTestIndex ?: 0) >= 3) ||
+             (now - (historyStore.getHistory(q.id)?.lastAnsweredAt ?: 0L) >= longAgoMs))
         }
 
-        // Son 2 testte çıkan sorular - öncelik düşür (lastSeenInTestId ile yaklaşık)
-        // Not: Tam "son 2 test" takibi için ek store gerekir; mevcut lastSeenInTestId
-        // ile "bu testte olmasın" zaten sağlanıyor. Çeşitlilik için lastSeenAt kullanılır.
+        val inLast2Tests = historyStore.getQuestionIdsFromLastNTests(profileId, 2)
 
-        val dueWrongCount = (testSize * 0.4).toInt().coerceAtLeast(0)
-
-        // Sıralama: dueWrong -> wrongCountTotal yüksek + lastAnsweredAt eski önce
-        // G2.3: Son 2 testte çıkanlar öncelik düşür
-        val dueWrongSorted = dueWrong.sortedWith(
-            compareBy<Question> { it.id in inLast2Tests }
-                .thenByDescending { historyStore.getHistory(it.id)?.wrongCountTotal ?: 0 }
+        // dueWrong sort: wrongTotal desc, lastAnsweredAt asc
+        val dueWrongSorted = dueWrongPool.sortedWith(
+            compareByDescending<Question> { historyStore.getHistory(it.id)?.wrongCountTotal ?: 0 }
                 .thenBy { historyStore.getHistory(it.id)?.lastAnsweredAt ?: 0L }
         )
 
-        // Sıralama: fresh -> neverSeen önce, son 2 testte olmayan önce, lastAnsweredAt eski
-        val freshSorted = fresh.sortedWith(
-            compareBy<Question> { !historyStore.neverSeen(it.id) }
-                .thenBy { it.id in inLast2Tests }
+        // reinforcement sort: same
+        val reinforcementSorted = reinforcementPool.sortedWith(
+            compareByDescending<Question> { historyStore.getHistory(it.id)?.wrongCountTotal ?: 0 }
                 .thenBy { historyStore.getHistory(it.id)?.lastAnsweredAt ?: 0L }
         )
 
-        val selectedIds = mutableSetOf<String>()
-        selectedIds.addAll(excludeIds)
+        // fresh sort: neverSeen first, then NOT in last 2 tests, then lastAnsweredAt asc, then seenCount asc
+        val freshSorted = freshPool.sortedWith(
+            compareBy<Question> { !historyStore.neverSeen(it.id) }  // neverSeen first
+                .thenBy { it.id in inLast2Tests }  // last 2 tests last (deprioritize)
+                .thenBy { historyStore.getHistory(it.id)?.lastAnsweredAt ?: 0L }
+                .thenBy { historyStore.getHistory(it.id)?.seenCount ?: 0 }
+        )
 
-        val result = mutableListOf<Question>()
+        val pickWrongCount = (testSize * 0.4).toInt().coerceAtLeast(0)  // 8 for testSize=20
+        val pickFreshCount = testSize - pickWrongCount  // 12
 
-        // 1) %40 dueWrong
-        for (q in dueWrongSorted) {
-            if (result.size >= testSize) break
-            if (q.id !in selectedIds) {
-                result.add(q)
-                selectedIds.add(q.id)
-            }
+        val pickWrong = dueWrongSorted.take(pickWrongCount).toMutableList()
+        if (pickWrong.size < pickWrongCount) {
+            val need = pickWrongCount - pickWrong.size
+            val fromReinforcement = reinforcementSorted.filter { it.id !in pickWrong.map { q -> q.id } }.take(need)
+            pickWrong.addAll(fromReinforcement)
         }
 
-        // 2) %60 fresh
-        for (q in freshSorted) {
-            if (result.size >= testSize) break
-            if (q.id !in selectedIds) {
-                result.add(q)
-                selectedIds.add(q.id)
-            }
-        }
+        val wrongIds = pickWrong.map { it.id }.toSet()
+        val pickFresh = freshSorted.filter { it.id !in wrongIds }.take(pickFreshCount).toMutableList()
 
-        // 3) Eğer yetmediyse havuzdan doldur (maksimum çeşitlilik: en uzun süredir görülmeyen)
-        if (result.size < testSize) {
-            val remaining = pool.filter { it.id !in selectedIds }
+        if (pickFresh.size < pickFreshCount) {
+            val fallbackPool = pool.filter { it.id !in wrongIds && it.id !in pickFresh.map { it.id } }
                 .sortedBy { historyStore.getHistory(it.id)?.lastAnsweredAt ?: 0L }
-            for (q in remaining) {
-                if (result.size >= testSize) break
-                result.add(q)
-                selectedIds.add(q.id)
-            }
+            val need = pickFreshCount - pickFresh.size
+            pickFresh.addAll(fallbackPool.take(need))
         }
 
-        // 4) Hâlâ yetmediyse (havuz küçükse) tekrarlarla doldur - ama aynı testte tekrar asla
-        if (result.size < testSize && pool.isNotEmpty()) {
-            val usedInResult = result.map { it.id }.toSet()
-            val extra = pool.filter { it.id !in usedInResult }
-            var idx = 0
-            while (result.size < testSize && extra.isNotEmpty()) {
-                val q = extra[idx % extra.size]
-                result.add(q)
-                idx++
-            }
-            if (result.size > testSize) {
-                while (result.size > testSize) result.removeAt(result.lastIndex)
-            }
+        val finalSet = (pickWrong + pickFresh).distinctBy { it.id }
+        if (finalSet.size > testSize) {
+            return finalSet.take(testSize).shuffled()
         }
-
-        return result.shuffled()
+        return finalSet.shuffled()
     }
 }

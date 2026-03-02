@@ -318,6 +318,7 @@ class QuizActivity : AppCompatActivity() {
 
         val questionsMap = questions.associateBy { it.id }
         repo.recordAnswers(answerRecords, questionsMap, quizId)
+        repo.onQuizCompleted(questions.map { it.id })
 
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)

@@ -9,6 +9,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.nio.charset.Charset
 import java.security.MessageDigest
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 class QuestionRepository(private val context: Context) {
@@ -18,11 +19,17 @@ class QuestionRepository(private val context: Context) {
         /** Every test (gate, normal, remedial, boss) has exactly this many questions. */
         const val MIN_QUESTIONS_PER_TEST = 20
 
-        /** G1: Deterministik id - sha1(questionText + correctAnswer) */
+        /** G1: Normalize text for stable ID: trim, lowercase(TR), collapse whitespace. */
+        fun normalize(text: String): String = text
+            .trim()
+            .lowercase(Locale("tr"))
+            .replace(Regex("\\s+"), " ")
+
+        /** G1: Deterministik id - sha1(normalize(questionText) + "|" + normalize(correctAnswer)) */
         fun deterministicId(questionText: String, correctAnswer: String): String {
-            val input = (questionText + correctAnswer).toByteArray(Charset.forName("UTF-8"))
+            val input = (normalize(questionText) + "|" + normalize(correctAnswer)).toByteArray(Charset.forName("UTF-8"))
             val digest = MessageDigest.getInstance("SHA-1").digest(input)
-            return digest.joinToString("") { "%02x".format(it) }.take(16)
+            return digest.joinToString("") { "%02x".format(it) }
         }
     }
 
@@ -266,6 +273,11 @@ class QuestionRepository(private val context: Context) {
                 wrongQuestionStore.recordWrong(a.questionId, q?.subject?.tr ?: "Diğer")
             }
         }
+    }
+
+    /** G5: Quiz tamamlanınca çağrılır. globalTestIndex++, her soru için lastSeenTestIndex günceller. */
+    fun onQuizCompleted(questionIds: List<String>) {
+        historyStore.onQuizCompleted(questionIds)
     }
 
     /**

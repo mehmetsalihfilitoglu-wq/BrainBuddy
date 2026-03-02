@@ -25,7 +25,7 @@ class QuestionHistoryStore(context: Context) {
         val timesCorrect: Int,
         val timesWrong: Int,
         val lastResult: String, // "correct" | "wrong"
-        // G1 extended fields
+        // G1/G2 extended fields
         val wrongCountTotal: Int,
         val correctCountTotal: Int,
         val lastAnsweredAt: Long,
@@ -33,6 +33,7 @@ class QuestionHistoryStore(context: Context) {
         val dueAt: Long,
         val seenCount: Int,
         val lastSeenInTestId: String?,
+        val lastSeenTestIndex: Int,  // G2: son kaçıncı testte çıktı (globalTestIndex)
         val consecutiveCorrectCount: Int
     )
 
@@ -57,6 +58,7 @@ class QuestionHistoryStore(context: Context) {
             dueAt = o.optLong("dueAt", 0L),
             seenCount = o.optInt("seenCount", 0),
             lastSeenInTestId = o.optString("lastSeenInTestId", "").takeIf { it.isNotBlank() },
+            lastSeenTestIndex = o.optInt("lastSeenTestIndex", 0),
             consecutiveCorrectCount = o.optInt("consecutiveCorrectCount", 0)
         )
     } catch (_: Exception) { null }
@@ -74,11 +76,12 @@ class QuestionHistoryStore(context: Context) {
             val intervalMs = when (consecutiveCorrectCount) {
                 1 -> TimeUnit.HOURS.toMillis(12)
                 2 -> TimeUnit.DAYS.toMillis(2)
-                else -> TimeUnit.DAYS.toMillis(7)
+                3 -> TimeUnit.DAYS.toMillis(7)
+                else -> TimeUnit.DAYS.toMillis(14)  // streakCorrect >= 4
             }
             now + intervalMs
         } else {
-            now // yanlış olunca hemen aday
+            now // G4: yanlış olunca hemen aday (bir sonraki testte dueWrongPool'a girsin)
         }
 
         val newEntry = HistoryEntry(
@@ -94,6 +97,7 @@ class QuestionHistoryStore(context: Context) {
             dueAt = dueAt,
             seenCount = (h.seenCount + 1).coerceIn(0, MAX_COUNT_CAP),
             lastSeenInTestId = testId ?: h.lastSeenInTestId,
+            lastSeenTestIndex = h.lastSeenTestIndex,
             consecutiveCorrectCount = consecutiveCorrectCount
         )
         saveEntry(newEntry)
@@ -112,6 +116,7 @@ class QuestionHistoryStore(context: Context) {
         dueAt = 0L,
         seenCount = 0,
         lastSeenInTestId = null,
+        lastSeenTestIndex = 0,
         consecutiveCorrectCount = 0
     )
 
@@ -128,6 +133,7 @@ class QuestionHistoryStore(context: Context) {
             put("dueAt", e.dueAt)
             put("seenCount", e.seenCount)
             put("lastSeenInTestId", e.lastSeenInTestId ?: "")
+            put("lastSeenTestIndex", e.lastSeenTestIndex)
             put("consecutiveCorrectCount", e.consecutiveCorrectCount)
         }
         prefs.edit().putString("q_${e.questionId}", o.toString()).apply()
@@ -151,6 +157,20 @@ class QuestionHistoryStore(context: Context) {
         return h.seenCount == 0
     }
 
+    /** G2: Her yeni testte +1. Quiz bitince artırılır. */
+    fun getGlobalTestIndex(): Int = prefs.getInt(KEY_GLOBAL_TEST_INDEX, 0)
+
+    /** G5: Quiz bitince çağrılır. globalTestIndex++, her soru için lastSeenTestIndex günceller. */
+    fun onQuizCompleted(questionIds: List<String>) {
+        val newIndex = getGlobalTestIndex() + 1
+        prefs.edit().putInt(KEY_GLOBAL_TEST_INDEX, newIndex).apply()
+        questionIds.forEach { id ->
+            val h = getHistory(id) ?: defaultEntry(id)
+            val newEntry = h.copy(lastSeenTestIndex = newIndex)
+            saveEntry(newEntry)
+        }
+    }
+
     /** G4: Test oluşturulunca her soru için lastSeenInTestId güncelle (seenCount quiz bitince artar) */
     fun recordSeenInTest(questionIds: List<String>, testId: String) {
         val now = System.currentTimeMillis()
@@ -170,6 +190,7 @@ class QuestionHistoryStore(context: Context) {
                     dueAt = h.dueAt,
                     seenCount = h.seenCount,
                     lastSeenInTestId = testId,
+                    lastSeenTestIndex = h.lastSeenTestIndex,
                     consecutiveCorrectCount = h.consecutiveCorrectCount
                 )
                 val o = JSONObject().apply {
@@ -184,6 +205,7 @@ class QuestionHistoryStore(context: Context) {
                     put("dueAt", newEntry.dueAt)
                     put("seenCount", newEntry.seenCount)
                     put("lastSeenInTestId", newEntry.lastSeenInTestId ?: "")
+                    put("lastSeenTestIndex", newEntry.lastSeenTestIndex)
                     put("consecutiveCorrectCount", newEntry.consecutiveCorrectCount)
                 }
                 putString("q_$id", o.toString())
@@ -267,5 +289,6 @@ class QuestionHistoryStore(context: Context) {
         private const val DEFAULT_PROFILE = "default"
         private const val PREFS = "bb_question_history"
         private const val MAX_COUNT_CAP = 10000
+        private const val KEY_GLOBAL_TEST_INDEX = "global_test_index"
     }
 }
