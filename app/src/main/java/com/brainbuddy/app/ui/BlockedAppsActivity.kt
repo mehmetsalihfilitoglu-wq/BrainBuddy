@@ -11,8 +11,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AppGroupPresets
 import com.brainbuddy.app.core.BlockedAppsStore
@@ -42,26 +46,11 @@ class BlockedAppsActivity : AppCompatActivity() {
         blockedStore = BlockedAppsStore(this)
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Engellenen Uygulamalar"
-
-        val pm = packageManager
-        val installed = pm.getInstalledApplications(PackageManager.GET_META_DATA)
-        allApps = installed
-            .filter { it.packageName != packageName }
-            .filter { pm.getLaunchIntentForPackage(it.packageName) != null }
-            .map { app ->
-                val info = pm.getApplicationInfo(app.packageName, 0)
-                AppInfo(
-                    app.packageName,
-                    app.loadLabel(pm).toString(),
-                    app.loadIcon(pm)
-                )
-            }
-            .sortedBy { it.label.lowercase() }
+        supportActionBar?.title = getString(R.string.parent_blocked_apps)
 
         val recycler = findViewById<RecyclerView>(R.id.recycler)
         val searchBox = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.searchBox)
-        adapter = AppListAdapter(allApps, blockedStore) { pkg, blocked ->
+        adapter = AppListAdapter(emptyList(), blockedStore) { pkg, blocked ->
             val set = blockedStore.getBlockedPackages().toMutableSet()
             if (blocked) set.add(pkg) else set.remove(pkg)
             blockedStore.setBlockedPackages(set)
@@ -69,7 +58,27 @@ class BlockedAppsActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 
-        val chipAll = findViewById<com.google.android.material.chip.Chip>(R.id.chipAll)
+        lifecycleScope.launch {
+            val loaded = withContext(Dispatchers.IO) {
+                val pm = packageManager
+                val installed = pm.getInstalledApplications(PackageManager.GET_META_DATA)
+                installed
+                    .filter { it.packageName != packageName }
+                    .filter { pm.getLaunchIntentForPackage(it.packageName) != null }
+                    .map { app ->
+                        AppInfo(
+                            app.packageName,
+                            app.loadLabel(pm).toString(),
+                            app.loadIcon(pm)
+                        )
+                    }
+                    .sortedBy { it.label.lowercase() }
+            }
+            allApps = loaded
+            adapter.updateList(loaded)
+            adapter.notifyDataSetChanged()
+        }
+
         val chipSocial = findViewById<com.google.android.material.chip.Chip>(R.id.chipSocial)
         val chipGames = findViewById<com.google.android.material.chip.Chip>(R.id.chipGames)
         val chipBrowsers = findViewById<com.google.android.material.chip.Chip>(R.id.chipBrowsers)

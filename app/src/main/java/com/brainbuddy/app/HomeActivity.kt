@@ -50,9 +50,16 @@ class HomeActivity : AppCompatActivity() {
         val killSwitchBanner = findViewById<android.widget.TextView>(R.id.tvKillSwitchBanner)
         killSwitchBanner?.visibility = if (KillSwitchPrefs(this).isKillSwitchActive()) android.view.View.VISIBLE else android.view.View.GONE
 
+        var lastBackPressMs = 0L
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                finishAffinity()
+                val now = System.currentTimeMillis()
+                if (now - lastBackPressMs < 2000) {
+                    finishAffinity()
+                } else {
+                    lastBackPressMs = now
+                    android.widget.Toast.makeText(this@HomeActivity, getString(R.string.back_exit_hint), android.widget.Toast.LENGTH_SHORT).show()
+                }
             }
         })
 

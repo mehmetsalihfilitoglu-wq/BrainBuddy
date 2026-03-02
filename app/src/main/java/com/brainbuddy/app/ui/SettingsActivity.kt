@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
-import com.brainbuddy.app.core.AdsPrefs
 import com.brainbuddy.app.core.NotificationPrefs
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.BackupManager
@@ -78,9 +77,6 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardQuizSettings).setOnClickListener {
             startActivity(Intent(this, QuizSettingsActivity::class.java))
         }
-        findViewById<View>(R.id.cardQuestionImport)?.setOnClickListener {
-            startActivity(Intent(this, com.brainbuddy.app.quiz.QuestionImportActivity::class.java))
-        }
         findViewById<View>(R.id.cardExamPacks)?.setOnClickListener {
             startActivity(Intent(this, ExamPackActivity::class.java))
         }
@@ -111,11 +107,8 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<View>(R.id.cardRewardContracts)?.setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.reward.RewardContractActivity::class.java))
         }
-        val adsPrefs = AdsPrefs(this)
-        val switchAdsDisabled = findViewById<android.widget.Switch>(R.id.switchAdsDisabled)
-        switchAdsDisabled.isChecked = !adsPrefs.isAdsEnabled()
-        switchAdsDisabled.setOnCheckedChangeListener { _, isChecked ->
-            adsPrefs.setAdsEnabled(!isChecked)
+        findViewById<View>(R.id.cardSystemHealth)?.setOnClickListener {
+            startActivity(Intent(this, SystemHealthActivity::class.java))
         }
 
         val notifPrefs = NotificationPrefs(this)

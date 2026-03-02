@@ -3,6 +3,7 @@ package com.brainbuddy.app.quiz
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.HomeActivity
 import com.brainbuddy.app.LockScreenActivity
@@ -307,7 +308,7 @@ class QuizResultActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<android.widget.Button>(R.id.btnHome).setOnClickListener {
+        fun goHome() {
             if (ProtectionPrefs(this).userLocked()) {
                 startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
             } else {
@@ -315,6 +316,10 @@ class QuizResultActivity : AppCompatActivity() {
             }
             finish()
         }
+        findViewById<android.widget.Button>(R.id.btnHome).setOnClickListener { goHome() }
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() { goHome() }
+        })
 
         val locked = ProtectionPrefs(this).userLocked()
         findViewById<android.widget.Button>(R.id.btnRetryTest).apply {

@@ -40,6 +40,39 @@
     <string name="settings_title">Ayarlar</string>
     <string name="parent_permission_required">Ebeveyn izni gerekiyor</string>
 
+    <!-- Settings sections (with icons) -->
+    <string name="settings_section_protection">🔐 Koruma Ayarları</string>
+    <string name="settings_section_education">🎓 Öğrenci &amp; Eğitim</string>
+    <string name="settings_section_reports">📊 Raporlar &amp; Veri</string>
+    <string name="settings_section_customization">🎨 Özelleştirme</string>
+    <string name="settings_protection_on">Uygulama engelleme açık</string>
+    <string name="settings_protection_sub">Engelleme özelliğini etkinleştir veya kapat</string>
+    <string name="settings_quiz_interval">Quiz aralığı</string>
+    <string name="settings_quiz_interval_sub">Test aralığını belirle (30/45/60 dk)</string>
+    <string name="settings_permissions_title">Erişilebilirlik / Kullanım izinleri</string>
+    <string name="settings_permissions_sub">Erişilebilirlik ve kullanım izinlerini yönet</string>
+    <string name="settings_system_health_sub">İzinler ve koruma durumunu kontrol et</string>
+    <string name="settings_blocked_apps_sub">Engellenecek uygulamaları seç ve yönet</string>
+    <string name="settings_time_limits">Zaman Limitleri</string>
+    <string name="settings_time_limits_sub">Günlük kullanım limitlerini ayarla</string>
+    <string name="settings_schedules_sub">Zaman dilimlerine göre kurallar tanımla</string>
+    <string name="settings_student_level">Öğrenci Seviyesi</string>
+    <string name="settings_student_level_sub">Yaş ve sınıf seviyesini belirle</string>
+    <string name="settings_test_sub">Zorluk ve soru sayısı ayarları</string>
+    <string name="settings_exam_packs_sub">LGS, TYT, AYT sınav paketleri</string>
+    <string name="settings_junior_sub">1. sınıf okuma-yazma modülü</string>
+    <string name="settings_profiles_sub">Birden fazla öğrenci profili yönet</string>
+    <string name="settings_reports_sub">Günlük ve haftalık raporlara eriş</string>
+    <string name="settings_backup_sub">Verileri dışa aktar (Export)</string>
+    <string name="settings_restore_sub">Yedekten geri yükle (Import)</string>
+    <string name="settings_reward_contracts_sub">Ödül sözleşmelerini yönet</string>
+    <string name="settings_shop_disable">Avatar mağazasını kapat</string>
+    <string name="settings_shop_disable_sub">Öğrencinin avatar satın almasını engelle</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_sub">Tema seçenekleri (yakında)</string>
+    <string name="settings_motivation">Motivasyon bildirimleri</string>
+    <string name="settings_motivation_sub">Günlük hatırlatma bildirimleri</string>
+
     <!-- PIN -->
     <string name="pin_len_4">4 haneli PIN</string>
     <string name="pin_len_6">6 haneli PIN</string>
@@ -153,6 +186,7 @@
     <string name="preset_games">Oyunlar</string>
     <string name="preset_browsers">Tarayıcılar</string>
     <string name="preset_quick_presets">Hızlı Presetler</string>
+    <string name="blocked_apps_search_hint">Uygulama ara…</string>
     <string name="preset_social_media">Sosyal Medya</string>
     <string name="preset_social_confirm_title">Sosyal medya uygulamaları engellensin mi?</string>
     <string name="preset_confirm_block">Engelle</string>
@@ -214,6 +248,11 @@
     <string name="parent_improvement_topic">%1$s: %2$d yanlış → %3$d düzeltildi</string>
     <string name="parent_improvement_total">Toplam: %1$d yanlış → %2$d düzeltildi</string>
     <string name="student_encouragement">Bu konuda gelişiyorsun!</string>
+
+    <!-- Navigation -->
+    <string name="btn_back">← Geri</string>
+    <string name="stats_title">İstatistikler</string>
+    <string name="back_exit_hint">Çıkmak için tekrar geri tuşuna basın</string>
 
     <!-- Kill Switch -->
     <string name="kill_switch_banner_text">Koruma geçici kapalı</string>
