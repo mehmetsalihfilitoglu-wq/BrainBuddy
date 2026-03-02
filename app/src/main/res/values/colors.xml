@@ -3,7 +3,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
-    <!-- Turquoise onboarding style -->
+    <!-- Material3 / BrainBuddy primary palette -->
     <color name="bb_primary">#1BC5B0</color>
     <color name="bb_secondary">#00897B</color>
     <color name="bb_accent">#FFC107</color>
@@ -11,9 +11,12 @@
     <color name="bb_text">#1F2937</color>
     <color name="bb_text_muted">#6B7280</color>
 
+    <!-- Surface & background (Material3 semantic) -->
     <color name="bb_bg">#E8FBF7</color>
     <color name="bb_bg_end">#F5FFFD</color>
     <color name="bb_card">#FFFFFF</color>
+    <color name="bb_surface_container">#F0FDF9</color>
+    <color name="bb_outline_variant">#D1E8E4</color>
 
     <!-- Legacy compatibility -->
     <color name="bb_turquoise">#1BC5B0</color>

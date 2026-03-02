@@ -3,13 +3,13 @@ package com.brainbuddy.app.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.databinding.ActivityParentBinding
 import java.util.Calendar
-import java.util.concurrent.TimeUnit
 
 class ParentHubActivity : ComponentActivity() {
 
@@ -24,21 +24,36 @@ class ParentHubActivity : ComponentActivity() {
 
         b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
-        b.cardScreenTime.setOnClickListener {
-            startActivity(Intent(this, ScreenTimeActivity::class.java))
-        }
-        b.cardBlockedApps.setOnClickListener {
-            startActivity(Intent(this, BlockedAppsActivity::class.java))
-        }
-        b.cardTests.setOnClickListener {
-            startActivity(Intent(this, TestSettingsActivity::class.java))
-        }
-        b.cardReports.setOnClickListener {
-            startActivity(Intent(this, ReportsActivity::class.java))
-        }
-        b.cardSecurity.setOnClickListener {
-            startActivity(Intent(this, SecurityActivity::class.java))
-        }
+        val categories = listOf(
+            ParentCategoryItem(
+                R.string.parent_card_screen_time,
+                R.string.parent_card_screen_time_sub,
+                R.drawable.ic_timer
+            ) { startActivity(Intent(this, ScreenTimeActivity::class.java)) },
+            ParentCategoryItem(
+                R.string.parent_card_blocked_apps,
+                R.string.parent_card_blocked_apps_sub,
+                R.drawable.ic_block
+            ) { startActivity(Intent(this, BlockedAppsActivity::class.java)) },
+            ParentCategoryItem(
+                R.string.parent_card_tests,
+                R.string.parent_card_tests_sub,
+                R.drawable.ic_quiz
+            ) { startActivity(Intent(this, TestSettingsActivity::class.java)) },
+            ParentCategoryItem(
+                R.string.parent_card_reports,
+                R.string.parent_card_reports_sub,
+                R.drawable.ic_review
+            ) { startActivity(Intent(this, ReportsActivity::class.java)) },
+            ParentCategoryItem(
+                R.string.parent_card_security,
+                R.string.parent_card_security_sub,
+                R.drawable.ic_lock
+            ) { startActivity(Intent(this, SecurityActivity::class.java)) }
+        )
+
+        b.gridParentCategories.layoutManager = GridLayoutManager(this, 2)
+        b.gridParentCategories.adapter = ParentCategoryAdapter(categories)
     }
 
     override fun onResume() {

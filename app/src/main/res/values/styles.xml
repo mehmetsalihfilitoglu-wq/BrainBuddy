@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- ========== BrainBuddy Design System ========== -->
+
+    <!-- Widget.BrainBuddy.Card: shared card style for Home + ParentHub -->
+    <style name="Widget.BrainBuddy.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="cardBackgroundColor">@color/bb_surface_container</item>
+        <item name="strokeColor">@color/bb_outline_variant</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Typography -->
+    <style name="TextAppearance.BrainBuddy.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.BrainBuddy.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="TextAppearance.BrainBuddy.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <!-- ========== Legacy styles ========== -->
+
     <!-- Primary button: 56dp height, rounded -->
     <style name="PrimaryButtonStyle" parent="Widget.Material3.Button">
         <item name="android:minHeight">56dp</item>
@@ -75,12 +104,8 @@
 
     <style name="BB.Button" parent="BBButton"/>
 
-    <!-- Home/standard card: 20dp radius, soft shadow -->
-    <style name="BB.HomeCard" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
-        <item name="cardElevation">@dimen/card_elevation</item>
-        <item name="cardBackgroundColor">@color/bb_card</item>
-    </style>
+    <!-- Home/standard card: uses shared BrainBuddy.Card design -->
+    <style name="BB.HomeCard" parent="Widget.BrainBuddy.Card" />
 
     <!-- Home card chip: compact icon+text action -->
     <style name="BB.HomeChip">
