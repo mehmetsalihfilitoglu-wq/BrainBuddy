@@ -150,15 +150,15 @@ class QuizActivity : AppCompatActivity() {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 val found = wrongIds.mapNotNull { all[it] }
                 if (found.size < targetCount) {
-                    repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories())
+                    repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
                 } else found.shuffled().take(targetCount)
             }
             retryWrongMode -> {
                 val wrong = repo.pickRetryWrongQuestions(levelGroup)
-                if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories())
+                if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
                 else wrong.shuffled().take(targetCount)
             }
-            else -> repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories())
+            else -> repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
         }
 
         b.submitBtn.visibility = View.GONE
@@ -317,7 +317,7 @@ class QuizActivity : AppCompatActivity() {
         val blankCount = questions.size - correctCount - wrongCount
 
         val questionsMap = questions.associateBy { it.id }
-        repo.recordAnswers(answerRecords, questionsMap)
+        repo.recordAnswers(answerRecords, questionsMap, quizId)
 
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)

@@ -8,6 +8,7 @@ import com.brainbuddy.app.core.QuizPrefs
 import org.json.JSONArray
 import org.json.JSONObject
 import java.nio.charset.Charset
+import java.security.MessageDigest
 import java.util.concurrent.TimeUnit
 
 class QuestionRepository(private val context: Context) {
@@ -16,6 +17,13 @@ class QuestionRepository(private val context: Context) {
         private const val TAG = "QuestionRepository"
         /** Every test (gate, normal, remedial, boss) has exactly this many questions. */
         const val MIN_QUESTIONS_PER_TEST = 20
+
+        /** G1: Deterministik id - sha1(questionText + correctAnswer) */
+        fun deterministicId(questionText: String, correctAnswer: String): String {
+            val input = (questionText + correctAnswer).toByteArray(Charset.forName("UTF-8"))
+            val digest = MessageDigest.getInstance("SHA-1").digest(input)
+            return digest.joinToString("") { "%02x".format(it) }.take(16)
+        }
     }
 
     private val historyStore = QuestionHistoryStore(context)
@@ -223,12 +231,19 @@ class QuestionRepository(private val context: Context) {
         val examStr = o.optString("examType", "GENERAL")
         val examType = try { com.brainbuddy.app.quiz.ExamType.valueOf(examStr) } catch (_: Exception) { com.brainbuddy.app.quiz.ExamType.GENERAL }
         val topic = o.optString("topic", "").takeIf { it.isNotEmpty() }
+        val stem = o.optString("stem", "?")
+        val correctIdx = o.optInt("correctIndex", 0).coerceIn(0, choices.size - 1)
+        val correctAnswer = choices.getOrNull(correctIdx) ?: ""
+        val rawId = o.optString("id", "")
+        val id = if (rawId.isNotBlank()) rawId else {
+            "q_" + deterministicId(stem, correctAnswer)
+        }
         return Question(
-            id = o.optString("id", "q_${System.currentTimeMillis()}"),
+            id = id,
             levelGroup = levelGroup,
             subject = subject,
             gradeTag = o.optString("gradeTag", ""),
-            stem = o.optString("stem", "?"),
+            stem = stem,
             choices = choices.ifEmpty { listOf("A", "B", "C", "D") },
             correctIndex = o.optInt("correctIndex", 0).coerceIn(0, 3),
             hint = o.optString("hint", "").takeIf { it.isNotEmpty() },
@@ -240,9 +255,10 @@ class QuestionRepository(private val context: Context) {
     }
 
     /** @param questionsMap Optional map of questionId->Question for wrong-question tracking (topic). */
-    fun recordAnswers(answers: List<AnswerRecord>, questionsMap: Map<String, Question>? = null) {
+    /** @param testId G4: Quiz bitince lastSeenInTestId güncellemesi için */
+    fun recordAnswers(answers: List<AnswerRecord>, questionsMap: Map<String, Question>? = null, testId: String? = null) {
         answers.forEach { a ->
-            historyStore.recordAnswer(a.questionId, a.isCorrect)
+            historyStore.recordAnswer(a.questionId, a.isCorrect, testId)
             val q = questionsMap?.get(a.questionId)
             if (a.isCorrect) {
                 wrongQuestionStore.markFixed(a.questionId)
@@ -253,18 +269,18 @@ class QuestionRepository(private val context: Context) {
     }
 
     /**
-     * Smart selection for quiz session:
-     * 1) Build pool with progressive filter relaxation (category → difficulty → levelGroup)
-     * 2) Prioritize wrong (within 7 days)
-     * 3) Avoid recent correct (cooldown ~2 days)
-     * 4) Variety: least recently seen
-     * 5) Never return empty: fallback to built-in questions if needed
+     * G2: Adaptif soru seçimi (AdaptiveQuestionPicker).
+     * - %40 dueWrong, %60 fresh
+     * - Aynı soru aynı testte tekrar gelmez
+     * - Son 2 testte çıkanlar öncelik düşürülür
+     * @param testId G4: Test oluşturulunca recordSeenInTest için (null ise üretilir)
      */
     fun pickQuizQuestions(
         levelGroup: LevelGroup,
         count: Int,
         difficulty: QuizDifficulty,
-        categories: Set<String> = emptySet()
+        categories: Set<String> = emptySet(),
+        testId: String? = null
     ): List<Question> {
         val (all, _) = loadAllQuestionsWithStats()
         val allPool = if (all.isEmpty()) getFallbackQuestions() else all
@@ -275,73 +291,32 @@ class QuestionRepository(private val context: Context) {
         } else pool
 
         val profileId = ProfileStore(context).getCurrentProfileId()
-        val wrongIds = (historyStore.getWrongQuestionIds(7) + wrongQuestionStore.getUnfixedWrongIds(14)).toSet()
-        val now = System.currentTimeMillis()
-        val cooldownMs = TimeUnit.DAYS.toMillis(2)
+        val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
 
-        val recentIds = historyStore.getRecentlySeenIdsForProfile(profileId, 100)
-        val wrongPool = finalPool.filter { it.id in wrongIds }
-        val cooldownExcluded = finalPool.filter { q ->
-            val h = historyStore.getHistory(q.id) ?: return@filter true
-            if (h.lastResult != "correct") return@filter true
-            (now - h.lastSeenAt) < cooldownMs
+        val picker = AdaptiveQuestionPicker(historyStore)
+        var questions = picker.pick(finalPool, count, profileId)
+
+        if (questions.isEmpty()) {
+            Log.i(TAG, "Adaptive picker returned empty, fallback to shuffled pool")
+            questions = finalPool.shuffled().take(count)
         }
-        val available = finalPool.filter { it !in cooldownExcluded }
-        val topicCap = (count / 3).coerceAtLeast(1)
-        val selected = mutableSetOf<String>()
-        val result = ArrayList<Question>()
-        val topicCount = mutableMapOf<String, Int>()
-
-        fun canAdd(q: Question): Boolean {
-            if (q.id in selected) return false
-            val topic = q.subject.tr
-            if ((topicCount[topic] ?: 0) >= topicCap) return false
-            return true
-        }
-
-        // 1) Add wrong questions first (adaptive: weak topics)
-        wrongPool.shuffled().forEach { q ->
-            if (result.size >= count) return@forEach
-            if (canAdd(q)) {
-                result.add(q)
-                selected.add(q.id)
-                topicCount[q.subject.tr] = (topicCount[q.subject.tr] ?: 0) + 1
-            }
-        }
-
-        // 2) Fill with least-recently-seen, prefer non-recent
-        var rest = available.filter { it.id !in selected }
-        if (rest.size > count) rest = rest.filter { it.id !in recentIds }.ifEmpty { rest }
-        rest = rest.sortedBy { historyStore.getHistory(it.id)?.lastSeenAt ?: 0L }
-        rest.forEach { q ->
-            if (result.size >= count) return@forEach
-            if (canAdd(q) && (q.id !in recentIds || available.size < count * 2)) {
-                result.add(q)
-                selected.add(q.id)
-                topicCount[q.subject.tr] = (topicCount[q.subject.tr] ?: 0) + 1
-            }
-        }
-
-        // 3) If still empty (e.g. all in cooldown, no wrong), ignore cooldown and use pool
-        if (result.isEmpty() && finalPool.isNotEmpty()) {
-            Log.i(TAG, "Result empty after selection, using pool (ignoring cooldown)")
-            val fallback = finalPool.shuffled().take(count)
-            recordSeenForQuiz(profileId, fallback.map { it.id })
-            return fallback
-        }
-
-        var finalResult = result.shuffled()
-        if (finalResult.size < count) {
-            val fillPool = finalPool.shuffled()
+        if (questions.size < count && finalPool.isNotEmpty()) {
+            val used = questions.map { it.id }.toSet()
+            val extra = finalPool.filter { it.id !in used }
+            val qList = questions.toMutableList()
             var idx = 0
-            while (finalResult.size < count && fillPool.isNotEmpty()) {
-                finalResult = (finalResult + fillPool[idx % fillPool.size]).toMutableList()
+            while (qList.size < count && extra.isNotEmpty()) {
+                qList.add(extra[idx % extra.size])
                 idx++
             }
-            finalResult = finalResult.take(count).shuffled()
+            questions = qList.take(count).shuffled()
         }
-        recordSeenForQuiz(profileId, finalResult.map { it.id })
-        return finalResult
+
+        val questionIds = questions.map { it.id }
+        historyStore.recordSeenInTest(questionIds, effectiveTestId)
+        historyStore.recordTestCreated(profileId, effectiveTestId, questionIds)
+        recordSeenForQuiz(profileId, questionIds)
+        return questions
     }
 
     data class FilterStats(
