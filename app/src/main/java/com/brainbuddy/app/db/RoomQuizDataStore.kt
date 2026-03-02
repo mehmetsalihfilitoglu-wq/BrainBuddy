@@ -155,7 +155,8 @@ class RoomQuizDataStore(private val context: Context) {
         questionIds: List<String>,
         userAnswers: Map<String, Int>,
         wrongIds: List<String>,
-        subjectBreakdown: String? = null
+        subjectBreakdown: String? = null,
+        profileId: String = "default"
     ) = runBlocking {
         val answersArr = JSONArray()
         questionIds.forEach { id -> answersArr.put(userAnswers[id] ?: JSONObject.NULL) }
@@ -165,6 +166,7 @@ class RoomQuizDataStore(private val context: Context) {
                 createdAt = System.currentTimeMillis(),
                 score = score,
                 total = total,
+                profileId = profileId,
                 subjectBreakdownJson = subjectBreakdown,
                 questionIdsJson = JSONArray(questionIds).toString(),
                 userAnswersJson = answersArr.toString(),
@@ -173,8 +175,8 @@ class RoomQuizDataStore(private val context: Context) {
         )
     }
 
-    fun getLastSnapshots(limit: Int = 20): List<TestSnapshotEntity> = runBlocking {
-        snapshotDao.getLastSnapshots(limit)
+    fun getLastSnapshots(profileId: String = "default", limit: Int = 20): List<TestSnapshotEntity> = runBlocking {
+        snapshotDao.getLastSnapshots(profileId, limit)
     }
 
     fun getSnapshot(testId: String): TestSnapshotEntity? = runBlocking {

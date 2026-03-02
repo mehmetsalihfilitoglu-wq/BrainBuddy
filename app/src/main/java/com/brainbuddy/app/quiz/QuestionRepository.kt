@@ -2,6 +2,7 @@ package com.brainbuddy.app.quiz
 
 import android.content.Context
 import android.util.Log
+import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
@@ -553,12 +554,14 @@ class QuestionRepository(private val context: Context) {
         roomStore.recordSeenIdsForProfile(profileId, questionIds)
     }
 
-    /** Insert test snapshot for replay and history. */
+    /** Insert test snapshot for replay and history. Scoped by active profile. */
     fun insertSnapshot(testId: String, score: Int, total: Int, questionIds: List<String>, userAnswers: Map<String, Int>, wrongIds: List<String>, subjectBreakdown: String? = null) {
-        roomStore.insertSnapshot(testId, score, total, questionIds, userAnswers, wrongIds, subjectBreakdown)
+        val profileId = ActiveProfileManager.getActiveProfileId(context)
+        roomStore.insertSnapshot(testId, score, total, questionIds, userAnswers, wrongIds, subjectBreakdown, profileId)
     }
 
-    fun getLastSnapshots(limit: Int = 20) = roomStore.getLastSnapshots(limit)
+    fun getLastSnapshots(profileId: String? = null, limit: Int = 20) =
+        roomStore.getLastSnapshots(profileId ?: ActiveProfileManager.getActiveProfileId(context), limit)
 
     fun getLevelGroupFromPrefs(): LevelGroup {
         return when (ProtectionPrefs(context).studentLevel()) {

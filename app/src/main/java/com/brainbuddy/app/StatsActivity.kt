@@ -60,7 +60,7 @@ class StatsActivity : AppCompatActivity() {
         b.barChart.data = barData
 
         val repo = QuestionRepository(this)
-        val snapshots = repo.getLastSnapshots(10)
+        val snapshots = repo.getLastSnapshots(limit = 10)
         val recent = snapshots.map { s ->
             val qIds = try { (0 until org.json.JSONArray(s.questionIdsJson).length()).map { org.json.JSONArray(s.questionIdsJson).getString(it) } } catch (_: Exception) { emptyList() }
             TestPerformance(

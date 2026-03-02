@@ -14,6 +14,7 @@ data class TestSnapshotEntity(
     val createdAt: Long,
     val score: Int,
     val total: Int,
+    val profileId: String = "default",
     val subjectBreakdownJson: String? = null,
     val questionIdsJson: String,
     val userAnswersJson: String,

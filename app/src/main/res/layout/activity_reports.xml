@@ -330,10 +330,11 @@
                             android:text="📊"
                             android:textSize="48sp"/>
                         <TextView
+                            android:id="@+id/tvWeeklyEmptyText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
-                            android:text="Bu aralıkta veri yok. Daha fazla test çözerek raporları doldur."
+                            android:text="@string/reports_empty_generic"
                             android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnWeeklyEmptyCta"
@@ -446,16 +447,15 @@
                             android:textStyle="bold"
                             android:textColor="?attr/colorOnSurface"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toStartOf="@id/tvTrendUnit"
+                            app:layout_constraintEnd_toStartOf="@id/tvTrendKpis"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintHorizontal_bias="0"/>
 
                         <TextView
-                            android:id="@+id/tvTrendUnit"
+                            android:id="@+id/tvTrendKpis"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
-                            android:text="%"
                             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
                             android:textColor="?attr/colorOnSurfaceVariant"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -595,7 +595,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
-                            android:text="Bu aralıkta veri yok. Daha fazla test çözerek raporları doldur."
+                            android:text="@string/reports_empty_generic"
                             android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnRecentTestsEmptyCta"

@@ -191,10 +191,12 @@
     <string name="report_daily">Günlük Özet</string>
     <string name="report_weekly">Haftalık Özet</string>
     <string name="report_share">Raporu Paylaş</string>
-    <string name="trend_chart_title">Son 10 Test Başarı Trendi</string>
-    <string name="trend_chart_caption">Son testten eskiye doğru • Skor yüzdesi</string>
-    <string name="trend_empty_title">Trend için en az 3 test çözülmeli.</string>
-    <string name="trend_empty_subtitle">Test çözdükçe burada gelişimini göreceksin.</string>
+    <string name="trend_chart_title">Son 10 Test Başarı Oranı</string>
+    <string name="trend_chart_caption">Her nokta 1 testtir. Başarı = doğru/(doğru+yanlış)</string>
+    <string name="trend_empty_title">En az 3 test çözülmeli</string>
+    <string name="trend_empty_subtitle">Test çözünce burada gelişimini göreceksin.</string>
+    <string name="reports_empty_generic">Bu aralıkta veri yok. Test çözünce burada görünecek.</string>
+    <string name="topics_caption">Her bar bir konudur. Doğru/toplam oranı.</string>
 
     <!-- Reports - recent tests & apps -->
     <string name="recent_test_title_format">Test %1$d</string>

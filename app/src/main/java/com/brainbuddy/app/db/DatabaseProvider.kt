@@ -13,7 +13,7 @@ object DatabaseProvider {
                 context.applicationContext,
                 BrainBuddyDatabase::class.java,
                 "brainbuddy.db"
-            ).build().also { instance = it }
+            ).addMigrations(BrainBuddyDatabase.MIGRATION_1_2).build().also { instance = it }
         }
     }
 }
