@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
+import kotlin.math.roundToInt
 
 class ReportsActivity : AppCompatActivity() {
 
@@ -60,11 +61,12 @@ class ReportsActivity : AppCompatActivity() {
             b.weeklySuccessContent.visibility = View.VISIBLE
             b.weeklySuccessEmpty.visibility = View.GONE
             b.tvWeeklyCorrectWrongBlank.text = "Doğru $weeklyCorrect / Yanlış $weeklyWrong / Boş $weeklyBlank"
-            b.miniStackedBar.correct = weeklyCorrect
-            b.miniStackedBar.wrong = weeklyWrong
-            b.miniStackedBar.blank = weeklyBlank
+            b.chipWeeklyCorrect.text = "Doğru: $weeklyCorrect"
+            b.chipWeeklyWrong.text = "Yanlış: $weeklyWrong"
+            b.chipWeeklyBlank.text = "Boş: $weeklyBlank"
             b.tvDailyTests.text = perfs.size.toString()
             b.tvDailyAccuracy.text = "%.0f%%".format(weeklyAccuracy)
+            b.weeklyProgress.setProgressCompat(weeklyAccuracy.roundToInt().coerceIn(0, 100), true)
             if (totalBlockedCount > 0) {
                 b.blockedRow.visibility = View.VISIBLE
                 b.tvDailyBlocked.text = totalBlockedCount.toString()

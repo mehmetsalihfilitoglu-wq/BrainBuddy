@@ -42,12 +42,6 @@
                     android:orientation="vertical"
                     android:padding="@dimen/reports_card_inner">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/parent_weekly_success"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
-
                     <LinearLayout
                         android:id="@+id/weeklySuccessContent"
                         android:layout_width="match_parent"
@@ -55,85 +49,223 @@
                         android:orientation="vertical"
                         android:layout_marginTop="@dimen/reports_title_content">
 
-                        <TextView
-                            android:id="@+id/tvWeeklyCorrectWrongBlank"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"
-                            tools:text="Doğru 12 / Yanlış 5 / Boş 3"/>
-
-                        <com.brainbuddy.app.ui.MiniStackedBarView
-                            android:id="@+id/miniStackedBar"
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="24dp"
-                            android:layout_marginTop="@dimen/reports_title_content"/>
+                            android:layout_height="wrap_content">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="12dp">
-
-                            <LinearLayout
+                            <!-- 1) HEADER ROW -->
+                            <TextView
+                                android:id="@+id/tvWeeklySuccessTitle"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:text="@string/parent_weekly_success"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurface"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/chipWeeklyRange"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintHorizontal_bias="0"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipWeeklyRange"
+                                style="@style/Widget.Material3.Chip.Assist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checkable="false"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:text="Son 7 gün"
+                                android:textColor="?attr/colorOnSurface"
+                                app:chipBackgroundColor="?attr/colorSurfaceContainerHigh"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+
+                            <!-- 2) CHIP ROW -->
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipWeeklyCorrect"
+                                style="@style/Widget.Material3.Chip.Assist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checkable="false"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:text="Doğru: 0"
+                                android:textColor="?attr/colorOnSurface"
+                                app:chipBackgroundColor="?attr/colorSurfaceContainerHigh"
+                                app:layout_constraintTop_toBottomOf="@id/tvWeeklySuccessTitle"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:text="Doğru: 57"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipWeeklyWrong"
+                                style="@style/Widget.Material3.Chip.Assist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checkable="false"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:text="Yanlış: 0"
+                                android:textColor="?attr/colorOnSurface"
+                                app:chipBackgroundColor="?attr/colorSurfaceContainerHigh"
+                                tools:text="Yanlış: 36"/>
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipWeeklyBlank"
+                                style="@style/Widget.Material3.Chip.Assist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checkable="false"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:text="Boş: 0"
+                                android:textColor="?attr/colorOnSurface"
+                                app:chipBackgroundColor="?attr/colorSurfaceContainerHigh"
+                                tools:text="Boş: 74"/>
+
+                            <androidx.constraintlayout.helper.widget.Flow
+                                android:id="@+id/flowWeeklyChips"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                app:constraint_referenced_ids="chipWeeklyCorrect,chipWeeklyWrong,chipWeeklyBlank"
+                                app:flow_wrapMode="chain"
+                                app:flow_horizontalStyle="spread"
+                                app:flow_horizontalGap="8dp"
+                                app:flow_verticalGap="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvWeeklySuccessTitle"/>
+
+                            <!-- Kept for binding/backwards compat: no longer shown -->
+                            <TextView
+                                android:id="@+id/tvWeeklyCorrectWrongBlank"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                tools:text="Doğru 12 / Yanlış 5 / Boş 3"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/flowWeeklyChips"/>
+
+                            <!-- 3) KPI GRID -->
+                            <LinearLayout
+                                android:id="@+id/kpiTests"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
+
                                 <TextView
                                     android:id="@+id/tvDailyTests"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="24sp"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
+                                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
                                     android:textStyle="bold"
-                                    android:textColor="@color/bb_turquoise"
-                                    tools:text="5"/>
+                                    android:textColor="?attr/colorOnSurface"
+                                    tools:text="11"/>
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
                                     android:text="Test"
-                                    android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
+                                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant"/>
                             </LinearLayout>
+
                             <LinearLayout
+                                android:id="@+id/kpiAccuracy"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
+
                                 <TextView
                                     android:id="@+id/tvDailyAccuracy"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="24sp"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
+                                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
                                     android:textStyle="bold"
-                                    android:textColor="@color/bb_turquoise"
-                                    tools:text="60%"/>
+                                    android:textColor="?attr/colorOnSurface"
+                                    tools:text="34%"/>
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
                                     android:text="Doğruluk"
-                                    android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
+                                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant"/>
                             </LinearLayout>
+
                             <LinearLayout
                                 android:id="@+id/blockedRow"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
                                 android:orientation="vertical"
+                                android:gravity="center_horizontal"
                                 android:visibility="gone">
+
                                 <TextView
                                     android:id="@+id/tvDailyBlocked"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="24sp"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
+                                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
                                     android:textStyle="bold"
-                                    android:textColor="@color/bb_error"
-                                    tools:text="0"/>
+                                    android:textColor="?attr/colorError"
+                                    tools:text="44"/>
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:maxLines="1"
+                                    android:ellipsize="end"
                                     android:text="Engellenen"
-                                    android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
+                                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                                    android:textColor="?attr/colorOnSurfaceVariant"/>
                             </LinearLayout>
-                        </LinearLayout>
+
+                            <androidx.constraintlayout.helper.widget.Flow
+                                android:id="@+id/flowWeeklyKpis"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                app:constraint_referenced_ids="kpiTests,kpiAccuracy,blockedRow"
+                                app:flow_wrapMode="chain"
+                                app:flow_horizontalStyle="spread"
+                                app:flow_horizontalGap="24dp"
+                                app:flow_verticalGap="12dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/flowWeeklyChips"
+                                android:layout_marginTop="12dp"/>
+
+                            <!-- 4) PROGRESS BAR (modern) -->
+                            <com.google.android.material.progressindicator.LinearProgressIndicator
+                                android:id="@+id/weeklyProgress"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:indeterminate="false"
+                                android:max="100"
+                                android:progress="0"
+                                app:indicatorColor="?attr/colorPrimary"
+                                app:trackColor="?attr/colorSurfaceVariant"
+                                app:trackThickness="8dp"
+                                app:trackCornerRadius="4dp"
+                                app:layout_constraintTop_toBottomOf="@id/flowWeeklyKpis"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </LinearLayout>
 
                     <LinearLayout
