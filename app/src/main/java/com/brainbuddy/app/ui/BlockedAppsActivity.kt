@@ -31,6 +31,7 @@ class BlockedAppsActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_HIGHLIGHT_PACKAGE = "highlight_package"
         const val EXTRA_QUICK_BLOCK_PACKAGE = "quick_block_package"
+        const val EXTRA_OPEN_SOCIAL_PRESET = "open_social_preset"
     }
 
     private lateinit var blockedStore: BlockedAppsStore
@@ -77,34 +78,33 @@ class BlockedAppsActivity : AppCompatActivity() {
             allApps = loaded
             adapter.updateList(loaded)
             adapter.notifyDataSetChanged()
+
+            val openPreset = intent?.getBooleanExtra(EXTRA_OPEN_SOCIAL_PRESET, false) == true
+            if (openPreset) {
+                intent?.removeExtra(EXTRA_OPEN_SOCIAL_PRESET)
+                showSocialPresetSheet()
+            }
         }
 
+        val chipAll = findViewById<com.google.android.material.chip.Chip>(R.id.chipAll)
         val chipSocial = findViewById<com.google.android.material.chip.Chip>(R.id.chipSocial)
         val chipGames = findViewById<com.google.android.material.chip.Chip>(R.id.chipGames)
         val chipBrowsers = findViewById<com.google.android.material.chip.Chip>(R.id.chipBrowsers)
-        chipSocial?.setOnClickListener {
-            val inst = com.brainbuddy.app.core.AppGroupPresets.getInstalledFromGroup(this, "social")
-            val set = blockedStore.getBlockedPackages().toMutableSet()
-            set.addAll(inst)
-            blockedStore.setBlockedPackages(set)
+
+        chipAll?.setOnClickListener {
             adapter.updateList(allApps)
-            adapter.notifyDataSetChanged()
+        }
+        chipSocial?.setOnClickListener {
+            val socialPkgs = AppGroupPresets.socialPackages
+            adapter.updateList(allApps.filter { it.packageName in socialPkgs })
         }
         chipGames?.setOnClickListener {
-            val inst = com.brainbuddy.app.core.AppGroupPresets.getInstalledFromGroup(this, "games")
-            val set = blockedStore.getBlockedPackages().toMutableSet()
-            set.addAll(inst)
-            blockedStore.setBlockedPackages(set)
-            adapter.updateList(allApps)
-            adapter.notifyDataSetChanged()
+            val gamePkgs = AppGroupPresets.gamesPackages
+            adapter.updateList(allApps.filter { it.packageName in gamePkgs })
         }
         chipBrowsers?.setOnClickListener {
-            val inst = com.brainbuddy.app.core.AppGroupPresets.getInstalledFromGroup(this, "browsers")
-            val set = blockedStore.getBlockedPackages().toMutableSet()
-            set.addAll(inst)
-            blockedStore.setBlockedPackages(set)
-            adapter.updateList(allApps)
-            adapter.notifyDataSetChanged()
+            val browserPkgs = AppGroupPresets.browsersPackages
+            adapter.updateList(allApps.filter { it.packageName in browserPkgs })
         }
 
         searchBox.addTextChangedListener(object : android.text.TextWatcher {
@@ -164,6 +164,9 @@ class BlockedAppsActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             sheet.dismiss()
             Toast.makeText(this, getString(R.string.preset_blocked_success), Toast.LENGTH_SHORT).show()
+        }
+        root.findViewById<View>(R.id.btnPresetSingleSelect)?.setOnClickListener {
+            sheet.dismiss()
         }
         sheet.show()
     }

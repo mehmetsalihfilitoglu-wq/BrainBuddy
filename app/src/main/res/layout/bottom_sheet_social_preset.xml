@@ -47,4 +47,13 @@
             android:layout_marginStart="12dp"
             android:text="@string/preset_confirm_block"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnPresetSingleSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/preset_single_select"
+        android:textSize="14sp"
+        android:textColor="@color/bb_primary"/>
 </LinearLayout>

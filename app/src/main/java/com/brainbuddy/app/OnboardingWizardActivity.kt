@@ -130,9 +130,9 @@ class OnboardingWizardActivity : AppCompatActivity() {
             startActivity(Intent(this, BlockedAppsActivity::class.java))
         }
         v.findViewById<Button>(R.id.btnPresetSocial).setOnClickListener {
-            val inst = AppGroupPresets.getInstalledFromGroup(this, "social")
-            BlockedAppsStore(this).setBlockedPackages(BlockedAppsStore(this).getBlockedPackages() + inst)
-            Toast.makeText(this, "Sosyal medya eklendi", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, BlockedAppsActivity::class.java).apply {
+                putExtra(BlockedAppsActivity.EXTRA_OPEN_SOCIAL_PRESET, true)
+            })
         }
         v.findViewById<Button>(R.id.btnNext).setOnClickListener { showStep(5) }
         container.addView(v)
