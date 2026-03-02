@@ -39,11 +39,15 @@ class LeagueScreen : AppCompatActivity() {
         b.tvCountdown.text = "Haftanın bitmesine: $daysLeft gün"
 
         val notes = listOf("Bu hafta antrenman ligi", "Bu hafta pratik arena")
-        b.tvLeagueNote.text = notes[(System.currentTimeMillis() % 2).toInt()]
+        val noteIdx = (System.currentTimeMillis() % 2).toInt().coerceIn(0, notes.size - 1)
+        b.tvLeagueNote.text = notes[noteIdx]
 
         val entries = LeagueHelper.getLeaderboardEntries(this)
+        val safeEntries = if (entries.isEmpty()) {
+            listOf(LeagueEntry(profileId, profileStore.getProfile(profileId)?.name ?: "Öğrenci", 0, false))
+        } else entries
         b.recyclerLeaderboard.layoutManager = LinearLayoutManager(this)
-        b.recyclerLeaderboard.adapter = LeagueAdapter(entries, profileId)
+        b.recyclerLeaderboard.adapter = LeagueAdapter(safeEntries, profileId)
 
         b.btnLeagueBack.setOnClickListener { finish() }
     }
@@ -78,11 +82,12 @@ class LeagueAdapter(
         chipNpc.text = "NPC"
 
         val total = entries.size
+        val demotionThreshold = (total - 3).coerceAtLeast(4)
         when {
             rank <= 3 -> {
                 card.setCardBackgroundColor(holder.view.context.getColor(R.color.bb_promotion_zone))
             }
-            rank > total - 3 -> {
+            total >= 4 && rank > demotionThreshold -> {
                 card.setCardBackgroundColor(holder.view.context.getColor(R.color.bb_demotion_zone))
             }
             else -> {

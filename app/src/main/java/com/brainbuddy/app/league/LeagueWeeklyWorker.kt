@@ -45,10 +45,12 @@ class LeagueWeeklyWorker(
             val ranked = entries.sortedByDescending { it.weeklyScore }
 
             val studentRank = ranked.indexOfFirst { !it.isNpc }
+            val safeStudentRank = if (studentRank < 0) -1 else studentRank.coerceIn(0, ranked.size - 1)
+            val demotionIdx = (ranked.size - 3).coerceAtLeast(0)
             val newTier = when {
-                studentRank < 0 -> tier
-                studentRank < 3 && prevWeeklyScore >= tier.minScoreToPromote -> tier.nextTier() ?: tier
-                studentRank >= ranked.size - 3 && tier.prevTier() != null -> tier.prevTier()!!
+                safeStudentRank < 0 -> tier
+                safeStudentRank < 3 && prevWeeklyScore >= tier.minScoreToPromote -> tier.nextTier() ?: tier
+                ranked.size >= 4 && safeStudentRank >= demotionIdx && tier.prevTier() != null -> tier.prevTier()!!
                 else -> tier
             }
 

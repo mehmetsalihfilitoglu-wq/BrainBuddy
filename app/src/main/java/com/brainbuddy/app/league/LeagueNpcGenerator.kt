@@ -20,8 +20,9 @@ object LeagueNpcGenerator {
         val rng = kotlin.random.Random(seed)
         val shuffledNames = NPC_NAMES.shuffled(rng)
         return (0 until count).map { i ->
-            val name = shuffledNames[i % shuffledNames.size]
-            val avatar = AVATAR_IDS[(seed + i * 7).toInt() % AVATAR_IDS.size]
+            val name = shuffledNames[(i % shuffledNames.size).coerceIn(0, shuffledNames.size - 1)]
+            val rawIdx = ((seed xor (i * 7L)) and 0x7FFFFFFFL) % AVATAR_IDS.size
+            val avatar = AVATAR_IDS[rawIdx.toInt().coerceIn(0, AVATAR_IDS.size - 1)]
             NpcProfile(
                 id = "npc_${seed}_$i",
                 displayName = name,

@@ -41,16 +41,28 @@ object LeagueHelper {
             isNpc = false
         ))
         npcs.forEach { npc ->
+            val score = npcScoresWithVariation[npc.id] ?: 50
             entries.add(LeagueEntry(
                 id = npc.id,
                 displayName = npc.displayName,
-                weeklyScore = npcScoresWithVariation[npc.id] ?: 50,
+                weeklyScore = score.coerceIn(0, 9999),
                 isNpc = true,
                 avatarCosmetics = npc.avatarCosmetics
             ))
         }
 
-        return entries.sortedByDescending { it.weeklyScore }
+        val sorted = entries.sortedByDescending { it.weeklyScore }
+        if (sorted.size < LEADERBOARD_SIZE) {
+            val fillerCount = (LEADERBOARD_SIZE - sorted.size).coerceAtLeast(0)
+            val filler = LeagueNpcGenerator.generateNpcProfiles(fillerCount.coerceAtLeast(1), weekStart + 1)
+            val rng = kotlin.random.Random(weekStart)
+            val fillerEntries = filler.take(fillerCount).mapIndexed { idx, npc ->
+                val score = 30 + (rng.nextInt(0, 40) + idx * 2).coerceIn(0, 70)
+                LeagueEntry(npc.id, npc.displayName, score, true, npc.avatarCosmetics)
+            }
+            return (sorted + fillerEntries).sortedByDescending { it.weeklyScore }.take(LEADERBOARD_SIZE)
+        }
+        return sorted.take(LEADERBOARD_SIZE)
     }
 
     fun getDaysUntilWeekEnd(): Int {

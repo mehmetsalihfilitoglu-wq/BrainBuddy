@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,11 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
+        app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="@string/reports_title"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         android:padding="16dp">
 
         <LinearLayout
@@ -23,221 +26,276 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Günlük Özet card -->
             <com.google.android.material.card.MaterialCardView
-                style="@style/BB.Card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:text="@string/report_daily"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:id="@+id/tvDailyLock"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/bb_text_muted"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:id="@+id/tvDailyQuizzes"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/bb_text_muted"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:id="@+id/tvDailyAttempts"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/bb_text_muted"
-                        android:textSize="12sp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDaily"
                 style="@style/BB.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
                     <TextView
-                        android:text="@string/report_weekly"
+                        android:text="Günlük Özet"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/bb_text"/>
 
-                    <TextView
-                        android:id="@+id/tvWeeklyLock"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/bb_text_muted"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:id="@+id/tvWeeklyQuizzes"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/bb_text_muted"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:id="@+id/tvPassRate"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/bb_text_muted"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:id="@+id/tvWeeklyAttempts"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/bb_text_muted"
-                        android:textSize="12sp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                style="@style/BB.Card"
-                android:id="@+id/cardReviewWrong"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:text="Yanlış cevapları incele (doğru cevaplarla)"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                    <TextView
-                        android:text="Son başarısız testteki yanlış soruları doğru cevapları ve açıklamalarıyla görüntüleyin."
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvDailyTests"
+                                android:text="0"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/bb_turquoise"/>
+                            <TextView
+                                android:text="Tamamlanan test"
+                                android:textSize="12sp"
+                                android:textColor="@color/bb_text_muted"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvDailyAccuracy"
+                                android:text="0%"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/bb_turquoise"/>
+                            <TextView
+                                android:text="Doğruluk"
+                                android:textSize="12sp"
+                                android:textColor="@color/bb_text_muted"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvDailyBlocked"
+                                android:text="0"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/bb_error"/>
+                            <TextView
+                                android:text="Engellenen deneme"
+                                android:textSize="12sp"
+                                android:textColor="@color/bb_text_muted"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:text="Doğru / Yanlış / Boş"
+                        android:textSize="12sp"
+                        android:textColor="@color/bb_text_muted"
+                        android:layout_marginTop="12dp"/>
+
+                    <com.brainbuddy.app.ui.MiniStackedBarView
+                        android:id="@+id/miniStackedBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
                         android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Haftalık Özet card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/BB.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:text="Haftalık Özet"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text"/>
+
+                    <com.brainbuddy.app.ui.LineChartView
+                        android:id="@+id/weeklyTrendChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/tvWeeklyXp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textSize="16sp"
+                        android:textColor="@color/bb_turquoise"
+                        android:text="Toplam XP: 0"
+                        tools:text="Toplam XP: 320"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- En çok denenen uygulamalar card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/BB.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:text="En çok denenen uygulamalar"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text"/>
+
+                    <com.brainbuddy.app.ui.BarChartView
+                        android:id="@+id/appsBarChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:minHeight="80dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Yanlışları İncele (Veli) card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardReviewWrong"
+                style="@style/BB.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/bb_turquoise_light"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:text="Yanlışları İncele (Veli)"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text"/>
 
                     <Button
                         android:id="@+id/btnReviewWrongParent"
                         style="@style/BBButtonAlt"
                         android:layout_marginTop="12dp"
-                        android:text="Yanlışları İncele (Veli)"
+                        android:text="Yanlışları Aç"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- E-posta Raporları (collapsed / minimal) -->
             <com.google.android.material.card.MaterialCardView
                 style="@style/BB.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="20dp">
 
                     <TextView
                         android:text="E-posta Raporları"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/bb_text"/>
 
                     <TextView
-                        android:text="Giriş yapmanız gerekir. Raporlar hesap e-postanıza gönderilir."
-                        android:textSize="12sp"
+                        android:text="E-posta raporları yakında."
+                        android:textSize="13sp"
                         android:textColor="@color/bb_text_muted"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="12dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Günlük rapor"
-                            android:textSize="14sp"/>
-
-                        <Switch
-                            android:id="@+id/switchDailyReport"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="8dp">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Haftalık rapor"
-                            android:textSize="14sp"/>
-
-                        <Switch
-                            android:id="@+id/switchWeeklyReport"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/btnLoginForReports"
+                    <Button
+                        android:id="@+id/btnEmailSetup"
+                        style="@style/BBButtonAlt"
+                        android:layout_marginTop="12dp"
+                        android:text="Kuruluma Git"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Giriş yap / Kayıt ol"
-                        android:textColor="@color/bb_primary"
-                        android:textSize="14sp"/>
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <Button
-                android:id="@+id/btnShareReport"
-                style="@style/BB.Button"
-                android:layout_marginTop="16dp"
-                android:text="@string/report_share"
+            <!-- Share (smaller, inside a minimal card) -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/BB.Card"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:text="Raporu paylaş"
+                        android:textSize="14sp"
+                        android:textColor="@color/bb_text"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/btnShareReport"
+                        style="@style/BBButtonAlt"
+                        android:text="Paylaş"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
