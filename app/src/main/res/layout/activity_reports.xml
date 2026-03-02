@@ -11,9 +11,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="?attr/colorSurface"
         app:title="@string/reports_title"
-        app:titleTextColor="@color/bb_text"
+        app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
+        app:titleTextColor="?attr/colorOnSurface"
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:navigationIconTint="?attr/colorPrimary"/>
 
@@ -21,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:padding="16dp">
+        android:padding="@dimen/reports_screen_horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,47 +32,41 @@
             <!-- A) Haftalık Başarı kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardWeeklySuccess"
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/parent_weekly_success"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
 
                     <LinearLayout
                         android:id="@+id/weeklySuccessContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginTop="12dp">
+                        android:layout_marginTop="@dimen/reports_title_content">
 
                         <TextView
                             android:id="@+id/tvWeeklyCorrectWrongBlank"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="13sp"
-                            android:textColor="@color/bb_text_muted"
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"
                             tools:text="Doğru 12 / Yanlış 5 / Boş 3"/>
 
                         <com.brainbuddy.app.ui.MiniStackedBarView
                             android:id="@+id/miniStackedBar"
                             android:layout_width="match_parent"
                             android:layout_height="24dp"
-                            android:layout_marginTop="8dp"/>
+                            android:layout_marginTop="@dimen/reports_title_content"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -96,8 +91,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Test"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/bb_text_muted"/>
+                                    android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
                             </LinearLayout>
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -116,8 +110,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Doğruluk"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/bb_text_muted"/>
+                                    android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
                             </LinearLayout>
                             <LinearLayout
                                 android:id="@+id/blockedRow"
@@ -138,8 +131,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Engellenen"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/bb_text_muted"/>
+                                    android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -161,10 +153,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/reports_title_content"
                             android:text="Henüz haftalık veri yok"
-                            android:textSize="14sp"
-                            android:textColor="@color/bb_text_muted"/>
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnWeeklyEmptyCta"
                             style="@style/BBButtonAlt"
@@ -179,33 +170,28 @@
             <!-- B) Konulara Göre (Doğru/Toplam) kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardTopics"
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_marginTop="@dimen/reports_card_gap">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/parent_topic_performance"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
 
                     <com.brainbuddy.app.ui.BarChartView
                         android:id="@+id/topicBarChart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/reports_title_content"
                         android:minHeight="60dp"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="12dp"
@@ -228,10 +214,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/reports_title_content"
                             android:text="Konu verisi için test çöz"
-                            android:textSize="14sp"
-                            android:textColor="@color/bb_text_muted"/>
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnTopicsEmptyCta"
                             style="@style/BBButtonAlt"
@@ -246,33 +231,28 @@
             <!-- C) Son 10 Test Başarı Trendi kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardTrend"
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_marginTop="@dimen/reports_card_gap">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Son 10 Test Başarı Trendi"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
 
                     <com.brainbuddy.app.ui.LineChartView
                         android:id="@+id/weeklyTrendChart"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/reports_title_content"
                         android:visibility="gone"/>
 
                     <LinearLayout
@@ -292,10 +272,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/reports_title_content"
                             android:text="Trend için en az 3 test çöz"
-                            android:textSize="14sp"
-                            android:textColor="@color/bb_text_muted"
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"
                             android:gravity="center"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnTrendEmptyCta"
@@ -311,33 +290,28 @@
             <!-- D) Son Testler kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardRecentTests"
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_marginTop="@dimen/reports_card_gap">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Son Testler"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerRecentTests"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/reports_title_content"
                         android:nestedScrollingEnabled="false"
                         android:visibility="gone"/>
 
@@ -358,10 +332,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/reports_title_content"
                             android:text="Henüz tamamlanan test yok"
-                            android:textSize="14sp"
-                            android:textColor="@color/bb_text_muted"/>
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnRecentTestsEmptyCta"
                             style="@style/BBButtonAlt"
@@ -376,27 +349,22 @@
             <!-- E) Yanlış Cevapları İncele kartı (her zaman görünür) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardReviewWrong"
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="@color/bb_turquoise_light"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_marginTop="@dimen/reports_card_gap">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Yanlış Cevapları İncele"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
 
                     <LinearLayout
                         android:id="@+id/wrongHasData"
@@ -408,9 +376,8 @@
                             android:id="@+id/tvWrongSubtitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:textSize="13sp"
-                            android:textColor="@color/bb_text_muted"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"
                             android:text="En çok yanlış yapılan konuları veli olarak inceleyebilirsiniz."/>
 
                         <com.google.android.material.button.MaterialButton
@@ -439,10 +406,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="@dimen/reports_title_content"
                             android:text="@string/parent_no_wrong_yet"
-                            android:textSize="14sp"
-                            android:textColor="@color/bb_text_muted"
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"
                             android:gravity="center"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnWrongEmptyCta"
@@ -458,54 +424,46 @@
             <!-- En çok denenen uygulamalar card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardApps"
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_marginTop="@dimen/reports_card_gap">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="En çok denenen uygulamalar"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
 
                     <com.brainbuddy.app.ui.BarChartView
                         android:id="@+id/appsBarChart"
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/reports_title_content"
                         android:minHeight="80dp"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="12dp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Haftalık XP -->
+            <!-- Haftalık XP (Toplam XP) -->
             <com.google.android.material.card.MaterialCardView
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_marginTop="@dimen/reports_card_gap">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:id="@+id/tvWeeklyXp"
@@ -520,35 +478,29 @@
 
             <!-- E-posta Raporları -->
             <com.google.android.material.card.MaterialCardView
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_marginTop="@dimen/reports_card_gap">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="E-posta Raporları"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="@dimen/space_4"
                         android:text="E-posta raporları yakında."
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnEmailSetup"
@@ -560,31 +512,27 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Share -->
+            <!-- Raporu Paylaş -->
             <com.google.android.material.card.MaterialCardView
-                style="@style/BB.Card"
+                style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="24dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
+                android:layout_marginTop="@dimen/reports_card_gap"
+                android:layout_marginBottom="@dimen/space_24">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp">
+                    android:padding="@dimen/reports_card_inner">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/report_share"
-                        android:textSize="14sp"
-                        android:textColor="@color/bb_text"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnShareReport"
