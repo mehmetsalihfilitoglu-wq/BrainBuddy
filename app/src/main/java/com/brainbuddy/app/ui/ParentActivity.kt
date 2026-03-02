@@ -67,7 +67,7 @@ class ParentHubActivity : ComponentActivity() {
         val estimatedMinutes = todayTests * 5
 
         b.tvTodayTests.text = todayTests.toString()
-        b.tvTodayScreenTime.text = getString(R.string.parent_today_screen_time_minutes, estimatedMinutes)
+        b.tvTodayScreenTime.text = getString(R.string.parent_summary_minutes_value, estimatedMinutes)
         b.tvBlockedAppsCount.text = blockedStore.getBlockedPackages().size.toString()
     }
 }

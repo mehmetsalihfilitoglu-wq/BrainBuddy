@@ -5,69 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_gradient">
+    android:background="?attr/colorSurfaceContainerLowest">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorSurface"
+        android:elevation="0dp"
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="@string/parent_hub_title"
-        app:titleTextColor="@color/bb_text" />
+        app:titleTextColor="?attr/colorOnSurface" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
 
-            <!-- Üst Özet Satırı -->
+            <!-- A) ÜST ÖZET BAR - Küçük header kartları -->
             <LinearLayout
                 android:id="@+id/summaryRow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:weightSum="3"
-                android:layout_marginBottom="16dp">
+                android:baselineAligned="false"
+                android:layout_marginBottom="24dp">
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    app:cardBackgroundColor="?attr/colorSurfaceVariant"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
+                    android:layout_marginEnd="6dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="12dp">
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Bugün ekran süresi"
-                            android:textSize="11sp"
-                            android:textColor="@color/bb_text_muted" />
+                            android:text="@string/parent_summary_screen_time"
+                            android:textSize="10sp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:letterSpacing="0" />
 
                         <TextView
                             android:id="@+id/tvTodayScreenTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="2dp"
                             android:text="0 dk"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:textStyle="bold"
-                            android:textColor="@color/bb_text" />
+                            android:textColor="?attr/colorOnSurface" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -75,33 +81,35 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginHorizontal="4dp"
-                    app:cardBackgroundColor="?attr/colorSurfaceVariant"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
+                    android:layout_marginHorizontal="6dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="12dp">
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Bugün test"
-                            android:textSize="11sp"
-                            android:textColor="@color/bb_text_muted" />
+                            android:text="@string/parent_summary_tests"
+                            android:textSize="10sp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:letterSpacing="0" />
 
                         <TextView
                             android:id="@+id/tvTodayTests"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="2dp"
                             android:text="0"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:textStyle="bold"
-                            android:textColor="@color/bb_text" />
+                            android:textColor="?attr/colorOnSurface" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -109,290 +117,275 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    app:cardBackgroundColor="?attr/colorSurfaceVariant"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp">
+                    android:layout_marginStart="6dp"
+                    app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="12dp">
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Engelli uygulama"
-                            android:textSize="11sp"
-                            android:textColor="@color/bb_text_muted" />
+                            android:text="@string/parent_summary_blocked"
+                            android:textSize="10sp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:letterSpacing="0" />
 
                         <TextView
                             android:id="@+id/tvBlockedAppsCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="2dp"
                             android:text="0"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:textStyle="bold"
-                            android:textColor="@color/bb_text" />
+                            android:textColor="?attr/colorOnSurface" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
-            <!-- Kategori Kartları (2 sütun grid) -->
+            <!-- B) ANA KATEGORİ KARTLARI - 2 sütun grid -->
             <androidx.gridlayout.widget.GridLayout
                 android:id="@+id/gridParentCategories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
-                android:rowOrderPreserved="false">
+                android:useDefaultMargins="false">
 
+                <!-- 1. Ekran Süresi -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardScreenTime"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_columnWeight="1"
+                    android:minHeight="96dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_columnWeight="1"
                     app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/ic_timer"
-                            app:tint="@color/bb_primary" />
+                            app:tint="?attr/colorPrimary" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_marginTop="12dp"
+                            android:text="@string/parent_card_screen_time"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Ekran Süresi"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/bb_text" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:text="Limitler ve uyku modu"
-                                android:textSize="13sp"
-                                android:textColor="@color/bb_text_muted" />
-                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/parent_card_screen_time_sub"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:lineSpacingExtra="2dp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- 2. Engellenen Uygulamalar -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardBlockedApps"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_columnWeight="1"
+                    android:minHeight="96dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_columnWeight="1"
                     app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/ic_block"
-                            app:tint="@color/bb_primary" />
+                            app:tint="?attr/colorPrimary" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_marginTop="12dp"
+                            android:text="@string/parent_card_blocked_apps"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Engellenen Uygulamalar"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/bb_text" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:text="Uygulama seç ve engelle"
-                                android:textSize="13sp"
-                                android:textColor="@color/bb_text_muted" />
-                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/parent_card_blocked_apps_sub"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:lineSpacingExtra="2dp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- 3. Test & Eğitim -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardTests"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_columnWeight="1"
+                    android:minHeight="96dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_columnWeight="1"
                     app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/ic_quiz"
-                            app:tint="@color/bb_primary" />
+                            app:tint="?attr/colorPrimary" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_marginTop="12dp"
+                            android:text="@string/parent_card_tests"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Test &amp; Eğitim"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/bb_text" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:text="Test kuralları ve hedefler"
-                                android:textSize="13sp"
-                                android:textColor="@color/bb_text_muted" />
-                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/parent_card_tests_sub"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:lineSpacingExtra="2dp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- 4. Raporlar -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardReports"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_columnWeight="1"
+                    android:minHeight="96dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_columnWeight="1"
                     app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/ic_review"
-                            app:tint="@color/bb_primary" />
+                            app:tint="?attr/colorPrimary" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_marginTop="12dp"
+                            android:text="@string/parent_card_reports"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Raporlar"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/bb_text" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:text="Grafikler ve analiz"
-                                android:textSize="13sp"
-                                android:textColor="@color/bb_text_muted" />
-                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/parent_card_reports_sub"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:lineSpacingExtra="2dp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- 5. Güvenlik & PIN -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardSecurity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_columnWeight="1"
+                    android:minHeight="96dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_columnWeight="1"
                     app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="1dp"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:src="@drawable/ic_lock"
-                            app:tint="@color/bb_primary" />
+                            app:tint="?attr/colorPrimary" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:layout_marginTop="12dp"
+                            android:text="@string/parent_card_security"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Güvenlik &amp; PIN"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                android:textColor="@color/bb_text" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:text="PIN ve izin kontrolleri"
-                                android:textSize="13sp"
-                                android:textColor="@color/bb_text_muted" />
-                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/parent_card_security_sub"
+                            android:textSize="12sp"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:lineSpacingExtra="2dp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-
             </androidx.gridlayout.widget.GridLayout>
         </LinearLayout>
     </ScrollView>
