@@ -131,6 +131,15 @@
         </receiver>
 
         <receiver
+            android:name=".receiver.SocialAppInstalledReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
             android:name=".resilience.BootReceiver"
             android:exported="true"
             android:enabled="true">
@@ -175,6 +184,10 @@
 
         <activity
             android:name=".ui.PermissionsChecklistActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.SystemHealthActivity"
             android:exported="false" />
 
         <activity

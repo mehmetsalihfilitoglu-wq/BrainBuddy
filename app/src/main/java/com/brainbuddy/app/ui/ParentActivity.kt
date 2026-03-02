@@ -18,6 +18,7 @@ import com.brainbuddy.app.core.PackageNameHelper
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.ReportStore
+import com.brainbuddy.app.core.SystemHealthStore
 import com.brainbuddy.app.core.TopicCounts
 import com.brainbuddy.app.databinding.ActivityParentBinding
 import com.brainbuddy.app.quiz.Subject
@@ -65,6 +66,9 @@ class ParentActivity : ComponentActivity() {
 
         setupControlRow(b.controlBlockedApps.root, R.drawable.ic_block, getString(R.string.parent_blocked_apps), getString(R.string.parent_blocked_apps_sub)) {
             startActivity(Intent(this, BlockedAppsActivity::class.java))
+        }
+        setupControlRow(b.controlSystemHealth.root, R.drawable.ic_permission, getString(R.string.system_health_title), getString(R.string.system_health_subtitle)) {
+            startActivity(Intent(this, SystemHealthActivity::class.java))
         }
         setupControlRow(b.controlTimeSettings.root, R.drawable.ic_timer, getString(R.string.parent_time_settings), getString(R.string.parent_time_settings_sub)) {
             startActivity(Intent(this, TimeLimitsActivity::class.java))
@@ -235,6 +239,13 @@ class ParentActivity : ComponentActivity() {
         val avatarSub = if (avatarStore.isShopDisabledByParent()) "Kapalı" else "Açık"
         b.controlAvatarShop.root.findViewById<TextView>(R.id.subtitle)?.apply {
             text = avatarSub
+            visibility = View.VISIBLE
+        }
+
+        val healthStore = SystemHealthStore(this)
+        val healthSub = if (healthStore.isAllOk()) getString(R.string.health_all_ok) else getString(R.string.system_health_subtitle)
+        b.controlSystemHealth.root.findViewById<TextView>(R.id.subtitle)?.apply {
+            text = healthSub
             visibility = View.VISIBLE
         }
     }

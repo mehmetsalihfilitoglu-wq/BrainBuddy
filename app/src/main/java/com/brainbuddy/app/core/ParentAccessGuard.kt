@@ -25,6 +25,7 @@ object ParentAccessGuard {
         "com.brainbuddy.app.ui.ReportsActivity",
         "com.brainbuddy.app.ui.SchedulesActivity",
         "com.brainbuddy.app.ui.ProfileManageActivity",
+        "com.brainbuddy.app.ui.SystemHealthActivity",
         "com.brainbuddy.app.junior.JuniorSettingsActivity",
         "com.brainbuddy.app.junior.JuniorReportActivity"
     )
@@ -41,6 +42,9 @@ object ParentAccessGuard {
         val intent = Intent(activity, PinLockActivity::class.java).apply {
             putExtra(PinLockActivity.EXTRA_MODE, "verify")
             putExtra(PinLockActivity.EXTRA_TARGET, target.simpleName)
+            activity.intent?.extras?.let { extras ->
+                putExtra(PinLockActivity.EXTRA_TARGET_EXTRAS, extras)
+            }
         }
         activity.startActivity(intent)
         activity.finish()

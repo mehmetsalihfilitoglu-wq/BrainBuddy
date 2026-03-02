@@ -469,6 +469,9 @@
             android:id="@+id/controlBlockedApps"/>
 
         <include layout="@layout/item_parent_control_row"
+            android:id="@+id/controlSystemHealth"/>
+
+        <include layout="@layout/item_parent_control_row"
             android:id="@+id/controlTimeSettings"/>
 
         <include layout="@layout/item_parent_control_row"

@@ -1,5 +1,6 @@
 package com.brainbuddy.app.ui
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,9 +17,17 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AppGroupPresets
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.SocialPresetPackages
 import com.brainbuddy.app.receiver.PackageChangeReceiver
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.snackbar.Snackbar
 
 class BlockedAppsActivity : AppCompatActivity() {
+
+    companion object {
+        const val EXTRA_HIGHLIGHT_PACKAGE = "highlight_package"
+        const val EXTRA_QUICK_BLOCK_PACKAGE = "quick_block_package"
+    }
 
     private lateinit var blockedStore: BlockedAppsStore
     private lateinit var adapter: AppListAdapter
@@ -96,6 +106,57 @@ class BlockedAppsActivity : AppCompatActivity() {
                 adapter.updateList(allApps.filter { it.label.lowercase().contains(q) || it.packageName.lowercase().contains(q) })
             }
         })
+
+        findViewById<View>(R.id.btnPresetSocialMedia)?.setOnClickListener { showSocialPresetSheet() }
+
+        handleQuickBlockIntent()
+    }
+
+    private fun handleQuickBlockIntent() {
+        val pkg = intent?.getStringExtra(EXTRA_QUICK_BLOCK_PACKAGE)
+            ?: intent?.getStringExtra(EXTRA_HIGHLIGHT_PACKAGE) ?: return
+        val trimmed = pkg.trim().takeIf { it.isNotBlank() } ?: return
+        intent?.removeExtra(EXTRA_QUICK_BLOCK_PACKAGE)
+        intent?.removeExtra(EXTRA_HIGHLIGHT_PACKAGE)
+        if (blockedStore.isBlocked(trimmed)) return
+
+        val appName = SocialPresetPackages.getAppLabel(this, trimmed)
+        val root = findViewById<View>(android.R.id.content)
+        Snackbar.make(root, getString(R.string.notif_new_social_text, appName), Snackbar.LENGTH_LONG)
+            .setAction(getString(R.string.preset_confirm_block)) {
+                val set = blockedStore.getBlockedPackages().toMutableSet()
+                set.add(trimmed)
+                blockedStore.setBlockedPackages(set)
+                adapter.updateList(allApps)
+                adapter.notifyDataSetChanged()
+                Toast.makeText(this, getString(R.string.preset_blocked_success), Toast.LENGTH_SHORT).show()
+            }
+            .setActionTextColor(getColor(R.color.bb_primary))
+            .show()
+    }
+
+    private fun showSocialPresetSheet() {
+        val installed = SocialPresetPackages.getInstalledSocialPackages(this)
+        if (installed.isEmpty()) {
+            Toast.makeText(this, getString(R.string.preset_none_found), Toast.LENGTH_LONG).show()
+            return
+        }
+        val sheet = BottomSheetDialog(this, R.style.Theme_BrainBuddy)
+        val root = layoutInflater.inflate(R.layout.bottom_sheet_social_preset, null)
+        sheet.setContentView(root)
+        val labels = installed.map { SocialPresetPackages.getAppLabel(this, it) }
+        root.findViewById<TextView>(R.id.presetAppList).text = labels.joinToString(", ")
+        root.findViewById<View>(R.id.btnPresetCancel).setOnClickListener { sheet.dismiss() }
+        root.findViewById<View>(R.id.btnPresetConfirm).setOnClickListener {
+            val set = blockedStore.getBlockedPackages().toMutableSet()
+            set.addAll(installed)
+            blockedStore.setBlockedPackages(set)
+            adapter.updateList(allApps)
+            adapter.notifyDataSetChanged()
+            sheet.dismiss()
+            Toast.makeText(this, getString(R.string.preset_blocked_success), Toast.LENGTH_SHORT).show()
+        }
+        sheet.show()
     }
 
     override fun onResume() {

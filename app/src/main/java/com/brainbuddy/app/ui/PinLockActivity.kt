@@ -15,6 +15,7 @@ class PinLockActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_MODE = "pin_mode" // "verify" | "set" | "change"
         const val EXTRA_TARGET = "target_activity" // optional: class name to launch on success
+        const val EXTRA_TARGET_EXTRAS = "target_extras" // optional: Bundle to forward to target
     }
 
     private lateinit var pinManager: PinManager
@@ -114,11 +115,15 @@ class PinLockActivity : AppCompatActivity() {
             "ProtectionInactiveActivity" -> ProtectionInactiveActivity::class.java
             "PermissionsChecklistActivity" -> PermissionsChecklistActivity::class.java
             "ProfileManageActivity" -> ProfileManageActivity::class.java
+            "SystemHealthActivity" -> com.brainbuddy.app.ui.SystemHealthActivity::class.java
             "RewardContractActivity" -> com.brainbuddy.app.reward.RewardContractActivity::class.java
             "JuniorSettingsActivity" -> com.brainbuddy.app.junior.JuniorSettingsActivity::class.java
             "JuniorReportActivity" -> com.brainbuddy.app.junior.JuniorReportActivity::class.java
             else -> ParentActivity::class.java
         }
-        startActivity(Intent(this, target))
+        val targetIntent = Intent(this, target).apply {
+            intent.getBundleExtra(EXTRA_TARGET_EXTRAS)?.let { putExtras(it) }
+        }
+        startActivity(targetIntent)
     }
 }

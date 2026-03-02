@@ -17,9 +17,15 @@ class GateActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_BLOCKED_PACKAGE = "blocked_package"
+        const val EXTRA_TEST_MODE = "gate_test_mode"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (intent?.getBooleanExtra(EXTRA_TEST_MODE, false) == true) {
+            setResult(RESULT_OK)
+            finish()
+            return
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gate)
 

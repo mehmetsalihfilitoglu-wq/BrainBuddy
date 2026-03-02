@@ -151,6 +151,13 @@
     <string name="preset_social">Sosyal</string>
     <string name="preset_games">Oyunlar</string>
     <string name="preset_browsers">Tarayıcılar</string>
+    <string name="preset_quick_presets">Hızlı Presetler</string>
+    <string name="preset_social_media">Sosyal Medya</string>
+    <string name="preset_social_confirm_title">Sosyal medya uygulamaları engellensin mi?</string>
+    <string name="preset_confirm_block">Engelle</string>
+    <string name="preset_cancel">İptal</string>
+    <string name="preset_none_found">Bu preset için cihazda uygulama bulunamadı.</string>
+    <string name="preset_blocked_success">Uygulamalar engellendi</string>
 
     <!-- Auth -->
     <string name="auth_login_title">Giriş Yap</string>
@@ -179,6 +186,27 @@
     <string name="notif_daily_reminder_text">Bugün test çözmedin</string>
     <string name="notif_streak_title">BrainBuddy</string>
     <string name="notif_streak_text">Seri bitiyor!</string>
+
+    <!-- System Health -->
+    <string name="system_health_title">Sistem Sağlığı</string>
+    <string name="system_health_subtitle">İzinler ve koruma durumu</string>
+    <string name="health_last_checked">Son kontrol: %1$s</string>
+    <string name="health_accessibility">Erişilebilirlik servisi</string>
+    <string name="health_usage_stats">Kullanım istatistikleri izni</string>
+    <string name="health_battery">Pil optimizasyonu dışı</string>
+    <string name="health_gate_test">Koruma testi</string>
+    <string name="health_gate_test_btn">Koruma Testi Başlat</string>
+    <string name="health_block_list">Engelleme listesi</string>
+    <string name="health_fix">Düzelt</string>
+    <string name="health_status_ok">Aktif</string>
+    <string name="health_status_missing">Eksik</string>
+    <string name="health_settings_fallback">Ayar ekranı açılamadı. Lütfen Ayarlar\'dan manuel kontrol edin.</string>
+    <string name="health_all_ok">Tüm kontroller tamam</string>
+
+    <!-- New social app notification -->
+    <string name="notif_channel_social_preset">Yeni Uygulama Önerisi</string>
+    <string name="notif_new_social_title">Yeni sosyal uygulama</string>
+    <string name="notif_new_social_text">%1$s yüklendi. Engellemek ister misiniz?</string>
 
     <!-- Kill Switch -->
     <string name="kill_switch_banner_text">Koruma geçici kapalı</string>
