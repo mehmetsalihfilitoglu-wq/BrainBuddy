@@ -2,10 +2,13 @@ package com.brainbuddy.app.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.preferences.core.*
@@ -26,6 +29,7 @@ import com.brainbuddy.app.ui.BarChartView.BarData
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import org.json.JSONArray
+import java.lang.reflect.InvocationTargetException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -55,17 +59,18 @@ class ReportsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (!ParentAccessGuard.checkAndRedirect(this)) return
 
-        val b = ActivityReportsBinding.inflate(layoutInflater)
-        setContentView(b.root)
-        setSupportActionBar(b.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        try {
+            val b = ActivityReportsBinding.inflate(layoutInflater)
+            setContentView(b.root)
+            setSupportActionBar(b.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val reportStore = ReportStore(this)
+            val reportStore = ReportStore(this)
         val analytics = AnalyticsStore(this)
         val protectionPrefs = ProtectionPrefs(this)
         val dataStore = RoomQuizDataStore(this)
 
-        val initialRange = runCatching {
+        val initialRange = try {
             kotlinx.coroutines.runBlocking {
                 applicationContext.reportsPrefsDataStore.data
                     .map { prefs: Preferences ->
@@ -73,7 +78,7 @@ class ReportsActivity : AppCompatActivity() {
                     }
                     .first()
             }
-        }.getOrDefault(ReportRange.SEVEN.days).let { ReportRange.fromDays(it) }
+        } catch (_: Throwable) { ReportRange.SEVEN.days }.let { ReportRange.fromDays(it) }
 
         var currentRange = initialRange
         var shareBlockedCount = 0
@@ -169,9 +174,9 @@ class ReportsActivity : AppCompatActivity() {
             }
 
             // D) Son Testler
-            val snapshots = kotlinx.coroutines.runBlocking {
-                dataStore.getLastSnapshots(50)
-            }
+            val snapshots = try {
+                kotlinx.coroutines.runBlocking { dataStore.getLastSnapshots(50) }
+            } catch (_: Throwable) { emptyList() }
             val filteredSnapshots = snapshots
                 .filter { it.createdAt >= sinceMs }
                 .sortedByDescending { it.createdAt }
@@ -221,11 +226,13 @@ class ReportsActivity : AppCompatActivity() {
         }
 
         fun persistRange(range: ReportRange) {
-            kotlinx.coroutines.runBlocking {
-                applicationContext.reportsPrefsDataStore.edit { prefs ->
-                    prefs[KEY_REPORT_RANGE_DAYS] = range.days
+            try {
+                kotlinx.coroutines.runBlocking {
+                    applicationContext.reportsPrefsDataStore.edit { prefs ->
+                        prefs[KEY_REPORT_RANGE_DAYS] = range.days
+                    }
                 }
-            }
+            } catch (_: Throwable) { /* ignore DataStore write failure */ }
         }
 
         fun onRangeChanged(range: ReportRange) {
@@ -264,8 +271,12 @@ class ReportsActivity : AppCompatActivity() {
         }
 
         // E) Yanlış Cevapları İncele
-        val lastWrongIds = protectionPrefs.lastFailedWrongIds()
-        val lastSessionJson = protectionPrefs.lastFailedSessionJson()
+        val lastWrongIds = try {
+            protectionPrefs.lastFailedWrongIds()
+        } catch (_: Throwable) { emptyList() }
+        val lastSessionJson = try {
+            protectionPrefs.lastFailedSessionJson()
+        } catch (_: Throwable) { "" }
         if (lastWrongIds.isNotEmpty() && lastSessionJson.isNotEmpty()) {
             b.wrongHasData.visibility = View.VISIBLE
             b.wrongEmpty.visibility = View.GONE
@@ -315,6 +326,35 @@ class ReportsActivity : AppCompatActivity() {
         }
 
         b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+
+        } catch (e: Throwable) {
+            val root = when (e) {
+                is InvocationTargetException -> (e.targetException ?: e.cause) ?: e
+                else -> e
+            }
+            var cause: Throwable = root
+            while (cause.cause != null) cause = cause.cause!!
+            val stackTrace = cause.stackTraceToString().lines().take(15).joinToString("\n") { "  $it" }
+            val details = "Class: ${cause.javaClass.name}\nMessage: ${cause.message}\n\n$stackTrace"
+            Log.e("ReportsActivity", details, cause)
+            val titleTv = TextView(this).apply {
+                text = "RAPORLAR CRASH"
+                textSize = 22f
+                setPadding(48, 48, 48, 24)
+            }
+            val bodyTv = TextView(this).apply {
+                text = details
+                textSize = 12f
+                setPadding(48, 24, 48, 48)
+            }
+            val scroll = ScrollView(this).apply { addView(bodyTv) }
+            val layout = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                addView(titleTv)
+                addView(scroll)
+            }
+            setContentView(layout)
+        }
     }
 
     private fun startQuiz() {
