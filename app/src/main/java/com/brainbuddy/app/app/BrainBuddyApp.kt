@@ -4,6 +4,11 @@ import android.app.Application
 import android.content.Intent
 import android.os.Process
 import com.brainbuddy.app.core.ActiveProfileManager
+import com.brainbuddy.app.db.DbSeeder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.CrashRecoveryPrefs
 import com.brainbuddy.app.core.KillSwitchPrefs
@@ -24,6 +29,10 @@ class BrainBuddyApp : Application() {
         PermissionMonitorLauncher.scheduleCheck(this)
         ReportScheduler.schedule(this)
         LeagueScheduler.scheduleNextReset(this)
+
+        CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
+            DbSeeder.seedIfNeeded(this@BrainBuddyApp)
+        }
 
         Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
             try {

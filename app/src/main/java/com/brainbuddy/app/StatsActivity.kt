@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.core.AnalyticsStore
+import com.brainbuddy.app.quiz.QuestionRepository
 import com.brainbuddy.app.core.DailyAdQuotaStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.PremiumStore
@@ -58,7 +59,23 @@ class StatsActivity : AppCompatActivity() {
         }.take(6)
         b.barChart.data = barData
 
-        val recent = analytics.getLastTests(10)
+        val repo = QuestionRepository(this)
+        val snapshots = repo.getLastSnapshots(10)
+        val recent = snapshots.map { s ->
+            val qIds = try { (0 until org.json.JSONArray(s.questionIdsJson).length()).map { org.json.JSONArray(s.questionIdsJson).getString(it) } } catch (_: Exception) { emptyList() }
+            TestPerformance(
+                quizId = s.testId,
+                tsMs = s.createdAt,
+                accuracy = if (s.total > 0) 100f * s.score / s.total else 0f,
+                correctCount = s.score,
+                wrongCount = s.total - s.score,
+                blankCount = 0,
+                totalQuestions = s.total,
+                passed = s.score >= (s.total * 0.6).toInt(),
+                wrongQuestionIds = try { (0 until org.json.JSONArray(s.wrongQuestionIdsJson ?: "[]").length()).map { org.json.JSONArray(s.wrongQuestionIdsJson).getString(it) } } catch (_: Exception) { emptyList() },
+                questionIds = qIds
+            )
+        }
         val trendValues = recent.map { it.accuracy }
         b.lineChart.values = trendValues
 
@@ -96,27 +113,11 @@ class StatsActivity : AppCompatActivity() {
         b.recyclerRecentTests.layoutManager = LinearLayoutManager(this)
         b.recyclerRecentTests.adapter = RecentTestsAdapter(recentList) { perf ->
             val questionIds = perf.questionIds
-            if (questionIds.size < com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) return@RecentTestsAdapter
-            val premium = PremiumStore(this).isPremium()
-            if (premium) {
-                startActivity(Intent(this, QuizActivity::class.java).apply {
-                    putExtra(QuizActivity.EXTRA_REPLAY_FROM_LAST_TEST, true)
-                    putExtra(QuizActivity.EXTRA_QUIZ_ID, perf.quizId)
-                    putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(questionIds))
-                })
-            } else {
-                val quotaStore = DailyAdQuotaStore(this)
-                quotaStore.resetIfNewDay()
-                val remaining = quotaStore.getRemainingToday()
-                if (remaining > 0) {
-                    startActivity(Intent(this, WatchAdToUnlockLastTestActivity::class.java).apply {
-                        putExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUIZ_ID, perf.quizId)
-                        putStringArrayListExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUESTION_IDS, ArrayList(questionIds))
-                    })
-                } else {
-                    startActivity(Intent(this, AdLimitReachedActivity::class.java))
-                }
-            }
+            if (questionIds.size < QuestionRepository.MIN_QUESTIONS_PER_TEST) return@RecentTestsAdapter
+            startActivity(Intent(this, com.brainbuddy.app.quiz.PastTestDetailActivity::class.java).apply {
+                putExtra(com.brainbuddy.app.quiz.PastTestDetailActivity.EXTRA_TEST_ID, perf.quizId)
+                putStringArrayListExtra(com.brainbuddy.app.quiz.PastTestDetailActivity.EXTRA_QUESTION_IDS, ArrayList(questionIds))
+            })
         }
 
         b.btnBack.setOnClickListener { finish() }

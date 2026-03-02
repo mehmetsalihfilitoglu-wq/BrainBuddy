@@ -5,6 +5,11 @@ import android.util.Log
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
+import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.db.QuestionEntity
+import com.brainbuddy.app.db.QuestionMapper
+import com.brainbuddy.app.db.RoomQuizDataStore
+import kotlinx.coroutines.runBlocking
 import org.json.JSONArray
 import org.json.JSONObject
 import java.nio.charset.Charset
@@ -13,6 +18,9 @@ import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 class QuestionRepository(private val context: Context) {
+
+    private val roomStore = RoomQuizDataStore(context)
+    private val wrongQuestionStore = WrongQuestionStore(context)
 
     companion object {
         private const val TAG = "QuestionRepository"
@@ -51,16 +59,22 @@ class QuestionRepository(private val context: Context) {
     }
 
     fun loadAllQuestionsWithStats(): Pair<List<Question>, LoadStats> {
-        val fromAssets = loadFromAssets()
-        val fromImported = loadFromImported()
-        val merged = (fromAssets + fromImported).distinctBy { it.id }
-        val stats = LoadStats(
-            fileFound = fromAssets.isNotEmpty() || fromImported.isNotEmpty(),
-            totalInJson = fromAssets.size + fromImported.size,
-            parsedTotal = merged.size,
-            parseFailed = 0
-        )
-        return Pair(if (merged.isEmpty()) getFallbackQuestions() else merged, stats)
+        runBlocking { DbSeeder.seedIfNeeded(context) }
+        val fromRoom = roomStore.getActiveQuestions()
+        return if (fromRoom.isNotEmpty()) {
+            Pair(fromRoom, LoadStats(fileFound = true, totalInJson = fromRoom.size, parsedTotal = fromRoom.size, parseFailed = 0))
+        } else {
+            val fromAssets = loadFromAssets()
+            val fromImported = loadFromImported()
+            val merged = (fromAssets + fromImported).distinctBy { it.id }
+            val stats = LoadStats(
+                fileFound = fromAssets.isNotEmpty() || fromImported.isNotEmpty(),
+                totalInJson = fromAssets.size + fromImported.size,
+                parsedTotal = merged.size,
+                parseFailed = 0
+            )
+            Pair(if (merged.isEmpty()) getFallbackQuestions() else merged, stats)
+        }
     }
 
     private fun loadFromAssets(): List<Question> {
@@ -139,6 +153,16 @@ class QuestionRepository(private val context: Context) {
             })
         }
         importedFile.writeText(jsonArr.toString(), Charsets.UTF_8)
+        val toAddEntities = toAdd.map { q ->
+            QuestionEntity(
+                id = q.id, subject = q.subject.name.lowercase(), difficulty = when (q.difficulty) { QuizDifficulty.EASY -> 0; QuizDifficulty.HARD -> 2; else -> 1 },
+                text = q.stem, optionsJson = org.json.JSONArray(q.choices).toString(), correctIndex = q.correctIndex,
+                tagsJson = q.topic?.let { org.json.JSONArray(listOf(it)).toString() }, isActive = true, version = 1,
+                updatedAt = System.currentTimeMillis(), levelGroup = q.levelGroup.name, gradeTag = q.gradeTag.takeIf { it.isNotEmpty() },
+                hint = q.hint?.takeIf { it.isNotBlank() }, imageAsset = q.imageAsset?.takeIf { it.isNotBlank() }, examType = q.examType.name
+            )
+        }
+        roomStore.insertQuestions(toAddEntities)
         return toAdd.size
     }
 
@@ -264,8 +288,8 @@ class QuestionRepository(private val context: Context) {
     /** @param questionsMap Optional map of questionId->Question for wrong-question tracking (topic). */
     /** @param testId G4: Quiz bitince lastSeenInTestId güncellemesi için */
     fun recordAnswers(answers: List<AnswerRecord>, questionsMap: Map<String, Question>? = null, testId: String? = null) {
+        roomStore.recordAnswers(answers, testId)
         answers.forEach { a ->
-            historyStore.recordAnswer(a.questionId, a.isCorrect, testId)
             val q = questionsMap?.get(a.questionId)
             if (a.isCorrect) {
                 wrongQuestionStore.markFixed(a.questionId)
@@ -277,7 +301,7 @@ class QuestionRepository(private val context: Context) {
 
     /** G5: Quiz tamamlanınca çağrılır. globalTestIndex++, her soru için lastSeenTestIndex günceller. */
     fun onQuizCompleted(questionIds: List<String>) {
-        historyStore.onQuizCompleted(questionIds)
+        roomStore.onQuizCompleted(questionIds)
     }
 
     /**
@@ -305,7 +329,11 @@ class QuestionRepository(private val context: Context) {
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
 
-        val picker = AdaptiveQuestionPicker(historyStore)
+        val picker = RoomAdaptiveQuestionPicker(
+            historyDao = com.brainbuddy.app.db.DatabaseProvider.get(context).historyDao(),
+            getGlobalTestIndex = { roomStore.getGlobalTestIndex() },
+            getQuestionIdsFromLastNTests = { pid, n -> roomStore.getQuestionIdsFromLastNTests(pid, n) }
+        )
         var questions = picker.pick(finalPool, count, profileId)
 
         if (questions.isEmpty()) {
@@ -325,8 +353,7 @@ class QuestionRepository(private val context: Context) {
         }
 
         val questionIds = questions.map { it.id }
-        historyStore.recordSeenInTest(questionIds, effectiveTestId)
-        historyStore.recordTestCreated(profileId, effectiveTestId, questionIds)
+        roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
         recordSeenForQuiz(profileId, questionIds)
         return questions
     }
@@ -408,7 +435,7 @@ class QuestionRepository(private val context: Context) {
     fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
         val global = getGlobalPool()
         val all = global.associateBy { it.id }
-        val wrongIds = weakTopicIds.ifEmpty { historyStore.getWrongQuestionIds(14).toList() }
+        val wrongIds = weakTopicIds.ifEmpty { roomStore.getWrongQuestionIds(14).toList() }
         val weakTopics = wrongIds.mapNotNull { all[it]?.subject?.tr }.distinct()
         val byTopic = all.values.groupBy { it.subject.tr }
         var pool = mutableListOf<Question>()
@@ -422,7 +449,7 @@ class QuestionRepository(private val context: Context) {
             pool = global.toMutableList()
         }
         val profileId = ProfileStore(context).getCurrentProfileId()
-        val recentIds = historyStore.getRecentlySeenIdsForProfile(profileId, 100)
+        val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 100)
         val sessionIds = mutableSetOf<String>()
         val result = mutableListOf<Question>()
         for (q in pool.shuffled()) {
@@ -449,7 +476,7 @@ class QuestionRepository(private val context: Context) {
     }
 
     fun pickRetryWrongQuestions(levelGroup: LevelGroup): List<Question> {
-        val wrongIds = historyStore.getAllWrongIds()
+        val wrongIds = roomStore.getAllWrongIds()
         if (wrongIds.isEmpty()) return emptyList()
         val allByLevel = loadAllQuestions().groupBy { it.levelGroup }
         val allMap = (allByLevel[levelGroup] ?: emptyList()).associateBy { it.id }
@@ -474,7 +501,7 @@ class QuestionRepository(private val context: Context) {
         val profileId = ProfileStore(context).getCurrentProfileId()
         val global = getGlobalPool()
         val pool = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
-        val recentIds = historyStore.getRecentlySeenIdsForProfile(profileId, 50)
+        val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 50)
         val wrongIds = wrongQuestionStore.getUnfixedWrongIds(14)
         val preferWrong = pool.filter { it.id in wrongIds }.shuffled()
         val preferFresh = pool.filter { it.id !in recentIds && it.id !in wrongIds }.shuffled()
@@ -518,14 +545,21 @@ class QuestionRepository(private val context: Context) {
             }
         }
         val toReturn = finalList.shuffled()
-        historyStore.recordSeenIdsForProfile(profileId, toReturn.map { it.id })
+        roomStore.recordSeenIdsForProfile(profileId, toReturn.map { it.id })
         return toReturn
     }
 
     /** Records seen IDs for pickQuizQuestions per-user variety (avoids repeat across attempts). */
     fun recordSeenForQuiz(profileId: String, questionIds: List<String>) {
-        historyStore.recordSeenIdsForProfile(profileId, questionIds)
+        roomStore.recordSeenIdsForProfile(profileId, questionIds)
     }
+
+    /** Insert test snapshot for replay and history. */
+    fun insertSnapshot(testId: String, score: Int, total: Int, questionIds: List<String>, userAnswers: Map<String, Int>, wrongIds: List<String>, subjectBreakdown: String? = null) {
+        roomStore.insertSnapshot(testId, score, total, questionIds, userAnswers, wrongIds, subjectBreakdown)
+    }
+
+    fun getLastSnapshots(limit: Int = 20) = roomStore.getLastSnapshots(limit)
 
     fun getLevelGroupFromPrefs(): LevelGroup {
         return when (ProtectionPrefs(context).studentLevel()) {

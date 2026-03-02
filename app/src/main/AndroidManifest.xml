@@ -119,6 +119,10 @@
             android:name=".StatsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".quiz.PastTestDetailActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".receiver.PackageChangeReceiver"
             android:exported="false">

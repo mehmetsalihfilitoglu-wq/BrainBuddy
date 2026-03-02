@@ -343,6 +343,9 @@ class QuizActivity : AppCompatActivity() {
         val questionsMap = questions.associateBy { it.id }
         repo.recordAnswers(answerRecords, questionsMap, quizId)
         repo.onQuizCompleted(questions.map { it.id })
+        val bySubject = questions.groupBy { it.subject.tr }.mapValues { (_, qs) -> qs.size }
+        val breakdown = bySubject.entries.joinToString(", ") { "${it.key}: ${it.value}" }.takeIf { it.isNotBlank() }
+        repo.insertSnapshot(quizId, correctCount, questions.size, questions.map { it.id }, answers.toMap(), wrongIds, breakdown)
 
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
