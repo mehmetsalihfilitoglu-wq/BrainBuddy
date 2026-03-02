@@ -5,21 +5,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import com.brainbuddy.app.ads.RewardAdHelper
-import com.brainbuddy.app.core.AdsPrefs
-import com.brainbuddy.app.core.PremiumStore
-import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
-import com.brainbuddy.app.core.RewardedRetryStore
+import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.databinding.ActivityLockScreenBinding
-import com.brainbuddy.app.quiz.GateRetrySingleActivity
-import com.brainbuddy.app.quiz.QuizResultActivity
+import com.brainbuddy.app.quiz.QuizActivity
+import com.brainbuddy.app.quiz.QuizCooldownActivity
+import com.brainbuddy.app.quiz.QuizRetryAdActivity
 import com.brainbuddy.app.security.EmergencyCodeManager
 import com.brainbuddy.app.security.PinManager
 
 /**
  * Shown when user failed a test (wrongCount >= 4).
- * Blocks main app until user passes. New quiz generated each attempt.
+ * Blocks main app until user passes. Retry uses QuizRetryPolicy (ad tickets or cooldown).
  */
 class LockScreenActivity : AppCompatActivity() {
 
@@ -42,96 +39,66 @@ class LockScreenActivity : AppCompatActivity() {
             b.btnParentPin.visibility = View.GONE
         }
 
-        val wrongIds = protectionPrefs.lastFailedWrongIds()
         val quizId = protectionPrefs.lastFailedQuizId()
-        val sessionJson = protectionPrefs.lastFailedSessionJson()
-        val session = QuizResultActivity.decodeSession(sessionJson)
-        val questionsJson = protectionPrefs.lastFailedQuestionsJson()
+        val questionIds = protectionPrefs.lastFailedQuestionIds()
+        val policy = QuizRetryPolicy(this)
 
         b.btnRetryTest.visibility = if (permLocked) View.GONE else View.VISIBLE
         b.btnPractice.visibility = if (permLocked) View.GONE else View.VISIBLE
 
+        b.adRetrySection.visibility = View.GONE
+        b.btnPremiumRetry.visibility = View.GONE
+
         b.btnRetryTest.setOnClickListener {
-            startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java).apply {
-                putExtra(com.brainbuddy.app.quiz.QuizActivity.EXTRA_GATE_MODE, true)
-                putExtra(com.brainbuddy.app.quiz.QuizActivity.EXTRA_IS_RETRY, true)
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            })
-            finish()
+            val token = policy.getSameTestToken() ?: run {
+                if (quizId.isNotBlank() && questionIds.size >= com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+                    policy.onFail(this, QuizRetryPolicy.SameTestToken(quizId, questionIds))
+                }
+                policy.getSameTestToken()
+            }
+            val ids = token?.questionIds ?: questionIds
+            if (ids.size < com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+                startActivity(Intent(this, QuizActivity::class.java).apply {
+                    putExtra(QuizActivity.EXTRA_GATE_MODE, true)
+                    putExtra(QuizActivity.EXTRA_IS_RETRY, true)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                })
+                finish()
+                return@setOnClickListener
+            }
+            when (policy.getStartMode()) {
+                QuizRetryPolicy.StartMode.ALLOW_FREE -> {
+                    startActivity(Intent(this, QuizActivity::class.java).apply {
+                        putExtra(QuizActivity.EXTRA_GATE_MODE, true)
+                        putExtra(QuizActivity.EXTRA_IS_RETRY, true)
+                        putExtra(QuizActivity.EXTRA_QUIZ_ID, quizId)
+                        putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(ids))
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    })
+                    finish()
+                }
+                QuizRetryPolicy.StartMode.REQUIRE_AD -> {
+                    startActivity(Intent(this, QuizRetryAdActivity::class.java).apply {
+                        putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, quizId)
+                        putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, ArrayList(ids))
+                    })
+                    finish()
+                }
+                QuizRetryPolicy.StartMode.WAIT_COOLDOWN -> {
+                    startActivity(Intent(this, QuizCooldownActivity::class.java).apply {
+                        putExtra(QuizCooldownActivity.EXTRA_QUIZ_ID, quizId)
+                        putStringArrayListExtra(QuizCooldownActivity.EXTRA_QUESTION_IDS, ArrayList(ids))
+                    })
+                    finish()
+                }
+            }
         }
 
         b.btnPractice.setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java).apply {
-                putExtra(com.brainbuddy.app.quiz.QuizActivity.EXTRA_REMEDIAL, true)
+                putExtra(QuizActivity.EXTRA_REMEDIAL, true)
             })
             finish()
-        }
-
-        val adSection = b.adRetrySection
-        val btnWatchAd = b.btnWatchAd
-        val tvAdRetryInfo = b.tvAdRetryInfo
-        val btnPremiumRetry = b.btnPremiumRetry
-
-        if (!permLocked && wrongIds.isNotEmpty() && session != null) {
-            val retryStore = RewardedRetryStore(this)
-            val premiumStore = PremiumStore(this)
-            val adsPrefs = AdsPrefs(this)
-            val profileId = ProfileStore(this).getCurrentProfileId()
-            val eligibleQuestion = wrongIds.shuffled().firstOrNull { qId ->
-                retryStore.canRetryWithAd(profileId, quizId, qId)
-            }
-            val isPremium = premiumStore.isPremium()
-            val canShowAd = !isPremium && adsPrefs.isAdsEnabled() && eligibleQuestion != null
-            val canShowPremium = isPremium && eligibleQuestion != null
-
-            if (canShowAd) {
-                adSection.visibility = View.VISIBLE
-                tvAdRetryInfo.text = getString(R.string.ad_retry_info_with_count, retryStore.getRemainingRetriesToday(profileId))
-                btnWatchAd.text = getString(R.string.ad_watch_retry)
-                val adHelper = RewardAdHelper(this)
-                adHelper.loadAd(onFailed = { btnWatchAd.isEnabled = false })
-                btnWatchAd.setOnClickListener {
-                    if (adHelper.isLoaded() && eligibleQuestion != null) {
-                        adHelper.showAd(
-                            onRewarded = {
-                                retryStore.recordRetryUsed(profileId, quizId, eligibleQuestion)
-                                startActivity(Intent(this, GateRetrySingleActivity::class.java).apply {
-                                    putExtra(GateRetrySingleActivity.EXTRA_QUIZ_ID, quizId)
-                                    putExtra(GateRetrySingleActivity.EXTRA_QUESTION_ID, eligibleQuestion)
-                                    putExtra(GateRetrySingleActivity.EXTRA_SESSION_JSON, sessionJson)
-                                    putExtra(GateRetrySingleActivity.EXTRA_QUESTIONS_JSON, questionsJson)
-                                })
-                                finish()
-                            },
-                            onFailed = { adHelper.loadAd() }
-                        )
-                    } else adHelper.loadAd()
-                }
-            } else {
-                adSection.visibility = View.GONE
-            }
-
-            if (canShowPremium) {
-                btnPremiumRetry.visibility = View.VISIBLE
-                btnPremiumRetry.text = getString(R.string.btn_retry_premium)
-                btnPremiumRetry.setOnClickListener {
-                    if (eligibleQuestion != null) {
-                        retryStore.recordRetryUsed(profileId, quizId, eligibleQuestion)
-                        startActivity(Intent(this, GateRetrySingleActivity::class.java).apply {
-                            putExtra(GateRetrySingleActivity.EXTRA_QUIZ_ID, quizId)
-                            putExtra(GateRetrySingleActivity.EXTRA_QUESTION_ID, eligibleQuestion)
-                            putExtra(GateRetrySingleActivity.EXTRA_SESSION_JSON, sessionJson)
-                            putExtra(GateRetrySingleActivity.EXTRA_QUESTIONS_JSON, questionsJson)
-                        })
-                        finish()
-                    }
-                }
-            } else {
-                btnPremiumRetry.visibility = View.GONE
-            }
-        } else {
-            adSection.visibility = View.GONE
-            btnPremiumRetry.visibility = View.GONE
         }
 
         b.btnParentPin.setOnClickListener {
@@ -143,7 +110,7 @@ class LockScreenActivity : AppCompatActivity() {
         }
 
         val emergencyManager = EmergencyCodeManager(this)
-        b.btnEmergencyUnlock.visibility = if (permLocked && emergencyManager.isEmergencyCodeSet()) android.view.View.VISIBLE else android.view.View.GONE
+        b.btnEmergencyUnlock.visibility = if (permLocked && emergencyManager.isEmergencyCodeSet()) View.VISIBLE else View.GONE
         b.btnEmergencyUnlock.setText(R.string.btn_emergency_unlock)
         b.btnEmergencyUnlock.setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.ui.EmergencyUnlockActivity::class.java))

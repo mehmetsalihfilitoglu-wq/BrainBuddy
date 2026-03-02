@@ -235,6 +235,28 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.StudentProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.StudyHubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.GrowthHubActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.WatchAdToUnlockLastTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AdLimitReachedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quiz.QuizRetryAdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".quiz.QuizCooldownActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.ProfileSelectionActivity"
             android:exported="false" />
 

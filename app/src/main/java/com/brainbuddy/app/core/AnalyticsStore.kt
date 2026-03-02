@@ -38,6 +38,7 @@ class AnalyticsStore(context: Context) {
             .put("totalQuestions", perf.totalQuestions)
             .put("passed", perf.passed)
             .put("wrongQuestionIds", JSONArray(perf.wrongQuestionIds))
+            .put("questionIds", JSONArray(perf.questionIds))
             .put("byTopic", JSONObject(perf.byTopic))
             .put("byDifficulty", JSONObject(perf.byDifficulty))
             .put("byTopicCounts", encodeTopicCountsMap(perf.byTopicCounts))
@@ -78,6 +79,8 @@ class AnalyticsStore(context: Context) {
             val o = arr.getJSONObject(i)
             val wrongArr = o.optJSONArray("wrongQuestionIds") ?: JSONArray()
             val wrongIds = (0 until wrongArr.length()).map { wrongArr.getString(it) }
+            val qidsArr = o.optJSONArray("questionIds") ?: JSONArray()
+            val questionIds = (0 until qidsArr.length()).map { qidsArr.getString(it) }
             val topicObj = o.optJSONObject("byTopic") ?: JSONObject()
             val diffObj = o.optJSONObject("byDifficulty") ?: JSONObject()
             val byTopic = topicObj.keys().asSequence().associateWith { topicObj.getDouble(it).toFloat() }
@@ -100,6 +103,7 @@ class AnalyticsStore(context: Context) {
                     totalQuestions = if (totalQ > 0) totalQ else (correct + wrong + blank),
                     passed = o.optBoolean("passed", true),
                     wrongQuestionIds = wrongIds,
+                    questionIds = questionIds,
                     byTopic = byTopic,
                     byDifficulty = byDiff,
                     byTopicCounts = byTc,

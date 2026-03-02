@@ -280,6 +280,23 @@
     <string name="stats_title">İstatistikler</string>
     <string name="back_exit_hint">Çıkmak için tekrar geri tuşuna basın</string>
 
+    <!-- Student Profile -->
+    <string name="student_profile_name_hint">İsmini yaz</string>
+    <string name="student_profile_avatars">Avatarlar</string>
+    <string name="btn_save">Kaydet</string>
+
+    <!-- Last Test Replay -->
+    <string name="ad_unlock_last_test_info">Reklam izleyerek 1 giriş aç (Kalan: %1$d/3)</string>
+    <string name="ad_unlock_premium_unlimited">Premium ile sınırsız</string>
+    <string name="ad_limit_reached_title">Bugünlük hak bitti</string>
+    <string name="ad_limit_reached_message">Bugün eski teste giriş haklarınızı kullandınız. Premium ile sınırsız erişin.</string>
+    <string name="btn_watch_ad_unlock">Reklam İzle ve Aç</string>
+
+    <!-- Retry -->
+    <string name="retry_cooldown_title">Bekle</string>
+    <string name="retry_cooldown_message">30 dakika dolmadan tekrar deneyemezsin. Kalan süre: %1$s</string>
+    <string name="retry_ad_info">Reklam izleyerek hemen tekrar dene (Kalan: %1$d/3)</string>
+
     <!-- Kill Switch -->
     <string name="kill_switch_banner_text">Koruma geçici kapalı</string>
     <string name="kill_switch_toggle">Tüm Engellemeleri Geçici Kapat</string>

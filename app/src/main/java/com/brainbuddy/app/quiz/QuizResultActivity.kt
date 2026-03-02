@@ -8,14 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.HomeActivity
 import com.brainbuddy.app.LockScreenActivity
 import com.brainbuddy.app.R
-import com.brainbuddy.app.core.AdsPrefs
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
-import com.brainbuddy.app.core.PremiumStore
-import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
-import com.brainbuddy.app.core.RewardedRetryStore
-import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.core.TestPerformance
 import com.brainbuddy.app.core.TopicCounts
 import com.brainbuddy.app.league.LeagueScoring
@@ -329,9 +324,6 @@ class QuizResultActivity : AppCompatActivity() {
             visibility = if (locked) View.GONE else View.VISIBLE
         }
 
-        val adSection = findViewById<View>(R.id.adRetrySection)
-        val btnWatchAd = findViewById<android.widget.Button>(R.id.btnWatchAd)
-        val tvAdRetryInfo = findViewById<android.widget.TextView>(R.id.tvAdRetryInfo)
         val remedialSection = findViewById<View>(R.id.remedialRetrySection)
         val btnRemedial = findViewById<android.widget.Button>(R.id.btnRemedialMiniTest)
         if (locked && wrongIds.isNotEmpty()) {
@@ -344,64 +336,6 @@ class QuizResultActivity : AppCompatActivity() {
             }
         } else {
             remedialSection.visibility = View.GONE
-        }
-        if (locked && isGateMode && wrongIds.isNotEmpty()) {
-            val adsPrefs = AdsPrefs(this)
-            val premiumStore = PremiumStore(this)
-            val retryStore = RewardedRetryStore(this)
-            val profileId = ProfileStore(this).getCurrentProfileId()
-            val eligibleQuestion = wrongIds.shuffled().firstOrNull { qId ->
-                retryStore.canRetryWithAd(profileId, s.quizId, qId)
-            }
-            val isPremium = premiumStore.isPremium()
-            val canShowAd = !isPremium && adsPrefs.isAdsEnabled() && eligibleQuestion != null
-            val canShowPremiumRetry = isPremium && eligibleQuestion != null
-            if (canShowAd || canShowPremiumRetry) {
-                adSection.visibility = View.VISIBLE
-                if (isPremium) {
-                    tvAdRetryInfo.text = getString(R.string.premium_retry_info)
-                    btnWatchAd.text = getString(R.string.btn_retry_single)
-                    btnWatchAd.setOnClickListener {
-                        val q = wrongIds.shuffled().firstOrNull { retryStore.canRetryWithAd(profileId, s.quizId, it) } ?: wrongIds.first()
-                        retryStore.recordRetryUsed(profileId, s.quizId, q)
-                        startActivity(Intent(this, GateRetrySingleActivity::class.java).apply {
-                            putExtra(GateRetrySingleActivity.EXTRA_QUIZ_ID, s.quizId)
-                            putExtra(GateRetrySingleActivity.EXTRA_QUESTION_ID, q)
-                            putExtra(GateRetrySingleActivity.EXTRA_SESSION_JSON, encodeSession(s))
-                            putExtra(GateRetrySingleActivity.EXTRA_QUESTIONS_JSON, intent.getStringExtra(EXTRA_QUESTIONS_JSON))
-                        })
-                        finish()
-                    }
-                } else {
-                    tvAdRetryInfo.text = getString(R.string.ad_retry_info_with_count, retryStore.getRemainingRetriesToday(profileId))
-                    btnWatchAd.text = getString(R.string.ad_watch_retry)
-                    val adHelper = RewardAdHelper(this)
-                    adHelper.loadAd(onFailed = { btnWatchAd.isEnabled = false })
-                    btnWatchAd.setOnClickListener {
-                        if (adHelper.isLoaded()) {
-                            adHelper.showAd(
-                                onRewarded = {
-                                    retryStore.recordRetryUsed(profileId, s.quizId, eligibleQuestion!!)
-                                    startActivity(Intent(this, GateRetrySingleActivity::class.java).apply {
-                                        putExtra(GateRetrySingleActivity.EXTRA_QUIZ_ID, s.quizId)
-                                        putExtra(GateRetrySingleActivity.EXTRA_QUESTION_ID, eligibleQuestion)
-                                        putExtra(GateRetrySingleActivity.EXTRA_SESSION_JSON, encodeSession(s))
-                                        putExtra(GateRetrySingleActivity.EXTRA_QUESTIONS_JSON, intent.getStringExtra(EXTRA_QUESTIONS_JSON))
-                                    })
-                                    finish()
-                                },
-                                onFailed = { adHelper.loadAd() }
-                            )
-                        } else {
-                            adHelper.loadAd()
-                        }
-                    }
-                }
-            } else {
-                adSection.visibility = View.GONE
-            }
-        } else {
-            adSection.visibility = View.GONE
         }
     }
 
@@ -448,6 +382,7 @@ class QuizResultActivity : AppCompatActivity() {
             totalQuestions = s.totalCount,
             passed = s.passed,
             wrongQuestionIds = s.wrongQuestionIds,
+            questionIds = s.questionIds,
             byTopic = topicAcc,
             byDifficulty = diffAcc,
             byTopicCounts = topicCounts,

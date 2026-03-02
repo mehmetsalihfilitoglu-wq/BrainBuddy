@@ -54,6 +54,9 @@ object ProfileScopedPrefs {
     fun avatar(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_avatar", migrationKey = "avatar_v1")
 
+    fun studentProfile(context: Context): SharedPreferences =
+        profilePrefsWithMigration(context, baseName = "bb_student_profile", migrationKey = "student_profile_v1")
+
     fun quizPrefs(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_quiz_prefs", migrationKey = "quiz_prefs_v1")
 

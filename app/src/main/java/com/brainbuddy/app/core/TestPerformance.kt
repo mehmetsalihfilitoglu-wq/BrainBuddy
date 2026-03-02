@@ -13,6 +13,7 @@ data class TestPerformance(
     val totalQuestions: Int = 0,
     val passed: Boolean,
     val wrongQuestionIds: List<String>,
+    val questionIds: List<String> = emptyList(),
     val byTopic: Map<String, Float> = emptyMap(),
     val byDifficulty: Map<String, Float> = emptyMap(),
     val byTopicCounts: Map<String, TopicCounts> = emptyMap(),

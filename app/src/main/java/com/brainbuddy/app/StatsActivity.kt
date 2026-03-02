@@ -10,9 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.core.AnalyticsStore
+import com.brainbuddy.app.core.DailyAdQuotaStore
 import com.brainbuddy.app.core.GamificationStore
+import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.TestPerformance
+import com.brainbuddy.app.quiz.QuizActivity
+import com.brainbuddy.app.ui.AdLimitReachedActivity
+import com.brainbuddy.app.ui.WatchAdToUnlockLastTestActivity
 import com.brainbuddy.app.databinding.ActivityStatsBinding
 import com.brainbuddy.app.ui.BarChartView
 import com.brainbuddy.app.ui.LineChartView
@@ -87,14 +92,44 @@ class StatsActivity : AppCompatActivity() {
             }
         }
 
+        val recentList = recent.takeLast(5).reversed()
         b.recyclerRecentTests.layoutManager = LinearLayoutManager(this)
-        b.recyclerRecentTests.adapter = RecentTestsAdapter(recent.takeLast(5).reversed())
+        b.recyclerRecentTests.adapter = RecentTestsAdapter(recentList) { perf ->
+            val questionIds = perf.questionIds
+            if (questionIds.size < com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+                android.widget.Toast.makeText(this, "Bu test için tekrar çözme mevcut değil", android.widget.Toast.LENGTH_SHORT).show()
+                return@RecentTestsAdapter
+            }
+            val premium = PremiumStore(this).isPremium()
+            if (premium) {
+                startActivity(Intent(this, QuizActivity::class.java).apply {
+                    putExtra(QuizActivity.EXTRA_REPLAY_FROM_LAST_TEST, true)
+                    putExtra(QuizActivity.EXTRA_QUIZ_ID, perf.quizId)
+                    putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(questionIds))
+                })
+            } else {
+                val quotaStore = DailyAdQuotaStore(this)
+                quotaStore.resetIfNewDay()
+                val remaining = quotaStore.getRemainingToday()
+                if (remaining > 0) {
+                    startActivity(Intent(this, WatchAdToUnlockLastTestActivity::class.java).apply {
+                        putExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUIZ_ID, perf.quizId)
+                        putStringArrayListExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUESTION_IDS, ArrayList(questionIds))
+                    })
+                } else {
+                    startActivity(Intent(this, AdLimitReachedActivity::class.java))
+                }
+            }
+        }
 
         b.btnBack.setOnClickListener { finish() }
     }
 }
 
-class RecentTestsAdapter(private val items: List<TestPerformance>) : RecyclerView.Adapter<RecentTestsAdapter.VH>() {
+class RecentTestsAdapter(
+    private val items: List<TestPerformance>,
+    private val onItemClick: (TestPerformance) -> Unit
+) : RecyclerView.Adapter<RecentTestsAdapter.VH>() {
     class VH(val view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -106,6 +141,7 @@ class RecentTestsAdapter(private val items: List<TestPerformance>) : RecyclerVie
         val p = items[position]
         holder.view.findViewById<TextView>(R.id.tvTestIndex).text = "Test ${items.size - position}"
         holder.view.findViewById<TextView>(R.id.tvTestScore).text = "${p.correctCount}/${p.effectiveTotal}"
+        holder.view.setOnClickListener { onItemClick(p) }
     }
 
     override fun getItemCount() = items.size
