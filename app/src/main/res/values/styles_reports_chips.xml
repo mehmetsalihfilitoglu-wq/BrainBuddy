@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Reports range filter chips: emerald theme -->
+    <style name="Widget.BrainBuddy.Chip.Filter.Range" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_range_background</item>
+        <item name="chipStrokeColor">@color/chip_range_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/chip_range_text</item>
+    </style>
+</resources>
