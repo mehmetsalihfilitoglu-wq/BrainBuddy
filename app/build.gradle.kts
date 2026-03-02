@@ -14,6 +14,9 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
+        buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
+
         // 🔥 adaptive icon hatasını engelle
         vectorDrawables.useSupportLibrary = true
     }
@@ -34,6 +37,7 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = true
+        buildConfig = true
     }
 
     compileOptions {
