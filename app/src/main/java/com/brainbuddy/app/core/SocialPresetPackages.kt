@@ -9,9 +9,10 @@ import android.content.pm.PackageManager
  */
 object SocialPresetPackages {
 
-    /** Instagram, TikTok, YouTube, Facebook + optional Snapchat, X/Twitter */
+    /** Instagram, WhatsApp, TikTok, YouTube, Facebook + optional Snapchat, X/Twitter. Never auto-blocked. */
     val packageNames: Set<String> = setOf(
         "com.instagram.android",
+        "com.whatsapp",
         "com.zhiliaoapp.musically", // TikTok
         "com.google.android.youtube",
         "com.facebook.katana",

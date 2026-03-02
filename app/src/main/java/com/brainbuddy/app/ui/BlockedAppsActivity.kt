@@ -167,6 +167,9 @@ class BlockedAppsActivity : AppCompatActivity() {
         }
         root.findViewById<View>(R.id.btnPresetSingleSelect)?.setOnClickListener {
             sheet.dismiss()
+            val socialPkgs = AppGroupPresets.socialPackages
+            adapter.updateList(allApps.filter { it.packageName in socialPkgs })
+            findViewById<com.google.android.material.chip.ChipGroup>(R.id.chipGroup)?.check(R.id.chipSocial)
         }
         sheet.show()
     }

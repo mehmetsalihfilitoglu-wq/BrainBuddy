@@ -264,8 +264,10 @@
 
     <!-- New social app notification -->
     <string name="notif_channel_social_preset">Yeni Uygulama Önerisi</string>
-    <string name="notif_new_social_title">Yeni sosyal uygulama</string>
-    <string name="notif_new_social_text">%1$s yüklendi. Engellemek ister misiniz?</string>
+    <string name="notif_new_social_title">Yeni uygulama</string>
+    <string name="notif_new_social_text">Yeni uygulama bulundu: %1$s. Engellemek ister misiniz?</string>
+    <string name="notif_action_block">Engelle</string>
+    <string name="notif_action_dismiss">Yoksay</string>
 
     <!-- Improvement stats (parent) -->
     <string name="parent_improvement_title">Gelişim Özeti</string>

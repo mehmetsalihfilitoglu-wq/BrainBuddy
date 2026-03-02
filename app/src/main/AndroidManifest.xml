@@ -140,6 +140,14 @@
         </receiver>
 
         <receiver
+            android:name=".receiver.BlockAppFromNotificationReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".receiver.DismissSocialNotifReceiver"
+            android:exported="false" />
+
+        <receiver
             android:name=".resilience.BootReceiver"
             android:exported="true"
             android:enabled="true">

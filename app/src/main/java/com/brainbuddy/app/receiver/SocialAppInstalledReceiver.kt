@@ -15,7 +15,7 @@ import com.brainbuddy.app.ui.BlockedAppsActivity
 
 /**
  * When a social media app is installed, notifies parent to consider blocking.
- * Does NOT auto-block; parent decides.
+ * Does NOT auto-block; parent must explicitly choose "Engelle" or "Yoksay".
  */
 class SocialAppInstalledReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
@@ -47,15 +47,40 @@ class SocialAppInstalledReceiver : BroadcastReceiver() {
                 ?.createNotificationChannel(channel)
         }
 
-        val target = Intent(context, BlockedAppsActivity::class.java).apply {
+        val notifId = NOTIF_BASE_ID + (pkg.hashCode() and 0xFFFF)
+
+        val openAppList = Intent(context, BlockedAppsActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
             putExtra(BlockedAppsActivity.EXTRA_QUICK_BLOCK_PACKAGE, pkg)
             putExtra(BlockedAppsActivity.EXTRA_HIGHLIGHT_PACKAGE, pkg)
         }
-        val pending = PendingIntent.getActivity(
+        val contentPending = PendingIntent.getActivity(
             context,
             pkg.hashCode() and 0x7FFFFFFF,
-            target,
+            openAppList,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val blockIntent = Intent(context, BlockAppFromNotificationReceiver::class.java).apply {
+            action = BlockAppFromNotificationReceiver.ACTION_BLOCK
+            putExtra(BlockAppFromNotificationReceiver.EXTRA_PACKAGE, pkg)
+            putExtra(BlockAppFromNotificationReceiver.EXTRA_NOTIF_ID, notifId)
+        }
+        val blockPending = PendingIntent.getBroadcast(
+            context,
+            (pkg + "_block").hashCode() and 0x7FFFFFFF,
+            blockIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val dismissIntent = Intent(context, DismissSocialNotifReceiver::class.java).apply {
+            action = DismissSocialNotifReceiver.ACTION_DISMISS
+            putExtra(DismissSocialNotifReceiver.EXTRA_NOTIF_ID, notifId)
+        }
+        val dismissPending = PendingIntent.getBroadcast(
+            context,
+            (pkg + "_dismiss").hashCode() and 0x7FFFFFFF,
+            dismissIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
@@ -65,13 +90,15 @@ class SocialAppInstalledReceiver : BroadcastReceiver() {
             .setContentTitle(title)
             .setContentText(text)
             .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentIntent(pending)
+            .setContentIntent(contentPending)
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .addAction(0, context.getString(R.string.notif_action_block), blockPending)
+            .addAction(0, context.getString(R.string.notif_action_dismiss), dismissPending)
             .build()
 
         (context.getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager)
-            ?.notify(NOTIF_BASE_ID + (pkg.hashCode() and 0xFFFF), notification)
+            ?.notify(notifId, notification)
     }
 
     companion object {
