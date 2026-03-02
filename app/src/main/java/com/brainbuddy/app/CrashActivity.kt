@@ -1,20 +1,36 @@
 package com.brainbuddy.app
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.brainbuddy.app.databinding.ActivityCrashBinding
 
 class CrashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val crashText = try {
-            (intent?.getStringExtra("crash_text") ?: "Bilinmeyen hata").take(50_000)
-        } catch (_: Exception) { "Hata raporu yüklenemedi" }
-        val tv = TextView(this)
-        tv.textSize = 14f
-        tv.setPadding(24, 24, 24, 24)
-        tv.text = crashText
-        setContentView(tv)
+        val binding = ActivityCrashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val crashText = getCrashTextFromIntent()
+        binding.tvCrashText.text = crashText
+    }
+
+    private fun getCrashTextFromIntent(): String {
+        return try {
+            val i = intent ?: return "Unknown error"
+            val keys = listOf(
+                "crash_text",
+                "stack_trace",
+                "EXTRA_STACK_TRACE",
+                "error_details"
+            )
+            for (key in keys) {
+                val v = i.getStringExtra(key)
+                if (!v.isNullOrBlank()) return v.take(50_000)
+            }
+            "No crash details available"
+        } catch (_: Exception) {
+            "Failed to load crash report"
+        }
     }
 }

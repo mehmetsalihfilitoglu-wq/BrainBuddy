@@ -42,18 +42,13 @@ class BrainBuddyApp : Application() {
                     ProtectionPrefs(this).setProtectionEnabled(false)
                     KillSwitchPrefs(this).deactivateKillSwitch()
                 }
-                val text = buildString {
-                    append("CRASH!\n\n")
-                    append(throwable.toString())
-                    append("\n\n")
-                    throwable.stackTrace.take(80).forEach {
-                        append(it.toString()).append("\n")
-                    }
-                }.take(50_000) // Avoid TransactionTooLargeException
+                val text = buildFullCrashReport(throwable)
 
                 val i = Intent(this, CrashActivity::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     putExtra("crash_text", text)
+                    putExtra("stack_trace", text)
+                    putExtra("error_details", text)
                 }
                 startActivity(i)
 
@@ -68,6 +63,29 @@ class BrainBuddyApp : Application() {
         }
     }
 }
+
+private fun buildFullCrashReport(throwable: Throwable): String = buildString {
+    val STACK_LINES = 60
+    var t: Throwable? = throwable
+    var depth = 0
+    while (t != null) {
+        val prefix = if (depth == 0) "" else "Caused by: "
+        append(prefix).append(t.javaClass.name)
+        t.message?.let { msg -> append(": ").append(msg) }
+        append("\n\n")
+        val trace = t.stackTrace
+        val linesToShow = minOf(STACK_LINES, trace.size)
+        for (i in 0 until linesToShow) {
+            append("\tat ").append(trace[i].toString()).append("\n")
+        }
+        if (trace.size > STACK_LINES) {
+            append("\t... ").append(trace.size - STACK_LINES).append(" more\n")
+        }
+        append("\n")
+        t = t.cause
+        depth++
+    }
+}.take(50_000)
 
 private fun exitProcess(code: Int): Nothing {
     kotlin.system.exitProcess(code)
