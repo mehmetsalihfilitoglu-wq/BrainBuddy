@@ -42,10 +42,14 @@ class LeagueWeeklyWorker(
                 npcs = npcs,
                 npcScores = targets
             )
-            val ranked = entries.sortedByDescending { it.weeklyScore }
+            val ranked = entries.filterNotNull().sortedByDescending { it.weeklyScore }
 
-            val studentRank = ranked.indexOfFirst { !it.isNpc }
-            val safeStudentRank = if (studentRank < 0) -1 else studentRank.coerceIn(0, ranked.size - 1)
+            val rawStudentRank = ranked.indexOfFirst { !it.isNpc }
+            val safeStudentRank = if (rawStudentRank < 0 || ranked.isEmpty()) {
+                -1
+            } else {
+                rawStudentRank.coerceIn(0, ranked.size - 1)
+            }
             val demotionIdx = (ranked.size - 3).coerceAtLeast(0)
             val newTier = when {
                 safeStudentRank < 0 -> tier
@@ -98,12 +102,12 @@ class LeagueWeeklyWorker(
         npcScores: Map<String, Int>
     ): List<LeagueEntry> {
         val list = mutableListOf<LeagueEntry>()
-        list.add(LeagueEntry(studentId, studentName, studentScore, false))
+        list.add(LeagueEntry(studentId, studentName, studentScore.coerceAtLeast(0), false))
         npcs.forEach { npc ->
             list.add(LeagueEntry(
                 id = npc.id,
                 displayName = npc.displayName,
-                weeklyScore = npcScores[npc.id] ?: 50,
+                weeklyScore = (npcScores[npc.id] ?: 50).coerceIn(0, 9999),
                 isNpc = true,
                 avatarCosmetics = npc.avatarCosmetics
             ))

@@ -1,6 +1,8 @@
 package com.brainbuddy.app.social
 
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.brainbuddy.app.R
@@ -42,12 +44,26 @@ class LeagueScreen : AppCompatActivity() {
         val noteIdx = (System.currentTimeMillis() % 2).toInt().coerceIn(0, notes.size - 1)
         b.tvLeagueNote.text = notes[noteIdx]
 
-        val entries = LeagueHelper.getLeaderboardEntries(this)
-        val safeEntries = if (entries.isEmpty()) {
-            listOf(LeagueEntry(profileId, profileStore.getProfile(profileId)?.name ?: "Öğrenci", 0, false))
-        } else entries
-        b.recyclerLeaderboard.layoutManager = LinearLayoutManager(this)
-        b.recyclerLeaderboard.adapter = LeagueAdapter(safeEntries, profileId)
+        val rawEntries = try {
+            LeagueHelper.getLeaderboardEntries(this)
+        } catch (t: Throwable) {
+            Log.e("LeagueScreen", "Failed to build leaderboard entries", t)
+            emptyList()
+        }
+
+        val entries: List<LeagueEntry> = rawEntries.filterNotNull().sortedByDescending { it.weeklyScore }
+
+        if (entries.isEmpty()) {
+            Log.w("LeagueScreen", "Sanity check: leagueEntries is empty, showing empty-state card.")
+            b.recyclerLeaderboard.visibility = View.GONE
+            b.cardLeagueEmpty.visibility = View.VISIBLE
+        } else {
+            Log.d("LeagueScreen", "Sanity check: leagueEntries size=${entries.size}")
+            b.cardLeagueEmpty.visibility = View.GONE
+            b.recyclerLeaderboard.visibility = View.VISIBLE
+            b.recyclerLeaderboard.layoutManager = LinearLayoutManager(this)
+            b.recyclerLeaderboard.adapter = LeagueAdapter(entries, profileId)
+        }
 
         b.btnLeagueBack.setOnClickListener { finish() }
     }

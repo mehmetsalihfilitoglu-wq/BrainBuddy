@@ -34,35 +34,58 @@ object LeagueHelper {
         )
 
         val entries = mutableListOf<LeagueEntry>()
-        entries.add(LeagueEntry(
-            id = profileId,
-            displayName = studentName,
-            weeklyScore = store.getWeeklyScore(),
-            isNpc = false
-        ))
+        entries.add(
+            LeagueEntry(
+                id = profileId,
+                displayName = studentName,
+                weeklyScore = store.getWeeklyScore(),
+                isNpc = false
+            )
+        )
         npcs.forEach { npc ->
             val score = npcScoresWithVariation[npc.id] ?: 50
-            entries.add(LeagueEntry(
-                id = npc.id,
-                displayName = npc.displayName,
-                weeklyScore = score.coerceIn(0, 9999),
-                isNpc = true,
-                avatarCosmetics = npc.avatarCosmetics
-            ))
+            entries.add(
+                LeagueEntry(
+                    id = npc.id,
+                    displayName = npc.displayName,
+                    weeklyScore = score.coerceIn(0, 9999),
+                    isNpc = true,
+                    avatarCosmetics = npc.avatarCosmetics
+                )
+            )
         }
 
-        val sorted = entries.sortedByDescending { it.weeklyScore }
+        val sorted = entries.filterNotNull().sortedByDescending { it.weeklyScore }
+        if (sorted.isEmpty()) {
+            android.util.Log.w("LeagueHelper", "Sanity check failed: empty leaderboard, returning fallback entry.")
+            return listOf(
+                LeagueEntry(
+                    id = profileId,
+                    displayName = studentName,
+                    weeklyScore = store.getWeeklyScore().coerceAtLeast(0),
+                    isNpc = false
+                )
+            )
+        }
+
         if (sorted.size < LEADERBOARD_SIZE) {
             val fillerCount = (LEADERBOARD_SIZE - sorted.size).coerceAtLeast(0)
+            if (fillerCount <= 0) {
+                return sorted
+            }
             val filler = LeagueNpcGenerator.generateNpcProfiles(fillerCount.coerceAtLeast(1), weekStart + 1)
             val rng = kotlin.random.Random(weekStart)
             val fillerEntries = filler.take(fillerCount).mapIndexed { idx, npc ->
-                val score = 30 + (rng.nextInt(0, 40) + idx * 2).coerceIn(0, 70)
+                val base = 30 + idx * 2
+                val jitter = rng.nextInt(from = 0, until = 40)
+                val score = (base + jitter).coerceIn(0, 70)
                 LeagueEntry(npc.id, npc.displayName, score, true, npc.avatarCosmetics)
             }
-            return (sorted + fillerEntries).sortedByDescending { it.weeklyScore }.take(LEADERBOARD_SIZE)
+            val combined = (sorted + fillerEntries).sortedByDescending { it.weeklyScore }
+            return combined.take(LEADERBOARD_SIZE.coerceAtLeast(1))
         }
-        return sorted.take(LEADERBOARD_SIZE)
+
+        return sorted.take(LEADERBOARD_SIZE.coerceAtLeast(1))
     }
 
     fun getDaysUntilWeekEnd(): Int {
