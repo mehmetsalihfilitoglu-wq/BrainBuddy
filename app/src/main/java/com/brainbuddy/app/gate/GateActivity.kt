@@ -21,12 +21,12 @@ class GateActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         if (intent?.getBooleanExtra(EXTRA_TEST_MODE, false) == true) {
             setResult(RESULT_OK)
             finish()
             return
         }
-        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gate)
 
         window.setFlags(

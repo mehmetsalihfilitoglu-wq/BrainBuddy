@@ -11,6 +11,7 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.core.TestPerformance
 import com.brainbuddy.app.core.TopicCounts
 import com.brainbuddy.app.league.LeagueScoring
@@ -277,11 +278,43 @@ class QuizResultActivity : AppCompatActivity() {
         findViewById<android.widget.Button>(R.id.btnRetryTest).setOnClickListener {
             val protectionPrefs = ProtectionPrefs(this)
             if (protectionPrefs.userLocked()) {
-                startActivity(Intent(this, QuizActivity::class.java).apply {
-                    putExtra(QuizActivity.EXTRA_GATE_MODE, true)
-                    putExtra(QuizActivity.EXTRA_IS_RETRY, true)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                })
+                val policy = QuizRetryPolicy(this)
+                val qId = protectionPrefs.lastFailedQuizId()
+                val qIds = protectionPrefs.lastFailedQuestionIds()
+                when (policy.getStartMode()) {
+                    QuizRetryPolicy.StartMode.REQUIRE_AD -> {
+                        if (qIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+                            startActivity(Intent(this, QuizRetryAdActivity::class.java).apply {
+                                putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, qId)
+                                putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
+                            })
+                        } else {
+                            startActivity(Intent(this, LockScreenActivity::class.java)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                        }
+                    }
+                    QuizRetryPolicy.StartMode.WAIT_COOLDOWN -> {
+                        if (qIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+                            startActivity(Intent(this, QuizCooldownActivity::class.java).apply {
+                                putExtra(QuizCooldownActivity.EXTRA_QUIZ_ID, qId)
+                                putStringArrayListExtra(QuizCooldownActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
+                            })
+                        } else {
+                            startActivity(Intent(this, LockScreenActivity::class.java)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                        }
+                    }
+                    else -> {
+                        // ALLOW_FREE (premium or cooldown passed) - direct QuizActivity
+                        startActivity(Intent(this, QuizActivity::class.java).apply {
+                            putExtra(QuizActivity.EXTRA_GATE_MODE, true)
+                            putExtra(QuizActivity.EXTRA_IS_RETRY, true)
+                            putExtra(QuizActivity.EXTRA_QUIZ_ID, qId)
+                            putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(qIds))
+                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                        })
+                    }
+                }
             } else {
                 startActivity(Intent(this, QuizActivity::class.java))
             }
@@ -295,7 +328,7 @@ class QuizResultActivity : AppCompatActivity() {
 
         if (s.passed) {
             newMilestone?.let { msg ->
-                android.app.AlertDialog.Builder(this)
+                com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
                     .setTitle("🎉 Kutlama!")
                     .setMessage(msg)
                     .setPositiveButton("Harika!", null)

@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        CrashRecoveryPrefs.recordStableRun(this)
 
         val prefs = ProtectionPrefs(this)
         val target = when {

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
+import com.brainbuddy.app.core.RetryUnlockStore
 
 class QuizCooldownActivity : AppCompatActivity() {
 
@@ -47,10 +48,13 @@ class QuizCooldownActivity : AppCompatActivity() {
                     isEnabled = true
                     setOnClickListener {
                         if (questionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST && ProtectionPrefs(this@QuizCooldownActivity).userLocked()) {
+                            val retryStore = RetryUnlockStore(this@QuizCooldownActivity)
+                            val token = retryStore.createRetryToken(quizId, questionIds)
                             startActivity(Intent(this@QuizCooldownActivity, QuizActivity::class.java).apply {
                                 putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                                 putExtra(QuizActivity.EXTRA_IS_RETRY, true)
                                 putExtra(QuizActivity.EXTRA_QUIZ_ID, quizId)
+                                putExtra(QuizActivity.EXTRA_RETRY_UNLOCK_TOKEN, token)
                                 putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(questionIds))
                                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             })

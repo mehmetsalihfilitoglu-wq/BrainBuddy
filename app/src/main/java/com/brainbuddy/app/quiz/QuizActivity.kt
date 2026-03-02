@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.LastTestUnlockStore
 import com.brainbuddy.app.core.PremiumStore
+import com.brainbuddy.app.core.RetryUnlockStore
 import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
@@ -31,6 +32,7 @@ class QuizActivity : AppCompatActivity() {
         const val EXTRA_UNLOCK_TOKEN = "unlock_token"
         const val EXTRA_QUESTION_IDS_FOR_REPLAY = "question_ids_for_replay"
         const val EXTRA_RETRY_AFTER_AD = "retry_after_ad"
+        const val EXTRA_RETRY_UNLOCK_TOKEN = "retry_unlock_token"
     }
 
     private lateinit var b: ActivityQuizBinding
@@ -85,6 +87,8 @@ class QuizActivity : AppCompatActivity() {
         retryWrongMode = intent.getBooleanExtra(EXTRA_RETRY_WRONG, false)
         isRetryOfLockedQuiz = intent.getBooleanExtra(EXTRA_IS_RETRY, false)
         val retryAfterAd = intent.getBooleanExtra(EXTRA_RETRY_AFTER_AD, false)
+        val retryUnlockToken = intent.getStringExtra(EXTRA_RETRY_UNLOCK_TOKEN)
+
         if (isRetryOfLockedQuiz && !retryAfterAd && protectionPrefs.userLocked()) {
             val policy = QuizRetryPolicy(this)
             when (policy.getStartMode()) {
@@ -115,6 +119,26 @@ class QuizActivity : AppCompatActivity() {
                 else -> { }
             }
         }
+
+        // Bypass prevention: non-premium retry requires valid one-shot token (from ad or cooldown)
+        if (isRetryOfLockedQuiz && protectionPrefs.userLocked() && !PremiumStore(this).isPremium()) {
+            if (retryUnlockToken.isNullOrBlank()) {
+                startActivity(Intent(this, com.brainbuddy.app.LockScreenActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                finish()
+                return
+            }
+            val retryStore = RetryUnlockStore(this)
+            val quizIdForRetry = protectionPrefs.lastFailedQuizId()
+            val consumed = retryStore.consumeRetryToken(retryUnlockToken, quizIdForRetry)
+            if (consumed == null || consumed.isEmpty()) {
+                startActivity(Intent(this, com.brainbuddy.app.LockScreenActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                finish()
+                return
+            }
+        }
+
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
         quizId = intent.getStringExtra(EXTRA_QUIZ_ID) ?: UUID.randomUUID().toString()
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS)

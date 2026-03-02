@@ -96,10 +96,7 @@ class StatsActivity : AppCompatActivity() {
         b.recyclerRecentTests.layoutManager = LinearLayoutManager(this)
         b.recyclerRecentTests.adapter = RecentTestsAdapter(recentList) { perf ->
             val questionIds = perf.questionIds
-            if (questionIds.size < com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
-                android.widget.Toast.makeText(this, "Bu test için tekrar çözme mevcut değil", android.widget.Toast.LENGTH_SHORT).show()
-                return@RecentTestsAdapter
-            }
+            if (questionIds.size < com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) return@RecentTestsAdapter
             val premium = PremiumStore(this).isPremium()
             if (premium) {
                 startActivity(Intent(this, QuizActivity::class.java).apply {

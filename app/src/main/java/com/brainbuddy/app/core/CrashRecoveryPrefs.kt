@@ -11,6 +11,19 @@ object CrashRecoveryPrefs {
     private const val CRASH_WINDOW_MS = 5 * 60 * 1000L  // 5 minutes
     private const val CRASH_THRESHOLD = 3
     private const val KEY_PROTECTION_DISABLED_BY_CRASH = "protection_disabled_by_crash"
+    private const val KEY_LAST_STABLE_MS = "last_stable_ms"
+    private const val STABLE_RESET_MS = 10 * 60 * 1000L  // 10 minutes without crash -> reset
+
+    /** Call when app runs successfully (e.g. MainActivity/HomeActivity shown). Resets crash count after 10 min. */
+    fun recordStableRun(context: Context) {
+        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val now = System.currentTimeMillis()
+        val lastStable = prefs.getLong(KEY_LAST_STABLE_MS, 0L)
+        if (lastStable > 0 && now - lastStable >= STABLE_RESET_MS) {
+            clearCrashHistory(context)
+        }
+        prefs.edit().putLong(KEY_LAST_STABLE_MS, now).apply()
+    }
 
     fun recordCrash(context: Context) {
         val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)

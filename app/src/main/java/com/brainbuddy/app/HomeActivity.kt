@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.coach.WiseCoachGreeting
 import com.brainbuddy.app.core.AnalyticsStore
@@ -70,7 +70,7 @@ class HomeActivity : AppCompatActivity() {
         val contractStore = com.brainbuddy.app.reward.RewardContractStore(this)
         val pending = contractStore.getPendingReached()
         if (pending.isNotEmpty()) {
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setTitle("Ödül!")
                 .setMessage(pending.joinToString("\n") { "${it.targetXP} XP: ${it.description}" })
                 .setPositiveButton("Tamam", null)

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.core.QuizRetryPolicy
+import com.brainbuddy.app.core.RetryUnlockStore
 
 class QuizRetryAdActivity : AppCompatActivity() {
 
@@ -35,11 +36,14 @@ class QuizRetryAdActivity : AppCompatActivity() {
                 adHelper.showAd(
                     onRewarded = {
                         policy.consumeAdTicket()
+                        val retryStore = RetryUnlockStore(this)
+                        val token = retryStore.createRetryToken(quizId, questionIds)
                         startActivity(Intent(this, QuizActivity::class.java).apply {
                             putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                             putExtra(QuizActivity.EXTRA_IS_RETRY, true)
                             putExtra(QuizActivity.EXTRA_RETRY_AFTER_AD, true)
                             putExtra(QuizActivity.EXTRA_QUIZ_ID, quizId)
+                            putExtra(QuizActivity.EXTRA_RETRY_UNLOCK_TOKEN, token)
                             putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(questionIds))
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         })
