@@ -78,8 +78,8 @@
     <string name="gate_quiz_required">Engellenen uygulamayı kullanmak için önce testi geçmelisin.</string>
 
     <!-- Lock screen -->
-    <string name="lock_failed_title">Test Başarısız</string>
-    <string name="lock_failed_message">3\'ten fazla yanlış cevap verdin. Testi geçene veya pratik yapana kadar uygulama kilitli.</string>
+    <string name="lock_failed_title">BAŞARISIZ</string>
+    <string name="lock_failed_message">Sorular zor olabilir. Birlikte güçleneceğiz.</string>
     <string name="lock_permission_title">Engelleme İzni Kapatıldı</string>
     <string name="lock_permission_message">Uygulama engelleme izni kapatıldı. Ebeveyn PIN\'i ile ayarlardan yeniden açabilirsiniz.</string>
     <string name="btn_parent_unlock">Ebeveyn PIN ile Aç</string>
@@ -208,6 +208,12 @@
     <string name="notif_channel_social_preset">Yeni Uygulama Önerisi</string>
     <string name="notif_new_social_title">Yeni sosyal uygulama</string>
     <string name="notif_new_social_text">%1$s yüklendi. Engellemek ister misiniz?</string>
+
+    <!-- Improvement stats (parent) -->
+    <string name="parent_improvement_title">Gelişim Özeti</string>
+    <string name="parent_improvement_topic">%1$s: %2$d yanlış → %3$d düzeltildi</string>
+    <string name="parent_improvement_total">Toplam: %1$d yanlış → %2$d düzeltildi</string>
+    <string name="student_encouragement">Bu konuda gelişiyorsun!</string>
 
     <!-- Kill Switch -->
     <string name="kill_switch_banner_text">Koruma geçici kapalı</string>

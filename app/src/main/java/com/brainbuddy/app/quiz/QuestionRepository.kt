@@ -19,11 +19,21 @@ class QuestionRepository(private val context: Context) {
     }
 
     private val historyStore = QuestionHistoryStore(context)
+    private val wrongQuestionStore = WrongQuestionStore(context)
 
     private val importedFile get() = java.io.File(context.filesDir, "imported_questions.json")
 
     /** @return Pair(questions, parseStats) - stats used for debug toast */
     fun loadAllQuestions(): List<Question> = loadAllQuestionsWithStats().first
+
+    /** Returns pool size for levelGroup. Null-safe. Use before starting test for crash safety. */
+    fun getPoolSizeForLevel(levelGroup: LevelGroup): Int {
+        return try {
+            val global = getGlobalPool()
+            val pool = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
+            pool.distinctBy { it.id }.size
+        } catch (_: Exception) { 0 }
+    }
 
     fun loadAllQuestionsWithStats(): Pair<List<Question>, LoadStats> {
         val fromAssets = loadFromAssets()
@@ -229,9 +239,16 @@ class QuestionRepository(private val context: Context) {
         )
     }
 
-    fun recordAnswers(answers: List<AnswerRecord>) {
+    /** @param questionsMap Optional map of questionId->Question for wrong-question tracking (topic). */
+    fun recordAnswers(answers: List<AnswerRecord>, questionsMap: Map<String, Question>? = null) {
         answers.forEach { a ->
             historyStore.recordAnswer(a.questionId, a.isCorrect)
+            val q = questionsMap?.get(a.questionId)
+            if (a.isCorrect) {
+                wrongQuestionStore.markFixed(a.questionId)
+            } else {
+                wrongQuestionStore.recordWrong(a.questionId, q?.subject?.tr ?: "Diğer")
+            }
         }
     }
 
@@ -260,7 +277,7 @@ class QuestionRepository(private val context: Context) {
         showDebugToast(loadStats, filterStats, finalPool.size, count)
 
         val profileId = ProfileStore(context).getCurrentProfileId()
-        val wrongIds = historyStore.getWrongQuestionIds(7)
+        val wrongIds = (historyStore.getWrongQuestionIds(7) + wrongQuestionStore.getUnfixedWrongIds(14)).toSet()
         val now = System.currentTimeMillis()
         val cooldownMs = TimeUnit.DAYS.toMillis(2)
 
@@ -471,16 +488,25 @@ class QuestionRepository(private val context: Context) {
         return result
     }
 
-    /** Gate quiz: prefer questions not in recentSeenQuestionIds (per profile), shuffle order. Updates recentSeen at generation to avoid immediate repeats in fail-loop. */
+    /** Gate quiz: new quiz each attempt. Shuffled pool + recent-question blacklist. Same question cannot repeat within test. */
     fun pickGateQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         val profileId = ProfileStore(context).getCurrentProfileId()
         val global = getGlobalPool()
         val pool = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
-        val recentIds = historyStore.getRecentlySeenIdsForProfile(profileId, 100)
-        val preferFresh = pool.filter { it.id !in recentIds }.shuffled()
-        val fillFrom = pool.filter { it.id in recentIds }.shuffled()
+        val recentIds = historyStore.getRecentlySeenIdsForProfile(profileId, 50)
+        val wrongIds = wrongQuestionStore.getUnfixedWrongIds(14)
+        val preferWrong = pool.filter { it.id in wrongIds }.shuffled()
+        val preferFresh = pool.filter { it.id !in recentIds && it.id !in wrongIds }.shuffled()
+        val fillFrom = pool.filter { it.id in recentIds && it.id !in wrongIds }.shuffled()
         val result = mutableListOf<Question>()
         val used = mutableSetOf<String>()
+        for (q in preferWrong) {
+            if (result.size >= count) break
+            if (q.id !in used) {
+                result.add(q)
+                used.add(q.id)
+            }
+        }
         for (q in preferFresh) {
             if (result.size >= count) break
             if (q.id !in used) {
@@ -497,11 +523,17 @@ class QuestionRepository(private val context: Context) {
         }
         var finalList = result.ifEmpty { pool.shuffled().take(count) }.toMutableList()
         if (finalList.size < count && pool.isNotEmpty()) {
-            var idx = 0
+            val usedIds = finalList.map { it.id }.toSet().toMutableSet()
             val shuffled = pool.shuffled()
-            while (finalList.size < count) {
-                finalList.add(shuffled[idx % shuffled.size])
+            var idx = 0
+            while (finalList.size < count && shuffled.isNotEmpty()) {
+                val q = shuffled[idx % shuffled.size]
+                if (q.id !in usedIds) {
+                    finalList.add(q)
+                    usedIds.add(q.id)
+                }
                 idx++
+                if (idx > shuffled.size * 2) break
             }
         }
         val toReturn = finalList.shuffled()

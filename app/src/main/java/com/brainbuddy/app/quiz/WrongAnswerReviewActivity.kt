@@ -164,7 +164,10 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         b.feedbackText.setTextColor(getColor(if (correct) R.color.bb_turquoise else R.color.bb_error))
         b.feedbackText.text = if (correct) "✓ Doğru!" else if (isParentReview) "✗ Yanlış. Doğru: ${q.choices.getOrNull(q.correctIndex) ?: "?"}" else "✗ Yanlış"
         if (correct) {
-            repo.recordAnswers(listOf(AnswerRecord(q.id, sel, q.correctIndex)))
+            repo.recordAnswers(
+                listOf(AnswerRecord(q.id, sel, q.correctIndex)),
+                questions.associateBy { it.id }
+            )
             analyticsStore.recordReviewCorrection()
         }
         b.nextBtn.text = if (index < questions.size - 1) "Sonraki →" else "Bitir"

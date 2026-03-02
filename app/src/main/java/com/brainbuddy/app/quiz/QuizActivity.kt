@@ -250,7 +250,8 @@ class QuizActivity : AppCompatActivity() {
         }
         val blankCount = questions.size - correctCount - wrongCount
 
-        repo.recordAnswers(answerRecords)
+        val questionsMap = questions.associateBy { it.id }
+        repo.recordAnswers(answerRecords, questionsMap)
 
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
@@ -289,6 +290,7 @@ class QuizActivity : AppCompatActivity() {
             protectionPrefs.setLastFailedQuizId(quizId)
             protectionPrefs.setLastFailedQuestionIds(questions.map { it.id })
             protectionPrefs.setLastFailedSessionJson(QuizResultActivity.encodeSession(session))
+            protectionPrefs.setLastFailedQuestionsJson(QuizResultActivity.encodeQuestions(questions))
         }
 
         startActivity(Intent(this, QuizResultActivity::class.java).apply {

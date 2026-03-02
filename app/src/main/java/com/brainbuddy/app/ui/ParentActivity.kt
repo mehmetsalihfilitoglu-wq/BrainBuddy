@@ -23,6 +23,7 @@ import com.brainbuddy.app.core.TopicCounts
 import com.brainbuddy.app.databinding.ActivityParentBinding
 import com.brainbuddy.app.quiz.Subject
 import com.brainbuddy.app.quiz.WrongAnswerReviewActivity
+import com.brainbuddy.app.quiz.WrongQuestionStore
 import com.google.android.material.chip.Chip
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -51,7 +52,12 @@ class ParentActivity : ComponentActivity() {
         val protectionPrefs = ProtectionPrefs(this)
         val wrongIds = protectionPrefs.lastFailedWrongIds()
 
-        setupControlRow(b.controlReviewWrong.root, R.drawable.ic_review, getString(R.string.parent_review_wrong), getString(R.string.parent_review_wrong_sub)) {
+        val wrongStoreInit = WrongQuestionStore(this)
+        val impByTopic = wrongStoreInit.getImprovementByTopic()
+        val impLines = impByTopic.entries.filter { it.value.totalWrong > 0 }.take(3)
+            .joinToString(" • ") { (t, i) -> "$t: ${i.totalWrong}→${i.fixedCount} düz." }
+        val reviewSub = if (impLines.isNotBlank()) impLines else getString(R.string.parent_review_wrong_sub)
+        setupControlRow(b.controlReviewWrong.root, R.drawable.ic_review, getString(R.string.parent_review_wrong), reviewSub) {
             if (wrongIds.isNotEmpty()) {
                 val sessionJson = protectionPrefs.lastFailedSessionJson()
                 startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
@@ -207,6 +213,17 @@ class ParentActivity : ComponentActivity() {
         b.tvWeeklyCorrect.text = "Doğru: $totalCorrect"
         b.tvWeeklyWrong.text = "Yanlış: $totalWrong"
         b.tvWeeklyBlank.text = "Boş: $totalBlank"
+
+        val wrongStoreRender = WrongQuestionStore(this)
+        val impByTopicRender = wrongStoreRender.getImprovementByTopic()
+        val impSub = impByTopicRender.entries.filter { it.value.totalWrong > 0 }.take(3)
+            .joinToString(" • ") { (t, i) -> "$t: ${i.totalWrong} yanlış→${i.fixedCount} düz." }
+        if (impSub.isNotBlank()) {
+            b.controlReviewWrong.root.findViewById<TextView>(R.id.subtitle)?.apply {
+                text = impSub
+                visibility = View.VISIBLE
+            }
+        }
 
         val topicCounts = analytics.getTopicMasteryWithCounts()
         val subjectOrder = listOf(Subject.MAT, Subject.TURKCE, Subject.FEN, Subject.SOSYAL, Subject.ING)

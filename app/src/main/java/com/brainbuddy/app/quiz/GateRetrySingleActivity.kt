@@ -91,7 +91,10 @@ class GateRetrySingleActivity : AppCompatActivity() {
         val correct = sel == q.correctIndex
         val newWrongCount = if (correct) (wrongCount - 1).coerceAtLeast(0) else wrongCount
 
-        QuestionRepository(this).recordAnswers(listOf(AnswerRecord(q.id, sel, q.correctIndex)))
+        QuestionRepository(this).recordAnswers(
+            listOf(AnswerRecord(q.id, sel, q.correctIndex)),
+            mapOf(q.id to q)
+        )
 
         if (newWrongCount < 4) {
             GateManager.onGatePassed(this)
@@ -114,6 +117,8 @@ class GateRetrySingleActivity : AppCompatActivity() {
             protectionPrefs.setLastFailedQuizId(session?.quizId ?: "")
             protectionPrefs.setLastFailedQuestionIds(session?.questionIds ?: emptyList())
             protectionPrefs.setLastFailedSessionJson(QuizResultActivity.encodeSession(session!!))
+            val qJson = intent.getStringExtra(EXTRA_QUESTIONS_JSON) ?: ""
+            if (qJson.isNotEmpty()) protectionPrefs.setLastFailedQuestionsJson(qJson)
             startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
         }
         finish()

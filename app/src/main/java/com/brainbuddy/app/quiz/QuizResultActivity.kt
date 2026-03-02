@@ -215,8 +215,8 @@ class QuizResultActivity : AppCompatActivity() {
         val isGateMode = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false)
 
         val titleText = when {
-            !s.passed -> "Başarısız"
-            isGateMode && s.wrongCount < 4 -> if (accuracy >= 0.4f) "Tebrikler! 🎉" else "Tamamlandı"
+            !s.passed -> getString(R.string.lock_failed_message)
+            isGateMode && s.wrongCount <= 3 -> if (accuracy >= 0.4f) "Tebrikler! 🎉" else "Tamamlandı"
             s.passed -> if (accuracy >= 0.4f) "Tebrikler! 🎉" else "Tamamlandı"
             else -> "Tamamlandı"
         }
@@ -230,13 +230,9 @@ class QuizResultActivity : AppCompatActivity() {
         }
         findViewById<android.widget.TextView>(R.id.tvPassFail).apply {
             visibility = View.VISIBLE
-            val gateFail = isGateMode && s.wrongCount >= 4
-            text = when {
-                s.passed -> "✅ GEÇTİ"
-                gateFail -> "❌ BAŞARISIZ"
-                else -> "❌ BAŞARISIZ"
-            }
+            text = if (s.passed) "✅ GEÇTİ" else "❌ BAŞARISIZ"
             setTextColor(if (s.passed) getColor(R.color.bb_turquoise) else getColor(R.color.bb_error))
+            if (!s.passed) textSize = 24f
         }
 
         findViewById<android.widget.ProgressBar>(R.id.progressCircle).apply {
@@ -255,19 +251,18 @@ class QuizResultActivity : AppCompatActivity() {
         val (strongest, weakest, suggested) = computeAnalyticsSummaryWithCounts(perf)
         findViewById<android.widget.TextView>(R.id.tvAnalytics).apply {
             visibility = View.VISIBLE
-            text = buildString {
-                append(strongest)
-                append("\n")
-                append(weakest)
-                append("\n")
-                append("Öneri: $suggested pratik yap")
+            text = if (suggested.isNotBlank() && suggested != "-") {
+                getString(R.string.student_encouragement) + "\n$suggested konusunda pratik yap."
+            } else {
+                getString(R.string.student_encouragement)
             }
         }
 
         val wrongSection = findViewById<View>(R.id.wrongSection)
         val btnRetryWrong = findViewById<android.widget.Button>(R.id.btnRetryWrong)
         val wrongIds = s.wrongQuestionIds
-        if (wrongIds.isEmpty()) {
+        val isFailedScreen = isGateMode && s.wrongCount >= 4
+        if (wrongIds.isEmpty() || isFailedScreen) {
             wrongSection.visibility = View.GONE
             btnRetryWrong.visibility = View.GONE
         } else {
@@ -286,11 +281,10 @@ class QuizResultActivity : AppCompatActivity() {
         findViewById<android.widget.Button>(R.id.btnRetryTest).setOnClickListener {
             val protectionPrefs = ProtectionPrefs(this)
             if (protectionPrefs.userLocked()) {
-                val retryIds = if (s.questionIds.isNotEmpty()) s.questionIds else wrongIds
                 startActivity(Intent(this, QuizActivity::class.java).apply {
+                    putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                     putExtra(QuizActivity.EXTRA_IS_RETRY, true)
-                    putExtra(QuizActivity.EXTRA_QUIZ_ID, s.quizId)
-                    putStringArrayListExtra(QuizActivity.EXTRA_WRONG_IDS, ArrayList(retryIds))
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 })
             } else {
                 startActivity(Intent(this, QuizActivity::class.java))
