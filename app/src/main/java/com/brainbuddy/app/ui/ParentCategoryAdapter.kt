@@ -2,6 +2,7 @@ package com.brainbuddy.app.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
 import com.brainbuddy.app.databinding.ItemParentCategoryBinding
@@ -37,6 +38,7 @@ class ParentCategoryAdapter(
             b.title.setText(item.titleRes)
             b.subtitle.setText(item.subtitleRes)
             b.icon.setImageResource(item.iconRes)
+            b.icon.imageTintList = ContextCompat.getColorStateList(b.icon.context, R.color.text_on_emerald)
             b.cardRoot.setOnClickListener { item.onClick() }
         }
     }

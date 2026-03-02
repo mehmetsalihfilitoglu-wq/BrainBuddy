@@ -60,6 +60,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_timer"
+                            android:tint="@color/text_on_emerald"
                             app:tint="@color/text_on_emerald"
                             android:contentDescription="@null" />
 
@@ -102,6 +103,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_quiz"
+                            android:tint="@color/text_on_emerald"
                             app:tint="@color/text_on_emerald"
                             android:contentDescription="@null" />
 
@@ -144,6 +146,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_block"
+                            android:tint="@color/text_on_emerald"
                             app:tint="@color/text_on_emerald"
                             android:contentDescription="@null" />
 
