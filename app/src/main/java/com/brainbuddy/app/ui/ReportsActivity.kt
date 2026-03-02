@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -163,15 +164,16 @@ class ReportsActivity : AppCompatActivity() {
         }
 
         // En çok denenen uygulamalar
-        val topApps = weeklyAttempts.entries.sortedByDescending { it.value }.take(3)
-        val otherCount = weeklyAttempts.entries.drop(3).sumOf { it.value }
-        val appBarData = buildList {
-            topApps.forEach { (pkg, count) ->
-                add(BarData(AppLabelResolver.getLabel(this@ReportsActivity, pkg), count, count.coerceAtLeast(1)))
-            }
-            if (otherCount > 0) add(BarData("Diğer", otherCount, otherCount))
+        val topApps = weeklyAttempts.entries.sortedByDescending { it.value }.take(10)
+        if (topApps.isNotEmpty()) {
+            b.recyclerTopApps.visibility = View.VISIBLE
+            b.topAppsEmpty.visibility = View.GONE
+            b.recyclerTopApps.layoutManager = LinearLayoutManager(this)
+            b.recyclerTopApps.adapter = TopAppsAdapter(topApps.toList(), weeklyAttempts.values.maxOrNull() ?: 1)
+        } else {
+            b.recyclerTopApps.visibility = View.GONE
+            b.topAppsEmpty.visibility = View.VISIBLE
         }
-        b.appsBarChart.data = if (appBarData.isEmpty()) listOf(BarData("-", 0, 1)) else appBarData
 
         val weeklyXp = weeklySessions.sumOf { it.pointsEarned }
         b.tvWeeklyXp.text = "Toplam XP: $weeklyXp"
@@ -220,6 +222,7 @@ class ReportsActivity : AppCompatActivity() {
         private val dateFormat = SimpleDateFormat("d MMM yyyy", Locale("tr"))
 
         class VH(view: View) : RecyclerView.ViewHolder(view) {
+            val tvTitle: TextView = view.findViewById(R.id.tvTestTitle)
             val tvDate: TextView = view.findViewById(R.id.tvTestDate)
             val tvScore: TextView = view.findViewById(R.id.tvTestScore)
         }
@@ -231,11 +234,49 @@ class ReportsActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: VH, position: Int) {
             val s = snapshots[position]
+            val context = holder.itemView.context
+            holder.tvTitle.text = context.getString(R.string.recent_test_title_format, position + 1)
             holder.tvDate.text = dateFormat.format(Date(s.createdAt))
             holder.tvScore.text = "${s.score}/${s.total}"
             holder.itemView.setOnClickListener { onItemClick(s) }
         }
 
         override fun getItemCount() = snapshots.size
+    }
+
+    private class TopAppsAdapter(
+        private val items: List<Map.Entry<String, Int>>,
+        private val maxCount: Int
+    ) : RecyclerView.Adapter<TopAppsAdapter.VH>() {
+
+        class VH(view: View) : RecyclerView.ViewHolder(view) {
+            val ivIcon: ImageView = view.findViewById(R.id.ivAppIcon)
+            val tvAppName: TextView = view.findViewById(R.id.tvAppName)
+            val tvAttemptCount: TextView = view.findViewById(R.id.tvAttemptCount)
+            val progress: com.google.android.material.progressindicator.LinearProgressIndicator =
+                view.findViewById(R.id.progressUsage)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+            val v = LayoutInflater.from(parent.context).inflate(R.layout.item_top_app, parent, false)
+            return VH(v)
+        }
+
+        override fun onBindViewHolder(holder: VH, position: Int) {
+            val (pkg, count) = items[position]
+            val context = holder.itemView.context
+            val label = AppLabelResolver.getLabel(context, pkg)
+            holder.tvAppName.text = label
+            holder.tvAttemptCount.text = count.toString()
+
+            // Icon: try load app icon, could be improved with actual PackageManager call elsewhere
+            holder.ivIcon.setImageDrawable(context.packageManager.getApplicationIcon(pkg))
+
+            val safeMax = if (maxCount <= 0) 1 else maxCount
+            val percent = (count * 100f / safeMax).roundToInt().coerceIn(0, 100)
+            holder.progress.setProgressCompat(percent, false)
+        }
+
+        override fun getItemCount(): Int = items.size
     }
 }

@@ -677,17 +677,46 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="En çok denenen uygulamalar"
+                        android:text="@string/reports_top_apps_title"
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
 
-                    <com.brainbuddy.app.ui.BarChartView
-                        android:id="@+id/appsBarChart"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerTopApps"
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/reports_title_content"
-                        android:minHeight="80dp"
-                        android:paddingHorizontal="12dp"
-                        android:paddingVertical="12dp"/>
+                        android:nestedScrollingEnabled="false"
+                        android:visibility="gone"/>
+
+                    <LinearLayout
+                        android:id="@+id/topAppsEmpty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="24dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📱"
+                            android:textSize="40sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/reports_title_content"
+                            android:text="@string/reports_top_apps_empty_title"
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/reports_top_apps_empty_subtitle"
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
+                    </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
