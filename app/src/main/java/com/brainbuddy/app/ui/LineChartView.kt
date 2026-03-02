@@ -7,9 +7,11 @@ import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
 import com.brainbuddy.app.R
+import com.google.android.material.color.MaterialColors
 
 /**
- * Simple line chart for last 10 tests accuracy trend (0-100%).
+ * Line chart for last 10 tests accuracy trend (0-100%).
+ * Uses theme primary color, minimal styling, no hardcoded colors.
  */
 class LineChartView @JvmOverloads constructor(
     context: Context,
@@ -17,16 +19,20 @@ class LineChartView @JvmOverloads constructor(
     defStyle: Int = 0
 ) : View(context, attrs, defStyle) {
 
+    private val primaryColor: Int
+        get() = MaterialColors.getColor(
+            context,
+            com.google.android.material.R.attr.colorPrimary,
+            context.getColor(R.color.bb_primary)
+        )
+
     private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 4f
         strokeJoin = Paint.Join.ROUND
         strokeCap = Paint.Cap.ROUND
-        color = context.getColor(R.color.bb_primary)
     }
-    private val dotPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = context.getColor(R.color.bb_primary)
-    }
+    private val dotPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val path = Path()
     var values: List<Float> = emptyList()
         set(value) {
@@ -34,9 +40,14 @@ class LineChartView @JvmOverloads constructor(
             invalidate()
         }
 
+    private val dotRadiusPx = 4f * resources.displayMetrics.density
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (values.size < 2) return
+        val color = primaryColor
+        linePaint.color = color
+        dotPaint.color = color
         val padH = 24f
         val padV = 20f
         val w = (width - 2 * padH).coerceAtLeast(40f)
@@ -52,7 +63,7 @@ class LineChartView @JvmOverloads constructor(
         values.forEachIndexed { i, v ->
             val x = padH + i * stepX
             val y = padV + h * (1f - v / 100f)
-            canvas.drawCircle(x, y, 6f, dotPaint)
+            canvas.drawCircle(x, y, dotRadiusPx, dotPaint)
         }
     }
 }

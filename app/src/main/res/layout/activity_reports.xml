@@ -360,7 +360,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- C) Son 10 Test Başarı Trendi kartı -->
+            <!-- C) Son 10 Test Başarı Trendi kartı (premium chart + empty state) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardTrend"
                 style="@style/Widget.BrainBuddy.Card"
@@ -374,47 +374,121 @@
                     android:orientation="vertical"
                     android:padding="@dimen/reports_card_inner">
 
-                    <TextView
+                    <!-- 1) HEADER ROW -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tvTrendTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:text="@string/trend_chart_title"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/tvTrendUnit"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintHorizontal_bias="0"/>
+
+                        <TextView
+                            android:id="@+id/tvTrendUnit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:text="%"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- 2) CONTENT AREA - State 1: DATA VARSA -->
+                    <LinearLayout
+                        android:id="@+id/trendContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Son 10 Test Başarı Trendi"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
-
-                    <com.brainbuddy.app.ui.LineChartView
-                        android:id="@+id/weeklyTrendChart"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:orientation="vertical"
                         android:layout_marginTop="@dimen/reports_title_content"
-                        android:visibility="gone"/>
+                        android:visibility="gone">
 
+                        <com.brainbuddy.app.ui.LineChartView
+                            android:id="@+id/weeklyTrendChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/trend_chart_min_height"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"/>
+
+                        <TextView
+                            android:id="@+id/tvTrendCaption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/reports_title_content"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:text="@string/trend_chart_caption"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant"/>
+                    </LinearLayout>
+
+                    <!-- 2) CONTENT AREA - State 2: DATA YOKSA (Empty State) -->
                     <LinearLayout
                         android:id="@+id/trendEmpty"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="24dp"
+                        android:padding="32dp"
+                        android:minHeight="@dimen/trend_chart_min_height"
                         android:visibility="gone">
 
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_trending_up"
+                            app:tint="?attr/colorOnSurfaceVariant"
+                            android:contentDescription="@null"/>
+
                         <TextView
+                            android:id="@+id/tvTrendEmptyTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="📈"
-                            android:textSize="40sp"/>
+                            android:layout_marginTop="16dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:text="@string/trend_empty_title"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurface"/>
+
                         <TextView
+                            android:id="@+id/tvTrendEmptySubtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/reports_title_content"
-                            android:text="Trend için en az 3 test çöz"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"
-                            android:gravity="center"/>
+                            android:layout_marginTop="8dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:text="@string/trend_empty_subtitle"
+                            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant"/>
+
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnTrendEmptyCta"
-                            style="@style/BBButtonAlt"
-                            android:layout_marginTop="12dp"
-                            android:text="@string/btn_start_quiz"
+                            style="@style/Widget.Material3.Button.TonalButton"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:minHeight="48dp"
+                            android:text="@string/btn_start_quiz"
+                            android:textAllCaps="false"/>
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

@@ -95,15 +95,15 @@ class ReportsActivity : AppCompatActivity() {
             b.btnTopicsEmptyCta.setOnClickListener { startQuiz() }
         }
 
-        // C) Son 10 Test Başarı Trendi
+        // C) Son 10 Test Başarı Trendi (premium chart + empty state)
         val last10Perfs = analytics.getTestPerformances().takeLast(10)
         val trendAccuracies = last10Perfs.map { it.accuracy }
         if (trendAccuracies.size >= 3) {
-            b.weeklyTrendChart.visibility = View.VISIBLE
+            b.trendContent.visibility = View.VISIBLE
             b.trendEmpty.visibility = View.GONE
             b.weeklyTrendChart.values = trendAccuracies
         } else {
-            b.weeklyTrendChart.visibility = View.GONE
+            b.trendContent.visibility = View.GONE
             b.trendEmpty.visibility = View.VISIBLE
             b.btnTrendEmptyCta.setOnClickListener { startQuiz() }
         }
