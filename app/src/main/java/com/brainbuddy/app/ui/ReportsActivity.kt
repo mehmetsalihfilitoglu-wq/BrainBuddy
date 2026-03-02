@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -69,7 +68,9 @@ class ReportsActivity : AppCompatActivity() {
         val initialRange = runCatching {
             kotlinx.coroutines.runBlocking {
                 applicationContext.reportsPrefsDataStore.data
-                    .map { prefs -> prefs[KEY_REPORT_RANGE_DAYS] ?: ReportRange.SEVEN.days }
+                    .map { prefs: Preferences ->
+                        prefs[KEY_REPORT_RANGE_DAYS] ?: ReportRange.SEVEN.days
+                    }
                     .first()
             }
         }.getOrDefault(ReportRange.SEVEN.days).let { ReportRange.fromDays(it) }
