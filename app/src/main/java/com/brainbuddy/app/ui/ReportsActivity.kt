@@ -29,7 +29,6 @@ import com.brainbuddy.app.ui.BarChartView.BarData
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import org.json.JSONArray
-import java.lang.reflect.InvocationTargetException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -328,15 +327,12 @@ class ReportsActivity : AppCompatActivity() {
         b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
         } catch (e: Throwable) {
-            val root = when (e) {
-                is InvocationTargetException -> (e.targetException ?: e.cause) ?: e
-                else -> e
-            }
-            var cause: Throwable = root
-            while (cause.cause != null) cause = cause.cause!!
-            val stackTrace = cause.stackTraceToString().lines().take(15).joinToString("\n") { "  $it" }
-            val details = "Class: ${cause.javaClass.name}\nMessage: ${cause.message}\n\n$stackTrace"
-            Log.e("ReportsActivity", details, cause)
+            var root: Throwable = e
+            while (root.cause != null) root = root.cause!!
+            val stackLines = root.stackTraceToString().lines().take(30)
+            val stackTrace = stackLines.joinToString("\n") { "  $it" }
+            val details = "Class: ${root.javaClass.name}\nMessage: ${root.message}\n\n$stackTrace"
+            Log.e("ReportsActivity", "Crash - root: ${root.javaClass.name}: ${root.message}", e)
             val titleTv = TextView(this).apply {
                 text = "RAPORLAR CRASH"
                 textSize = 22f
@@ -344,10 +340,14 @@ class ReportsActivity : AppCompatActivity() {
             }
             val bodyTv = TextView(this).apply {
                 text = details
-                textSize = 12f
+                textSize = 18f
                 setPadding(48, 24, 48, 48)
             }
-            val scroll = ScrollView(this).apply { addView(bodyTv) }
+            val scroll = ScrollView(this).apply {
+                addView(bodyTv)
+                isVerticalScrollBarEnabled = true
+                isFillViewport = true
+            }
             val layout = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
                 addView(titleTv)
