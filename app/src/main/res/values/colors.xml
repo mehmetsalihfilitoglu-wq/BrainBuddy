@@ -9,6 +9,8 @@
     <color name="emerald_light">#E8F7F5</color>
     <color name="emerald_surface">#F2FBFA</color>
     <color name="text_on_emerald">#FFFFFF</color>
+    <!-- White ~80% opacity for subtitles on emerald cards -->
+    <color name="text_on_emerald_muted">#CCFFFFFF</color>
 
     <!-- Material3 / BrainBuddy primary palette (emerald-based) -->
     <color name="bb_primary">@color/emerald_primary</color>

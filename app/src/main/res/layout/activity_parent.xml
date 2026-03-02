@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_gradient">
+    android:background="@color/white">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -40,36 +40,32 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:baselineAligned="false"
-                android:layout_marginBottom="@dimen/space_24">
+                android:layout_marginBottom="@dimen/space_16">
 
                 <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.BrainBuddy.Card"
+                    style="@style/Widget.BrainBuddy.ParentEmeraldCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/space_4"
-                    app:cardCornerRadius="20dp"
-                    app:cardBackgroundColor="@color/bb_surface_container"
-                    app:strokeColor="@color/bb_outline_variant"
-                    app:strokeWidth="1dp">
+                    android:layout_marginEnd="@dimen/space_4">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_12"
+                        android:padding="@dimen/space_16"
                         android:gravity="center">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_timer"
-                            app:tint="?attr/colorPrimary"
+                            app:tint="@color/text_on_emerald"
                             android:contentDescription="@null" />
 
                         <TextView
                             android:id="@+id/tvTodayScreenTime"
-                            style="@style/TextAppearance.BrainBuddy.Title"
+                            style="@style/TextAppearance.BrainBuddy.Parent.Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_4"
@@ -78,9 +74,10 @@
                             android:ellipsize="end" />
 
                         <TextView
-                            style="@style/TextAppearance.BrainBuddy.Caption"
+                            style="@style/TextAppearance.BrainBuddy.Parent.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
                             android:text="@string/parent_summary_screen_time"
                             android:maxLines="1"
                             android:ellipsize="end" />
@@ -88,33 +85,29 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.BrainBuddy.Card"
+                    style="@style/Widget.BrainBuddy.ParentEmeraldCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginHorizontal="@dimen/space_4"
-                    app:cardCornerRadius="20dp"
-                    app:cardBackgroundColor="@color/bb_surface_container"
-                    app:strokeColor="@color/bb_outline_variant"
-                    app:strokeWidth="1dp">
+                    android:layout_marginHorizontal="@dimen/space_4">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_12"
+                        android:padding="@dimen/space_16"
                         android:gravity="center">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_quiz"
-                            app:tint="?attr/colorPrimary"
+                            app:tint="@color/text_on_emerald"
                             android:contentDescription="@null" />
 
                         <TextView
                             android:id="@+id/tvTodayTests"
-                            style="@style/TextAppearance.BrainBuddy.Title"
+                            style="@style/TextAppearance.BrainBuddy.Parent.Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_4"
@@ -123,9 +116,10 @@
                             android:ellipsize="end" />
 
                         <TextView
-                            style="@style/TextAppearance.BrainBuddy.Caption"
+                            style="@style/TextAppearance.BrainBuddy.Parent.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
                             android:text="@string/parent_summary_tests"
                             android:maxLines="1"
                             android:ellipsize="end" />
@@ -133,33 +127,29 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-                    style="@style/Widget.BrainBuddy.Card"
+                    style="@style/Widget.BrainBuddy.ParentEmeraldCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="@dimen/space_4"
-                    app:cardCornerRadius="20dp"
-                    app:cardBackgroundColor="@color/bb_surface_container"
-                    app:strokeColor="@color/bb_outline_variant"
-                    app:strokeWidth="1dp">
+                    android:layout_marginStart="@dimen/space_4">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_12"
+                        android:padding="@dimen/space_16"
                         android:gravity="center">
 
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_block"
-                            app:tint="?attr/colorPrimary"
+                            app:tint="@color/text_on_emerald"
                             android:contentDescription="@null" />
 
                         <TextView
                             android:id="@+id/tvBlockedAppsCount"
-                            style="@style/TextAppearance.BrainBuddy.Title"
+                            style="@style/TextAppearance.BrainBuddy.Parent.Title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_4"
@@ -168,9 +158,10 @@
                             android:ellipsize="end" />
 
                         <TextView
-                            style="@style/TextAppearance.BrainBuddy.Caption"
+                            style="@style/TextAppearance.BrainBuddy.Parent.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
                             android:text="@string/parent_summary_blocked"
                             android:maxLines="1"
                             android:ellipsize="end" />
@@ -180,6 +171,7 @@
 
             <!-- SECTION B: Category Grid -->
             <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/space_16"
                 android:id="@+id/gridParentCategories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -41,6 +41,24 @@
         <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
     </style>
 
+    <!-- Parent Panel: emerald cards with white text -->
+    <style name="Widget.BrainBuddy.ParentEmeraldCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/emerald_primary</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+    <style name="TextAppearance.BrainBuddy.Parent.Title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_on_emerald</item>
+    </style>
+    <style name="TextAppearance.BrainBuddy.Parent.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_on_emerald_muted</item>
+    </style>
+
     <!-- Typography -->
     <style name="TextAppearance.BrainBuddy.Title" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textSize">17sp</item>

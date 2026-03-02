@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardRoot"
-    style="@style/Widget.BrainBuddy.Card"
+    style="@style/Widget.BrainBuddy.ParentEmeraldCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/space_8"
@@ -20,11 +20,11 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:contentDescription="@null"
-            app:tint="?attr/colorPrimary" />
+            app:tint="@color/text_on_emerald" />
 
         <TextView
             android:id="@+id/title"
-            style="@style/TextAppearance.BrainBuddy.Title"
+            style="@style/TextAppearance.BrainBuddy.Parent.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_12"
@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/subtitle"
-            style="@style/TextAppearance.BrainBuddy.Caption"
+            style="@style/TextAppearance.BrainBuddy.Parent.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_4"
