@@ -78,7 +78,11 @@ class QuizActivity : AppCompatActivity() {
                 val unlockStore = LastTestUnlockStore(this)
                 val ids = unlockStore.consumeUnlock(token, replayQuizId)
                 if (ids == null || ids.isEmpty()) {
-                    startActivity(Intent(this, com.brainbuddy.app.StatsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                    startActivity(Intent(this, com.brainbuddy.app.ui.AdLimitReachedActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                        putExtra(com.brainbuddy.app.ui.AdLimitReachedActivity.EXTRA_TITLE, getString(com.brainbuddy.app.R.string.ad_limit_reached_bypass_title))
+                        putExtra(com.brainbuddy.app.ui.AdLimitReachedActivity.EXTRA_MESSAGE, getString(com.brainbuddy.app.R.string.ad_limit_reached_bypass_message))
+                    })
                     finish()
                     return
                 }

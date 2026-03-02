@@ -94,6 +94,31 @@
             app:iconTint="@color/white"
             android:layout_marginTop="24dp"/>
 
+        <LinearLayout
+            android:id="@+id/layoutLimitReached"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:id="@+id/tvLimitReached"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ad_limit_reached_message"
+                android:textSize="15sp"
+                android:textColor="@color/bb_text_muted"
+                android:gravity="center"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPremiumCta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Premium ile sınırsız erişim"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBack"
             style="@style/Widget.Material3.Button.OutlinedButton"

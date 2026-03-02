@@ -112,11 +112,9 @@ class StatsActivity : AppCompatActivity() {
         val recentList = recent.takeLast(5).reversed()
         b.recyclerRecentTests.layoutManager = LinearLayoutManager(this)
         b.recyclerRecentTests.adapter = RecentTestsAdapter(recentList) { perf ->
-            val questionIds = perf.questionIds
-            if (questionIds.size < QuestionRepository.MIN_QUESTIONS_PER_TEST) return@RecentTestsAdapter
             startActivity(Intent(this, com.brainbuddy.app.quiz.PastTestDetailActivity::class.java).apply {
                 putExtra(com.brainbuddy.app.quiz.PastTestDetailActivity.EXTRA_TEST_ID, perf.quizId)
-                putStringArrayListExtra(com.brainbuddy.app.quiz.PastTestDetailActivity.EXTRA_QUESTION_IDS, ArrayList(questionIds))
+                putStringArrayListExtra(com.brainbuddy.app.quiz.PastTestDetailActivity.EXTRA_QUESTION_IDS, ArrayList(perf.questionIds))
             })
         }
 

@@ -83,23 +83,41 @@ class PastTestDetailActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnReplay).setOnClickListener {
-            if (questionIds.size < QuestionRepository.MIN_QUESTIONS_PER_TEST) {
-                android.widget.Toast.makeText(this, "Bu test tekrar çözülemez.", android.widget.Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+        val premium = PremiumStore(this).isPremium()
+        val quotaStore = DailyAdQuotaStore(this)
+        quotaStore.resetIfNewDay()
+        val remaining = quotaStore.getRemainingToday()
+
+        val btnReplay = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnReplay)
+        val layoutLimitReached = findViewById<View>(R.id.layoutLimitReached)
+        val btnPremiumCta = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnPremiumCta)
+
+        if (premium) {
+            btnReplay.visibility = View.VISIBLE
+            btnReplay.text = getString(R.string.btn_replay)
+            layoutLimitReached.visibility = View.GONE
+        } else if (remaining > 0) {
+            btnReplay.visibility = View.VISIBLE
+            btnReplay.text = getString(R.string.replay_with_ad_remaining, remaining)
+            layoutLimitReached.visibility = View.GONE
+        } else {
+            btnReplay.visibility = View.GONE
+            layoutLimitReached.visibility = View.VISIBLE
+            findViewById<android.widget.TextView>(R.id.tvLimitReached).text = getString(R.string.ad_limit_reached_message)
+            btnPremiumCta.setOnClickListener {
+                android.widget.Toast.makeText(this, "Premium yakında", android.widget.Toast.LENGTH_SHORT).show()
             }
-            val premium = PremiumStore(this).isPremium()
+        }
+
+        btnReplay.setOnClickListener {
             if (premium) {
                 startActivity(Intent(this, QuizActivity::class.java).apply {
                     putExtra(QuizActivity.EXTRA_REPLAY_FROM_LAST_TEST, true)
                     putExtra(QuizActivity.EXTRA_QUIZ_ID, testId)
                     putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(questionIds))
                 })
-                finish()
             } else {
-                val quotaStore = DailyAdQuotaStore(this)
-                quotaStore.resetIfNewDay()
-                if (quotaStore.getRemainingToday() > 0) {
+                if (remaining > 0) {
                     startActivity(Intent(this, WatchAdToUnlockLastTestActivity::class.java).apply {
                         putExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUIZ_ID, testId)
                         putStringArrayListExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUESTION_IDS, ArrayList(questionIds))
@@ -107,8 +125,8 @@ class PastTestDetailActivity : AppCompatActivity() {
                 } else {
                     startActivity(Intent(this, AdLimitReachedActivity::class.java))
                 }
-                finish()
             }
+            finish()
         }
 
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnBack).setOnClickListener { finish() }

@@ -285,10 +285,14 @@
     <string name="btn_save">Kaydet</string>
 
     <!-- Last Test Replay -->
+    <string name="btn_replay">Tekrar Çöz</string>
+    <string name="replay_with_ad_remaining">Reklam izleyerek tekrar çöz (Kalan: %1$d/3)</string>
     <string name="ad_unlock_last_test_info">Reklam izleyerek 1 giriş aç (Kalan: %1$d/3)</string>
     <string name="ad_unlock_premium_unlimited">Premium ile sınırsız</string>
     <string name="ad_limit_reached_title">Bugünlük hak bitti</string>
-    <string name="ad_limit_reached_message">Bugün eski teste giriş haklarınızı kullandınız. Premium ile sınırsız erişin.</string>
+    <string name="ad_limit_reached_message">Bugün eski teste giriş haklarınızı kullandınız. Yarın yenilenir. Premium ile sınırsız erişim.</string>
+    <string name="ad_limit_reached_bypass_title">Erişim gerekli</string>
+    <string name="ad_limit_reached_bypass_message">Geçmiş test tekrarı için lütfen test detayından reklam izleyerek veya Premium ile tekrar çözün.</string>
     <string name="btn_watch_ad_unlock">Reklam İzle ve Aç</string>
 
     <!-- Retry -->
