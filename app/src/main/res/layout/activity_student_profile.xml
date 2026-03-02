@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/BBButtonAlt"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/btn_back"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/bb_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center_horizontal">
+
+                <FrameLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp">
+
+                    <ImageView
+                        android:id="@+id/avatarPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/avatar_mascot_brainy"
+                        android:contentDescription="Avatar"/>
+                </FrameLayout>
+
+                <EditText
+                    android:id="@+id/etDisplayName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/student_profile_name_hint"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_edit"
+                    android:textSize="16sp"/>
+
+                <Button
+                    android:id="@+id/btnSaveName"
+                    style="@style/BBButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/btn_save"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Seviye 1"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_primary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="•"
+                        android:textColor="@color/bb_text_muted"/>
+
+                    <TextView
+                        android:id="@+id/tvXp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="0 XP"
+                        android:textSize="14sp"
+                        android:textColor="@color/bb_text"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="•"
+                        android:textColor="@color/bb_text_muted"/>
+
+                    <TextView
+                        android:id="@+id/tvStreak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="🔥 0 gün"
+                        android:textSize="14sp"
+                        android:textColor="@color/bb_text"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/student_profile_avatars"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/bb_text"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAvatars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:nestedScrollingEnabled="false"/>
+    </LinearLayout>
+</ScrollView>
