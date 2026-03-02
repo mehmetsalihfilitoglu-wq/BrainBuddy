@@ -85,7 +85,7 @@ class ReportsActivity : AppCompatActivity() {
             val topicData = topicCounts.entries
                 .sortedByDescending { it.value.correct }
                 .take(10)
-                .map { (topic, tc) -> BarData(topic.take(12), tc.correct, tc.total) }
+                .map { (topic, tc) -> BarData(topic, tc.correct, tc.total) }
             b.topicBarChart.data = topicData
         } else {
             b.topicBarChart.visibility = View.GONE
@@ -165,7 +165,7 @@ class ReportsActivity : AppCompatActivity() {
         val otherCount = weeklyAttempts.entries.drop(3).sumOf { it.value }
         val appBarData = buildList {
             topApps.forEach { (pkg, count) ->
-                add(BarData(AppLabelResolver.getLabel(this@ReportsActivity, pkg).take(12), count, count.coerceAtLeast(1)))
+                add(BarData(AppLabelResolver.getLabel(this@ReportsActivity, pkg), count, count.coerceAtLeast(1)))
             }
             if (otherCount > 0) add(BarData("Diğer", otherCount, otherCount))
         }
