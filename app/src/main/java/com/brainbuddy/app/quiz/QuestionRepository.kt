@@ -42,7 +42,6 @@ class QuestionRepository(private val context: Context) {
     }
 
     private val historyStore = QuestionHistoryStore(context)
-    private val wrongQuestionStore = WrongQuestionStore(context)
 
     private val importedFile get() = java.io.File(context.filesDir, "imported_questions.json")
 

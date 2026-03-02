@@ -3,7 +3,7 @@ package com.brainbuddy.app.db
 import android.content.Context
 import com.brainbuddy.app.quiz.AnswerRecord
 import com.brainbuddy.app.quiz.Question
-import com.brainbuddy.app.quiz.QuestionMapper
+import com.brainbuddy.app.db.QuestionMapper
 import kotlinx.coroutines.runBlocking
 import org.json.JSONArray
 import org.json.JSONObject
