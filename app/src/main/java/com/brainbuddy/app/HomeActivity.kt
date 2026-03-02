@@ -16,8 +16,9 @@ import com.brainbuddy.app.quiz.BossTestStore
 import androidx.activity.OnBackPressedCallback
 import com.brainbuddy.app.security.PinManager
 import com.brainbuddy.app.ui.BlockedAppsActivity
-import com.brainbuddy.app.ui.ParentActivity
 import com.brainbuddy.app.ui.PinLockActivity
+import com.brainbuddy.app.ui.ProfileManageActivity
+import com.brainbuddy.app.ui.ReportsActivity
 import com.brainbuddy.app.ui.SettingsActivity
 import com.brainbuddy.app.ui.TimeLimitsActivity
 import android.widget.ProgressBar
@@ -98,19 +99,17 @@ class HomeActivity : AppCompatActivity() {
         progress.max = 1
         progress.progress = if (sessionsToday >= 1) 1 else 0
 
-        // CTA clicks - Student can only access Quiz, Stats, Parent Area (PIN required)
+        // Category card button clicks
         val juniorPrefs = com.brainbuddy.app.junior.JuniorPrefs(this)
-        val cardJunior = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardJunior)
+        val btnJunior = findViewById<android.widget.TextView>(R.id.btnJunior)
         if (juniorPrefs.isJuniorEnabled()) {
-            cardJunior.visibility = android.view.View.VISIBLE
-            cardJunior.setOnClickListener {
-                startActivity(Intent(this, com.brainbuddy.app.junior.JuniorHubActivity::class.java))
-            }
+            btnJunior.visibility = android.view.View.VISIBLE
+            btnJunior.setOnClickListener { startActivity(Intent(this, com.brainbuddy.app.junior.JuniorHubActivity::class.java)) }
         } else {
-            cardJunior.visibility = android.view.View.GONE
+            btnJunior.visibility = android.view.View.GONE
         }
 
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTest).setOnClickListener {
+        findViewById<android.widget.TextView>(R.id.btnTest).setOnClickListener {
             val bossStore = BossTestStore(this)
             val lvl = gam.level()
             val bossLevel = (lvl / 10) * 10
@@ -120,33 +119,35 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java))
             }
         }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardStats).setOnClickListener {
-            startActivity(Intent(this, StatsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
-        }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardCoach).setOnClickListener {
+        findViewById<android.widget.TextView>(R.id.btnCoach).setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.coach.CoachScreen::class.java))
         }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardLeague).setOnClickListener {
-            startActivity(Intent(this, com.brainbuddy.app.social.LeagueScreen::class.java))
-        }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardClassroom).setOnClickListener {
+        findViewById<android.widget.TextView>(R.id.btnClassroom).setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.classroom.ClassroomActivity::class.java))
         }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardAvatarShop).setOnClickListener {
-            startActivity(Intent(this, com.brainbuddy.app.avatar.AvatarShopScreen::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
+        findViewById<android.widget.TextView>(R.id.btnLeague).setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.social.LeagueScreen::class.java))
         }
-        val cardWeeklyChest = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWeeklyChest)
-        cardWeeklyChest?.setOnClickListener {
+        findViewById<android.widget.TextView>(R.id.btnStats).setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
+        }
+        findViewById<android.widget.TextView>(R.id.btnWeeklyChest).setOnClickListener {
             val tokens = weeklyReward.claimWeeklyChest()
             if (tokens > 0) {
                 android.widget.Toast.makeText(this, "+$tokens donma jetonu!", android.widget.Toast.LENGTH_SHORT).show()
-                val freezeTxt = if (gam.freezeTokens() > 0) " (${gam.freezeTokens()} 🧊)" else ""
-                findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri$freezeTxt"
+                val ft = if (gam.freezeTokens() > 0) " (${gam.freezeTokens()} 🧊)" else ""
+                findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri$ft"
             } else if (weeklyReward.canClaimWeeklyChest()) {
                 android.widget.Toast.makeText(this, "Daha fazla XP kazanın (Silver: 80, Gold: 150)", android.widget.Toast.LENGTH_SHORT).show()
             }
         }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardVeli).setOnClickListener {
+        findViewById<android.widget.TextView>(R.id.btnAvatarShop).setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.avatar.AvatarShopScreen::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
+        }
+        findViewById<android.widget.TextView>(R.id.btnProfile).setOnClickListener {
+            startActivity(Intent(this, ProfileManageActivity::class.java))
+        }
+        findViewById<android.widget.TextView>(R.id.btnVeliArea).setOnClickListener {
             val pinManager = PinManager(this)
             val intent = Intent(this, PinLockActivity::class.java).apply {
                 putExtra(PinLockActivity.EXTRA_TARGET, "ParentActivity")
@@ -154,20 +155,25 @@ class HomeActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-        val cardSettings = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardSettings)
-        val cardBlockedApps = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardBlockedApps)
-        val cardTimeLimits = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTimeLimits)
+
+        val btnSettings = findViewById<android.widget.TextView>(R.id.btnSettings)
+        val btnReports = findViewById<android.widget.TextView>(R.id.btnReports)
+        val btnBlockedApps = findViewById<android.widget.TextView>(R.id.btnBlockedApps)
+        val btnTimeLimits = findViewById<android.widget.TextView>(R.id.btnTimeLimits)
         if (AppModeManager.isParentMode()) {
-            cardSettings.visibility = android.view.View.VISIBLE
-            cardBlockedApps.visibility = android.view.View.VISIBLE
-            cardTimeLimits.visibility = android.view.View.VISIBLE
-            cardSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
-            cardBlockedApps.setOnClickListener { startActivity(Intent(this, BlockedAppsActivity::class.java)) }
-            cardTimeLimits.setOnClickListener { startActivity(Intent(this, TimeLimitsActivity::class.java)) }
+            btnSettings.visibility = android.view.View.VISIBLE
+            btnReports.visibility = android.view.View.VISIBLE
+            btnBlockedApps.visibility = android.view.View.VISIBLE
+            btnTimeLimits.visibility = android.view.View.VISIBLE
+            btnSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
+            btnReports.setOnClickListener { startActivity(Intent(this, ReportsActivity::class.java)) }
+            btnBlockedApps.setOnClickListener { startActivity(Intent(this, BlockedAppsActivity::class.java)) }
+            btnTimeLimits.setOnClickListener { startActivity(Intent(this, TimeLimitsActivity::class.java)) }
         } else {
-            cardSettings.visibility = android.view.View.GONE
-            cardBlockedApps.visibility = android.view.View.GONE
-            cardTimeLimits.visibility = android.view.View.GONE
+            btnSettings.visibility = android.view.View.GONE
+            btnReports.visibility = android.view.View.GONE
+            btnBlockedApps.visibility = android.view.View.GONE
+            btnTimeLimits.visibility = android.view.View.GONE
         }
     }
 
@@ -187,25 +193,28 @@ class HomeActivity : AppCompatActivity() {
         findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri$freezeTxtResume"
         findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
         findViewById<android.widget.TextView>(R.id.levelBadge).text = "Seviye ${gam.level()}"
-        // Refresh parent-only cards visibility (session may have expired)
-        val cardSettings = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardSettings)
-        val cardBlockedApps = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardBlockedApps)
-        val cardTimeLimits = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTimeLimits)
+        // Refresh parent-only and Junior visibility (session may have expired)
+        val btnSettings = findViewById<android.widget.TextView>(R.id.btnSettings)
+        val btnReports = findViewById<android.widget.TextView>(R.id.btnReports)
+        val btnBlockedApps = findViewById<android.widget.TextView>(R.id.btnBlockedApps)
+        val btnTimeLimits = findViewById<android.widget.TextView>(R.id.btnTimeLimits)
         val visible = AppModeManager.isParentMode()
-        cardSettings.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
-        cardBlockedApps.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
-        cardTimeLimits.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
-        val cardJuniorResume = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardJunior)
+        btnSettings.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
+        btnReports.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
+        btnBlockedApps.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
+        btnTimeLimits.visibility = if (visible) android.view.View.VISIBLE else android.view.View.GONE
+        val btnJunior = findViewById<android.widget.TextView>(R.id.btnJunior)
         if (com.brainbuddy.app.junior.JuniorPrefs(this).isJuniorEnabled()) {
-            cardJuniorResume.visibility = android.view.View.VISIBLE
-            cardJuniorResume.setOnClickListener { startActivity(Intent(this, com.brainbuddy.app.junior.JuniorHubActivity::class.java)) }
+            btnJunior.visibility = android.view.View.VISIBLE
+            btnJunior.setOnClickListener { startActivity(Intent(this, com.brainbuddy.app.junior.JuniorHubActivity::class.java)) }
         } else {
-            cardJuniorResume.visibility = android.view.View.GONE
+            btnJunior.visibility = android.view.View.GONE
         }
         if (visible) {
-            cardSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
-            cardBlockedApps.setOnClickListener { startActivity(Intent(this, BlockedAppsActivity::class.java)) }
-            cardTimeLimits.setOnClickListener { startActivity(Intent(this, TimeLimitsActivity::class.java)) }
+            btnSettings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
+            btnReports.setOnClickListener { startActivity(Intent(this, ReportsActivity::class.java)) }
+            btnBlockedApps.setOnClickListener { startActivity(Intent(this, BlockedAppsActivity::class.java)) }
+            btnTimeLimits.setOnClickListener { startActivity(Intent(this, TimeLimitsActivity::class.java)) }
         }
         val killBanner = findViewById<android.widget.TextView>(R.id.tvKillSwitchBanner)
         killBanner?.visibility = if (KillSwitchPrefs(this).isKillSwitchActive()) android.view.View.VISIBLE else android.view.View.GONE

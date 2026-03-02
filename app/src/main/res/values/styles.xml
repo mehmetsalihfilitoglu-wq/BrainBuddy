@@ -59,6 +59,16 @@
         <item name="cardBackgroundColor">@color/bb_card</item>
     </style>
 
+    <!-- Home card chip: compact icon+text action -->
+    <style name="BB.HomeChip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingVertical">6dp</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textColor">@color/bb_primary</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
     <!-- Control row: icon + title + subtitle + chevron -->
     <style name="BB.ControlRow">
         <item name="android:padding">16dp</item>

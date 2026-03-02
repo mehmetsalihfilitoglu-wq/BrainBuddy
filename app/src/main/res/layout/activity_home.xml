@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:overScrollMode="never">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,15 +26,15 @@
             android:textStyle="bold"
             android:visibility="gone"/>
 
-        <!-- Turquoise gradient header -->
+        <!-- Hero greeting area -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_header_turquoise"
             android:orientation="vertical"
             android:padding="20dp"
-            android:paddingTop="32dp"
-            android:paddingBottom="24dp">
+            android:paddingTop="28dp"
+            android:paddingBottom="20dp">
 
             <TextView
                 android:id="@+id/greeting"
@@ -41,25 +42,25 @@
                 android:layout_height="wrap_content"
                 android:text="@string/wise_coach_default"
                 android:textColor="@color/white"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="14dp">
 
                 <TextView
                     android:id="@+id/streakBadge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_badge"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
                     android:text="🔥 0 gün seri"
                     android:textColor="@color/white"
-                    android:textSize="13sp"/>
+                    android:textSize="12sp"/>
 
                 <TextView
                     android:id="@+id/pointsBadge"
@@ -67,11 +68,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/bg_badge"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
                     android:text="⭐ 0 puan"
                     android:textColor="@color/white"
-                    android:textSize="13sp"/>
+                    android:textSize="12sp"/>
 
                 <TextView
                     android:id="@+id/levelBadge"
@@ -79,422 +80,331 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/bg_badge"
-                    android:paddingHorizontal="12dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
                     android:text="Seviye 1"
                     android:textColor="@color/white"
-                    android:textSize="13sp"/>
+                    android:textSize="12sp"/>
             </LinearLayout>
 
             <TextView
                 android:id="@+id/dailyGoalLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:text="Günlük hedef (1 test)"
                 android:textColor="@color/white"
-                android:textSize="14sp"/>
+                android:textSize="13sp"/>
 
             <ProgressBar
                 android:id="@+id/dailyProgress"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="4dp"
                 android:max="1"
                 android:progress="0"
                 android:progressTint="@color/white"
                 android:progressBackgroundTint="#40FFFFFF"/>
         </LinearLayout>
 
-        <!-- CTA Cards -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardTest"
-            style="@style/BB.HomeCard"
+        <!-- 2-column grid of category cards -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@color/white">
+            android:orientation="vertical">
 
+            <!-- Row 1: Çalış | Gelişim -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
-                <TextView
+                <!-- A) ÇALIŞ -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardCalis"
+                    style="@style/BB.HomeCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:text="Teste Başla"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🎯 Çalış"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/bb_text"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Bugünkü test ve dersler"
+                            android:textSize="12sp"
+                            android:textColor="@color/bb_text_muted"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/btnTest"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_quiz"
+                                android:text="Teste Başla"/>
+
+                            <TextView
+                                android:id="@+id/btnCoach"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_review"
+                                android:layout_marginTop="2dp"
+                                android:text="Koç"/>
+
+                            <TextView
+                                android:id="@+id/btnClassroom"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_schedule"
+                                android:layout_marginTop="2dp"
+                                android:text="Sınıf"/>
+
+                            <TextView
+                                android:id="@+id/btnJunior"
+                                style="@style/BB.HomeChip"
+                                android:layout_marginTop="2dp"
+                                android:text="BrainBuddy Junior"
+                                android:visibility="gone"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- B) GELİŞİM -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardGelisim"
+                    style="@style/BB.HomeCard"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="▶"
-                    android:textSize="20sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardJunior"
-            style="@style/BB.HomeCard"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏆 Gelişim"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/bb_text"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="İlerleme ve ödüller"
+                            android:textSize="12sp"
+                            android:textColor="@color/bb_text_muted"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/btnLeague"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_league"
+                                android:text="Lig"/>
+
+                            <TextView
+                                android:id="@+id/btnStats"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_stats"
+                                android:layout_marginTop="2dp"
+                                android:text="İstatistikler"/>
+
+                            <TextView
+                                android:id="@+id/btnWeeklyChest"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_chest"
+                                android:layout_marginTop="2dp"
+                                android:text="Haftalık Sandık"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Row 2: Profil | Veli -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!-- C) PROFİL -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardProfil"
+                    style="@style/BB.HomeCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🎨 Profil"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/bb_text"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Avatar ve hesap"
+                            android:textSize="12sp"
+                            android:textColor="@color/bb_text_muted"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/btnAvatarShop"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_avatar"
+                                android:text="Avatar Mağazası"/>
+
+                            <TextView
+                                android:id="@+id/btnProfile"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_settings"
+                                android:layout_marginTop="2dp"
+                                android:text="Profil"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- D) VELİ -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardVeli"
+                    style="@style/BB.HomeCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="👨‍👩‍👧 Veli"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/bb_text"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Ebeveyn alanı ve ayarlar"
+                            android:textSize="12sp"
+                            android:textColor="@color/bb_text_muted"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/btnVeliArea"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_lock"
+                                android:text="Veli Alanı"/>
+
+                            <TextView
+                                android:id="@+id/btnSettings"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_settings"
+                                android:layout_marginTop="2dp"
+                                android:text="Ayarlar"
+                                android:visibility="gone"/>
+
+                            <TextView
+                                android:id="@+id/btnReports"
+                                style="@style/BB.HomeChip"
+                                android:layout_marginTop="2dp"
+                                android:text="Raporlar"
+                                android:visibility="gone"/>
+
+                            <TextView
+                                android:id="@+id/btnBlockedApps"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_block"
+                                android:layout_marginTop="2dp"
+                                android:text="Engellenen Uygulamalar"
+                                android:visibility="gone"/>
+
+                            <TextView
+                                android:id="@+id/btnTimeLimits"
+                                style="@style/BB.HomeChip"
+                                android:drawableStart="@drawable/ic_timer"
+                                android:layout_marginTop="2dp"
+                                android:text="Zaman Limitleri"
+                                android:visibility="gone"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Bottom spacing -->
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:visibility="gone"
-            app:cardBackgroundColor="@color/bb_turquoise_light">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="🧒 BrainBuddy Junior"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="▶"
-                    android:textSize="20sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardCoach"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Koç"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🎯"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardLeague"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Lig"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🏆"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardClassroom"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Sınıf"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📚"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardAvatarShop"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Avatar Mağazası"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🛒"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardStats"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="İstatistikler"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📊"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardSettings"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Ayarlar"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⚙"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardWeeklyChest"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Haftalık Sandık"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📦"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardVeli"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Veli Alanı"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🔐"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardBlockedApps"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Engellenen Uygulamalar"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📱"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardTimeLimits"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Zaman Limitleri"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⏱"
-                    android:textSize="20sp"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
+            android:layout_height="20dp"/>
     </LinearLayout>
 </ScrollView>
