@@ -11,7 +11,7 @@ object AppGate {
      * This ensures a PIN is required to change protected settings.
      */
     fun openParent(context: Context) {
-        ProtectedNav.open(context, ParentActivity::class.java, "Enter parent PIN")
+        ProtectedNav.open(context, ParentHubActivity::class.java, "Enter parent PIN")
     }
 
     fun openSettings(context: Context) {

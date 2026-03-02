@@ -43,7 +43,7 @@ class EmergencyUnlockActivity : AppCompatActivity() {
                 ProtectionPrefs(this).setUserLocked(false)
                 PermissionMonitor.cancelProtectionOffNotification(this)
                 AppModeManager.enterParentMode()
-                startActivity(Intent(this, ParentActivity::class.java))
+                startActivity(Intent(this, ParentHubActivity::class.java))
                 finish()
             } else {
                 code.fill('\u0000')

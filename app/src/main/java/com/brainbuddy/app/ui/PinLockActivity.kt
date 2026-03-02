@@ -106,7 +106,7 @@ class PinLockActivity : AppCompatActivity() {
     private fun navigateToTarget() {
         val targetName = intent.getStringExtra(EXTRA_TARGET)
         val target = when (targetName) {
-            "ParentActivity" -> ParentActivity::class.java
+            "ParentActivity", "ParentHubActivity" -> ParentHubActivity::class.java
             "ClassroomJoin", "ClassroomLeave" -> com.brainbuddy.app.classroom.ClassroomActivity::class.java
             "SettingsActivity" -> SettingsActivity::class.java
             "BlockedAppsActivity" -> BlockedAppsActivity::class.java
@@ -119,7 +119,7 @@ class PinLockActivity : AppCompatActivity() {
             "RewardContractActivity" -> com.brainbuddy.app.reward.RewardContractActivity::class.java
             "JuniorSettingsActivity" -> com.brainbuddy.app.junior.JuniorSettingsActivity::class.java
             "JuniorReportActivity" -> com.brainbuddy.app.junior.JuniorReportActivity::class.java
-            else -> ParentActivity::class.java
+            else -> ParentHubActivity::class.java
         }
         val targetIntent = Intent(this, target).apply {
             intent.getBundleExtra(EXTRA_TARGET_EXTRAS)?.let { putExtras(it) }

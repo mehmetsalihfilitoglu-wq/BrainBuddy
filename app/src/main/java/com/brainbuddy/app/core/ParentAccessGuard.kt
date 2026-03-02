@@ -19,7 +19,7 @@ object ParentAccessGuard {
         "com.brainbuddy.app.ui.BlockedAppsActivity",
         "com.brainbuddy.app.ui.TimeLimitsActivity",
         "com.brainbuddy.app.ui.QuizSettingsActivity",
-        "com.brainbuddy.app.ui.ParentActivity",
+        "com.brainbuddy.app.ui.ParentHubActivity",
         "com.brainbuddy.app.ui.ProtectionInactiveActivity",
         "com.brainbuddy.app.ui.PermissionsChecklistActivity",
         "com.brainbuddy.app.ui.ReportsActivity",

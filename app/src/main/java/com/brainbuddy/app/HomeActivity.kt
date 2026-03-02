@@ -102,7 +102,7 @@ class HomeActivity : AppCompatActivity() {
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardVeli).setOnClickListener {
             val pinManager = PinManager(this)
             startActivity(Intent(this, PinLockActivity::class.java).apply {
-                putExtra(PinLockActivity.EXTRA_TARGET, "ParentActivity")
+                putExtra(PinLockActivity.EXTRA_TARGET, "ParentHubActivity")
                 putExtra(PinLockActivity.EXTRA_MODE, if (pinManager.isPinSet()) "verify" else "set")
             })
         }

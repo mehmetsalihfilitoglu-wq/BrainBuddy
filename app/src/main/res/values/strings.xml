@@ -6,6 +6,7 @@
 
     <!-- Parent & Settings -->
     <string name="parent_title">Ebeveyn Paneli</string>
+    <string name="parent_hub_title">Veli Paneli</string>
     <string name="parent_status_screen_time">Bugün engelleme denemeleri: %d</string>
     <string name="parent_status_gate_pass">Geçiş oranı (7 gün): %s%%</string>
     <string name="parent_gamification">Oyunlaştırma</string>
@@ -307,5 +308,8 @@
     <string name="kill_switch_expire_1h">1 saat</string>
     <string name="kill_switch_expire_24h">24 saat</string>
     <string name="kill_switch_expire_manual">Manuel kapatana kadar</string>
+
+    <!-- Parent hub summary -->
+    <string name="parent_today_screen_time_minutes">Bugün ekran süresi: %1$d dk</string>
 
 </resources>
