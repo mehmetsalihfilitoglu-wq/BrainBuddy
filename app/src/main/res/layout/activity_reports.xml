@@ -16,7 +16,54 @@
         app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
         app:titleTextColor="?attr/colorOnSurface"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        app:navigationIconTint="?attr/colorPrimary"/>
+        app:navigationIconTint="?attr/colorPrimary" />
+
+    <HorizontalScrollView
+        android:id="@+id/reportsFilterScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:paddingStart="@dimen/reports_screen_horizontal"
+        android:paddingEnd="@dimen/reports_screen_horizontal"
+        android:paddingTop="@dimen/space_8"
+        android:paddingBottom="@dimen/space_4">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            app:chipSpacing="8dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRangeToday"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="Bugün" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRange7"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
+                android:text="7 Gün" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRange30"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="30 Gün" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -286,7 +333,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
-                            android:text="Henüz haftalık veri yok"
+                            android:text="Bu aralıkta veri yok. Daha fazla test çözerek raporları doldur."
                             android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnWeeklyEmptyCta"
@@ -317,7 +364,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/parent_topic_performance"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle" />
+
+                    <TextView
+                        android:id="@+id/tvTopicsCaption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Veri aralığı: Son 7 gün"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
 
                     <com.brainbuddy.app.ui.BarChartView
                         android:id="@+id/topicBarChart"
@@ -539,7 +595,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
-                            android:text="Henüz tamamlanan test yok"
+                            android:text="Bu aralıkta veri yok. Daha fazla test çözerek raporları doldur."
                             android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnRecentTestsEmptyCta"

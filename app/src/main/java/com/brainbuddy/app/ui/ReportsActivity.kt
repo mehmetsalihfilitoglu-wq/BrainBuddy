@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
@@ -21,12 +24,31 @@ import com.brainbuddy.app.db.RoomQuizDataStore
 import com.brainbuddy.app.quiz.PastTestDetailActivity
 import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.ui.BarChartView.BarData
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import org.json.JSONArray
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
+
+private val android.content.Context.reportsPrefsDataStore by preferencesDataStore(name = "reports_prefs")
+private val KEY_REPORT_RANGE_DAYS = intPreferencesKey("report_range_days")
+
+private enum class ReportRange(val days: Int) {
+    TODAY(1),
+    SEVEN(7),
+    THIRTY(30);
+
+    companion object {
+        fun fromDays(days: Int): ReportRange = when (days) {
+            1 -> TODAY
+            30 -> THIRTY
+            else -> SEVEN
+        }
+    }
+}
 
 class ReportsActivity : AppCompatActivity() {
 
@@ -43,42 +65,186 @@ class ReportsActivity : AppCompatActivity() {
         val analytics = AnalyticsStore(this)
         val protectionPrefs = ProtectionPrefs(this)
         val dataStore = RoomQuizDataStore(this)
-        val now = System.currentTimeMillis()
-        val weekAgo = now - TimeUnit.DAYS.toMillis(7)
 
-        val weeklyAttempts = reportStore.getBlockedAttemptsSince(weekAgo)
-        val totalBlockedCount = weeklyAttempts.values.sum()
-
-        val perfs = analytics.getTestPerformances().filter { it.tsMs >= weekAgo }
-        val weeklySessions = analytics.getSessions().filter { it.tsMs >= weekAgo }
-        val weeklyCorrect = perfs.sumOf { it.correctCount }
-        val weeklyWrong = perfs.sumOf { it.wrongCount }
-        val weeklyBlank = perfs.sumOf { it.blankCount }
-        val weeklyTotal = weeklyCorrect + weeklyWrong + weeklyBlank
-        val weeklyAccuracy = if (weeklyTotal > 0) 100f * weeklyCorrect / weeklyTotal else 0f
-
-        // A) Haftalık Başarı
-        if (weeklyTotal > 0) {
-            b.weeklySuccessContent.visibility = View.VISIBLE
-            b.weeklySuccessEmpty.visibility = View.GONE
-            b.tvWeeklyCorrectWrongBlank.text = "Doğru $weeklyCorrect / Yanlış $weeklyWrong / Boş $weeklyBlank"
-            b.chipWeeklyCorrect.text = "Doğru: $weeklyCorrect"
-            b.chipWeeklyWrong.text = "Yanlış: $weeklyWrong"
-            b.chipWeeklyBlank.text = "Boş: $weeklyBlank"
-            b.tvDailyTests.text = perfs.size.toString()
-            b.tvDailyAccuracy.text = "%.0f%%".format(weeklyAccuracy)
-            b.weeklyProgress.setProgressCompat(weeklyAccuracy.roundToInt().coerceIn(0, 100), true)
-            if (totalBlockedCount > 0) {
-                b.blockedRow.visibility = View.VISIBLE
-                b.tvDailyBlocked.text = totalBlockedCount.toString()
-            } else {
-                b.blockedRow.visibility = View.GONE
+        val initialRange = runCatching {
+            kotlinx.coroutines.runBlocking {
+                applicationContext.reportsPrefsDataStore.data
+                    .map { prefs -> prefs[KEY_REPORT_RANGE_DAYS] ?: ReportRange.SEVEN.days }
+                    .first()
             }
-        } else {
-            b.weeklySuccessContent.visibility = View.GONE
-            b.weeklySuccessEmpty.visibility = View.VISIBLE
-            b.btnWeeklyEmptyCta.setOnClickListener { startQuiz() }
+        }.getOrDefault(ReportRange.SEVEN.days).let { ReportRange.fromDays(it) }
+
+        var currentRange = initialRange
+        var shareBlockedCount = 0
+        var shareTestsCount = 0
+        var shareWeeklyAccuracy = 0f
+        var sharePassRate = 0f
+
+        fun updateWeeklyHeaderForRange(range: ReportRange) {
+            when (range) {
+                ReportRange.TODAY -> {
+                    b.tvWeeklySuccessTitle.text = "Günlük Özet"
+                    b.chipWeeklyRange.text = "Bugün"
+                }
+                ReportRange.SEVEN -> {
+                    b.tvWeeklySuccessTitle.text = getString(R.string.parent_weekly_success)
+                    b.chipWeeklyRange.text = "Son 7 gün"
+                }
+                ReportRange.THIRTY -> {
+                    b.tvWeeklySuccessTitle.text = "Aylık Özet"
+                    b.chipWeeklyRange.text = "Son 30 gün"
+                }
+            }
         }
+
+        fun applyRange(range: ReportRange) {
+            currentRange = range
+
+            b.chipGroupRange.check(
+                when (range) {
+                    ReportRange.TODAY -> b.chipRangeToday.id
+                    ReportRange.SEVEN -> b.chipRange7.id
+                    ReportRange.THIRTY -> b.chipRange30.id
+                }
+            )
+
+            val now = System.currentTimeMillis()
+            val sinceMs = now - TimeUnit.DAYS.toMillis(range.days.toLong())
+
+            val weeklyAttempts = reportStore.getBlockedAttemptsSince(sinceMs)
+            val totalBlockedCount = weeklyAttempts.values.sum()
+
+            val perfs = analytics.getTestPerformances().filter { it.tsMs >= sinceMs }
+            val weeklySessions = analytics.getSessions().filter { it.tsMs >= sinceMs }
+            val weeklyCorrect = perfs.sumOf { it.correctCount }
+            val weeklyWrong = perfs.sumOf { it.wrongCount }
+            val weeklyBlank = perfs.sumOf { it.blankCount }
+            val weeklyTotal = weeklyCorrect + weeklyWrong + weeklyBlank
+            val weeklyAccuracy = if (weeklyTotal > 0) 100f * weeklyCorrect / weeklyTotal else 0f
+
+            shareBlockedCount = totalBlockedCount
+            shareTestsCount = perfs.size
+            shareWeeklyAccuracy = weeklyAccuracy
+            sharePassRate = if (perfs.isNotEmpty()) {
+                perfs.count { it.passed }.toFloat() / perfs.size * 100f
+            } else {
+                0f
+            }
+
+            // A) Haftalık Başarı
+            if (weeklyTotal > 0) {
+                b.weeklySuccessContent.visibility = View.VISIBLE
+                b.weeklySuccessEmpty.visibility = View.GONE
+                b.tvWeeklyCorrectWrongBlank.text = "Doğru $weeklyCorrect / Yanlış $weeklyWrong / Boş $weeklyBlank"
+                b.chipWeeklyCorrect.text = "Doğru: $weeklyCorrect"
+                b.chipWeeklyWrong.text = "Yanlış: $weeklyWrong"
+                b.chipWeeklyBlank.text = "Boş: $weeklyBlank"
+                b.tvDailyTests.text = perfs.size.toString()
+                b.tvDailyAccuracy.text = "%.0f%%".format(weeklyAccuracy)
+                b.weeklyProgress.setProgressCompat(weeklyAccuracy.roundToInt().coerceIn(0, 100), true)
+                if (totalBlockedCount > 0) {
+                    b.blockedRow.visibility = View.VISIBLE
+                    b.tvDailyBlocked.text = totalBlockedCount.toString()
+                } else {
+                    b.blockedRow.visibility = View.GONE
+                }
+            } else {
+                b.weeklySuccessContent.visibility = View.GONE
+                b.weeklySuccessEmpty.visibility = View.VISIBLE
+                b.btnWeeklyEmptyCta.setOnClickListener { startQuiz() }
+            }
+
+            // C) Son 10 Test Başarı Trendi (premium chart + empty state)
+            val last10Perfs = perfs.takeLast(10)
+            val trendAccuracies = last10Perfs.map { it.accuracy }
+            if (trendAccuracies.size >= 3) {
+                b.trendContent.visibility = View.VISIBLE
+                b.trendEmpty.visibility = View.GONE
+                b.weeklyTrendChart.values = trendAccuracies
+            } else {
+                b.trendContent.visibility = View.GONE
+                b.trendEmpty.visibility = View.VISIBLE
+                b.btnTrendEmptyCta.setOnClickListener { startQuiz() }
+            }
+
+            // D) Son Testler
+            val snapshots = kotlinx.coroutines.runBlocking {
+                dataStore.getLastSnapshots(50)
+            }
+            val filteredSnapshots = snapshots
+                .filter { it.createdAt >= sinceMs }
+                .sortedByDescending { it.createdAt }
+                .take(10)
+
+            if (filteredSnapshots.isNotEmpty()) {
+                b.recyclerRecentTests.visibility = View.VISIBLE
+                b.recentTestsEmpty.visibility = View.GONE
+                b.recyclerRecentTests.layoutManager = LinearLayoutManager(this)
+                b.recyclerRecentTests.adapter = RecentTestsAdapter(filteredSnapshots) { snapshot ->
+                    val qIds = try {
+                        if (snapshot.questionIdsJson.isNullOrBlank()) emptyList()
+                        else (0 until JSONArray(snapshot.questionIdsJson).length()).map {
+                            JSONArray(snapshot.questionIdsJson).getString(it)
+                        }
+                    } catch (_: Exception) { emptyList() }
+                    startActivity(Intent(this, PastTestDetailActivity::class.java).apply {
+                        putExtra(PastTestDetailActivity.EXTRA_TEST_ID, snapshot.testId)
+                        putStringArrayListExtra(
+                            PastTestDetailActivity.EXTRA_QUESTION_IDS,
+                            ArrayList(qIds)
+                        )
+                    })
+                }
+            } else {
+                b.recyclerRecentTests.visibility = View.GONE
+                b.recentTestsEmpty.visibility = View.VISIBLE
+                b.btnRecentTestsEmptyCta.setOnClickListener { startQuiz() }
+            }
+
+            // En çok denenen uygulamalar
+            val topApps = weeklyAttempts.entries.sortedByDescending { it.value }.take(10)
+            if (topApps.isNotEmpty()) {
+                b.recyclerTopApps.visibility = View.VISIBLE
+                b.topAppsEmpty.visibility = View.GONE
+                b.recyclerTopApps.layoutManager = LinearLayoutManager(this)
+                b.recyclerTopApps.adapter =
+                    TopAppsAdapter(topApps.toList(), weeklyAttempts.values.maxOrNull() ?: 1)
+            } else {
+                b.recyclerTopApps.visibility = View.GONE
+                b.topAppsEmpty.visibility = View.VISIBLE
+            }
+
+            // Haftalık XP (seçili aralığa göre)
+            val weeklyXp = weeklySessions.sumOf { it.pointsEarned }
+            b.tvWeeklyXp.text = "Toplam XP: $weeklyXp"
+        }
+
+        fun persistRange(range: ReportRange) {
+            kotlinx.coroutines.runBlocking {
+                applicationContext.reportsPrefsDataStore.edit { prefs ->
+                    prefs[KEY_REPORT_RANGE_DAYS] = range.days
+                }
+            }
+        }
+
+        fun onRangeChanged(range: ReportRange) {
+            updateWeeklyHeaderForRange(range)
+            applyRange(range)
+            persistRange(range)
+        }
+
+        b.chipRangeToday.setOnClickListener {
+            if (currentRange != ReportRange.TODAY) onRangeChanged(ReportRange.TODAY)
+        }
+        b.chipRange7.setOnClickListener {
+            if (currentRange != ReportRange.SEVEN) onRangeChanged(ReportRange.SEVEN)
+        }
+        b.chipRange30.setOnClickListener {
+            if (currentRange != ReportRange.THIRTY) onRangeChanged(ReportRange.THIRTY)
+        }
+
+        updateWeeklyHeaderForRange(initialRange)
+        applyRange(initialRange)
 
         // B) Konulara Göre
         val topicCounts = analytics.getTopicMasteryWithCounts().filter { it.value.total > 0 }
@@ -94,45 +260,6 @@ class ReportsActivity : AppCompatActivity() {
             b.topicBarChart.visibility = View.GONE
             b.topicsEmpty.visibility = View.VISIBLE
             b.btnTopicsEmptyCta.setOnClickListener { startQuiz() }
-        }
-
-        // C) Son 10 Test Başarı Trendi (premium chart + empty state)
-        val last10Perfs = analytics.getTestPerformances().takeLast(10)
-        val trendAccuracies = last10Perfs.map { it.accuracy }
-        if (trendAccuracies.size >= 3) {
-            b.trendContent.visibility = View.VISIBLE
-            b.trendEmpty.visibility = View.GONE
-            b.weeklyTrendChart.values = trendAccuracies
-        } else {
-            b.trendContent.visibility = View.GONE
-            b.trendEmpty.visibility = View.VISIBLE
-            b.btnTrendEmptyCta.setOnClickListener { startQuiz() }
-        }
-
-        // D) Son Testler
-        val snapshots = kotlinx.coroutines.runBlocking {
-            dataStore.getLastSnapshots(10)
-        }
-        if (snapshots.isNotEmpty()) {
-            b.recyclerRecentTests.visibility = View.VISIBLE
-            b.recentTestsEmpty.visibility = View.GONE
-            b.recyclerRecentTests.layoutManager = LinearLayoutManager(this)
-            b.recyclerRecentTests.adapter = RecentTestsAdapter(snapshots) { snapshot ->
-                val qIds = try {
-                    if (snapshot.questionIdsJson.isNullOrBlank()) emptyList()
-                    else (0 until JSONArray(snapshot.questionIdsJson).length()).map {
-                        JSONArray(snapshot.questionIdsJson).getString(it)
-                    }
-                } catch (_: Exception) { emptyList() }
-                startActivity(Intent(this, PastTestDetailActivity::class.java).apply {
-                    putExtra(PastTestDetailActivity.EXTRA_TEST_ID, snapshot.testId)
-                    putStringArrayListExtra(PastTestDetailActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
-                })
-            }
-        } else {
-            b.recyclerRecentTests.visibility = View.GONE
-            b.recentTestsEmpty.visibility = View.VISIBLE
-            b.btnRecentTestsEmptyCta.setOnClickListener { startQuiz() }
         }
 
         // E) Yanlış Cevapları İncele
@@ -163,33 +290,17 @@ class ReportsActivity : AppCompatActivity() {
             b.btnWrongEmptyCta.setOnClickListener { startQuiz() }
         }
 
-        // En çok denenen uygulamalar
-        val topApps = weeklyAttempts.entries.sortedByDescending { it.value }.take(10)
-        if (topApps.isNotEmpty()) {
-            b.recyclerTopApps.visibility = View.VISIBLE
-            b.topAppsEmpty.visibility = View.GONE
-            b.recyclerTopApps.layoutManager = LinearLayoutManager(this)
-            b.recyclerTopApps.adapter = TopAppsAdapter(topApps.toList(), weeklyAttempts.values.maxOrNull() ?: 1)
-        } else {
-            b.recyclerTopApps.visibility = View.GONE
-            b.topAppsEmpty.visibility = View.VISIBLE
-        }
-
-        val weeklyXp = weeklySessions.sumOf { it.pointsEarned }
-        b.tvWeeklyXp.text = "Toplam XP: $weeklyXp"
-
         b.btnEmailSetup.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
         b.btnShareReport.setOnClickListener {
-            val passRate = if (perfs.isNotEmpty()) perfs.count { it.passed }.toFloat() / perfs.size * 100 else 0f
             val text = buildString {
                 append("BrainBuddy Rapor\n")
-                append("Engellenen: $totalBlockedCount\n")
-                append("Testler (hafta): ${perfs.size}\n")
-                append("Doğruluk: %.0f%%\n".format(weeklyAccuracy))
-                append("Geçme oranı: %.0f%%".format(passRate))
+                append("Engellenen: $shareBlockedCount\n")
+                append("Testler (${currentRange.days} gün): $shareTestsCount\n")
+                append("Doğruluk: %.0f%%\n".format(shareWeeklyAccuracy))
+                append("Geçme oranı: %.0f%%".format(sharePassRate))
             }
             startActivity(
                 Intent.createChooser(
