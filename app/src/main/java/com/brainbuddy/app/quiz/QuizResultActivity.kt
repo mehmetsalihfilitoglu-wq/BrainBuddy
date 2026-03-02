@@ -17,6 +17,8 @@ import com.brainbuddy.app.core.RewardedRetryStore
 import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.core.TestPerformance
 import com.brainbuddy.app.core.TopicCounts
+import com.brainbuddy.app.league.LeagueScoring
+import com.brainbuddy.app.league.LeagueStore
 import com.brainbuddy.app.quiz.ExamType
 import org.json.JSONArray
 import org.json.JSONObject
@@ -194,6 +196,18 @@ class QuizResultActivity : AppCompatActivity() {
         analytics.recordSession(com.brainbuddy.app.core.QuizSession(
             System.currentTimeMillis(), s.correctCount, s.totalCount, xpEarned
         ))
+
+        if (s.totalCount == com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+            val leagueStore = LeagueStore(this)
+            val testIndexOfDay = leagueStore.getTestsCompletedToday()
+            val isGateFail = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false) && s.wrongCount >= 4
+            val breakdown = LeagueScoring.computeBreakdown(
+                s.wrongCount, s.blankCount, isGateFail, testIndexOfDay
+            )
+            leagueStore.addWeeklyScore(breakdown.finalPoints)
+            leagueStore.incrementTestsToday()
+            leagueStore.recordPointsBreakdown(breakdown, s.quizId, s.completedAt ?: System.currentTimeMillis())
+        }
 
         val total = s.totalCount
         val pct = if (total > 0) (100f * s.correctCount / total) else 0f

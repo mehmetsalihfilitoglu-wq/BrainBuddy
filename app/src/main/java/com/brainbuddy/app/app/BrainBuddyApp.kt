@@ -3,6 +3,7 @@ package com.brainbuddy.app
 import android.app.Application
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.CrashRecoveryPrefs
+import com.brainbuddy.app.league.LeagueScheduler
 import com.brainbuddy.app.report.ReportScheduler
 import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.ProtectionPrefs
@@ -19,6 +20,7 @@ class BrainBuddyApp : Application() {
         AppModeManager.registerLifecycle(this)
         PermissionMonitorLauncher.scheduleCheck(this)
         ReportScheduler.schedule(this)
+        LeagueScheduler.scheduleNextReset(this)
 
         Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
             try {
