@@ -82,11 +82,14 @@ class StatsActivity : AppCompatActivity() {
         val strongest = analytics.getStrongestTopicsWithCounts(3)
         b.chipGroupStrong.removeAllViews()
         if (strongest.isEmpty()) {
-            val chip = Chip(this).apply { text = "-"; isClickable = false }
+            val chip = Chip(this, null, com.brainbuddy.app.R.style.Widget_BrainBuddy_Chip_Stat).apply {
+                text = "-"
+                isClickable = false
+            }
             b.chipGroupStrong.addView(chip)
         } else {
             strongest.forEach { (topic, tc) ->
-                val chip = Chip(this).apply {
+                val chip = Chip(this, null, com.brainbuddy.app.R.style.Widget_BrainBuddy_Chip_Stat).apply {
                     text = "$topic ${tc.correct}/${tc.total}"
                     isClickable = false
                 }
@@ -97,11 +100,14 @@ class StatsActivity : AppCompatActivity() {
         val weakest = analytics.getWeakestTopicsWithCounts(3)
         b.chipGroupWeak.removeAllViews()
         if (weakest.isEmpty()) {
-            val chip = Chip(this).apply { text = "-"; isClickable = false }
+            val chip = Chip(this, null, com.brainbuddy.app.R.style.Widget_BrainBuddy_Chip_Stat).apply {
+                text = "-"
+                isClickable = false
+            }
             b.chipGroupWeak.addView(chip)
         } else {
             weakest.forEach { (topic, tc) ->
-                val chip = Chip(this).apply {
+                val chip = Chip(this, null, com.brainbuddy.app.R.style.Widget_BrainBuddy_Chip_Stat).apply {
                     text = "$topic ${tc.correct}/${tc.total}"
                     isClickable = false
                 }

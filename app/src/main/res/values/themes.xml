@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Material3 colorScheme: turquoise primary, light surfaces, premium look.
+         Single source of truth - no hardcoded colors in layouts. -->
     <style name="Theme.BrainBuddy" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/bb_primary</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -9,6 +10,10 @@
         <item name="colorTertiary">@color/bb_accent</item>
         <item name="colorOnTertiary">@color/black</item>
         <item name="colorError">@color/bb_error</item>
+        <item name="colorSurface">@color/bb_bg</item>
+        <item name="colorOnSurface">@color/bb_text</item>
+        <item name="colorSurfaceContainer">@color/bb_surface_container</item>
+        <item name="colorOnSurfaceVariant">@color/bb_text_muted</item>
         <item name="android:windowBackground">@drawable/bg_gradient</item>
         <item name="android:textColorPrimary">@color/bb_text</item>
         <item name="android:textColorSecondary">@color/bb_text_muted</item>

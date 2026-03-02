@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Same premium look as light theme: turquoise primary, light surfaces -->
     <style name="Theme.BrainBuddy" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/bb_primary</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -8,10 +8,12 @@
         <item name="colorOnSecondary">@color/white</item>
         <item name="colorTertiary">@color/bb_tertiary</item>
         <item name="colorOnTertiary">@color/white</item>
-
-        <item name="android:windowBackground">@color/bb_bg</item>
+        <item name="colorSurface">@color/bb_bg</item>
+        <item name="colorOnSurface">@color/bb_text</item>
+        <item name="colorSurfaceContainer">@color/bb_surface_container</item>
+        <item name="colorOnSurfaceVariant">@color/bb_text_muted</item>
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
         <item name="android:textColorPrimary">@color/bb_text</item>
         <item name="android:textColorSecondary">@color/bb_text_muted</item>
     </style>
-
 </resources>

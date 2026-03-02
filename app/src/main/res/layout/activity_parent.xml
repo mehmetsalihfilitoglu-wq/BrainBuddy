@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
         app:title="@string/parent_hub_title"
-        app:navigationIcon="?attr/homeAsUpIndicator" />
+        app:titleTextColor="@color/bb_text"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="?attr/colorPrimary" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,7 +64,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_timer"
-                            app:tint="@color/bb_primary"
+                            app:tint="?attr/colorPrimary"
                             android:contentDescription="@null" />
 
                         <TextView
@@ -105,7 +109,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_quiz"
-                            app:tint="@color/bb_primary"
+                            app:tint="?attr/colorPrimary"
                             android:contentDescription="@null" />
 
                         <TextView
@@ -150,7 +154,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_block"
-                            app:tint="@color/bb_primary"
+                            app:tint="?attr/colorPrimary"
                             android:contentDescription="@null" />
 
                         <TextView

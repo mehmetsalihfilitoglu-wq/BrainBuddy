@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Dark mode surface variants (Material3) -->
-    <color name="bb_surface_container">#1E2D2B</color>
-    <color name="bb_outline_variant">#3D4F4C</color>
+    <!-- Premium look: light cards on all screens (Home, ParentHub, Reports, Stats).
+         Do NOT use dark surface - user requirement: "koyu kirli kart yok". -->
+    <color name="bb_surface_container">#F0FDF9</color>
+    <color name="bb_outline_variant">#D1E8E4</color>
 </resources>

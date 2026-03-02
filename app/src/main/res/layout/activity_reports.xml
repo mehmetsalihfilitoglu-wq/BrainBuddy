@@ -12,8 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
+        app:title="@string/reports_title"
+        app:titleTextColor="@color/bb_text"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        app:title="@string/reports_title"/>
+        app:navigationIconTint="?attr/colorPrimary"/>
 
     <ScrollView
         android:layout_width="match_parent"

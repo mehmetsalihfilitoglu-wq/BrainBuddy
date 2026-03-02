@@ -73,7 +73,16 @@
         <item name="android:textColor">@color/bb_text</item>
     </style>
 
-    <!-- Stat chip: medium, muted -->
+    <!-- Stat chip: light background, readable text (Material3-like, premium look) -->
+    <style name="Widget.BrainBuddy.Chip.Stat" parent="Widget.Material3.Chip.Assist">
+        <item name="chipBackgroundColor">@color/bb_surface_container</item>
+        <item name="android:textColor">@color/bb_text</item>
+        <item name="chipStrokeColor">@color/bb_outline_variant</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipMinHeight">32dp</item>
+    </style>
+
+    <!-- Stat chip: medium, muted (legacy) -->
     <style name="BB.StatChip">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/bb_text_muted</item>
