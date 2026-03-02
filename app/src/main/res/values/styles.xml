@@ -13,6 +13,12 @@
         <item name="strokeWidth">1dp</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
+    <!-- Premium CTA card: primaryContainer bg for premium highlight -->
+    <style name="Widget.BrainBuddy.Card.PremiumCTA" parent="Widget.BrainBuddy.Card">
+        <item name="cardBackgroundColor">?attr/colorPrimaryContainer</item>
+        <item name="strokeColor">?attr/colorOutlineVariant</item>
+        <item name="android:foreground">@null</item>
+    </style>
 
     <!-- Reports typography: card titles (TitleMedium + semiBold) -->
     <style name="TextAppearance.BrainBuddy.Reports.CardTitle" parent="TextAppearance.Material3.TitleMedium">
@@ -25,6 +31,14 @@
     </style>
     <style name="TextAppearance.BrainBuddy.Reports.CardDescriptionSmall" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+    <!-- Premium CTA card: title + body on primaryContainer -->
+    <style name="TextAppearance.BrainBuddy.Reports.PremiumTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
+    </style>
+    <style name="TextAppearance.BrainBuddy.Reports.PremiumBody" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
     </style>
 
     <!-- Typography -->

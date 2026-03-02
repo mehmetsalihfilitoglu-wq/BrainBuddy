@@ -346,78 +346,111 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- E) Yanlış Cevapları İncele kartı (her zaman görünür) -->
+            <!-- E) Yanlış Cevapları İncele kartı (Premium CTA) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardReviewWrong"
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.BrainBuddy.Card.PremiumCTA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap">
 
                 <LinearLayout
+                    android:id="@+id/wrongHasData"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/reports_card_inner">
+                    android:padding="16dp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="top">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/ic_review"
+                            app:tint="?attr/colorOnPrimaryContainer"
+                            android:contentDescription="@null"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/parent_review_wrong"
+                                android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumTitle"/>
+
+                            <TextView
+                                android:id="@+id/tvWrongSubtitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/parent_review_wrong_desc"
+                                android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnReviewWrongParent"
+                                style="@style/Widget.Material3.Button.TonalButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginTop="8dp"
+                                android:minHeight="0dp"
+                                android:minWidth="0dp"
+                                android:paddingHorizontal="16dp"
+                                android:paddingVertical="8dp"
+                                android:text="@string/btn_detail"
+                                android:textAllCaps="false"
+                                app:icon="@drawable/ic_chevron_right"
+                                app:iconGravity="textEnd"
+                                app:iconSize="20dp"
+                                app:iconTint="?attr/colorOnSecondaryContainer"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wrongEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_review"
+                        app:tint="?attr/colorOnPrimaryContainer"
+                        android:contentDescription="@null"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Yanlış Cevapları İncele"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
-
-                    <LinearLayout
-                        android:id="@+id/wrongHasData"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvWrongSubtitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_4"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"
-                            android:text="En çok yanlış yapılan konuları veli olarak inceleyebilirsiniz."/>
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnReviewWrongParent"
-                            style="@style/BBButtonAlt"
-                            android:layout_marginTop="12dp"
-                            android:text="Detaya Git"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/wrongEmpty"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:padding="16dp"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="📋"
-                            android:textSize="32sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/reports_title_content"
-                            android:text="@string/parent_no_wrong_yet"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"
-                            android:gravity="center"/>
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btnWrongEmptyCta"
-                            style="@style/BBButtonAlt"
-                            android:layout_marginTop="12dp"
-                            android:text="@string/btn_start_quiz"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
+                        android:text="@string/parent_no_wrong_record"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnWrongEmptyCta"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:minHeight="0dp"
+                        android:minWidth="0dp"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:text="@string/btn_start_quiz"
+                        android:textAllCaps="false"
+                        app:iconTint="?attr/colorOnSecondaryContainer"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
