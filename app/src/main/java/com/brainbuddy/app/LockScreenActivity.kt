@@ -86,8 +86,8 @@ class LockScreenActivity : AppCompatActivity() {
 
             if (canShowAd) {
                 adSection.visibility = View.VISIBLE
-                tvAdRetryInfo.text = "Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin. Bugün kalan: ${retryStore.getRemainingRetriesToday(profileId)}"
-                btnWatchAd.text = "Reklam İzle → Tekrar Dene"
+                tvAdRetryInfo.text = getString(R.string.ad_retry_info_with_count, retryStore.getRemainingRetriesToday(profileId))
+                btnWatchAd.text = getString(R.string.ad_watch_retry)
                 val adHelper = RewardAdHelper(this)
                 adHelper.loadAd(onFailed = { btnWatchAd.isEnabled = false })
                 btnWatchAd.setOnClickListener {
@@ -113,7 +113,7 @@ class LockScreenActivity : AppCompatActivity() {
 
             if (canShowPremium) {
                 btnPremiumRetry.visibility = View.VISIBLE
-                btnPremiumRetry.text = "Tekrar Dene (Premium)"
+                btnPremiumRetry.text = getString(R.string.btn_retry_premium)
                 btnPremiumRetry.setOnClickListener {
                     if (eligibleQuestion != null) {
                         retryStore.recordRetryUsed(profileId, quizId, eligibleQuestion)

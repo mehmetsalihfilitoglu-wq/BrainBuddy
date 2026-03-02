@@ -21,7 +21,7 @@
     <string name="parent_question_packs">Soru Paketleri</string>
     <string name="parent_question_packs_sub">LGS / TYT / AYT / Junior</string>
     <string name="parent_avatar_shop">Avatar Satın Alma</string>
-    <string name="parent_avatar_shop_sub">toggle ON/OFF</string>
+    <string name="parent_avatar_shop_sub">Avatar mağazası açık/kapalı</string>
     <string name="parent_permissions">İzinler</string>
     <string name="parent_permissions_sub">Erişilebilirlik, Kullanım, Pil</string>
     <string name="parent_change_pin">PIN Değiştir</string>
@@ -52,24 +52,39 @@
     <string name="settings_permissions_title">Erişilebilirlik / Kullanım izinleri</string>
     <string name="settings_permissions_sub">Erişilebilirlik ve kullanım izinlerini yönet</string>
     <string name="settings_system_health_sub">İzinler ve koruma durumunu kontrol et</string>
+    <string name="settings_blocked_apps">Engellenen Uygulamalar</string>
     <string name="settings_blocked_apps_sub">Engellenecek uygulamaları seç ve yönet</string>
     <string name="settings_time_limits">Zaman Limitleri</string>
     <string name="settings_time_limits_sub">Günlük kullanım limitlerini ayarla</string>
     <string name="settings_schedules_sub">Zaman dilimlerine göre kurallar tanımla</string>
     <string name="settings_student_level">Öğrenci Seviyesi</string>
     <string name="settings_student_level_sub">Yaş ve sınıf seviyesini belirle</string>
+    <string name="settings_test_settings">Test Ayarları</string>
     <string name="settings_test_sub">Zorluk ve soru sayısı ayarları</string>
+    <string name="settings_exam_packs">Sınav Paketleri (LGS/TYT/AYT)</string>
     <string name="settings_exam_packs_sub">LGS, TYT, AYT sınav paketleri</string>
+    <string name="settings_junior_title">BrainBuddy Junior</string>
     <string name="settings_junior_sub">1. sınıf okuma-yazma modülü</string>
     <string name="settings_profiles_sub">Birden fazla öğrenci profili yönet</string>
     <string name="settings_reports_sub">Günlük ve haftalık raporlara eriş</string>
     <string name="settings_backup_sub">Verileri dışa aktar (Export)</string>
     <string name="settings_restore_sub">Yedekten geri yükle (Import)</string>
+    <string name="settings_reward_contracts">Ödül Sözleşmeleri</string>
     <string name="settings_reward_contracts_sub">Ödül sözleşmelerini yönet</string>
     <string name="settings_shop_disable">Avatar mağazasını kapat</string>
     <string name="settings_shop_disable_sub">Öğrencinin avatar satın almasını engelle</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_theme_sub">Tema seçenekleri (yakında)</string>
+    <string name="settings_section_about">Hakkında</string>
+    <string name="settings_privacy_sub">Gizlilik politikamızı inceleyin</string>
+    <string name="settings_accessibility_usage_sub">BrainBuddy erişilebilirlik kullanımı hakkında</string>
+    <string name="interval_30">30 dk</string>
+    <string name="interval_45">45 dk</string>
+    <string name="interval_60">60 dk</string>
+    <string name="level_ages_3_5">Yaş 3–5</string>
+    <string name="level_grades_1_4">Sınıf 1–4</string>
+    <string name="level_grades_5_8">Sınıf 5–8</string>
+    <string name="level_grades_9_12">Sınıf 9–12</string>
     <string name="settings_motivation">Motivasyon bildirimleri</string>
     <string name="settings_motivation_sub">Günlük hatırlatma bildirimleri</string>
 
@@ -144,6 +159,14 @@
     <string name="results_title">Sonuçlar</string>
     <string name="retry_wrong">Yanlışları İncele</string>
     <string name="btn_retry_test">Testi Tekrarla</string>
+    <string name="ad_retry_info">Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin.</string>
+    <string name="ad_retry_info_with_count">Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin. Bugün kalan: %1$d</string>
+    <string name="ad_watch_retry">Reklam İzle → Tekrar Dene</string>
+    <string name="premium_retry_info">Premium: Bir yanlış soruyu tekrar cevapla (sınırsız).</string>
+    <string name="btn_retry_single">Tekrar Dene</string>
+    <string name="btn_premium_retry">Premium ile Reklamsız Tekrar</string>
+    <string name="btn_retry_premium">Tekrar Dene (Premium)</string>
+    <string name="btn_remedial_mini">Pratik Mini Test</string>
 
     <!-- Reports -->
     <string name="reports_title">Raporlar</string>

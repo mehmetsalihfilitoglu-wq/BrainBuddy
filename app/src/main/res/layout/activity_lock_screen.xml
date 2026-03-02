@@ -9,10 +9,9 @@
     android:padding="24dp">
 
     <com.google.android.material.card.MaterialCardView
+        style="@style/BB.HomeCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="8dp"
         app:cardBackgroundColor="@color/white"
         android:layout_marginBottom="24dp">
 
@@ -64,7 +63,7 @@
             android:id="@+id/tvAdRetryInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin."
+            android:text="@string/ad_retry_info"
             android:textSize="14sp"
             android:textColor="@color/bb_text_muted"
             android:paddingBottom="8dp"/>
@@ -74,7 +73,7 @@
             style="@style/BBButtonAlt"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Reklam İzle → Tekrar Dene"
+            android:text="@string/ad_watch_retry"
             android:textAllCaps="false"/>
     </LinearLayout>
 
@@ -84,7 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginTop="12dp"
-        android:text="Premium → Reklamsız Tekrar"
+        android:text="@string/btn_premium_retry"
         android:textAllCaps="false"
         android:visibility="gone"/>
 

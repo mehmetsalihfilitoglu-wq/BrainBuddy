@@ -359,8 +359,8 @@ class QuizResultActivity : AppCompatActivity() {
             if (canShowAd || canShowPremiumRetry) {
                 adSection.visibility = View.VISIBLE
                 if (isPremium) {
-                    tvAdRetryInfo.text = "Premium: Bir yanlış soruyu tekrar cevapla (sınırsız)."
-                    btnWatchAd.text = "Tekrar Dene"
+                    tvAdRetryInfo.text = getString(R.string.premium_retry_info)
+                    btnWatchAd.text = getString(R.string.btn_retry_single)
                     btnWatchAd.setOnClickListener {
                         val q = wrongIds.shuffled().firstOrNull { retryStore.canRetryWithAd(profileId, s.quizId, it) } ?: wrongIds.first()
                         retryStore.recordRetryUsed(profileId, s.quizId, q)
@@ -373,8 +373,8 @@ class QuizResultActivity : AppCompatActivity() {
                         finish()
                     }
                 } else {
-                    tvAdRetryInfo.text = "Reklam izleyerek bir yanlış soruyu tekrar cevaplayabilirsin. Bugün kalan: ${retryStore.getRemainingRetriesToday(profileId)}"
-                    btnWatchAd.text = "Reklam İzle → Tekrar Dene"
+                    tvAdRetryInfo.text = getString(R.string.ad_retry_info_with_count, retryStore.getRemainingRetriesToday(profileId))
+                    btnWatchAd.text = getString(R.string.ad_watch_retry)
                     val adHelper = RewardAdHelper(this)
                     adHelper.loadAd(onFailed = { btnWatchAd.isEnabled = false })
                     btnWatchAd.setOnClickListener {

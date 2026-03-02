@@ -266,15 +266,13 @@ class QuestionRepository(private val context: Context) {
         difficulty: QuizDifficulty,
         categories: Set<String> = emptySet()
     ): List<Question> {
-        val (all, loadStats) = loadAllQuestionsWithStats()
+        val (all, _) = loadAllQuestionsWithStats()
         val allPool = if (all.isEmpty()) getFallbackQuestions() else all
-        val (pool, filterStats) = buildPoolWithFallback(allPool, levelGroup, difficulty, categories)
+        val (pool, _) = buildPoolWithFallback(allPool, levelGroup, difficulty, categories)
         val finalPool = if (pool.isEmpty()) {
             Log.w(TAG, "Pool empty after filters, using global/fallback questions")
             allPool.ifEmpty { getFallbackQuestions() }
         } else pool
-
-        showDebugToast(loadStats, filterStats, finalPool.size, count)
 
         val profileId = ProfileStore(context).getCurrentProfileId()
         val wrongIds = (historyStore.getWrongQuestionIds(7) + wrongQuestionStore.getUnfixedWrongIds(14)).toSet()
@@ -344,10 +342,6 @@ class QuestionRepository(private val context: Context) {
         }
         recordSeenForQuiz(profileId, finalResult.map { it.id })
         return finalResult
-    }
-
-    private fun showDebugToast(load: LoadStats, filter: FilterStats, poolSize: Int, count: Int) {
-        Log.i(TAG, "Quiz: JSON=${if (load.fileFound) "OK" else "MISSING"}, parsed=${load.parsedTotal}, pool=$poolSize, count=$count")
     }
 
     data class FilterStats(

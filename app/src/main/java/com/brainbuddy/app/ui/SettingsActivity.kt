@@ -95,7 +95,7 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<View>(R.id.cardPrivacyPolicy)?.setOnClickListener {
             startActivity(Intent(this, PrivacyPolicyActivity::class.java))
         }
-        findViewById<View>(R.id.cardAccessibilityUsage)?.setOnClickListener {
+        findViewById<View>(R.id.cardAccessibilityUsage).setOnClickListener {
             startActivity(Intent(this, AccessibilityUsageActivity::class.java))
         }
         findViewById<View>(R.id.cardBackup)?.setOnClickListener {

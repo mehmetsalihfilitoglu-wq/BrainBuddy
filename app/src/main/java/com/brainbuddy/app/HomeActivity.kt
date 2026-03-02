@@ -54,7 +54,7 @@ class HomeActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 val now = System.currentTimeMillis()
-                if (now - lastBackPressMs < 2000) {
+                if (now - lastBackPressMs < 3000) {
                     finishAffinity()
                 } else {
                     lastBackPressMs = now
