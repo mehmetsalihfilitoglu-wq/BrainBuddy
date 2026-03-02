@@ -111,6 +111,7 @@ class PinLockActivity : AppCompatActivity() {
             "SettingsActivity" -> SettingsActivity::class.java
             "BlockedAppsActivity" -> BlockedAppsActivity::class.java
             "TimeLimitsActivity" -> TimeLimitsActivity::class.java
+            "SecurityActivity" -> SecurityActivity::class.java
             "QuizSettingsActivity" -> QuizSettingsActivity::class.java
             "ProtectionInactiveActivity" -> ProtectionInactiveActivity::class.java
             "PermissionsChecklistActivity" -> PermissionsChecklistActivity::class.java

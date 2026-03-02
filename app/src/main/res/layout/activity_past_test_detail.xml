@@ -83,6 +83,32 @@
             android:layout_marginTop="8dp"
             android:visibility="gone"/>
 
+        <LinearLayout
+            android:id="@+id/layoutViewQuotaGate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="12dp"
+            android:padding="16dp"
+            android:background="@color/bb_turquoise_light">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Doğru cevapları görmek için reklam izleyerek 1 hak kazanın."
+                android:textSize="14sp"
+                android:textColor="@color/bb_text"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWatchAdForView"
+                style="@style/BBButtonAlt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/btn_watch_ad_unlock"/>
+        </LinearLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnReplay"
             android:layout_width="match_parent"

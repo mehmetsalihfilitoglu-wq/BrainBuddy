@@ -262,6 +262,10 @@
         <activity
             android:name=".ui.WatchAdToUnlockLastTestActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ui.WatchAdForParentViewActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.AdLimitReachedActivity"
             android:exported="false" />

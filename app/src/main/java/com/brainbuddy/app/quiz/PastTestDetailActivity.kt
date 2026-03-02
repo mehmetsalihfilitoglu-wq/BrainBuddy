@@ -3,15 +3,19 @@ package com.brainbuddy.app.quiz
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.DailyAdQuotaStore
+import com.brainbuddy.app.core.DailyParentViewQuotaStore
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.QuestionMapper
 import com.brainbuddy.app.ui.AdLimitReachedActivity
+import com.brainbuddy.app.ui.WatchAdForParentViewActivity
 import com.brainbuddy.app.ui.WatchAdToUnlockLastTestActivity
 import org.json.JSONArray
 import java.text.SimpleDateFormat
@@ -20,7 +24,9 @@ import java.util.Locale
 
 /**
  * Test detay ekranı: skor, tarih, konu dağılımı, yanlış soru listesi, Tekrar Çöz.
- * Premium: sınırsız replay. Non-premium: RewardedAd + günlük max 3.
+ * - Öğrenci doğru cevabı asla görmez.
+ * - Veli: doğru cevap görme kotası (Premium: sınırsız, değilse günde 3 ücretsiz + reklam = +1).
+ * - Replay: Premium sınırsız, değilse günlük max 3 reklam.
  */
 class PastTestDetailActivity : AppCompatActivity() {
 
@@ -29,12 +35,25 @@ class PastTestDetailActivity : AppCompatActivity() {
         const val EXTRA_QUESTION_IDS = "question_ids"
     }
 
+    private lateinit var testId: String
+    private lateinit var questionIds: ArrayList<String>
+    private var wrongIds: List<String> = emptyList()
+    private var questionsForWrong: List<Question> = emptyList()
+
+    private val adForViewLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            refreshWrongSection()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_past_test_detail)
 
-        val testId = intent.getStringExtra(EXTRA_TEST_ID) ?: ""
-        val questionIds = intent.getStringArrayListExtra(EXTRA_QUESTION_IDS) ?: arrayListOf()
+        testId = intent.getStringExtra(EXTRA_TEST_ID) ?: ""
+        questionIds = intent.getStringArrayListExtra(EXTRA_QUESTION_IDS) ?: arrayListOf()
 
         if (testId.isBlank() || questionIds.isEmpty()) {
             finish()
@@ -61,28 +80,74 @@ class PastTestDetailActivity : AppCompatActivity() {
             }
         }
 
-        val wrongIds = try {
+        wrongIds = try {
             if (snapshot.wrongQuestionIdsJson.isNullOrBlank()) emptyList()
-            else (0 until JSONArray(snapshot.wrongQuestionIdsJson).length()).map { JSONArray(snapshot.wrongQuestionIdsJson).getString(it) }
+            else (0 until JSONArray(snapshot.wrongQuestionIdsJson).length()).map {
+                JSONArray(snapshot.wrongQuestionIdsJson).getString(it)
+            }
         } catch (_: Exception) { emptyList() }
 
         if (wrongIds.isNotEmpty()) {
-            val questions = kotlinx.coroutines.runBlocking {
+            questionsForWrong = kotlinx.coroutines.runBlocking {
                 db.questionDao().getQuestionsByIds(wrongIds).map { QuestionMapper.toQuestion(it) }
             }
-            val items = wrongIds.mapNotNull { id ->
-                questions.find { it.id == id }?.let { q ->
-                    QuizResultActivity.WrongItem(q.stem, "-", q.choices.getOrNull(q.correctIndex) ?: "?", q.hint, showCorrect = true)
-                }
-            }
-            findViewById<View>(R.id.tvWrongLabel).visibility = View.VISIBLE
-            findViewById<RecyclerView>(R.id.recyclerWrong).apply {
-                visibility = View.VISIBLE
-                layoutManager = LinearLayoutManager(this@PastTestDetailActivity)
-                adapter = QuizResultActivity.WrongAnswersAdapter(items)
-            }
+            renderWrongSection()
         }
 
+        setupReplayButton(snapshot.total)
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnBack).setOnClickListener { finish() }
+    }
+
+    private fun renderWrongSection() {
+        val showCorrect = canShowCorrectToParent()
+        val items = wrongIds.mapNotNull { id ->
+            questionsForWrong.find { it.id == id }?.let { q ->
+                QuizResultActivity.WrongItem(
+                    q.stem, "-",
+                    q.choices.getOrNull(q.correctIndex) ?: "?",
+                    q.hint,
+                    showCorrect = showCorrect
+                )
+            }
+        }
+        findViewById<View>(R.id.tvWrongLabel).visibility = View.VISIBLE
+        findViewById<RecyclerView>(R.id.recyclerWrong).apply {
+            visibility = View.VISIBLE
+            layoutManager = LinearLayoutManager(this@PastTestDetailActivity)
+            adapter = QuizResultActivity.WrongAnswersAdapter(items)
+        }
+
+        if (showCorrect) {
+            DailyParentViewQuotaStore(this).consumeOne()
+        }
+
+        val parentViewQuota = DailyParentViewQuotaStore(this)
+        val layoutViewQuotaGate = findViewById<View>(R.id.layoutViewQuotaGate)
+        val isParentNoQuota = AppModeManager.isParentMode() && !PremiumStore(this).isPremium() && !parentViewQuota.canView()
+        if (layoutViewQuotaGate != null) {
+            if (isParentNoQuota && !showCorrect) {
+                layoutViewQuotaGate.visibility = View.VISIBLE
+                layoutViewQuotaGate.findViewById<android.widget.Button>(R.id.btnWatchAdForView).setOnClickListener {
+                    adForViewLauncher.launch(Intent(this, WatchAdForParentViewActivity::class.java))
+                }
+            } else {
+                layoutViewQuotaGate.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun refreshWrongSection() {
+        if (wrongIds.isEmpty()) return
+        renderWrongSection()
+    }
+
+    private fun canShowCorrectToParent(): Boolean {
+        if (!AppModeManager.isParentMode()) return false
+        if (PremiumStore(this).isPremium()) return true
+        return DailyParentViewQuotaStore(this).canView()
+    }
+
+    private fun setupReplayButton(total: Int) {
         val premium = PremiumStore(this).isPremium()
         val quotaStore = DailyAdQuotaStore(this)
         quotaStore.resetIfNewDay()
@@ -114,13 +179,13 @@ class PastTestDetailActivity : AppCompatActivity() {
                 startActivity(Intent(this, QuizActivity::class.java).apply {
                     putExtra(QuizActivity.EXTRA_REPLAY_FROM_LAST_TEST, true)
                     putExtra(QuizActivity.EXTRA_QUIZ_ID, testId)
-                    putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(questionIds))
+                    putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, questionIds)
                 })
             } else {
                 if (remaining > 0) {
                     startActivity(Intent(this, WatchAdToUnlockLastTestActivity::class.java).apply {
                         putExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUIZ_ID, testId)
-                        putStringArrayListExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUESTION_IDS, ArrayList(questionIds))
+                        putStringArrayListExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUESTION_IDS, questionIds)
                     })
                 } else {
                     startActivity(Intent(this, AdLimitReachedActivity::class.java))
@@ -128,7 +193,5 @@ class PastTestDetailActivity : AppCompatActivity() {
             }
             finish()
         }
-
-        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnBack).setOnClickListener { finish() }
     }
 }
