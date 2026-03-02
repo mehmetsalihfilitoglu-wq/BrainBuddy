@@ -5,42 +5,19 @@ import android.content.pm.PackageManager
 
 /**
  * Preset app groups: Social Media, Games, Browsers.
- * Detects installed apps for each group.
+ * Uses installed apps list only - no hardcoded package names.
+ * Categories return empty when no preset matching is available.
  */
 object AppGroupPresets {
 
-    val socialPackages: Set<String> = setOf(
-        "com.instagram.android",
-        "com.facebook.katana",
-        "com.zhiliaoapp.musically", // TikTok
-        "com.google.android.youtube",
-        "com.snapchat.android",
-        "com.twitter.android",
-        "org.telegram.messenger",
-        "com.whatsapp"
-    )
+    /** Installed packages matching "social" - none without hardcoded list. Use getInstalledApps. */
+    val socialPackages: Set<String> get() = emptySet()
 
-    val gamesPackages: Set<String> = setOf(
-        "com.king.candycrushsaga",
-        "com.supercell.clashofclans",
-        "com.roblox.client",
-        "com.mojang.minecraftpe",
-        "com.epicgames.fortnite",
-        "com.pubg.krmobile",
-        "com.innersloth.spacemafia",
-        "com.tencent.ig"
-    )
+    /** Installed packages matching "games" - none without hardcoded list. Use getInstalledApps. */
+    val gamesPackages: Set<String> get() = emptySet()
 
-    val browsersPackages: Set<String> = setOf(
-        "com.android.chrome",
-        "org.mozilla.firefox",
-        "org.mozilla.fennec_fdroid",
-        "com.microsoft.emmx",
-        "com.opera.browser",
-        "com.opera.mini.native",
-        "com.sec.android.app.sbrowser",
-        "com.brave.browser"
-    )
+    /** Installed packages matching "browsers" - none without hardcoded list. Use getInstalledApps. */
+    val browsersPackages: Set<String> get() = emptySet()
 
     fun getInstalledFromGroup(context: Context, group: String): Set<String> {
         val pm = context.packageManager
@@ -51,12 +28,7 @@ object AppGroupPresets {
             else -> emptySet()
         }
         return packages.filter { pkg ->
-            try {
-                pm.getPackageInfo(pkg, 0)
-                pm.getLaunchIntentForPackage(pkg) != null
-            } catch (_: PackageManager.NameNotFoundException) {
-                false
-            }
+            InstalledAppsHelper.isInstalledWithLauncher(pm, pkg)
         }.toSet()
     }
 

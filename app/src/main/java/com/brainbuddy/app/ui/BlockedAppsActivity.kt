@@ -1,7 +1,6 @@
 package com.brainbuddy.app.ui
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +19,7 @@ import kotlinx.coroutines.withContext
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AppGroupPresets
 import com.brainbuddy.app.core.BlockedAppsStore
+import com.brainbuddy.app.core.InstalledAppsHelper
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.SocialPresetPackages
 import com.brainbuddy.app.receiver.PackageChangeReceiver
@@ -62,18 +62,15 @@ class BlockedAppsActivity : AppCompatActivity() {
         lifecycleScope.launch {
             val loaded = withContext(Dispatchers.IO) {
                 val pm = packageManager
-                val installed = pm.getInstalledApplications(PackageManager.GET_META_DATA)
-                installed
+                val apps = InstalledAppsHelper.getInstalledApps(pm)
                     .filter { it.packageName != packageName }
-                    .filter { pm.getLaunchIntentForPackage(it.packageName) != null }
-                    .map { app ->
-                        AppInfo(
-                            app.packageName,
-                            app.loadLabel(pm).toString(),
-                            app.loadIcon(pm)
-                        )
-                    }
-                    .sortedBy { it.label.lowercase() }
+                apps.mapNotNull { app ->
+                    try {
+                        val label = InstalledAppsHelper.getAppLabel(pm, app)
+                        val icon = InstalledAppsHelper.getAppIcon(pm, app, this@BlockedAppsActivity)
+                        if (icon != null) AppInfo(app.packageName, label, icon) else null
+                    } catch (_: Exception) { null }
+                }.sortedBy { it.label.lowercase() }
             }
             allApps = loaded
             adapter.updateList(loaded)
@@ -95,16 +92,16 @@ class BlockedAppsActivity : AppCompatActivity() {
             adapter.updateList(allApps)
         }
         chipSocial?.setOnClickListener {
-            val socialPkgs = AppGroupPresets.socialPackages
-            adapter.updateList(allApps.filter { it.packageName in socialPkgs })
+            val socialPkgs = AppGroupPresets.getInstalledFromGroup(this, "social")
+            adapter.updateList(if (socialPkgs.isEmpty()) allApps else allApps.filter { it.packageName in socialPkgs })
         }
         chipGames?.setOnClickListener {
-            val gamePkgs = AppGroupPresets.gamesPackages
-            adapter.updateList(allApps.filter { it.packageName in gamePkgs })
+            val gamePkgs = AppGroupPresets.getInstalledFromGroup(this, "games")
+            adapter.updateList(if (gamePkgs.isEmpty()) allApps else allApps.filter { it.packageName in gamePkgs })
         }
         chipBrowsers?.setOnClickListener {
-            val browserPkgs = AppGroupPresets.browsersPackages
-            adapter.updateList(allApps.filter { it.packageName in browserPkgs })
+            val browserPkgs = AppGroupPresets.getInstalledFromGroup(this, "browsers")
+            adapter.updateList(if (browserPkgs.isEmpty()) allApps else allApps.filter { it.packageName in browserPkgs })
         }
 
         searchBox.addTextChangedListener(object : android.text.TextWatcher {
@@ -167,8 +164,8 @@ class BlockedAppsActivity : AppCompatActivity() {
         }
         root.findViewById<View>(R.id.btnPresetSingleSelect)?.setOnClickListener {
             sheet.dismiss()
-            val socialPkgs = AppGroupPresets.socialPackages
-            adapter.updateList(allApps.filter { it.packageName in socialPkgs })
+            val socialPkgs = AppGroupPresets.getInstalledFromGroup(this, "social")
+            adapter.updateList(if (socialPkgs.isEmpty()) allApps else allApps.filter { it.packageName in socialPkgs })
             findViewById<com.google.android.material.chip.ChipGroup>(R.id.chipGroup)?.check(R.id.chipSocial)
         }
         sheet.show()
@@ -179,12 +176,13 @@ class BlockedAppsActivity : AppCompatActivity() {
         if (PackageChangeReceiver.isDirty(this)) {
             PackageChangeReceiver.clearDirtyFlag(this)
             val pm = packageManager
-            allApps = pm.getInstalledApplications(PackageManager.GET_META_DATA)
+            allApps = InstalledAppsHelper.getInstalledApps(pm)
                 .filter { it.packageName != packageName }
-                .filter { pm.getLaunchIntentForPackage(it.packageName) != null }
                 .mapNotNull { app ->
                     try {
-                        AppInfo(app.packageName, app.loadLabel(pm).toString(), app.loadIcon(pm))
+                        val label = InstalledAppsHelper.getAppLabel(pm, app)
+                        val icon = InstalledAppsHelper.getAppIcon(pm, app, this)
+                        if (icon != null) AppInfo(app.packageName, label, icon) else null
                     } catch (_: Exception) { null }
                 }
                 .sortedBy { it.label.lowercase() }

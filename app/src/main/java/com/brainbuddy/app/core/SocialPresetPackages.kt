@@ -4,53 +4,30 @@ import android.content.Context
 import android.content.pm.PackageManager
 
 /**
- * Social media preset for one-tap block. Uses PackageManager to resolve only installed apps.
- * Never crashes if package not found.
+ * Social media preset for one-tap block.
+ * Uses installed apps only - no hardcoded package names. Never crashes.
  */
 object SocialPresetPackages {
 
-    /** Instagram, WhatsApp, TikTok, YouTube, Facebook + optional Snapchat, X/Twitter. Never auto-blocked. */
-    val packageNames: Set<String> = setOf(
-        "com.instagram.android",
-        "com.whatsapp",
-        "com.zhiliaoapp.musically", // TikTok
-        "com.google.android.youtube",
-        "com.facebook.katana",
-        "com.snapchat.android",
-        "com.twitter.android",
-        "com.x.android" // X (Twitter rebrand on some devices)
-    )
+    /** No hardcoded package names. Use getInstalledSocialPackages for dynamic list. */
+    val packageNames: Set<String> get() = emptySet()
 
     /**
-     * Returns only installed packages from the social preset, with launcher intent.
-     * Safe to call; never crashes. Small set (~7) so main-thread is fine.
+     * Returns installed apps for social preset.
+     * No hardcoded package names - returns empty. User selects from full app list via chip "All".
      */
-    fun getInstalledSocialPackages(context: Context): Set<String> {
-        return runCatching {
-            val pm = context.packageManager ?: return emptySet()
-            val ownPkg = context.packageName
-            packageNames.filter { pkg ->
-                pkg != ownPkg && isInstalledWithLauncher(pm, pkg)
-            }.toSet()
-        }.getOrElse { emptySet() }
+    fun getInstalledSocialPackages(@Suppress("UNUSED_PARAMETER") context: Context): Set<String> {
+        return emptySet()
     }
 
-    private fun isInstalledWithLauncher(pm: PackageManager, pkg: String): Boolean {
-        return try {
-            pm.getPackageInfo(pkg, 0)
-            pm.getLaunchIntentForPackage(pkg) != null
-        } catch (_: PackageManager.NameNotFoundException) {
-            false
-        } catch (_: Exception) {
-            false
-        }
-    }
-
-    /** Get app label for display; returns package name on error. */
+    /** Get app label for display; returns package name on error. Never crashes. */
     fun getAppLabel(context: Context, pkg: String): String {
         return try {
-            val ai = context.packageManager.getApplicationInfo(pkg, 0)
-            context.packageManager.getApplicationLabel(ai).toString()
+            val pm = context.packageManager
+            val ai = pm.getApplicationInfo(pkg, 0)
+            pm.getApplicationLabel(ai).toString()
+        } catch (_: PackageManager.NameNotFoundException) {
+            pkg
         } catch (_: Exception) {
             pkg
         }

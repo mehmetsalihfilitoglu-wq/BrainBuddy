@@ -29,6 +29,8 @@ object AppLabelResolver {
             result
         } catch (_: PackageManager.NameNotFoundException) {
             shortenPackageName(packageName)
+        } catch (_: Exception) {
+            shortenPackageName(packageName)
         }
     }
 

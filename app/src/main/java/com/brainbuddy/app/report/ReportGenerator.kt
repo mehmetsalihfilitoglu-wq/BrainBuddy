@@ -3,9 +3,9 @@ package com.brainbuddy.app.report
 import android.content.Context
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
-import com.brainbuddy.app.core.PackageNameHelper
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ReportStore
+import com.brainbuddy.app.ui.AppLabelResolver
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -77,7 +77,7 @@ object ReportGenerator {
             totalBlank = totalBlank,
             accuracyPercent = accuracyPercent,
             blockedAttemptsToday = totalBlocked,
-            topBlockedApp = top?.let { PackageNameHelper.getFriendlyName(it.key) },
+            topBlockedApp = top?.let { AppLabelResolver.getLabel(context, it.key) },
             topBlockedCount = top?.value ?: 0,
             weakTopics = weakest,
             streakDays = gam.streakDays(),

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
+import com.brainbuddy.app.core.InstalledAppsHelper
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.ReportStore
@@ -206,8 +207,12 @@ class ReportsActivity : AppCompatActivity() {
                 b.btnRecentTestsEmptyCta.setOnClickListener { startQuiz() }
             }
 
-            // En çok denenen uygulamalar
-            val topApps = weeklyAttempts.entries.sortedByDescending { it.value }.take(10)
+            // En çok denenen uygulamalar (only installed apps to avoid NameNotFoundException)
+            val installedPkgs = InstalledAppsHelper.getInstalledApps(packageManager).map { it.packageName }.toSet()
+            val topApps = weeklyAttempts.entries
+                .filter { it.key in installedPkgs }
+                .sortedByDescending { it.value }
+                .take(10)
             if (topApps.isNotEmpty()) {
                 b.recyclerTopApps.visibility = View.VISIBLE
                 b.topAppsEmpty.visibility = View.GONE
@@ -421,8 +426,9 @@ class ReportsActivity : AppCompatActivity() {
             holder.tvAppName.text = label
             holder.tvAttemptCount.text = count.toString()
 
-            // Icon: try load app icon, could be improved with actual PackageManager call elsewhere
-            holder.ivIcon.setImageDrawable(context.packageManager.getApplicationIcon(pkg))
+            // Icon: safe load, never crash if app missing
+            val icon = InstalledAppsHelper.getAppIcon(context.packageManager, pkg, context)
+            holder.ivIcon.setImageDrawable(icon)
 
             val safeMax = if (maxCount <= 0) 1 else maxCount
             val percent = (count * 100f / safeMax).roundToInt().coerceIn(0, 100)
