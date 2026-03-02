@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Premium look: light cards on all screens (Home, ParentHub, Reports, Stats).
-         Do NOT use dark surface - user requirement: "koyu kirli kart yok". -->
-    <color name="bb_surface_container">#F0FDF9</color>
-    <color name="bb_outline_variant">#D1E8E4</color>
+    <!-- Premium look: light cards on all screens (emerald theme).
+         Emerald palette reused from values/colors.xml for consistent Reports look. -->
+    <color name="bb_surface_container">@color/emerald_surface</color>
+    <color name="bb_outline_variant">@color/emerald_primary</color>
 </resources>

@@ -15,6 +15,9 @@
         <item name="colorSurfaceContainer">@color/bb_surface_container</item>
         <item name="colorOutlineVariant">@color/bb_outline_variant</item>
         <item name="colorOnSurfaceVariant">@color/bb_text_muted</item>
+        <item name="colorPrimaryContainer">@color/emerald_light</item>
+        <item name="colorOnPrimaryContainer">@color/emerald_dark</item>
+        <item name="colorSurfaceVariant">@color/emerald_light</item>
         <item name="android:windowBackground">@drawable/bg_gradient</item>
         <item name="android:textColorPrimary">@color/bb_text</item>
         <item name="android:textColorSecondary">@color/bb_text_muted</item>

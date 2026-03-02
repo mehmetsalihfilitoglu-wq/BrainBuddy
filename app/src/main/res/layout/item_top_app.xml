@@ -76,8 +76,8 @@
             android:indeterminate="false"
             app:trackThickness="6dp"
             app:trackCornerRadius="3dp"
-            app:indicatorColor="?attr/colorPrimary"
-            app:trackColor="?attr/colorSurfaceVariant" />
+            app:indicatorColor="@color/emerald_primary"
+            app:trackColor="@color/emerald_light" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
