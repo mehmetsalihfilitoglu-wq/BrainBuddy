@@ -17,18 +17,23 @@ import java.util.concurrent.TimeUnit
 
 /**
  * Orchestrates PDF report generation: gathers data, builds charts, invokes PdfReportBuilder,
- * and provides the file for sharing via FileProvider.
+ * and provides the file for sharing via FileProvider. All output is under internal cache only.
  */
 object PdfReportGenerator {
+
+    const val PDF_ERROR_FILENAME = "pdf_error.txt"
 
     fun generateAndGetFile(
         context: Context,
         model: StatsRepository.ReportsUiModel
     ): File? {
+        val cacheDir = context.cacheDir
+        val reportsDir = File(cacheDir, "brainbuddy_reports").apply { mkdirs() }
+        val outFile = File(reportsDir, "BrainBuddy_Report_${System.currentTimeMillis()}.pdf")
+
         return try {
             val sinceMs = getSinceMsForRange(context, model.range.days)
             val completePerfs = model.run {
-                // Use data already filtered by StatsRepository
                 val analytics = com.brainbuddy.app.core.AnalyticsStore(context)
                 analytics.getTestPerformances().filter { it.tsMs >= sinceMs && it.correctCount + it.wrongCount > 0 }
             }
@@ -37,12 +42,6 @@ object PdfReportGenerator {
             val lineChartBitmap = buildLineChartBitmap(context, model)
             val barChartBitmap = buildBarChartBitmap(context, model)
             val isPremium = PremiumStore(context).isPremium()
-
-            val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
-            val fileName = "BrainBuddy_Report_$timestamp.pdf"
-
-            val reportsDir = File(context.cacheDir, "brainbuddy_reports").apply { mkdirs() }
-            val outFile = File(reportsDir, fileName)
 
             val builder = PdfReportBuilder(
                 context = context,
@@ -57,11 +56,23 @@ object PdfReportGenerator {
             lineChartBitmap?.recycle()
             barChartBitmap?.recycle()
 
+            if (!outFile.exists() || outFile.length() < 1_000) {
+                writePdfErrorFile(cacheDir, Exception("PDF file too small or missing (size=${outFile.length()})"))
+                return null
+            }
             outFile
         } catch (e: Exception) {
             android.util.Log.e("PDF_REPORT", "PDF generation failed", e)
+            writePdfErrorFile(cacheDir, e)
             null
         }
+    }
+
+    private fun writePdfErrorFile(cacheDir: File, e: Throwable) {
+        try {
+            val errorFile = File(cacheDir, PDF_ERROR_FILENAME)
+            errorFile.writeText("${e.message}\n\n${e.stackTraceToString()}")
+        } catch (_: Exception) { }
     }
 
     private fun getSinceMsForRange(context: Context, days: Int): Long {

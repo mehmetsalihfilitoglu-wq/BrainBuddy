@@ -1,5 +1,7 @@
 package com.brainbuddy.app.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -21,6 +23,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.InstalledAppsHelper
 import com.brainbuddy.app.core.ParentAccessGuard
@@ -40,6 +43,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.json.JSONArray
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -115,14 +119,17 @@ class ReportsActivity : AppCompatActivity() {
                             }
                         } catch (e: Exception) {
                             Log.e("PDF_REPORT", "Report generation failed", e)
+                            kotlinx.coroutines.withContext(Dispatchers.IO) {
+                                try {
+                                    File(cacheDir, PdfReportGenerator.PDF_ERROR_FILENAME)
+                                        .writeText("${e.message}\n\n${e.stackTraceToString()}")
+                                } catch (_: Exception) { }
+                            }
                             null
                         }
-                        if (file != null && file.exists()) {
-                            val uri = FileProvider.getUriForFile(
-                                this@ReportsActivity,
-                                "${applicationContext.packageName}.fileprovider",
-                                file
-                            )
+                        if (file != null && file.exists() && file.length() > 1_000) {
+                            val authority = "${BuildConfig.APPLICATION_ID}.provider"
+                            val uri = FileProvider.getUriForFile(this@ReportsActivity, authority, file)
                             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                                 type = "application/pdf"
                                 putExtra(Intent.EXTRA_STREAM, uri)
@@ -132,7 +139,7 @@ class ReportsActivity : AppCompatActivity() {
                                 Intent.createChooser(shareIntent, getString(R.string.report_share))
                             )
                         } else {
-                            Toast.makeText(this@ReportsActivity, R.string.report_create_error, Toast.LENGTH_SHORT).show()
+                            showPdfErrorDialogIfAvailable()
                         }
                     }
                 } else {
@@ -546,6 +553,41 @@ class ReportsActivity : AppCompatActivity() {
         startActivity(Intent(this, QuizActivity::class.java).apply {
             putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, subjectTr)
         })
+    }
+
+    private fun showPdfErrorDialogIfAvailable() {
+        val errorFile = File(cacheDir, PdfReportGenerator.PDF_ERROR_FILENAME)
+        val content = runCatching { errorFile.readText() }.getOrNull()
+        if (!content.isNullOrBlank()) {
+            val lines = content.lines()
+            val message = lines.firstOrNull().orEmpty()
+            val stackTrace = lines.drop(1).joinToString("\n").trim()
+            val tracePreview = stackTrace.lines().take(25).joinToString("\n")
+            val dialogMessage = if (tracePreview.isNotBlank()) "$message\n\n$tracePreview" else message
+            val authority = "${BuildConfig.APPLICATION_ID}.provider"
+            AlertDialog.Builder(this)
+                .setTitle(getString(R.string.report_pdf_error_title))
+                .setMessage(dialogMessage)
+                .setPositiveButton(getString(R.string.report_pdf_error_copy)) { _, _ ->
+                    val cm = getSystemService(android.content.Context.CLIPBOARD_SERVICE) as? ClipboardManager
+                    cm?.setPrimaryClip(ClipData.newPlainText("PDF error", content))
+                }
+                .setNeutralButton(getString(R.string.report_pdf_error_share_file)) { _, _ ->
+                    if (errorFile.exists()) {
+                        val uri = FileProvider.getUriForFile(this, authority, errorFile)
+                        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                            type = "text/plain"
+                            putExtra(Intent.EXTRA_STREAM, uri)
+                            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        }
+                        startActivity(Intent.createChooser(shareIntent, getString(R.string.report_share)))
+                    }
+                }
+                .setNegativeButton(getString(R.string.close), null)
+                .show()
+        } else {
+            Toast.makeText(this, R.string.report_pdf_error, Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun persistRange(days: Int) {
