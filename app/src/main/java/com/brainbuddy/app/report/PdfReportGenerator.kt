@@ -9,6 +9,8 @@ import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.StatsRepository
 import com.brainbuddy.app.quiz.QuizResultActivity
 import com.brainbuddy.app.quiz.QuestionRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -23,7 +25,7 @@ object PdfReportGenerator {
 
     const val PDF_ERROR_FILENAME = "pdf_error.txt"
 
-    fun generateAndGetFile(
+    suspend fun generateAndGetFile(
         context: Context,
         model: StatsRepository.ReportsUiModel
     ): File? {
@@ -32,6 +34,7 @@ object PdfReportGenerator {
         val outFile = File(reportsDir, "BrainBuddy_Report_${System.currentTimeMillis()}.pdf")
 
         return try {
+            // Data calculations can run on any dispatcher
             val sinceMs = getSinceMsForRange(context, model.range.days)
             val completePerfs = model.run {
                 val analytics = com.brainbuddy.app.core.AnalyticsStore(context)
@@ -39,6 +42,7 @@ object PdfReportGenerator {
             }
 
             val wrongRecords = buildWrongAnswerRecords(context)
+            // Chart bitmap render must run on Main (LineChartView -> GestureDetector/Looper)
             val lineChartBitmap = buildLineChartBitmap(context, model)
             val barChartBitmap = buildBarChartBitmap(context, model)
             val isPremium = PremiumStore(context).isPremium()
@@ -51,19 +55,24 @@ object PdfReportGenerator {
                 barChartBitmap = barChartBitmap,
                 isPremium = isPremium
             )
-            builder.build(outFile)
+            // PDF file write runs on IO
+            withContext(Dispatchers.IO) {
+                builder.build(outFile)
+            }
 
             lineChartBitmap?.recycle()
             barChartBitmap?.recycle()
 
             if (!outFile.exists() || outFile.length() < 1_000) {
-                writePdfErrorFile(cacheDir, Exception("PDF file too small or missing (size=${outFile.length()})"))
+                withContext(Dispatchers.IO) {
+                    writePdfErrorFile(cacheDir, Exception("PDF file too small or missing (size=${outFile.length()})"))
+                }
                 return null
             }
             outFile
         } catch (e: Exception) {
             android.util.Log.e("PDF_REPORT", "PDF generation failed", e)
-            writePdfErrorFile(cacheDir, e)
+            withContext(Dispatchers.IO) { writePdfErrorFile(cacheDir, e) }
             null
         }
     }
@@ -127,7 +136,7 @@ object PdfReportGenerator {
         }
     }
 
-    private fun buildLineChartBitmap(context: Context, model: StatsRepository.ReportsUiModel): Bitmap? {
+    private suspend fun buildLineChartBitmap(context: Context, model: StatsRepository.ReportsUiModel): Bitmap? {
         val tc = model.trendChart
         if (tc.isEmpty || tc.points.size < 2) return null
         val points = tc.points.map { p ->
@@ -140,7 +149,7 @@ object PdfReportGenerator {
         return ChartImageExporter.exportLineChart(context, points)
     }
 
-    private fun buildBarChartBitmap(context: Context, model: StatsRepository.ReportsUiModel): Bitmap? {
+    private suspend fun buildBarChartBitmap(context: Context, model: StatsRepository.ReportsUiModel): Bitmap? {
         val topics = model.topics.topicCounts
         if (topics.isEmpty()) return null
         val bars = topics.entries

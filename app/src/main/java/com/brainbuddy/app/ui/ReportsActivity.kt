@@ -42,6 +42,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import java.io.File
 import java.text.SimpleDateFormat
@@ -114,12 +115,10 @@ class ReportsActivity : AppCompatActivity() {
                     }
                     lifecycleScope.launch {
                         val file = try {
-                            kotlinx.coroutines.withContext(Dispatchers.IO) {
-                                PdfReportGenerator.generateAndGetFile(this@ReportsActivity, model)
-                            }
+                            PdfReportGenerator.generateAndGetFile(this@ReportsActivity, model)
                         } catch (e: Exception) {
                             Log.e("PDF_REPORT", "Report generation failed", e)
-                            kotlinx.coroutines.withContext(Dispatchers.IO) {
+                            withContext(Dispatchers.IO) {
                                 try {
                                     File(cacheDir, PdfReportGenerator.PDF_ERROR_FILENAME)
                                         .writeText("${e.message}\n\n${e.stackTraceToString()}")
