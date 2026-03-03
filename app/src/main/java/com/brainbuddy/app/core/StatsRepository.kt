@@ -175,23 +175,27 @@ class StatsRepository(private val context: Context) {
         val sessions = analytics.getSessions().filter { it.tsMs >= sinceMs }
         val weeklyAttempts = reportStore.getBlockedAttemptsSince(sinceMs)
 
-        // Aggregated counts from same filtered perfs
-        val totalCorrect = perfs.sumOf { it.correctCount }
-        val totalWrong = perfs.sumOf { it.wrongCount }
-        val totalEmpty = perfs.sumOf { it.blankCount }
-        val totalTests = perfs.size
+        // COMPLETE TESTS ONLY: exclude incomplete tests (correctCount + wrongCount == 0)
+        // Use this SAME filtered list for both weekly summary and trend chart
+        val completePerfs = perfs.filter { it.correctCount + it.wrongCount > 0 }
+
+        // Aggregated counts from complete tests only
+        val totalCorrect = completePerfs.sumOf { it.correctCount }
+        val totalWrong = completePerfs.sumOf { it.wrongCount }
+        val totalEmpty = completePerfs.sumOf { it.blankCount }
+        val totalTests = completePerfs.size
         val totalBlocked = weeklyAttempts.values.sum()
 
         // SUCCESS FORMULA (strict): correct / (correct + wrong) * 100 — empty MUST NOT be in denominator
         val gradedTotal = totalCorrect + totalWrong
         val noGradedAnswers = gradedTotal == 0
         val weeklyAccuracy = if (gradedTotal > 0) 100f * totalCorrect / gradedTotal else 0f
-        val passRate = if (perfs.isNotEmpty()) {
-            perfs.count { it.passed }.toFloat() / perfs.size * 100f
+        val passRate = if (completePerfs.isNotEmpty()) {
+            completePerfs.count { it.passed }.toFloat() / completePerfs.size * 100f
         } else 0f
 
         // DEBUG: log aggregated stats for selected range
-        Log.d(TAG_DEBUG, "Stats range=${range.label} totalCorrect=$totalCorrect totalWrong=$totalWrong totalEmpty=$totalEmpty testCount=$totalTests weeklyAccuracy=${weeklyAccuracy}%")
+        Log.d(TAG_DEBUG, "Stats range=${range.label} completeTests=${completePerfs.size} totalCorrect=$totalCorrect totalWrong=$totalWrong totalEmpty=$totalEmpty weeklyAccuracy=${weeklyAccuracy}%")
 
         val weeklySuccess = WeeklySuccessSection(
             correct = totalCorrect,
@@ -202,22 +206,23 @@ class StatsRepository(private val context: Context) {
             testCount = totalTests,
             blockedCount = totalBlocked,
             passRatePercent = passRate,
-            isEmpty = totalCorrect + totalWrong + totalEmpty == 0,
+            isEmpty = gradedTotal + totalEmpty == 0,
             noGradedAnswers = noGradedAnswers
         )
 
-        // Topics: build from SAME filtered perfs (not all-time)
-        val topicCounts = buildTopicCountsFromPerfs(perfs).filter { it.value.total > 0 }
+        // Topics: build from complete perfs (same filtered list)
+        val topicCounts = buildTopicCountsFromPerfs(completePerfs).filter { it.value.total > 0 }
         val topics = TopicsSection(
             topicCounts = topicCounts,
             isEmpty = topicCounts.isEmpty()
         )
 
-        // Trend chart: same filtered perfs, take last 10, EXCLUDE tests with 0 correct + 0 wrong
+        // Trend chart: same completePerfs, take last 10 (already excludes incomplete tests)
         // SUCCESS FORMULA: percent = correct / (correct + wrong) * 100 — empty excluded
-        val last10Perfs = perfs.takeLast(10).filter { it.correctCount + it.wrongCount > 0 }
+        val last10Perfs = completePerfs.takeLast(10)
         val trendPoints = last10Perfs.mapIndexed { i, p ->
             val graded = p.correctCount + p.wrongCount
+            // Defensive: only compute percent when graded > 0 (already guaranteed by completePerfs)
             val percent = if (graded > 0) 100f * p.correctCount / graded else 0f
             TrendPoint(
                 index = i + 1,
@@ -228,7 +233,10 @@ class StatsRepository(private val context: Context) {
                 percent = percent
             )
         }
-        val avgPct = if (trendPoints.isNotEmpty()) trendPoints.map { it.percent }.average().toFloat() else 0f
+        // Recalculate averagePercent: sum(correct) / sum(correct + wrong), not average of per-test %
+        val sumCorrect = trendPoints.sumOf { it.correct }
+        val sumGraded = trendPoints.sumOf { it.total }
+        val avgPct = if (sumGraded > 0) 100f * sumCorrect / sumGraded else 0f
         val lastPct = trendPoints.lastOrNull()?.percent ?: 0f
         val prevPct = trendPoints.dropLast(1).lastOrNull()?.percent ?: lastPct
         val trendDir = when {
