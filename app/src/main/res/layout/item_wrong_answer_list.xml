@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Collapsed: question snippet + "Detayı Göster" -->
+        <LinearLayout
+            android:id="@+id/collapsedSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvQuestionSnippet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="15sp"
+                android:textColor="@color/bb_text_dark"
+                tools:text="Bir sayının 3 katının 5 fazlası 29 ise..." />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowDetail"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="@string/wrong_review_btn_show_detail"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_chevron_right"
+                app:iconGravity="textEnd"
+                app:iconSize="20dp"
+                app:iconTint="?attr/colorPrimary" />
+        </LinearLayout>
+
+        <!-- Expanded: full details -->
+        <LinearLayout
+            android:id="@+id/expandedSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="12dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:id="@+id/tvQuestionFull"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textSize="15sp"
+                android:textColor="@color/bb_text_dark"
+                android:lineSpacingMultiplier="1.2" />
+
+            <TextView
+                android:id="@+id/tvUserChoice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:textColor="@color/bb_error"
+                tools:text="Senin cevabın: B" />
+
+            <TextView
+                android:id="@+id/tvCorrectAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:textColor="@color/emerald_primary"
+                android:textStyle="bold"
+                tools:text="✓ Doğru: C" />
+
+            <TextView
+                android:id="@+id/tvExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="13sp"
+                android:textColor="@color/bb_text_muted"
+                android:visibility="gone"
+                tools:text="💡 Açıklama metni..."
+                tools:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
