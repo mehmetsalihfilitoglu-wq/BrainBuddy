@@ -88,11 +88,12 @@ class ReportsActivity : AppCompatActivity() {
             }
 
             b.btnShareReport.setOnClickListener {
+                val accuracyStr = if (shareData.noGradedAnswers) "—" else "%.0f%%".format(shareData.accuracy)
                 val text = buildString {
                     append("BrainBuddy Rapor\n")
                     append("Engellenen: ${shareData.blocked}\n")
                     append("Testler (${shareData.rangeDays} gün): ${shareData.tests}\n")
-                    append("Doğruluk: %.0f%%\n".format(shareData.accuracy))
+                    append("Doğruluk: $accuracyStr\n")
                     append("Geçme oranı: %.0f%%".format(shareData.passRate))
                 }
                 startActivity(
@@ -131,7 +132,7 @@ class ReportsActivity : AppCompatActivity() {
         }
     }
 
-    private data class ShareData(var blocked: Int, var tests: Int, var accuracy: Float, var passRate: Float, var rangeDays: Int)
+    private data class ShareData(var blocked: Int, var tests: Int, var accuracy: Float, var passRate: Float, var rangeDays: Int, var noGradedAnswers: Boolean = false)
 
     private fun applyModel(
         b: ActivityReportsBinding,
@@ -167,7 +168,8 @@ class ReportsActivity : AppCompatActivity() {
             model.weeklySuccess.testCount,
             model.weeklySuccess.accuracyPercent,
             model.weeklySuccess.passRatePercent,
-            range.days
+            range.days,
+            model.weeklySuccess.noGradedAnswers
         ))
 
         // A) Weekly success
@@ -179,8 +181,14 @@ class ReportsActivity : AppCompatActivity() {
             b.chipWeeklyWrong.text = "Yanlış: ${ws.wrong}"
             b.chipWeeklyBlank.text = "Boş: ${ws.blank}"
             b.tvDailyTests.text = ws.testCount.toString()
-            b.tvDailyAccuracy.text = "%.0f%%".format(ws.accuracyPercent)
-            b.weeklyProgress.setProgressCompat(ws.accuracyPercent.roundToInt().coerceIn(0, 100), true)
+            b.tvDailyAccuracy.text = when {
+                ws.noGradedAnswers -> "—"
+                else -> "%.0f%%".format(ws.accuracyPercent)
+            }
+            b.weeklyProgress.setProgressCompat(
+                if (ws.noGradedAnswers) 0 else ws.accuracyPercent.roundToInt().coerceIn(0, 100),
+                true
+            )
             if (ws.blockedCount > 0) {
                 b.blockedRow.visibility = View.VISIBLE
                 b.tvDailyBlocked.text = ws.blockedCount.toString()

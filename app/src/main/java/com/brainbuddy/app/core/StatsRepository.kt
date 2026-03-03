@@ -1,6 +1,7 @@
 package com.brainbuddy.app.core
 
 import android.content.Context
+import android.util.Log
 import com.brainbuddy.app.db.RoomQuizDataStore
 import com.brainbuddy.app.db.TestSnapshotEntity
 import kotlinx.coroutines.channels.Channel
@@ -94,7 +95,9 @@ class StatsRepository(private val context: Context) {
         val testCount: Int,
         val blockedCount: Int,
         val passRatePercent: Float,
-        val isEmpty: Boolean
+        val isEmpty: Boolean,
+        /** True when (correct + wrong) == 0 — no graded answers to compute accuracy from. */
+        val noGradedAnswers: Boolean = false
     )
 
     data class TopicsSection(
@@ -167,50 +170,62 @@ class StatsRepository(private val context: Context) {
         val accountId = ActiveProfileManager.getActiveProfileId(context)
         val sinceMs = getSinceMsForRange(range.days)
 
-        // Scoped by account via ProfileScopedPrefs (analytics, reportStore, protectionPrefs)
+        // Single filtered list: test.date within local time boundaries (Bugün/7 Gün/30 Gün)
         val perfs = analytics.getTestPerformances().filter { it.tsMs >= sinceMs }
         val sessions = analytics.getSessions().filter { it.tsMs >= sinceMs }
         val weeklyAttempts = reportStore.getBlockedAttemptsSince(sinceMs)
 
-        val weeklyCorrect = perfs.sumOf { it.correctCount }
-        val weeklyWrong = perfs.sumOf { it.wrongCount }
-        val weeklyBlank = perfs.sumOf { it.blankCount }
-        val weeklyTotal = weeklyCorrect + weeklyWrong + weeklyBlank
+        // Aggregated counts from same filtered perfs
+        val totalCorrect = perfs.sumOf { it.correctCount }
+        val totalWrong = perfs.sumOf { it.wrongCount }
+        val totalEmpty = perfs.sumOf { it.blankCount }
+        val totalTests = perfs.size
         val totalBlocked = weeklyAttempts.values.sum()
 
-        val weeklyAccuracy = if (weeklyTotal > 0) 100f * weeklyCorrect / weeklyTotal else 0f
+        // SUCCESS FORMULA (strict): correct / (correct + wrong) * 100 — empty MUST NOT be in denominator
+        val gradedTotal = totalCorrect + totalWrong
+        val noGradedAnswers = gradedTotal == 0
+        val weeklyAccuracy = if (gradedTotal > 0) 100f * totalCorrect / gradedTotal else 0f
         val passRate = if (perfs.isNotEmpty()) {
             perfs.count { it.passed }.toFloat() / perfs.size * 100f
         } else 0f
 
+        // DEBUG: log aggregated stats for selected range
+        Log.d(TAG_DEBUG, "Stats range=${range.label} totalCorrect=$totalCorrect totalWrong=$totalWrong totalEmpty=$totalEmpty testCount=$totalTests weeklyAccuracy=${weeklyAccuracy}%")
+
         val weeklySuccess = WeeklySuccessSection(
-            correct = weeklyCorrect,
-            wrong = weeklyWrong,
-            blank = weeklyBlank,
-            total = weeklyTotal,
+            correct = totalCorrect,
+            wrong = totalWrong,
+            blank = totalEmpty,
+            total = totalCorrect + totalWrong + totalEmpty,
             accuracyPercent = weeklyAccuracy,
-            testCount = perfs.size,
+            testCount = totalTests,
             blockedCount = totalBlocked,
             passRatePercent = passRate,
-            isEmpty = weeklyTotal == 0
+            isEmpty = totalCorrect + totalWrong + totalEmpty == 0,
+            noGradedAnswers = noGradedAnswers
         )
 
-        val topicCounts = analytics.getTopicMasteryWithCounts().filter { it.value.total > 0 }
+        // Topics: build from SAME filtered perfs (not all-time)
+        val topicCounts = buildTopicCountsFromPerfs(perfs).filter { it.value.total > 0 }
         val topics = TopicsSection(
             topicCounts = topicCounts,
             isEmpty = topicCounts.isEmpty()
         )
 
-        val last10Perfs = perfs.takeLast(10)
+        // Trend chart: same filtered perfs, take last 10, EXCLUDE tests with 0 correct + 0 wrong
+        // SUCCESS FORMULA: percent = correct / (correct + wrong) * 100 — empty excluded
+        val last10Perfs = perfs.takeLast(10).filter { it.correctCount + it.wrongCount > 0 }
         val trendPoints = last10Perfs.mapIndexed { i, p ->
-            val total = (p.correctCount + p.wrongCount + p.blankCount).coerceAtLeast(1)
+            val graded = p.correctCount + p.wrongCount
+            val percent = if (graded > 0) 100f * p.correctCount / graded else 0f
             TrendPoint(
                 index = i + 1,
                 testName = "Test ${last10Perfs.size - i}",
                 dateMs = p.tsMs,
                 correct = p.correctCount,
-                total = total,
-                percent = if (total > 0) 100f * p.correctCount / total else 0f
+                total = graded,
+                percent = percent
             )
         }
         val avgPct = if (trendPoints.isNotEmpty()) trendPoints.map { it.percent }.average().toFloat() else 0f
@@ -276,11 +291,29 @@ class StatsRepository(private val context: Context) {
         )
     }
 
+    private fun buildTopicCountsFromPerfs(perfs: List<TestPerformance>): Map<String, TopicCounts> {
+        val agg = mutableMapOf<String, MutableList<TopicCounts>>()
+        perfs.forEach { p ->
+            p.byTopicCounts.forEach { (topic, tc) ->
+                agg.getOrPut(topic) { mutableListOf() }.add(tc)
+            }
+        }
+        return agg.mapValues { (_, list) ->
+            TopicCounts(
+                correct = list.sumOf { it.correct },
+                wrong = list.sumOf { it.wrong },
+                blank = list.sumOf { it.blank },
+                total = list.sumOf { it.total }
+            )
+        }
+    }
+
     companion object {
+        private const val TAG_DEBUG = "StatsRepository"
         /** Meaning contracts for report widgets (metric, unit, date range, how to read) */
         object MeaningContracts {
             const val WEEKLY_SUCCESS = "Metrik: Doğru/Yanlış/Boş sayıları + Doğruluk % + Test sayısı. Aralık: Bugün/7g/30g. Her değer seçili aralıktaki toplamı gösterir."
-            const val TOPICS = "Metrik: Konu bazlı doğru/toplam. Aralık: Tüm geçmiş. Her bar = bir konu, doğru/toplam oranı."
+            const val TOPICS = "Metrik: Konu bazlı doğru/toplam. Aralık: Bugün/7g/30g (aynı filtre). Her bar = bir konu, doğru/toplam oranı."
             const val TREND_CHART = "Metrik: Test başarı oranı (%). Aralık: Son 10 test (seçili filtreye göre). Y: 0–100%. Her nokta = 1 test. Başarı = doğru/(doğru+yanlış)."
             const val RECENT_TESTS = "Metrik: Son testler listesi. Aralık: Bugün/7g/30g. Her satır = bir tamamlanmış test."
             const val TOP_APPS = "Metrik: Deneme sayısı. Aralık: Bugün/7g/30g. Her satır = engellenen uygulama, kaç kez açılmaya çalışıldığı."
