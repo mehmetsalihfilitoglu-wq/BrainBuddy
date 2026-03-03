@@ -205,6 +205,34 @@
     <string name="reports_top_apps_empty_title">Henüz uygulama denemesi yok</string>
     <string name="reports_top_apps_empty_subtitle">Öğrenci engellenen uygulamaları kullanmaya çalıştığında burada görünecek.</string>
 
+    <!-- Performance Analysis card -->
+    <string name="performance_analysis_title">Performans Analizi</string>
+    <string name="perf_weak_label">Zayıf</string>
+    <string name="perf_strong_label">Güçlü</string>
+    <string name="perf_trend_label">Eğilim</string>
+    <string name="perf_most_wrong_label">En çok yanlış</string>
+    <string name="perf_weak_none">Zayıf ders yok</string>
+    <string name="perf_strong_none">Güçlü ders yok</string>
+    <string name="perf_trend_improving">İyileşiyor</string>
+    <string name="perf_trend_declining">Düşüyor</string>
+    <string name="perf_trend_stable">Stabil</string>
+    <string name="perf_trend_subtitle">Son 3 test ortalaması vs önceki 3 test</string>
+    <string name="perf_most_wrong_row">En çok zorlanılan ders: %1$s</string>
+    <string name="perf_mini_test_cta">Bu dersten mini test öner</string>
+
+    <!-- Performance info bottom sheet -->
+    <string name="performance_info_title">Metrikler Hakkında</string>
+    <string name="performance_info_intro">Performans Analizi kartı, son testlerinize dayalı olarak güçlü ve zayıf yönlerinizi, gelişim eğiliminizi ve en çok zorlandığınız dersi gösterir.</string>
+    <string name="performance_info_weak">Zayıf Dersler</string>
+    <string name="performance_info_weak_desc">Başarı oranı %50\'nin altında olan dersler (en az 10 soru çözülmüş olmalı). Bu derslere daha fazla çalışmayı hedefleyin.</string>
+    <string name="performance_info_strong">Güçlü Dersler</string>
+    <string name="performance_info_strong_desc">Başarı oranı %75 ve üzeri olan dersler. Bu derslerdeki bilginizi pekiştirmeye devam edin.</string>
+    <string name="performance_info_trend">Eğilim</string>
+    <string name="performance_info_trend_desc">Son 3 testin ortalaması ile önceki 3 testin ortalaması karşılaştırılır. Olumlu değişim iyileşmeyi, negatif değişim düşüşü gösterir.</string>
+    <string name="performance_info_most_wrong">En Çok Yanlış</string>
+    <string name="performance_info_most_wrong_desc">En fazla yanlış cevabın verildiği ders. Bu dersten mini test çözerek pratik yapabilirsiniz.</string>
+    <string name="performance_info_dismiss">Tamam</string>
+
     <!-- Profiles -->
     <string name="profiles_title">Profiller</string>
     <string name="profile_select">Profil Seç</string>

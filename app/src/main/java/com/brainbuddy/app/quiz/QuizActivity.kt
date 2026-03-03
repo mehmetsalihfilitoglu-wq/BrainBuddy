@@ -33,6 +33,7 @@ class QuizActivity : AppCompatActivity() {
         const val EXTRA_QUESTION_IDS_FOR_REPLAY = "question_ids_for_replay"
         const val EXTRA_RETRY_AFTER_AD = "retry_after_ad"
         const val EXTRA_RETRY_UNLOCK_TOKEN = "retry_unlock_token"
+        const val EXTRA_SUBJECT_FILTER = "subject_filter"
     }
 
     private lateinit var b: ActivityQuizBinding
@@ -189,7 +190,13 @@ class QuizActivity : AppCompatActivity() {
                 if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
                 else wrong.shuffled().take(targetCount)
             }
-            else -> repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
+            else -> {
+                val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
+                val categories = subjectFilter?.let { tr ->
+                    Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
+                } ?: quizPrefs.selectedCategories()
+                repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
+            }
         }
 
         b.submitBtn.visibility = View.GONE

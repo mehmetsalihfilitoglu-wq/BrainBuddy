@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -108,6 +109,8 @@ class ReportsActivity : AppCompatActivity() {
             }
 
             b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+
+            b.btnPerformanceInfo.setOnClickListener { showPerformanceInfoBottomSheet() }
 
         } catch (e: Throwable) {
             var root: Throwable = e
@@ -223,33 +226,48 @@ class ReportsActivity : AppCompatActivity() {
         if (hasAdvancedData) {
             b.advancedStatsContent.visibility = View.VISIBLE
             b.advancedStatsEmpty.visibility = View.GONE
-            if (adv.weakSubjects.isNotEmpty()) {
-                b.tvWeakSubjects.visibility = View.VISIBLE
-                b.tvWeakSubjects.text = "Zayıf dersler: " + adv.weakSubjects.joinToString(", ") {
-                    "${it.name} (%.0f%%)".format(it.successPercent)
-                }
-            } else {
-                b.tvWeakSubjects.visibility = View.GONE
-            }
-            if (adv.strongSubjects.isNotEmpty()) {
-                b.tvStrongSubjects.visibility = View.VISIBLE
-                b.tvStrongSubjects.text = "Güçlü dersler: " + adv.strongSubjects.joinToString(", ") {
-                    "${it.name} (%.0f%%)".format(it.successPercent)
-                }
-            } else {
-                b.tvStrongSubjects.visibility = View.GONE
-            }
-            val trendText = when (adv.trendDirection) {
-                StatsRepository.TrendDirection.IMPROVING -> "Trend: İyileşiyor (%.1f%%)".format(adv.trendDelta)
-                StatsRepository.TrendDirection.DECLINING -> "Trend: Düşüş (%.1f%%)".format(adv.trendDelta)
-                else -> "Trend: Kararlı"
+
+            // A) Weak subjects – chips
+            bindSubjectChips(b.flowWeakChips, adv.weakSubjects.take(3), isWeak = true)
+            b.tvWeakNone.visibility = if (adv.weakSubjects.isEmpty()) View.VISIBLE else View.GONE
+
+            // B) Strong subjects – chips
+            bindSubjectChips(b.flowStrongChips, adv.strongSubjects.take(3), isWeak = false)
+            b.tvStrongNone.visibility = if (adv.strongSubjects.isEmpty()) View.VISIBLE else View.GONE
+
+            // C) Trend
+            val (trendText, trendDrawable) = when (adv.trendDirection) {
+                StatsRepository.TrendDirection.IMPROVING -> Pair(
+                    getString(R.string.perf_trend_improving).let {
+                        "Son 3 test: +%d%% ↑ ($it)".format(adv.trendDelta.roundToInt())
+                    },
+                    R.drawable.ic_trend_up
+                )
+                StatsRepository.TrendDirection.DECLINING -> Pair(
+                    getString(R.string.perf_trend_declining).let {
+                        "Son 3 test: %d%% ↓ ($it)".format(adv.trendDelta.roundToInt())
+                    },
+                    R.drawable.ic_trend_down
+                )
+                else -> Pair(
+                    "Son 3 test: ±0% → (${getString(R.string.perf_trend_stable)})",
+                    R.drawable.ic_trend_stable
+                )
             }
             b.tvTrendSummary.text = trendText
-            if (adv.mostWrongTopic != null) {
-                b.tvMostWrongTopic.visibility = View.VISIBLE
-                b.tvMostWrongTopic.text = "En çok yanlış: ${adv.mostWrongTopic}"
+            b.ivTrendArrow.setImageResource(trendDrawable)
+            b.ivTrendArrow.setColorFilter(getColor(R.color.emerald_primary))
+
+            // D) Most wrong
+            val mostWrong = adv.mostWrongTopic
+            if (mostWrong != null) {
+                b.rowMostWrong.visibility = View.VISIBLE
+                b.tvMostWrongTopic.text = getString(R.string.perf_most_wrong_row, mostWrong)
+                b.btnMiniTestSuggest.setOnClickListener {
+                    startQuizWithSubjectFilter(mostWrong)
+                }
             } else {
-                b.tvMostWrongTopic.visibility = View.GONE
+                b.rowMostWrong.visibility = View.GONE
             }
         } else {
             b.advancedStatsContent.visibility = View.GONE
@@ -345,6 +363,45 @@ class ReportsActivity : AppCompatActivity() {
         }
 
         b.tvWeeklyXp.text = "Toplam XP: ${model.weeklyXp}"
+    }
+
+    private fun bindSubjectChips(
+        container: LinearLayout,
+        subjects: List<StatsRepository.SubjectStat>,
+        isWeak: Boolean
+    ) {
+        container.removeAllViews()
+        val inflater = LayoutInflater.from(this)
+        val iconRes = if (isWeak) R.drawable.ic_warning_amber else R.drawable.ic_check_circle
+        for (stat in subjects) {
+            val chip = inflater.inflate(R.layout.item_subject_chip, container, false) as LinearLayout
+            val iv = chip.findViewById<ImageView>(R.id.ivChipIcon)
+            val tv = chip.findViewById<TextView>(R.id.tvChipText)
+            iv.setImageResource(iconRes)
+            iv.setColorFilter(getColor(R.color.emerald_primary))
+            tv.text = "${stat.name} ${stat.successPercent.roundToInt()}%"
+            val lp = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            lp.marginEnd = resources.getDimensionPixelSize(R.dimen.space_8)
+            chip.layoutParams = lp
+            container.addView(chip)
+        }
+    }
+
+    private fun showPerformanceInfoBottomSheet() {
+        val bottomSheet = BottomSheetDialog(this)
+        bottomSheet.setContentView(R.layout.bottom_sheet_performance_info)
+        bottomSheet.findViewById<com.google.android.material.button.MaterialButton>(R.id.btnDismiss)
+            ?.setOnClickListener { bottomSheet.dismiss() }
+        bottomSheet.show()
+    }
+
+    private fun startQuizWithSubjectFilter(subjectTr: String) {
+        startActivity(Intent(this, QuizActivity::class.java).apply {
+            putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, subjectTr)
+        })
     }
 
     private fun persistRange(days: Int) {
