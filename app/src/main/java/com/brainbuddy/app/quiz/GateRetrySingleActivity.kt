@@ -22,6 +22,7 @@ class GateRetrySingleActivity : AppCompatActivity() {
         const val EXTRA_QUESTION_ID = "question_id"
         const val EXTRA_SESSION_JSON = "session_json"
         const val EXTRA_QUESTIONS_JSON = "questions_json"
+        const val EXTRA_BLOCKED_PACKAGE = "blocked_package"
     }
 
     private lateinit var b: ActivityQuizBinding
@@ -96,8 +97,9 @@ class GateRetrySingleActivity : AppCompatActivity() {
             mapOf(q.id to q)
         )
 
+        val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
         if (newWrongCount < 4) {
-            GateManager.onGatePassed(this)
+            GateManager.onGatePassed(this, blockedPkg)
             val s = session!!
             val updatedSession = s.copy(
                 correctCount = s.correctCount + if (correct) 1 else 0,
@@ -111,7 +113,7 @@ class GateRetrySingleActivity : AppCompatActivity() {
                 putExtra(QuizResultActivity.EXTRA_IS_GATE_MODE, true)
             })
         } else {
-            GateManager.onGateFailed(this)
+            GateManager.onGateFailed(this, blockedPkg)
             val protectionPrefs = ProtectionPrefs(this)
             protectionPrefs.setLastFailedWrongIds(session?.wrongQuestionIds ?: emptyList())
             protectionPrefs.setLastFailedQuizId(session?.quizId ?: "")

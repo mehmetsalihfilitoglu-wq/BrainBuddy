@@ -66,6 +66,9 @@ object ProfileScopedPrefs {
     fun rewardContracts(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_reward_contract", migrationKey = "reward_contract_v1")
 
+    fun gateLockedPackages(context: Context): SharedPreferences =
+        profilePrefsWithMigration(context, baseName = "bb_gate_locked_packages", migrationKey = "gate_locked_v1")
+
     // === Core helper ===
 
     private fun profilePrefsWithMigration(

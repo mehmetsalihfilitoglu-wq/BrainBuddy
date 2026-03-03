@@ -14,6 +14,7 @@ class QuizCooldownActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_QUIZ_ID = "quiz_id"
         const val EXTRA_QUESTION_IDS = "question_ids"
+        const val EXTRA_BLOCKED_PACKAGE = "blocked_package"
     }
 
     private var timer: CountDownTimer? = null
@@ -47,12 +48,15 @@ class QuizCooldownActivity : AppCompatActivity() {
                 findViewById<android.widget.Button>(R.id.btnRetry).apply {
                     isEnabled = true
                     setOnClickListener {
-                        if (questionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST && ProtectionPrefs(this@QuizCooldownActivity).userLocked()) {
+                        val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
+                        val isGateRetry = blockedPkg.isNotEmpty() || ProtectionPrefs(this@QuizCooldownActivity).userLocked()
+                        if (questionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST && isGateRetry) {
                             val retryStore = RetryUnlockStore(this@QuizCooldownActivity)
                             val token = retryStore.createRetryToken(quizId, questionIds)
                             startActivity(Intent(this@QuizCooldownActivity, QuizActivity::class.java).apply {
                                 putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                                 putExtra(QuizActivity.EXTRA_IS_RETRY, true)
+                                putExtra(QuizActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
                                 putExtra(QuizActivity.EXTRA_QUIZ_ID, quizId)
                                 putExtra(QuizActivity.EXTRA_RETRY_UNLOCK_TOKEN, token)
                                 putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(questionIds))

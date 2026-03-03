@@ -2,8 +2,8 @@ package com.brainbuddy.app.security
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.RewardedRetryStore
+import com.brainbuddy.app.gate.GateLockedStore
 import com.brainbuddy.app.gate.GateManager
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -26,11 +26,13 @@ class GateAndRetryInstrumentedTest {
     }
 
     @Test
-    fun gateManager_userLockedRequiresGate() {
-        val prefs = ProtectionPrefs(context)
-        prefs.setUserLocked(true)
-        assertTrue(GateManager.gateRequiredNow(context))
-        prefs.setUserLocked(false)
+    fun gateManager_perPackageLockRequiresGate() {
+        val testPkg = "com.example.blocked.app"
+        val store = GateLockedStore(context)
+        store.addGateLocked(testPkg)
+        assertTrue(GateManager.gateRequiredNow(context, testPkg))
+        store.removeGateLocked(testPkg)
+        assertFalse(GateManager.gateRequiredNow(context, testPkg))
     }
 
     @Test

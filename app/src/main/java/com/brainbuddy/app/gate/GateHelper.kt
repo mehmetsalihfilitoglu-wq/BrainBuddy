@@ -5,8 +5,9 @@ import android.content.Intent
 
 object GateHelper {
 
-    /** Delegates to GateManager (single source of truth). */
-    fun gateRequiredNow(context: Context): Boolean = GateManager.gateRequiredNow(context)
+    /** True if gate quiz required for this blocked package. Only used from Accessibility flow. */
+    fun gateRequiredNow(context: Context, blockedPackage: String): Boolean =
+        GateManager.gateRequiredNow(context, blockedPackage)
 
     fun openGate(context: Context, blockedPackage: String) {
         val intent = Intent(context, GateActivity::class.java).apply {

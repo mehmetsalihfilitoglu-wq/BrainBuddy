@@ -28,6 +28,7 @@ class QuizResultActivity : AppCompatActivity() {
         const val EXTRA_QUESTIONS_JSON = "extra_questions_json"
         const val EXTRA_IS_RETRY = "extra_is_retry"
         const val EXTRA_IS_GATE_MODE = "extra_is_gate_mode"
+        const val EXTRA_BLOCKED_PACKAGE = "extra_blocked_package"
 
         @Deprecated("Use EXTRA_SESSION")
         const val EXTRA_ANSWERS_JSON = "extra_answers_json"
@@ -210,6 +211,8 @@ class QuizResultActivity : AppCompatActivity() {
         val pct = if (total > 0) (100f * s.correctCount / total) else 0f
         val accuracy = if (total > 0) s.correctCount.toFloat() / total else 0f
         val isGateMode = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false)
+        val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
+        val isGateFail = isGateMode && s.wrongCount >= 4
 
         val titleText = when {
             !s.passed -> getString(R.string.lock_failed_message)
@@ -277,7 +280,7 @@ class QuizResultActivity : AppCompatActivity() {
 
         findViewById<android.widget.Button>(R.id.btnRetryTest).setOnClickListener {
             val protectionPrefs = ProtectionPrefs(this)
-            if (protectionPrefs.userLocked()) {
+            if (protectionPrefs.userLocked() || isGateFail) {
                 val policy = QuizRetryPolicy(this)
                 val qId = protectionPrefs.lastFailedQuizId()
                 val qIds = protectionPrefs.lastFailedQuestionIds()
@@ -287,6 +290,7 @@ class QuizResultActivity : AppCompatActivity() {
                             startActivity(Intent(this, QuizRetryAdActivity::class.java).apply {
                                 putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, qId)
                                 putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
+                                putExtra(QuizRetryAdActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
                             })
                         } else {
                             startActivity(Intent(this, LockScreenActivity::class.java)
@@ -298,6 +302,7 @@ class QuizResultActivity : AppCompatActivity() {
                             startActivity(Intent(this, QuizCooldownActivity::class.java).apply {
                                 putExtra(QuizCooldownActivity.EXTRA_QUIZ_ID, qId)
                                 putStringArrayListExtra(QuizCooldownActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
+                                putExtra(QuizCooldownActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
                             })
                         } else {
                             startActivity(Intent(this, LockScreenActivity::class.java)
@@ -309,6 +314,7 @@ class QuizResultActivity : AppCompatActivity() {
                         startActivity(Intent(this, QuizActivity::class.java).apply {
                             putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                             putExtra(QuizActivity.EXTRA_IS_RETRY, true)
+                            putExtra(QuizActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
                             putExtra(QuizActivity.EXTRA_QUIZ_ID, qId)
                             putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(qIds))
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -350,16 +356,17 @@ class QuizResultActivity : AppCompatActivity() {
         })
 
         val locked = ProtectionPrefs(this).userLocked()
+        val showRetry = locked || isGateFail
         findViewById<android.widget.Button>(R.id.btnRetryTest).apply {
-            visibility = if (locked) View.VISIBLE else View.GONE
+            visibility = if (showRetry) View.VISIBLE else View.GONE
         }
         findViewById<android.widget.Button>(R.id.btnPlayAgain).apply {
-            visibility = if (locked) View.GONE else View.VISIBLE
+            visibility = if (showRetry) View.GONE else View.VISIBLE
         }
 
         val remedialSection = findViewById<View>(R.id.remedialRetrySection)
         val btnRemedial = findViewById<android.widget.Button>(R.id.btnRemedialMiniTest)
-        if (locked && wrongIds.isNotEmpty()) {
+        if (showRetry && wrongIds.isNotEmpty()) {
             remedialSection.visibility = View.VISIBLE
             btnRemedial.setOnClickListener {
                 startActivity(Intent(this, com.brainbuddy.app.quiz.QuizActivity::class.java).apply {

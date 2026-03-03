@@ -9,10 +9,10 @@ import java.util.Calendar
 
 /**
  * Single source of truth for gate status.
- * gateStatus = REQUIRED | PASSED_UNTIL(timestamp)
- * - On PASSED: PASSED_UNTIL(now + intervalMillis)
- * - On FAILED (wrongCount >= 4): REQUIRED (do NOT set lastPassedAt)
- * AccessibilityService enforces: if blocked app in foreground AND gate required, launch GateActivity.
+ * Gate check lives ONLY in Accessibility/blocked-app interceptor flow.
+ * - On PASSED: PASSED_UNTIL(now + interval), clear per-package lock for that package
+ * - On FAILED (wrongCount >= 4): add package to GateLockedStore (per-package only, NO global userLocked)
+ * BrainBuddy screens are NEVER gated; gateRequiredNow is only used when user tries a BLOCKED app.
  */
 object GateManager {
 
@@ -21,11 +21,11 @@ object GateManager {
         data class PASSED_UNTIL(val timestampMs: Long) : GateStatus()
     }
 
-    private fun getStatus(context: Context): GateStatus {
+    /** Status for blocked-app gate check. Does NOT use userLocked (quiz fail is per-package). */
+    private fun getStatusForBlockedApp(context: Context): GateStatus {
         val prefs = ProtectionPrefs(context)
-        // FAILED gate always blocks; permission lock (accessibility/usage disabled) requires Parent PIN
-        if (prefs.userLocked()) return GateStatus.REQUIRED
-        if (prefs.isPermissionLocked()) return GateStatus.REQUIRED
+        // Permission lock: Parent PIN required (Accessibility disabled) - gate cannot run, handled by LockScreen
+        if (prefs.isPermissionLocked()) return GateStatus.PASSED_UNTIL(Long.MAX_VALUE)
 
         if (!prefs.isProtectionEnabled()) return GateStatus.PASSED_UNTIL(Long.MAX_VALUE)
 
@@ -51,26 +51,34 @@ object GateManager {
         return GateStatus.PASSED_UNTIL(passedUntil)
     }
 
-    /** True if user must pass gate quiz before using blocked apps. */
-    fun gateRequiredNow(context: Context): Boolean {
+    /**
+     * True if user must pass gate quiz before using this blocked app.
+     * Only used from Accessibility/blocked-app interceptor. NEVER affects BrainBuddy.
+     */
+    fun gateRequiredNow(context: Context, blockedPackage: String): Boolean {
+        // Per-package lock: user failed quiz for this package
+        if (GateLockedStore(context).isGateLocked(blockedPackage)) return true
+
         val now = System.currentTimeMillis()
-        return when (val status = getStatus(context)) {
+        return when (val status = getStatusForBlockedApp(context)) {
             is GateStatus.REQUIRED -> true
             is GateStatus.PASSED_UNTIL -> now > status.timestampMs
         }
     }
 
-    /** Call when user PASSES gate quiz. Sets gateStatus = PASSED_UNTIL(now + interval). */
-    fun onGatePassed(context: Context) {
+    /** Call when user PASSES gate quiz. Clears per-package lock, sets PASSED_UNTIL. */
+    fun onGatePassed(context: Context, blockedPackage: String) {
         val prefs = ProtectionPrefs(context)
         prefs.setLastQuizPassedAtMs(System.currentTimeMillis())
         prefs.setUserLocked(false)
+        GateLockedStore(context).removeGateLocked(blockedPackage)
     }
 
-    /** Call when user FAILS (wrongCount >= 4). Sets gateStatus = REQUIRED. Do NOT set lastPassedAt. */
-    fun onGateFailed(context: Context) {
-        val prefs = ProtectionPrefs(context)
-        prefs.setUserLocked(true)
-        // Explicitly do NOT set lastQuizPassedAtMs - keep gate REQUIRED
+    /** Call when user FAILS (wrongCount >= 4). Per-package only: that blocked app stays gated. NO global lock. */
+    fun onGateFailed(context: Context, blockedPackage: String) {
+        if (blockedPackage.isNotBlank()) {
+            GateLockedStore(context).addGateLocked(blockedPackage)
+        }
+        // Do NOT set userLocked - BrainBuddy must open normally after fail
     }
 }

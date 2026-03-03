@@ -93,6 +93,7 @@ class QuizActivity : AppCompatActivity() {
         val retryAfterAd = intent.getBooleanExtra(EXTRA_RETRY_AFTER_AD, false)
         val retryUnlockToken = intent.getStringExtra(EXTRA_RETRY_UNLOCK_TOKEN)
 
+        val blockedPkgForRetry = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
         if (isRetryOfLockedQuiz && !retryAfterAd && protectionPrefs.userLocked()) {
             val policy = QuizRetryPolicy(this)
             when (policy.getStartMode()) {
@@ -103,6 +104,7 @@ class QuizActivity : AppCompatActivity() {
                         startActivity(Intent(this, QuizRetryAdActivity::class.java).apply {
                             putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, qId)
                             putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, java.util.ArrayList(qIds))
+                            putExtra(QuizRetryAdActivity.EXTRA_BLOCKED_PACKAGE, blockedPkgForRetry)
                         })
                     }
                     finish()
@@ -115,6 +117,7 @@ class QuizActivity : AppCompatActivity() {
                         startActivity(Intent(this, QuizCooldownActivity::class.java).apply {
                             putExtra(QuizCooldownActivity.EXTRA_QUIZ_ID, qId)
                             putStringArrayListExtra(QuizCooldownActivity.EXTRA_QUESTION_IDS, java.util.ArrayList(qIds))
+                            putExtra(QuizCooldownActivity.EXTRA_BLOCKED_PACKAGE, blockedPkgForRetry)
                         })
                     }
                     finish()
@@ -374,17 +377,18 @@ class QuizActivity : AppCompatActivity() {
         )
 
         val protectionPrefs = ProtectionPrefs(this)
+        val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
         if (passed && wrongCount < 4 && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
-            com.brainbuddy.app.gate.GateManager.onGatePassed(this)
+            com.brainbuddy.app.gate.GateManager.onGatePassed(this, blockedPkg)
             com.brainbuddy.app.core.QuizRetryPolicy(this).onPass()
         }
         val passedBossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         if (passed && passedBossLevel > 0) {
             BossTestStore(this).markBossPassed(passedBossLevel)
         }
-        if (!passed && wrongCount >= 4 && !isRetryOfLockedQuiz && !isRemedial) {
+        if (!passed && wrongCount >= 4 && (isGateMode || isRetryOfLockedQuiz) && !isRemedial) {
             com.brainbuddy.app.core.ReportStore(this).recordLockEvent()
-            com.brainbuddy.app.gate.GateManager.onGateFailed(this)
+            com.brainbuddy.app.gate.GateManager.onGateFailed(this, blockedPkg)
             protectionPrefs.setLastFailedWrongIds(wrongIds)
             protectionPrefs.setLastFailedQuizId(quizId)
             protectionPrefs.setLastFailedQuestionIds(questions.map { it.id })
@@ -398,6 +402,7 @@ class QuizActivity : AppCompatActivity() {
             putExtra(QuizResultActivity.EXTRA_QUESTIONS_JSON, QuizResultActivity.encodeQuestions(questions))
             putExtra(QuizResultActivity.EXTRA_IS_RETRY, isRetryOfLockedQuiz)
             putExtra(QuizResultActivity.EXTRA_IS_GATE_MODE, isGateMode)
+            putExtra(QuizResultActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
         })
         finish()
     }

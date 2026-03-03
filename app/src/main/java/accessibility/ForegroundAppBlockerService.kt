@@ -41,7 +41,7 @@ class ForegroundAppBlockerService : AccessibilityService() {
             val prefs = ProtectionPrefs(this)
             if (!prefs.isProtectionEnabled()) return
             if (KillSwitchPrefs(this).isKillSwitchActive()) return  // Gate disabled by kill switch
-            if (!GateHelper.gateRequiredNow(this)) return
+            if (!GateHelper.gateRequiredNow(this, pkg)) return
 
             val now = System.currentTimeMillis()
             if (now - lastGateLaunchMs < DEBOUNCE_MS) return
@@ -71,19 +71,11 @@ class ForegroundAppBlockerService : AccessibilityService() {
                 putExtra(GateActivity.EXTRA_BLOCKED_PACKAGE, blockedPackage)
             }
             startActivity(intent)
-        } catch (e: Exception) {
-            Log.e(TAG, "Failed to launch GateActivity", e)
-            try {
-                val fallback = Intent(this, HomeActivity::class.java).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    putExtra("open_gate", true)
-                    putExtra(GateActivity.EXTRA_BLOCKED_PACKAGE, blockedPackage)
-                }
-                startActivity(fallback)
-            } catch (e2: Exception) {
-                Log.e(TAG, "Fallback to HomeActivity also failed", e2)
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to launch GateActivity", e)
+                // Do not fallback to Home with open_gate - gate must only show from blocked-app flow.
+                // User remains at home screen; next blocked-app attempt will retry Gate.
             }
-        }
     }
 
     override fun onInterrupt() {}
