@@ -3,6 +3,7 @@ package com.brainbuddy.app.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.core.graphics.drawable.DrawableCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -311,7 +312,20 @@ class ReportsActivity : AppCompatActivity() {
             fun updateDetailCard(point: StatsRepository.TrendPoint) {
                 cardBinding.tvDetailTitle.text = "${point.testName} • ${dateFormat.format(Date(point.dateMs))}"
                 cardBinding.tvDetailMetrics.text = "Doğru: ${point.correct}  •  Yanlış: ${point.wrong}  •  Boş: ${point.blank}"
-                cardBinding.tvDetailSuccess.text = "Başarı: ${point.percent.roundToInt()}%"
+                val successPercent = point.percent
+                val overallAverage = tc.averagePercent
+                val isAboveOrEqual = successPercent >= overallAverage
+                val tintColor = if (isAboveOrEqual) getColor(R.color.emerald_primary) else getColor(R.color.bb_error)
+                cardBinding.tvDetailSuccess.text = "${successPercent.roundToInt()}%"
+                cardBinding.tvDetailSuccess.setTextColor(tintColor)
+                val arrowRes = if (isAboveOrEqual) R.drawable.ic_trend_up else R.drawable.ic_trend_down
+                val arrow = androidx.core.content.ContextCompat.getDrawable(this@ReportsActivity, arrowRes)?.mutate()
+                arrow?.let {
+                    DrawableCompat.setTint(it, tintColor)
+                    val sizePx = (14 * resources.displayMetrics.density).toInt()
+                    it.setBounds(0, 0, sizePx, sizePx)
+                }
+                cardBinding.tvDetailSuccess.setCompoundDrawables(null, null, arrow, null)
                 val canNavigate = point.testId.isNotBlank() && point.questionIds.isNotEmpty()
                 cardBinding.btnDetailGoToTest.visibility = if (canNavigate) View.VISIBLE else View.GONE
                 cardBinding.btnDetailGoToTest.setOnClickListener {
@@ -326,31 +340,54 @@ class ReportsActivity : AppCompatActivity() {
 
             fun showDetailCard(index: Int) {
                 if (index !in tc.points.indices) return
+                val wasVisible = cardRoot.visibility == View.VISIBLE
+                val previousIndex = selectedPointIndex
                 selectedPointIndex = index
                 val point = tc.points[index]
-                updateDetailCard(point)
-                if (cardRoot.visibility != View.VISIBLE) {
-                    cardRoot.visibility = View.VISIBLE
-                    cardRoot.alpha = 0f
-                    cardRoot.translationY = 12f * resources.displayMetrics.density
+                b.weeklyTrendChart.selectedIndex = index
+                if (wasVisible && previousIndex != null && previousIndex != index) {
                     cardRoot.animate()
-                        .alpha(1f)
-                        .translationY(0f)
-                        .setDuration(180)
-                        .setInterpolator(AccelerateDecelerateInterpolator())
+                        .alpha(0.4f)
+                        .setDuration(60)
+                        .withEndAction {
+                            updateDetailCard(point)
+                            cardRoot.animate()
+                                .alpha(1f)
+                                .setDuration(120)
+                                .setInterpolator(AccelerateDecelerateInterpolator())
+                                .start()
+                        }
                         .start()
+                } else {
+                    updateDetailCard(point)
+                    if (!wasVisible) {
+                        cardRoot.visibility = View.VISIBLE
+                        cardRoot.alpha = 0f
+                        cardRoot.translationY = 12f * resources.displayMetrics.density
+                        cardRoot.animate()
+                            .alpha(1f)
+                            .translationY(0f)
+                            .setDuration(120)
+                            .setInterpolator(AccelerateDecelerateInterpolator())
+                            .start()
+                    }
                 }
             }
 
             fun hideDetailCard() {
                 selectedPointIndex = null
+                b.weeklyTrendChart.selectedIndex = null
                 if (cardRoot.visibility == View.VISIBLE) {
+                    val slidePx = 16f * resources.displayMetrics.density
                     cardRoot.animate()
                         .alpha(0f)
-                        .translationY(12f * resources.displayMetrics.density)
-                        .setDuration(150)
+                        .translationY(slidePx)
+                        .setDuration(180)
                         .setInterpolator(AccelerateDecelerateInterpolator())
-                        .withEndAction { cardRoot.visibility = View.GONE }
+                        .withEndAction {
+                            cardRoot.visibility = View.GONE
+                            cardRoot.translationY = 0f
+                        }
                         .start()
                 }
             }
@@ -367,6 +404,7 @@ class ReportsActivity : AppCompatActivity() {
                 showDetailCard(validIndex)
             } else {
                 selectedPointIndex = null
+                b.weeklyTrendChart.selectedIndex = null
                 cardRoot.visibility = View.GONE
             }
         } else {

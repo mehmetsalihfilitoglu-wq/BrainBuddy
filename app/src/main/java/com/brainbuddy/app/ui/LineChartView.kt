@@ -45,13 +45,17 @@ class LineChartView @JvmOverloads constructor(
     )
 
     private val density = resources.displayMetrics.density
+    private val lineStrokeWidth = 4f * density
+    private val selectedLineStrokeWidth = 6f * density
     private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
-        strokeWidth = 4f * density
+        strokeWidth = lineStrokeWidth
         strokeJoin = Paint.Join.ROUND
         strokeCap = Paint.Cap.ROUND
     }
     private val dotPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val emeraldColor: Int
+        get() = context.getColor(R.color.emerald_primary)
     private val axisPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 11f, resources.displayMetrics)
         color = textColor
@@ -82,10 +86,21 @@ class LineChartView @JvmOverloads constructor(
     /** Called when user taps empty chart area (no point hit). */
     var onEmptyAreaTapped: (() -> Unit)? = null
 
+    /** 0-based index of selected point. Null = none. Used for highlight styling. */
+    var selectedIndex: Int? = null
+        set(value) {
+            if (field != value) {
+                field = value
+                invalidate()
+            }
+        }
+
     /** @deprecated Use onPointSelected for index-based handling. Kept for compatibility. */
     var onPointTapped: ((String) -> Unit)? = null
 
     private val dotRadiusPx = 6f * density
+    private val selectedDotRadiusPx = 10f * density
+    private val selectedStrokeWidthPx = 3f * density
     private val yTicks = listOf(0, 25, 50, 75, 100)
     private val leftAxisWidth = 28f * density
 
@@ -179,7 +194,8 @@ class LineChartView @JvmOverloads constructor(
             canvas.drawText(label, x - tw / 2, height - paddingBottom - 4f, axisPaint)
         }
 
-        // Line and dots
+        // Line: draw unselected segments first, then selected segment(s) thicker
+        val sel = selectedIndex
         path.reset()
         pts.forEachIndexed { i, p ->
             val v = p.percent.coerceIn(0f, 100f)
@@ -187,12 +203,54 @@ class LineChartView @JvmOverloads constructor(
             val y = chartTop + chartHeight * (1f - v / 100f)
             if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
         }
+        linePaint.strokeWidth = lineStrokeWidth
         canvas.drawPath(path, linePaint)
+        // Selected segment(s): draw thicker
+        if (sel != null && sel in pts.indices && pts.size >= 2) {
+            linePaint.strokeWidth = selectedLineStrokeWidth
+            linePaint.color = emeraldColor
+            val prevIdx = (sel - 1).coerceAtLeast(0)
+            val nextIdx = (sel + 1).coerceAtMost(pts.size - 1)
+            val indices = listOf(prevIdx, sel, nextIdx).distinct().sorted()
+            for (k in 0 until indices.size - 1) {
+                val i0 = indices[k]
+                val i1 = indices[k + 1]
+                if (i0 == sel || i1 == sel) {
+                    val v0 = pts[i0].percent.coerceIn(0f, 100f)
+                    val v1 = pts[i1].percent.coerceIn(0f, 100f)
+                    val x0 = chartLeft + i0 * stepX
+                    val y0 = chartTop + chartHeight * (1f - v0 / 100f)
+                    val x1 = chartLeft + i1 * stepX
+                    val y1 = chartTop + chartHeight * (1f - v1 / 100f)
+                    path.reset()
+                    path.moveTo(x0, y0)
+                    path.lineTo(x1, y1)
+                    canvas.drawPath(path, linePaint)
+                }
+            }
+            linePaint.color = color
+        }
+        linePaint.strokeWidth = lineStrokeWidth
+
+        // Dots: normal dots first, then selected dot (white inner + emerald stroke)
         pts.forEachIndexed { i, p ->
             val v = p.percent.coerceIn(0f, 100f)
             val x = chartLeft + i * stepX
             val y = chartTop + chartHeight * (1f - v / 100f)
-            canvas.drawCircle(x, y, dotRadiusPx, dotPaint)
+            if (i == sel) {
+                dotPaint.style = Paint.Style.FILL
+                dotPaint.color = context.getColor(android.R.color.white)
+                canvas.drawCircle(x, y, selectedDotRadiusPx, dotPaint)
+                dotPaint.style = Paint.Style.STROKE
+                dotPaint.strokeWidth = selectedStrokeWidthPx
+                dotPaint.color = emeraldColor
+                canvas.drawCircle(x, y, selectedDotRadiusPx, dotPaint)
+                dotPaint.style = Paint.Style.FILL
+                dotPaint.strokeWidth = 0f
+            } else {
+                dotPaint.color = color
+                canvas.drawCircle(x, y, dotRadiusPx, dotPaint)
+            }
         }
     }
 }
