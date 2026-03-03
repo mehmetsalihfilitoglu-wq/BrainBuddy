@@ -83,7 +83,8 @@ class StatsRepository(private val context: Context) {
         val recentTests: RecentTestsSection,
         val topApps: TopAppsSection,
         val wrongReview: WrongReviewSection,
-        val weeklyXp: Int
+        val weeklyXp: Int,
+        val advancedStats: AdvancedStatsUiModel
     )
 
     data class WeeklySuccessSection(
@@ -142,6 +143,26 @@ class StatsRepository(private val context: Context) {
         val wrongIds: List<String>,
         val sessionJson: String
     )
+
+    /**
+     * Advanced performance analysis: weak/strong subjects, trend, most wrong topic.
+     * All scoped by active profile and selected date range (Today/7d/30d).
+     */
+    data class AdvancedStatsUiModel(
+        val weakSubjects: List<SubjectStat>,
+        val strongSubjects: List<SubjectStat>,
+        val trendDelta: Float,
+        val trendDirection: TrendDirection,
+        val mostWrongTopic: String?
+    )
+
+    data class SubjectStat(val name: String, val successPercent: Float)
+
+    enum class TrendDirection {
+        IMPROVING,
+        DECLINING,
+        STABLE
+    }
 
     enum class ReportRange(val days: Int, val label: String) {
         TODAY(1, "Bugün"),
@@ -295,6 +316,8 @@ class StatsRepository(private val context: Context) {
 
         val weeklyXp = sessions.sumOf { it.pointsEarned }
 
+        val advancedStats = computeAdvancedStats(completePerfs, topicCounts)
+
         return ReportsUiModel(
             range = range,
             weeklySuccess = weeklySuccess,
@@ -303,7 +326,80 @@ class StatsRepository(private val context: Context) {
             recentTests = recentTests,
             topApps = topApps,
             wrongReview = wrongReview,
-            weeklyXp = weeklyXp
+            weeklyXp = weeklyXp,
+            advancedStats = advancedStats
+        )
+    }
+
+    private fun computeAdvancedStats(
+        completePerfs: List<TestPerformance>,
+        topicCounts: Map<String, TopicCounts>
+    ): AdvancedStatsUiModel {
+        // 1) Weak/Strong Subjects: group by subject (topic key), totalQuestions >= 10
+        //    successPercent = correct / (correct+wrong)
+        val subjectAgg = mutableMapOf<String, Triple<Int, Int, Int>>() // subject -> (correct, wrong, total)
+        completePerfs.forEach { p ->
+            p.byTopicCounts.forEach { (subject, tc) ->
+                val existing = subjectAgg.getOrPut(subject) { Triple(0, 0, 0) }
+                subjectAgg[subject] = Triple(
+                    existing.first + tc.correct,
+                    existing.second + tc.wrong,
+                    existing.third + tc.total
+                )
+            }
+        }
+        val weakSubjects = subjectAgg
+            .map { (name, t) ->
+                val (correct, wrong, total) = t
+                val graded = correct + wrong
+                val successPercent = if (graded > 0) 100f * correct / graded else 0f
+                SubjectStat(name, successPercent) to total
+            }
+            .filter { it.second >= 10 && it.first.successPercent < 50f }
+            .map { it.first }
+            .sortedBy { it.successPercent }
+        val strongSubjects = subjectAgg
+            .map { (name, t) ->
+                val (correct, wrong, total) = t
+                val graded = correct + wrong
+                val successPercent = if (graded > 0) 100f * correct / graded else 0f
+                SubjectStat(name, successPercent) to total
+            }
+            .filter { it.second >= 10 && it.first.successPercent >= 75f }
+            .map { it.first }
+            .sortedByDescending { it.successPercent }
+        // 3) Trend Engine: last 6 completed tests
+        val last6 = completePerfs.takeLast(6)
+        val trendDelta: Float
+        val trendDirection: TrendDirection
+        if (last6.size >= 6) {
+            val percents = last6.map { p ->
+                val graded = p.correctCount + p.wrongCount
+                if (graded > 0) 100f * p.correctCount / graded else 0f
+            }
+            val previous3Avg = percents.take(3).average().toFloat()
+            val last3Avg = percents.takeLast(3).average().toFloat()
+            trendDelta = last3Avg - previous3Avg
+            trendDirection = when {
+                trendDelta > 0 -> TrendDirection.IMPROVING
+                trendDelta < 0 -> TrendDirection.DECLINING
+                else -> TrendDirection.STABLE
+            }
+        } else {
+            trendDelta = 0f
+            trendDirection = TrendDirection.STABLE
+        }
+        // 4) Most Wrong Topic
+        val mostWrongTopic = topicCounts.entries
+            .filter { it.value.wrong > 0 }
+            .maxByOrNull { it.value.wrong }
+            ?.key
+        return AdvancedStatsUiModel(
+            weakSubjects = weakSubjects,
+            strongSubjects = strongSubjects,
+            trendDelta = trendDelta,
+            trendDirection = trendDirection,
+            mostWrongTopic = mostWrongTopic
         )
     }
 

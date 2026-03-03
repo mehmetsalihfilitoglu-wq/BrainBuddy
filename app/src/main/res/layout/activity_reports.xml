@@ -417,6 +417,99 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- B2) Performans Analizi kartı -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAdvancedStats"
+                style="@style/Widget.BrainBuddy.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/reports_card_gap">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/reports_card_inner">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Performans Analizi"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
+
+                    <LinearLayout
+                        android:id="@+id/advancedStatsContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/reports_title_content">
+
+                        <TextView
+                            android:id="@+id/tvWeakSubjects"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:textColor="?attr/colorOnSurface"/>
+
+                        <TextView
+                            android:id="@+id/tvStrongSubjects"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:visibility="gone"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:textColor="?attr/colorOnSurface"/>
+
+                        <TextView
+                            android:id="@+id/tvTrendSummary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:textColor="?attr/colorOnSurface"/>
+
+                        <TextView
+                            android:id="@+id/tvMostWrongTopic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:visibility="gone"
+                            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                            android:textColor="?attr/colorOnSurface"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/advancedStatsEmpty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="24dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📈"
+                            android:textSize="40sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/reports_title_content"
+                            android:text="Performans analizi için yeterli test verisi gerekli."
+                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAdvancedStatsEmptyCta"
+                            style="@style/BBButtonAlt"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/btn_start_quiz"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
             <!-- C) Son 10 Test Başarı Trendi kartı (premium chart + empty state) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardTrend"

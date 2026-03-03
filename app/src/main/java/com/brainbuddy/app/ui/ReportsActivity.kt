@@ -217,6 +217,46 @@ class ReportsActivity : AppCompatActivity() {
             b.btnTopicsEmptyCta?.setOnClickListener { startQuiz() }
         }
 
+        // B2) Performans Analizi
+        val adv = model.advancedStats
+        val hasAdvancedData = model.weeklySuccess.testCount > 0
+        if (hasAdvancedData) {
+            b.advancedStatsContent.visibility = View.VISIBLE
+            b.advancedStatsEmpty.visibility = View.GONE
+            if (adv.weakSubjects.isNotEmpty()) {
+                b.tvWeakSubjects.visibility = View.VISIBLE
+                b.tvWeakSubjects.text = "Zayıf dersler: " + adv.weakSubjects.joinToString(", ") {
+                    "${it.name} (%.0f%%)".format(it.successPercent)
+                }
+            } else {
+                b.tvWeakSubjects.visibility = View.GONE
+            }
+            if (adv.strongSubjects.isNotEmpty()) {
+                b.tvStrongSubjects.visibility = View.VISIBLE
+                b.tvStrongSubjects.text = "Güçlü dersler: " + adv.strongSubjects.joinToString(", ") {
+                    "${it.name} (%.0f%%)".format(it.successPercent)
+                }
+            } else {
+                b.tvStrongSubjects.visibility = View.GONE
+            }
+            val trendText = when (adv.trendDirection) {
+                StatsRepository.TrendDirection.IMPROVING -> "Trend: İyileşiyor (%.1f%%)".format(adv.trendDelta)
+                StatsRepository.TrendDirection.DECLINING -> "Trend: Düşüş (%.1f%%)".format(adv.trendDelta)
+                else -> "Trend: Kararlı"
+            }
+            b.tvTrendSummary.text = trendText
+            if (adv.mostWrongTopic != null) {
+                b.tvMostWrongTopic.visibility = View.VISIBLE
+                b.tvMostWrongTopic.text = "En çok yanlış: ${adv.mostWrongTopic}"
+            } else {
+                b.tvMostWrongTopic.visibility = View.GONE
+            }
+        } else {
+            b.advancedStatsContent.visibility = View.GONE
+            b.advancedStatsEmpty.visibility = View.VISIBLE
+            b.btnAdvancedStatsEmptyCta?.setOnClickListener { startQuiz() }
+        }
+
         // C) Trend chart
         val tc = model.trendChart
         if (!tc.isEmpty) {
