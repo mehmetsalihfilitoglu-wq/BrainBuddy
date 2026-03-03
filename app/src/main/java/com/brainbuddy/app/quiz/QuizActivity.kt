@@ -365,8 +365,14 @@ class QuizActivity : AppCompatActivity() {
         val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
         val total = questions.size
         val accuracy = if (total > 0) correctCount.toFloat() / total else 0f
+        // successRate = correct / (correct + wrong), ignoring blanks
+        val answeredCount = correctCount + wrongCount
+        val successRate = if (answeredCount > 0) correctCount.toFloat() / answeredCount else 0f
+        val protectionPrefsForThreshold = ProtectionPrefs(this)
+        val minSuccessThreshold = protectionPrefsForThreshold.minSuccessRatePercent() / 100f
         val passed = when {
-            isGateMode || isRetryOfLockedQuiz || isRemedial -> wrongCount < 4
+            isGateMode || isRetryOfLockedQuiz || isRemedial ->
+                wrongCount < 4 && successRate >= minSuccessThreshold
             else -> accuracy >= 0.6f
         }
         val completedAt = System.currentTimeMillis()
@@ -385,7 +391,7 @@ class QuizActivity : AppCompatActivity() {
 
         val protectionPrefs = ProtectionPrefs(this)
         val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
-        if (passed && wrongCount < 4 && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
+        if (passed && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
             com.brainbuddy.app.gate.GateManager.onGatePassed(this, blockedPkg)
             com.brainbuddy.app.core.QuizRetryPolicy(this).onPass()
         }
@@ -393,7 +399,7 @@ class QuizActivity : AppCompatActivity() {
         if (passed && passedBossLevel > 0) {
             BossTestStore(this).markBossPassed(passedBossLevel)
         }
-        if (!passed && wrongCount >= 4 && (isGateMode || isRetryOfLockedQuiz) && !isRemedial) {
+        if (!passed && (isGateMode || isRetryOfLockedQuiz) && !isRemedial) {
             com.brainbuddy.app.core.ReportStore(this).recordLockEvent()
             com.brainbuddy.app.gate.GateManager.onGateFailed(this, blockedPkg)
             protectionPrefs.setLastFailedWrongIds(wrongIds)

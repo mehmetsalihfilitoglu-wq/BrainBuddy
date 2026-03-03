@@ -200,9 +200,9 @@ class QuizResultActivity : AppCompatActivity() {
         if (s.totalCount == com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
             val leagueStore = LeagueStore(this)
             val testIndexOfDay = leagueStore.getTestsCompletedToday()
-            val isGateFail = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false) && s.wrongCount >= 4
+            val isGateFailForLeague = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false) && !s.passed
             val breakdown = LeagueScoring.computeBreakdown(
-                s.wrongCount, s.blankCount, isGateFail, testIndexOfDay
+                s.wrongCount, s.blankCount, isGateFailForLeague, testIndexOfDay
             )
             leagueStore.addWeeklyScore(breakdown.finalPoints)
             leagueStore.incrementTestsToday()
@@ -214,7 +214,7 @@ class QuizResultActivity : AppCompatActivity() {
         val accuracy = if (total > 0) s.correctCount.toFloat() / total else 0f
         val isGateMode = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false)
         val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
-        val isGateFail = isGateMode && s.wrongCount >= 4
+        val isGateFail = isGateMode && !s.passed
 
         val titleText = when {
             !s.passed -> getString(R.string.lock_failed_message)
@@ -263,7 +263,7 @@ class QuizResultActivity : AppCompatActivity() {
         val wrongSection = findViewById<View>(R.id.wrongSection)
         val btnRetryWrong = findViewById<android.widget.Button>(R.id.btnRetryWrong)
         val wrongIds = s.wrongQuestionIds
-        val isFailedScreen = isGateMode && s.wrongCount >= 4
+        val isFailedScreen = isGateMode && !s.passed
         if (wrongIds.isEmpty() || isFailedScreen) {
             wrongSection.visibility = View.GONE
             btnRetryWrong.visibility = View.GONE

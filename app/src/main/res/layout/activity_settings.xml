@@ -343,6 +343,33 @@
                     <RadioButton android:id="@+id/interval45" android:text="@string/interval_45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
                     <RadioButton android:id="@+id/interval60" android:text="@string/interval_60" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
                 </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/settings_min_success_rate"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/bb_text"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/settings_min_success_rate_sub"
+                    android:textSize="13sp"
+                    android:textColor="@color/bb_text_muted"/>
+                <RadioGroup
+                    android:id="@+id/successRateGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+                    <RadioButton android:id="@+id/successRate50" android:text="@string/success_rate_50" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <RadioButton android:id="@+id/successRate60" android:text="@string/success_rate_60" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
+                    <RadioButton android:id="@+id/successRate70" android:text="@string/success_rate_70" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
+                    <RadioButton android:id="@+id/successRate80" android:text="@string/success_rate_80" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
+                </RadioGroup>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

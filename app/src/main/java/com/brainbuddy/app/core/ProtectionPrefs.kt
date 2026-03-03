@@ -24,6 +24,10 @@ class ProtectionPrefs(private val context: Context) {
     fun quizIntervalMinutes(): Int = prefs.getInt(KEY_QUIZ_INTERVAL, 30).coerceIn(30, 60)
     fun setQuizIntervalMinutes(v: Int) = prefs.edit().putInt(KEY_QUIZ_INTERVAL, v.coerceIn(30, 60)).apply()
 
+    /** Minimum success rate (correct / (correct + wrong)) to unlock apps. Default 60%, range 50–80%. */
+    fun minSuccessRatePercent(): Int = prefs.getInt(KEY_MIN_SUCCESS_RATE, 60).coerceIn(50, 80)
+    fun setMinSuccessRatePercent(v: Int) = prefs.edit().putInt(KEY_MIN_SUCCESS_RATE, v.coerceIn(50, 80)).apply()
+
     fun studentLevel(): StudentLevel {
         val scopedKey = profileKey(KEY_LEVEL)
         val rawProfile = prefs.getString(scopedKey, null)
@@ -189,6 +193,7 @@ class ProtectionPrefs(private val context: Context) {
         private const val KEY_LAST_FAILED_SESSION_JSON = "last_failed_session_json"
         private const val KEY_LAST_FAILED_QUESTIONS_JSON = "last_failed_questions_json"
         private const val KEY_QUIZ_INTERVAL = "quiz_interval_minutes"
+        private const val KEY_MIN_SUCCESS_RATE = "min_success_rate_percent"
         private const val KEY_PERMISSION_LOCK_REASON = "permission_lock_reason"
     }
 }

@@ -27,6 +27,7 @@ object BackupManager {
             } }))
             put("protectionEnabled", prefs.isProtectionEnabledRaw())
             put("quizIntervalMinutes", prefs.quizIntervalMinutes())
+            put("minSuccessRatePercent", prefs.minSuccessRatePercent())
             put("studentLevel", prefs.studentLevel().name)
             put("schedules", JSONArray(schedule.getRules().map { r ->
                 JSONObject().apply {
@@ -90,6 +91,7 @@ object BackupManager {
             }
             if (obj.has("protectionEnabled")) ProtectionPrefs(context).setProtectionEnabled(obj.optBoolean("protectionEnabled", true))
             if (obj.has("quizIntervalMinutes")) ProtectionPrefs(context).setQuizIntervalMinutes(obj.optInt("quizIntervalMinutes", 30).coerceIn(30, 60))
+            if (obj.has("minSuccessRatePercent")) ProtectionPrefs(context).setMinSuccessRatePercent(obj.optInt("minSuccessRatePercent", 60).coerceIn(50, 80))
             if (obj.has("studentLevel")) {
                 try {
                     ProtectionPrefs(context).setStudentLevel(StudentLevel.valueOf(obj.optString("studentLevel", "AGE_3_5")))

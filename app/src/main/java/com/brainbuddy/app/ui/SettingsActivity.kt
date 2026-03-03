@@ -35,6 +35,13 @@ class SettingsActivity : AppCompatActivity() {
             60 -> intervalGroup.check(R.id.interval60)
             else -> intervalGroup.check(R.id.interval30)
         }
+        val successRateGroup = findViewById<android.widget.RadioGroup>(R.id.successRateGroup)
+        when (prefs.minSuccessRatePercent()) {
+            50 -> successRateGroup.check(R.id.successRate50)
+            70 -> successRateGroup.check(R.id.successRate70)
+            80 -> successRateGroup.check(R.id.successRate80)
+            else -> successRateGroup.check(R.id.successRate60)
+        }
         when (prefs.studentLevel()) {
             StudentLevel.AGE_3_5 -> levelGroup.check(R.id.levelAges3to5)
             StudentLevel.GRADES_1_4 -> levelGroup.check(R.id.levelGrades1to4)
@@ -63,6 +70,16 @@ class SettingsActivity : AppCompatActivity() {
                 else -> 30
             }
             prefs.setQuizIntervalMinutes(mins)
+        }
+
+        successRateGroup.setOnCheckedChangeListener { _, id ->
+            val pct = when (id) {
+                R.id.successRate50 -> 50
+                R.id.successRate70 -> 70
+                R.id.successRate80 -> 80
+                else -> 60
+            }
+            prefs.setMinSuccessRatePercent(pct)
         }
 
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardPermissions).setOnClickListener {
