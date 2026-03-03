@@ -30,10 +30,13 @@ import com.brainbuddy.app.core.WrongReviewQuotaStore
 import com.brainbuddy.app.core.StatsRepository
 import com.brainbuddy.app.databinding.ActivityReportsBinding
 import com.brainbuddy.app.ads.RewardAdHelper
+import androidx.core.content.FileProvider
 import com.brainbuddy.app.quiz.PastTestDetailActivity
 import com.brainbuddy.app.quiz.QuizActivity
+import com.brainbuddy.app.report.PdfReportGenerator
 import com.brainbuddy.app.ui.BarChartView.BarData
 import androidx.datastore.preferences.core.edit
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.launchIn
@@ -79,9 +82,13 @@ class ReportsActivity : AppCompatActivity() {
             statsRepo.notifyScreenOpened()
 
             var shareData = ShareData(0, 0, 0f, 0f, rangeDays.days)
+            var latestModel: StatsRepository.ReportsUiModel? = null
 
             statsRepo.reportsFlow
-                .onEach { model -> applyModel(b, model, shareData = { shareData = it }) }
+                .onEach { model ->
+                    latestModel = model
+                    applyModel(b, model, shareData = { shareData = it })
+                }
                 .launchIn(lifecycleScope)
 
             fun onRangeChanged(days: Int) {
@@ -99,23 +106,49 @@ class ReportsActivity : AppCompatActivity() {
             }
 
             b.btnShareReport.setOnClickListener {
-                val accuracyStr = if (shareData.noGradedAnswers) "—" else "%.0f%%".format(shareData.accuracy)
-                val text = buildString {
-                    append("BrainBuddy Rapor\n")
-                    append("Engellenen: ${shareData.blocked}\n")
-                    append("Testler (${shareData.rangeDays} gün): ${shareData.tests}\n")
-                    append("Doğruluk: $accuracyStr\n")
-                    append("Geçme oranı: %.0f%%".format(shareData.passRate))
-                }
-                startActivity(
-                    Intent.createChooser(
-                        Intent(Intent.ACTION_SEND).apply {
-                            type = "text/plain"
-                            putExtra(Intent.EXTRA_TEXT, text)
-                        },
-                        getString(R.string.report_share)
+                val model = latestModel
+                if (model != null) {
+                    lifecycleScope.launch {
+                        val file = kotlinx.coroutines.withContext(Dispatchers.IO) {
+                            PdfReportGenerator.generateAndGetFile(this@ReportsActivity, model)
+                        }
+                        if (file != null && file.exists()) {
+                            val uri = FileProvider.getUriForFile(
+                                this@ReportsActivity,
+                                "${applicationContext.packageName}.fileprovider",
+                                file
+                            )
+                            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                                type = "application/pdf"
+                                putExtra(Intent.EXTRA_STREAM, uri)
+                                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                            }
+                            startActivity(
+                                Intent.createChooser(shareIntent, getString(R.string.report_share))
+                            )
+                        } else {
+                            Toast.makeText(this@ReportsActivity, R.string.report_pdf_error, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    val accuracyStr = if (shareData.noGradedAnswers) "—" else "%.0f%%".format(shareData.accuracy)
+                    val text = buildString {
+                        append("BrainBuddy Rapor\n")
+                        append("Engellenen: ${shareData.blocked}\n")
+                        append("Testler (${shareData.rangeDays} gün): ${shareData.tests}\n")
+                        append("Doğruluk: $accuracyStr\n")
+                        append("Geçme oranı: %.0f%%".format(shareData.passRate))
+                    }
+                    startActivity(
+                        Intent.createChooser(
+                            Intent(Intent.ACTION_SEND).apply {
+                                type = "text/plain"
+                                putExtra(Intent.EXTRA_TEXT, text)
+                            },
+                            getString(R.string.report_share)
+                        )
                     )
-                )
+                }
             }
 
             b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
