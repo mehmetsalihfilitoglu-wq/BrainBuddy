@@ -124,7 +124,11 @@ class StatsRepository(private val context: Context) {
         val wrong: Int,
         val blank: Int,
         val total: Int, // graded = correct + wrong
-        val percent: Float
+        val percent: Float,
+        /** Quiz ID for navigation to PastTestDetailActivity. Empty if unavailable. */
+        val testId: String = "",
+        /** Question IDs for PastTestDetailActivity EXTRA_QUESTION_IDS. Empty if unavailable. */
+        val questionIds: List<String> = emptyList()
     )
 
     data class RecentTestsSection(
@@ -258,7 +262,9 @@ class StatsRepository(private val context: Context) {
                 wrong = p.wrongCount,
                 blank = p.blankCount,
                 total = graded,
-                percent = percent
+                percent = percent,
+                testId = p.quizId,
+                questionIds = p.questionIds
             )
         }
         // Recalculate averagePercent: sum(correct) / sum(correct + wrong), not average of per-test %

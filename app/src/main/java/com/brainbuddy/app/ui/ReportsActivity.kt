@@ -6,11 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
-import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.preferences.core.intPreferencesKey
@@ -45,6 +45,9 @@ private val KEY_REPORT_RANGE_DAYS = intPreferencesKey("report_range_days")
 class ReportsActivity : AppCompatActivity() {
 
     private lateinit var statsRepo: StatsRepository
+
+    /** Last selected point index (0-based) in trend chart. Null = collapsed. Survives applyModel/rotation. */
+    private var selectedPointIndex: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -300,8 +303,74 @@ class ReportsActivity : AppCompatActivity() {
             b.tvTrendKpis?.text = "Ort: %.0f%% • Son: %.0f%% • $trendArrow".format(tc.averagePercent, tc.lastTestPercent)
             b.tvTrendCaption?.text = getString(R.string.trend_chart_caption)
             b.tvTrendEmptyWarning?.visibility = if (tc.excludedEmptyTestsCount > 0) View.VISIBLE else View.GONE
-            b.weeklyTrendChart.onPointTapped = { text -> Toast.makeText(this, text, Toast.LENGTH_LONG).show() }
+
+            // Selected point detail card (no tooltip overlay)
+            val cardBinding = b.selectedTestDetailCard
+            val cardRoot = cardBinding.root
+
+            fun updateDetailCard(point: StatsRepository.TrendPoint) {
+                cardBinding.tvDetailTitle.text = "${point.testName} • ${dateFormat.format(Date(point.dateMs))}"
+                cardBinding.tvDetailMetrics.text = "Doğru: ${point.correct}  •  Yanlış: ${point.wrong}  •  Boş: ${point.blank}"
+                cardBinding.tvDetailSuccess.text = "Başarı: ${point.percent.roundToInt()}%"
+                val canNavigate = point.testId.isNotBlank() && point.questionIds.isNotEmpty()
+                cardBinding.btnDetailGoToTest.visibility = if (canNavigate) View.VISIBLE else View.GONE
+                cardBinding.btnDetailGoToTest.setOnClickListener {
+                    if (canNavigate) {
+                        startActivity(Intent(this@ReportsActivity, PastTestDetailActivity::class.java).apply {
+                            putExtra(PastTestDetailActivity.EXTRA_TEST_ID, point.testId)
+                            putStringArrayListExtra(PastTestDetailActivity.EXTRA_QUESTION_IDS, ArrayList(point.questionIds))
+                        })
+                    }
+                }
+            }
+
+            fun showDetailCard(index: Int) {
+                if (index !in tc.points.indices) return
+                selectedPointIndex = index
+                val point = tc.points[index]
+                updateDetailCard(point)
+                if (cardRoot.visibility != View.VISIBLE) {
+                    cardRoot.visibility = View.VISIBLE
+                    cardRoot.alpha = 0f
+                    cardRoot.translationY = 12f * resources.displayMetrics.density
+                    cardRoot.animate()
+                        .alpha(1f)
+                        .translationY(0f)
+                        .setDuration(180)
+                        .setInterpolator(AccelerateDecelerateInterpolator())
+                        .start()
+                }
+            }
+
+            fun hideDetailCard() {
+                selectedPointIndex = null
+                if (cardRoot.visibility == View.VISIBLE) {
+                    cardRoot.animate()
+                        .alpha(0f)
+                        .translationY(12f * resources.displayMetrics.density)
+                        .setDuration(150)
+                        .setInterpolator(AccelerateDecelerateInterpolator())
+                        .withEndAction { cardRoot.visibility = View.GONE }
+                        .start()
+                }
+            }
+
+            b.weeklyTrendChart.onPointSelected = { index ->
+                showDetailCard(index)
+            }
+            b.weeklyTrendChart.onEmptyAreaTapped = { hideDetailCard() }
+            cardBinding.btnCloseDetailCard.setOnClickListener { hideDetailCard() }
+
+            // Restore or clear selection after model apply (rotation / onResume)
+            val validIndex = selectedPointIndex?.takeIf { it in tc.points.indices }
+            if (validIndex != null) {
+                showDetailCard(validIndex)
+            } else {
+                selectedPointIndex = null
+                cardRoot.visibility = View.GONE
+            }
         } else {
+            selectedPointIndex = null
             b.trendContent.visibility = View.GONE
             b.trendEmpty.visibility = View.VISIBLE
             b.btnTrendEmptyCta?.setOnClickListener { startQuiz() }

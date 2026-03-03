@@ -76,6 +76,13 @@ class LineChartView @JvmOverloads constructor(
             invalidate()
         }
 
+    /** Called when user taps a data point. Passes 0-based index. */
+    var onPointSelected: ((Int) -> Unit)? = null
+
+    /** Called when user taps empty chart area (no point hit). */
+    var onEmptyAreaTapped: (() -> Unit)? = null
+
+    /** @deprecated Use onPointSelected for index-based handling. Kept for compatibility. */
     var onPointTapped: ((String) -> Unit)? = null
 
     private val dotRadiusPx = 6f * density
@@ -127,7 +134,10 @@ class LineChartView @JvmOverloads constructor(
             }
         }
         if (best >= 0) {
+            onPointSelected?.invoke(best)
             onPointTapped?.invoke(pts[best].tooltipText)
+        } else {
+            onEmptyAreaTapped?.invoke()
         }
     }
 

@@ -707,6 +707,14 @@
                             android:paddingTop="8dp"
                             android:paddingBottom="8dp"/>
 
+                        <include
+                            android:id="@+id/selectedTestDetailCard"
+                            layout="@layout/selected_test_detail_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone"/>
+
                         <TextView
                             android:id="@+id/tvTrendCaption"
                             android:layout_width="match_parent"
