@@ -38,13 +38,11 @@ object PdfReportGenerator {
             val barChartBitmap = buildBarChartBitmap(context, model)
             val isPremium = PremiumStore(context).isPremium()
 
-            val profileName = ProfileStore(context).getProfile(ActiveProfileManager.getActiveProfileId(context))?.name ?: "Ogrenci"
-            val dateStr = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
-            val safeName = profileName.replace(Regex("[^a-zA-Z0-9\\u00C0-\\u017F]"), "_").take(30)
-            val fileName = "BrainBuddy_Rapor_${safeName}_$dateStr.pdf"
+            val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+            val fileName = "BrainBuddy_Report_$timestamp.pdf"
 
-            val cacheDir = File(context.cacheDir, "pdf_reports").apply { mkdirs() }
-            val outFile = File(cacheDir, fileName)
+            val reportsDir = File(context.cacheDir, "brainbuddy_reports").apply { mkdirs() }
+            val outFile = File(reportsDir, fileName)
 
             val builder = PdfReportBuilder(
                 context = context,
@@ -61,7 +59,7 @@ object PdfReportGenerator {
 
             outFile
         } catch (e: Exception) {
-            android.util.Log.e("PdfReportGenerator", "PDF generation failed", e)
+            android.util.Log.e("PDF_REPORT", "PDF generation failed", e)
             null
         }
     }

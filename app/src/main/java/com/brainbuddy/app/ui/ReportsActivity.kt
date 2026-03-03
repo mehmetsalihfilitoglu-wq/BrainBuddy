@@ -104,9 +104,18 @@ class ReportsActivity : AppCompatActivity() {
             b.btnShareReport.setOnClickListener {
                 val model = latestModel
                 if (model != null) {
+                    if (model.weeklySuccess.testCount == 0) {
+                        Toast.makeText(this@ReportsActivity, R.string.report_no_data, Toast.LENGTH_SHORT).show()
+                        return@setOnClickListener
+                    }
                     lifecycleScope.launch {
-                        val file = kotlinx.coroutines.withContext(Dispatchers.IO) {
-                            PdfReportGenerator.generateAndGetFile(this@ReportsActivity, model)
+                        val file = try {
+                            kotlinx.coroutines.withContext(Dispatchers.IO) {
+                                PdfReportGenerator.generateAndGetFile(this@ReportsActivity, model)
+                            }
+                        } catch (e: Exception) {
+                            Log.e("PDF_REPORT", "Report generation failed", e)
+                            null
                         }
                         if (file != null && file.exists()) {
                             val uri = FileProvider.getUriForFile(
@@ -123,7 +132,7 @@ class ReportsActivity : AppCompatActivity() {
                                 Intent.createChooser(shareIntent, getString(R.string.report_share))
                             )
                         } else {
-                            Toast.makeText(this@ReportsActivity, R.string.report_pdf_error, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@ReportsActivity, R.string.report_create_error, Toast.LENGTH_SHORT).show()
                         }
                     }
                 } else {
