@@ -1,67 +1,88 @@
 package com.brainbuddy.app.core
 
 import android.content.Context
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.runBlocking
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-/**
- * Daily quota for Wrong Answer Review screen (Yanlış Cevapları İncele).
- * - Premium: unlimited
- * - Non-premium: 3 free per day, then +1 per rewarded ad (unlimited ads)
- */
-class WrongReviewQuotaStore(context: Context) {
-    private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-    private val premiumStore = PremiumStore(context)
+private val Context.wrongReviewQuotaDataStore by preferencesDataStore(name = "wrong_review_quota")
 
-    /** Call on every entry to WrongAnswers screen. Resets if new local day. */
+private val KEY_REMAINING_REVEALS = intPreferencesKey("remaining_reveals")
+private val KEY_LAST_RESET_DATE = stringPreferencesKey("last_reset_date")
+
+/**
+ * Daily quota for Wrong Answer Review screen (Yanlış Soruları Gör).
+ * - Premium: unlimited (bypass at call site)
+ * - Non-premium: 3 free per day, then +1 per rewarded ad
+ *
+ * Quota is consumed when a wrong question's details are REVEALED (expanded), not when opening the screen.
+ */
+class WrongReviewQuotaStore(private val context: Context) {
+
+    private val dataStore = context.wrongReviewQuotaDataStore
+
+    /** Reset if today != lastResetDate. Call on screen open and before quota ops. */
     fun ensureDailyReset() {
-        val todayKey = todayKey()
-        val lastKey = prefs.getString(KEY_LAST_RESET_DATE, "")
-        if (lastKey != todayKey) {
-            prefs.edit()
-                .putString(KEY_LAST_RESET_DATE, todayKey)
-                .putInt(KEY_REMAINING_VIEWS, FREE_PER_DAY)
-                .apply()
+        runBlocking {
+            dataStore.edit { prefs ->
+                val today = todayKey()
+                val last = prefs[KEY_LAST_RESET_DATE] ?: ""
+                if (last != today) {
+                    prefs[KEY_LAST_RESET_DATE] = today
+                    prefs[KEY_REMAINING_REVEALS] = FREE_PER_DAY
+                }
+            }
         }
     }
 
-    /** Returns remaining views (Int.MAX_VALUE for premium). */
-    fun getRemainingViews(): Int {
-        if (premiumStore.isPremium()) return Int.MAX_VALUE
+    /** Returns remaining reveals (0..n). Caller should bypass for premium. */
+    fun getRemaining(): Int {
         ensureDailyReset()
-        return prefs.getInt(KEY_REMAINING_VIEWS, FREE_PER_DAY).coerceAtLeast(0)
+        return runBlocking {
+            dataStore.data.map { prefs ->
+                (prefs[KEY_REMAINING_REVEALS] ?: FREE_PER_DAY).coerceAtLeast(0)
+            }.first()
+        }
     }
 
-    /** Returns true if user can reveal one more item. */
-    fun canReveal(): Boolean = getRemainingViews() > 0
-
-    /** Consume one view. Returns true if consumed. Never goes negative. */
+    /** Consume one reveal. Returns true if consumed. Never goes negative. */
     fun consumeOne(): Boolean {
-        if (premiumStore.isPremium()) return true
         ensureDailyReset()
-        val remaining = prefs.getInt(KEY_REMAINING_VIEWS, FREE_PER_DAY)
-        if (remaining <= 0) return false
-        prefs.edit().putInt(KEY_REMAINING_VIEWS, (remaining - 1).coerceAtLeast(0)).apply()
-        return true
+        var consumed = false
+        runBlocking {
+            dataStore.edit { prefs ->
+                val current = (prefs[KEY_REMAINING_REVEALS] ?: FREE_PER_DAY).coerceAtLeast(0)
+                if (current > 0) {
+                    prefs[KEY_REMAINING_REVEALS] = current - 1
+                    consumed = true
+                }
+            }
+        }
+        return consumed
     }
 
     /** Add +1 from rewarded ad. */
-    fun addFromAd(): Boolean {
-        if (premiumStore.isPremium()) return true
+    fun addOneFromReward() {
         ensureDailyReset()
-        val current = prefs.getInt(KEY_REMAINING_VIEWS, FREE_PER_DAY)
-        prefs.edit().putInt(KEY_REMAINING_VIEWS, current + 1).apply()
-        return true
+        runBlocking {
+            dataStore.edit { prefs ->
+                val current = (prefs[KEY_REMAINING_REVEALS] ?: FREE_PER_DAY).coerceAtLeast(0)
+                prefs[KEY_REMAINING_REVEALS] = current + 1
+            }
+        }
     }
 
     private fun todayKey(): String =
         SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
 
     companion object {
-        private const val PREFS = "bb_wrong_review_quota"
-        private const val KEY_LAST_RESET_DATE = "last_reset_date"
-        private const val KEY_REMAINING_VIEWS = "remaining_views"
         const val FREE_PER_DAY = 3
     }
 }

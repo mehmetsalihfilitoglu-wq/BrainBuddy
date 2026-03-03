@@ -12,6 +12,7 @@ object WrongReviewAnalytics {
 
     fun logOpen() = Log.d(TAG, "wrong_review_open")
     fun logItemReveal() = Log.d(TAG, "wrong_item_reveal")
+    fun logLimitHit() = Log.d(TAG, "wrong_review_limit_hit")
     fun logAdShown() = Log.d(TAG, "wrong_review_ad_shown")
     fun logAdRewarded() = Log.d(TAG, "wrong_review_ad_rewarded")
     fun logPaywallOpened() = Log.d(TAG, "wrong_review_paywall_opened")

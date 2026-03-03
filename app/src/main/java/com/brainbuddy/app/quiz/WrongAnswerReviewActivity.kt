@@ -108,7 +108,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
             b.tvQuotaBadge.visibility = View.VISIBLE
             b.tvHintWatchAd.visibility = View.GONE
         } else {
-            val remaining = quotaStore.getRemainingViews()
+            val remaining = quotaStore.getRemaining()
             b.tvQuotaBadge.text = getString(R.string.wrong_review_remaining, remaining)
             b.tvQuotaBadge.visibility = View.VISIBLE
             b.tvHintWatchAd.visibility = if (remaining == 0) View.VISIBLE else View.GONE
@@ -133,7 +133,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
 
         if (sessionAnswers.isNotEmpty() && sessionAnswers.containsKey(q.id) && !inRetryMode) {
             val shouldReveal = isParentReview
-            val canReveal = premiumStore.isPremium() || quotaStore.canReveal()
+            val canReveal = premiumStore.isPremium() || quotaStore.getRemaining() > 0
 
             if (shouldReveal && !canReveal) {
                 showSummaryBlocked(userChoice) { onRevealUnlocked ->
@@ -236,7 +236,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
                     onRewarded = {
                         WrongReviewAnalytics.logAdShown()
                         WrongReviewAnalytics.logAdRewarded()
-                        quotaStore.addFromAd()
+                        quotaStore.addOneFromReward()
                         onAdRewarded(true)
                     },
                     onFailed = {

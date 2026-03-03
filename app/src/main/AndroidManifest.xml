@@ -123,6 +123,11 @@
             android:exported="false" />
 
         <activity
+            android:name=".quiz.WrongAnswersListActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+
+        <activity
             android:name=".LockScreenActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|screenLayout" />
