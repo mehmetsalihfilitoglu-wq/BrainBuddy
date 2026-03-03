@@ -110,7 +110,9 @@ class StatsRepository(private val context: Context) {
         val averagePercent: Float,
         val lastTestPercent: Float,
         val trendDirection: Int, // -1 down, 0 same, 1 up
-        val isEmpty: Boolean
+        val isEmpty: Boolean,
+        /** Count of tests in range with (correct+wrong)==0 (excluded from chart). Show "En az 1 soru cevaplanmalı" when > 0. */
+        val excludedEmptyTestsCount: Int = 0
     )
 
     data class TrendPoint(
@@ -118,7 +120,9 @@ class StatsRepository(private val context: Context) {
         val testName: String,
         val dateMs: Long,
         val correct: Int,
-        val total: Int,
+        val wrong: Int,
+        val blank: Int,
+        val total: Int, // graded = correct + wrong
         val percent: Float
     )
 
@@ -219,6 +223,7 @@ class StatsRepository(private val context: Context) {
 
         // Trend chart: same completePerfs, take last 10 (already excludes incomplete tests)
         // SUCCESS FORMULA: percent = correct / (correct + wrong) * 100 — empty excluded
+        val excludedEmptyTestsCount = perfs.count { it.correctCount + it.wrongCount == 0 }
         val last10Perfs = completePerfs.takeLast(10)
         val trendPoints = last10Perfs.mapIndexed { i, p ->
             val graded = p.correctCount + p.wrongCount
@@ -229,6 +234,8 @@ class StatsRepository(private val context: Context) {
                 testName = "Test ${last10Perfs.size - i}",
                 dateMs = p.tsMs,
                 correct = p.correctCount,
+                wrong = p.wrongCount,
+                blank = p.blankCount,
                 total = graded,
                 percent = percent
             )
@@ -250,7 +257,8 @@ class StatsRepository(private val context: Context) {
             averagePercent = avgPct,
             lastTestPercent = lastPct,
             trendDirection = trendDir,
-            isEmpty = trendPoints.size < 3
+            isEmpty = trendPoints.size < 3,
+            excludedEmptyTestsCount = excludedEmptyTestsCount
         )
 
         val snapshots = try {

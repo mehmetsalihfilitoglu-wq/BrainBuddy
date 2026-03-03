@@ -192,7 +192,8 @@
     <string name="report_weekly">Haftalık Özet</string>
     <string name="report_share">Raporu Paylaş</string>
     <string name="trend_chart_title">Son 10 Test Başarı Oranı</string>
-    <string name="trend_chart_caption">Her nokta 1 testtir. Başarı = doğru/(doğru+yanlış)</string>
+    <string name="trend_chart_caption">Her nokta 1 testtir. Başarı = doğru / (doğru + yanlış). Boşlar başarıya dahil edilmez.</string>
+    <string name="trend_empty_test_warning">En az 1 soru cevaplanmalı (tam boş testler grafikte gösterilmez)</string>
     <string name="trend_empty_title">En az 3 test çözülmeli</string>
     <string name="trend_empty_subtitle">Test çözünce burada gelişimini göreceksin.</string>
     <string name="reports_empty_generic">Bu aralıkta veri yok. Test çözünce burada görünecek.</string>

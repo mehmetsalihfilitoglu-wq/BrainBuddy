@@ -224,10 +224,14 @@ class ReportsActivity : AppCompatActivity() {
             b.trendEmpty.visibility = View.GONE
             val dateFormat = SimpleDateFormat("d MMM", Locale("tr"))
             b.weeklyTrendChart.data = tc.points.map { p ->
+                val successFormula = if (p.total > 0) "${p.correct}/(${p.correct}+${p.wrong}) = %.0f%%".format(p.percent)
+                else "—"
                 LineChartView.PointData(
                     xLabel = (tc.points.indexOf(p) + 1).toString(),
                     percent = p.percent,
-                    tooltipText = "${p.testName} • ${dateFormat.format(Date(p.dateMs))} • ${p.correct}/${p.total} • %.0f%%".format(p.percent)
+                    tooltipText = "${p.testName} • ${dateFormat.format(Date(p.dateMs))}\n" +
+                        "Doğru: ${p.correct} / Yanlış: ${p.wrong} / Boş: ${p.blank}\n" +
+                        "Başarı: $successFormula"
                 )
             }
             val trendArrow = when (tc.trendDirection) {
@@ -237,7 +241,8 @@ class ReportsActivity : AppCompatActivity() {
             }
             b.tvTrendKpis?.text = "Ort: %.0f%% • Son: %.0f%% • $trendArrow".format(tc.averagePercent, tc.lastTestPercent)
             b.tvTrendCaption?.text = getString(R.string.trend_chart_caption)
-            b.weeklyTrendChart.onPointTapped = { text -> Toast.makeText(this, text, Toast.LENGTH_SHORT).show() }
+            b.tvTrendEmptyWarning?.visibility = if (tc.excludedEmptyTestsCount > 0) View.VISIBLE else View.GONE
+            b.weeklyTrendChart.onPointTapped = { text -> Toast.makeText(this, text, Toast.LENGTH_LONG).show() }
         } else {
             b.trendContent.visibility = View.GONE
             b.trendEmpty.visibility = View.VISIBLE
