@@ -6,6 +6,7 @@ import com.brainbuddy.app.db.RoomQuizDataStore
 import com.brainbuddy.app.db.TestSnapshotEntity
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flowOf
@@ -157,7 +158,18 @@ class StatsRepository(private val context: Context) {
         val strongSubjects: List<SubjectStat>,
         val trendDelta: Float,
         val trendDirection: TrendDirection,
-        val mostWrongTopic: String?
+        val mostWrongTopic: String?,
+        /** Smart mini-test recommendation based on risk score. Null when no weak subject. */
+        val smartRecommendation: SmartRecommendation?
+    )
+
+    /**
+     * Smart recommendation for mini test: subject, dynamic message, and whether to show.
+     */
+    data class SmartRecommendation(
+        val subject: String,
+        val message: String,
+        val subjectTr: String
     )
 
     data class SubjectStat(val name: String, val successPercent: Float)
@@ -184,7 +196,8 @@ class StatsRepository(private val context: Context) {
 
     private val triggerFlow = merge(
         flowOf(Unit),
-        refreshTrigger.receiveAsFlow()
+        refreshTrigger.receiveAsFlow(),
+        globalQuizSaved
     )
 
     val reportsFlow: Flow<ReportsUiModel> = combine(
@@ -400,13 +413,86 @@ class StatsRepository(private val context: Context) {
             .filter { it.value.wrong > 0 }
             .maxByOrNull { it.value.wrong }
             ?.key
+
+        // 5) Smart Recommendation Engine
+        val smartRecommendation = computeSmartRecommendation(completePerfs, topicCounts)
+
         return AdvancedStatsUiModel(
             weakSubjects = weakSubjects,
             strongSubjects = strongSubjects,
             trendDelta = trendDelta,
             trendDirection = trendDirection,
-            mostWrongTopic = mostWrongTopic
+            mostWrongTopic = mostWrongTopic,
+            smartRecommendation = smartRecommendation
         )
+    }
+
+    /**
+     * Smart Recommendation Engine: pick subject with highest risk score, generate dynamic message.
+     * Returns null when no weak subject (hide recommendation card).
+     */
+    private fun computeSmartRecommendation(
+        completePerfs: List<TestPerformance>,
+        topicCounts: Map<String, TopicCounts>
+    ): SmartRecommendation? {
+        if (topicCounts.isEmpty()) return null
+
+        val totalWrongAll = topicCounts.values.sumOf { it.wrong }.toFloat().coerceAtLeast(1f)
+
+        // Per-subject: (tsMs, successRate) for tests that include this subject
+        val subjectTestHistory = mutableMapOf<String, MutableList<Pair<Long, Float>>>()
+        completePerfs.forEach { p ->
+            p.byTopicCounts.forEach { (subject, tc) ->
+                val graded = tc.correct + tc.wrong
+                if (graded > 0) {
+                    val successRate = 100f * tc.correct / graded
+                    subjectTestHistory.getOrPut(subject) { mutableListOf() }
+                        .add(p.tsMs to successRate)
+                }
+            }
+        }
+
+        data class SubjectRisk(val subject: String, val successRate: Float, val trend: Float, val riskScore: Float)
+
+        val subjectData = topicCounts.entries.mapNotNull { (subject, tc) ->
+            val correct = tc.correct
+            val wrong = tc.wrong
+            val graded = correct + wrong
+            if (graded < 3) return@mapNotNull null
+
+            val successRate = 100f * correct / graded
+            val history = subjectTestHistory[subject]?.sortedBy { it.first } ?: return@mapNotNull null
+
+            val percents = history.map { it.second }
+            val last3Avg = percents.takeLast(3).average().toFloat()
+            val previous3Avg = if (percents.size >= 6) {
+                percents.dropLast(3).takeLast(3).average().toFloat()
+            } else {
+                last3Avg
+            }
+            val trend = last3Avg - previous3Avg
+            val wrongCountRatio = (wrong / totalWrongAll).coerceIn(0f, 1f)
+            val riskScore = (100 - successRate) * 0.6f +
+                kotlin.math.abs(kotlin.math.min(trend, 0f)) * 0.3f +
+                wrongCountRatio * 0.1f
+
+            SubjectRisk(subject, successRate, trend, riskScore)
+        }.maxByOrNull { it.riskScore } ?: return null
+
+        val subject = subjectData.subject
+        val successRate = subjectData.successRate
+        val trend = subjectData.trend
+
+        val isWeak = trend < 0 || successRate < 60f
+        if (!isWeak) return null
+
+        val message = when {
+            trend < 0 -> "Son testlerde düşüş var. $subject için mini test önerilir."
+            successRate < 60f -> "$subject başarı oranı düşük. Güçlendirme önerilir."
+            else -> "$subject performansı stabil."
+        }
+
+        return SmartRecommendation(subject = subject, message = message, subjectTr = subject)
     }
 
     private fun buildTopicCountsFromPerfs(perfs: List<TestPerformance>): Map<String, TopicCounts> {
@@ -428,6 +514,9 @@ class StatsRepository(private val context: Context) {
 
     companion object {
         private const val TAG_DEBUG = "StatsRepository"
+        /** Shared trigger so Reports refresh when quiz saved from another screen (e.g. QuizResultActivity). */
+        private val globalQuizSaved = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
+        @JvmStatic fun notifyQuizSavedGlobal() { globalQuizSaved.tryEmit(Unit) }
         /** Meaning contracts for report widgets (metric, unit, date range, how to read) */
         object MeaningContracts {
             const val WEEKLY_SUCCESS = "Metrik: Doğru/Yanlış/Boş sayıları + Doğruluk % + Test sayısı. Aralık: Bugün/7g/30g. Her değer seçili aralıktaki toplamı gösterir."

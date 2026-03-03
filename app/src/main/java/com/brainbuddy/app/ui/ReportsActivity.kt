@@ -262,16 +262,16 @@ class ReportsActivity : AppCompatActivity() {
             b.ivTrendArrow.setImageResource(trendDrawable)
             b.ivTrendArrow.setColorFilter(getColor(R.color.emerald_primary))
 
-            // D) Most wrong
-            val mostWrong = adv.mostWrongTopic
-            if (mostWrong != null) {
-                b.rowMostWrong.visibility = View.VISIBLE
-                b.tvMostWrongTopic.text = getString(R.string.perf_most_wrong_row, mostWrong)
+            // D) Smart Recommendation (hidden when no weak subject)
+            val rec = adv.smartRecommendation
+            if (rec != null) {
+                b.sectionRecommendation.visibility = View.VISIBLE
+                b.tvMostWrongTopic.text = rec.message
                 b.btnMiniTestSuggest.setOnClickListener {
-                    startQuizWithSubjectFilter(mostWrong)
+                    startQuizWithSubjectFilter(rec.subjectTr)
                 }
             } else {
-                b.rowMostWrong.visibility = View.GONE
+                b.sectionRecommendation.visibility = View.GONE
             }
         } else {
             b.advancedStatsContent.visibility = View.GONE

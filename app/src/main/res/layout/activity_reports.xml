@@ -570,45 +570,49 @@
                                 android:textColor="?attr/colorOnSurfaceVariant"/>
                         </LinearLayout>
 
-                        <!-- D) Most Wrong -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_12"
-                            android:text="@string/perf_most_wrong_label"
-                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
-                            android:textColor="?attr/colorOnSurfaceVariant"/>
-
+                        <!-- D) Smart Recommendation (hidden when no weak subject) -->
                         <LinearLayout
-                            android:id="@+id/rowMostWrong"
+                            android:id="@+id/sectionRecommendation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:paddingTop="4dp"
+                            android:layout_marginTop="@dimen/space_12"
                             android:visibility="gone">
 
                             <TextView
-                                android:id="@+id/tvMostWrongTopic"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/bg_subject_chip"
-                                android:padding="@dimen/space_8"
-                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-                                android:textColor="@color/emerald_dark"/>
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btnMiniTestSuggest"
-                                style="@style/Widget.Material3.Button.TextButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/space_8"
-                                android:minWidth="0dp"
-                                android:minHeight="0dp"
-                                android:paddingHorizontal="0dp"
-                                android:paddingVertical="4dp"
-                                android:text="@string/perf_mini_test_cta"
-                                android:textAllCaps="false"
-                                android:textColor="@color/emerald_primary"/>
+                                android:text="@string/perf_most_wrong_label"
+                                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                                android:textColor="?attr/colorOnSurfaceVariant"/>
+
+                            <LinearLayout
+                                android:id="@+id/rowMostWrong"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingTop="4dp">
+
+                                <TextView
+                                    android:id="@+id/tvMostWrongTopic"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_subject_chip"
+                                    android:padding="@dimen/space_8"
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                                    android:textColor="@color/emerald_dark"/>
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btnMiniTestSuggest"
+                                    style="@style/BBButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/space_8"
+                                    android:minWidth="0dp"
+                                    android:minHeight="36dp"
+                                    android:text="@string/perf_mini_test_start"
+                                    android:textAllCaps="false"/>
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
 

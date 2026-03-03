@@ -9,6 +9,7 @@ import com.brainbuddy.app.HomeActivity
 import com.brainbuddy.app.LockScreenActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
+import com.brainbuddy.app.core.StatsRepository
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
@@ -191,6 +192,7 @@ class QuizResultActivity : AppCompatActivity() {
 
         val perf = buildTestPerformance(s)
         analytics.recordTestPerformance(perf)
+        StatsRepository.notifyQuizSavedGlobal()
         analytics.recordSession(com.brainbuddy.app.core.QuizSession(
             System.currentTimeMillis(), s.correctCount, s.totalCount, xpEarned
         ))
