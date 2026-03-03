@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
@@ -28,18 +29,46 @@
             app:chipBackgroundColor="@color/bb_turquoise"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnBack"
-            app:layout_constraintEnd_toStartOf="@id/progressText"/>
+            app:layout_constraintEnd_toStartOf="@id/headerRight"/>
 
-        <TextView
-            android:id="@+id/progressText"
+        <LinearLayout
+            android:id="@+id/headerRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1/5"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/bb_turquoise"
+            android:orientation="vertical"
+            android:gravity="end"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/progressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/5"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/bb_turquoise"/>
+
+            <TextView
+                android:id="@+id/tvQuotaBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                android:textColor="@color/bb_text_muted"
+                tools:text="Günlük kalan: 2"/>
+
+            <TextView
+                android:id="@+id/tvHintWatchAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/wrong_review_hint_watch_ad"
+                android:textSize="11sp"
+                android:textColor="@color/bb_turquoise"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+        </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/questionCard"

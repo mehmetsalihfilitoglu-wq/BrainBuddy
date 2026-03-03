@@ -1,17 +1,29 @@
 package com.brainbuddy.app.quiz
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.AppModeManager
+import com.brainbuddy.app.core.PremiumStore
+import com.brainbuddy.app.core.WrongReviewAnalytics
+import com.brainbuddy.app.core.WrongReviewQuotaStore
 import com.brainbuddy.app.databinding.ActivityWrongAnswerReviewBinding
+import com.brainbuddy.app.ui.SettingsActivity
+import com.brainbuddy.app.ui.TestSettingsActivity
 
 /**
  * Review wrong answers only. Shows question, user's wrong choice, correct answer, and optional hint.
  * "Retry question" lets user answer again in review mode. Does NOT change original test score.
  * Tracks reviewCorrectedCount separately via AnalyticsStore.
+ *
+ * Quota (parent mode): Premium unlimited; free: 3/day + 1 per rewarded ad.
+ * Each question reveal (summary with correct answer) consumes 1 view.
  */
 class WrongAnswerReviewActivity : AppCompatActivity() {
 
@@ -25,6 +37,9 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
     private lateinit var b: ActivityWrongAnswerReviewBinding
     private lateinit var repo: QuestionRepository
     private lateinit var analyticsStore: AnalyticsStore
+    private lateinit var quotaStore: WrongReviewQuotaStore
+    private lateinit var premiumStore: PremiumStore
+    private var rewardAdHelper: RewardAdHelper? = null
     private var questions: List<Question> = emptyList()
     private var index = 0
     private val answers = mutableMapOf<String, Int>()
@@ -46,6 +61,11 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
 
         repo = QuestionRepository(this)
         analyticsStore = AnalyticsStore(this)
+        quotaStore = WrongReviewQuotaStore(this)
+        premiumStore = PremiumStore(this)
+        quotaStore.ensureDailyReset()
+        rewardAdHelper = RewardAdHelper(this)
+
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS) ?: arrayListOf()
         val sessionJson = intent.getStringExtra(EXTRA_SESSION_JSON)
         val session = QuizResultActivity.decodeSession(sessionJson)
@@ -73,12 +93,30 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
             b.questionText.text = "İncelenecek yanlış soru yok."
             b.nextBtn.isEnabled = false
             b.summarySection.visibility = View.GONE
+            b.tvQuotaBadge.visibility = View.GONE
+            b.tvHintWatchAd.visibility = View.GONE
         } else {
+            WrongReviewAnalytics.logOpen()
+            rewardAdHelper?.loadAd()
             render()
         }
     }
 
+    private fun updateQuotaUi() {
+        if (premiumStore.isPremium()) {
+            b.tvQuotaBadge.text = getString(R.string.wrong_review_unlimited)
+            b.tvQuotaBadge.visibility = View.VISIBLE
+            b.tvHintWatchAd.visibility = View.GONE
+        } else {
+            val remaining = quotaStore.getRemainingViews()
+            b.tvQuotaBadge.text = getString(R.string.wrong_review_remaining, remaining)
+            b.tvQuotaBadge.visibility = View.VISIBLE
+            b.tvHintWatchAd.visibility = if (remaining == 0) View.VISIBLE else View.GONE
+        }
+    }
+
     private fun render() {
+        updateQuotaUi()
         val q = questions[index]
         b.progressText.text = "${index + 1}/${questions.size}"
         b.subjectChip.text = "${q.subject.tr} • (İnceleme)"
@@ -94,25 +132,25 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         val correctChoice = q.choices.getOrNull(q.correctIndex) ?: "?"
 
         if (sessionAnswers.isNotEmpty() && sessionAnswers.containsKey(q.id) && !inRetryMode) {
-            b.summarySection.visibility = View.VISIBLE
-            b.optionsGroup.visibility = View.GONE
-            b.nextBtn.visibility = View.GONE
-            b.feedbackText.visibility = View.GONE
-            b.tvUserChoiceSummary.text = "Senin cevabın: $userChoice"
-            if (isParentReview) {
-                b.tvCorrectSummary.visibility = View.VISIBLE
-                b.tvCorrectSummary.text = "✓ Doğru: $correctChoice"
-                b.tvHintSummary.apply {
-                    if (!q.hint.isNullOrBlank()) {
-                        visibility = View.VISIBLE
-                        text = "💡 ${q.hint}"
-                    } else visibility = View.GONE
+            val shouldReveal = isParentReview
+            val canReveal = premiumStore.isPremium() || quotaStore.canReveal()
+
+            if (shouldReveal && !canReveal) {
+                showSummaryBlocked(userChoice) { onRevealUnlocked ->
+                    if (onRevealUnlocked && quotaStore.consumeOne()) {
+                        WrongReviewAnalytics.logItemReveal()
+                        showSummary(q, userChoice, correctChoice)
                     }
-            } else {
-                b.tvCorrectSummary.visibility = View.GONE
-                b.tvHintSummary.visibility = View.GONE
-                b.tvUserChoiceSummary.text = "Senin cevabın: $userChoice\n❌ Yanlış"
+                }
+                return
             }
+
+            if (shouldReveal && canReveal && !premiumStore.isPremium()) {
+                if (quotaStore.consumeOne()) {
+                    WrongReviewAnalytics.logItemReveal()
+                }
+            }
+            showSummary(q, userChoice, correctChoice)
         } else {
             b.summarySection.visibility = View.GONE
             b.optionsGroup.visibility = View.VISIBLE
@@ -141,6 +179,80 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
             b.feedbackText.visibility = View.GONE
             b.nextBtn.text = if (index < questions.size - 1) "Sonraki" else "Bitir"
         }
+    }
+
+    private fun showSummary(q: Question, userChoice: String, correctChoice: String) {
+        b.summarySection.visibility = View.VISIBLE
+        b.btnRetryQuestion.visibility = View.VISIBLE
+        b.optionsGroup.visibility = View.GONE
+        b.nextBtn.visibility = View.GONE
+        b.feedbackText.visibility = View.GONE
+        b.tvUserChoiceSummary.text = "Senin cevabın: $userChoice"
+        if (isParentReview) {
+            b.tvCorrectSummary.visibility = View.VISIBLE
+            b.tvCorrectSummary.text = "✓ Doğru: $correctChoice"
+            b.tvHintSummary.apply {
+                if (!q.hint.isNullOrBlank()) {
+                    visibility = View.VISIBLE
+                    text = "💡 ${q.hint}"
+                } else visibility = View.GONE
+            }
+        } else {
+            b.tvCorrectSummary.visibility = View.GONE
+            b.tvHintSummary.visibility = View.GONE
+            b.tvUserChoiceSummary.text = "Senin cevabın: $userChoice\n❌ Yanlış"
+        }
+    }
+
+    private fun showSummaryBlocked(userChoice: String, onRevealUnlocked: (Boolean) -> Unit) {
+        b.summarySection.visibility = View.VISIBLE
+        b.tvUserChoiceSummary.text = "Senin cevabın: $userChoice\n❌ Yanlış"
+        b.tvCorrectSummary.visibility = View.GONE
+        b.tvHintSummary.visibility = View.GONE
+        b.btnRetryQuestion.visibility = View.GONE
+        b.optionsGroup.visibility = View.GONE
+        b.nextBtn.visibility = View.VISIBLE
+        b.nextBtn.text = if (index < questions.size - 1) "Sonraki" else "Bitir"
+        b.nextBtn.setOnClickListener { advanceToNext() }
+        b.feedbackText.visibility = View.GONE
+
+        WrongReviewAnalytics.logPaywallOpened()
+        showPaywall(onRevealUnlocked)
+    }
+
+    private fun showPaywall(onAdRewarded: (Boolean) -> Unit) {
+        val builder = AlertDialog.Builder(this)
+            .setMessage(getString(R.string.wrong_review_paywall_message))
+            .setNegativeButton(getString(R.string.close)) { dialog, _ -> dialog.dismiss() }
+            .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
+                WrongReviewAnalytics.logPremiumClick()
+                startActivity(Intent(this, TestSettingsActivity::class.java))
+            }
+
+        if (rewardAdHelper?.isLoaded() == true) {
+            builder.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { dialog, _ ->
+                dialog.dismiss()
+                rewardAdHelper?.showAd(
+                    onRewarded = {
+                        WrongReviewAnalytics.logAdShown()
+                        WrongReviewAnalytics.logAdRewarded()
+                        quotaStore.addFromAd()
+                        onAdRewarded(true)
+                    },
+                    onFailed = {
+                        Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                        rewardAdHelper?.loadAd()
+                    }
+                )
+            }
+        } else {
+            builder.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { dialog, _ ->
+                dialog.dismiss()
+                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                rewardAdHelper?.loadAd()
+            }
+        }
+        builder.create().show()
     }
 
     private fun enterRetryMode() {

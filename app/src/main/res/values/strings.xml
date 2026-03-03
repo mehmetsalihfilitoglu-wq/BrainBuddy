@@ -356,6 +356,15 @@
     <string name="replay_with_ad_remaining">Reklam izleyerek tekrar çöz (Kalan: %1$d/3)</string>
     <string name="ad_unlock_last_test_info">Reklam izleyerek 1 giriş aç (Kalan: %1$d/3)</string>
     <string name="ad_unlock_premium_unlimited">Premium ile sınırsız</string>
+
+    <!-- Wrong Answer Review quota -->
+    <string name="wrong_review_unlimited">Sınırsız</string>
+    <string name="wrong_review_remaining">Günlük kalan: %1$d</string>
+    <string name="wrong_review_hint_watch_ad">Reklam izle → +1</string>
+    <string name="wrong_review_paywall_message">Günlük hakkın bitti. Reklam izleyerek +1 soru açabilir veya Premium ile sınırsız erişebilirsin.</string>
+    <string name="wrong_review_btn_watch_ad">Reklam İzle (+1)</string>
+    <string name="wrong_review_btn_premium">Premium\'a Geç</string>
+    <string name="wrong_review_ad_failed">Reklam yüklenemedi, tekrar dene.</string>
     <string name="ad_limit_reached_title">Bugünlük hak bitti</string>
     <string name="ad_limit_reached_message">Bugün eski teste giriş haklarınızı kullandınız. Yarın yenilenir. Premium ile sınırsız erişim.</string>
     <string name="ad_limit_reached_bypass_title">Erişim gerekli</string>

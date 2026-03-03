@@ -12,7 +12,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -22,8 +24,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.InstalledAppsHelper
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.PremiumStore
+import com.brainbuddy.app.core.WrongReviewAnalytics
+import com.brainbuddy.app.core.WrongReviewQuotaStore
 import com.brainbuddy.app.core.StatsRepository
 import com.brainbuddy.app.databinding.ActivityReportsBinding
+import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.quiz.PastTestDetailActivity
 import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.ui.BarChartView.BarData
@@ -454,14 +460,7 @@ class ReportsActivity : AppCompatActivity() {
             b.wrongHasData.visibility = View.VISIBLE
             b.wrongEmpty.visibility = View.GONE
             b.btnReviewWrongParent?.setOnClickListener {
-                startActivity(Intent(this, com.brainbuddy.app.quiz.WrongAnswerReviewActivity::class.java).apply {
-                    putStringArrayListExtra(
-                        com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_WRONG_IDS,
-                        ArrayList(model.wrongReview.wrongIds)
-                    )
-                    putExtra(com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_SESSION_JSON, model.wrongReview.sessionJson)
-                    putExtra(com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_IS_PARENT_REVIEW, true)
-                })
+                openWrongAnswerReview(model.wrongReview.wrongIds, model.wrongReview.sessionJson)
             }
         } else {
             b.wrongHasData.visibility = View.GONE
@@ -521,6 +520,62 @@ class ReportsActivity : AppCompatActivity() {
 
     private fun startQuiz() {
         startActivity(Intent(this, QuizActivity::class.java))
+    }
+
+    private fun openWrongAnswerReview(wrongIds: List<String>, sessionJson: String?) {
+        val premium = PremiumStore(this).isPremium()
+        val quotaStore = WrongReviewQuotaStore(this)
+        quotaStore.ensureDailyReset()
+        val remaining = quotaStore.getRemainingViews()
+
+        fun launchWrongReview() {
+            startActivity(Intent(this, com.brainbuddy.app.quiz.WrongAnswerReviewActivity::class.java).apply {
+                putStringArrayListExtra(
+                    com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_WRONG_IDS,
+                    ArrayList(wrongIds)
+                )
+                putExtra(com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_SESSION_JSON, sessionJson)
+                putExtra(com.brainbuddy.app.quiz.WrongAnswerReviewActivity.EXTRA_IS_PARENT_REVIEW, true)
+            })
+        }
+
+        when {
+            premium -> launchWrongReview()
+            remaining > 0 -> launchWrongReview()
+            else -> {
+                WrongReviewAnalytics.logPaywallOpened()
+                val adHelper = RewardAdHelper(this)
+                adHelper.loadAd()
+                AlertDialog.Builder(this)
+                    .setMessage(getString(R.string.wrong_review_paywall_message))
+                    .setNegativeButton(getString(R.string.close)) { dialog, _ -> dialog.dismiss() }
+                    .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
+                        WrongReviewAnalytics.logPremiumClick()
+                        startActivity(Intent(this, TestSettingsActivity::class.java))
+                    }
+                    .setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { dialog, _ ->
+                        dialog.dismiss()
+                        if (adHelper.isLoaded()) {
+                            adHelper.showAd(
+                                onRewarded = {
+                                    WrongReviewAnalytics.logAdRewarded()
+                                    quotaStore.addFromAd()
+                                    launchWrongReview()
+                                },
+                                onFailed = {
+                                    Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                                    adHelper.loadAd()
+                                }
+                            )
+                        } else {
+                            Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                            adHelper.loadAd()
+                        }
+                    }
+                    .create()
+                    .show()
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
