@@ -8,10 +8,11 @@ import java.util.concurrent.TimeUnit
 
 /**
  * Spaced repetition question picker.
- * - %60 due wrong (öncelikli), %40 new / not recently-correct
+ * - Yanlış: 3 gün sonra tekrar (%60 öncelik)
+ * - Doğru: correctCount=1→30g, 2→45g, >=3→60g (cooldown; tekrar sorulmasın)
  * - Subject quota: Mat 5, Tr 5, Fen 4, Sos 3, Eng 3
  * - Aynı test içinde aynı soru asla gelmesin
- * - Cooldown: correctCount 1->30d, 2->45d, >=3->60d; relax: 60->45->30->14->7
+ * - relax: 60->45->30->14->7 gün
  */
 class SpacedRepetitionPicker(
     private val historyDao: HistoryDao,

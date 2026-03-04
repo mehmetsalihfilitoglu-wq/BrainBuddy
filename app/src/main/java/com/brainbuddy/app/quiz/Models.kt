@@ -30,6 +30,8 @@ data class Question(
     val levelGroup: LevelGroup,
     val subject: Subject,
     val gradeTag: String,
+    /** Sınıf (1=Junior, 2..8=ortaokul). Sınıf bazlı havuz için kullanılır. */
+    val grade: Int,
     val stem: String,
     val choices: List<String>,
     val correctIndex: Int,
@@ -43,7 +45,8 @@ data class Question(
 enum class QuizDifficulty(val tr: String) {
     EASY("Kolay"),
     MEDIUM("Orta"),
-    HARD("Zor")
+    HARD("Zor"),
+    VERY_HARD("Çok Zor")
 }
 
 data class AnswerRecord(

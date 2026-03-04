@@ -115,6 +115,9 @@ class QuizResultActivity : AppCompatActivity() {
                         levelGroup = levelGroup,
                         subject = subject,
                         gradeTag = o.optString("gradeTag", ""),
+                        grade = o.optInt("grade", 0).let { g ->
+                            if (g in 2..8) g else o.optString("gradeTag", "6").toIntOrNull()?.coerceIn(2, 8) ?: 6
+                        },
                         stem = o.optString("stem", "?"),
                         choices = choices,
                         correctIndex = o.optInt("correctIndex", 0),

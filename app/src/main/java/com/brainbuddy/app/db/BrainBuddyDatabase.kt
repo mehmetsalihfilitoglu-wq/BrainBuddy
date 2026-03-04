@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -22,6 +22,25 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE test_snapshots ADD COLUMN profileId TEXT NOT NULL DEFAULT 'default'")
+            }
+        }
+
+        val MIGRATION_4_5 = object : Migration(4, 5) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE questions ADD COLUMN grade INTEGER NOT NULL DEFAULT 0")
+                db.execSQL("CREATE INDEX IF NOT EXISTS idx_questions_grade_subject_difficulty ON questions(grade, subject, difficulty)")
+                // Backfill grade from gradeTag where possible
+                val c = db.query("SELECT id, gradeTag FROM questions WHERE grade = 0 AND gradeTag IS NOT NULL AND gradeTag != ''")
+                try {
+                    while (c.moveToNext()) {
+                        val id = c.getString(0) ?: continue
+                        val tag = c.getString(1) ?: continue
+                        val g = tag.toIntOrNull()?.coerceIn(2, 8) ?: 6
+                        db.execSQL("UPDATE questions SET grade = ? WHERE id = ?", arrayOf(g, id))
+                    }
+                } finally {
+                    c.close()
+                }
             }
         }
 

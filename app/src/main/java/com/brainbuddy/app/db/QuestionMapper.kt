@@ -13,11 +13,13 @@ object QuestionMapper {
         val choices = parseChoices(j.optionsJson)
         val subject = mapSubject(j.subject)
         val levelGroup = j.levelGroup?.let { parseLevelGroup(it) } ?: LevelGroup.GRADE_5_8
+        val grade = j.gradeTag?.toIntOrNull()?.coerceIn(1, 8) ?: 6
         return Question(
             id = j.questionId,
             levelGroup = levelGroup,
             subject = subject,
             gradeTag = j.gradeTag ?: "",
+            grade = grade,
             stem = j.text,
             choices = choices,
             correctIndex = j.correctIndex.coerceIn(0, choices.size - 1),
@@ -36,14 +38,17 @@ object QuestionMapper {
         val difficulty = when (e.difficulty) {
             0 -> QuizDifficulty.EASY
             2 -> QuizDifficulty.HARD
+            3 -> QuizDifficulty.VERY_HARD
             else -> QuizDifficulty.MEDIUM
         }
+        val grade = if (e.grade in 1..8) e.grade else (e.gradeTag?.toIntOrNull()?.coerceIn(1, 8) ?: 6)
         val examType = e.examType?.let { try { ExamType.valueOf(it) } catch (_: Exception) { ExamType.GENERAL } } ?: ExamType.GENERAL
         return Question(
             id = e.id,
             levelGroup = levelGroup,
             subject = subject,
-            gradeTag = e.gradeTag ?: "",
+            gradeTag = e.gradeTag ?: grade.toString(),
+            grade = grade,
             stem = e.text,
             choices = choices,
             correctIndex = e.correctIndex.coerceIn(0, choices.size - 1),

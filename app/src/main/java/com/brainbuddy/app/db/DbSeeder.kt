@@ -79,8 +79,6 @@ object DbSeeder {
                 val stem = o.optString("stem", "?")
                 val correctIdx = o.optInt("correctIndex", 0).coerceIn(0, choices.size - 1)
                 val correctAnswer = choices.getOrNull(correctIdx) ?: ""
-                val rawId = o.optString("id", "")
-                val id = if (rawId.isNotBlank()) rawId else "q_" + QuestionRepository.deterministicId(stem, correctAnswer)
                 val subjStr = o.optString("subject", "MAT").let { if (it == "INGILIZCE") "ING" else it }
                 val subject = subjStr.lowercase().let {
                     when (it) {
@@ -92,17 +90,31 @@ object DbSeeder {
                         else -> it
                     }
                 }
+                val gradeTag = o.optString("gradeTag", "").takeIf { it.isNotEmpty() }
+                val grade = o.optInt("grade", 0).let { g ->
+                    if (g in 2..8) g else gradeTag?.toIntOrNull()?.coerceIn(2, 8) ?: 6
+                }
+                val subjShort = when (subject) {
+                    "math" -> "MAT"
+                    "tr" -> "TURKCE"
+                    "en" -> "ING"
+                    "fen" -> "FEN"
+                    "sosyal" -> "SOSYAL"
+                    else -> "MAT"
+                }
+                val rawId = o.optString("id", "")
+                val id = if (rawId.isNotBlank()) rawId else "${grade}_${subjShort}_${(i + 1).toString().padStart(6, '0')}"
                 val diffStr = o.optString("difficulty", "MEDIUM")
                 val difficulty = when (diffStr) {
                     "EASY" -> 0
                     "HARD" -> 2
+                    "VERY_HARD" -> 3
                     else -> 1
                 }
                 val optionsJson = org.json.JSONArray(choices).toString()
                 val topic = o.optString("topic", "").takeIf { it.isNotEmpty() }
                 val tagsJson = topic?.let { org.json.JSONArray(listOf(it)).toString() }
                 val levelGroup = o.optString("levelGroup", "GRADE_5_8")
-                val gradeTag = o.optString("gradeTag", "").takeIf { it.isNotEmpty() }
                 val hint = o.optString("hint", "").takeIf { it.isNotEmpty() }
                 val imageAsset = o.optString("imageAsset", "").takeIf { it.isNotEmpty() }
                 val examType = o.optString("examType", "GENERAL")
@@ -112,6 +124,7 @@ object DbSeeder {
                         id = id,
                         subject = subject,
                         difficulty = difficulty,
+                        grade = grade,
                         text = stem,
                         optionsJson = optionsJson,
                         correctIndex = correctIdx,
@@ -136,10 +149,10 @@ object DbSeeder {
     private fun getFallbackEntities(): List<QuestionEntity> {
         val now = System.currentTimeMillis()
         return listOf(
-            QuestionEntity("fb1", "math", 0, "12 × 15 işleminin sonucu kaçtır?", "[\"160\",\"170\",\"180\",\"190\"]", 2, null, true, 1, now, "GRADE_5_8", "6", "12×10=120, 12×5=60", null, "GENERAL"),
-            QuestionEntity("fb2", "tr", 0, "Türkiye'nin başkenti neresidir?", "[\"İstanbul\",\"İzmir\",\"Ankara\",\"Bursa\"]", 2, null, true, 1, now, "GRADE_5_8", "6", "Mustafa Kemal Atatürk'ün kararıyla.", null, "GENERAL"),
-            QuestionEntity("fb3", "fen", 0, "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?", "[\"Venüs\",\"Mars\",\"Jüpiter\",\"Satürn\"]", 1, null, true, 1, now, "GRADE_5_8", "6", "Merkür, Venüs, Dünya, Mars...", null, "GENERAL"),
-            QuestionEntity("fb4", "en", 0, "\"Hello\" kelimesinin Türkçe karşılığı nedir?", "[\"Hoşça kal\",\"Merhaba\",\"Teşekkürler\",\"Evet\"]", 1, null, true, 1, now, "GRADE_5_8", "6", "Selamlama sözcüğü.", null, "GENERAL")
+            QuestionEntity("fb1", "math", 0, 6, "12 × 15 işleminin sonucu kaçtır?", "[\"160\",\"170\",\"180\",\"190\"]", 2, null, true, 1, now, "GRADE_5_8", "6", "12×10=120, 12×5=60", null, "GENERAL"),
+            QuestionEntity("fb2", "tr", 0, 6, "Türkiye'nin başkenti neresidir?", "[\"İstanbul\",\"İzmir\",\"Ankara\",\"Bursa\"]", 2, null, true, 1, now, "GRADE_5_8", "6", "Mustafa Kemal Atatürk'ün kararıyla.", null, "GENERAL"),
+            QuestionEntity("fb3", "fen", 0, 6, "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?", "[\"Venüs\",\"Mars\",\"Jüpiter\",\"Satürn\"]", 1, null, true, 1, now, "GRADE_5_8", "6", "Merkür, Venüs, Dünya, Mars...", null, "GENERAL"),
+            QuestionEntity("fb4", "en", 0, 6, "\"Hello\" kelimesinin Türkçe karşılığı nedir?", "[\"Hoşça kal\",\"Merhaba\",\"Teşekkürler\",\"Evet\"]", 1, null, true, 1, now, "GRADE_5_8", "6", "Selamlama sözcüğü.", null, "GENERAL")
         )
     }
 }

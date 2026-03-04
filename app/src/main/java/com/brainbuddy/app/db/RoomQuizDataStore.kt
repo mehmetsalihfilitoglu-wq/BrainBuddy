@@ -33,6 +33,12 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getQuestionsByIds(ids).map { QuestionMapper.toQuestion(it) }
     }
 
+    /** Sınıf bazlı havuz (2-8). Tüm derslerden. */
+    fun getQuestionsByGrade(grade: Int): List<Question> = runBlocking {
+        if (grade !in 2..8) return@runBlocking emptyList()
+        questionDao.getByGrade(grade).map { QuestionMapper.toQuestion(it) }
+    }
+
     fun insertQuestions(entities: List<QuestionEntity>) = runBlocking {
         questionDao.insertAll(entities)
     }
