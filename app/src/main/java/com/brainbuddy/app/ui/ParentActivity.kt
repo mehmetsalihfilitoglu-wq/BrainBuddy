@@ -46,10 +46,20 @@ class ParentHubActivity : ComponentActivity() {
                 R.drawable.ic_review
             ) { startActivity(Intent(this, ReportsActivity::class.java)) },
             ParentCategoryItem(
+                R.string.email_reports_setup_title,
+                R.string.email_reports_setup_subtitle,
+                R.drawable.ic_review
+            ) { startActivity(Intent(this, EmailReportsSetupActivity::class.java)) },
+            ParentCategoryItem(
                 R.string.parent_card_security,
                 R.string.parent_card_security_sub,
                 R.drawable.ic_lock
-            ) { startActivity(Intent(this, SecurityActivity::class.java)) }
+            ) { startActivity(Intent(this, SecurityActivity::class.java)) },
+            ParentCategoryItem(
+                R.string.parent_settings,
+                R.string.parent_settings_sub,
+                R.drawable.ic_settings
+            ) { startActivity(Intent(this, SettingsActivity::class.java)) }
         )
 
         b.gridParentCategories.layoutManager = GridLayoutManager(this, 2)

@@ -396,4 +396,23 @@
     <!-- Parent hub summary -->
     <string name="parent_today_screen_time_minutes">Bugün ekran süresi: %1$d dk</string>
 
+    <!-- E-posta Raporları kurulum -->
+    <string name="email_reports_setup_title">E-posta Raporları</string>
+    <string name="email_reports_setup_subtitle">Performans raporlarını e-posta ile alın. Gönderim henüz aktif değil; kurulumu tamamlayın.</string>
+    <string name="email_reports_daily">Günlük rapor</string>
+    <string name="email_reports_weekly">Haftalık rapor</string>
+    <string name="email_reports_recipient">Alıcı e-posta</string>
+    <string name="email_reports_frequency">Gönderim sıklığı</string>
+    <string name="email_reports_hour">Tercih edilen saat</string>
+    <string name="email_freq_weekly">Haftalık</string>
+    <string name="email_freq_monthly">Aylık</string>
+    <string name="email_reports_save">Kaydet</string>
+    <string name="email_reports_saved">E-posta ayarları kaydedildi</string>
+    <string name="email_required">E-posta adresi gerekli</string>
+    <string name="email_invalid">Geçerli e-posta adresi girin</string>
+
+    <!-- Wrong review quota chip -->
+    <string name="wrong_review_quota_chip">Bugünkü kalan hak: %1$d/3</string>
+    <string name="wrong_review_premium_upsell">Premium ile sınırsız görüntüleme</string>
+
 </resources>

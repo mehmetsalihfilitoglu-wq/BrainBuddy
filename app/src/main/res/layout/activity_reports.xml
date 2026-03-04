@@ -125,8 +125,10 @@
                                 android:maxLines="1"
                                 android:ellipsize="end"
                                 android:text="Son 7 gün"
-                                android:textColor="@color/text_on_emerald"
-                                app:chipBackgroundColor="@color/emerald_primary"
+                                android:textColor="@color/emerald_dark"
+                                app:chipBackgroundColor="@color/emerald_light"
+                                app:chipStrokeColor="@color/emerald_primary"
+                                app:chipStrokeWidth="1dp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"/>
 
@@ -140,8 +142,10 @@
                                 android:maxLines="1"
                                 android:ellipsize="end"
                                 android:text="Doğru: 0"
-                                android:textColor="@color/text_on_emerald"
-                                app:chipBackgroundColor="@color/emerald_primary"
+                                android:textColor="@color/emerald_dark"
+                                app:chipBackgroundColor="@color/emerald_light"
+                                app:chipStrokeColor="@color/emerald_primary"
+                                app:chipStrokeWidth="1dp"
                                 app:layout_constraintTop_toBottomOf="@id/tvWeeklySuccessTitle"
                                 app:layout_constraintStart_toStartOf="parent"
                                 tools:text="Doğru: 57"/>
@@ -155,8 +159,10 @@
                                 android:maxLines="1"
                                 android:ellipsize="end"
                                 android:text="Yanlış: 0"
-                                android:textColor="@color/text_on_emerald"
-                                app:chipBackgroundColor="@color/emerald_primary"
+                                android:textColor="@color/emerald_dark"
+                                app:chipBackgroundColor="@color/emerald_light"
+                                app:chipStrokeColor="@color/emerald_primary"
+                                app:chipStrokeWidth="1dp"
                                 tools:text="Yanlış: 36"/>
 
                             <com.google.android.material.chip.Chip
@@ -168,8 +174,10 @@
                                 android:maxLines="1"
                                 android:ellipsize="end"
                                 android:text="Boş: 0"
-                                android:textColor="@color/text_on_emerald"
-                                app:chipBackgroundColor="@color/emerald_primary"
+                                android:textColor="@color/emerald_dark"
+                                app:chipBackgroundColor="@color/emerald_light"
+                                app:chipStrokeColor="@color/emerald_primary"
+                                app:chipStrokeWidth="1dp"
                                 tools:text="Boş: 74"/>
 
                             <androidx.constraintlayout.helper.widget.Flow
@@ -891,11 +899,39 @@
                             android:layout_weight="1"
                             android:orientation="vertical">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/parent_review_wrong"
-                                android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumTitle"/>
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/parent_review_wrong"
+                                    android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumTitle"/>
+
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/chipWrongReviewQuota"
+                                    style="@style/Widget.Material3.Chip.Assist"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    app:chipBackgroundColor="@color/emerald_light"
+                                    app:chipStrokeColor="@color/emerald_primary"
+                                    app:chipStrokeWidth="1dp"/>
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tvWrongReviewPremiumUpsell"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:visibility="gone"
+                                android:text="@string/wrong_review_premium_upsell"
+                                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                                android:textColor="?attr/colorOnSecondaryContainer"/>
 
                             <TextView
                                 android:id="@+id/tvWrongSubtitle"

@@ -30,11 +30,13 @@ object PdfReportGenerator {
         val outFile = File(reportsDir, "brainbuddy_report_$timestamp.pdf")
 
         return try {
+            // A1: Data load on IO (no UI)
             val range = ReportStatsCalculator.Range.fromDays(model.range.days)
-            val result = withContext(Dispatchers.Default) {
+            val result = withContext(Dispatchers.IO) {
                 ReportStatsCalculator.computeForRange(context, range)
             }
 
+            // A1: ChartRenderer uses Canvas only (no View/Looper) — safe on Default
             val lineChartBitmap = if (result.lastTests.size >= 2) {
                 val points = result.lastTests.mapIndexed { i, p -> (i + 1) to p.percent }
                 withContext(Dispatchers.Default) {

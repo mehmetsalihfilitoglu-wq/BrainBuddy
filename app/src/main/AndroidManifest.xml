@@ -247,6 +247,10 @@
             android:name=".ui.ReportsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.EmailReportsSetupActivity"
+            android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

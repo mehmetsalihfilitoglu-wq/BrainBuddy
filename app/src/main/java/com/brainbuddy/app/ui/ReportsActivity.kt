@@ -15,6 +15,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -73,6 +74,7 @@ class ReportsActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
             statsRepo = StatsRepository(this)
+            wrongReviewAccessManager = WrongReviewAccessManager(this)
 
             val initialRange = runBlocking {
                 applicationContext.reportsPrefsDataStore.data
@@ -105,7 +107,7 @@ class ReportsActivity : AppCompatActivity() {
             b.chipRange30.setOnClickListener { onRangeChanged(30) }
 
             b.btnEmailSetup.setOnClickListener {
-                startActivity(Intent(this, SettingsActivity::class.java))
+                startActivity(Intent(this, EmailReportsSetupActivity::class.java))
             }
 
             b.btnShareReport.setOnClickListener {
@@ -146,11 +148,11 @@ class ReportsActivity : AppCompatActivity() {
                             )
                             } catch (e: Exception) {
                                 Log.e("PDF_REPORT", "Share failed", e)
-                                Toast.makeText(this@ReportsActivity, R.string.report_pdf_error, Toast.LENGTH_SHORT).show()
+                                showPdfErrorSnackbar(getString(R.string.report_pdf_error))
                             }
                         } else {
                             showPdfErrorDialogIfAvailable()
-                            Toast.makeText(this@ReportsActivity, R.string.report_pdf_error, Toast.LENGTH_SHORT).show()
+                            showPdfErrorSnackbar(getString(R.string.report_pdf_error))
                         }
                     }
                 } else {
@@ -515,6 +517,16 @@ class ReportsActivity : AppCompatActivity() {
         if (model.wrongReview.hasData) {
             b.wrongHasData.visibility = View.VISIBLE
             b.wrongEmpty.visibility = View.GONE
+            wrongReviewAccessManager.ensureDailyReset()
+            val remaining = wrongReviewAccessManager.getRemaining()
+            val isPremium = com.brainbuddy.app.core.PremiumStore(this).isPremium()
+            b.chipWrongReviewQuota?.let { chip ->
+                chip.visibility = if (isPremium) View.GONE else View.VISIBLE
+                if (!isPremium) {
+                    chip.text = getString(R.string.wrong_review_quota_chip, remaining)
+                }
+            }
+            b.tvWrongReviewPremiumUpsell?.visibility = if (isPremium) View.GONE else View.VISIBLE
             b.btnReviewWrongParent?.setOnClickListener {
                 openWrongAnswerReview(model.wrongReview.wrongIds, model.wrongReview.sessionJson)
             }
@@ -597,8 +609,22 @@ class ReportsActivity : AppCompatActivity() {
                 .setNegativeButton(getString(R.string.close), null)
                 .show()
         } else {
-            Toast.makeText(this, R.string.report_pdf_error, Toast.LENGTH_SHORT).show()
+            showPdfErrorSnackbar(getString(R.string.report_pdf_error))
         }
+    }
+
+    private fun showPdfErrorSnackbar(message: String) {
+        val root = findViewById<View>(android.R.id.content)
+        Snackbar.make(root, message, Snackbar.LENGTH_LONG)
+            .setBackgroundTint(getColor(R.color.emerald_dark))
+            .setTextColor(getColor(android.R.color.white))
+            .setAction(getString(R.string.report_pdf_error_copy)) {
+                val errorFile = File(cacheDir, PdfReportGenerator.PDF_ERROR_FILENAME)
+                val content = runCatching { errorFile.readText() }.getOrNull() ?: message
+                (getSystemService(android.content.Context.CLIPBOARD_SERVICE) as? ClipboardManager)
+                    ?.setPrimaryClip(ClipData.newPlainText("PDF error", content))
+            }
+            .show()
     }
 
     private fun persistRange(days: Int) {

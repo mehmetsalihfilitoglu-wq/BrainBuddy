@@ -18,10 +18,39 @@ class EmailReportPrefs(context: Context) {
     fun setReportEmail(email: String) =
         prefs.edit().putString(KEY_REPORT_EMAIL, email).apply()
 
+    fun reportFrequency(): String = prefs.getString(KEY_FREQUENCY, FREQ_WEEKLY) ?: FREQ_WEEKLY
+    fun setReportFrequency(freq: String) =
+        prefs.edit().putString(KEY_FREQUENCY, freq).apply()
+
+    fun reportHour(): Int = prefs.getInt(KEY_HOUR, 8).coerceIn(0, 23)
+    fun setReportHour(hour: Int) =
+        prefs.edit().putInt(KEY_HOUR, hour.coerceIn(0, 23)).apply()
+
+    /** For UI spinner: "Haftalık" / "Aylık" */
+    fun reportFrequencyLabel(): String = when (reportFrequency()) {
+        FREQ_MONTHLY -> "Aylık"
+        else -> "Haftalık"
+    }
+
+    fun setReportFrequencyFromLabel(label: String) {
+        setReportFrequency(if (label.contains("Aylık")) FREQ_MONTHLY else FREQ_WEEKLY)
+    }
+
+    fun reportHourFormatted(): String = "%02d:00".format(reportHour())
+
+    fun setReportHourFromFormatted(s: String) {
+        val h = s.substringBefore(":").toIntOrNull()?.coerceIn(0, 23) ?: 8
+        setReportHour(h)
+    }
+
     companion object {
         private const val PREFS = "bb_email_report_prefs"
         private const val KEY_DAILY_ENABLED = "daily_report_enabled"
         private const val KEY_WEEKLY_ENABLED = "weekly_report_enabled"
         private const val KEY_REPORT_EMAIL = "report_email"
+        private const val KEY_FREQUENCY = "report_frequency"
+        private const val KEY_HOUR = "report_hour"
+        const val FREQ_WEEKLY = "weekly"
+        const val FREQ_MONTHLY = "monthly"
     }
 }

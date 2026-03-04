@@ -574,18 +574,19 @@ class PdfReportBuilder(
         for ((subject, records) in byCategory.entries.sortedByDescending { it.value.size }) {
             for (r in records) {
                 ensurePage()
+                val c = canvas!!
                 val stemShort = if (r.stem.length > MAX_STEM_LENGTH) r.stem.take(MAX_STEM_LENGTH) + "…" else r.stem
                 val cardH = 72f
                 val qCard = RectF(MARGIN + 8f, y, PAGE_WIDTH - MARGIN - 8f, y + cardH)
-                drawRoundedCard(canvas!!, qCard, cardBg, shadow = false)
-                canvas.drawRoundRect(qCard, 10f, 10f, Paint().apply { color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true })
+                drawRoundedCard(c, qCard, cardBg, shadow = false)
+                c.drawRoundRect(qCard, 10f, 10f, Paint().apply { color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true })
 
                 paintBold.textSize = 11f
-                canvas!!.drawText(subject, MARGIN + 20f, y + 16f, paintBold)
+                c.drawText(subject, MARGIN + 20f, y + 16f, paintBold)
                 paintReg.textSize = 9f
-                canvas!!.drawText("Soru: $stemShort", MARGIN + 20f, y + 32f, paintReg)
-                canvas!!.drawText("Öğrenci cevabı: ${r.userAnswer}  |  Doğru cevap: ${r.correctAnswer}", MARGIN + 20f, y + 46f, paintSec)
-                canvas!!.drawText("Kategori: ${r.category ?: subject}  |  Test tarihi: ${dateFormatShort.format(Date(r.dateMs))}", MARGIN + 20f, y + 60f, paintSec)
+                c.drawText("Soru: $stemShort", MARGIN + 20f, y + 32f, paintReg)
+                c.drawText("Öğrenci cevabı: ${r.userAnswer}  |  Doğru cevap: ${r.correctAnswer}", MARGIN + 20f, y + 46f, paintSec)
+                c.drawText("Kategori: ${r.category ?: subject}  |  Test tarihi: ${dateFormatShort.format(Date(r.dateMs))}", MARGIN + 20f, y + 60f, paintSec)
                 y += cardH + 8f
             }
         }
