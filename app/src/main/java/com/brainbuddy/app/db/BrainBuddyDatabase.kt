@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 9,
+    version = 10,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -248,6 +248,51 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
 
                 db.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject ON questions(grade, subject)")
                 db.execSQL("CREATE INDEX IF NOT EXISTS idx_questions_grade_subject_difficulty ON questions(grade, subject, difficulty)")
+            }
+        }
+
+        /**
+         * Migration 9→10: Safe schema updates without destructive migration.
+         * - questions: ensure grade, gradeTag, difficulty, optionsJson, examType, imageAsset, isActive, version
+         * - wrong_answers: ensure isUnlocked, unlockedAt
+         * - question_history: create if not exists
+         * - index: index_questions_grade_subject
+         */
+        val MIGRATION_9_10 = object : Migration(9, 10) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                // questions: safe add columns (QuestionEntity alan isimleriyle eşleşir)
+                safeAddColumn(db, "questions", "grade INTEGER NOT NULL DEFAULT 2")
+                safeAddColumn(db, "questions", "gradeTag TEXT")
+                safeAddColumn(db, "questions", "difficulty INTEGER NOT NULL DEFAULT 1")
+                safeAddColumn(db, "questions", "optionsJson TEXT NOT NULL DEFAULT '[]'")
+                safeAddColumn(db, "questions", "examType TEXT")
+                safeAddColumn(db, "questions", "imageAsset TEXT")
+                safeAddColumn(db, "questions", "isActive INTEGER NOT NULL DEFAULT 1")
+                safeAddColumn(db, "questions", "version INTEGER NOT NULL DEFAULT 1")
+
+                // wrong_answers: safe add columns
+                safeAddColumn(db, "wrong_answers", "isUnlocked INTEGER NOT NULL DEFAULT 0")
+                safeAddColumn(db, "wrong_answers", "unlockedAt INTEGER")
+
+                // question_history: yoksa oluştur
+                if (!tableExists(db, "question_history")) {
+                    db.execSQL("""
+                        CREATE TABLE IF NOT EXISTS question_history (
+                            userId TEXT NOT NULL,
+                            questionId TEXT NOT NULL,
+                            lastResult INTEGER NOT NULL DEFAULT 0,
+                            lastAnsweredAt INTEGER NOT NULL DEFAULT 0,
+                            correctCount INTEGER NOT NULL DEFAULT 0,
+                            wrongCount INTEGER NOT NULL DEFAULT 0,
+                            PRIMARY KEY(userId, questionId)
+                        )
+                    """.trimIndent())
+                    db.execSQL("CREATE INDEX IF NOT EXISTS idx_question_history_user ON question_history(userId)")
+                    db.execSQL("CREATE INDEX IF NOT EXISTS idx_question_history_user_result ON question_history(userId, lastResult)")
+                }
+
+                // index_questions_grade_subject (IF NOT EXISTS ile güvenli)
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject ON questions(grade, subject)")
             }
         }
 
