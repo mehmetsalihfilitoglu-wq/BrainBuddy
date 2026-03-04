@@ -28,7 +28,7 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.InstalledAppsHelper
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.StatsRepository
-import com.brainbuddy.app.core.WrongReviewAccessManager
+import com.brainbuddy.app.core.WrongReportUnlockStore
 import com.brainbuddy.app.databinding.ActivityReportsBinding
 import androidx.core.content.FileProvider
 import com.brainbuddy.app.ads.RewardAdHelper
@@ -61,7 +61,7 @@ class ReportsActivity : AppCompatActivity() {
 
     /** Last selected point index (0-based) in trend chart. Null = collapsed. Survives applyModel/rotation. */
     private var selectedPointIndex: Int? = null
-    private var wrongReviewOpenedOnce: Boolean = false
+    private var wrongReportOpenedOnce: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +74,7 @@ class ReportsActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
             statsRepo = StatsRepository(this)
-            wrongReviewAccessManager = WrongReviewAccessManager(this)
+            wrongReportUnlockStore = WrongReportUnlockStore(this)
             val autoOpenWrongReview = intent.getBooleanExtra(EXTRA_OPEN_WRONG_REVIEW, false)
 
             val initialRange = runBlocking {
@@ -528,26 +528,27 @@ class ReportsActivity : AppCompatActivity() {
             b.topAppsEmpty.visibility = View.VISIBLE
         }
 
-        // Wrong review
+        // Wrong answers card (same data source as Test Detail: wrong_answers table)
         if (model.wrongReview.hasData) {
             b.wrongHasData.visibility = View.VISIBLE
             b.wrongEmpty.visibility = View.GONE
-            wrongReviewAccessManager.ensureDailyReset()
-            val remaining = wrongReviewAccessManager.getRemaining()
+            val wrongCount = model.wrongReview.wrongCount
             val isPremium = com.brainbuddy.app.core.PremiumStore(this).isPremium()
-            b.chipWrongReviewQuota?.let { chip ->
-                chip.visibility = if (isPremium) View.GONE else View.VISIBLE
-                if (!isPremium) {
-                    chip.text = getString(R.string.wrong_review_quota_chip, remaining)
-                }
+            b.tvWrongCardTitle?.text = getString(R.string.wrong_report_card_title)
+            b.tvWrongCardSubtitle?.text = getString(R.string.wrong_report_card_subtitle, wrongCount)
+            b.btnReviewWrongParent?.text = if (isPremium) {
+                getString(R.string.wrong_report_btn_detail)
+            } else {
+                getString(R.string.wrong_report_btn_watch_unlock)
             }
-            b.tvWrongReviewPremiumUpsell?.visibility = if (isPremium) View.GONE else View.VISIBLE
+            b.chipWrongReviewQuota?.visibility = View.GONE
+            b.tvWrongReviewPremiumUpsell?.visibility = View.GONE
             b.btnReviewWrongParent?.setOnClickListener {
-                openWrongAnswerReview(model.wrongReview.wrongIds, model.wrongReview.sessionJson)
+                openWrongAnswersReport(model.wrongReview.sinceMillis)
             }
-            if (autoOpenWrongReview && !wrongReviewOpenedOnce) {
-                wrongReviewOpenedOnce = true
-                openWrongAnswerReview(model.wrongReview.wrongIds, model.wrongReview.sessionJson)
+            if (autoOpenWrongReview && !wrongReportOpenedOnce) {
+                wrongReportOpenedOnce = true
+                openWrongAnswersReport(model.wrongReview.sinceMillis)
             }
         } else {
             b.wrongHasData.visibility = View.GONE
@@ -658,65 +659,77 @@ class ReportsActivity : AppCompatActivity() {
         startActivity(Intent(this, QuizActivity::class.java))
     }
 
-    private lateinit var wrongReviewAccessManager: WrongReviewAccessManager
+    private lateinit var wrongReportUnlockStore: WrongReportUnlockStore
     private var rewardAdHelper: RewardAdHelper? = null
 
-    private fun openWrongAnswerReview(wrongIds: List<String>, sessionJson: String?) {
-        if (!::wrongReviewAccessManager.isInitialized) wrongReviewAccessManager = WrongReviewAccessManager(this)
-        wrongReviewAccessManager.ensureDailyReset()
-        if (wrongReviewAccessManager.canOpen() && wrongReviewAccessManager.consumeOpen()) {
-            startWrongAnswersListActivity(wrongIds, sessionJson)
+    private fun openWrongAnswersReport(sinceMillis: Long) {
+        val isPremium = com.brainbuddy.app.core.PremiumStore(this).isPremium()
+        if (isPremium || wrongReportUnlockStore.isUnlocked()) {
+            startWrongAnswersReportActivity(sinceMillis)
             return
         }
-        showWrongReviewPaywallDialog(wrongIds, sessionJson)
+        showWrongReportAdDialog(sinceMillis)
     }
 
-    private fun startWrongAnswersListActivity(wrongIds: List<String>, sessionJson: String?) {
-        startActivity(Intent(this, com.brainbuddy.app.quiz.WrongAnswersListActivity::class.java).apply {
-            putStringArrayListExtra(com.brainbuddy.app.quiz.WrongAnswersListActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
-            putExtra(com.brainbuddy.app.quiz.WrongAnswersListActivity.EXTRA_SESSION_JSON, sessionJson)
+    private fun startWrongAnswersReportActivity(sinceMillis: Long) {
+        startActivity(Intent(this, com.brainbuddy.app.quiz.WrongAnswersReportActivity::class.java).apply {
+            putExtra(com.brainbuddy.app.quiz.WrongAnswersReportActivity.EXTRA_SINCE_MILLIS, sinceMillis)
+            putExtra(com.brainbuddy.app.quiz.WrongAnswersReportActivity.EXTRA_PROFILE_ID,
+                com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(this@ReportsActivity))
         })
     }
 
-    private fun showWrongReviewPaywallDialog(wrongIds: List<String>, sessionJson: String?) {
-        val b = AlertDialog.Builder(this)
+    private var pendingWrongReportSinceMillis: Long = 0
+
+    private fun showWrongReportAdDialog(sinceMillis: Long) {
+        pendingWrongReportSinceMillis = sinceMillis
+        val builder = AlertDialog.Builder(this)
             .setTitle(getString(R.string.wrong_review_limit_title))
             .setMessage(getString(R.string.wrong_review_limit_message))
-            .setNegativeButton(getString(R.string.close)) { d, _ -> d.dismiss() }
+            .setNegativeButton(getString(R.string.close)) { d, _ ->
+                pendingWrongReportSinceMillis = 0
+                d.dismiss()
+            }
             .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
+                pendingWrongReportSinceMillis = 0
                 startActivity(Intent(this, TestSettingsActivity::class.java))
             }
         if (rewardAdHelper == null) rewardAdHelper = RewardAdHelper(this)
         rewardAdHelper?.loadAd()
         if (rewardAdHelper?.isLoaded() == true) {
-            b.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { d, _ ->
+            builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
-                showRewardedAdForWrongReview { startWrongAnswersListActivity(wrongIds, sessionJson) }
+                showRewardedAdForWrongReport()
             }
         } else {
-            b.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { d, _ ->
+            builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
                 Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
                 rewardAdHelper?.loadAd()
+                pendingWrongReportSinceMillis = 0
             }
         }
-        b.show()
+        builder.show()
     }
 
-    private fun showRewardedAdForWrongReview(onRewarded: () -> Unit) {
+    private fun showRewardedAdForWrongReport() {
         if (rewardAdHelper == null) rewardAdHelper = RewardAdHelper(this)
         rewardAdHelper?.showAd(
             onRewarded = {
-                wrongReviewAccessManager.addOneFromReward()
-                if (wrongReviewAccessManager.consumeOpen()) onRewarded()
+                wrongReportUnlockStore.setUnlocked()
+                val since = pendingWrongReportSinceMillis
+                pendingWrongReportSinceMillis = 0
+                startWrongAnswersReportActivity(since)
                 rewardAdHelper?.loadAd()
             },
             onFailed = {
                 Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
                 rewardAdHelper?.loadAd()
+                pendingWrongReportSinceMillis = 0
             }
         )
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()

@@ -144,9 +144,9 @@ class StatsRepository(private val context: Context) {
     )
 
     data class WrongReviewSection(
+        val wrongCount: Int,
         val hasData: Boolean,
-        val wrongIds: List<String>,
-        val sessionJson: String
+        val sinceMillis: Long
     )
 
     /**
@@ -325,12 +325,11 @@ class StatsRepository(private val context: Context) {
             isEmpty = topItems.isEmpty()
         )
 
-        val wrongIds = try { protectionPrefs.lastFailedWrongIds() } catch (_: Throwable) { emptyList() }
-        val sessionJson = try { protectionPrefs.lastFailedSessionJson() } catch (_: Throwable) { "" }
+        val wrongCount = try { dataStore.getWrongCountInRange(sinceMs, accountId) } catch (_: Throwable) { 0 }
         val wrongReview = WrongReviewSection(
-            hasData = wrongIds.isNotEmpty() && sessionJson.isNotEmpty(),
-            wrongIds = wrongIds,
-            sessionJson = sessionJson
+            wrongCount = wrongCount,
+            hasData = wrongCount > 0,
+            sinceMillis = sinceMs
         )
 
         val weeklyXp = sessions.sumOf { it.pointsEarned }

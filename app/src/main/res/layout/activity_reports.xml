@@ -914,10 +914,11 @@
                                 android:gravity="center_vertical">
 
                                 <TextView
+                                    android:id="@+id/tvWrongCardTitle"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="@string/parent_review_wrong"
+                                    android:text="@string/wrong_report_card_title"
                                     android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumTitle"/>
 
                                 <com.google.android.material.chip.Chip
@@ -942,12 +943,13 @@
                                 android:textColor="?attr/colorOnSecondaryContainer"/>
 
                             <TextView
-                                android:id="@+id/tvWrongSubtitle"
+                                android:id="@+id/tvWrongCardSubtitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="@string/parent_review_wrong_desc"
-                                android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                                android:text="@string/wrong_report_card_subtitle"
+                                android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"
+                                tools:text="Toplam: 5 yanlış"/>
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/btnReviewWrongParent"

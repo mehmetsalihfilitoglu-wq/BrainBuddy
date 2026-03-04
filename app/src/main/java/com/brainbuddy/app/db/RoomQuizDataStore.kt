@@ -190,4 +190,14 @@ class RoomQuizDataStore(private val context: Context) {
     fun getSnapshot(testId: String): TestSnapshotEntity? = runBlocking {
         snapshotDao.getSnapshot(testId)
     }
+
+    /** Count wrong answers in date range (for Reports filter). Same source as Test Detail. */
+    fun getWrongCountInRange(sinceMillis: Long, profileId: String): Int = runBlocking {
+        wrongAnswerDao.countWrongInRange(sinceMillis, profileId)
+    }
+
+    /** List (testId, questionId) in date range for WrongAnswersReport screen. */
+    fun getWrongInRange(sinceMillis: Long, profileId: String): List<WrongAnswerDao.WrongInRangeResult> = runBlocking {
+        wrongAnswerDao.getWrongInRange(sinceMillis, profileId)
+    }
 }

@@ -24,8 +24,27 @@ abstract class WrongAnswerDao {
     abstract suspend fun unlockAllWrongsForAttempt(testId: String, unlockedAt: Long)
 
     @Query("SELECT * FROM wrong_answers WHERE testId = :testId ORDER BY questionId")
-    fun getWrongsForAttempt(testId: String): Flow<List<WrongAnswerEntity>>
+    abstract fun getWrongsForAttempt(testId: String): Flow<List<WrongAnswerEntity>>
 
     @Query("SELECT * FROM wrong_answers WHERE testId = :testId AND questionId = :questionId LIMIT 1")
-    suspend fun get(testId: String, questionId: String): WrongAnswerEntity?
+    abstract suspend fun get(testId: String, questionId: String): WrongAnswerEntity?
+
+    /** Count wrong answers in date range (join with test_snapshots). Used for Reports filter. */
+    @Query("""
+        SELECT COUNT(*) FROM wrong_answers wa
+        INNER JOIN test_snapshots ts ON wa.testId = ts.testId
+        WHERE ts.createdAt >= :sinceMillis AND ts.profileId = :profileId
+    """)
+    abstract suspend fun countWrongInRange(sinceMillis: Long, profileId: String): Int
+
+    /** List (testId, questionId, isUnlocked) in date range for Reports. Most recent first. */
+    @Query("""
+        SELECT wa.testId, wa.questionId, wa.isUnlocked FROM wrong_answers wa
+        INNER JOIN test_snapshots ts ON wa.testId = ts.testId
+        WHERE ts.createdAt >= :sinceMillis AND ts.profileId = :profileId
+        ORDER BY ts.createdAt DESC
+    """)
+    abstract suspend fun getWrongInRange(sinceMillis: Long, profileId: String): List<WrongInRangeResult>
+
+    data class WrongInRangeResult(val testId: String, val questionId: String, val isUnlocked: Boolean)
 }
