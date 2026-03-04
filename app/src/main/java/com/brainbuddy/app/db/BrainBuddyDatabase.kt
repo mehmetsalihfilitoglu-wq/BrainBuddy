@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 10,
+    version = 11,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -293,6 +293,117 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
 
                 // index_questions_grade_subject (IF NOT EXISTS ile güvenli)
                 db.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject ON questions(grade, subject)")
+            }
+        }
+
+        /**
+         * Migration 10→11: Recreate questions table to fix schema mismatch (QuestionEntity).
+         * rename → create → copy (common cols) → drop
+         */
+        val MIGRATION_10_11 = object : Migration(10, 11) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE questions RENAME TO questions_old")
+
+                db.execSQL("""
+                    CREATE TABLE questions (
+                        id TEXT NOT NULL PRIMARY KEY,
+                        subject TEXT NOT NULL,
+                        difficulty INTEGER NOT NULL DEFAULT 1,
+                        grade INTEGER NOT NULL DEFAULT 0,
+                        text TEXT NOT NULL,
+                        optionsJson TEXT NOT NULL DEFAULT '[]',
+                        correctIndex INTEGER NOT NULL,
+                        tagsJson TEXT,
+                        isActive INTEGER NOT NULL DEFAULT 1,
+                        version INTEGER NOT NULL DEFAULT 1,
+                        updatedAt INTEGER NOT NULL DEFAULT 0,
+                        levelGroup TEXT,
+                        gradeTag TEXT,
+                        hint TEXT,
+                        imageAsset TEXT,
+                        examType TEXT
+                    )
+                """.trimIndent())
+
+                val oldCols = mutableSetOf<String>()
+                val cur = db.query("PRAGMA table_info(questions_old)")
+                try {
+                    val nameIdx = cur.getColumnIndexOrThrow("name")
+                    while (cur.moveToNext()) {
+                        oldCols.add(cur.getString(nameIdx))
+                    }
+                } finally {
+                    cur.close()
+                }
+
+                val textCol = when {
+                    oldCols.contains("text") -> "text"
+                    oldCols.contains("questionText") -> "questionText"
+                    else -> "text"
+                }
+                val optionsCol = when {
+                    oldCols.contains("optionsJson") -> "optionsJson"
+                    oldCols.contains("options") -> "options"
+                    else -> "optionsJson"
+                }
+
+                val sel = db.query("SELECT * FROM questions_old")
+                val colIndex = { name: String -> sel.getColumnIndex(name) }
+                val idIdx = colIndex("id")
+                val subjectIdx = colIndex("subject")
+                val textIdx = colIndex(textCol)
+                val correctIdx = colIndex("correctIndex")
+                if (idIdx < 0 || subjectIdx < 0 || textIdx < 0 || correctIdx < 0) {
+                    sel.close()
+                    db.execSQL("DROP TABLE questions_old")
+                    db.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject ON questions(grade, subject)")
+                    db.execSQL("CREATE INDEX IF NOT EXISTS idx_questions_grade_subject_difficulty ON questions(grade, subject, difficulty)")
+                    return
+                }
+
+                val optionsIdx = colIndex(optionsCol)
+                val diffIdx = colIndex("difficulty")
+                val gradeIdx = colIndex("grade")
+                val tagsIdx = colIndex("tagsJson")
+                val isActiveIdx = colIndex("isActive")
+                val versionIdx = colIndex("version")
+                val updatedIdx = colIndex("updatedAt")
+                val levelIdx = colIndex("levelGroup")
+                val gradeTagIdx = colIndex("gradeTag")
+                val hintIdx = colIndex("hint")
+                val imgIdx = colIndex("imageAsset")
+                val examIdx = colIndex("examType")
+
+                while (sel.moveToNext()) {
+                    val id = sel.getString(idIdx)
+                    val subject = sel.getString(subjectIdx)
+                    val text = sel.getString(textIdx)
+                    val correctIndex = sel.getInt(correctIdx)
+                    val options = if (optionsIdx >= 0) sel.getString(optionsIdx) ?: "[]" else "[]"
+                    val difficulty = if (diffIdx >= 0) sel.getInt(diffIdx) else 1
+                    val grade = if (gradeIdx >= 0) sel.getInt(gradeIdx) else 0
+                    val tags = if (tagsIdx >= 0 && !sel.isNull(tagsIdx)) sel.getString(tagsIdx) else null
+                    val isActive = if (isActiveIdx >= 0) sel.getInt(isActiveIdx) != 0 else true
+                    val version = if (versionIdx >= 0) sel.getInt(versionIdx) else 1
+                    val updatedAt = if (updatedIdx >= 0) sel.getLong(updatedIdx) else 0L
+                    val levelGroup = if (levelIdx >= 0 && !sel.isNull(levelIdx)) sel.getString(levelIdx) else null
+                    val gradeTag = if (gradeTagIdx >= 0 && !sel.isNull(gradeTagIdx)) sel.getString(gradeTagIdx) else null
+                    val hint = if (hintIdx >= 0 && !sel.isNull(hintIdx)) sel.getString(hintIdx) else null
+                    val imageAsset = if (imgIdx >= 0 && !sel.isNull(imgIdx)) sel.getString(imgIdx) else null
+                    val examType = if (examIdx >= 0 && !sel.isNull(examIdx)) sel.getString(examIdx) else null
+
+                    db.execSQL(
+                        """INSERT INTO questions (id, subject, difficulty, grade, text, optionsJson, correctIndex, tagsJson, isActive, version, updatedAt, levelGroup, gradeTag, hint, imageAsset, examType)
+                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                        arrayOf(id, subject, difficulty, grade, text, options, correctIndex, tags, if (isActive) 1 else 0, version, updatedAt, levelGroup, gradeTag, hint, imageAsset, examType)
+                    )
+                }
+                sel.close()
+
+                db.execSQL("DROP TABLE questions_old")
+
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject ON questions(grade, subject)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS idx_questions_grade_subject_difficulty ON questions(grade, subject, difficulty)")
             }
         }
 

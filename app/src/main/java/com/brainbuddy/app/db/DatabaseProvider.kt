@@ -23,7 +23,8 @@ object DatabaseProvider {
                     BrainBuddyDatabase.MIGRATION_6_7,
                     BrainBuddyDatabase.MIGRATION_7_8,
                     BrainBuddyDatabase.MIGRATION_8_9,
-                    BrainBuddyDatabase.MIGRATION_9_10
+                    BrainBuddyDatabase.MIGRATION_9_10,
+                    BrainBuddyDatabase.MIGRATION_10_11
                 )
                 .build().also { instance = it }
         }
