@@ -75,12 +75,11 @@
 
                 <com.google.android.material.progressindicator.LinearProgressIndicator
                     android:id="@+id/progressTodayUsage"
-                    style="?attr/materialProgressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="8dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:progress="0"
-                    android:max="100"
+                    android:indeterminate="false"
+                    app:indicatorDirection="leftToRight"
                     app:trackThickness="8dp"
                     app:indicatorColor="@color/bb_turquoise_dark"
                     app:trackColor="@color/bb_turquoise_light" />
