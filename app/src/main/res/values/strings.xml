@@ -16,7 +16,7 @@
     <string name="parent_card_blocked_apps">Engellenen Uygulamalar</string>
     <string name="parent_card_blocked_apps_sub">Uygulama seç ve engelle</string>
     <string name="parent_card_tests">Test &amp; Eğitim</string>
-    <string name="parent_card_tests_sub">Kurallar ve hedefler</string>
+    <string name="parent_card_tests_sub">Ayarlar ve eğitim modülleri</string>
     <string name="parent_card_reports">Raporlar</string>
     <string name="parent_card_reports_sub">Grafikler ve analiz</string>
     <string name="parent_card_security">Güvenlik &amp; PIN</string>
@@ -403,9 +403,9 @@
 
     <!-- E-posta Raporları kurulum -->
     <string name="email_reports_setup_title">E-posta Raporları</string>
-    <string name="email_reports_setup_subtitle">Performans raporlarını e-posta ile alın. Gönderim henüz aktif değil; kurulumu tamamlayın.</string>
+    <string name="email_reports_setup_subtitle">Haftalık/Aylık otomatik PDF raporu</string>
     <string name="email_reports_daily">Günlük rapor</string>
-    <string name="email_reports_weekly">Haftalık rapor</string>
+    <string name="email_reports_weekly">E-posta raporlarını aç</string>
     <string name="email_reports_recipient">Alıcı e-posta</string>
     <string name="email_reports_frequency">Gönderim sıklığı</string>
     <string name="email_reports_hour">Tercih edilen saat</string>
@@ -418,6 +418,7 @@
     <string name="email_reports_permissions_info">Bildirimler için bildirim izni gereklidir. Raporlar planlanan saatte arka planda gönderilecektir.</string>
     <string name="email_required">E-posta adresi gerekli</string>
     <string name="email_invalid">Geçerli e-posta adresi girin</string>
+    <string name="email_reports_attach_pdf">Test PDF raporu ekle</string>
 
     <!-- Wrong review quota chip -->
     <string name="wrong_review_quota_chip">Bugünkü kalan hak: %1$d/3</string>

@@ -43,6 +43,13 @@ class EmailReportPrefs(context: Context) {
         setReportHour(h)
     }
 
+    /** Whether PDF report attachment is enabled (UI toggle). Defaults to true. */
+    fun isAttachPdfEnabled(): Boolean = prefs.getBoolean(KEY_ATTACH_PDF, true)
+
+    fun setAttachPdfEnabled(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_ATTACH_PDF, enabled).apply()
+    }
+
     companion object {
         private const val PREFS = "bb_email_report_prefs"
         private const val KEY_DAILY_ENABLED = "daily_report_enabled"
@@ -50,6 +57,7 @@ class EmailReportPrefs(context: Context) {
         private const val KEY_REPORT_EMAIL = "report_email"
         private const val KEY_FREQUENCY = "report_frequency"
         private const val KEY_HOUR = "report_hour"
+        private const val KEY_ATTACH_PDF = "attach_pdf"
         const val FREQ_WEEKLY = "weekly"
         const val FREQ_MONTHLY = "monthly"
     }

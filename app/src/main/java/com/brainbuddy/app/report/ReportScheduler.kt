@@ -11,30 +11,25 @@ object ReportScheduler {
 
     fun schedule(context: Context) {
         val prefs = com.brainbuddy.app.core.EmailReportPrefs(context)
+        // Cancel legacy workers (daily/weekly split) to avoid duplicates.
         WorkManager.getInstance(context).cancelUniqueWork("brainbuddy_daily_report")
         WorkManager.getInstance(context).cancelUniqueWork("brainbuddy_weekly_report")
 
-        if (prefs.isDailyReportEnabled()) {
-            val daily = PeriodicWorkRequestBuilder<ReportWorker>(24, TimeUnit.HOURS)
-                .setConstraints(Constraints.Builder().build())
-                .setInputData(androidx.work.workDataOf(ReportWorker.KEY_IS_DAILY to true))
-                .build()
-            WorkManager.getInstance(context).enqueueUniquePeriodicWork(
-                "brainbuddy_daily_report",
-                ExistingPeriodicWorkPolicy.KEEP,
-                daily
-            )
-        }
-
         if (prefs.isWeeklyReportEnabled()) {
-            val weekly = PeriodicWorkRequestBuilder<ReportWorker>(7, TimeUnit.DAYS)
+            // Use frequency to choose period: weekly (7 days) or monthly (30 days).
+            val frequency = prefs.reportFrequency()
+            val intervalDays = if (frequency == com.brainbuddy.app.core.EmailReportPrefs.FREQ_MONTHLY) 30L else 7L
+
+            val work = PeriodicWorkRequestBuilder<ReportWorker>(intervalDays, TimeUnit.DAYS)
                 .setConstraints(Constraints.Builder().build())
+                // All automatic reports use the "weekly" generator for now (summary over range).
                 .setInputData(androidx.work.workDataOf(ReportWorker.KEY_IS_DAILY to false))
                 .build()
+
             WorkManager.getInstance(context).enqueueUniquePeriodicWork(
-                "brainbuddy_weekly_report",
+                "brainbuddy_email_report",
                 ExistingPeriodicWorkPolicy.KEEP,
-                weekly
+                work
             )
         }
     }

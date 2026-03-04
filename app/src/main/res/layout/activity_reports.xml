@@ -1107,7 +1107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_4"
-                        android:text="E-posta raporları yakında."
+                        android:text="@string/email_reports_setup_subtitle"
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
 
                     <com.google.android.material.button.MaterialButton

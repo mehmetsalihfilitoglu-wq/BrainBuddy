@@ -38,11 +38,6 @@ class ParentHubActivity : ComponentActivity() {
                 R.drawable.ic_timer
             ) { startActivity(Intent(this, ScreenTimeActivity::class.java)) },
             ParentCategoryItem(
-                R.string.parent_card_blocked_apps,
-                R.string.parent_card_blocked_apps_sub,
-                R.drawable.ic_block
-            ) { startActivity(Intent(this, BlockedAppsActivity::class.java)) },
-            ParentCategoryItem(
                 R.string.parent_card_tests,
                 R.string.parent_card_tests_sub,
                 R.drawable.ic_quiz
@@ -61,12 +56,7 @@ class ParentHubActivity : ComponentActivity() {
                 R.string.parent_card_security,
                 R.string.parent_card_security_sub,
                 R.drawable.ic_lock
-            ) { startActivity(Intent(this, SecurityActivity::class.java)) },
-            ParentCategoryItem(
-                R.string.parent_settings,
-                R.string.parent_settings_sub,
-                R.drawable.ic_settings
-            ) { startActivity(Intent(this, SettingsActivity::class.java)) }
+            ) { startActivity(Intent(this, SecurityActivity::class.java)) }
         )
 
         b.gridParentCategories.layoutManager = GridLayoutManager(this, 2)

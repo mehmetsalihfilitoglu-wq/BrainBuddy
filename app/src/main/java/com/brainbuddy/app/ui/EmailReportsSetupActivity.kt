@@ -31,14 +31,12 @@ class EmailReportsSetupActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.email_reports_setup_title)
 
-        val switchDaily = findViewById<android.widget.Switch>(R.id.switchDailyReport)
         val switchWeekly = findViewById<android.widget.Switch>(R.id.switchWeeklyReport)
         val emailInput = findViewById<TextInputEditText>(R.id.emailInput)
         val emailLayout = findViewById<TextInputLayout>(R.id.emailLayout)
         val spinnerFrequency = findViewById<com.google.android.material.textfield.MaterialAutoCompleteTextView>(R.id.spinnerFrequency)
         val spinnerHour = findViewById<com.google.android.material.textfield.MaterialAutoCompleteTextView>(R.id.spinnerHour)
 
-        switchDaily.isChecked = prefs.isDailyReportEnabled()
         switchWeekly.isChecked = prefs.isWeeklyReportEnabled()
         emailInput.setText(prefs.reportEmail())
 
@@ -53,10 +51,15 @@ class EmailReportsSetupActivity : AppCompatActivity() {
         spinnerHour.setAdapter(ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, hours))
         spinnerHour.setText(prefs.reportHourFormatted(), false)
 
-        switchDaily.setOnCheckedChangeListener { _, isChecked -> prefs.setDailyReportEnabled(isChecked) }
         switchWeekly.setOnCheckedChangeListener { _, isChecked -> prefs.setWeeklyReportEnabled(isChecked) }
 
         findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar).setNavigationOnClickListener { onSupportNavigateUp() }
+
+        val switchAttachPdf = findViewById<android.widget.Switch>(R.id.switchAttachPdf)
+        switchAttachPdf.isChecked = prefs.isAttachPdfEnabled()
+        switchAttachPdf.setOnCheckedChangeListener { _, isChecked ->
+            prefs.setAttachPdfEnabled(isChecked)
+        }
 
         findViewById<View>(R.id.btnTestMail).setOnClickListener {
             val email = emailInput.text?.toString()?.trim().orEmpty()
@@ -87,6 +90,7 @@ class EmailReportsSetupActivity : AppCompatActivity() {
             prefs.setReportEmail(email)
             prefs.setReportFrequencyFromLabel(spinnerFrequency.text.toString())
             prefs.setReportHourFromFormatted(spinnerHour.text.toString())
+            com.brainbuddy.app.report.ReportScheduler.schedule(this)
             Toast.makeText(this, R.string.email_reports_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
