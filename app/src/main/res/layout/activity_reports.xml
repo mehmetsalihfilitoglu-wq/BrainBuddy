@@ -75,6 +75,7 @@
         android:padding="@dimen/reports_screen_horizontal"
         android:scrollbars="none"
         android:fadeScrollbars="true"
+        android:scrollbarFadeDuration="0"
         android:scrollbarStyle="outsideOverlay"
         android:overScrollMode="never">
 
