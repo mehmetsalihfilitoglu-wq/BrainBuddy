@@ -14,7 +14,13 @@ object DatabaseProvider {
                 BrainBuddyDatabase::class.java,
                 "brainbuddy.db"
             )
-                .addMigrations(BrainBuddyDatabase.MIGRATION_3_4, BrainBuddyDatabase.MIGRATION_4_5)
+                .addMigrations(
+                    BrainBuddyDatabase.MIGRATION_1_2,
+                    BrainBuddyDatabase.MIGRATION_2_3,
+                    BrainBuddyDatabase.MIGRATION_3_4,
+                    BrainBuddyDatabase.MIGRATION_4_5,
+                    BrainBuddyDatabase.MIGRATION_5_6
+                )
                 .fallbackToDestructiveMigration()
                 .build().also { instance = it }
         }

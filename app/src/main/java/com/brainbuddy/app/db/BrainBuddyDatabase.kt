@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 5,
+    version = 6,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -22,6 +22,38 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE test_snapshots ADD COLUMN profileId TEXT NOT NULL DEFAULT 'default'")
+            }
+        }
+
+        val MIGRATION_5_6 = object : Migration(5, 6) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                safeAddColumn(db, "questions", "grade INTEGER NOT NULL DEFAULT 2")
+                safeAddColumn(db, "questions", "difficulty INTEGER NOT NULL DEFAULT 1")
+                safeAddColumn(db, "questions", "optionsJson TEXT")
+                safeAddColumn(db, "questions", "examType TEXT")
+                safeAddColumn(db, "questions", "imageAsset TEXT")
+                safeAddColumn(db, "questions", "isActive INTEGER NOT NULL DEFAULT 1")
+                safeAddColumn(db, "questions", "version INTEGER NOT NULL DEFAULT 1")
+                db.execSQL("CREATE INDEX IF NOT EXISTS idx_questions_grade_subject_difficulty ON questions(grade, subject, difficulty)")
+            }
+
+            private fun safeAddColumn(db: SupportSQLiteDatabase, table: String, columnDef: String) {
+                val colName = columnDef.substringBefore(" ").trim()
+                if (columnExists(db, table, colName)) return
+                db.execSQL("ALTER TABLE $table ADD COLUMN $columnDef")
+            }
+
+            private fun columnExists(db: SupportSQLiteDatabase, table: String, column: String): Boolean {
+                val c = db.query("PRAGMA table_info($table)")
+                try {
+                    val nameIdx = c.getColumnIndexOrThrow("name")
+                    while (c.moveToNext()) {
+                        if (c.getString(nameIdx).equals(column, ignoreCase = true)) return true
+                    }
+                    return false
+                } finally {
+                    c.close()
+                }
             }
         }
 
