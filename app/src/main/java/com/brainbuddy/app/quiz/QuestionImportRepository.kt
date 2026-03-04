@@ -2,6 +2,7 @@ package com.brainbuddy.app.quiz
 
 import android.content.Context
 import android.util.Log
+import com.brainbuddy.app.core.GradePrefs
 import org.json.JSONArray
 import org.json.JSONObject
 import java.nio.charset.Charset
@@ -67,11 +68,14 @@ class QuestionImportRepository(private val context: Context) {
         val subjStr = o.optString("subject", "MAT").let { if (it == "INGILIZCE") "ING" else it }
         val subject = try { Subject.valueOf(subjStr) } catch (_: Exception) { Subject.MAT }
         val examType = try { ExamType.valueOf(o.optString("examType", "GENERAL")) } catch (_: Exception) { ExamType.GENERAL }
+        val gradeFromDto = o.optInt("grade", 0)
+        val grade = if (gradeFromDto in 2..8) gradeFromDto else GradePrefs(context).getSelectedGrade().coerceIn(2, 8)
         return Question(
             id = o.optString("id", "q_${source}_${index}"),
             levelGroup = level,
             subject = subject,
             gradeTag = o.optString("gradeTag", ""),
+            grade = grade,
             stem = o.optString("stem", "?"),
             choices = choices.ifEmpty { listOf("A", "B", "C", "D") },
             correctIndex = o.optInt("correctIndex", 0).coerceIn(0, 3),

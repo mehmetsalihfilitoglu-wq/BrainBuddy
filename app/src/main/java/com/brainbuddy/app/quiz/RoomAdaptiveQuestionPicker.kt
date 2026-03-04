@@ -18,7 +18,6 @@ class RoomAdaptiveQuestionPicker(
 
     private val now get() = System.currentTimeMillis()
     private val longAgoMs = TimeUnit.DAYS.toMillis(3)
-    private val minTestGap = 3
 
     fun pick(
         pool: List<Question>,
@@ -29,41 +28,47 @@ class RoomAdaptiveQuestionPicker(
         if (pool.isEmpty()) return@runBlocking emptyList()
         val exclude = excludeIds.toMutableSet()
         val poolIds = pool.map { it.id }
-        val historyMap: Map<String, QuestionHistoryEntity> = historyDao.getByIds(poolIds).associateBy { it.questionId }
+        val historyMap: Map<String, QuestionHistoryEntity> = historyDao.getByIds(profileId, poolIds).associateBy { it.questionId }
+        val threeDaysMs = TimeUnit.DAYS.toMillis(3)
         fun h(id: String) = historyMap[id]
+        fun dueAt(ent: QuestionHistoryEntity?) = (ent?.lastAnsweredAt ?: 0L) + threeDaysMs
+        fun lastWasWrong(ent: QuestionHistoryEntity?) = (ent?.lastResult ?: 1) == 0
+        fun seenCount(ent: QuestionHistoryEntity?) = (ent?.correctCount ?: 0) + (ent?.wrongCount ?: 0)
+        fun wrongTotal(ent: QuestionHistoryEntity?) = ent?.wrongCount ?: 0
 
-        val globalTestIndex = getGlobalTestIndex()
         val inLast2Tests = getQuestionIdsFromLastNTests(profileId, 2)
 
         val dueWrongPool = pool.filter { q ->
-            q.id !in exclude && (h(q.id)?.let { it.dueAt <= now && it.lastWasWrong } ?: false)
+            val ent = h(q.id)
+            q.id !in exclude && ent != null && dueAt(ent) <= now && lastWasWrong(ent)
         }
         val reinforcementPool = pool.filter { q ->
-            q.id !in exclude && (h(q.id)?.let { it.dueAt > now && it.lastWasWrong } ?: false)
+            val ent = h(q.id)
+            q.id !in exclude && ent != null && dueAt(ent) > now && lastWasWrong(ent)
         }
         val freshPool = pool.filter { q ->
+            val ent = h(q.id)
             q.id !in exclude &&
             q.id !in dueWrongPool.map { it.id } &&
             q.id !in reinforcementPool.map { it.id } && (
-                (h(q.id) == null || h(q.id)!!.seenCount == 0) ||
-                (globalTestIndex - (h(q.id)?.lastSeenTestIndex ?: 0) >= minTestGap) ||
-                (now - (h(q.id)?.lastAnsweredAt ?: 0L) >= longAgoMs)
+                (ent == null || seenCount(ent) == 0) ||
+                (now - (ent?.lastAnsweredAt ?: 0L) >= longAgoMs)
             )
         }
 
         val dueWrongSorted = dueWrongPool.sortedWith(
-            compareByDescending<Question> { h(it.id)?.wrongTotal ?: 0 }
+            compareByDescending<Question> { wrongTotal(h(it.id)) }
                 .thenBy { h(it.id)?.lastAnsweredAt ?: 0L }
         )
         val reinforcementSorted = reinforcementPool.sortedWith(
-            compareByDescending<Question> { h(it.id)?.wrongTotal ?: 0 }
+            compareByDescending<Question> { wrongTotal(h(it.id)) }
                 .thenBy { h(it.id)?.lastAnsweredAt ?: 0L }
         )
         val freshSorted = freshPool.sortedWith(
-            compareBy<Question> { (h(it.id)?.seenCount ?: 0) > 0 }
+            compareBy<Question> { seenCount(h(it.id)) > 0 }
                 .thenBy { it.id in inLast2Tests }
                 .thenBy { h(it.id)?.lastAnsweredAt ?: 0L }
-                .thenBy { h(it.id)?.seenCount ?: 0 }
+                .thenBy { seenCount(h(it.id)) }
         )
 
         val pickWrongCount = (testSize * 0.4).toInt().coerceAtLeast(0)
