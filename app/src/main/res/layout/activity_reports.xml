@@ -184,7 +184,7 @@
                                 app:chipStrokeColor="@color/emerald_primary"
                                 app:chipStrokeWidth="1dp" />
 
-                            <androidx.constraintlayout.helper.widget.Flow
+                            <androidx.constraintlayout.widget.Flow
                                 android:id="@+id/flowWeeklyStats"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
                                 android:visibility="gone"
                                 tools:text="Doğru 12 / Yanlış 5 / Boş 3"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/flowWeeklyChips"/>
+                                app:layout_constraintTop_toBottomOf="@id/flowWeeklyStats"/>
 
                             <!-- 3) KPI GRID -->
                             <LinearLayout
