@@ -184,7 +184,7 @@
                                 app:chipStrokeColor="@color/emerald_primary"
                                 app:chipStrokeWidth="1dp" />
 
-                            <androidx.constraintlayout.widget.Flow
+                            <androidx.constraintlayout.helper.widget.Flow
                                 android:id="@+id/flowWeeklyStats"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
