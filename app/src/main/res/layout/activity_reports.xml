@@ -426,15 +426,14 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- B2) Performans Analizi kartı (emerald stroke) -->
+            <!-- B2) Performans Analizi kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardAdvancedStats"
                 style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap"
-                app:strokeColor="@color/emerald_primary"
-                app:strokeWidth="1.5dp"
+                app:strokeWidth="0dp"
                 app:cardBackgroundColor="@color/white">
 
                 <LinearLayout
