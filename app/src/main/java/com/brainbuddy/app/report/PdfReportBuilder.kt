@@ -40,10 +40,16 @@ class PdfReportBuilder(
     companion object {
         private const val PAGE_WIDTH = 595
         private const val PAGE_HEIGHT = 842
-        private const val MARGIN = 50f
-        private val EMERALD = Color.rgb(18, 184, 166)
-        private val LIGHT_GRAY = Color.rgb(242, 251, 250)
-        private val TEXT_GRAY = Color.rgb(107, 107, 107)
+        private const val MARGIN = 44f
+        // BrainBuddy color system (strict)
+        private val EMERALD = Color.parseColor("#12B5A6")
+        private val EMERALD_DARK = Color.parseColor("#0FAE9A")
+        private val EMERALD_LIGHT = Color.parseColor("#DFF7F4")
+        private val SURFACE = Color.parseColor("#F7F9FA")
+        private val DIVIDER = Color.parseColor("#E6ECEF")
+        private val TEXT_PRIMARY = Color.parseColor("#1F2A30")
+        private val TEXT_SECONDARY = Color.parseColor("#5F6B73")
+        private val WEAK_TINT = Color.parseColor("#FCEAEA")
         private const val MAX_STEM_LENGTH = 120
         private val CATEGORIES = listOf("Matematik", "Türkçe", "İngilizce", "Sosyal Bilgiler", "Fen Bilimleri")
     }
@@ -62,7 +68,8 @@ class PdfReportBuilder(
             addPage2Charts(document, pageNum, totalPages)
             pageNum++
             addPage3Analysis(document, pageNum, totalPages)
-            addWrongAnswersPages(document, pageNum, totalPages)
+            pageNum += addWrongAnswersPages(document, pageNum, totalPages)
+            addPage5Distraction(document, pageNum, totalPages)
             FileOutputStream(outFile).use { document.writeTo(it) }
         } finally {
             document.close()
@@ -70,30 +77,38 @@ class PdfReportBuilder(
     }
 
     private fun computeTotalPages(): Int {
-        var n = 3
+        var n = 5 // Cover + Dashboard + Subject Analysis + Wrong (min 1) + Distraction
         if (wrongAnswerRecords.isNotEmpty()) {
-            val approxLinesPerPage = 12
-            val totalLines = wrongAnswerRecords.groupBy { it.subject }.values.sumOf { list ->
-                list.size * 4 + 2
-            }
-            n += (totalLines + approxLinesPerPage - 1) / approxLinesPerPage
+            val approxQuestionsPerPage = 8
+            n = 4 + ((wrongAnswerRecords.size * 3 + approxQuestionsPerPage - 1) / approxQuestionsPerPage)
         }
-        return n.coerceAtLeast(4)
+        return n.coerceAtLeast(5)
     }
 
     private fun drawFooter(canvas: Canvas, pageNum: Int, totalPages: Int) {
         val footerPaint = Paint().apply {
-            color = TEXT_GRAY
-            textSize = 9f
+            color = TEXT_SECONDARY
+            textSize = 8f
             typeface = Typeface.DEFAULT
             isAntiAlias = true
         }
-        val footerY = PAGE_HEIGHT - 24f
+        val footerY = PAGE_HEIGHT - 20f
         canvas.drawText("BrainBuddy Öğrenci Performans Raporu", MARGIN, footerY, footerPaint)
         val pageStr = "Sayfa $pageNum / $totalPages"
-        val pageW = footerPaint.measureText(pageStr)
-        canvas.drawText(pageStr, PAGE_WIDTH - MARGIN - pageW, footerY, footerPaint)
-        canvas.drawText(dateFormat.format(Date()), PAGE_WIDTH / 2f - footerPaint.measureText(dateFormat.format(Date())) / 2, footerY, footerPaint)
+        canvas.drawText(pageStr, PAGE_WIDTH - MARGIN - footerPaint.measureText(pageStr), footerY, footerPaint)
+    }
+
+    private fun drawRoundedCard(canvas: Canvas, rect: RectF, paint: Paint, shadow: Boolean = true) {
+        if (shadow) {
+            val shadowRect = RectF(rect.left + 2, rect.top + 2, rect.right + 2, rect.bottom + 2)
+            val shadowPaint = Paint().apply {
+                color = Color.argb(25, 0, 0, 0)
+                style = Paint.Style.FILL
+                isAntiAlias = true
+            }
+            canvas.drawRoundRect(shadowRect, 12f, 12f, shadowPaint)
+        }
+        canvas.drawRoundRect(rect, 12f, 12f, paint)
     }
 
     private fun addPage1Cover(document: PdfDocument, pageNum: Int, totalPages: Int) {
@@ -102,89 +117,132 @@ class PdfReportBuilder(
         val canvas = page.canvas
         canvas.drawColor(Color.WHITE)
 
-        val paintBold = Paint().apply {
-            color = Color.BLACK
-            textSize = 22f
+        // Emerald header bar
+        val headerH = 56f
+        val headerPaint = Paint().apply {
+            color = EMERALD
+            style = Paint.Style.FILL
+            isAntiAlias = true
+        }
+        canvas.drawRoundRect(0f, 0f, PAGE_WIDTH.toFloat(), headerH, 0f, 0f, headerPaint)
+        canvas.drawRect(0f, 0f, PAGE_WIDTH.toFloat(), headerH, headerPaint)
+
+        val headerTextPaint = Paint().apply {
+            color = Color.WHITE
+            textSize = 18f
             typeface = Typeface.DEFAULT_BOLD
             isAntiAlias = true
         }
-        val paintReg = Paint().apply {
-            color = Color.BLACK
-            textSize = 12f
-            typeface = Typeface.DEFAULT
-            isAntiAlias = true
-        }
-        val paintGray = Paint().apply {
-            color = TEXT_GRAY
-            textSize = 11f
-            typeface = Typeface.DEFAULT
-            isAntiAlias = true
-        }
-        val fillPaint = Paint().apply {
-            color = EMERALD
-            style = Paint.Style.FILL
-            isAntiAlias = true
-        }
+        canvas.drawText("BrainBuddy Öğrenci Performans Raporu", MARGIN, headerH - 18f, headerTextPaint)
+        drawLogoPlaceholder(canvas, PAGE_WIDTH - MARGIN - 52, 6f)
 
-        drawLogoPlaceholder(canvas, PAGE_WIDTH - MARGIN - 60, 40f)
+        var y = headerH + 28f
 
-        canvas.drawRect(0f, 0f, PAGE_WIDTH.toFloat(), 4f, fillPaint)
-
-        var y = 70f
-        canvas.drawText("BrainBuddy Öğrenci Performans Raporu", MARGIN, y, paintBold)
-        y += 36f
-
-        paintReg.textSize = 14f
-        canvas.drawText("Öğrenci: ${result.profileName}", MARGIN, y, paintReg)
-        y += 22f
-
-        paintReg.textSize = 11f
-        canvas.drawText("Dönem: ${result.range.labelTr}", MARGIN, y, paintReg)
-        y += 18f
-        canvas.drawText("Oluşturulma: ${dateFormat.format(Date())}", MARGIN, y, paintGray)
-        y += 48f
-
-        val t = result.totals
-        val kpiCard = RectF(MARGIN, y, PAGE_WIDTH - MARGIN, y + 140f)
+        // Summary card (rounded white with soft shadow)
+        val summaryCard = RectF(MARGIN, y, PAGE_WIDTH - MARGIN, y + 118f)
         val cardPaint = Paint().apply {
-            color = LIGHT_GRAY
+            color = Color.WHITE
             style = Paint.Style.FILL
             isAntiAlias = true
         }
-        canvas.drawRoundRect(kpiCard, 12f, 12f, cardPaint)
         val strokePaint = Paint().apply {
-            color = EMERALD
+            color = DIVIDER
             style = Paint.Style.STROKE
             strokeWidth = 1f
             isAntiAlias = true
         }
-        canvas.drawRoundRect(kpiCard, 12f, 12f, strokePaint)
+        drawRoundedCard(canvas, summaryCard, cardPaint)
+        canvas.drawRoundRect(summaryCard, 12f, 12f, strokePaint)
 
-        y += 24f
-        paintReg.textSize = 10f
-        val successStr = if (t.noGradedAnswers) "—" else "%.0f%%".format(t.accuracyPercent)
-        val rows = listOf(
-            "Başarı %" to successStr,
-            "Toplam Test" to t.testCount.toString(),
-            "Doğru" to t.correct.toString(),
-            "Yanlış" to t.wrong.toString(),
-            "Boş" to t.blank.toString(),
-            "Engellenen deneme" to t.blockedCount.toString()
-        )
-        rows.forEach { (label, value) ->
-            canvas.drawText("$label: $value", MARGIN + 16f, y, paintReg)
-            y += 18f
+        val paintReg = Paint().apply {
+            color = TEXT_PRIMARY
+            textSize = 12f
+            typeface = Typeface.DEFAULT
+            isAntiAlias = true
         }
+        val paintSec = Paint().apply {
+            color = TEXT_SECONDARY
+            textSize = 10f
+            typeface = Typeface.DEFAULT
+            isAntiAlias = true
+        }
+        y += 20f
+        paintSec.textSize = 9f
+        canvas.drawText("ÖĞRENCİ BİLGİLERİ", MARGIN + 18f, y, paintSec)
+        y += 18f
+        paintReg.textSize = 13f
+        canvas.drawText("Öğrenci: ${result.profileName}", MARGIN + 18f, y, paintReg)
+        y += 20f
+        paintReg.textSize = 11f
+        canvas.drawText("Rapor Dönemi: ${result.range.labelTr}", MARGIN + 18f, y, paintReg)
+        y += 16f
+        canvas.drawText("Oluşturulma: ${dateFormat.format(Date())}", MARGIN + 18f, y, paintSec)
+        y += 36f
 
-        y += 24f
+        // Big success block
+        val successStr = if (result.totals.noGradedAnswers) "—" else "%.0f%%".format(result.totals.accuracyPercent)
+        val successBlock = RectF(MARGIN, y, PAGE_WIDTH - MARGIN, y + 90f)
+        val successBgPaint = Paint().apply {
+            color = EMERALD_LIGHT
+            style = Paint.Style.FILL
+            isAntiAlias = true
+        }
+        drawRoundedCard(canvas, successBlock, successBgPaint)
+        val bigLabel = Paint().apply {
+            color = TEXT_SECONDARY
+            textSize = 12f
+            typeface = Typeface.DEFAULT
+            isAntiAlias = true
+        }
+        val bigValue = Paint().apply {
+            color = EMERALD_DARK
+            textSize = 36f
+            typeface = Typeface.DEFAULT_BOLD
+            textAlign = Paint.Align.CENTER
+            isAntiAlias = true
+        }
+        canvas.drawText("BAŞARI ORANI", (MARGIN + PAGE_WIDTH - MARGIN) / 2f - bigLabel.measureText("BAŞARI ORANI") / 2f, y + 28f, bigLabel)
+        canvas.drawText(successStr, (PAGE_WIDTH) / 2f, y + 62f, bigValue)
+        y += 100f
+
+        // Metric chips (emerald light background)
+        val t = result.totals
+        val chipLabels = listOf("Test: ${t.testCount}", "Doğru: ${t.correct}", "Yanlış: ${t.wrong}", "Boş: ${t.blank}")
+        val chipPaint = Paint().apply {
+            color = EMERALD_LIGHT
+            style = Paint.Style.FILL
+            isAntiAlias = true
+        }
+        val chipTextPaint = Paint().apply {
+            color = TEXT_PRIMARY
+            textSize = 10f
+            typeface = Typeface.DEFAULT
+            isAntiAlias = true
+        }
+        var chipX = MARGIN
+        chipLabels.forEach { label ->
+            val w = chipTextPaint.measureText(label) + 20f
+            val chipRect = RectF(chipX, y, chipX + w, y + 24f)
+            canvas.drawRoundRect(chipRect, 12f, 12f, chipPaint)
+            canvas.drawText(label, chipX + 10f, y + 16f, chipTextPaint)
+            chipX += w + 8f
+        }
+        y += 40f
+
+        // Trend indicator
         val trendArrow = when (result.trendDirection) {
             1 -> "↑"
             -1 -> "↓"
             else -> "→"
         }
-        val trendText = "Trend: Son 3 test vs önceki 3 test: $trendArrow %+.0f%%".format(result.trendDelta)
-        paintReg.color = EMERALD
-        canvas.drawText(trendText, MARGIN, y, paintReg)
+        val trendText = "Trend: $trendArrow %+.0f%% — Son 3 test vs önceki 3 test".format(result.trendDelta)
+        val trendPaint = Paint().apply {
+            color = EMERALD
+            textSize = 11f
+            typeface = Typeface.DEFAULT
+            isAntiAlias = true
+        }
+        canvas.drawText(trendText, MARGIN, y, trendPaint)
 
         drawFooter(canvas, pageNum, totalPages)
         document.finishPage(page)
@@ -223,67 +281,84 @@ class PdfReportBuilder(
         canvas.drawColor(Color.WHITE)
 
         val paintBold = Paint().apply {
-            color = Color.BLACK
+            color = TEXT_PRIMARY
             typeface = Typeface.DEFAULT_BOLD
             isAntiAlias = true
         }
         val paintReg = Paint().apply {
-            color = Color.BLACK
+            color = TEXT_PRIMARY
             typeface = Typeface.DEFAULT
             isAntiAlias = true
         }
-        val fillPaint = Paint().apply {
-            color = EMERALD
-            style = Paint.Style.FILL
+        val paintSec = Paint().apply {
+            color = TEXT_SECONDARY
+            typeface = Typeface.DEFAULT
             isAntiAlias = true
         }
 
         var y = MARGIN
-        drawSectionTitle(canvas, "Grafikler", y, paintBold, fillPaint)
-        y += 40f
+        drawSectionTitle(canvas, "Performans Analizi", y, paintBold)
+        y += 36f
 
-        paintBold.textSize = 12f
-        canvas.drawText("Son 10 Test Başarı Oranı", MARGIN, y, paintBold)
-        y += 18f
+        // Card 1: Line chart
+        val card1H = if (lineChartBitmap != null) 300f else 150f
+        val card1Rect = RectF(MARGIN, y, PAGE_WIDTH - MARGIN, y + card1H)
+        drawRoundedCard(canvas, card1Rect, Paint().apply { color = Color.WHITE; style = Paint.Style.FILL; isAntiAlias = true })
+        canvas.drawRoundRect(card1Rect, 12f, 12f, Paint().apply { color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true })
+
+        paintBold.textSize = 13f
+        paintBold.color = EMERALD_DARK
+        canvas.drawText("Son 10 Test Başarı Oranı", MARGIN + 18f, y + 28f, paintBold)
+        paintBold.color = TEXT_PRIMARY
 
         if (lineChartBitmap != null) {
-            val imgW = 480f
-            val imgH = 220f
-            canvas.drawBitmap(lineChartBitmap, null, RectF(MARGIN, y, MARGIN + imgW, y + imgH), null)
-            y += imgH + 12f
+            val imgW = PAGE_WIDTH - MARGIN * 2 - 36f
+            val imgH = 180f
+            canvas.drawBitmap(lineChartBitmap, null, RectF(MARGIN + 18f, y + 40f, MARGIN + 18f + imgW, y + 40f + imgH), null)
+            y += 40f + imgH + 12f
+        } else {
+            y += 50f
+            paintSec.textSize = 10f
+            canvas.drawText("Veri yetersiz (en az 2 test gerekli)", MARGIN + 18f, y, paintSec)
+            y += 20f
         }
 
-        paintReg.textSize = 9f
-        canvas.drawText("Her nokta 1 testtir. Başarı = doğru/(doğru+yanlış). Boşlar başarıya dahil edilmez.", MARGIN, y, paintReg)
-        y += 12f
-        canvas.drawText("En az 1 soru cevaplanmalı (tam boş testler grafikte gösterilmez).", MARGIN, y, paintReg)
+        paintSec.textSize = 9f
+        canvas.drawText("Her nokta 1 testi temsil eder. Başarı = doğru / (doğru + yanlış)", MARGIN + 18f, y, paintSec)
         y += 28f
 
-        paintBold.textSize = 12f
-        canvas.drawText("Konulara Göre (Doğru/Toplam)", MARGIN, y, paintBold)
-        y += 18f
-
-        if (barChartBitmap != null) {
-            val imgW = 480f
-            val imgH = kotlin.math.min(220f, barChartBitmap.height * (imgW / barChartBitmap.width))
-            canvas.drawBitmap(barChartBitmap, null, RectF(MARGIN, y, MARGIN + imgW, y + imgH), null)
-            y += imgH + 20f
-        }
-
-        val commentBox = RectF(MARGIN, y, PAGE_WIDTH - MARGIN, y + 44f)
-        val boxPaint = Paint().apply {
-            color = LIGHT_GRAY
+        // Grafik Yorumu box (light emerald)
+        val yorumBox = RectF(MARGIN + 18f, y, PAGE_WIDTH - MARGIN - 18f, y + 40f)
+        val yorumPaint = Paint().apply {
+            color = EMERALD_LIGHT
             style = Paint.Style.FILL
             isAntiAlias = true
         }
-        canvas.drawRoundRect(commentBox, 8f, 8f, boxPaint)
+        canvas.drawRoundRect(yorumBox, 8f, 8f, yorumPaint)
         paintReg.textSize = 10f
         val grafYorum = when (result.trendDirection) {
-            1 -> "Grafik Yorumu: Son testlerde başarı artıyor."
-            -1 -> "Grafik Yorumu: Son testlerde başarı azalıyor."
-            else -> "Grafik Yorumu: Başarı oranı stabil."
+            1 -> "Son testlerde başarı oranında yükseliş gözlemlenmektedir."
+            -1 -> "Son testlerde başarı oranında düşüş görülmektedir. Bazı testlerde ani düşüşler olabilir."
+            else -> "Başarı oranı stabil seyretmektedir. Tutarlı performans devam ediyor."
         }
-        canvas.drawText(grafYorum, MARGIN + 12f, y + 26f, paintReg)
+        canvas.drawText("Grafik Yorumu: $grafYorum", MARGIN + 26f, y + 24f, paintReg)
+        y += 56f
+
+        // Card 2: Subject performance bars
+        paintBold.textSize = 13f
+        paintBold.color = EMERALD_DARK
+        canvas.drawText("Konulara Göre Başarı", MARGIN, y, paintBold)
+        paintBold.color = TEXT_PRIMARY
+        y += 22f
+
+        if (barChartBitmap != null) {
+            val imgW = PAGE_WIDTH - MARGIN * 2
+            val imgH = kotlin.math.min(200f, barChartBitmap.height * (imgW / barChartBitmap.width))
+            val card2Rect = RectF(MARGIN, y - 4f, PAGE_WIDTH - MARGIN, y + imgH + 20f)
+            drawRoundedCard(canvas, card2Rect, Paint().apply { color = Color.WHITE; style = Paint.Style.FILL; isAntiAlias = true })
+            canvas.drawRoundRect(card2Rect, 12f, 12f, Paint().apply { color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true })
+            canvas.drawBitmap(barChartBitmap, null, RectF(MARGIN + 12f, y + 4f, PAGE_WIDTH - MARGIN - 12f, y + 4f + imgH), null)
+        }
 
         drawFooter(canvas, pageNum, totalPages)
         document.finishPage(page)
@@ -296,17 +371,17 @@ class PdfReportBuilder(
         canvas.drawColor(Color.WHITE)
 
         val paintBold = Paint().apply {
-            color = Color.BLACK
+            color = TEXT_PRIMARY
             typeface = Typeface.DEFAULT_BOLD
             isAntiAlias = true
         }
         val paintReg = Paint().apply {
-            color = Color.BLACK
+            color = TEXT_PRIMARY
             typeface = Typeface.DEFAULT
             isAntiAlias = true
         }
-        val paintGray = Paint().apply {
-            color = TEXT_GRAY
+        val paintSec = Paint().apply {
+            color = TEXT_SECONDARY
             typeface = Typeface.DEFAULT
             isAntiAlias = true
         }
@@ -315,14 +390,9 @@ class PdfReportBuilder(
             typeface = Typeface.DEFAULT
             isAntiAlias = true
         }
-        val fillPaint = Paint().apply {
-            color = EMERALD
-            style = Paint.Style.FILL
-            isAntiAlias = true
-        }
 
         var y = MARGIN
-        drawSectionTitle(canvas, "Ders Analizi + Öneriler", y, paintBold, fillPaint)
+        drawSectionTitle(canvas, "Ders Analizi", y, paintBold)
         y += 40f
 
         val subjects = result.perSubject.entries
@@ -336,71 +406,77 @@ class PdfReportBuilder(
         val strongest = subjects.maxByOrNull { it.third }?.first
         val weakest = subjects.minByOrNull { it.third }?.first
 
-        paintReg.textSize = 10f
-        paintGray.textSize = 9f
-
         if (subjects.isEmpty()) {
+            paintReg.textSize = 11f
             canvas.drawText("Bu dönemde ders verisi yok.", MARGIN, y, paintReg)
         } else {
             for ((name, tc, successPct) in subjects) {
-                val badges = mutableListOf<String>()
-                if (name == strongest) badges.add("★ En güçlü")
-                if (name == weakest) badges.add("▲ En zayıf")
-                val line = "$name — Başarı: %.0f%% | Doğru: ${tc.correct} | Yanlış: ${tc.wrong} | Boş: ${tc.blank}".format(successPct)
-                canvas.drawText(line, MARGIN, y, paintReg)
-                y += 14f
-                if (badges.isNotEmpty()) {
-                    canvas.drawText(badges.joinToString(" "), MARGIN + 8f, y, paintGray)
-                    y += 16f
-                } else y += 6f
+                val isWeak = name == weakest && successPct < 60f
+                val cardBg = Paint().apply {
+                    color = if (isWeak) WEAK_TINT else Color.WHITE
+                    style = Paint.Style.FILL
+                    isAntiAlias = true
+                }
+                val cardH = if (name == strongest || name == weakest) 68f else 54f
+                val subjectCard = RectF(MARGIN, y, PAGE_WIDTH - MARGIN, y + cardH)
+                drawRoundedCard(canvas, subjectCard, cardBg)
+                canvas.drawRoundRect(subjectCard, 12f, 12f, Paint().apply { color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true })
+
+                paintBold.textSize = 13f
+                canvas.drawText(name, MARGIN + 16f, y + 20f, paintBold)
+                paintReg.textSize = 10f
+                canvas.drawText("Başarı: %.0f%%  |  Doğru: ${tc.correct}  |  Yanlış: ${tc.wrong}".format(successPct), MARGIN + 16f, y + 36f, paintReg)
+
+                when {
+                    name == strongest -> {
+                        val badgePaint = Paint().apply {
+                            color = EMERALD
+                            textSize = 9f
+                            typeface = Typeface.DEFAULT
+                            isAntiAlias = true
+                        }
+                        val badgeRect = RectF(PAGE_WIDTH - MARGIN - 95, y + 10f, PAGE_WIDTH - MARGIN - 16, y + 26f)
+                        val badgeBg = Paint().apply { color = EMERALD_LIGHT; style = Paint.Style.FILL; isAntiAlias = true }
+                        canvas.drawRoundRect(badgeRect, 6f, 6f, badgeBg)
+                        canvas.drawText("★ En güçlü alan", PAGE_WIDTH - MARGIN - 90, y + 23f, badgePaint)
+                    }
+                    name == weakest && successPct < 60f -> {
+                        val badgePaint = Paint().apply {
+                            color = TEXT_SECONDARY
+                            textSize = 9f
+                            typeface = Typeface.DEFAULT
+                            isAntiAlias = true
+                        }
+                        canvas.drawText("▲ Geliştirme gerekli", PAGE_WIDTH - MARGIN - 105, y + 23f, badgePaint)
+                    }
+                }
+                y += cardH + 10f
             }
         }
 
-        y += 16f
+        y += 12f
+        // Recommendation box
+        val recCard = RectF(MARGIN, y, PAGE_WIDTH - MARGIN, y + 60f)
+        val recBg = Paint().apply {
+            color = EMERALD_LIGHT
+            style = Paint.Style.FILL
+            isAntiAlias = true
+        }
+        drawRoundedCard(canvas, recCard, recBg)
         paintBold.textSize = 11f
-        canvas.drawText("Öneriler", MARGIN, y, paintBold)
-        y += 16f
+        paintBold.color = EMERALD_DARK
+        canvas.drawText("Öneri", MARGIN + 16f, y + 18f, paintBold)
+        paintBold.color = TEXT_PRIMARY
         paintReg.textSize = 10f
-        val recommendations = mutableListOf<String>()
-        subjects.filter { (_, _, pct) -> pct < 60f }.forEach { (name, _, _) ->
-            recommendations.add("• $name başarısı düşük: Bu dersten mini test önerilir.")
+        val weakSubs = subjects.filter { (name, _, pct) -> pct < 60f }
+        val recText = when {
+            weakSubs.isEmpty() -> "Mevcut performans iyi. Düzenli çalışmaya devam edin."
+            else -> "${weakSubs.joinToString(", ") { it.first }} başarı oranı düşük. Mini testlerle güçlendirilmesi önerilir."
         }
-        if (result.totals.accuracyPercent < 60f && !result.totals.noGradedAnswers) {
-            recommendations.add("• Genel başarı hedefi: Günlük test hedefi belirleyin.")
-        }
-        if (recommendations.isEmpty()) {
-            canvas.drawText("• Mevcut performans iyi. Düzenli çalışmaya devam edin.", MARGIN, y, paintReg)
-            y += 16f
-        } else {
-            recommendations.forEach { rec ->
-                canvas.drawText(rec, MARGIN, y, paintReg)
-                y += 14f
-            }
-        }
+        canvas.drawText(recText, MARGIN + 16f, y + 38f, paintReg)
+        y += 72f
 
-        y += 20f
-        paintBold.textSize = 11f
-        canvas.drawText("En çok denenen uygulamalar", MARGIN, y, paintBold)
-        y += 16f
-        paintReg.textSize = 10f
-        val topApps = result.attemptedApps.take(5)
-        val maxCount = topApps.maxOfOrNull { it.second } ?: 1
-        for ((pkg, count) in topApps) {
-            val label = resolveAppLabel(pkg)
-            val barW = 120f * (count.toFloat() / maxCount)
-            canvas.drawText(label, MARGIN, y + 10f, paintReg)
-            val barRect = RectF(PAGE_WIDTH - MARGIN - 150, y - 4, PAGE_WIDTH - MARGIN - 150 + barW, y + 12)
-            canvas.drawRoundRect(barRect, 4f, 4f, fillPaint)
-            canvas.drawText("$count", PAGE_WIDTH - MARGIN - 30, y + 10f, paintGray)
-            y += 24f
-        }
-        if (topApps.isEmpty()) {
-            canvas.drawText("Veri yok.", MARGIN, y, paintGray)
-            y += 20f
-        }
-
-        y += 16f
-        paintBold.textSize = 11f
+        paintSec.textSize = 10f
         canvas.drawText("Toplam XP: ${result.totals.totalXp}", MARGIN, y, paintEmerald)
 
         drawFooter(canvas, pageNum, totalPages)
@@ -424,22 +500,17 @@ class PdfReportBuilder(
             val canvas = page.canvas
             canvas.drawColor(Color.WHITE)
             val paintBold = Paint().apply {
-                color = Color.BLACK
+                color = TEXT_PRIMARY
                 typeface = Typeface.DEFAULT_BOLD
                 isAntiAlias = true
             }
-            val fillPaint = Paint().apply {
-                color = EMERALD
-                style = Paint.Style.FILL
-                isAntiAlias = true
-            }
-            drawSectionTitle(canvas, "Yanlış Yapılan Sorular (Kategorili)", MARGIN, paintBold, fillPaint)
+            drawSectionTitle(canvas, "Yanlış Yapılan Sorular", MARGIN + 32f, paintBold)
             val paintReg = Paint().apply {
-                color = Color.BLACK
+                color = TEXT_SECONDARY
                 textSize = 11f
                 isAntiAlias = true
             }
-            canvas.drawText("Bu dönemde yanlış cevap kaydı yok.", MARGIN, MARGIN + 60f, paintReg)
+            canvas.drawText("Bu dönemde yanlış cevap kaydı yok.", MARGIN + 18f, MARGIN + 72f, paintReg)
             drawFooter(canvas, startPageNum, totalPages)
             document.finishPage(page)
             return 1
@@ -457,7 +528,7 @@ class PdfReportBuilder(
         var currentPage: PdfDocument.Page? = null
         var canvas: Canvas? = null
         var y = 0f
-        val contentBottom = PAGE_HEIGHT - 50f
+        val contentBottom = PAGE_HEIGHT - 55f
 
         fun ensurePage() {
             if (currentPage == null || y > contentBottom) {
@@ -467,18 +538,13 @@ class PdfReportBuilder(
                 canvas = currentPage!!.canvas
                 canvas!!.drawColor(Color.WHITE)
                 if (pageNum == startPageNum) {
-                    val paintBold = Paint().apply {
-                        color = Color.BLACK
+                    val titlePaint = Paint().apply {
+                        color = TEXT_PRIMARY
                         typeface = Typeface.DEFAULT_BOLD
                         isAntiAlias = true
                     }
-                    val fillPaint = Paint().apply {
-                        color = EMERALD
-                        style = Paint.Style.FILL
-                        isAntiAlias = true
-                    }
-                    drawSectionTitle(canvas!!, "Yanlış Yapılan Sorular (Kategorili)", MARGIN, paintBold, fillPaint)
-                    y = MARGIN + 48f
+                    drawSectionTitle(canvas!!, "Yanlış Yapılan Sorular", MARGIN + 32f, titlePaint)
+                    y = MARGIN + 52f
                 } else {
                     y = MARGIN + 24f
                 }
@@ -487,40 +553,41 @@ class PdfReportBuilder(
         }
 
         val paintBold = Paint().apply {
-            color = Color.BLACK
-            textSize = 11f
+            color = TEXT_PRIMARY
+            textSize = 12f
             typeface = Typeface.DEFAULT_BOLD
             isAntiAlias = true
         }
         val paintReg = Paint().apply {
-            color = Color.BLACK
+            color = TEXT_PRIMARY
+            textSize = 10f
+            typeface = Typeface.DEFAULT
+            isAntiAlias = true
+        }
+        val paintSec = Paint().apply {
+            color = TEXT_SECONDARY
             textSize = 9f
             typeface = Typeface.DEFAULT
             isAntiAlias = true
         }
-        val paintGray = Paint().apply {
-            color = TEXT_GRAY
-            textSize = 8f
-            typeface = Typeface.DEFAULT
-            isAntiAlias = true
-        }
-
+        val cardBg = Paint().apply { color = Color.WHITE; style = Paint.Style.FILL; isAntiAlias = true }
         for ((subject, records) in byCategory.entries.sortedByDescending { it.value.size }) {
-            ensurePage()
-            canvas!!.drawText("$subject (${records.size} yanlış)", MARGIN, y, paintBold)
-            y += 18f
-
             for (r in records) {
                 ensurePage()
                 val stemShort = if (r.stem.length > MAX_STEM_LENGTH) r.stem.take(MAX_STEM_LENGTH) + "…" else r.stem
-                canvas!!.drawText("Soru: $stemShort", MARGIN + 8f, y, paintReg)
-                y += 12f
-                canvas!!.drawText("Öğrenci Cevabı: ${r.userAnswer}  |  Doğru: ${r.correctAnswer}", MARGIN + 8f, y, paintGray)
-                y += 10f
-                canvas!!.drawText("Test tarihi: ${dateFormatShort.format(Date(r.dateMs))}", MARGIN + 8f, y, paintGray)
-                y += 16f
+                val cardH = 72f
+                val qCard = RectF(MARGIN + 8f, y, PAGE_WIDTH - MARGIN - 8f, y + cardH)
+                drawRoundedCard(canvas!!, qCard, cardBg, shadow = false)
+                canvas.drawRoundRect(qCard, 10f, 10f, Paint().apply { color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true })
+
+                paintBold.textSize = 11f
+                canvas!!.drawText(subject, MARGIN + 20f, y + 16f, paintBold)
+                paintReg.textSize = 9f
+                canvas!!.drawText("Soru: $stemShort", MARGIN + 20f, y + 32f, paintReg)
+                canvas!!.drawText("Öğrenci cevabı: ${r.userAnswer}  |  Doğru cevap: ${r.correctAnswer}", MARGIN + 20f, y + 46f, paintSec)
+                canvas!!.drawText("Kategori: ${r.category ?: subject}  |  Test tarihi: ${dateFormatShort.format(Date(r.dateMs))}", MARGIN + 20f, y + 60f, paintSec)
+                y += cardH + 8f
             }
-            y += 12f
         }
 
         currentPage?.let {
@@ -530,11 +597,79 @@ class PdfReportBuilder(
         return (pageNum - startPageNum).coerceAtLeast(1)
     }
 
-    private fun drawSectionTitle(canvas: Canvas, title: String, y: Float, titlePaint: Paint, fillPaint: Paint) {
-        canvas.drawRect(MARGIN, y - 24f, PAGE_WIDTH - MARGIN, y, fillPaint)
+    private fun addPage5Distraction(document: PdfDocument, pageNum: Int, totalPages: Int) {
+        val pageInfo = PdfDocument.PageInfo.Builder(PAGE_WIDTH, PAGE_HEIGHT, pageNum).create()
+        val page = document.startPage(pageInfo)
+        val canvas = page.canvas
+        canvas.drawColor(Color.WHITE)
+
+        val paintBold = Paint().apply {
+            color = TEXT_PRIMARY
+            typeface = Typeface.DEFAULT_BOLD
+            isAntiAlias = true
+        }
+        val paintReg = Paint().apply {
+            color = TEXT_PRIMARY
+            typeface = Typeface.DEFAULT
+            isAntiAlias = true
+        }
+        val paintSec = Paint().apply {
+            color = TEXT_SECONDARY
+            typeface = Typeface.DEFAULT
+            isAntiAlias = true
+        }
+
+        var y = MARGIN
+        drawSectionTitle(canvas, "Dikkat Dağıtıcı Uygulama Denemeleri", y, paintBold)
+        y += 44f
+
+        val topApps = result.attemptedApps.take(8)
+        val maxCount = topApps.maxOfOrNull { it.second } ?: 1
+
+        if (topApps.isEmpty()) {
+            paintReg.textSize = 11f
+            canvas.drawText("Bu dönemde engellenen uygulama denemesi kaydı yok.", MARGIN, y, paintReg)
+        } else {
+            val cardRect = RectF(MARGIN, y, PAGE_WIDTH - MARGIN, y + 28f * topApps.size + 56f)
+            drawRoundedCard(canvas, cardRect, Paint().apply { color = Color.WHITE; style = Paint.Style.FILL; isAntiAlias = true })
+            canvas.drawRoundRect(cardRect, 12f, 12f, Paint().apply { color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true })
+
+            paintReg.textSize = 10f
+            topApps.forEach { (pkg, count) ->
+                val label = resolveAppLabel(pkg)
+                val barW = 180f * (count.toFloat() / maxCount.coerceAtLeast(1))
+                canvas.drawText(label, MARGIN + 18f, y + 20f, paintReg)
+                val barPaint = Paint().apply {
+                    color = EMERALD
+                    style = Paint.Style.FILL
+                    isAntiAlias = true
+                }
+                val barRect = RectF(PAGE_WIDTH - MARGIN - 220f, y + 8f, PAGE_WIDTH - MARGIN - 220f + barW, y + 22f)
+                canvas.drawRoundRect(barRect, 4f, 4f, barPaint)
+                paintSec.textSize = 10f
+                canvas.drawText("$count", PAGE_WIDTH - MARGIN - 30f, y + 18f, paintSec)
+                y += 28f
+            }
+            y += 16f
+            paintSec.textSize = 10f
+            canvas.drawText("Öğrenci bu uygulamalara erişmeye çalışmıştır.", MARGIN + 18f, y, paintSec)
+        }
+
+        drawFooter(canvas, pageNum, totalPages)
+        document.finishPage(page)
+    }
+
+    private fun drawSectionTitle(canvas: Canvas, title: String, y: Float, titlePaint: Paint) {
+        val fillPaint = Paint().apply {
+            color = EMERALD
+            style = Paint.Style.FILL
+            isAntiAlias = true
+        }
+        canvas.drawRoundRect(MARGIN, y - 28f, PAGE_WIDTH - MARGIN, y + 4f, 8f, 8f, fillPaint)
+        val saved = titlePaint.color
         titlePaint.color = Color.WHITE
-        titlePaint.textSize = 14f
-        canvas.drawText(title, MARGIN + 8f, y - 6f, titlePaint)
-        titlePaint.color = Color.BLACK
+        titlePaint.textSize = 15f
+        canvas.drawText(title, MARGIN + 12f, y - 10f, titlePaint)
+        titlePaint.color = saved
     }
 }

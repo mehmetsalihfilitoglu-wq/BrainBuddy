@@ -43,12 +43,27 @@ object PdfReportGenerator {
             } else null
 
             val barChartBitmap = if (result.perSubject.isNotEmpty()) {
-                val bars = result.perSubject.entries
-                    .sortedByDescending { it.value.correct }
+                val sorted = result.perSubject.entries
+                    .map { (name, tc) -> name to tc }
+                    .sortedByDescending { it.second.correct }
                     .take(10)
-                    .map { (name, tc) -> Triple(name, tc.correct, tc.total) }
+                val bars = sorted.map { (name, tc) -> Triple(name, tc.correct, tc.total) }
+                val strongest = sorted.maxByOrNull { (_, tc) ->
+                    val g = tc.correct + tc.wrong
+                    if (g > 0) tc.correct.toFloat() / g else 0f
+                }?.first
+                val weakest = sorted.minByOrNull { (_, tc) ->
+                    val g = tc.correct + tc.wrong
+                    if (g > 0) tc.correct.toFloat() / g else 1f
+                }?.first
+                val mostWrong = sorted.maxByOrNull { (_, tc) -> tc.wrong }?.first
+                val labels = buildMap {
+                    strongest?.let { put(it, "★ En güçlü") }
+                    weakest?.let { if (it != strongest) put(it, "▲ En zayıf") }
+                    mostWrong?.let { if (it != strongest && it != weakest) put(it, "⚠ En çok yanlış") }
+                }
                 withContext(Dispatchers.Default) {
-                    ChartRenderer.renderBarChart(bars)
+                    ChartRenderer.renderBarChart(bars, labels)
                 }
             } else null
 
