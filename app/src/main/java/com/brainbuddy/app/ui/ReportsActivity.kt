@@ -13,6 +13,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import androidx.core.widget.NestedScrollView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
@@ -71,10 +72,13 @@ class ReportsActivity : AppCompatActivity() {
         try {
             val b = ActivityReportsBinding.inflate(layoutInflater)
             setContentView(b.root)
-            val scroll = b.reportsMainScroll
-            if (scroll is ScrollView) scroll.isVerticalScrollBarEnabled = false
-            else if (scroll is androidx.core.widget.NestedScrollView) scroll.isVerticalScrollBarEnabled = false
-            scroll.overScrollMode = View.OVER_SCROLL_NEVER
+            val scrollView = findViewById<View>(R.id.reportsMainScroll)
+
+            (scrollView as? ScrollView)?.isVerticalScrollBarEnabled = false
+            (scrollView as? NestedScrollView)?.isVerticalScrollBarEnabled = false
+
+            scrollView.isVerticalScrollBarEnabled = false   // works because View has it too
+            scrollView.overScrollMode = View.OVER_SCROLL_NEVER
             setSupportActionBar(b.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
