@@ -69,7 +69,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:padding="@dimen/reports_screen_horizontal">
+        android:padding="@dimen/reports_screen_horizontal"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -479,6 +480,7 @@
 
                         <!-- A) Weak Subjects -->
                         <TextView
+                            android:id="@+id/tvWeakLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/perf_weak_label"
@@ -505,6 +507,7 @@
 
                         <!-- B) Strong Subjects -->
                         <TextView
+                            android:id="@+id/tvStrongLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_12"

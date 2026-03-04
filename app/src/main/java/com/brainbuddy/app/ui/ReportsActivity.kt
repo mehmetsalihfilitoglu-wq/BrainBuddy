@@ -305,12 +305,20 @@ class ReportsActivity : AppCompatActivity() {
             b.advancedStatsEmpty.visibility = View.GONE
 
             // A) Weak subjects – chips
-            bindSubjectChips(b.flowWeakChips, adv.weakSubjects.take(3), isWeak = true)
-            b.tvWeakNone.visibility = if (adv.weakSubjects.isEmpty()) View.VISIBLE else View.GONE
+            val weakSubjects = adv.weakSubjects.take(3)
+            bindSubjectChips(b.flowWeakChips, weakSubjects, isWeak = true)
+            val hasWeak = weakSubjects.isNotEmpty()
+            b.tvWeakLabel.visibility = if (hasWeak) View.VISIBLE else View.GONE
+            b.flowWeakChips.visibility = if (hasWeak) View.VISIBLE else View.GONE
+            b.tvWeakNone.visibility = View.GONE
 
             // B) Strong subjects – chips
-            bindSubjectChips(b.flowStrongChips, adv.strongSubjects.take(3), isWeak = false)
-            b.tvStrongNone.visibility = if (adv.strongSubjects.isEmpty()) View.VISIBLE else View.GONE
+            val strongSubjects = adv.strongSubjects.take(3)
+            bindSubjectChips(b.flowStrongChips, strongSubjects, isWeak = false)
+            val hasStrong = strongSubjects.isNotEmpty()
+            b.tvStrongLabel.visibility = if (hasStrong) View.VISIBLE else View.GONE
+            b.flowStrongChips.visibility = if (hasStrong) View.VISIBLE else View.GONE
+            b.tvStrongNone.visibility = View.GONE
 
             // C) Trend
             val (trendText, trendDrawable) = when (adv.trendDirection) {
