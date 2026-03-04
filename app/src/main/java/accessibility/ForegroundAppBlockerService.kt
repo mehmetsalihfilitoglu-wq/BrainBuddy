@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import java.util.concurrent.atomic.AtomicBoolean
 import android.view.accessibility.AccessibilityEvent
-import com.brainbuddy.app.HomeActivity
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.ProtectionPrefs
@@ -28,6 +28,7 @@ class ForegroundAppBlockerService : AccessibilityService() {
     }
     private var lastGateLaunchMs = 0L
     private val handler = Handler(Looper.getMainLooper())
+    private val gateLaunchGuard = AtomicBoolean(false)
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         try {
@@ -45,6 +46,7 @@ class ForegroundAppBlockerService : AccessibilityService() {
 
             val now = System.currentTimeMillis()
             if (now - lastGateLaunchMs < DEBOUNCE_MS) return
+            if (!gateLaunchGuard.compareAndSet(false, true)) return
             lastGateLaunchMs = now
 
             TamperStore(this).logEvent(TamperStore.TamperType.BYPASS_ATTEMPT)
@@ -57,7 +59,7 @@ class ForegroundAppBlockerService : AccessibilityService() {
             } catch (_: Exception) { /* best-effort */ }
 
             handler.postDelayed({
-                launchGate(pkg)
+                try { launchGate(pkg) } finally { gateLaunchGuard.set(false) }
             }, DELAY_AFTER_HOME_MS)
         } catch (e: Exception) {
             Log.e(TAG, "onAccessibilityEvent error", e)

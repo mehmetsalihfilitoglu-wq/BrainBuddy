@@ -16,6 +16,7 @@ import com.brainbuddy.app.core.AppGroupPresets
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.OnboardingPrefs
+import com.brainbuddy.app.core.ProtectionMonitorScheduler
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.ScheduleStore
 import com.brainbuddy.app.security.EmergencyCodeManager
@@ -151,6 +152,7 @@ class OnboardingWizardActivity : AppCompatActivity() {
             }
             ProtectionPrefs(this).setQuizIntervalMinutes(mins)
             ProtectionPrefs(this).setProtectionEnabled(true)
+            ProtectionMonitorScheduler.onProtectionChanged(this, true)
             showStep(6)
         }
         container.addView(v)

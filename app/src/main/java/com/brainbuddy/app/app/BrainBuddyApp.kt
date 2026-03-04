@@ -14,6 +14,8 @@ import com.brainbuddy.app.core.CrashRecoveryPrefs
 import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.PermissionMonitorLauncher
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.resilience.AccessibilityCheckWorker
+import com.brainbuddy.app.resilience.AccessibilityMonitorService
 import com.brainbuddy.app.league.LeagueScheduler
 import com.brainbuddy.app.report.ReportScheduler
 import com.google.android.gms.ads.MobileAds
@@ -27,6 +29,10 @@ class BrainBuddyApp : Application() {
         ActiveProfileManager.getActiveProfileId(this)
         AppModeManager.registerLifecycle(this)
         PermissionMonitorLauncher.scheduleCheck(this)
+        if (ProtectionPrefs(this).isProtectionEnabledRaw()) {
+            AccessibilityMonitorService.start(this)
+            AccessibilityCheckWorker.schedulePeriodic(this)
+        }
         ReportScheduler.schedule(this)
         LeagueScheduler.scheduleNextReset(this)
 

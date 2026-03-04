@@ -70,9 +70,7 @@ class PinLockActivity : AppCompatActivity() {
                         pin.fill('\u0000')
                         val prefs = ProtectionPrefs(this)
                         if (prefs.isPermissionLocked()) {
-                            prefs.setPermissionDisabledLockReason("")
-                            prefs.setUserLocked(false)
-                            com.brainbuddy.app.core.PermissionMonitor.cancelProtectionOffNotification(this)
+                            com.brainbuddy.app.core.LockModeMonitor.onParentPinVerified(this)
                         }
                         AppModeManager.enterParentMode()
                         navigateToTarget()
@@ -94,6 +92,7 @@ class PinLockActivity : AppCompatActivity() {
                     pinManager.setPin(pin)
                     pin.fill('\u0000')
                     confirm.fill('\u0000')
+                    com.brainbuddy.app.core.LockModeDataStore(this).syncParentPinFromManager()
                     Toast.makeText(this, R.string.pin_saved, Toast.LENGTH_SHORT).show()
                     AppModeManager.enterParentMode()
                     navigateToTarget()

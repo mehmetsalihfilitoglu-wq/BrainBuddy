@@ -30,8 +30,10 @@ object ProtectionNotificationHelper {
 
     fun showProtectionOffNotification(context: Context) {
         ensureChannel(context)
-        val intent = Intent(context, LockScreenActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        val intent = Intent(context, com.brainbuddy.app.ui.PinLockActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            putExtra(com.brainbuddy.app.ui.PinLockActivity.EXTRA_MODE, "verify")
+            putExtra(com.brainbuddy.app.ui.PinLockActivity.EXTRA_TARGET, "PermissionsChecklistActivity")
         }
         val pending = PendingIntent.getActivity(
             context, 0, intent,

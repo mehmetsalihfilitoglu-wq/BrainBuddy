@@ -8,6 +8,7 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.NotificationPrefs
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.BackupManager
+import com.brainbuddy.app.core.ProtectionMonitorScheduler
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.StudentLevel
 
@@ -51,6 +52,7 @@ class SettingsActivity : AppCompatActivity() {
 
         switchProtection.setOnCheckedChangeListener { _, isChecked ->
             prefs.setProtectionEnabled(isChecked)
+            ProtectionMonitorScheduler.onProtectionChanged(this, isChecked)
         }
 
         levelGroup.setOnCheckedChangeListener { _, id ->

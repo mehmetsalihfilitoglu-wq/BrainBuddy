@@ -9,8 +9,9 @@ import androidx.work.WorkManager
 import com.brainbuddy.app.core.ProtectionPrefs
 
 /**
- * Restore gate state on BOOT_COMPLETED and MY_PACKAGE_REPLACED.
- * ReloadSettingsWorker checks accessibility, restores lock if disabled.
+ * D) Restore gate state on BOOT_COMPLETED and MY_PACKAGE_REPLACED.
+ * ReloadSettingsWorker checks accessibility, sets lockModeEnabled if disabled.
+ * Starts AccessibilityMonitorService and AccessibilityCheckWorker when protection on.
  */
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
@@ -26,6 +27,10 @@ class BootReceiver : BroadcastReceiver() {
                     ExistingWorkPolicy.REPLACE,
                     work
                 )
+                if (prefs.isProtectionEnabledRaw()) {
+                    AccessibilityMonitorService.start(context)
+                    AccessibilityCheckWorker.schedulePeriodic(context)
+                }
             }
         }
     }

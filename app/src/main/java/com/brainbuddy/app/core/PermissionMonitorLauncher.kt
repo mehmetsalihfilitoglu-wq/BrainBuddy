@@ -1,9 +1,11 @@
 package com.brainbuddy.app.core
 
 import android.app.Application
-import android.content.Intent
-import com.brainbuddy.app.LockScreenActivity
 
+/**
+ * On app resume (foreground), check if AccessibilityService is disabled.
+ * If so: launch ParentLockActivity (PinLockActivity) - PIN required until re-enabled.
+ */
 object PermissionMonitorLauncher {
 
     fun scheduleCheck(app: Application) {
@@ -15,12 +17,10 @@ object PermissionMonitorLauncher {
             override fun onActivityResumed(a: android.app.Activity) {
                 resumedCount++
                 if (resumedCount == 1) {
-                    if (PermissionMonitor.checkAndLockIfDisabled(a)) {
-                        val intent = Intent(a, LockScreenActivity::class.java).apply {
-                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NO_HISTORY)
-                        }
-                        a.startActivity(intent)
-                        a.finishAffinity()
+                    if (a is com.brainbuddy.app.ui.PinLockActivity) return
+                    // A) Accessibility OFF → ParentLockActivity (PinLockActivity)
+                    if (LockModeMonitor.checkAndSetLockIfNeeded(a) || LockModeMonitor.isLockModeActive(a)) {
+                        LockModeMonitor.launchParentLockActivity(a)
                     }
                 }
             }

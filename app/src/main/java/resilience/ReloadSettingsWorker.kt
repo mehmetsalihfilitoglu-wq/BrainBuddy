@@ -22,6 +22,9 @@ class ReloadSettingsWorker(
                 ctx, com.brainbuddy.app.accessibility.ForegroundAppBlockerService::class.java
             )
             if (!enabled && prefs.isProtectionEnabledRaw()) {
+                val lockStore = com.brainbuddy.app.core.LockModeDataStore(ctx)
+                lockStore.setLockModeEnabled(true)
+                lockStore.setLastKnownServiceEnabled(false)
                 prefs.setUserLocked(true)
                 prefs.setPermissionDisabledLockReason("accessibility_disabled")
                 try {
@@ -32,6 +35,8 @@ class ReloadSettingsWorker(
                 try {
                     com.brainbuddy.app.core.ProtectionNotificationHelper.showProtectionOffNotification(ctx)
                 } catch (_: Exception) { }
+            } else if (enabled) {
+                com.brainbuddy.app.core.LockModeDataStore(ctx).setLastKnownServiceEnabled(true)
             }
             // Clear stuck quiz-in-progress to avoid gate deadlock after reboot/update
             prefs.setQuizInProgress(false)

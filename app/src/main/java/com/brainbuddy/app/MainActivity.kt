@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.core.CrashRecoveryPrefs
+import com.brainbuddy.app.core.LockModeMonitor
 import com.brainbuddy.app.core.OnboardingPrefs
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
@@ -19,6 +20,11 @@ class MainActivity : AppCompatActivity() {
         CrashRecoveryPrefs.recordStableRun(this)
 
         val prefs = ProtectionPrefs(this)
+        // A) Accessibility OFF: immediately ParentLockActivity (PinLockActivity)
+        if (LockModeMonitor.checkAndSetLockIfNeeded(this) || LockModeMonitor.isLockModeActive(this)) {
+            LockModeMonitor.launchParentLockActivity(this)
+            return
+        }
         val target = when {
             prefs.userLocked() || prefs.isPermissionLocked() -> LockScreenActivity::class.java
             CrashRecoveryPrefs.isProtectionDisabledByCrash(this) -> CrashRecoveryWarningActivity::class.java

@@ -11,6 +11,7 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.ProtectionMonitorScheduler
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityParentBinding
 import java.util.Calendar
@@ -90,6 +91,7 @@ class ParentHubActivity : ComponentActivity() {
 
         switchBlocking.setOnCheckedChangeListener { _: CompoundButton, isChecked: Boolean ->
             protectionPrefs.setProtectionEnabled(isChecked)
+            ProtectionMonitorScheduler.onProtectionChanged(this, isChecked)
         }
         intervalGroup.setOnCheckedChangeListener { _: RadioGroup, id: Int ->
             val mins = when (id) {
