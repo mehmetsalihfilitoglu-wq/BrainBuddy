@@ -288,7 +288,8 @@ class QuestionRepository(private val context: Context) {
     /** @param questionsMap Optional map of questionId->Question for wrong-question tracking (topic). */
     /** @param testId G4: Quiz bitince lastSeenInTestId güncellemesi için */
     fun recordAnswers(answers: List<AnswerRecord>, questionsMap: Map<String, Question>? = null, testId: String? = null) {
-        roomStore.recordAnswers(answers, testId)
+        val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
+        roomStore.recordAnswers(userId, answers, testId)
         answers.forEach { a ->
             val q = questionsMap?.get(a.questionId)
             if (a.isCorrect) {
@@ -329,9 +330,9 @@ class QuestionRepository(private val context: Context) {
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
 
-        val picker = RoomAdaptiveQuestionPicker(
+        val picker = SpacedRepetitionPicker(
             historyDao = com.brainbuddy.app.db.DatabaseProvider.get(context).historyDao(),
-            getGlobalTestIndex = { roomStore.getGlobalTestIndex() },
+            roomStore = roomStore,
             getQuestionIdsFromLastNTests = { pid, n -> roomStore.getQuestionIdsFromLastNTests(pid, n) }
         )
         var questions = picker.pick(finalPool, count, profileId)
@@ -435,7 +436,8 @@ class QuestionRepository(private val context: Context) {
     fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
         val global = getGlobalPool()
         val all = global.associateBy { it.id }
-        val wrongIds = weakTopicIds.ifEmpty { roomStore.getWrongQuestionIds(14).toList() }
+        val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
+        val wrongIds = weakTopicIds.ifEmpty { roomStore.getWrongQuestionIds(userId, 14).toList() }
         val weakTopics = wrongIds.mapNotNull { all[it]?.subject?.tr }.distinct()
         val byTopic = all.values.groupBy { it.subject.tr }
         var pool = mutableListOf<Question>()
@@ -476,7 +478,8 @@ class QuestionRepository(private val context: Context) {
     }
 
     fun pickRetryWrongQuestions(levelGroup: LevelGroup): List<Question> {
-        val wrongIds = roomStore.getAllWrongIds()
+        val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
+        val wrongIds = roomStore.getAllWrongIds(userId)
         if (wrongIds.isEmpty()) return emptyList()
         val allByLevel = loadAllQuestions().groupBy { it.levelGroup }
         val allMap = (allByLevel[levelGroup] ?: emptyList()).associateBy { it.id }

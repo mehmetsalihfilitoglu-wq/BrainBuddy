@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 3,
+    version = 4,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -22,6 +22,25 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE test_snapshots ADD COLUMN profileId TEXT NOT NULL DEFAULT 'default'")
+            }
+        }
+
+        val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("DROP TABLE IF EXISTS question_history")
+                db.execSQL("""
+                    CREATE TABLE question_history (
+                        userId TEXT NOT NULL,
+                        questionId TEXT NOT NULL,
+                        lastResult INTEGER NOT NULL,
+                        lastAnsweredAt INTEGER NOT NULL,
+                        correctCount INTEGER NOT NULL DEFAULT 0,
+                        wrongCount INTEGER NOT NULL DEFAULT 0,
+                        PRIMARY KEY(userId, questionId)
+                    )
+                """.trimIndent())
+                db.execSQL("CREATE INDEX IF NOT EXISTS idx_question_history_user ON question_history(userId)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS idx_question_history_user_result ON question_history(userId, lastResult)")
             }
         }
 

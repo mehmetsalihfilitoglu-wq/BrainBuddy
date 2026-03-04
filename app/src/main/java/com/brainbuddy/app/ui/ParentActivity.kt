@@ -8,12 +8,14 @@ import android.widget.Switch
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.ProtectionMonitorScheduler
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityParentBinding
+import com.brainbuddy.app.db.RoomQuizDataStore
 import java.util.Calendar
 
 class ParentHubActivity : ComponentActivity() {
@@ -150,5 +152,9 @@ class ParentHubActivity : ComponentActivity() {
         b.tvTodayTests.text = todayTests.toString()
         b.tvTodayScreenTime.text = getString(R.string.parent_summary_minutes_value, estimatedMinutes)
         b.tvBlockedAppsCount.text = blockedStore.getBlockedPackages().size.toString()
+
+        val userId = ActiveProfileManager.getActiveProfileId(this)
+        val dueWrongCount = RoomQuizDataStore(this).getDueWrongCount(userId)
+        b.tvDueWrongCount.text = dueWrongCount.toString()
     }
 }

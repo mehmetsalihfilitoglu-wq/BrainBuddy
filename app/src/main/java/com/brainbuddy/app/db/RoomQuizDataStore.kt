@@ -37,36 +37,22 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.insertAll(entities)
     }
 
-    fun recordAnswers(answers: List<AnswerRecord>, testId: String?) = runBlocking {
+    /** @param userId profileId (multi-account: her şey userId bazlı) */
+    fun recordAnswers(userId: String, answers: List<AnswerRecord>, testId: String?) = runBlocking {
         val now = System.currentTimeMillis()
         answers.forEach { a ->
-            val h = historyDao.get(a.questionId)
-            val wrongTotal = (h?.wrongTotal ?: 0) + if (a.isCorrect) 0 else 1
-            val correctTotal = (h?.correctTotal ?: 0) + if (a.isCorrect) 1 else 0
-            val streakCorrect = if (a.isCorrect) (h?.streakCorrect ?: 0) + 1 else 0
-            val lastWasWrong = !a.isCorrect
-            val dueAt = if (a.isCorrect) {
-                val interval = when (streakCorrect) {
-                    1 -> TimeUnit.HOURS.toMillis(12)
-                    2 -> TimeUnit.DAYS.toMillis(2)
-                    3 -> TimeUnit.DAYS.toMillis(7)
-                    else -> TimeUnit.DAYS.toMillis(14)
-                }
-                now + interval
-            } else {
-                now
-            }
+            val h = historyDao.get(userId, a.questionId)
+            val correctCount = (h?.correctCount ?: 0) + if (a.isCorrect) 1 else 0
+            val wrongCount = (h?.wrongCount ?: 0) + if (a.isCorrect) 0 else 1
+            val lastResult = if (a.isCorrect) QuestionHistoryEntity.RESULT_CORRECT else QuestionHistoryEntity.RESULT_WRONG
             historyDao.upsert(
                 QuestionHistoryEntity(
+                    userId = userId,
                     questionId = a.questionId,
-                    wrongTotal = wrongTotal,
-                    correctTotal = correctTotal,
-                    streakCorrect = streakCorrect,
+                    lastResult = lastResult,
                     lastAnsweredAt = now,
-                    dueAt = dueAt,
-                    seenCount = (h?.seenCount ?: 0) + 1,
-                    lastSeenTestIndex = h?.lastSeenTestIndex ?: 0,
-                    lastWasWrong = lastWasWrong
+                    correctCount = correctCount,
+                    wrongCount = wrongCount
                 )
             )
         }
@@ -75,10 +61,6 @@ class RoomQuizDataStore(private val context: Context) {
     fun onQuizCompleted(questionIds: List<String>) = runBlocking {
         val newIndex = (appMetaDao.get(KEY_GLOBAL_TEST_INDEX)?.toIntOrNull() ?: 0) + 1
         appMetaDao.set(AppMetaEntity(KEY_GLOBAL_TEST_INDEX, newIndex.toString()))
-        questionIds.forEach { id ->
-            val h = historyDao.get(id) ?: return@forEach
-            historyDao.upsert(h.copy(lastSeenTestIndex = newIndex))
-        }
     }
 
     fun getGlobalTestIndex(): Int = runBlocking {
@@ -131,13 +113,19 @@ class RoomQuizDataStore(private val context: Context) {
         appMetaDao.set(AppMetaEntity(key, JSONArray(combined.take(100)).toString()))
     }
 
-    fun getWrongQuestionIds(withinDays: Int = 7): Set<String> = runBlocking {
+    fun getWrongQuestionIds(userId: String, withinDays: Int = 7): Set<String> = runBlocking {
         val cutoff = System.currentTimeMillis() - TimeUnit.DAYS.toMillis(withinDays.toLong())
-        historyDao.getWrongIds(cutoff).toSet()
+        historyDao.getWrongIds(userId, cutoff).toSet()
     }
 
-    fun getAllWrongIds(): Set<String> = runBlocking {
-        historyDao.getAllWrongIds().toSet()
+    fun getAllWrongIds(userId: String): Set<String> = runBlocking {
+        historyDao.getAllWrongIds(userId).toSet()
+    }
+
+    /** Bugün tekrar sorulacak yanlışlar sayısı (lastResult=WRONG, lastAnsweredAt <= now-3days) */
+    fun getDueWrongCount(userId: String): Int = runBlocking {
+        val nowMinus3Days = System.currentTimeMillis() - TimeUnit.DAYS.toMillis(3)
+        historyDao.countDueWrong(userId, nowMinus3Days)
     }
 
     fun isSeeded(): Boolean = runBlocking {

@@ -8,55 +8,107 @@ import androidx.room.Query
 @Dao
 interface HistoryDao {
 
-    @Query("SELECT * FROM question_history WHERE questionId = :questionId LIMIT 1")
-    suspend fun get(questionId: String): QuestionHistoryEntity?
+    @Query("SELECT * FROM question_history WHERE userId = :userId AND questionId = :questionId LIMIT 1")
+    suspend fun get(userId: String, questionId: String): QuestionHistoryEntity?
 
-    @Query("SELECT * FROM question_history WHERE questionId IN (:ids)")
-    suspend fun getByIds(ids: List<String>): List<QuestionHistoryEntity>
+    @Query("SELECT * FROM question_history WHERE userId = :userId AND questionId IN (:ids)")
+    suspend fun getByIds(userId: String, ids: List<String>): List<QuestionHistoryEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(history: QuestionHistoryEntity)
 
     /**
-     * Due & wrong: history + question for spaced repetition (8 questions).
+     * Due wrong: lastResult=WRONG and lastAnsweredAt <= nowMinus3Days.
+     * Returns questionIds for given subject, ordered by lastAnsweredAt ASC.
      */
     @Query("""
-        SELECT h.questionId, h.wrongTotal, h.correctTotal, h.streakCorrect,
-               h.lastAnsweredAt, h.dueAt, h.seenCount, h.lastSeenTestIndex, h.lastWasWrong,
-               q.subject, q.text, q.optionsJson, q.correctIndex,
-               q.levelGroup, q.gradeTag, q.hint
-        FROM question_history h
-        INNER JOIN questions q ON h.questionId = q.id
-        WHERE h.dueAt <= :now AND h.lastWasWrong = 1 AND q.isActive = 1
-        ORDER BY h.wrongTotal DESC, h.lastAnsweredAt ASC
+        SELECT h.questionId FROM question_history h
+        INNER JOIN questions q ON q.id = h.questionId AND q.isActive = 1
+        WHERE h.userId = :userId
+          AND q.subject = :subject
+          AND h.lastResult = 0
+          AND h.lastAnsweredAt <= :nowMinus3Days
+        ORDER BY h.lastAnsweredAt ASC
+        LIMIT :limit
     """)
-    suspend fun getDueWrong(now: Long): List<HistoryJoinedQuestion>
+    suspend fun getDueWrongQuestionIds(
+        userId: String,
+        subject: String,
+        nowMinus3Days: Long,
+        limit: Int
+    ): List<String>
 
     /**
-     * Fresh candidate IDs: never seen OR (lastSeenTestIndex gap >= minTestGap) OR (lastAnsweredAt old).
-     * Excludes dueWrong IDs. Picker fetches full questions via QuestionDao.getQuestionsByIds.
+     * Recently correct: rows where lastResult=CORRECT for cooldown filtering.
+     * Returns full rows; caller filters by cooldownDays(correctCount) in Kotlin.
+     */
+    @Query("""
+        SELECT h.* FROM question_history h
+        INNER JOIN questions q ON q.id = h.questionId AND q.isActive = 1
+        WHERE h.userId = :userId
+          AND q.subject = :subject
+          AND h.lastResult = 1
+    """)
+    suspend fun getRecentlyCorrectForSubject(
+        userId: String,
+        subject: String
+    ): List<QuestionHistoryEntity>
+
+    /**
+     * New / not in history: questions for subject that have no history row for userId.
+     * Exclude given IDs.
      */
     @Query("""
         SELECT q.id FROM questions q
-        LEFT JOIN question_history h ON h.questionId = q.id
+        LEFT JOIN question_history h ON h.userId = :userId AND h.questionId = q.id
         WHERE q.isActive = 1
+          AND q.subject = :subject
+          AND h.questionId IS NULL
           AND q.id NOT IN (:excludeIds)
-          AND (
-            h.questionId IS NULL
-            OR (:globalTestIndex - COALESCE(h.lastSeenTestIndex, 0) >= :minTestGap)
-            OR (COALESCE(h.lastAnsweredAt, 0) <= :cutoffMs)
-          )
+        ORDER BY RANDOM()
+        LIMIT :limit
     """)
-    suspend fun getFreshCandidateIds(
+    suspend fun getNewQuestionIds(
+        userId: String,
+        subject: String,
         excludeIds: List<String>,
-        globalTestIndex: Int,
-        minTestGap: Int,
-        cutoffMs: Long
+        limit: Int
     ): List<String>
 
-    @Query("SELECT questionId FROM question_history WHERE lastWasWrong = 1 AND lastAnsweredAt >= :cutoffMs")
-    suspend fun getWrongIds(cutoffMs: Long): List<String>
+    /**
+     * Not recently correct: has history but lastResult=WRONG OR lastAnsweredAt old enough.
+     * Used when we need to exclude only "recently correct" (cooldown).
+     * Caller passes excludeIds = recentlyCorrectIds (filtered by cooldown in Kotlin).
+     */
+    @Query("""
+        SELECT q.id FROM questions q
+        INNER JOIN question_history h ON h.userId = :userId AND h.questionId = q.id
+        WHERE q.isActive = 1
+          AND q.subject = :subject
+          AND q.id NOT IN (:excludeIds)
+        ORDER BY RANDOM()
+        LIMIT :limit
+    """)
+    suspend fun getNotRecentlyCorrectQuestionIds(
+        userId: String,
+        subject: String,
+        excludeIds: List<String>,
+        limit: Int
+    ): List<String>
 
-    @Query("SELECT questionId FROM question_history WHERE wrongTotal > 0")
-    suspend fun getAllWrongIds(): List<String>
+    /** Count due wrong for parent panel. */
+    @Query("""
+        SELECT COUNT(*) FROM question_history h
+        INNER JOIN questions q ON q.id = h.questionId AND q.isActive = 1
+        WHERE h.userId = :userId
+          AND h.lastResult = 0
+          AND h.lastAnsweredAt <= :nowMinus3Days
+    """)
+    suspend fun countDueWrong(userId: String, nowMinus3Days: Long): Int
+
+    @Query("SELECT questionId FROM question_history WHERE userId = :userId AND lastResult = 0 AND lastAnsweredAt >= :cutoffMs")
+    suspend fun getWrongIds(userId: String, cutoffMs: Long): List<String>
+
+    @Query("SELECT questionId FROM question_history WHERE userId = :userId AND wrongCount > 0")
+    suspend fun getAllWrongIds(userId: String): List<String>
 }
