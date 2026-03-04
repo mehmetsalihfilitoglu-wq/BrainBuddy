@@ -26,8 +26,13 @@ object PdfReportGenerator {
     ): File? {
         val cacheDir = context.cacheDir
         val reportsDir = File(cacheDir, REPORTS_DIR).apply { mkdirs() }
-        val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
-        val outFile = File(reportsDir, "brainbuddy_report_$timestamp.pdf")
+        val timestamp = SimpleDateFormat("yyyyMMdd_HHmm", Locale.US).format(Date())
+        val rangeSlug = when (model.range) {
+            ReportStatsCalculator.Range.TODAY -> "bugun"
+            ReportStatsCalculator.Range.DAYS_7 -> "7gun"
+            ReportStatsCalculator.Range.DAYS_30 -> "30gun"
+        }
+        val outFile = File(reportsDir, "brainbuddy_rapor_${rangeSlug}_$timestamp.pdf")
 
         return try {
             // A1: Data load on IO (no UI)
@@ -69,7 +74,15 @@ object PdfReportGenerator {
                 }
             } else null
 
-            val wrongRecords = result.wrongAnswers.map { wr ->
+            // Limit wrong answers in PDF for free users: last 10 only.
+            val isPremium = PremiumStore(context).isPremium()
+            val wrongSource = if (isPremium) {
+                result.wrongAnswers
+            } else {
+                result.wrongAnswers.take(10)
+            }
+
+            val wrongRecords = wrongSource.map { wr ->
                 PdfReportBuilder.WrongAnswerRecord(
                     subject = wr.subject,
                     stem = wr.stem,
@@ -79,8 +92,6 @@ object PdfReportGenerator {
                     dateMs = wr.dateMs
                 )
             }
-
-            val isPremium = PremiumStore(context).isPremium()
 
             val builder = PdfReportBuilder(
                 context = context,

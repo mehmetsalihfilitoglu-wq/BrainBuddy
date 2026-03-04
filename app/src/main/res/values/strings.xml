@@ -203,7 +203,7 @@
     <string name="report_daily">Günlük Özet</string>
     <string name="report_weekly">Haftalık Özet</string>
     <string name="report_share">Raporu Paylaş</string>
-    <string name="report_pdf_error">PDF oluşturulamadı</string>
+    <string name="report_pdf_error">Rapor oluşturulamadı. (Hata kodu: PDF-01)</string>
     <string name="report_pdf_error_title">PDF Hatası</string>
     <string name="report_pdf_error_copy">Kopyala</string>
     <string name="report_pdf_error_share_file">Hata Dosyasını Paylaş</string>
@@ -243,9 +243,9 @@
     <string name="performance_info_title">Metrikler Hakkında</string>
     <string name="performance_info_intro">Performans Analizi kartı, son testlerinize dayalı olarak güçlü ve zayıf yönlerinizi, gelişim eğiliminizi ve en çok zorlandığınız dersi gösterir.</string>
     <string name="performance_info_weak">Zayıf Dersler</string>
-    <string name="performance_info_weak_desc">Başarı oranı %50\'nin altında olan dersler (en az 10 soru çözülmüş olmalı). Bu derslere daha fazla çalışmayı hedefleyin.</string>
+    <string name="performance_info_weak_desc">Başarı oranı %55&#160;ve altında olan dersler (en az 10 soru çözülmüş olmalı). Bu derslere daha fazla çalışmayı hedefleyin.</string>
     <string name="performance_info_strong">Güçlü Dersler</string>
-    <string name="performance_info_strong_desc">Başarı oranı %75 ve üzeri olan dersler. Bu derslerdeki bilginizi pekiştirmeye devam edin.</string>
+    <string name="performance_info_strong_desc">Başarı oranı %80&#160;ve üzeri olan dersler. Bu derslerdeki bilginizi pekiştirmeye devam edin.</string>
     <string name="performance_info_trend">Eğilim</string>
     <string name="performance_info_trend_desc">Son 3 testin ortalaması ile önceki 3 testin ortalaması karşılaştırılır. Olumlu değişim iyileşmeyi, negatif değişim düşüşü gösterir.</string>
     <string name="performance_info_most_wrong">En Çok Yanlış</string>

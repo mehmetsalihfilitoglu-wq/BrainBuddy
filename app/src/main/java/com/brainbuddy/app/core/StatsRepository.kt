@@ -374,7 +374,8 @@ class StatsRepository(private val context: Context) {
                 val successPercent = if (graded > 0) 100f * correct / graded else 0f
                 SubjectStat(name, successPercent) to total
             }
-            .filter { it.second >= 10 && it.first.successPercent < 50f }
+            // Spec: "Zayıf ders(ler)" (<=55% ve en az 10 cevap)
+            .filter { it.second >= 10 && it.first.successPercent <= 55f }
             .map { it.first }
             .sortedBy { it.successPercent }
         val strongSubjects = subjectAgg
@@ -384,7 +385,8 @@ class StatsRepository(private val context: Context) {
                 val successPercent = if (graded > 0) 100f * correct / graded else 0f
                 SubjectStat(name, successPercent) to total
             }
-            .filter { it.second >= 10 && it.first.successPercent >= 75f }
+            // Spec: "Güçlü ders(ler)" (>=80% ve en az 10 cevap)
+            .filter { it.second >= 10 && it.first.successPercent >= 80f }
             .map { it.first }
             .sortedByDescending { it.successPercent }
         // 3) Trend Engine: last 6 completed tests

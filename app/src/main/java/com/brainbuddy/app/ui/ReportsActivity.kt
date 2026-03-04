@@ -298,7 +298,8 @@ class ReportsActivity : AppCompatActivity() {
 
         // B2) Performans Analizi
         val adv = model.advancedStats
-        val hasAdvancedData = model.weeklySuccess.testCount > 0
+        // Spec: Trend = son 3 test vs önceki 3 test → en az 6 tamamlanmış test yoksa "Yeterli veri yok"
+        val hasAdvancedData = model.weeklySuccess.testCount >= 6
         if (hasAdvancedData) {
             b.advancedStatsContent.visibility = View.VISIBLE
             b.advancedStatsEmpty.visibility = View.GONE

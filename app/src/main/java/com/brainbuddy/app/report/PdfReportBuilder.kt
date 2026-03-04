@@ -93,7 +93,7 @@ class PdfReportBuilder(
             isAntiAlias = true
         }
         val footerY = PAGE_HEIGHT - 20f
-        canvas.drawText("BrainBuddy Öğrenci Performans Raporu", MARGIN, footerY, footerPaint)
+        canvas.drawText("Bu rapor BrainBuddy tarafından otomatik oluşturulmuştur.", MARGIN, footerY, footerPaint)
         val pageStr = "Sayfa $pageNum / $totalPages"
         canvas.drawText(pageStr, PAGE_WIDTH - MARGIN - footerPaint.measureText(pageStr), footerY, footerPaint)
     }
@@ -133,7 +133,7 @@ class PdfReportBuilder(
             typeface = Typeface.DEFAULT_BOLD
             isAntiAlias = true
         }
-        canvas.drawText("BrainBuddy Öğrenci Performans Raporu", MARGIN, headerH - 18f, headerTextPaint)
+        canvas.drawText("BrainBuddy Performans Raporu", MARGIN, headerH - 18f, headerTextPaint)
         drawLogoPlaceholder(canvas, PAGE_WIDTH - MARGIN - 52, 6f)
 
         var y = headerH + 28f
