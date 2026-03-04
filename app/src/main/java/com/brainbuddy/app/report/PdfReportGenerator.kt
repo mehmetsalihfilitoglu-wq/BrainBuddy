@@ -28,17 +28,17 @@ object PdfReportGenerator {
         val reportsDir = File(cacheDir, REPORTS_DIR).apply { mkdirs() }
         val timestamp = SimpleDateFormat("yyyyMMdd_HHmm", Locale.US).format(Date())
         val rangeSlug = when (model.range) {
-            ReportStatsCalculator.Range.TODAY -> "bugun"
-            ReportStatsCalculator.Range.DAYS_7 -> "7gun"
-            ReportStatsCalculator.Range.DAYS_30 -> "30gun"
+            StatsRepository.ReportRange.TODAY -> "bugun"
+            StatsRepository.ReportRange.SEVEN -> "7gun"
+            StatsRepository.ReportRange.THIRTY -> "30gun"
         }
         val outFile = File(reportsDir, "brainbuddy_rapor_${rangeSlug}_$timestamp.pdf")
 
         return try {
             // A1: Data load on IO (no UI)
-            val range = ReportStatsCalculator.Range.fromDays(model.range.days)
+            val calcRange = toCalculatorRange(model.range)
             val result = withContext(Dispatchers.IO) {
-                ReportStatsCalculator.computeForRange(context, range)
+                ReportStatsCalculator.computeForRange(context, calcRange)
             }
 
             // A1: ChartRenderer uses Canvas only (no View/Looper) — safe on Default
@@ -128,5 +128,17 @@ object PdfReportGenerator {
             val errorFile = File(cacheDir, PDF_ERROR_FILENAME)
             errorFile.writeText("${e.message}\n\n${e.stackTraceToString()}")
         } catch (_: Exception) { }
+    }
+
+    private fun rangeTitle(range: StatsRepository.ReportRange): String = when (range) {
+        StatsRepository.ReportRange.TODAY -> "Bugün"
+        StatsRepository.ReportRange.SEVEN -> "Son 7 Gün"
+        StatsRepository.ReportRange.THIRTY -> "Son 30 Gün"
+    }
+
+    private fun toCalculatorRange(range: StatsRepository.ReportRange): ReportStatsCalculator.Range = when (range) {
+        StatsRepository.ReportRange.TODAY -> ReportStatsCalculator.Range.TODAY
+        StatsRepository.ReportRange.SEVEN -> ReportStatsCalculator.Range.DAYS_7
+        StatsRepository.ReportRange.THIRTY -> ReportStatsCalculator.Range.DAYS_30
     }
 }
