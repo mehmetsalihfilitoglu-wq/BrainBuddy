@@ -221,15 +221,15 @@ class ReportsActivity : AppCompatActivity() {
         when (range) {
             StatsRepository.ReportRange.TODAY -> {
                 b.tvWeeklySuccessTitle.text = "Günlük Özet"
-                b.chipWeeklyRange.text = "Bugün"
+                b.chipLast7Days.text = "Bugün"
             }
             StatsRepository.ReportRange.SEVEN -> {
                 b.tvWeeklySuccessTitle.text = getString(R.string.parent_weekly_success)
-                b.chipWeeklyRange.text = "Son 7 gün"
+                b.chipLast7Days.text = "Son 7 gün"
             }
             StatsRepository.ReportRange.THIRTY -> {
                 b.tvWeeklySuccessTitle.text = "Aylık Özet"
-                b.chipWeeklyRange.text = "Son 30 gün"
+                b.chipLast7Days.text = "Son 30 gün"
             }
         }
 
@@ -255,9 +255,9 @@ class ReportsActivity : AppCompatActivity() {
         if (!ws.isEmpty) {
             b.weeklySuccessContent.visibility = View.VISIBLE
             b.weeklySuccessEmpty.visibility = View.GONE
-            b.chipWeeklyCorrect.text = "Doğru: ${ws.correct}"
-            b.chipWeeklyWrong.text = "Yanlış: ${ws.wrong}"
-            b.chipWeeklyBlank.text = "Boş: ${ws.blank}"
+            b.chipCorrect.text = "Doğru: ${ws.correct}"
+            b.chipWrong.text = "Yanlış: ${ws.wrong}"
+            b.chipEmpty.text = "Boş: ${ws.blank}"
             b.tvDailyTests.text = ws.testCount.toString()
             b.tvDailyAccuracy.text = when {
                 ws.noGradedAnswers -> "—"
