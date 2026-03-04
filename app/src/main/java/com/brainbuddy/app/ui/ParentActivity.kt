@@ -2,6 +2,7 @@ package com.brainbuddy.app.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.CompoundButton
 import android.widget.RadioGroup
 import android.widget.Switch
 import androidx.activity.ComponentActivity
@@ -75,10 +76,10 @@ class ParentHubActivity : ComponentActivity() {
     }
 
     private fun setupQuickSettings() {
-        val root = b.includeQuickSettings
-        val switchBlocking = root.findViewById<Switch>(R.id.quickSwitchAppBlocking)
-        val intervalGroup = root.findViewById<RadioGroup>(R.id.quickQuizIntervalGroup)
-        val successRateGroup = root.findViewById<RadioGroup>(R.id.quickSuccessRateGroup)
+        val qs = b.includeQuickSettings
+        val switchBlocking = qs.quickSwitchAppBlocking
+        val intervalGroup = qs.quickQuizIntervalGroup
+        val successRateGroup = qs.quickSuccessRateGroup
 
         fun loadQuickSettings() {
             switchBlocking.isChecked = protectionPrefs.isProtectionEnabledRaw()
@@ -97,10 +98,10 @@ class ParentHubActivity : ComponentActivity() {
 
         loadQuickSettings()
 
-        switchBlocking.setOnCheckedChangeListener { _, isChecked ->
+        switchBlocking.setOnCheckedChangeListener { _: CompoundButton, isChecked: Boolean ->
             protectionPrefs.setProtectionEnabled(isChecked)
         }
-        intervalGroup.setOnCheckedChangeListener { _, id ->
+        intervalGroup.setOnCheckedChangeListener { _: RadioGroup, id: Int ->
             val mins = when (id) {
                 R.id.quickInterval45 -> 45
                 R.id.quickInterval60 -> 60
@@ -108,7 +109,7 @@ class ParentHubActivity : ComponentActivity() {
             }
             protectionPrefs.setQuizIntervalMinutes(mins)
         }
-        successRateGroup.setOnCheckedChangeListener { _, id ->
+        successRateGroup.setOnCheckedChangeListener { _: RadioGroup, id: Int ->
             val pct = when (id) {
                 R.id.quickSuccessRate50 -> 50
                 R.id.quickSuccessRate70 -> 70
@@ -118,13 +119,13 @@ class ParentHubActivity : ComponentActivity() {
             protectionPrefs.setMinSuccessRatePercent(pct)
         }
 
-        root.findViewById<android.view.View>(R.id.rowBlockedApps).setOnClickListener {
+        qs.rowBlockedApps.setOnClickListener {
             startActivity(Intent(this, BlockedAppsActivity::class.java))
         }
-        root.findViewById<android.view.View>(R.id.rowTimeLimits).setOnClickListener {
+        qs.rowTimeLimits.setOnClickListener {
             startActivity(Intent(this, TimeLimitsActivity::class.java))
         }
-        root.findViewById<android.view.View>(R.id.rowProfiles).setOnClickListener {
+        qs.rowProfiles.setOnClickListener {
             startActivity(Intent(this, ProfileManageActivity::class.java))
         }
     }
