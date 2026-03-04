@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.RadioGroup
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
@@ -24,8 +25,10 @@ class TestSettingsActivity : AppCompatActivity() {
 
         val protectionPrefs = ProtectionPrefs(this)
         val quizPrefs = QuizPrefs(this)
+        val gradePrefs = GradePrefs(this)
 
         // BLOK 1: Test Ayarları
+        setupGradeSelection(gradePrefs)
         setupDifficulty(quizPrefs)
         setupSuccessRate(protectionPrefs)
         setupQuizInterval(protectionPrefs)
@@ -41,6 +44,11 @@ class TestSettingsActivity : AppCompatActivity() {
         }
 
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnMiniTest).setOnClickListener {
+            if (!gradePrefs.hasGradeSelected()) {
+                android.widget.Toast.makeText(this, R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
+                findViewById<android.widget.RadioGroup>(R.id.testGradeGroup)?.requestFocus()
+                return@setOnClickListener
+            }
             startActivity(Intent(this, QuizActivity::class.java).apply {
                 putExtra(QuizActivity.EXTRA_REMEDIAL, true)
             })
@@ -54,6 +62,27 @@ class TestSettingsActivity : AppCompatActivity() {
 
         findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
             .setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+    }
+
+    private fun setupGradeSelection(gradePrefs: GradePrefs) {
+        val group = findViewById<RadioGroup>(R.id.testGradeGroup)
+        val tvSelected = findViewById<android.widget.TextView>(R.id.tvSelectedGrade)
+        val gradeToId = mapOf(
+            2 to R.id.testGrade2, 3 to R.id.testGrade3, 4 to R.id.testGrade4,
+            5 to R.id.testGrade5, 6 to R.id.testGrade6, 7 to R.id.testGrade7, 8 to R.id.testGrade8
+        )
+        fun updateLabel() {
+            val g = gradePrefs.getSelectedGrade()
+            tvSelected.text = if (g in 2..8) getString(R.string.grade_selected_label, g) else "Seçili Sınıf: -"
+        }
+        val saved = gradePrefs.getSelectedGrade()
+        gradeToId[saved]?.let { group.check(it) }
+        updateLabel()
+        group.setOnCheckedChangeListener { _, id ->
+            val grade = gradeToId.entries.find { it.value == id }?.key ?: 0
+            gradePrefs.setSelectedGrade(grade)
+            updateLabel()
+        }
     }
 
     private fun setupDifficulty(quizPrefs: QuizPrefs) {

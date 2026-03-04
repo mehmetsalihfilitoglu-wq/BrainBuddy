@@ -7,6 +7,7 @@ import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.LastTestUnlockStore
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.core.RetryUnlockStore
@@ -14,6 +15,7 @@ import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuizBinding
+import com.brainbuddy.app.quiz.LevelGroup
 import java.util.UUID
 
 class QuizActivity : AppCompatActivity() {
@@ -153,27 +155,50 @@ class QuizActivity : AppCompatActivity() {
         val replayQuestionIds = intent.getStringArrayListExtra(EXTRA_QUESTION_IDS_FOR_REPLAY)
 
         val levelGroup = repo.getLevelGroupFromPrefs()
+        val gradePrefs = GradePrefs(this)
+        val selectedGrade = gradePrefs.getSelectedGrade()
+        val isGradeMode = levelGroup == LevelGroup.GRADE_1_4 || levelGroup == LevelGroup.GRADE_5_8
+
+        // Grade mode'da (Junior hariç) sınıf seçimi zorunlu. Replay hariç.
+        val needsGrade = isGradeMode && !(isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST)
+        if (needsGrade && !gradePrefs.hasGradeSelected()) {
+            android.widget.Toast.makeText(this, com.brainbuddy.app.R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, com.brainbuddy.app.ui.TestSettingsActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            })
+            finish()
+            return
+        }
         val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
         var remedialFallbackWarning = false
         val targetCount = QuestionRepository.MIN_QUESTIONS_PER_TEST
+        val effectiveGrade = if (isGradeMode && gradePrefs.hasGradeSelected()) selectedGrade else 0
+
         questions = when {
             isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 replayQuestionIds.mapNotNull { all[it] }
             }
-            bossLevel > 0 -> repo.pickBossQuestions(levelGroup, targetCount)
+            bossLevel > 0 -> if (effectiveGrade in 2..8) repo.pickBossQuestionsByGrade(effectiveGrade, targetCount)
+                else repo.pickBossQuestions(levelGroup, targetCount)
             isGateMode && isRetryOfLockedQuiz -> {
                 val ids = protectionPrefs.lastFailedQuestionIds()
                 if (ids.size >= targetCount) {
                     val all = repo.loadAllQuestions().associateBy { it.id }
                     ids.mapNotNull { all[it] }
                 } else {
-                    repo.pickGateQuestions(levelGroup, targetCount)
+                    if (effectiveGrade in 2..8) repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
+                    else repo.pickGateQuestions(levelGroup, targetCount)
                 }
             }
-            isGateMode -> repo.pickGateQuestions(levelGroup, targetCount)
-            isRemedial -> {
+            isGateMode -> if (effectiveGrade in 2..8) repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
+                else repo.pickGateQuestions(levelGroup, targetCount)
+            isRemedial -> if (effectiveGrade in 2..8) {
+                val (q, usedFallback) = repo.pickRemedialQuestionsByGrade(effectiveGrade, targetCount, protectionPrefs.lastFailedWrongIds())
+                remedialFallbackWarning = usedFallback
+                q
+            } else {
                 val (q, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, protectionPrefs.lastFailedWrongIds())
                 remedialFallbackWarning = usedFallback
                 q
@@ -182,15 +207,22 @@ class QuizActivity : AppCompatActivity() {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 val found = wrongIds.mapNotNull { all[it] }
                 if (found.size < targetCount) {
-                    repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
+                    if (effectiveGrade in 2..8) repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
+                    else repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
                 } else found.shuffled().take(targetCount)
             }
-            retryWrongMode -> {
+            retryWrongMode -> if (effectiveGrade in 2..8) {
+                val wrong = repo.pickRetryWrongQuestionsByGrade(effectiveGrade)
+                if (wrong.size < targetCount) repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
+                else wrong.shuffled().take(targetCount)
+            } else {
                 val wrong = repo.pickRetryWrongQuestions(levelGroup)
                 if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
                 else wrong.shuffled().take(targetCount)
             }
-            else -> {
+            else -> if (effectiveGrade in 2..8) {
+                repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
+            } else {
                 val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
                 val categories = subjectFilter?.let { tr ->
                     Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
@@ -220,6 +252,16 @@ class QuizActivity : AppCompatActivity() {
                 finish()
             }
         } else {
+            // DEBUG: İlk 3 sorunun grade'ini logla; selectedGrade dışında gelirse yakala
+            if (effectiveGrade in 2..8 && questions.size >= 3) {
+                val first3 = questions.take(3)
+                first3.forEachIndexed { i, q ->
+                    android.util.Log.d("QuizActivity", "[GRADE_DEBUG] Q${i + 1} id=${q.id} grade=${q.grade} expected=$effectiveGrade")
+                    if (q.grade != effectiveGrade) {
+                        android.util.Log.w("QuizActivity", "[GRADE_DEBUG] MISMATCH: Q${i + 1} grade=${q.grade} != selectedGrade=$effectiveGrade - exception")
+                    }
+                }
+            }
             if (remedialFallbackWarning) {
                 android.widget.Toast.makeText(
                     this,

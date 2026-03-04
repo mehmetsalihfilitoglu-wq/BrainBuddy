@@ -484,6 +484,107 @@ class QuestionRepository(private val context: Context) {
         return Pair(emptyList(), FilterStats(0, 0, 0))
     }
 
+    /** Gate questions - sadece grade filtresi ile (grade 2-8). */
+    fun pickGateQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
+        if (grade !in 2..8) return emptyList()
+        runBlocking { DbSeeder.seedIfNeeded(context) }
+        var pool = roomStore.getQuestionsByGrade(grade)
+        if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
+        if (pool.isEmpty()) pool = getFallbackQuestions()
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 50)
+        val wrongIds = wrongQuestionStore.getUnfixedWrongIds(14)
+        val preferWrong = pool.filter { it.id in wrongIds }.shuffled()
+        val preferFresh = pool.filter { it.id !in recentIds && it.id !in wrongIds }.shuffled()
+        val fillFrom = pool.filter { it.id in recentIds && it.id !in wrongIds }.shuffled()
+        val result = mutableListOf<Question>()
+        val used = mutableSetOf<String>()
+        for (q in preferWrong + preferFresh + fillFrom) {
+            if (result.size >= count) break
+            if (q.id !in used) { result.add(q); used.add(q.id) }
+        }
+        var finalList = result.ifEmpty { pool.shuffled().take(count) }.toMutableList()
+        if (finalList.size < count && pool.isNotEmpty()) {
+            val usedIds = finalList.map { it.id }.toSet().toMutableSet()
+            var idx = 0
+            while (finalList.size < count) {
+                val q = pool[idx % pool.size]
+                if (q.id !in usedIds) { finalList.add(q); usedIds.add(q.id) }
+                idx++
+                if (idx > pool.size * 2) break
+            }
+        }
+        val toReturn = finalList.shuffled()
+        roomStore.recordSeenIdsForProfile(profileId, toReturn.map { it.id })
+        return toReturn
+    }
+
+    /** Boss questions - sadece grade filtresi ile (grade 2-8). */
+    fun pickBossQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
+        if (grade !in 2..8) return emptyList()
+        runBlocking { DbSeeder.seedIfNeeded(context) }
+        var pool = roomStore.getQuestionsByGrade(grade)
+        if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
+        if (pool.isEmpty()) pool = getFallbackQuestions()
+        val hardPool = pool.filter { it.difficulty == QuizDifficulty.HARD }
+        val base = if (hardPool.isNotEmpty()) hardPool else pool
+        val result = base.shuffled().take(count).toMutableList()
+        if (result.size < count && pool.isNotEmpty()) {
+            val shuffled = pool.shuffled()
+            var idx = 0
+            while (result.size < count) {
+                result.add(shuffled[idx % shuffled.size])
+                idx++
+            }
+        }
+        return result.shuffled()
+    }
+
+    /** Remedial questions - sadece grade filtresi ile. */
+    fun pickRemedialQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
+        if (grade !in 2..8) return Pair(emptyList(), true)
+        runBlocking { DbSeeder.seedIfNeeded(context) }
+        val all = roomStore.getQuestionsByGrade(grade).ifEmpty { getFallbackQuestions().filter { it.grade == grade } }
+            .ifEmpty { getFallbackQuestions() }
+        val allMap = all.associateBy { it.id }
+        val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
+        val wrongIds = weakTopicIds.ifEmpty { roomStore.getWrongQuestionIds(userId, 14).toList() }
+        val weakTopics = wrongIds.mapNotNull { allMap[it]?.subject?.tr }.distinct()
+        val byTopic = all.groupBy { it.subject.tr }
+        var pool = mutableListOf<Question>()
+        for (topic in weakTopics) {
+            byTopic[topic]?.let { pool.addAll(it) }
+        }
+        if (pool.isEmpty()) pool = all.toMutableList()
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 100)
+        val sessionIds = mutableSetOf<String>()
+        val result = mutableListOf<Question>()
+        for (q in pool.shuffled()) {
+            if (result.size >= count) break
+            if (q.id in sessionIds) continue
+            if (q.id in recentIds && pool.size > count * 2) continue
+            result.add(q)
+            sessionIds.add(q.id)
+        }
+        val questions = result.ifEmpty { pool.shuffled().take(count) }.ifEmpty { getFallbackQuestions().filter { it.grade == grade }.shuffled().take(count) }
+            .ifEmpty { getFallbackQuestions().shuffled().take(count) }
+        return Pair(questions, pool.isEmpty())
+    }
+
+    /** Retry wrong questions - sadece grade filtresi ile. */
+    fun pickRetryWrongQuestionsByGrade(grade: Int): List<Question> {
+        if (grade !in 2..8) return emptyList()
+        val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
+        val wrongIds = roomStore.getAllWrongIds(userId)
+        if (wrongIds.isEmpty()) return emptyList()
+        runBlocking { DbSeeder.seedIfNeeded(context) }
+        val all = roomStore.getQuestionsByGrade(grade).associateBy { it.id }
+        val fallback = getFallbackQuestions().filter { it.grade == grade }.associateBy { it.id }
+        val allMap = if (all.isEmpty()) fallback else all
+        return wrongIds.mapNotNull { allMap[it] }
+    }
+
     /** Boss test: harder question pool. */
     fun pickBossQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         val (all, _) = loadAllQuestionsWithStats()
