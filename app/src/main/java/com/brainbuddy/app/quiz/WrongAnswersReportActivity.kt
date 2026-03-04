@@ -13,7 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
-import com.brainbuddy.app.ads.RewardAdHelper
+import com.brainbuddy.app.ads.RewardedAdManager
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.databinding.ActivityWrongAnswersReportBinding
@@ -40,7 +40,6 @@ class WrongAnswersReportActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWrongAnswersReportBinding
     private lateinit var repository: WrongAnswersReportRepository
     private lateinit var premiumStore: PremiumStore
-    private var rewardAdHelper: RewardAdHelper? = null
     private var pendingUnlockItem: WrongReportUiItem? = null
 
     private var sinceMillis: Long = 0
@@ -64,10 +63,14 @@ class WrongAnswersReportActivity : AppCompatActivity() {
 
         repository = WrongAnswersReportRepository(this)
         premiumStore = PremiumStore(this)
-        rewardAdHelper = RewardAdHelper(this)
-        rewardAdHelper?.loadAd()
+        RewardedAdManager.preload(this)
 
         loadItems()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        RewardedAdManager.preload(this)
     }
 
     private fun loadItems() {
@@ -140,7 +143,7 @@ class WrongAnswersReportActivity : AppCompatActivity() {
                 startActivity(Intent(this, TestSettingsActivity::class.java))
             }
 
-        if (rewardAdHelper?.isLoaded() == true) {
+        if (RewardedAdManager.isLoaded()) {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
                 showRewardedAd()
@@ -149,7 +152,7 @@ class WrongAnswersReportActivity : AppCompatActivity() {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
                 Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
-                rewardAdHelper?.loadAd()
+                RewardedAdManager.preload(this)
                 pendingUnlockItem = null
             }
         }
@@ -158,15 +161,15 @@ class WrongAnswersReportActivity : AppCompatActivity() {
 
     private fun showRewardedAd() {
         val item = pendingUnlockItem ?: return
-        rewardAdHelper?.showAd(
-            onRewarded = {
+        RewardedAdManager.show(
+            activity = this,
+            onReward = {
                 performUnlock(item)
                 pendingUnlockItem = null
-                rewardAdHelper?.loadAd()
             },
-            onFailed = {
-                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
-                rewardAdHelper?.loadAd()
+            onFail = { msg ->
+                val err = RewardedAdManager.lastLoadError?.let { "$msg ($it)" } ?: msg
+                Toast.makeText(this, err, Toast.LENGTH_LONG).show()
                 pendingUnlockItem = null
             }
         )

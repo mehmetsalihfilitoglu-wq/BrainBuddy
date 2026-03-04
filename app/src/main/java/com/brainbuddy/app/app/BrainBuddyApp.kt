@@ -24,7 +24,7 @@ class BrainBuddyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        MobileAds.initialize(this) {}
+        MobileAds.initialize(this)
         // Ensure we always have a valid active profile on app start.
         ActiveProfileManager.getActiveProfileId(this)
         AppModeManager.registerLifecycle(this)

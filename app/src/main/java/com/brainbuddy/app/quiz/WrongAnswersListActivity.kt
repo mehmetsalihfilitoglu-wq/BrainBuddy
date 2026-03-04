@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
-import com.brainbuddy.app.ads.RewardAdHelper
+import com.brainbuddy.app.ads.RewardedAdManager
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.core.WrongReviewAnalytics
@@ -39,7 +39,6 @@ class WrongAnswersListActivity : AppCompatActivity() {
     private lateinit var b: ActivityWrongAnswersListBinding
     private lateinit var quotaStore: WrongReviewQuotaStore
     private lateinit var premiumStore: PremiumStore
-    private var rewardAdHelper: RewardAdHelper? = null
     private var questions: List<Question> = emptyList()
     private var sessionAnswers: Map<String, Int> = emptyMap()
     private val revealedIds = mutableSetOf<String>()
@@ -60,8 +59,7 @@ class WrongAnswersListActivity : AppCompatActivity() {
         quotaStore = WrongReviewQuotaStore(this)
         premiumStore = PremiumStore(this)
         quotaStore.ensureDailyReset()
-        rewardAdHelper = RewardAdHelper(this)
-        rewardAdHelper?.loadAd()
+        RewardedAdManager.preload(this)
 
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS) ?: arrayListOf()
         val sessionJson = intent.getStringExtra(EXTRA_SESSION_JSON)
@@ -186,7 +184,7 @@ class WrongAnswersListActivity : AppCompatActivity() {
                 startActivity(Intent(this, TestSettingsActivity::class.java))
             }
 
-        if (rewardAdHelper?.isLoaded() == true) {
+        if (RewardedAdManager.isLoaded()) {
             builder.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { dialog, _ ->
                 dialog.dismiss()
                 showRewardedAd()
@@ -195,7 +193,7 @@ class WrongAnswersListActivity : AppCompatActivity() {
             builder.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { dialog, _ ->
                 dialog.dismiss()
                 Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
-                rewardAdHelper?.loadAd()
+                RewardedAdManager.preload(this)
                 pendingExpandQuestionId = null
             }
         }
@@ -203,8 +201,9 @@ class WrongAnswersListActivity : AppCompatActivity() {
     }
 
     private fun showRewardedAd() {
-        rewardAdHelper?.showAd(
-            onRewarded = {
+        RewardedAdManager.show(
+            activity = this,
+            onReward = {
                 WrongReviewAnalytics.logAdShown()
                 WrongReviewAnalytics.logAdRewarded()
                 quotaStore.addOneFromReward()
@@ -214,11 +213,10 @@ class WrongAnswersListActivity : AppCompatActivity() {
                     WrongReviewAnalytics.logItemReveal()
                     revealAndExpand(qId)
                 }
-                rewardAdHelper?.loadAd()
             },
-            onFailed = {
-                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
-                rewardAdHelper?.loadAd()
+            onFail = { msg ->
+                val err = RewardedAdManager.lastLoadError?.let { "$msg ($it)" } ?: msg
+                Toast.makeText(this, err, Toast.LENGTH_LONG).show()
                 pendingExpandQuestionId = null
             }
         )

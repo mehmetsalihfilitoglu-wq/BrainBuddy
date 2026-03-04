@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
-import com.brainbuddy.app.ads.RewardAdHelper
+import com.brainbuddy.app.ads.RewardedAdManager
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.DailyAdQuotaStore
 import com.brainbuddy.app.core.PremiumStore
@@ -42,7 +42,6 @@ class PastTestDetailActivity : AppCompatActivity() {
     private lateinit var testId: String
     private lateinit var questionIds: ArrayList<String>
     private lateinit var viewModel: PastTestDetailViewModel
-    private var rewardAdHelper: RewardAdHelper? = null
     private var pendingUnlockQuestionId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,8 +66,7 @@ class PastTestDetailActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[PastTestDetailViewModel::class.java]
         viewModel.load(testId)
-        rewardAdHelper = RewardAdHelper(this)
-        rewardAdHelper?.loadAd()
+        RewardedAdManager.preload(this)
 
         val dateStr = SimpleDateFormat("d MMMM yyyy", Locale("tr")).format(Date(snapshot.createdAt))
         findViewById<android.widget.TextView>(R.id.tvScore).text = "${snapshot.score}/${snapshot.total}"
@@ -128,22 +126,18 @@ class PastTestDetailActivity : AppCompatActivity() {
 
     private fun showRewardedAdToUnlock(questionId: String) {
         pendingUnlockQuestionId = questionId
-        if (rewardAdHelper?.isLoaded() == true) {
-            rewardAdHelper?.showAd(
-                onRewarded = {
-                    pendingUnlockQuestionId?.let { viewModel.performUnlockAfterAd(it) }
-                    pendingUnlockQuestionId = null
-                    rewardAdHelper?.loadAd()
-                },
-                onFailed = {
-                    Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
-                    rewardAdHelper?.loadAd()
-                }
-            )
-        } else {
-            Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
-            rewardAdHelper?.loadAd()
-        }
+        RewardedAdManager.show(
+            activity = this,
+            onReward = {
+                pendingUnlockQuestionId?.let { viewModel.performUnlockAfterAd(it) }
+                pendingUnlockQuestionId = null
+            },
+            onFail = { msg ->
+                val err = RewardedAdManager.lastLoadError?.let { "$msg ($it)" } ?: msg
+                Toast.makeText(this, err, Toast.LENGTH_LONG).show()
+                pendingUnlockQuestionId = null
+            }
+        )
     }
 
     private fun setupReplayButton(total: Int) {

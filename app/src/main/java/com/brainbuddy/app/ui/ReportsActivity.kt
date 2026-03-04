@@ -31,7 +31,7 @@ import com.brainbuddy.app.core.StatsRepository
 import com.brainbuddy.app.core.WrongReportUnlockStore
 import com.brainbuddy.app.databinding.ActivityReportsBinding
 import androidx.core.content.FileProvider
-import com.brainbuddy.app.ads.RewardAdHelper
+import com.brainbuddy.app.ads.RewardedAdManager
 import com.brainbuddy.app.quiz.PastTestDetailActivity
 import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.report.PdfReportGenerator
@@ -75,8 +75,7 @@ class ReportsActivity : AppCompatActivity() {
 
             statsRepo = StatsRepository(this)
             wrongReportUnlockStore = WrongReportUnlockStore(this)
-            rewardAdHelper = RewardAdHelper(this)
-            rewardAdHelper?.loadAd()
+            RewardedAdManager.preload(this)
             val autoOpenWrongReview = intent.getBooleanExtra(EXTRA_OPEN_WRONG_REVIEW, false)
 
             val initialRange = runBlocking {
@@ -662,7 +661,6 @@ class ReportsActivity : AppCompatActivity() {
     }
 
     private lateinit var wrongReportUnlockStore: WrongReportUnlockStore
-    private var rewardAdHelper: RewardAdHelper? = null
 
     private fun openWrongAnswersReport(sinceMillis: Long) {
         val isPremium = com.brainbuddy.app.core.PremiumStore(this).isPremium()
@@ -696,11 +694,7 @@ class ReportsActivity : AppCompatActivity() {
                 pendingWrongReportSinceMillis = 0
                 startActivity(Intent(this, TestSettingsActivity::class.java))
             }
-        if (rewardAdHelper == null) {
-            rewardAdHelper = RewardAdHelper(this)
-            rewardAdHelper?.loadAd()
-        }
-        if (rewardAdHelper?.isLoaded() == true) {
+        if (RewardedAdManager.isLoaded()) {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
                 showRewardedAdForWrongReport()
@@ -709,7 +703,7 @@ class ReportsActivity : AppCompatActivity() {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
                 Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
-                rewardAdHelper?.loadAd()
+                RewardedAdManager.preload(this)
                 pendingWrongReportSinceMillis = 0
             }
         }
@@ -717,18 +711,17 @@ class ReportsActivity : AppCompatActivity() {
     }
 
     private fun showRewardedAdForWrongReport() {
-        if (rewardAdHelper == null) rewardAdHelper = RewardAdHelper(this)
-        rewardAdHelper?.showAd(
-            onRewarded = {
+        RewardedAdManager.show(
+            activity = this,
+            onReward = {
                 wrongReportUnlockStore.setUnlocked()
                 val since = pendingWrongReportSinceMillis
                 pendingWrongReportSinceMillis = 0
                 startWrongAnswersReportActivity(since)
-                rewardAdHelper?.loadAd()
             },
-            onFailed = {
-                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
-                rewardAdHelper?.loadAd()
+            onFail = { msg ->
+                val err = RewardedAdManager.lastLoadError?.let { "$msg ($it)" } ?: msg
+                Toast.makeText(this, err, Toast.LENGTH_LONG).show()
                 pendingWrongReportSinceMillis = 0
             }
         )
