@@ -71,6 +71,9 @@ class ReportsActivity : AppCompatActivity() {
         try {
             val b = ActivityReportsBinding.inflate(layoutInflater)
             setContentView(b.root)
+            Toast.makeText(this, "REPORTS_BUILD_MARKER_777", Toast.LENGTH_LONG).show()
+            Log.e("REPORTS_MARKER", "REPORTS_BUILD_MARKER_777")
+            Log.e("REPORTS_MARKER", "Layout: activity_reports.xml, binding.root.id=${b.root.id}, class=${b.root::class.java.name}")
             setSupportActionBar(b.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

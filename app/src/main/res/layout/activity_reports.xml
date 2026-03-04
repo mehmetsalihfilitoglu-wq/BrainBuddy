@@ -9,6 +9,15 @@
     android:scrollbars="none"
     android:overScrollMode="never">
 
+    <TextView
+        android:id="@+id/debugMarker777"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DEBUG_MARKER_777"
+        android:textSize="24sp"
+        android:textColor="#FF0000"
+        android:padding="16dp" />
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
