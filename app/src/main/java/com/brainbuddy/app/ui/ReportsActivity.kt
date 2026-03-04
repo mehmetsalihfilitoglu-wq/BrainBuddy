@@ -62,6 +62,7 @@ class ReportsActivity : AppCompatActivity() {
 
     /** Last selected point index (0-based) in trend chart. Null = collapsed. Survives applyModel/rotation. */
     private var selectedPointIndex: Int? = null
+    private var wrongReviewOpenedOnce: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +76,7 @@ class ReportsActivity : AppCompatActivity() {
 
             statsRepo = StatsRepository(this)
             wrongReviewAccessManager = WrongReviewAccessManager(this)
+            val autoOpenWrongReview = intent.getBooleanExtra(EXTRA_OPEN_WRONG_REVIEW, false)
 
             val initialRange = runBlocking {
                 applicationContext.reportsPrefsDataStore.data
@@ -92,7 +94,12 @@ class ReportsActivity : AppCompatActivity() {
             statsRepo.reportsFlow
                 .onEach { model ->
                     latestModel = model
-                    applyModel(b, model, shareData = { shareData = it })
+                    applyModel(
+                        b,
+                        model,
+                        shareData = { shareData = it },
+                        autoOpenWrongReview = autoOpenWrongReview
+                    )
                 }
                 .launchIn(lifecycleScope)
 
@@ -208,7 +215,8 @@ class ReportsActivity : AppCompatActivity() {
     private fun applyModel(
         b: ActivityReportsBinding,
         model: StatsRepository.ReportsUiModel,
-        shareData: (ShareData) -> Unit
+        shareData: (ShareData) -> Unit,
+        autoOpenWrongReview: Boolean
     ) {
         val range = model.range
         when (range) {
@@ -530,6 +538,10 @@ class ReportsActivity : AppCompatActivity() {
             b.btnReviewWrongParent?.setOnClickListener {
                 openWrongAnswerReview(model.wrongReview.wrongIds, model.wrongReview.sessionJson)
             }
+            if (autoOpenWrongReview && !wrongReviewOpenedOnce) {
+                wrongReviewOpenedOnce = true
+                openWrongAnswerReview(model.wrongReview.wrongIds, model.wrongReview.sessionJson)
+            }
         } else {
             b.wrongHasData.visibility = View.GONE
             b.wrongEmpty.visibility = View.VISIBLE
@@ -702,6 +714,10 @@ class ReportsActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressedDispatcher.onBackPressed()
         return true
+    }
+
+    companion object {
+        const val EXTRA_OPEN_WRONG_REVIEW: String = "extra_open_wrong_review"
     }
 
     private class RecentTestsAdapter(

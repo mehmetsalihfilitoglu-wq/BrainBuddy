@@ -3,10 +3,13 @@ package com.brainbuddy.app.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.widget.RadioGroup
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.ParentAccessGuard
-import com.brainbuddy.app.core.PremiumStore
-import com.brainbuddy.app.core.QuizRetryPolicy
+import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.core.QuizPrefs
+import com.brainbuddy.app.quiz.QuizActivity
+import com.brainbuddy.app.quiz.QuizDifficulty
 
 class TestSettingsActivity : AppCompatActivity() {
 
@@ -19,35 +22,91 @@ class TestSettingsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.settings_test_settings)
 
-        val retryPolicy = QuizRetryPolicy(this)
-        val premium = PremiumStore(this)
-        val retrySummary = buildString {
-            if (premium.isPremium()) {
-                append("• Premium: Sınırsız tekrar, reklam yok\n")
-            } else {
-                append("• Ücretsiz: Test başarısız olunca 3 reklam hakkı\n")
-                append("• Haklar bitince 30 dk bekleme\n")
-                append("• Bekleme sonrası 1 ücretsiz tekrar\n")
-                val mode = retryPolicy.getStartMode()
-                when (mode) {
-                    QuizRetryPolicy.StartMode.REQUIRE_AD ->
-                        append("• Şu an: Reklam izleyerek tekrar deneyebilirsiniz")
-                    QuizRetryPolicy.StartMode.WAIT_COOLDOWN ->
-                        append("• Şu an: Bekleme süresi dolana kadar tekrar yok")
-                    else ->
-                        append("• Şu an: Tekrar deneyebilirsiniz")
-                }
-            }
-        }
+        val protectionPrefs = ProtectionPrefs(this)
+        val quizPrefs = QuizPrefs(this)
 
-        findViewById<android.widget.TextView>(R.id.tvRetryRule).text = retrySummary
+        // BLOK 1: Test Ayarları
+        setupDifficulty(quizPrefs)
+        setupSuccessRate(protectionPrefs)
+        setupQuizInterval(protectionPrefs)
 
+        // BLOK 2: Soru / Sınav Paketleri
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnExamPacks).setOnClickListener {
             startActivity(Intent(this, ExamPackActivity::class.java))
         }
 
+        // BLOK 3: Eğitim Modülleri / İçerik
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnJuniorModule).setOnClickListener {
+            startActivity(Intent(this, com.brainbuddy.app.junior.JuniorSettingsActivity::class.java))
+        }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnMiniTest).setOnClickListener {
+            startActivity(Intent(this, QuizActivity::class.java).apply {
+                putExtra(QuizActivity.EXTRA_REMEDIAL, true)
+            })
+        }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnWorkOnWrongs).setOnClickListener {
+            startActivity(Intent(this, ReportsActivity::class.java).apply {
+                putExtra(ReportsActivity.EXTRA_OPEN_WRONG_REVIEW, true)
+            })
+        }
+
         findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
             .setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+    }
+
+    private fun setupDifficulty(quizPrefs: QuizPrefs) {
+        val group = findViewById<RadioGroup>(R.id.testDifficultyGroup)
+        when (quizPrefs.difficulty()) {
+            QuizDifficulty.EASY -> group.check(R.id.testDiffEasy)
+            QuizDifficulty.HARD -> group.check(R.id.testDiffHard)
+            else -> group.check(R.id.testDiffMedium)
+        }
+        group.setOnCheckedChangeListener { _, id ->
+            val diff = when (id) {
+                R.id.testDiffEasy -> QuizDifficulty.EASY
+                R.id.testDiffHard -> QuizDifficulty.HARD
+                else -> QuizDifficulty.MEDIUM
+            }
+            quizPrefs.setDifficulty(diff)
+        }
+    }
+
+    private fun setupSuccessRate(protectionPrefs: ProtectionPrefs) {
+        val group = findViewById<RadioGroup>(R.id.testSuccessRateGroup)
+        when (protectionPrefs.minSuccessRatePercent()) {
+            50 -> group.check(R.id.testSuccessRate50)
+            70 -> group.check(R.id.testSuccessRate70)
+            80 -> group.check(R.id.testSuccessRate80)
+            else -> group.check(R.id.testSuccessRate60)
+        }
+        group.setOnCheckedChangeListener { _, id ->
+            val pct = when (id) {
+                R.id.testSuccessRate50 -> 50
+                R.id.testSuccessRate70 -> 70
+                R.id.testSuccessRate80 -> 80
+                else -> 60
+            }
+            protectionPrefs.setMinSuccessRatePercent(pct)
+        }
+    }
+
+    private fun setupQuizInterval(protectionPrefs: ProtectionPrefs) {
+        val group = findViewById<RadioGroup>(R.id.testQuizIntervalGroup)
+        when (protectionPrefs.quizIntervalMinutes()) {
+            45 -> group.check(R.id.testInterval45)
+            60 -> group.check(R.id.testInterval60)
+            else -> group.check(R.id.testInterval30)
+        }
+        group.setOnCheckedChangeListener { _, id ->
+            val mins = when (id) {
+                R.id.testInterval45 -> 45
+                R.id.testInterval60 -> 60
+                else -> 30
+            }
+            protectionPrefs.setQuizIntervalMinutes(mins)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

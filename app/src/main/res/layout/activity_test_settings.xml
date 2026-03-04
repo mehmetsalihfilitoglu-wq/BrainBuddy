@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bg_gradient"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,6 +12,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- Toolbar -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -20,16 +20,15 @@
             android:background="@color/bb_turquoise_dark"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            app:navigationIconTint="@color/white"/>
+            app:navigationIconTint="@color/white" />
 
+        <!-- BLOK 1: Test Ayarları -->
         <com.google.android.material.card.MaterialCardView
-            style="@style/BB.Card"
+            android:id="@+id/cardTestSettings"
+            style="@style/Widget.BrainBuddy.AppCardWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,133 +39,335 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Test Uzunluğu"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
+                    android:text="@string/settings_test_settings"
+                    android:textAppearance="@style/TextAppearance.BrainBuddy.AppTitle" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Her test 20 sorudan oluşur (sabit)."
-                    android:textSize="14sp"
-                    android:textColor="@color/bb_text_muted"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    android:layout_marginTop="4dp"
+                    android:text="@string/settings_test_sub"
+                    android:textAppearance="@style/TextAppearance.BrainBuddy.AppSubtitle" />
 
-        <com.google.android.material.card.MaterialCardView
-            style="@style/BB.Card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Başarısız Tekrar Kuralı"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:id="@+id/tvRetryRule"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textSize="14sp"
-                    android:textColor="@color/bb_text_muted"
-                    android:lineSpacingMultiplier="1.3"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            style="@style/BB.Card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Günlük Hedef (Opsiyonel)"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Her gün en az 1 test çözmeyi hedefleyebilirsiniz. Hedef ayarları yakında."
-                    android:textSize="14sp"
-                    android:textColor="@color/bb_text_muted"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="24dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
+                <!-- Test Uzunluğu (20 sabit) -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Test Uzunluğu"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20 soru (sabit)"
+                        android:textSize="14sp"
+                        android:textColor="@color/bb_text_muted" />
+                </LinearLayout>
+
+                <!-- Zorluk -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Soru Paketleri"
-                        android:textSize="16sp"
+                        android:text="Zorluk"
+                        android:textSize="14sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textColor="@color/bb_text" />
+
+                    <RadioGroup
+                        android:id="@+id/testDifficultyGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/testDiffEasy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kolay"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/testDiffMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Orta"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/testDiffHard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="Zor"
+                            android:textSize="14sp" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <!-- Minimum Başarı Oranı -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="LGS / TYT / AYT / Junior"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
+                        android:text="@string/settings_min_success_rate"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/settings_min_success_rate_sub"
+                        android:textSize="12sp"
+                        android:textColor="@color/bb_text_muted" />
+
+                    <RadioGroup
+                        android:id="@+id/testSuccessRateGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/testSuccessRate50"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/success_rate_50"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/testSuccessRate60"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/success_rate_60"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/testSuccessRate70"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/success_rate_70"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/testSuccessRate80"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/success_rate_80"
+                            android:textSize="14sp" />
+                    </RadioGroup>
                 </LinearLayout>
 
+                <!-- Quiz Aralığı -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_quiz_interval"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/settings_quiz_interval_sub"
+                        android:textSize="12sp"
+                        android:textColor="@color/bb_text_muted" />
+
+                    <RadioGroup
+                        android:id="@+id/testQuizIntervalGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/testInterval30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/interval_30"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/testInterval45"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/interval_45"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/testInterval60"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/interval_60"
+                            android:textSize="14sp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- BLOK 2: Soru / Sınav Paketleri -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPacks"
+            style="@style/Widget.BrainBuddy.AppCardWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/parent_question_packs"
+                    android:textAppearance="@style/TextAppearance.BrainBuddy.AppTitle" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/parent_question_packs_sub"
+                    android:textAppearance="@style/TextAppearance.BrainBuddy.AppSubtitle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_exam_packs"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/bb_text" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/settings_exam_packs_sub"
+                            android:textSize="12sp"
+                            android:textColor="@color/bb_text_muted" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnExamPacks"
+                        style="@style/BBButtonAlt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Paketleri Yönet"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- BLOK 3: Eğitim Modülleri / İçerik -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardEducation"
+            style="@style/Widget.BrainBuddy.AppCardWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_education"
+                    android:textAppearance="@style/TextAppearance.BrainBuddy.AppTitle" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Test dışı modüller ve pratik kısayollar"
+                    android:textAppearance="@style/TextAppearance.BrainBuddy.AppSubtitle" />
+
+                <!-- BrainBuddy Junior -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnExamPacks"
+                    android:id="@+id/btnJuniorModule"
+                    style="@style/BB.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/settings_junior_title"
+                    android:textAllCaps="false" />
+
+                <!-- Mini Test (Pratik) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMiniTest"
                     style="@style/BBButtonAlt"
-                    android:text="Paketler"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/btn_practice"
+                    android:textAllCaps="false" />
+
+                <!-- Yanlışlardan Çalış -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWorkOnWrongs"
+                    style="@style/BBButtonAlt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/parent_review_wrong"
+                    android:textAllCaps="false" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
