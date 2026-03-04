@@ -71,8 +71,10 @@ class ReportsActivity : AppCompatActivity() {
         try {
             val b = ActivityReportsBinding.inflate(layoutInflater)
             setContentView(b.root)
-            b.reportsMainScroll.isVerticalScrollBarEnabled = false
-            b.reportsMainScroll.isHorizontalScrollBarEnabled = false
+            val scroll = b.reportsMainScroll
+            if (scroll is ScrollView) scroll.isVerticalScrollBarEnabled = false
+            else if (scroll is androidx.core.widget.NestedScrollView) scroll.isVerticalScrollBarEnabled = false
+            scroll.overScrollMode = View.OVER_SCROLL_NEVER
             setSupportActionBar(b.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
