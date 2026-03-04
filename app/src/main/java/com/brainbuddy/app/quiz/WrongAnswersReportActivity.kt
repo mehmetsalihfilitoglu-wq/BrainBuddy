@@ -148,7 +148,7 @@ class WrongAnswersReportActivity : AppCompatActivity() {
         } else {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
-                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
                 rewardAdHelper?.loadAd()
                 pendingUnlockItem = null
             }

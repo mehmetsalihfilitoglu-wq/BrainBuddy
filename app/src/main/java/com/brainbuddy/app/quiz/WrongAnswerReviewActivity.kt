@@ -237,6 +237,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
                         WrongReviewAnalytics.logAdShown()
                         WrongReviewAnalytics.logAdRewarded()
                         quotaStore.addOneFromReward()
+                        rewardAdHelper?.loadAd()
                         onAdRewarded(true)
                     },
                     onFailed = {
@@ -248,7 +249,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         } else {
             builder.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { dialog, _ ->
                 dialog.dismiss()
-                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
                 rewardAdHelper?.loadAd()
             }
         }

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -134,6 +133,7 @@ class PastTestDetailActivity : AppCompatActivity() {
                 onRewarded = {
                     pendingUnlockQuestionId?.let { viewModel.performUnlockAfterAd(it) }
                     pendingUnlockQuestionId = null
+                    rewardAdHelper?.loadAd()
                 },
                 onFailed = {
                     Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
@@ -141,12 +141,8 @@ class PastTestDetailActivity : AppCompatActivity() {
                 }
             )
         } else {
-            AlertDialog.Builder(this)
-                .setMessage(getString(R.string.wrong_detail_unlock_ad_message))
-                .setPositiveButton(getString(android.R.string.ok)) { _, _ ->
-                    rewardAdHelper?.loadAd()
-                }
-                .show()
+            Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
+            rewardAdHelper?.loadAd()
         }
     }
 

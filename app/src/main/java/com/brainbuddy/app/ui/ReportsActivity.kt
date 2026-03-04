@@ -75,6 +75,8 @@ class ReportsActivity : AppCompatActivity() {
 
             statsRepo = StatsRepository(this)
             wrongReportUnlockStore = WrongReportUnlockStore(this)
+            rewardAdHelper = RewardAdHelper(this)
+            rewardAdHelper?.loadAd()
             val autoOpenWrongReview = intent.getBooleanExtra(EXTRA_OPEN_WRONG_REVIEW, false)
 
             val initialRange = runBlocking {
@@ -694,8 +696,10 @@ class ReportsActivity : AppCompatActivity() {
                 pendingWrongReportSinceMillis = 0
                 startActivity(Intent(this, TestSettingsActivity::class.java))
             }
-        if (rewardAdHelper == null) rewardAdHelper = RewardAdHelper(this)
-        rewardAdHelper?.loadAd()
+        if (rewardAdHelper == null) {
+            rewardAdHelper = RewardAdHelper(this)
+            rewardAdHelper?.loadAd()
+        }
         if (rewardAdHelper?.isLoaded() == true) {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
@@ -704,7 +708,7 @@ class ReportsActivity : AppCompatActivity() {
         } else {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
-                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
                 rewardAdHelper?.loadAd()
                 pendingWrongReportSinceMillis = 0
             }
