@@ -71,6 +71,8 @@ class ReportsActivity : AppCompatActivity() {
         try {
             val b = ActivityReportsBinding.inflate(layoutInflater)
             setContentView(b.root)
+            b.reportsMainScroll.isVerticalScrollBarEnabled = false
+            b.reportsMainScroll.isHorizontalScrollBarEnabled = false
             setSupportActionBar(b.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
