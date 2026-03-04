@@ -28,8 +28,10 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.InstalledAppsHelper
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.StatsRepository
+import com.brainbuddy.app.core.WrongReviewAccessManager
 import com.brainbuddy.app.databinding.ActivityReportsBinding
 import androidx.core.content.FileProvider
+import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.quiz.PastTestDetailActivity
 import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.report.PdfReportGenerator
@@ -113,6 +115,8 @@ class ReportsActivity : AppCompatActivity() {
                         Toast.makeText(this@ReportsActivity, R.string.report_no_data, Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
+                    b.btnShareReport.isEnabled = false
+                    b.progressShareReport?.visibility = View.VISIBLE
                     lifecycleScope.launch {
                         val file = try {
                             PdfReportGenerator.generateAndGetFile(this@ReportsActivity, model)
@@ -126,7 +130,10 @@ class ReportsActivity : AppCompatActivity() {
                             }
                             null
                         }
-                        if (file != null && file.exists() && file.length() > 1_000) {
+                        b.btnShareReport.isEnabled = true
+                        b.progressShareReport?.visibility = View.GONE
+                        if (file != null && file.exists() && file.length() > 500) {
+                            try {
                             val authority = "${BuildConfig.APPLICATION_ID}.provider"
                             val uri = FileProvider.getUriForFile(this@ReportsActivity, authority, file)
                             val shareIntent = Intent(Intent.ACTION_SEND).apply {
@@ -137,8 +144,13 @@ class ReportsActivity : AppCompatActivity() {
                             startActivity(
                                 Intent.createChooser(shareIntent, getString(R.string.report_share))
                             )
+                            } catch (e: Exception) {
+                                Log.e("PDF_REPORT", "Share failed", e)
+                                Toast.makeText(this@ReportsActivity, R.string.report_pdf_error, Toast.LENGTH_SHORT).show()
+                            }
                         } else {
                             showPdfErrorDialogIfAvailable()
+                            Toast.makeText(this@ReportsActivity, R.string.report_pdf_error, Toast.LENGTH_SHORT).show()
                         }
                     }
                 } else {
@@ -601,15 +613,64 @@ class ReportsActivity : AppCompatActivity() {
         startActivity(Intent(this, QuizActivity::class.java))
     }
 
+    private lateinit var wrongReviewAccessManager: WrongReviewAccessManager
+    private var rewardAdHelper: RewardAdHelper? = null
+
     private fun openWrongAnswerReview(wrongIds: List<String>, sessionJson: String?) {
-        // Quota consumed on reveal (expand), not on screen open
+        if (!::wrongReviewAccessManager.isInitialized) wrongReviewAccessManager = WrongReviewAccessManager(this)
+        wrongReviewAccessManager.ensureDailyReset()
+        if (wrongReviewAccessManager.canOpen() && wrongReviewAccessManager.consumeOpen()) {
+            startWrongAnswersListActivity(wrongIds, sessionJson)
+            return
+        }
+        showWrongReviewPaywallDialog(wrongIds, sessionJson)
+    }
+
+    private fun startWrongAnswersListActivity(wrongIds: List<String>, sessionJson: String?) {
         startActivity(Intent(this, com.brainbuddy.app.quiz.WrongAnswersListActivity::class.java).apply {
-            putStringArrayListExtra(
-                com.brainbuddy.app.quiz.WrongAnswersListActivity.EXTRA_WRONG_IDS,
-                ArrayList(wrongIds)
-            )
+            putStringArrayListExtra(com.brainbuddy.app.quiz.WrongAnswersListActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
             putExtra(com.brainbuddy.app.quiz.WrongAnswersListActivity.EXTRA_SESSION_JSON, sessionJson)
         })
+    }
+
+    private fun showWrongReviewPaywallDialog(wrongIds: List<String>, sessionJson: String?) {
+        val b = AlertDialog.Builder(this)
+            .setTitle(getString(R.string.wrong_review_limit_title))
+            .setMessage(getString(R.string.wrong_review_limit_message))
+            .setNegativeButton(getString(R.string.close)) { d, _ -> d.dismiss() }
+            .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
+                startActivity(Intent(this, TestSettingsActivity::class.java))
+            }
+        if (rewardAdHelper == null) rewardAdHelper = RewardAdHelper(this)
+        rewardAdHelper?.loadAd()
+        if (rewardAdHelper?.isLoaded() == true) {
+            b.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { d, _ ->
+                d.dismiss()
+                showRewardedAdForWrongReview { startWrongAnswersListActivity(wrongIds, sessionJson) }
+            }
+        } else {
+            b.setPositiveButton(getString(R.string.wrong_review_btn_watch_ad)) { d, _ ->
+                d.dismiss()
+                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                rewardAdHelper?.loadAd()
+            }
+        }
+        b.show()
+    }
+
+    private fun showRewardedAdForWrongReview(onRewarded: () -> Unit) {
+        if (rewardAdHelper == null) rewardAdHelper = RewardAdHelper(this)
+        rewardAdHelper?.showAd(
+            onRewarded = {
+                wrongReviewAccessManager.addOneFromReward()
+                if (wrongReviewAccessManager.consumeOpen()) onRewarded()
+                rewardAdHelper?.loadAd()
+            },
+            onFailed = {
+                Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                rewardAdHelper?.loadAd()
+            }
+        )
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -1,61 +1,79 @@
 package com.brainbuddy.app.report
 
 import android.content.Context
-import android.graphics.Bitmap
 import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.PremiumStore
-import com.brainbuddy.app.core.ProtectionPrefs
-import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.StatsRepository
-import com.brainbuddy.app.quiz.QuizResultActivity
-import com.brainbuddy.app.quiz.QuestionRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.util.concurrent.TimeUnit
 
 /**
- * Orchestrates PDF report generation: gathers data, builds charts, invokes PdfReportBuilder,
- * and provides the file for sharing via FileProvider. All output is under internal cache only.
+ * Orchestrates PDF report generation using ChartRenderer (Canvas-only, no View/Looper).
+ * All rendering runs on IO dispatcher - no main thread required for charts.
  */
 object PdfReportGenerator {
 
     const val PDF_ERROR_FILENAME = "pdf_error.txt"
+    private const val REPORTS_DIR = "reports"
 
     suspend fun generateAndGetFile(
         context: Context,
         model: StatsRepository.ReportsUiModel
     ): File? {
         val cacheDir = context.cacheDir
-        val reportsDir = File(cacheDir, "brainbuddy_reports").apply { mkdirs() }
-        val outFile = File(reportsDir, "BrainBuddy_Report_${System.currentTimeMillis()}.pdf")
+        val reportsDir = File(cacheDir, REPORTS_DIR).apply { mkdirs() }
+        val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+        val outFile = File(reportsDir, "brainbuddy_report_$timestamp.pdf")
 
         return try {
-            // Data calculations can run on any dispatcher
-            val sinceMs = getSinceMsForRange(context, model.range.days)
-            val completePerfs = model.run {
-                val analytics = com.brainbuddy.app.core.AnalyticsStore(context)
-                analytics.getTestPerformances().filter { it.tsMs >= sinceMs && it.correctCount + it.wrongCount > 0 }
+            val range = ReportStatsCalculator.Range.fromDays(model.range.days)
+            val result = withContext(Dispatchers.Default) {
+                ReportStatsCalculator.computeForRange(context, range)
             }
 
-            val wrongRecords = buildWrongAnswerRecords(context)
-            // Chart bitmap render must run on Main (LineChartView -> GestureDetector/Looper)
-            val lineChartBitmap = buildLineChartBitmap(context, model)
-            val barChartBitmap = buildBarChartBitmap(context, model)
+            val lineChartBitmap = if (result.lastTests.size >= 2) {
+                val points = result.lastTests.mapIndexed { i, p -> (i + 1) to p.percent }
+                withContext(Dispatchers.Default) {
+                    ChartRenderer.renderLineChart(points)
+                }
+            } else null
+
+            val barChartBitmap = if (result.perSubject.isNotEmpty()) {
+                val bars = result.perSubject.entries
+                    .sortedByDescending { it.value.correct }
+                    .take(10)
+                    .map { (name, tc) -> Triple(name, tc.correct, tc.total) }
+                withContext(Dispatchers.Default) {
+                    ChartRenderer.renderBarChart(bars)
+                }
+            } else null
+
+            val wrongRecords = result.wrongAnswers.map { wr ->
+                PdfReportBuilder.WrongAnswerRecord(
+                    subject = wr.subject,
+                    stem = wr.stem,
+                    userAnswer = wr.userAnswer,
+                    correctAnswer = wr.correctAnswer,
+                    category = wr.category,
+                    dateMs = wr.dateMs
+                )
+            }
+
             val isPremium = PremiumStore(context).isPremium()
 
             val builder = PdfReportBuilder(
                 context = context,
-                model = model,
+                result = result,
                 wrongAnswerRecords = wrongRecords,
                 lineChartBitmap = lineChartBitmap,
                 barChartBitmap = barChartBitmap,
                 isPremium = isPremium
             )
-            // PDF file write runs on IO
+
             withContext(Dispatchers.IO) {
                 builder.build(outFile)
             }
@@ -63,7 +81,7 @@ object PdfReportGenerator {
             lineChartBitmap?.recycle()
             barChartBitmap?.recycle()
 
-            if (!outFile.exists() || outFile.length() < 1_000) {
+            if (!outFile.exists() || outFile.length() < 500) {
                 withContext(Dispatchers.IO) {
                     writePdfErrorFile(cacheDir, Exception("PDF file too small or missing (size=${outFile.length()})"))
                 }
@@ -82,80 +100,5 @@ object PdfReportGenerator {
             val errorFile = File(cacheDir, PDF_ERROR_FILENAME)
             errorFile.writeText("${e.message}\n\n${e.stackTraceToString()}")
         } catch (_: Exception) { }
-    }
-
-    private fun getSinceMsForRange(context: Context, days: Int): Long {
-        val now = System.currentTimeMillis()
-        val cal = java.util.Calendar.getInstance()
-        cal.timeInMillis = now
-        cal.set(java.util.Calendar.HOUR_OF_DAY, 0)
-        cal.set(java.util.Calendar.MINUTE, 0)
-        cal.set(java.util.Calendar.SECOND, 0)
-        cal.set(java.util.Calendar.MILLISECOND, 0)
-        val todayStart = cal.timeInMillis
-        return if (days == 1) todayStart
-        else todayStart - TimeUnit.DAYS.toMillis((days - 1).toLong())
-    }
-
-    private fun buildWrongAnswerRecords(context: Context): List<PdfReportBuilder.WrongAnswerRecord> {
-        val protectionPrefs = ProtectionPrefs(context)
-        val wrongIds = protectionPrefs.lastFailedWrongIds()
-        val sessionJson = protectionPrefs.lastFailedSessionJson()
-        val questionsJson = protectionPrefs.lastFailedQuestionsJson()
-
-        if (wrongIds.isEmpty() || sessionJson.isNullOrBlank()) return emptyList()
-
-        val session = QuizResultActivity.decodeSession(sessionJson)
-        val sessionAnswers = session?.answers ?: return emptyList()
-
-        val questions = if (!questionsJson.isNullOrBlank()) {
-            QuizResultActivity.decodeQuestions(questionsJson)
-        } else {
-            val repo = QuestionRepository(context)
-            val allMap = repo.loadAllQuestions().associateBy { it.id }
-            wrongIds.mapNotNull { allMap[it] }
-        }
-
-        val questionMap = questions.associateBy { it.id }
-        val dateMs = session?.completedAt ?: session?.startedAt ?: System.currentTimeMillis()
-
-        return wrongIds.mapNotNull { qId ->
-            val q = questionMap[qId] ?: return@mapNotNull null
-            val userIdx = sessionAnswers[qId] ?: -1
-            val userAnswer = if (userIdx in 0..3) q.choices.getOrNull(userIdx) ?: "—" else "—"
-            val correctAnswer = q.choices.getOrNull(q.correctIndex) ?: "?"
-            val category = q.topic ?: q.subject.tr
-            PdfReportBuilder.WrongAnswerRecord(
-                subject = q.subject.tr,
-                stem = q.stem,
-                userAnswer = userAnswer,
-                correctAnswer = correctAnswer,
-                category = category,
-                dateMs = dateMs
-            )
-        }
-    }
-
-    private suspend fun buildLineChartBitmap(context: Context, model: StatsRepository.ReportsUiModel): Bitmap? {
-        val tc = model.trendChart
-        if (tc.isEmpty || tc.points.size < 2) return null
-        val points = tc.points.map { p ->
-            Triple(
-                p.index.toString(),
-                p.percent,
-                "Test ${p.index}: %.0f%%".format(p.percent)
-            )
-        }
-        return ChartImageExporter.exportLineChart(context, points)
-    }
-
-    private suspend fun buildBarChartBitmap(context: Context, model: StatsRepository.ReportsUiModel): Bitmap? {
-        val topics = model.topics.topicCounts
-        if (topics.isEmpty()) return null
-        val bars = topics.entries
-            .sortedByDescending { it.value.correct }
-            .take(10)
-            .map { (name, tc) -> Triple(name, tc.correct, tc.total) }
-        return ChartImageExporter.exportBarChart(context, bars)
     }
 }

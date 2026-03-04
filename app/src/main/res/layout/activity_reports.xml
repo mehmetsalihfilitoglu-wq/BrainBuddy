@@ -1106,12 +1106,20 @@
                         android:text="@string/report_share"
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
 
+                    <ProgressBar
+                        android:id="@+id/progressShareReport"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:visibility="gone"
+                        android:indeterminate="true"/>
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnShareReport"
                         style="@style/BBButtonAlt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Paylaş"
+                        android:text="Raporu Paylaş"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
                         android:paddingHorizontal="16dp"/>
