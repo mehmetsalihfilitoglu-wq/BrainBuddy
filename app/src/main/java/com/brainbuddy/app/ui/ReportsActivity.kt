@@ -301,6 +301,7 @@ class ReportsActivity : AppCompatActivity() {
         // Spec: Trend = son 3 test vs önceki 3 test → en az 6 tamamlanmış test yoksa "Yeterli veri yok"
         val hasAdvancedData = model.weeklySuccess.testCount >= 6
         if (hasAdvancedData) {
+            b.cardAdvancedStats.visibility = View.VISIBLE
             b.advancedStatsContent.visibility = View.VISIBLE
             b.advancedStatsEmpty.visibility = View.GONE
 
@@ -355,9 +356,7 @@ class ReportsActivity : AppCompatActivity() {
                 b.sectionRecommendation.visibility = View.GONE
             }
         } else {
-            b.advancedStatsContent.visibility = View.GONE
-            b.advancedStatsEmpty.visibility = View.VISIBLE
-            b.btnAdvancedStatsEmptyCta?.setOnClickListener { startQuiz() }
+            b.cardAdvancedStats.visibility = View.GONE
         }
 
         // C) Trend chart
