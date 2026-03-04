@@ -2,18 +2,22 @@ package com.brainbuddy.app.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.RadioGroup
+import android.widget.Switch
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityParentBinding
 import java.util.Calendar
 
 class ParentHubActivity : ComponentActivity() {
 
     private lateinit var b: ActivityParentBinding
+    private lateinit var protectionPrefs: ProtectionPrefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +25,8 @@ class ParentHubActivity : ComponentActivity() {
 
         b = ActivityParentBinding.inflate(layoutInflater)
         setContentView(b.root)
+
+        protectionPrefs = ProtectionPrefs(this)
 
         b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
@@ -64,6 +70,63 @@ class ParentHubActivity : ComponentActivity() {
 
         b.gridParentCategories.layoutManager = GridLayoutManager(this, 2)
         b.gridParentCategories.adapter = ParentCategoryAdapter(categories)
+
+        setupQuickSettings()
+    }
+
+    private fun setupQuickSettings() {
+        val root = b.includeQuickSettings
+        val switchBlocking = root.findViewById<Switch>(R.id.quickSwitchAppBlocking)
+        val intervalGroup = root.findViewById<RadioGroup>(R.id.quickQuizIntervalGroup)
+        val successRateGroup = root.findViewById<RadioGroup>(R.id.quickSuccessRateGroup)
+
+        fun loadQuickSettings() {
+            switchBlocking.isChecked = protectionPrefs.isProtectionEnabledRaw()
+            when (protectionPrefs.quizIntervalMinutes()) {
+                45 -> intervalGroup.check(R.id.quickInterval45)
+                60 -> intervalGroup.check(R.id.quickInterval60)
+                else -> intervalGroup.check(R.id.quickInterval30)
+            }
+            when (protectionPrefs.minSuccessRatePercent()) {
+                50 -> successRateGroup.check(R.id.quickSuccessRate50)
+                70 -> successRateGroup.check(R.id.quickSuccessRate70)
+                80 -> successRateGroup.check(R.id.quickSuccessRate80)
+                else -> successRateGroup.check(R.id.quickSuccessRate60)
+            }
+        }
+
+        loadQuickSettings()
+
+        switchBlocking.setOnCheckedChangeListener { _, isChecked ->
+            protectionPrefs.setProtectionEnabled(isChecked)
+        }
+        intervalGroup.setOnCheckedChangeListener { _, id ->
+            val mins = when (id) {
+                R.id.quickInterval45 -> 45
+                R.id.quickInterval60 -> 60
+                else -> 30
+            }
+            protectionPrefs.setQuizIntervalMinutes(mins)
+        }
+        successRateGroup.setOnCheckedChangeListener { _, id ->
+            val pct = when (id) {
+                R.id.quickSuccessRate50 -> 50
+                R.id.quickSuccessRate70 -> 70
+                R.id.quickSuccessRate80 -> 80
+                else -> 60
+            }
+            protectionPrefs.setMinSuccessRatePercent(pct)
+        }
+
+        root.findViewById<android.view.View>(R.id.rowBlockedApps).setOnClickListener {
+            startActivity(Intent(this, BlockedAppsActivity::class.java))
+        }
+        root.findViewById<android.view.View>(R.id.rowTimeLimits).setOnClickListener {
+            startActivity(Intent(this, TimeLimitsActivity::class.java))
+        }
+        root.findViewById<android.view.View>(R.id.rowProfiles).setOnClickListener {
+            startActivity(Intent(this, ProfileManageActivity::class.java))
+        }
     }
 
     override fun onResume() {

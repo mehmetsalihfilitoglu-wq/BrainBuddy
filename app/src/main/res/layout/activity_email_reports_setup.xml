@@ -168,6 +168,23 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:text="@string/email_reports_save"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTestMail"
+                        style="@style/BBButtonAlt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/email_reports_test_mail"/>
+
+                    <TextView
+                        android:id="@+id/tvPermissionsInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/email_reports_permissions_info"
+                        android:textSize="12sp"
+                        android:textColor="@color/bb_text_muted"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

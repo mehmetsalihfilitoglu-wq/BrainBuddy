@@ -43,6 +43,9 @@
     <string name="parent_change_pin_sub">Ebeveyn PIN\'ini güncelle</string>
     <string name="parent_settings">Ayarlar</string>
     <string name="parent_settings_sub">Tüm ayarlara erişim</string>
+    <string name="quick_settings_title">Hızlı Ayarlar</string>
+    <string name="quick_settings_blocked_apps">Engellenecek Uygulamalar</string>
+    <string name="quick_settings_profiles">Profiller</string>
     <string name="parent_quick_test">Test</string>
     <string name="parent_quick_success">Başarı</string>
     <string name="parent_quick_deneme">Deneme</string>
@@ -61,6 +64,8 @@
 
     <!-- Settings sections (with icons) -->
     <string name="settings_section_protection">🔐 Koruma Ayarları</string>
+    <string name="settings_section_protection_advanced">Gelişmiş Koruma Ayarları</string>
+    <string name="settings_section_protection_advanced_sub">Veli Paneli\'nde hızlı erişim de mevcut</string>
     <string name="settings_section_education">🎓 Öğrenci &amp; Eğitim</string>
     <string name="settings_section_reports">📊 Raporlar &amp; Veri</string>
     <string name="settings_section_customization">🎨 Özelleştirme</string>
@@ -408,6 +413,9 @@
     <string name="email_freq_monthly">Aylık</string>
     <string name="email_reports_save">Kaydet</string>
     <string name="email_reports_saved">E-posta ayarları kaydedildi</string>
+    <string name="email_reports_test_mail">Test maili gönder</string>
+    <string name="email_reports_test_mail_sent">Test maili sıraya alındı (gönderim yakında aktif olacak)</string>
+    <string name="email_reports_permissions_info">Bildirimler için bildirim izni gereklidir. Raporlar planlanan saatte arka planda gönderilecektir.</string>
     <string name="email_required">E-posta adresi gerekli</string>
     <string name="email_invalid">Geçerli e-posta adresi girin</string>
 

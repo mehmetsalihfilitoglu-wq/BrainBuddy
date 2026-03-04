@@ -58,6 +58,19 @@ class EmailReportsSetupActivity : AppCompatActivity() {
 
         findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar).setNavigationOnClickListener { onSupportNavigateUp() }
 
+        findViewById<View>(R.id.btnTestMail).setOnClickListener {
+            val email = emailInput.text?.toString()?.trim().orEmpty()
+            if (email.isBlank()) {
+                Toast.makeText(this, R.string.email_required, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, R.string.email_invalid, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            Toast.makeText(this, R.string.email_reports_test_mail_sent, Toast.LENGTH_LONG).show()
+        }
+
         findViewById<View>(R.id.btnSave).setOnClickListener {
             val email = emailInput.text?.toString()?.trim().orEmpty()
             if (prefs.isDailyReportEnabled() || prefs.isWeeklyReportEnabled()) {

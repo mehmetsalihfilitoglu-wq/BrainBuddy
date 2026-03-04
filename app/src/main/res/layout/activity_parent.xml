@@ -216,6 +216,13 @@
                 tools:listitem="@layout/item_parent_category"
                 tools:itemCount="5"
                 tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+            <!-- SECTION C: Hızlı Ayarlar -->
+            <include
+                android:id="@+id/includeQuickSettings"
+                layout="@layout/include_parent_quick_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
