@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_gradient">
+    android:background="@drawable/bg_gradient"
+    android:scrollbars="none"
+    android:overScrollMode="never">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -753,14 +755,13 @@
 
                     <!-- 2) CONTENT AREA - State 2: DATA YOKSA (Empty State) -->
                     <LinearLayout
-                        android:id="@+id/trendEmpty"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="32dp"
-                        android:minHeight="@dimen/trend_chart_min_height"
-                        android:visibility="gone">
+                    android:id="@+id/trendEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="32dp"
+                    android:visibility="gone">
 
                         <ImageView
                             android:layout_width="48dp"
