@@ -196,7 +196,7 @@
                                 app:flow_horizontalGap="8dp"
                                 app:flow_verticalGap="8dp"
                                 app:flow_maxElementsWrap="2"
-                                app:flow_referencedIds="chipCorrect,chipWrong,chipEmpty,chipLast7Days" />
+                                app:constraint_referenced_ids="chipCorrect,chipWrong,chipEmpty,chipLast7Days" />
 
                             <!-- Kept for binding/backwards compat: no longer shown -->
                             <TextView
