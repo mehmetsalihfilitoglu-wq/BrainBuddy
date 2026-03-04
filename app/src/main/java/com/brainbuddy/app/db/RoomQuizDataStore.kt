@@ -19,6 +19,7 @@ class RoomQuizDataStore(private val context: Context) {
     private val historyDao get() = db.historyDao()
     private val snapshotDao get() = db.snapshotDao()
     private val appMetaDao get() = db.appMetaDao()
+    private val wrongAnswerDao get() = db.wrongAnswerDao()
 
     private val KEY_GLOBAL_TEST_INDEX = "global_test_index"
     private val KEY_DB_SEEDED = "db_seeded"
@@ -173,6 +174,13 @@ class RoomQuizDataStore(private val context: Context) {
                 wrongQuestionIdsJson = JSONArray(wrongIds).toString()
             )
         )
+        if (wrongIds.isNotEmpty()) {
+            wrongAnswerDao.insertAll(
+                wrongIds.map { qId ->
+                    WrongAnswerEntity(testId = testId, questionId = qId, isUnlocked = false, unlockedAt = null)
+                }
+            )
+        }
     }
 
     fun getLastSnapshots(profileId: String = "default", limit: Int = 20): List<TestSnapshotEntity> = runBlocking {

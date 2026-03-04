@@ -2,31 +2,36 @@ package com.brainbuddy.app.quiz
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.activity.result.contract.ActivityResultContracts
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
+import com.brainbuddy.app.ads.RewardAdHelper
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.DailyAdQuotaStore
-import com.brainbuddy.app.core.DailyParentViewQuotaStore
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.db.DatabaseProvider
-import com.brainbuddy.app.db.QuestionMapper
 import com.brainbuddy.app.ui.AdLimitReachedActivity
-import com.brainbuddy.app.ui.WatchAdForParentViewActivity
 import com.brainbuddy.app.ui.WatchAdToUnlockLastTestActivity
-import org.json.JSONArray
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 /**
- * Test detay ekranı: skor, tarih, konu dağılımı, yanlış soru listesi, Tekrar Çöz.
- * - Öğrenci doğru cevabı asla görmez.
- * - Veli: doğru cevap görme kotası (Premium: sınırsız, değilse günde 3 ücretsiz + reklam = +1).
- * - Replay: Premium sınırsız, değilse günlük max 3 reklam.
+ * Test detay ekranı: skor, tarih, konu dağılımı, yanlış soru listesi (kilitli), Tekrar Çöz.
+ * - Yanlış sorular varsayılan olarak KİLİTLİ (soru metni görünmez).
+ * - Premium: tıklayınca anında aç (reklamsız).
+ * - Non-premium: reklam izleyince o soru açılır.
+ * - Doğru cevap öğrenci ekranında asla gösterilmez; veli modunda gösterilir.
  */
 class PastTestDetailActivity : AppCompatActivity() {
 
@@ -37,16 +42,9 @@ class PastTestDetailActivity : AppCompatActivity() {
 
     private lateinit var testId: String
     private lateinit var questionIds: ArrayList<String>
-    private var wrongIds: List<String> = emptyList()
-    private var questionsForWrong: List<Question> = emptyList()
-
-    private val adForViewLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            refreshWrongSection()
-        }
-    }
+    private lateinit var viewModel: PastTestDetailViewModel
+    private var rewardAdHelper: RewardAdHelper? = null
+    private var pendingUnlockQuestionId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +66,11 @@ class PastTestDetailActivity : AppCompatActivity() {
             return
         }
 
+        viewModel = ViewModelProvider(this)[PastTestDetailViewModel::class.java]
+        viewModel.load(testId)
+        rewardAdHelper = RewardAdHelper(this)
+        rewardAdHelper?.loadAd()
+
         val dateStr = SimpleDateFormat("d MMMM yyyy", Locale("tr")).format(Date(snapshot.createdAt))
         findViewById<android.widget.TextView>(R.id.tvScore).text = "${snapshot.score}/${snapshot.total}"
         findViewById<android.widget.TextView>(R.id.tvDate).text = dateStr
@@ -80,71 +83,71 @@ class PastTestDetailActivity : AppCompatActivity() {
             }
         }
 
-        wrongIds = try {
+        val wrongIds = try {
             if (snapshot.wrongQuestionIdsJson.isNullOrBlank()) emptyList()
-            else (0 until JSONArray(snapshot.wrongQuestionIdsJson).length()).map {
-                JSONArray(snapshot.wrongQuestionIdsJson).getString(it)
+            else (0 until org.json.JSONArray(snapshot.wrongQuestionIdsJson).length()).map {
+                org.json.JSONArray(snapshot.wrongQuestionIdsJson).getString(it)
             }
         } catch (_: Exception) { emptyList() }
 
         if (wrongIds.isNotEmpty()) {
-            questionsForWrong = kotlinx.coroutines.runBlocking {
-                db.questionDao().getQuestionsByIds(wrongIds).map { QuestionMapper.toQuestion(it) }
+            findViewById<View>(R.id.tvWrongLabel).visibility = View.VISIBLE
+            findViewById<RecyclerView>(R.id.recyclerWrong).apply {
+                visibility = View.VISIBLE
+                layoutManager = LinearLayoutManager(this@PastTestDetailActivity)
             }
-            renderWrongSection()
+            lifecycleScope.launch {
+                viewModel.state.collectLatest { state ->
+                    (findViewById<RecyclerView>(R.id.recyclerWrong).adapter as? WrongQuestionDetailAdapter)?.updateItems(state.wrongItems)
+                        ?: run {
+                            findViewById<RecyclerView>(R.id.recyclerWrong).adapter = WrongQuestionDetailAdapter(
+                                state.wrongItems,
+                                onItemClick = ::onWrongQuestionClick
+                            )
+                        }
+                }
+            }
         }
+
+        val layoutViewQuotaGate = findViewById<View>(R.id.layoutViewQuotaGate)
+        layoutViewQuotaGate?.visibility = View.GONE
 
         setupReplayButton(snapshot.total)
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnBack).setOnClickListener { finish() }
     }
 
-    private fun renderWrongSection() {
-        val showCorrect = canShowCorrectToParent()
-        val items = wrongIds.mapNotNull { id ->
-            questionsForWrong.find { it.id == id }?.let { q ->
-                QuizResultActivity.WrongItem(
-                    q.stem, "-",
-                    q.choices.getOrNull(q.correctIndex) ?: "?",
-                    q.hint,
-                    showCorrect = showCorrect
-                )
-            }
-        }
-        findViewById<View>(R.id.tvWrongLabel).visibility = View.VISIBLE
-        findViewById<RecyclerView>(R.id.recyclerWrong).apply {
-            visibility = View.VISIBLE
-            layoutManager = LinearLayoutManager(this@PastTestDetailActivity)
-            adapter = QuizResultActivity.WrongAnswersAdapter(items)
-        }
+    private fun onWrongQuestionClick(item: WrongQuestionUiItem) {
+        if (item.isUnlocked) return
+        viewModel.unlockWrongAnswer(
+            questionId = item.questionId,
+            onNeedAd = {
+                showRewardedAdToUnlock(item.questionId)
+            },
+            onUnlocked = { /* UI updates via Flow */ }
+        )
+    }
 
-        if (showCorrect) {
-            DailyParentViewQuotaStore(this).consumeOne()
-        }
-
-        val parentViewQuota = DailyParentViewQuotaStore(this)
-        val layoutViewQuotaGate = findViewById<View>(R.id.layoutViewQuotaGate)
-        val isParentNoQuota = AppModeManager.isParentMode() && !PremiumStore(this).isPremium() && !parentViewQuota.canView()
-        if (layoutViewQuotaGate != null) {
-            if (isParentNoQuota && !showCorrect) {
-                layoutViewQuotaGate.visibility = View.VISIBLE
-                layoutViewQuotaGate.findViewById<android.widget.Button>(R.id.btnWatchAdForView).setOnClickListener {
-                    adForViewLauncher.launch(Intent(this, WatchAdForParentViewActivity::class.java))
+    private fun showRewardedAdToUnlock(questionId: String) {
+        pendingUnlockQuestionId = questionId
+        if (rewardAdHelper?.isLoaded() == true) {
+            rewardAdHelper?.showAd(
+                onRewarded = {
+                    pendingUnlockQuestionId?.let { viewModel.performUnlockAfterAd(it) }
+                    pendingUnlockQuestionId = null
+                },
+                onFailed = {
+                    Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                    rewardAdHelper?.loadAd()
                 }
-            } else {
-                layoutViewQuotaGate.visibility = View.GONE
-            }
+            )
+        } else {
+            AlertDialog.Builder(this)
+                .setMessage(getString(R.string.wrong_detail_unlock_ad_message))
+                .setPositiveButton(getString(android.R.string.ok)) { _, _ ->
+                    rewardAdHelper?.loadAd()
+                }
+                .show()
         }
-    }
-
-    private fun refreshWrongSection() {
-        if (wrongIds.isEmpty()) return
-        renderWrongSection()
-    }
-
-    private fun canShowCorrectToParent(): Boolean {
-        if (!AppModeManager.isParentMode()) return false
-        if (PremiumStore(this).isPremium()) return true
-        return DailyParentViewQuotaStore(this).canView()
     }
 
     private fun setupReplayButton(total: Int) {
@@ -170,7 +173,7 @@ class PastTestDetailActivity : AppCompatActivity() {
             layoutLimitReached.visibility = View.VISIBLE
             findViewById<android.widget.TextView>(R.id.tvLimitReached).text = getString(R.string.ad_limit_reached_message)
             btnPremiumCta.setOnClickListener {
-                android.widget.Toast.makeText(this, "Premium yakında", android.widget.Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Premium yakında", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -194,4 +197,56 @@ class PastTestDetailActivity : AppCompatActivity() {
             finish()
         }
     }
+}
+
+private class WrongQuestionDetailAdapter(
+    private var items: List<WrongQuestionUiItem>,
+    private val onItemClick: (WrongQuestionUiItem) -> Unit
+) : RecyclerView.Adapter<WrongQuestionDetailAdapter.VH>() {
+
+    fun updateItems(newItems: List<WrongQuestionUiItem>) {
+        items = newItems
+        notifyDataSetChanged()
+    }
+
+    class VH(val view: View) : RecyclerView.ViewHolder(view)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_wrong_question_detail, parent, false)
+        return VH(v)
+    }
+
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        val item = items[position]
+        val ctx = holder.view.context
+
+        val layoutLocked = holder.view.findViewById<View>(R.id.layoutLocked)
+        val layoutUnlocked = holder.view.findViewById<View>(R.id.layoutUnlocked)
+
+        if (item.isUnlocked) {
+            layoutLocked.visibility = View.GONE
+            layoutUnlocked.visibility = View.VISIBLE
+            holder.view.findViewById<android.widget.TextView>(R.id.tvQuestion).text = item.question?.stem ?: "-"
+            holder.view.findViewById<android.widget.TextView>(R.id.tvUserChoice).apply {
+                visibility = View.VISIBLE
+                text = "Senin cevabın: ${item.userChoiceText}\n❌ Yanlış"
+            }
+            holder.view.findViewById<android.widget.TextView>(R.id.tvCorrect).apply {
+                visibility = if (item.showCorrect) View.VISIBLE else View.GONE
+                text = "✓ Doğru: ${item.correctAnswerText}"
+            }
+            holder.view.findViewById<android.widget.TextView>(R.id.tvHint).apply {
+                visibility = if (item.showCorrect && !item.hint.isNullOrBlank()) View.VISIBLE else View.GONE
+                text = "💡 ${item.hint}"
+            }
+            holder.view.isClickable = false
+        } else {
+            layoutLocked.visibility = View.VISIBLE
+            layoutUnlocked.visibility = View.GONE
+            holder.view.isClickable = true
+            holder.view.setOnClickListener { onItemClick(item) }
+        }
+    }
+
+    override fun getItemCount() = items.size
 }
