@@ -99,7 +99,9 @@ class QuestionImportActivity : AppCompatActivity() {
 
         val difficulty = quizPrefs.difficulty()
         val debugText = try {
-            repo.buildPoolDebugStatsForGrade(selectedGrade, difficulty).readableText
+            val poolDebug = repo.buildPoolDebugStatsForGrade(selectedGrade, difficulty).readableText
+            val activeCounts = repo.buildImportDebugActiveCounts()
+            "$poolDebug\n\n$activeCounts"
         } catch (e: Exception) {
             "Havuz durumu okunamadı: ${e.message ?: "bilinmiyor"}"
         }

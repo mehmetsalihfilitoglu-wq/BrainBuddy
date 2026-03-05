@@ -8,6 +8,7 @@ import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.DatabaseProvider
+import com.brainbuddy.app.db.GradeSubjectDifficultyCount
 import com.brainbuddy.app.db.QuestionEntity
 import com.brainbuddy.app.db.QuestionStemHash
 import com.brainbuddy.app.db.QuestionMapper
@@ -62,6 +63,23 @@ class QuestionRepository(private val context: Context) {
             .trim()
             .lowercase(Locale("tr"))
             .replace(Regex("\\s+"), " ")
+
+        /** difficulty: sadece EASY=0, MEDIUM=1, HARD=2. Başka değerler map edilir. */
+        fun parseDifficultyToThreeLevels(raw: Any?): QuizDifficulty {
+            return when (raw) {
+                is Int -> when {
+                    raw <= 0 -> QuizDifficulty.EASY
+                    raw == 1 -> QuizDifficulty.MEDIUM
+                    else -> QuizDifficulty.HARD
+                }
+                is String -> when (raw.uppercase()) {
+                    "EASY" -> QuizDifficulty.EASY
+                    "HARD", "VERY_HARD" -> QuizDifficulty.HARD
+                    else -> QuizDifficulty.MEDIUM
+                }
+                else -> QuizDifficulty.MEDIUM
+            }
+        }
 
         /** G1: Deterministik id - sha1(normalize(questionText) + "|" + normalize(correctAnswer)) */
         fun deterministicId(questionText: String, correctAnswer: String): String {
@@ -261,13 +279,40 @@ class QuestionRepository(private val context: Context) {
         val existingIds = current.map { it.id }.toSet().toMutableSet()
         val toAdd = ArrayList<Question>()
         var deactivatedCount = 0
+
+        // DB'de (grade, subject, stemHash) zaten var mı – dedup için
+        val existingStemKeysForFilter: MutableSet<String> = try {
+            val db = DatabaseProvider.get(context)
+            kotlinx.coroutines.runBlocking {
+                db.questionDao().getAllQuestions().mapTo(mutableSetOf()) { e ->
+                    val h = if (e.stemHash.contains(":dup:")) e.stemHash.substringBefore(":dup:") else e.stemHash
+                    "${e.grade}|${e.subject}|$h"
+                }
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "mergeImportedQuestions: failed to build existing stem-hash index: ${e.message}")
+            mutableSetOf()
+        }
+
+        val batchSeenStemKeys = mutableSetOf<String>()
         for (i in 0 until arr.length()) {
             try {
                 val q = parseQuestion(arr.getJSONObject(i))
-                if (q.id !in existingIds) {
-                    toAdd.add(q)
-                    existingIds.add(q.id)
+                val dbSubjectKey = when (q.subject) {
+                    Subject.MAT -> "mat"
+                    Subject.TURKCE -> "turkce"
+                    Subject.FEN -> "fen"
+                    Subject.SOSYAL -> "sosyal"
+                    Subject.ING -> "ing"
                 }
+                val h = QuestionStemHash.stemHash(q.stem)
+                val stemKey = "${q.grade.coerceIn(1, 8)}|$dbSubjectKey|$h"
+                if (stemKey in batchSeenStemKeys) continue
+                batchSeenStemKeys.add(stemKey)
+                if (stemKey in existingStemKeysForFilter) continue
+                if (q.id in existingIds) continue
+                toAdd.add(q)
+                existingIds.add(q.id)
             } catch (_: Exception) { }
         }
         if (deactivatedCount > 0) {
@@ -295,21 +340,7 @@ class QuestionRepository(private val context: Context) {
         }
         importedFile.writeText(jsonArr.toString(), Charsets.UTF_8)
 
-        // Build stem-hash keys for existing DB questions to avoid inserting duplicates
-        // with the same (grade, subject, difficulty, stemHash).
-        val existingStemKeys: MutableSet<String> = try {
-            val db = DatabaseProvider.get(context)
-            kotlinx.coroutines.runBlocking {
-                db.questionDao().getAllQuestions().mapTo(mutableSetOf()) { e ->
-                    val diffIntExisting = e.difficulty
-                    val stemHashExisting = stemHash(e.questionText)
-                    "${e.grade}|${e.subject}|$diffIntExisting|$stemHashExisting"
-                }
-            }
-        } catch (e: Exception) {
-            Log.w(TAG, "mergeImportedQuestions: failed to build existing stem-hash index: ${e.message}")
-            mutableSetOf()
-        }
+        val existingStemKeys = existingStemKeysForFilter
 
         val toAddEntities = toAdd.map { q ->
             var gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices)
@@ -363,34 +394,9 @@ class QuestionRepository(private val context: Context) {
             }
             val stemNormalizedValue = QuestionStemHash.normalizeStem(q.stem)
             val stemHashValue = QuestionStemHash.stemHash(q.stem)
-            val stemKey = "${q.grade.coerceIn(1, 8)}|$dbSubjectKey|$diffInt|$stemHashValue"
-            if (stemKey in existingStemKeys) {
-                // Duplicate – insert as inactive; stemHash must be unique, use id suffix.
-                deactivatedCount++
-                return@map QuestionEntity(
-                    id = q.id,
-                    grade = q.grade.coerceIn(1, 8),
-                    subject = dbSubjectKey,
-                    difficulty = diffInt,
-                    questionText = q.stem,
-                    optionsJson = org.json.JSONArray(q.choices).toString(),
-                    answerIndex = q.correctIndex,
-                    explanation = q.hint?.takeIf { it.isNotBlank() },
-                    isActive = false,
-                    questionType = gate.questionType,
-                    skillsJson = gate.skillsJson,
-                    deactivationReason = "duplicate_stemhash",
-                    version = 1,
-                    examType = q.examType.name,
-                    imageAsset = q.imageAsset?.takeIf { it.isNotBlank() },
-                    type = q.type,
-                    skill = q.skill,
-                    stemNormalized = stemNormalizedValue,
-                    stemHash = "${stemHashValue}:dup:${q.id}"
-                )
-            } else {
-                existingStemKeys.add(stemKey)
-            }
+            val stemKey = "${q.grade.coerceIn(1, 8)}|$dbSubjectKey|$stemHashValue"
+            if (stemKey in existingStemKeys) return@map null
+            existingStemKeys.add(stemKey)
             QuestionEntity(
                 id = q.id,
                 grade = q.grade.coerceIn(1, 8),
@@ -409,11 +415,12 @@ class QuestionRepository(private val context: Context) {
                 imageAsset = q.imageAsset?.takeIf { it.isNotBlank() },
                 type = q.type,
                 skill = q.skill,
-                stemNormalized = stemNormalizedValue,
-                stemHash = stemHashValue
+            stemNormalized = stemNormalizedValue,
+            stemHash = stemHashValue
             )
         }
-        roomStore.insertQuestions(toAddEntities)
+        val entitiesToInsert = toAddEntities.filterNotNull()
+        roomStore.insertQuestions(entitiesToInsert)
         // Import sonrası DB havuz sayıları (toplam ve aktif) – teşhis için logla.
         try {
             val db = DatabaseProvider.get(context)
@@ -425,12 +432,12 @@ class QuestionRepository(private val context: Context) {
             }
             Log.i(
                 TAG,
-                "mergeImportedQuestions: imported=${toAdd.size}, insertedEntities=${toAddEntities.size}, totalAfter=${counts.first}, activeAfter=${counts.second}"
+                "mergeImportedQuestions: imported=${toAdd.size}, insertedEntities=${entitiesToInsert.size}, totalAfter=${counts.first}, activeAfter=${counts.second}"
             )
         } catch (e: Exception) {
             Log.w(TAG, "mergeImportedQuestions: failed to log DB counts: ${e.message}")
         }
-        return toAdd.size
+        return entitiesToInsert.size
     }
 
     data class LoadStats(
@@ -707,6 +714,33 @@ class QuestionRepository(private val context: Context) {
         }
     }
 
+    /**
+     * Import sonrası debug ekranı için: grade/subject/difficulty bazında ACTIVE sayıları.
+     */
+    fun buildImportDebugActiveCounts(): String {
+        val db = DatabaseProvider.get(context)
+        val rows = kotlinx.coroutines.runBlocking {
+            db.questionDao().getActiveCountsByGradeSubjectDifficulty()
+        }
+        if (rows.isEmpty()) return "ACTIVE by grade/subject/diff: (boş)"
+        val sb = StringBuilder()
+        sb.append("ACTIVE by grade/subject/diff:\n")
+        val byGrade = rows.groupBy { it.grade }
+        for (g in (byGrade.keys.minOrNull() ?: 0)..(byGrade.keys.maxOrNull() ?: 0)) {
+            val subjRows = byGrade[g]?.groupBy { it.subject }.orEmpty()
+            val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
+            val line = subjects.joinToString("  ") { subj ->
+                val diffs = subjRows[subj].orEmpty()
+                val e = diffs.firstOrNull { it.difficulty == 0 }?.count ?: 0
+                val m = diffs.firstOrNull { it.difficulty == 1 }?.count ?: 0
+                val h = diffs.firstOrNull { it.difficulty == 2 }?.count ?: 0
+                "$subj(E=$e M=$m H=$h)"
+            }
+            sb.append("grade=$g: $line\n")
+        }
+        return sb.toString().trimEnd()
+    }
+
     private data class DbPoolSnapshot(
         val total: Int,
         val active: Int,
@@ -968,16 +1002,12 @@ class QuestionRepository(private val context: Context) {
         }.filter { it.isNotBlank() }
         if (raw.isEmpty()) throw IllegalArgumentException("Choices array empty")
         val choices = if (raw.size >= 4) raw.take(4) else raw + List(4 - raw.size) { "-" }
-        val diffStr = o.optString("difficulty", "MEDIUM")
-        val difficulty = try {
-            when (diffStr) {
-                // Eski JSON'larda kalan VERY_HARD değerlerini HARD'a eşitle
-                "VERY_HARD" -> QuizDifficulty.HARD
-                else -> QuizDifficulty.valueOf(diffStr)
-            }
-        } catch (_: Exception) {
-            QuizDifficulty.MEDIUM
+        // difficulty: sadece EASY=0, MEDIUM=1, HARD=2. Başka değerler bu 3'e map edilir.
+        val diffRaw = when {
+            o.has("difficulty") && o.opt("difficulty") is Int -> o.optInt("difficulty", 1)
+            else -> o.optString("difficulty", "MEDIUM")
         }
+        val difficulty = parseDifficultyToThreeLevels(diffRaw)
         val levelStr = o.optString("levelGroup", "GRADE_5_8")
         val levelGroup = try {
             LevelGroup.valueOf(levelStr)

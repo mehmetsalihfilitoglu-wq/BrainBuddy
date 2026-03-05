@@ -99,11 +99,18 @@ object DbSeeder {
             questions.addAll(getFallbackEntities())
         }
 
+        // (grade, subject, stemHash) dedup: batch içinde tekrarları at
+        val stemKey = { e: QuestionEntity ->
+            val h = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
+            "${e.grade}|${e.subject}|$h"
+        }
+        val dedupedList = questions.distinctBy { stemKey(it) }
+
         val questionDao = db.questionDao()
-        questionDao.insertAllIgnore(questions)
+        questionDao.insertAllIgnore(dedupedList)
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
-        Log.i(TAG, "Seeded ${questions.size} questions (INSERT IGNORE by id, version=$CURRENT_DB_SEED_VERSION)")
+        Log.i(TAG, "Seeded ${dedupedList.size} questions (INSERT IGNORE, stemHash dedup, version=$CURRENT_DB_SEED_VERSION)")
 
         // Import sonrası havuz doğrulama
         try {

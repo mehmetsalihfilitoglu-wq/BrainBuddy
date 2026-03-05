@@ -14,6 +14,14 @@ data class GradeSubjectCount(
     val count: Int
 )
 
+/** grade+subject+difficulty bazında ACTIVE soru sayıları (import debug ekranı). */
+data class GradeSubjectDifficultyCount(
+    val grade: Int,
+    val subject: String,
+    val difficulty: Int,
+    val count: Int
+)
+
 @Dao
 interface QuestionDao {
 
@@ -56,6 +64,18 @@ interface QuestionDao {
         """
     )
     suspend fun getCountsByGradeSubject(): List<GradeSubjectCount>
+
+    /** Import sonrası debug: grade/subject/difficulty bazında ACTIVE sayıları. */
+    @Query(
+        """
+        SELECT grade, subject, difficulty, COUNT(*) AS count
+        FROM questions
+        WHERE isActive = 1 AND grade BETWEEN 2 AND 8
+        GROUP BY grade, subject, difficulty
+        ORDER BY grade, subject, difficulty
+        """
+    )
+    suspend fun getActiveCountsByGradeSubjectDifficulty(): List<GradeSubjectDifficultyCount>
 
     /** Tüm sorular – kalite raporu ve özetler için. */
     @Query("SELECT * FROM questions")

@@ -27,9 +27,11 @@ object QuestionQualityGate {
         val stem = questionText.trim()
         val lower = stem.lowercase(Locale("tr"))
 
-        val isTooShort = stem.length < 15
+        val isTooShort = stem.length < 25
         val isMathDrill = subject == Subject.MAT && isSimpleMathExpression(stem)
         val isFactRecall = isFactRecallQuestion(subject, stem, lower)
+        val isMathConversionOnly = subject == Subject.MAT && isMathOnlyConversion(stem, lower)
+        val isShortAndSingleFact = isTooShort && isSingleFactLike(subject, lower)
 
         var isActive = true
         var reason: String? = null
@@ -38,6 +40,12 @@ object QuestionQualityGate {
         if (isMathDrill && grade in 2..8) {
             isActive = false
             reason = "too_simple_math"
+        } else if (isMathConversionOnly && grade in 2..8) {
+            isActive = false
+            reason = "too_basic"
+        } else if (isShortAndSingleFact) {
+            isActive = false
+            reason = "too_basic"
         } else if (isFactRecall) {
             isActive = false
             reason = "too_memorization"
@@ -55,6 +63,29 @@ object QuestionQualityGate {
             questionType = questionType,
             skillsJson = skillsJson
         )
+    }
+
+    /** Math: sadece birim dönüşümü (örn: "1 km kaç metredir?") - too_basic. */
+    private fun isMathOnlyConversion(stem: String, lower: String): Boolean {
+        if (stem.length > 60) return false
+        val conversionPatterns = listOf(
+            "kaç metredir", "kaç metredir?", "kaç metre", "kaç gram", "kaç kilogram",
+            "kaç litredir", "kaç litredir?", "kaç litre", "kaç saat", "kaç dakika",
+            "kaç santimetredir", "kaç cm", "kaç mm", "kaç km", "kaç derece",
+            "eşittir", "=? metre", "=? gram"
+        )
+        return conversionPatterns.any { it in lower } && !lower.contains("problemi") &&
+            !lower.contains("probleme") && !lower.contains("problem")
+    }
+
+    /** Tek bilgi sorusu: kısa, ezber/tek cümle (başkent, tarih, formül vs). */
+    private fun isSingleFactLike(subject: Subject, lower: String): Boolean {
+        if (subject == Subject.ING) return false
+        val factKeywords = listOf(
+            "başkent", "tarihi nedir", "kaçtır", "hangisidir", "nerededir",
+            "formülü", "formülü?", "birimi", "kimdir", "nedir?"
+        )
+        return factKeywords.any { it in lower }
     }
 
     private fun isSimpleMathExpression(stem: String): Boolean {
