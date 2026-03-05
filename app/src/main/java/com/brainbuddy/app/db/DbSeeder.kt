@@ -2,7 +2,6 @@ package com.brainbuddy.app.db
 
 import android.content.Context
 import android.util.Log
-import com.brainbuddy.app.quiz.QuestionRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
@@ -16,6 +15,10 @@ import java.nio.charset.Charset
 object DbSeeder {
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
+    private const val TARGET_QUESTIONS_PER_SUBJECT = 500
+
+    /** Desteklenen ders anahtarları (DB'ye bu kısa kodlarla yazılır). */
+    private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
     suspend fun seedIfNeeded(context: Context): Boolean = withContext(Dispatchers.IO) {
         val db = DatabaseProvider.get(context)
@@ -36,9 +39,18 @@ object DbSeeder {
         if (questions.isEmpty()) {
             questions.addAll(getFallbackEntities())
         }
-        db.questionDao().insertAll(questions)
+        // İlk seed: INSERT IGNORE (id unique) - mevcut kayıtları ezmez.
+        val questionDao = db.questionDao()
+        questionDao.insertAllIgnore(questions)
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
-        Log.i(TAG, "Seeded ${questions.size} questions")
+        Log.i(TAG, "Seeded ${questions.size} questions (INSERT IGNORE by id)")
+
+        // Import sonrası havuz doğrulama
+        try {
+            validatePoolCoverage(questionDao)
+        } catch (e: Exception) {
+            Log.w(TAG, "Pool validation failed: ${e.message}")
+        }
         true
     }
 
@@ -71,74 +83,7 @@ object DbSeeder {
         for (i in 0 until arr.length()) {
             try {
                 val o = arr.getJSONObject(i)
-                val choicesArr = o.optJSONArray("choices") ?: throw IllegalArgumentException("Missing choices")
-                val raw = (0 until choicesArr.length()).map { idx ->
-                    choicesArr.optString(idx, "").ifEmpty { choicesArr.opt(idx)?.toString() ?: "-" }
-                }.filter { it.isNotBlank() }
-                val choices = if (raw.size >= 4) raw.take(4) else raw + List(4 - raw.size) { "-" }
-                val stem = o.optString("stem", "?")
-                val correctIdx = o.optInt("correctIndex", 0).coerceIn(0, choices.size - 1)
-                val correctAnswer = choices.getOrNull(correctIdx) ?: ""
-                val subjStr = o.optString("subject", "MAT").let { if (it == "INGILIZCE") "ING" else it }
-                val subject = subjStr.lowercase().let {
-                    when (it) {
-                        "mat" -> "math"
-                        "turkce" -> "tr"
-                        "ing" -> "en"
-                        "fen" -> "fen"
-                        "sosyal" -> "sosyal"
-                        else -> it
-                    }
-                }
-                val gradeTag = o.optString("gradeTag", "").takeIf { it.isNotEmpty() }
-                val grade = o.optInt("grade", 0).let { g ->
-                    if (g in 2..8) g else gradeTag?.toIntOrNull()?.coerceIn(2, 8) ?: 6
-                }
-                val subjShort = when (subject) {
-                    "math" -> "MAT"
-                    "tr" -> "TURKCE"
-                    "en" -> "ING"
-                    "fen" -> "FEN"
-                    "sosyal" -> "SOSYAL"
-                    else -> "MAT"
-                }
-                val rawId = o.optString("id", "")
-                val id = if (rawId.isNotBlank()) rawId else "${grade}_${subjShort}_${(i + 1).toString().padStart(6, '0')}"
-                val diffStr = o.optString("difficulty", "MEDIUM")
-                val difficulty = when (diffStr) {
-                    "EASY" -> 0
-                    "HARD" -> 2
-                    "VERY_HARD" -> 3
-                    else -> 1
-                }
-                val optionsJson = org.json.JSONArray(choices).toString()
-                val topic = o.optString("topic", "").takeIf { it.isNotEmpty() }
-                val tagsJson = topic?.let { org.json.JSONArray(listOf(it)).toString() }
-                val levelGroup = o.optString("levelGroup", "GRADE_5_8")
-                val hint = o.optString("hint", "").takeIf { it.isNotEmpty() }
-                val imageAsset = o.optString("imageAsset", "").takeIf { it.isNotEmpty() }
-                val examType = o.optString("examType", "GENERAL")
-                val now = System.currentTimeMillis()
-                out.add(
-                    QuestionEntity(
-                        id = id,
-                        subject = subject,
-                        difficulty = difficulty,
-                        grade = grade,
-                        text = stem,
-                        optionsJson = optionsJson,
-                        correctIndex = correctIdx,
-                        tagsJson = tagsJson,
-                        isActive = true,
-                        version = 1,
-                        updatedAt = now,
-                        levelGroup = levelGroup,
-                        gradeTag = gradeTag,
-                        hint = hint,
-                        imageAsset = imageAsset,
-                        examType = examType
-                    )
-                )
+                out.add(parseQuestionObject(o, i))
             } catch (e: Exception) {
                 Log.w(TAG, "Parse failed index $i: ${e.message}")
             }
@@ -147,12 +92,205 @@ object DbSeeder {
     }
 
     private fun getFallbackEntities(): List<QuestionEntity> {
-        val now = System.currentTimeMillis()
         return listOf(
-            QuestionEntity("fb1", "math", 0, 6, "12 × 15 işleminin sonucu kaçtır?", "[\"160\",\"170\",\"180\",\"190\"]", 2, null, true, 1, now, "GRADE_5_8", "6", "12×10=120, 12×5=60", null, "GENERAL"),
-            QuestionEntity("fb2", "tr", 0, 6, "Türkiye'nin başkenti neresidir?", "[\"İstanbul\",\"İzmir\",\"Ankara\",\"Bursa\"]", 2, null, true, 1, now, "GRADE_5_8", "6", "Mustafa Kemal Atatürk'ün kararıyla.", null, "GENERAL"),
-            QuestionEntity("fb3", "fen", 0, 6, "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?", "[\"Venüs\",\"Mars\",\"Jüpiter\",\"Satürn\"]", 1, null, true, 1, now, "GRADE_5_8", "6", "Merkür, Venüs, Dünya, Mars...", null, "GENERAL"),
-            QuestionEntity("fb4", "en", 0, 6, "\"Hello\" kelimesinin Türkçe karşılığı nedir?", "[\"Hoşça kal\",\"Merhaba\",\"Teşekkürler\",\"Evet\"]", 1, null, true, 1, now, "GRADE_5_8", "6", "Selamlama sözcüğü.", null, "GENERAL")
+            QuestionEntity(
+                id = "fb1",
+                grade = 6,
+                subject = "mat",
+                difficulty = 1,
+                questionText = "12 × 15 işleminin sonucu kaçtır?",
+                optionsJson = "[\"160\",\"170\",\"180\",\"190\"]",
+                answerIndex = 2,
+                explanation = "12×10=120, 12×5=60",
+                isActive = true,
+                version = 1,
+                examType = "GENERAL",
+                imageAsset = null
+            ),
+            QuestionEntity(
+                id = "fb2",
+                grade = 6,
+                subject = "turkce",
+                difficulty = 1,
+                questionText = "Türkiye'nin başkenti neresidir?",
+                optionsJson = "[\"İstanbul\",\"İzmir\",\"Ankara\",\"Bursa\"]",
+                answerIndex = 2,
+                explanation = "Mustafa Kemal Atatürk'ün kararıyla.",
+                isActive = true,
+                version = 1,
+                examType = "GENERAL",
+                imageAsset = null
+            ),
+            QuestionEntity(
+                id = "fb3",
+                grade = 6,
+                subject = "fen",
+                difficulty = 1,
+                questionText = "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?",
+                optionsJson = "[\"Venüs\",\"Mars\",\"Jüpiter\",\"Satürn\"]",
+                answerIndex = 1,
+                explanation = "Merkür, Venüs, Dünya, Mars...",
+                isActive = true,
+                version = 1,
+                examType = "GENERAL",
+                imageAsset = null
+            ),
+            QuestionEntity(
+                id = "fb4",
+                grade = 6,
+                subject = "ing",
+                difficulty = 1,
+                questionText = "\"Hello\" kelimesinin Türkçe karşılığı nedir?",
+                optionsJson = "[\"Hoşça kal\",\"Merhaba\",\"Teşekkürler\",\"Evet\"]",
+                answerIndex = 1,
+                explanation = "Selamlama sözcüğü.",
+                isActive = true,
+                version = 1,
+                examType = "GENERAL",
+                imageAsset = null
+            )
         )
+    }
+
+    /**
+     * JSON formatı (standart):
+     * {
+     *   id: String,
+     *   grade: Int (2..8),
+     *   subject: String ("MAT","TURKCE","FEN","SOSYAL","ING" veya kısa kodlar),
+     *   difficulty: Int (0=EASY,1=MEDIUM,2=HARD,3=VERY_HARD),
+     *   questionText: String,
+     *   options: [String],
+     *   answerIndex: Int,
+     *   explanation: String?
+     * }
+     *
+     * Geriye dönük uyumluluk için eski alanları da (stem/choices/correctIndex/hint) okur.
+     */
+    private fun parseQuestionObject(o: JSONObject, index: Int): QuestionEntity {
+        // grade
+        val gradeFromJson = o.optInt("grade", 0)
+        val grade = when {
+            gradeFromJson in 2..8 -> gradeFromJson
+            else -> {
+                val gradeTag = o.optString("gradeTag", "").toIntOrNull()
+                (gradeTag ?: 0).coerceIn(2, 8).takeIf { it in 2..8 }
+                    ?: throw IllegalArgumentException("Invalid grade for question index=$index")
+            }
+        }
+
+        // subject normalize -> mat/turkce/fen/sosyal/ing
+        val rawSubject = o.optString("subject", "").ifBlank {
+            throw IllegalArgumentException("Missing subject for question index=$index")
+        }
+        val subjectKey = when (rawSubject.trim().lowercase()) {
+            "mat", "matematik", "math" -> "mat"
+            "turkce", "türkçe", "tr" -> "turkce"
+            "fen", "fen bilimleri" -> "fen"
+            "sosyal", "sosyal bilgiler" -> "sosyal"
+            "ing", "ingilizce", "ingilizce dersi", "english", "eng" -> "ing"
+            else -> throw IllegalArgumentException("Unsupported subject '$rawSubject' at index=$index")
+        }
+
+        // question text: questionText (yeni) veya stem (eski)
+        val questionText = o.optString("questionText", "").ifBlank {
+            o.optString("stem", "")
+        }.ifBlank {
+            throw IllegalArgumentException("Missing questionText/stem at index=$index")
+        }
+
+        // options: options (yeni) veya choices (eski)
+        val optionsArray = when {
+            o.has("options") -> o.optJSONArray("options")
+            else -> o.optJSONArray("choices")
+        } ?: throw IllegalArgumentException("Missing options/choices array at index=$index")
+
+        val rawOptions = (0 until optionsArray.length())
+            .map { idx -> optionsArray.optString(idx, "").ifEmpty { optionsArray.opt(idx)?.toString() ?: "" } }
+            .filter { it.isNotBlank() }
+        if (rawOptions.size < 2) {
+            throw IllegalArgumentException("Not enough options at index=$index")
+        }
+        val padded = if (rawOptions.size >= 4) rawOptions.take(4) else rawOptions + List(4 - rawOptions.size) { "-" }
+        val optionsJson = JSONArray(padded).toString()
+
+        // answer index: answerIndex (yeni) veya correctIndex (eski)
+        val rawAnswerIndex = if (o.has("answerIndex")) {
+            o.optInt("answerIndex", 0)
+        } else {
+            o.optInt("correctIndex", 0)
+        }
+        val answerIndex = rawAnswerIndex.coerceIn(0, padded.size - 1)
+
+        // difficulty: int (0..3) veya eski string enum
+        val difficulty = when {
+            o.has("difficulty") && o.opt("difficulty") is Int -> {
+                o.optInt("difficulty", 1).coerceIn(0, 3)
+            }
+            else -> {
+                when (o.optString("difficulty", "MEDIUM")) {
+                    "EASY" -> 0
+                    "HARD" -> 2
+                    "VERY_HARD" -> 3
+                    else -> 1
+                }
+            }
+        }
+
+        val explanation = when {
+            o.has("explanation") -> o.optString("explanation", "").takeIf { it.isNotBlank() }
+            else -> o.optString("hint", "").takeIf { it.isNotBlank() }
+        }
+
+        val examType = o.optString("examType", "GENERAL").takeIf { it.isNotBlank() }
+        val imageAsset = o.optString("imageAsset", "").takeIf { it.isNotBlank() }
+
+        // id: varsa kullan, yoksa grade+subject+index tabanlı üret
+        val explicitId = o.optString("id", "").takeIf { it.isNotBlank() }
+        val id = explicitId ?: "${grade}_${subjectKey}_${(index + 1).toString().padStart(6, '0')}"
+
+        return QuestionEntity(
+            id = id,
+            grade = grade,
+            subject = subjectKey,
+            difficulty = difficulty,
+            questionText = questionText,
+            optionsJson = optionsJson,
+            answerIndex = answerIndex,
+            explanation = explanation,
+            isActive = true,
+            version = 1,
+            examType = examType,
+            imageAsset = imageAsset
+        )
+    }
+
+    /**
+     * Import sonrası doğrulama:
+     * Her grade (2..8) × her subject için COUNT >= TARGET_QUESTIONS_PER_SUBJECT değilse
+     * debug log + warning üretir.
+     */
+    private suspend fun validatePoolCoverage(questionDao: QuestionDao) {
+        val counts = questionDao.getCountsByGradeSubject()
+        val byKey = counts.associateBy { it.grade to it.subject.lowercase() }
+
+        val shortages = mutableListOf<String>()
+        for (grade in 2..8) {
+            for (subject in SUBJECT_KEYS) {
+                val entry = byKey[grade to subject]
+                val count = entry?.count ?: 0
+                Log.d(TAG, "Pool stat grade=$grade subject=$subject count=$count")
+                if (count < TARGET_QUESTIONS_PER_SUBJECT) {
+                    val msg = "Question pool below target: grade=$grade subject=$subject count=$count (<$TARGET_QUESTIONS_PER_SUBJECT)"
+                    shortages.add(msg)
+                    Log.w(TAG, msg)
+                }
+            }
+        }
+        if (shortages.isEmpty()) {
+            Log.d(TAG, "Question pool OK for all grade+subject combinations (2..8)")
+        } else {
+            Log.w(TAG, "Question pool has shortages for ${shortages.size} grade+subject combinations. See warnings above for details.")
+        }
     }
 }

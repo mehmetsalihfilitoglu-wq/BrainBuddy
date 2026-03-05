@@ -171,12 +171,24 @@ class QuestionRepository(private val context: Context) {
                 else -> 1
             }
             QuestionEntity(
-                id = q.id, subject = q.subject.name.lowercase(), difficulty = diffInt,
+                id = q.id,
                 grade = q.grade.coerceIn(1, 8),
-                text = q.stem, optionsJson = org.json.JSONArray(q.choices).toString(), correctIndex = q.correctIndex,
-                tagsJson = q.topic?.let { org.json.JSONArray(listOf(it)).toString() }, isActive = true, version = 1,
-                updatedAt = System.currentTimeMillis(), levelGroup = q.levelGroup.name, gradeTag = q.gradeTag.takeIf { it.isNotEmpty() },
-                hint = q.hint?.takeIf { it.isNotBlank() }, imageAsset = q.imageAsset?.takeIf { it.isNotBlank() }, examType = q.examType.name
+                subject = when (q.subject) {
+                    Subject.MAT -> "mat"
+                    Subject.TURKCE -> "turkce"
+                    Subject.FEN -> "fen"
+                    Subject.SOSYAL -> "sosyal"
+                    Subject.ING -> "ing"
+                },
+                difficulty = diffInt,
+                questionText = q.stem,
+                optionsJson = org.json.JSONArray(q.choices).toString(),
+                answerIndex = q.correctIndex,
+                explanation = q.hint?.takeIf { it.isNotBlank() },
+                isActive = true,
+                version = 1,
+                examType = q.examType.name,
+                imageAsset = q.imageAsset?.takeIf { it.isNotBlank() }
             )
         }
         roomStore.insertQuestions(toAddEntities)

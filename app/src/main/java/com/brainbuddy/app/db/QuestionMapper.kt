@@ -31,32 +31,41 @@ object QuestionMapper {
         )
     }
 
+    /**
+     * Yeni `QuestionEntity` şemasından domain `Question` modeline map.
+     * QuestionEntity:
+     *  - grade: 2..8
+     *  - subject: "mat" | "turkce" | "fen" | "sosyal" | "ing"
+     *  - difficulty: 0=EASY,1=MEDIUM,2=HARD,3=VERY_HARD
+     */
     fun toQuestion(e: QuestionEntity): Question {
         val choices = parseChoices(e.optionsJson)
         val subject = mapSubject(e.subject)
-        val levelGroup = e.levelGroup?.let { parseLevelGroup(it) } ?: LevelGroup.GRADE_5_8
+        val levelGroup = LevelGroup.GRADE_5_8
         val difficulty = when (e.difficulty) {
             0 -> QuizDifficulty.EASY
             2 -> QuizDifficulty.HARD
             3 -> QuizDifficulty.VERY_HARD
             else -> QuizDifficulty.MEDIUM
         }
-        val grade = if (e.grade in 1..8) e.grade else (e.gradeTag?.toIntOrNull()?.coerceIn(1, 8) ?: 6)
-        val examType = e.examType?.let { try { ExamType.valueOf(it) } catch (_: Exception) { ExamType.GENERAL } } ?: ExamType.GENERAL
+        val grade = e.grade.coerceIn(1, 8)
+        val examType = e.examType?.let {
+            try { ExamType.valueOf(it) } catch (_: Exception) { ExamType.GENERAL }
+        } ?: ExamType.GENERAL
         return Question(
             id = e.id,
             levelGroup = levelGroup,
             subject = subject,
-            gradeTag = e.gradeTag ?: grade.toString(),
+            gradeTag = grade.toString(),
             grade = grade,
-            stem = e.text,
+            stem = e.questionText,
             choices = choices,
-            correctIndex = e.correctIndex.coerceIn(0, choices.size - 1),
-            hint = e.hint?.takeIf { it.isNotBlank() },
+            correctIndex = e.answerIndex.coerceIn(0, choices.size - 1),
+            hint = e.explanation?.takeIf { it.isNotBlank() },
             imageAsset = e.imageAsset?.takeIf { it.isNotBlank() },
             difficulty = difficulty,
             examType = examType,
-            topic = parseFirstTag(e.tagsJson)
+            topic = null
         )
     }
 
