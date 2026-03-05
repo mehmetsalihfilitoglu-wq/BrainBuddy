@@ -168,12 +168,20 @@ object DbSeeder {
      * Geriye dönük uyumluluk için eski alanları da (stem/choices/correctIndex/hint) okur.
      */
     private fun parseQuestionObject(o: JSONObject, index: Int): QuestionEntity {
-        // grade
-        val gradeFromJson = o.optInt("grade", 0)
+        // grade:
+        // 1) JSON'da "grade" varsa ve 2..8 aralığındaysa doğrudan kullan
+        // 2) Yoksa/Geçersizse gradeTag/grade_level gibi string alanlardan parse etmeyi dene
+        // 3) Parse edilemezse soruyu discard etmek için exception fırlat (default 6 yok)
+        val gradeFromJson = when {
+            o.has("grade") -> o.optInt("grade", 0)
+            o.has("grade_level") -> o.optInt("grade_level", 0)
+            else -> 0
+        }
         val grade = when {
             gradeFromJson in 2..8 -> gradeFromJson
             else -> {
-                val gradeTag = o.optString("gradeTag", "").toIntOrNull()
+                val gradeTagStr = o.optString("gradeTag", o.optString("grade_level", ""))
+                val gradeTag = gradeTagStr.toIntOrNull()
                 (gradeTag ?: 0).coerceIn(2, 8).takeIf { it in 2..8 }
                     ?: throw IllegalArgumentException("Invalid grade for question index=$index")
             }

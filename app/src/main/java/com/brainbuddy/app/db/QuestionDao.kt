@@ -87,6 +87,24 @@ interface QuestionDao {
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND difficulty = :difficulty AND isActive = 1")
     suspend fun countActiveByGradeSubjectDifficulty(grade: Int, subject: String, difficulty: Int): Int
 
+    // ---- Grade-only dağılım ve geçersiz grade teşhisi ----
+
+    /** Belirli bir grade için toplam soru sayısı (aktif/pasif fark etmeksizin). */
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :g")
+    suspend fun countByGradeOnly(g: Int): Int
+
+    /** Belirli bir grade için aktif soru sayısı (isActive=1). */
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :g AND isActive = 1")
+    suspend fun countActiveByGradeOnly(g: Int): Int
+
+    /** 2..8 aralığı dışındaki tüm grade değerlerinin toplam sayısı (0,1,9+ vs). */
+    @Query("SELECT COUNT(*) FROM questions WHERE grade < 2 OR grade > 8")
+    suspend fun countInvalidGrades(): Int
+
+    /** Geçersiz grade'leri (2..8 dışı) hedef grade'e taşımak için acil debug fix. */
+    @Query("UPDATE questions SET grade = :target WHERE grade < 2 OR grade > 8")
+    suspend fun fixInvalidGrades(target: Int)
+
     @Query("UPDATE questions SET isActive=1 WHERE isActive!=1")
     suspend fun forceActivateAll()
 

@@ -268,6 +268,7 @@ class QuizActivity : AppCompatActivity() {
             // DB acil müdahale butonlarını göster
             b.btnForceActivateAll.visibility = View.VISIBLE
             b.btnClampDifficulty.visibility = View.VISIBLE
+            b.btnFixInvalidGrades.visibility = View.VISIBLE
 
             // Kırmızı uyarı metinleri
             val warnings = mutableListOf<String>()
@@ -338,6 +339,23 @@ class QuizActivity : AppCompatActivity() {
                     } else {
                         b.feedbackText.visibility = View.GONE
                     }
+                }
+            }
+
+            b.btnFixInvalidGrades.setOnClickListener {
+                if (effectiveGrade !in 2..8) {
+                    return@setOnClickListener
+                }
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        try {
+                            val db = com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity)
+                            db.questionDao().fixInvalidGrades(effectiveGrade)
+                        } catch (_: Exception) {
+                        }
+                    }
+                    // Geçersiz grade'ler seçili sınıfa çekildikten sonra quiz'i tekrar başlat (DB DURUMU yeniden hesaplanır)
+                    initQuiz(null)
                 }
             }
             b.nextBtn.isEnabled = true

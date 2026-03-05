@@ -418,6 +418,13 @@ class QuestionRepository(private val context: Context) {
                 val active = dao.countAllActive()
                 val gradeTotal = dao.countByGrade(grade)
                 val gradeActive = dao.countActiveByGrade(grade)
+                // Grade 2..8 dağılımı + geçersiz grade teşhisi
+                val perGrade = (2..8).associateWith { g ->
+                    val gTotal = dao.countByGradeOnly(g)
+                    val gActive = dao.countActiveByGradeOnly(g)
+                    gTotal to gActive
+                }
+                val invalidGrades = dao.countInvalidGrades()
                 val perSubject = subjects.map { subj ->
                     val gsTotal = dao.countByGradeSubject(grade, subj)
                     val gsActive = dao.countActiveByGradeSubject(grade, subj)
@@ -430,7 +437,9 @@ class QuestionRepository(private val context: Context) {
                     active = active,
                     gradeTotal = gradeTotal,
                     gradeActive = gradeActive,
-                    perSubject = perSubject
+                    perSubject = perSubject,
+                    perGrade = perGrade,
+                    invalidGrades = invalidGrades
                 )
             }
 
@@ -446,6 +455,16 @@ class QuestionRepository(private val context: Context) {
             sb.append("ACTIVE questions (isActive=1): ${snapshot.active}\n")
             sb.append("selectedGrade: $grade\n")
             sb.append("selectedDifficulty: ${difficulty.name}\n")
+            sb.append("\n")
+            // Grade dağılımı: 2..8 için total/active
+            sb.append("Grade dağılımı (2..8):\n")
+            (2..8).forEach { g ->
+                val (gTotal, gActive) = snapshot.perGrade[g] ?: (0 to 0)
+                sb.append("grade=$g total/active: $gTotal/$gActive\n")
+            }
+            if (snapshot.invalidGrades > 0) {
+                sb.append("Geçersiz grade (0,1,9+ vs) soru sayısı: ${snapshot.invalidGrades}\n")
+            }
             sb.append("\n")
 
             subjects.forEach { subj ->
@@ -501,7 +520,9 @@ class QuestionRepository(private val context: Context) {
         val active: Int,
         val gradeTotal: Int,
         val gradeActive: Int,
-        val perSubject: Map<String, Quad>
+        val perSubject: Map<String, Quad>,
+        val perGrade: Map<Int, Pair<Int, Int>>,
+        val invalidGrades: Int
     )
 
     private data class Quad(
@@ -785,9 +806,19 @@ class QuestionRepository(private val context: Context) {
         val stem = o.optString("stem", "?")
         val correctIdx = o.optInt("correctIndex", 0).coerceIn(0, choices.size - 1)
         val correctAnswer = choices.getOrNull(correctIdx) ?: ""
-        val gradeTag = o.optString("gradeTag", "")
-        val grade = o.optInt("grade", 0).let { g ->
-            if (g in 2..8) g else gradeTag.toIntOrNull()?.coerceIn(2, 8) ?: 6
+        // Grade belirleme:
+        // 1) JSON'da "grade" alanı varsa ve 2..8 içindeyse doğrudan kullan
+        // 2) Yoksa veya geçersizse "gradeTag" / "grade_level" gibi string alanlardan parse et
+        // 3) Hâlâ parse edilemiyorsa soruyu discard etmek için exception fırlat
+        val gradeTagRaw = o.optString("gradeTag", o.optString("grade_level", ""))
+        val grade = run {
+            val fromGradeField = o.optInt("grade", 0).takeIf { it in 2..8 }
+            if (fromGradeField != null) {
+                fromGradeField
+            } else {
+                val parsed = gradeTagRaw.toIntOrNull()?.coerceIn(2, 8)
+                parsed ?: throw IllegalArgumentException("Invalid grade in question JSON (grade/gradeTag/grade_level)")
+            }
         }
         val rawId = o.optString("id", "")
         val id = if (rawId.isNotBlank()) rawId else {
