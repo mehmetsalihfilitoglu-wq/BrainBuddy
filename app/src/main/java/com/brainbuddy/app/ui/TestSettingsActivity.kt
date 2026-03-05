@@ -38,6 +38,10 @@ class TestSettingsActivity : AppCompatActivity() {
             startActivity(Intent(this, ExamPackActivity::class.java))
         }
 
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnPoolStatus)?.setOnClickListener {
+            startActivity(Intent(this, PoolStatusActivity::class.java))
+        }
+
         // BLOK 3: Eğitim Modülleri / İçerik
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnJuniorModule).setOnClickListener {
             startActivity(Intent(this, com.brainbuddy.app.junior.JuniorSettingsActivity::class.java))

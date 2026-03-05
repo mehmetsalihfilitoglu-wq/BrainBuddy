@@ -874,7 +874,28 @@ class QuestionRepository(private val context: Context) {
             QuizDifficulty.MEDIUM
         }
 
-        val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
+        val allSubjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
+        val selectedCategories = try {
+            QuizPrefs(context).selectedCategories()
+        } catch (_: Exception) {
+            emptySet()
+        }
+        val subjects = if (selectedCategories.isEmpty()) {
+            allSubjects
+        } else {
+            val mapped = allSubjects.filter { key ->
+                val subjEnum = when (key) {
+                    "mat" -> Subject.MAT
+                    "turkce" -> Subject.TURKCE
+                    "fen" -> Subject.FEN
+                    "sosyal" -> Subject.SOSYAL
+                    "ing" -> Subject.ING
+                    else -> Subject.MAT
+                }
+                selectedCategories.contains(subjEnum.name)
+            }
+            if (mapped.isNotEmpty()) mapped else allSubjects
+        }
 
         fun loadPoolForDifficulty(diffInt: Int): List<Question> {
             return subjects.flatMap { subj ->

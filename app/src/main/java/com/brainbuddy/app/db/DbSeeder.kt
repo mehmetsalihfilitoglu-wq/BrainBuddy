@@ -57,15 +57,39 @@ object DbSeeder {
     }
 
     private fun loadFromAssets(context: Context): List<QuestionEntity> {
-        return try {
+        val all = mutableListOf<QuestionEntity>()
+
+        // 1) Ana gövde: mevcut birleşik havuz (geriyle uyumlu kalır).
+        try {
             val json = context.assets.open("questions_tr.json").use { input ->
                 input.readBytes().toString(Charset.forName("UTF-8"))
             }
-            parseJsonArray(JSONArray(json))
+            all += parseJsonArray(JSONArray(json))
         } catch (e: Exception) {
             Log.e(TAG, "questions_tr.json error", e)
-            emptyList()
         }
+
+        // 2) Pilot grade 6 paketleri (ders bazlı).
+        val packFiles = listOf(
+            "packs/grade6_mat.json",
+            "packs/grade6_turkce.json",
+            "packs/grade6_fen.json",
+            "packs/grade6_sosyal.json",
+            "packs/grade6_ing.json"
+        )
+        packFiles.forEach { assetPath ->
+            try {
+                val json = context.assets.open(assetPath).use { input ->
+                    input.readBytes().toString(Charset.forName("UTF-8"))
+                }
+                all += parseJsonArray(JSONArray(json))
+                Log.i(TAG, "Loaded pack from $assetPath")
+            } catch (e: Exception) {
+                Log.w(TAG, "Pack load error for $assetPath: ${e.message}")
+            }
+        }
+
+        return all
     }
 
     private fun loadFromImported(context: Context): List<QuestionEntity> {

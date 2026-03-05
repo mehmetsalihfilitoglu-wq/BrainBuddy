@@ -101,6 +101,9 @@
         <activity
             android:name=".ui.TestSettingsActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.PoolStatusActivity"
+            android:exported="false" />
 
         <activity
             android:name=".ui.SecurityActivity"
