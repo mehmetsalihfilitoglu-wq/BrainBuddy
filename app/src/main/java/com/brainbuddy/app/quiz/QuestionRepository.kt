@@ -52,6 +52,15 @@ class QuestionRepository(private val context: Context) {
     var lastSkippedRecentCount: Int = 0
         private set
 
+    @Volatile
+    var lastSimilarRelaxedCount: Int = 0
+        private set
+
+    /** Subject key -> count picked. Set after pickQuizQuestionsByGrade. */
+    @Volatile
+    var lastSubjectCounts: Map<String, Int> = emptyMap()
+        private set
+
     companion object {
         private const val TAG = "QuestionRepository"
         /** Every test (gate, normal, remedial, boss) has exactly this many questions. */
@@ -1140,6 +1149,8 @@ class QuestionRepository(private val context: Context) {
         lastSkippedStemHashCount = 0
         lastSkippedSimilarCount = 0
         lastSkippedRecentCount = 0
+        lastSimilarRelaxedCount = 0
+        lastSubjectCounts = emptyMap()
 
         // 1) Havuzu grade + subject + difficulty ile hazırla.
         val perSubjectAll: MutableMap<Subject, List<Question>> = mutableMapOf()
@@ -1162,6 +1173,7 @@ class QuestionRepository(private val context: Context) {
 
         var wrongUsedCount = 0
         var recentRelaxedCount = 0
+        var similarRelaxedCount = 0
 
         fun pickForSubject(subjEnum: Subject, targetForSubject: Int) {
             if (targetForSubject <= 0) return
@@ -1251,6 +1263,56 @@ class QuestionRepository(private val context: Context) {
                 takeFrom(normalRecent, isWrong = false)
             }
 
+            /** Same as trySelectFrom but skips similarity check. Counts similarRelaxed when taking would-be-similar. */
+            fun trySelectFromSimilarRelaxed(pool: List<Question>, enforceTypeLimit: Boolean, enforceSkillLimit: Boolean) {
+                if (pool.isEmpty()) return
+                val subjectList = selectedPerSubject[subjEnum] ?: mutableListOf()
+                val typeCounts = subjectList.groupingBy { it.type }.eachCount().toMutableMap()
+                val skillCounts = subjectList.groupingBy { it.skill }.eachCount().toMutableMap()
+                fun canTakeByTypeAndSkill(q: Question): Boolean {
+                    if (subjectList.size >= targetForSubject) return false
+                    val type = q.type
+                    val skill = q.skill
+                    if (enforceTypeLimit && type != "UNKNOWN") {
+                        val tc = typeCounts[type] ?: 0
+                        if (tc >= 2) return false
+                    }
+                    if (enforceSkillLimit && skill != "UNKNOWN") {
+                        val sc = skillCounts[skill] ?: 0
+                        if (sc >= 1) return false
+                    }
+                    return true
+                }
+                val wrongCand = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) pool.filter { it.id in preferredWrongIds } else emptyList()
+                val normalCand = if (wrongCand.isEmpty()) pool else pool.filter { it.id !in preferredWrongIds }
+                for (candidates in listOf(wrongCand, normalCand)) {
+                    for (q in candidates.shuffled()) {
+                        if (subjectList.size >= targetForSubject) break
+                        val id = q.id
+                        if (id in usedIds) continue
+                        val qStemHash = stemHash(q.stem)
+                        if (qStemHash in usedStemHashes) continue
+                        if (!canTakeByTypeAndSkill(q)) continue
+                        val isWrong = q.id in preferredWrongIds
+                        if (isWrong && wrongUsedCount >= maxWrongCount) continue
+                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                        val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                            jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                        }
+                        if (wouldBeSimilar) similarRelaxedCount++
+                        subjectList.add(q)
+                        usedIds.add(id)
+                        usedStemHashes.add(qStemHash)
+                        if (tokens.isNotEmpty()) selectedTokenSets.add(tokens)
+                        typeCounts[q.type] = (typeCounts[q.type] ?: 0) + 1
+                        skillCounts[q.skill] = (skillCounts[q.skill] ?: 0) + 1
+                        if (isWrong) wrongUsedCount++
+                        if (id in recentIds) recentRelaxedCount++
+                    }
+                }
+                selectedPerSubject[subjEnum] = subjectList
+            }
+
             // 1) Strict: only non-recent IDs, enforce diversity constraints first.
             trySelectFrom(nonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
             if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
@@ -1267,6 +1329,15 @@ class QuestionRepository(private val context: Context) {
             trySelectFrom(recent, enforceTypeLimit = true, enforceSkillLimit = true)
             trySelectFrom(recent, enforceTypeLimit = true, enforceSkillLimit = false)
             trySelectFrom(recent, enforceTypeLimit = false, enforceSkillLimit = false)
+            if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
+
+            // 5) Last resort: relax similarity rule (usedIds and stemHashUsed NEVER relax).
+            trySelectFromSimilarRelaxed(nonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFromSimilarRelaxed(nonRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(nonRecent, enforceTypeLimit = false, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(recent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFromSimilarRelaxed(recent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(recent, enforceTypeLimit = false, enforceSkillLimit = false)
         }
 
         // 2) Her ders için önce çeşitlilik kısıtlarıyla 4'e kadar seç.
@@ -1384,6 +1455,40 @@ class QuestionRepository(private val context: Context) {
                 }
             }
 
+            /** Similar-relaxed: skip similarity check. usedIds and stemHashUsed NEVER relax. */
+            fun pickExtraFromPartitionSimilarRelaxed(subj: Subject, partition: List<Question>) {
+                if (partition.isEmpty() || remainingSlots <= 0) return
+                val wrongCandidates = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
+                    partition.filter { it.id in preferredWrongIds }
+                } else emptyList()
+                val normalCandidates = if (wrongCandidates.isEmpty()) partition else partition.filter { it.id !in preferredWrongIds }
+                fun takeFrom(candidates: List<Question>, isWrong: Boolean) {
+                    for (q in candidates.shuffled()) {
+                        if (remainingSlots <= 0) break
+                        val id = q.id
+                        if (id in usedIds) continue
+                        val qStemHash = stemHash(q.stem)
+                        if (qStemHash in usedStemHashes) continue
+                        if (isWrong && wrongUsedCount >= maxWrongCount) continue
+                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                        val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                            jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                        }
+                        if (wouldBeSimilar) similarRelaxedCount++
+                        selectedPerSubject[subj]?.add(q)
+                        selected.add(q)
+                        usedIds.add(id)
+                        usedStemHashes.add(qStemHash)
+                        if (tokens.isNotEmpty()) selectedTokenSets.add(tokens)
+                        if (isWrong) wrongUsedCount++
+                        if (id in recentIds) recentRelaxedCount++
+                        remainingSlots = effectiveCount - selected.size
+                    }
+                }
+                takeFrom(wrongCandidates, isWrong = true)
+                takeFrom(normalCandidates, isWrong = false)
+            }
+
             // Phase 1: fill from non-recent pools across subjects.
             for (subj in subjectsByRemaining) {
                 if (remainingSlots <= 0) break
@@ -1401,6 +1506,16 @@ class QuestionRepository(private val context: Context) {
                     if (poolAll.isEmpty()) continue
                     val recent = poolAll.filter { it.id in recentIds }
                     pickExtraFromPartition(subj, recent, fromRecent = true)
+                }
+            }
+
+            // Phase 3: last resort – relax similarity (usedIds and stemHashUsed NEVER relax).
+            if (remainingSlots > 0) {
+                for (subj in subjectsByRemaining) {
+                    if (remainingSlots <= 0) break
+                    val poolAll = remainingPerSubject[subj].orEmpty()
+                    if (poolAll.isEmpty()) continue
+                    pickExtraFromPartitionSimilarRelaxed(subj, poolAll)
                 }
             }
         }
@@ -1439,6 +1554,25 @@ class QuestionRepository(private val context: Context) {
                 uniqueFromPool.add(q)
             }
             selected = uniqueFromPool
+            // Similar-relaxed fallback: usedIds and stemHashUsed NEVER relax.
+            if (selected.size < effectiveCount) {
+                for (q in pool.shuffled()) {
+                    if (selected.size >= effectiveCount) break
+                    val id = q.id
+                    if (id in usedIds) continue
+                    val qStemHash = stemHash(q.stem)
+                    if (qStemHash in usedStemHashes) continue
+                    val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                    val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                        jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                    }
+                    if (wouldBeSimilar) similarRelaxedCount++
+                    usedIds.add(id)
+                    usedStemHashes.add(qStemHash)
+                    if (tokens.isNotEmpty()) selectedTokenSets.add(tokens)
+                    selected.add(q)
+                }
+            }
         } else if (selected.size < effectiveCount) {
             val used = usedIds
             val extraSources = mutableListOf<List<Question>>()
@@ -1475,6 +1609,28 @@ class QuestionRepository(private val context: Context) {
                     selected.add(q)
                 }
             }
+            // Similar-relaxed fallback: usedIds and stemHashUsed NEVER relax.
+            if (selected.size < effectiveCount) {
+                for (source in extraSources) {
+                    if (selected.size >= effectiveCount) break
+                    for (q in source.shuffled()) {
+                        if (selected.size >= effectiveCount) break
+                        val id = q.id
+                        if (id in used) continue
+                        val qStemHash = stemHash(q.stem)
+                        if (qStemHash in usedStemHashes) continue
+                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                        val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                            jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                        }
+                        if (wouldBeSimilar) similarRelaxedCount++
+                        used.add(id)
+                        usedStemHashes.add(qStemHash)
+                        if (tokens.isNotEmpty()) selectedTokenSets.add(tokens)
+                        selected.add(q)
+                    }
+                }
+            }
         }
 
         val finalQuestions = selected
@@ -1487,8 +1643,12 @@ class QuestionRepository(private val context: Context) {
         roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
         recordSeenForQuiz(profileId, questionIds)
 
-        // Expose how many questions had to bypass the recent-ID blacklist for debug UI.
+        // Expose debug counts for UI.
         lastRecentRelaxedCount = recentRelaxedCount
+        lastSimilarRelaxedCount = similarRelaxedCount
+        lastSubjectCounts = subjectOrder.associate { (subjEnum, dbKey) ->
+            dbKey to (selectedPerSubject[subjEnum]?.size ?: 0)
+        }
 
         // Estimate how many candidates were effectively excluded due to recency:
         // recent-in-pool minus those we relaxed and actually used.

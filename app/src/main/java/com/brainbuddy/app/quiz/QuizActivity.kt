@@ -312,6 +312,21 @@ class QuizActivity : AppCompatActivity() {
             }
         }
 
+        // Update DEBUG_PICKER_OK overlay with picker stats (grade-based picker only).
+        if (BuildConfig.DEBUG && (pickerDebugPath == "GRADE" || pickerDebugPath == "WRONG_ONLY")) {
+            val sc = repo.lastSubjectCounts.entries.joinToString(",") { "${it.key}=${it.value}" }
+            b.debugPickerText.text = (
+                "DEBUG_PICKER_OK mode=$pickerDebugPath " +
+                "skippedId=${repo.lastSkippedIdCount} " +
+                "skippedRecent=${repo.lastSkippedRecentCount} " +
+                "skippedStemHash=${repo.lastSkippedStemHashCount} " +
+                "skippedSimilar=${repo.lastSkippedSimilarCount} " +
+                "relaxedRecent=${repo.lastRecentRelaxedCount} " +
+                "relaxedSimilar=${repo.lastSimilarRelaxedCount} " +
+                "subjectCounts=[$sc]"
+            )
+        }
+
         b.submitBtn.visibility = View.GONE
         b.nextBtn.setOnClickListener { goNext() }
 
