@@ -361,31 +361,49 @@ class QuestionRepository(private val context: Context) {
         }
     }
 
+    data class PoolDebugForGrade(
+        val total: Int,
+        val active: Int,
+        val selectedGrade: Int,
+        val selectedDifficulty: QuizDifficulty,
+        val perSubject: Map<String, Quad>,
+        val hasPassiveOnly: Boolean,
+        val subjectsWithDifficultyGap: List<String>,
+        val readableText: String
+    )
+
     /**
      * Quiz başlamadan önce havuz teşhisi için:
-     * - TOTAL / TOTAL_ACTIVE
+     * - TOTAL / ACTIVE
      * - grade bazında total/active
      * - grade+subject ve grade+subject+difficulty bazında total/active
      *
-     * Debug metni döner ve ayrıca Logcat'e yazar.
+     * Hem insan okunabilir metin, hem de UI uyarıları için ham sayıları döner.
      */
     fun buildPoolDebugStatsForGrade(
         grade: Int,
         difficulty: QuizDifficulty
-    ): String {
+    ): PoolDebugForGrade {
         if (grade !in 2..8) {
-            return "DB Debug: grade=$grade geçersiz (2..8 dışında)."
+            return PoolDebugForGrade(
+                total = 0,
+                active = 0,
+                selectedGrade = grade,
+                selectedDifficulty = difficulty,
+                perSubject = emptyMap(),
+                hasPassiveOnly = false,
+                subjectsWithDifficultyGap = emptyList(),
+                readableText = "DB DURUMU\nGeçersiz sınıf: $grade (2..8 dışında)."
+            )
         }
+        val db = DatabaseProvider.get(context)
         return try {
-            val db = DatabaseProvider.get(context)
             val diffInt = when (difficulty) {
                 QuizDifficulty.EASY -> 0
                 QuizDifficulty.HARD -> 2
                 else -> 1
             }
             val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
-            val sb = StringBuilder()
-            val lineBreak = "\n"
 
             val snapshot = kotlinx.coroutines.runBlocking {
                 val dao = db.questionDao()
@@ -409,31 +427,56 @@ class QuestionRepository(private val context: Context) {
                 )
             }
 
-            sb.append("DB Debug:\n")
-            sb.append("- TOTAL=${
-                snapshot.total
-            } (active=${snapshot.active})\n")
-            sb.append("- selectedGrade=$grade, selectedDifficulty=${difficulty.name}\n")
-            sb.append("- gradeTotal=${snapshot.gradeTotal}, gradeActive=${snapshot.gradeActive}\n")
+            val hasPassiveOnly = snapshot.total > 0 && snapshot.active == 0
+            val subjectsWithDifficultyGap = snapshot.perSubject
+                .filter { (_, counts) -> counts.total > 0 && counts.totalDiff == 0 }
+                .keys
+                .sorted()
+
+            val sb = StringBuilder()
+            sb.append("DB DURUMU\n")
+            sb.append("TOTAL questions: ${snapshot.total}\n")
+            sb.append("ACTIVE questions (isActive=1): ${snapshot.active}\n")
+            sb.append("selectedGrade: $grade\n")
+            sb.append("selectedDifficulty: ${difficulty.name}\n")
+            sb.append("\n")
+
             subjects.forEach { subj ->
                 val q = snapshot.perSubject[subj]
                 if (q != null) {
-                    sb.append(
-                        "- grade=$grade subject=$subj -> total=${q.total} active=${q.active}, " +
-                            "diffInt=$diffInt totalDiff=${q.totalDiff} activeDiff=${q.activeDiff}$lineBreak"
-                    )
+                    sb.append("grade=$grade $subj total/active: ${q.total}/${q.active}\n")
+                    sb.append("grade=$grade $subj difficulty=$diffInt total/active: ${q.totalDiff}/${q.activeDiff}\n")
                 } else {
-                    sb.append(
-                        "- grade=$grade subject=$subj -> total=0 active=0, diffInt=$diffInt totalDiff=0 activeDiff=0$lineBreak"
-                    )
+                    sb.append("grade=$grade $subj total/active: 0/0\n")
+                    sb.append("grade=$grade $subj difficulty=$diffInt total/active: 0/0\n")
                 }
             }
+
             val debugText = sb.toString().trimEnd()
             Log.d(TAG, "[POOL_DEBUG] " + debugText.replace("\n", " | "))
-            debugText
+
+            PoolDebugForGrade(
+                total = snapshot.total,
+                active = snapshot.active,
+                selectedGrade = grade,
+                selectedDifficulty = difficulty,
+                perSubject = snapshot.perSubject,
+                hasPassiveOnly = hasPassiveOnly,
+                subjectsWithDifficultyGap = subjectsWithDifficultyGap,
+                readableText = debugText
+            )
         } catch (e: Exception) {
             Log.w(TAG, "buildPoolDebugStatsForGrade: failed: ${e.message}", e)
-            "DB Debug: hata=${e.message}"
+            PoolDebugForGrade(
+                total = 0,
+                active = 0,
+                selectedGrade = grade,
+                selectedDifficulty = difficulty,
+                perSubject = emptyMap(),
+                hasPassiveOnly = false,
+                subjectsWithDifficultyGap = emptyList(),
+                readableText = "DB DURUMU\nHata: ${e.message ?: "bilinmiyor"}"
+            )
         }
     }
 

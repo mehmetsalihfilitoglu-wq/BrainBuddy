@@ -86,4 +86,10 @@ interface QuestionDao {
 
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND difficulty = :difficulty AND isActive = 1")
     suspend fun countActiveByGradeSubjectDifficulty(grade: Int, subject: String, difficulty: Int): Int
+
+    @Query("UPDATE questions SET isActive=1 WHERE isActive!=1")
+    suspend fun forceActivateAll()
+
+    @Query("UPDATE questions SET difficulty=2 WHERE difficulty>2")
+    suspend fun clampDifficulty()
 }

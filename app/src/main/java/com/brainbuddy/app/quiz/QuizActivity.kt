@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.LastTestUnlockStore
@@ -16,6 +17,9 @@ import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuizBinding
 import com.brainbuddy.app.quiz.LevelGroup
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ui.MainActivity
 import java.util.UUID
 
@@ -177,7 +181,7 @@ class QuizActivity : AppCompatActivity() {
         val effectiveGrade = if (isGradeMode && gradePrefs.hasGradeSelected()) selectedGrade else 0
 
         // Quiz oluşturulmadan hemen önce DB havuz teşhisi (grade/difficulty bazında COUNT'lar).
-        val poolDebugText: String? = if (effectiveGrade in 2..8) {
+        val poolDebug: QuestionRepository.PoolDebugForGrade? = if (effectiveGrade in 2..8) {
             try {
                 repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
             } catch (_: Exception) {
@@ -250,15 +254,100 @@ class QuizActivity : AppCompatActivity() {
                 if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!"
                 else "Soru havuzu yetersiz (en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} soru gerekli). Veli: Soru paketi ekleyin veya içe aktarın."
             } else "Soru havuzu yetersiz (${questions.size} soru mevcut, en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} gerekli)."
-            val debugSuffix = poolDebugText?.let { "\n\n$it" } ?: ""
+            val debugSuffix = poolDebug?.readableText?.let { "\n\n$it" } ?: ""
             b.questionText.text = msg + debugSuffix
+
+            // Varsayılan quiz UI bileşenlerini gizle
+            b.optionsGroup.visibility = View.GONE
+            b.feedbackText.visibility = View.GONE
+            b.optA.visibility = View.GONE
+            b.optB.visibility = View.GONE
+            b.optC.visibility = View.GONE
+            b.optD.visibility = View.GONE
+
+            // DB acil müdahale butonlarını göster
+            b.btnForceActivateAll.visibility = View.VISIBLE
+            b.btnClampDifficulty.visibility = View.VISIBLE
+
+            // Kırmızı uyarı metinleri
+            val warnings = mutableListOf<String>()
+            if (poolDebug?.hasPassiveOnly == true) {
+                warnings.add("Sebep: sorular pasif. Çözüm: Tüm Soruları Aktif Yap’a basın.")
+            }
+            val diffGapSubjects = poolDebug?.subjectsWithDifficultyGap.orEmpty()
+            if (diffGapSubjects.isNotEmpty()) {
+                warnings.add(
+                    "Sebep: difficulty mapping hatası. Çözüm: Difficulty 3->2 Düzelt’e basın."
+                )
+            }
+            if (warnings.isNotEmpty()) {
+                b.feedbackText.visibility = View.VISIBLE
+                b.feedbackText.setTextColor(android.graphics.Color.RED)
+                b.feedbackText.text = warnings.joinToString("\n")
+            }
+
+            b.btnForceActivateAll.setOnClickListener {
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        try {
+                            val db = com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity)
+                            db.questionDao().forceActivateAll()
+                        } catch (_: Exception) {
+                        }
+                    }
+                    // Tüm sorular aktif edildikten sonra quiz'i tekrar başlatmayı dene
+                    initQuiz(null)
+                }
+            }
+
+            b.btnClampDifficulty.setOnClickListener {
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        try {
+                            val db = com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity)
+                            db.questionDao().clampDifficulty()
+                        } catch (_: Exception) {
+                        }
+                    }
+                    // Difficulty mapping düzeltildikten sonra sadece debug metnini yenile
+                    val refreshed = try {
+                        if (effectiveGrade in 2..8) {
+                            repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
+                        } else null
+                    } catch (_: Exception) {
+                        null
+                    }
+                    val baseMsg = msg
+                    val refreshedSuffix = refreshed?.readableText?.let { "\n\n$it" } ?: ""
+                    b.questionText.text = baseMsg + refreshedSuffix
+
+                    val warningsRefreshed = mutableListOf<String>()
+                    if (refreshed?.hasPassiveOnly == true) {
+                        warningsRefreshed.add("Sebep: sorular pasif. Çözüm: Tüm Soruları Aktif Yap’a basın.")
+                    }
+                    val refreshedDiffGapSubjects = refreshed?.subjectsWithDifficultyGap.orEmpty()
+                    if (refreshedDiffGapSubjects.isNotEmpty()) {
+                        warningsRefreshed.add(
+                            "Sebep: difficulty mapping hatası. Çözüm: Difficulty 3->2 Düzelt’e basın."
+                        )
+                    }
+                    if (warningsRefreshed.isNotEmpty()) {
+                        b.feedbackText.visibility = View.VISIBLE
+                        b.feedbackText.setTextColor(android.graphics.Color.RED)
+                        b.feedbackText.text = warningsRefreshed.joinToString("\n")
+                    } else {
+                        b.feedbackText.visibility = View.GONE
+                    }
+                }
+            }
             b.nextBtn.isEnabled = true
             b.nextBtn.text = "Ana Sayfaya Dön"
             b.nextBtn.setOnClickListener {
                 val i = Intent(this, MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                            Intent.FLAG_ACTIVITY_NEW_TASK or
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    flags =
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                                Intent.FLAG_ACTIVITY_NEW_TASK or
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
                 startActivity(i)
                 finish()
