@@ -80,11 +80,12 @@ class QuestionRepository(private val context: Context) {
         private const val TAG = "QuestionRepository"
         /** Every test (gate, normal, remedial, boss) has exactly this many questions. */
         const val MIN_QUESTIONS_PER_TEST = 20
-        private const val NEAR_DUPLICATE_SIMILARITY_THRESHOLD = 0.75
+        /** Only reject if similarity > 0.9 (less aggressive than before). */
+        private const val NEAR_DUPLICATE_SIMILARITY_THRESHOLD = 0.9
         /** Max pick attempts per subject to avoid long loops. */
-        private const val CAP_ATTEMPTS_PER_SUBJECT = 400
+        private const val CAP_ATTEMPTS_PER_SUBJECT = 200
         /** Max total pick attempts across all subjects. */
-        private const val CAP_ATTEMPTS_TOTAL = 2000
+        private const val CAP_ATTEMPTS_TOTAL = 1000
         /** Only compare similarity against last N selected token sets (cheap O(n)). */
         private const val SIMILARITY_LOOKBACK = 20
 
@@ -1192,9 +1193,11 @@ class QuestionRepository(private val context: Context) {
         var recentRelaxedCount = 0
         var similarRelaxedCount = 0
         var totalAttempts = 0
+        var relaxedDueToCap = false
 
         fun pickForSubject(subjEnum: Subject, targetForSubject: Int) {
             if (targetForSubject <= 0) return
+            var subjectAttempts = 0
             val primary = (perSubjectPrimary[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
             val relaxed = (perSubjectRelaxed[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
             if (primary.isEmpty() && relaxed.isEmpty()) return
@@ -1234,9 +1237,14 @@ class QuestionRepository(private val context: Context) {
                     if (candidates.isEmpty()) return
                     for (q in candidates.shuffled()) {
                         totalAttempts++
+                        subjectAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
-                            break
+                            relaxedDueToCap = true
+                        }
+                        if (subjectAttempts > CAP_ATTEMPTS_PER_SUBJECT) {
+                            lastCapReached = true
+                            relaxedDueToCap = true
                         }
                         if (subjectList.size >= targetForSubject) break
                         val id = q.id
@@ -1250,12 +1258,16 @@ class QuestionRepository(private val context: Context) {
                             continue
                         }
                         if (!canTakeByTypeAndSkill(q)) continue
-                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
-                        if (tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                                jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                            }) {
-                            lastSkippedSimilarCount++
-                            continue
+                        val tokens = if (relaxedDueToCap) emptySet()
+                        else {
+                            val t = buildQuestionTokenSet(q.stem, q.choices)
+                            if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
+                                    jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                                }) {
+                                lastSkippedSimilarCount++
+                                continue
+                            }
+                            t
                         }
                         if (isWrong && wrongUsedCount >= maxWrongCount) continue
                         subjectList.add(q)
@@ -1315,9 +1327,14 @@ class QuestionRepository(private val context: Context) {
                 for (candidates in listOf(wrongCand, normalCand)) {
                     for (q in candidates.shuffled()) {
                         totalAttempts++
+                        subjectAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
-                            return
+                            relaxedDueToCap = true
+                        }
+                        if (subjectAttempts > CAP_ATTEMPTS_PER_SUBJECT) {
+                            lastCapReached = true
+                            relaxedDueToCap = true
                         }
                         if (subjectList.size >= targetForSubject) break
                         val id = q.id
@@ -1329,7 +1346,7 @@ class QuestionRepository(private val context: Context) {
                         if (isWrong && wrongUsedCount >= maxWrongCount) continue
                         val tokens = buildQuestionTokenSet(q.stem, q.choices)
                         val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                            jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                            jaccardSimilarity(tokens, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                         }
                         if (wouldBeSimilar) similarRelaxedCount++
                         subjectList.add(q)
@@ -1429,7 +1446,7 @@ class QuestionRepository(private val context: Context) {
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
-                            return
+                            relaxedDueToCap = true
                         }
                         if (extraWrong.size >= canTakeWrong || remainingSlots <= 0) break
                         val id = q.id
@@ -1442,12 +1459,16 @@ class QuestionRepository(private val context: Context) {
                             lastSkippedStemHashCount++
                             continue
                         }
-                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
-                        if (tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                                jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                            }) {
-                            lastSkippedSimilarCount++
-                            continue
+                        val tokens = if (relaxedDueToCap) emptySet()
+                        else {
+                            val t = buildQuestionTokenSet(q.stem, q.choices)
+                            if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
+                                    jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                                }) {
+                                lastSkippedSimilarCount++
+                                continue
+                            }
+                            t
                         }
                         extraWrong.add(q)
                         usedIds.add(id)
@@ -1473,7 +1494,7 @@ class QuestionRepository(private val context: Context) {
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
-                            return
+                            relaxedDueToCap = true
                         }
                         if (extraNormal.size >= remainingSlots) break
                         val id = q.id
@@ -1486,12 +1507,16 @@ class QuestionRepository(private val context: Context) {
                             lastSkippedStemHashCount++
                             continue
                         }
-                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
-                        if (tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                                jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                            }) {
-                            lastSkippedSimilarCount++
-                            continue
+                        val tokens = if (relaxedDueToCap) emptySet()
+                        else {
+                            val t = buildQuestionTokenSet(q.stem, q.choices)
+                            if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
+                                    jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                                }) {
+                                lastSkippedSimilarCount++
+                                continue
+                            }
+                            t
                         }
                         extraNormal.add(q)
                         usedIds.add(id)
@@ -1523,7 +1548,7 @@ class QuestionRepository(private val context: Context) {
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
-                            return
+                            relaxedDueToCap = true
                         }
                         if (remainingSlots <= 0) break
                         val id = q.id
@@ -1533,7 +1558,7 @@ class QuestionRepository(private val context: Context) {
                         if (isWrong && wrongUsedCount >= maxWrongCount) continue
                         val tokens = buildQuestionTokenSet(q.stem, q.choices)
                         val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                            jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                            jaccardSimilarity(tokens, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                         }
                         if (wouldBeSimilar) similarRelaxedCount++
                         selectedPerSubject[subj]?.add(q)
@@ -1592,7 +1617,7 @@ class QuestionRepository(private val context: Context) {
                 totalAttempts++
                 if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                     lastCapReached = true
-                    break
+                    relaxedDueToCap = true
                 }
                 if (uniqueFromPool.size >= effectiveCount) break
                 val id = q.id
@@ -1605,12 +1630,16 @@ class QuestionRepository(private val context: Context) {
                     lastSkippedStemHashCount++
                     continue
                 }
-                val tokens = buildQuestionTokenSet(q.stem, q.choices)
-                if (tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                        jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                    }) {
-                    lastSkippedSimilarCount++
-                    continue
+                val tokens = if (relaxedDueToCap) emptySet()
+                else {
+                    val t = buildQuestionTokenSet(q.stem, q.choices)
+                    if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
+                            jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                        }) {
+                        lastSkippedSimilarCount++
+                        continue
+                    }
+                    t
                 }
                 usedIds.add(id)
                 usedStemHashes.add(qStemHash)
@@ -1626,7 +1655,7 @@ class QuestionRepository(private val context: Context) {
                     totalAttempts++
                     if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                         lastCapReached = true
-                        break
+                        relaxedDueToCap = true
                     }
                     if (selected.size >= effectiveCount) break
                     val id = q.id
@@ -1635,7 +1664,7 @@ class QuestionRepository(private val context: Context) {
                     if (qStemHash in usedStemHashes) continue
                     val tokens = buildQuestionTokenSet(q.stem, q.choices)
                     val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                        jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                        jaccardSimilarity(tokens, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                     }
                     if (wouldBeSimilar) similarRelaxedCount++
                     usedIds.add(id)
@@ -1657,7 +1686,7 @@ class QuestionRepository(private val context: Context) {
                     totalAttempts++
                     if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                         lastCapReached = true
-                        break
+                        relaxedDueToCap = true
                     }
                     if (selected.size >= effectiveCount) break
                     val id = q.id
@@ -1670,12 +1699,16 @@ class QuestionRepository(private val context: Context) {
                         lastSkippedStemHashCount++
                         continue
                     }
-                    val tokens = buildQuestionTokenSet(q.stem, q.choices)
-                    if (tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                            jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                        }) {
-                        lastSkippedSimilarCount++
-                        continue
+                    val tokens = if (relaxedDueToCap) emptySet()
+                    else {
+                        val t = buildQuestionTokenSet(q.stem, q.choices)
+                        if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
+                                jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                            }) {
+                            lastSkippedSimilarCount++
+                            continue
+                        }
+                        t
                     }
                     used.add(id)
                     usedStemHashes.add(qStemHash)
@@ -1693,7 +1726,7 @@ class QuestionRepository(private val context: Context) {
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
-                            break
+                            relaxedDueToCap = true
                         }
                         if (selected.size >= effectiveCount) break
                         val id = q.id
@@ -1702,7 +1735,7 @@ class QuestionRepository(private val context: Context) {
                         if (qStemHash in usedStemHashes) continue
                         val tokens = buildQuestionTokenSet(q.stem, q.choices)
                         val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                            jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                            jaccardSimilarity(tokens, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                         }
                         if (wouldBeSimilar) similarRelaxedCount++
                         used.add(id)
@@ -1711,6 +1744,24 @@ class QuestionRepository(private val context: Context) {
                         selected.add(q)
                     }
                 }
+            }
+        }
+
+        // Emergency fill: if still short, take any unique (usedIds + usedStemHashes only) to reach 20.
+        if (selected.size < effectiveCount) {
+            val emergencyPool = buildList {
+                addAll(roomStore.getQuestionsByGrade(grade))
+                addAll(getFallbackQuestions().filter { it.grade == grade })
+                addAll(getFallbackQuestions())
+            }
+            for (q in emergencyPool.shuffled()) {
+                if (selected.size >= effectiveCount) break
+                if (q.id in usedIds) continue
+                val sh = stemHash(q.stem)
+                if (sh in usedStemHashes) continue
+                usedIds.add(q.id)
+                usedStemHashes.add(sh)
+                selected.add(q)
             }
         }
 
