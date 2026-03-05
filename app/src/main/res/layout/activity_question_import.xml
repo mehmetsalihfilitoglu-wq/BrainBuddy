@@ -52,6 +52,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Dosya Seç"/>
+
+            <Button
+                android:id="@+id/btnReimportPacks"
+                style="@style/BB.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Re-import Packs (DEBUG)"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

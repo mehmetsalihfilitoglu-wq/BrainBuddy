@@ -41,6 +41,45 @@ object DbSeeder {
             Log.d(TAG, "Seed already up to date (version=$storedVersion), skip")
             return@withContext false
         }
+
+        performSeed(db, meta, context)
+    }
+
+    /**
+     * DEBUG: Tüm soru tablosunu temizleyip, asset ve import edilmiş JSON'lardan
+     * seeding işlemini baştan çalıştırır.
+     *
+     * Kullanım senaryosu:
+     * - Yeni paketler eklendikten sonra uygulamayı yeniden yüklemeden havuzu tazelemek.
+     */
+    suspend fun forceReseed(context: Context): Boolean = withContext(Dispatchers.IO) {
+        val db = DatabaseProvider.get(context)
+        val meta = db.appMetaDao()
+        val questionDao = db.questionDao()
+
+        try {
+            Log.w(TAG, "Force reseed requested – deleting all questions and reseeding from assets/imported JSON.")
+            questionDao.deleteAll()
+        } catch (e: Exception) {
+            Log.e(TAG, "Force reseed deleteAll() failed", e)
+        }
+
+        // Version alanlarını güncel sürüme çek – böylece sonraki açılışlarda tekrar seedIfNeeded tetiklenmez.
+        meta.set(AppMetaEntity(KEY_DB_SEEDED, "false"))
+        meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, "0"))
+
+        performSeed(db, meta, context)
+    }
+
+    /**
+     * Ortak seeding uygulaması: assets + imported JSON + sentetik grade 6 paketleri.
+     * Hem ilk kurulum hem de DEBUG force-resede tarafından kullanılır.
+     */
+    private suspend fun performSeed(
+        db: BrainBuddyDatabase,
+        meta: AppMetaDao,
+        context: Context
+    ): Boolean {
         val questions = mutableListOf<QuestionEntity>()
         try {
             questions.addAll(loadFromAssets(context))
@@ -53,7 +92,7 @@ object DbSeeder {
         if (questions.isEmpty()) {
             questions.addAll(getFallbackEntities())
         }
-        // İlk seed: INSERT IGNORE (id unique) - mevcut kayıtları ezmez.
+
         val questionDao = db.questionDao()
         questionDao.insertAllIgnore(questions)
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
@@ -66,7 +105,7 @@ object DbSeeder {
         } catch (e: Exception) {
             Log.w(TAG, "Pool validation failed: ${e.message}")
         }
-        true
+        return true
     }
 
     private fun loadFromAssets(context: Context): List<QuestionEntity> {
@@ -440,11 +479,11 @@ object DbSeeder {
      */
     private fun generateGrade6MatQuestions(existingIds: MutableSet<String>): List<QuestionEntity> {
         val result = mutableListOf<QuestionEntity>()
-        for (i in 1..200) {
+        for (i in 1..600) {
             val difficulty = when {
-                i <= 40 -> 0 // EASY
-                i <= 110 -> 1 // MEDIUM
-                else -> 2 // HARD
+                i <= 180 -> 0 // EASY (~30%)
+                i <= 390 -> 1 // MEDIUM (~35%)
+                else -> 2 // HARD (~35%)
             }
             val id = "g6_mat_" + i.toString().padStart(3, '0')
             if (!existingIds.add(id)) continue
@@ -543,10 +582,10 @@ object DbSeeder {
         val names = listOf("Ali", "Ayşe", "Deniz", "Ece", "Mert", "Zeynep")
         val days = listOf("pazartesi", "salı", "çarşamba", "perşembe", "cuma")
 
-        for (i in 1..200) {
+        for (i in 1..600) {
             val difficulty = when {
-                i <= 40 -> 0
-                i <= 110 -> 1
+                i <= 180 -> 0
+                i <= 390 -> 1
                 else -> 2
             }
             val id = "g6_turkce_" + i.toString().padStart(3, '0')
@@ -625,10 +664,10 @@ object DbSeeder {
     private fun generateGrade6FenQuestions(existingIds: MutableSet<String>): List<QuestionEntity> {
         val result = mutableListOf<QuestionEntity>()
 
-        for (i in 1..200) {
+        for (i in 1..600) {
             val difficulty = when {
-                i <= 40 -> 0
-                i <= 110 -> 1
+                i <= 180 -> 0
+                i <= 390 -> 1
                 else -> 2
             }
             val id = "g6_fen_" + i.toString().padStart(3, '0')
@@ -709,10 +748,10 @@ object DbSeeder {
     private fun generateGrade6SosyalQuestions(existingIds: MutableSet<String>): List<QuestionEntity> {
         val result = mutableListOf<QuestionEntity>()
 
-        for (i in 1..200) {
+        for (i in 1..600) {
             val difficulty = when {
-                i <= 40 -> 0
-                i <= 110 -> 1
+                i <= 180 -> 0
+                i <= 390 -> 1
                 else -> 2
             }
             val id = "g6_sosyal_" + i.toString().padStart(3, '0')
@@ -791,10 +830,10 @@ object DbSeeder {
     private fun generateGrade6IngQuestions(existingIds: MutableSet<String>): List<QuestionEntity> {
         val result = mutableListOf<QuestionEntity>()
 
-        for (i in 1..200) {
+        for (i in 1..600) {
             val difficulty = when {
-                i <= 40 -> 0
-                i <= 110 -> 1
+                i <= 180 -> 0
+                i <= 390 -> 1
                 else -> 2
             }
             val id = "g6_ing_" + i.toString().padStart(3, '0')

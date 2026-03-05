@@ -6,11 +6,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuestionImportBinding
+import com.brainbuddy.app.db.DbSeeder
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import java.io.InputStreamReader
 import java.nio.charset.Charset
@@ -39,6 +44,25 @@ class QuestionImportActivity : AppCompatActivity() {
 
         b.btnSelectFile.setOnClickListener {
             pickFile.launch(arrayOf("application/json", "text/plain", "*/*"))
+        }
+
+        b.btnReimportPacks.setOnClickListener {
+            val ctx = this
+            lifecycleScope.launch {
+                b.btnReimportPacks.isEnabled = false
+                try {
+                    withContext(Dispatchers.IO) {
+                        DbSeeder.forceReseed(ctx)
+                    }
+                    Toast.makeText(ctx, "Soru havuzu yeniden içe aktarıldı (asset + import).", Toast.LENGTH_LONG).show()
+                    refreshStats()
+                } catch (e: Exception) {
+                    android.util.Log.e("QuestionImport", "Force reseed failed", e)
+                    Toast.makeText(ctx, "Yeniden içe aktarma hatası: ${e.message ?: "bilinmiyor"}", Toast.LENGTH_LONG).show()
+                } finally {
+                    b.btnReimportPacks.isEnabled = true
+                }
+            }
         }
 
         refreshStats()

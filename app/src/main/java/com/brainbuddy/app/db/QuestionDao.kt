@@ -110,4 +110,8 @@ interface QuestionDao {
 
     @Query("UPDATE questions SET difficulty=2 WHERE difficulty>2")
     suspend fun clampDifficulty()
+
+    /** Tüm soru tablosunu sil – DEBUG/RESET için kullanılır. */
+    @Query("DELETE FROM questions")
+    suspend fun deleteAll()
 }

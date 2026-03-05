@@ -469,6 +469,22 @@ class QuestionRepository(private val context: Context) {
             }
             sb.append("\n")
 
+            // Seçili sınıf için ders bazında AKTİF soru sayıları (tüm zorluklar).
+            val subjectLabels = mapOf(
+                "mat" to "MAT",
+                "turkce" to "TURKCE",
+                "fen" to "FEN",
+                "sosyal" to "SOSYAL",
+                "ing" to "ING"
+            )
+            val perSubjectActiveLine = subjects.joinToString("  ") { subj ->
+                val label = subjectLabels[subj] ?: subj.uppercase()
+                val counts = snapshot.perSubject[subj]
+                val activeForGrade = counts?.active ?: 0
+                "$label=$activeForGrade"
+            }
+            sb.append("grade=$grade per-subject ACTIVE counts: $perSubjectActiveLine\n\n")
+
             subjects.forEach { subj ->
                 val q = snapshot.perSubject[subj]
                 if (q != null) {
