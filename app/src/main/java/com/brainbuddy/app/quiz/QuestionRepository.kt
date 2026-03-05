@@ -361,12 +361,19 @@ class QuestionRepository(private val context: Context) {
         }
     }
 
+    data class SubjectPoolCounts(
+        val total: Int,
+        val active: Int,
+        val totalDiff: Int,
+        val activeDiff: Int
+    )
+
     data class PoolDebugForGrade(
         val total: Int,
         val active: Int,
         val selectedGrade: Int,
         val selectedDifficulty: QuizDifficulty,
-        val perSubject: Map<String, Quad>,
+        val perSubject: Map<String, SubjectPoolCounts>,
         val hasPassiveOnly: Boolean,
         val subjectsWithDifficultyGap: List<String>,
         val readableText: String
@@ -455,12 +462,21 @@ class QuestionRepository(private val context: Context) {
             val debugText = sb.toString().trimEnd()
             Log.d(TAG, "[POOL_DEBUG] " + debugText.replace("\n", " | "))
 
+            val apiPerSubject = snapshot.perSubject.mapValues { (_, counts) ->
+                SubjectPoolCounts(
+                    total = counts.total,
+                    active = counts.active,
+                    totalDiff = counts.totalDiff,
+                    activeDiff = counts.activeDiff
+                )
+            }
+
             PoolDebugForGrade(
                 total = snapshot.total,
                 active = snapshot.active,
                 selectedGrade = grade,
                 selectedDifficulty = difficulty,
-                perSubject = snapshot.perSubject,
+                perSubject = apiPerSubject,
                 hasPassiveOnly = hasPassiveOnly,
                 subjectsWithDifficultyGap = subjectsWithDifficultyGap,
                 readableText = debugText
