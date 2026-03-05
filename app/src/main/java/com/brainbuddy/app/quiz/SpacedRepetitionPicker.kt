@@ -31,13 +31,13 @@ class SpacedRepetitionPicker(
         Subject.ING to 3
     )
 
-    /** DB subject values: math, tr, en, fen, sosyal (DbSeeder format) */
+    /** DB subject values: mat/turkce/fen/sosyal/ing (DbSeeder & QuestionDao format) */
     private fun toDbSubject(s: Subject): String = when (s) {
-        Subject.MAT -> "math"
-        Subject.TURKCE -> "tr"
+        Subject.MAT -> "mat"
+        Subject.TURKCE -> "turkce"
         Subject.FEN -> "fen"
         Subject.SOSYAL -> "sosyal"
-        Subject.ING -> "en"
+        Subject.ING -> "ing"
     }
 
     private fun cooldownDays(correctCount: Int): Int = when {
@@ -46,8 +46,6 @@ class SpacedRepetitionPicker(
         correctCount == 1 -> 30
         else -> 0
     }
-
-    private val relaxSequence = listOf(60, 45, 30, 14, 7)
 
     fun pick(
         pool: List<Question>,
@@ -71,39 +69,54 @@ class SpacedRepetitionPicker(
             val wrongQuota = (quota * 0.6).toInt().coerceAtLeast(0)
             val newQuota = quota - wrongQuota
 
-            val dueWrongIds = historyDao.getDueWrongQuestionIds(userId, dbSubject, nowMinus3Days, wrongQuota + newQuota + 10)
-                .filter { it in subjectPool.map { q -> q.id } && it !in usedIds }
+            val subjectIdsInPool = subjectPool.map { it.id }.toSet()
+
+            val dueWrongIds = historyDao.getDueWrongQuestionIds(
+                userId = userId,
+                subject = dbSubject,
+                nowMinus3Days = nowMinus3Days,
+                limit = (wrongQuota + newQuota) * 3
+            ).filter { it in subjectIdsInPool && it !in usedIds }
             val wrongPicked = dueWrongIds.take(wrongQuota)
 
             val recentlyCorrect = historyDao.getRecentlyCorrectForSubject(userId, dbSubject)
-            /** Relax: use override days; normally cooldown per correctCount. In cooldown = lastAnsweredAt > now - days */
-            fun recentlyCorrectIdsWithCooldown(relaxDays: Int): Set<String> {
-                val cutoff = now - TimeUnit.DAYS.toMillis(relaxDays.toLong())
-                return recentlyCorrect
-                    .filter { it.correctCount >= 1 && it.lastAnsweredAt > cutoff }
-                    .map { it.questionId }
-                    .toSet()
-            }
+            val cooldownIds: Set<String> = recentlyCorrect.mapNotNull { h ->
+                val days = cooldownDays(h.correctCount)
+                if (days <= 0) {
+                    null
+                } else {
+                    val cutoff = now - TimeUnit.DAYS.toMillis(days.toLong())
+                    if (h.lastAnsweredAt > cutoff) h.questionId else null
+                }
+            }.toSet()
 
-            var newPicked = emptyList<String>()
-            for (cooldownDays in relaxSequence) {
-                val recentlyCorrectIds = recentlyCorrectIdsWithCooldown(cooldownDays)
-                val excludeForNew = (usedIds + wrongPicked + newPicked).toList()
-                val safeExclude = if (excludeForNew.isEmpty()) listOf("") else excludeForNew
-                val newIds = historyDao.getNewQuestionIds(userId, dbSubject, safeExclude, newQuota + 10)
-                val notInCooldown = historyDao.getNotRecentlyCorrectQuestionIds(
-                    userId, dbSubject,
-                    (recentlyCorrectIds + excludeForNew).distinct().let { if (it.isEmpty()) listOf("") else it },
-                    newQuota + 10
-                )
-                val candidateNew = (newIds + notInCooldown).distinct()
-                    .filter { it in subjectPool.map { q -> q.id } && it !in usedIds && it !in wrongPicked }
-                    .filter { it !in recentlyCorrectIds }
-                newPicked = candidateNew.take(newQuota)
-                if (newPicked.size >= newQuota) break
-            }
+            fun safeIds(ids: Collection<String>): List<String> =
+                if (ids.isEmpty()) listOf("__none__") else ids.toList()
+
+            val excludeBase = (usedIds + wrongPicked)
+
+            val newIds = historyDao.getNewQuestionIds(
+                userId = userId,
+                subject = dbSubject,
+                excludeIds = safeIds(excludeBase),
+                limit = newQuota * 3
+            )
+
+            val notRecentlyCorrectIds = historyDao.getNotRecentlyCorrectQuestionIds(
+                userId = userId,
+                subject = dbSubject,
+                excludeIds = safeIds(cooldownIds + excludeBase),
+                limit = newQuota * 3
+            )
+
+            val candidateNew = (newIds + notRecentlyCorrectIds)
+                .distinct()
+                .filter { it in subjectIdsInPool && it !in usedIds && it !in wrongPicked && it !in cooldownIds }
+
+            var newPicked = candidateNew.take(newQuota)
             if (newPicked.size < newQuota) {
-                val fallbackPool = subjectPool.map { it.id }.filter { it !in usedIds && it !in wrongPicked }
+                val fallbackPool = subjectPool.map { it.id }
+                    .filter { it !in usedIds && it !in wrongPicked && it !in cooldownIds }
                 newPicked = (newPicked + fallbackPool).distinct().take(newQuota)
             }
 
