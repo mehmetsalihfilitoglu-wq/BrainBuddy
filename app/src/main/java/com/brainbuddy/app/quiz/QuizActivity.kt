@@ -61,6 +61,7 @@ class QuizActivity : AppCompatActivity() {
     // Debug-only diagnostics (grade mode)
     private var poolDebug: QuestionRepository.PoolDebugForGrade? = null
     private var debugWrongUsed: Int = 0
+    private var pickerDebugPath: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -195,14 +196,20 @@ class QuizActivity : AppCompatActivity() {
         } else null
 
         debugWrongUsed = 0
+        pickerDebugPath = ""
         questions = when {
             isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount -> {
+                pickerDebugPath = "REPLAY"
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 replayQuestionIds.mapNotNull { all[it] }
             }
-            bossLevel > 0 -> if (effectiveGrade in 2..8) repo.pickBossQuestionsByGrade(effectiveGrade, targetCount)
+            bossLevel > 0 -> {
+                pickerDebugPath = if (effectiveGrade in 2..8) "BOSS_GRADE" else "BOSS"
+                if (effectiveGrade in 2..8) repo.pickBossQuestionsByGrade(effectiveGrade, targetCount)
                 else repo.pickBossQuestions(levelGroup, targetCount)
+            }
             isGateMode && isRetryOfLockedQuiz -> {
+                pickerDebugPath = "GATE_RETRY"
                 val ids = protectionPrefs.lastFailedQuestionIds()
                 if (ids.size >= targetCount) {
                     val all = repo.loadAllQuestions().associateBy { it.id }
@@ -212,13 +219,18 @@ class QuizActivity : AppCompatActivity() {
                     else repo.pickGateQuestions(levelGroup, targetCount)
                 }
             }
-            isGateMode -> if (effectiveGrade in 2..8) repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
+            isGateMode -> {
+                pickerDebugPath = if (effectiveGrade in 2..8) "GATE_GRADE" else "GATE"
+                if (effectiveGrade in 2..8) repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
                 else repo.pickGateQuestions(levelGroup, targetCount)
+            }
             isRemedial -> if (effectiveGrade in 2..8) {
+                pickerDebugPath = "REMEDIAL_GRADE"
                 val (q, usedFallback) = repo.pickRemedialQuestionsByGrade(effectiveGrade, targetCount, protectionPrefs.lastFailedWrongIds())
                 remedialFallbackWarning = usedFallback
                 q
             } else {
+                pickerDebugPath = "REMEDIAL"
                 val (q, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, protectionPrefs.lastFailedWrongIds())
                 remedialFallbackWarning = usedFallback
                 q
@@ -228,6 +240,7 @@ class QuizActivity : AppCompatActivity() {
                 val found = wrongIds.mapNotNull { all[it] }
                 val preferredWrongIds = found.map { it.id }.toSet()
                 if (effectiveGrade in 2..8) {
+                    pickerDebugPath = "WRONG_ONLY"
                     val picked = repo.pickQuizQuestionsByGrade(
                         effectiveGrade,
                         targetCount,
@@ -237,6 +250,7 @@ class QuizActivity : AppCompatActivity() {
                     debugWrongUsed = picked.count { it.id in preferredWrongIds }
                     picked
                 } else {
+                    pickerDebugPath = "WRONG_ONLY_SUBJECT"
                     // Non-grade mode: fall back to adaptive picker, cap wrong repeats via picker itself.
                     val base = if (found.isNotEmpty()) found.shuffled().take(targetCount) else emptyList()
                     if (base.size < targetCount) {
@@ -253,6 +267,7 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
             retryWrongMode -> if (effectiveGrade in 2..8) {
+                pickerDebugPath = "WRONG_ONLY"
                 val wrong = repo.pickRetryWrongQuestionsByGrade(effectiveGrade)
                 val preferredWrongIds = wrong.map { it.id }.toSet()
                 val picked = repo.pickQuizQuestionsByGrade(
@@ -264,17 +279,20 @@ class QuizActivity : AppCompatActivity() {
                 debugWrongUsed = picked.count { it.id in preferredWrongIds }
                 picked
             } else {
+                pickerDebugPath = "WRONG_ONLY_SUBJECT"
                 val wrong = repo.pickRetryWrongQuestions(levelGroup)
                 if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
                 else wrong.shuffled().take(targetCount)
             }
             else -> if (effectiveGrade in 2..8) {
+                pickerDebugPath = "GRADE"
                 repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
             } else {
                 val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
                 val categories = subjectFilter?.let { tr ->
                     Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
                 } ?: quizPrefs.selectedCategories()
+                pickerDebugPath = "SUBJECT_ONLY"
                 repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
             }
         }
@@ -443,11 +461,15 @@ class QuizActivity : AppCompatActivity() {
         index = index.coerceIn(0, questions.size - 1)
         val q = questions[index]
 
-        // Debug header: only show in debug builds and when we have pool diagnostics
+        // Debug header: only show in debug builds and when we have pool diagnostics.
         if (BuildConfig.DEBUG) {
             val effectiveGrade = q.grade
             val selectedDifficulty = quizPrefs.difficulty()
             val debug = poolDebug
+
+            val pickerLabel = pickerDebugPath.ifBlank { "UNKNOWN" }
+            val traceLine = "picker=$pickerLabel | skippedId=${repo.lastSkippedIdCount} skippedStemHash=${repo.lastSkippedStemHashCount} skippedSimilar=${repo.lastSkippedSimilarCount} skippedRecent=${repo.lastSkippedRecentCount} relaxed=${repo.lastRecentRelaxedCount}"
+
             if (debug != null && effectiveGrade in 2..8) {
                 val subjectsOrder = listOf("mat" to "MAT", "turkce" to "TURKCE", "fen" to "FEN", "sosyal" to "SOSYAL", "ing" to "ING")
                 val countsLine = subjectsOrder.joinToString("  ") { (key, label) ->
@@ -476,14 +498,15 @@ class QuizActivity : AppCompatActivity() {
                     "$label:$typeCounts"
                 }
                 val wrongUsedText = "$debugWrongUsed/${QuestionRepository.MIN_QUESTIONS_PER_TEST}"
-                val recentRelaxed = repo.lastRecentRelaxedCount
                 val headerBase = "grade=$effectiveGrade • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText"
-                val recentLine = if (recentRelaxed > 0) "\nrecent relaxed +$recentRelaxed" else ""
-                val header = "$headerBase$recentLine\n$typeSummary"
+                val recentLine = if (repo.lastRecentRelaxedCount > 0) "\nrecent relaxed +${repo.lastRecentRelaxedCount}" else ""
+                val headerRest = "$headerBase$recentLine\n$typeSummary"
+                val fullHeader = traceLine + "\n" + headerRest
                 b.debugInfoText.visibility = View.VISIBLE
-                b.debugInfoText.text = header
+                b.debugInfoText.text = fullHeader
             } else {
-                b.debugInfoText.visibility = View.GONE
+                b.debugInfoText.visibility = View.VISIBLE
+                b.debugInfoText.text = traceLine
             }
         } else {
             b.debugInfoText.visibility = View.GONE

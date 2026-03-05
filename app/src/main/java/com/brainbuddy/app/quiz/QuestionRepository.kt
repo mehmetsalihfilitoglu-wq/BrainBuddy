@@ -23,14 +23,38 @@ class QuestionRepository(private val context: Context) {
 
     private val roomStore = RoomQuizDataStore(context)
     private val wrongQuestionStore = WrongQuestionStore(context)
+
+    /**
+     * Debug counters for quiz builders (grade-based picker primarily).
+     *
+     * All counters are reset at the beginning of each picker call and are intended
+     * for in-app debug UI (no functional impact).
+     */
     @Volatile
     var lastRecentRelaxedCount: Int = 0
+        private set
+
+    @Volatile
+    var lastSkippedIdCount: Int = 0
+        private set
+
+    @Volatile
+    var lastSkippedStemHashCount: Int = 0
+        private set
+
+    @Volatile
+    var lastSkippedSimilarCount: Int = 0
+        private set
+
+    @Volatile
+    var lastSkippedRecentCount: Int = 0
         private set
 
     companion object {
         private const val TAG = "QuestionRepository"
         /** Every test (gate, normal, remedial, boss) has exactly this many questions. */
         const val MIN_QUESTIONS_PER_TEST = 20
+        private const val NEAR_DUPLICATE_SIMILARITY_THRESHOLD = 0.75
 
         /** G1: Normalize text for stable ID: trim, lowercase(TR), collapse whitespace. */
         fun normalize(text: String): String = text
@@ -70,6 +94,66 @@ class QuestionRepository(private val context: Context) {
         val bytes = normalized.toByteArray(Charset.forName("UTF-8"))
         val digest = MessageDigest.getInstance("SHA-256").digest(bytes)
         return digest.joinToString("") { "%02x".format(it) }
+    }
+
+    /**
+     * Stopword set for question text tokenization (basic Turkish + English).
+     * Used only for debug-time near-duplicate detection within a single quiz.
+     */
+    private val stopwordsTrEn: Set<String> = setOf(
+        // Turkish
+        "ve", "veya", "ile", "de", "da", "ki", "bu", "şu", "o", "bir", "iki", "üç",
+        "için", "gibi", "ise", "ama", "fakat", "ancak", "çünkü", "daha", "çok",
+        "az", "en", "her", "hiç", "mi", "mı", "mu", "mü", "ne", "hangi", "nasıl",
+        "neden", "nerede", "ne zaman", "kim", "şey", "şeyler",
+        // English (basic)
+        "the", "a", "an", "and", "or", "of", "to", "in", "on", "at", "for", "from",
+        "by", "with", "about", "as", "is", "are", "was", "were", "be", "been",
+        "this", "that", "these", "those", "which", "what", "who", "whom", "how",
+        "why", "where", "when"
+    )
+
+    /**
+     * Build a normalized token set from full question text (stem + options).
+     *
+     * Normalization:
+     *  - lowercase (TR)
+     *  - remove punctuation
+     *  - replace digits with '#'
+     *  - collapse whitespace
+     *  - remove common stopwords
+     */
+    private fun buildQuestionTokenSet(stem: String, choices: List<String>): Set<String> {
+        val raw = buildString {
+            append(stem)
+            if (choices.isNotEmpty()) {
+                append(' ')
+                append(choices.joinToString(" "))
+            }
+        }
+        if (raw.isBlank()) return emptySet()
+
+        var text = raw.lowercase(Locale("tr"))
+        text = text.replace(Regex("[\\p{Punct}]"), " ")
+        text = text.replace(Regex("\\d+"), "#")
+        text = text.replace(Regex("\\s+"), " ").trim()
+        if (text.isEmpty()) return emptySet()
+
+        return text.split(' ')
+            .asSequence()
+            .map { it.trim() }
+            .filter { it.isNotEmpty() && it !in stopwordsTrEn }
+            .toSet()
+    }
+
+    /** Jaccard similarity between two token sets. */
+    private fun jaccardSimilarity(a: Set<String>, b: Set<String>): Double {
+        if (a.isEmpty() || b.isEmpty()) return 0.0
+        val intersectionSize = a.intersect(b).size
+        if (intersectionSize == 0) return 0.0
+        val unionSize = a.size + b.size - intersectionSize
+        if (unionSize == 0) return 0.0
+        return intersectionSize.toDouble() / unionSize.toDouble()
     }
 
     private val historyStore = QuestionHistoryStore(context)
@@ -209,6 +293,23 @@ class QuestionRepository(private val context: Context) {
             })
         }
         importedFile.writeText(jsonArr.toString(), Charsets.UTF_8)
+
+        // Build stem-hash keys for existing DB questions to avoid inserting duplicates
+        // with the same (grade, subject, difficulty, stemHash).
+        val existingStemKeys: MutableSet<String> = try {
+            val db = DatabaseProvider.get(context)
+            kotlinx.coroutines.runBlocking {
+                db.questionDao().getAllQuestions().mapTo(mutableSetOf()) { e ->
+                    val diffIntExisting = e.difficulty
+                    val stemHashExisting = stemHash(e.questionText)
+                    "${e.grade}|${e.subject}|$diffIntExisting|$stemHashExisting"
+                }
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "mergeImportedQuestions: failed to build existing stem-hash index: ${e.message}")
+            mutableSetOf()
+        }
+
         val toAddEntities = toAdd.map { q ->
             var gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices)
 
@@ -252,16 +353,44 @@ class QuestionRepository(private val context: Context) {
                 QuizDifficulty.HARD -> 2
                 else -> 1
             }
+            val dbSubjectKey = when (q.subject) {
+                Subject.MAT -> "mat"
+                Subject.TURKCE -> "turkce"
+                Subject.FEN -> "fen"
+                Subject.SOSYAL -> "sosyal"
+                Subject.ING -> "ing"
+            }
+            val stemHashValue = stemHash(q.stem)
+            val stemKey = "${q.grade.coerceIn(1, 8)}|$dbSubjectKey|$diffInt|$stemHashValue"
+            if (stemKey in existingStemKeys) {
+                // Duplicate of an existing (grade,subject,difficulty,stemHash) – insert as inactive.
+                deactivatedCount++
+                return@map QuestionEntity(
+                    id = q.id,
+                    grade = q.grade.coerceIn(1, 8),
+                    subject = dbSubjectKey,
+                    difficulty = diffInt,
+                    questionText = q.stem,
+                    optionsJson = org.json.JSONArray(q.choices).toString(),
+                    answerIndex = q.correctIndex,
+                    explanation = q.hint?.takeIf { it.isNotBlank() },
+                    isActive = false,
+                    questionType = gate.questionType,
+                    skillsJson = gate.skillsJson,
+                    deactivationReason = "duplicate_stemhash",
+                    version = 1,
+                    examType = q.examType.name,
+                    imageAsset = q.imageAsset?.takeIf { it.isNotBlank() },
+                    type = q.type,
+                    skill = q.skill
+                )
+            } else {
+                existingStemKeys.add(stemKey)
+            }
             QuestionEntity(
                 id = q.id,
                 grade = q.grade.coerceIn(1, 8),
-                subject = when (q.subject) {
-                    Subject.MAT -> "mat"
-                    Subject.TURKCE -> "turkce"
-                    Subject.FEN -> "fen"
-                    Subject.SOSYAL -> "sosyal"
-                    Subject.ING -> "ing"
-                },
+                subject = dbSubjectKey,
                 difficulty = diffInt,
                 questionText = q.stem,
                 optionsJson = org.json.JSONArray(q.choices).toString(),
@@ -969,6 +1098,13 @@ class QuestionRepository(private val context: Context) {
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
         val recentIds: Set<String> = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
 
+        // Reset debug counters for this picker run.
+        lastRecentRelaxedCount = 0
+        lastSkippedIdCount = 0
+        lastSkippedStemHashCount = 0
+        lastSkippedSimilarCount = 0
+        lastSkippedRecentCount = 0
+
         // 1) Havuzu grade + subject + difficulty ile hazırla.
         val perSubjectAll: MutableMap<Subject, List<Question>> = mutableMapOf()
         val perSubjectTotalForDiff: MutableMap<Subject, Int> = mutableMapOf()
@@ -984,6 +1120,7 @@ class QuestionRepository(private val context: Context) {
 
         val usedIds = mutableSetOf<String>()
         val usedStemHashes = mutableSetOf<String>()
+        val selectedTokenSets = mutableListOf<Set<String>>()
         val selectedPerSubject: MutableMap<Subject, MutableList<Question>> = mutableMapOf()
         subjectOrder.forEach { (s, _) -> selectedPerSubject[s] = mutableListOf() }
 
@@ -1008,9 +1145,7 @@ class QuestionRepository(private val context: Context) {
                 val typeCounts = subjectList.groupingBy { it.type }.eachCount().toMutableMap()
                 val skillCounts = subjectList.groupingBy { it.skill }.eachCount().toMutableMap()
 
-                fun canTake(q: Question, stemHash: String): Boolean {
-                    if (q.id in usedIds) return false
-                    if (stemHash in usedStemHashes) return false
+                fun canTakeByTypeAndSkill(q: Question): Boolean {
                     if (subjectList.size >= targetForSubject) return false
                     val type = q.type
                     val skill = q.skill
@@ -1028,15 +1163,38 @@ class QuestionRepository(private val context: Context) {
                 fun takeFrom(candidates: List<Question>, isWrong: Boolean) {
                     if (candidates.isEmpty()) return
                     for (q in candidates.shuffled()) {
+                        if (subjectList.size >= targetForSubject) break
+                        val id = q.id
+                        if (id in usedIds) {
+                            lastSkippedIdCount++
+                            continue
+                        }
                         val qStemHash = stemHash(q.stem)
-                        if (!canTake(q, qStemHash)) continue
+                        if (qStemHash in usedStemHashes) {
+                            lastSkippedStemHashCount++
+                            continue
+                        }
+                        if (!canTakeByTypeAndSkill(q)) continue
+                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                        if (tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                                jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                            }) {
+                            lastSkippedSimilarCount++
+                            continue
+                        }
                         if (isWrong && wrongUsedCount >= maxWrongCount) continue
                         subjectList.add(q)
-                        usedIds.add(q.id)
+                        usedIds.add(id)
                         usedStemHashes.add(qStemHash)
+                        if (tokens.isNotEmpty()) {
+                            selectedTokenSets.add(tokens)
+                        }
                         typeCounts[q.type] = (typeCounts[q.type] ?: 0) + 1
                         skillCounts[q.skill] = (skillCounts[q.skill] ?: 0) + 1
                         if (isWrong) wrongUsedCount++
+                        if (id in recentIds) {
+                            recentRelaxedCount++
+                        }
                         if (subjectList.size >= targetForSubject) break
                     }
                     selectedPerSubject[subjEnum] = subjectList
@@ -1070,14 +1228,9 @@ class QuestionRepository(private val context: Context) {
             if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
 
             // 4) Fallback: allow recently seen questions from the same subject to fill remaining quota.
-            val before = selectedPerSubject[subjEnum]?.size ?: 0
             trySelectFrom(recent, enforceTypeLimit = true, enforceSkillLimit = true)
             trySelectFrom(recent, enforceTypeLimit = true, enforceSkillLimit = false)
             trySelectFrom(recent, enforceTypeLimit = false, enforceSkillLimit = false)
-            val after = selectedPerSubject[subjEnum]?.size ?: 0
-            if (after > before) {
-                recentRelaxedCount += (after - before)
-            }
         }
 
         // 2) Her ders için önce çeşitlilik kısıtlarıyla 4'e kadar seç.
@@ -1118,40 +1271,78 @@ class QuestionRepository(private val context: Context) {
                         remainingSlots,
                         maxWrongCount - wrongUsedCount
                     )
-                    val extraWrong = pickFromPool(
-                        wrongCandidates,
-                        canTakeWrong,
-                        usedIds,
-                        { it.id },
-                        usedStemHashes,
-                        { it.stem }
-                    )
+                    val extraWrong = mutableListOf<Question>()
+                    for (q in wrongCandidates.shuffled()) {
+                        if (extraWrong.size >= canTakeWrong || remainingSlots <= 0) break
+                        val id = q.id
+                        if (id in usedIds) {
+                            lastSkippedIdCount++
+                            continue
+                        }
+                        val qStemHash = stemHash(q.stem)
+                        if (qStemHash in usedStemHashes) {
+                            lastSkippedStemHashCount++
+                            continue
+                        }
+                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                        if (tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                                jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                            }) {
+                            lastSkippedSimilarCount++
+                            continue
+                        }
+                        extraWrong.add(q)
+                        usedIds.add(id)
+                        usedStemHashes.add(qStemHash)
+                        if (tokens.isNotEmpty()) {
+                            selectedTokenSets.add(tokens)
+                        }
+                        if (id in recentIds) {
+                            recentRelaxedCount++
+                        }
+                    }
                     if (extraWrong.isNotEmpty()) {
                         selectedPerSubject[subj]?.addAll(extraWrong)
                         selected.addAll(extraWrong)
                         wrongUsedCount += extraWrong.size
-                        if (fromRecent) {
-                            recentRelaxedCount += extraWrong.size
-                        }
                         remainingSlots = effectiveCount - selected.size
                     }
                 }
 
                 if (remainingSlots > 0 && normalCandidates.isNotEmpty()) {
-                    val extraNormal = pickFromPool(
-                        normalCandidates,
-                        remainingSlots,
-                        usedIds,
-                        { it.id },
-                        usedStemHashes,
-                        { it.stem }
-                    )
+                    val extraNormal = mutableListOf<Question>()
+                    for (q in normalCandidates.shuffled()) {
+                        if (extraNormal.size >= remainingSlots) break
+                        val id = q.id
+                        if (id in usedIds) {
+                            lastSkippedIdCount++
+                            continue
+                        }
+                        val qStemHash = stemHash(q.stem)
+                        if (qStemHash in usedStemHashes) {
+                            lastSkippedStemHashCount++
+                            continue
+                        }
+                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                        if (tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                                jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                            }) {
+                            lastSkippedSimilarCount++
+                            continue
+                        }
+                        extraNormal.add(q)
+                        usedIds.add(id)
+                        usedStemHashes.add(qStemHash)
+                        if (tokens.isNotEmpty()) {
+                            selectedTokenSets.add(tokens)
+                        }
+                        if (id in recentIds) {
+                            recentRelaxedCount++
+                        }
+                    }
                     if (extraNormal.isNotEmpty()) {
                         selectedPerSubject[subj]?.addAll(extraNormal)
                         selected.addAll(extraNormal)
-                        if (fromRecent) {
-                            recentRelaxedCount += extraNormal.size
-                        }
                         remainingSlots = effectiveCount - selected.size
                     }
                 }
@@ -1187,11 +1378,28 @@ class QuestionRepository(private val context: Context) {
             val uniqueFromPool = mutableListOf<Question>()
             for (q in pool.shuffled()) {
                 if (uniqueFromPool.size >= effectiveCount) break
-                if (q.id in usedIds) continue
+                val id = q.id
+                if (id in usedIds) {
+                    lastSkippedIdCount++
+                    continue
+                }
                 val qStemHash = stemHash(q.stem)
-                if (qStemHash in usedStemHashes) continue
-                usedIds.add(q.id)
+                if (qStemHash in usedStemHashes) {
+                    lastSkippedStemHashCount++
+                    continue
+                }
+                val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                if (tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                        jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                    }) {
+                    lastSkippedSimilarCount++
+                    continue
+                }
+                usedIds.add(id)
                 usedStemHashes.add(qStemHash)
+                if (tokens.isNotEmpty()) {
+                    selectedTokenSets.add(tokens)
+                }
                 uniqueFromPool.add(q)
             }
             selected = uniqueFromPool
@@ -1206,11 +1414,28 @@ class QuestionRepository(private val context: Context) {
                 if (selected.size >= effectiveCount) break
                 for (q in source.shuffled()) {
                     if (selected.size >= effectiveCount) break
-                    if (q.id in used) continue
+                    val id = q.id
+                    if (id in used) {
+                        lastSkippedIdCount++
+                        continue
+                    }
                     val qStemHash = stemHash(q.stem)
-                    if (qStemHash in usedStemHashes) continue
-                    used.add(q.id)
+                    if (qStemHash in usedStemHashes) {
+                        lastSkippedStemHashCount++
+                        continue
+                    }
+                    val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                    if (tokens.isNotEmpty() && selectedTokenSets.any { prev ->
+                            jaccardSimilarity(tokens, prev) >= NEAR_DUPLICATE_SIMILARITY_THRESHOLD
+                        }) {
+                        lastSkippedSimilarCount++
+                        continue
+                    }
+                    used.add(id)
                     usedStemHashes.add(qStemHash)
+                    if (tokens.isNotEmpty()) {
+                        selectedTokenSets.add(tokens)
+                    }
                     selected.add(q)
                 }
             }
@@ -1228,6 +1453,13 @@ class QuestionRepository(private val context: Context) {
 
         // Expose how many questions had to bypass the recent-ID blacklist for debug UI.
         lastRecentRelaxedCount = recentRelaxedCount
+
+        // Estimate how many candidates were effectively excluded due to recency:
+        // recent-in-pool minus those we relaxed and actually used.
+        val totalRecentInPool = perSubjectAll.values
+            .flatten()
+            .count { it.id in recentIds }
+        lastSkippedRecentCount = (totalRecentInPool - recentRelaxedCount).coerceAtLeast(0)
 
         // Per-subject debug özeti: havuz ve seçilen soru sayıları + wrongUsed sayısı.
         val selectionDebug = StringBuilder().apply {
