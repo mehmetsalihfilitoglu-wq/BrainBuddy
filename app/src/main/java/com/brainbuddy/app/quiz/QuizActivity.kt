@@ -16,6 +16,7 @@ import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuizBinding
 import com.brainbuddy.app.quiz.LevelGroup
+import ui.MainActivity
 import java.util.UUID
 
 class QuizActivity : AppCompatActivity() {
@@ -251,14 +252,15 @@ class QuizActivity : AppCompatActivity() {
             } else "Soru havuzu yetersiz (${questions.size} soru mevcut, en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} gerekli)."
             val debugSuffix = poolDebugText?.let { "\n\n$it" } ?: ""
             b.questionText.text = msg + debugSuffix
-            b.nextBtn.isEnabled = false
+            b.nextBtn.isEnabled = true
             b.nextBtn.text = "Ana Sayfaya Dön"
             b.nextBtn.setOnClickListener {
-                if (intent.getBooleanExtra(EXTRA_GATE_MODE, false) && ProtectionPrefs(this).userLocked()) {
-                    startActivity(Intent(this, com.brainbuddy.app.LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-                } else {
-                    startActivity(Intent(this, com.brainbuddy.app.HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                val i = Intent(this, MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                            Intent.FLAG_ACTIVITY_NEW_TASK or
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
+                startActivity(i)
                 finish()
             }
         } else {

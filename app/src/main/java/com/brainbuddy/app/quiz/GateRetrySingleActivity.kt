@@ -9,6 +9,7 @@ import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityQuizBinding
 import com.brainbuddy.app.gate.GateManager
 import com.brainbuddy.app.LockScreenActivity
+import ui.MainActivity
 
 /**
  * Single-question retry after watching rewarded ad.
@@ -54,7 +55,12 @@ class GateRetrySingleActivity : AppCompatActivity() {
             b.nextBtn.isEnabled = true
             b.nextBtn.text = "Ana Sayfaya Dön"
             b.nextBtn.setOnClickListener {
-                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                val i = Intent(this, MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                            Intent.FLAG_ACTIVITY_NEW_TASK or
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK
+                }
+                startActivity(i)
                 finish()
             }
             return
