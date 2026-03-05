@@ -67,6 +67,21 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(b.root)
+
+        if (BuildConfig.DEBUG) {
+            val pickerMode = intent.getStringExtra("picker_mode") ?: "UNKNOWN"
+            val debugLine = "DEBUG_PICKER_OK mode=$pickerMode"
+
+            b.debugPickerText.text = debugLine
+            b.debugPickerText.visibility = View.VISIBLE
+
+            val isAttached = b.debugPickerText.parent != null
+            val textOk = b.debugPickerText.text?.toString()?.contains("DEBUG_PICKER_OK") == true
+            if (!isAttached || !textOk) {
+                throw RuntimeException("DEBUG LINE NOT WIRED")
+            }
+        }
+
         try {
             initQuiz(savedInstanceState)
         } catch (e: OutOfMemoryError) {

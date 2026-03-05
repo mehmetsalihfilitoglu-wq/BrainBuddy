@@ -11,6 +11,19 @@
         android:layout_height="wrap_content"
         android:padding="20dp">
 
+        <TextView
+            android:id="@+id/debugPickerText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:background="#66000000"
+            android:padding="4dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <com.google.android.material.chip.Chip
             android:id="@+id/subjectChip"
             android:layout_width="0dp"
@@ -18,7 +31,7 @@
             android:text="Ders"
             app:chipBackgroundColor="@color/bb_turquoise"
             app:chipStrokeColor="@color/bb_turquoise_dark"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/debugPickerText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/progressText"
             app:layout_constraintHorizontal_chainStyle="spread_inside"/>
