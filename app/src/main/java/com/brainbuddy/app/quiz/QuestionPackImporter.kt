@@ -221,7 +221,7 @@ object QuestionPackImporter {
             else -> Subject.MAT
         }
 
-        val gate = QuestionQualityGate.evaluate(subjectEnum, grade, stem, options)
+        val gate = QuestionQualityGate.evaluate(subjectEnum, grade, stem, options, difficulty)
         val stemNorm = QuestionStemHash.normalizeStem(stem)
         val hash = QuestionStemHash.stemHash(stem)
 

@@ -40,6 +40,12 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getByGrade(grade).map { QuestionMapper.toQuestion(it) }
     }
 
+    /** Sınıf + ders bazlı havuz (tüm zorluklar). Relaxed difficulty fallback için. */
+    fun getQuestionsByGradeSubject(grade: Int, subject: String): List<Question> = runBlocking {
+        if (grade !in 2..8) return@runBlocking emptyList()
+        questionDao.getByGradeSubject(grade, subject).map { QuestionMapper.toQuestion(it) }
+    }
+
     /** Sınıf + ders + zorluk bazlı havuz. difficulty: 0=EASY,1=MEDIUM,2=HARD */
     fun getQuestionsByGradeSubjectDifficulty(
         grade: Int,

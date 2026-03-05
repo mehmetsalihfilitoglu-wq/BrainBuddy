@@ -5,28 +5,41 @@ import java.nio.charset.Charset
 import java.util.Locale
 
 /**
- * Normalize and hash question stems for duplicate detection (büyük soru havuzu).
+ * Normalize and hash question stems for duplicate detection.
+ * Catches template questions like "Ali'nin 3 kalemi vardır" vs "Ayşe'nin 3 kalemi vardır".
  *
- * stemNormalized: lowerCase(tr), noktalama/çoklu boşluk temizle,
- * sayıları <n>, kişi/şehir isimlerini <name> ile normalize eder.
+ * normalizeStem: lowercase (TR), remove punctuation, collapse spaces,
+ * replace numbers with "#", replace common Turkish names with "NAME",
+ * replace years/dates with "#".
  */
 object QuestionStemHash {
 
+    /** Common Turkish first names – normalize to NAME to catch template duplicates. */
+    private val TURKISH_NAMES = setOf(
+        "ali", "ayşe", "mehmet", "ahmet", "zeynep", "fatma", "hasan", "mustafa",
+        "emre", "elif", "ömer", "kaan", "derya", "selin", "burak", "cem",
+        "oya", "can", "ece", "deniz", "merve", "berkay", "sude", "emir",
+        "ipek", "yusuf", "irem", "arda", "aslı", "onur", "büşra", "kerem"
+    )
+
     /**
-     * Normalized stem: lowercase (TR), collapse whitespace, replace numbers with <n>,
-     * person/city names with <name>.
+     * Normalized stem for template duplicate detection.
+     * 1) lowercase (Turkish locale safe)
+     * 2) remove punctuation
+     * 3) collapse multiple spaces
+     * 4) replace numbers with "#"
+     * 5) replace common Turkish names with "NAME"
+     * 6) replace years (e.g. 2020, 1999) and date fragments with "#"
      */
     fun normalizeStem(stem: String): String {
         var text = stem
-            .replace(Regex("[\\p{Punct}]"), " ")
-            .replace(Regex("\\s+"), " ")
-            .trim()
-        // Kişi/şehir isimleri: büyük harfle başlayan kelimeler (Ayşe, Ali, Ankara)
-        val nameRegex = Regex("\\b[\\p{Lu}][\\p{Ll}]{2,}\\b")
-        text = nameRegex.replace(text) { "<name>" }
-        // Sayıları normalize et (1, 2, 3 -> <n>)
-        text = text.replace(Regex("\\d+"), "<n>")
         text = text.lowercase(Locale("tr"))
+        text = text.replace(Regex("[\\p{Punct}]"), " ")
+        text = text.replace(Regex("\\s+"), " ").trim()
+        text = text.replace(Regex("\\d+"), "#")
+        for (name in TURKISH_NAMES) {
+            text = Regex("\\b${Regex.escape(name)}\\b").replace(text, "NAME")
+        }
         text = text.replace(Regex("\\s+"), " ").trim()
         return text
     }

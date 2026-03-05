@@ -98,31 +98,8 @@ class QuestionRepository(private val context: Context) {
         }
     }
 
-    /**
-     * Normalize question stem for near-duplicate detection.
-     * - remove punctuation
-     * - replace capitalized names with "@"
-     * - replace numbers with "#"
-     * - lowercase (TR)
-     * - collapse whitespace
-     */
-    private fun normalizeStem(stem: String): String {
-        var text = stem.replace(Regex("[\\p{Punct}]"), " ")
-        val nameRegex = Regex("\\b[\\p{Lu}][\\p{Ll}]{2,}\\b")
-        text = nameRegex.replace(text) { "@" }
-        text = text.replace(Regex("\\d+"), "#")
-        text = text.lowercase(Locale("tr"))
-        text = text.replace(Regex("\\s+"), " ").trim()
-        return text
-    }
-
-    /** SHA-256 hash of normalized stem. */
-    private fun stemHash(stem: String): String {
-        val normalized = normalizeStem(stem)
-        val bytes = normalized.toByteArray(Charset.forName("UTF-8"))
-        val digest = MessageDigest.getInstance("SHA-256").digest(bytes)
-        return digest.joinToString("") { "%02x".format(it) }
-    }
+    /** SHA-256 hash of normalized stem. Uses QuestionStemHash (Turkish names→NAME, numbers→#). */
+    private fun stemHash(stem: String): String = QuestionStemHash.stemHash(stem)
 
     /**
      * Stopword set for question text tokenization (basic Turkish + English).
@@ -352,7 +329,12 @@ class QuestionRepository(private val context: Context) {
         val existingStemKeys = existingStemKeysForFilter
 
         val toAddEntities = toAdd.map { q ->
-            var gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices)
+            val diffInt = when (q.difficulty) {
+                QuizDifficulty.EASY -> 0
+                QuizDifficulty.HARD -> 2
+                else -> 1
+            }
+            var gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices, diffInt)
 
             // Ek kalite kuralları: HARD gerçekten zor olsun.
             val stem = q.stem
@@ -388,11 +370,6 @@ class QuestionRepository(private val context: Context) {
 
             if (!gate.isActive) {
                 deactivatedCount++
-            }
-            val diffInt = when (q.difficulty) {
-                QuizDifficulty.EASY -> 0
-                QuizDifficulty.HARD -> 2
-                else -> 1
             }
             val dbSubjectKey = when (q.subject) {
                 Subject.MAT -> "mat"
@@ -1152,17 +1129,29 @@ class QuestionRepository(private val context: Context) {
         lastSimilarRelaxedCount = 0
         lastSubjectCounts = emptyMap()
 
-        // 1) Havuzu grade + subject + difficulty ile hazırla.
+        // 1) Havuzu hazırla. Selection order: (a) selected diff, (b) same subject relaxed (MEDIUM→HARD→EASY), (c) cross-subject last.
+        val relaxedDiffOrder = when (diffInt) {
+            0 -> listOf(1, 2)   // EASY selected: try MEDIUM, then HARD
+            1 -> listOf(2, 0)   // MEDIUM selected: try HARD, then EASY
+            else -> listOf(1, 0) // HARD selected: try MEDIUM, then EASY
+        }
+        val perSubjectPrimary: MutableMap<Subject, List<Question>> = mutableMapOf()
+        val perSubjectRelaxed: MutableMap<Subject, List<Question>> = mutableMapOf()
         val perSubjectAll: MutableMap<Subject, List<Question>> = mutableMapOf()
         val perSubjectTotalForDiff: MutableMap<Subject, Int> = mutableMapOf()
         val perSubjectNonRecentAvailable: MutableMap<Subject, Int> = mutableMapOf()
         subjectOrder.forEach { (subjEnum, dbKey) ->
-            val all = roomStore
-                .getQuestionsByGradeSubjectDifficulty(grade, dbKey, diffInt)
+            val primary = roomStore.getQuestionsByGradeSubjectDifficulty(grade, dbKey, diffInt).distinctBy { it.id }
+            val primaryIds = primary.map { it.id }.toSet()
+            val relaxed = relaxedDiffOrder
+                .flatMap { d -> roomStore.getQuestionsByGradeSubjectDifficulty(grade, dbKey, d) }
                 .distinctBy { it.id }
-            perSubjectAll[subjEnum] = all
-            perSubjectTotalForDiff[subjEnum] = all.size
-            perSubjectNonRecentAvailable[subjEnum] = all.count { it.id !in recentIds }
+                .filter { it.id !in primaryIds }
+            perSubjectPrimary[subjEnum] = primary
+            perSubjectRelaxed[subjEnum] = relaxed
+            perSubjectAll[subjEnum] = primary + relaxed
+            perSubjectTotalForDiff[subjEnum] = primary.size
+            perSubjectNonRecentAvailable[subjEnum] = (primary + relaxed).count { it.id !in recentIds }
         }
 
         val usedIds = mutableSetOf<String>()
@@ -1177,11 +1166,15 @@ class QuestionRepository(private val context: Context) {
 
         fun pickForSubject(subjEnum: Subject, targetForSubject: Int) {
             if (targetForSubject <= 0) return
-            val all = (perSubjectAll[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
-            if (all.isEmpty()) return
+            val primary = (perSubjectPrimary[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
+            val relaxed = (perSubjectRelaxed[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
+            if (primary.isEmpty() && relaxed.isEmpty()) return
 
-            val nonRecent = all.filter { it.id !in recentIds }
-            val recent = all.filter { it.id in recentIds }
+            // Selection order: (a) selected diff, (b) same subject relaxed. Partition by recent within each.
+            val primaryNonRecent = primary.filter { it.id !in recentIds }
+            val primaryRecent = primary.filter { it.id in recentIds }
+            val relaxedNonRecent = relaxed.filter { it.id !in recentIds }
+            val relaxedRecent = relaxed.filter { it.id in recentIds }
 
             fun trySelectFrom(
                 pool: List<Question>,
@@ -1313,31 +1306,45 @@ class QuestionRepository(private val context: Context) {
                 selectedPerSubject[subjEnum] = subjectList
             }
 
-            // 1) Strict: only non-recent IDs, enforce diversity constraints first.
-            trySelectFrom(nonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            // 1) Primary (selected difficulty): strict non-recent, enforce diversity first.
+            trySelectFrom(primaryNonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
+            trySelectFrom(primaryNonRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
+            trySelectFrom(primaryNonRecent, enforceTypeLimit = false, enforceSkillLimit = false)
             if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
 
-            // 2) Still non-recent, relax skill constraint if needed.
-            trySelectFrom(nonRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            // 2) Primary: allow recently seen.
+            trySelectFrom(primaryRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFrom(primaryRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFrom(primaryRecent, enforceTypeLimit = false, enforceSkillLimit = false)
             if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
 
-            // 3) Still non-recent, relax both type and skill if needed.
-            trySelectFrom(nonRecent, enforceTypeLimit = false, enforceSkillLimit = false)
+            // 3) Relaxed (same subject, other difficulties): non-recent first.
+            trySelectFrom(relaxedNonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFrom(relaxedNonRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFrom(relaxedNonRecent, enforceTypeLimit = false, enforceSkillLimit = false)
             if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
 
-            // 4) Fallback: allow recently seen questions from the same subject to fill remaining quota.
-            trySelectFrom(recent, enforceTypeLimit = true, enforceSkillLimit = true)
-            trySelectFrom(recent, enforceTypeLimit = true, enforceSkillLimit = false)
-            trySelectFrom(recent, enforceTypeLimit = false, enforceSkillLimit = false)
+            // 4) Relaxed: allow recently seen.
+            trySelectFrom(relaxedRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFrom(relaxedRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFrom(relaxedRecent, enforceTypeLimit = false, enforceSkillLimit = false)
             if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
 
             // 5) Last resort: relax similarity rule (usedIds and stemHashUsed NEVER relax).
-            trySelectFromSimilarRelaxed(nonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
-            trySelectFromSimilarRelaxed(nonRecent, enforceTypeLimit = true, enforceSkillLimit = false)
-            trySelectFromSimilarRelaxed(nonRecent, enforceTypeLimit = false, enforceSkillLimit = false)
-            trySelectFromSimilarRelaxed(recent, enforceTypeLimit = true, enforceSkillLimit = true)
-            trySelectFromSimilarRelaxed(recent, enforceTypeLimit = true, enforceSkillLimit = false)
-            trySelectFromSimilarRelaxed(recent, enforceTypeLimit = false, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(primaryNonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFromSimilarRelaxed(primaryNonRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(primaryNonRecent, enforceTypeLimit = false, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(primaryRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFromSimilarRelaxed(primaryRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(primaryRecent, enforceTypeLimit = false, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(relaxedNonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFromSimilarRelaxed(relaxedNonRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(relaxedNonRecent, enforceTypeLimit = false, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(relaxedRecent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFromSimilarRelaxed(relaxedRecent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFromSimilarRelaxed(relaxedRecent, enforceTypeLimit = false, enforceSkillLimit = false)
         }
 
         // 2) Her ders için önce çeşitlilik kısıtlarıyla 4'e kadar seç.
