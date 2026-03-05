@@ -89,12 +89,13 @@ class TestSettingsActivity : AppCompatActivity() {
         val group = findViewById<RadioGroup>(R.id.testDifficultyGroup)
         when (quizPrefs.difficulty()) {
             QuizDifficulty.EASY -> group.check(R.id.testDiffEasy)
+            QuizDifficulty.MEDIUM -> group.check(R.id.testDiffMedium)
             QuizDifficulty.HARD -> group.check(R.id.testDiffHard)
-            else -> group.check(R.id.testDiffMedium)
         }
         group.setOnCheckedChangeListener { _, id ->
             val diff = when (id) {
                 R.id.testDiffEasy -> QuizDifficulty.EASY
+                R.id.testDiffMedium -> QuizDifficulty.MEDIUM
                 R.id.testDiffHard -> QuizDifficulty.HARD
                 else -> QuizDifficulty.MEDIUM
             }

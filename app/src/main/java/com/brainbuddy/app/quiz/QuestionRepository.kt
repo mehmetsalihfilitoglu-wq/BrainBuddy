@@ -598,7 +598,8 @@ class QuestionRepository(private val context: Context) {
         val diffStr = o.optString("difficulty", "MEDIUM")
         val difficulty = try {
             when (diffStr) {
-                "VERY_HARD" -> QuizDifficulty.VERY_HARD
+                // Eski JSON'larda kalan VERY_HARD değerlerini HARD'a eşitle
+                "VERY_HARD" -> QuizDifficulty.HARD
                 else -> QuizDifficulty.valueOf(diffStr)
             }
         } catch (_: Exception) {

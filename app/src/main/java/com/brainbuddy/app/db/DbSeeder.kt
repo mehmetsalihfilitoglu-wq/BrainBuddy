@@ -158,7 +158,7 @@ object DbSeeder {
      *   id: String,
      *   grade: Int (2..8),
      *   subject: String ("MAT","TURKCE","FEN","SOSYAL","ING" veya kısa kodlar),
-     *   difficulty: Int (0=EASY,1=MEDIUM,2=HARD,3=VERY_HARD),
+     *   difficulty: Int (0=EASY,1=MEDIUM,2=HARD),
      *   questionText: String,
      *   options: [String],
      *   answerIndex: Int,
@@ -222,16 +222,23 @@ object DbSeeder {
         }
         val answerIndex = rawAnswerIndex.coerceIn(0, padded.size - 1)
 
-        // difficulty: int (0..3) veya eski string enum
+        // difficulty: int (0..2) veya eski string enum.
+        // Eski verilerdeki 3 (VERY_HARD) değeri HARD (2) olarak normalize edilir.
         val difficulty = when {
+            // Yeni format: doğrudan 0..2 int
             o.has("difficulty") && o.opt("difficulty") is Int -> {
-                o.optInt("difficulty", 1).coerceIn(0, 3)
+                val raw = o.optInt("difficulty", 1)
+                when {
+                    raw <= 0 -> 0
+                    raw == 1 -> 1
+                    else -> 2 // 2 ve üzeri değerler HARD olarak toplanır
+                }
             }
             else -> {
+                // Eski string tabanlı format
                 when (o.optString("difficulty", "MEDIUM")) {
                     "EASY" -> 0
-                    "HARD" -> 2
-                    "VERY_HARD" -> 3
+                    "HARD", "VERY_HARD" -> 2
                     else -> 1
                 }
             }

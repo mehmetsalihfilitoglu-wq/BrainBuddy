@@ -39,7 +39,7 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getByGrade(grade).map { QuestionMapper.toQuestion(it) }
     }
 
-    /** Sınıf + ders + zorluk bazlı havuz. difficulty: 0=EASY,1=MEDIUM,2=HARD,3=VERY_HARD */
+    /** Sınıf + ders + zorluk bazlı havuz. difficulty: 0=EASY,1=MEDIUM,2=HARD */
     fun getQuestionsByGradeSubjectDifficulty(
         grade: Int,
         subject: String,

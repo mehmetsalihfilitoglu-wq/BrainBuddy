@@ -23,7 +23,7 @@
 | `id` | string | Hayır | Benzersiz ID. Verilmezse `{grade}_{subject}_{seq}` üretilir |
 | `grade` | int | Evet* | Sınıf 2–8. `gradeTag`'den türetilebilir |
 | `subject` | string | Evet | MAT, TURKCE, FEN, SOSYAL, ING |
-| `difficulty` | string | Evet | EASY, MEDIUM, HARD, VERY_HARD |
+| `difficulty` | string | Evet | EASY, MEDIUM, HARD |
 | `stem` | string | Evet | Soru metni |
 | `choices` | array | Evet | 4 şık |
 | `correctIndex` | int | Evet | 0–3 |
@@ -36,8 +36,7 @@
 
 - %40 MEDIUM
 - %40 HARD  
-- %20 VERY_HARD
-- EASY: Çok az (yeni nesil odaklı)
+- %20 EASY (ısınma soruları)
 
 ## Havuz Hedefi
 

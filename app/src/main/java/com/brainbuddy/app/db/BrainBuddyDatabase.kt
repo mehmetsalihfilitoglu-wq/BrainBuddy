@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 13,
+    version = 14,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -112,6 +112,19 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                 database.execSQL(
                     """
                     ALTER TABLE questions ADD COLUMN deactivationReason TEXT
+                    """.trimIndent()
+                )
+            }
+        }
+
+        // 13 -> 14: Eski VERY_HARD (3) kayıtlarını HARD (2) olarak normalize et.
+        val MIGRATION_13_14: Migration = object : Migration(13, 14) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    UPDATE questions
+                    SET difficulty = 2
+                    WHERE difficulty = 3
                     """.trimIndent()
                 )
             }
