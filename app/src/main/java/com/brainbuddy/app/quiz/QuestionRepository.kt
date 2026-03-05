@@ -301,7 +301,7 @@ class QuestionRepository(private val context: Context) {
     }
 
     /** Full report for debug screens – grouped by (grade, subject). */
-        fun computeQualityReport(): List<QualityStats> {
+    fun computeQualityReport(): List<QualityStats> {
         val all = loadAllQuestions()
         if (all.isEmpty()) return emptyList()
 

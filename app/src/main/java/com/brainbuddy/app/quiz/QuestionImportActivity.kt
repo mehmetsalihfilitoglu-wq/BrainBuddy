@@ -7,7 +7,9 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuestionImportBinding
 import org.json.JSONArray
 import java.io.InputStreamReader
@@ -62,7 +64,21 @@ class QuestionImportActivity : AppCompatActivity() {
 
     private fun refreshStats() {
         val repo = QuestionRepository(this)
-        val summary = repo.buildQualityDebugSummary()
-        b.tvStats.text = summary
+        val gradePrefs = GradePrefs(this)
+        val quizPrefs = QuizPrefs(this)
+        val selectedGrade = gradePrefs.getSelectedGrade()
+
+        if (selectedGrade !in 2..8) {
+            b.tvStats.text = "Havuz durumu için önce 2–8 arası bir sınıf seçin."
+            return
+        }
+
+        val difficulty = quizPrefs.difficulty()
+        val debugText = try {
+            repo.buildPoolDebugStatsForGrade(selectedGrade, difficulty).readableText
+        } catch (e: Exception) {
+            "Havuz durumu okunamadı: ${e.message ?: "bilinmiyor"}"
+        }
+        b.tvStats.text = debugText
     }
 }

@@ -34,7 +34,8 @@ object QuestionQualityGate {
         var isActive = true
         var reason: String? = null
 
-        if (isMathDrill && grade in 6..8) {
+        // MAT: 2–8. sınıflar için bağlamsız, tek adımlı işlem sorularını pasifleştir.
+        if (isMathDrill && grade in 2..8) {
             isActive = false
             reason = "too_simple_math"
         } else if (isFactRecall) {

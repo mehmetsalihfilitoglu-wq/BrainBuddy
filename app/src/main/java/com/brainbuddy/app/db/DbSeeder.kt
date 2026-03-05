@@ -2,6 +2,8 @@ package com.brainbuddy.app.db
 
 import android.content.Context
 import android.util.Log
+import com.brainbuddy.app.quiz.QuestionQualityGate
+import com.brainbuddy.app.quiz.Subject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
@@ -157,15 +159,19 @@ object DbSeeder {
      * {
      *   id: String,
      *   grade: Int (2..8),
-     *   subject: String ("MAT","TURKCE","FEN","SOSYAL","ING" veya kısa kodlar),
-     *   difficulty: Int (0=EASY,1=MEDIUM,2=HARD),
-     *   questionText: String,
-     *   options: [String],
-     *   answerIndex: Int,
-     *   explanation: String?
+     *   subject: String ("mat","turkce","fen","sosyal","ing" kısa kodları),
+     *   difficulty: Int (0=EASY, 1=MEDIUM, 2=HARD),
+     *   stem: String (soru kökü),
+     *   options: List<String> (tam olarak 4 şık),
+     *   correctIndex: Int (0..3),
+     *   explanation: String (yalnızca veli görünümü için, optional)
      * }
      *
-     * Geriye dönük uyumluluk için eski alanları da (stem/choices/correctIndex/hint) okur.
+     * Geriye dönük uyumluluk için eski alanları da okur:
+     * - questionText yerine stem
+     * - choices yerine options
+     * - answerIndex yerine correctIndex
+     * - hint yerine explanation
      */
     private fun parseQuestionObject(o: JSONObject, index: Int): QuestionEntity {
         // grade:
@@ -200,9 +206,9 @@ object DbSeeder {
             else -> throw IllegalArgumentException("Unsupported subject '$rawSubject' at index=$index")
         }
 
-        // question text: questionText (yeni) veya stem (eski)
-        val questionText = o.optString("questionText", "").ifBlank {
-            o.optString("stem", "")
+        // question text: stem (yeni şema) veya questionText (eski)
+        val questionText = o.optString("stem", "").ifBlank {
+            o.optString("questionText", "")
         }.ifBlank {
             throw IllegalArgumentException("Missing questionText/stem at index=$index")
         }
@@ -264,6 +270,22 @@ object DbSeeder {
         val explicitId = o.optString("id", "").takeIf { it.isNotBlank() }
         val id = explicitId ?: "${grade}_${subjectKey}_${(index + 1).toString().padStart(6, '0')}"
 
+        // Kalite gate: düşük kaliteli soruları pasifleştir, deactivationReason sakla.
+        val subjectEnum = when (subjectKey) {
+            "mat" -> Subject.MAT
+            "turkce" -> Subject.TURKCE
+            "fen" -> Subject.FEN
+            "sosyal" -> Subject.SOSYAL
+            "ing" -> Subject.ING
+            else -> Subject.MAT
+        }
+        val gate = QuestionQualityGate.evaluate(
+            subject = subjectEnum,
+            grade = grade,
+            questionText = questionText,
+            options = padded
+        )
+
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -273,7 +295,10 @@ object DbSeeder {
             optionsJson = optionsJson,
             answerIndex = answerIndex,
             explanation = explanation,
-            isActive = true,
+            isActive = gate.isActive,
+            questionType = gate.questionType,
+            skillsJson = gate.skillsJson,
+            deactivationReason = gate.deactivationReason,
             version = 1,
             examType = examType,
             imageAsset = imageAsset
