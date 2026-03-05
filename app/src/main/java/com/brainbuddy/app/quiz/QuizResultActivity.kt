@@ -88,12 +88,16 @@ class QuizResultActivity : AppCompatActivity() {
                 o.put("levelGroup", q.levelGroup.name)
                 o.put("subject", q.subject.name)
                 o.put("gradeTag", q.gradeTag)
+                o.put("grade", q.grade)
                 o.put("stem", q.stem)
                 o.put("choices", JSONArray(q.choices))
                 o.put("correctIndex", q.correctIndex)
                 o.put("hint", q.hint ?: JSONObject.NULL)
                 o.put("imageAsset", q.imageAsset ?: JSONObject.NULL)
                 o.put("difficulty", q.difficulty.name)
+                o.put("examType", q.examType.name)
+                o.put("type", q.type)
+                o.put("skill", q.skill)
                 arr.put(o)
             }
             return arr.toString()
@@ -110,6 +114,9 @@ class QuizResultActivity : AppCompatActivity() {
                     val diff = try { QuizDifficulty.valueOf(o.optString("difficulty", "MEDIUM")) } catch (_: Exception) { QuizDifficulty.MEDIUM }
                     val choicesArr = o.getJSONArray("choices")
                     val choices = (0 until choicesArr.length()).map { choicesArr.getString(it) }
+                    val examType = try { ExamType.valueOf(o.optString("examType", "GENERAL")) } catch (_: Exception) { ExamType.GENERAL }
+                    val type = o.optString("type", "").takeIf { it.isNotEmpty() } ?: "UNKNOWN"
+                    val skill = o.optString("skill", "").takeIf { it.isNotEmpty() } ?: "UNKNOWN"
                     Question(
                         id = o.getString("id"),
                         levelGroup = levelGroup,
@@ -124,8 +131,10 @@ class QuizResultActivity : AppCompatActivity() {
                         hint = if (o.isNull("hint")) null else o.getString("hint"),
                         imageAsset = if (o.isNull("imageAsset")) null else o.optString("imageAsset", "").takeIf { it.isNotEmpty() },
                         difficulty = diff,
-                        examType = try { ExamType.valueOf(o.optString("examType", "GENERAL")) } catch (_: Exception) { ExamType.GENERAL },
-                        topic = o.optString("topic", "").takeIf { it.isNotEmpty() }
+                        examType = examType,
+                        topic = o.optString("topic", "").takeIf { it.isNotEmpty() },
+                        type = type,
+                        skill = skill
                     )
                 }
             } catch (_: Exception) { emptyList() }

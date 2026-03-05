@@ -39,7 +39,11 @@ data class Question(
     val imageAsset: String?,
     val difficulty: QuizDifficulty = QuizDifficulty.MEDIUM,
     val examType: ExamType = ExamType.GENERAL,
-    val topic: String? = null
+    val topic: String? = null,
+    /** Coarse question type for diversity (e.g. PROBLEM, PARAGRAPH, MAP). */
+    val type: String = "UNKNOWN",
+    /** Finer-grained sub-skill/topic for diversity. */
+    val skill: String = "UNKNOWN"
 )
 
 enum class QuizDifficulty(val tr: String) {

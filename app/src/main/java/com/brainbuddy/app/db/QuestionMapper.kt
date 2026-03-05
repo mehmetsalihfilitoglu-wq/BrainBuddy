@@ -64,7 +64,9 @@ object QuestionMapper {
             imageAsset = e.imageAsset?.takeIf { it.isNotBlank() },
             difficulty = difficulty,
             examType = examType,
-            topic = null
+            topic = null,
+            type = e.type,
+            skill = e.skill
         )
     }
 

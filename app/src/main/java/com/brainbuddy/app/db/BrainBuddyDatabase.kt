@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 14,
+    version = 15,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -125,6 +125,24 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                     UPDATE questions
                     SET difficulty = 2
                     WHERE difficulty = 3
+                    """.trimIndent()
+                )
+            }
+        }
+
+        // 14 -> 15: Diversity alanları (type/skill) ekle, default UNKNOWN.
+        val MIGRATION_14_15: Migration = object : Migration(14, 15) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    ALTER TABLE questions
+                    ADD COLUMN type TEXT NOT NULL DEFAULT 'UNKNOWN'
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    ALTER TABLE questions
+                    ADD COLUMN skill TEXT NOT NULL DEFAULT 'UNKNOWN'
                     """.trimIndent()
                 )
             }

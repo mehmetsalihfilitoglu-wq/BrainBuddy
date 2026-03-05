@@ -3,6 +3,7 @@ package com.brainbuddy.app.db
 import android.content.Context
 import android.util.Log
 import com.brainbuddy.app.quiz.QuestionQualityGate
+import com.brainbuddy.app.quiz.QuestionDiversity
 import com.brainbuddy.app.quiz.Subject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -327,6 +328,10 @@ object DbSeeder {
             options = padded
         )
 
+        // Diversity tags for picker: subject-specific type + sub-skill.
+        val diversityType = QuestionDiversity.inferType(subjectEnum, questionText)
+        val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, questionText)
+
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -342,7 +347,9 @@ object DbSeeder {
             deactivationReason = gate.deactivationReason,
             version = 1,
             examType = examType,
-            imageAsset = imageAsset
+            imageAsset = imageAsset,
+            type = diversityType,
+            skill = diversitySkill
         )
     }
 
@@ -399,6 +406,9 @@ object DbSeeder {
             options = paddedOptions
         )
 
+        val diversityType = QuestionDiversity.inferType(subjectEnum, spec.stem)
+        val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, spec.stem)
+
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -414,7 +424,9 @@ object DbSeeder {
             deactivationReason = gate.deactivationReason,
             version = 1,
             examType = "GENERAL",
-            imageAsset = null
+            imageAsset = null,
+            type = diversityType,
+            skill = diversitySkill
         )
     }
 

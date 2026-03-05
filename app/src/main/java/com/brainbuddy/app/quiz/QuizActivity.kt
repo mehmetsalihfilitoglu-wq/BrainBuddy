@@ -455,8 +455,28 @@ class QuizActivity : AppCompatActivity() {
                     val available = c?.activeDiff ?: 0
                     "$label=$available"
                 }
+                // Selected type counts per subject (for diversity verification)
+                val bySubject = questions.groupBy { it.subject }
+                val typeSummary = listOf(
+                    Subject.MAT,
+                    Subject.TURKCE,
+                    Subject.FEN,
+                    Subject.SOSYAL,
+                    Subject.ING
+                ).joinToString(" | ") { subj ->
+                    val label = subj.name
+                    val typeCounts = bySubject[subj]
+                        .orEmpty()
+                        .groupBy { it.type }
+                        .mapValues { it.value.size }
+                        .entries
+                        .sortedByDescending { it.value }
+                        .joinToString(",") { "${it.key}=${it.value}" }
+                        .ifEmpty { "-" }
+                    "$label:$typeCounts"
+                }
                 val wrongUsedText = "$debugWrongUsed/${QuestionRepository.MIN_QUESTIONS_PER_TEST}"
-                val header = "grade=$effectiveGrade • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText"
+                val header = "grade=$effectiveGrade • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText\n$typeSummary"
                 b.debugInfoText.visibility = View.VISIBLE
                 b.debugInfoText.text = header
             } else {

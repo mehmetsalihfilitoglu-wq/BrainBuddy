@@ -34,5 +34,9 @@ data class QuestionEntity(
     val deactivationReason: String? = null,
     val version: Int = 1,
     val examType: String? = null,
-    val imageAsset: String? = null
+    val imageAsset: String? = null,
+    /** Diversity type (per subject) e.g. PROBLEM, PARAGRAPH, MAP. */
+    val type: String = "UNKNOWN",
+    /** Diversity skill/sub-topic, single string label. */
+    val skill: String = "UNKNOWN"
 )

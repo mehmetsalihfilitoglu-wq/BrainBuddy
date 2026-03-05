@@ -3,6 +3,7 @@ package com.brainbuddy.app.quiz
 import android.content.Context
 import android.util.Log
 import com.brainbuddy.app.core.GradePrefs
+import java.util.Locale
 import org.json.JSONArray
 import org.json.JSONObject
 import java.nio.charset.Charset
@@ -80,6 +81,8 @@ class QuestionImportRepository(private val context: Context) {
         val examType = try { ExamType.valueOf(o.optString("examType", "GENERAL")) } catch (_: Exception) { ExamType.GENERAL }
         val gradeFromDto = o.optInt("grade", 0)
         val grade = if (gradeFromDto in 2..8) gradeFromDto else GradePrefs(context).getSelectedGrade().coerceIn(2, 8)
+        val type = o.optString("type", "").takeIf { it.isNotBlank() }?.uppercase(Locale.ROOT) ?: "UNKNOWN"
+        val skill = o.optString("skill", "").takeIf { it.isNotBlank() }?.uppercase(Locale.ROOT) ?: "UNKNOWN"
         return Question(
             id = o.optString("id", "q_${source}_${index}"),
             levelGroup = level,
@@ -93,7 +96,9 @@ class QuestionImportRepository(private val context: Context) {
             imageAsset = o.optString("imageAsset", "").takeIf { it.isNotEmpty() },
             difficulty = diff,
             examType = examType,
-            topic = o.optString("topic", "").takeIf { it.isNotEmpty() }
+            topic = o.optString("topic", "").takeIf { it.isNotEmpty() },
+            type = type,
+            skill = skill
         )
     }
 }

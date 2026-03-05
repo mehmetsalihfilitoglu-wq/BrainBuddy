@@ -244,7 +244,9 @@ class QuestionRepository(private val context: Context) {
                 deactivationReason = gate.deactivationReason,
                 version = 1,
                 examType = q.examType.name,
-                imageAsset = q.imageAsset?.takeIf { it.isNotBlank() }
+                imageAsset = q.imageAsset?.takeIf { it.isNotBlank() },
+                type = q.type,
+                skill = q.skill
             )
         }
         roomStore.insertQuestions(toAddEntities)
@@ -813,6 +815,8 @@ class QuestionRepository(private val context: Context) {
         val examStr = o.optString("examType", "GENERAL")
         val examType = try { com.brainbuddy.app.quiz.ExamType.valueOf(examStr) } catch (_: Exception) { com.brainbuddy.app.quiz.ExamType.GENERAL }
         val topic = o.optString("topic", "").takeIf { it.isNotEmpty() }
+        val explicitType = o.optString("type", "").takeIf { it.isNotEmpty() }
+        val explicitSkill = o.optString("skill", "").takeIf { it.isNotEmpty() }
         val stem = o.optString("stem", "?")
         val correctIdx = o.optInt("correctIndex", 0).coerceIn(0, choices.size - 1)
         val correctAnswer = choices.getOrNull(correctIdx) ?: ""
@@ -827,6 +831,9 @@ class QuestionRepository(private val context: Context) {
         val id = if (rawId.isNotBlank()) rawId else {
             "${grade}_${subjStr}_${deterministicId(stem, correctAnswer).take(6)}"
         }
+        val diversityType = explicitType ?: QuestionDiversity.inferType(subject, stem)
+        val diversitySkill = explicitSkill ?: QuestionDiversity.inferSkill(subject, grade, diversityType, stem)
+
         return Question(
             id = id,
             levelGroup = levelGroup,
@@ -840,7 +847,9 @@ class QuestionRepository(private val context: Context) {
             imageAsset = o.optString("imageAsset", "").takeIf { it.isNotEmpty() },
             difficulty = difficulty,
             examType = examType,
-            topic = topic
+            topic = topic,
+            type = diversityType,
+            skill = diversitySkill
         )
     }
 
@@ -928,33 +937,13 @@ class QuestionRepository(private val context: Context) {
             perSubjectNonRecentAvailable[subjEnum] = all.count { it.id !in recentIds }
         }
 
-        fun pickFromPool(
-            pool: List<Question>,
-            maxCount: Int,
-            usedIds: MutableSet<String>
-        ): List<Question> {
-            if (maxCount <= 0 || pool.isEmpty()) return emptyList()
-            val shuffled = pool.shuffled()
-            val picked = mutableListOf<Question>()
-            for (q in shuffled) {
-                if (picked.size >= maxCount) break
-                if (q.id in usedIds) continue
-                picked.add(q)
-                usedIds.add(q.id)
-            }
-            return picked
-        }
-
         val usedIds = mutableSetOf<String>()
         val selectedPerSubject: MutableMap<Subject, MutableList<Question>> = mutableMapOf()
         subjectOrder.forEach { (s, _) -> selectedPerSubject[s] = mutableListOf() }
 
         var wrongUsedCount = 0
 
-        fun pickForSubject(
-            subjEnum: Subject,
-            targetForSubject: Int
-        ) {
+        fun pickForSubject(subjEnum: Subject, targetForSubject: Int) {
             if (targetForSubject <= 0) return
             val all = (perSubjectAll[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
             if (all.isEmpty()) return
@@ -962,46 +951,75 @@ class QuestionRepository(private val context: Context) {
             val nonRecent = all.filter { it.id !in recentIds }
             val recent = all.filter { it.id in recentIds }
 
-            fun pickFromPartition(partition: List<Question>) {
-                if (partition.isEmpty()) return
-                val remainingForSubject = targetForSubject - (selectedPerSubject[subjEnum]?.size ?: 0)
-                if (remainingForSubject <= 0) return
+            fun trySelectFrom(
+                pool: List<Question>,
+                enforceTypeLimit: Boolean,
+                enforceSkillLimit: Boolean
+            ) {
+                if (pool.isEmpty()) return
+                val subjectList = selectedPerSubject[subjEnum] ?: mutableListOf()
+                val typeCounts = subjectList.groupingBy { it.type }.eachCount().toMutableMap()
+                val skillCounts = subjectList.groupingBy { it.skill }.eachCount().toMutableMap()
 
-                val wrongCandidates = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
-                    partition.filter { it.id in preferredWrongIds }
+                fun canTake(q: Question): Boolean {
+                    if (q.id in usedIds) return false
+                    if (subjectList.size >= targetForSubject) return false
+                    val type = q.type
+                    val skill = q.skill
+                    if (enforceTypeLimit && type != "UNKNOWN") {
+                        val tc = typeCounts[type] ?: 0
+                        if (tc >= 2) return false
+                    }
+                    if (enforceSkillLimit && skill != "UNKNOWN") {
+                        val sc = skillCounts[skill] ?: 0
+                        if (sc >= 1) return false
+                    }
+                    return true
+                }
+
+                fun takeFrom(candidates: List<Question>, isWrong: Boolean) {
+                    if (candidates.isEmpty()) return
+                    for (q in candidates.shuffled()) {
+                        if (!canTake(q)) continue
+                        if (isWrong && wrongUsedCount >= maxWrongCount) continue
+                        subjectList.add(q)
+                        usedIds.add(q.id)
+                        typeCounts[q.type] = (typeCounts[q.type] ?: 0) + 1
+                        skillCounts[q.skill] = (skillCounts[q.skill] ?: 0) + 1
+                        if (isWrong) wrongUsedCount++
+                        if (subjectList.size >= targetForSubject) break
+                    }
+                    selectedPerSubject[subjEnum] = subjectList
+                }
+
+                val wrongNonRecent = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
+                    pool.filter { it.id !in recentIds && it.id in preferredWrongIds }
                 } else emptyList()
-                val normalCandidates = if (wrongCandidates.isEmpty()) {
-                    partition
-                } else {
-                    partition.filter { it.id !in preferredWrongIds }
-                }
+                val wrongRecent = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
+                    pool.filter { it.id in recentIds && it.id in preferredWrongIds }
+                } else emptyList()
+                val normalNonRecent = pool.filter { it.id !in recentIds && it.id !in preferredWrongIds }
+                val normalRecent = pool.filter { it.id in recentIds && it.id !in preferredWrongIds }
 
-                if (wrongCandidates.isNotEmpty() && wrongUsedCount < maxWrongCount) {
-                    val canTakeWrong = minOf(
-                        remainingForSubject,
-                        maxWrongCount - wrongUsedCount
-                    )
-                    val pickedWrong = pickFromPool(wrongCandidates, canTakeWrong, usedIds)
-                    if (pickedWrong.isNotEmpty()) {
-                        selectedPerSubject[subjEnum]?.addAll(pickedWrong)
-                        wrongUsedCount += pickedWrong.size
-                    }
-                }
-
-                val remainingAfterWrong = targetForSubject - (selectedPerSubject[subjEnum]?.size ?: 0)
-                if (remainingAfterWrong > 0 && normalCandidates.isNotEmpty()) {
-                    val pickedNormal = pickFromPool(normalCandidates, remainingAfterWrong, usedIds)
-                    if (pickedNormal.isNotEmpty()) {
-                        selectedPerSubject[subjEnum]?.addAll(pickedNormal)
-                    }
-                }
+                takeFrom(wrongNonRecent, isWrong = true)
+                takeFrom(wrongRecent, isWrong = true)
+                takeFrom(normalNonRecent, isWrong = false)
+                takeFrom(normalRecent, isWrong = false)
             }
 
-            pickFromPartition(nonRecent)
-            pickFromPartition(recent)
+            // 1) Strict: enforce skill + type limits.
+            trySelectFrom(nonRecent + recent, enforceTypeLimit = true, enforceSkillLimit = true)
+            if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
+
+            // 2) Relax skill constraint if still insufficient.
+            trySelectFrom(nonRecent + recent, enforceTypeLimit = true, enforceSkillLimit = false)
+            if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
+
+            // 3) Relax both type and skill if still insufficient.
+            trySelectFrom(nonRecent + recent, enforceTypeLimit = false, enforceSkillLimit = false)
         }
 
-        // 2) Her ders için önce "recent" dışı sorulardan 4'e kadar seç (wrong soruları kota + %30 sınırı ile öne al).
+        // 2) Her ders için önce çeşitlilik kısıtlarıyla 4'e kadar seç.
         subjectOrder.forEach { (subjEnum, _) ->
             pickForSubject(subjEnum, targetPerSubject)
         }
@@ -1100,7 +1118,9 @@ class QuestionRepository(private val context: Context) {
             }
         }
 
-        val finalQuestions = selected.distinctBy { it.id }.take(effectiveCount).shuffled()
+        val finalQuestions = applyTypeSpacingShuffle(
+            selected.distinctBy { it.id }.take(effectiveCount)
+        )
 
         // Test snapshot + tekrarları engellemek için kayıt.
         val questionIds = finalQuestions.map { it.id }
@@ -1128,6 +1148,29 @@ class QuestionRepository(private val context: Context) {
         android.util.Log.d(TAG, selectionDebug)
 
         return finalQuestions
+    }
+
+    /**
+     * Shuffle helper that tries to avoid same-type questions back-to-back when possible.
+     * Uses a simple single pass with local swaps.
+     */
+    private fun applyTypeSpacingShuffle(input: List<Question>): List<Question> {
+        if (input.size <= 2) return input.shuffled()
+        val list = input.shuffled().toMutableList()
+        for (i in 1 until list.size) {
+            if (list[i].type != "UNKNOWN" && list[i].type == list[i - 1].type) {
+                // Try to find a later question with different type to swap.
+                val swapIndex = (i + 1 until list.size).firstOrNull { j ->
+                    list[j].type != list[i - 1].type
+                }
+                if (swapIndex != null) {
+                    val tmp = list[i]
+                    list[i] = list[swapIndex]
+                    list[swapIndex] = tmp
+                }
+            }
+        }
+        return list
     }
 
     /**
