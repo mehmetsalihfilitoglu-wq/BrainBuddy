@@ -16,7 +16,6 @@ import com.brainbuddy.app.db.DbSeeder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.json.JSONArray
 import java.io.InputStreamReader
 import java.nio.charset.Charset
 
@@ -72,10 +71,10 @@ class QuestionImportActivity : AppCompatActivity() {
         try {
             contentResolver.openInputStream(uri)?.use { input ->
                 val json = InputStreamReader(input, Charset.forName("UTF-8")).readText()
-                val arr = JSONArray(json)
-                val repo = QuestionRepository(this)
-                val imported = repo.mergeImportedQuestions(arr)
-                Toast.makeText(this, "$imported soru içe aktarıldı.", Toast.LENGTH_LONG).show()
+                val result = QuestionPackImporter.importFromJson(this, json)
+                b.tvImportResult.text = result.summary
+                b.tvImportResult.visibility = android.view.View.VISIBLE
+                Toast.makeText(this, result.summary, Toast.LENGTH_LONG).show()
                 refreshStats()
             } ?: run {
                 Toast.makeText(this, "Dosya okunamadı.", Toast.LENGTH_SHORT).show()

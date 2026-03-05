@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "publisher": "Örnek Yayınevi",
+  "year": 2026,
+  "grade": 6,
+  "subject": "mat",
+  "questions": [
+    {
+      "stem": "Bir sınıfta 24 kız ve 18 erkek öğrenci vardır. Kız öğrencilerin sayısının erkek öğrencilerin sayısına oranı kaçtır?",
+      "options": ["3/4", "4/3", "2/3", "3/2"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "questionType": "PROBLEM",
+      "skills": ["oran_oranti", "akil_yurutme"],
+      "sourceRef": "pdf:xxx p.12"
+    },
+    {
+      "stem": "12 sayısının 3/4'ü kaçtır? Bu soruyu çözmek için hangi işlem yapılmalıdır?",
+      "options": ["12 + 3/4", "12 × 3/4", "12 ÷ 3/4", "12 - 3/4"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "PROBLEM",
+      "skills": ["kesirler", "carpma"],
+      "sourceRef": "pdf:ders_kitaplari p.45"
+    },
+    {
+      "stem": "Bir mağazada fiyatı 80 TL olan bir ürün %25 indirimle satılmaktadır. İndirimli fiyat kaç TL'dir?",
+      "options": ["60", "65", "70", "55"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "PROBLEM",
+      "skills": ["yuzde", "oran_oranti"],
+      "sourceRef": "pdf:xxx p.18"
+    }
+  ]
+}
