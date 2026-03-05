@@ -46,6 +46,32 @@ class QuestionRepository(private val context: Context) {
         }
     }
 
+    /**
+     * Normalize question stem for near-duplicate detection.
+     * - remove punctuation
+     * - replace capitalized names with "@"
+     * - replace numbers with "#"
+     * - lowercase (TR)
+     * - collapse whitespace
+     */
+    private fun normalizeStem(stem: String): String {
+        var text = stem.replace(Regex("[\\p{Punct}]"), " ")
+        val nameRegex = Regex("\\b[\\p{Lu}][\\p{Ll}]{2,}\\b")
+        text = nameRegex.replace(text) { "@" }
+        text = text.replace(Regex("\\d+"), "#")
+        text = text.lowercase(Locale("tr"))
+        text = text.replace(Regex("\\s+"), " ").trim()
+        return text
+    }
+
+    /** SHA-256 hash of normalized stem. */
+    private fun stemHash(stem: String): String {
+        val normalized = normalizeStem(stem)
+        val bytes = normalized.toByteArray(Charset.forName("UTF-8"))
+        val digest = MessageDigest.getInstance("SHA-256").digest(bytes)
+        return digest.joinToString("") { "%02x".format(it) }
+    }
+
     private val historyStore = QuestionHistoryStore(context)
 
     private val importedFile get() = java.io.File(context.filesDir, "imported_questions.json")
@@ -957,6 +983,7 @@ class QuestionRepository(private val context: Context) {
         }
 
         val usedIds = mutableSetOf<String>()
+        val usedStemHashes = mutableSetOf<String>()
         val selectedPerSubject: MutableMap<Subject, MutableList<Question>> = mutableMapOf()
         subjectOrder.forEach { (s, _) -> selectedPerSubject[s] = mutableListOf() }
 
@@ -981,8 +1008,9 @@ class QuestionRepository(private val context: Context) {
                 val typeCounts = subjectList.groupingBy { it.type }.eachCount().toMutableMap()
                 val skillCounts = subjectList.groupingBy { it.skill }.eachCount().toMutableMap()
 
-                fun canTake(q: Question): Boolean {
+                fun canTake(q: Question, stemHash: String): Boolean {
                     if (q.id in usedIds) return false
+                    if (stemHash in usedStemHashes) return false
                     if (subjectList.size >= targetForSubject) return false
                     val type = q.type
                     val skill = q.skill
@@ -1000,10 +1028,12 @@ class QuestionRepository(private val context: Context) {
                 fun takeFrom(candidates: List<Question>, isWrong: Boolean) {
                     if (candidates.isEmpty()) return
                     for (q in candidates.shuffled()) {
-                        if (!canTake(q)) continue
+                        val qStemHash = stemHash(q.stem)
+                        if (!canTake(q, qStemHash)) continue
                         if (isWrong && wrongUsedCount >= maxWrongCount) continue
                         subjectList.add(q)
                         usedIds.add(q.id)
+                        usedStemHashes.add(qStemHash)
                         typeCounts[q.type] = (typeCounts[q.type] ?: 0) + 1
                         skillCounts[q.skill] = (skillCounts[q.skill] ?: 0) + 1
                         if (isWrong) wrongUsedCount++
@@ -1088,7 +1118,14 @@ class QuestionRepository(private val context: Context) {
                         remainingSlots,
                         maxWrongCount - wrongUsedCount
                     )
-                    val extraWrong = pickFromPool(wrongCandidates, canTakeWrong, usedIds) { it.id }
+                    val extraWrong = pickFromPool(
+                        wrongCandidates,
+                        canTakeWrong,
+                        usedIds,
+                        { it.id },
+                        usedStemHashes,
+                        { it.stem }
+                    )
                     if (extraWrong.isNotEmpty()) {
                         selectedPerSubject[subj]?.addAll(extraWrong)
                         selected.addAll(extraWrong)
@@ -1101,7 +1138,14 @@ class QuestionRepository(private val context: Context) {
                 }
 
                 if (remainingSlots > 0 && normalCandidates.isNotEmpty()) {
-                    val extraNormal = pickFromPool(normalCandidates, remainingSlots, usedIds) { it.id }
+                    val extraNormal = pickFromPool(
+                        normalCandidates,
+                        remainingSlots,
+                        usedIds,
+                        { it.id },
+                        usedStemHashes,
+                        { it.stem }
+                    )
                     if (extraNormal.isNotEmpty()) {
                         selectedPerSubject[subj]?.addAll(extraNormal)
                         selected.addAll(extraNormal)
@@ -1140,17 +1184,19 @@ class QuestionRepository(private val context: Context) {
             if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
             if (pool.isEmpty()) pool = getFallbackQuestions()
 
-            val extraUsed = mutableSetOf<String>()
             val uniqueFromPool = mutableListOf<Question>()
             for (q in pool.shuffled()) {
                 if (uniqueFromPool.size >= effectiveCount) break
-                if (q.id in extraUsed) continue
-                extraUsed.add(q.id)
+                if (q.id in usedIds) continue
+                val qStemHash = stemHash(q.stem)
+                if (qStemHash in usedStemHashes) continue
+                usedIds.add(q.id)
+                usedStemHashes.add(qStemHash)
                 uniqueFromPool.add(q)
             }
             selected = uniqueFromPool
         } else if (selected.size < effectiveCount) {
-            val used = selected.map { it.id }.toMutableSet()
+            val used = usedIds
             val extraSources = mutableListOf<List<Question>>()
             extraSources += roomStore.getQuestionsByGrade(grade)
             extraSources += getFallbackQuestions().filter { it.grade == grade }
@@ -1161,15 +1207,19 @@ class QuestionRepository(private val context: Context) {
                 for (q in source.shuffled()) {
                     if (selected.size >= effectiveCount) break
                     if (q.id in used) continue
+                    val qStemHash = stemHash(q.stem)
+                    if (qStemHash in usedStemHashes) continue
                     used.add(q.id)
+                    usedStemHashes.add(qStemHash)
                     selected.add(q)
                 }
             }
         }
 
-        val finalQuestions = applyTypeSpacingShuffle(
-            selected.distinctBy { it.id }.take(effectiveCount)
-        )
+        val finalQuestions = selected
+            .distinctBy { it.id }
+            .take(effectiveCount)
+            .shuffled()
 
         // Test snapshot + tekrarları engellemek için kayıt.
         val questionIds = finalQuestions.map { it.id }
@@ -1204,13 +1254,15 @@ class QuestionRepository(private val context: Context) {
 
     /**
      * Generic helper to pick up to [needed] unique items from [pool],
-     * based on their ID, updating [usedIds] and shuffling for randomness.
+     * based on their ID (and optional stem hash), updating [usedIds] and shuffling for randomness.
      */
     private fun <T> pickFromPool(
         pool: List<T>,
         needed: Int,
         usedIds: MutableSet<String>,
-        idOf: (T) -> String
+        idOf: (T) -> String,
+        usedStemHashes: MutableSet<String>? = null,
+        stemOf: ((T) -> String)? = null
     ): List<T> {
         if (needed <= 0 || pool.isEmpty()) return emptyList()
         val result = mutableListOf<T>()
@@ -1218,33 +1270,17 @@ class QuestionRepository(private val context: Context) {
             if (result.size >= needed) break
             val id = idOf(item)
             if (id in usedIds) continue
+            val stemHashValue = if (usedStemHashes != null && stemOf != null) {
+                stemHash(stemOf(item))
+            } else null
+            if (stemHashValue != null && usedStemHashes?.contains(stemHashValue) == true) continue
             usedIds.add(id)
+            if (stemHashValue != null) {
+                usedStemHashes?.add(stemHashValue)
+            }
             result.add(item)
         }
         return result
-    }
-
-    /**
-     * Shuffle helper that tries to avoid same-type questions back-to-back when possible.
-     * Uses a simple single pass with local swaps.
-     */
-    private fun applyTypeSpacingShuffle(input: List<Question>): List<Question> {
-        if (input.size <= 2) return input.shuffled()
-        val list = input.shuffled().toMutableList()
-        for (i in 1 until list.size) {
-            if (list[i].type != "UNKNOWN" && list[i].type == list[i - 1].type) {
-                // Try to find a later question with different type to swap.
-                val swapIndex = (i + 1 until list.size).firstOrNull { j ->
-                    list[j].type != list[i - 1].type
-                }
-                if (swapIndex != null) {
-                    val tmp = list[i]
-                    list[i] = list[swapIndex]
-                    list[swapIndex] = tmp
-                }
-            }
-        }
-        return list
     }
 
     /**
