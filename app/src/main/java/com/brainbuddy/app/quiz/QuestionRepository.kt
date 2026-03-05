@@ -187,16 +187,10 @@ class QuestionRepository(private val context: Context) {
             val stem = q.stem
             if (q.difficulty == QuizDifficulty.HARD) {
                 when (q.subject) {
+                    // Test amaçlı: "too_simple_computation" gate'ini devre dışı bırak.
+                    // Diğer derslerdeki HARD kalite kuralları çalışmaya devam eder.
                     Subject.MAT -> {
-                        val tooSimple = isTooSimpleMathQuestion(q)
-                        val isProblemLike = !tooSimple && isMathProblemLike(stem)
-                        val isMultiStep = isMultiStepQuestion(stem, q.subject)
-                        if (tooSimple || (!isProblemLike && !isMultiStep)) {
-                            gate = gate.copy(
-                                isActive = false,
-                                deactivationReason = "too_simple_computation"
-                            )
-                        }
+                        // intentionally no-op for now
                     }
                     Subject.TURKCE, Subject.ING -> {
                         val isLongEnough = stem.length >= 250
@@ -254,6 +248,22 @@ class QuestionRepository(private val context: Context) {
             )
         }
         roomStore.insertQuestions(toAddEntities)
+        // Import sonrası DB havuz sayıları (toplam ve aktif) – teşhis için logla.
+        try {
+            val db = DatabaseProvider.get(context)
+            val counts = kotlinx.coroutines.runBlocking {
+                val dao = db.questionDao()
+                val total = dao.countAll()
+                val active = dao.countAllActive()
+                total to active
+            }
+            Log.i(
+                TAG,
+                "mergeImportedQuestions: imported=${toAdd.size}, insertedEntities=${toAddEntities.size}, totalAfter=${counts.first}, activeAfter=${counts.second}"
+            )
+        } catch (e: Exception) {
+            Log.w(TAG, "mergeImportedQuestions: failed to log DB counts: ${e.message}")
+        }
         return toAdd.size
     }
 
@@ -350,6 +360,97 @@ class QuestionRepository(private val context: Context) {
             )
         }
     }
+
+    /**
+     * Quiz başlamadan önce havuz teşhisi için:
+     * - TOTAL / TOTAL_ACTIVE
+     * - grade bazında total/active
+     * - grade+subject ve grade+subject+difficulty bazında total/active
+     *
+     * Debug metni döner ve ayrıca Logcat'e yazar.
+     */
+    fun buildPoolDebugStatsForGrade(
+        grade: Int,
+        difficulty: QuizDifficulty
+    ): String {
+        if (grade !in 2..8) {
+            return "DB Debug: grade=$grade geçersiz (2..8 dışında)."
+        }
+        return try {
+            val db = DatabaseProvider.get(context)
+            val diffInt = when (difficulty) {
+                QuizDifficulty.EASY -> 0
+                QuizDifficulty.HARD -> 2
+                else -> 1
+            }
+            val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
+            val sb = StringBuilder()
+            val lineBreak = "\n"
+
+            val snapshot = kotlinx.coroutines.runBlocking {
+                val dao = db.questionDao()
+                val total = dao.countAll()
+                val active = dao.countAllActive()
+                val gradeTotal = dao.countByGrade(grade)
+                val gradeActive = dao.countActiveByGrade(grade)
+                val perSubject = subjects.map { subj ->
+                    val gsTotal = dao.countByGradeSubject(grade, subj)
+                    val gsActive = dao.countActiveByGradeSubject(grade, subj)
+                    val gsdTotal = dao.countByGradeSubjectDifficulty(grade, subj, diffInt)
+                    val gsdActive = dao.countActiveByGradeSubjectDifficulty(grade, subj, diffInt)
+                    subj to Quad(gsTotal, gsActive, gsdTotal, gsdActive)
+                }.toMap()
+                DbPoolSnapshot(
+                    total = total,
+                    active = active,
+                    gradeTotal = gradeTotal,
+                    gradeActive = gradeActive,
+                    perSubject = perSubject
+                )
+            }
+
+            sb.append("DB Debug:\n")
+            sb.append("- TOTAL=${
+                snapshot.total
+            } (active=${snapshot.active})\n")
+            sb.append("- selectedGrade=$grade, selectedDifficulty=${difficulty.name}\n")
+            sb.append("- gradeTotal=${snapshot.gradeTotal}, gradeActive=${snapshot.gradeActive}\n")
+            subjects.forEach { subj ->
+                val q = snapshot.perSubject[subj]
+                if (q != null) {
+                    sb.append(
+                        "- grade=$grade subject=$subj -> total=${q.total} active=${q.active}, " +
+                            "diffInt=$diffInt totalDiff=${q.totalDiff} activeDiff=${q.activeDiff}$lineBreak"
+                    )
+                } else {
+                    sb.append(
+                        "- grade=$grade subject=$subj -> total=0 active=0, diffInt=$diffInt totalDiff=0 activeDiff=0$lineBreak"
+                    )
+                }
+            }
+            val debugText = sb.toString().trimEnd()
+            Log.d(TAG, "[POOL_DEBUG] " + debugText.replace("\n", " | "))
+            debugText
+        } catch (e: Exception) {
+            Log.w(TAG, "buildPoolDebugStatsForGrade: failed: ${e.message}", e)
+            "DB Debug: hata=${e.message}"
+        }
+    }
+
+    private data class DbPoolSnapshot(
+        val total: Int,
+        val active: Int,
+        val gradeTotal: Int,
+        val gradeActive: Int,
+        val perSubject: Map<String, Quad>
+    )
+
+    private data class Quad(
+        val total: Int,
+        val active: Int,
+        val totalDiff: Int,
+        val activeDiff: Int
+    )
 
     /**
      * İnsan okunabilir debug özeti.

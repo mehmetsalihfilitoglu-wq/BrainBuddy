@@ -60,4 +60,30 @@ interface QuestionDao {
     /** Tüm sorular – kalite raporu ve özetler için. */
     @Query("SELECT * FROM questions")
     suspend fun getAllQuestions(): List<QuestionEntity>
+
+    // ---- Debug/diagnostic COUNT API'leri ----
+
+    @Query("SELECT COUNT(*) FROM questions")
+    suspend fun countAll(): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE isActive = 1")
+    suspend fun countAllActive(): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade")
+    suspend fun countByGrade(grade: Int): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND isActive = 1")
+    suspend fun countActiveByGrade(grade: Int): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject")
+    suspend fun countByGradeSubject(grade: Int, subject: String): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND isActive = 1")
+    suspend fun countActiveByGradeSubject(grade: Int, subject: String): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND difficulty = :difficulty")
+    suspend fun countByGradeSubjectDifficulty(grade: Int, subject: String, difficulty: Int): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND difficulty = :difficulty AND isActive = 1")
+    suspend fun countActiveByGradeSubjectDifficulty(grade: Int, subject: String, difficulty: Int): Int
 }

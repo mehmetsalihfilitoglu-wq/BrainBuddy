@@ -175,6 +175,15 @@ class QuizActivity : AppCompatActivity() {
         val targetCount = QuestionRepository.MIN_QUESTIONS_PER_TEST
         val effectiveGrade = if (isGradeMode && gradePrefs.hasGradeSelected()) selectedGrade else 0
 
+        // Quiz oluşturulmadan hemen önce DB havuz teşhisi (grade/difficulty bazında COUNT'lar).
+        val poolDebugText: String? = if (effectiveGrade in 2..8) {
+            try {
+                repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
+            } catch (_: Exception) {
+                null
+            }
+        } else null
+
         questions = when {
             isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
@@ -240,7 +249,8 @@ class QuizActivity : AppCompatActivity() {
                 if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!"
                 else "Soru havuzu yetersiz (en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} soru gerekli). Veli: Soru paketi ekleyin veya içe aktarın."
             } else "Soru havuzu yetersiz (${questions.size} soru mevcut, en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} gerekli)."
-            b.questionText.text = msg
+            val debugSuffix = poolDebugText?.let { "\n\n$it" } ?: ""
+            b.questionText.text = msg + debugSuffix
             b.nextBtn.isEnabled = false
             b.nextBtn.text = "Ana Sayfaya Dön"
             b.nextBtn.setOnClickListener {
