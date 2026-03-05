@@ -3,29 +3,40 @@ package com.brainbuddy.app.db
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import androidx.room.Room
+import androidx.room.testing.MigrationTestHelper
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.io.IOException
 
 /**
- * Migration 16 -> 17 test: büyük soru havuzu güçlendirmesi.
- * Eski şemadan yeniye geçişte crash olmadığını doğrular.
+ * Migration 16 -> 17 test: safe create_new_table + copy + drop + rename approach.
+ * Asserts migration runs and database opens without crash.
+ * Note: exportSchema=false, so we manually create v16 and run migration via Room builder.
  */
 @RunWith(AndroidJUnit4::class)
 class QuestionMigrationTest {
 
     private val dbName = "migration_test"
 
+    @get:Rule
+    val helper: MigrationTestHelper = MigrationTestHelper(
+        InstrumentationRegistry.getInstrumentation(),
+        BrainBuddyDatabase::class.java
+    )
+
     @Test
-    fun migrate16To17_doesNotCrash() {
+    @Throws(IOException::class)
+    fun migrate16To17_opensSuccessfully() {
         val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
-        val dbPath = context.getDatabasePath(dbName).absolutePath
         context.deleteDatabase(dbName)
 
-        // v16 schema manuel oluştur (Room diğer tabloları migration'da beklemez, stub ekle)
+        // Create v16 db manually (exportSchema=false, so we cannot use helper.createDatabase).
+        val dbPath = context.getDatabasePath(dbName).absolutePath
         SQLiteDatabase.openOrCreateDatabase(dbPath, null).use { db ->
             db.execSQL("CREATE TABLE IF NOT EXISTS question_history (userId TEXT, questionId TEXT, lastResult INTEGER, lastAnsweredAt INTEGER, correctCount INTEGER, wrongCount INTEGER, PRIMARY KEY(userId, questionId))")
             db.execSQL("CREATE TABLE IF NOT EXISTS test_snapshots (testId TEXT PRIMARY KEY, createdAt INTEGER, score INTEGER, total INTEGER, profileId TEXT, subjectBreakdownJson TEXT, questionIdsJson TEXT, userAnswersJson TEXT, wrongQuestionIdsJson TEXT)")
@@ -64,9 +75,19 @@ class QuestionMigrationTest {
             )
         }
 
+        // Run migration via Room (registers all migrations so chain is correct).
         val roomDb = Room.databaseBuilder(context, BrainBuddyDatabase::class.java, dbName)
-            .addMigrations(BrainBuddyDatabase.MIGRATION_16_17)
+            .addMigrations(
+                BrainBuddyDatabase.MIGRATION_11_12,
+                BrainBuddyDatabase.MIGRATION_12_13,
+                BrainBuddyDatabase.MIGRATION_13_14,
+                BrainBuddyDatabase.MIGRATION_14_15,
+                BrainBuddyDatabase.MIGRATION_15_16,
+                BrainBuddyDatabase.MIGRATION_16_17
+            )
             .build()
+        helper.closeWhenFinished(roomDb)
+
         roomDb.openHelper.writableDatabase.use { wdb ->
             assertEquals(17, wdb.version)
             wdb.query("SELECT stemNormalized, stemHash, questionType, skillsJson FROM questions WHERE id='t1'").use { c ->
@@ -77,7 +98,6 @@ class QuestionMigrationTest {
                 assertEquals("[]", c.getString(3))
             }
         }
-        roomDb.close()
         context.deleteDatabase(dbName)
     }
 }

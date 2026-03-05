@@ -176,20 +176,22 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
             }
         }
 
-        // 16 -> 17: Büyük soru havuzu güçlendirmesi – yeni alanlar, indeksler, UNIQUE(grade,subject,stemHash)
+        // 16 -> 17: Büyük soru havuzu güçlendirmesi – yeni alanlar, indeksler, UNIQUE(grade,subject,stemHash).
+        // Safe approach: create_new_table + copy + drop + rename. No inline UNIQUE/ALTER constraints.
         val MIGRATION_16_17: Migration = object : Migration(16, 17) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                // 1) Yeni tablo oluştur (UNIQUE dahil)
+                // 1) Create questions_new with EXACT final schema Room expects (all NOT NULL have DEFAULT).
+                //    NO inline UNIQUE – we create indices after rename.
                 database.execSQL(
                     """
                     CREATE TABLE IF NOT EXISTS questions_new (
                         id TEXT NOT NULL PRIMARY KEY,
-                        grade INTEGER NOT NULL,
-                        subject TEXT NOT NULL,
-                        difficulty INTEGER NOT NULL,
-                        questionText TEXT NOT NULL,
-                        optionsJson TEXT NOT NULL,
-                        answerIndex INTEGER NOT NULL,
+                        grade INTEGER NOT NULL DEFAULT 6,
+                        subject TEXT NOT NULL DEFAULT '',
+                        difficulty INTEGER NOT NULL DEFAULT 1,
+                        questionText TEXT NOT NULL DEFAULT '',
+                        optionsJson TEXT NOT NULL DEFAULT '[]',
+                        answerIndex INTEGER NOT NULL DEFAULT 0,
                         explanation TEXT,
                         isActive INTEGER NOT NULL DEFAULT 1,
                         questionType TEXT NOT NULL DEFAULT 'UNKNOWN',
@@ -208,14 +210,13 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                         sourceRef TEXT,
                         publisher TEXT,
                         year INTEGER,
-                        topic TEXT,
-                        UNIQUE(grade, subject, stemHash)
+                        topic TEXT
                     )
                     """.trimIndent()
                 )
 
-                // 2) Veri kopyala – stemHash: normalizedStemHash boşsa id kullan (unique garantisi).
-                //    Aynı (grade,subject,stemHash) için yalnızca min(id) olan satırı tut.
+                // 2) Copy data from old questions. Dedupe by (grade, subject, stemHash) keeping min(id).
+                //    stemHash = normalizedStemHash if non-empty else id. New columns get defaults.
                 database.execSQL(
                     """
                     INSERT INTO questions_new (
@@ -252,7 +253,7 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                 database.execSQL("DROP TABLE questions")
                 database.execSQL("ALTER TABLE questions_new RENAME TO questions")
 
-                // 3) İndeksler
+                // 3) Recreate ALL indices including unique constraint (Room expects these names).
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade ON questions(grade)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_subject ON questions(subject)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_difficulty ON questions(difficulty)")
@@ -261,6 +262,7 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_difficulty ON questions(grade, subject, difficulty)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_difficulty_active ON questions(grade, subject, difficulty, isActive)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_stem_hash ON questions(stemHash)")
+                database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS unique_questions_grade_subject_stem_hash ON questions(grade, subject, stemHash)")
             }
         }
     }
