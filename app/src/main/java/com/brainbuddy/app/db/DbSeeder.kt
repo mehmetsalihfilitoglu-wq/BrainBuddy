@@ -22,6 +22,12 @@ object DbSeeder {
     private const val CURRENT_DB_SEED_VERSION = 2
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
 
+    /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs. */
+    private val PACK_FILE_REGEX = Regex(
+        pattern = "^grade(2|3|4|5|6|7|8)_(mat|turkce|fen|sosyal|ing)\\.json$",
+        option = RegexOption.IGNORE_CASE
+    )
+
     /** Desteklenen ders anahtarları (DB'ye bu kısa kodlarla yazılır). */
     private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
@@ -121,14 +127,13 @@ object DbSeeder {
             Log.e(TAG, "questions_tr.json error", e)
         }
 
-        // 2) Pilot grade 6 paketleri (ders bazlı, JSON tabanlı).
-        val packFiles = listOf(
-            "packs/grade6_mat.json",
-            "packs/grade6_turkce.json",
-            "packs/grade6_fen.json",
-            "packs/grade6_sosyal.json",
-            "packs/grade6_ing.json"
-        )
+        // 2) Grade 2..8 × subject bazlı JSON paketleri (assets/packs altında otomatik tarama).
+        val packFiles = discoverPackAssetFiles(context)
+        if (packFiles.isNotEmpty()) {
+            Log.i(TAG, "Discovered ${packFiles.size} pack assets: $packFiles")
+        } else {
+            Log.w(TAG, "No pack assets discovered under assets/packs – only base pool will be used.")
+        }
         packFiles.forEach { assetPath ->
             try {
                 val json = context.assets.open(assetPath).use { input ->
@@ -147,6 +152,26 @@ object DbSeeder {
         all += generateGrade6SyntheticQuestions(existingIds)
 
         return all
+    }
+
+    /**
+     * assets/packs altında bulunan tüm pack JSON dosyalarını otomatik keşfeder.
+     *
+     * İsim deseni:
+     *   grade{G}_{subject}.json
+     *   G ∈ 2..8, subject ∈ {mat,turkce,fen,sosyal,ing}
+     */
+    private fun discoverPackAssetFiles(context: Context): List<String> {
+        return try {
+            val files = context.assets.list("packs")?.toList().orEmpty()
+            files
+                .filter { PACK_FILE_REGEX.matches(it) }
+                .sorted()
+                .map { "packs/$it" }
+        } catch (e: Exception) {
+            Log.w(TAG, "Pack asset discovery failed: ${e.message}")
+            emptyList()
+        }
     }
 
     private fun loadFromImported(context: Context): List<QuestionEntity> {
