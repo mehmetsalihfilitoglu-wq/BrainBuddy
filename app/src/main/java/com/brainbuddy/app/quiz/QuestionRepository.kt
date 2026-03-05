@@ -387,7 +387,7 @@ class QuestionRepository(private val context: Context) {
      *
      * Hem insan okunabilir metin, hem de UI uyarıları için ham sayıları döner.
      */
-    fun buildPoolDebugStatsForGrade(
+    internal fun buildPoolDebugStatsForGrade(
         grade: Int,
         difficulty: QuizDifficulty
     ): PoolDebugForGrade {
@@ -807,18 +807,11 @@ class QuestionRepository(private val context: Context) {
         val correctIdx = o.optInt("correctIndex", 0).coerceIn(0, choices.size - 1)
         val correctAnswer = choices.getOrNull(correctIdx) ?: ""
         // Grade belirleme:
-        // 1) JSON'da "grade" alanı varsa ve 2..8 içindeyse doğrudan kullan
-        // 2) Yoksa veya geçersizse "gradeTag" / "grade_tag" gibi string alanlardan parse et
-        // 3) Hâlâ parse edilemiyorsa soruyu discard etmek için exception fırlat
-        val gradeTag = o.optString("gradeTag", o.optString("grade_tag", ""))
-        val grade = run {
-            val fromGradeField = o.optInt("grade", 0).takeIf { it in 2..8 }
-            if (fromGradeField != null) {
-                fromGradeField
-            } else {
-                val parsed = gradeTag.toIntOrNull()?.coerceIn(2, 8)
-                parsed ?: throw IllegalArgumentException("Invalid grade in question JSON (grade/gradeTag/grade_tag)")
-            }
+        // JSON'da "grade" alanı zorunlu kabul edilir; sadece 2..8 aralığına clamp edilir.
+        val rawGrade = o.optInt("grade", 0)
+        val grade = rawGrade.coerceIn(2, 8)
+        if (grade !in 2..8) {
+            throw IllegalArgumentException("Invalid grade in question JSON (grade)")
         }
         val rawId = o.optString("id", "")
         val id = if (rawId.isNotBlank()) rawId else {
@@ -828,7 +821,7 @@ class QuestionRepository(private val context: Context) {
             id = id,
             levelGroup = levelGroup,
             subject = subject,
-            gradeTag = gradeTag.ifEmpty { grade.toString() },
+            gradeTag = grade.toString(),
             grade = grade,
             stem = stem,
             choices = choices.ifEmpty { listOf("A", "B", "C", "D") },
