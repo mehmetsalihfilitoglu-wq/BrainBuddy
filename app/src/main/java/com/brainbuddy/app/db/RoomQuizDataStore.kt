@@ -39,6 +39,16 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getByGrade(grade).map { QuestionMapper.toQuestion(it) }
     }
 
+    /** Sınıf + ders + zorluk bazlı havuz. difficulty: 0=EASY,1=MEDIUM,2=HARD,3=VERY_HARD */
+    fun getQuestionsByGradeSubjectDifficulty(
+        grade: Int,
+        subject: String,
+        difficulty: Int
+    ): List<Question> = runBlocking {
+        if (grade !in 2..8) return@runBlocking emptyList()
+        questionDao.getByGradeSubjectDifficulty(grade, subject, difficulty).map { QuestionMapper.toQuestion(it) }
+    }
+
     fun insertQuestions(entities: List<QuestionEntity>) = runBlocking {
         questionDao.insertAll(entities)
     }

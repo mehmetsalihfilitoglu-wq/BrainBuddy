@@ -643,13 +643,67 @@ class QuestionRepository(private val context: Context) {
     ): List<Question> {
         if (grade !in 2..8) return emptyList()
         runBlocking { DbSeeder.seedIfNeeded(context) }
-        var pool = roomStore.getQuestionsByGrade(grade)
+
+        // 1) Zorluk tercihini DataStore'dan (QuizPrefs) oku
+        val selectedDifficulty = try {
+            QuizPrefs(context).difficulty()
+        } catch (_: Exception) {
+            QuizDifficulty.MEDIUM
+        }
+
+        // 2) Grade + subject + difficulty filtresini uygula
+        val diffInt = when (selectedDifficulty) {
+            QuizDifficulty.EASY -> 0
+            QuizDifficulty.HARD -> 2
+            QuizDifficulty.VERY_HARD -> 3
+            else -> 1
+        }
+
+        val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
+
+        var pool: List<Question> = subjects.flatMap { subj ->
+            roomStore.getQuestionsByGradeSubjectDifficulty(grade, subj, diffInt)
+        }.distinctBy { it.id }
+
+        // 3) Eğer seçilen difficulty için yeterli soru yoksa, aynı grade içinde difficulty +/-1 genişlet
+        if (pool.size < count) {
+            val fallbackDiffs: Set<Int> = when (diffInt) {
+                0 -> setOf(0, 1)                // Kolay -> Kolay + Orta
+                1 -> setOf(0, 1, 2)             // Orta -> Kolay, Orta, Zor
+                2 -> setOf(1, 2, 3)             // Zor -> Orta, Zor, Çok Zor
+                else -> setOf(2, 3)             // Çok Zor -> Zor, Çok Zor
+            }
+            pool = subjects.flatMap { subj ->
+                roomStore.getQuestionsByGrade(grade)
+                    .filter { q ->
+                        q.subject.tr.lowercase() == when (subj) {
+                            "mat" -> "matematik"
+                            "turkce" -> "türkçe"
+                            "fen" -> "fen"
+                            "sosyal" -> "sosyal"
+                            "ing" -> "ingilizce"
+                            else -> q.subject.tr.lowercase()
+                        } && when (q.difficulty) {
+                            QuizDifficulty.EASY -> 0
+                            QuizDifficulty.MEDIUM -> 1
+                            QuizDifficulty.HARD -> 2
+                            QuizDifficulty.VERY_HARD -> 3
+                        } in fallbackDiffs
+                    }
+            }.distinctBy { it.id }
+        }
+
+        // 4) Hâlâ havuz boşsa eski fallback davranışını koru
+        if (pool.isEmpty()) {
+            pool = roomStore.getQuestionsByGrade(grade)
+        }
         if (pool.isEmpty()) {
             pool = getFallbackQuestions().filter { it.grade == grade }
         }
         if (pool.isEmpty()) {
             pool = getFallbackQuestions() // fallback to any grade
         }
+
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
         val picker = SpacedRepetitionPicker(
@@ -676,6 +730,13 @@ class QuestionRepository(private val context: Context) {
         val questionIds = questions.map { it.id }
         roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
         recordSeenForQuiz(profileId, questionIds)
+
+        // 5) Debug log: grade, difficulty, çekilen soru sayısı
+        android.util.Log.d(
+            TAG,
+            "[GRADE_TEST] selectedGrade=$grade, selectedDifficulty=${selectedDifficulty.name}, poolSize=${pool.size}, picked=${questions.size}"
+        )
+
         return questions
     }
 
