@@ -1077,7 +1077,7 @@ class QuestionRepository(private val context: Context) {
                             remainingSlots,
                             maxWrongCount - wrongUsedCount
                         )
-                        val extraWrong = pickFromPool(wrongCandidates, canTakeWrong, usedIds)
+                        val extraWrong = pickFromPool(wrongCandidates, canTakeWrong, usedIds) { it.id }
                         if (extraWrong.isNotEmpty()) {
                             selectedPerSubject[subj]?.addAll(extraWrong)
                             selected.addAll(extraWrong)
@@ -1087,7 +1087,7 @@ class QuestionRepository(private val context: Context) {
                     }
 
                     if (remainingSlots > 0 && normalCandidates.isNotEmpty()) {
-                        val extraNormal = pickFromPool(normalCandidates, remainingSlots, usedIds)
+                        val extraNormal = pickFromPool(normalCandidates, remainingSlots, usedIds) { it.id }
                         if (extraNormal.isNotEmpty()) {
                             selectedPerSubject[subj]?.addAll(extraNormal)
                             selected.addAll(extraNormal)
@@ -1164,6 +1164,28 @@ class QuestionRepository(private val context: Context) {
         android.util.Log.d(TAG, selectionDebug)
 
         return finalQuestions
+    }
+
+    /**
+     * Generic helper to pick up to [needed] unique items from [pool],
+     * based on their ID, updating [usedIds] and shuffling for randomness.
+     */
+    private fun <T> pickFromPool(
+        pool: List<T>,
+        needed: Int,
+        usedIds: MutableSet<String>,
+        idOf: (T) -> String
+    ): List<T> {
+        if (needed <= 0 || pool.isEmpty()) return emptyList()
+        val result = mutableListOf<T>()
+        for (item in pool.shuffled()) {
+            if (result.size >= needed) break
+            val id = idOf(item)
+            if (id in usedIds) continue
+            usedIds.add(id)
+            result.add(item)
+        }
+        return result
     }
 
     /**
