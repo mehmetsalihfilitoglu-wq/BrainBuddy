@@ -476,7 +476,10 @@ class QuizActivity : AppCompatActivity() {
                     "$label:$typeCounts"
                 }
                 val wrongUsedText = "$debugWrongUsed/${QuestionRepository.MIN_QUESTIONS_PER_TEST}"
-                val header = "grade=$effectiveGrade • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText\n$typeSummary"
+                val recentRelaxed = repo.lastRecentRelaxedCount
+                val headerBase = "grade=$effectiveGrade • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText"
+                val recentLine = if (recentRelaxed > 0) "\nrecent relaxed +$recentRelaxed" else ""
+                val header = "$headerBase$recentLine\n$typeSummary"
                 b.debugInfoText.visibility = View.VISIBLE
                 b.debugInfoText.text = header
             } else {

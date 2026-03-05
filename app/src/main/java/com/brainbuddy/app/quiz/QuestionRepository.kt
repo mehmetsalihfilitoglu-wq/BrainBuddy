@@ -23,6 +23,9 @@ class QuestionRepository(private val context: Context) {
 
     private val roomStore = RoomQuizDataStore(context)
     private val wrongQuestionStore = WrongQuestionStore(context)
+    @Volatile
+    var lastRecentRelaxedCount: Int = 0
+        private set
 
     companion object {
         private const val TAG = "QuestionRepository"
@@ -938,7 +941,7 @@ class QuestionRepository(private val context: Context) {
 
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
-        val recentIds: Set<String> = roomStore.getRecentlySeenIdsForProfile(profileId, 100)
+        val recentIds: Set<String> = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
 
         // 1) Havuzu grade + subject + difficulty ile hazırla.
         val perSubjectAll: MutableMap<Subject, List<Question>> = mutableMapOf()
@@ -958,6 +961,7 @@ class QuestionRepository(private val context: Context) {
         subjectOrder.forEach { (s, _) -> selectedPerSubject[s] = mutableListOf() }
 
         var wrongUsedCount = 0
+        var recentRelaxedCount = 0
 
         fun pickForSubject(subjEnum: Subject, targetForSubject: Int) {
             if (targetForSubject <= 0) return
@@ -1023,16 +1027,27 @@ class QuestionRepository(private val context: Context) {
                 takeFrom(normalRecent, isWrong = false)
             }
 
-            // 1) Strict: enforce skill + type limits.
-            trySelectFrom(nonRecent + recent, enforceTypeLimit = true, enforceSkillLimit = true)
+            // 1) Strict: only non-recent IDs, enforce diversity constraints first.
+            trySelectFrom(nonRecent, enforceTypeLimit = true, enforceSkillLimit = true)
             if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
 
-            // 2) Relax skill constraint if still insufficient.
-            trySelectFrom(nonRecent + recent, enforceTypeLimit = true, enforceSkillLimit = false)
+            // 2) Still non-recent, relax skill constraint if needed.
+            trySelectFrom(nonRecent, enforceTypeLimit = true, enforceSkillLimit = false)
             if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
 
-            // 3) Relax both type and skill if still insufficient.
-            trySelectFrom(nonRecent + recent, enforceTypeLimit = false, enforceSkillLimit = false)
+            // 3) Still non-recent, relax both type and skill if needed.
+            trySelectFrom(nonRecent, enforceTypeLimit = false, enforceSkillLimit = false)
+            if ((selectedPerSubject[subjEnum]?.size ?: 0) >= targetForSubject) return
+
+            // 4) Fallback: allow recently seen questions from the same subject to fill remaining quota.
+            val before = selectedPerSubject[subjEnum]?.size ?: 0
+            trySelectFrom(recent, enforceTypeLimit = true, enforceSkillLimit = true)
+            trySelectFrom(recent, enforceTypeLimit = true, enforceSkillLimit = false)
+            trySelectFrom(recent, enforceTypeLimit = false, enforceSkillLimit = false)
+            val after = selectedPerSubject[subjEnum]?.size ?: 0
+            if (after > before) {
+                recentRelaxedCount += (after - before)
+            }
         }
 
         // 2) Her ders için önce çeşitlilik kısıtlarıyla 4'e kadar seç.
@@ -1052,52 +1067,70 @@ class QuestionRepository(private val context: Context) {
                 .sortedByDescending { it.value.size }
                 .map { it.key }
 
+            fun pickExtraFromPartition(
+                subj: Subject,
+                partition: List<Question>,
+                fromRecent: Boolean
+            ) {
+                if (partition.isEmpty() || remainingSlots <= 0) return
+
+                val wrongCandidates = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
+                    partition.filter { it.id in preferredWrongIds }
+                } else emptyList()
+                val normalCandidates = if (wrongCandidates.isEmpty()) {
+                    partition
+                } else {
+                    partition.filter { it.id !in preferredWrongIds }
+                }
+
+                if (wrongCandidates.isNotEmpty() && wrongUsedCount < maxWrongCount) {
+                    val canTakeWrong = minOf(
+                        remainingSlots,
+                        maxWrongCount - wrongUsedCount
+                    )
+                    val extraWrong = pickFromPool(wrongCandidates, canTakeWrong, usedIds) { it.id }
+                    if (extraWrong.isNotEmpty()) {
+                        selectedPerSubject[subj]?.addAll(extraWrong)
+                        selected.addAll(extraWrong)
+                        wrongUsedCount += extraWrong.size
+                        if (fromRecent) {
+                            recentRelaxedCount += extraWrong.size
+                        }
+                        remainingSlots = effectiveCount - selected.size
+                    }
+                }
+
+                if (remainingSlots > 0 && normalCandidates.isNotEmpty()) {
+                    val extraNormal = pickFromPool(normalCandidates, remainingSlots, usedIds) { it.id }
+                    if (extraNormal.isNotEmpty()) {
+                        selectedPerSubject[subj]?.addAll(extraNormal)
+                        selected.addAll(extraNormal)
+                        if (fromRecent) {
+                            recentRelaxedCount += extraNormal.size
+                        }
+                        remainingSlots = effectiveCount - selected.size
+                    }
+                }
+            }
+
+            // Phase 1: fill from non-recent pools across subjects.
             for (subj in subjectsByRemaining) {
                 if (remainingSlots <= 0) break
                 val poolAll = remainingPerSubject[subj].orEmpty()
                 if (poolAll.isEmpty()) continue
-
                 val nonRecent = poolAll.filter { it.id !in recentIds }
-                val recent = poolAll.filter { it.id in recentIds }
+                pickExtraFromPartition(subj, nonRecent, fromRecent = false)
+            }
 
-                fun pickExtraFromPartition(partition: List<Question>) {
-                    if (partition.isEmpty() || remainingSlots <= 0) return
-
-                    val wrongCandidates = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
-                        partition.filter { it.id in preferredWrongIds }
-                    } else emptyList()
-                    val normalCandidates = if (wrongCandidates.isEmpty()) {
-                        partition
-                    } else {
-                        partition.filter { it.id !in preferredWrongIds }
-                    }
-
-                    if (wrongCandidates.isNotEmpty() && wrongUsedCount < maxWrongCount) {
-                        val canTakeWrong = minOf(
-                            remainingSlots,
-                            maxWrongCount - wrongUsedCount
-                        )
-                        val extraWrong = pickFromPool(wrongCandidates, canTakeWrong, usedIds) { it.id }
-                        if (extraWrong.isNotEmpty()) {
-                            selectedPerSubject[subj]?.addAll(extraWrong)
-                            selected.addAll(extraWrong)
-                            wrongUsedCount += extraWrong.size
-                            remainingSlots = effectiveCount - selected.size
-                        }
-                    }
-
-                    if (remainingSlots > 0 && normalCandidates.isNotEmpty()) {
-                        val extraNormal = pickFromPool(normalCandidates, remainingSlots, usedIds) { it.id }
-                        if (extraNormal.isNotEmpty()) {
-                            selectedPerSubject[subj]?.addAll(extraNormal)
-                            selected.addAll(extraNormal)
-                            remainingSlots = effectiveCount - selected.size
-                        }
-                    }
+            // Phase 2: only if hâlâ eksik varsa, recently-seen sorulardan doldur.
+            if (remainingSlots > 0) {
+                for (subj in subjectsByRemaining) {
+                    if (remainingSlots <= 0) break
+                    val poolAll = remainingPerSubject[subj].orEmpty()
+                    if (poolAll.isEmpty()) continue
+                    val recent = poolAll.filter { it.id in recentIds }
+                    pickExtraFromPartition(subj, recent, fromRecent = true)
                 }
-
-                pickExtraFromPartition(nonRecent)
-                pickExtraFromPartition(recent)
             }
         }
 
@@ -1142,6 +1175,9 @@ class QuestionRepository(private val context: Context) {
         val questionIds = finalQuestions.map { it.id }
         roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
         recordSeenForQuiz(profileId, questionIds)
+
+        // Expose how many questions had to bypass the recent-ID blacklist for debug UI.
+        lastRecentRelaxedCount = recentRelaxedCount
 
         // Per-subject debug özeti: havuz ve seçilen soru sayıları + wrongUsed sayısı.
         val selectionDebug = StringBuilder().apply {

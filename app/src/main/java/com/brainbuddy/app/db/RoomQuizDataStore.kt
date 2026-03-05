@@ -23,6 +23,7 @@ class RoomQuizDataStore(private val context: Context) {
 
     private val KEY_GLOBAL_TEST_INDEX = "global_test_index"
     private val KEY_DB_SEEDED = "db_seeded"
+    private val RECENT_SEEN_LIMIT = 150
 
     fun getActiveQuestions(): List<Question> = runBlocking {
         questionDao.getActiveQuestions().map { QuestionMapper.toQuestion(it) }
@@ -83,12 +84,16 @@ class RoomQuizDataStore(private val context: Context) {
         appMetaDao.get(KEY_GLOBAL_TEST_INDEX)?.toIntOrNull() ?: 0
     }
 
-    fun getRecentlySeenIdsForProfile(profileId: String, limit: Int = 100): Set<String> = runBlocking {
+    fun getRecentlySeenIdsForProfile(profileId: String, limit: Int = RECENT_SEEN_LIMIT): Set<String> = runBlocking {
         val key = "recent_seen_$profileId"
         appMetaDao.get(key)?.let { json ->
             try {
-                (0 until JSONArray(json).length()).map { JSONArray(json).optString(it, "") }
-                    .filter { it.isNotBlank() }.take(limit).toSet()
+                val arr = JSONArray(json)
+                (0 until arr.length())
+                    .map { arr.optString(it, "") }
+                    .filter { it.isNotBlank() }
+                    .take(limit)
+                    .toSet()
             } catch (_: Exception) { emptySet() }
         } ?: emptySet()
     }
@@ -121,12 +126,19 @@ class RoomQuizDataStore(private val context: Context) {
     fun recordSeenIdsForProfile(profileId: String, ids: List<String>) = runBlocking {
         val key = "recent_seen_$profileId"
         val existing = appMetaDao.get(key)?.let { json ->
-            try { (0 until JSONArray(json).length()).map { JSONArray(json).optString(it, "") }.filter { it.isNotBlank() }.toMutableList() }
-            catch (_: Exception) { mutableListOf() }
-        } ?: mutableListOf()
-        val combined = ids.toMutableList()
-        existing.forEach { if (it !in combined) combined.add(0, it) }
-        appMetaDao.set(AppMetaEntity(key, JSONArray(combined.take(100)).toString()))
+            try {
+                val arr = JSONArray(json)
+                (0 until arr.length())
+                    .map { arr.optString(it, "") }
+                    .filter { it.isNotBlank() }
+            } catch (_: Exception) {
+                emptyList()
+            }
+        } ?: emptyList()
+
+        // New IDs should be treated as most recent. Keep unique order: new first, then older.
+        val combined = (ids + existing).distinct().take(RECENT_SEEN_LIMIT)
+        appMetaDao.set(AppMetaEntity(key, JSONArray(combined).toString()))
     }
 
     fun getWrongQuestionIds(userId: String, withinDays: Int = 7): Set<String> = runBlocking {

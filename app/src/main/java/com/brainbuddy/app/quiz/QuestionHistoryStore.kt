@@ -224,7 +224,7 @@ class QuestionHistoryStore(context: Context) {
         }.toSet()
     }
 
-    fun getRecentlySeenIds(limit: Int = 100): Set<String> =
+    fun getRecentlySeenIds(limit: Int = 150): Set<String> =
         getRecentlySeenIdsForProfile(DEFAULT_PROFILE, limit)
 
     fun getAllWrongIds(): Set<String> {
@@ -240,22 +240,30 @@ class QuestionHistoryStore(context: Context) {
         recordSeenIdsForProfile(DEFAULT_PROFILE, ids)
     }
 
-    fun getRecentlySeenIdsForProfile(profileId: String, limit: Int = 100): Set<String> {
+    fun getRecentlySeenIdsForProfile(profileId: String, limit: Int = 150): Set<String> {
         val key = "recent_seen_$profileId"
         val json = prefs.getString(key, "[]") ?: "[]"
         return try {
             val arr = org.json.JSONArray(json)
-            (0 until arr.length()).mapNotNull { i -> arr.optString(i, null).takeIf { it.isNotBlank() } }.take(limit).toSet()
+            (0 until arr.length())
+                .mapNotNull { i -> arr.optString(i, null).takeIf { it.isNotBlank() } }
+                .take(limit)
+                .toSet()
         } catch (_: Exception) { emptySet() }
     }
 
     fun recordSeenIdsForProfile(profileId: String, ids: List<String>) {
-        val list = (prefs.getString("recent_seen_$profileId", "[]") ?: "[]").let { s ->
-            try { org.json.JSONArray(s) } catch (_: Exception) { org.json.JSONArray() }
+        val existing = (prefs.getString("recent_seen_$profileId", "[]") ?: "[]").let { s ->
+            try {
+                val arr = org.json.JSONArray(s)
+                (0 until arr.length()).mapNotNull { i -> arr.optString(i, null).takeIf { it.isNotBlank() } }
+            } catch (_: Exception) {
+                emptyList()
+            }
         }
-        val existing = (0 until list.length()).mapNotNull { i -> list.optString(i, null).takeIf { it.isNotBlank() } }.toMutableList()
-        ids.forEach { id -> if (id !in existing) existing.add(0, id) }
-        prefs.edit().putString("recent_seen_$profileId", org.json.JSONArray(existing.take(100)).toString()).apply()
+        // New IDs are most recent; keep unique order and cap at 150.
+        val combined = (ids + existing).distinct().take(150)
+        prefs.edit().putString("recent_seen_$profileId", org.json.JSONArray(combined).toString()).apply()
     }
 
     /** G2: Son N testte çıkan soru ID'leri - öncelik düşürmek için */
