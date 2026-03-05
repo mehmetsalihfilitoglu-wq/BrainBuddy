@@ -147,9 +147,15 @@ object DbSeeder {
         }
 
         // 3) Programmatically üretilen 6. sınıf genişletme paketleri.
-        // Bu sayede her derste en az 200 kaliteli soru garantilenir.
+        // Pack dosyalarında yeterli soru varsa (>= TARGET_QUESTIONS_PER_SUBJECT) atlanır.
         val existingIds = all.map { it.id }.toMutableSet()
-        all += generateGrade6SyntheticQuestions(existingIds)
+        val g6Counts = all.filter { it.grade == 6 }.groupBy { it.subject }.mapValues { it.value.size }
+        val needSynthetic = SUBJECT_KEYS.any { (g6Counts[it] ?: 0) < TARGET_QUESTIONS_PER_SUBJECT }
+        if (needSynthetic) {
+            all += generateGrade6SyntheticQuestions(existingIds)
+        } else {
+            Log.i(TAG, "Grade 6 packs have sufficient questions (>= $TARGET_QUESTIONS_PER_SUBJECT per subject), skip synthetic")
+        }
 
         return all
     }
