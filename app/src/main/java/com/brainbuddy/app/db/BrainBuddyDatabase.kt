@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 15,
+    version = 16,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -145,6 +145,34 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                     ADD COLUMN skill TEXT NOT NULL DEFAULT 'UNKNOWN'
                     """.trimIndent()
                 )
+            }
+        }
+
+        // 15 -> 16: Indices + stem hash fields for scalable question bank (20k+).
+        val MIGRATION_15_16: Migration = object : Migration(15, 16) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    ALTER TABLE questions ADD COLUMN normalizedStemHash TEXT NOT NULL DEFAULT ''
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    ALTER TABLE questions ADD COLUMN createdAt INTEGER NOT NULL DEFAULT 0
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    ALTER TABLE questions ADD COLUMN sourcePack TEXT
+                    """.trimIndent()
+                )
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade ON questions(grade)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_subject ON questions(subject)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_difficulty ON questions(difficulty)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_isActive ON questions(isActive)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_normalized_stem_hash ON questions(normalizedStemHash)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject ON questions(grade, subject)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_difficulty ON questions(grade, subject, difficulty)")
             }
         }
     }
