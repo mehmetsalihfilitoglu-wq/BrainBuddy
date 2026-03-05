@@ -56,4 +56,8 @@ interface QuestionDao {
         """
     )
     suspend fun getCountsByGradeSubject(): List<GradeSubjectCount>
+
+    /** Tüm sorular – kalite raporu ve özetler için. */
+    @Query("SELECT * FROM questions")
+    suspend fun getAllQuestions(): List<QuestionEntity>
 }

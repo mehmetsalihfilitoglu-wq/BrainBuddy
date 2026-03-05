@@ -78,7 +78,7 @@ object QuestionMapper {
         }
     }
 
-    private fun mapSubject(s: String): Subject = when (s.lowercase()) {
+    fun mapSubject(s: String): Subject = when (s.lowercase()) {
         "math", "mat" -> Subject.MAT
         "tr", "turkce" -> Subject.TURKCE
         "en", "ing" -> Subject.ING

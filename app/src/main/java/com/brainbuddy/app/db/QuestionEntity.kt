@@ -29,6 +29,9 @@ data class QuestionEntity(
     val answerIndex: Int,
     val explanation: String? = null,
     val isActive: Boolean = true,
+    val questionType: String? = null,
+    val skillsJson: String? = null,
+    val deactivationReason: String? = null,
     val version: Int = 1,
     val examType: String? = null,
     val imageAsset: String? = null

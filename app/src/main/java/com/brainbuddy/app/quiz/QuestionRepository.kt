@@ -7,6 +7,7 @@ import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.QuestionEntity
 import com.brainbuddy.app.db.QuestionMapper
 import com.brainbuddy.app.db.RoomQuizDataStore
@@ -145,27 +146,20 @@ class QuestionRepository(private val context: Context) {
         val current = loadFromImported()
         val existingIds = current.map { it.id }.toSet().toMutableSet()
         val toAdd = ArrayList<Question>()
-        var skippedTooSimpleMath = 0
+        var deactivatedCount = 0
         for (i in 0 until arr.length()) {
             try {
                 val q = parseQuestion(arr.getJSONObject(i))
-
-                // Matematik kalite gate: 6–8. sınıf için aşırı basit, salt işlem sorularını ele.
-                if (isTooSimpleMathQuestion(q)) {
-                    skippedTooSimpleMath++
-                    continue
-                }
-
                 if (q.id !in existingIds) {
                     toAdd.add(q)
                     existingIds.add(q.id)
                 }
             } catch (_: Exception) { }
         }
-        if (skippedTooSimpleMath > 0) {
+        if (deactivatedCount > 0) {
             Log.i(
                 TAG,
-                "mergeImportedQuestions: skipped $skippedTooSimpleMath too-simple math questions (grade 6–8)."
+                "mergeImportedQuestions: deactivated $deactivatedCount low-quality questions by quality gate."
             )
         }
         if (toAdd.isEmpty()) return 0
@@ -187,6 +181,10 @@ class QuestionRepository(private val context: Context) {
         }
         importedFile.writeText(jsonArr.toString(), Charsets.UTF_8)
         val toAddEntities = toAdd.map { q ->
+            val gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices)
+            if (!gate.isActive) {
+                deactivatedCount++
+            }
             val diffInt = when (q.difficulty) {
                 QuizDifficulty.EASY -> 0
                 QuizDifficulty.HARD -> 2
@@ -208,7 +206,10 @@ class QuestionRepository(private val context: Context) {
                 optionsJson = org.json.JSONArray(q.choices).toString(),
                 answerIndex = q.correctIndex,
                 explanation = q.hint?.takeIf { it.isNotBlank() },
-                isActive = true,
+                isActive = gate.isActive,
+                questionType = gate.questionType,
+                skillsJson = gate.skillsJson,
+                deactivationReason = gate.deactivationReason,
                 version = 1,
                 examType = q.examType.name,
                 imageAsset = q.imageAsset?.takeIf { it.isNotBlank() }
@@ -323,40 +324,83 @@ class QuestionRepository(private val context: Context) {
      * - Basit matematik / kısa tek cümle Türkçe sayıları
      */
     fun buildQualityDebugSummary(): String {
-        val all = loadAllQuestions()
-        if (all.isEmpty()) {
-            return "Toplam soru: 0\n(Havuz boş – JSON/Room içeriği bulunamadı.)"
+        val db = DatabaseProvider.get(context)
+        val entities = kotlinx.coroutines.runBlocking { db.questionDao().getAllQuestions() }
+        if (entities.isEmpty()) {
+            return "Toplam soru: 0\n(Havuz boş – Room içeriği bulunamadı.)"
         }
-        val report = computeQualityReport()
-        if (report.isEmpty()) {
-            return "Toplam soru: ${all.size}\n(Kalite raporu üretilemedi.)"
-        }
+
+        val grouped = entities.groupBy { it.grade to it.subject }
+        val totalActive = entities.count { it.isActive }
 
         val sb = StringBuilder()
-        sb.append("Toplam soru: ${all.size}\n")
-        sb.append("Soru tipi dağılımı (grade + ders):\n\n")
+        sb.append("Toplam aktif soru: $totalActive\n")
+        sb.append("Grade + ders bazında kalite özeti:\n\n")
 
-        report.sortedWith(
-            compareBy<QualityStats> { it.grade }
-                .thenBy { it.subject.name }
-        ).forEach { st ->
-            val problemPct = (st.problemRatio * 100).toInt()
-            val paragraphPct = (st.paragraphRatio * 100).toInt()
-            val multiPct = (st.multiStepRatio * 100).toInt()
-            val subjectName = st.subject.tr
+        grouped.toSortedMap(
+            compareBy<Pair<Int, String>> { it.first }
+                .thenBy { it.second }
+        ).forEach { (key, list) ->
+            val (grade, subjectRaw) = key
+            val subjectEnum = QuestionMapper.mapSubject(subjectRaw)
+            val subjectName = subjectEnum.tr
 
-            sb.append("${st.grade}. sınıf $subjectName  |  toplam=${st.total}")
-            sb.append("  problem=%$problemPct")
-            sb.append("  paragraf=%$paragraphPct")
-            sb.append("  çok_adımlı=%$multiPct")
+            val active = list.filter { it.isActive }
+            val passive = list.filter { !it.isActive }
 
-            if (st.subject == Subject.MAT && st.grade in 6..8) {
-                sb.append("  basit_mat=${st.simpleMathCount}")
+            val activeCount = active.size
+            val passiveCount = passive.size
+            val avgLen = if (active.isNotEmpty()) {
+                active.map { it.questionText.length }.average()
+            } else 0.0
+
+            val typeCounts = active.groupBy { it.questionType ?: "unknown" }
+                .mapValues { it.value.size }
+            val typeSummary = typeCounts.entries
+                .sortedByDescending { it.value }
+                .joinToString(", ") { "${it.key}=${it.value}" }
+                .ifEmpty { "n/a" }
+
+            val reasonCounts = passive.groupBy { it.deactivationReason ?: "unknown" }
+                .mapValues { it.value.size }
+            val reasonSummary = if (passiveCount > 0) {
+                reasonCounts.entries
+                    .sortedByDescending { it.value }
+                    .joinToString(", ") { "${it.key}=${it.value}" }
+            } else {
+                "-"
             }
-            if (st.subject == Subject.TURKCE && st.grade in 6..8) {
-                sb.append("  kısa_tek_cümle=${st.shortTurkceSingleCount}")
+
+            val diffCounts = active.groupBy { it.difficulty }
+                .mapValues { it.value.size }
+            val totalForDiff = activeCount.coerceAtLeast(1)
+            val easyPct = ((diffCounts[0] ?: 0) * 100.0 / totalForDiff).toInt()
+            val medPct = ((diffCounts[1] ?: 0) * 100.0 / totalForDiff).toInt()
+            val hardPct = ((diffCounts[2] ?: 0) * 100.0 / totalForDiff).toInt()
+            val veryHardPct = ((diffCounts[3] ?: 0) * 100.0 / totalForDiff).toInt()
+            val diffSummary = "diff: K=$easyPct O=$medPct Z=$hardPct ÇZ=$veryHardPct"
+
+            val outOfTarget = medPct < 25 || (hardPct + veryHardPct) < 45 || veryHardPct < 10
+            val diffLine = if (activeCount > 0 && outOfTarget) {
+                "$diffSummary ⚠ hedef dışı"
+            } else {
+                diffSummary
             }
-            sb.append("  ort_uzunluk=${st.avgLength.toInt()} ch\n")
+
+            val target = QuestionImportRepository.TARGET_QUESTIONS_PER_SUBJECT
+            val targetInfo = if (activeCount >= target) {
+                "hedef_ok"
+            } else {
+                "hedef_eksik(${activeCount}/$target)"
+            }
+
+            sb.append("${grade}. sınıf $subjectName\n")
+            sb.append("- aktif_soru=${activeCount} ($targetInfo)\n")
+            sb.append("- pasif_soru=${passiveCount} [reason: $reasonSummary]\n")
+            sb.append("- ortalama_kok_uzunluğu=${avgLen.toInt()} ch\n")
+            sb.append("- questionType: $typeSummary\n")
+            sb.append("- $diffLine\n")
+            sb.append("\n")
         }
 
         return sb.toString()
