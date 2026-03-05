@@ -197,12 +197,94 @@ class QuizActivity : AppCompatActivity() {
         }
         val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
         val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
-        var remedialFallbackWarning = false
         val targetCount = QuestionRepository.MIN_QUESTIONS_PER_TEST
         val effectiveGrade = if (isGradeMode && gradePrefs.hasGradeSelected()) selectedGrade else 0
 
-        // Quiz oluşturulmadan hemen önce DB havuz teşhisi (grade/difficulty bazında COUNT'lar).
-        poolDebug = if (effectiveGrade in 2..8) {
+        // Loading state: avoid ANR by building quiz on background thread.
+        b.subjectChip.text = getString(com.brainbuddy.app.R.string.test_preparing)
+        b.nextBtn.isEnabled = false
+        b.questionText.text = getString(com.brainbuddy.app.R.string.test_preparing)
+        b.optionsGroup.visibility = View.GONE
+        b.submitBtn.visibility = View.GONE
+        b.nextBtn.setOnClickListener { }
+
+        lifecycleScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                buildQuizOnBackground(
+                    repo = repo,
+                    quizPrefs = quizPrefs,
+                    protectionPrefs = protectionPrefs,
+                    isReplayFromLastTest = isReplayFromLastTest,
+                    replayQuestionIds = replayQuestionIds,
+                    bossLevel = bossLevel,
+                    isGateMode = isGateMode,
+                    isRetryOfLockedQuiz = isRetryOfLockedQuiz,
+                    isRemedial = isRemedial,
+                    wrongIds = wrongIds,
+                    retryWrongMode = retryWrongMode,
+                    effectiveGrade = effectiveGrade,
+                    levelGroup = levelGroup,
+                    quizId = quizId,
+                    targetCount = targetCount,
+                    intent = intent
+                )
+            }
+            withContext(Dispatchers.Main) {
+                questions = result.questions
+                poolDebug = result.poolDebug
+                pickerDebugPath = result.pickerDebugPath
+                debugWrongUsed = result.debugWrongUsed
+
+                b.subjectChip.text = "Ders"
+                b.nextBtn.isEnabled = true
+                b.nextBtn.setOnClickListener { goNext() }
+
+                // Update DEBUG overlay (grade-based picker) including buildMs, dbQueryMs, capReached.
+                if (BuildConfig.DEBUG && (pickerDebugPath == "GRADE" || pickerDebugPath == "WRONG_ONLY")) {
+                    val sc = repo.lastSubjectCounts.entries.joinToString(",") { "${it.key}=${it.value}" }
+                    b.debugPickerText.text = (
+                        "DEBUG_PICKER_OK mode=$pickerDebugPath " +
+                        "buildMs=${repo.lastBuildMs} dbQueryMs=${repo.lastDbQueryMs} capReached=${if (repo.lastCapReached) 1 else 0} " +
+                        "skippedId=${repo.lastSkippedIdCount} skippedRecent=${repo.lastSkippedRecentCount} " +
+                        "skippedStemHash=${repo.lastSkippedStemHashCount} skippedSimilar=${repo.lastSkippedSimilarCount} " +
+                        "relaxedRecent=${repo.lastRecentRelaxedCount} relaxedSimilar=${repo.lastSimilarRelaxedCount} " +
+                        "subjectCounts=[$sc]"
+                    )
+                }
+
+                b.submitBtn.visibility = View.GONE
+                applyQuizResultAndRender(result, effectiveGrade)
+            }
+        }
+    }
+
+    private data class QuizBuildResult(
+        val questions: List<Question>,
+        val poolDebug: QuestionRepository.PoolDebugForGrade?,
+        val pickerDebugPath: String,
+        val remedialFallbackWarning: Boolean,
+        val debugWrongUsed: Int
+    )
+
+    private fun buildQuizOnBackground(
+        repo: QuestionRepository,
+        quizPrefs: QuizPrefs,
+        protectionPrefs: ProtectionPrefs,
+        isReplayFromLastTest: Boolean,
+        replayQuestionIds: ArrayList<String>?,
+        bossLevel: Int,
+        isGateMode: Boolean,
+        isRetryOfLockedQuiz: Boolean,
+        isRemedial: Boolean,
+        wrongIds: ArrayList<String>?,
+        retryWrongMode: Boolean,
+        effectiveGrade: Int,
+        levelGroup: LevelGroup,
+        quizId: String,
+        targetCount: Int,
+        intent: Intent
+    ): QuizBuildResult {
+        val poolDebug = if (effectiveGrade in 2..8) {
             try {
                 repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
             } catch (_: Exception) {
@@ -210,21 +292,23 @@ class QuizActivity : AppCompatActivity() {
             }
         } else null
 
-        debugWrongUsed = 0
-        pickerDebugPath = ""
-        questions = when {
+        var pickerPath = ""
+        var remedialWarning = false
+        var wrongUsed = 0
+
+        val q = when {
             isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount -> {
-                pickerDebugPath = "REPLAY"
+                pickerPath = "REPLAY"
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 replayQuestionIds.mapNotNull { all[it] }
             }
             bossLevel > 0 -> {
-                pickerDebugPath = if (effectiveGrade in 2..8) "BOSS_GRADE" else "BOSS"
+                pickerPath = if (effectiveGrade in 2..8) "BOSS_GRADE" else "BOSS"
                 if (effectiveGrade in 2..8) repo.pickBossQuestionsByGrade(effectiveGrade, targetCount)
                 else repo.pickBossQuestions(levelGroup, targetCount)
             }
             isGateMode && isRetryOfLockedQuiz -> {
-                pickerDebugPath = "GATE_RETRY"
+                pickerPath = "GATE_RETRY"
                 val ids = protectionPrefs.lastFailedQuestionIds()
                 if (ids.size >= targetCount) {
                     val all = repo.loadAllQuestions().associateBy { it.id }
@@ -235,101 +319,67 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
             isGateMode -> {
-                pickerDebugPath = if (effectiveGrade in 2..8) "GATE_GRADE" else "GATE"
+                pickerPath = if (effectiveGrade in 2..8) "GATE_GRADE" else "GATE"
                 if (effectiveGrade in 2..8) repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
                 else repo.pickGateQuestions(levelGroup, targetCount)
             }
             isRemedial -> if (effectiveGrade in 2..8) {
-                pickerDebugPath = "REMEDIAL_GRADE"
-                val (q, usedFallback) = repo.pickRemedialQuestionsByGrade(effectiveGrade, targetCount, protectionPrefs.lastFailedWrongIds())
-                remedialFallbackWarning = usedFallback
-                q
+                pickerPath = "REMEDIAL_GRADE"
+                val (list, usedFallback) = repo.pickRemedialQuestionsByGrade(effectiveGrade, targetCount, protectionPrefs.lastFailedWrongIds())
+                remedialWarning = usedFallback
+                list
             } else {
-                pickerDebugPath = "REMEDIAL"
-                val (q, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, protectionPrefs.lastFailedWrongIds())
-                remedialFallbackWarning = usedFallback
-                q
+                pickerPath = "REMEDIAL"
+                val (list, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, protectionPrefs.lastFailedWrongIds())
+                remedialWarning = usedFallback
+                list
             }
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 val found = wrongIds.mapNotNull { all[it] }
                 val preferredWrongIds = found.map { it.id }.toSet()
                 if (effectiveGrade in 2..8) {
-                    pickerDebugPath = "WRONG_ONLY"
-                    val picked = repo.pickQuizQuestionsByGrade(
-                        effectiveGrade,
-                        targetCount,
-                        quizId,
-                        preferredWrongIds = preferredWrongIds
-                    )
-                    debugWrongUsed = picked.count { it.id in preferredWrongIds }
+                    pickerPath = "WRONG_ONLY"
+                    val picked = repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId, preferredWrongIds = preferredWrongIds)
+                    wrongUsed = picked.count { it.id in preferredWrongIds }
                     picked
                 } else {
-                    pickerDebugPath = "WRONG_ONLY_SUBJECT"
-                    // Non-grade mode: fall back to adaptive picker, cap wrong repeats via picker itself.
+                    pickerPath = "WRONG_ONLY_SUBJECT"
                     val base = if (found.isNotEmpty()) found.shuffled().take(targetCount) else emptyList()
                     if (base.size < targetCount) {
-                        repo.pickQuizQuestions(
-                            levelGroup,
-                            targetCount,
-                            quizPrefs.difficulty(),
-                            quizPrefs.selectedCategories(),
-                            quizId
-                        )
-                    } else {
-                        base
-                    }
+                        repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
+                    } else base
                 }
             }
             retryWrongMode -> if (effectiveGrade in 2..8) {
-                pickerDebugPath = "WRONG_ONLY"
+                pickerPath = "WRONG_ONLY"
                 val wrong = repo.pickRetryWrongQuestionsByGrade(effectiveGrade)
                 val preferredWrongIds = wrong.map { it.id }.toSet()
-                val picked = repo.pickQuizQuestionsByGrade(
-                    effectiveGrade,
-                    targetCount,
-                    quizId,
-                    preferredWrongIds = preferredWrongIds
-                )
-                debugWrongUsed = picked.count { it.id in preferredWrongIds }
+                val picked = repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId, preferredWrongIds = preferredWrongIds)
+                wrongUsed = picked.count { it.id in preferredWrongIds }
                 picked
             } else {
-                pickerDebugPath = "WRONG_ONLY_SUBJECT"
+                pickerPath = "WRONG_ONLY_SUBJECT"
                 val wrong = repo.pickRetryWrongQuestions(levelGroup)
                 if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
                 else wrong.shuffled().take(targetCount)
             }
             else -> if (effectiveGrade in 2..8) {
-                pickerDebugPath = "GRADE"
+                pickerPath = "GRADE"
                 repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
             } else {
+                pickerPath = "SUBJECT_ONLY"
                 val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
                 val categories = subjectFilter?.let { tr ->
                     Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
                 } ?: quizPrefs.selectedCategories()
-                pickerDebugPath = "SUBJECT_ONLY"
                 repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
             }
         }
+        return QuizBuildResult(q, poolDebug, pickerPath, remedialWarning, wrongUsed)
+    }
 
-        // Update DEBUG_PICKER_OK overlay with picker stats (grade-based picker only).
-        if (BuildConfig.DEBUG && (pickerDebugPath == "GRADE" || pickerDebugPath == "WRONG_ONLY")) {
-            val sc = repo.lastSubjectCounts.entries.joinToString(",") { "${it.key}=${it.value}" }
-            b.debugPickerText.text = (
-                "DEBUG_PICKER_OK mode=$pickerDebugPath " +
-                "skippedId=${repo.lastSkippedIdCount} " +
-                "skippedRecent=${repo.lastSkippedRecentCount} " +
-                "skippedStemHash=${repo.lastSkippedStemHashCount} " +
-                "skippedSimilar=${repo.lastSkippedSimilarCount} " +
-                "relaxedRecent=${repo.lastRecentRelaxedCount} " +
-                "relaxedSimilar=${repo.lastSimilarRelaxedCount} " +
-                "subjectCounts=[$sc]"
-            )
-        }
-
-        b.submitBtn.visibility = View.GONE
-        b.nextBtn.setOnClickListener { goNext() }
-
+    private fun applyQuizResultAndRender(result: QuizBuildResult, effectiveGrade: Int) {
         if (questions.isEmpty() || questions.size < QuestionRepository.MIN_QUESTIONS_PER_TEST) {
             b.subjectChip.text = "Soru havuzu yetersiz"
             val msg = if (questions.isEmpty()) {
@@ -338,138 +388,94 @@ class QuizActivity : AppCompatActivity() {
             } else "Soru havuzu yetersiz (${questions.size} soru mevcut, en az ${QuestionRepository.MIN_QUESTIONS_PER_TEST} gerekli)."
             val debugSuffix = poolDebug?.readableText?.let { "\n\n$it" } ?: ""
             b.questionText.text = msg + debugSuffix
-
-            // Varsayılan quiz UI bileşenlerini gizle
             b.optionsGroup.visibility = View.GONE
             b.feedbackText.visibility = View.GONE
             b.optA.visibility = View.GONE
             b.optB.visibility = View.GONE
             b.optC.visibility = View.GONE
             b.optD.visibility = View.GONE
-
-            // DB acil müdahale butonlarını göster
             b.btnForceActivateAll.visibility = View.VISIBLE
             b.btnClampDifficulty.visibility = View.VISIBLE
             b.btnFixInvalidGrades.visibility = View.VISIBLE
-
-            // Kırmızı uyarı metinleri
             val warnings = mutableListOf<String>()
             if (poolDebug?.hasPassiveOnly == true) {
                 warnings.add("Sebep: sorular pasif. Çözüm: Tüm Soruları Aktif Yap’a basın.")
             }
-            val diffGapSubjects = poolDebug?.subjectsWithDifficultyGap.orEmpty()
-            if (diffGapSubjects.isNotEmpty()) {
-                warnings.add(
-                    "Sebep: difficulty mapping hatası. Çözüm: Difficulty 3->2 Düzelt’e basın."
-                )
+            if (poolDebug?.subjectsWithDifficultyGap.orEmpty().isNotEmpty()) {
+                warnings.add("Sebep: difficulty mapping hatası. Çözüm: Difficulty 3->2 Düzelt’e basın.")
             }
             if (warnings.isNotEmpty()) {
                 b.feedbackText.visibility = View.VISIBLE
                 b.feedbackText.setTextColor(android.graphics.Color.RED)
                 b.feedbackText.text = warnings.joinToString("\n")
             }
-
             b.btnForceActivateAll.setOnClickListener {
                 lifecycleScope.launch {
                     withContext(Dispatchers.IO) {
                         try {
-                            val db = com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity)
-                            db.questionDao().forceActivateAll()
-                        } catch (_: Exception) {
-                        }
+                            com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity).questionDao().forceActivateAll()
+                        } catch (_: Exception) {}
                     }
-                    // Tüm sorular aktif edildikten sonra quiz'i tekrar başlatmayı dene
                     initQuiz(null)
                 }
             }
-
             b.btnClampDifficulty.setOnClickListener {
                 lifecycleScope.launch {
                     withContext(Dispatchers.IO) {
                         try {
-                            val db = com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity)
-                            db.questionDao().clampDifficulty()
-                        } catch (_: Exception) {
-                        }
+                            com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity).questionDao().clampDifficulty()
+                        } catch (_: Exception) {}
                     }
-                    // Difficulty mapping düzeltildikten sonra sadece debug metnini yenile
                     val refreshed = try {
-                        if (effectiveGrade in 2..8) {
-                            repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
-                        } else null
-                    } catch (_: Exception) {
-                        null
-                    }
-                    val baseMsg = msg
-                    val refreshedSuffix = refreshed?.readableText?.let { "\n\n$it" } ?: ""
-                    b.questionText.text = baseMsg + refreshedSuffix
-
-                    val warningsRefreshed = mutableListOf<String>()
-                    if (refreshed?.hasPassiveOnly == true) {
-                        warningsRefreshed.add("Sebep: sorular pasif. Çözüm: Tüm Soruları Aktif Yap’a basın.")
-                    }
-                    val refreshedDiffGapSubjects = refreshed?.subjectsWithDifficultyGap.orEmpty()
-                    if (refreshedDiffGapSubjects.isNotEmpty()) {
-                        warningsRefreshed.add(
-                            "Sebep: difficulty mapping hatası. Çözüm: Difficulty 3->2 Düzelt’e basın."
-                        )
-                    }
-                    if (warningsRefreshed.isNotEmpty()) {
+                        if (effectiveGrade in 2..8) repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty()) else null
+                    } catch (_: Exception) { null }
+                    b.questionText.text = msg + (refreshed?.readableText?.let { "\n\n$it" } ?: "")
+                    val wr = mutableListOf<String>()
+                    if (refreshed?.hasPassiveOnly == true) wr.add("Sebep: sorular pasif. Çözüm: Tüm Soruları Aktif Yap’a basın.")
+                    if (refreshed?.subjectsWithDifficultyGap.orEmpty().isNotEmpty()) wr.add("Sebep: difficulty mapping hatası. Çözüm: Difficulty 3->2 Düzelt’e basın.")
+                    if (wr.isNotEmpty()) {
                         b.feedbackText.visibility = View.VISIBLE
                         b.feedbackText.setTextColor(android.graphics.Color.RED)
-                        b.feedbackText.text = warningsRefreshed.joinToString("\n")
-                    } else {
-                        b.feedbackText.visibility = View.GONE
-                    }
+                        b.feedbackText.text = wr.joinToString("\n")
+                    } else b.feedbackText.visibility = View.GONE
                 }
             }
-
             b.btnFixInvalidGrades.setOnClickListener {
-                if (effectiveGrade !in 2..8) {
-                    return@setOnClickListener
-                }
+                if (effectiveGrade !in 2..8) return@setOnClickListener
                 lifecycleScope.launch {
                     withContext(Dispatchers.IO) {
                         try {
-                            val db = com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity)
-                            db.questionDao().fixInvalidGrades(effectiveGrade)
-                        } catch (_: Exception) {
-                        }
+                            com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity).questionDao().fixInvalidGrades(effectiveGrade)
+                        } catch (_: Exception) {}
                     }
-                    // Geçersiz grade'ler seçili sınıfa çekildikten sonra quiz'i tekrar başlat (DB DURUMU yeniden hesaplanır)
                     initQuiz(null)
                 }
             }
             b.nextBtn.isEnabled = true
             b.nextBtn.text = "Ana Sayfaya Dön"
             b.nextBtn.setOnClickListener {
-                val i = Intent(this, MainActivity::class.java).apply {
-                    flags =
-                        Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                                Intent.FLAG_ACTIVITY_NEW_TASK or
-                                Intent.FLAG_ACTIVITY_CLEAR_TASK
-                }
-                startActivity(i)
+                startActivity(Intent(this, MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                })
                 finish()
             }
         } else {
-            // DEBUG: İlk 3 sorunun grade'ini logla; selectedGrade dışında gelirse yakala
             if (effectiveGrade in 2..8 && questions.size >= 3) {
-                val first3 = questions.take(3)
-                first3.forEachIndexed { i, q ->
+                questions.take(3).forEachIndexed { i, q ->
                     android.util.Log.d("QuizActivity", "[GRADE_DEBUG] Q${i + 1} id=${q.id} grade=${q.grade} expected=$effectiveGrade")
                     if (q.grade != effectiveGrade) {
                         android.util.Log.w("QuizActivity", "[GRADE_DEBUG] MISMATCH: Q${i + 1} grade=${q.grade} != selectedGrade=$effectiveGrade - exception")
                     }
                 }
             }
-            if (remedialFallbackWarning) {
-                android.widget.Toast.makeText(
-                    this,
-                    "Soru havuzu sınırlı. Veli: Daha fazla soru paketi ekleyin.",
-                    android.widget.Toast.LENGTH_LONG
-                ).show()
+            if (result.remedialFallbackWarning) {
+                android.widget.Toast.makeText(this, "Soru havuzu sınırlı. Veli: Daha fazla soru paketi ekleyin.", android.widget.Toast.LENGTH_LONG).show()
             }
+            b.optionsGroup.visibility = View.VISIBLE
+            b.optA.visibility = View.VISIBLE
+            b.optB.visibility = View.VISIBLE
+            b.optC.visibility = View.VISIBLE
+            b.optD.visibility = View.VISIBLE
             render()
         }
     }
@@ -498,7 +504,7 @@ class QuizActivity : AppCompatActivity() {
             val debug = poolDebug
 
             val pickerLabel = pickerDebugPath.ifBlank { "UNKNOWN" }
-            val traceLine = "picker=$pickerLabel | skippedId=${repo.lastSkippedIdCount} skippedStemHash=${repo.lastSkippedStemHashCount} skippedSimilar=${repo.lastSkippedSimilarCount} skippedRecent=${repo.lastSkippedRecentCount} relaxed=${repo.lastRecentRelaxedCount}"
+            val traceLine = "picker=$pickerLabel | buildMs=${repo.lastBuildMs} dbQueryMs=${repo.lastDbQueryMs} capReached=${if (repo.lastCapReached) 1 else 0} | skippedId=${repo.lastSkippedIdCount} skippedStemHash=${repo.lastSkippedStemHashCount} skippedSimilar=${repo.lastSkippedSimilarCount} skippedRecent=${repo.lastSkippedRecentCount} relaxed=${repo.lastRecentRelaxedCount}"
 
             if (debug != null && effectiveGrade in 2..8) {
                 val subjectsOrder = listOf("mat" to "MAT", "turkce" to "TURKCE", "fen" to "FEN", "sosyal" to "SOSYAL", "ing" to "ING")

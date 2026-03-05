@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 17,
+    version = 18,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -263,6 +263,66 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_difficulty_active ON questions(grade, subject, difficulty, isActive)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_stem_hash ON questions(stemHash)")
                 database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS unique_questions_grade_subject_stem_hash ON questions(grade, subject, stemHash)")
+            }
+        }
+
+        // 17 -> 18: Safe add missing columns so upgrades work without destructive.
+        // PRAGMA table_info; for each expected column missing -> ADD COLUMN with DEFAULT for NOT NULL.
+        val MIGRATION_17_18: Migration = object : Migration(17, 18) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                val cursor = database.query("PRAGMA table_info('questions')")
+                val existingColumns = mutableSetOf<String>()
+                try {
+                    val nameIdx = cursor.getColumnIndex("name").takeIf { it >= 0 } ?: 1
+                    while (cursor.moveToNext()) {
+                        existingColumns.add(cursor.getString(nameIdx))
+                    }
+                } finally {
+                    cursor.close()
+                }
+
+                // (column name, full ADD COLUMN SQL) – only name is used for "if missing".
+                val expectedColumns = listOf(
+                    "grade" to "ALTER TABLE questions ADD COLUMN grade INTEGER NOT NULL DEFAULT 6",
+                    "subject" to "ALTER TABLE questions ADD COLUMN subject TEXT NOT NULL DEFAULT ''",
+                    "difficulty" to "ALTER TABLE questions ADD COLUMN difficulty INTEGER NOT NULL DEFAULT 1",
+                    "questionText" to "ALTER TABLE questions ADD COLUMN questionText TEXT NOT NULL DEFAULT ''",
+                    "optionsJson" to "ALTER TABLE questions ADD COLUMN optionsJson TEXT NOT NULL DEFAULT '[]'",
+                    "answerIndex" to "ALTER TABLE questions ADD COLUMN answerIndex INTEGER NOT NULL DEFAULT 0",
+                    "explanation" to "ALTER TABLE questions ADD COLUMN explanation TEXT",
+                    "isActive" to "ALTER TABLE questions ADD COLUMN isActive INTEGER NOT NULL DEFAULT 1",
+                    "questionType" to "ALTER TABLE questions ADD COLUMN questionType TEXT NOT NULL DEFAULT 'UNKNOWN'",
+                    "skillsJson" to "ALTER TABLE questions ADD COLUMN skillsJson TEXT NOT NULL DEFAULT '[]'",
+                    "deactivationReason" to "ALTER TABLE questions ADD COLUMN deactivationReason TEXT",
+                    "version" to "ALTER TABLE questions ADD COLUMN version INTEGER NOT NULL DEFAULT 1",
+                    "examType" to "ALTER TABLE questions ADD COLUMN examType TEXT",
+                    "imageAsset" to "ALTER TABLE questions ADD COLUMN imageAsset TEXT",
+                    "type" to "ALTER TABLE questions ADD COLUMN type TEXT NOT NULL DEFAULT 'UNKNOWN'",
+                    "skill" to "ALTER TABLE questions ADD COLUMN skill TEXT NOT NULL DEFAULT 'UNKNOWN'",
+                    "stemNormalized" to "ALTER TABLE questions ADD COLUMN stemNormalized TEXT NOT NULL DEFAULT ''",
+                    "stemHash" to "ALTER TABLE questions ADD COLUMN stemHash TEXT NOT NULL DEFAULT ''",
+                    "createdAt" to "ALTER TABLE questions ADD COLUMN createdAt INTEGER NOT NULL DEFAULT 0",
+                    "sourcePack" to "ALTER TABLE questions ADD COLUMN sourcePack TEXT",
+                    "source" to "ALTER TABLE questions ADD COLUMN source TEXT",
+                    "sourceRef" to "ALTER TABLE questions ADD COLUMN sourceRef TEXT",
+                    "publisher" to "ALTER TABLE questions ADD COLUMN publisher TEXT",
+                    "year" to "ALTER TABLE questions ADD COLUMN year INTEGER",
+                    "topic" to "ALTER TABLE questions ADD COLUMN topic TEXT"
+                )
+                for ((name, sql) in expectedColumns) {
+                    if (!existingColumns.contains(name)) {
+                        try {
+                            database.execSQL(sql)
+                        } catch (e: Exception) {
+                            android.util.Log.w("BrainBuddyDatabase", "MIGRATION_17_18: add column $name failed: ${e.message}")
+                        }
+                    }
+                }
+
+                // Ensure indexes exist for pool pick performance.
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_difficulty_active ON questions(grade, subject, difficulty, isActive)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_stem_hash ON questions(stemHash)")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_isActive ON questions(isActive)")
             }
         }
     }
