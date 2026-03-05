@@ -6,33 +6,30 @@ import androidx.room.PrimaryKey
 
 /**
  * Room entity for questions table.
- * Single source of truth - JSON only seeds on first install.
- * difficulty: 0=EASY, 1=MEDIUM, 2=HARD, 3=VERY_HARD
- * grade: 1=Junior, 2..8=sınıf
+ * difficulty: 1=MED, 2=HARD, 3=VERY_HARD
+ * grade: 2..8 (Junior ayrı tutulur)
  */
 @Entity(
     tableName = "questions",
     indices = [
-        Index(value = ["grade", "subject", "difficulty"])
+        Index(
+            value = ["grade", "subject"],
+            name = "index_questions_grade_subject"
+        )
     ]
 )
 data class QuestionEntity(
     @PrimaryKey
     val id: String,
+    val grade: Int,
     val subject: String,
     val difficulty: Int,
-    /** Sınıf (1=Junior, 2..8). Havuz filtreleme ve index için. */
-    val grade: Int = 0,
-    val text: String,
+    val questionText: String,
     val optionsJson: String,
-    val correctIndex: Int,
-    val tagsJson: String? = null,
+    val answerIndex: Int,
+    val explanation: String? = null,
     val isActive: Boolean = true,
     val version: Int = 1,
-    val updatedAt: Long,
-    val levelGroup: String? = null,
-    val gradeTag: String? = null,
-    val hint: String? = null,
-    val imageAsset: String? = null,
-    val examType: String? = null
+    val examType: String? = null,
+    val imageAsset: String? = null
 )
