@@ -36,7 +36,7 @@ object QuestionMapper {
      * QuestionEntity:
      *  - grade: 2..8
      *  - subject: "mat" | "turkce" | "fen" | "sosyal" | "ing"
-     *  - difficulty: 0=EASY,1=MEDIUM,2=HARD,3=VERY_HARD
+     *  - difficulty: 0=EASY,1=MEDIUM,2=HARD (eski verilerde 3=HARD olarak ele alınır)
      */
     fun toQuestion(e: QuestionEntity): Question {
         val choices = parseChoices(e.optionsJson)
@@ -44,8 +44,7 @@ object QuestionMapper {
         val levelGroup = LevelGroup.GRADE_5_8
         val difficulty = when (e.difficulty) {
             0 -> QuizDifficulty.EASY
-            2 -> QuizDifficulty.HARD
-            3 -> QuizDifficulty.VERY_HARD
+            2, 3 -> QuizDifficulty.HARD
             else -> QuizDifficulty.MEDIUM
         }
         val grade = e.grade.coerceIn(1, 8)

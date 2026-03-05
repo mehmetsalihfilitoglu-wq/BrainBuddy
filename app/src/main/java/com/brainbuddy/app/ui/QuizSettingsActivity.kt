@@ -33,7 +33,6 @@ class QuizSettingsActivity : AppCompatActivity() {
             QuizDifficulty.EASY -> difficultyGroup.check(R.id.diffEasy)
             QuizDifficulty.MEDIUM -> difficultyGroup.check(R.id.diffMedium)
             QuizDifficulty.HARD -> difficultyGroup.check(R.id.diffHard)
-            QuizDifficulty.VERY_HARD -> difficultyGroup.check(R.id.diffVeryHard)
         }
 
         when (prefs.questionsPerSession()) {
@@ -48,7 +47,6 @@ class QuizSettingsActivity : AppCompatActivity() {
                 R.id.diffEasy -> QuizDifficulty.EASY
                 R.id.diffMedium -> QuizDifficulty.MEDIUM
                 R.id.diffHard -> QuizDifficulty.HARD
-                R.id.diffVeryHard -> QuizDifficulty.VERY_HARD
                 else -> QuizDifficulty.MEDIUM
             }
             prefs.setDifficulty(diff)

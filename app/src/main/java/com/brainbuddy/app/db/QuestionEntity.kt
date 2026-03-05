@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 /**
  * Room entity for questions table.
- * difficulty: 1=MED, 2=HARD, 3=VERY_HARD
+ * difficulty: 0=EASY, 1=MEDIUM, 2=HARD
  * grade: 2..8 (Junior ayrı tutulur)
  */
 @Entity(

@@ -45,8 +45,7 @@ data class Question(
 enum class QuizDifficulty(val tr: String) {
     EASY("Kolay"),
     MEDIUM("Orta"),
-    HARD("Zor"),
-    VERY_HARD("Çok Zor")
+    HARD("Zor")
 }
 
 data class AnswerRecord(

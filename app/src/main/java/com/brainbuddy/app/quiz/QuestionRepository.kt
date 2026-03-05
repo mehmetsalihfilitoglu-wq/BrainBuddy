@@ -181,14 +181,52 @@ class QuestionRepository(private val context: Context) {
         }
         importedFile.writeText(jsonArr.toString(), Charsets.UTF_8)
         val toAddEntities = toAdd.map { q ->
-            val gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices)
+            var gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices)
+
+            // Ek kalite kuralları: HARD gerçekten zor olsun.
+            val stem = q.stem
+            if (q.difficulty == QuizDifficulty.HARD) {
+                when (q.subject) {
+                    Subject.MAT -> {
+                        val tooSimple = isTooSimpleMathQuestion(q)
+                        val isProblemLike = !tooSimple && isMathProblemLike(stem)
+                        val isMultiStep = isMultiStepQuestion(stem, q.subject)
+                        if (tooSimple || (!isProblemLike && !isMultiStep)) {
+                            gate = gate.copy(
+                                isActive = false,
+                                deactivationReason = "too_simple_computation"
+                            )
+                        }
+                    }
+                    Subject.TURKCE, Subject.ING -> {
+                        val isLongEnough = stem.length >= 250
+                        val isInferenceLike = isReadingComprehensionLike(stem)
+                        if (!isLongEnough || !isInferenceLike) {
+                            gate = gate.copy(
+                                isActive = false,
+                                deactivationReason = "too_simple_language_hard"
+                            )
+                        }
+                    }
+                    Subject.FEN, Subject.SOSYAL -> {
+                        val isContextual = isContextualProblemLike(stem)
+                        val isLongEnough = stem.length >= 80
+                        if (!isContextual || !isLongEnough) {
+                            gate = gate.copy(
+                                isActive = false,
+                                deactivationReason = "too_simple_context_hard"
+                            )
+                        }
+                    }
+                }
+            }
+
             if (!gate.isActive) {
                 deactivatedCount++
             }
             val diffInt = when (q.difficulty) {
                 QuizDifficulty.EASY -> 0
                 QuizDifficulty.HARD -> 2
-                QuizDifficulty.VERY_HARD -> 3
                 else -> 1
             }
             QuestionEntity(
@@ -253,7 +291,7 @@ class QuestionRepository(private val context: Context) {
     }
 
     /** Full report for debug screens – grouped by (grade, subject). */
-    fun computeQualityReport(): List<QualityStats> {
+        fun computeQualityReport(): List<QualityStats> {
         val all = loadAllQuestions()
         if (all.isEmpty()) return emptyList()
 
@@ -330,7 +368,7 @@ class QuestionRepository(private val context: Context) {
             return "Toplam soru: 0\n(Havuz boş – Room içeriği bulunamadı.)"
         }
 
-        val grouped = entities.groupBy { it.grade to it.subject }
+            val grouped = entities.groupBy { it.grade to it.subject }
         val totalActive = entities.count { it.isActive }
 
         val sb = StringBuilder()
@@ -376,11 +414,11 @@ class QuestionRepository(private val context: Context) {
             val totalForDiff = activeCount.coerceAtLeast(1)
             val easyPct = ((diffCounts[0] ?: 0) * 100.0 / totalForDiff).toInt()
             val medPct = ((diffCounts[1] ?: 0) * 100.0 / totalForDiff).toInt()
-            val hardPct = ((diffCounts[2] ?: 0) * 100.0 / totalForDiff).toInt()
-            val veryHardPct = ((diffCounts[3] ?: 0) * 100.0 / totalForDiff).toInt()
-            val diffSummary = "diff: K=$easyPct O=$medPct Z=$hardPct ÇZ=$veryHardPct"
+            val hardCount = (diffCounts[2] ?: 0) + (diffCounts[3] ?: 0)
+            val hardPct = (hardCount * 100.0 / totalForDiff).toInt()
+            val diffSummary = "diff: K=$easyPct O=$medPct Z=$hardPct"
 
-            val outOfTarget = medPct < 25 || (hardPct + veryHardPct) < 45 || veryHardPct < 10
+            val outOfTarget = medPct < 25 || hardPct < 30 || easyPct > 35
             val diffLine = if (activeCount > 0 && outOfTarget) {
                 "$diffSummary ⚠ hedef dışı"
             } else {
@@ -636,11 +674,11 @@ class QuestionRepository(private val context: Context) {
      * Dağılım: Mat 5, Tr 5, Fen 4, Sos 3, Eng 3 (hepsi aynı grade'den).
      * Spaced repetition kuralları uygulanır.
      */
-    fun pickQuizQuestionsByGrade(
+        fun pickQuizQuestionsByGrade(
         grade: Int,
         count: Int = MIN_QUESTIONS_PER_TEST,
         testId: String? = null
-    ): List<Question> {
+        ): List<Question> {
         if (grade !in 2..8) return emptyList()
         runBlocking { DbSeeder.seedIfNeeded(context) }
 
@@ -651,58 +689,17 @@ class QuestionRepository(private val context: Context) {
             QuizDifficulty.MEDIUM
         }
 
-        // 2) Grade + subject + difficulty filtresini uygula
-        val diffInt = when (selectedDifficulty) {
-            QuizDifficulty.EASY -> 0
-            QuizDifficulty.HARD -> 2
-            QuizDifficulty.VERY_HARD -> 3
-            else -> 1
-        }
-
         val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
-        var pool: List<Question> = subjects.flatMap { subj ->
-            roomStore.getQuestionsByGradeSubjectDifficulty(grade, subj, diffInt)
-        }.distinctBy { it.id }
-
-        // 3) Eğer seçilen difficulty için yeterli soru yoksa, aynı grade içinde difficulty +/-1 genişlet
-        if (pool.size < count) {
-            val fallbackDiffs: Set<Int> = when (diffInt) {
-                0 -> setOf(0, 1)                // Kolay -> Kolay + Orta
-                1 -> setOf(0, 1, 2)             // Orta -> Kolay, Orta, Zor
-                2 -> setOf(1, 2, 3)             // Zor -> Orta, Zor, Çok Zor
-                else -> setOf(2, 3)             // Çok Zor -> Zor, Çok Zor
-            }
-            pool = subjects.flatMap { subj ->
-                roomStore.getQuestionsByGrade(grade)
-                    .filter { q ->
-                        q.subject.tr.lowercase() == when (subj) {
-                            "mat" -> "matematik"
-                            "turkce" -> "türkçe"
-                            "fen" -> "fen"
-                            "sosyal" -> "sosyal"
-                            "ing" -> "ingilizce"
-                            else -> q.subject.tr.lowercase()
-                        } && when (q.difficulty) {
-                            QuizDifficulty.EASY -> 0
-                            QuizDifficulty.MEDIUM -> 1
-                            QuizDifficulty.HARD -> 2
-                            QuizDifficulty.VERY_HARD -> 3
-                        } in fallbackDiffs
-                    }
+        fun loadPoolForDifficulty(diffInt: Int): List<Question> {
+            return subjects.flatMap { subj ->
+                roomStore.getQuestionsByGradeSubjectDifficulty(grade, subj, diffInt)
             }.distinctBy { it.id }
         }
 
-        // 4) Hâlâ havuz boşsa eski fallback davranışını koru
-        if (pool.isEmpty()) {
-            pool = roomStore.getQuestionsByGrade(grade)
-        }
-        if (pool.isEmpty()) {
-            pool = getFallbackQuestions().filter { it.grade == grade }
-        }
-        if (pool.isEmpty()) {
-            pool = getFallbackQuestions() // fallback to any grade
-        }
+        val hardInt = 2
+        val medInt = 1
+        val easyInt = 0
 
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
@@ -711,33 +708,154 @@ class QuestionRepository(private val context: Context) {
             roomStore = roomStore,
             getQuestionIdsFromLastNTests = { pid, n -> roomStore.getQuestionIdsFromLastNTests(pid, n) }
         )
-        val pickCount = minOf(count, pool.size).coerceAtLeast(1)
-        var questions = picker.pick(pool, pickCount, profileId)
-        if (questions.isEmpty()) {
-            questions = pool.shuffled().take(count)
-        }
-        if (questions.size < count && pool.isNotEmpty()) {
-            val used = questions.map { it.id }.toSet()
-            val extra = pool.filter { it.id !in used }
-            val qList = questions.toMutableList()
-            var idx = 0
-            while (qList.size < count && extra.isNotEmpty()) {
-                qList.add(extra[idx % extra.size])
-                idx++
+
+        val maxFallbackFromLower = (count * 0.2).toInt().coerceAtLeast(0)
+
+        val basePool: List<Question>
+        val fallbackPool: List<Question>
+        when (selectedDifficulty) {
+            QuizDifficulty.HARD -> {
+                val hardPool = loadPoolForDifficulty(hardInt)
+                val primaryPickCount = minOf(count, hardPool.size)
+                var questions = if (primaryPickCount > 0) {
+                    picker.pick(hardPool, primaryPickCount, profileId)
+                } else {
+                    emptyList()
+                }.toMutableList()
+
+                val remaining = count - questions.size
+                val mediumPool = loadPoolForDifficulty(medInt)
+                    .filter { q -> questions.none { it.id == q.id } }
+
+                if (remaining > 0 && mediumPool.isNotEmpty() && maxFallbackFromLower > 0) {
+                    val fallbackCount = minOf(remaining, maxFallbackFromLower, mediumPool.size)
+                    questions.addAll(mediumPool.shuffled().take(fallbackCount))
+                }
+
+                var finalQuestions = questions
+                if (finalQuestions.isEmpty()) {
+                    val unionPool = (hardPool + mediumPool).distinctBy { it.id }
+                    finalQuestions = unionPool.shuffled().take(count).toMutableList()
+                }
+
+                if (finalQuestions.size < count && finalQuestions.isNotEmpty()) {
+                    val allPool = (hardPool + mediumPool).distinctBy { it.id }
+                    val usedIds = finalQuestions.map { it.id }.toMutableSet()
+                    val extra = allPool.filter { it.id !in usedIds }
+                    var idx = 0
+                    while (finalQuestions.size < count && extra.isNotEmpty()) {
+                        finalQuestions.add(extra[idx % extra.size])
+                        usedIds.add(extra[idx % extra.size].id)
+                        idx++
+                        if (idx > extra.size * 2) break
+                    }
+                }
+
+                basePool = hardPool
+                fallbackPool = mediumPool
+
+                val questionIds = finalQuestions.map { it.id }
+                roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
+                recordSeenForQuiz(profileId, questionIds)
+
+                android.util.Log.d(
+                    TAG,
+                    "[GRADE_TEST] selectedGrade=$grade, selectedDifficulty=${selectedDifficulty.name}, hardPool=${hardPool.size}, mediumPool=${mediumPool.size}, picked=${finalQuestions.size}"
+                )
+
+                return finalQuestions.shuffled()
             }
-            questions = qList.take(count).shuffled()
+
+            QuizDifficulty.MEDIUM -> {
+                val mediumPool = loadPoolForDifficulty(medInt)
+                val primaryPickCount = minOf(count, mediumPool.size)
+                var questions = if (primaryPickCount > 0) {
+                    picker.pick(mediumPool, primaryPickCount, profileId)
+                } else {
+                    emptyList()
+                }.toMutableList()
+
+                val remaining = count - questions.size
+                val easyPool = loadPoolForDifficulty(easyInt)
+                    .filter { q -> questions.none { it.id == q.id } }
+
+                if (remaining > 0 && easyPool.isNotEmpty() && maxFallbackFromLower > 0) {
+                    val fallbackCount = minOf(remaining, maxFallbackFromLower, easyPool.size)
+                    questions.addAll(easyPool.shuffled().take(fallbackCount))
+                }
+
+                var finalQuestions = questions
+                if (finalQuestions.isEmpty()) {
+                    val unionPool = (mediumPool + easyPool).distinctBy { it.id }
+                    finalQuestions = unionPool.shuffled().take(count).toMutableList()
+                }
+
+                if (finalQuestions.size < count && finalQuestions.isNotEmpty()) {
+                    val allPool = (mediumPool + easyPool).distinctBy { it.id }
+                    val usedIds = finalQuestions.map { it.id }.toMutableSet()
+                    val extra = allPool.filter { it.id !in usedIds }
+                    var idx = 0
+                    while (finalQuestions.size < count && extra.isNotEmpty()) {
+                        finalQuestions.add(extra[idx % extra.size])
+                        usedIds.add(extra[idx % extra.size].id)
+                        idx++
+                        if (idx > extra.size * 2) break
+                    }
+                }
+
+                basePool = mediumPool
+                fallbackPool = easyPool
+
+                val questionIds = finalQuestions.map { it.id }
+                roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
+                recordSeenForQuiz(profileId, questionIds)
+
+                android.util.Log.d(
+                    TAG,
+                    "[GRADE_TEST] selectedGrade=$grade, selectedDifficulty=${selectedDifficulty.name}, mediumPool=${mediumPool.size}, easyPool=${easyPool.size}, picked=${finalQuestions.size}"
+                )
+
+                return finalQuestions.shuffled()
+            }
+
+            QuizDifficulty.EASY -> {
+                val easyPool = loadPoolForDifficulty(easyInt)
+                val pool = if (easyPool.isNotEmpty()) easyPool else roomStore.getQuestionsByGrade(grade)
+                val basePoolEasy = if (pool.isNotEmpty()) pool else getFallbackQuestions().filter { it.grade == grade }.ifEmpty { getFallbackQuestions() }
+
+                val pickCount = minOf(count, basePoolEasy.size).coerceAtLeast(1)
+                var questions = picker.pick(basePoolEasy, pickCount, profileId)
+                if (questions.isEmpty()) {
+                    questions = basePoolEasy.shuffled().take(count)
+                }
+                if (questions.size < count && basePoolEasy.isNotEmpty()) {
+                    val used = questions.map { it.id }.toSet()
+                    val extra = basePoolEasy.filter { it.id !in used }
+                    val qList = questions.toMutableList()
+                    var idx = 0
+                    while (qList.size < count && extra.isNotEmpty()) {
+                        qList.add(extra[idx % extra.size])
+                        idx++
+                        if (idx > extra.size * 2) break
+                    }
+                    questions = qList.take(count).shuffled()
+                }
+
+                basePool = basePoolEasy
+                fallbackPool = emptyList()
+
+                val questionIds = questions.map { it.id }
+                roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
+                recordSeenForQuiz(profileId, questionIds)
+
+                android.util.Log.d(
+                    TAG,
+                    "[GRADE_TEST] selectedGrade=$grade, selectedDifficulty=${selectedDifficulty.name}, easyPool=${basePoolEasy.size}, picked=${questions.size}"
+                )
+
+                return questions
+            }
         }
-        val questionIds = questions.map { it.id }
-        roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
-        recordSeenForQuiz(profileId, questionIds)
-
-        // 5) Debug log: grade, difficulty, çekilen soru sayısı
-        android.util.Log.d(
-            TAG,
-            "[GRADE_TEST] selectedGrade=$grade, selectedDifficulty=${selectedDifficulty.name}, poolSize=${pool.size}, picked=${questions.size}"
-        )
-
-        return questions
     }
 
     /**
