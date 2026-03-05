@@ -62,7 +62,7 @@ class QuestionImportActivity : AppCompatActivity() {
 
     private fun refreshStats() {
         val repo = QuestionRepository(this)
-        val total = repo.loadAllQuestions().size
-        b.tvStats.text = "Toplam soru: $total"
+        val summary = repo.buildQualityDebugSummary()
+        b.tvStats.text = summary
     }
 }

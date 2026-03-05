@@ -131,19 +131,42 @@ class QuestionRepository(private val context: Context) {
         }
     }
 
-    /** Merge and persist imported questions. Returns count of newly added. */
+    /**
+     * Merge and persist imported questions.
+     *
+     * Kalite gate:
+     * - 6–8. sınıf Matematik sorularında, metin çok kısa olup neredeyse sadece sayı/işlem
+     *   karakterlerinden oluşuyorsa "too_simple" olarak işaretlenir ve havuza eklenmez.
+     * - Türkçe kısa tek cümleli sorular import edilir ama kalite raporunda ayrıca sayılır.
+     *
+     * @return Count of newly added questions (after filters).
+     */
     fun mergeImportedQuestions(arr: JSONArray): Int {
         val current = loadFromImported()
         val existingIds = current.map { it.id }.toSet().toMutableSet()
         val toAdd = ArrayList<Question>()
+        var skippedTooSimpleMath = 0
         for (i in 0 until arr.length()) {
             try {
                 val q = parseQuestion(arr.getJSONObject(i))
+
+                // Matematik kalite gate: 6–8. sınıf için aşırı basit, salt işlem sorularını ele.
+                if (isTooSimpleMathQuestion(q)) {
+                    skippedTooSimpleMath++
+                    continue
+                }
+
                 if (q.id !in existingIds) {
                     toAdd.add(q)
                     existingIds.add(q.id)
                 }
             } catch (_: Exception) { }
+        }
+        if (skippedTooSimpleMath > 0) {
+            Log.i(
+                TAG,
+                "mergeImportedQuestions: skipped $skippedTooSimpleMath too-simple math questions (grade 6–8)."
+            )
         }
         if (toAdd.isEmpty()) return 0
         val merged = current + toAdd
@@ -202,6 +225,143 @@ class QuestionRepository(private val context: Context) {
         val parseFailed: Int
     )
 
+    /**
+     * Soru kalite metrikleri – grade+subject bazında dağılım.
+     *
+     * - problemRatio: problem/yorum sorusu oranı
+     * - paragraphRatio: paragraf sorusu oranı
+     * - avgLength: ortalama soru kökü (stem) uzunluğu
+     * - multiStepRatio: çok adımlı olduğu tahmin edilen soru oranı
+     * - simpleMathCount: kalite gate'e takılabilecek kadar basit matematik soru sayısı
+     * - shortTurkceSingleCount: kısa ve tek cümleli Türkçe soru sayısı
+     */
+    data class QualityStats(
+        val grade: Int,
+        val subject: Subject,
+        val total: Int,
+        val problemCount: Int,
+        val paragraphCount: Int,
+        val multiStepCount: Int,
+        val simpleMathCount: Int,
+        val shortTurkceSingleCount: Int,
+        val avgLength: Double
+    ) {
+        val problemRatio: Double get() = if (total > 0) problemCount.toDouble() / total else 0.0
+        val paragraphRatio: Double get() = if (total > 0) paragraphCount.toDouble() / total else 0.0
+        val multiStepRatio: Double get() = if (total > 0) multiStepCount.toDouble() / total else 0.0
+    }
+
+    /** Full report for debug screens – grouped by (grade, subject). */
+    fun computeQualityReport(): List<QualityStats> {
+        val all = loadAllQuestions()
+        if (all.isEmpty()) return emptyList()
+
+        val grouped = all.groupBy { it.grade to it.subject }
+        return grouped.map { (key, questions) ->
+            val (grade, subject) = key
+            var problem = 0
+            var paragraph = 0
+            var multiStep = 0
+            var simpleMath = 0
+            var shortTurkce = 0
+            var totalLen = 0
+
+            questions.forEach { q ->
+                val stem = q.stem
+                totalLen += stem.length
+
+                val isParagraph = isParagraphQuestion(stem)
+                if (isParagraph) paragraph++
+
+                if (subject == Subject.MAT) {
+                    val tooSimple = isTooSimpleMathQuestion(q)
+                    if (tooSimple) {
+                        simpleMath++
+                    }
+                    val isProblemLike = !tooSimple && isMathProblemLike(stem)
+                    if (isProblemLike) problem++
+                } else if (subject == Subject.TURKCE) {
+                    if (isParagraph || isReadingComprehensionLike(stem)) {
+                        problem++
+                    }
+                    if (isShortSingleSentenceTurkish(stem)) {
+                        shortTurkce++
+                    }
+                } else {
+                    if (isContextualProblemLike(stem)) {
+                        problem++
+                    }
+                }
+
+                if (isMultiStepQuestion(stem, subject)) {
+                    multiStep++
+                }
+            }
+
+            QualityStats(
+                grade = grade,
+                subject = subject,
+                total = questions.size,
+                problemCount = problem,
+                paragraphCount = paragraph,
+                multiStepCount = multiStep,
+                simpleMathCount = simpleMath,
+                shortTurkceSingleCount = shortTurkce,
+                avgLength = totalLen.toDouble() / questions.size.coerceAtLeast(1)
+            )
+        }
+    }
+
+    /**
+     * İnsan okunabilir debug özeti.
+     *
+     * Her (grade, subject) kombinasyonu için:
+     * - Problem %
+     * - Paragraf %
+     * - Ortalama uzunluk
+     * - Çok adımlı % tahmini
+     * - Basit matematik / kısa tek cümle Türkçe sayıları
+     */
+    fun buildQualityDebugSummary(): String {
+        val all = loadAllQuestions()
+        if (all.isEmpty()) {
+            return "Toplam soru: 0\n(Havuz boş – JSON/Room içeriği bulunamadı.)"
+        }
+        val report = computeQualityReport()
+        if (report.isEmpty()) {
+            return "Toplam soru: ${all.size}\n(Kalite raporu üretilemedi.)"
+        }
+
+        val sb = StringBuilder()
+        sb.append("Toplam soru: ${all.size}\n")
+        sb.append("Soru tipi dağılımı (grade + ders):\n\n")
+
+        report.sortedWith(
+            compareBy<QualityStats> { it.grade }
+                .thenBy { it.subject.name }
+        ).forEach { st ->
+            val problemPct = (st.problemRatio * 100).toInt()
+            val paragraphPct = (st.paragraphRatio * 100).toInt()
+            val multiPct = (st.multiStepRatio * 100).toInt()
+            val subjectName = st.subject.tr
+
+            sb.append("${st.grade}. sınıf $subjectName  |  toplam=${st.total}")
+            sb.append("  problem=%$problemPct")
+            sb.append("  paragraf=%$paragraphPct")
+            sb.append("  çok_adımlı=%$multiPct")
+
+            if (st.subject == Subject.MAT && st.grade in 6..8) {
+                sb.append("  basit_mat=${st.simpleMathCount}")
+            }
+            if (st.subject == Subject.TURKCE && st.grade in 6..8) {
+                sb.append("  kısa_tek_cümle=${st.shortTurkceSingleCount}")
+            }
+            sb.append("  ort_uzunluk=${st.avgLength.toInt()} ch\n")
+        }
+
+        return sb.toString()
+    }
+
     private fun showFallbackToast() {
         Log.w(TAG, "Soru dosyası bulunamadı veya boş, varsayılan sorular kullanılıyor.")
     }
@@ -259,6 +419,91 @@ class QuestionRepository(private val context: Context) {
         Question(id = "fb39", levelGroup = LevelGroup.GRADE_5_8, subject = Subject.FEN, gradeTag = "6", grade = 6, stem = "Maddenin halleri?", choices = listOf("Katı, sıvı, gaz", "Ateş, su, toprak", "Kök, gövde, yaprak", "Hücre, doku, organ"), correctIndex = 0, hint = "Fiziksel haller", imageAsset = null, difficulty = QuizDifficulty.EASY),
         Question(id = "fb40", levelGroup = LevelGroup.GRADE_5_8, subject = Subject.FEN, gradeTag = "7", grade = 7, stem = "Mıknatıs hangi metali çeker?", choices = listOf("Bakır", "Demir", "Alüminyum", "Altın"), correctIndex = 1, hint = "Demir, nikel, kobalt", imageAsset = null, difficulty = QuizDifficulty.EASY)
     )
+
+    /**
+     * Matematik sorusu için "çok basit, salt işlem" heuristiği.
+     * 6–8. sınıf MAT dışındaki soruları asla elemez.
+     */
+    private fun isTooSimpleMathQuestion(q: Question): Boolean {
+        if (q.subject != Subject.MAT) return false
+        if (q.grade !in 6..8) return false
+        val stem = q.stem
+        val compact = stem
+            .replace("\\s+".toRegex(), "")
+            .replace("[=?]".toRegex(), "")
+        if (compact.length < 5) return true
+        if (compact.length > 20) return false
+        // Harf içeriyorsa, bağlamlı/problem olma ihtimali var, eleme.
+        if (compact.any { it.isLetter() }) return false
+        val allowed = "0123456789+-×xX*/:÷().,%"
+        if (compact.any { it !in allowed }) return false
+        return true
+    }
+
+    /** Uzun ve çok cümleli kökler için "paragraf sorusu" tahmini. */
+    private fun isParagraphQuestion(stem: String): Boolean {
+        if (stem.length < 200) return false
+        val sentences = stem.split(Regex("[.!?]")).map { it.trim() }.filter { it.isNotEmpty() }
+        return sentences.size >= 2
+    }
+
+    /** Matematikte problem-benzeri ifade: bağlam içeren, salt işlem olmayan sorular. */
+    private fun isMathProblemLike(stem: String): Boolean {
+        if (stem.length < 60) return false
+        val lower = stem.lowercase(Locale("tr"))
+        val keywords = listOf(
+            "problemi", "problem", "oran", "yüzde", "grafik", "tablo", "şekilde", "aşağıdaki",
+            "bir okulda", "bir çiftçi", "bir market", "bilet", "sınıfta", "öğrenci", "para", "metre",
+            "dikdörtgen", "üçgen", "daire"
+        )
+        return keywords.any { it in lower }
+    }
+
+    /** Fen/Sosyal gibi derslerde günlük hayat/kavramsal problem tahmini. */
+    private fun isContextualProblemLike(stem: String): Boolean {
+        if (stem.length < 80) return false
+        val lower = stem.lowercase(Locale("tr"))
+        val keywords = listOf(
+            "aşağıdaki", "grafik", "tablo", "deney", "düzeneği", "metne göre",
+            "parçaya göre", "haritaya bakarak", "şekilde", "günlük hayat"
+        )
+        return keywords.any { it in lower }
+    }
+
+    /** Türkçe'de okuduğunu anlama/paragraf benzeri soru tahmini. */
+    private fun isReadingComprehensionLike(stem: String): Boolean {
+        if (stem.length < 150) return false
+        val lower = stem.lowercase(Locale("tr"))
+        val keywords = listOf(
+            "bu parçaya göre", "bu paragrafa göre", "bu metne göre",
+            "ana düşünce", "ana fikir", "yardımcı düşünce", "çıkarılamaz", "anlaşılmaktadır"
+        )
+        return keywords.any { it in lower } || isParagraphQuestion(stem)
+    }
+
+    /** Türkçe, kısa (<200) ve tek cümleli cümle kökü (paragraf olmayan). */
+    private fun isShortSingleSentenceTurkish(stem: String): Boolean {
+        if (stem.length >= 200) return false
+        val sentences = stem.split(Regex("[.!?]")).map { it.trim() }.filter { it.isNotEmpty() }
+        return sentences.size <= 1
+    }
+
+    /** Çok adımlı soru tahmini: birden fazla sayı veya işlem adımı/ifadeleri içeriyorsa. */
+    private fun isMultiStepQuestion(stem: String, subject: Subject): Boolean {
+        val lower = stem.lowercase(Locale("tr"))
+        val numberGroups = Regex("\\d+").findAll(stem).count()
+        val stepKeywords = listOf(
+            "önce", "sonra", "ardından", "daha sonra", "hem", "hem de",
+            "birinci adım", "ikinci adım", "i) ", "ii) ", "iii) "
+        )
+        if (numberGroups >= 3) return true
+        if (stepKeywords.any { it in lower }) return true
+        if (subject == Subject.MAT || subject == Subject.FEN) {
+            val opCount = stem.count { it in "+-×xX*/:÷" }
+            if (opCount >= 2 && numberGroups >= 2) return true
+        }
+        return false
+    }
 
     private fun parseQuestion(o: JSONObject): Question {
         val choicesArr = o.optJSONArray("choices")
