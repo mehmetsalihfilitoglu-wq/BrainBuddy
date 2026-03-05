@@ -9,7 +9,17 @@ import java.nio.charset.Charset
 
 /**
  * Import pipeline for question packs.
- * Target: 500+ questions per subject per exam pack (LGS/TYT/AYT/Junior).
+ *
+ * Hedef havuz mantığı:
+ * - Her sınıf (2–8) × her ders (Matematik, Türkçe, Fen Bilimleri, Sosyal Bilgiler, İngilizce)
+ *   kombinasyonu için en az 500 soru (grade+subject bazında).
+ * - Yani 1 sınıf için toplam ≈ 5 × 500 = 2.500 soru,
+ *   2–8 arası tüm sınıflar için ≈ 7 × 5 × 500 = 17.500 soru (Junior hariç).
+ *
+ * `TARGET_QUESTIONS_PER_SUBJECT` bu minimum hedefi temsil eder; gerçek implementasyon
+ * JSON tarafında her (grade, subject) kombinasyonu için en az 500 soru olacak şekilde
+ * içerik üretmeyi bekler.
+ *
  * Loads from assets JSON; supports multiple files for scalability.
  */
 class QuestionImportRepository(private val context: Context) {
