@@ -99,15 +99,15 @@ class SpacedRepetitionPicker(
                 userId = userId,
                 subject = dbSubject,
                 excludeIds = safeIds(excludeBase),
-                limit = newQuota * 3
-            )
+                limit = (newQuota * 10).coerceAtLeast(50)
+            ).shuffled()
 
             val notRecentlyCorrectIds = historyDao.getNotRecentlyCorrectQuestionIds(
                 userId = userId,
                 subject = dbSubject,
                 excludeIds = safeIds(cooldownIds + excludeBase),
-                limit = newQuota * 3
-            )
+                limit = (newQuota * 10).coerceAtLeast(50)
+            ).shuffled()
 
             val candidateNew = (newIds + notRecentlyCorrectIds)
                 .distinct()

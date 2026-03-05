@@ -56,7 +56,7 @@ interface HistoryDao {
 
     /**
      * New / not in history: questions for subject that have no history row for userId.
-     * Exclude given IDs.
+     * Exclude given IDs. Fetches with LIMIT, caller shuffles in memory (avoids ORDER BY RANDOM()).
      */
     @Query("""
         SELECT q.id FROM questions q
@@ -65,7 +65,7 @@ interface HistoryDao {
           AND q.subject = :subject
           AND h.questionId IS NULL
           AND q.id NOT IN (:excludeIds)
-        ORDER BY RANDOM()
+        ORDER BY q.id
         LIMIT :limit
     """)
     suspend fun getNewQuestionIds(
@@ -79,6 +79,7 @@ interface HistoryDao {
      * Not recently correct: has history but lastResult=WRONG OR lastAnsweredAt old enough.
      * Used when we need to exclude only "recently correct" (cooldown).
      * Caller passes excludeIds = recentlyCorrectIds (filtered by cooldown in Kotlin).
+     * Fetches with LIMIT, caller shuffles in memory (avoids ORDER BY RANDOM()).
      */
     @Query("""
         SELECT q.id FROM questions q
@@ -86,7 +87,7 @@ interface HistoryDao {
         WHERE q.isActive = 1
           AND q.subject = :subject
           AND q.id NOT IN (:excludeIds)
-        ORDER BY RANDOM()
+        ORDER BY q.id
         LIMIT :limit
     """)
     suspend fun getNotRecentlyCorrectQuestionIds(

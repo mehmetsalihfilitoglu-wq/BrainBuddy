@@ -2223,6 +2223,45 @@ class QuestionRepository(private val context: Context) {
         return toReturn
     }
 
+    /**
+     * Fast relaxed picker for timeout fallback. No similarity/type/skill/diversity checks.
+     * Fetch pool with LIMIT, randomize in memory. Target: build < 500ms.
+     */
+    fun pickQuizQuestionsRelaxedByGrade(
+        grade: Int,
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        testId: String? = null
+    ): List<Question> {
+        if (grade !in 2..8) return emptyList()
+        runBlocking { DbSeeder.seedIfNeeded(context) }
+        var pool = roomStore.getQuestionsByGrade(grade)
+        if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
+        if (pool.isEmpty()) pool = getFallbackQuestions()
+        val result = pool.shuffled().distinctBy { it.id }.take(count)
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        roomStore.recordSeenIdsForProfile(profileId, result.map { it.id })
+        return result
+    }
+
+    /**
+     * Fast relaxed picker for level-group mode (timeout fallback).
+     */
+    fun pickQuizQuestionsRelaxed(
+        levelGroup: LevelGroup,
+        count: Int,
+        difficulty: QuizDifficulty,
+        categories: Set<String>,
+        testId: String?
+    ): List<Question> {
+        val global = getGlobalPool()
+        val pool = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
+        val filtered = if (categories.isEmpty()) pool else pool.filter { it.subject.name in categories }
+        val result = (if (filtered.isNotEmpty()) filtered else pool).shuffled().distinctBy { it.id }.take(count)
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        roomStore.recordSeenIdsForProfile(profileId, result.map { it.id })
+        return result
+    }
+
     /** Records seen IDs for pickQuizQuestions per-user variety (avoids repeat across attempts). */
     fun recordSeenForQuiz(profileId: String, questionIds: List<String>) {
         roomStore.recordSeenIdsForProfile(profileId, questionIds)
