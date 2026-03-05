@@ -9,6 +9,7 @@ import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.QuestionEntity
+import com.brainbuddy.app.db.QuestionStemHash
 import com.brainbuddy.app.db.QuestionMapper
 import com.brainbuddy.app.db.RoomQuizDataStore
 import kotlinx.coroutines.runBlocking
@@ -360,10 +361,11 @@ class QuestionRepository(private val context: Context) {
                 Subject.SOSYAL -> "sosyal"
                 Subject.ING -> "ing"
             }
-            val stemHashValue = stemHash(q.stem)
+            val stemNormalizedValue = QuestionStemHash.normalizeStem(q.stem)
+            val stemHashValue = QuestionStemHash.stemHash(q.stem)
             val stemKey = "${q.grade.coerceIn(1, 8)}|$dbSubjectKey|$diffInt|$stemHashValue"
             if (stemKey in existingStemKeys) {
-                // Duplicate of an existing (grade,subject,difficulty,stemHash) – insert as inactive.
+                // Duplicate – insert as inactive; stemHash must be unique, use id suffix.
                 deactivatedCount++
                 return@map QuestionEntity(
                     id = q.id,
@@ -382,7 +384,9 @@ class QuestionRepository(private val context: Context) {
                     examType = q.examType.name,
                     imageAsset = q.imageAsset?.takeIf { it.isNotBlank() },
                     type = q.type,
-                    skill = q.skill
+                    skill = q.skill,
+                    stemNormalized = stemNormalizedValue,
+                    stemHash = "${stemHashValue}:dup:${q.id}"
                 )
             } else {
                 existingStemKeys.add(stemKey)
@@ -404,7 +408,9 @@ class QuestionRepository(private val context: Context) {
                 examType = q.examType.name,
                 imageAsset = q.imageAsset?.takeIf { it.isNotBlank() },
                 type = q.type,
-                skill = q.skill
+                skill = q.skill,
+                stemNormalized = stemNormalizedValue,
+                stemHash = stemHashValue
             )
         }
         roomStore.insertQuestions(toAddEntities)

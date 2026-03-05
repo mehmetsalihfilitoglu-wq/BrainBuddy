@@ -207,62 +207,38 @@ object DbSeeder {
 
     private fun getFallbackEntities(): List<QuestionEntity> {
         return listOf(
-            QuestionEntity(
-                id = "fb1",
-                grade = 6,
-                subject = "mat",
-                difficulty = 1,
-                questionText = "12 × 15 işleminin sonucu kaçtır?",
-                optionsJson = "[\"160\",\"170\",\"180\",\"190\"]",
-                answerIndex = 2,
-                explanation = "12×10=120, 12×5=60",
-                isActive = true,
-                version = 1,
-                examType = "GENERAL",
-                imageAsset = null
-            ),
-            QuestionEntity(
-                id = "fb2",
-                grade = 6,
-                subject = "turkce",
-                difficulty = 1,
-                questionText = "Türkiye'nin başkenti neresidir?",
-                optionsJson = "[\"İstanbul\",\"İzmir\",\"Ankara\",\"Bursa\"]",
-                answerIndex = 2,
-                explanation = "Mustafa Kemal Atatürk'ün kararıyla.",
-                isActive = true,
-                version = 1,
-                examType = "GENERAL",
-                imageAsset = null
-            ),
-            QuestionEntity(
-                id = "fb3",
-                grade = 6,
-                subject = "fen",
-                difficulty = 1,
-                questionText = "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?",
-                optionsJson = "[\"Venüs\",\"Mars\",\"Jüpiter\",\"Satürn\"]",
-                answerIndex = 1,
-                explanation = "Merkür, Venüs, Dünya, Mars...",
-                isActive = true,
-                version = 1,
-                examType = "GENERAL",
-                imageAsset = null
-            ),
-            QuestionEntity(
-                id = "fb4",
-                grade = 6,
-                subject = "ing",
-                difficulty = 1,
-                questionText = "\"Hello\" kelimesinin Türkçe karşılığı nedir?",
-                optionsJson = "[\"Hoşça kal\",\"Merhaba\",\"Teşekkürler\",\"Evet\"]",
-                answerIndex = 1,
-                explanation = "Selamlama sözcüğü.",
-                isActive = true,
-                version = 1,
-                examType = "GENERAL",
-                imageAsset = null
-            )
+            makeFallbackEntity("fb1", 6, "mat", "12 × 15 işleminin sonucu kaçtır?",
+                "[\"160\",\"170\",\"180\",\"190\"]", 2, "12×10=120, 12×5=60"),
+            makeFallbackEntity("fb2", 6, "turkce", "Türkiye'nin başkenti neresidir?",
+                "[\"İstanbul\",\"İzmir\",\"Ankara\",\"Bursa\"]", 2, "Mustafa Kemal Atatürk'ün kararıyla."),
+            makeFallbackEntity("fb3", 6, "fen", "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?",
+                "[\"Venüs\",\"Mars\",\"Jüpiter\",\"Satürn\"]", 1, "Merkür, Venüs, Dünya, Mars..."),
+            makeFallbackEntity("fb4", 6, "ing", "\"Hello\" kelimesinin Türkçe karşılığı nedir?",
+                "[\"Hoşça kal\",\"Merhaba\",\"Teşekkürler\",\"Evet\"]", 1, "Selamlama sözcüğü.")
+        )
+    }
+
+    private fun makeFallbackEntity(
+        id: String, grade: Int, subject: String, questionText: String,
+        optionsJson: String, answerIndex: Int, explanation: String
+    ): QuestionEntity {
+        val stemNorm = QuestionStemHash.normalizeStem(questionText)
+        val hash = QuestionStemHash.stemHash(questionText)
+        return QuestionEntity(
+            id = id,
+            grade = grade,
+            subject = subject,
+            difficulty = 1,
+            questionText = questionText,
+            optionsJson = optionsJson,
+            answerIndex = answerIndex,
+            explanation = explanation,
+            isActive = true,
+            version = 1,
+            examType = "GENERAL",
+            imageAsset = null,
+            stemNormalized = stemNorm,
+            stemHash = hash
         )
     }
 
@@ -402,6 +378,9 @@ object DbSeeder {
         val diversityType = QuestionDiversity.inferType(subjectEnum, questionText)
         val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, questionText)
 
+        val stemNorm = QuestionStemHash.normalizeStem(questionText)
+        val hash = QuestionStemHash.stemHash(questionText)
+
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -419,7 +398,9 @@ object DbSeeder {
             examType = examType,
             imageAsset = imageAsset,
             type = diversityType,
-            skill = diversitySkill
+            skill = diversitySkill,
+            stemNormalized = stemNorm,
+            stemHash = hash
         )
     }
 
@@ -479,6 +460,9 @@ object DbSeeder {
         val diversityType = QuestionDiversity.inferType(subjectEnum, spec.stem)
         val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, spec.stem)
 
+        val stemNorm = QuestionStemHash.normalizeStem(spec.stem)
+        val hash = QuestionStemHash.stemHash(spec.stem)
+
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -496,7 +480,9 @@ object DbSeeder {
             examType = "GENERAL",
             imageAsset = null,
             type = diversityType,
-            skill = diversitySkill
+            skill = diversitySkill,
+            stemNormalized = stemNorm,
+            stemHash = hash
         )
     }
 

@@ -19,7 +19,8 @@ object DatabaseProvider {
                     BrainBuddyDatabase.MIGRATION_12_13,
                     BrainBuddyDatabase.MIGRATION_13_14,
                     BrainBuddyDatabase.MIGRATION_14_15,
-                    BrainBuddyDatabase.MIGRATION_15_16
+                    BrainBuddyDatabase.MIGRATION_15_16,
+                    BrainBuddyDatabase.MIGRATION_16_17
                 )
                 .fallbackToDestructiveMigration()
                 .build().also { instance = it }

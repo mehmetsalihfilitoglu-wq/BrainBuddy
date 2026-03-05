@@ -16,9 +16,11 @@ import androidx.room.PrimaryKey
         Index(value = ["subject"], name = "index_questions_subject"),
         Index(value = ["difficulty"], name = "index_questions_difficulty"),
         Index(value = ["isActive"], name = "index_questions_isActive"),
-        Index(value = ["normalizedStemHash"], name = "index_questions_normalized_stem_hash"),
         Index(value = ["grade", "subject"], name = "index_questions_grade_subject"),
-        Index(value = ["grade", "subject", "difficulty"], name = "index_questions_grade_subject_difficulty")
+        Index(value = ["grade", "subject", "difficulty"], name = "index_questions_grade_subject_difficulty"),
+        Index(value = ["grade", "subject", "difficulty", "isActive"], name = "index_questions_grade_subject_difficulty_active"),
+        Index(value = ["stemHash"], name = "index_questions_stem_hash"),
+        Index(value = ["grade", "subject", "stemHash"], name = "unique_questions_grade_subject_stem_hash", unique = true)
     ]
 )
 data class QuestionEntity(
@@ -32,8 +34,8 @@ data class QuestionEntity(
     val answerIndex: Int,
     val explanation: String? = null,
     val isActive: Boolean = true,
-    val questionType: String? = null,
-    val skillsJson: String? = null,
+    val questionType: String = "UNKNOWN",
+    val skillsJson: String = "[]",
     val deactivationReason: String? = null,
     val version: Int = 1,
     val examType: String? = null,
@@ -42,9 +44,18 @@ data class QuestionEntity(
     val type: String = "UNKNOWN",
     /** Diversity skill/sub-topic, single string label. */
     val skill: String = "UNKNOWN",
-    /** Hash of normalized stem for duplicate detection at scale. */
-    val normalizedStemHash: String = "",
+    /** Normalized stem text (whitespace collapsed, trimmed, lowercased) for hashing. */
+    val stemNormalized: String = "",
+    /** SHA-256 hash of stemNormalized for duplicate detection. */
+    val stemHash: String = "",
     val createdAt: Long = 0,
     /** Source pack identifier (e.g. grade6_mat) for traceability. */
-    val sourcePack: String? = null
+    val sourcePack: String? = null,
+    /** Source medium: "pdf", "json", "api", etc. */
+    val source: String? = null,
+    /** Reference within source: e.g. "doc.pdf p.42". */
+    val sourceRef: String? = null,
+    val publisher: String? = null,
+    val year: Int? = null,
+    val topic: String? = null
 )
