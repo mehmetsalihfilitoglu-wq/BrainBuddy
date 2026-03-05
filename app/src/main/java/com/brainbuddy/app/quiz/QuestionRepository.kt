@@ -808,16 +808,16 @@ class QuestionRepository(private val context: Context) {
         val correctAnswer = choices.getOrNull(correctIdx) ?: ""
         // Grade belirleme:
         // 1) JSON'da "grade" alanı varsa ve 2..8 içindeyse doğrudan kullan
-        // 2) Yoksa veya geçersizse "gradeTag" / "grade_level" gibi string alanlardan parse et
+        // 2) Yoksa veya geçersizse "gradeTag" / "grade_tag" gibi string alanlardan parse et
         // 3) Hâlâ parse edilemiyorsa soruyu discard etmek için exception fırlat
-        val gradeTagRaw = o.optString("gradeTag", o.optString("grade_level", ""))
+        val gradeTag = o.optString("gradeTag", o.optString("grade_tag", ""))
         val grade = run {
             val fromGradeField = o.optInt("grade", 0).takeIf { it in 2..8 }
             if (fromGradeField != null) {
                 fromGradeField
             } else {
-                val parsed = gradeTagRaw.toIntOrNull()?.coerceIn(2, 8)
-                parsed ?: throw IllegalArgumentException("Invalid grade in question JSON (grade/gradeTag/grade_level)")
+                val parsed = gradeTag.toIntOrNull()?.coerceIn(2, 8)
+                parsed ?: throw IllegalArgumentException("Invalid grade in question JSON (grade/gradeTag/grade_tag)")
             }
         }
         val rawId = o.optString("id", "")
