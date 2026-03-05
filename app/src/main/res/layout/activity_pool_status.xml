@@ -46,9 +46,45 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:textColor="@color/bb_text"
-                    android:typeface="monospace" />
+                    android:fontFamily="monospace" />
+
+                <!-- Fix butonları sadece DEBUG build'de görünür (visibility Activity'de ayarlanır) -->
+                <LinearLayout
+                    android:id="@+id/layoutDebugFixButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Debug Fix (sadece DEBUG build)"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text_muted" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFixInvalidGrades"
+                        style="@style/BBButtonAlt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Geçersiz grade → seçili sınıfa çek"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnFixDifficultyOutOfRange"
+                        style="@style/BBButtonAlt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Zorluk aralık dışı düzelt (0–2)"
+                        android:textAllCaps="false" />
+                </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>

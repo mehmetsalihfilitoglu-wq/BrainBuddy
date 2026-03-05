@@ -1,16 +1,25 @@
 package com.brainbuddy.app.ui
 
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.ParentAccessGuard
+import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * Pool Status (Admin/Debug) – soru havuzu durumu.
+ * Fix butonları sadece DEBUG build'de görünür.
+ */
 class PoolStatusActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,53 +34,128 @@ class PoolStatusActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.pool_status_title)
         toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
+        val layoutDebugFix = findViewById<View>(R.id.layoutDebugFixButtons)
+        layoutDebugFix.visibility = if (BuildConfig.DEBUG) View.VISIBLE else View.GONE
+
+        setupFixButtons()
         renderStatus()
+    }
+
+    private fun setupFixButtons() {
+        if (!BuildConfig.DEBUG) return
+
+        val gradePrefs = GradePrefs(this)
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnFixInvalidGrades)
+            .setOnClickListener {
+                val target = gradePrefs.getSelectedGrade()
+                if (target !in 2..8) {
+                    Toast.makeText(this, "Önce 2–8 arası sınıf seçin (Test Ayarları).", Toast.LENGTH_LONG).show()
+                    return@setOnClickListener
+                }
+                lifecycleScope.launch {
+                    val updated = withContext(Dispatchers.IO) {
+                        val db = DatabaseProvider.get(this@PoolStatusActivity)
+                        db.questionDao().fixInvalidGrades(target)
+                    }
+                    Toast.makeText(this@PoolStatusActivity, "$updated soru $target. sınıfa taşındı.", Toast.LENGTH_SHORT).show()
+                    renderStatus()
+                }
+            }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnFixDifficultyOutOfRange)
+            .setOnClickListener {
+                lifecycleScope.launch {
+                    val (low, high) = withContext(Dispatchers.IO) {
+                        val db = DatabaseProvider.get(this@PoolStatusActivity)
+                        val dao = db.questionDao()
+                        val lowCount = dao.fixDifficultyTooLow()
+                        val highCount = dao.fixDifficultyTooHigh()
+                        lowCount to highCount
+                    }
+                    val msg = when {
+                        low + high == 0 -> "Zaten hepsi aralıkta."
+                        else -> "Düzeltildi: $low (çok düşük) + $high (çok yüksek)."
+                    }
+                    Toast.makeText(this@PoolStatusActivity, msg, Toast.LENGTH_SHORT).show()
+                    renderStatus()
+                }
+            }
     }
 
     private fun renderStatus() {
         val tv = findViewById<TextView>(R.id.tvPoolStatus)
+        val gradePrefs = GradePrefs(this)
+        val quizPrefs = QuizPrefs(this)
+        val selectedGrade = gradePrefs.getSelectedGrade()
+        val difficulty = quizPrefs.difficulty()
+
         lifecycleScope.launch {
             val summary = withContext(Dispatchers.IO) {
                 val db = DatabaseProvider.get(this@PoolStatusActivity)
                 val dao = db.questionDao()
-                val grade = 6
-                val subjects = listOf(
-                    "mat" to "Matematik",
-                    "turkce" to "Türkçe",
-                    "fen" to "Fen Bilimleri",
-                    "sosyal" to "Sosyal Bilgiler",
-                    "ing" to "İngilizce"
-                )
-                val difficultyLabels = mapOf(
-                    0 to getString(R.string.pool_status_diff_easy),
-                    1 to getString(R.string.pool_status_diff_medium),
-                    2 to getString(R.string.pool_status_diff_hard)
-                )
+
+                val total = dao.countAll()
+                val active = dao.countAllActive()
+                val invalidGrades = dao.countInvalidGrades()
+                val diffOutOfRange = dao.countDifficultyOutOfRange()
+                val duplicates = dao.getTopDuplicateStemHashes()
+                val activeByGradeSubjectDiff = dao.getActiveCountsByGradeSubjectDifficulty()
 
                 val sb = StringBuilder()
-                sb.append(getString(R.string.pool_status_header, grade)).append("\n\n")
 
-                for ((key, name) in subjects) {
-                    sb.append(name).append("\n")
-                    for (diff in 0..2) {
-                        val total = dao.countByGradeSubjectDifficulty(grade, key, diff)
-                        val active = dao.countActiveByGradeSubjectDifficulty(grade, key, diff)
-                        val label = difficultyLabels[diff] ?: "d=$diff"
-                        sb.append("  ")
-                            .append(label)
-                            .append(": ")
-                            .append("TOTAL=")
-                            .append(total)
-                            .append(" / ACTIVE=")
-                            .append(active)
-                            .append("\n")
-                    }
-                    sb.append("\n")
+                // 1) TOTAL / ACTIVE
+                sb.append("TOTAL / ACTIVE\n")
+                sb.append("$total / $active\n\n")
+
+                // 2) Grade dağılımı (2..8)
+                sb.append("Grade dağılımı (2..8):\n")
+                for (g in 2..8) {
+                    val gTotal = dao.countByGradeOnly(g)
+                    val gActive = dao.countActiveByGradeOnly(g)
+                    sb.append("  grade=$g total/active: $gTotal / $gActive\n")
                 }
+                if (invalidGrades > 0) {
+                    sb.append("  ⚠ Geçersiz grade (0,1,9+): $invalidGrades\n")
+                }
+                sb.append("\n")
+
+                // 3) grade+subject+diff ACTIVE sayıları
+                sb.append("grade+subject+diff ACTIVE:\n")
+                val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
+                for (g in 2..8) {
+                    val subjRows = activeByGradeSubjectDiff.filter { it.grade == g }.groupBy { it.subject }
+                    val line = subjects.joinToString("  ") { subj ->
+                        val diffs = subjRows[subj].orEmpty()
+                        val e = diffs.firstOrNull { it.difficulty == 0 }?.count ?: 0
+                        val m = diffs.firstOrNull { it.difficulty == 1 }?.count ?: 0
+                        val h = diffs.firstOrNull { it.difficulty == 2 }?.count ?: 0
+                        "$subj(E=$e M=$m H=$h)"
+                    }
+                    sb.append("  grade=$g: $line\n")
+                }
+                sb.append("\n")
+
+                // 4) Seçili sınıf
+                sb.append("Seçili sınıf: $selectedGrade, zorluk: ${difficulty.name}\n\n")
+
+                // 5) Zorluk aralık dışı
+                if (diffOutOfRange > 0) {
+                    sb.append("⚠ Zorluk aralık dışı (0–2 dışı): $diffOutOfRange soru\n\n")
+                }
+
+                // 6) TOP 20 duplicate stemHash
+                sb.append("TOP 20 duplicate stemHash (aynı grade+subject içinde):\n")
+                if (duplicates.isEmpty()) {
+                    sb.append("  (yok)\n")
+                } else {
+                    duplicates.forEachIndexed { i, row ->
+                        sb.append("  ${i + 1}. grade=${row.grade} ${row.subject} hash=${row.stemHash.take(12)}… cnt=${row.cnt}\n")
+                    }
+                }
+
                 sb.toString().trimEnd()
             }
             tv.text = summary
         }
     }
 }
-

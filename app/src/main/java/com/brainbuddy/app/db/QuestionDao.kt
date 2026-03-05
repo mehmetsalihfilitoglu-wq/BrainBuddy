@@ -22,6 +22,14 @@ data class GradeSubjectDifficultyCount(
     val count: Int
 )
 
+/** Pool Status: Aynı grade+subject içinde en çok tekrar eden stemHash. */
+data class DuplicateStemHashRow(
+    val grade: Int,
+    val subject: String,
+    val stemHash: String,
+    val cnt: Int
+)
+
 @Dao
 interface QuestionDao {
 
@@ -130,6 +138,32 @@ interface QuestionDao {
 
     @Query("UPDATE questions SET difficulty=2 WHERE difficulty>2")
     suspend fun clampDifficulty()
+
+    /** Zorluk aralığı dışındaki soru sayısı (0-2 dışı). */
+    @Query("SELECT COUNT(*) FROM questions WHERE difficulty < 0 OR difficulty > 2")
+    suspend fun countDifficultyOutOfRange(): Int
+
+    /** difficulty < 0 olanları 0 yap. */
+    @Query("UPDATE questions SET difficulty = 0 WHERE difficulty < 0")
+    suspend fun fixDifficultyTooLow(): Int
+
+    /** difficulty > 2 olanları 2 yap. */
+    @Query("UPDATE questions SET difficulty = 2 WHERE difficulty > 2")
+    suspend fun fixDifficultyTooHigh(): Int
+
+    /** Aynı grade+subject içinde en çok tekrar eden 20 stemHash (ACTIVE). */
+    @Query(
+        """
+        SELECT grade, subject, stemHash, COUNT(*) AS cnt
+        FROM questions
+        WHERE isActive = 1 AND grade BETWEEN 2 AND 8
+        GROUP BY grade, subject, stemHash
+        HAVING cnt > 1
+        ORDER BY cnt DESC
+        LIMIT 20
+        """
+    )
+    suspend fun getTopDuplicateStemHashes(): List<DuplicateStemHashRow>
 
     /** Tüm soru tablosunu sil – DEBUG/RESET için kullanılır. */
     @Query("DELETE FROM questions")
