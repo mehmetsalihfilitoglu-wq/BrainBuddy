@@ -34,6 +34,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <!-- Debug header: only populated in debug builds -->
+        <TextView
+            android:id="@+id/debugInfoText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="11sp"
+            android:textColor="@android:color/white"
+            android:alpha="0.8"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/subjectChip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <ImageView
             android:id="@+id/questionImage"
             android:layout_width="0dp"
@@ -41,7 +55,7 @@
             android:layout_marginTop="16dp"
             android:scaleType="fitCenter"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/subjectChip"
+            app:layout_constraintTop_toBottomOf="@id/debugInfoText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

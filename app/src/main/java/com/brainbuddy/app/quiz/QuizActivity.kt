@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.brainbuddy.app.R
+import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.LastTestUnlockStore
 import com.brainbuddy.app.core.PremiumStore
@@ -56,6 +57,10 @@ class QuizActivity : AppCompatActivity() {
 
     private val answers = mutableMapOf<String, Int>()
     private var isFinishing = false
+
+    // Debug-only diagnostics (grade mode)
+    private var poolDebug: QuestionRepository.PoolDebugForGrade? = null
+    private var debugWrongUsed: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -181,7 +186,7 @@ class QuizActivity : AppCompatActivity() {
         val effectiveGrade = if (isGradeMode && gradePrefs.hasGradeSelected()) selectedGrade else 0
 
         // Quiz oluşturulmadan hemen önce DB havuz teşhisi (grade/difficulty bazında COUNT'lar).
-        val poolDebug: QuestionRepository.PoolDebugForGrade? = if (effectiveGrade in 2..8) {
+        poolDebug = if (effectiveGrade in 2..8) {
             try {
                 repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
             } catch (_: Exception) {
@@ -189,6 +194,7 @@ class QuizActivity : AppCompatActivity() {
             }
         } else null
 
+        debugWrongUsed = 0
         questions = when {
             isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
@@ -220,15 +226,43 @@ class QuizActivity : AppCompatActivity() {
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 val found = wrongIds.mapNotNull { all[it] }
-                if (found.size < targetCount) {
-                    if (effectiveGrade in 2..8) repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
-                    else repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
-                } else found.shuffled().take(targetCount)
+                val preferredWrongIds = found.map { it.id }.toSet()
+                if (effectiveGrade in 2..8) {
+                    val picked = repo.pickQuizQuestionsByGrade(
+                        effectiveGrade,
+                        targetCount,
+                        quizId,
+                        preferredWrongIds = preferredWrongIds
+                    )
+                    debugWrongUsed = picked.count { it.id in preferredWrongIds }
+                    picked
+                } else {
+                    // Non-grade mode: fall back to adaptive picker, cap wrong repeats via picker itself.
+                    val base = if (found.isNotEmpty()) found.shuffled().take(targetCount) else emptyList()
+                    if (base.size < targetCount) {
+                        repo.pickQuizQuestions(
+                            levelGroup,
+                            targetCount,
+                            quizPrefs.difficulty(),
+                            quizPrefs.selectedCategories(),
+                            quizId
+                        )
+                    } else {
+                        base
+                    }
+                }
             }
             retryWrongMode -> if (effectiveGrade in 2..8) {
                 val wrong = repo.pickRetryWrongQuestionsByGrade(effectiveGrade)
-                if (wrong.size < targetCount) repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
-                else wrong.shuffled().take(targetCount)
+                val preferredWrongIds = wrong.map { it.id }.toSet()
+                val picked = repo.pickQuizQuestionsByGrade(
+                    effectiveGrade,
+                    targetCount,
+                    quizId,
+                    preferredWrongIds = preferredWrongIds
+                )
+                debugWrongUsed = picked.count { it.id in preferredWrongIds }
+                picked
             } else {
                 val wrong = repo.pickRetryWrongQuestions(levelGroup)
                 if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
@@ -408,6 +442,29 @@ class QuizActivity : AppCompatActivity() {
         if (questions.isEmpty()) return
         index = index.coerceIn(0, questions.size - 1)
         val q = questions[index]
+
+        // Debug header: only show in debug builds and when we have pool diagnostics
+        if (BuildConfig.DEBUG) {
+            val effectiveGrade = q.grade
+            val selectedDifficulty = quizPrefs.difficulty()
+            val debug = poolDebug
+            if (debug != null && effectiveGrade in 2..8) {
+                val subjectsOrder = listOf("mat" to "MAT", "turkce" to "TURKCE", "fen" to "FEN", "sosyal" to "SOSYAL", "ing" to "ING")
+                val countsLine = subjectsOrder.joinToString("  ") { (key, label) ->
+                    val c = debug.perSubject[key]
+                    val available = c?.activeDiff ?: 0
+                    "$label=$available"
+                }
+                val wrongUsedText = "$debugWrongUsed/${QuestionRepository.MIN_QUESTIONS_PER_TEST}"
+                val header = "grade=$effectiveGrade • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText"
+                b.debugInfoText.visibility = View.VISIBLE
+                b.debugInfoText.text = header
+            } else {
+                b.debugInfoText.visibility = View.GONE
+            }
+        } else {
+            b.debugInfoText.visibility = View.GONE
+        }
 
         b.progressText.text = "${index + 1}/${questions.size}"
         b.subjectChip.text = "${q.subject.tr} • ${q.gradeTag}"

@@ -872,11 +872,16 @@ class QuestionRepository(private val context: Context) {
      * - isActive = 1
      * - recentQuestionIds (last 100) öncelikle hariç tutulur, gerekirse kullanılır.
      * - Eğer bir derste 4 soru yoksa, kalan slotlar en geniş havuza sahip diğer derslerden doldurulur.
+     * - Aynı testte aynı soru ID'si asla tekrar etmez (mutableSet usedIds ile zorlanır).
+     * - preferredWrongIds parametresi verilirse, bu ID'ler maksimum maxWrongFraction oranında (örn. 0.3 = %30)
+     *   ve ders kotasını (4) bozmadan tercih edilir.
      */
     fun pickQuizQuestionsByGrade(
         grade: Int,
         count: Int = MIN_QUESTIONS_PER_TEST,
-        testId: String? = null
+        testId: String? = null,
+        preferredWrongIds: Set<String> = emptySet(),
+        maxWrongFraction: Double = 0.3
     ): List<Question> {
         if (grade !in 2..8) return emptyList()
         runBlocking { DbSeeder.seedIfNeeded(context) }
@@ -902,6 +907,9 @@ class QuestionRepository(private val context: Context) {
         )
         val targetPerSubject = 4
         val effectiveCount = count.coerceAtMost(MIN_QUESTIONS_PER_TEST).coerceAtLeast(MIN_QUESTIONS_PER_TEST)
+        val maxWrongCount = if (effectiveCount > 0 && maxWrongFraction > 0.0) {
+            kotlin.math.floor(effectiveCount * maxWrongFraction).toInt().coerceAtLeast(0)
+        } else 0
 
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
@@ -941,22 +949,61 @@ class QuestionRepository(private val context: Context) {
         val selectedPerSubject: MutableMap<Subject, MutableList<Question>> = mutableMapOf()
         subjectOrder.forEach { (s, _) -> selectedPerSubject[s] = mutableListOf() }
 
-        // 2) Her ders için önce "recent" dışı sorulardan 4'e kadar seç.
-        subjectOrder.forEach { (subjEnum, _) ->
+        var wrongUsedCount = 0
+
+        fun pickForSubject(
+            subjEnum: Subject,
+            targetForSubject: Int
+        ) {
+            if (targetForSubject <= 0) return
             val all = (perSubjectAll[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
-            if (all.isEmpty()) return@forEach
+            if (all.isEmpty()) return
 
             val nonRecent = all.filter { it.id !in recentIds }
             val recent = all.filter { it.id in recentIds }
 
-            val primary = pickFromPool(nonRecent, targetPerSubject, usedIds)
-            selectedPerSubject[subjEnum]?.addAll(primary)
+            fun pickFromPartition(partition: List<Question>) {
+                if (partition.isEmpty()) return
+                val remainingForSubject = targetForSubject - (selectedPerSubject[subjEnum]?.size ?: 0)
+                if (remainingForSubject <= 0) return
 
-            val remaining = targetPerSubject - primary.size
-            if (remaining > 0 && recent.isNotEmpty()) {
-                val fallback = pickFromPool(recent, remaining, usedIds)
-                selectedPerSubject[subjEnum]?.addAll(fallback)
+                val wrongCandidates = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
+                    partition.filter { it.id in preferredWrongIds }
+                } else emptyList()
+                val normalCandidates = if (wrongCandidates.isEmpty()) {
+                    partition
+                } else {
+                    partition.filter { it.id !in preferredWrongIds }
+                }
+
+                if (wrongCandidates.isNotEmpty() && wrongUsedCount < maxWrongCount) {
+                    val canTakeWrong = minOf(
+                        remainingForSubject,
+                        maxWrongCount - wrongUsedCount
+                    )
+                    val pickedWrong = pickFromPool(wrongCandidates, canTakeWrong, usedIds)
+                    if (pickedWrong.isNotEmpty()) {
+                        selectedPerSubject[subjEnum]?.addAll(pickedWrong)
+                        wrongUsedCount += pickedWrong.size
+                    }
+                }
+
+                val remainingAfterWrong = targetForSubject - (selectedPerSubject[subjEnum]?.size ?: 0)
+                if (remainingAfterWrong > 0 && normalCandidates.isNotEmpty()) {
+                    val pickedNormal = pickFromPool(normalCandidates, remainingAfterWrong, usedIds)
+                    if (pickedNormal.isNotEmpty()) {
+                        selectedPerSubject[subjEnum]?.addAll(pickedNormal)
+                    }
+                }
             }
+
+            pickFromPartition(nonRecent)
+            pickFromPartition(recent)
+        }
+
+        // 2) Her ders için önce "recent" dışı sorulardan 4'e kadar seç (wrong soruları kota + %30 sınırı ile öne al).
+        subjectOrder.forEach { (subjEnum, _) ->
+            pickForSubject(subjEnum, targetPerSubject)
         }
 
         var selected = selectedPerSubject.values.flatten().toMutableList()
@@ -979,53 +1026,94 @@ class QuestionRepository(private val context: Context) {
                 val nonRecent = poolAll.filter { it.id !in recentIds }
                 val recent = poolAll.filter { it.id in recentIds }
 
-                val extraNonRecent = pickFromPool(nonRecent, remainingSlots, usedIds)
-                if (extraNonRecent.isNotEmpty()) {
-                    selectedPerSubject[subj]?.addAll(extraNonRecent)
-                    selected.addAll(extraNonRecent)
-                    remainingSlots = effectiveCount - selected.size
-                }
-                if (remainingSlots <= 0) break
+                fun pickExtraFromPartition(partition: List<Question>) {
+                    if (partition.isEmpty() || remainingSlots <= 0) return
 
-                val extraRecent = pickFromPool(recent, remainingSlots, usedIds)
-                if (extraRecent.isNotEmpty()) {
-                    selectedPerSubject[subj]?.addAll(extraRecent)
-                    selected.addAll(extraRecent)
-                    remainingSlots = effectiveCount - selected.size
+                    val wrongCandidates = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
+                        partition.filter { it.id in preferredWrongIds }
+                    } else emptyList()
+                    val normalCandidates = if (wrongCandidates.isEmpty()) {
+                        partition
+                    } else {
+                        partition.filter { it.id !in preferredWrongIds }
+                    }
+
+                    if (wrongCandidates.isNotEmpty() && wrongUsedCount < maxWrongCount) {
+                        val canTakeWrong = minOf(
+                            remainingSlots,
+                            maxWrongCount - wrongUsedCount
+                        )
+                        val extraWrong = pickFromPool(wrongCandidates, canTakeWrong, usedIds)
+                        if (extraWrong.isNotEmpty()) {
+                            selectedPerSubject[subj]?.addAll(extraWrong)
+                            selected.addAll(extraWrong)
+                            wrongUsedCount += extraWrong.size
+                            remainingSlots = effectiveCount - selected.size
+                        }
+                    }
+
+                    if (remainingSlots > 0 && normalCandidates.isNotEmpty()) {
+                        val extraNormal = pickFromPool(normalCandidates, remainingSlots, usedIds)
+                        if (extraNormal.isNotEmpty()) {
+                            selectedPerSubject[subj]?.addAll(extraNormal)
+                            selected.addAll(extraNormal)
+                            remainingSlots = effectiveCount - selected.size
+                        }
+                    }
                 }
+
+                pickExtraFromPartition(nonRecent)
+                pickExtraFromPartition(recent)
             }
         }
 
-        // 4) Hâlâ yeterli soru yoksa, önce grade-only, sonra fallback havuzu kullan.
+        // 4) Hâlâ yeterli soru yoksa, önce grade-only, sonra fallback havuzu kullan – yine unique ID zorunlu.
         if (selected.isEmpty()) {
             var pool = roomStore.getQuestionsByGrade(grade)
             if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
             if (pool.isEmpty()) pool = getFallbackQuestions()
-            selected = pool.shuffled().take(effectiveCount).toMutableList()
+
+            val extraUsed = mutableSetOf<String>()
+            val uniqueFromPool = mutableListOf<Question>()
+            for (q in pool.shuffled()) {
+                if (uniqueFromPool.size >= effectiveCount) break
+                if (q.id in extraUsed) continue
+                extraUsed.add(q.id)
+                uniqueFromPool.add(q)
+            }
+            selected = uniqueFromPool
         } else if (selected.size < effectiveCount) {
-            // Elimizdeki havuzdan tekrar kullanarak doldur (duplicate olabilir ama quiz boş kalmaz).
-            val base = selected.toList()
-            var idx = 0
-            while (selected.size < effectiveCount && base.isNotEmpty()) {
-                selected.add(base[idx % base.size])
-                idx++
-                if (idx > base.size * 2) break
+            val used = selected.map { it.id }.toMutableSet()
+            val extraSources = mutableListOf<List<Question>>()
+            extraSources += roomStore.getQuestionsByGrade(grade)
+            extraSources += getFallbackQuestions().filter { it.grade == grade }
+            extraSources += getFallbackQuestions()
+
+            for (source in extraSources) {
+                if (selected.size >= effectiveCount) break
+                for (q in source.shuffled()) {
+                    if (selected.size >= effectiveCount) break
+                    if (q.id in used) continue
+                    used.add(q.id)
+                    selected.add(q)
+                }
             }
         }
 
-        val finalQuestions = selected.take(effectiveCount).shuffled()
+        val finalQuestions = selected.distinctBy { it.id }.take(effectiveCount).shuffled()
 
         // Test snapshot + tekrarları engellemek için kayıt.
         val questionIds = finalQuestions.map { it.id }
         roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
         recordSeenForQuiz(profileId, questionIds)
 
-        // Per-subject debug özeti: havuz ve seçilen soru sayıları.
+        // Per-subject debug özeti: havuz ve seçilen soru sayıları + wrongUsed sayısı.
         val selectionDebug = StringBuilder().apply {
             append("[GRADE_TEST] selectedGrade=").append(grade)
             append(", selectedDifficulty=").append(selectedDifficulty.name)
             append(", recentCount=").append(recentIds.size)
             append(", totalPicked=").append(finalQuestions.size)
+            append(", wrongUsed=").append(wrongUsedCount).append("/").append(effectiveCount)
             subjectOrder.forEach { (subjEnum, dbKey) ->
                 val totalForDiff = perSubjectTotalForDiff[subjEnum] ?: 0
                 val nonRecentAvail = perSubjectNonRecentAvailable[subjEnum] ?: 0
@@ -1076,24 +1164,37 @@ class QuestionRepository(private val context: Context) {
 
         if (questions.isEmpty()) {
             Log.i(TAG, "Adaptive picker returned empty, fallback to shuffled pool")
-            questions = finalPool.shuffled().take(count)
+            val unique = mutableListOf<Question>()
+            val used = mutableSetOf<String>()
+            for (q in finalPool.shuffled()) {
+                if (unique.size >= count) break
+                if (q.id in used) continue
+                used.add(q.id)
+                unique.add(q)
+            }
+            questions = unique
         }
         if (questions.size < count && finalPool.isNotEmpty()) {
-            val used = questions.map { it.id }.toSet()
-            val extra = finalPool.filter { it.id !in used }
-            val qList = questions.toMutableList()
-            var idx = 0
-            while (qList.size < count && extra.isNotEmpty()) {
-                qList.add(extra[idx % extra.size])
-                idx++
+            val used = questions.map { it.id }.toMutableSet()
+            val extraSources = listOf(finalPool, getFallbackQuestions())
+            val filled = questions.toMutableList()
+            for (source in extraSources) {
+                if (filled.size >= count) break
+                for (q in source.shuffled()) {
+                    if (filled.size >= count) break
+                    if (q.id in used) continue
+                    used.add(q.id)
+                    filled.add(q)
+                }
             }
-            questions = qList.take(count).shuffled()
+            questions = filled
         }
 
-        val questionIds = questions.map { it.id }
+        val finalUnique = questions.distinctBy { it.id }.take(count)
+        val questionIds = finalUnique.map { it.id }
         roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
         recordSeenForQuiz(profileId, questionIds)
-        return questions
+        return finalUnique
     }
 
     data class FilterStats(
@@ -1167,18 +1268,27 @@ class QuestionRepository(private val context: Context) {
             if (result.size >= count) break
             if (q.id !in used) { result.add(q); used.add(q.id) }
         }
-        var finalList = result.ifEmpty { pool.shuffled().take(count) }.toMutableList()
+        var finalList = result.ifEmpty {
+            val unique = mutableListOf<Question>()
+            val used = mutableSetOf<String>()
+            for (q in pool.shuffled()) {
+                if (unique.size >= count) break
+                if (q.id in used) continue
+                used.add(q.id)
+                unique.add(q)
+            }
+            unique
+        }.toMutableList()
         if (finalList.size < count && pool.isNotEmpty()) {
-            val usedIds = finalList.map { it.id }.toSet().toMutableSet()
-            var idx = 0
-            while (finalList.size < count) {
-                val q = pool[idx % pool.size]
-                if (q.id !in usedIds) { finalList.add(q); usedIds.add(q.id) }
-                idx++
-                if (idx > pool.size * 2) break
+            val usedIds = finalList.map { it.id }.toMutableSet()
+            for (q in pool.shuffled()) {
+                if (finalList.size >= count) break
+                if (q.id in usedIds) continue
+                usedIds.add(q.id)
+                finalList.add(q)
             }
         }
-        val toReturn = finalList.shuffled()
+        val toReturn = finalList.distinctBy { it.id }.take(count).shuffled()
         roomStore.recordSeenIdsForProfile(profileId, toReturn.map { it.id })
         return toReturn
     }
@@ -1192,16 +1302,23 @@ class QuestionRepository(private val context: Context) {
         if (pool.isEmpty()) pool = getFallbackQuestions()
         val hardPool = pool.filter { it.difficulty == QuizDifficulty.HARD }
         val base = if (hardPool.isNotEmpty()) hardPool else pool
-        val result = base.shuffled().take(count).toMutableList()
+        val result = mutableListOf<Question>()
+        val used = mutableSetOf<String>()
+        for (q in base.shuffled()) {
+            if (result.size >= count) break
+            if (q.id in used) continue
+            used.add(q.id)
+            result.add(q)
+        }
         if (result.size < count && pool.isNotEmpty()) {
-            val shuffled = pool.shuffled()
-            var idx = 0
-            while (result.size < count) {
-                result.add(shuffled[idx % shuffled.size])
-                idx++
+            for (q in pool.shuffled()) {
+                if (result.size >= count) break
+                if (q.id in used) continue
+                used.add(q.id)
+                result.add(q)
             }
         }
-        return result.shuffled()
+        return result.distinctBy { it.id }.take(count).shuffled()
     }
 
     /** Remedial questions - sadece grade filtresi ile. */
@@ -1351,41 +1468,43 @@ class QuestionRepository(private val context: Context) {
         val used = mutableSetOf<String>()
         for (q in preferWrong) {
             if (result.size >= count) break
-            if (q.id !in used) {
-                result.add(q)
-                used.add(q.id)
-            }
+            if (q.id in used) continue
+            used.add(q.id)
+            result.add(q)
         }
         for (q in preferFresh) {
             if (result.size >= count) break
-            if (q.id !in used) {
-                result.add(q)
-                used.add(q.id)
-            }
+            if (q.id in used) continue
+            used.add(q.id)
+            result.add(q)
         }
         for (q in fillFrom) {
             if (result.size >= count) break
-            if (q.id !in used) {
-                result.add(q)
-                used.add(q.id)
-            }
+            if (q.id in used) continue
+            used.add(q.id)
+            result.add(q)
         }
-        var finalList = result.ifEmpty { pool.shuffled().take(count) }.toMutableList()
+        var finalList = result.ifEmpty {
+            val unique = mutableListOf<Question>()
+            val extraUsed = mutableSetOf<String>()
+            for (q in pool.shuffled()) {
+                if (unique.size >= count) break
+                if (q.id in extraUsed) continue
+                extraUsed.add(q.id)
+                unique.add(q)
+            }
+            unique
+        }.toMutableList()
         if (finalList.size < count && pool.isNotEmpty()) {
-            val usedIds = finalList.map { it.id }.toSet().toMutableSet()
-            val shuffled = pool.shuffled()
-            var idx = 0
-            while (finalList.size < count && shuffled.isNotEmpty()) {
-                val q = shuffled[idx % shuffled.size]
-                if (q.id !in usedIds) {
-                    finalList.add(q)
-                    usedIds.add(q.id)
-                }
-                idx++
-                if (idx > shuffled.size * 2) break
+            val usedIds = finalList.map { it.id }.toMutableSet()
+            for (q in pool.shuffled()) {
+                if (finalList.size >= count) break
+                if (q.id in usedIds) continue
+                usedIds.add(q.id)
+                finalList.add(q)
             }
         }
-        val toReturn = finalList.shuffled()
+        val toReturn = finalList.distinctBy { it.id }.take(count).shuffled()
         roomStore.recordSeenIdsForProfile(profileId, toReturn.map { it.id })
         return toReturn
     }
