@@ -1113,10 +1113,31 @@ class QuestionRepository(private val context: Context) {
         maxWrongFraction: Double = 0.3
     ): List<Question> {
         if (grade !in 2..8) return emptyList()
+        return runBlocking(Dispatchers.IO) {
+            pickQuizQuestionsByGradeInternal(
+                grade = grade,
+                count = count,
+                testId = testId,
+                preferredWrongIds = preferredWrongIds,
+                maxWrongFraction = maxWrongFraction
+            )
+        }
+    }
+
+    /**
+     * Runs on Dispatchers.IO. Fetches one candidate pool (LIMIT 200) per subject,
+     * then evaluates only those candidates for recent/stemHash/similarity and picks 4 per subject.
+     */
+    private suspend fun pickQuizQuestionsByGradeInternal(
+        grade: Int,
+        count: Int,
+        testId: String?,
+        preferredWrongIds: Set<String>,
+        maxWrongFraction: Double
+    ): List<Question> {
         runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val buildStartMs = System.currentTimeMillis()
 
-        // Zorluk tercihini DataStore'dan (QuizPrefs) oku
         val selectedDifficulty = try {
             QuizPrefs(context).difficulty()
         } catch (_: Exception) {
@@ -1144,7 +1165,6 @@ class QuestionRepository(private val context: Context) {
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
 
-        // Reset debug counters for this picker run.
         lastRecentRelaxedCount = 0
         lastSkippedIdCount = 0
         lastSkippedStemHashCount = 0
@@ -1159,29 +1179,22 @@ class QuestionRepository(private val context: Context) {
         val dbQueryStartMs = System.currentTimeMillis()
         val recentIds: Set<String> = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
 
-        // 1) Candidate pools (LIMIT 200 each). Only these candidates will be evaluated.
-        val relaxedDiffOrder = when (diffInt) {
-            0 -> listOf(1, 2)   // EASY selected: try MEDIUM, then HARD
-            1 -> listOf(2, 0)   // MEDIUM selected: try HARD, then EASY
-            else -> listOf(1, 0) // HARD selected: try MEDIUM, then EASY
-        }
+        // 1) One candidate pool per subject (LIMIT 200). No full DB scan.
         val perSubjectPrimary: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
         val perSubjectRelaxed: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
         val perSubjectAll: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
         val perSubjectTotalForDiff: MutableMap<Subject, Int> = mutableMapOf()
         val perSubjectNonRecentAvailable: MutableMap<Subject, Int> = mutableMapOf()
-        subjectOrder.forEach { (subjEnum, dbKey) ->
-            val primary = roomStore.getCandidatePoolByGradeSubjectDifficulty(grade, dbKey, diffInt).distinctBy { it.id }
+        for ((subjEnum, dbKey) in subjectOrder) {
+            val pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey).distinctBy { it.id }
+            val primary = pool.filter { it.difficulty == diffInt }
             val primaryIds = primary.map { it.id }.toSet()
-            val relaxed = relaxedDiffOrder
-                .flatMap { d -> roomStore.getCandidatePoolByGradeSubjectDifficulty(grade, dbKey, d) }
-                .distinctBy { it.id }
-                .filter { it.id !in primaryIds }
+            val relaxed = pool.filter { it.id !in primaryIds }
             perSubjectPrimary[subjEnum] = primary
             perSubjectRelaxed[subjEnum] = relaxed
-            perSubjectAll[subjEnum] = primary + relaxed
+            perSubjectAll[subjEnum] = pool
             perSubjectTotalForDiff[subjEnum] = primary.size
-            perSubjectNonRecentAvailable[subjEnum] = (primary + relaxed).count { it.id !in recentIds }
+            perSubjectNonRecentAvailable[subjEnum] = pool.count { it.id !in recentIds }
         }
         val usedIds = mutableSetOf<String>()
         val usedStemHashes = mutableSetOf<String>()
@@ -1673,6 +1686,7 @@ class QuestionRepository(private val context: Context) {
         }.toString()
         android.util.Log.d(TAG, selectionDebug)
 
+        // Performance: candidate-pool strategy targets buildMs < 500ms (no full DB scan).
         lastBuildMs = System.currentTimeMillis() - buildStartMs
         return finalQuestions
     }

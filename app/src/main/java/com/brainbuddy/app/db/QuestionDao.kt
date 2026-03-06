@@ -91,6 +91,25 @@ interface QuestionDao {
         difficulty: Int
     ): List<QuestionCandidateRow>
 
+    /**
+     * Candidate pool per subject (LIMIT 200). Any difficulty; partition in memory.
+     * Used by grade-based picker to avoid scanning the entire database.
+     */
+    @Query(
+        """
+        SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        FROM questions
+        WHERE grade = :grade
+        AND subject = :subject
+        AND isActive = 1
+        LIMIT 200
+        """
+    )
+    suspend fun getCandidatePoolByGradeSubject(
+        grade: Int,
+        subject: String
+    ): List<QuestionCandidateRow>
+
     /** Tüm sınıf havuzu (grade 2-8 için test oluşturma). */
     @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND grade > 0")
     suspend fun getByGrade(grade: Int): List<QuestionEntity>
