@@ -32,7 +32,7 @@ class PoolStatusActivity : AppCompatActivity() {
         val toolbar = findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.pool_status_title)
+        updatePoolStatusTitle()
         toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
         val layoutDebugFix = findViewById<View>(R.id.layoutDebugFixButtons)
@@ -40,6 +40,28 @@ class PoolStatusActivity : AppCompatActivity() {
 
         setupFixButtons()
         renderStatus()
+    }
+
+    private fun getPoolStatusGradeLabel(): String {
+        val gradePrefs = GradePrefs(this)
+        return when (gradePrefs.getSelectedMode()) {
+            com.brainbuddy.app.core.LevelMode.LGS -> "LGS"
+            com.brainbuddy.app.core.LevelMode.GRADE -> {
+                val g = gradePrefs.getSelectedGrade()
+                when {
+                    g == GradePrefs.GRADE_JUNIOR -> "Junior"
+                    g in 1..7 -> "$g. Sınıf"
+                    else -> "-"
+                }
+            }
+        }
+    }
+
+    private fun updatePoolStatusTitle() {
+        val label = getPoolStatusGradeLabel()
+        val title = getString(R.string.pool_status_title_format, label)
+        supportActionBar?.title = title
+        findViewById<android.widget.TextView>(R.id.tvPoolStatusTitle)?.text = title
     }
 
     private fun setupFixButtons() {
