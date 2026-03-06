@@ -38,7 +38,7 @@
                     android:id="@+id/tvPoolStatusTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/pool_status_title"
+                    android:text="@string/pool_status_title_default"
                     android:textAppearance="@style/TextAppearance.BrainBuddy.AppTitle" />
 
                 <TextView

@@ -72,6 +72,7 @@ class TestSettingsActivity : AppCompatActivity() {
         val modeGroup = findViewById<RadioGroup>(R.id.testModeGroup)
         val gradeChipGroup = findViewById<ChipGroup>(R.id.testGradeChipGroup)
         val tvSelected = findViewById<android.widget.TextView>(R.id.tvSelectedGrade)
+        val btnPoolStatus = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnPoolStatus)
 
         // Dinamik liste: Junior, 1, 2, 3, 4, 5, 6, 7 (LGS ayrı mod olarak)
         val gradeOptions = listOf("Junior", "1", "2", "3", "4", "5", "6", "7")
@@ -93,6 +94,23 @@ class TestSettingsActivity : AppCompatActivity() {
             gradeChipGroup.addView(chip)
         }
 
+        fun getPoolStatusGradeLabel(): String = when (gradePrefs.getSelectedMode()) {
+            LevelMode.LGS -> "LGS"
+            LevelMode.GRADE -> {
+                val g = gradePrefs.getSelectedGrade()
+                when {
+                    g == GradePrefs.GRADE_JUNIOR -> "Junior"
+                    g in 1..7 -> "$g. Sınıf"
+                    else -> "-"
+                }
+            }
+        }
+
+        fun updatePoolStatusButton() {
+            val label = getPoolStatusGradeLabel()
+            btnPoolStatus?.text = getString(R.string.pool_status_button_format, label)
+        }
+
         fun updateLabel() {
             when (gradePrefs.getSelectedMode()) {
                 LevelMode.GRADE -> {
@@ -109,6 +127,7 @@ class TestSettingsActivity : AppCompatActivity() {
                     gradeChipGroup.visibility = android.view.View.GONE
                 }
             }
+            updatePoolStatusButton()
         }
 
         fun selectChipForGrade(grade: Int) {
