@@ -51,6 +51,12 @@ data class LgsSubjectCount(val subject: String, val count: Int)
 /** LGS pool: difficulty bazında ACTIVE soru sayıları. */
 data class LgsDifficultyCount(val difficulty: Int, val count: Int)
 
+/** LGS quality debug: subject, avgQualityScore (rounded). */
+data class LgsAvgQualityBySubject(val subject: String, val avgQualityScore: Double)
+
+/** LGS quality debug: subject, newGen count, total count. */
+data class LgsNewGenCountBySubject(val subject: String, val newGenCount: Int, val totalCount: Int)
+
 @Dao
 interface QuestionDao {
 
@@ -275,4 +281,41 @@ interface QuestionDao {
         """
     )
     suspend fun getLgsCountsByDifficulty(): List<LgsDifficultyCount>
+
+    // ---- LGS quality debug ----
+
+    /** LGS inactive due to low quality. */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = 'LGS'
+        AND isActive = 0
+        AND COALESCE(deactivationReason, '') = 'low_lgs_quality'
+        """
+    )
+    suspend fun countLgsInactiveLowQuality(): Int
+
+    /** LGS avg qualityScore by subject (all LGS questions). */
+    @Query(
+        """
+        SELECT subject, AVG(qualityScore) AS avgQualityScore
+        FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = 'LGS'
+        GROUP BY subject
+        """
+    )
+    suspend fun getLgsAvgQualityBySubject(): List<LgsAvgQualityBySubject>
+
+    /** LGS new-generation-like count and total by subject. */
+    @Query(
+        """
+        SELECT subject,
+            SUM(CASE WHEN isNewGenerationLike = 1 THEN 1 ELSE 0 END) AS newGenCount,
+            COUNT(*) AS totalCount
+        FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = 'LGS'
+        GROUP BY subject
+        """
+    )
+    suspend fun getLgsNewGenCountBySubject(): List<LgsNewGenCountBySubject>
 }

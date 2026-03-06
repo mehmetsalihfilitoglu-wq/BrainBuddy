@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 18,
+    version = 19,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -323,6 +323,18 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_difficulty_active ON questions(grade, subject, difficulty, isActive)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_stem_hash ON questions(stemHash)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_isActive ON questions(isActive)")
+            }
+        }
+
+        // 18 -> 19: LGS quality metadata (qualityScore, isNewGenerationLike)
+        val MIGRATION_18_19: Migration = object : Migration(18, 19) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN qualityScore INTEGER NOT NULL DEFAULT 0"
+                )
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN isNewGenerationLike INTEGER NOT NULL DEFAULT 0"
+                )
             }
         }
     }

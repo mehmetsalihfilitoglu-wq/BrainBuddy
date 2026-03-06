@@ -202,8 +202,28 @@ class PoolStatusActivity : AppCompatActivity() {
                     sb.append(listOf(0, 1, 2).joinToString(" ") { "diff$it=${lgsByDiff[it] ?: 0}" })
                     sb.append("\n")
                     val enough = subjects.all { (lgsBySubject[it] ?: 0) >= (required[it] ?: 0) }
-                    sb.append(if (enough) "  ✓ 20 soruluk LGS testi için yeterli\n\n"
-                        else "  ⚠ 20 soruluk LGS testi için YETERSİZ (MAT≥4 TURKCE≥4 FEN≥4 INKILAP≥3 DIN≥3 ING≥2)\n\n")
+                    sb.append(if (enough) "  ✓ 20 soruluk LGS testi için yeterli\n"
+                        else "  ⚠ 20 soruluk LGS testi için YETERSİZ (MAT≥4 TURKCE≥4 FEN≥4 INKILAP≥3 DIN≥3 ING≥2)\n")
+                    val inactiveLow = dao.countLgsInactiveLowQuality()
+                    if (inactiveLow > 0 || lgsTotal > 0) {
+                        val avgBySubj = dao.getLgsAvgQualityBySubject()
+                        val newGenBySubj = dao.getLgsNewGenCountBySubject()
+                        sb.append("  LGS Kalite: aktif=$lgsTotal, pasif(düşük)=$inactiveLow\n")
+                        if (avgBySubj.isNotEmpty()) {
+                            sb.append("  Ort. qualityScore: ")
+                            sb.append(avgBySubj.joinToString(" ") { "${it.subject}=${it.avgQualityScore.toInt()}" })
+                            sb.append("\n")
+                        }
+                        if (newGenBySubj.isNotEmpty()) {
+                            sb.append("  Yeni nesil oranı: ")
+                            sb.append(newGenBySubj.joinToString(" ") { row ->
+                                val pct = if (row.totalCount > 0) (row.newGenCount * 100 / row.totalCount) else 0
+                                "${row.subject}=${pct}%"
+                            })
+                            sb.append("\n")
+                        }
+                    }
+                    sb.append("\n")
                 }
 
                 // 5) Zorluk aralık dışı
