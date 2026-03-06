@@ -1,5 +1,6 @@
 package com.brainbuddy.app.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -13,6 +14,7 @@ import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
+import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -104,6 +106,21 @@ class PoolStatusActivity : AppCompatActivity() {
                         else -> "Düzeltildi: $low (çok düşük) + $high (çok yüksek)."
                     }
                     Toast.makeText(this@PoolStatusActivity, msg, Toast.LENGTH_SHORT).show()
+                    renderStatus()
+                }
+            }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnImportLgsPacks)
+            .setOnClickListener {
+                lifecycleScope.launch {
+                    val summary = withContext(Dispatchers.IO) {
+                        QuestionPackImporter.importAllLgsPacksFromAssets(this@PoolStatusActivity)
+                    }
+                    AlertDialog.Builder(this@PoolStatusActivity)
+                        .setTitle("LGS Import Sonucu")
+                        .setMessage(summary.summaryText)
+                        .setPositiveButton(android.R.string.ok) { _, _ -> }
+                        .show()
                     renderStatus()
                 }
             }
