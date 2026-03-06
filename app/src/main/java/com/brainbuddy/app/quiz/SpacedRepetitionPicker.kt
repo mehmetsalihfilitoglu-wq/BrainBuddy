@@ -31,13 +31,15 @@ class SpacedRepetitionPicker(
         Subject.ING to 3
     )
 
-    /** DB subject values: mat/turkce/fen/sosyal/ing (DbSeeder & QuestionDao format) */
+    /** DB subject values: mat/turkce/fen/sosyal/ing/inkilap/din (DbSeeder & QuestionDao format) */
     private fun toDbSubject(s: Subject): String = when (s) {
         Subject.MAT -> "mat"
         Subject.TURKCE -> "turkce"
         Subject.FEN -> "fen"
         Subject.SOSYAL -> "sosyal"
         Subject.ING -> "ing"
+        Subject.INKILAP -> "inkilap"
+        Subject.DIN -> "din"
     }
 
     private fun cooldownDays(correctCount: Int): Int = when {
