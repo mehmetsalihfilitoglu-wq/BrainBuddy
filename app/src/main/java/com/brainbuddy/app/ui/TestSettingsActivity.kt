@@ -72,6 +72,8 @@ class TestSettingsActivity : AppCompatActivity() {
         val modeGroup = findViewById<RadioGroup>(R.id.testModeGroup)
         val gradeChipGroup = findViewById<ChipGroup>(R.id.testGradeChipGroup)
         val tvSelected = findViewById<android.widget.TextView>(R.id.tvSelectedGrade)
+        val tvModeSectionTitle = findViewById<android.widget.TextView>(R.id.tvModeSectionTitle)
+        val tvModeSectionSub = findViewById<android.widget.TextView>(R.id.tvModeSectionSub)
         val btnPoolStatus = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnPoolStatus)
 
         // Dinamik liste: Junior, 1, 2, 3, 4, 5, 6, 7 (LGS ayrı mod olarak)
@@ -121,10 +123,14 @@ class TestSettingsActivity : AppCompatActivity() {
                         else -> getString(R.string.grade_selected_none)
                     }
                     gradeChipGroup.visibility = android.view.View.VISIBLE
+                    tvModeSectionTitle.text = getString(R.string.settings_grade_level)
+                    tvModeSectionSub.text = getString(R.string.settings_grade_level_sub)
                 }
                 LevelMode.LGS -> {
                     tvSelected.text = getString(R.string.mode_selected_lgs)
                     gradeChipGroup.visibility = android.view.View.GONE
+                    tvModeSectionTitle.text = getString(R.string.settings_mode_section_title)
+                    tvModeSectionSub.text = getString(R.string.settings_mode_section_sub_lgs)
                 }
             }
             updatePoolStatusButton()

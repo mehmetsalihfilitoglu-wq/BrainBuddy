@@ -45,6 +45,12 @@ data class DuplicateStemHashRow(
     val cnt: Int
 )
 
+/** LGS pool: subject bazında ACTIVE soru sayıları. */
+data class LgsSubjectCount(val subject: String, val count: Int)
+
+/** LGS pool: difficulty bazında ACTIVE soru sayıları. */
+data class LgsDifficultyCount(val difficulty: Int, val count: Int)
+
 @Dao
 interface QuestionDao {
 
@@ -239,4 +245,34 @@ interface QuestionDao {
     /** Tüm soru tablosunu sil – DEBUG/RESET için kullanılır. */
     @Query("DELETE FROM questions")
     suspend fun deleteAll()
+
+    // ---- LGS pool diagnostics ----
+
+    /** Toplam aktif LGS soru sayısı (examType=LGS). */
+    @Query("SELECT COUNT(*) FROM questions WHERE isActive = 1 AND COALESCE(examType, 'GENERAL') = 'LGS'")
+    suspend fun countLgsActive(): Int
+
+    /** LGS havuzunda ders bazında ACTIVE soru sayıları. */
+    @Query(
+        """
+        SELECT subject, COUNT(*) AS count
+        FROM questions
+        WHERE isActive = 1 AND COALESCE(examType, 'GENERAL') = 'LGS'
+        GROUP BY subject
+        ORDER BY subject
+        """
+    )
+    suspend fun getLgsCountsBySubject(): List<LgsSubjectCount>
+
+    /** LGS havuzunda zorluk bazında ACTIVE soru sayıları. */
+    @Query(
+        """
+        SELECT difficulty, COUNT(*) AS count
+        FROM questions
+        WHERE isActive = 1 AND COALESCE(examType, 'GENERAL') = 'LGS'
+        GROUP BY difficulty
+        ORDER BY difficulty
+        """
+    )
+    suspend fun getLgsCountsByDifficulty(): List<LgsDifficultyCount>
 }

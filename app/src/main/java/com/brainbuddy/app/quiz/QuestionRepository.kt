@@ -82,6 +82,8 @@ class QuestionRepository(private val context: Context) {
         private const val TAG = "QuestionRepository"
         /** Every test (gate, normal, remedial, boss) has exactly this many questions. */
         const val MIN_QUESTIONS_PER_TEST = 20
+        /** LGS subjects (DB keys). Exactly: mat, turkce, fen, inkilap, din, ing. No sosyal. */
+        val LGS_SUBJECTS = listOf("mat", "turkce", "fen", "inkilap", "din", "ing")
         /** Only reject if similarity > 0.9 (less aggressive than before). */
         private const val NEAR_DUPLICATE_SIMILARITY_THRESHOLD = 0.9
         /** Max pick attempts per subject to avoid long loops. */
@@ -1140,8 +1142,8 @@ class QuestionRepository(private val context: Context) {
 
     /**
      * LGS mode: uses only LGS question pool (examType=LGS).
-     * Subject distribution: MAT=6, TURKCE=6, FEN=4, INKILAP=2, DIN=1, ING=1 (total 20).
-     * Does NOT use selectedGrade. Does NOT fallback to grade 6.
+     * Subject distribution: MAT=4, TURKCE=4, FEN=4, INKILAP=3, DIN=3, ING=2 (total 20).
+     * Does NOT use selectedGrade. Does NOT fallback to grade 6. Never mixes grade-mode questions.
      */
     fun pickQuizQuestionsForLGS(
         count: Int = MIN_QUESTIONS_PER_TEST,
@@ -1160,13 +1162,14 @@ class QuestionRepository(private val context: Context) {
         val buildStartMs = System.currentTimeMillis()
         val effectiveCount = count.coerceAtMost(MIN_QUESTIONS_PER_TEST).coerceAtLeast(MIN_QUESTIONS_PER_TEST)
 
+        // LGS fixed distribution: MAT=4, TURKCE=4, FEN=4, INKILAP=3, DIN=3, ING=2 (total 20)
         val lgsSubjectOrder: List<Pair<Subject, Int>> = listOf(
-            Subject.MAT to 6,
-            Subject.TURKCE to 6,
+            Subject.MAT to 4,
+            Subject.TURKCE to 4,
             Subject.FEN to 4,
-            Subject.INKILAP to 2,
-            Subject.DIN to 1,
-            Subject.ING to 1
+            Subject.INKILAP to 3,
+            Subject.DIN to 3,
+            Subject.ING to 2
         )
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()

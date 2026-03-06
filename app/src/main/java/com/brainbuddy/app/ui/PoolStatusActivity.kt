@@ -169,6 +169,26 @@ class PoolStatusActivity : AppCompatActivity() {
                     else "Seçili Sınıf: $selectedGrade. Sınıf")
                 sb.append(", zorluk: ${difficulty.name}\n\n")
 
+                // 4b) LGS pool (when LGS mode selected)
+                if (mode == LevelMode.LGS) {
+                    val lgsTotal = dao.countLgsActive()
+                    val lgsBySubject = dao.getLgsCountsBySubject().associate { it.subject to it.count }
+                    val lgsByDiff = dao.getLgsCountsByDifficulty().associate { it.difficulty to it.count }
+                    val required = mapOf("mat" to 4, "turkce" to 4, "fen" to 4, "inkilap" to 3, "din" to 3, "ing" to 2)
+                    val subjects = listOf("mat", "turkce", "fen", "inkilap", "din", "ing")
+                    sb.append("LGS havuzu (examType=LGS):\n")
+                    sb.append("  Toplam aktif: $lgsTotal\n")
+                    sb.append("  Ders bazında: ")
+                    sb.append(subjects.joinToString(" ") { "$it=${lgsBySubject[it] ?: 0}" })
+                    sb.append("\n")
+                    sb.append("  Zorluk (0=Kolay 1=Orta 2=Zor): ")
+                    sb.append(listOf(0, 1, 2).joinToString(" ") { "diff$it=${lgsByDiff[it] ?: 0}" })
+                    sb.append("\n")
+                    val enough = subjects.all { (lgsBySubject[it] ?: 0) >= (required[it] ?: 0) }
+                    sb.append(if (enough) "  ✓ 20 soruluk LGS testi için yeterli\n\n"
+                        else "  ⚠ 20 soruluk LGS testi için YETERSİZ (MAT≥4 TURKCE≥4 FEN≥4 INKILAP≥3 DIN≥3 ING≥2)\n\n")
+                }
+
                 // 5) Zorluk aralık dışı
                 if (diffOutOfRange > 0) {
                     sb.append("⚠ Zorluk aralık dışı (0–2 dışı): $diffOutOfRange soru\n\n")
