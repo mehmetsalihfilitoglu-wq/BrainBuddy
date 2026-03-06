@@ -57,5 +57,9 @@ data class QuestionEntity(
     val sourceRef: String? = null,
     val publisher: String? = null,
     val year: Int? = null,
-    val topic: String? = null
+    val topic: String? = null,
+    /** LGS quality score 0..100. Higher = better quality. */
+    val qualityScore: Int = 0,
+    /** True if question resembles new-generation style (reasoning, visuals, inference). */
+    val isNewGenerationLike: Boolean = false
 )

@@ -51,23 +51,42 @@ object QuestionPackImporter {
     data class LgsImportSummary(
         val importedCount: Int,
         val skippedDuplicateCount: Int,
+        val deactivatedLowQualityCount: Int,
         val parseErrorCount: Int,
         val totalLgsQuestionsAfter: Int,
-        val perSubjectCounts: Map<String, Int>
+        val perSubjectCounts: Map<String, Int>,
+        val qualityDebug: LgsQualityDebugSummary?
     ) {
         val summaryText: String
             get() = buildString {
                 appendLine("Import tamamlandı")
                 appendLine("  Eklenen: $importedCount")
                 appendLine("  Tekrar atlandı: $skippedDuplicateCount")
+                if (deactivatedLowQualityCount > 0) appendLine("  Düşük kalite (pasif): $deactivatedLowQualityCount")
                 appendLine("  Parse hatası: $parseErrorCount")
-                appendLine("  Toplam LGS soru: $totalLgsQuestionsAfter")
+                appendLine("  Toplam LGS aktif: $totalLgsQuestionsAfter")
                 appendLine("  Ders bazında:")
                 perSubjectCounts.forEach { (subj, cnt) ->
                     appendLine("    $subj: $cnt")
                 }
+                qualityDebug?.let { qd ->
+                    appendLine()
+                    appendLine("LGS Kalite Özeti:")
+                    appendLine("  Aktif: ${qd.activeCount}")
+                    appendLine("  Pasif (düşük kalite): ${qd.inactiveLowQualityCount}")
+                    appendLine("  Ort. qualityScore (ders): ${qd.avgQualityScoreBySubject.entries.joinToString(", ") { "${it.key}=${it.value}" }}")
+                    appendLine("  Yeni nesil oranı (ders): ${qd.newGenerationRatioBySubject.entries.joinToString(", ") { "${it.key}=${String.format("%.0f", it.value * 100)}%" }}")
+                }
             }
     }
+
+    /** LGS quality debug summary. */
+    data class LgsQualityDebugSummary(
+        val activeCount: Int,
+        val inactiveLowQualityCount: Int,
+        val avgQualityScoreBySubject: Map<String, Int>,
+        val newGenerationRatioBySubject: Map<String, Float>
+    )
 
     private const val LGS_GRADE = 8
     private val LGS_IMPORT_FILES = listOf(
@@ -79,6 +98,7 @@ object QuestionPackImporter {
     fun importAllLgsPacksFromAssets(context: Context): LgsImportSummary = runBlocking(Dispatchers.IO) {
         var totalImported = 0
         var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
         var totalParseErrors = 0
 
         for (fileName in LGS_IMPORT_FILES) {
@@ -86,19 +106,24 @@ object QuestionPackImporter {
             val result = importLgsPackFromJson(context, json)
             totalImported += result.inserted
             totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
             totalParseErrors += result.parseErrors
         }
 
         val db = DatabaseProvider.get(context)
-        val totalLgs = db.questionDao().countLgsActive()
-        val perSubject = db.questionDao().getLgsCountsBySubject().associate { it.subject to it.count }
+        val dao = db.questionDao()
+        val totalLgs = dao.countLgsActive()
+        val perSubject = dao.getLgsCountsBySubject().associate { it.subject to it.count }
+        val qualityDebug = buildLgsQualityDebugSummary(dao)
 
         LgsImportSummary(
             importedCount = totalImported,
             skippedDuplicateCount = totalSkippedDuplicate,
+            deactivatedLowQualityCount = totalDeactivatedLowQuality,
             parseErrorCount = totalParseErrors,
             totalLgsQuestionsAfter = totalLgs,
-            perSubjectCounts = perSubject
+            perSubjectCounts = perSubject,
+            qualityDebug = qualityDebug
         )
     }
 
@@ -109,7 +134,7 @@ object QuestionPackImporter {
         null
     }
 
-    /** Import a single LGS pack JSON. Sets mode=LGS, grade=8, isActive=true, dedup by stemHash. */
+    /** Import a single LGS pack JSON. Applies LGS quality rules; low-quality items are deactivated. */
     fun importLgsPackFromJson(context: Context, json: String): ImportResult = runBlocking(Dispatchers.IO) {
         runLgsImport(context, json)
     }
@@ -136,6 +161,7 @@ object QuestionPackImporter {
 
         var inserted = 0
         var skippedDuplicate = 0
+        var deactivatedLowQuality = 0
         var parseErrors = 0
         val batchSeenStemKeys = mutableSetOf<String>()
         val toInsert = mutableListOf<QuestionEntity>()
@@ -160,10 +186,26 @@ object QuestionPackImporter {
             batchSeenStemKeys.add(stemKey)
             existingStemKeys.add(stemKey)
 
-            toInsert.add(entity.copy(
+            val options = parseOptionsFromEntity(entity)
+            val qualityResult = LgsQualityRules.evaluate(
+                stem = entity.questionText,
+                options = options,
+                subjectKey = packSubject,
+                hasImageAsset = entity.imageAsset.isNullOrBlank().not(),
+                difficulty = entity.difficulty
+            )
+            if (!qualityResult.isActive) deactivatedLowQuality++
+
+            val finalEntity = entity.copy(
+                isActive = qualityResult.isActive,
+                deactivationReason = qualityResult.deactivationReason,
+                qualityScore = qualityResult.qualityScore,
+                isNewGenerationLike = qualityResult.isNewGenerationLike,
+                type = qualityResult.questionType,
                 publisher = publisher,
                 sourcePack = sourcePack
-            ))
+            )
+            toInsert.add(finalEntity)
         }
 
         if (toInsert.isNotEmpty()) {
@@ -171,9 +213,29 @@ object QuestionPackImporter {
             inserted = toInsert.size
         }
 
-        Log.i(TAG, "LGS import $packSubject: inserted=$inserted, skippedDuplicate=$skippedDuplicate, parseErrors=$parseErrors")
-        ImportResult(inserted, skippedDuplicate, 0, parseErrors)
+        Log.i(TAG, "LGS import $packSubject: inserted=$inserted, skippedDuplicate=$skippedDuplicate, deactivatedLowQuality=$deactivatedLowQuality, parseErrors=$parseErrors")
+        ImportResult(inserted, skippedDuplicate, deactivatedLowQuality, parseErrors)
     }
+
+    private suspend fun buildLgsQualityDebugSummary(dao: com.brainbuddy.app.db.QuestionDao): LgsQualityDebugSummary {
+        val activeCount = dao.countLgsActive()
+        val inactiveLowQuality = dao.countLgsInactiveLowQuality()
+        val avgBySubj = dao.getLgsAvgQualityBySubject().associate { it.subject to it.avgQualityScore.toInt() }
+        val newGenBySubj = dao.getLgsNewGenCountBySubject().associate { row ->
+            row.subject to (if (row.totalCount > 0) row.newGenCount.toFloat() / row.totalCount else 0f)
+        }
+        return LgsQualityDebugSummary(
+            activeCount = activeCount,
+            inactiveLowQualityCount = inactiveLowQuality,
+            avgQualityScoreBySubject = avgBySubj,
+            newGenerationRatioBySubject = newGenBySubj
+        )
+    }
+
+    private fun parseOptionsFromEntity(e: QuestionEntity): List<String> = try {
+        val arr = JSONArray(e.optionsJson)
+        (0 until arr.length()).map { arr.optString(it, "") }.filter { it.isNotBlank() }
+    } catch (_: Exception) { emptyList() }
 
     private fun parseLgsQuestion(o: JSONObject, index: Int, defaultSubject: String): QuestionEntity? {
         val stem = o.optString("stem", "").ifBlank {
