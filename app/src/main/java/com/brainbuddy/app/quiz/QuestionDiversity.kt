@@ -24,6 +24,8 @@ object QuestionDiversity {
             Subject.FEN -> inferFenType(lower, length)
             Subject.SOSYAL -> inferSosyalType(lower, length)
             Subject.ING -> inferIngType(lower, length)
+            Subject.INKILAP -> inferSosyalType(lower, length)
+            Subject.DIN -> inferSosyalType(lower, length)
         }
     }
 

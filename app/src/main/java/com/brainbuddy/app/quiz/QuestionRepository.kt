@@ -314,6 +314,8 @@ class QuestionRepository(private val context: Context) {
                     Subject.FEN -> "fen"
                     Subject.SOSYAL -> "sosyal"
                     Subject.ING -> "ing"
+                    Subject.INKILAP -> "inkilap"
+                    Subject.DIN -> "din"
                 }
                 val h = QuestionStemHash.stemHash(q.stem)
                 val stemKey = "${q.grade.coerceIn(1, 7)}|$dbSubjectKey|$h"
@@ -389,6 +391,16 @@ class QuestionRepository(private val context: Context) {
                             )
                         }
                     }
+                    Subject.INKILAP, Subject.DIN -> {
+                        val isContextual = isContextualProblemLike(stem)
+                        val isLongEnough = stem.length >= 80
+                        if (!isContextual || !isLongEnough) {
+                            gate = gate.copy(
+                                isActive = false,
+                                deactivationReason = "too_simple_context_hard"
+                            )
+                        }
+                    }
                 }
             }
 
@@ -401,6 +413,8 @@ class QuestionRepository(private val context: Context) {
                 Subject.FEN -> "fen"
                 Subject.SOSYAL -> "sosyal"
                 Subject.ING -> "ing"
+                Subject.INKILAP -> "inkilap"
+                Subject.DIN -> "din"
             }
             val stemNormalizedValue = QuestionStemHash.normalizeStem(q.stem)
             val stemHashValue = QuestionStemHash.stemHash(q.stem)
