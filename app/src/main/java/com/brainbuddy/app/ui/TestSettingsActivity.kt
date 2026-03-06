@@ -86,7 +86,11 @@ class TestSettingsActivity : AppCompatActivity() {
             when (gradePrefs.getSelectedMode()) {
                 LevelMode.GRADE -> {
                     val g = gradePrefs.getSelectedGrade()
-                    tvSelected.text = if (g in 1..7) getString(R.string.grade_selected_label, g) else "Seçili Sınıf: -"
+                    tvSelected.text = if (g in 1..7) {
+                        getString(R.string.grade_selected_label, g)
+                    } else {
+                        getString(R.string.grade_selected_none)
+                    }
                     gradeGroup.visibility = android.view.View.VISIBLE
                 }
                 LevelMode.LGS -> {

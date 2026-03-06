@@ -84,7 +84,7 @@
                             android:id="@+id/testModeGrade"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sınıf (1-7)"
+                            android:text="Sınıf"
                             android:textSize="14sp" />
 
                         <RadioButton
@@ -101,7 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Seçili Sınıf: -"
+                        android:text="@string/grade_selected_none"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:textColor="@color/bb_turquoise_dark" />
