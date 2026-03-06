@@ -9,10 +9,12 @@ import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.GradeSubjectDifficultyCount
+import com.brainbuddy.app.db.QuestionCandidateRow
 import com.brainbuddy.app.db.QuestionEntity
 import com.brainbuddy.app.db.QuestionStemHash
 import com.brainbuddy.app.db.QuestionMapper
 import com.brainbuddy.app.db.RoomQuizDataStore
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import org.json.JSONArray
 import org.json.JSONObject
@@ -203,13 +205,13 @@ class QuestionRepository(private val context: Context) {
     fun getPoolSizeForGrade(grade: Int): Int {
         if (grade !in 2..8) return 0
         return try {
-            runBlocking { DbSeeder.seedIfNeeded(context) }
+            runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
             roomStore.getQuestionsByGrade(grade).distinctBy { it.id }.size
         } catch (_: Exception) { 0 }
     }
 
     fun loadAllQuestionsWithStats(): Pair<List<Question>, LoadStats> {
-        runBlocking { DbSeeder.seedIfNeeded(context) }
+        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val fromRoom = roomStore.getActiveQuestions()
         return if (fromRoom.isNotEmpty()) {
             Pair(fromRoom, LoadStats(fileFound = true, totalInJson = fromRoom.size, parsedTotal = fromRoom.size, parseFailed = 0))
@@ -1111,7 +1113,7 @@ class QuestionRepository(private val context: Context) {
         maxWrongFraction: Double = 0.3
     ): List<Question> {
         if (grade !in 2..8) return emptyList()
-        runBlocking { DbSeeder.seedIfNeeded(context) }
+        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val buildStartMs = System.currentTimeMillis()
 
         // Zorluk tercihini DataStore'dan (QuizPrefs) oku
@@ -1157,22 +1159,22 @@ class QuestionRepository(private val context: Context) {
         val dbQueryStartMs = System.currentTimeMillis()
         val recentIds: Set<String> = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
 
-        // 1) Havuzu hazırla. Selection order: (a) selected diff, (b) same subject relaxed (MEDIUM→HARD→EASY), (c) cross-subject last.
+        // 1) Candidate pools (LIMIT 200 each). Only these candidates will be evaluated.
         val relaxedDiffOrder = when (diffInt) {
             0 -> listOf(1, 2)   // EASY selected: try MEDIUM, then HARD
             1 -> listOf(2, 0)   // MEDIUM selected: try HARD, then EASY
             else -> listOf(1, 0) // HARD selected: try MEDIUM, then EASY
         }
-        val perSubjectPrimary: MutableMap<Subject, List<Question>> = mutableMapOf()
-        val perSubjectRelaxed: MutableMap<Subject, List<Question>> = mutableMapOf()
-        val perSubjectAll: MutableMap<Subject, List<Question>> = mutableMapOf()
+        val perSubjectPrimary: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
+        val perSubjectRelaxed: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
+        val perSubjectAll: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
         val perSubjectTotalForDiff: MutableMap<Subject, Int> = mutableMapOf()
         val perSubjectNonRecentAvailable: MutableMap<Subject, Int> = mutableMapOf()
         subjectOrder.forEach { (subjEnum, dbKey) ->
-            val primary = roomStore.getQuestionsByGradeSubjectDifficulty(grade, dbKey, diffInt).distinctBy { it.id }
+            val primary = roomStore.getCandidatePoolByGradeSubjectDifficulty(grade, dbKey, diffInt).distinctBy { it.id }
             val primaryIds = primary.map { it.id }.toSet()
             val relaxed = relaxedDiffOrder
-                .flatMap { d -> roomStore.getQuestionsByGradeSubjectDifficulty(grade, dbKey, d) }
+                .flatMap { d -> roomStore.getCandidatePoolByGradeSubjectDifficulty(grade, dbKey, d) }
                 .distinctBy { it.id }
                 .filter { it.id !in primaryIds }
             perSubjectPrimary[subjEnum] = primary
@@ -1181,12 +1183,10 @@ class QuestionRepository(private val context: Context) {
             perSubjectTotalForDiff[subjEnum] = primary.size
             perSubjectNonRecentAvailable[subjEnum] = (primary + relaxed).count { it.id !in recentIds }
         }
-        lastDbQueryMs = System.currentTimeMillis() - dbQueryStartMs
-
         val usedIds = mutableSetOf<String>()
         val usedStemHashes = mutableSetOf<String>()
         val selectedTokenSets = mutableListOf<Set<String>>()
-        val selectedPerSubject: MutableMap<Subject, MutableList<Question>> = mutableMapOf()
+        val selectedPerSubject: MutableMap<Subject, MutableList<QuestionCandidateRow>> = mutableMapOf()
         subjectOrder.forEach { (s, _) -> selectedPerSubject[s] = mutableListOf() }
 
         var wrongUsedCount = 0
@@ -1209,7 +1209,7 @@ class QuestionRepository(private val context: Context) {
             val relaxedRecent = relaxed.filter { it.id in recentIds }
 
             fun trySelectFrom(
-                pool: List<Question>,
+                pool: List<QuestionCandidateRow>,
                 enforceTypeLimit: Boolean,
                 enforceSkillLimit: Boolean
             ) {
@@ -1218,7 +1218,7 @@ class QuestionRepository(private val context: Context) {
                 val typeCounts = subjectList.groupingBy { it.type }.eachCount().toMutableMap()
                 val skillCounts = subjectList.groupingBy { it.skill }.eachCount().toMutableMap()
 
-                fun canTakeByTypeAndSkill(q: Question): Boolean {
+                fun canTakeByTypeAndSkill(q: QuestionCandidateRow): Boolean {
                     if (subjectList.size >= targetForSubject) return false
                     val type = q.type
                     val skill = q.skill
@@ -1233,7 +1233,7 @@ class QuestionRepository(private val context: Context) {
                     return true
                 }
 
-                fun takeFrom(candidates: List<Question>, isWrong: Boolean) {
+                fun takeFrom(candidates: List<QuestionCandidateRow>, isWrong: Boolean) {
                     if (candidates.isEmpty()) return
                     for (q in candidates.shuffled()) {
                         totalAttempts++
@@ -1252,7 +1252,9 @@ class QuestionRepository(private val context: Context) {
                             lastSkippedIdCount++
                             continue
                         }
-                        val qStemHash = stemHash(q.stem)
+                        val qStemHash = q.stemHash.substringBefore(":dup:").ifBlank {
+                            stemHash(q.stemNormalized)
+                        }
                         if (qStemHash in usedStemHashes) {
                             lastSkippedStemHashCount++
                             continue
@@ -1260,7 +1262,7 @@ class QuestionRepository(private val context: Context) {
                         if (!canTakeByTypeAndSkill(q)) continue
                         val tokens = if (relaxedDueToCap) emptySet()
                         else {
-                            val t = buildQuestionTokenSet(q.stem, q.choices)
+                            val t = buildQuestionTokenSet(q.stemNormalized, emptyList())
                             if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
                                     jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                                 }) {
@@ -1303,12 +1305,12 @@ class QuestionRepository(private val context: Context) {
             }
 
             /** Same as trySelectFrom but skips similarity check. Counts similarRelaxed when taking would-be-similar. */
-            fun trySelectFromSimilarRelaxed(pool: List<Question>, enforceTypeLimit: Boolean, enforceSkillLimit: Boolean) {
+            fun trySelectFromSimilarRelaxed(pool: List<QuestionCandidateRow>, enforceTypeLimit: Boolean, enforceSkillLimit: Boolean) {
                 if (pool.isEmpty()) return
                 val subjectList = selectedPerSubject[subjEnum] ?: mutableListOf()
                 val typeCounts = subjectList.groupingBy { it.type }.eachCount().toMutableMap()
                 val skillCounts = subjectList.groupingBy { it.skill }.eachCount().toMutableMap()
-                fun canTakeByTypeAndSkill(q: Question): Boolean {
+                fun canTakeByTypeAndSkill(q: QuestionCandidateRow): Boolean {
                     if (subjectList.size >= targetForSubject) return false
                     val type = q.type
                     val skill = q.skill
@@ -1339,12 +1341,12 @@ class QuestionRepository(private val context: Context) {
                         if (subjectList.size >= targetForSubject) break
                         val id = q.id
                         if (id in usedIds) continue
-                        val qStemHash = stemHash(q.stem)
+                        val qStemHash = q.stemHash.substringBefore(":dup:").ifBlank { stemHash(q.stemNormalized) }
                         if (qStemHash in usedStemHashes) continue
                         if (!canTakeByTypeAndSkill(q)) continue
                         val isWrong = q.id in preferredWrongIds
                         if (isWrong && wrongUsedCount >= maxWrongCount) continue
-                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                        val tokens = buildQuestionTokenSet(q.stemNormalized, emptyList())
                         val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
                             jaccardSimilarity(tokens, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                         }
@@ -1408,12 +1410,12 @@ class QuestionRepository(private val context: Context) {
             pickForSubject(subjEnum, targetPerSubject)
         }
 
-        var selected = selectedPerSubject.values.flatten().toMutableList()
+        val selectedCandidateRows = selectedPerSubject.values.flatten().toMutableList()
 
         // 3) Eğer toplam < 20 ise, kalan slotları en büyük havuzlu derslerden doldur.
-        var remainingSlots = effectiveCount - selected.size
+        var remainingSlots = effectiveCount - selectedCandidateRows.size
         if (remainingSlots > 0) {
-            val remainingPerSubject: Map<Subject, List<Question>> = subjectOrder.associate { (subjEnum, _) ->
+            val remainingPerSubject: Map<Subject, List<QuestionCandidateRow>> = subjectOrder.associate { (subjEnum, _) ->
                 subjEnum to (perSubjectAll[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
             }
             val subjectsByRemaining = remainingPerSubject.entries
@@ -1422,7 +1424,7 @@ class QuestionRepository(private val context: Context) {
 
             fun pickExtraFromPartition(
                 subj: Subject,
-                partition: List<Question>,
+                partition: List<QuestionCandidateRow>,
                 fromRecent: Boolean
             ) {
                 if (partition.isEmpty() || remainingSlots <= 0) return
@@ -1441,7 +1443,7 @@ class QuestionRepository(private val context: Context) {
                         remainingSlots,
                         maxWrongCount - wrongUsedCount
                     )
-                    val extraWrong = mutableListOf<Question>()
+                    val extraWrong = mutableListOf<QuestionCandidateRow>()
                     for (q in wrongCandidates.shuffled()) {
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
@@ -1454,14 +1456,14 @@ class QuestionRepository(private val context: Context) {
                             lastSkippedIdCount++
                             continue
                         }
-                        val qStemHash = stemHash(q.stem)
+                        val qStemHash = q.stemHash.substringBefore(":dup:").ifBlank { stemHash(q.stemNormalized) }
                         if (qStemHash in usedStemHashes) {
                             lastSkippedStemHashCount++
                             continue
                         }
                         val tokens = if (relaxedDueToCap) emptySet()
                         else {
-                            val t = buildQuestionTokenSet(q.stem, q.choices)
+                            val t = buildQuestionTokenSet(q.stemNormalized, emptyList())
                             if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
                                     jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                                 }) {
@@ -1482,14 +1484,14 @@ class QuestionRepository(private val context: Context) {
                     }
                     if (extraWrong.isNotEmpty()) {
                         selectedPerSubject[subj]?.addAll(extraWrong)
-                        selected.addAll(extraWrong)
+                        selectedCandidateRows.addAll(extraWrong)
                         wrongUsedCount += extraWrong.size
-                        remainingSlots = effectiveCount - selected.size
+                        remainingSlots = effectiveCount - selectedCandidateRows.size
                     }
                 }
 
                 if (remainingSlots > 0 && normalCandidates.isNotEmpty()) {
-                    val extraNormal = mutableListOf<Question>()
+                    val extraNormal = mutableListOf<QuestionCandidateRow>()
                     for (q in normalCandidates.shuffled()) {
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
@@ -1502,14 +1504,14 @@ class QuestionRepository(private val context: Context) {
                             lastSkippedIdCount++
                             continue
                         }
-                        val qStemHash = stemHash(q.stem)
+                        val qStemHash = q.stemHash.substringBefore(":dup:").ifBlank { stemHash(q.stemNormalized) }
                         if (qStemHash in usedStemHashes) {
                             lastSkippedStemHashCount++
                             continue
                         }
                         val tokens = if (relaxedDueToCap) emptySet()
                         else {
-                            val t = buildQuestionTokenSet(q.stem, q.choices)
+                            val t = buildQuestionTokenSet(q.stemNormalized, emptyList())
                             if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
                                     jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                                 }) {
@@ -1530,20 +1532,20 @@ class QuestionRepository(private val context: Context) {
                     }
                     if (extraNormal.isNotEmpty()) {
                         selectedPerSubject[subj]?.addAll(extraNormal)
-                        selected.addAll(extraNormal)
-                        remainingSlots = effectiveCount - selected.size
+                        selectedCandidateRows.addAll(extraNormal)
+                        remainingSlots = effectiveCount - selectedCandidateRows.size
                     }
                 }
             }
 
             /** Similar-relaxed: skip similarity check. usedIds and stemHashUsed NEVER relax. */
-            fun pickExtraFromPartitionSimilarRelaxed(subj: Subject, partition: List<Question>) {
+            fun pickExtraFromPartitionSimilarRelaxed(subj: Subject, partition: List<QuestionCandidateRow>) {
                 if (partition.isEmpty() || remainingSlots <= 0) return
                 val wrongCandidates = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) {
                     partition.filter { it.id in preferredWrongIds }
                 } else emptyList()
                 val normalCandidates = if (wrongCandidates.isEmpty()) partition else partition.filter { it.id !in preferredWrongIds }
-                fun takeFrom(candidates: List<Question>, isWrong: Boolean) {
+                fun takeFrom(candidates: List<QuestionCandidateRow>, isWrong: Boolean) {
                     for (q in candidates.shuffled()) {
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
@@ -1553,22 +1555,22 @@ class QuestionRepository(private val context: Context) {
                         if (remainingSlots <= 0) break
                         val id = q.id
                         if (id in usedIds) continue
-                        val qStemHash = stemHash(q.stem)
+                        val qStemHash = q.stemHash.substringBefore(":dup:").ifBlank { stemHash(q.stemNormalized) }
                         if (qStemHash in usedStemHashes) continue
                         if (isWrong && wrongUsedCount >= maxWrongCount) continue
-                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
+                        val tokens = buildQuestionTokenSet(q.stemNormalized, emptyList())
                         val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
                             jaccardSimilarity(tokens, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
                         }
                         if (wouldBeSimilar) similarRelaxedCount++
                         selectedPerSubject[subj]?.add(q)
-                        selected.add(q)
+                        selectedCandidateRows.add(q)
                         usedIds.add(id)
                         usedStemHashes.add(qStemHash)
                         if (tokens.isNotEmpty()) selectedTokenSets.add(tokens)
                         if (isWrong) wrongUsedCount++
                         if (id in recentIds) recentRelaxedCount++
-                        remainingSlots = effectiveCount - selected.size
+                        remainingSlots = effectiveCount - selectedCandidateRows.size
                     }
                 }
                 takeFrom(wrongCandidates, isWrong = true)
@@ -1606,166 +1608,27 @@ class QuestionRepository(private val context: Context) {
             }
         }
 
-        // 4) Hâlâ yeterli soru yoksa, önce grade-only, sonra fallback havuzu kullan – yine unique ID zorunlu.
-        if (selected.isEmpty()) {
-            var pool = roomStore.getQuestionsByGrade(grade)
-            if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
-            if (pool.isEmpty()) pool = getFallbackQuestions()
+        // 4) Materialize final questions (decode full Question objects) only for selected IDs.
+        val selectedIdsInOrder = selectedCandidateRows.map { it.id }.distinct().take(effectiveCount)
+        val materialized = roomStore.getQuestionsByIds(selectedIdsInOrder)
+        val byId = materialized.associateBy { it.id }
+        val materializedInOrder = selectedIdsInOrder.mapNotNull { byId[it] }.toMutableList()
 
-            val uniqueFromPool = mutableListOf<Question>()
-            for (q in pool.shuffled()) {
-                totalAttempts++
-                if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
-                    lastCapReached = true
-                    relaxedDueToCap = true
-                }
-                if (uniqueFromPool.size >= effectiveCount) break
-                val id = q.id
-                if (id in usedIds) {
-                    lastSkippedIdCount++
-                    continue
-                }
-                val qStemHash = stemHash(q.stem)
-                if (qStemHash in usedStemHashes) {
-                    lastSkippedStemHashCount++
-                    continue
-                }
-                val tokens = if (relaxedDueToCap) emptySet()
-                else {
-                    val t = buildQuestionTokenSet(q.stem, q.choices)
-                    if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                            jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                        }) {
-                        lastSkippedSimilarCount++
-                        continue
-                    }
-                    t
-                }
-                usedIds.add(id)
-                usedStemHashes.add(qStemHash)
-                if (tokens.isNotEmpty()) {
-                    selectedTokenSets.add(tokens)
-                }
-                uniqueFromPool.add(q)
-            }
-            selected = uniqueFromPool
-            // Similar-relaxed fallback: usedIds and stemHashUsed NEVER relax.
-            if (selected.size < effectiveCount) {
-                for (q in pool.shuffled()) {
-                    totalAttempts++
-                    if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
-                        lastCapReached = true
-                        relaxedDueToCap = true
-                    }
-                    if (selected.size >= effectiveCount) break
-                    val id = q.id
-                    if (id in usedIds) continue
-                    val qStemHash = stemHash(q.stem)
-                    if (qStemHash in usedStemHashes) continue
-                    val tokens = buildQuestionTokenSet(q.stem, q.choices)
-                    val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                        jaccardSimilarity(tokens, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                    }
-                    if (wouldBeSimilar) similarRelaxedCount++
-                    usedIds.add(id)
-                    usedStemHashes.add(qStemHash)
-                    if (tokens.isNotEmpty()) selectedTokenSets.add(tokens)
-                    selected.add(q)
-                }
-            }
-        } else if (selected.size < effectiveCount) {
-            val used = usedIds
-            val extraSources = mutableListOf<List<Question>>()
-            extraSources += roomStore.getQuestionsByGrade(grade)
-            extraSources += getFallbackQuestions().filter { it.grade == grade }
-            extraSources += getFallbackQuestions()
-
-            for (source in extraSources) {
-                if (selected.size >= effectiveCount) break
-                for (q in source.shuffled()) {
-                    totalAttempts++
-                    if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
-                        lastCapReached = true
-                        relaxedDueToCap = true
-                    }
-                    if (selected.size >= effectiveCount) break
-                    val id = q.id
-                    if (id in used) {
-                        lastSkippedIdCount++
-                        continue
-                    }
-                    val qStemHash = stemHash(q.stem)
-                    if (qStemHash in usedStemHashes) {
-                        lastSkippedStemHashCount++
-                        continue
-                    }
-                    val tokens = if (relaxedDueToCap) emptySet()
-                    else {
-                        val t = buildQuestionTokenSet(q.stem, q.choices)
-                        if (t.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                                jaccardSimilarity(t, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                            }) {
-                            lastSkippedSimilarCount++
-                            continue
-                        }
-                        t
-                    }
-                    used.add(id)
-                    usedStemHashes.add(qStemHash)
-                    if (tokens.isNotEmpty()) {
-                        selectedTokenSets.add(tokens)
-                    }
-                    selected.add(q)
-                }
-            }
-            // Similar-relaxed fallback: usedIds and stemHashUsed NEVER relax.
-            if (selected.size < effectiveCount) {
-                for (source in extraSources) {
-                    if (selected.size >= effectiveCount) break
-                    for (q in source.shuffled()) {
-                        totalAttempts++
-                        if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
-                            lastCapReached = true
-                            relaxedDueToCap = true
-                        }
-                        if (selected.size >= effectiveCount) break
-                        val id = q.id
-                        if (id in used) continue
-                        val qStemHash = stemHash(q.stem)
-                        if (qStemHash in usedStemHashes) continue
-                        val tokens = buildQuestionTokenSet(q.stem, q.choices)
-                        val wouldBeSimilar = tokens.isNotEmpty() && selectedTokenSets.takeLast(SIMILARITY_LOOKBACK).any { prev ->
-                            jaccardSimilarity(tokens, prev) > NEAR_DUPLICATE_SIMILARITY_THRESHOLD
-                        }
-                        if (wouldBeSimilar) similarRelaxedCount++
-                        used.add(id)
-                        usedStemHashes.add(qStemHash)
-                        if (tokens.isNotEmpty()) selectedTokenSets.add(tokens)
-                        selected.add(q)
-                    }
-                }
-            }
-        }
-
-        // Emergency fill: if still short, take any unique (usedIds + usedStemHashes only) to reach 20.
-        if (selected.size < effectiveCount) {
-            val emergencyPool = buildList {
-                addAll(roomStore.getQuestionsByGrade(grade))
-                addAll(getFallbackQuestions().filter { it.grade == grade })
-                addAll(getFallbackQuestions())
-            }
-            for (q in emergencyPool.shuffled()) {
-                if (selected.size >= effectiveCount) break
+        // If still short, fill from in-memory fallback pack (no DB scan).
+        if (materializedInOrder.size < effectiveCount) {
+            val fallbackPool = getFallbackQuestions().filter { it.grade == grade }.ifEmpty { getFallbackQuestions() }
+            for (q in fallbackPool.shuffled()) {
+                if (materializedInOrder.size >= effectiveCount) break
                 if (q.id in usedIds) continue
                 val sh = stemHash(q.stem)
                 if (sh in usedStemHashes) continue
                 usedIds.add(q.id)
                 usedStemHashes.add(sh)
-                selected.add(q)
+                materializedInOrder.add(q)
             }
         }
 
-        val finalQuestions = selected
+        val finalQuestions = materializedInOrder
             .distinctBy { it.id }
             .take(effectiveCount)
             .shuffled()
@@ -1774,6 +1637,7 @@ class QuestionRepository(private val context: Context) {
         val questionIds = finalQuestions.map { it.id }
         roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
         recordSeenForQuiz(profileId, questionIds)
+        lastDbQueryMs = System.currentTimeMillis() - dbQueryStartMs
 
         // Expose debug counts for UI.
         lastRecentRelaxedCount = recentRelaxedCount
@@ -1966,7 +1830,7 @@ class QuestionRepository(private val context: Context) {
     /** Gate questions - sadece grade filtresi ile (grade 2-8). */
     fun pickGateQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         if (grade !in 2..8) return emptyList()
-        runBlocking { DbSeeder.seedIfNeeded(context) }
+        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
         if (pool.isEmpty()) pool = getFallbackQuestions()
@@ -2010,7 +1874,7 @@ class QuestionRepository(private val context: Context) {
     /** Boss questions - sadece grade filtresi ile (grade 2-8). */
     fun pickBossQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         if (grade !in 2..8) return emptyList()
-        runBlocking { DbSeeder.seedIfNeeded(context) }
+        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
         if (pool.isEmpty()) pool = getFallbackQuestions()
@@ -2038,7 +1902,7 @@ class QuestionRepository(private val context: Context) {
     /** Remedial questions - sadece grade filtresi ile. */
     fun pickRemedialQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
         if (grade !in 2..8) return Pair(emptyList(), true)
-        runBlocking { DbSeeder.seedIfNeeded(context) }
+        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val all = roomStore.getQuestionsByGrade(grade).ifEmpty { getFallbackQuestions().filter { it.grade == grade } }
             .ifEmpty { getFallbackQuestions() }
         val allMap = all.associateBy { it.id }
@@ -2073,7 +1937,7 @@ class QuestionRepository(private val context: Context) {
         val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
         val wrongIds = roomStore.getAllWrongIds(userId)
         if (wrongIds.isEmpty()) return emptyList()
-        runBlocking { DbSeeder.seedIfNeeded(context) }
+        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val all = roomStore.getQuestionsByGrade(grade).associateBy { it.id }
         val fallback = getFallbackQuestions().filter { it.grade == grade }.associateBy { it.id }
         val allMap = if (all.isEmpty()) fallback else all
@@ -2233,7 +2097,7 @@ class QuestionRepository(private val context: Context) {
         testId: String? = null
     ): List<Question> {
         if (grade !in 2..8) return emptyList()
-        runBlocking { DbSeeder.seedIfNeeded(context) }
+        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
         if (pool.isEmpty()) pool = getFallbackQuestions()

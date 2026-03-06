@@ -22,6 +22,21 @@ data class GradeSubjectDifficultyCount(
     val count: Int
 )
 
+/**
+ * Lightweight candidate row for quiz picking.
+ * Used to avoid scanning/decoding full QuestionEntity payloads during selection.
+ */
+data class QuestionCandidateRow(
+    val id: String,
+    val subject: String,
+    val difficulty: Int,
+    val grade: Int,
+    val stemHash: String,
+    val stemNormalized: String,
+    val type: String,
+    val skill: String
+)
+
 /** Pool Status: Aynı grade+subject içinde en çok tekrar eden stemHash. */
 data class DuplicateStemHashRow(
     val grade: Int,
@@ -54,6 +69,27 @@ interface QuestionDao {
     /** Sınıf + ders + zorluk filtresi. */
     @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND subject = :subject AND difficulty = :difficulty")
     suspend fun getByGradeSubjectDifficulty(grade: Int, subject: String, difficulty: Int): List<QuestionEntity>
+
+    /**
+     * Quiz picker candidate pool (LIMIT 200).
+     * Only a lightweight subset of columns is fetched for fast in-memory filtering.
+     */
+    @Query(
+        """
+        SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        FROM questions
+        WHERE grade = :grade
+        AND subject = :subject
+        AND difficulty = :difficulty
+        AND isActive = 1
+        LIMIT 200
+        """
+    )
+    suspend fun getCandidatePoolByGradeSubjectDifficulty(
+        grade: Int,
+        subject: String,
+        difficulty: Int
+    ): List<QuestionCandidateRow>
 
     /** Tüm sınıf havuzu (grade 2-8 için test oluşturma). */
     @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND grade > 0")
