@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.brainbuddy.app.R
 import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.core.GradePrefs
+import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.LastTestUnlockStore
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.core.RetryUnlockStore
@@ -63,6 +64,7 @@ class QuizActivity : AppCompatActivity() {
     private var poolDebug: QuestionRepository.PoolDebugForGrade? = null
     private var debugWrongUsed: Int = 0
     private var pickerDebugPath: String = ""
+    private var isLgsModeForDebug: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,9 +72,10 @@ class QuizActivity : AppCompatActivity() {
         setContentView(b.root)
 
         if (BuildConfig.DEBUG) {
-            val pickerMode = intent.getStringExtra("picker_mode") ?: "UNKNOWN"
-            val debugLine = "DEBUG_PICKER_OK mode=$pickerMode"
-
+            val gp = GradePrefs(this)
+            val modeStr = if (gp.getSelectedMode() == LevelMode.LGS) "LGS" else "GRADE"
+            val gradeStr = if (modeStr == "GRADE" && gp.getSelectedGrade() in 1..7) " grade=${gp.getSelectedGrade()}" else ""
+            val debugLine = "DEBUG_PICKER_OK mode=$modeStr$gradeStr"
             b.debugPickerText.text = debugLine
             b.debugPickerText.visibility = View.VISIBLE
 
@@ -192,18 +195,17 @@ class QuizActivity : AppCompatActivity() {
             val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS)
             val replayQuestionIds = intent.getStringArrayListExtra(EXTRA_QUESTION_IDS_FOR_REPLAY)
 
-            val (levelGroup, effectiveGrade) = withContext(Dispatchers.IO) {
-                val lg = repo.getLevelGroupFromPrefs()
+            val (levelGroup, effectiveGrade, isLgsMode) = withContext(Dispatchers.IO) {
                 val gp = GradePrefs(this@QuizActivity)
-                val selectedGrade = gp.getSelectedGrade()
-                val isGradeMode = lg == LevelGroup.GRADE_1_4 || lg == LevelGroup.GRADE_5_8
-                val eff = if (isGradeMode && gp.hasGradeSelected()) selectedGrade else 0
-                lg to eff
+                val lg = repo.getLevelGroupFromPrefs()
+                val mode = gp.getSelectedMode()
+                val lgs = mode == LevelMode.LGS
+                val eff = if (!lgs && gp.hasGradeSelected()) gp.getSelectedGrade() else 0
+                Triple(lg, eff, lgs)
             }
             val gradePrefs = GradePrefs(this@QuizActivity)
-            val isGradeMode = levelGroup == LevelGroup.GRADE_1_4 || levelGroup == LevelGroup.GRADE_5_8
-            val needsGrade = isGradeMode && !(isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST)
-            if (needsGrade && !gradePrefs.hasGradeSelected()) {
+            val needsLevel = !(isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST)
+            if (needsLevel && !gradePrefs.hasLevelSelected()) {
                 android.widget.Toast.makeText(this@QuizActivity, com.brainbuddy.app.R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
                 startActivity(Intent(this@QuizActivity, com.brainbuddy.app.ui.TestSettingsActivity::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -231,6 +233,7 @@ class QuizActivity : AppCompatActivity() {
                     retryWrongMode = retryWrongMode,
                     effectiveGrade = effectiveGrade,
                     levelGroup = levelGroup,
+                    isLgsMode = isLgsMode,
                     quizId = quizId,
                     targetCount = targetCount,
                     intent = intent
@@ -251,6 +254,7 @@ class QuizActivity : AppCompatActivity() {
                     retryWrongMode = retryWrongMode,
                     effectiveGrade = effectiveGrade,
                     levelGroup = levelGroup,
+                    isLgsMode = isLgsMode,
                     quizId = quizId,
                     targetCount = targetCount,
                     intent = intent
@@ -280,7 +284,8 @@ class QuizActivity : AppCompatActivity() {
                 }
 
                 b.submitBtn.visibility = View.GONE
-                applyQuizResultAndRender(result, effectiveGrade)
+                isLgsModeForDebug = isLgsMode
+                applyQuizResultAndRender(result, effectiveGrade, isLgsMode)
             }
         }
     }
@@ -307,11 +312,12 @@ class QuizActivity : AppCompatActivity() {
         retryWrongMode: Boolean,
         effectiveGrade: Int,
         levelGroup: LevelGroup,
+        isLgsMode: Boolean,
         quizId: String,
         targetCount: Int,
         intent: Intent
     ): QuizBuildResult {
-        val poolDebug = if (effectiveGrade in 2..8) {
+        val poolDebug = if (!isLgsMode && effectiveGrade in 1..7) {
             try {
                 repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
             } catch (_: Exception) {
@@ -324,83 +330,128 @@ class QuizActivity : AppCompatActivity() {
         var wrongUsed = 0
 
         val q = when {
+            isLgsMode && !(isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount) -> {
+                pickerPath = "LGS"
+                repo.pickQuizQuestionsForLGS(targetCount, quizId)
+            }
             isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount -> {
                 pickerPath = "REPLAY"
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 replayQuestionIds.mapNotNull { all[it] }
             }
             bossLevel > 0 -> {
-                pickerPath = if (effectiveGrade in 2..8) "BOSS_GRADE" else "BOSS"
-                if (effectiveGrade in 2..8) repo.pickBossQuestionsByGrade(effectiveGrade, targetCount)
-                else repo.pickBossQuestions(levelGroup, targetCount)
+                pickerPath = if (isLgsMode) "BOSS_LGS" else if (effectiveGrade in 1..7) "BOSS_GRADE" else "BOSS"
+                when {
+                    isLgsMode -> repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                    effectiveGrade in 1..7 -> repo.pickBossQuestionsByGrade(effectiveGrade, targetCount)
+                    else -> repo.pickBossQuestions(levelGroup, targetCount)
+                }
             }
             isGateMode && isRetryOfLockedQuiz -> {
-                pickerPath = "GATE_RETRY"
+                pickerPath = if (isLgsMode) "GATE_RETRY_LGS" else "GATE_RETRY"
                 val ids = protectionPrefs.lastFailedQuestionIds()
                 if (ids.size >= targetCount) {
                     val all = repo.loadAllQuestions().associateBy { it.id }
                     ids.mapNotNull { all[it] }
                 } else {
-                    if (effectiveGrade in 2..8) repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
-                    else repo.pickGateQuestions(levelGroup, targetCount)
+                    when {
+                        isLgsMode -> repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                        effectiveGrade in 1..7 -> repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
+                        else -> repo.pickGateQuestions(levelGroup, targetCount)
+                    }
                 }
             }
             isGateMode -> {
-                pickerPath = if (effectiveGrade in 2..8) "GATE_GRADE" else "GATE"
-                if (effectiveGrade in 2..8) repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
-                else repo.pickGateQuestions(levelGroup, targetCount)
+                pickerPath = when {
+                    isLgsMode -> "GATE_LGS"
+                    effectiveGrade in 1..7 -> "GATE_GRADE"
+                    else -> "GATE"
+                }
+                when {
+                    isLgsMode -> repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                    effectiveGrade in 1..7 -> repo.pickGateQuestionsByGrade(effectiveGrade, targetCount)
+                    else -> repo.pickGateQuestions(levelGroup, targetCount)
+                }
             }
-            isRemedial -> if (effectiveGrade in 2..8) {
-                pickerPath = "REMEDIAL_GRADE"
-                val (list, usedFallback) = repo.pickRemedialQuestionsByGrade(effectiveGrade, targetCount, protectionPrefs.lastFailedWrongIds())
-                remedialWarning = usedFallback
-                list
-            } else {
-                pickerPath = "REMEDIAL"
-                val (list, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, protectionPrefs.lastFailedWrongIds())
-                remedialWarning = usedFallback
-                list
+            isRemedial -> when {
+                isLgsMode -> {
+                    pickerPath = "REMEDIAL_LGS"
+                    repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                }
+                effectiveGrade in 1..7 -> {
+                    pickerPath = "REMEDIAL_GRADE"
+                    val (list, usedFallback) = repo.pickRemedialQuestionsByGrade(effectiveGrade, targetCount, protectionPrefs.lastFailedWrongIds())
+                    remedialWarning = usedFallback
+                    list
+                }
+                else -> {
+                    pickerPath = "REMEDIAL"
+                    val (list, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, protectionPrefs.lastFailedWrongIds())
+                    remedialWarning = usedFallback
+                    list
+                }
             }
             wrongIds != null && wrongIds.isNotEmpty() -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 val found = wrongIds.mapNotNull { all[it] }
                 val preferredWrongIds = found.map { it.id }.toSet()
-                if (effectiveGrade in 2..8) {
+                when {
+                    isLgsMode -> {
+                        pickerPath = "WRONG_ONLY_LGS"
+                        repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                    }
+                    effectiveGrade in 1..7 -> {
+                        pickerPath = "WRONG_ONLY"
+                        val picked = repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId, preferredWrongIds = preferredWrongIds)
+                        wrongUsed = picked.count { it.id in preferredWrongIds }
+                        picked
+                    }
+                    else -> {
+                        pickerPath = "WRONG_ONLY_SUBJECT"
+                        val base = if (found.isNotEmpty()) found.shuffled().take(targetCount) else emptyList()
+                        if (base.size < targetCount) {
+                            repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
+                        } else base
+                    }
+                }
+            }
+            retryWrongMode -> when {
+                isLgsMode -> {
+                    pickerPath = "WRONG_ONLY_LGS"
+                    repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                }
+                effectiveGrade in 1..7 -> {
                     pickerPath = "WRONG_ONLY"
+                    val wrong = repo.pickRetryWrongQuestionsByGrade(effectiveGrade)
+                    val preferredWrongIds = wrong.map { it.id }.toSet()
                     val picked = repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId, preferredWrongIds = preferredWrongIds)
                     wrongUsed = picked.count { it.id in preferredWrongIds }
                     picked
-                } else {
+                }
+                else -> {
                     pickerPath = "WRONG_ONLY_SUBJECT"
-                    val base = if (found.isNotEmpty()) found.shuffled().take(targetCount) else emptyList()
-                    if (base.size < targetCount) {
-                        repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
-                    } else base
+                    val wrong = repo.pickRetryWrongQuestions(levelGroup)
+                    if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
+                    else wrong.shuffled().take(targetCount)
                 }
             }
-            retryWrongMode -> if (effectiveGrade in 2..8) {
-                pickerPath = "WRONG_ONLY"
-                val wrong = repo.pickRetryWrongQuestionsByGrade(effectiveGrade)
-                val preferredWrongIds = wrong.map { it.id }.toSet()
-                val picked = repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId, preferredWrongIds = preferredWrongIds)
-                wrongUsed = picked.count { it.id in preferredWrongIds }
-                picked
-            } else {
-                pickerPath = "WRONG_ONLY_SUBJECT"
-                val wrong = repo.pickRetryWrongQuestions(levelGroup)
-                if (wrong.size < targetCount) repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
-                else wrong.shuffled().take(targetCount)
-            }
-            else -> if (effectiveGrade in 2..8) {
-                pickerPath = "GRADE"
-                repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
-            } else {
-                pickerPath = "SUBJECT_ONLY"
-                val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
-                val categories = subjectFilter?.let { tr ->
-                    Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
-                } ?: quizPrefs.selectedCategories()
-                repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
+            else -> when {
+                isLgsMode -> {
+                    pickerPath = "LGS"
+                    repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                }
+                effectiveGrade in 1..7 -> {
+                    pickerPath = "GRADE"
+                    repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
+                }
+                else -> {
+                    pickerPath = "SUBJECT_ONLY"
+                    val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
+                    val categories = subjectFilter?.let { tr ->
+                        Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
+                    } ?: quizPrefs.selectedCategories()
+                    repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
+                }
             }
         }
         return QuizBuildResult(q, poolDebug, pickerPath, remedialWarning, wrongUsed)
@@ -421,6 +472,7 @@ class QuizActivity : AppCompatActivity() {
         retryWrongMode: Boolean,
         effectiveGrade: Int,
         levelGroup: LevelGroup,
+        isLgsMode: Boolean,
         quizId: String,
         targetCount: Int,
         intent: Intent
@@ -430,13 +482,14 @@ class QuizActivity : AppCompatActivity() {
                 val all = repo.loadAllQuestions().associateBy { it.id }
                 replayQuestionIds.mapNotNull { all[it] }
             }
-            effectiveGrade in 2..8 -> repo.pickQuizQuestionsRelaxedByGrade(effectiveGrade, targetCount, quizId)
+            isLgsMode -> repo.pickQuizQuestionsForLGS(targetCount, quizId)
+            effectiveGrade in 1..7 -> repo.pickQuizQuestionsRelaxedByGrade(effectiveGrade, targetCount, quizId)
             else -> repo.pickQuizQuestionsRelaxed(levelGroup, targetCount, quizPrefs.difficulty(), quizPrefs.selectedCategories(), quizId)
         }
         return QuizBuildResult(q, null, "RELAXED", false, 0)
     }
 
-    private fun applyQuizResultAndRender(result: QuizBuildResult, effectiveGrade: Int) {
+    private fun applyQuizResultAndRender(result: QuizBuildResult, effectiveGrade: Int, isLgsMode: Boolean = false) {
         if (questions.isEmpty() || questions.size < QuestionRepository.MIN_QUESTIONS_PER_TEST) {
             b.subjectChip.text = "Soru havuzu yetersiz"
             val msg = if (questions.isEmpty()) {
@@ -484,7 +537,7 @@ class QuizActivity : AppCompatActivity() {
                         } catch (_: Exception) {}
                     }
                     val refreshed = try {
-                        if (effectiveGrade in 2..8) repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty()) else null
+                        if (effectiveGrade in 1..7) repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty()) else null
                     } catch (_: Exception) { null }
                     b.questionText.text = msg + (refreshed?.readableText?.let { "\n\n$it" } ?: "")
                     val wr = mutableListOf<String>()
@@ -498,7 +551,7 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
             b.btnFixInvalidGrades.setOnClickListener {
-                if (effectiveGrade !in 2..8) return@setOnClickListener
+                if (effectiveGrade !in 1..7) return@setOnClickListener
                 lifecycleScope.launch {
                     withContext(Dispatchers.IO) {
                         try {
@@ -517,7 +570,7 @@ class QuizActivity : AppCompatActivity() {
                 finish()
             }
         } else {
-            if (effectiveGrade in 2..8 && questions.size >= 3) {
+            if (effectiveGrade in 1..7 && questions.size >= 3) {
                 questions.take(3).forEachIndexed { i, q ->
                     android.util.Log.d("QuizActivity", "[GRADE_DEBUG] Q${i + 1} id=${q.id} grade=${q.grade} expected=$effectiveGrade")
                     if (q.grade != effectiveGrade) {
@@ -560,11 +613,12 @@ class QuizActivity : AppCompatActivity() {
             val selectedDifficulty = quizPrefs.difficulty()
             val debug = poolDebug
 
-            val pickerLabel = pickerDebugPath.ifBlank { "UNKNOWN" }
+            val pickerLabel = pickerDebugPath.ifBlank { if (isLgsModeForDebug) "LGS" else "GRADE" }
             val sc = repo.lastSubjectCounts.entries.joinToString(",") { "${it.key}=${it.value}" }
             val traceLine = "picker=$pickerLabel | buildMs=${repo.lastBuildMs} dbQueryMs=${repo.lastDbQueryMs} capReached=${if (repo.lastCapReached) 1 else 0} subjectCounts=[$sc] | skippedId=${repo.lastSkippedIdCount} skippedStemHash=${repo.lastSkippedStemHashCount} skippedSimilar=${repo.lastSkippedSimilarCount} skippedRecent=${repo.lastSkippedRecentCount} relaxed=${repo.lastRecentRelaxedCount}"
 
-            if (debug != null && effectiveGrade in 2..8) {
+            val modePrefix = if (isLgsModeForDebug) "mode=LGS" else "mode=GRADE" + (if (effectiveGrade in 1..7) " grade=$effectiveGrade" else "")
+            if (debug != null && effectiveGrade in 1..7) {
                 val subjectsOrder = listOf("mat" to "MAT", "turkce" to "TURKCE", "fen" to "FEN", "sosyal" to "SOSYAL", "ing" to "ING")
                 val countsLine = subjectsOrder.joinToString("  ") { (key, label) ->
                     val c = debug.perSubject[key]
@@ -592,7 +646,7 @@ class QuizActivity : AppCompatActivity() {
                     "$label:$typeCounts"
                 }
                 val wrongUsedText = "$debugWrongUsed/${QuestionRepository.MIN_QUESTIONS_PER_TEST}"
-                val headerBase = "grade=$effectiveGrade • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText"
+                val headerBase = "$modePrefix • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText"
                 val recentLine = if (repo.lastRecentRelaxedCount > 0) "\nrecent relaxed +${repo.lastRecentRelaxedCount}" else ""
                 val headerRest = "$headerBase$recentLine\n$typeSummary"
                 val fullHeader = traceLine + "\n" + headerRest
@@ -600,7 +654,7 @@ class QuizActivity : AppCompatActivity() {
                 b.debugInfoText.text = fullHeader
             } else {
                 b.debugInfoText.visibility = View.VISIBLE
-                b.debugInfoText.text = traceLine
+                b.debugInfoText.text = "$modePrefix • $traceLine"
             }
         } else {
             b.debugInfoText.visibility = View.GONE

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.RadioGroup
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GradePrefs
+import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
@@ -48,9 +49,9 @@ class TestSettingsActivity : AppCompatActivity() {
         }
 
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnMiniTest).setOnClickListener {
-            if (!gradePrefs.hasGradeSelected()) {
+            if (!gradePrefs.hasLevelSelected()) {
                 android.widget.Toast.makeText(this, R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
-                findViewById<android.widget.RadioGroup>(R.id.testGradeGroup)?.requestFocus()
+                findViewById<android.widget.RadioGroup>(R.id.testModeGroup)?.requestFocus()
                 return@setOnClickListener
             }
             startActivity(Intent(this, QuizActivity::class.java).apply {
@@ -69,20 +70,45 @@ class TestSettingsActivity : AppCompatActivity() {
     }
 
     private fun setupGradeSelection(gradePrefs: GradePrefs) {
-        val group = findViewById<RadioGroup>(R.id.testGradeGroup)
+        val modeGroup = findViewById<RadioGroup>(R.id.testModeGroup)
+        val gradeGroup = findViewById<RadioGroup>(R.id.testGradeGroup)
         val tvSelected = findViewById<android.widget.TextView>(R.id.tvSelectedGrade)
         val gradeToId = mapOf(
-            2 to R.id.testGrade2, 3 to R.id.testGrade3, 4 to R.id.testGrade4,
-            5 to R.id.testGrade5, 6 to R.id.testGrade6, 7 to R.id.testGrade7, 8 to R.id.testGrade8
+            1 to R.id.testGrade1,
+            2 to R.id.testGrade2,
+            3 to R.id.testGrade3,
+            4 to R.id.testGrade4,
+            5 to R.id.testGrade5,
+            6 to R.id.testGrade6,
+            7 to R.id.testGrade7
         )
         fun updateLabel() {
-            val g = gradePrefs.getSelectedGrade()
-            tvSelected.text = if (g in 2..8) getString(R.string.grade_selected_label, g) else "Seçili Sınıf: -"
+            when (gradePrefs.getSelectedMode()) {
+                LevelMode.GRADE -> {
+                    val g = gradePrefs.getSelectedGrade()
+                    tvSelected.text = if (g in 1..7) getString(R.string.grade_selected_label, g) else "Seçili Sınıf: -"
+                    gradeGroup.visibility = android.view.View.VISIBLE
+                }
+                LevelMode.LGS -> {
+                    tvSelected.text = getString(R.string.mode_selected_lgs)
+                    gradeGroup.visibility = android.view.View.GONE
+                }
+            }
         }
-        val saved = gradePrefs.getSelectedGrade()
-        gradeToId[saved]?.let { group.check(it) }
+        when (gradePrefs.getSelectedMode()) {
+            LevelMode.GRADE -> modeGroup.check(R.id.testModeGrade)
+            LevelMode.LGS -> modeGroup.check(R.id.testModeLGS)
+        }
+        gradeToId[gradePrefs.getSelectedGrade()]?.let { gradeGroup.check(it) }
         updateLabel()
-        group.setOnCheckedChangeListener { _, id ->
+        modeGroup.setOnCheckedChangeListener { _, id ->
+            when (id) {
+                R.id.testModeLGS -> gradePrefs.setSelectedMode(LevelMode.LGS)
+                else -> gradePrefs.setSelectedMode(LevelMode.GRADE)
+            }
+            updateLabel()
+        }
+        gradeGroup.setOnCheckedChangeListener { _, id ->
             val grade = gradeToId.entries.find { it.value == id }?.key ?: 0
             gradePrefs.setSelectedGrade(grade)
             updateLabel()

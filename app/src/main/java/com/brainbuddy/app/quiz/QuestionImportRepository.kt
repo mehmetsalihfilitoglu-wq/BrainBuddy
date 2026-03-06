@@ -12,10 +12,10 @@ import java.nio.charset.Charset
  * Import pipeline for question packs.
  *
  * Hedef havuz mantığı:
- * - Her sınıf (2–8) × her ders (Matematik, Türkçe, Fen Bilimleri, Sosyal Bilgiler, İngilizce)
+ * - Her sınıf (1–7) × her ders (Matematik, Türkçe, Fen Bilimleri, Sosyal Bilgiler, İngilizce)
  *   kombinasyonu için en az 500 soru (grade+subject bazında).
  * - Yani 1 sınıf için toplam ≈ 5 × 500 = 2.500 soru,
- *   2–8 arası tüm sınıflar için ≈ 7 × 5 × 500 = 17.500 soru (Junior hariç).
+ *   1–7 arası tüm sınıflar için ≈ 7 × 5 × 500 = 17.500 soru (1. sınıf = Junior).
  *
  * `TARGET_QUESTIONS_PER_SUBJECT` bu minimum hedefi temsil eder; gerçek implementasyon
  * JSON tarafında her (grade, subject) kombinasyonu için en az 500 soru olacak şekilde
@@ -80,7 +80,11 @@ class QuestionImportRepository(private val context: Context) {
         val subject = try { Subject.valueOf(subjStr) } catch (_: Exception) { Subject.MAT }
         val examType = try { ExamType.valueOf(o.optString("examType", "GENERAL")) } catch (_: Exception) { ExamType.GENERAL }
         val gradeFromDto = o.optInt("grade", 0)
-        val grade = if (gradeFromDto in 2..8) gradeFromDto else GradePrefs(context).getSelectedGrade().coerceIn(2, 8)
+        val grade = when {
+            gradeFromDto in 1..7 -> gradeFromDto
+            examType == ExamType.LGS -> 8
+            else -> GradePrefs(context).getSelectedGrade().coerceIn(1, 7)
+        }
         val type = o.optString("type", "").takeIf { it.isNotBlank() }?.uppercase(Locale.ROOT) ?: "UNKNOWN"
         val skill = o.optString("skill", "").takeIf { it.isNotBlank() }?.uppercase(Locale.ROOT) ?: "UNKNOWN"
         return Question(

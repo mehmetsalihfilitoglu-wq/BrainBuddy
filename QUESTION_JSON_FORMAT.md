@@ -21,7 +21,7 @@
 | Alan | Tip | Zorunlu | Açıklama |
 |------|-----|---------|----------|
 | `id` | string | Hayır | Benzersiz ID. Verilmezse `{grade}_{subject}_{seq}` üretilir |
-| `grade` | int | Evet* | Sınıf 2–8. `gradeTag`'den türetilebilir |
+| `grade` | int | Evet* | Sınıf 1–7. `gradeTag`'den türetilebilir |
 | `subject` | string | Evet | MAT, TURKCE, FEN, SOSYAL, ING |
 | `difficulty` | string | Evet | EASY, MEDIUM, HARD |
 | `stem` | string | Evet | Soru metni |
@@ -40,5 +40,5 @@
 
 ## Havuz Hedefi
 
-- Her sınıf (2–8) × her ders (5) = en az 500 soru
-- Toplam: 7 × 5 × 500 = **17.500 soru** (Junior hariç)
+- Her sınıf (1–7) × her ders (5) = en az 500 soru
+- Toplam: 7 × 5 × 500 = **17.500 soru** (1. sınıf = Junior)

@@ -42,10 +42,10 @@ object QuestionQualityGate {
         if (isTrivial) {
             isActive = false
             reason = "too_trivial"
-        } else if (isMathDrill && grade in 2..8) {
+        } else if (isMathDrill && grade in 1..7) {
             isActive = false
             reason = "too_simple_math"
-        } else if (isMathConversionOnly && grade in 2..8) {
+        } else if (isMathConversionOnly && grade in 1..7) {
             isActive = false
             reason = "too_basic"
         } else if (isShortAndSingleFact) {

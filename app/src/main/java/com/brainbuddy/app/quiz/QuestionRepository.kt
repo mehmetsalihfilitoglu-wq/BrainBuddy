@@ -201,9 +201,9 @@ class QuestionRepository(private val context: Context) {
         } catch (_: Exception) { 0 }
     }
 
-    /** Sınıf bazlı havuz boyutu (2-8). Room'dan grade ile filtreler. */
+    /** Sınıf bazlı havuz boyutu (1-7). Room'dan grade ile filtreler. */
     fun getPoolSizeForGrade(grade: Int): Int {
-        if (grade !in 2..8) return 0
+        if (grade !in 1..7) return 0
         return try {
             runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
             roomStore.getQuestionsByGrade(grade).distinctBy { it.id }.size
@@ -316,7 +316,7 @@ class QuestionRepository(private val context: Context) {
                     Subject.ING -> "ing"
                 }
                 val h = QuestionStemHash.stemHash(q.stem)
-                val stemKey = "${q.grade.coerceIn(1, 8)}|$dbSubjectKey|$h"
+                val stemKey = "${q.grade.coerceIn(1, 7)}|$dbSubjectKey|$h"
                 if (stemKey in batchSeenStemKeys) continue
                 batchSeenStemKeys.add(stemKey)
                 if (stemKey in existingStemKeysForFilter) continue
@@ -404,12 +404,12 @@ class QuestionRepository(private val context: Context) {
             }
             val stemNormalizedValue = QuestionStemHash.normalizeStem(q.stem)
             val stemHashValue = QuestionStemHash.stemHash(q.stem)
-            val stemKey = "${q.grade.coerceIn(1, 8)}|$dbSubjectKey|$stemHashValue"
+            val stemKey = "${q.grade.coerceIn(1, 7)}|$dbSubjectKey|$stemHashValue"
             if (stemKey in existingStemKeys) return@map null
             existingStemKeys.add(stemKey)
             QuestionEntity(
                 id = q.id,
-                grade = q.grade.coerceIn(1, 8),
+                grade = q.grade.coerceIn(1, 7),
                 subject = dbSubjectKey,
                 difficulty = diffInt,
                 questionText = q.stem,
@@ -574,7 +574,7 @@ class QuestionRepository(private val context: Context) {
         grade: Int,
         difficulty: QuizDifficulty
     ): PoolDebugForGrade {
-        if (grade !in 2..8) {
+        if (grade !in 1..7) {
             return PoolDebugForGrade(
                 total = 0,
                 active = 0,
@@ -583,7 +583,7 @@ class QuestionRepository(private val context: Context) {
                 perSubject = emptyMap(),
                 hasPassiveOnly = false,
                 subjectsWithDifficultyGap = emptyList(),
-                readableText = "DB DURUMU\nGeçersiz sınıf: $grade (2..8 dışında)."
+                readableText = "DB DURUMU\nGeçersiz sınıf: $grade (1..7 dışında)."
             )
         }
         val db = DatabaseProvider.get(context)
@@ -601,8 +601,8 @@ class QuestionRepository(private val context: Context) {
                 val active = dao.countAllActive()
                 val gradeTotal = dao.countByGrade(grade)
                 val gradeActive = dao.countActiveByGrade(grade)
-                // Grade 2..8 dağılımı + geçersiz grade teşhisi
-                val perGrade = (2..8).associateWith { g ->
+                // Grade 1..7 dağılımı + geçersiz grade teşhisi
+                val perGrade = (1..7).associateWith { g ->
                     val gTotal = dao.countByGradeOnly(g)
                     val gActive = dao.countActiveByGradeOnly(g)
                     gTotal to gActive
@@ -639,9 +639,9 @@ class QuestionRepository(private val context: Context) {
             sb.append("selectedGrade: $grade\n")
             sb.append("selectedDifficulty: ${difficulty.name}\n")
             sb.append("\n")
-            // Grade dağılımı: 2..8 için total/active
-            sb.append("Grade dağılımı (2..8):\n")
-            (2..8).forEach { g ->
+            // Grade dağılımı: 1..7 için total/active
+            sb.append("Grade dağılımı (1..7):\n")
+            (1..7).forEach { g ->
                 val (gTotal, gActive) = snapshot.perGrade[g] ?: (0 to 0)
                 sb.append("grade=$g total/active: $gTotal/$gActive\n")
             }
@@ -1041,10 +1041,10 @@ class QuestionRepository(private val context: Context) {
         val correctIdx = o.optInt("correctIndex", 0).coerceIn(0, choices.size - 1)
         val correctAnswer = choices.getOrNull(correctIdx) ?: ""
         // Grade belirleme:
-        // JSON'da "grade" alanı zorunlu kabul edilir; sadece 2..8 aralığına clamp edilir.
+        // JSON'da "grade" alanı zorunlu kabul edilir; sadece 1..7 aralığına clamp edilir.
         val rawGrade = o.optInt("grade", 0)
-        val grade = rawGrade.coerceIn(2, 8)
-        if (grade !in 2..8) {
+        val grade = rawGrade.coerceIn(1, 7)
+        if (grade !in 1..7) {
             throw IllegalArgumentException("Invalid grade in question JSON (grade)")
         }
         val rawId = o.optString("id", "")
@@ -1094,7 +1094,7 @@ class QuestionRepository(private val context: Context) {
     }
 
     /**
-     * Sınıf bazlı test: Kullanıcının seçtiği grade (2-8) için havuzdan seçim.
+     * Sınıf bazlı test: Kullanıcının seçtiği grade (1-7) için havuzdan seçim.
      * Quiz size = 20, subjects = mat/turkce/fen/sosyal/ing, target quota = 4 each.
      * - grade = selectedGrade
      * - difficulty = selectedDifficulty
@@ -1112,7 +1112,7 @@ class QuestionRepository(private val context: Context) {
         preferredWrongIds: Set<String> = emptySet(),
         maxWrongFraction: Double = 0.3
     ): List<Question> {
-        if (grade !in 2..8) return emptyList()
+        if (grade !in 1..7) return emptyList()
         return runBlocking(Dispatchers.IO) {
             pickQuizQuestionsByGradeInternal(
                 grade = grade,
@@ -1122,6 +1122,79 @@ class QuestionRepository(private val context: Context) {
                 maxWrongFraction = maxWrongFraction
             )
         }
+    }
+
+    /**
+     * LGS mode: uses only LGS question pool (examType=LGS).
+     * Subject distribution: MAT=6, TURKCE=6, FEN=4, INKILAP=2, DIN=1, ING=1 (total 20).
+     * Does NOT use selectedGrade. Does NOT fallback to grade 6.
+     */
+    fun pickQuizQuestionsForLGS(
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        testId: String? = null
+    ): List<Question> {
+        return runBlocking(Dispatchers.IO) {
+            pickQuizQuestionsForLGSInternal(count = count, testId = testId)
+        }
+    }
+
+    private suspend fun pickQuizQuestionsForLGSInternal(
+        count: Int,
+        testId: String?
+    ): List<Question> {
+        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
+        val buildStartMs = System.currentTimeMillis()
+        val effectiveCount = count.coerceAtMost(MIN_QUESTIONS_PER_TEST).coerceAtLeast(MIN_QUESTIONS_PER_TEST)
+
+        val lgsSubjectOrder: List<Pair<Subject, Int>> = listOf(
+            Subject.MAT to 6,
+            Subject.TURKCE to 6,
+            Subject.FEN to 4,
+            Subject.INKILAP to 2,
+            Subject.DIN to 1,
+            Subject.ING to 1
+        )
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
+        val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
+
+        val usedIds = mutableSetOf<String>()
+        val usedStemHashes = mutableSetOf<String>()
+        val selectedRows = mutableListOf<QuestionCandidateRow>()
+
+        for ((subjEnum, target) in lgsSubjectOrder) {
+            if (target <= 0) continue
+            val dbKey = com.brainbuddy.app.db.QuestionMapper.toDbSubject(subjEnum)
+            val pool = roomStore.getCandidatePoolByLgsSubject(dbKey).distinctBy { it.id }
+                .filter { it.id !in usedIds }
+            val nonRecent = pool.filter { it.id !in recentIds }
+            val recent = pool.filter { it.id in recentIds }
+            for (row in (nonRecent + recent).shuffled()) {
+                if (selectedRows.count { com.brainbuddy.app.db.QuestionMapper.mapSubject(it.subject) == subjEnum } >= target) break
+                if (row.id in usedIds) continue
+                val sh = row.stemHash.ifEmpty { stemHash(row.stemNormalized.ifEmpty { row.id }) }
+                if (sh in usedStemHashes) continue
+                usedIds.add(row.id)
+                usedStemHashes.add(sh)
+                selectedRows.add(row)
+            }
+        }
+
+        val selectedIds = selectedRows.map { it.id }.distinct()
+        val materialized = roomStore.getQuestionsByIds(selectedIds)
+        val byId = materialized.associateBy { it.id }
+        val finalQuestions = selectedIds.mapNotNull { byId[it] }.take(effectiveCount).shuffled()
+
+        lastSubjectCounts = lgsSubjectOrder.associate { (subj, _) ->
+            com.brainbuddy.app.db.QuestionMapper.toDbSubject(subj) to finalQuestions.count { it.subject == subj }
+        }
+        lastBuildMs = System.currentTimeMillis() - buildStartMs
+
+        if (finalQuestions.isNotEmpty()) {
+            roomStore.recordTestCreated(profileId, effectiveTestId, finalQuestions.map { it.id })
+            recordSeenForQuiz(profileId, finalQuestions.map { it.id })
+        }
+        return finalQuestions
     }
 
     /**
@@ -1841,9 +1914,9 @@ class QuestionRepository(private val context: Context) {
         return Pair(emptyList(), FilterStats(0, 0, 0))
     }
 
-    /** Gate questions - sadece grade filtresi ile (grade 2-8). */
+    /** Gate questions - sadece grade filtresi ile (grade 1-7). */
     fun pickGateQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
-        if (grade !in 2..8) return emptyList()
+        if (grade !in 1..7) return emptyList()
         runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
@@ -1885,9 +1958,9 @@ class QuestionRepository(private val context: Context) {
         return toReturn
     }
 
-    /** Boss questions - sadece grade filtresi ile (grade 2-8). */
+    /** Boss questions - sadece grade filtresi ile (grade 1-7). */
     fun pickBossQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
-        if (grade !in 2..8) return emptyList()
+        if (grade !in 1..7) return emptyList()
         runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
@@ -1915,7 +1988,7 @@ class QuestionRepository(private val context: Context) {
 
     /** Remedial questions - sadece grade filtresi ile. */
     fun pickRemedialQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
-        if (grade !in 2..8) return Pair(emptyList(), true)
+        if (grade !in 1..7) return Pair(emptyList(), true)
         runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val all = roomStore.getQuestionsByGrade(grade).ifEmpty { getFallbackQuestions().filter { it.grade == grade } }
             .ifEmpty { getFallbackQuestions() }
@@ -1947,7 +2020,7 @@ class QuestionRepository(private val context: Context) {
 
     /** Retry wrong questions - sadece grade filtresi ile. */
     fun pickRetryWrongQuestionsByGrade(grade: Int): List<Question> {
-        if (grade !in 2..8) return emptyList()
+        if (grade !in 1..7) return emptyList()
         val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
         val wrongIds = roomStore.getAllWrongIds(userId)
         if (wrongIds.isEmpty()) return emptyList()
@@ -2110,7 +2183,7 @@ class QuestionRepository(private val context: Context) {
         count: Int = MIN_QUESTIONS_PER_TEST,
         testId: String? = null
     ): List<Question> {
-        if (grade !in 2..8) return emptyList()
+        if (grade !in 1..7) return emptyList()
         runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }

@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GradePrefs
+import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
@@ -47,9 +48,13 @@ class PoolStatusActivity : AppCompatActivity() {
         val gradePrefs = GradePrefs(this)
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnFixInvalidGrades)
             .setOnClickListener {
+                if (gradePrefs.getSelectedMode() == LevelMode.LGS) {
+                    Toast.makeText(this, "Fix Invalid Grades sadece Sınıf modunda kullanılır.", Toast.LENGTH_LONG).show()
+                    return@setOnClickListener
+                }
                 val target = gradePrefs.getSelectedGrade()
-                if (target !in 2..8) {
-                    Toast.makeText(this, "Önce 2–8 arası sınıf seçin (Test Ayarları).", Toast.LENGTH_LONG).show()
+                if (target !in 1..7) {
+                    Toast.makeText(this, "Önce 1–7 arası sınıf seçin (Test Ayarları).", Toast.LENGTH_LONG).show()
                     return@setOnClickListener
                 }
                 lifecycleScope.launch {
@@ -107,22 +112,22 @@ class PoolStatusActivity : AppCompatActivity() {
                 sb.append("TOTAL / ACTIVE\n")
                 sb.append("$total / $active\n\n")
 
-                // 2) Grade dağılımı (2..8)
-                sb.append("Grade dağılımı (2..8):\n")
-                for (g in 2..8) {
+                // 2) Grade dağılımı (1..7)
+                sb.append("Grade dağılımı (1..7):\n")
+                for (g in 1..7) {
                     val gTotal = dao.countByGradeOnly(g)
                     val gActive = dao.countActiveByGradeOnly(g)
                     sb.append("  grade=$g total/active: $gTotal / $gActive\n")
                 }
                 if (invalidGrades > 0) {
-                    sb.append("  ⚠ Geçersiz grade (0,1,9+): $invalidGrades\n")
+                    sb.append("  ⚠ Geçersiz grade (0,8,9+): $invalidGrades\n")
                 }
                 sb.append("\n")
 
                 // 3) grade+subject+diff ACTIVE sayıları
                 sb.append("grade+subject+diff ACTIVE:\n")
                 val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
-                for (g in 2..8) {
+                for (g in 1..7) {
                     val subjRows = activeByGradeSubjectDiff.filter { it.grade == g }.groupBy { it.subject }
                     val line = subjects.joinToString("  ") { subj ->
                         val diffs = subjRows[subj].orEmpty()
@@ -135,8 +140,10 @@ class PoolStatusActivity : AppCompatActivity() {
                 }
                 sb.append("\n")
 
-                // 4) Seçili sınıf
-                sb.append("Seçili sınıf: $selectedGrade, zorluk: ${difficulty.name}\n\n")
+                // 4) Seçili mod / sınıf
+                val mode = gradePrefs.getSelectedMode()
+                sb.append(if (mode == LevelMode.LGS) "Seçili Mod: LGS" else "Seçili Sınıf: ${selectedGrade}. Sınıf")
+                sb.append(", zorluk: ${difficulty.name}\n\n")
 
                 // 5) Zorluk aralık dışı
                 if (diffOutOfRange > 0) {

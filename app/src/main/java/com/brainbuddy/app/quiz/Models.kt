@@ -14,7 +14,9 @@ enum class Subject(val tr: String) {
     TURKCE("Türkçe"),
     FEN("Fen Bilimleri"),
     SOSYAL("Sosyal Bilgiler"),
-    ING("İngilizce")
+    ING("İngilizce"),
+    INKILAP("İnkılap Tarihi"),
+    DIN("Din Kültürü")
 }
 
 /** Exam pack types for Turkish education system. */
@@ -30,7 +32,7 @@ data class Question(
     val levelGroup: LevelGroup,
     val subject: Subject,
     val gradeTag: String,
-    /** Sınıf (1=Junior, 2..8=ortaokul). Sınıf bazlı havuz için kullanılır. */
+    /** Sınıf (1=Junior, 1..7=aktif sınıflar). Sınıf bazlı havuz için kullanılır. */
     val grade: Int,
     val stem: String,
     val choices: List<String>,

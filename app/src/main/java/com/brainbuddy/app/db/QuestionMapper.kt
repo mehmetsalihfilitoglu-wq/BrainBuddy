@@ -13,7 +13,7 @@ object QuestionMapper {
         val choices = parseChoices(j.optionsJson)
         val subject = mapSubject(j.subject)
         val levelGroup = j.levelGroup?.let { parseLevelGroup(it) } ?: LevelGroup.GRADE_5_8
-        val grade = j.gradeTag?.toIntOrNull()?.coerceIn(1, 8) ?: 6
+        val grade = j.gradeTag?.toIntOrNull()?.coerceIn(1, 7) ?: 6
         return Question(
             id = j.questionId,
             levelGroup = levelGroup,
@@ -34,7 +34,7 @@ object QuestionMapper {
     /**
      * Yeni `QuestionEntity` şemasından domain `Question` modeline map.
      * QuestionEntity:
-     *  - grade: 2..8
+     *  - grade: 1..7 (1 = Junior)
      *  - subject: "mat" | "turkce" | "fen" | "sosyal" | "ing"
      *  - difficulty: 0=EASY,1=MEDIUM,2=HARD (eski verilerde 3=HARD olarak ele alınır)
      */
@@ -47,7 +47,7 @@ object QuestionMapper {
             2, 3 -> QuizDifficulty.HARD
             else -> QuizDifficulty.MEDIUM
         }
-        val grade = e.grade.coerceIn(1, 8)
+        val grade = e.grade.coerceIn(1, 7)
         val examType = e.examType?.let {
             try { ExamType.valueOf(it) } catch (_: Exception) { ExamType.GENERAL }
         } ?: ExamType.GENERAL
@@ -85,7 +85,20 @@ object QuestionMapper {
         "en", "ing" -> Subject.ING
         "fen" -> Subject.FEN
         "sosyal" -> Subject.SOSYAL
+        "inkilap" -> Subject.INKILAP
+        "din" -> Subject.DIN
         else -> Subject.MAT
+    }
+
+    /** DB subject key for given Subject (for queries). */
+    fun toDbSubject(s: Subject): String = when (s) {
+        Subject.MAT -> "mat"
+        Subject.TURKCE -> "turkce"
+        Subject.FEN -> "fen"
+        Subject.SOSYAL -> "sosyal"
+        Subject.ING -> "ing"
+        Subject.INKILAP -> "inkilap"
+        Subject.DIN -> "din"
     }
 
     private fun parseLevelGroup(s: String): LevelGroup = try {

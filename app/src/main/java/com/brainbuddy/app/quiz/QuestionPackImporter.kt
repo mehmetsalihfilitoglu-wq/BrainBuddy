@@ -60,7 +60,7 @@ object QuestionPackImporter {
         val questionsArr = root.optJSONArray("questions")
             ?: return ImportResult(0, 0, 0, 1)
 
-        val packGrade = root.optInt("grade", 6).coerceIn(2, 8)
+        val packGrade = root.optInt("grade", 6).coerceIn(1, 7)
         val packSubject = normalizeSubject(root.optString("subject", "mat"))
         val publisher = root.optString("publisher", "").takeIf { it.isNotBlank() }
         val year = root.optInt("year", 0).takeIf { it > 0 }
@@ -188,7 +188,7 @@ object QuestionPackImporter {
         val answerIndex = (o.optInt("answerIndex", 0).takeIf { o.has("answerIndex") }
             ?: o.optInt("correctIndex", 0)).coerceIn(0, options.size - 1)
 
-        val grade = (o.optInt("grade", 0).takeIf { it in 2..8 } ?: defaultGrade).coerceIn(2, 8)
+        val grade = (o.optInt("grade", 0).takeIf { it in 1..7 } ?: defaultGrade).coerceIn(1, 7)
         val subject = o.optString("subject", "").let { s ->
             if (s.isBlank()) defaultSubject else normalizeSubject(s)
         }

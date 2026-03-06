@@ -134,7 +134,7 @@ object DbSeeder {
             Log.e(TAG, "questions_tr.json error", e)
         }
 
-        // 2) Grade 2..8 × subject bazlı JSON paketleri (assets/packs altında otomatik tarama).
+        // 2) Grade 1..7 × subject bazlı JSON paketleri (assets/packs altında otomatik tarama).
         val packFiles = discoverPackAssetFiles(context)
         if (packFiles.isNotEmpty()) {
             Log.i(TAG, "Discovered ${packFiles.size} pack assets: $packFiles")
@@ -172,7 +172,7 @@ object DbSeeder {
      *
      * İsim deseni:
      *   grade{G}_{subject}.json
-     *   G ∈ 2..8, subject ∈ {mat,turkce,fen,sosyal,ing}
+     *   G ∈ 1..7, subject ∈ {mat,turkce,fen,sosyal,ing}
      */
     private fun discoverPackAssetFiles(context: Context): List<String> {
         return try {
@@ -253,7 +253,7 @@ object DbSeeder {
      * JSON formatı (standart):
      * {
      *   id: String,
-     *   grade: Int (2..8),
+     *   grade: Int (1..7),
      *   subject: String ("mat","turkce","fen","sosyal","ing" kısa kodları),
      *   difficulty: Int (0=EASY, 1=MEDIUM, 2=HARD),
      *   stem: String (soru kökü),
@@ -270,7 +270,7 @@ object DbSeeder {
      */
     private fun parseQuestionObject(o: JSONObject, index: Int): QuestionEntity {
         // grade:
-        // 1) JSON'da "grade" varsa ve 2..8 aralığındaysa doğrudan kullan
+        // 1) JSON'da "grade" varsa ve 1..7 aralığındaysa doğrudan kullan
         // 2) Yoksa/Geçersizse gradeTag/grade_level gibi string alanlardan parse etmeyi dene
         // 3) Parse edilemezse soruyu discard etmek için exception fırlat (default 6 yok)
         val gradeFromJson = when {
@@ -279,11 +279,11 @@ object DbSeeder {
             else -> 0
         }
         val grade = when {
-            gradeFromJson in 2..8 -> gradeFromJson
+            gradeFromJson in 1..7 -> gradeFromJson
             else -> {
                 val gradeTagStr = o.optString("gradeTag", o.optString("grade_level", ""))
                 val gradeTag = gradeTagStr.toIntOrNull()
-                (gradeTag ?: 0).coerceIn(2, 8).takeIf { it in 2..8 }
+                (gradeTag ?: 0).coerceIn(1, 7).takeIf { it in 1..7 }
                     ?: throw IllegalArgumentException("Invalid grade for question index=$index")
             }
         }
@@ -932,7 +932,7 @@ object DbSeeder {
 
     /**
      * Import sonrası doğrulama:
-     * Her grade (2..8) × her subject için COUNT >= TARGET_QUESTIONS_PER_SUBJECT değilse
+     * Her grade (1..7) × her subject için COUNT >= TARGET_QUESTIONS_PER_SUBJECT değilse
      * debug log + warning üretir.
      */
     private suspend fun validatePoolCoverage(questionDao: QuestionDao) {
@@ -940,7 +940,7 @@ object DbSeeder {
         val byKey = counts.associateBy { it.grade to it.subject.lowercase() }
 
         val shortages = mutableListOf<String>()
-        for (grade in 2..8) {
+        for (grade in 1..7) {
             for (subject in SUBJECT_KEYS) {
                 val entry = byKey[grade to subject]
                 val count = entry?.count ?: 0
@@ -953,7 +953,7 @@ object DbSeeder {
             }
         }
         if (shortages.isEmpty()) {
-            Log.d(TAG, "Question pool OK for all grade+subject combinations (2..8)")
+            Log.d(TAG, "Question pool OK for all grade+subject combinations (1..7)")
         } else {
             Log.w(TAG, "Question pool has shortages for ${shortages.size} grade+subject combinations. See warnings above for details.")
         }

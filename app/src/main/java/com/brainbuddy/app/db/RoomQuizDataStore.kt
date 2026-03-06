@@ -35,15 +35,15 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getQuestionsByIds(ids).map { QuestionMapper.toQuestion(it) }
     }
 
-    /** Sınıf bazlı havuz (2-8). Tüm derslerden. */
+    /** Sınıf bazlı havuz (1-7). Tüm derslerden. */
     fun getQuestionsByGrade(grade: Int): List<Question> = runBlocking(Dispatchers.IO) {
-        if (grade !in 2..8) return@runBlocking emptyList()
+        if (grade !in 1..7) return@runBlocking emptyList()
         questionDao.getByGrade(grade).map { QuestionMapper.toQuestion(it) }
     }
 
     /** Sınıf + ders bazlı havuz (tüm zorluklar). Relaxed difficulty fallback için. */
     fun getQuestionsByGradeSubject(grade: Int, subject: String): List<Question> = runBlocking(Dispatchers.IO) {
-        if (grade !in 2..8) return@runBlocking emptyList()
+        if (grade !in 1..7) return@runBlocking emptyList()
         questionDao.getByGradeSubject(grade, subject).map { QuestionMapper.toQuestion(it) }
     }
 
@@ -53,7 +53,7 @@ class RoomQuizDataStore(private val context: Context) {
         subject: String,
         difficulty: Int
     ): List<Question> = runBlocking(Dispatchers.IO) {
-        if (grade !in 2..8) return@runBlocking emptyList()
+        if (grade !in 1..7) return@runBlocking emptyList()
         questionDao.getByGradeSubjectDifficulty(grade, subject, difficulty).map { QuestionMapper.toQuestion(it) }
     }
 
@@ -63,7 +63,7 @@ class RoomQuizDataStore(private val context: Context) {
         subject: String,
         difficulty: Int
     ): List<QuestionCandidateRow> = runBlocking(Dispatchers.IO) {
-        if (grade !in 2..8) return@runBlocking emptyList()
+        if (grade !in 1..7) return@runBlocking emptyList()
         questionDao.getCandidatePoolByGradeSubjectDifficulty(grade, subject, difficulty)
     }
 
@@ -72,8 +72,13 @@ class RoomQuizDataStore(private val context: Context) {
         grade: Int,
         subject: String
     ): List<QuestionCandidateRow> = runBlocking(Dispatchers.IO) {
-        if (grade !in 2..8) return@runBlocking emptyList()
+        if (grade !in 1..7) return@runBlocking emptyList()
         questionDao.getCandidatePoolByGradeSubject(grade, subject)
+    }
+
+    /** LGS pool: examType=LGS, subject. Does NOT use grade. */
+    fun getCandidatePoolByLgsSubject(subject: String): List<QuestionCandidateRow> = runBlocking(Dispatchers.IO) {
+        questionDao.getCandidatePoolByLgsSubject(subject)
     }
 
     fun insertQuestions(entities: List<QuestionEntity>) = runBlocking(Dispatchers.IO) {

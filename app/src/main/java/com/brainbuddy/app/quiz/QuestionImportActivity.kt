@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GradePrefs
+import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuestionImportBinding
@@ -89,10 +90,22 @@ class QuestionImportActivity : AppCompatActivity() {
         val repo = QuestionRepository(this)
         val gradePrefs = GradePrefs(this)
         val quizPrefs = QuizPrefs(this)
+        val mode = gradePrefs.getSelectedMode()
         val selectedGrade = gradePrefs.getSelectedGrade()
 
-        if (selectedGrade !in 2..8) {
-            b.tvStats.text = "Havuz durumu için önce 2–8 arası bir sınıf seçin."
+        if (mode == LevelMode.LGS) {
+            val debugText = try {
+                val activeCounts = repo.buildImportDebugActiveCounts()
+                "Seçili Mod: LGS\n\n$activeCounts"
+            } catch (e: Exception) {
+                "Havuz durumu okunamadı: ${e.message ?: "bilinmiyor"}"
+            }
+            b.tvStats.text = debugText
+            return
+        }
+
+        if (selectedGrade !in 1..7) {
+            b.tvStats.text = "Havuz durumu için Sınıf modunda 1–7 arası bir sınıf seçin."
             return
         }
 

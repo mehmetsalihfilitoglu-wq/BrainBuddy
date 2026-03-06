@@ -110,19 +110,35 @@ interface QuestionDao {
         subject: String
     ): List<QuestionCandidateRow>
 
-    /** Tüm sınıf havuzu (grade 2-8 için test oluşturma). */
+    /**
+     * LGS pool: questions with examType = 'LGS' and given subject.
+     * Used by LGS picker - does NOT use grade.
+     */
+    @Query(
+        """
+        SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = 'LGS'
+        AND subject = :subject
+        AND isActive = 1
+        LIMIT 300
+        """
+    )
+    suspend fun getCandidatePoolByLgsSubject(subject: String): List<QuestionCandidateRow>
+
+    /** Tüm sınıf havuzu (grade 1-7 için test oluşturma). */
     @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND grade > 0")
     suspend fun getByGrade(grade: Int): List<QuestionEntity>
 
     /**
      * Havuz doğrulama için grade+subject bazında COUNT.
-     * Sadece aktif ve 2..8. sınıflar.
+     * Sadece aktif ve 1..7. sınıflar.
      */
     @Query(
         """
         SELECT grade, subject, COUNT(*) AS count
         FROM questions
-        WHERE isActive = 1 AND grade BETWEEN 2 AND 8
+        WHERE isActive = 1 AND grade BETWEEN 1 AND 7
         GROUP BY grade, subject
         """
     )
@@ -133,7 +149,7 @@ interface QuestionDao {
         """
         SELECT grade, subject, difficulty, COUNT(*) AS count
         FROM questions
-        WHERE isActive = 1 AND grade BETWEEN 2 AND 8
+        WHERE isActive = 1 AND grade BETWEEN 1 AND 7
         GROUP BY grade, subject, difficulty
         ORDER BY grade, subject, difficulty
         """
@@ -180,12 +196,12 @@ interface QuestionDao {
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :g AND isActive = 1")
     suspend fun countActiveByGradeOnly(g: Int): Int
 
-    /** 2..8 aralığı dışındaki tüm grade değerlerinin toplam sayısı (0,1,9+ vs). */
-    @Query("SELECT COUNT(*) FROM questions WHERE grade < 2 OR grade > 8")
+    /** 1..7 aralığı dışındaki tüm grade değerlerinin toplam sayısı (0,8,9+ vs). */
+    @Query("SELECT COUNT(*) FROM questions WHERE grade < 1 OR grade > 7")
     suspend fun countInvalidGrades(): Int
 
-    /** Geçersiz grade'leri (2..8 dışı) hedef grade'e taşımak için acil debug fix. */
-    @Query("UPDATE questions SET grade = :target WHERE grade < 2 OR grade > 8")
+    /** Geçersiz grade'leri (1..7 dışı) hedef grade'e taşımak için acil debug fix. */
+    @Query("UPDATE questions SET grade = :target WHERE grade < 1 OR grade > 7")
     suspend fun fixInvalidGrades(target: Int)
 
     @Query("UPDATE questions SET isActive=1 WHERE isActive!=1")
@@ -211,7 +227,7 @@ interface QuestionDao {
         """
         SELECT grade, subject, stemHash, COUNT(*) AS cnt
         FROM questions
-        WHERE isActive = 1 AND grade BETWEEN 2 AND 8
+        WHERE isActive = 1 AND grade BETWEEN 1 AND 7
         GROUP BY grade, subject, stemHash
         HAVING cnt > 1
         ORDER BY cnt DESC

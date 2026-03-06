@@ -123,7 +123,7 @@ class QuizResultActivity : AppCompatActivity() {
                         subject = subject,
                         gradeTag = o.optString("gradeTag", ""),
                         grade = o.optInt("grade", 0).let { g ->
-                            if (g in 2..8) g else o.optString("gradeTag", "6").toIntOrNull()?.coerceIn(2, 8) ?: 6
+                            if (g in 1..7) g else o.optString("gradeTag", "6").toIntOrNull()?.coerceIn(1, 7) ?: 6
                         },
                         stem = o.optString("stem", "?"),
                         choices = choices,

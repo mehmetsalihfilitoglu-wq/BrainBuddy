@@ -49,7 +49,7 @@
                     android:text="@string/settings_test_sub"
                     android:textAppearance="@style/TextAppearance.BrainBuddy.AppSubtitle" />
 
-                <!-- Sınıf Seviyesi (2-8, zorunlu) -->
+                <!-- Mod / Sınıf Seviyesi -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -72,6 +72,30 @@
                         android:textSize="12sp"
                         android:textColor="@color/bb_text_muted" />
 
+                    <!-- Mod: GRADE vs LGS -->
+                    <RadioGroup
+                        android:id="@+id/testModeGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/testModeGrade"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sınıf (1-7)"
+                            android:textSize="14sp" />
+
+                        <RadioButton
+                            android:id="@+id/testModeLGS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="LGS"
+                            android:textSize="14sp" />
+                    </RadioGroup>
+
                     <TextView
                         android:id="@+id/tvSelectedGrade"
                         android:layout_width="match_parent"
@@ -87,12 +111,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <RadioButton
+                            android:id="@+id/testGrade1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textSize="14sp" />
 
                         <RadioButton
                             android:id="@+id/testGrade2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
                             android:text="2"
                             android:textSize="14sp" />
 
@@ -134,14 +167,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:text="7"
-                            android:textSize="14sp" />
-
-                        <RadioButton
-                            android:id="@+id/testGrade8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="8"
                             android:textSize="14sp" />
                     </RadioGroup>
                 </LinearLayout>
