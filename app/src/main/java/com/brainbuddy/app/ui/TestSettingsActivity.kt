@@ -2,6 +2,7 @@ package com.brainbuddy.app.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.RadioGroup
 import com.brainbuddy.app.R
@@ -12,6 +13,8 @@ import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.quiz.QuizDifficulty
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 
 class TestSettingsActivity : AppCompatActivity() {
 
@@ -44,10 +47,6 @@ class TestSettingsActivity : AppCompatActivity() {
         }
 
         // BLOK 3: Eğitim Modülleri / İçerik
-        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnJuniorModule).setOnClickListener {
-            startActivity(Intent(this, com.brainbuddy.app.junior.JuniorSettingsActivity::class.java))
-        }
-
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnMiniTest).setOnClickListener {
             if (!gradePrefs.hasLevelSelected()) {
                 android.widget.Toast.makeText(this, R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
@@ -71,40 +70,62 @@ class TestSettingsActivity : AppCompatActivity() {
 
     private fun setupGradeSelection(gradePrefs: GradePrefs) {
         val modeGroup = findViewById<RadioGroup>(R.id.testModeGroup)
-        val gradeGroup = findViewById<RadioGroup>(R.id.testGradeGroup)
+        val gradeChipGroup = findViewById<ChipGroup>(R.id.testGradeChipGroup)
         val tvSelected = findViewById<android.widget.TextView>(R.id.tvSelectedGrade)
-        val gradeToId = mapOf(
-            1 to R.id.testGrade1,
-            2 to R.id.testGrade2,
-            3 to R.id.testGrade3,
-            4 to R.id.testGrade4,
-            5 to R.id.testGrade5,
-            6 to R.id.testGrade6,
-            7 to R.id.testGrade7
-        )
+
+        // Dinamik liste: Junior, 1, 2, 3, 4, 5, 6, 7 (LGS ayrı mod olarak)
+        val gradeOptions = listOf("Junior", "1", "2", "3", "4", "5", "6", "7")
+
+        val displayToValue = gradeOptions.mapIndexed { i, label ->
+            label to (if (label == "Junior") GradePrefs.GRADE_JUNIOR else i)
+        }.toMap()
+
+        gradeChipGroup.removeAllViews()
+        gradeOptions.forEach { label ->
+            val chip = Chip(this).apply {
+                text = label
+                isCheckable = true
+                layoutParams = ChipGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+            gradeChipGroup.addView(chip)
+        }
+
         fun updateLabel() {
             when (gradePrefs.getSelectedMode()) {
                 LevelMode.GRADE -> {
                     val g = gradePrefs.getSelectedGrade()
-                    tvSelected.text = if (g in 1..7) {
-                        getString(R.string.grade_selected_label, g)
-                    } else {
-                        getString(R.string.grade_selected_none)
+                    tvSelected.text = when {
+                        g == GradePrefs.GRADE_JUNIOR -> getString(R.string.grade_selected_junior)
+                        g in 1..7 -> getString(R.string.grade_selected_label, g)
+                        else -> getString(R.string.grade_selected_none)
                     }
-                    gradeGroup.visibility = android.view.View.VISIBLE
+                    gradeChipGroup.visibility = android.view.View.VISIBLE
                 }
                 LevelMode.LGS -> {
                     tvSelected.text = getString(R.string.mode_selected_lgs)
-                    gradeGroup.visibility = android.view.View.GONE
+                    gradeChipGroup.visibility = android.view.View.GONE
                 }
             }
         }
+
+        fun selectChipForGrade(grade: Int) {
+            for (i in 0 until gradeChipGroup.childCount) {
+                val chip = gradeChipGroup.getChildAt(i) as? Chip ?: continue
+                val value = displayToValue[chip.text.toString()]
+                chip.isChecked = (value != null && value == grade)
+            }
+        }
+
         when (gradePrefs.getSelectedMode()) {
             LevelMode.GRADE -> modeGroup.check(R.id.testModeGrade)
             LevelMode.LGS -> modeGroup.check(R.id.testModeLGS)
         }
-        gradeToId[gradePrefs.getSelectedGrade()]?.let { gradeGroup.check(it) }
+        selectChipForGrade(gradePrefs.getSelectedGrade())
         updateLabel()
+
         modeGroup.setOnCheckedChangeListener { _, id ->
             when (id) {
                 R.id.testModeLGS -> gradePrefs.setSelectedMode(LevelMode.LGS)
@@ -112,10 +133,19 @@ class TestSettingsActivity : AppCompatActivity() {
             }
             updateLabel()
         }
-        gradeGroup.setOnCheckedChangeListener { _, id ->
-            val grade = gradeToId.entries.find { it.value == id }?.key ?: 0
-            gradePrefs.setSelectedGrade(grade)
-            updateLabel()
+
+        gradeChipGroup.setOnCheckedChangeListener { _, _ ->
+            for (i in 0 until gradeChipGroup.childCount) {
+                val chip = gradeChipGroup.getChildAt(i) as? Chip ?: continue
+                if (chip.isChecked) {
+                    val value = displayToValue[chip.text.toString()]
+                    if (value != null) {
+                        gradePrefs.setSelectedGrade(value)
+                        updateLabel()
+                    }
+                    break
+                }
+            }
         }
     }
 

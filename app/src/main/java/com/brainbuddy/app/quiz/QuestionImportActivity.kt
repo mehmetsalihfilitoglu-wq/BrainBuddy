@@ -104,14 +104,15 @@ class QuestionImportActivity : AppCompatActivity() {
             return
         }
 
-        if (selectedGrade !in 1..7) {
-            b.tvStats.text = "Havuz durumu için Sınıf modunda 1–7 arası bir sınıf seçin."
+        if (selectedGrade !in 0..7) {
+            b.tvStats.text = "Havuz durumu için Sınıf modunda Junior veya 1–7 arası bir sınıf seçin."
             return
         }
 
         val difficulty = quizPrefs.difficulty()
+        val effectiveGrade = gradePrefs.getEffectiveGradeForQuiz()
         val debugText = try {
-            val poolDebug = repo.buildPoolDebugStatsForGrade(selectedGrade, difficulty).readableText
+            val poolDebug = repo.buildPoolDebugStatsForGrade(effectiveGrade, difficulty).readableText
             val activeCounts = repo.buildImportDebugActiveCounts()
             "$poolDebug\n\n$activeCounts"
         } catch (e: Exception) {

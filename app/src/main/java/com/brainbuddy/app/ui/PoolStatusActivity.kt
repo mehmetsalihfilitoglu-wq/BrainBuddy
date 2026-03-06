@@ -142,7 +142,9 @@ class PoolStatusActivity : AppCompatActivity() {
 
                 // 4) Seçili mod / sınıf
                 val mode = gradePrefs.getSelectedMode()
-                sb.append(if (mode == LevelMode.LGS) "Seçili Mod: LGS" else "Seçili Sınıf: ${selectedGrade}. Sınıf")
+                sb.append(if (mode == LevelMode.LGS) "Seçili Mod: LGS"
+                    else if (selectedGrade == com.brainbuddy.app.core.GradePrefs.GRADE_JUNIOR) "Seçili Sınıf: Junior"
+                    else "Seçili Sınıf: $selectedGrade. Sınıf")
                 sb.append(", zorluk: ${difficulty.name}\n\n")
 
                 // 5) Zorluk aralık dışı

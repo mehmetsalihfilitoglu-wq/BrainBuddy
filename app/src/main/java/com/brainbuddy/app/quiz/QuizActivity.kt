@@ -200,7 +200,7 @@ class QuizActivity : AppCompatActivity() {
                 val lg = repo.getLevelGroupFromPrefs()
                 val mode = gp.getSelectedMode()
                 val lgs = mode == LevelMode.LGS
-                val eff = if (!lgs && gp.hasGradeSelected()) gp.getSelectedGrade() else 0
+                val eff = if (!lgs && gp.hasGradeSelected()) gp.getEffectiveGradeForQuiz() else 0
                 Triple(lg, eff, lgs)
             }
             val gradePrefs = GradePrefs(this@QuizActivity)
