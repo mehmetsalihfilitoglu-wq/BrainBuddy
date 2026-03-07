@@ -22,6 +22,19 @@ data class GradeSubjectDifficultyCount(
     val count: Int
 )
 
+/** LGS candidate row with qualityScore for blueprint-based planning. */
+data class LgsCandidateRow(
+    val id: String,
+    val subject: String,
+    val difficulty: Int,
+    val grade: Int,
+    val stemHash: String,
+    val stemNormalized: String,
+    val type: String,
+    val skill: String,
+    val qualityScore: Int
+)
+
 /**
  * Lightweight candidate row for quiz picking.
  * Used to avoid scanning/decoding full QuestionEntity payloads during selection.
@@ -137,6 +150,24 @@ interface QuestionDao {
         """
     )
     suspend fun getCandidatePoolByLgsSubject(subject: String): List<QuestionCandidateRow>
+
+    /**
+     * LGS pool with qualityScore for blueprint-based planner.
+     * Ordered by qualityScore DESC to prefer highest-quality items.
+     */
+    @Query(
+        """
+        SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill,
+               COALESCE(qualityScore, 0) AS qualityScore
+        FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = 'LGS'
+        AND subject = :subject
+        AND isActive = 1
+        ORDER BY qualityScore DESC
+        LIMIT 300
+        """
+    )
+    suspend fun getLgsCandidatePoolWithQuality(subject: String): List<LgsCandidateRow>
 
     /** Tüm sınıf havuzu (grade 1-7 için test oluşturma). */
     @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND grade > 0")

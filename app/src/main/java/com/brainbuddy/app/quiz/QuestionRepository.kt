@@ -9,6 +9,7 @@ import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.GradeSubjectDifficultyCount
+import com.brainbuddy.app.db.LgsCandidateRow
 import com.brainbuddy.app.db.QuestionCandidateRow
 import com.brainbuddy.app.db.QuestionEntity
 import com.brainbuddy.app.db.QuestionStemHash
@@ -76,6 +77,21 @@ class QuestionRepository(private val context: Context) {
     /** True if attempt caps were hit during last pick (avoids infinite loops). */
     @Volatile
     var lastCapReached: Boolean = false
+        private set
+
+    /** LGS blueprint summary for debug (e.g. "LGS_MINI total=20"). */
+    @Volatile
+    var lastBlueprintSummary: String = ""
+        private set
+
+    /** LGS type counts for debug (type -> count). */
+    @Volatile
+    var lastTypeCounts: Map<String, Int> = emptyMap()
+        private set
+
+    /** LGS average qualityScore of selected questions. */
+    @Volatile
+    var lastAvgQualityScore: Double = 0.0
         private set
 
     companion object {
@@ -1162,56 +1178,109 @@ class QuestionRepository(private val context: Context) {
         val buildStartMs = System.currentTimeMillis()
         val effectiveCount = count.coerceAtMost(MIN_QUESTIONS_PER_TEST).coerceAtLeast(MIN_QUESTIONS_PER_TEST)
 
-        // LGS fixed distribution: MAT=4, TURKCE=4, FEN=4, INKILAP=3, DIN=3, ING=2 (total 20)
-        val lgsSubjectOrder: List<Pair<Subject, Int>> = listOf(
-            Subject.MAT to 4,
-            Subject.TURKCE to 4,
-            Subject.FEN to 4,
-            Subject.INKILAP to 3,
-            Subject.DIN to 3,
-            Subject.ING to 2
-        )
+        val blueprint = LGS_MINI_BLUEPRINT
+        lastBlueprintSummary = "${blueprint.mode} total=${blueprint.totalQuestionCount}"
+        lastRecentRelaxedCount = 0
+        lastCapReached = false
+
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
 
         val usedIds = mutableSetOf<String>()
         val usedStemHashes = mutableSetOf<String>()
-        val selectedRows = mutableListOf<QuestionCandidateRow>()
+        val selectedRows = mutableListOf<LgsCandidateRow>()
+        var recentRelaxedCount = 0
+        val subjectPools = mutableMapOf<Subject, List<LgsCandidateRow>>()
+        val slots = blueprint.slots()
 
-        for ((subjEnum, target) in lgsSubjectOrder) {
-            if (target <= 0) continue
-            val dbKey = com.brainbuddy.app.db.QuestionMapper.toDbSubject(subjEnum)
-            val pool = roomStore.getCandidatePoolByLgsSubject(dbKey).distinctBy { it.id }
-                .filter { it.id !in usedIds }
-            val nonRecent = pool.filter { it.id !in recentIds }
-            val recent = pool.filter { it.id in recentIds }
-            for (row in (nonRecent + recent).shuffled()) {
-                if (selectedRows.count { com.brainbuddy.app.db.QuestionMapper.mapSubject(it.subject) == subjEnum } >= target) break
-                if (row.id in usedIds) continue
-                val sh = row.stemHash.ifEmpty { stemHash(row.stemNormalized.ifEmpty { row.id }) }
-                if (sh in usedStemHashes) continue
-                usedIds.add(row.id)
-                usedStemHashes.add(sh)
-                selectedRows.add(row)
+        fun poolFor(subj: Subject): List<LgsCandidateRow> {
+            return subjectPools.getOrPut(subj) {
+                val dbKey = com.brainbuddy.app.db.QuestionMapper.toDbSubject(subj)
+                roomStore.getLgsCandidatePoolWithQuality(dbKey).distinctBy { it.id }
             }
         }
 
-        val selectedIds = selectedRows.map { it.id }.distinct()
+        for ((subjEnum, preferredType) in slots) {
+            if (selectedRows.count { com.brainbuddy.app.db.QuestionMapper.mapSubject(it.subject) == subjEnum } >= (blueprint.subjectTargets[subjEnum] ?: 0)) continue
+
+            val pool = poolFor(subjEnum)
+                .filter { it.id !in usedIds }
+            val nonRecent = pool.filter { it.id !in recentIds }
+            val recent = pool.filter { it.id in recentIds }
+
+            val typeCountsInSubject = selectedRows.filter { com.brainbuddy.app.db.QuestionMapper.mapSubject(it.subject) == subjEnum }
+                .groupingBy { it.type }.eachCount()
+
+            fun pickFrom(candidates: List<LgsCandidateRow>, isRecent: Boolean): LgsCandidateRow? {
+                val sorted = candidates.sortedWith(
+                    compareBy<LgsCandidateRow> { row ->
+                        val sh = row.stemHash.ifEmpty { stemHash(row.stemNormalized.ifEmpty { row.id }) }
+                        if (sh in usedStemHashes) 1 else 0
+                    }.thenByDescending { BlueprintTypeMapper.dbTypesMatchBlueprint(preferredType, it.type) }
+                    .thenByDescending { it.qualityScore }
+                    .thenBy { typeCountsInSubject[it.type] ?: 0 }
+                )
+                for (row in sorted) {
+                    val sh = row.stemHash.ifEmpty { stemHash(row.stemNormalized.ifEmpty { row.id }) }
+                    if (sh in usedStemHashes) continue
+                    return row.also { if (isRecent) recentRelaxedCount++ }
+                }
+                return null
+            }
+
+            val chosen = pickFrom(nonRecent, false) ?: pickFrom(recent, true)
+            if (chosen != null) {
+                val sh = chosen.stemHash.ifEmpty { stemHash(chosen.stemNormalized.ifEmpty { chosen.id }) }
+                usedIds.add(chosen.id)
+                usedStemHashes.add(sh)
+                selectedRows.add(chosen)
+            }
+        }
+
+        val balancingPass = balanceToAvoidConsecutiveSameType(selectedRows)
+        val selectedIds = balancingPass.map { it.id }.distinct()
         val materialized = roomStore.getQuestionsByIds(selectedIds)
         val byId = materialized.associateBy { it.id }
-        val finalQuestions = selectedIds.mapNotNull { byId[it] }.take(effectiveCount).shuffled()
+        val orderPreserved = selectedIds.mapNotNull { byId[it] }.take(effectiveCount)
+        val balancedForAvg = balancingPass.take(effectiveCount)
 
-        lastSubjectCounts = lgsSubjectOrder.associate { (subj, _) ->
-            com.brainbuddy.app.db.QuestionMapper.toDbSubject(subj) to finalQuestions.count { it.subject == subj }
+        lastSubjectCounts = blueprint.subjectTargets.keys.associate { subj ->
+            com.brainbuddy.app.db.QuestionMapper.toDbSubject(subj) to orderPreserved.count { it.subject == subj }
         }
+        lastTypeCounts = orderPreserved.groupingBy { it.type }.eachCount()
+        lastAvgQualityScore = if (balancedForAvg.isNotEmpty()) {
+            balancedForAvg.map { it.qualityScore }.average()
+        } else 0.0
+        lastRecentRelaxedCount = recentRelaxedCount
         lastBuildMs = System.currentTimeMillis() - buildStartMs
 
-        if (finalQuestions.isNotEmpty()) {
-            roomStore.recordTestCreated(profileId, effectiveTestId, finalQuestions.map { it.id })
-            recordSeenForQuiz(profileId, finalQuestions.map { it.id })
+        if (orderPreserved.isNotEmpty()) {
+            roomStore.recordTestCreated(profileId, effectiveTestId, orderPreserved.map { it.id })
+            recordSeenForQuiz(profileId, orderPreserved.map { it.id })
         }
-        return finalQuestions
+        return orderPreserved
+    }
+
+    /** Reorder selected rows to avoid consecutive same questionType where possible. */
+    private fun balanceToAvoidConsecutiveSameType(rows: List<LgsCandidateRow>): List<LgsCandidateRow> {
+        if (rows.size <= 1) return rows
+        val bySubject = rows.groupBy { com.brainbuddy.app.db.QuestionMapper.mapSubject(it.subject) }
+        val result = mutableListOf<LgsCandidateRow>()
+        val remaining = rows.toMutableList()
+
+        var prevType: String? = null
+        while (remaining.isNotEmpty()) {
+            val best = remaining.minByOrNull { row ->
+                val sameType = (row.type == prevType)
+                val penalty = if (sameType) 1000 else 0
+                penalty + (remaining.count { it.type == row.type } - 1)
+            } ?: remaining.first()
+            remaining.remove(best)
+            result.add(best)
+            prevType = best.type
+        }
+        return result
     }
 
     /**

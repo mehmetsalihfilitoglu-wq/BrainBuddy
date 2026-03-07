@@ -618,7 +618,15 @@ class QuizActivity : AppCompatActivity() {
             val traceLine = "picker=$pickerLabel | buildMs=${repo.lastBuildMs} dbQueryMs=${repo.lastDbQueryMs} capReached=${if (repo.lastCapReached) 1 else 0} subjectCounts=[$sc] | skippedId=${repo.lastSkippedIdCount} skippedStemHash=${repo.lastSkippedStemHashCount} skippedSimilar=${repo.lastSkippedSimilarCount} skippedRecent=${repo.lastSkippedRecentCount} relaxed=${repo.lastRecentRelaxedCount}"
 
             val modePrefix = if (isLgsModeForDebug) "mode=LGS" else "mode=GRADE" + (if (effectiveGrade in 1..7) " grade=$effectiveGrade" else "")
-            if (debug != null && effectiveGrade in 1..7) {
+            if (isLgsModeForDebug) {
+                val blueprintLine = repo.lastBlueprintSummary.ifBlank { "LGS_MINI total=20" }
+                val typeCountsLine = repo.lastTypeCounts.entries.sortedByDescending { it.value }.joinToString(",") { "${it.key}=${it.value}" }.ifEmpty { "-" }
+                val avgQualityLine = String.format("%.1f", repo.lastAvgQualityScore)
+                val recentLine = if (repo.lastRecentRelaxedCount > 0) "\nrecentRelaxed=${repo.lastRecentRelaxedCount}" else ""
+                val lgsDebug = "$modePrefix | $blueprintLine | typeCounts=[$typeCountsLine] avgQuality=$avgQualityLine capReached=${if (repo.lastCapReached) 1 else 0}$recentLine"
+                b.debugInfoText.visibility = View.VISIBLE
+                b.debugInfoText.text = "$traceLine\n$lgsDebug"
+            } else if (debug != null && effectiveGrade in 1..7) {
                 val subjectsOrder = listOf("mat" to "MAT", "turkce" to "TURKCE", "fen" to "FEN", "sosyal" to "SOSYAL", "ing" to "ING")
                 val countsLine = subjectsOrder.joinToString("  ") { (key, label) ->
                     val c = debug.perSubject[key]

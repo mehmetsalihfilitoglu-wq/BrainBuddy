@@ -81,6 +81,11 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getCandidatePoolByLgsSubject(subject)
     }
 
+    /** LGS pool with qualityScore for blueprint-based planner. */
+    fun getLgsCandidatePoolWithQuality(subject: String): List<com.brainbuddy.app.db.LgsCandidateRow> = runBlocking(Dispatchers.IO) {
+        questionDao.getLgsCandidatePoolWithQuality(subject)
+    }
+
     fun insertQuestions(entities: List<QuestionEntity>) = runBlocking(Dispatchers.IO) {
         questionDao.insertAll(entities)
     }
