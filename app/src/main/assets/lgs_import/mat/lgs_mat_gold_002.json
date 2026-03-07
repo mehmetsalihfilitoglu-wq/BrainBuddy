@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "ustel_sayilar",
+      "skills": ["ustel", "mantik", "problem_cozme"],
+      "questionType": "yeni_nesil_problem",
+      "stem": "2¹ + 2² + 2³ + … + 2⁸ işleminin sonucu kaçtır?",
+      "options": ["510", "512", "514", "516"],
+      "answerIndex": 0,
+      "explanation": "2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 = 510 veya 2⁹ - 2 = 512 - 2 = 510.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-009"
+    },
+    {
+      "difficulty": 2,
+      "topic": "cebirsel_ifadeler",
+      "skills": ["cebir", "denklem", "problem_cozme"],
+      "questionType": "yeni_nesil_problem",
+      "stem": "3x - 2 = 10 denklemini sağlayan x değeri için 2x + 5 ifadesinin değeri kaçtır?",
+      "options": ["11", "13", "15", "17"],
+      "answerIndex": 1,
+      "explanation": "3x - 2 = 10'dan x = 4 bulunur. 2x + 5 = 2·4 + 5 = 13.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-010"
+    },
+    {
+      "difficulty": 2,
+      "topic": "geometri_cebir",
+      "skills": ["geometri", "alan", "cebir"],
+      "questionType": "geometri_yorum",
+      "stem": "Bir karenin bir kenarı 2 cm kısaltılırsa alanı 20 cm² azalıyor. Buna göre karenin orijinal bir kenar uzunluğu kaç cm'dir?",
+      "options": ["6", "7", "8", "9"],
+      "answerIndex": 0,
+      "explanation": "Kenar x olsun. x² - (x-2)² = 20. x² - (x² - 4x + 4) = 4x - 4 = 20. x = 6 cm.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-011"
+    },
+    {
+      "difficulty": 1,
+      "topic": "ondalik_kesirler",
+      "skills": ["ondalik", "aritmetik", "problem_cozme"],
+      "questionType": "mantik",
+      "stem": "0,24 + 0,06 işleminin sonucu kaçtır?",
+      "options": ["0,18", "0,28", "0,30", "0,42"],
+      "answerIndex": 2,
+      "explanation": "0,24 + 0,06 = 0,30 = 0,3",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-012"
+    },
+    {
+      "difficulty": 2,
+      "topic": "olasilik",
+      "skills": ["olasilik", "kesir", "yorumlama"],
+      "questionType": "yeni_nesil_problem",
+      "stem": "İçinde 3 kırmızı, 4 mavi ve 5 yeşil bilye bulunan bir torbadan rastgele bir bilye çekiliyor. Çekilen bilyenin mavi olma olasılığı kaçtır?",
+      "options": ["1/3", "1/4", "1/5", "1/6"],
+      "answerIndex": 0,
+      "explanation": "Toplam 12 bilye, 4 mavi. Olasılık 4/12 = 1/3.",
+      "imageAsset": null,
+      "source": "generated_from_pdf",
+      "sourceRef": "mat-style-ref-013"
+    }
+  ]
+}
