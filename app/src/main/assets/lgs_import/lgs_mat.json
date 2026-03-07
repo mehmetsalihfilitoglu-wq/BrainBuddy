@@ -3,5 +3,54 @@
   "mode": "LGS",
   "subject": "mat",
   "publisher": "brainbuddy",
-  "questions": []
+  "questions": [
+    {
+      "stem": "Bir markette satılan üç ürünün fiyatları tabloda verilmiştir. Tabloya göre A ürünü 120 TL, B ürünü 80 TL, C ürünü 200 TL'dir. Kampanyada her ürüne %25 indirim uygulanıyor. İndirimli toplam maliyet kaç TL olur?",
+      "options": ["280", "300", "320", "360"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "questionType": "PROBLEM",
+      "topic": "Yüzde ve Oran",
+      "skills": ["oran_oranti", "yuzde", "akil_yurutme"],
+      "explanation": "Toplam 400 TL. %25 indirimle 300 TL olur.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:mat:1"
+    },
+    {
+      "stem": "Yukarıdaki grafikte bir firmanın dört çeyrekteki satış miktarları verilmiştir. Grafiğe göre en yüksek satış hangi çeyrekte gerçekleşmiştir ve bu çeyreğin toplam satışa oranı yaklaşık yüzde kaçtır?",
+      "options": ["1. çeyrek, %35", "2. çeyrek, %30", "3. çeyrek, %40", "4. çeyrek, %25"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "INTERPRETATION",
+      "topic": "Grafik Yorumlama",
+      "skills": ["grafik_yorumlama", "yuzde", "analiz"],
+      "explanation": "Grafikte 3. çeyrek en yüksek değere sahiptir.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:mat:2"
+    },
+    {
+      "stem": "Bir okulda öğrencilere uygulanan anket sonucunda 80 öğrenci matematik, 60 öğrenci fen bilimlerini sevdiğini belirtmiştir. Metne göre matematik sevenlerin fen sevenlere oranı kaçtır ve bu iki grubun ortak kesişiminde olabilecek öğrenci sayısı en fazla kaç olabilir?",
+      "options": ["4/3, 60", "3/4, 80", "4/3, 80", "3/4, 60"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "questionType": "REASONING",
+      "topic": "Oran ve Mantık",
+      "skills": ["oran_oranti", "akil_yurutme"],
+      "explanation": "80/60 = 4/3 oran. Kesişim en fazla 60 olabilir.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:mat:3"
+    },
+    {
+      "stem": "Dört arkadaşın cep harçlıkları ile ilgili tablo verilmiştir. Tabloda Ahmet 50 TL, Elif 75 TL, Can 60 TL, Zeynep 65 TL harcamıştır. Buna göre ortalama harcama kaç TL'dir ve medyan değer hangi iki arkadaşın değerleri arasında kalır?",
+      "options": ["62.5, Can-Zeynep", "62.5, Elif-Can", "60, Ahmet-Can", "65, Elif-Zeynep"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "INTERPRETATION",
+      "topic": "İstatistik",
+      "skills": ["ortalama", "medyan", "tablo_yorumlama"],
+      "explanation": "Ortalama 250/4 = 62.5. Medyan 60 ile 65 arasında.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:mat:4"
+    }
+  ]
 }

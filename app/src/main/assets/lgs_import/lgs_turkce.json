@@ -3,5 +3,54 @@
   "mode": "LGS",
   "subject": "turkce",
   "publisher": "brainbuddy",
-  "questions": []
+  "questions": [
+    {
+      "stem": "Aşağıdaki parçada yazar, kitap okuma alışkanlığının günlük hayatta karşılaşılan problemlere farklı çözüm yolları sunduğunu vurgulamaktadır. Parçaya göre okuma alışkanlığı ile ilgili aşağıdaki çıkarımlardan hangisi doğrudur?",
+      "options": ["Okuma sadece bilgi edinme aracıdır", "Okuma günlük yaşamda karar vermeyi kolaylaştırır", "Okuma yalnızca eğlence amaçlıdır", "Okuma sadece sınavlara hazırlık içindir"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "questionType": "REASONING",
+      "topic": "Ana Düşünce",
+      "skills": ["ana_dusunce", "cikarim", "yorumlama"],
+      "explanation": "Parçada okumanın günlük problemlere farklı çözüm yolları sunduğu belirtilmektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:turkce:1"
+    },
+    {
+      "stem": "Metinde anlatıcı, çocukluk anılarını aktarırken mevsimlerin değişimini de betimlemektedir. Buna göre metnin anlatımında hangi anlatım biçimleri kullanılmış olabilir?",
+      "options": ["Yalnızca açıklayıcı anlatım", "Betimleme ve öyküleme birlikte", "Yalnızca tartışmacı anlatım", "Yalnızca betimleyici anlatım"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "REASONING",
+      "topic": "Anlatım Biçimleri",
+      "skills": ["anlatim_bicimleri", "betimleme", "analiz"],
+      "explanation": "Anı aktarımı öyküleme, mevsim betimlemesi betimleme içerir.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:turkce:2"
+    },
+    {
+      "stem": "Yukarıdaki bilgilere göre parçada geçen deyimlerden hangisi, kişinin umutsuzluğa düştüğünü ifade etmek için kullanılmış olabilir? Parçanın bütününe bakarak en uygun seçeneği belirleyiniz.",
+      "options": ["Eli ayağı dolaşmak", "Gözü gibi sakınmak", "Umudunu yitirmek", "Kulak vermek"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "questionType": "REASONING",
+      "topic": "Deyimler",
+      "skills": ["deyimler", "anlam", "cikarim"],
+      "explanation": "Umudunu yitirmek umutsuzluğu ifade eder.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:turkce:3"
+    },
+    {
+      "stem": "Tablo ve grafikte verilen bilgilere göre Türkiye'deki kitap okuma oranları ile ilgili hangi yorum yapılabilir? Tabloda son beş yıldaki değişim gösterilmiştir ve grafiğe bakıldığında belirli bir eğilim görülmektedir.",
+      "options": ["Okuma oranları sabit kalmıştır", "Okuma oranlarında artış trendi vardır", "Okuma oranları sürekli düşmüştür", "Veriler karşılaştırılamaz"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "INTERPRETATION",
+      "topic": "Grafik ve Tablo Yorumlama",
+      "skills": ["grafik_yorumlama", "tablo", "cikarim"],
+      "explanation": "Grafik ve tablodan trend analizi yapılır.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:turkce:4"
+    }
+  ]
 }

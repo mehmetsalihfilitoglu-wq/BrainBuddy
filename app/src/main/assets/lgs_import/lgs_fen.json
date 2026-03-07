@@ -3,5 +3,54 @@
   "mode": "LGS",
   "subject": "fen",
   "publisher": "brainbuddy",
-  "questions": []
+  "questions": [
+    {
+      "stem": "Şekilde verilen elektrik devresinde iki özdeş pil ve iki özdeş ampul bulunmaktadır. Devre şemasına göre ampullerin parlaklığı ile ilgili hangi yorum doğrudur? Devrede seri bağlı elemanlar vardır.",
+      "options": ["İki ampul de aynı parlaklıkta yanar", "Bir ampul daha parlak yanar", "Ampuller yanmaz", "Parlaklık pil sayısına bağlı değildir"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "questionType": "INTERPRETATION",
+      "topic": "Elektrik Devreleri",
+      "skills": ["elektrik", "devre", "analiz"],
+      "explanation": "Özdeş ampuller seri bağlıysa eşit parlaklıkta yanar.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:fen:1"
+    },
+    {
+      "stem": "Yukarıdaki bilgilere göre bir öğrenci günlük hayatta kullandığı bazı maddeleri sınıflandırmak istiyor. Asit, baz ve nötr maddelerin özelliklerini bildiğine göre sabun, limon suyu ve tuzlu su için hangi sınıflandırma doğrudur?",
+      "options": ["Sabun baz, limon asit, tuzlu su nötr", "Sabun asit, limon baz, tuzlu su nötr", "Hepsi nötr", "Hepsi baz"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "questionType": "REASONING",
+      "topic": "Asitler ve Bazlar",
+      "skills": ["asit_baz", "siniflandirma", "günlük_hayat"],
+      "explanation": "Sabun bazik, limon asidik, tuzlu su nötrdür.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:fen:2"
+    },
+    {
+      "stem": "Grafikte bir canlının besin zincirindeki enerji akışı gösterilmiştir. Grafiğe göre üreticiden tüketiciye doğru gidildikçe enerji miktarında nasıl bir değişim olur ve bu değişimin nedeni nedir?",
+      "options": ["Enerji artar, çünkü tüketiciler daha aktiftir", "Enerji azalır, çünkü her basamakta enerji kaybı olur", "Enerji sabit kalır", "Enerji önce artar sonra azalır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "INTERPRETATION",
+      "topic": "Besin Zinciri ve Enerji",
+      "skills": ["besin_zinciri", "enerji", "grafik_yorumlama"],
+      "explanation": "Her trofik basamakta enerjinin büyük kısmı kaybolur.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:fen:3"
+    },
+    {
+      "stem": "Tablo ve şekilde farklı gezegenlerin Güneş'e uzaklıkları verilmiştir. Bu bilgilere dayanarak Dünya ile Mars'ın yörünge süreleri karşılaştırıldığında hangi sonuç çıkarılabilir?",
+      "options": ["Mars'ın yörünge süresi daha kısadır", "Dünya'nın yörünge süresi daha kısadır", "İkisi de eşittir", "Kesin bir sonuç çıkarılamaz"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "REASONING",
+      "topic": "Güneş Sistemi",
+      "skills": ["güneş_sistemi", "yörünge", "karşılaştırma"],
+      "explanation": "Güneş'e yakın gezegenler daha kısa yörünge süresine sahiptir.",
+      "source": "brainbuddy",
+      "sourceRef": "lgs_smoke:fen:4"
+    }
+  ]
 }
