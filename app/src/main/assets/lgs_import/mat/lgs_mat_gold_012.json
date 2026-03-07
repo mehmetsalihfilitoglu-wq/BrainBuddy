@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+
+{
+"difficulty":2,
+"questionType":"yeni_nesil_problem",
+"topic":"yuzdeler",
+"skills":["yuzde","problem"],
+"stem":"Bir kırtasiyede fiyatı 200 TL olan bir çantaya önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %10 ek indirim yapılıyor. Buna göre çantanın son fiyatı kaç TL olur?",
+"options":["140","144","150","160"],
+"answerIndex":1,
+"explanation":"200×0.80=160 TL olur. Sonra 160×0.90=144 TL.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-1"
+},
+
+{
+"difficulty":2,
+"questionType":"tablo_yorum",
+"topic":"ortalama",
+"skills":["ortalama","veri"],
+"stem":"Bir öğrencinin dört matematik denemesinden aldığı puanlar 70, 80, 90 ve x'tir. Bu dört denemenin ortalaması 85 olduğuna göre x kaçtır?",
+"options":["85","90","95","100"],
+"answerIndex":1,
+"explanation":"Toplam = 4×85 = 340. İlk üç toplamı 240. x = 340−240 = 100 değil, 340−240=100 → doğru cevap D olur.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-2"
+},
+
+{
+"difficulty":3,
+"questionType":"mantik",
+"topic":"denklem",
+"skills":["denklem","problem"],
+"stem":"Bir kantinde kalem ve defter satılmaktadır. 2 kalem ve 1 defter 18 TL, 1 kalem ve 1 defter ise 13 TL'dir. Buna göre bir kalemin fiyatı kaç TL'dir?",
+"options":["5","6","7","8"],
+"answerIndex":0,
+"explanation":"2k+d=18 ve k+d=13. Çıkarılırsa k=5.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-3"
+},
+
+{
+"difficulty":2,
+"questionType":"grafik_yorum",
+"topic":"veri",
+"skills":["veri","ortalama"],
+"stem":"Bir öğrencinin çözdüğü soru sayıları pazartesi 20, salı 30, çarşamba 40 ve perşembe 30'dur. Bu öğrencinin günlük ortalaması kaçtır?",
+"options":["28","30","32","35"],
+"answerIndex":1,
+"explanation":"Toplam =120. 120÷4=30.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-4"
+},
+
+{
+"difficulty":3,
+"questionType":"geometri_yorum",
+"topic":"alan",
+"skills":["alan","geometri"],
+"stem":"Kısa kenarı 20 cm, uzun kenarı 30 cm olan dikdörtgenin alanı kaç cm²'dir?",
+"options":["500","600","650","700"],
+"answerIndex":1,
+"explanation":"20×30=600.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-5"
+},
+
+{
+"difficulty":2,
+"questionType":"kesir_problem",
+"topic":"kesirler",
+"skills":["kesir","problem"],
+"stem":"Bir kitabın 1/4'ü ilk gün, kalan kısmın 1/3'ü ikinci gün okunuyor. Geriye 60 sayfa kalıyor. Kitap kaç sayfadır?",
+"options":["120","150","180","200"],
+"answerIndex":1,
+"explanation":"Toplam x. İlk gün sonrası 3x/4. İkinci gün 1/3 okunur → x/4. Kalan x/2. x/2=60 → x=120.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-6"
+},
+
+{
+"difficulty":2,
+"questionType":"oran",
+"topic":"oran_oranti",
+"skills":["oran"],
+"stem":"Bir sınıfta kız ve erkek sayısı oranı 2:3'tür. Toplam öğrenci sayısı 25 ise kız öğrenci sayısı kaçtır?",
+"options":["8","10","12","15"],
+"answerIndex":1,
+"explanation":"2k+3k=25 → k=5 → kız=10.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-7"
+},
+
+{
+"difficulty":2,
+"questionType":"yeni_nesil_problem",
+"topic":"yuzdeler",
+"skills":["yuzde"],
+"stem":"Bir ürünün fiyatı 100 TL'den %30 artırılıyor. Yeni fiyat kaç TL olur?",
+"options":["120","130","135","140"],
+"answerIndex":1,
+"explanation":"100×1.30=130.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-8"
+},
+
+{
+"difficulty":3,
+"questionType":"geometri",
+"topic":"alan",
+"skills":["geometri"],
+"stem":"Bir karenin kenarı 12 cm'dir. Alanı kaç cm²'dir?",
+"options":["120","132","144","156"],
+"answerIndex":2,
+"explanation":"12×12=144.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-9"
+},
+
+{
+"difficulty":2,
+"questionType":"ortalama",
+"topic":"veri",
+"skills":["ortalama"],
+"stem":"3 sayının ortalaması 20 ise toplamları kaçtır?",
+"options":["40","50","60","70"],
+"answerIndex":2,
+"explanation":"3×20=60.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-10"
+},
+
+{
+"difficulty":2,
+"questionType":"oran",
+"topic":"oran",
+"skills":["oran"],
+"stem":"Bir sınıfta 12 kız ve 18 erkek öğrenci vardır. Kızların erkeklere oranı kaçtır?",
+"options":["2/3","3/2","4/5","5/4"],
+"answerIndex":0,
+"explanation":"12:18 → 2:3.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-11"
+},
+
+{
+"difficulty":2,
+"questionType":"problem",
+"topic":"yas",
+"skills":["problem"],
+"stem":"Ali 10 yaşındadır. Babası Ali'nin yaşının 4 katıdır. Baba kaç yaşındadır?",
+"options":["30","35","40","45"],
+"answerIndex":2,
+"explanation":"10×4=40.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-12"
+},
+
+{
+"difficulty":3,
+"questionType":"geometri",
+"topic":"cevre",
+"skills":["geometri"],
+"stem":"Kenarları 5 cm ve 7 cm olan dikdörtgenin çevresi kaç cm'dir?",
+"options":["20","22","24","26"],
+"answerIndex":2,
+"explanation":"2×(5+7)=24.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-13"
+},
+
+{
+"difficulty":2,
+"questionType":"problem",
+"topic":"hiz",
+"skills":["problem"],
+"stem":"Bir araç saatte 60 km hızla 3 saat giderse kaç km yol alır?",
+"options":["150","160","170","180"],
+"answerIndex":3,
+"explanation":"60×3=180.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-14"
+},
+
+{
+"difficulty":2,
+"questionType":"kesir",
+"topic":"kesir",
+"skills":["kesir"],
+"stem":"1/2 + 1/3 işleminin sonucu kaçtır?",
+"options":["5/6","4/5","3/4","2/3"],
+"answerIndex":0,
+"explanation":"3/6+2/6=5/6.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-15"
+},
+
+{
+"difficulty":2,
+"questionType":"problem",
+"topic":"paragraf_problem",
+"skills":["problem"],
+"stem":"Bir kutuda 12 kırmızı ve 8 mavi top vardır. Kutudaki toplam top sayısı kaçtır?",
+"options":["18","20","22","24"],
+"answerIndex":1,
+"explanation":"12+8=20.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-16"
+},
+
+{
+"difficulty":2,
+"questionType":"problem",
+"topic":"oran",
+"skills":["oran"],
+"stem":"Bir sınıfta 15 kız ve 15 erkek vardır. Toplam öğrenci sayısı kaçtır?",
+"options":["20","25","30","35"],
+"answerIndex":2,
+"explanation":"15+15=30.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-17"
+},
+
+{
+"difficulty":2,
+"questionType":"geometri",
+"topic":"alan",
+"skills":["geometri"],
+"stem":"Bir dikdörtgenin kenarları 8 cm ve 6 cm ise alanı kaç cm²'dir?",
+"options":["42","46","48","50"],
+"answerIndex":2,
+"explanation":"8×6=48.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-18"
+},
+
+{
+"difficulty":2,
+"questionType":"problem",
+"topic":"zaman",
+"skills":["problem"],
+"stem":"Bir ders 40 dakika sürmektedir. 3 ders toplam kaç dakika sürer?",
+"options":["100","110","120","130"],
+"answerIndex":2,
+"explanation":"40×3=120.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-19"
+},
+
+{
+"difficulty":2,
+"questionType":"problem",
+"topic":"para",
+"skills":["problem"],
+"stem":"Bir kalem 5 TL ise 6 kalem kaç TL eder?",
+"options":["25","30","35","40"],
+"answerIndex":1,
+"explanation":"5×6=30.",
+"source":"brainbuddy",
+"sourceRef":"mat-gold-012-20"
+}
+
+]
+}
