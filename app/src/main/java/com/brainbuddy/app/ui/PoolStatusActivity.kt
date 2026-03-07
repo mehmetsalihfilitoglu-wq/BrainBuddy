@@ -14,6 +14,7 @@ import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
+import com.brainbuddy.app.quiz.formatLgsMatSummaryText
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -124,6 +125,21 @@ class PoolStatusActivity : AppCompatActivity() {
                     renderStatus()
                 }
             }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnImportLgsMatPacks)
+            .setOnClickListener {
+                lifecycleScope.launch {
+                    val summary = withContext(Dispatchers.IO) {
+                        QuestionPackImporter.importMatLgsPacksFromAssets(this@PoolStatusActivity)
+                    }
+                    AlertDialog.Builder(this@PoolStatusActivity)
+                        .setTitle("LGS MAT Import Sonucu")
+                        .setMessage(formatLgsMatSummaryText(summary))
+                        .setPositiveButton(android.R.string.ok) { _, _ -> }
+                        .show()
+                    renderStatus()
+                }
+            }
     }
 
     private fun renderStatus() {
@@ -223,6 +239,25 @@ class PoolStatusActivity : AppCompatActivity() {
                             sb.append("\n")
                         }
                     }
+                    // MAT LGS pool (math-only summary)
+                    val matActive = lgsBySubject["mat"] ?: 0
+                    val matByDiff = dao.getLgsCountsByDifficultyForSubject("mat").associate { it.difficulty to it.count }
+                    val matByType = dao.getLgsCountsByQuestionTypeForSubject("mat")
+                    val matAvgQuality = dao.getLgsAvgQualityBySubject().firstOrNull { it.subject == "mat" }?.avgQualityScore
+                    val matNewGen = dao.getLgsNewGenCountBySubject().firstOrNull { it.subject == "mat" }
+                    val matInactive = dao.countLgsInactiveLowQualityBySubject("mat")
+                    sb.append("  MAT LGS (math-only): aktif=$matActive, pasif=$matInactive\n")
+                    sb.append("  MAT zorluk: ")
+                    sb.append(listOf(0, 1, 2).joinToString(" ") { "diff$it=${matByDiff[it] ?: 0}" })
+                    sb.append("\n")
+                    sb.append("  MAT questionType: ")
+                    sb.append(matByType.joinToString(" ") { "${it.questionType}=${it.count}" }.ifEmpty { "(yok)" })
+                    sb.append("\n")
+                    if (matAvgQuality != null) sb.append("  MAT ort. qualityScore: ${matAvgQuality.toInt()}\n")
+                    if (matNewGen != null && matNewGen.totalCount > 0) {
+                        val ratio = matNewGen.newGenCount * 100 / matNewGen.totalCount
+                        sb.append("  MAT yeni nesil oranı: ${ratio}%\n")
+                    } else if (matActive > 0) sb.append("  MAT yeni nesil oranı: 0%\n")
                     sb.append("\n")
                 }
 

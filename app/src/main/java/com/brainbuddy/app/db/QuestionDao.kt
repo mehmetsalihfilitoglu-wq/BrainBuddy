@@ -70,6 +70,9 @@ data class LgsAvgQualityBySubject(val subject: String, val avgQualityScore: Doub
 /** LGS quality debug: subject, newGen count, total count. */
 data class LgsNewGenCountBySubject(val subject: String, val newGenCount: Int, val totalCount: Int)
 
+/** LGS pool: questionType bazında ACTIVE soru sayıları (subject filtresi için). */
+data class LgsQuestionTypeCount(val questionType: String, val count: Int)
+
 @Dao
 interface QuestionDao {
 
@@ -349,4 +352,40 @@ interface QuestionDao {
         """
     )
     suspend fun getLgsNewGenCountBySubject(): List<LgsNewGenCountBySubject>
+
+    /** LGS difficulty counts for a single subject (e.g. mat). */
+    @Query(
+        """
+        SELECT difficulty, COUNT(*) AS count
+        FROM questions
+        WHERE isActive = 1 AND COALESCE(examType, 'GENERAL') = 'LGS' AND subject = :subject
+        GROUP BY difficulty
+        ORDER BY difficulty
+        """
+    )
+    suspend fun getLgsCountsByDifficultyForSubject(subject: String): List<LgsDifficultyCount>
+
+    /** LGS questionType counts for a single subject (e.g. mat). */
+    @Query(
+        """
+        SELECT COALESCE(type, 'UNKNOWN') AS questionType, COUNT(*) AS count
+        FROM questions
+        WHERE isActive = 1 AND COALESCE(examType, 'GENERAL') = 'LGS' AND subject = :subject
+        GROUP BY type
+        ORDER BY count DESC
+        """
+    )
+    suspend fun getLgsCountsByQuestionTypeForSubject(subject: String): List<LgsQuestionTypeCount>
+
+    /** LGS inactive (low quality) count for a single subject. */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = 'LGS'
+        AND subject = :subject
+        AND isActive = 0
+        AND COALESCE(deactivationReason, '') = 'low_lgs_quality'
+        """
+    )
+    suspend fun countLgsInactiveLowQualityBySubject(subject: String): Int
 }
