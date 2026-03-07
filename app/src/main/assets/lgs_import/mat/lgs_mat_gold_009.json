@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": ["yuzde_hesabi", "problem_cozme", "yorumlama"],
+      "stem": "Bir kırtasiyede etiket fiyatı 240 TL olan matematik soru bankasına önce %15 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %20 ek indirim yapılıyor. Buna göre kitabın son satış fiyatı kaç TL olur?",
+      "options": ["160", "163.2", "168", "172.8"],
+      "answerIndex": 1,
+      "explanation": "İlk indirim sonrası fiyat 240×0,85=204 TL olur. İkinci indirim sonrası 204×0,80=163,2 TL olur.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-1"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "ortalama",
+      "skills": ["ortalama", "veri_analizi", "yorumlama"],
+      "stem": "Bir öğrencinin dört matematik denemesinden aldığı puanlar sırasıyla 68, 74, 82 ve x'tir. Bu dört denemenin ortalaması 76 olduğuna göre x kaçtır?",
+      "options": ["78", "80", "82", "84"],
+      "answerIndex": 1,
+      "explanation": "Toplam puan 4×76=304 olmalıdır. Bilinen üç puanın toplamı 68+74+82=224'tür. x=304−224=80.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-2"
+    },
+    {
+      "difficulty": 3,
+      "questionType": "mantik",
+      "topic": "denklem_kurma",
+      "skills": ["denklem", "problem_cozme", "mantik"],
+      "stem": "Bir okul kantininde tost ve meyve suyu satılmaktadır. 2 tost ve 3 meyve suyu alan bir öğrenci 55 TL, 4 tost ve 1 meyve suyu alan başka bir öğrenci ise 65 TL ödemiştir. Buna göre 1 meyve suyunun fiyatı kaç TL'dir?",
+      "options": ["7", "9", "11", "13"],
+      "answerIndex": 1,
+      "explanation": "Tost fiyatı t, meyve suyu fiyatı m olsun. 2t+3m=55 ve 4t+m=65. İkinci denklemden m=65−4t. Birinci denklemde yerine yazılır: 2t+3(65−4t)=55 → -10t=-140 → t=14. m=65−56=9.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-3"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": ["grafik_okuma", "yorumlama", "problem_cozme"],
+      "stem": "Bir öğrencinin beş gün boyunca çözdüğü matematik soru sayıları sırasıyla 28, 36, 32, 44 ve x'tir. Bu öğrencinin günlük ortalama soru çözme sayısı 34 olduğuna göre x kaçtır?",
+      "options": ["24", "26", "28", "30"],
+      "answerIndex": 3,
+      "explanation": "Toplam soru sayısı 5×34=170 olmalıdır. İlk dört gün toplamı 28+36+32+44=140'tır. x=170−140=30.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-4"
+    },
+    {
+      "difficulty": 3,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": ["geometri", "alan_hesabi", "yorumlama"],
+      "stem": "Kenar uzunlukları 54 m ve 30 m olan dikdörtgen biçimindeki bir spor alanının ortasına kare biçiminde bir çalışma bölgesi yapılmıştır. Çalışma bölgesi dışındaki alan 1296 m² olduğuna göre kare bölgenin bir kenarı kaç metredir?",
+      "options": ["12", "15", "18", "20"],
+      "answerIndex": 2,
+      "explanation": "Toplam alan 54×30=1620 m²'dir. Kare bölgenin alanı 1620−1296=324 m² olur. Karenin kenarı √324=18 metredir.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-5"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "kesirler",
+      "skills": ["kesir", "problem_cozme", "yorumlama"],
+      "stem": "Bir öğrenci bir kitabın ilk gün 1/4'ünü, ikinci gün kalan kısmın 1/3'ünü okuyor. Üçüncü gün ise kalan 80 sayfayı okuyarak kitabı bitiriyor. Buna göre kitabın tamamı kaç sayfadır?",
+      "options": ["120", "144", "160", "192"],
+      "answerIndex": 2,
+      "explanation": "Toplam sayfa sayısı x olsun. İlk gün sonrası kalan 3x/4 olur. İkinci gün bunun 1/3'ü okununca kalan 2/3 × 3x/4 = x/2 olur. x/2=80 ise x=160.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-6"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "mantik",
+      "topic": "oran_oranti",
+      "skills": ["oran", "problem_cozme", "mantik"],
+      "stem": "Bir sınıftaki kız ve erkek öğrenci sayılarının oranı 4:5'tir. Sınıfa 4 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": ["28", "32", "36", "40"],
+      "answerIndex": 2,
+      "explanation": "Kız ve erkek sayıları 4k ve 5k olsun. 4k+4=5k olduğundan k=4 bulunur. Başlangıçta toplam 9k=36 öğrenci vardır.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-7"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "yuzdeler",
+      "skills": ["yuzde_hesabi", "veri_analizi", "yorumlama"],
+      "stem": "Bir okul yarışmasına katılan öğrencilerin %70'i birinci aşamayı geçmiştir. Bu öğrencilerin %20'si ikinci aşamada elenmiş ve geriye 56 öğrenci kalmıştır. Buna göre yarışmaya başlangıçta kaç öğrenci katılmıştır?",
+      "options": ["90", "95", "100", "105"],
+      "answerIndex": 2,
+      "explanation": "Başlangıçta x öğrenci olsun. Birinci aşamadan 0,70x geçer. Bunun %20'si elenince %80'i kalır: 0,70x×0,80=0,56x. 0,56x=56 ise x=100.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-8"
+    },
+    {
+      "difficulty": 3,
+      "questionType": "geometri_yorum",
+      "topic": "alan_cevre",
+      "skills": ["geometri", "problem_cozme", "yorumlama"],
+      "stem": "Kısa kenarı 18 cm olan bir dikdörtgenin uzun kenarı kısa kenarından 12 cm fazladır. Bu dikdörtgenin alanı kaç santimetrekaredir?",
+      "options": ["486", "504", "540", "576"],
+      "answerIndex": 2,
+      "explanation": "Uzun kenar 18+12=30 cm olur. Alan 18×30=540 cm²'dir.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-9"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": ["oran", "problem_cozme", "yorumlama"],
+      "stem": "Bir okulda düzenlenen deneme sınavına katılan öğrenci sayısı geçen yıla göre %30 artmıştır. Geçen yıl sınava 200 öğrenci katıldığına göre bu yıl katılan öğrenci sayısı kaçtır?",
+      "options": ["230", "240", "250", "260"],
+      "answerIndex": 3,
+      "explanation": "200'ün %30'u 60'tır. 200+60=260 öğrenci katılmıştır.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-009-10"
+    }
+  ]
+}
