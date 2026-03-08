@@ -20,10 +20,10 @@
 
 {
 "difficulty":2,
-"questionType":"mantik",
+"questionType":"reasoning",
 "topic":"denklem",
 "skills":["denklem","problem_cozme"],
-"stem":"Bir kırtasiyede defter ve kalem satılmaktadır. 2 defter ve 3 kalem 36 TL, 4 defter ve 1 kalem ise 44 TL tutmaktadır. Buna göre bir kalemin fiyatı kaç TL'dir?",
+"stem":"Okul açılışında veliler toplu kırtasiye alışverişi yapar. Bir veli 2 defter ve 3 kalem alıp 36 TL öder; başka bir veli 4 defter ve 1 kalem alıp 44 TL öder. Sınıf annesi masrafları hesaplamak için birim fiyatları bulmak ister. Önce denklem sistemi kurup defter fiyatını hesaplayacak, ardından kalem fiyatına ulaşacaktır. Buna göre bir kalemin fiyatı kaç TL'dir?",
 "options":["6","8","10","12"],
 "answerIndex":1,
 "explanation":"2d+3k=36 ve 4d+k=44. İkinci denklemden k=44−4d. Yerine yazılır ve çözülür → k=8.",
@@ -46,10 +46,10 @@
 
 {
 "difficulty":2,
-"questionType":"tablo_yorum",
+"questionType":"paragraph",
 "topic":"ortalama",
 "skills":["ortalama","veri"],
-"stem":"Bir öğrencinin dört matematik denemesinden aldığı puanlar sırasıyla 60, 72, 84 ve x'tir. Bu öğrencinin ortalaması 75 olduğuna göre x kaçtır?",
+"stem":"Matematik öğretmeni bir öğrencinin dört deneme sınavındaki puanlarını karne ortalamasına eklemek üzere inceliyor. İlk üç denemede alınan puanlar sırasıyla 60, 72 ve 84'tür. Dördüncü denemedeki puan henüz sisteme girilmemiştir. Öğretmen önce karneye yazılacak ortalamanın 75 olması gerektiğini kontrol eder, ardından dördüncü denemeden alınması gereken minimum puanı hesaplar. Buna göre dördüncü denemede alınan puan (x) kaçtır?",
 "options":["84","90","96","102"],
 "answerIndex":1,
 "explanation":"Toplam = 4×75 = 300. İlk üç = 216. x=84 değil 84+216=300 → x=84 olur.",
@@ -59,10 +59,10 @@
 
 {
 "difficulty":2,
-"questionType":"yeni_nesil_problem",
+"questionType":"reasoning",
 "topic":"kesirler",
 "skills":["kesir","problem"],
-"stem":"Bir kitabın ilk gün 1/4'ü, ikinci gün kalan kısmın 1/3'ü okunuyor. Geriye 60 sayfa kaldığına göre kitabın toplam sayfa sayısı kaçtır?",
+"stem":"Kitap okuma kulübünde bir öğrenci roman okuma planı yapar. İlk gün kitabın 1/4'ünü okur. İkinci gün kalan sayfaların 1/3'ünü okur. Üçüncü gün başladığında elinde 60 sayfa kaldığını fark eder. Öğrenci önce ilk iki gün okunan toplam sayfa oranını hesaplayıp ardından kitabın tamamının sayfa sayısına ulaşmak ister. Buna göre kitabın toplam sayfa sayısı kaçtır?",
 "options":["120","144","180","240"],
 "answerIndex":2,
 "explanation":"Toplam x. İlk gün x/4 okunur → kalan 3x/4. İkinci gün bunun 1/3'ü = x/4 okunur. Kalan x/2 olur. x/2=60 → x=120.",
@@ -85,10 +85,10 @@
 
 {
 "difficulty":2,
-"questionType":"mantik",
+"questionType":"reasoning",
 "topic":"oran_oranti",
 "skills":["oran","problem"],
-"stem":"Bir sınıftaki kız ve erkek öğrenci sayılarının oranı 3:5'tir. Sınıfa 4 kız öğrenci daha geldiğinde oran 4:5 oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+"stem":"Sınıf rehber öğretmeni yeni dönem öncesi sınıf listesini günceller. Mevcut listede kız ve erkek öğrenci sayıları 3:5 oranındadır. Kayıt döneminde 4 kız öğrenci daha sınıfa eklenir. Güncel listeye bakıldığında kız-erkek oranı 4:5 olmuştur. Öğretmen önce oran değişiminden hareketle denklem kurar, sonra nakil öncesi sınıf mevcudunu bulur. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
 "options":["32","40","48","56"],
 "answerIndex":1,
 "explanation":"3k ve 5k olsun. (3k+4)/(5k)=4/5 → 15k+20=20k → k=4 → toplam 32.",
@@ -111,10 +111,10 @@
 
 {
 "difficulty":3,
-"questionType":"geometri_yorum",
+"questionType":"paragraph",
 "topic":"alan_cevre",
 "skills":["geometri","problem"],
-"stem":"Kısa kenarı 18 cm olan bir dikdörtgenin uzun kenarı kısa kenarından 6 cm fazladır. Bu dikdörtgenin alanı kaç santimetrekaredir?",
+"stem":"El işi dersinde öğrenciler dikdörtgen biçiminde bir pano hazırlayacaktır. Öğretmen kısa kenarın 18 cm olduğunu, uzun kenarın ise kısa kenardan 6 cm daha uzun olacağını söyler. Öğrenciler önce uzun kenarın uzunluğunu bulup ardından panonun kapladığı toplam alanı hesaplamalıdır. Buna göre bu dikdörtgen panonun alanı kaç santimetrekaredir?",
 "options":["360","396","432","450"],
 "answerIndex":2,
 "explanation":"Uzun kenar 24. Alan = 18×24 = 432.",
@@ -124,10 +124,10 @@
 
 {
 "difficulty":2,
-"questionType":"tablo_yorum",
+"questionType":"paragraph",
 "topic":"ortalama",
 "skills":["veri","yorumlama"],
-"stem":"Bir öğrencinin çözdüğü matematik soruları pazartesi 24, salı 36, çarşamba 30 ve perşembe 42'dir. Bu dört günün ortalaması kaçtır?",
+"stem":"Bir öğrenci haftalık matematik soru çözme hedefi koyar ve her gün çözdüğü soru sayısını defterine not eder. Pazartesi 24, salı 36, çarşamba 30 ve perşembe 42 soru çözmüştür. Cuma günü haftalık raporu hazırlamak isteyen öğrenci önce dört günlük toplam soru sayısını hesaplayacak, ardından günlük ortalamayı bulacaktır. Buna göre bu dört günün günlük ortalama soru sayısı kaçtır?",
 "options":["30","31","32","33"],
 "answerIndex":2,
 "explanation":"Toplam = 132 → 132/4 = 33.",

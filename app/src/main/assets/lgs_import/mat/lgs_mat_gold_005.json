@@ -186,10 +186,10 @@
     },
     {
       "difficulty": 2,
-      "questionType": "geometri_yorum",
+      "questionType": "paragraph",
       "topic": "alan_cevre",
       "skills": ["geometri", "alan", "problem_cozme"],
-      "stem": "Uzun kenarı kısa kenarından 6 cm fazla olan bir dikdörtgenin çevresi 84 cm'dir. Buna göre bu dikdörtgenin alanı kaç santimetrekaredir?",
+      "stem": "Sınıf panosu için dikdörtgen biçiminde bir karton hazırlanacaktır. Öğretmen kartonda kısa kenarın uzunluğunu ölçüp uzun kenarın ise kısa kenardan 6 cm daha fazla olduğunu not eder. Daha sonra kartona çerçeve yapıştırmak için gerekli çerçeve uzunluğunu hesaplar; toplam çevre 84 cm olacak şekilde kesim yapılacaktır. Buna göre öğretmenin hazırladığı kartonun alanı kaç santimetrekaredir?",
       "options": ["396", "432", "468", "486"],
       "answerIndex": 1,
       "explanation": "Kısa kenar x, uzun kenar x + 6 olsun. Çevre 2(x + x + 6) = 84 → 4x + 12 = 84 → x = 18 bulunur. Uzun kenar 24 cm olur. Alan 18×24 = 432 cm²'dir.",

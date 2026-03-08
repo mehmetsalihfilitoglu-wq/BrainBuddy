@@ -6,10 +6,10 @@
   "questions": [
     {
       "difficulty": 2,
-      "questionType": "tablo_yorum",
+      "questionType": "paragraph",
       "topic": "ortalama",
       "skills": ["ortalama", "veri_analizi", "yorumlama"],
-      "stem": "Bir öğrencinin dört matematik denemesinden aldığı puanlar sırasıyla 66, 78, 84 ve x'tir. Bu dört denemenin ortalaması 75 olduğuna göre x kaçtır?",
+      "stem": "Matematik öğretmeni dönem sonu karnesi için bir öğrencinin dört deneme puanını topluyor. İlk üç denemede alınan puanlar sırasıyla 66, 78 ve 84'tür. Dördüncü denemedeki puan eksik olduğu için öğretmen önce hedef ortalamaya göre dört denemenin toplam puanını hesaplayacak, ardından bilinen puanları çıkararak eksik puanı bulacaktır. Dört denemenin ortalaması 75 olduğuna göre dördüncü denemede alınan puan (x) kaçtır?",
       "options": ["68", "70", "72", "74"],
       "answerIndex": 2,
       "explanation": "Toplam puan 4×75=300 olmalıdır. Bilinen üç puanın toplamı 66+78+84=228'dir. x=300−228=72.",
@@ -102,10 +102,10 @@
     },
     {
       "difficulty": 3,
-      "questionType": "geometri_yorum",
+      "questionType": "paragraph",
       "topic": "alan_cevre",
       "skills": ["geometri", "problem_cozme", "yorumlama"],
-      "stem": "Kısa kenarı 14 cm olan bir dikdörtgenin uzun kenarı kısa kenarından 8 cm fazladır. Bu dikdörtgenin alanı kaç santimetrekaredir?",
+      "stem": "Sınıf panosu için dikdörtgen biçiminde bir afiş hazırlanacaktır. Kısa kenar 14 cm olarak kesilmiştir; uzun kenar ise kısa kenardan 8 cm daha uzun olacak şekilde ayarlanacaktır. Hazırlayan öğrenci önce uzun kenarın uzunluğunu hesaplayacak, ardından afişin kapladığı toplam alanı bulacaktır. Buna göre bu dikdörtgen afişin alanı kaç santimetrekaredir?",
       "options": ["286", "294", "308", "322"],
       "answerIndex": 2,
       "explanation": "Uzun kenar 14+8=22 cm olur. Alan 14×22=308 cm²'dir.",

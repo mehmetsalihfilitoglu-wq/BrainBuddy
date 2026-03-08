@@ -85,10 +85,10 @@
 
 {
 "difficulty":2,
-"questionType":"yeni_nesil_problem",
+"questionType":"reasoning",
 "topic":"kesirler",
 "skills":["kesir","problem"],
-"stem":"Bir kitabın ilk gün 1/5'i, ikinci gün kalan kısmın 1/4'ü okunuyor. Geriye 96 sayfa kaldığına göre kitabın tamamı kaç sayfadır?",
+"stem":"Kitap okuma kulübünde bir öğrenci roman okuma planı yapar. İlk gün kitabın 1/5'ini okur. İkinci gün kalan sayfaların 1/4'ünü okur. Üçüncü güne başladığında elinde 96 sayfa kaldığını fark eder. Öğrenci önce ilk iki gün okunan kesirleri kullanarak kalan kesri hesaplayacak, ardından bu bilgiden kitabın toplam sayfa sayısına ulaşacaktır. Buna göre kitabın tamamı kaç sayfadır?",
 "options":["120","140","150","160"],
 "answerIndex":3,
 "explanation":"Toplam x. İlk gün sonrası 4x/5. İkinci gün 1/4 okunur → kalan 3x/5. 3x/5=96 → x=160.",

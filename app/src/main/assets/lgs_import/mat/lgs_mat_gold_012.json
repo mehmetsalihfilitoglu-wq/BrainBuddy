@@ -20,10 +20,10 @@
 
 {
 "difficulty":2,
-"questionType":"tablo_yorum",
+"questionType":"paragraph",
 "topic":"ortalama",
 "skills":["ortalama","veri"],
-"stem":"Bir öğrencinin dört matematik denemesinden aldığı puanlar 70, 80, 90 ve x'tir. Bu dört denemenin ortalaması 85 olduğuna göre x kaçtır?",
+"stem":"Rehberlik servisi bir öğrencinin matematik deneme performansını takip etmektedir. İlk üç denemede alınan puanlar sırasıyla 70, 80 ve 90'dır. Dördüncü denemedeki puan henüz sisteme girilmemiştir. Servis, dört denemenin ortalamasının 85 olması hedefine ulaşmak için önce hedef ortalamaya göre gerekli toplam puanı hesaplayacak, ardından bilinen puanları çıkararak dördüncü deneme puanını belirleyecektir. Buna göre dördüncü denemede alınan puan (x) kaçtır?",
 "options":["85","90","95","100"],
 "answerIndex":1,
 "explanation":"Toplam = 4×85 = 340. İlk üç toplamı 240. x = 340−240 = 100 değil, 340−240=100 → doğru cevap D olur.",
@@ -33,10 +33,10 @@
 
 {
 "difficulty":3,
-"questionType":"mantik",
+"questionType":"reasoning",
 "topic":"denklem",
 "skills":["denklem","problem"],
-"stem":"Bir kantinde kalem ve defter satılmaktadır. 2 kalem ve 1 defter 18 TL, 1 kalem ve 1 defter ise 13 TL'dir. Buna göre bir kalemin fiyatı kaç TL'dir?",
+"stem":"Okul kantininde kalem ve defter satışı yapan kantinci, iki farklı müşterinin alışverişlerini kaydeder: İlk müşteri 2 kalem ve 1 defter alıp 18 TL öder; ikinci müşteri 1 kalem ve 1 defter alıp 13 TL öder. Kantinci stok takibi için birim fiyatları hesaplamak ister. Önce iki alışveriş arasındaki farkı yorumlayarak kalem fiyatını bulacak, ardından defter fiyatını kontrol edecektir. Buna göre bir kalemin fiyatı kaç TL'dir?",
 "options":["5","6","7","8"],
 "answerIndex":0,
 "explanation":"2k+d=18 ve k+d=13. Çıkarılırsa k=5.",
