@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "yuzdeler",
+      "skills": ["yuzde_hesabi", "problem_cozme", "yorumlama"],
+      "questionType": "long_context",
+      "stem": "Bir spor mağazasında bir ayakkabının etiket fiyatı 1200 TL'dir. Hafta sonu kampanyasında önce %25 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 90 TL kargo ve hizmet bedeli ekleniyor. Son olarak öğrenci kartı olan müşterilere oluşan yeni tutar üzerinden %10 indirim yapılıyor. Buna göre öğrenci bu ayakkabı için son olarak kaç TL öder?",
+      "options": ["891", "900", "945", "972"],
+      "answerIndex": 0,
+      "explanation": "1200 × 0,75 = 900 TL olur. 90 TL eklenince 990 TL olur. Son olarak %10 indirim uygulanır: 990 × 0,90 = 891 TL.",
+      "imageAsset": null,
+      "source": "brainbuddy_generated",
+      "sourceRef": "gold031_q01"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": ["oran_oranti", "denklem_kurma", "problem_cozme"],
+      "questionType": "paragraph",
+      "stem": "Bir okulda robotik kulübü ile yazılım kulübündeki öğrenci sayılarının oranı 4 : 7'dir. Robotik kulübüne 9 öğrenci daha katılıp yazılım kulübünden 6 öğrenci ayrıldığında iki kulüpteki öğrenci sayıları eşit oluyor. Buna göre başlangıçta bu iki kulüpte toplam kaç öğrenci vardır?",
+      "options": ["33", "44", "55", "66"],
+      "answerIndex": 2,
+      "explanation": "Başlangıçta robotik 4k, yazılım 7k olsun. 4k + 9 = 7k - 6 olduğundan 3k = 15 ve k = 5 olur. Başlangıçta toplam öğrenci sayısı 11k = 55'tir.",
+      "imageAsset": null,
+      "source": "brainbuddy_generated",
+      "sourceRef": "gold031_q02"
+    },
+    {
+      "difficulty": 1,
+      "topic": "veri_analizi",
+      "skills": ["aritmetik_ortalama", "veri_yorumlama", "problem_cozme"],
+      "questionType": "tablo_yorum",
+      "stem": "Bir sınıfta yapılan matematik denemesinde 8 öğrencinin netleri 12, 13, 14, 15, 16, 17, 18 ve x olarak kaydedilmiştir. Öğretmen bu öğrencilerin ortalamasının 16 olduğunu söylüyor. Buna göre x kaçtır?",
+      "options": ["21", "22", "23", "24"],
+      "answerIndex": 2,
+      "explanation": "Toplam net 8 × 16 = 128 olmalıdır. Bilinen netlerin toplamı 12 + 13 + 14 + 15 + 16 + 17 + 18 = 105'tir. x = 128 - 105 = 23 bulunur.",
+      "imageAsset": null,
+      "source": "brainbuddy_generated",
+      "sourceRef": "gold031_q03"
+    },
+    {
+      "difficulty": 2,
+      "topic": "egim",
+      "skills": ["egim", "oran_oranti", "problem_cozme"],
+      "questionType": "grafik_yorum",
+      "stem": "Bir okul girişine yapılan rampanın yatay uzunluğu 5 metre, yükseldiği dikey mesafe ise 75 santimetredir. Aynı eğime sahip ikinci bir rampa yapılacak ve bu rampanın yatay uzunluğu 8 metre olacaktır. Buna göre ikinci rampanın yükseldiği dikey mesafe kaç santimetre olur?",
+      "options": ["96", "108", "120", "132"],
+      "answerIndex": 2,
+      "explanation": "İlk rampada eğim oranı 75/500 = 3/20'dir. Aynı eğimde 8 metre yani 800 santimetre için yükseklik 800 × 3/20 = 120 santimetredir.",
+      "imageAsset": null,
+      "source": "brainbuddy_generated",
+      "sourceRef": "gold031_q04"
+    },
+    {
+      "difficulty": 2,
+      "topic": "karekok",
+      "skills": ["karekok", "alan", "problem_cozme"],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Kare şeklindeki bir okul bahçesinin alanı 576 metrekaredir. Bu bahçenin etrafına dıştan 2 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yalnızca yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": ["192", "208", "224", "240"],
+      "answerIndex": 1,
+      "explanation": "Bahçenin bir kenarı √576 = 24 metredir. Dıştan 2'şer metre eklendiğinde dış karenin bir kenarı 28 metre olur. Yürüyüş yolunun alanı 28² - 24² = 784 - 576 = 208 metrekaredir.",
+      "imageAsset": null,
+      "source": "brainbuddy_generated",
+      "sourceRef": "gold031_q05"
+    }
+  ]
+}
