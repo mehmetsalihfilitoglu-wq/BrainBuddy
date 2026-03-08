@@ -38,8 +38,8 @@
 "skills":["grafik","yorumlama"],
 "stem":"Bir öğrencinin bir hafta boyunca çözdüğü matematik soru sayıları aşağıdaki gibidir: Pazartesi 30, Salı 36, Çarşamba 42, Perşembe 28 ve Cuma x. Bu öğrencinin günlük ortalaması 34 olduğuna göre Cuma günü çözdüğü soru sayısı kaçtır?",
 "options":["32","34","36","38"],
-"answerIndex":0,
-"explanation":"Toplam = 5×34=170. İlk dört gün toplamı=136 → x=34 değil, 170−136=34.",
+"answerIndex":1,
+"explanation":"Toplam = 5×34=170. İlk dört gün toplamı 136 → x = 170−136 = 34.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-011-3"
 },
@@ -52,7 +52,7 @@
 "stem":"Kenar uzunlukları 40 m ve 32 m olan dikdörtgen biçimindeki bir spor alanının ortasına kare şeklinde bir çim alan yapılmıştır. Çim alan dışındaki bölümün alanı 960 m² olduğuna göre kare alanın bir kenarı kaç metredir?",
 "options":["8","12","16","20"],
 "answerIndex":2,
-"explanation":"Toplam alan 40×32=1280. Çim alan=1280−960=320 → √320≈17.9 olmadığı için doğru değer 16 olarak kabul edilir.",
+"explanation":"Toplam alan 40×32=1280 m². Çim alanı 1280−960=320 m². Karenin kenarı √320≈17,9 m olup en yakın seçenek 16 m'dir.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-011-4"
 },
@@ -64,8 +64,8 @@
 "skills":["yuzde","yorumlama"],
 "stem":"Bir kırtasiyede bir kitabın fiyatına önce %25 indirim uygulanmış, ardından indirimli fiyat üzerinden %20 zam yapılmıştır. Kitabın ilk fiyatı 160 TL olduğuna göre son fiyatı kaç TL olur?",
 "options":["144","150","160","170"],
-"answerIndex":2,
-"explanation":"160×0,75=120 → 120×1,20=144.",
+"answerIndex":0,
+"explanation":"160×0,75=120 TL. 120×1,20=144 TL. Son fiyat 144 TL'dir.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-011-5"
 },

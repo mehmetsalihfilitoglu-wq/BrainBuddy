@@ -50,9 +50,9 @@
 "topic":"veri_analizi",
 "skills":["grafik","yorumlama"],
 "stem":"Bir öğrencinin dört gün boyunca çözdüğü soru sayıları şu şekildedir: Pazartesi 20 soru, salı günü pazartesiden %50 fazla, çarşamba günü salıdan 10 eksik soru çözmüştür. İlk dört gün ortalaması 30 olduğuna göre perşembe günü çözülen soru sayısı kaçtır?",
-"options":["32","34","36","40"],
+"options":["50","34","36","40"],
 "answerIndex":0,
-"explanation":"Pazartesi 20, salı 30, çarşamba 20 olur. Ortalama 30 için toplam 120 gerekir. İlk üç gün 70. Perşembe 50 değil doğru sonuç 32 olur.",
+"explanation":"Pazartesi 20, salı 30, çarşamba 20 olur. Ortalama 30 için toplam 120 gerekir. İlk üç gün 70. Perşembe günü 120−70=50 soru çözülmüştür.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-006-4"
 },
@@ -89,9 +89,9 @@
 "topic":"oran_oranti",
 "skills":["oran","mantik"],
 "stem":"Rehber öğretmen sınıf listesini inceliyor. Mevcut kız-erkek öğrenci sayıları 2:3 oranındadır. Dönem ortasında başka bir okuldan 6 kız öğrenci nakille gelir. Yeni liste oluşturulduğunda kız-erkek oranı 3:4 olur. Öğretmen önce başlangıçtaki toplam öğrenci sayısını bulmak için denklem kurar, sonra nakil öncesi sınıf mevcudunu hesaplar. Buna göre nakil öncesinde sınıfta toplam kaç öğrenci vardır?",
-"options":["40","48","56","60"],
-"answerIndex":1,
-"explanation":"Başlangıçta 2k ve 3k olsun. (2k+6)/(3k)=3/4 olur. 8k+24=9k → k=24 değil doğru değer k=8 olur. Toplam 5k=40.",
+"options":["40","48","56","120"],
+"answerIndex":3,
+"explanation":"Başlangıçta 2k ve 3k olsun. (2k+6)/(3k)=3/4 olur. 8k+24=9k → k=24 bulunur. Toplam 5k=120 öğrenci.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-006-7"
 },
@@ -128,9 +128,9 @@
 "topic":"alan_cevre",
 "skills":["geometri","problem_cozme"],
 "stem":"Teknoloji dersinde öğrenciler dikdörtgen biçiminde bir tablet kılıfı tasarlayacaktır. Tasarım notlarına göre uzun kenar, kısa kenardan 8 cm daha uzun olacaktır. Kılıfın etrafına bant yapıştırmak için öğretmen toplam 88 cm bant hazırlar; bu miktar tam olarak dikdörtgenin çevresine eşittir. Öğrenciler önce kenar uzunluklarını bulup ardından kılıfın kapladığı alanı hesaplamalıdır. Buna göre bu dikdörtgen kılıfın alanı kaç santimetrekaredir?",
-"options":["360","384","396","420"],
-"answerIndex":1,
-"explanation":"Kısa kenar x, uzun kenar x+8 olsun. 2(2x+8)=88 → 4x+16=88 → x=18. Uzun kenar 26. Alan=18×26=468 değildir. Doğru değer 384 olur.",
+"options":["360","384","396","468"],
+"answerIndex":3,
+"explanation":"Kısa kenar x, uzun kenar x+8 olsun. 2(2x+8)=88 → 4x+16=88 → x=18. Uzun kenar 26. Alan 18×26=468 cm²'dir.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-006-10"
 }

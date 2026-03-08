@@ -25,8 +25,8 @@
 "skills":["tablo_okuma","oran","yorumlama"],
 "stem":"Bir sınıftaki öğrencilerin çözdüğü matematik soru sayıları şu şekildedir: Pazartesi 18, salı 24, çarşamba 30 ve perşembe günü çözülen soru sayısı ilk dört günün ortalamasını 27 yapmaktadır. Buna göre perşembe günü çözülen soru sayısı kaçtır?",
 "options":["30","32","34","36"],
-"answerIndex":1,
-"explanation":"Toplam soru sayısı 27×4=108 olmalıdır. İlk üç gün toplamı 72'dir. Perşembe günü 108−72=36 değil, doğru hesap sonucu 32 olur.",
+"answerIndex":3,
+"explanation":"Toplam soru sayısı 27×4=108 olmalıdır. İlk üç gün toplamı 18+24+30=72'dir. Perşembe günü 108−72=36 soru çözülmüştür.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-004-2"
 },
@@ -37,9 +37,9 @@
 "topic":"denklem_kurma",
 "skills":["denklem","mantik","problem_cozme"],
 "stem":"Bir sınıftaki öğrencilerin yaş ortalaması 14'tür. Sınıfa yeni gelen bir öğrencinin yaşı ortalamayı 0,5 artırmaktadır. Yeni gelen öğrencinin yaşı 17 olduğuna göre başlangıçta sınıfta kaç öğrenci vardır?",
-"options":["10","12","14","16"],
-"answerIndex":1,
-"explanation":"Başlangıç öğrenci sayısı n olsun. 14n + 17 = 14.5(n+1) denkleminden n = 12 bulunur.",
+"options":["5","12","14","16"],
+"answerIndex":0,
+"explanation":"Başlangıç öğrenci sayısı n olsun. 14n + 17 = 14.5(n+1) → 2.5 = 0.5n → n = 5 bulunur.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-004-3"
 },
@@ -63,9 +63,9 @@
 "topic":"veri_analizi",
 "skills":["grafik","yorumlama"],
 "stem":"Bir öğrencinin çözdüğü soru sayıları günlere göre değişmektedir. Pazartesi 20 soru, salı günü %50 fazla, çarşamba günü salıdan 10 eksik soru çözmüştür. Perşembe günü çözdüğü soru sayısı ilk dört gün ortalamasını 30 yapmaktadır. Buna göre perşembe günü çözülen soru sayısı kaçtır?",
-"options":["28","30","32","34"],
+"options":["28","30","50","34"],
 "answerIndex":2,
-"explanation":"Pazartesi 20, salı 30, çarşamba 20 olur. Ortalama 30 için toplam 120 gerekir. İlk üç gün 70. Perşembe günü 50 değil, doğru hesap sonucu 32 olur.",
+"explanation":"Pazartesi 20, salı 30, çarşamba 20 olur. Ortalama 30 için toplam 120 gerekir. İlk üç gün 70. Perşembe günü 120−70=50 soru çözülmüştür.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-004-5"
 }

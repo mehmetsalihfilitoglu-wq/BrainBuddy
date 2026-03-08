@@ -10,9 +10,9 @@
       "skills": ["yuzdeler", "veri_yorumlama", "problem_cozme"],
       "questionType": "long_context",
       "stem": "Bir teknoloji mağazasında aynı model kulaklık üç farklı kampanyayla satılmaktadır. İlk gün kulaklığın fiyatına %20 indirim yapılmıştır. İkinci gün mağaza, indirimli fiyatın üzerine %25 zam yapmıştır. Üçüncü gün ise oluşan fiyat üzerinden öğrencilere özel %10 indirim uygulanmıştır. Kulaklığın ilk etiket fiyatı 800 TL olduğuna göre üçüncü gün öğrencinin ödeyeceği fiyat kaç TL olur?",
-      "options": ["840", "864", "900", "920"],
-      "answerIndex": 1,
-      "explanation": "800 × 0.80 = 640 TL. 640 × 1.25 = 800 TL. 800 × 0.90 = 720 TL değildir; dikkat edilirse %25 zam indirimi dengeler. Doğru işlem zinciri sonucu 864 TL elde edilir.",
+      "options": ["720", "864", "900", "920"],
+      "answerIndex": 0,
+      "explanation": "İlk gün: 800 × 0.80 = 640 TL. İkinci gün: 640 × 1.25 = 800 TL. Üçüncü gün: 800 × 0.90 = 720 TL. Öğrencinin ödeyeceği fiyat 720 TL'dir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold026_q01"

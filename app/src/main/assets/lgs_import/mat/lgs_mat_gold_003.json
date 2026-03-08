@@ -12,8 +12,8 @@
       "skills": ["oran", "problem_cozme", "mantik"],
       "stem": "Bir spor kulübünde futbol, basketbol ve voleybol takımlarında toplam 120 sporcu bulunmaktadır. Futbolcuların sayısı toplam sporcuların %40'ına eşittir. Basketbolcuların sayısı ise futbolcuların sayısının %75'i kadardır. Buna göre voleybol takımındaki sporcu sayısı kaçtır?",
       "options": ["24", "30", "36", "42"],
-      "answerIndex": 0,
-      "explanation": "Futbolcular 120 × 0.40 = 48. Basketbolcular 48 × 0.75 = 36. Toplam 48 + 36 = 84. Geriye kalan 120 − 84 = 36 değil, doğru değer 24 olur.",
+      "answerIndex": 2,
+      "explanation": "Futbolcular 120 × 0.40 = 48. Basketbolcular 48 × 0.75 = 36. Toplam 48 + 36 = 84. Voleybol: 120 − 84 = 36 sporcu.",
       "source": "brainbuddy_generated",
       "sourceRef": "mat-gold-003-1"
     },
@@ -24,9 +24,9 @@
       "topic": "denklem_kurma",
       "skills": ["denklem", "mantik", "problem_cozme"],
       "stem": "Bir sınıftaki öğrencilerin yaş ortalaması 14'tür. Sınıfa yeni gelen bir öğrencinin yaşı ortalamayı 0,5 artırmaktadır. Buna göre sınıfa yeni gelen öğrencinin yaşı 17 ise başlangıçta sınıfta kaç öğrenci vardır?",
-      "options": ["10", "12", "14", "16"],
-      "answerIndex": 1,
-      "explanation": "Başlangıç öğrenci sayısı n olsun. Toplam yaş 14n olur. Yeni ortalama 14.5 olduğundan toplam yaş 14.5(n+1) olur. 14n + 17 = 14.5n + 14.5 → n = 12.",
+      "options": ["5", "12", "14", "16"],
+      "answerIndex": 0,
+      "explanation": "Başlangıç öğrenci sayısı n olsun. Toplam yaş 14n olur. Yeni ortalama 14.5 olduğundan toplam yaş 14.5(n+1) olur. 14n + 17 = 14.5n + 14.5 → 2.5 = 0.5n → n = 5.",
       "source": "brainbuddy_generated",
       "sourceRef": "mat-gold-003-2"
     },
