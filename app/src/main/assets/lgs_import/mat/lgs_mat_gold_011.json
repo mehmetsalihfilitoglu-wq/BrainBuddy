@@ -72,13 +72,13 @@
 
 {
 "difficulty":2,
-"questionType":"tablo_yorum",
+"questionType":"paragraph",
 "topic":"ortalama",
 "skills":["ortalama","veri"],
-"stem":"Bir öğrencinin dört denemeden aldığı puanlar 72, 78, 84 ve x'tir. Bu denemelerin ortalaması 80 olduğuna göre x kaçtır?",
+"stem": "Deneme sınavlarına hazırlanan Zeynep, ilk dört denemeden sırasıyla 72, 78 ve 84 puan almıştır. Öğretmeni, bu dört denemenin ortalamasının en az 81 olması gerektiğini söylemiştir. Zeynep, dördüncü denemede kaç puan alırsa bu hedefe ulaşacağını hesaplamak istemektedir. Önce hedef ortalamaya göre dört denemenin toplamda kaç puan etmesi gerektiğini bulacak, ardından bilinen üç puanın toplamını çıkararak dördüncü denemede alması gereken minimum puanı belirleyecektir. Buna göre Zeynep dördüncü denemede en az kaç puan almalıdır?",
 "options":["84","86","88","90"],
 "answerIndex":3,
-"explanation":"Toplam 320. Bilinen toplam 234 → x=86 değil 320−234=86.",
+"explanation":"Hedef ortalama 81 ise toplam 4×81=324 puan gerekir. Bilinen toplam 72+78+84=234. x=324−234=90.",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-011-6"
 },
@@ -124,13 +124,13 @@
 
 {
 "difficulty":3,
-"questionType":"geometri_yorum",
+"questionType":"reasoning",
 "topic":"alan_cevre",
 "skills":["geometri"],
-"stem":"Kısa kenarı 20 cm olan bir dikdörtgenin uzun kenarı kısa kenarından 6 cm fazladır. Bu dikdörtgenin alanı kaç cm²'dir?",
+"stem": "Matematik projesi için dikdörtgen biçiminde bir afiş hazırlayan öğrenci, afişin kısa kenarını 20 cm olarak kesmiştir. Öğretmeni, afişin uzun kenarının kısa kenardan 4 cm fazla olması gerektiğini söylemiştir. Öğrenci önce uzun kenarın kaç cm olduğunu hesaplayacak, ardından dikdörtgen alan formülünü kullanarak afişin kaç cm² karton kaplayacağını bulacaktır. Buna göre afişin alanı kaç cm²'dir?",
 "options":["480","500","520","540"],
 "answerIndex":0,
-"explanation":"Uzun kenar 26 → alan=20×26=520 değil 520 olur.",
+"explanation":"Uzun kenar 20+4=24 cm. Alan = 20×24=480 cm².",
 "source":"brainbuddy_generated",
 "sourceRef":"mat-gold-011-10"
 }

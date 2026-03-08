@@ -72,13 +72,13 @@
 
 {
 "difficulty":2,
-"questionType":"kesir_problem",
+"questionType":"reasoning",
 "topic":"kesirler",
 "skills":["kesir","problem"],
-"stem":"Bir kitabın 1/4'ü ilk gün, kalan kısmın 1/3'ü ikinci gün okunuyor. Geriye 60 sayfa kalıyor. Kitap kaç sayfadır?",
+"stem": "Can, yarıyıl tatilinde okumak üzere bir roman seçmiştir. Kitabın ilk gün 1/4'ünü okuyarak başlamış, ikinci gün kalan sayfaların 1/3'ünü okumuştur. Üçüncü gün kitabı eline aldığında geriye 60 sayfa kaldığını görmüştür. Can önce ilk günden sonra kaç sayfa kaldığını, ardından ikinci günden sonra kalan kısmın kitabın kaçta kaçı olduğunu bulup toplam sayfa sayısını hesaplayacaktır. Buna göre kitabın tamamı kaç sayfadır?",
 "options":["120","150","180","200"],
-"answerIndex":1,
-"explanation":"Toplam x. İlk gün sonrası 3x/4. İkinci gün 1/3 okunur → x/4. Kalan x/2. x/2=60 → x=120.",
+"answerIndex":0,
+"explanation":"İlk gün x/4 okunur, kalan 3x/4. İkinci gün 3x/4'ün 1/3'ü = x/4 okunur. Kalan 3x/4 - x/4 = x/2. x/2=60 → x=120.",
 "source":"brainbuddy",
 "sourceRef":"mat-gold-012-6"
 },
