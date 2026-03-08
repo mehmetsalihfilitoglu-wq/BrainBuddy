@@ -3015,6 +3015,152 @@
           "answer": "B"
         }
       ]
+    },
+    {
+      "pack_id": "lgs_trk_gold_025",
+      "title": "LGS Türkçe Gold Pack 25",
+      "questions": [
+        {
+          "id": 227,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "İnsanlar çoğu zaman bir düşüncenin değerini, onun ne kadar etkileyici göründüğüne göre belirler. Oysa ilk anda güçlü görünen bir fikir, eğer kendi içinde tutarlı değilse kısa sürede dağılır. Buna karşılık başlangıçta sade ve sıradan görünen bir düşünce, sağlam gerekçelerle kurulduğunda daha kalıcı olabilir. Çünkü düşüncenin asıl gücü, süslü görünmesinde değil; farklı durumlarda da ayakta kalabilmesindedir. Bu nedenle bir fikri değerlendirirken etkileyiciliğine değil, dayanıklılığına bakmak gerekir.",
+          "options": [
+            "Bir düşüncenin güçlü olması için ilk anda dikkat çekici görünmesi gerekir.",
+            "Sade görünen düşünceler genellikle etkisizdir.",
+            "Bir düşüncenin değeri, farklı durumlarda da tutarlılığını koruyabilmesine bağlıdır.",
+            "Etkileyici anlatılan her düşünce kalıcıdır."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 228,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yardimci_dusunce",
+          "question": "Bir yazıyı değerli kılan yalnızca büyük konulara değinmesi değildir. Bazen herkesin görüp geçtiği küçük bir ayrıntı, insanın hayata bakışını daha açık anlatır. İyi yazar, tam da bu yüzden büyük olayların peşinden koşmak yerine gündelik olanın içindeki gizli yönleri görünür kılmaya çalışır. Çünkü sıradan sandığımız şeyler, dikkatle bakıldığında beklenmedik anlamlar taşır. Böyle bir yazıda amaç, okuru şaşırtmak değil; ona alıştığı şeyi yeniden fark ettirmektir.",
+          "options": [
+            "Yazının değerli olması için mutlaka büyük ve sıra dışı olayları anlatması gerekir.",
+            "Küçük ayrıntılar da insanın dünyaya bakışını göstermede etkili olabilir.",
+            "İyi yazar, gündelik olanın içindeki anlamı görünür kılabilir.",
+            "Bazı yazıların amacı, okura alıştığı şeyleri yeniden fark ettirmektir."
+          ],
+          "answer": "A"
+        },
+        {
+          "id": 229,
+          "type": "paragraf_tamamlama",
+          "difficulty": "hard",
+          "skill": "akış",
+          "question": "Bir metni anlamak için yalnızca olayları sırasıyla izlemek yetmez. Metindeki ayrıntıların niçin seçildiğini, hangi karşıtlıkların kurulduğunu ve vurgunun nerede yoğunlaştığını da görmek gerekir. Çünkü anlam çoğu zaman yalnızca anlatılanlarda değil, anlatımın düzeninde ortaya çıkar. ____.",
+          "options": [
+            "Bu nedenle metinlerde yalnızca olay örgüsü önemlidir.",
+            "Bu yüzden dikkatli okuma, söylenen kadar söyleniş biçimine de odaklanmayı gerektirir.",
+            "Bu nedenle bütün metinler aynı yöntemle anlaşılır.",
+            "Bu yüzden ayrıntılar metnin anlamı üzerinde etkisizdir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 230,
+          "type": "paragraf_siralama",
+          "difficulty": "hard",
+          "skill": "akış",
+          "question": "Aşağıdaki cümlelerden anlamlı bir paragraf oluşturulduğunda doğru sıralama hangisi olur?\n\nI. Çünkü insan, başkasının gözünden baktığında kendi fark etmediği yönleri de görebilir.\nII. Bir olayı yalnızca kendi bakış açımızla değerlendirmek çoğu zaman eksik sonuçlara götürür.\nIII. Bu yüzden farklı bakış açılarını anlamaya çalışmak düşünmeyi derinleştirir.\nIV. Oysa aynı olay, farklı insanlar üzerinde farklı etkiler bırakabilir.",
+          "options": [
+            "II – IV – I – III",
+            "IV – II – I – III",
+            "II – I – IV – III",
+            "IV – I – II – III"
+          ],
+          "answer": "A"
+        },
+        {
+          "id": 231,
+          "type": "karsilastirma",
+          "difficulty": "hard",
+          "skill": "metin_karsilastirma",
+          "question": "I. metin: Bazı anlatımlarda yazar, düşünceyi mümkün olduğunca açık kurar ve okurun yoruma ihtiyaç duymadan metni izlemesini ister.\n\nII. metin: Bazı anlatımlarda ise yazar, metnin bütün anlamını baştan vermek yerine okurun ilişki kurmasını bekler ve kimi boşlukları bilinçli olarak açık bırakır.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+          "options": [
+            "Her iki metin de okurun yorum yapmasını gereksiz görmektedir.",
+            "I. metin açıklığı, II. metin ise okurun anlam kurma sürecine katılmasını öne çıkarır.",
+            "I. metin kapalılığı, II. metin ise yalnızca açıklığı savunmaktadır.",
+            "Her iki metinde de amaç, anlamı bütünüyle gizlemektir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 232,
+          "type": "grafik_yorum",
+          "difficulty": "hard",
+          "skill": "veri",
+          "question": "Bir araştırmada öğrencilerin haftalık deneme çözme sayıları incelenmiştir. Sonuçlara göre öğrencilerin %14'ü hiç deneme çözmüyor, %26'sı 1 deneme, %31'i 2 deneme, %18'i 3 deneme, %11'i ise 4 ve üzeri deneme çözüyor. Buna göre aşağıdakilerden hangisi doğrudur?",
+          "options": [
+            "Öğrencilerin yarısından fazlası haftada en az 3 deneme çözmektedir.",
+            "En büyük grup haftada 2 deneme çözenlerdir.",
+            "Hiç deneme çözmeyenler en kalabalık gruptur.",
+            "Öğrencilerin tamamı haftada en az 1 deneme çözmektedir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 233,
+          "type": "mantik",
+          "difficulty": "hard",
+          "skill": "sıralama",
+          "question": "Dört öğrenci (İpek, Koral, Lara ve Mert) farklı günlerde konuşma yapacaktır: pazartesi, salı, çarşamba ve perşembe. İpek, Koral'dan önce konuşacaktır. Lara, perşembe günü konuşmayacaktır. Mert, İpek'ten sonra konuşacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+          "options": [
+            "Mert, Koral'dan sonra konuşacaktır.",
+            "İpek, Mert'ten önce konuşacaktır.",
+            "Lara, salı günü konuşacaktır.",
+            "Koral, çarşamba günü konuşacaktır."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 234,
+          "type": "cumlede_anlam",
+          "difficulty": "hard",
+          "skill": "kosul",
+          "question": "\"Daha dikkatli okursan metindeki ince farkları sen de fark edebilirsin.\" cümlesinde hangi anlam ilişkisi vardır?",
+          "options": [
+            "Amaç-sonuç",
+            "Neden-sonuç",
+            "Koşul-sonuç",
+            "Karşılaştırma"
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 235,
+          "type": "sozcukte_anlam",
+          "difficulty": "medium",
+          "skill": "gercek_mecaz",
+          "question": "\"Onun bu sözü aramızdaki buzları eritti.\" cümlesinde \"eritti\" sözcüğü hangi anlamda kullanılmıştır?",
+          "options": [
+            "Gerçek anlam",
+            "Mecaz anlam",
+            "Terim anlam",
+            "Yan anlam"
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 236,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "Bir düşüncenin gerçekten anlaşılıp anlaşılmadığı, çoğu zaman o düşüncenin başka bir bağlamda yeniden kurulup kurulamayacağıyla belli olur. Çünkü ezberlenen bilgi, yalnızca alışılmış yerde tekrar edilir; anlaşılan bilgi ise yeni durumlara taşınabilir. Bu yüzden öğrenmenin ölçüsü, duyulanı aynen geri söylemekten çok, onu farklı bir durumda işe yarar hâle getirebilmektir.",
+          "options": [
+            "Bir bilgiyi öğrenmenin en iyi yolu onu aynen tekrar etmektir.",
+            "Anlaşılan bilgi, yalnızca öğrenildiği bağlamda kullanılabilir.",
+            "Gerçek öğrenme, bilgiyi yeni durumlara taşıyabilme becerisiyle anlaşılır.",
+            "Ezberlenen bilgi ile anlaşılan bilgi arasında önemli bir fark yoktur."
+          ],
+          "answer": "C"
+        }
+      ]
     }
   ]
 }
