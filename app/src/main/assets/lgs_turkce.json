@@ -679,6 +679,152 @@
           "answer": "B"
         }
       ]
+    },
+    {
+      "pack_id": "lgs_trk_gold_007",
+      "title": "LGS Türkçe Gold Pack 7",
+      "questions": [
+        {
+          "id": 47,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "Bir düşünceyi savunmanın en kolay yolu onu sürekli tekrarlamak değildir. Asıl önemli olan, o düşüncenin neden doğru olduğunu gösterebilmektir. Çünkü tekrar edilen sözler bir süre sonra alışkanlığa dönüşür; ancak gerekçelendirilen fikirler insanın zihninde kalıcı bir yer edinir.",
+          "options": [
+            "Bir düşüncenin doğru olması için sürekli tekrarlanması gerekir.",
+            "Tekrar edilen düşünceler her zaman kalıcı olur.",
+            "Bir düşüncenin kalıcı olması, gerekçelerle desteklenmesine bağlıdır.",
+            "İnsanlar yalnızca tekrar edilen düşünceleri hatırlar."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 48,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "Bir şehirde uzun süre yaşayan insanlar çoğu zaman çevrelerindeki değişimi fark etmez. Çünkü değişim yavaş gerçekleştiğinde insanın algısı da buna uyum sağlar. Ancak yıllar sonra o şehre geri dönen biri, küçük değişimlerin nasıl büyük bir dönüşüme yol açtığını daha kolay görebilir.",
+          "options": [
+            "Şehirlerde değişim çok hızlı gerçekleşir.",
+            "Uzun süre aynı yerde yaşayan kişiler değişimi fark etmeyebilir.",
+            "Şehirler zamanla değişmez.",
+            "Değişimleri yalnızca o şehirde yaşayanlar fark eder."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 49,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "Bazı insanlar bir sorunun çözümünü bulmak için uzun uzun düşünürken bazıları hemen harekete geçer. İki yaklaşımın da avantajları vardır; ancak düşünmeden harekete geçmek çoğu zaman yeni sorunlar doğurabilir.",
+          "options": [
+            "Hızlı hareket etmek her zaman en doğru çözümdür.",
+            "Düşünmeden verilen kararlar yeni sorunlara yol açabilir.",
+            "Düşünmek zaman kaybıdır.",
+            "Harekete geçmek düşünmekten daha önemlidir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 50,
+          "type": "mantik",
+          "difficulty": "hard",
+          "skill": "sıralama",
+          "question": "Bir yarışmada dört öğrenci (Ayşe, Berk, Cem ve Deniz) farklı dereceler elde etmiştir. Bilinenler şunlardır: Ayşe, Berk'ten daha iyi bir derece almıştır. Cem birinci değildir. Deniz, Berk'ten daha kötü bir derece almıştır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+          "options": [
+            "Berk birincidir.",
+            "Deniz sonuncudur.",
+            "Ayşe Berk'ten daha iyi bir derece almıştır.",
+            "Cem sonuncudur."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 51,
+          "type": "grafik_yorum",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "Bir araştırmada öğrencilerin haftalık kitap okuma süreleri incelenmiştir. Sonuçlara göre öğrencilerin %40'ı haftada 1 saatten az, %35'i 1-3 saat arası, %15'i 3-5 saat arası ve %10'u 5 saatten fazla kitap okumaktadır. Bu verilere göre aşağıdakilerden hangisi söylenebilir?",
+          "options": [
+            "Öğrencilerin yarısından fazlası haftada 3 saatten fazla kitap okumaktadır.",
+            "Öğrencilerin çoğu haftada 1 saatten fazla kitap okumaktadır.",
+            "Öğrencilerin büyük bölümü haftada 3 saatten az kitap okumaktadır.",
+            "Öğrencilerin tamamı haftada en az 1 saat kitap okumaktadır."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 52,
+          "type": "cümlede_anlam",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "\"Bu karar, sorunu çözmek yerine daha da büyütecek gibi görünüyor.\" cümlesinde anlatılmak istenen aşağıdakilerden hangisidir?",
+          "options": [
+            "Karar sorunu tamamen ortadan kaldıracaktır.",
+            "Karar sorunun etkisini artırabilir.",
+            "Sorunun çözümü zaten mümkün değildir.",
+            "Kararın sorunla ilgisi yoktur."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 53,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "Bir toplumda insanlar yalnızca kendi çıkarlarını düşünürse ortak sorunlara çözüm bulmak zorlaşır. Çünkü ortak yaşam, bireylerin zaman zaman kişisel çıkarlarından vazgeçmesini gerektirir.",
+          "options": [
+            "Toplumda herkes yalnızca kendi çıkarını düşünmelidir.",
+            "Ortak yaşam, bireylerin bazen fedakârlık yapmasını gerektirir.",
+            "Toplumda çıkarlar her zaman çatışır.",
+            "İnsanlar başkalarının sorunlarıyla ilgilenmemelidir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 54,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "Bir bilim insanı, deneylerinin başarısız olmasından korkmaz. Çünkü her başarısız deney, hangi yöntemin işe yaramadığını gösterir ve yeni bir deneme için yol açar.",
+          "options": [
+            "Başarısız deneyler tamamen gereksizdir.",
+            "Bilimsel çalışmalar yalnızca başarılı deneylerden oluşur.",
+            "Başarısızlık, yeni denemeler için bilgi sağlayabilir.",
+            "Bilim insanları başarısız olmaktan kaçınmalıdır."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 55,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "Bir insanın çok konuşması onun mutlaka çok şey bildiğini göstermez. Bazen az konuşan biri, söylediği birkaç sözle daha derin bir etki bırakabilir.",
+          "options": [
+            "Az konuşan insanlar genellikle bilgisizdir.",
+            "Etkili olmak için çok konuşmak gerekir.",
+            "Az ama anlamlı konuşmak daha etkili olabilir.",
+            "İnsanlar konuşmadan kendini ifade edemez."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 56,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "Bir yolculuğun değeri yalnızca varılan yerle ölçülmez. Yol boyunca öğrenilenler, karşılaşılan insanlar ve kazanılan deneyimler de bu yolculuğun gerçek anlamını oluşturur.",
+          "options": [
+            "Yolculuklarda önemli olan yalnızca varılan yerdir.",
+            "Yolculuklar yalnızca dinlenmek için yapılır.",
+            "Yolculuk süreci de en az sonuç kadar değerli olabilir.",
+            "Yolculuklar zaman kaybıdır."
+          ],
+          "answer": "C"
+        }
+      ]
     }
   ]
 }
