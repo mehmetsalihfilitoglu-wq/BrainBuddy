@@ -1,0 +1,140 @@
+{
+  "summary": {
+    "total_issues_found": 23,
+    "files_modified": 7
+  },
+  "report": [
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_030.json",
+      "question_index": 0,
+      "issue_detected": "Wrong answerIndex; inconsistent explanation (claimed 360 değildir but 360 is correct)",
+      "fix_applied": "answerIndex: 0 → 1 (correct answer 360 at index 1); updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_030.json",
+      "question_index": 3,
+      "issue_detected": "Correct answer 27 (from 4k+3=5k, k=3, total 9k=27) not in options; options had 36,40,45,50",
+      "fix_applied": "Replaced options[2]=45 with 27; kept answerIndex 2; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_030.json",
+      "question_index": 6,
+      "issue_detected": "Correct answer 4096 (2^5×2^4×2^3=2^12) not in options",
+      "fix_applied": "Replaced options[2]=1024 with 4096; kept answerIndex 2; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_030.json",
+      "question_index": 10,
+      "issue_detected": "Wrong answerIndex; (-2,3)→(2,3)→(6,3)→(6,1), correct (6,1) at index 0",
+      "fix_applied": "answerIndex: 1 → 0"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_003.json",
+      "question_index": 0,
+      "issue_detected": "Wrong answerIndex; 120−84=36 (voleybol), not 24; inconsistent explanation",
+      "fix_applied": "answerIndex: 0 → 2; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_003.json",
+      "question_index": 1,
+      "issue_detected": "Wrong answer; 14n+17=14.5(n+1) → n=5, not 12; 5 not in options",
+      "fix_applied": "Replaced options[0]=10 with 5; answerIndex: 1 → 0; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_002.json",
+      "question_index": 0,
+      "issue_detected": "Correct answer 336 (0.25x=84) not in options; explanation contradicted itself",
+      "fix_applied": "Replaced options[1]=240 with 336; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_002.json",
+      "question_index": 1,
+      "issue_detected": "Correct answer 46 (Perşembe = 112−66) not in options",
+      "fix_applied": "Replaced options[1]=32 with 46; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_002.json",
+      "question_index": 2,
+      "issue_detected": "Correct answer 3 (13n+15=13.5(n+1)→n=3) not in options; explanation said 14",
+      "fix_applied": "Replaced options[2]=14 with 3; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_002.json",
+      "question_index": 4,
+      "issue_detected": "Wrong answerIndex; √200≈14.14, correct 14 at index 2",
+      "fix_applied": "answerIndex: 1 → 2; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_002.json",
+      "question_index": 5,
+      "issue_detected": "Correct answer 96 (x/2=48) not in options; explanation said 144",
+      "fix_applied": "Replaced options[1]=144 with 96; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_004.json",
+      "question_index": 1,
+      "issue_detected": "Wrong answerIndex; Perşembe=108−72=36 at index 3; explanation said 32",
+      "fix_applied": "answerIndex: 1 → 3; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_004.json",
+      "question_index": 2,
+      "issue_detected": "Correct answer 5 (14n+17=14.5(n+1)) not in options",
+      "fix_applied": "Replaced options[0]=10 with 5; answerIndex: 1 → 0; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_004.json",
+      "question_index": 4,
+      "issue_detected": "Correct answer 50 (Perşembe=120−70) not in options",
+      "fix_applied": "Replaced options[2]=32 with 50; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_006.json",
+      "question_index": 3,
+      "issue_detected": "Correct answer 50 (Perşembe=120−70) not in options",
+      "fix_applied": "Replaced options[0]=32 with 50; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_006.json",
+      "question_index": 6,
+      "issue_detected": "Correct answer 120 (k=24, 5k=120); explanation said k=8, total 40",
+      "fix_applied": "Replaced options[3]=60 with 120; answerIndex: 1 → 3; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_006.json",
+      "question_index": 9,
+      "issue_detected": "Correct answer 468 (18×26); 468 not in options",
+      "fix_applied": "Replaced options[3]=420 with 468; answerIndex: 1 → 3; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_026.json",
+      "question_index": 0,
+      "issue_detected": "Correct answer 720 (800×0.8×1.25×0.9) not in options",
+      "fix_applied": "Replaced options[0]=840 with 720; answerIndex: 1 → 0; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_027.json",
+      "question_index": 2,
+      "issue_detected": "Correct answer 36 (12k) not in options; inconsistent explanation",
+      "fix_applied": "Replaced options[0]=60 with 36; answerIndex: 2 → 0; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_011.json",
+      "question_index": 2,
+      "issue_detected": "Wrong answerIndex; x=34 at index 1",
+      "fix_applied": "answerIndex: 0 → 1"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_011.json",
+      "question_index": 3,
+      "issue_detected": "Wrong answerIndex; 160×0.75×1.20=144 at index 0",
+      "fix_applied": "answerIndex: 2 → 0; updated explanation"
+    },
+    {
+      "file": "app/src/main/assets/lgs_import/mat/lgs_mat_gold_011.json",
+      "question_index": 4,
+      "issue_detected": "Inconsistent explanation (√320≈17.9 vs '16 kabul edilir')",
+      "fix_applied": "Updated explanation for clarity"
+    }
+  ]
+}
