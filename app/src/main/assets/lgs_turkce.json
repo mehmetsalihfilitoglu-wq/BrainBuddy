@@ -2723,6 +2723,152 @@
           "answer": "B"
         }
       ]
+    },
+    {
+      "pack_id": "lgs_trk_gold_023",
+      "title": "LGS Türkçe Gold Pack 23",
+      "questions": [
+        {
+          "id": 207,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "Bir düşünceyi güçlü kılan şey çoğu zaman söylediği sözlerin büyüklüğü değil, kurduğu bağlantıların sağlamlığıdır. Büyük iddialar ilk anda dikkat çekebilir; fakat iddiaları destekleyen ilişkiler kurulmadığında düşünce kısa sürede zayıflar. Buna karşılık mütevazı görünen bir fikir, sağlam gerekçelerle desteklendiğinde daha kalıcı bir etki bırakabilir.",
+          "options": [
+            "Düşüncenin gücü, iddiaların büyüklüğüne bağlıdır.",
+            "Büyük iddialar her zaman daha kalıcıdır.",
+            "Bir düşüncenin değeri, kurduğu gerekçelerin sağlamlığıyla ilgilidir.",
+            "Mütevazı fikirler genellikle etkisizdir."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 208,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "Bazı insanlar bir kitabı hızlı bitirmeyi başarı sayar. Oysa kitap okumak bir yarış değildir; bazen bir sayfada durup düşünmek, bütün kitabı hızlıca bitirmekten daha verimli olabilir.",
+          "options": [
+            "Kitapları hızlı okumak en doğru yöntemdir.",
+            "Okumada hız her zaman önemlidir.",
+            "Okurken düşünmek, bazen hızdan daha değerli olabilir.",
+            "Bir kitabı yavaş okumak zaman kaybıdır."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 209,
+          "type": "paragraf_tamamlama",
+          "difficulty": "hard",
+          "skill": "akış",
+          "question": "Bir metni anlamak yalnızca kelimeleri çözmek değildir. Okur, metnin kurduğu ilişkileri ve vurguları da izlemelidir. Çünkü anlam çoğu zaman açıkça söylenmeyen bağlarda saklıdır. _____.",
+          "options": [
+            "Bu yüzden okur, metindeki her kelimeyi ezberlemelidir.",
+            "Bu nedenle dikkatli okuma yalnızca bilgi değil, bağlantıları da fark etmeyi gerektirir.",
+            "Bu yüzden metinler mümkün olduğunca kısa olmalıdır.",
+            "Bu nedenle bütün metinler aynı biçimde okunmalıdır."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 210,
+          "type": "paragraf_siralama",
+          "difficulty": "hard",
+          "skill": "akış",
+          "question": "Aşağıdaki cümlelerden anlamlı bir paragraf oluşturulmak istendiğinde doğru sıralama hangisi olur?\n\nI. Çünkü yeni sorular, düşüncenin yönünü değiştirir.\nII. Düşünmek yalnızca cevap bulmak değildir.\nIII. Bazen doğru soru, cevaplardan daha değerlidir.\nIV. Bu yüzden düşünce çoğu zaman sorularla ilerler.",
+          "options": [
+            "II – III – I – IV",
+            "III – II – I – IV",
+            "II – I – III – IV",
+            "III – I – II – IV"
+          ],
+          "answer": "A"
+        },
+        {
+          "id": 211,
+          "type": "karsilastirma",
+          "difficulty": "hard",
+          "skill": "metin_karsilastirma",
+          "question": "I. metin: Bazı yazarlar anlatımda açıklığı temel ilke kabul eder ve okurun zorlanmadan anlamasını hedefler.\n\nII. metin: Bazı yazarlar ise metnin okuru düşündürmesini ister ve bu nedenle anlatımda bazı boşluklar bırakır.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+          "options": [
+            "Her iki metin de açıklığı savunmaktadır.",
+            "I. metin açıklığı, II. metin okurun düşünmeye katılmasını öne çıkarır.",
+            "I. metin kapalılığı savunur.",
+            "II. metin okurun metni anlamasını istemez."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 212,
+          "type": "grafik_yorum",
+          "difficulty": "hard",
+          "skill": "veri",
+          "question": "Bir araştırmada öğrencilerin günlük okuma süreleri incelenmiştir. Sonuçlara göre öğrencilerin %20'si 30 dakikadan az, %40'ı 30-60 dakika arası, %25'i 60-90 dakika arası, %15'i ise 90 dakikadan fazla okumaktadır. Buna göre aşağıdakilerden hangisi söylenebilir?",
+          "options": [
+            "Öğrencilerin yarısından fazlası günde 1 saatten fazla okumaktadır.",
+            "En büyük grup 30-60 dakika arası okuyanlardır.",
+            "Hiç okumayan öğrenci yoktur.",
+            "90 dakikadan fazla okuyanlar en kalabalık gruptur."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 213,
+          "type": "mantik",
+          "difficulty": "hard",
+          "skill": "sıralama",
+          "question": "Dört öğrenci (Aylin, Berk, Cem ve Duru) farklı günlerde sunum yapacaktır: pazartesi, salı, çarşamba ve perşembe. Aylin, Berk'ten önce sunum yapacaktır. Cem, perşembe günü sunum yapmayacaktır. Duru, Aylin'den sonra sunum yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+          "options": [
+            "Duru, Berk'ten sonra sunum yapacaktır.",
+            "Aylin, Duru'dan önce sunum yapacaktır.",
+            "Cem salı günü sunum yapacaktır.",
+            "Berk çarşamba günü sunum yapacaktır."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 214,
+          "type": "cumlede_anlam",
+          "difficulty": "hard",
+          "skill": "neden_sonuc",
+          "question": ""Soruyu hemen cevaplamadı çünkü önce doğru anlamak istedi." cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+          "options": [
+            "Amaç-sonuç",
+            "Neden-sonuç",
+            "Koşul-sonuç",
+            "Karşılaştırma"
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 215,
+          "type": "sozcukte_anlam",
+          "difficulty": "medium",
+          "skill": "mecaz",
+          "question": ""Bu sözleriyle ortamı biraz yumuşattı." cümlesinde "yumuşattı" kelimesi hangi anlamda kullanılmıştır?",
+          "options": [
+            "Gerçek anlam",
+            "Terim anlam",
+            "Mecaz anlam",
+            "Eş anlam"
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 216,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "Bir metni değerli kılan yalnızca verdiği bilgi değildir. Okurun o metinle kurduğu ilişki de önemlidir. Çünkü bazı metinler yalnızca bilgi verirken bazıları okuru düşünmeye davet eder.",
+          "options": [
+            "Metinler yalnızca bilgi vermek için yazılır.",
+            "Okurun metinle kurduğu ilişki, metnin etkisini belirleyebilir.",
+            "Bilgi içermeyen metinler değersizdir.",
+            "Okur metnin anlamını değiştiremez."
+          ],
+          "answer": "B"
+        }
+      ]
     }
   ]
 }
