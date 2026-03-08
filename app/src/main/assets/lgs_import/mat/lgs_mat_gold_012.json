@@ -85,13 +85,13 @@
 
 {
 "difficulty":2,
-"questionType":"oran",
+"questionType":"reasoning",
 "topic":"oran_oranti",
-"skills":["oran"],
-"stem":"Bir sınıfta kız ve erkek sayısı oranı 2:3'tür. Toplam öğrenci sayısı 25 ise kız öğrenci sayısı kaçtır?",
+"skills":["oran","yorumlama","problem_cozme"],
+"stem":"Okul müdürü 8-C sınıfındaki cinsiyet dağılımını inceleyerek sınıf temsilciliği için aday belirleyecektir. Sınıf listesinde kız ve erkek öğrenci sayılarının 2:3 oranında olduğu görülmektedir. Toplam 25 öğrencinin bulunduğu bu sınıfta müdür önce oranın birim değerini bulacak, ardından kız öğrenci sayısını hesaplayacaktır. Buna göre sınıftaki kız öğrenci sayısı kaçtır?",
 "options":["8","10","12","15"],
 "answerIndex":1,
-"explanation":"2k+3k=25 → k=5 → kız=10.",
+"explanation":"Oran 2:3 ise kız 2k, erkek 3k olur. Toplam 5k = 25 → k = 5. Kız sayısı 2k = 10 olur.",
 "source":"brainbuddy",
 "sourceRef":"mat-gold-012-7"
 },
