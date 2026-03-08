@@ -1409,6 +1409,152 @@
           "answer": "B"
         }
       ]
+    },
+    {
+      "pack_id": "lgs_trk_gold_013",
+      "title": "LGS Türkçe Gold Pack 13",
+      "questions": [
+        {
+          "id": 107,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "İnsanlar çoğu zaman bir düşüncenin etkisini, onu ilk duyduklarında hissettikleri yakınlığa göre değerlendirir. Kendilerine tanıdık gelen fikirleri daha kolay benimser, rahatsız edici olanları ise daha baştan reddetmeye eğilim gösterirler. Oysa bir düşüncenin değeri, insana ilk anda konfor vermesinden değil; doğru sorular sordurabilmesinden ve yerleşmiş kabulleri sınayabilmesinden doğar. Bu yüzden düşüncenin rahatsız edici olması, onun yanlış olduğunun değil; bazen ciddi biçimde düşünülmesi gerektiğinin işaretidir.",
+          "options": [
+            "İnsana yakın gelen düşünceler genellikle daha doğrudur.",
+            "Rahatsız edici düşünceler çoğu zaman yanlış olduğu için reddedilmelidir.",
+            "Bir düşüncenin değeri, ilk anda hoş gelmesinden çok düşündürme gücüyle ilgilidir.",
+            "İnsanlar yalnızca kendilerine uygun düşüncelerle karşılaşmalıdır."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 108,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "Bir kişinin aynı konuda yıllar içinde farklı görüşler ileri sürmesi, her zaman tutarsızlık anlamına gelmez. Çünkü insanın deneyimi arttıkça dikkat ettiği ayrıntılar da değişir. Önceden önemsiz görülen bir yön, daha sonra asıl belirleyici unsur olarak fark edilebilir. Bu nedenle düşüncenin zaman içinde değişmesi, bazen zayıflıktan değil; daha derin bir kavrayıştan kaynaklanır.",
+          "options": [
+            "Görüş değiştiren insanlar genellikle kararsızdır.",
+            "Düşüncenin zamanla değişmesi, bazen artan deneyim ve kavrayışın sonucu olabilir.",
+            "İnsan bir konuda ilk düşündüğünü ömrü boyunca korumalıdır.",
+            "Deneyim arttıkça insanların fikirleri daha sabit hâle gelir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 109,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "Bir metnin açık olması, onun bütün anlam katmanlarını hemen tükettiği anlamına gelmez. Bazı metinler ilk okumada anlaşılır gibi görünür; fakat yeniden dönüldüğünde daha önce fark edilmeyen ilişkiler, çağrışımlar ve vurgular ortaya çıkar. Bu tür metinlerde güç, kapalılıktan değil; açıklığın altında saklı ikinci bir derinlik kurabilmekten gelir.",
+          "options": [
+            "Açık anlatımlı metinlerde ikinci bir anlam katmanı bulunmaz.",
+            "Bir metnin anlaşılır olması, derinlik taşımadığı anlamına gelmez.",
+            "Derin metinler mutlaka kapalı ve zor anlaşılır olmalıdır.",
+            "Yeniden okunan metinler ilk okumadan daha az şey söyler."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 110,
+          "type": "mantik",
+          "difficulty": "hard",
+          "skill": "sıralama",
+          "question": "Dört öğrenci (Eylül, Kerem, Nehir ve Tunç) bir proje sunumunu farklı günlerde yapacaktır: salı, çarşamba, perşembe ve cuma. Bilinenler şunlardır: Eylül, Kerem'den önce sunum yapacaktır. Nehir, cuma günü sunum yapmayacaktır. Tunç, Eylül'den sonra sunum yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+          "options": [
+            "Kerem cuma günü sunum yapacaktır.",
+            "Tunç, Eylül'den sonraki bir günde sunum yapacaktır.",
+            "Nehir salı günü sunum yapacaktır.",
+            "Eylül çarşamba günü sunum yapacaktır."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 111,
+          "type": "grafik_yorum",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "Bir araştırmada öğrencilerin bir haftada çözdükleri deneme sayıları incelenmiştir. Sonuçlara göre öğrencilerin %20'si hiç deneme çözmemekte, %30'u 1 deneme, %25'i 2 deneme, %15'i 3 deneme, %10'u ise 4 ve üzeri deneme çözmektedir. Bu verilere göre aşağıdakilerden hangisi söylenebilir?",
+          "options": [
+            "Öğrencilerin yarısından fazlası haftada en az 2 deneme çözmektedir.",
+            "Öğrencilerin en büyük bölümü haftada 1 deneme çözmektedir.",
+            "Hiç deneme çözmeyenler en kalabalık gruptur.",
+            "Öğrencilerin tamamı haftada en az 1 deneme çözmektedir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 112,
+          "type": "cümlede_anlam",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "\"Onun bu açıklaması, meseleyi aydınlatmaktan çok daha karmaşık hâle getirdi; çünkü cevap vermek yerine yeni sorular doğurdu.\" cümlesinde anlatılmak istenen aşağıdakilerden hangisidir?",
+          "options": [
+            "Açıklama, konuyu bütünüyle çözüme kavuşturmuştur.",
+            "Açıklama, sorunu netleştirmek yerine daha belirsiz bir hâle getirmiştir.",
+            "Soruların çoğalması, konunun tamamen anlaşıldığını gösterir.",
+            "Açıklamanın meseleyle doğrudan bir ilgisi yoktur."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 113,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "Bir çalışmanın değerini yalnızca görünen sonuç üzerinden ölçmek, çoğu zaman o çalışmanın asıl gücünü gözden kaçırmaktır. Çünkü bazı çalışmalar büyük bir sonuç üretmese bile yeni yöntemler dener, yeni sorular doğurur ve sonraki adımlar için yol açar. Bu nedenle verim, yalnızca elde edilen kesin sonuçla değil; açılan imkânlarla da değerlendirilmelidir.",
+          "options": [
+            "Bir çalışmanın değeri yalnızca somut sonuç üretmesine bağlıdır.",
+            "Sonuç doğurmayan çalışmalar tamamen başarısız sayılmalıdır.",
+            "Bir çalışmanın değeri, doğrudan sonucunun yanı sıra yeni imkânlar açmasında da aranmalıdır.",
+            "Yeni sorular ortaya çıkarmak, bir çalışmanın yetersiz olduğunu gösterir."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 114,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "İnsanlar çoğu zaman bir kişiyi en görünür özelliğiyle tanımlar ve zamanla onu yalnızca o yönüyle görmeye başlar. Bu durum, kişinin başka özelliklerini fark etmeyi zorlaştırır. Oysa insan tek bir niteliğe indirgenemeyecek kadar katmanlıdır. Birini gerçekten tanımak, ilk göze çarpan yönün ötesine geçebilmeyi gerektirir.",
+          "options": [
+            "İnsanları tanımak için ilk dikkat çeken özelliklerine bakmak yeterlidir.",
+            "Bir kişiyi tek bir özelliğiyle değerlendirmek, onu eksik tanımaya yol açabilir.",
+            "İnsanların en görünür özellikleri genellikle onların tamamını yansıtır.",
+            "Birini tanımak için onun bütün yönlerini bilmeye gerek yoktur."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 115,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "Bazı anlatımlar, okurun önüne hazır sonuçlar koyar; böylece düşünme işini büyük ölçüde onun yerine yapmış olur. Bazıları ise sonucu açıkça söylemek yerine okuru o sonuca götürecek izler bırakır. İkinci tür anlatım, ilk bakışta daha yorucu görünse de okurun metne daha etkin biçimde katılmasını sağlar. Çünkü insan, kendi ulaştığı anlamla daha güçlü bir bağ kurar.",
+          "options": [
+            "Hazır sonuç veren metinler her zaman daha etkilidir.",
+            "Okurun anlamı kendisinin kurduğu metinler, daha güçlü bir etki bırakabilir.",
+            "Metinlerde sonucun açıkça verilmemesi anlatımı zayıflatır.",
+            "Okur, metne ne kadar az katılırsa metni o kadar iyi anlar."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 116,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "Bir konuda sürekli aynı örneklerle düşünmek, zamanla düşüncenin hareket alanını daraltır. İnsan, alıştığı örnekleri yeniden üretirken fark etmeden aynı sonuçlara ulaşır ve bunun tek mümkün yol olduğunu sanabilir. Oysa yeni örnekler, yalnızca bilgiyi çoğaltmaz; düşüncenin yönünü de değiştirebilir. Bu nedenle düşünmek, bazen yeni bir bilgi edinmekten çok, eski bilgiye başka bir yerden bakabilmektir.",
+          "options": [
+            "Aynı örneklerle düşünmek, düşünceyi daha sağlam hâle getirir.",
+            "Yeni örnekler, düşüncenin yönünü değiştirebilecek imkânlar sunabilir.",
+            "Düşünceyi geliştirmek için yeni bilgilere ihtiyaç yoktur.",
+            "İnsan eski örnekleri kullandığında her zaman doğru sonuca ulaşır."
+          ],
+          "answer": "B"
+        }
+      ]
     }
   ]
 }
