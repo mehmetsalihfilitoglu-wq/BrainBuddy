@@ -1117,6 +1117,152 @@
           "answer": "B"
         }
       ]
+    },
+    {
+      "pack_id": "lgs_trk_gold_010",
+      "title": "LGS Türkçe Gold Pack 10",
+      "questions": [
+        {
+          "id": 77,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "İnsan, çoğu zaman bir olayın yalnızca kendisine bakan yönünü görür ve bundan hareketle genel bir yargıya varır. Oysa bir olayın farklı kişiler üzerindeki etkisi, olayın kendisinden çok o kişilerin bakış açısına göre değişebilir. Bu nedenle bir durumu anlamaya çalışırken yalnızca kendi gördüğümüze değil, başkalarının neyi nasıl gördüğüne de dikkat etmek gerekir.",
+          "options": [
+            "Bir olayı doğru anlamanın en iyi yolu, yalnızca kendi bakış açımıza güvenmektir.",
+            "Aynı olay, farklı insanlar tarafından farklı biçimlerde değerlendirilebilir.",
+            "İnsanlar olayları her zaman nesnel biçimde değerlendirir.",
+            "Başkalarının bakış açısı, bir olayın anlaşılmasında belirleyici değildir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 78,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "Bir işin başında yaşanan güçlükler, çoğu zaman o işin yapılamayacağı şeklinde yorumlanır. Oysa başlangıçta karşılaşılan direnç, bazen insanın yöntemini geliştirmesine ve daha sağlam bir yol kurmasına yardımcı olur. Bu yüzden ilk zorlukta vazgeçmek, yalnızca bir işi yarım bırakmak değil; o işin öğretebileceklerini de kaybetmektir.",
+          "options": [
+            "Bir iş zor başladıysa mutlaka başarısızlıkla sonuçlanır.",
+            "Başlangıçta yaşanan güçlükler, bazen daha doğru yöntemler geliştirmeyi sağlayabilir.",
+            "İlk zorlukta vazgeçmek, zaman kazanmanın en etkili yoludur.",
+            "Zorluklar, yalnızca yeteneksiz insanların karşılaştığı durumlardır."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 79,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "Bazı insanlar bir metni hızlı okumanın o metni iyi anlamak olduğunu düşünür. Oysa hızlı okumakla derinlikli okumak aynı şey değildir. Çünkü kimi metinler, yalnızca bilgi vermek için değil; okuru düşündürmek, çağrışım kurdurmak ve sezdirmek için yazılır. Böyle metinlerde asıl anlam, satırların yüzeyinde değil, aralarındaki ilişkide saklıdır.",
+          "options": [
+            "Bir metni hızlı okumak, onu mutlaka iyi anlamayı sağlar.",
+            "Düşündürücü metinlerde anlam, yalnızca açıkça söylenenlerde bulunur.",
+            "Bazı metinleri anlamak için yalnızca okumak değil, ilişkileri fark etmek de gerekir.",
+            "Derinlikli metinlerle bilgi verici metinler arasında önemli bir fark yoktur."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 80,
+          "type": "mantik",
+          "difficulty": "hard",
+          "skill": "eşleştirme",
+          "question": "Dört arkadaş (Aslı, Buse, Can ve Doruk) farklı günlerde kütüphaneye gitmiştir: pazartesi, salı, çarşamba ve perşembe. Bilinenler şunlardır: Aslı, Buse'den önce gitmiştir. Can, perşembe günü gitmemiştir. Doruk, Aslı'dan sonra gitmiştir. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+          "options": [
+            "Buse perşembe günü gitmiştir.",
+            "Doruk, Aslı'dan sonraki bir günde gitmiştir.",
+            "Can salı günü gitmiştir.",
+            "Aslı pazartesi günü gitmiştir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 81,
+          "type": "grafik_yorum",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "Bir araştırmada öğrencilerin hafta sonu ayırdığı çalışma süresi incelenmiştir. Buna göre öğrencilerin %20'si 1 saatten az, %35'i 1-2 saat arası, %25'i 2-3 saat arası, %20'si ise 3 saatten fazla çalışmaktadır. Bu verilere göre aşağıdakilerden hangisi söylenebilir?",
+          "options": [
+            "Öğrencilerin yarısından fazlası hafta sonu 2 saatten fazla çalışmaktadır.",
+            "Öğrencilerin çoğunluğu hafta sonu 3 saatten az çalışmaktadır.",
+            "Öğrencilerin en küçük bölümü 1 saatten az çalışanlardır.",
+            "Öğrencilerin tamamı hafta sonu en az 2 saat çalışmaktadır."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 82,
+          "type": "cümlede_anlam",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "\"Onun bu tavrı, sorunu kapatmak yerine üstünü örttü; bu yüzden sorun çözüldü sanıldı ama aslında derinleşti.\" cümlesinde anlatılmak istenen aşağıdakilerden hangisidir?",
+          "options": [
+            "Sorun tamamen ortadan kaldırılmıştır.",
+            "Sorun geçici olarak gizlenmiş, gerçek çözüm sağlanamamıştır.",
+            "Tavır, sorunun büyümesini önlemiştir.",
+            "Sorun yalnızca yanlış anlaşılmadan kaynaklanmıştır."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 83,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "Bir insanın çok şey üretmesi, her ürettiğinin değerli olduğu anlamına gelmez. Değer, çoğu zaman miktarda değil; seçicilikte, özenli çalışmada ve ortaya konulan şeyin gerçekten bir ihtiyaç ya da anlam taşıyıp taşımadığında belirir. Bu yüzden üretkenlik, yalnızca çok sayıda iş yapmakla değil, neyin neden yapıldığını bilmekle anlam kazanır.",
+          "options": [
+            "Çok sayıda iş yapan herkes üretkendir ve ortaya koyduğu her iş değerlidir.",
+            "Üretimin değeri, yalnızca miktarına göre belirlenir.",
+            "Gerçek üretkenlik, yapılan işin sayısından çok niteliği ve amacıyla ilgilidir.",
+            "Özenli çalışmak, üretkenliği azaltan gereksiz bir ayrıntıdır."
+          ],
+          "answer": "C"
+        },
+        {
+          "id": 84,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "çıkarım",
+          "question": "İnsanlar bazen bir konuyu yalnızca son örneğine bakarak değerlendirir ve geçmişte yaşananları göz ardı eder. Oysa tek bir örnek, bütünün karakterini her zaman yansıtmaz. Sağlıklı bir değerlendirme yapabilmek için bir olayın yalnızca en görünür parçasına değil, genel eğilimine de bakmak gerekir.",
+          "options": [
+            "Bir konuyu anlamak için son yaşanan örneğe bakmak yeterlidir.",
+            "Tek bir örnekten hareketle genel hüküm vermek yanıltıcı olabilir.",
+            "Geçmiş olaylar, bugünkü değerlendirmelerde etkisizdir.",
+            "Genel eğilimler, tek tek örneklerden daha önemsizdir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 85,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "yorum",
+          "question": "İyi bir anlatıcı, her ayrıntıyı söyleyen kişi değil; hangi ayrıntının ne zaman gerekli olduğunu bilen kişidir. Çünkü anlatımda her şeyi görünür kılmak, bazen merakı azaltır ve düşünceyi dağıtır. Eksik bırakılan kimi noktalar ise okurun zihnini devreye sokarak metni daha etkili hâle getirebilir.",
+          "options": [
+            "Etkili anlatım için her ayrıntının mutlaka açıkça verilmesi gerekir.",
+            "Anlatımda bazı ayrıntıların bilinçli olarak geri planda bırakılması metni güçlendirebilir.",
+            "Okurun düşünmesine gerek bırakmayan metinler daha etkilidir.",
+            "İyi anlatıcı, hiçbir ayrıntıya yer vermeyen kişidir."
+          ],
+          "answer": "B"
+        },
+        {
+          "id": 86,
+          "type": "paragraf",
+          "difficulty": "hard",
+          "skill": "ana_fikir",
+          "question": "Zamanı doğru kullanmak, her dakikayı bir işle doldurmak demek değildir. Bazen durmak, düşünmek ve yapılanı gözden geçirmek de zamanı verimli kullanmanın bir parçasıdır. Çünkü sürekli hareket hâlinde olmak, insanı üretken gösterebilir; ama yönsüz bir hız, gerçek ilerleme sağlamayabilir.",
+          "options": [
+            "Zamanı verimli kullanmak için insan sürekli bir işle meşgul olmalıdır.",
+            "Durup düşünmek, zamanı boşa harcamak anlamına gelir.",
+            "Verimli zaman kullanımı, gerektiğinde durup değerlendirme yapmayı da içerir.",
+            "Hızlı olmak, doğru ilerlemenin her zaman yeterli şartıdır."
+          ],
+          "answer": "C"
+        }
+      ]
     }
   ]
 }
