@@ -7942,6 +7942,176 @@
   "explanation": "\"Eteğindeki taşları dökmek\" deyimi kişinin içinde tuttuğu düşünceleri açıkça söylemesi anlamına gelir.",
   "source": "brainbuddy",
   "sourceRef": "lgs_brainbuddy_tr_0402"
+},
+{
+  "stem": "İnsanlar çoğu zaman bir düşüncenin doğruluğunu onun ne kadar yaygın olduğuna bakarak değerlendirir. Ancak bir fikrin çok kişi tarafından kabul edilmesi onun mutlaka doğru olduğu anlamına gelmez. Tarihte uzun süre doğru kabul edilen bazı düşüncelerin daha sonra yanlış olduğu anlaşılmıştır. Bu nedenle bir düşünceyi değerlendirirken onun ne kadar yaygın olduğuna değil, hangi kanıtlara dayandığına bakmak gerekir.",
+  "options": [
+    "Bir düşünce çok kişi tarafından kabul ediliyorsa doğrudur.",
+    "Bir düşüncenin değeri onu kabul eden kişi sayısıyla ölçülmelidir.",
+    "Bir düşüncenin doğruluğu yaygınlığından değil, dayandığı kanıtlardan anlaşılır.",
+    "Yaygın düşünceler genellikle yanlıştır."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "akil_yurutme", "yorumlama"],
+  "explanation": "Parçada bir düşüncenin doğruluğunun yaygınlıkla değil, dayandığı kanıtlarla değerlendirileceği vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0403"
+},
+{
+  "stem": "Bir metni anlamak yalnızca cümleleri tek tek okumakla gerçekleşmez. Çünkü metnin anlamı, cümlelerin birbirleriyle kurduğu ilişkiler sayesinde ortaya çıkar. Dikkatli okur, hangi cümlenin temel düşünceyi taşıdığını ve diğer cümlelerin bu düşünceyi nasıl desteklediğini fark ettiğinde metni daha iyi kavrar.",
+  "options": [
+    "Metnin anlamı yalnızca kelimelerde bulunur.",
+    "Metni anlamak için cümleler arasındaki ilişkiyi görmek gerekir.",
+    "Metindeki tüm cümleler aynı öneme sahiptir.",
+    "Metni anlamak için kelime sayısı önemlidir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "metin_analizi", "yorumlama"],
+  "explanation": "Parça, metni anlamak için cümleler arasındaki ilişkiyi fark etmek gerektiğini vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0404"
+},
+{
+  "stem": "Bazı yazılar yeni bilgiler sunmasa bile okurun dikkatini çekebilir. Çünkü bu yazılar okurun bildiğini sandığı bir konuyu farklı bir açıdan görmesini sağlar. İnsan çoğu zaman gördüğü şeyleri fark etmez; ancak biri ona işaret ettiğinde onları yeniden düşünür.",
+  "options": [
+    "Yazılar yalnızca yeni bilgiler içerdiğinde etkili olur.",
+    "Bilinen konular yazıda kullanılmamalıdır.",
+    "Bir yazı bilinen bir konuyu farklı açıdan göstererek etkili olabilir.",
+    "Okurlar yalnızca yeni bilgilerle ilgilenir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Yardımcı Düşünce",
+  "skills": ["yardimci_dusunce", "yorumlama", "yazarin_amaci"],
+  "explanation": "Parçada bazı yazıların bilinen bir konuyu farklı açıdan göstererek okurun dikkatini çekebileceği anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0405"
+},
+{
+  "stem": "Bir bilginin gerçekten öğrenildiğini anlamanın yolu, o bilginin yeni durumlarda da kullanılabilmesidir. Ezberlenen bilgi yalnızca hatırlanır; ancak kavranan bilgi farklı durumlarda da işe yarar. ____",
+  "options": [
+    "Bu nedenle gerçek öğrenme yalnızca tekrar etmekten ibarettir.",
+    "Bu yüzden öğrenmenin ölçüsü bilgiyi farklı durumlarda kullanabilmektir.",
+    "Bu nedenle bilgiler yalnızca kendi bağlamlarında kullanılmalıdır.",
+    "Bu yüzden örnekler öğrenmeyi zorlaştırır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "cikarim", "uygulama"],
+  "explanation": "Parça, öğrenmenin ölçüsünün bilgiyi farklı durumlarda kullanabilmek olduğunu vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0406"
+},
+{
+  "stem": "Aşağıdaki cümlelerden anlamlı bir paragraf oluşturulduğunda doğru sıralama hangisi olur?\n\nI. Çünkü insanlar çoğu zaman kendi düşüncelerini destekleyen örneklere daha fazla dikkat eder.\nII. Bu durum farklı ihtimalleri görmesini zorlaştırabilir.\nIII. İnsanlar genellikle kendi görüşlerine yakın fikirleri daha kolay kabul eder.\nIV. Bu nedenle bir düşünceyi değerlendirirken karşıt örnekleri de incelemek gerekir.",
+  "options": [
+    "III - I - II - IV",
+    "II - III - I - IV",
+    "III - II - I - IV",
+    "II - I - III - IV"
+  ],
+  "answerIndex": 0,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Sıralama",
+  "skills": ["paragraf_siralama", "mantik", "akis"],
+  "explanation": "III giriş cümlesidir. I bunun nedenini açıklar. II sonucu belirtir. IV ise genel sonuç cümlesidir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0407"
+},
+{
+  "stem": "Aşağıdaki cümlelerden hangisi paragrafın akışını bozmaktadır?\n\n(1) Bir düşüncenin doğruluğunu anlamak için farklı örneklerle sınamak gerekir. (2) Çünkü her görüş kendisini doğrulayan bazı örnekler bulabilir. (3) Önemli olan o düşüncenin karşı örnekler karşısında da açıklama üretebilmesidir. (4) Günümüzde birçok insan günlük haberleri internet üzerinden takip etmektedir. (5) Bu nedenle güçlü düşünceler hem destekleyici hem karşıt örneklerle sınanmalıdır.",
+  "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Paragrafta Akış",
+  "skills": ["akis_bozan_cumle", "paragraf", "konu_butunlugu"],
+  "explanation": "Paragraf düşüncenin sınanmasıyla ilgilidir. 4. cümle internet kullanımından söz ederek konu dışına çıkmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0408"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık kitap okuma gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %11'i hiç okumamakta, %20'si 1 gün, %25'i 2 gün, %22'si 3 gün, %14'ü 4 gün, %8'i ise 5 gün ve üzeri okumaktadır. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 4 gün kitap okumaktadır.",
+    "En büyük grup haftada 2 gün kitap okuyanlardır.",
+    "Hiç okumayanlar en kalabalık gruptur.",
+    "Tüm öğrenciler haftada en az 1 gün kitap okumaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilere göre en yüksek oran %25 ile haftada 2 gün kitap okuyan öğrencilere aittir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0409"
+},
+{
+  "stem": "Dört öğrenci (Ali, Bora, Cem ve Deniz) farklı günlerde sunum yapacaktır: pazartesi, salı, çarşamba ve perşembe. Ali, Bora'dan önce sunum yapacaktır. Cem, perşembe günü sunum yapmayacaktır. Deniz, Ali'den sonra sunum yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Deniz, Bora'dan sonra sunum yapacaktır.",
+    "Ali, Deniz'den önce sunum yapacaktır.",
+    "Cem, salı günü sunum yapacaktır.",
+    "Bora, çarşamba günü sunum yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Deniz'in Ali'den sonra sunum yapacağı verildiği için Ali'nin Deniz'den önce olduğu kesindir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0410"
+},
+{
+  "stem": "\"Metni daha iyi anlayabilmek için bazı bölümleri yeniden okudu.\" cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Koşul-sonuç",
+    "Amaç-sonuç",
+    "Karşılaştırma",
+    "Neden-sonuç"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "amac_sonuc", "yorumlama"],
+  "explanation": "Cümlede yeniden okuma eylemi metni daha iyi anlayabilmek amacıyla yapılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0411"
+},
+{
+  "stem": "\"Sonunda o da içini döktü.\" cümlesinde bu söz hangi anlamda kullanılmıştır?",
+  "options": [
+    "Bir şeyi yere dökmek",
+    "Sakladığı düşünceleri açıkça söylemek",
+    "Bir işi aceleyle yapmak",
+    "Konuyu değiştirmek"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["deyim", "sozcukte_anlam", "mecaz"],
+  "explanation": "\"İçini dökmek\" deyimi kişinin içinde tuttuğu duygu ve düşünceleri açıkça söylemesi anlamına gelir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0412"
 }
   ]
 }
