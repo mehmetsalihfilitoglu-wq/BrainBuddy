@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Bir öğretmen, özdeş iki Dünya modeli hazırlıyor. K modelinde Dünya'nın ekseni 23,5° eğik, L modelinde ise eksen eğikliği yoktur. Her iki model de aynı ışık kaynağı çevresinde dolandırılıyor. Gözlem sonunda K modelinde aynı noktanın yıl içinde aldığı ışık açısının ve aydınlanma süresinin değiştiği, L modelinde ise bu değişimin oluşmadığı görülüyor.\n\nBu deneyden aşağıdaki sonuçlardan hangisine ulaşılması amaçlanmıştır?",
+      "options": [
+        "Gece ve gündüzün oluşmasının temel nedeni Dünya'nın Güneş etrafında dolanmasıdır.",
+        "Mevsimsel değişimlerin oluşmasında eksen eğikliği belirleyici etkenlerden biridir.",
+        "Dünya'nın Güneş'e olan uzaklığı arttıkça gündüz süresi kısalır.",
+        "Eksen eğikliği sadece kutuplarda etkilidir, orta kuşakta etkili değildir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimlerin_olusumu", "eksen_egikligi", "deney"],
+      "explanation": "Deneyde değiştirilen tek temel değişken eksen eğikliğidir. Eğiklik olan modelde ışık açısı ve aydınlanma süresinin değişmesi, mevsimsel değişimlerde eksen eğikliğinin etkili olduğunu gösterir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q01"
+    },
+    {
+      "stem": "Aynı tarihte K, L ve M şehirlerinde öğle vakti yere eşit uzunlukta çubuklar dikiliyor. Oluşan gölge boyları sırasıyla 20 cm, 45 cm ve 80 cm ölçülüyor.\n\nBuna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "K şehri Ekvator üzerindedir.",
+        "M şehri, K şehrine göre Güneş ışınlarını daha büyük açıyla alır.",
+        "K şehri, M şehrine göre Güneş ışınlarını daha dik alır.",
+        "L şehrinde kesin olarak kış mevsimi yaşanmaktadır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "TABLE_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["gunes_isinlarinin_gelis_acisi", "golge_boyu"],
+      "explanation": "Gölge boyu ne kadar kısa ise Güneş ışınları yüzeye o kadar büyük açıyla gelir. En kısa gölge K'de olduğuna göre K, ışınları en dik alan şehirdir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q02"
+    },
+    {
+      "stem": "Bir şehirde yıl boyunca ölçülen gündüz süresi grafiğinde haziran ayında en büyük, aralık ayında en küçük değer elde ediliyor. Aynı şehirde öğle vakti ölçülen gölge boyları incelendiğinde de haziranda en kısa, aralıkta en uzun değer bulunuyor.\n\nBu iki veri birlikte değerlendirildiğinde aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Şehir Güney Yarım Küre'dedir.",
+        "Şehir Kuzey Yarım Küre'dedir.",
+        "Şehir Ekvator üzerindedir.",
+        "Şehirde yıl boyunca mevsim yaşanmaz."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["golge_boyu_ve_gun_uzunlugu", "yarim_kure", "grafik_yorumlama"],
+      "explanation": "Haziranda gündüz süresinin en uzun, gölge boyunun en kısa olması; aralıkta ise tersinin görülmesi Kuzey Yarım Küre'nin tipik özelliğidir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q03"
+    },
+    {
+      "stem": "21 Aralık tarihinde K şehrinde gündüz süresi 14 saat, L şehrinde 10 saat olarak ölçülüyor.\n\nBuna göre,\nI. K ve L farklı yarım kürelerde olabilir.\nII. K şehri Güney Yarım Küre'de olabilir.\nIII. L şehri Kuzey Yarım Küre'de olabilir.\nifadelerinden hangileri doğrudur?",
+      "options": [
+        "Yalnız I",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answerIndex": 3,
+      "difficulty": 3,
+      "questionType": "MULTI_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["yarim_kure_karsilastirma", "gunduz_suresi", "gundonumu"],
+      "explanation": "21 Aralık'ta Güney Yarım Küre'de gündüzler uzun, Kuzey Yarım Küre'de kısadır. Buna göre K Güney, L Kuzey Yarım Küre'de olabilir. Dolayısıyla üç ifade de doğrudur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q04"
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi iklimi değil, hava olayını anlatır?",
+      "options": [
+        "Karadeniz Bölgesi yıl boyunca yağış alma eğilimindedir.",
+        "Akdeniz Bölgesi'nde yazlar genellikle sıcak ve kurak geçer.",
+        "Bugün Ankara'da öğleden sonra sağanak yağış bekleniyor.",
+        "Doğu Anadolu'da kışlar uzun ve sert yaşanır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["iklim_ve_hava_olaylari", "siniflandirma"],
+      "explanation": "Kısa süreli, anlık ve dar alanlı değişimler hava olaylarıdır. 'Bugün öğleden sonra sağanak bekleniyor' ifadesi hava olayını anlatır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q05"
+    },
+    {
+      "stem": "Bir araştırmacı, bir bölgedeki son 40 yılın sıcaklık, yağış, nem ve rüzgâr verilerini inceleyerek o bölgenin genel özelliklerini belirlemeye çalışıyor.\n\nBu araştırmacının yaptığı çalışma ve ilgili bilim dalı aşağıdakilerden hangisidir?",
+      "options": [
+        "Hava tahmini yapmaktadır, meteoroloji ile ilgilidir.",
+        "İklim özelliklerini belirlemektedir, klimatoloji ile ilgilidir.",
+        "Günlük sıcaklık değişimini incelemektedir, meteoroloji ile ilgilidir.",
+        "Anlık hava olaylarını açıklamaktadır, klimatoloji ile ilgilidir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["meteoroloji_ve_klimatoloji", "iklim"],
+      "explanation": "Uzun yıllara ait veriler kullanılarak bir bölgenin genel özellikleri inceleniyorsa bu iklim çalışmasıdır ve klimatoloji alanına girer.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q06"
+    },
+    {
+      "stem": "Bir öğrenci, karanlık bir ortamda düz bir yüzeye el feneriyle üç farklı açıdan ışık gönderiyor. Işık yüzeye dik geldiğinde aydınlanan alanın en küçük, en eğik geldiğinde ise en büyük olduğunu gözlemliyor.\n\nBu deney aşağıdaki yorumlardan hangisini destekler?",
+      "options": [
+        "Işınların geliş açısı küçüldükçe aynı enerji daha geniş alana yayılır.",
+        "Işınların geliş açısı küçüldükçe birim alana düşen enerji artar.",
+        "Yüzeyin rengi değiştikçe mevsimler oluşur.",
+        "Dünya'nın Güneş'e uzaklığı arttıkça gölge boyu her yerde eşit olur."
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["gunes_isinlarinin_gelis_acisi", "deney", "enerji"],
+      "explanation": "Eğik gelen ışınlar daha geniş alanı aydınlatır. Bu durumda aynı enerji daha geniş alana yayıldığı için birim alana düşen enerji azalır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q07"
+    },
+    {
+      "stem": "Bir şehirde 21 Mart ve 23 Eylül tarihlerinde öğle vakti ölçülen gölge boylarının eşit olduğu belirleniyor. Aynı şehirde bu iki tarihte gece ve gündüz sürelerinin de birbirine eşit olduğu biliniyor.\n\nBu durumun temel nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Bu tarihlerde Dünya'nın Güneş'e en yakın konumda olması",
+        "Bu tarihlerde Güneş ışınlarının sadece kutuplara dik gelmesi",
+        "Bu tarihlerde ekinoks yaşanması",
+        "Bu tarihlerde eksen eğikliğinin ortadan kalkması"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "COMBINED_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["golge_boyu_ve_gun_uzunlugu", "ekinoks", "gece_gunduz"],
+      "explanation": "21 Mart ve 23 Eylül ekinoks tarihleridir. Bu tarihlerde gece-gündüz eşittir ve aynı şehirde benzer güneşlenme koşulları görülebilir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q08"
+    },
+    {
+      "stem": "I. 'Erzurum'da kışlar uzun ve soğuk geçer.'\nII. 'Yarın sabah İstanbul'da sis görülebilir.'\nIII. 'Rize'de yıllık yağış miktarı Türkiye ortalamasının üzerindedir.'\nIV. 'Bugün İzmir'de rüzgârın hızı akşam saatlerinde artacaktır.'\n\nNumaralanmış ifadelerden hangileri iklimle ilgilidir?",
+      "options": [
+        "I ve II",
+        "II ve IV",
+        "I ve III",
+        "III ve IV"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "COMPARISON",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["iklim_ve_hava_olaylari", "karsilastirma"],
+      "explanation": "Uzun yıllar boyunca gözlenen genel özellikler iklimi anlatır. I ve III bu kapsamdadır; II ve IV ise kısa süreli hava olaylarıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q09"
+    },
+    {
+      "stem": "Bir öğrenci, 'Dünya'nın kendi ekseni etrafında dönmesi mevsimlerin temel nedenidir.' ifadesini savunuyor. Öğretmeni ise bu görüşü çürütmek için iki bilgi veriyor:\n\n• Dünya'nın kendi ekseni etrafındaki dönüşü gece ve gündüzü oluşturur.\n• Mevsimlerin oluşması için eksen eğikliği ile Güneş etrafındaki dolanım birlikte gereklidir.\n\nBuna göre öğrencinin hatası aşağıdakilerden hangisidir?",
+      "options": [
+        "Gece-gündüz ile mevsimlerin nedenlerini karıştırmıştır.",
+        "Eksen eğikliğinin Dünya'nın şeklini değiştirdiğini düşünmüştür.",
+        "Güneş ışınlarının her yere eşit ulaştığını varsaymıştır.",
+        "İklim ile hava olaylarını aynı kavram sanmıştır."
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimlerin_olusumu", "eksen_egikligi", "gece_gunduz", "dolanim"],
+      "explanation": "Dünya'nın kendi ekseni etrafında dönmesi gece ve gündüzü oluşturur; mevsimler ise eksen eğikliği ve dolanım sonucunda oluşur. Öğrenci bu iki olayı karıştırmıştır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_004_q10"
+    }
+  ]
+}
