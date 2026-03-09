@@ -1786,6 +1786,176 @@
   "explanation": "Bu deyim, söylenenleri önemsememek ve üzerinde durmamak anlamında kullanılır.",
   "source": "brainbuddy",
   "sourceRef": "lgs_smoke:turkce:106"
+},
+{
+  "stem": "İnsanlar çoğu zaman bir düşüncenin güçlü olup olmadığını, o düşüncenin ne kadar kendinden emin bir dille savunulduğuna bakarak anlamaya çalışır. Oysa kesin konuşmak ile sağlam düşünmek aynı şey değildir. Bazen yüksek bir özgüven, düşüncenin açıklarını görünmez kılar; bazen de daha temkinli bir anlatım, konunun gerçekten dikkatle ele alındığını gösterir. Çünkü sorgulanmış düşünce, yalnızca neyi bildiğini değil, hangi noktada dikkatli olunması gerektiğini de bilir. Bu nedenle bir görüşü değerlendirirken ses tonuna değil, dayandığı akıl yürütmenin gücüne bakmak gerekir.",
+  "options": [
+    "Kesin konuşan kişiler genellikle daha sağlam düşünür.",
+    "Bir düşüncenin değeri, onu savunan kişinin özgüvenine göre belirlenmelidir.",
+    "Temkinli anlatım, bazen düşüncenin daha dikkatli sınandığını gösterebilir.",
+    "Ses tonu güçlü olan düşünceler, gerekçeye ihtiyaç duymaz."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "yorumlama", "akil_yurutme"],
+  "explanation": "Parçada düşüncenin gücünün kesin konuşmaktan değil, dikkatle sınanmış ve sağlam akıl yürütmeden geldiği vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:107"
+},
+{
+  "stem": "Bir metni anlamak bazen yalnızca metinde neyin anlatıldığını değil, yazarın neyi özellikle dışarıda bıraktığını da fark etmeyi gerektirir. Çünkü bazı anlatımlarda sessizlik, açık cümleler kadar anlam taşır. Yazar bir ayrıntıyı söylemediğinde, okurun onu neden söylemediğini düşünmesini ister; böylece anlam, yalnızca verilen bilgilerden değil, bilinçli eksiltmelerden de kurulur. Dikkatli okur, bu tür metinlerde söylenenle yetinmez; söylenmeyenin de yönünü izler.",
+  "options": [
+    "Metni anlamak için yalnızca açıkça söylenenleri takip etmek yeterlidir.",
+    "Bazı metinlerde söylenmeyen ayrıntılar da anlamın oluşmasına katkı sağlayabilir.",
+    "Yazarın bir ayrıntıyı söylememesi, o ayrıntının tamamen önemsiz olduğunu gösterir.",
+    "Sessizlik ve eksiltme, metinlerde anlamı zayıflatır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "metin_analizi", "okur_yorumu"],
+  "explanation": "Parçada bazı metinlerde söylenmeyen ayrıntıların da anlam kurmada etkili olduğu açıkça belirtilmektedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:108"
+},
+{
+  "stem": "Bir yazının güçlü olması için her ayrıntıyı açıkça göstermesi gerekmez. Bazen tam tersine, yazarın bilinçli olarak geri çektiği bir ayrıntı, okurun zihninde daha büyük bir etki oluşturur. Çünkü okur, hazır verileni almak yerine eksik bırakılanı tamamlamaya çalıştığında metinle daha etkin bir ilişki kurar. Böyle bir anlatımda amaç, okuru zorlamak değil; onu düşüncenin üretimine katmaktır.",
+  "options": [
+    "Güçlü yazılar her ayrıntıyı açıkça vermelidir.",
+    "Bilinçli eksiltmeler, okurun metne daha etkin katılmasını sağlayabilir.",
+    "Okurun metni tamamlamaya çalışması anlatımı zayıflatır.",
+    "Yazarın ayrıntıları geri çekmesi, metnin eksik olduğunu gösterir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Yardımcı Düşünce",
+  "skills": ["yardimci_dusunce", "yorumlama", "metin_analizi"],
+  "explanation": "Parçada bilinçli eksiltmenin okuru metne daha etkin biçimde kattığı ve bunun metni güçlendirebildiği anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:109"
+},
+{
+  "stem": "Bir düşüncenin gerçekten güçlü olup olmadığını anlamak için yalnızca onu destekleyen örneklere bakmak yeterli değildir. Çünkü her görüş kendisini doğrulayan birkaç durum bulabilir. Asıl önemli olan, o düşüncenin kendisine karşı çıkan örnekler karşısında da açıklama üretebilmesidir. ____",
+  "options": [
+    "Bu nedenle bir fikrin gücü, yalnızca destekleyici örneklerle ölçülmelidir.",
+    "Bu yüzden karşı örnekler, düşüncenin gerçek dayanıklılığını göstermede önemlidir.",
+    "Bu nedenle güçlü düşünceler eleştiriye kapalı olmalıdır.",
+    "Bu yüzden örnek kullanmak düşünceyi gereksiz yere karmaşıklaştırır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "akil_yurutme", "cikarim"],
+  "explanation": "Parçanın yönü, bir düşüncenin gücünün karşı örnekler karşısındaki dayanıklılığıyla anlaşılacağını gösterir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:110"
+},
+{
+  "stem": "Aşağıdaki cümlelerden hangisi paragrafın akışını bozmaktadır?\n\n(1) Bir metni derinlemesine anlamak, yalnızca bilgileri toplamak değil, bu bilgilerin nasıl düzenlendiğini de fark etmektir. (2) Çünkü anlatımın sırası, hangi düşüncenin merkezde olduğunu belirleyebilir. (3) Bu yüzden aynı bilgiler farklı bir düzende verildiğinde metnin etkisi de değişebilir. (4) Özellikle bahar aylarında yapılan yürüyüşler insanı zihinsel olarak da rahatlatabilir. (5) Dikkatli okur, metni değerlendirirken yalnızca içeriğe değil, yapıya da dikkat eder.",
+  "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Paragrafta Akış",
+  "skills": ["akıs_bozan_cumle", "paragraf", "konu_butunlugu"],
+  "explanation": "Paragraf metnin yapısı ve düzeni üzerinedir. 4. cümle yürüyüşlerden söz ederek konu bütünlüğünü bozmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:111"
+},
+{
+  "stem": "I. metin: Bazı yazarlar, anlatımda açıklığı ve düzeni öne çıkararak okurun düşünceyi mümkün olduğunca az çabayla izlemesini ister.\n\nII. metin: Bazı yazarlar ise okurun metinde durmasını, bazı ilişkileri kendisinin kurmasını ve anlamı yavaş yavaş keşfetmesini önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metin de okurun aktif katılımını gereksiz görmektedir.",
+    "I. metin açıklık ve kolay izlenebilirliği, II. metin ise okurun anlam kurma sürecine katılımını öne çıkarmaktadır.",
+    "I. metin kapalılığı, II. metin ise yalnızca açıklığı savunmaktadır.",
+    "Her iki metin de anlamın bütünüyle gizli kalmasını istemektedir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "metin_analizi", "yorumlama"],
+  "explanation": "Birinci metin açıklık ve kolay izlenebilirliği, ikinci metin ise okurun aktif katılımıyla anlam kurmasını savunmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:112"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık deneme çözüm kontrolü yapma gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %11'i hiç kontrol yapmamakta, %18'i 1 gün, %26'sı 2 gün, %21'i 3 gün, %15'i 4 gün, %9'u ise 5 gün ve üzeri kontrol yapmaktadır. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 4 gün kontrol yapmaktadır.",
+    "En büyük grup haftada 2 gün kontrol yapanlardır.",
+    "Hiç kontrol yapmayanlar en kalabalık gruptur.",
+    "Öğrencilerin tamamı haftada en az 1 gün kontrol yapmaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilere göre en yüksek oran %26 ile haftada 2 gün kontrol yapan öğrencilere aittir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:113"
+},
+{
+  "stem": "Dört öğrenci (Asya, Doruk, Ece ve Kaan) farklı günlerde görev yapacaktır: pazartesi, salı, çarşamba ve perşembe. Asya, Doruk'tan önce görev yapacaktır. Ece, perşembe günü görev yapmayacaktır. Kaan, Asya'dan sonra görev yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Kaan, Doruk'tan sonra görev yapacaktır.",
+    "Asya, Kaan'dan önce görev yapacaktır.",
+    "Ece, salı günü görev yapacaktır.",
+    "Doruk, çarşamba günü görev yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Soruda Kaan'ın Asya'dan sonra görev yapacağı verildiği için Asya'nın Kaan'dan önce olduğu kesin biçimde bilinir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:114"
+},
+{
+  "stem": ""Metindeki düşünceyi daha net görebilmek için örnekleri tek tek inceledi." cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Koşul-sonuç",
+    "Amaç-sonuç",
+    "Neden-sonuç",
+    "Karşılaştırma"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "amac_sonuc", "yorumlama"],
+  "explanation": "Örnekleri tek tek inceleme eylemi, düşünceyi daha net görebilmek amacıyla yapılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:115"
+},
+{
+  "stem": ""Sonunda o da eteğindeki taşları döktü." cümlesinde bu söz hangi anlamda kullanılmıştır?",
+  "options": [
+    "Üzerindeki yüklerden kurtulmak",
+    "Sakladığı duygu ve düşünceleri açıkça söylemek",
+    "Bir şeyi yere düşürmek",
+    "Telaşla ortamdan ayrılmak"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["deyim", "sozcukte_anlam", "mecaz"],
+  "explanation": ""Eteğindeki taşları dökmek" deyimi, kişinin içinde tuttuklarını açıkça söylemesi anlamında kullanılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:116"
 }
   ]
 }
