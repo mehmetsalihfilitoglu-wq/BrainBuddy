@@ -1956,6 +1956,176 @@
   "explanation": ""Eteğindeki taşları dökmek" deyimi, kişinin içinde tuttuklarını açıkça söylemesi anlamında kullanılmıştır.",
   "source": "brainbuddy",
   "sourceRef": "lgs_smoke:turkce:116"
+},
+{
+  "stem": "Bir düşüncenin güçlü olması çoğu zaman onun karmaşık olmasına bağlanır. Oysa karmaşıklık ile derinlik aynı şey değildir. Bazı düşünceler gereksiz ayrıntılarla dolu olduğu için karmaşık görünür; fakat bu durum onların daha güçlü olduğu anlamına gelmez. Buna karşılık sade bir anlatımla kurulan bazı fikirler, açık ve tutarlı oldukları için daha sağlam bir yapı ortaya koyar. Bu nedenle bir düşünceyi değerlendirirken onun ne kadar karmaşık olduğuna değil, ne kadar tutarlı olduğuna bakmak gerekir.",
+  "options": [
+    "Karmaşık düşünceler her zaman daha güçlüdür.",
+    "Bir düşüncenin değeri karmaşıklığından çok tutarlılığıyla ilgilidir.",
+    "Sade anlatımlar düşünceyi zayıflatır.",
+    "Derin düşünceler mutlaka karmaşık anlatılır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "akil_yurutme", "yorumlama"],
+  "explanation": "Parçada düşüncenin değerinin karmaşıklıkla değil, tutarlılıkla ölçülmesi gerektiği vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:117"
+},
+{
+  "stem": "Bir metni anlamak için bazen yalnızca cümleleri okumak yetmez. Çünkü metnin düşüncesi yalnızca tek tek cümlelerde değil, o cümlelerin birbirine nasıl bağlandığında da ortaya çıkar. Okur, hangi düşüncenin temel olduğunu, hangilerinin onu desteklediğini fark ettiğinde metnin bütün yapısını kavramaya başlar.",
+  "options": [
+    "Metni anlamak için yalnızca cümleleri okumak yeterlidir.",
+    "Metnin düşüncesi yalnızca tek tek cümlelerde bulunur.",
+    "Metni anlamak için cümleler arasındaki ilişkileri de görmek gerekir.",
+    "Metinlerde destekleyici düşünceler bulunmaz."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "metin_analizi", "yorumlama"],
+  "explanation": "Parçada metnin anlamının cümleler arasındaki ilişkiyi görmekle ortaya çıktığı anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:118"
+},
+{
+  "stem": "Bir yazının etkili olması için mutlaka yeni bilgiler içermesi gerekmez. Bazen bilinen bir konunun farklı bir yönünü göstermek de güçlü bir etki yaratabilir. Çünkü insan çoğu zaman gördüğü şeyleri fark etmez; onları ancak biri özellikle işaret ettiğinde yeniden düşünür.",
+  "options": [
+    "Etkili yazılar yalnızca yeni bilgiler içerir.",
+    "Bilinen konular yazıda kullanılmamalıdır.",
+    "Bilinen bir konuyu farklı bir yönüyle göstermek de etkili olabilir.",
+    "Okurlar yalnızca yeni konularla ilgilenir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Yardımcı Düşünce",
+  "skills": ["yardimci_dusunce", "yorumlama", "metin_analizi"],
+  "explanation": "Parçada bilinen bir konunun farklı yönünü gösterebilmenin de yazıyı etkili kılabileceği anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:119"
+},
+{
+  "stem": "İnsanlar çoğu zaman bir fikri hemen kabul ettiklerinde onu anladıklarını düşünür. Oysa gerçek anlama, o düşüncenin başka durumlarda da nasıl çalıştığını görebilmekle ortaya çıkar. Çünkü yüzeysel kabul, ilk farklı örnekte sarsılabilir. ____",
+  "options": [
+    "Bu nedenle bir düşünceyi anlamak için onu yalnızca kabul etmek yeterlidir.",
+    "Bu yüzden gerçek anlama, düşünceyi farklı durumlarda uygulayabilmekle ortaya çıkar.",
+    "Bu nedenle düşünceler farklı örneklerde denenmemelidir.",
+    "Bu yüzden bütün düşünceler aynı şekilde değerlendirilmelidir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "akil_yurutme", "cikarim"],
+  "explanation": "Parçanın yönü, gerçek anlamanın düşünceyi farklı durumlarda kullanabilme becerisiyle anlaşılacağını göstermektedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:120"
+},
+{
+  "stem": "Aşağıdaki cümlelerden anlamlı bir paragraf oluşturulduğunda doğru sıralama hangisi olur?\n\nI. Çünkü insan yalnızca kendi düşüncelerini doğrulayan örneklere baktığında farklı ihtimalleri fark etmekte zorlanır.\nII. Oysa farklı görüşlerle karşılaşmak düşünceyi geliştirebilir.\nIII. İnsan çoğu zaman kendi fikrine yakın olan görüşleri daha kolay kabul eder.\nIV. Bu nedenle düşünceyi geliştirmek için yalnızca destekleyici değil, karşıt görüşlere de bakmak gerekir.",
+  "options": [
+    "III - I - II - IV",
+    "II - III - I - IV",
+    "III - II - I - IV",
+    "II - I - III - IV"
+  ],
+  "answerIndex": 0,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Sıralama",
+  "skills": ["paragraf_siralama", "mantik", "akis"],
+  "explanation": "III giriş cümlesidir. I bunun nedenini açıklar. II karşıt durumu gösterir. IV sonuç cümlesidir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:121"
+},
+{
+  "stem": "I. metin: Bazı yazarlar düşünceyi açık ve düzenli biçimde vererek okurun metni hızlıca anlamasını ister.\n\nII. metin: Bazı yazarlar ise okurun metni okurken durmasını ve bazı bağlantıları kendisinin kurmasını önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metin de okurun yorum yapmasını gereksiz görür.",
+    "I. metin açıklığı, II. metin ise okurun aktif katılımını öne çıkarır.",
+    "I. metin kapalılığı savunur.",
+    "II. metin anlamın gizli kalmasını amaçlar."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "yorumlama", "metin_analizi"],
+  "explanation": "Birinci metin açıklık ve hız, ikinci metin ise okurun aktif katılımıyla anlam kurmasını savunmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:122"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık paragraf çözme gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %12'si hiç çözmemekte, %20'si 1 gün, %25'i 2 gün, %22'si 3 gün, %13'ü 4 gün, %8'i ise 5 gün ve üzeri çözmektedir. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 4 gün paragraf çözmektedir.",
+    "En büyük grup haftada 2 gün paragraf çözenlerdir.",
+    "Hiç çözmeyenler en kalabalık gruptur.",
+    "Tüm öğrenciler haftada en az 1 gün paragraf çözmektedir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "En yüksek oran %25 ile haftada 2 gün paragraf çözen öğrencilerdedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:123"
+},
+{
+  "stem": "Dört öğrenci (Ali, Bora, Cem ve Deniz) farklı günlerde sunum yapacaktır: pazartesi, salı, çarşamba ve perşembe. Ali, Bora'dan önce sunum yapacaktır. Cem, perşembe günü sunum yapmayacaktır. Deniz, Ali'den sonra sunum yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Deniz, Bora'dan sonra sunum yapacaktır.",
+    "Ali, Deniz'den önce sunum yapacaktır.",
+    "Cem, salı günü sunum yapacaktır.",
+    "Bora, çarşamba günü sunum yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Soruda Deniz'in Ali'den sonra sunum yapacağı verildiği için Ali'nin Deniz'den önce olduğu kesindir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:124"
+},
+{
+  "stem": ""Konuyu daha iyi anlayabilmek için farklı örnekler üzerinde düşündü." cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Neden-sonuç",
+    "Amaç-sonuç",
+    "Koşul-sonuç",
+    "Karşılaştırma"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "amac_sonuc", "yorumlama"],
+  "explanation": "Örnekler üzerinde düşünme eylemi bir amaç için yapılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:125"
+},
+{
+  "stem": ""Söylediklerimizi bir kulağından girip öbür kulağından çıkardı." cümlesinde bu söz hangi anlamda kullanılmıştır?",
+  "options": [
+    "Söylenenleri dikkatle dinledi.",
+    "Söylenenleri önemsemedi.",
+    "Konuyu tekrar anlattı.",
+    "Sözleri not aldı."
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["deyim", "sozcukte_anlam", "mecaz"],
+  "explanation": "Bu deyim, söylenenleri önemsememek ve dikkate almamak anlamında kullanılır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:126"
 }
   ]
 }
