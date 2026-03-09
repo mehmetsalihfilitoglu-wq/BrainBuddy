@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Saf döl uzun boylu bezelye bitkesi (TT) ile saf döl kısa boylu bezelye bitkesi (tt) çaprazlanıyor. Oluşan F1 neslindeki bireyler kendi aralarında çaprazlanıyor.\n\nBuna göre F2 neslinde oluşabilecek fenotip oranı aşağıdakilerden hangisidir?",
+      "options": [
+        "1 uzun : 1 kısa",
+        "3 uzun : 1 kısa",
+        "1 uzun : 3 kısa",
+        "Tüm bireyler uzun"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "fenotip"],
+      "explanation": "TT x tt → F1 nesli Tt olur. F1 bireyleri (Tt x Tt) çaprazlanırsa F2 neslinde 3 uzun, 1 kısa oranı görülür.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q01"
+    },
+    {
+      "stem": "Bir bitki türünde aynı genetik yapıya sahip iki bitkiden biri bol güneş alan ortamda, diğeri ise gölgede yetiştiriliyor. Güneş alan bitkinin yaprakları daha kalın gelişirken gölgede yetişen bitkinin yaprakları daha ince oluyor.\n\nBu durum aşağıdakilerden hangisine örnektir?",
+      "options": [
+        "Mutasyon",
+        "Modifikasyon",
+        "Adaptasyon",
+        "Doğal seçilim"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "CONCEPT_DISTINCTION",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["modifikasyon", "cevre_etkisi"],
+      "explanation": "Çevre şartlarına bağlı ortaya çıkan ve kalıtsal olmayan değişimler modifikasyondur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q02"
+    },
+    {
+      "stem": "DNA'nın yapısında bulunan bazı özellikler şunlardır:\n\n• Çift zincirli yapı\n• Nükleotitlerden oluşma\n• Adenin, timin, guanin ve sitozin bazlarını içerme\n\nBu bilgilerden hareketle aşağıdaki yorumlardan hangisine ulaşılabilir?",
+      "options": [
+        "DNA yalnızca proteinlerden oluşur.",
+        "DNA'da dört çeşit nükleotit bulunur.",
+        "DNA tek zincirli yapıdadır.",
+        "DNA yalnızca hücre çekirdeğinde bulunur."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "STRUCTURE_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "nukleotit", "bazlar"],
+      "explanation": "DNA'da dört farklı nükleotit vardır: A, T, G ve C.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q03"
+    },
+    {
+      "stem": "Bir DNA molekülünde toplam 600 nükleotit bulunmaktadır. Yapılan incelemede 180 adet adenin bazı bulunduğu belirlenmiştir.\n\nBuna göre timin bazı sayısı aşağıdakilerden hangisidir?",
+      "options": [
+        "120",
+        "180",
+        "240",
+        "300"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "adenin_timin"],
+      "explanation": "DNA'da Adenin = Timin sayısıdır. Adenin 180 ise Timin de 180 olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q04"
+    },
+    {
+      "stem": "Bir canlı türünde meydana gelen bazı değişimler aşağıda verilmiştir:\n\nI. Radyasyon etkisiyle DNA yapısının değişmesi\nII. Sıcaklık etkisiyle bitkinin boyunun değişmesi\nIII. Antibiyotiklere direnç kazanan bakterilerin çoğalması\n\nBunlardan hangileri mutasyon ile ilgilidir?",
+      "options": [
+        "Yalnız I",
+        "I ve III",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "modifikasyon", "direnc"],
+      "explanation": "Mutasyon DNA'da kalıcı değişimdir. I ve III mutasyonla ilgilidir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q05"
+    },
+    {
+      "stem": "Bir bireyin genotipi Aa olarak verilmiştir.\n\nBuna göre bu bireyin fenotipi aşağıdakilerden hangisi olabilir?",
+      "options": [
+        "Sadece baskın özellik",
+        "Sadece çekinik özellik",
+        "Hem baskın hem çekinik özellik",
+        "Hiçbir özellik görülmez"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["genotip", "fenotip", "baskin_ceknik"],
+      "explanation": "Aa genotipinde baskın gen özelliği fenotipte görülür.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q06"
+    },
+    {
+      "stem": "Bir bölgede yaşayan koyu renkli böceklerin sayısı zamanla artarken açık renkli böceklerin sayısı azalmaktadır. Bunun nedeni koyu renkli böceklerin avcılar tarafından daha zor fark edilmesidir.\n\nBu durum aşağıdakilerden hangisinin sonucudur?",
+      "options": [
+        "Modifikasyon",
+        "Doğal seçilim",
+        "Mutasyon",
+        "Klonlama"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "ADAPTATION_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dogal_secilim", "adaptasyon", "evrim"],
+      "explanation": "Çevreye daha uyumlu bireylerin hayatta kalması doğal seçilimdir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q07"
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi mutasyonun özelliği değildir?",
+      "options": [
+        "DNA yapısında değişime neden olur",
+        "Kalıtsal olabilir",
+        "Çevre etkisiyle ortaya çıkabilir",
+        "Her zaman canlıya fayda sağlar"
+      ],
+      "answerIndex": 3,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "ozellikler"],
+      "explanation": "Mutasyonlar zararlı, faydalı veya etkisiz olabilir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q08"
+    },
+    {
+      "stem": "Aa genotipli iki birey çaprazlanıyor.\n\nBuna göre oluşabilecek genotip oranı aşağıdakilerden hangisidir?",
+      "options": [
+        "1 AA : 2 Aa : 1 aa",
+        "1 AA : 1 aa",
+        "3 Aa : 1 aa",
+        "2 AA : 2 aa"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "genotip_orani"],
+      "explanation": "Aa x Aa çaprazlamasında 1 AA, 2 Aa, 1 aa oranı görülür.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q09"
+    },
+    {
+      "stem": "Bir canlı türünde meydana gelen kalıtsal değişimler nesilden nesile aktarılabilmektedir.\n\nBu değişimlerin gerçekleştiği yapı aşağıdakilerden hangisidir?",
+      "options": [
+        "DNA",
+        "Protein",
+        "Vitamin",
+        "Mineral"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna", "kalitsal_bilgi"],
+      "explanation": "Kalıtsal bilgiyi taşıyan yapı DNA'dır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_001_q10"
+    }
+  ]
+}
