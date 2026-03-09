@@ -8605,6 +8605,159 @@
   "explanation": "\"İçini dökmek\" deyimi kişinin içinde tuttuğu duygu ve düşünceleri açıkça söylemesi anlamına gelir.",
   "source": "brainbuddy",
   "sourceRef": "lgs_brainbuddy_tr_0441"
+},
+{
+  "stem": "Bir düşüncenin doğru kabul edilmesi bazen onun gerçekten güçlü olmasından değil, insanların onu sorgulamadan kabul etmesinden kaynaklanır. Çünkü insanlar çoğu zaman alıştıkları fikirleri sorgulamak yerine onları tekrar etmeyi tercih eder. Bu nedenle bir düşüncenin doğruluğunu anlamak için onun ne kadar yaygın olduğuna değil, hangi gerekçelere dayandığına bakmak gerekir.",
+  "options": [
+    "Yaygın düşünceler genellikle doğrudur.",
+    "Bir düşüncenin değeri onu savunan kişi sayısıyla belirlenir.",
+    "Bir düşüncenin doğruluğu dayandığı gerekçelerle değerlendirilmelidir.",
+    "Alışılmış düşünceler sorgulanmaya gerek duymaz."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "yorumlama", "akil_yurutme"],
+  "explanation": "Parçada düşüncenin doğruluğunun yaygınlıkla değil, dayandığı gerekçelerle değerlendirilmesi gerektiği anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0442"
+},
+{
+  "stem": "Bir metni anlamak yalnızca kelimeleri tek tek okumakla gerçekleşmez. Çünkü metnin anlamı cümlelerin birbirleriyle kurduğu ilişkiler sayesinde ortaya çıkar. Dikkatli bir okur hangi düşüncenin temel olduğunu ve diğer cümlelerin bu düşünceyi nasıl desteklediğini fark ettiğinde metni daha doğru yorumlar.",
+  "options": [
+    "Metnin anlamı yalnızca kelimelerde bulunur.",
+    "Metni anlamak için cümleler arasındaki ilişkiyi görmek gerekir.",
+    "Metindeki tüm cümleler aynı öneme sahiptir.",
+    "Metni anlamak için kelime sayısı önemlidir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "metin_analizi", "yorumlama"],
+  "explanation": "Parça metnin anlamının cümleler arasındaki ilişkilerle ortaya çıktığını anlatmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0443"
+},
+{
+  "stem": "Bazı yazılar okura yeni bilgiler vermese bile onun düşünme biçimini değiştirebilir. Çünkü bu yazılar okurun bildiğini sandığı bir konuyu farklı bir açıdan görmesini sağlar. Böylece okur daha önce fark etmediği ayrıntıları görmeye başlar.",
+  "options": [
+    "Yazılar yalnızca yeni bilgiler içerdiğinde değerlidir.",
+    "Bir yazı bilinen bir konuyu farklı açıdan göstererek etkili olabilir.",
+    "Bilinen konular yazıda kullanılmamalıdır.",
+    "Okurlar yalnızca yeni bilgilerle ilgilenir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Yardımcı Düşünce",
+  "skills": ["yardimci_dusunce", "yorumlama", "yazarin_amaci"],
+  "explanation": "Parçada bazı yazıların bilinen bir konuyu farklı açıdan göstererek etkili olabileceği anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0444"
+},
+{
+  "stem": "Bir bilginin gerçekten öğrenildiğini anlamanın yolu, o bilginin yeni durumlarda da kullanılabilmesidir. Ezberlenen bilgi yalnızca hatırlanır; ancak kavranan bilgi farklı durumlarda da işe yarar. ____",
+  "options": [
+    "Bu nedenle gerçek öğrenme yalnızca tekrar etmekten ibarettir.",
+    "Bu yüzden öğrenmenin ölçüsü bilgiyi farklı durumlarda kullanabilmektir.",
+    "Bu nedenle bilgiler yalnızca kendi bağlamlarında kullanılmalıdır.",
+    "Bu yüzden örnekler öğrenmeyi zorlaştırır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "cikarim", "uygulama"],
+  "explanation": "Parça öğrenmenin ölçüsünün bilgiyi farklı durumlarda kullanabilmek olduğunu vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0445"
+},
+{
+  "stem": "Aşağıdaki cümlelerden anlamlı bir paragraf oluşturulduğunda doğru sıralama hangisi olur?\n\nI. Çünkü insanlar çoğu zaman kendi düşüncelerini destekleyen örneklere daha fazla dikkat eder.\nII. Bu durum farklı ihtimalleri görmesini zorlaştırabilir.\nIII. İnsanlar genellikle kendi görüşlerine yakın fikirleri daha kolay kabul eder.\nIV. Bu nedenle bir düşünceyi değerlendirirken karşıt örnekleri de incelemek gerekir.",
+  "options": [
+    "III - I - II - IV",
+    "II - III - I - IV",
+    "III - II - I - IV",
+    "II - I - III - IV"
+  ],
+  "answerIndex": 0,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Sıralama",
+  "skills": ["paragraf_siralama", "mantik", "akis"],
+  "explanation": "III giriş cümlesidir. I bunun nedenini açıklar. II sonucu belirtir. IV ise genel sonuç cümlesidir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0446"
+},
+{
+  "stem": "I. metin: Bazı yazarlar düşüncelerini açık ve doğrudan ifade ederek okurun metni kolayca anlamasını ister.\n\nII. metin: Bazı yazarlar ise okurun metin üzerinde durmasını ve bazı anlamları kendisinin kurmasını önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metin de okurun yorum yapmasını gereksiz görmektedir.",
+    "I. metin açıklığı, II. metin ise okurun aktif katılımını öne çıkarmaktadır.",
+    "I. metin kapalılığı savunmaktadır.",
+    "II. metin anlamın gizli kalmasını amaçlamaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "metin_analizi", "yorumlama"],
+  "explanation": "Birinci metin açık anlatımı, ikinci metin ise okurun aktif katılımını vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0447"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık kitap okuma gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %11'i hiç okumamakta, %19'u 1 gün, %26'sı 2 gün, %21'i 3 gün, %15'i 4 gün, %8'i ise 5 gün ve üzeri okumaktadır. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 4 gün kitap okumaktadır.",
+    "En büyük grup haftada 2 gün kitap okuyanlardır.",
+    "Hiç okumayanlar en kalabalık gruptur.",
+    "Tüm öğrenciler haftada en az 1 gün kitap okumaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilere göre en yüksek oran %26 ile haftada 2 gün kitap okuyan öğrencilere aittir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0448"
+},
+{
+  "stem": "Dört öğrenci (Arda, Bora, Cem ve Deniz) farklı günlerde sunum yapacaktır: pazartesi, salı, çarşamba ve perşembe. Arda, Bora'dan önce sunum yapacaktır. Cem, perşembe günü sunum yapmayacaktır. Deniz, Arda'dan sonra sunum yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Deniz, Bora'dan sonra sunum yapacaktır.",
+    "Arda, Deniz'den önce sunum yapacaktır.",
+    "Cem, salı günü sunum yapacaktır.",
+    "Bora, çarşamba günü sunum yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Deniz'in Arda'dan sonra sunum yapacağı verildiği için Arda'nın Deniz'den önce olduğu kesindir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0449"
+},
+{
+  "stem": "\"Metni daha iyi anlayabilmek için bazı bölümleri yeniden okudu.\" cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Koşul-sonuç",
+    "Amaç-sonuç",
+    "Karşılaştırma",
+    "Neden-sonuç"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "amac_sonuc", "yorumlama"],
+  "explanation": "Yeniden okuma eylemi metni daha iyi anlayabilmek amacıyla yapılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0450"
 }
   ]
 }
