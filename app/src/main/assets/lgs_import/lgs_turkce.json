@@ -7262,6 +7262,176 @@
   "explanation": "\"İçini dökmek\" deyimi, kişinin içinde tuttuklarını açıkça anlatması anlamında kullanılmıştır.",
   "source": "brainbuddy",
   "sourceRef": "lgs_brainbuddy_tr_0362"
+},
+{
+  "stem": "Bazı düşünceler ilk anda güçlü görünür çünkü büyük sözlerle ifade edilirler. Ancak dikkatle incelendiğinde bu sözlerin çoğu zaman sağlam bir temele dayanmadığı görülür. Buna karşılık bazı düşünceler daha sade bir anlatımla ortaya konur; fakat dayandıkları gerekçeler güçlü olduğu için zamanla daha güvenilir bulunurlar. Bu nedenle bir görüşü değerlendirirken onun ne kadar etkileyici göründüğüne değil, hangi düşünce zincirine dayandığına bakmak gerekir.",
+  "options": [
+    "Etkileyici sözlerle anlatılan düşünceler genellikle daha doğrudur.",
+    "Bir düşüncenin değeri, ne kadar gösterişli ifade edildiğiyle ölçülmelidir.",
+    "Bir düşüncenin gücü, onu destekleyen gerekçelerin sağlamlığıyla anlaşılır.",
+    "Sade anlatımlar düşünceyi zayıflatır."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "akil_yurutme", "yorumlama"],
+  "explanation": "Parçada düşüncenin değerinin etkileyici sözlerden değil, dayandığı gerekçelerin sağlamlığından geldiği anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0363"
+},
+{
+  "stem": "Bir metnin anlamı bazen yalnızca açıkça söylenenlerde değil, söylenmeyenlerde de saklıdır. Yazar bazı ayrıntıları özellikle dışarıda bırakabilir; çünkü okurun bu boşluğu kendisinin doldurmasını ister. Böyle durumlarda metni anlamak, yalnızca cümleleri okumak değil; o cümlelerin bıraktığı boşlukları da fark etmektir.",
+  "options": [
+    "Metni anlamak için yalnızca açıkça yazılanları okumak yeterlidir.",
+    "Yazarın söylemediği ayrıntılar metnin anlamıyla ilgisizdir.",
+    "Bazı metinlerde anlam, söylenen kadar söylenmeyen ayrıntılarda da bulunabilir.",
+    "Yazarın ayrıntı bırakmaması metni daha anlaşılır yapar."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "metin_analizi", "yorumlama"],
+  "explanation": "Parçada bazı metinlerde anlamın söylenmeyen ayrıntılarda da bulunabileceği vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0364"
+},
+{
+  "stem": "Bir yazının etkili olması için mutlaka yeni bir düşünce ortaya koyması gerekmez. Bazen herkesin bildiği bir durumu farklı bir açıdan göstermek de okurun dikkatini çekebilir. Çünkü insan çoğu zaman gördüğü şeyleri gerçekten fark etmez; onları ancak başka bir göz işaret ettiğinde yeniden düşünür.",
+  "options": [
+    "Etkili yazılar yalnızca yeni fikirler içerir.",
+    "Bilinen konular yazıda kullanılmamalıdır.",
+    "Bir yazı, bilinen bir durumu farklı bir açıdan göstererek etkili olabilir.",
+    "Okurlar yalnızca yeni bilgilerle ilgilenir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Yardımcı Düşünce",
+  "skills": ["yardimci_dusunce", "yorumlama", "yazarin_amaci"],
+  "explanation": "Parçada bilinen bir durumun farklı açıdan gösterilmesinin de yazıyı etkili kılabileceği anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0365"
+},
+{
+  "stem": "Bir düşünceyi gerçekten anlamak, onu yalnızca doğru bulmakla ortaya çıkmaz. İnsan o düşünceyi farklı durumlarda uygulayabildiğinde onu gerçekten kavramış olur. Çünkü ezberlenen bilgi yeni durumlarda işe yaramaz; kavranan bilgi ise farklı bağlamlarda da kendini gösterir. ____",
+  "options": [
+    "Bu nedenle gerçek öğrenme yalnızca bilgiyi tekrar etmekten ibarettir.",
+    "Bu yüzden bir düşünceyi anlamanın ölçüsü, onu farklı durumlarda kullanabilmektir.",
+    "Bu nedenle örnekler öğrenmeyi zorlaştırır.",
+    "Bu yüzden bilgiler yalnızca kendi bağlamlarında değerlendirilmelidir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "cikarim", "uygulama"],
+  "explanation": "Parça, gerçek öğrenmenin bilgiyi farklı durumlarda kullanabilmekle ortaya çıktığını vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0366"
+},
+{
+  "stem": "Aşağıdaki cümlelerden hangisi paragrafın akışını bozmaktadır?\n\n(1) Bir düşüncenin gücü yalnızca onu destekleyen örneklerle anlaşılmaz. (2) Çünkü her görüş kendisini doğrulayan bazı örnekler bulabilir. (3) Asıl önemli olan o düşüncenin karşı örnekler karşısında da açıklama üretebilmesidir. (4) Günümüzde birçok öğrenci ders çalışırken dijital araçlardan yararlanmaktadır. (5) Bu nedenle güçlü bir düşünce, yalnızca onayla değil itirazla da sınanmalıdır.",
+  "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Paragrafta Akış",
+  "skills": ["akis_bozan_cumle", "paragraf", "konu_butunlugu"],
+  "explanation": "Paragraf düşüncenin sınanmasıyla ilgilidir. 4. cümle dijital araçlardan söz ederek konu dışına çıkmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0367"
+},
+{
+  "stem": "I. metin: Bazı yazarlar düşünceyi açık ve düzenli biçimde vererek okurun metni hızlıca anlamasını ister.\n\nII. metin: Bazı yazarlar ise metnin bütün bağlantılarını baştan kurmaz; okurun metni okurken bazı anlamları kendisinin tamamlamasını önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metin de okurun yorum yapmasını gereksiz görmektedir.",
+    "I. metin açıklığı, II. metin ise okurun aktif katılımını öne çıkarmaktadır.",
+    "I. metin kapalılığı savunmaktadır.",
+    "II. metin anlamın gizli kalmasını amaçlamaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "metin_analizi", "yorumlama"],
+  "explanation": "Birinci metin açık anlatımı, ikinci metin ise okurun anlam kurma sürecine katılımını vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0368"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık kitap okuma gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %12'si hiç okumamakta, %18'i 1 gün, %27'si 2 gün, %20'si 3 gün, %13'ü 4 gün, %10'u ise 5 gün ve üzeri okumaktadır. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 4 gün kitap okumaktadır.",
+    "En büyük grup haftada 2 gün okuyanlardır.",
+    "Hiç okumayanlar en kalabalık gruptur.",
+    "Tüm öğrenciler haftada en az 1 gün kitap okumaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilerde en yüksek oran %27 ile haftada 2 gün kitap okuyan öğrencilere aittir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0369"
+},
+{
+  "stem": "Dört öğrenci (Ali, Bora, Cem ve Deniz) farklı günlerde görev yapacaktır: pazartesi, salı, çarşamba ve perşembe. Ali, Bora'dan önce görev yapacaktır. Cem, perşembe günü görev yapmayacaktır. Deniz, Ali'den sonra görev yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Deniz, Bora'dan sonra görev yapacaktır.",
+    "Ali, Deniz'den önce görev yapacaktır.",
+    "Cem, salı günü görev yapacaktır.",
+    "Bora, çarşamba günü görev yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Deniz'in Ali'den sonra görev yapacağı verildiği için Ali'nin Deniz'den önce olduğu kesin olarak bilinir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0370"
+},
+{
+  "stem": "\"Metni daha iyi anlayabilmek için bazı cümleleri yeniden okudu.\" cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Koşul-sonuç",
+    "Amaç-sonuç",
+    "Karşılaştırma",
+    "Neden-sonuç"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "amac_sonuc", "yorumlama"],
+  "explanation": "Yeniden okuma eylemi metni daha iyi anlayabilmek amacıyla yapılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0371"
+},
+{
+  "stem": "\"Sonunda o da eteğindeki taşları döktü.\" cümlesinde bu söz hangi anlamda kullanılmıştır?",
+  "options": [
+    "Bir şeyi yere dökmek",
+    "Sakladığı düşünceleri açıkça söylemek",
+    "Bir işi aceleyle yapmak",
+    "Konuyu değiştirmek"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["deyim", "sozcukte_anlam", "mecaz"],
+  "explanation": "\"Eteğindeki taşları dökmek\" deyimi kişinin içinde tuttuklarını açıkça söylemesi anlamında kullanılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_brainbuddy_tr_0372"
 }
   ]
 }
