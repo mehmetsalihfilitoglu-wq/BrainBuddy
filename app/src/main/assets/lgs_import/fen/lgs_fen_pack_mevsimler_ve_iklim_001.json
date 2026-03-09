@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "K ve L şehirlerinde aynı gün öğle vakti yere dikilen eşit uzunluktaki çubukların gölge boyları ölçülmüştür. K şehrinde gölge boyu 40 cm, L şehrinde ise 85 cm ölçülmüştür. Aynı gün her iki şehirde de gece ve gündüz sürelerinin eşit olduğu bilinmektedir.\n\nBuna göre aşağıdaki yorumlardan hangisi kesinlikle doğrudur?",
+      "options": [
+        "K şehri Ekvator üzerindedir.",
+        "L şehri K şehrine göre Ekvator'a daha uzaktır.",
+        "K şehri Güney Yarım Küre'dedir.",
+        "L şehrinde yaz mevsimi yaşanmaktadır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "iklim", "gunes_isi", "golge"],
+      "explanation": "Ekinoks tarihinde gece-gündüz eşittir. Öğle vakti gölge boyu ne kadar uzunsa Güneş ışınlarının geliş açısı o kadar küçüktür. Bu durumda L şehri Güneş ışınlarını daha eğik alır ve Ekvator'dan daha uzaktadır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q01"
+    },
+    {
+      "stem": "Bir öğrenci Dünya modeli üzerinde yaptığı deneyde küreyi sabit bir açıyla eğik tutarak ışık kaynağı etrafında dolandırıyor. Deney sırasında bir yarım kürede aydınlanan alanın genişliği ve ışınların geliş açısının yıl içinde değiştiğini gözlemliyor.\n\nBu deney aşağıdaki hangi olayı açıklamak için yapılmış olabilir?",
+      "options": [
+        "Gece ve gündüz oluşumu",
+        "Mevsimlerin oluşumu",
+        "Dünya'nın şekli",
+        "Yer çekimi kuvveti"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "dolanim", "deney"],
+      "explanation": "Eksen eğikliği sabit tutulup Dünya'nın dolanımı modelleniyorsa amaç mevsimlerin oluşumunu açıklamaktır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q02"
+    },
+    {
+      "stem": "21 Haziran tarihinde Kuzey Yarım Küre'de gündüz süreleri yıl içindeki en uzun değeri alır. Aynı tarihte Güney Yarım Küre'de gündüz süreleri yıl içindeki en kısa değerdedir.\n\nBu durum aşağıdakilerden hangisinin sonucudur?",
+      "options": [
+        "Dünya'nın eksen eğikliğinin bulunması",
+        "Dünya'nın küresel şekli",
+        "Dünya'nın dönüş yönü",
+        "Güneş'in sıcaklık yayması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "gunes_isi"],
+      "explanation": "Eksen eğikliği nedeniyle yarım küreler yılın farklı dönemlerinde Güneş'e farklı açılarla yönelir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q03"
+    },
+    {
+      "stem": "Bir şehirde yıl boyunca ölçülen gündüz süreleri grafiğinde haziran ayında en yüksek değer, aralık ayında en düşük değer görülmektedir.\n\nBuna göre bu şehir için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Kuzey Yarım Küre'dedir",
+        "Güney Yarım Küre'dedir",
+        "Ekvator üzerindedir",
+        "Kutup bölgesindedir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "INTERPRETATION",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "gunes_isi", "grafik_yorumlama"],
+      "explanation": "Haziran ayında gündüz süresinin en uzun olması Kuzey Yarım Küre özelliğidir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q04"
+    },
+    {
+      "stem": "Aynı gün üç farklı şehirde öğle vakti gölge boyu ölçülmüştür:\n\nK: 25 cm\nL: 40 cm\nM: 70 cm\n\nBuna göre şehirlerin Ekvator'a uzaklık sıralaması aşağıdakilerden hangisidir?",
+      "options": [
+        "K < L < M",
+        "M < L < K",
+        "L < K < M",
+        "K < M < L"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "INTERPRETATION",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "gunes_isi", "golge", "karilastirma"],
+      "explanation": "Gölge boyu kısa olan yer Güneş ışınlarını daha dik alır ve Ekvator'a daha yakındır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q05"
+    },
+    {
+      "stem": "Bir öğretmen el feneri ile masaya farklı açılarla ışık tutuyor. Işık yüzeye eğik geldikçe aydınlanan alanın büyüdüğü gözleniyor.\n\nBu deney aşağıdaki hangi sonucu modellemektedir?",
+      "options": [
+        "Işınlar eğik geldikçe birim alana düşen enerji azalır",
+        "Işık hızının değişmesi",
+        "Yer çekimi kuvveti",
+        "Dünya'nın dönüşü"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["gunes_isi", "deney", "enerji"],
+      "explanation": "Işınlar eğik geldikçe enerji daha geniş alana yayılır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q06"
+    },
+    {
+      "stem": "Dünya'nın eksen eğikliği olmasaydı aşağıdaki olaylardan hangisi gerçekleşmezdi?",
+      "options": [
+        "Gece ve gündüz oluşumu",
+        "Mevsimlerin oluşumu",
+        "Dünya'nın dolanımı",
+        "Güneş ışınlarının yayılması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi"],
+      "explanation": "Mevsimler eksen eğikliği ve dolanım birlikte olduğu için oluşur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q07"
+    },
+    {
+      "stem": "Aynı tarihte Türkiye'de kış yaşanırken Avustralya'da yaz yaşanmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "İki ülkenin farklı yarım kürelerde bulunması",
+        "Güneş'e uzaklıklarının farklı olması",
+        "Yer çekimi kuvveti",
+        "Güneş'in büyüklüğü"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "yarim_kure"],
+      "explanation": "Yarım küreler eksen eğikliği nedeniyle farklı mevsimler yaşar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q08"
+    },
+    {
+      "stem": "Dünya'nın Güneş etrafındaki dolanımı sırasında eksen yönünün değişmemesi aşağıdaki sonuçlardan hangisini doğurur?",
+      "options": [
+        "Yarım kürelerde zıt mevsimler oluşur",
+        "Dünya'nın şekli değişir",
+        "Gece ve gündüz oluşmaz",
+        "Yer çekimi ortadan kalkar"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "dolanim"],
+      "explanation": "Eksen yönü sabit kaldığı için yarım küreler farklı dönemlerde Güneş'e yönelir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q09"
+    },
+    {
+      "stem": "Mevsimlerin oluşumu için aşağıdaki koşullardan hangilerinin birlikte gerçekleşmesi gerekir?\n\nI. Dünya'nın eksen eğikliği\nII. Dünya'nın Güneş etrafında dolanımı\nIII. Dünya'nın kendi ekseni etrafında dönmesi",
+      "options": [
+        "Yalnız I",
+        "I ve II",
+        "II ve III",
+        "I, II ve III"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "REASONING",
+      "topic": "Mevsimler ve İklim",
+      "skills": ["mevsimler", "eksen_egikligi", "dolanim"],
+      "explanation": "Mevsimler eksen eğikliği ve dolanımın birlikte etkisiyle oluşur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mvs_001_q10"
+    }
+  ]
+}
