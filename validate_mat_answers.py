@@ -83,7 +83,7 @@ def extract_answer_from_explanation(expl: str, options: List[str]) -> Optional[T
                         return (val, s)
                 except (ValueError, ZeroDivisionError):
                     pass
-            elif "(" in p:
+            elif "(" in p and m.lastindex >= 2:
                 val = f"({m.group(1)},{m.group(2)})"
                 if find_option_index(options, val) >= 0:
                     return (val, val)
@@ -168,7 +168,7 @@ def solve_from_stem(stem: str, options: List[str]) -> Optional[Tuple[Any, str]]:
     m = re.search(r"(\d+)\s*öğrenci.*?ortalamasının\s*(\d+)\s*ol", stem, re.IGNORECASE | re.DOTALL)
     if m:
         n, avg = int(m.group(1)), int(m.group(2))
-        known = [int(x) for x in re.findall(r"(?:sırasıyla|netleri)\s*([\d,\s]+)", stem)]
+        known = re.findall(r"(?:sırasıyla|netleri)\s*([\d,\s]+)", stem, re.IGNORECASE)
         if known:
             nums_in = re.findall(r"\d+", known[0] if isinstance(known[0], str) else stem)
             # Format often: "11, 12, 13, 14, 15, 16, 17, 18 ve x"
@@ -417,7 +417,7 @@ def process_question(q: dict, qindex: int, filepath: str) -> Tuple[dict, List[di
             "computed_answer": str(correct_val),
             "old_answer_index": answer_index,
             "correct_index": correct_idx,
-            "fix_applied": f"answerIndex: {answer_index} → {correct_idx}"
+            "fix_applied": f"answerIndex: {answer_index} -> {correct_idx}"
         })
         new_q["answerIndex"] = correct_idx
         modified = True
