@@ -222,6 +222,176 @@
   "explanation": "Parçada gerçek öğrenmenin, bilgiyi farklı bağlamlarda kullanabilme becerisiyle anlaşılacağı vurgulanmaktadır.",
   "source": "brainbuddy",
   "sourceRef": "lgs_smoke:turkce:14"
+},
+{
+  "stem": "İnsanlar çoğu zaman bir düşüncenin değerini, ilk anda ne kadar kolay anlaşıldığına göre belirler. Oysa kolay anlaşılmak ile yüzeysel olmak aynı şey değildir; zor anlaşılmak da derinliğin garantisi sayılmaz. Bazı fikirler yalın bir dille ifade edilse de güçlü bir düşünsel yapı taşır, bazıları ise karmaşık bir anlatım kullanmasına rağmen içi boş kalabilir. Bu nedenle bir düşüncenin gücü, onu anlamak için harcanan çabadan çok, kendi iç tutarlılığı ve açıklayıcılığıyla ölçülmelidir.",
+  "options": [
+    "Zor anlaşılan düşünceler genellikle daha derindir.",
+    "Kolay anlaşılan düşünceler çoğu zaman yüzeyseldir.",
+    "Bir düşüncenin değeri, anlaşılma zorluğundan çok tutarlılığına bağlıdır.",
+    "Karmaşık anlatımlar, düşünceyi her zaman daha güçlü kılar."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "yorumlama", "cikarim"],
+  "explanation": "Parçada düşüncenin değerinin kolay ya da zor anlaşılmasından değil, kendi iç tutarlılığı ve açıklayıcılığından geldiği vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:15"
+},
+{
+  "stem": "Bir metni anlamak bazen yalnızca metinde bulunan bilgileri değil, o bilgilerin neden o sırayla verildiğini de fark etmeyi gerektirir. Çünkü anlatımda sıra, yalnızca düzen sağlamak için kullanılmaz; düşüncenin nasıl ilerleyeceğini, okurun hangi noktada duracağını ve hangi sonuca hangi yoldan yaklaşacağını da belirler. Bu yüzden aynı bilgiler farklı bir sırayla verildiğinde metnin etkisi değişebilir.",
+  "options": [
+    "Metindeki bilgilerin sırası, yalnızca görünüşte bir düzen oluşturur.",
+    "Aynı bilgiler farklı sırayla verildiğinde metnin etkisi değişebilir.",
+    "Bir metni anlamak için bilgi sıralamasına dikkat etmeye gerek yoktur.",
+    "Anlatımda sıra yalnızca yazarın kişisel tercihidir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "metin_analizi", "yorumlama"],
+  "explanation": "Parçada bilgi sıralamasının metnin etkisini ve düşüncenin ilerleyişini değiştirebileceği belirtilmektedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:16"
+},
+{
+  "stem": "Bir düşüncenin sağlam olup olmadığını anlamak için yalnızca onu destekleyen örneklere bakmak yeterli değildir. Çünkü her görüş, kendisini doğrulayan durumlarla güçlü görünebilir. Asıl belirleyici olan, o düşüncenin kendisine karşı çıkan örnekler karşısında nasıl ayakta kaldığıdır. ____",
+  "options": [
+    "Bu nedenle bir görüşü değerlendirirken yalnızca onu destekleyen durumlar dikkate alınmalıdır.",
+    "Bu yüzden karşı örnekler, düşüncenin gerçek gücünü sınamada önemlidir.",
+    "Bu nedenle güçlü düşünceler eleştiriye ihtiyaç duymaz.",
+    "Bu yüzden örnek kullanmak düşüncenin açıklığını azaltır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "mantik", "akil_yurutme"],
+  "explanation": "Parça, düşüncenin yalnızca destekleyici değil karşı örnekler karşısında da sınanması gerektiğini vurguladığı için en uygun tamamlayıcı cümle B seçeneğidir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:17"
+},
+{
+  "stem": "Aşağıdaki cümlelerden anlamlı bir paragraf oluşturulduğunda doğru sıralama hangisi olur?\n\nI. Çünkü insan, kendi alıştığı düzenin dışına çıkmadıkça başka ihtimalleri fark etmekte zorlanır.\nII. Bu nedenle yeni bir şey öğrenmek bazen yalnızca bilgi edinmek değil, eski bilgiye başka bir yerden bakabilmek demektir.\nIII. İnsan çoğu zaman alıştığı düşünme yollarını tek mümkün yol sanır.\nIV. Oysa farklı bir örnek ya da yeni bir bakış açısı, düşüncenin yönünü değiştirebilir.",
+  "options": [
+    "III - IV - I - II",
+    "IV - III - I - II",
+    "III - I - IV - II",
+    "IV - I - III - II"
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Sıralama",
+  "skills": ["paragraf_siralama", "akis", "mantik"],
+  "explanation": "Giriş cümlesi III'tür. I cümlesi bunun gerekçesini verir. IV, karşıtlıkla yeni durumu açıklar. II ise sonuç cümlesidir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:18"
+},
+{
+  "stem": "I. metin: Bazı yazarlar, okurun metni mümkün olduğunca hızlı ve açık biçimde takip etmesini ister. Bu anlayışta anlatım, belirsizliği azaltacak şekilde düzenlenir.\n\nII. metin: Bazı yazarlar ise okurun metinde durmasını, bazı bağlantıları kendisinin kurmasını ve anlamı süreç içinde keşfetmesini önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metinde de okurun metne aktif katılımı önemsiz görülmektedir.",
+    "I. metin açıklığı ve akıcılığı, II. metin ise okurun anlam kurma sürecine katılımını öne çıkarmaktadır.",
+    "I. metin kapalılığı, II. metin ise yalnızca açıklığı savunmaktadır.",
+    "Her iki metin de anlamın ilk anda bütünüyle gizli kalmasını savunmaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "metin_analizi", "yorumlama"],
+  "explanation": "İlk metin açıklık ve akıcılığı, ikinci metin ise okurun anlamı kurma sürecine katılımını vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:19"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık kelime çalışma gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %8'i hiç çalışmamakta, %17'si 1 gün, %26'sı 2 gün, %25'i 3 gün, %15'i 4 gün, %9'u ise 5 gün ve üzeri çalışmaktadır. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 4 gün kelime çalışmaktadır.",
+    "En büyük grup haftada 2 gün kelime çalışanlardır.",
+    "Hiç çalışmayanlar en kalabalık gruptur.",
+    "Öğrencilerin tamamı haftada en az 1 gün kelime çalışmaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilere göre en yüksek oran %26 ile haftada 2 gün kelime çalışan öğrencilere aittir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:20"
+},
+{
+  "stem": "Dört öğrenci (Aras, Beren, Can ve Dila) farklı günlerde prova yapacaktır: pazartesi, salı, çarşamba ve perşembe. Aras, Beren'den önce prova yapacaktır. Can, perşembe günü prova yapmayacaktır. Dila, Aras'tan sonra prova yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Dila, Beren'den sonra prova yapacaktır.",
+    "Aras, Dila'dan önce prova yapacaktır.",
+    "Can, salı günü prova yapacaktır.",
+    "Beren, çarşamba günü prova yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Soruda Dila'nın Aras'tan sonra prova yapacağı verildiği için Aras'ın Dila'dan önce olduğu kesin olarak söylenebilir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:21"
+},
+{
+  "stem": ""Soruyu hemen yanıtlamadı; çünkü önce neyin sorulduğunu tam olarak anlamak istedi." cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Amaç-sonuç",
+    "Neden-sonuç",
+    "Karşılaştırma",
+    "Koşul-sonuç"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "neden_sonuc", "yorumlama"],
+  "explanation": "Cümlede yanıtlamama davranışının nedeni açıklandığı için neden-sonuç ilişkisi vardır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:22"
+},
+{
+  "stem": ""Onun bu sözleri ortamı bir anda yumuşattı." cümlesinde "yumuşattı" sözcüğü hangi anlamda kullanılmıştır?",
+  "options": [
+    "Gerçek anlamda sertliği azaltmak",
+    "Mecaz anlamda gerginliği azaltmak",
+    "Terim anlamda dönüştürmek",
+    "Yan anlamda ısıtmak"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["sozcukte_anlam", "mecaz", "yorumlama"],
+  "explanation": "Sözcük burada fiziksel bir yumuşamayı değil, ortamın gerginliğinin azalmasını anlattığı için mecaz anlamda kullanılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:23"
+},
+{
+  "stem": "Bir düşünceyi ezberleyerek tekrar etmek ile onu anlayarak yeniden kurmak aynı şey değildir. Ezberlenen düşünce, yalnızca duyulduğu biçimde geri döner; anlaşılan düşünce ise farklı koşullarda yeniden düzenlenebilir, başka örneklerle ilişkilendirilebilir ve gerektiğinde başka bir biçimde ifade edilebilir. Bu nedenle öğrenmenin gerçek göstergesi, duyulanı aynen geri söylemek değil; onu yeni durumlarda da işe yarar hâle getirebilmektir.",
+  "options": [
+    "Bir düşünceyi öğrenmenin en iyi yolu onu değişmeden tekrar etmektir.",
+    "Ezberlenen düşünce ile anlaşılan düşünce arasında önemli bir fark yoktur.",
+    "Gerçek öğrenme, düşünceyi farklı bağlamlarda yeniden kullanabilme becerisiyle anlaşılır.",
+    "Bir düşünceyi başka örneklerle ilişkilendirmek onu bozar."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Yorum",
+  "skills": ["yorumlama", "uygulama", "cikarim"],
+  "explanation": "Parçada gerçek öğrenmenin, bilgiyi ya da düşünceyi yeni durumlarda da kullanabilme becerisiyle ortaya çıktığı vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:24"
 }
   ]
 }
