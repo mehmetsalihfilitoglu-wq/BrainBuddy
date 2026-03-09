@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": ["oran", "denklem_kurma", "problem_cozme"],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir okul gezisi için üç farklı otobüs firmasına teklif istenmiştir. A firması kişi başı 45 TL, B firması 30 kişiye sabit 1200 TL, C firması ise ilk 20 kişiye 40 TL ve sonraki her kişiye 35 TL ücret talep etmektedir. Geziye tam 35 öğrenci katılacağına göre en uygun fiyatı veren firma hangisidir ve toplam maliyet kaç TL olur?",
+      "options": ["A firması, 1575 TL", "B firması, 1200 TL", "C firması, 1325 TL", "B firması, 1350 TL"],
+      "answerIndex": 1,
+      "explanation": "A: 35×45=1575 TL. B: 1200 TL sabit. C: 20×40 + 15×35 = 800+525=1325 TL. En uygun B firmasıdır.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-1"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": ["ortalama", "grafik_okuma", "yorumlama"],
+      "questionType": "tablo_yorum",
+      "stem": "Bir öğrencinin altı haftalık matematik denemelerinden aldığı netler sırasıyla 18, 22, 19, 25, 20 ve x'tir. Öğretmen bu öğrencinin altı haftalık ortalamasının en az 21 olması gerektiğini söylemiştir. Buna göre öğrenci son denemede en az kaç net yapmalıdır?",
+      "options": ["22", "24", "26", "28"],
+      "answerIndex": 1,
+      "explanation": "Toplam 6×21=126 olmalı. Bilinen toplam 18+22+19+25+20=104. x ≥ 22. En az 22 net.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-2"
+    },
+    {
+      "difficulty": 2,
+      "topic": "kesirler",
+      "skills": ["kesir", "problem_cozme", "yorumlama"],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir okulun bahçesindeki ağaçların 2/5'i meyve ağacıdır. Meyve ağaçlarının 1/3'ü elma, geri kalanı armut ağacıdır. Armut ağacı sayısı 24 olduğuna göre bahçede toplam kaç ağaç vardır?",
+      "options": ["75", "90", "100", "120"],
+      "answerIndex": 1,
+      "explanation": "Toplam x. Meyve 2x/5. Elma 2x/15, armut 4x/15 = 24 → x = 90.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-3"
+    },
+    {
+      "difficulty": 1,
+      "topic": "yuzdeler",
+      "skills": ["yuzde", "problem_cozme"],
+      "questionType": "tablo_yorum",
+      "stem": "Bir mağazada etiket fiyatı 400 TL olan bir ürüne önce %15 indirim uygulanıyor. İndirimli fiyat üzerinden kredi kartı ile ödeyenlere ek %10 indirim daha yapılıyor. Kredi kartı ile ödeyen bir müşteri bu ürünü kaç TL'ye alır?",
+      "options": ["306", "312", "318", "324"],
+      "answerIndex": 0,
+      "explanation": "İlk indirim: 400×0,85=340 TL. İkinci: 340×0,90=306 TL.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-4"
+    },
+    {
+      "difficulty": 2,
+      "topic": "alan_cevre",
+      "skills": ["geometri", "alan", "problem_cozme"],
+      "questionType": "geometri_yorum",
+      "stem": "Dikdörtgen biçimindeki bir sınıf panosunun kısa kenarı 120 cm, uzun kenarı 180 cm'dir. Pano köşelerinden bir kenarı 20 cm olan dört eş kare kesilip çıkarılarak çerçeve yapılacaktır. Buna göre çerçeve yapıldıktan sonra kalan panonun alanı kaç santimetrekaredir?",
+      "options": ["17600", "18400", "19200", "20000"],
+      "answerIndex": 3,
+      "explanation": "Tam alan 120×180=21600. Kesilen 4×400=1600. Kalan 20000 cm².",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-5"
+    },
+    {
+      "difficulty": 2,
+      "topic": "denklem_kurma",
+      "skills": ["denklem", "problem_cozme"],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir kantinde simit ve çay satılmaktadır. Bir simit 8 TL, bir çay 4 TL'dir. Bir öğrenci 10 TL ödeyerek iki simit ve bir çay almak istemektedir; ancak yanlışlıkla iki çay ve bir simit almıştır. Kasiyer farkı iade ettiğine göre iade edilen miktar kaç TL'dir?",
+      "options": ["2", "4", "6", "8"],
+      "answerIndex": 1,
+      "explanation": "İstenen: 2×8+4=20 TL. Alınan: 2×4+8=16 TL. Fazla ödenen 4 TL iade edilir.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-6"
+    },
+    {
+      "difficulty": 2,
+      "topic": "oran_oranti",
+      "skills": ["oran", "problem_cozme", "yorumlama"],
+      "questionType": "paragraph",
+      "stem": "Bir sınıftaki kız ve erkek öğrenci sayıları 4 : 5 oranındadır. Sınıfa 5 kız öğrenci daha katıldığında kız sayısı erkek sayısına eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": ["36", "45", "54", "63"],
+      "answerIndex": 1,
+      "explanation": "4k ve 5k. 4k+5=5k → k=5. Toplam 9k=45.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-7"
+    },
+    {
+      "difficulty": 2,
+      "topic": "is_orani",
+      "skills": ["oran", "problem_cozme"],
+      "questionType": "yeni_nesil_problem",
+      "stem": "Bir işi Ahmet 12 günde, Mehmet 18 günde bitirebilmektedir. İkisi birlikte 4 gün çalıştıktan sonra Ahmet işi bırakıyor. Kalan işi Mehmet tek başına kaç günde bitirir?",
+      "options": ["5", "6", "8", "10"],
+      "answerIndex": 2,
+      "explanation": "4 günde 4(1/12+1/18)=4×5/36=20/36=5/9 biter. Kalan 4/9. Mehmet 4/9÷(1/18)=8 günde bitirir.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-8"
+    },
+    {
+      "difficulty": 2,
+      "topic": "veri_analizi",
+      "skills": ["ortalama", "veri_yorumlama"],
+      "questionType": "grafik_yorum",
+      "stem": "Bir öğrenci beş matematik sınavından 70, 75, 80, 85 ve 90 puan almıştır. Altıncı sınavdan aldığı puan ile birlikte ortalaması 82 olduğuna göre altıncı sınavdan kaç puan almıştır?",
+      "options": ["90", "92", "94", "96"],
+      "answerIndex": 1,
+      "explanation": "Toplam 6×82=492 olmalı. İlk beş toplam 400. Altıncı 92.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-9"
+    },
+    {
+      "difficulty": 2,
+      "topic": "geometrik_olcme",
+      "skills": ["alan", "cevre", "problem_cozme"],
+      "questionType": "paragraph",
+      "stem": "Kare şeklindeki bir bahçenin çevresine 2 metre genişliğinde yürüyüş yolu yapılacaktır. Bahçenin bir kenarı 16 metre olduğuna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
+      "options": ["136", "144", "160", "176"],
+      "answerIndex": 1,
+      "explanation": "Dış kare kenar 20 m. Yol alanı 20²−16²=400−256=144 m².",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-020-10"
+    }
+  ]
+}
