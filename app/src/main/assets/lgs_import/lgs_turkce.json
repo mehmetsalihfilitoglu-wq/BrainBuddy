@@ -392,6 +392,193 @@
   "explanation": "Parçada gerçek öğrenmenin, bilgiyi ya da düşünceyi yeni durumlarda da kullanabilme becerisiyle ortaya çıktığı vurgulanmaktadır.",
   "source": "brainbuddy",
   "sourceRef": "lgs_smoke:turkce:24"
+},
+{
+  "stem": "Bir düşüncenin güçlü olması, yalnızca doğru bir sonuca ulaşmasına bağlı değildir. Çünkü bazen insan, eksik ya da yanlış gerekçelerle de doğru bir sonuca varabilir. Böyle bir durumda sonuç doğru görünse bile o sonuca giden yol güven vermez. Oysa sağlam düşünme, yalnızca doğru cevabı bulmak değil; o cevaba hangi adımlarla, hangi ayrımları yaparak ulaştığını da gösterebilmektir. Bu nedenle düşüncenin değeri, vardığı yer kadar oraya nasıl ulaştığında da aranmalıdır.",
+  "options": [
+    "Doğru sonuca ulaşan her düşünce aynı derecede değerlidir.",
+    "Bir düşüncenin değeri, yalnızca doğru cevaba ulaşmasında değil, o cevaba nasıl ulaştığında da aranmalıdır.",
+    "Yanlış gerekçelerle doğru sonuca ulaşmak, sağlam düşünmenin göstergesidir.",
+    "Düşünmede önemli olan tek şey sonuçtur."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "akil_yurutme", "yorumlama"],
+  "explanation": "Parçada düşüncenin değerinin yalnızca sonuçta değil, o sonuca ulaşma biçiminde de olduğu vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:25"
+},
+{
+  "stem": "Bir metni hızlıca okuyup bitirmek, o metinle gerçekten ilişki kurulduğu anlamına gelmez. Bazı metinler, okurun yalnızca bilgiyi almasını değil, o bilgi üzerinde durmasını, bağlantılar kurmasını ve metnin sessiz bıraktığı alanları da düşünmesini ister. Böyle metinlerde anlam, ilk okumada bütünüyle ele geçmez; okur geri döndükçe, daha önce önemsiz sandığı ayrıntıların aslında merkeze bağlı olduğunu fark eder. Bu yüzden bazı metinler, yavaş okundukça açılır ve değerini de tam burada gösterir.",
+  "options": [
+    "Bir metni hızlı bitirmek, onu tam anlamıyla kavradığını gösterir.",
+    "Bazı metinler, tekrar dönülüp dikkatle okundukça daha açık hâle gelir.",
+    "Metindeki ayrıntılar çoğu zaman merkeze bağlı değildir.",
+    "Yavaş okuma, metnin değerini azaltır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Yorum",
+  "skills": ["yorumlama", "cikarim", "okuma_becerisi"],
+  "explanation": "Parçada bazı metinlerin yavaş ve dikkatli okundukça açıldığı, değerinin de burada ortaya çıktığı belirtilmektedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:26"
+},
+{
+  "stem": "Bir yazının etkili olabilmesi için mutlaka çok sayıda bilgi vermesi gerekmez. Bazen birkaç dikkatli gözlem ve yerinde seçilmiş bir ayrıntı, uzun açıklamalardan daha güçlü bir etki oluşturur. Çünkü okur, her zaman bilgi çokluğundan etkilenmez; bazen asıl etki, söylenen şeyin yoğunluğundan doğar. Bu nedenle iyi yazar, neyi ekleyeceği kadar neyi dışarıda bırakacağını da bilir. Onun ustalığı, yalnızca söylemesinde değil, gereksiz olanı ayıklayabilmesinde de görülür.",
+  "options": [
+    "Etkili yazı, mutlaka çok sayıda bilgi içermelidir.",
+    "Okur her zaman en çok bilgi veren metinlerden etkilenir.",
+    "İyi yazarın ustalığı, gereksiz olanı ayıklayabilmesinde de görülebilir.",
+    "Az bilgi içeren metinlerin etkili olması mümkün değildir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Yardımcı Düşünce",
+  "skills": ["yardimci_dusunce", "yorumlama", "metin_analizi"],
+  "explanation": "Parçada iyi yazarın yalnızca söyleyeceğini değil, gereksiz olanı ayıklamayı da bildiği açıkça belirtilmektedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:27"
+},
+{
+  "stem": "Bir düşüncenin insanı hemen ikna etmesi, onun kesinlikle doğru olduğu anlamına gelmez. Çünkü insan çoğu zaman alışık olduğu kalıplara uygun fikirleri daha rahat kabul eder. Oysa bazı güçlü düşünceler, ilk anda rahatsız edici görünse de yerleşmiş kabulleri sorgulattığı için daha ciddi biçimde ele alınmayı hak eder. ____",
+  "options": [
+    "Bu nedenle bir fikrin değeri, ilk anda ne kadar rahat kabul edildiğiyle ölçülmelidir.",
+    "Bu yüzden rahatsız eden her düşünce yanlış sayılmalıdır.",
+    "Bu nedenle bir düşüncenin değeri, kolay kabul edilmesinden çok sorgulama karşısındaki gücüyle anlaşılır.",
+    "Bu yüzden insanlar yalnızca alışık oldukları fikirleri benimsemelidir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "cikarim", "akil_yurutme"],
+  "explanation": "Parçanın ana yönü, düşüncenin değerinin kolay kabul edilmesinde değil sorgulama karşısındaki dayanıklılığında aranmasıdır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:28"
+},
+{
+  "stem": "Aşağıdaki cümlelerden hangisi düşüncenin akışını bozmaktadır?\n\n(1) İnsanlar çoğu zaman yalnızca kendi bakış açılarının doğal ve doğru olduğunu düşünür. (2) Bu yüzden farklı bir görüşle karşılaştıklarında önce o görüşün neden öyle kurulduğunu anlamaya çalışmak yerine hemen karşı çıkabilirler. (3) Oysa başka bir bakış açısını anlamak, insanın kendi düşüncesinin sınırlarını görmesine de yardımcı olur. (4) Kitap kapaklarında kullanılan renkler, okuyucunun ilk izlenimini önemli ölçüde etkiler. (5) Bu nedenle farklı görüşlerle karşılaşmak rahatsız edici olsa bile geliştirici olabilir.",
+  "options": [
+    "1",
+    "2",
+    "4",
+    "5"
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Paragrafta Akış",
+  "skills": ["akıs_bozan_cumle", "paragraf", "konu_butunlugu"],
+  "explanation": "İlk üç ve son cümle bakış açısı ve farklı görüşler etrafında birleşirken 4. cümle kitap kapaklarıyla ilgilidir; bu yüzden akışı bozar.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:29"
+},
+{
+  "stem": "I. metin: Bazı yazarlar, metni olabildiğince açık kurarak okurun anlatılanları hızlı ve rahat biçimde izlemesini ister. Bu yaklaşımda belirsizlik azaltılır.\n\nII. metin: Bazı yazarlar ise okurun metinde durmasını, bazı bağları kendisinin kurmasını ve anlamın bir kısmını süreç içinde keşfetmesini önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metinde de belirsizlik tamamen ortadan kaldırılmak istenmektedir.",
+    "I. metinde açıklık ve hız, II. metinde ise okurun anlam kurma sürecine katılması öne çıkmaktadır.",
+    "I. metin kapalılığı, II. metin ise yalnızca açıklığı savunmaktadır.",
+    "Her iki metin de okurun yorum yapmasını gereksiz görmektedir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "metin_analizi", "yorumlama"],
+  "explanation": "Birinci metin açıklık ve akıcılığı, ikinci metin ise okurun anlamı kurma sürecine katılımını vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:30"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık paragraf çözme gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %9'u hiç paragraf çözmemekte, %16'sı 1 gün, %27'si 2 gün, %23'ü 3 gün, %15'i 4 gün, %10'u ise 5 gün ve üzeri paragraf çözmektedir. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 4 gün paragraf çözmektedir.",
+    "En büyük grup haftada 2 gün paragraf çözenlerdir.",
+    "Hiç paragraf çözmeyenler en kalabalık gruptur.",
+    "Öğrencilerin tamamı haftada en az 1 gün paragraf çözmektedir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilerde en yüksek oran %27 ile haftada 2 gün paragraf çözen öğrencilere aittir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:31"
+},
+{
+  "stem": "Dört öğrenci (Eda, Kaan, Mete ve Suna) farklı günlerde sunum yapacaktır: pazartesi, salı, çarşamba ve perşembe. Eda, Kaan'dan önce sunum yapacaktır. Mete, perşembe günü sunum yapmayacaktır. Suna, Eda'dan sonra sunum yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Suna, Kaan'dan sonra sunum yapacaktır.",
+    "Eda, Suna'dan önce sunum yapacaktır.",
+    "Mete, salı günü sunum yapacaktır.",
+    "Kaan, çarşamba günü sunum yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Soruda Suna'nın Eda'dan sonra sunum yapacağı verildiği için Eda'nın Suna'dan önce olduğu kesindir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:32"
+},
+{
+  "stem": ""Daha dikkatli incelersen metindeki ince farkları sen de görebilirsin." cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Amaç-sonuç",
+    "Neden-sonuç",
+    "Koşul-sonuç",
+    "Karşılaştırma"
+  ],
+  "answerIndex": 2,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "kosul_sonuc", "yorumlama"],
+  "explanation": "Cümlede bir sonucun gerçekleşmesi bir koşula bağlandığı için koşul-sonuç ilişkisi vardır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:33"
+},
+{
+  "stem": ""Bu tartışmada sonunda o da eteğindeki taşları döktü." cümlesinde "eteğindeki taşları dökmek" sözü hangi anlamda kullanılmıştır?",
+  "options": [
+    "Üzerindeki yükleri yere bırakmak",
+    "Sakladığı düşünceleri açıkça söylemek",
+    "Bir şeyi tamamen unutmak",
+    "Telaşla ortamdan uzaklaşmak"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["deyim", "sozcukte_anlam", "mecaz"],
+  "explanation": "Deyim burada fiziksel bir eylemi değil, kişinin içinde tuttuklarını açıkça söylemesini anlatmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:34"
+},
+{
+  "stem": "Bir düşünceyi gerçekten anlamak, onu yalnızca kabul etmekten daha fazlasını gerektirir. İnsan, anladığını sandığı bir fikri başka bir örnek üzerinde denediğinde ya da farklı bir bakış açısından yeniden düşündüğünde aslında o fikri ne kadar kavradığını fark eder. Çünkü yüzeysel kabul, ilk soruda sarsılır; derin kavrayış ise yeni durumlara uyarlanabildiği için daha dayanıklıdır. Bu yüzden anlama, çoğu zaman onay vermekten değil, düşünceyi sınamaktan geçer.",
+  "options": [
+    "Bir fikri anlamak için onu yalnızca kabul etmek yeterlidir.",
+    "Yüzeysel kabul, yeni durumlar karşısında da aynı gücü korur.",
+    "Gerçek anlama, düşünceyi farklı durumlarda sınayabilmekle ortaya çıkar.",
+    "Bir düşünceyi sorgulamak, onu anlamayı zorlaştırdığı için gereksizdir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Yorum",
+  "skills": ["yorumlama", "cikarim", "uygulama"],
+  "explanation": "Parçada gerçek anlamanın, düşünceyi farklı örneklerde ve bakış açılarında sınayabilmekle ortaya çıktığı vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:35"
 }
   ]
 }
