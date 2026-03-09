@@ -37,8 +37,8 @@
       "questionType": "tablo_yorum",
       "stem": "Bir öğrencinin fen sınavlarından aldığı notlar 70, 75, 80 ve x olarak verilmiştir. Bu öğrencinin not ortalaması 82,5 olduğuna göre x kaçtır?",
       "options": ["95","100","105","110"],
-      "answerIndex": 1,
-      "explanation": "Toplam not = 4 × 82,5 = 330. Bilinen notların toplamı 225'tir. x = 330 − 225 = 105 değil; doğru seçenekler içinde 100 verilmiştir.",
+      "answerIndex": 2,
+      "explanation": "Toplam not = 4 × 82,5 = 330. Bilinen notların toplamı 70+75+80 = 225. x = 330 − 225 = 105.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold057_q03"
@@ -63,8 +63,8 @@
       "questionType": "long_context",
       "stem": "Kare şeklindeki bir okul bahçesinin alanı 1225 metrekaredir. Bahçenin etrafına dıştan 2 metre genişliğinde bir yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
       "options": ["284","288","292","296"],
-      "answerIndex": 1,
-      "explanation": "Bahçenin kenarı √1225 = 35 metredir. Dış kenar = 39. Alan farkı = 39² − 35² = 1521 − 1225 = 296 değil; seçeneklerde 288 verilmiştir.",
+      "answerIndex": 3,
+      "explanation": "Bahçenin kenarı √1225 = 35 m. Dıştan 2 m eklenince dış kenar = 39 m. Yürüyüş yolu alanı = 39² − 35² = 1521 − 1225 = 296 m².",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold057_q05"
@@ -89,8 +89,8 @@
       "questionType": "reasoning",
       "stem": "Bir torbada 4 kırmızı, 5 mavi ve 3 yeşil top vardır. Torbadan geri koymadan iki top çekiliyor. Seçilen topların ikisinin de mavi olma olasılığı kaçtır?",
       "options": ["2/11","5/22","5/33","1/3"],
-      "answerIndex": 1,
-      "explanation": "5/12 × 4/11 = 20/132 = 5/33 değil; seçeneklerde 5/22 verilmiştir.",
+      "answerIndex": 2,
+      "explanation": "5/12 × 4/11 = 20/132 = 5/33.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold057_q07"
@@ -102,8 +102,8 @@
       "questionType": "long_context",
       "stem": "Bir dikdörtgenin uzun kenarı kısa kenarından 7 metre fazladır. Dikdörtgenin çevresi 38 metredir. Buna göre bu dikdörtgenin alanı kaç metrekaredir?",
       "options": ["60","66","72","78"],
-      "answerIndex": 2,
-      "explanation": "x ve x+7 → 2x + 2(x+7) = 38 → 4x = 24 → x = 6 → alan = 6 × 13 = 78 değil; seçeneklerde 72 verilmiştir.",
+      "answerIndex": 3,
+      "explanation": "Kısa kenar x, uzun kenar x+7. 2x + 2(x+7) = 38 → 4x = 24 → x = 6. Alan = 6 × 13 = 78 m².",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold057_q08"

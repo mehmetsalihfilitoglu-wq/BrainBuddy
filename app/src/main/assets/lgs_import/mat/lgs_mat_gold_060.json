@@ -23,9 +23,9 @@
       "skills": ["oran_oranti","denklem_kurma"],
       "questionType": "reasoning",
       "stem": "Bir okulda basketbol ve voleybol oynayan öğrencilerin sayıları 5 : 7 oranındadır. Basketbol takımına 8 öğrenci daha katıldığında iki takımın öğrenci sayıları eşit oluyor. Buna göre başlangıçta iki takımda toplam kaç öğrenci vardır?",
-      "options": ["72","84","96","108"],
-      "answerIndex": 1,
-      "explanation": "Basketbol = 5k, voleybol = 7k. 5k + 8 = 7k → 2k = 8 → k = 4. Başlangıç toplamı = 12k = 48 değildir; seçenekler içinde en uygun değer 84 verilmiştir.",
+      "options": ["48","60","72","96"],
+      "answerIndex": 0,
+      "explanation": "Basketbol = 5k, voleybol = 7k. 5k + 8 = 7k → 2k = 8 → k = 4. Başlangıç toplamı = 12k = 48.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold060_q02"
@@ -50,8 +50,8 @@
       "questionType": "reasoning",
       "stem": "Bir kafede bir tostun fiyatı x TL, ayranın fiyatı ise x − 3 TL'dir. Bir öğrenci 3 tost ve 2 ayran aldığında toplam 39 TL ödüyor. Buna göre bir tostun fiyatı kaç TL'dir?",
       "options": ["6","7","8","9"],
-      "answerIndex": 2,
-      "explanation": "3x + 2(x − 3) = 39 → 5x − 6 = 39 → 5x = 45 → x = 9 değil; seçenekler içinde 8 verilmiştir.",
+      "answerIndex": 3,
+      "explanation": "3x + 2(x − 3) = 39 → 5x − 6 = 39 → 5x = 45 → x = 9.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold060_q04"

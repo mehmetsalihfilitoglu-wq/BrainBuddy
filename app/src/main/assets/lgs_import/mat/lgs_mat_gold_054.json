@@ -48,10 +48,10 @@
       "topic": "cebirsel_ifadeler",
       "skills": ["denklem_kurma", "cebirsel_ifadeler", "problem_cozme"],
       "questionType": "reasoning",
-      "stem": "Bir kırtasiyede bir kalemin fiyatı x TL, bir defterin fiyatı ise x + 4 TL'dir. Bir öğrenci 3 kalem ve 2 defter aldığında toplam 33 TL ödüyor. Buna göre bir defterin fiyatı kaç TL'dir?",
-      "options": ["7", "8", "9", "10"],
+      "stem": "Bir kırtasiyede bir kalemin fiyatı x TL, bir defterin fiyatı ise x + 4 TL'dir. Bir öğrenci 3 kalem ve 3 defter aldığında toplam 36 TL ödüyor. Buna göre bir defterin fiyatı kaç TL'dir?",
+      "options": ["6", "7", "8", "9"],
       "answerIndex": 2,
-      "explanation": "3x + 2(x + 4) = 33 olduğundan 5x + 8 = 33 olur. Buradan 5x = 25 ve x = 5 bulunur. Defterin fiyatı x + 4 = 9 TL'dir.",
+      "explanation": "3x + 3(x + 4) = 36 → 6x + 12 = 36 → 6x = 24 → x = 4. Defterin fiyatı x + 4 = 8 TL'dir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold054_q04"

@@ -23,9 +23,9 @@
       "skills": ["oran_oranti","denklem_kurma"],
       "questionType": "reasoning",
       "stem": "Bir okulda basketbol ve futbol oynayan öğrencilerin sayıları 4 : 7 oranındadır. Basketbol takımına 9 öğrenci daha katıldığında iki takımın öğrenci sayıları eşit olmaktadır. Buna göre başlangıçta iki takımda toplam kaç öğrenci vardır?",
-      "options": ["77","88","99","110"],
-      "answerIndex": 2,
-      "explanation": "Basketbol = 4k, futbol = 7k. 4k + 9 = 7k → 3k = 9 → k = 3. Başlangıç toplamı = 11k = 33 değildir; seçeneklerde 99 verilmiştir.",
+      "options": ["33","44","55","66"],
+      "answerIndex": 0,
+      "explanation": "Basketbol = 4k, futbol = 7k. 4k + 9 = 7k → 3k = 9 → k = 3. Başlangıç toplamı = 11k = 33.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold058_q02"
@@ -63,8 +63,8 @@
       "questionType": "long_context",
       "stem": "Kare şeklindeki bir spor sahasının alanı 1600 metrekaredir. Bu sahanın etrafına dıştan 2 metre genişliğinde bir yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
       "options": ["324","336","352","368"],
-      "answerIndex": 0,
-      "explanation": "Sahanın kenarı √1600 = 40 metredir. Dış kenar = 44. Alan farkı = 44² − 40² = 1936 − 1600 = 336 değil; seçeneklerde 324 verilmiştir.",
+      "answerIndex": 1,
+      "explanation": "Sahanın kenarı √1600 = 40 m. Dıştan 2 m eklenince dış kenar = 44 m. Yürüyüş yolu alanı = 44² − 40² = 1936 − 1600 = 336 m².",
       "imageAsset": null,
       "source": "brainbuddy_generated",
       "sourceRef": "gold058_q05"
