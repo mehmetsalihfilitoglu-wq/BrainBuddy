@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Bir bezelye türünde sarı tohum rengi yeşil tohum rengine baskındır. Heterozigot sarı tohumlu iki bitki çaprazlanıyor. Oluşan yavrular arasından sarı tohumlu olanlar seçilip kendi aralarında tekrar çaprazlandığında, bu ikinci çaprazlamada yeşil tohumlu birey elde edilme olasılığı aşağıdakilerden hangisidir?",
+      "options": [
+        "1/9",
+        "2/9",
+        "1/3",
+        "4/9"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "olasilik", "saf_dol"],
+      "explanation": "İlk çaprazlama Aa × Aa olduğundan yavruların genotip oranı 1 AA : 2 Aa : 1 aa olur. Sarı olanlar AA ve Aa'dır. Sarı bireyler arasından rastgele iki birey seçilip çaprazlandığında yeşil birey yalnızca Aa × Aa durumunda oluşur. Sarı bireyler içinde heterozigot olma olasılığı 2/3'tür. İki seçimin de heterozigot olma olasılığı (2/3)·(2/3)=4/9, bu çaprazlamada yeşil birey gelme olasılığı ise 1/4'tür. Toplam olasılık 4/9 · 1/4 = 1/9.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q01"
+    },
+    {
+      "stem": "Bir DNA molekülünde toplam nükleotit sayısı 3200'dür. Bu DNA'da adenin bazı sayısı, guanin bazı sayısından 400 fazladır. Buna göre sitozin bazı sayısı kaçtır?",
+      "options": [
+        "600",
+        "700",
+        "800",
+        "900"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "nukleotit_sayisi"],
+      "explanation": "DNA'da A=T ve G=C'dir. G sayısına x dersek C de x, A ve T ise x+400 olur. Toplam nükleotit sayısı x + x + (x+400) + (x+400) = 3200 → 4x + 800 = 3200 → 4x = 2400 → x = 600 gibi görünür; fakat burada A sayısı G sayısından 400 fazla olduğundan A=x+400, T=x+400, G=x, C=x kurulumuyla toplam 4x+800 olur. 3200 için x=600 bulunur. Ancak seçenek kontrolünde sitozin 600'dür.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q02"
+    },
+    {
+      "stem": "Aşağıdaki olaylardan hangisinde meydana gelen değişim, hem çevre etkisiyle ortaya çıkması hem de yavru bireylere aktarılmaması bakımından diğerlerinden ayrılır?",
+      "options": [
+        "Işık almayan ortamda yetişen bitkinin daha uzun boylu olması",
+        "Üreme ana hücresinde kromozom yapısının değişmesi",
+        "Bakteride antibiyotiğe direnç sağlayan gen değişimi oluşması",
+        "Radyasyon etkisiyle DNA diziliminin değişmesi"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitsal", "modifikasyon", "cevre_etkisi"],
+      "explanation": "Işık yetersizliğine bağlı boy değişimi modifikasyondur; çevre etkisiyle oluşur ve kalıtsal değildir. Diğer seçeneklerde genetik materyalde değişim vardır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q03"
+    },
+    {
+      "stem": "Bir DNA molekülünün yalnızca bir zincirindeki baz sayıları A=140, T=110, G=90 ve C=160 olarak verilmiştir. Buna göre bu DNA molekülünün tamamındaki timin bazı sayısı kaçtır?",
+      "options": [
+        "220",
+        "250",
+        "270",
+        "300"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "STRUCTURE_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "cift_zincir"],
+      "explanation": "Bir zincirdeki A karşı zincirde T ile, T ise karşı zincirde A ile eşleşir. Tüm DNA'daki toplam T sayısı, birinci zincirdeki T ile ikinci zincirdeki T'nin toplamıdır. İkinci zincirdeki T sayısı birinci zincirdeki A sayısına eşit olduğundan toplam T = 110 + 140 = 250.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q04"
+    },
+    {
+      "stem": "Bir karakter bakımından fenotipi baskın olan iki birey çaprazlanıyor ve dört olası yavru genotipinden birinin çekinik olduğu biliniyor. Buna göre anne ve baba ile ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "İkisi de saf döl baskındır",
+        "Biri heterozigot, diğeri saf döl baskındır",
+        "İkisi de heterozigottur",
+        "Biri çekinik fenotiplidir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "genotip_belirleme"],
+      "explanation": "Çekinik genotipli yavru ancak her iki ebeveyn de çekinik geni taşıyorsa oluşabilir. Fenotipler baskın olduğuna göre ikisi de heterozigottur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q05"
+    },
+    {
+      "stem": "Bir bakteri popülasyonunda çok az sayıda bireyde mutasyon sonucu antibiyotik direnci oluşuyor. Antibiyotik uygulandıktan sonra dirençli bireylerin oranı hızla artıyor.\n\nBu olayla ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Antibiyotik direnci modifikasyon sonucu oluşmuştur",
+        "Antibiyotik direnç genini sonradan tüm bakterilere kazandırmıştır",
+        "Direnç sağlayan mutasyon önceden oluşmuş, antibiyotik doğal seçilim etkisi yapmıştır",
+        "Antibiyotik tüm bakterilerde aynı oranda mutasyona neden olmuştur"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "MUTATION_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "dogal_secilim", "evrim"],
+      "explanation": "Direnç özelliği mutasyonla önceden ortaya çıkmış olabilir. Antibiyotik, dirençli bireyleri seçerek onların çoğalmasına neden olur; bu doğal seçilimdir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q06"
+    },
+    {
+      "stem": "Bir DNA molekülünde guanin bazı sayısı 360'tır. Bu DNA'da adenin bazı sayısı, timin bazı sayısına eşittir ve toplam baz sayısının %40'ını oluşturur. Buna göre bu DNA molekülündeki toplam baz sayısı kaçtır?",
+      "options": [
+        "900",
+        "1000",
+        "1200",
+        "1800"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "nukleotit_sayisi"],
+      "explanation": "DNA'da G=C olduğundan C de 360'tır. G+C = 720 olur. A+T toplam bazların %40'ı ise G+C toplam bazların %60'ıdır. Yani 0,60 · Toplam = 720 → Toplam = 1200.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q07"
+    },
+    {
+      "stem": "Aşağıdaki örneklerden hangisi adaptasyon ile modifikasyonun karıştırılmasına neden olabilecek bir durumdur ancak doğru sınıflandırıldığında modifikasyon olarak kabul edilir?",
+      "options": [
+        "Kutup ayısının kalın yağ tabakası",
+        "Devenin uzun süre susuz kalabilmesi",
+        "Güneşte uzun süre kalan insanın ten renginin koyulaşması",
+        "Çöl bitkilerinin yaprak yüzeyinin dar olması"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["adaptasyon", "modifikasyon", "cevre_etkisi"],
+      "explanation": "Ten renginin güneşte koyulaşması bireyin yaşamı boyunca çevre etkisiyle ortaya çıkar, kalıtsal değildir. Bu nedenle modifikasyondur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q08"
+    },
+    {
+      "stem": "Bir karakter bakımından heterozigot birey ile çekinik fenotipli birey çaprazlanıyor. Oluşan yavruların bir kısmı baskın fenotipli, bir kısmı çekinik fenotipli oluyor.\n\nBu çaprazlama ile ilgili aşağıdakilerden hangisi kesinlikle yanlıştır?",
+      "options": [
+        "Yavruların yarısı heterozigot olabilir",
+        "Yavrular arasında saf döl çekinik birey bulunabilir",
+        "Yavruların tamamı baskın fenotipli olabilir",
+        "Yavrular arasında baskın fenotipli birey bulunabilir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "genotip_belirleme"],
+      "explanation": "Aa × aa çaprazlamasında yavruların yarısı Aa, yarısı aa olur. Bu nedenle tüm yavruların baskın fenotipli olması imkânsızdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q09"
+    },
+    {
+      "stem": "Bir öğrenci, 'Mutasyon her zaman zararlıdır; adaptasyon ise bireyin çevreye göre sonradan değiştirdiği özelliklerdir.' yorumunu yapıyor.\n\nBu yorumla ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "İki ifade de doğrudur",
+        "Birinci ifade doğru, ikinci ifade yanlıştır",
+        "Birinci ifade yanlış, ikinci ifade doğrudur",
+        "İki ifade de yanlıştır"
+      ],
+      "answerIndex": 3,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "adaptasyon", "ozellikler"],
+      "explanation": "Mutasyon her zaman zararlı değildir; faydalı ya da etkisiz de olabilir. Adaptasyon ise bireyin sonradan kazandığı değil, nesiller boyunca seçilmiş kalıtsal uyum özellikleridir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_005_q10"
+    }
+  ]
+}
