@@ -52,5 +52,176 @@
       "source": "brainbuddy",
       "sourceRef": "lgs_smoke:turkce:4"
     }
+,
+{
+  "stem": "Bir düşüncenin güçlü olması, ilk anda etkileyici görünmesine değil; farklı durumlarda da geçerliliğini koruyabilmesine bağlıdır. İlk bakışta çarpıcı görünen bazı fikirler, ayrıntılı biçimde incelendiğinde kendi içinde çelişkiler taşır. Buna karşılık daha sade görünen bazı düşünceler, sağlam gerekçelere dayandığı için zamanla daha güvenilir bulunur. Bu nedenle bir düşünceyi değerlendirirken onun ne kadar dikkat çektiğine değil, ne kadar dayanıklı olduğuna bakmak gerekir.",
+  "options": [
+    "Düşüncenin değeri, ilk anda ne kadar dikkat çektiğiyle ölçülmelidir.",
+    "Sade görünen düşünceler genellikle etkisizdir.",
+    "Bir düşüncenin gücü, farklı durumlarda da tutarlılığını koruyabilmesine bağlıdır.",
+    "Çarpıcı görünen fikirler her zaman daha güvenilirdir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "yorumlama", "cikarim"],
+  "explanation": "Parçada düşüncenin asıl gücünün dikkat çekicilikte değil, farklı durumlarda da ayakta kalabilmesinde olduğu vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:5"
+},
+{
+  "stem": "Bir metni anlamak, yalnızca onda verilen bilgileri tek tek öğrenmek değildir. Asıl önemli olan, bu bilgilerin birbiriyle nasıl ilişkilendiğini ve hangisinin metnin merkezini oluşturduğunu görebilmektir. Çünkü dağınık bilgiler insana çok şey öğrenmiş hissi verebilir; ancak aralarında bağ kurulmadığında gerçek bir kavrayış oluşmaz. Bu nedenle derin okuma, bilgi toplamaktan çok, bilgiler arasındaki düzeni fark etmeyi gerektirir.",
+  "options": [
+    "Bir metni anlamak için mümkün olduğunca çok bilgi toplamak yeterlidir.",
+    "Gerçek kavrayış, bilgiler arasındaki ilişkiyi fark edebilmekle oluşur.",
+    "Dağınık bilgiler de her zaman derin bir kavrayış sağlar.",
+    "Metnin merkezini belirlemek anlamayı zorlaştırır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "iliski_kurma", "yorumlama"],
+  "explanation": "Parçada bilgileri toplamanın değil, aralarındaki bağı kurmanın gerçek anlama sağladığı belirtilmektedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:6"
+},
+{
+  "stem": "Bir metnin etkili olması yalnızca anlattığı düşünceye bağlı değildir. O düşüncenin hangi sırayla verildiği, hangi örneklerle desteklendiği ve hangi ayrıntıların özellikle öne çıkarıldığı da metnin gücünü belirler. Çünkü bazen aynı düşünce, farklı bir düzen içinde verildiğinde bambaşka bir etki bırakabilir. ____",
+  "options": [
+    "Bu yüzden metinlerde yalnızca ana fikir önemlidir.",
+    "Bu nedenle anlatımın kuruluş biçimi de anlam ve etki üzerinde belirleyici olabilir.",
+    "Bu yüzden örnekler metinlerde gereksiz yere kullanılır.",
+    "Bu nedenle bütün metinler aynı düzende kurulmalıdır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "akil_yurutme", "yapi"],
+  "explanation": "Parçada metnin yalnızca düşüncesinin değil, kuruluş biçiminin de etkili olduğu anlatıldığı için en uygun tamamlayıcı cümle B seçeneğidir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:7"
+},
+{
+  "stem": "Aşağıdaki cümlelerden anlamlı bir paragraf oluşturulduğunda doğru sıralama hangisi olur?\n\nI. Çünkü insan, yalnızca kendi gördüğüne bağlı kaldığında eksik sonuçlara ulaşabilir.\nII. Bir olayı anlamaya çalışırken farklı bakış açılarını da hesaba katmak gerekir.\nIII. Oysa aynı olay, farklı kişiler için farklı anlamlar taşıyabilir.\nIV. Bu nedenle başkalarının nasıl gördüğünü anlamaya çalışmak düşünmeyi derinleştirir.",
+  "options": [
+    "II - III - I - IV",
+    "III - II - I - IV",
+    "II - I - III - IV",
+    "III - I - II - IV"
+  ],
+  "answerIndex": 0,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Sıralama",
+  "skills": ["paragraf_siralama", "akıs", "mantik"],
+  "explanation": "Giriş cümlesi II'dir. Ardından III ile karşıtlık kurulur, I bunun gerekçesini verir, IV ise sonuç cümlesidir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:8"
+},
+{
+  "stem": "I. metin: Bazı yazarlar, metni mümkün olduğunca açık kurar ve okurun anlatılanı zorlanmadan izlemesini ister.\n\nII. metin: Bazı yazarlar ise okurun metin üzerinde durmasını, bağlantıları kendisinin kurmasını ve anlamın bir kısmını süreç içinde keşfetmesini önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metinde de okurun yorum yapması gereksiz görülmektedir.",
+    "I. metin açıklığı, II. metin ise okurun anlam kurma sürecine katılmasını öne çıkarmaktadır.",
+    "I. metin kapalılığı, II. metin ise yalnızca açıklığı savunmaktadır.",
+    "Her iki metinde de anlamın bütünüyle gizli kalması amaçlanmaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "yorumlama", "metin_analizi"],
+  "explanation": "İlk metin açıklığı, ikinci metin ise okurun anlam kurma sürecine katılmasını savunmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:9"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık kitap okuma gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %10'u hiç okumamakta, %20'si 1 gün, %28'i 2 gün, %24'ü 3 gün, %12'si 4 gün, %6'sı ise 5 gün ve üzeri kitap okumaktadır. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 3 gün kitap okumaktadır.",
+    "En büyük grup haftada 2 gün kitap okuyanlardır.",
+    "Hiç kitap okumayanlar en kalabalık gruptur.",
+    "Öğrencilerin tamamı haftada en az 1 gün kitap okumaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilere göre en yüksek oran %28 ile haftada 2 gün kitap okuyanlardır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:10"
+},
+{
+  "stem": "Dört öğrenci (Ada, Burak, Ceren ve Doruk) farklı günlerde sunum yapacaktır: pazartesi, salı, çarşamba ve perşembe. Ada, Burak'tan önce sunum yapacaktır. Ceren, perşembe günü sunum yapmayacaktır. Doruk, Ada'dan sonra sunum yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Doruk, Burak'tan sonra sunum yapacaktır.",
+    "Ada, Doruk'tan önce sunum yapacaktır.",
+    "Ceren, salı günü sunum yapacaktır.",
+    "Burak, çarşamba günü sunum yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Doruk'un Ada'dan sonra sunum yapacağı verildiği için Ada'nın Doruk'tan önce olduğu kesin olarak söylenebilir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:11"
+},
+{
+  "stem": "“Bu yazı, önceki metne göre daha kısa ama daha yoğun bir anlatıma sahiptir.” cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Amaç-sonuç",
+    "Neden-sonuç",
+    "Karşılaştırma",
+    "Koşul-sonuç"
+  ],
+  "answerIndex": 2,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "karsilastirma", "yorumlama"],
+  "explanation": "Cümlede bir metin başka bir metinle kıyaslandığı için karşılaştırma anlamı vardır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:12"
+},
+{
+  "stem": "“Onun bu sözleri aramızdaki buzları eritti.” cümlesinde “buzları eritmek” sözü hangi anlamda kullanılmıştır?",
+  "options": [
+    "Gerçek anlamda sıcaklık oluşturmak",
+    "Soğuk bir nesneyi eritmek",
+    "Aradaki gerginliği azaltmak",
+    "Bir şeyi tamamen yok etmek"
+  ],
+  "answerIndex": 2,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["deyim", "sozcukte_anlam", "mecaz"],
+  "explanation": "“Buzları eritmek” sözü mecaz olarak kişiler arasındaki gerginliği azaltmak anlamında kullanılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:13"
+},
+{
+  "stem": "Bir bilgiyi aynen tekrar edebilmek, o bilgiyi gerçekten anladığını her zaman göstermez. Çünkü ezberlenen bilgi, yalnızca duyulduğu biçimde geri döner; anlaşılan bilgi ise yeni durumlara uyarlanabilir, başka bilgilerle ilişkilendirilebilir ve gerektiğinde dönüştürülebilir. Bu yüzden öğrenmenin asıl göstergesi, duyulanı tekrar etmek değil, onu farklı bağlamlarda işe yarar hâle getirebilmektir.",
+  "options": [
+    "Bir bilgiyi öğrenmenin en iyi yolu onu aynen tekrar etmektir.",
+    "Anlaşılan bilgi, yalnızca öğrenildiği bağlamda kullanılabilir.",
+    "Gerçek öğrenme, bilgiyi yeni durumlarda kullanabilme becerisiyle anlaşılır.",
+    "Ezberlenen bilgi ile anlaşılan bilgi arasında belirgin bir fark yoktur."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Yorum",
+  "skills": ["yorumlama", "cikarim", "uygulama"],
+  "explanation": "Parçada gerçek öğrenmenin, bilgiyi farklı bağlamlarda kullanabilme becerisiyle anlaşılacağı vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:14"
+}
   ]
 }
