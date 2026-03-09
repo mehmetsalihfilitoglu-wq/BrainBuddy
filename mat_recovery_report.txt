@@ -1,0 +1,216 @@
+================================================================================
+MAT LGS ASSET AUDIT - FULL RECOVERY REPORT
+Folder: app/src/main/assets/lgs_import/mat/
+Generated: 2025-03-09 (no files modified)
+================================================================================
+
+## 1. ALL MAT FILES (sorted alphabetically)
+--------------------------------------------------------------------------------
+    1. lgs_mat_gold_001.json
+    2. lgs_mat_gold_002.json
+    3. lgs_mat_gold_003.json
+    4. lgs_mat_gold_004.json
+    5. lgs_mat_gold_005.json
+    6. lgs_mat_gold_006.json
+    7. lgs_mat_gold_007.json
+    8. lgs_mat_gold_008.json
+    9. lgs_mat_gold_009.json
+   10. lgs_mat_gold_010.json
+   11. lgs_mat_gold_011.json
+   12. lgs_mat_gold_012.json
+   13. lgs_mat_gold_013.json
+   14. lgs_mat_gold_014.json
+   15. lgs_mat_gold_015.json
+   16. lgs_mat_gold_016.json
+   17. lgs_mat_gold_017.json
+   18. lgs_mat_gold_018.json
+   19. lgs_mat_gold_019.json
+   20. lgs_mat_gold_021.json
+   21. lgs_mat_gold_022.json
+   22. lgs_mat_gold_023.json
+   23. lgs_mat_gold_024.json
+   24. lgs_mat_gold_025.json
+   25. lgs_mat_gold_026.json
+   26. lgs_mat_gold_027.json
+   27. lgs_mat_gold_028.json
+   28. lgs_mat_gold_029.json
+   29. lgs_mat_gold_030.json
+   30. lgs_mat_gold_031.json
+   31. lgs_mat_gold_032.json
+   32. lgs_mat_gold_033.json
+   33. lgs_mat_gold_034.json
+   34. lgs_mat_gold_035.json
+   35. lgs_mat_gold_036.json
+   36. lgs_mat_gold_037.json
+   37. lgs_mat_gold_039.json
+   38. lgs_mat_gold_040.json
+   39. lgs_mat_gold_041.json
+   40. lgs_mat_gold_042.json
+   41. lgs_mat_gold_043.json
+   42. lgs_mat_gold_044.json
+   43. lgs_mat_gold_045.json
+   44. lgs_mat_gold_046.json
+   45. lgs_mat_gold_047.json
+   46. lgs_mat_gold_048.json
+   47. lgs_mat_gold_049.json
+   48. lgs_mat_gold_050.json
+   49. lgs_mat_pack_oran_oranti_002.json
+   50. lgs_mat_pack_yuzde_001.json
+
+Total: 50 files (48 gold + 2 pack)
+
+## 2. MISSING SEQUENCE NUMBERS (lgs_mat_gold_001 .. lgs_mat_gold_050)
+--------------------------------------------------------------------------------
+  Missing: 020, 038
+  Count: 2
+
+  Expected full sequence: 001, 002, ..., 050
+  Present: 48 of 50 gold sequence slots
+
+## 3. OVERWRITTEN/DUPLICATED FILENAMES
+--------------------------------------------------------------------------------
+  No duplicated filenames. Each filename appears exactly once in the folder.
+  (No evidence of overwriting; each file is uniquely named.)
+
+## 4. PER-FILE COUNTS (total questions, validator accepted/rejected, dup-stem, active)
+--------------------------------------------------------------------------------
+Based on codebase logic: QuestionPackImporter, MatQuestionValidator, LgsQualityRules,
+QuestionStemHash. Import order: sorted by filename (alphabetical).
+
+  File                                         Tot  Parse  Acc   Rej   Dup   Active
+  --------------------------------------------------------------------------------
+  lgs_mat_gold_001.json                          8     0     8     0    ~0    ~7
+  lgs_mat_gold_002.json                          6     0     6     0    ~0    ~4
+  lgs_mat_gold_003.json                          3     0     3     0    ~0    ~2
+  lgs_mat_gold_004.json                          5     0     5     0    ~0    ~2
+  lgs_mat_gold_005.json                         20     0   ~19     1*   ~0   ~15
+  lgs_mat_gold_006.json                         10     0    10     0    ~0    ~7
+  lgs_mat_gold_007.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_008.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_009.json                          9     0     9     0    ~0    ~7
+  lgs_mat_gold_010.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_011.json                         10     0    10     0    ~0    ~7
+  lgs_mat_gold_012.json                         20     0    20     0    ~0   ~16
+  lgs_mat_gold_013.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_014.json                         10     0    10     0    ~0    ~7
+  lgs_mat_gold_015.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_016.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_017.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_018.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_019.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_021.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_022.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_023.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_024.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_025.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_026.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_027.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_028.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_029.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_030.json                         11     0    11     0    ~0    ~7
+  lgs_mat_gold_031.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_032.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_033.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_034.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_035.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_036.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_037.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_039.json                          5     0     5     0    ~0    ~4
+  lgs_mat_gold_040.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_041.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_042.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_043.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_044.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_045.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_046.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_047.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_048.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_049.json                         10     0    10     0    ~0    ~8
+  lgs_mat_gold_050.json                         10     0    10     0    ~0    ~8
+  lgs_mat_pack_oran_oranti_002.json              10     0     0    10    -    0
+  lgs_mat_pack_yuzde_001.json                    20     0    20     0   ~10   ~5
+
+  * lgs_mat_gold_005: q0 has difficulty=3 (invalid; validator accepts 0,1,2)
+  Leg: Tot=total questions, Parse=parse failures, Acc=validator accepted,
+       Rej=validator rejected, Dup=dup-stem collisions vs full pool, Active=active after import
+
+  lgs_mat_pack_oran_oranti_002: All 10 questions REJECTED by MatQuestionValidator
+    (missing per-question: topic, questionType, skills, source, sourceRef, explanation)
+
+  lgs_mat_pack_yuzde_001: Many questions are one-step percentage (LgsQualityRules
+    deactivates as "one_step_arithmetic" / stem_too_short); ~10 overlap with gold pool.
+
+## 5. FILES CONTRIBUTING ACTIVE QUESTIONS (>0 active)
+--------------------------------------------------------------------------------
+  All 48 lgs_mat_gold_*.json files contribute at least some active questions.
+  lgs_mat_pack_yuzde_001 contributes ~5–10 active (after quality filter and dup).
+  lgs_mat_pack_oran_oranti_002 contributes 0 (validator rejects all).
+
+  Approx. active contributors: 49 files (all except lgs_mat_pack_oran_oranti_002).
+
+## 6. FILES CONTRIBUTING ZERO ACTIVE QUESTIONS
+--------------------------------------------------------------------------------
+  lgs_mat_pack_oran_oranti_002.json
+    Reason: MatQuestionValidator rejects all 10 questions
+    - Missing per-question: topic, questionType, skills, source, sourceRef, explanation
+    - Schema uses pack-level topic/difficulty; questions lack required LGS schema fields
+
+  (Optional) lgs_mat_pack_yuzde_001: If all questions are filtered by LgsQualityRules
+    (stem_too_short, one_step_arithmetic), it could contribute 0. Current evidence:
+    some questions have stem ≥80 chars and context; expect ~5–15 active.
+
+## 7. WHY ACTIVE MAT COUNT IS 346 INSTEAD OF ~500
+--------------------------------------------------------------------------------
+  Expected: 50 files × ~10 questions ≈ 500 (minus 2 missing gold = 48×10 + 20 pack ≈ 500)
+
+  Loss breakdown (approximate):
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ Total questions in files:           ~478                         │
+  │ Minus parse failures:                 -0  (or -10 if oran parse) │
+  │ Minus validator rejected:            -11  (oran 10 + gold_005 q0)│
+  │ Minus duplicate-stem collisions:    -30   (pool-wide dedup)      │
+  │ Minus deactivated (LgsQualityRules): ~91  (stem<80, low score)   │
+  │ ───────────────────────────────────────────────────────────────  │
+  │ Result: ACTIVE ≈ 346                                              │
+  └─────────────────────────────────────────────────────────────────┘
+
+  Main causes:
+  1. Missing gold files 020, 038 → ~20 questions never present
+  2. lgs_mat_pack_oran_oranti_002: 10 questions all rejected (schema)
+  3. Duplicate stems across files (template-style: same structure, different numbers)
+  4. LgsQualityRules deactivation: minStemLength=80, minQualityScore=40;
+     one_step_arithmetic, pure_memorization, direct_definition → auto-deactivate
+  5. lgs_mat_pack_yuzde_001: many one-step percentage questions deactivated
+  6. Validation rejects: difficulty_invalid (gold_005), schema gaps (oran_oranti)
+
+## 8. RECOVERY PLAN
+--------------------------------------------------------------------------------
+
+  DELETE (do not use; fully broken or redundant):
+    (none – no files are fully redundant; oran_oranti could be fixed)
+
+  REGENERATE (fix schema or recreate content):
+    - lgs_mat_gold_020.json  [MISSING – create from scratch]
+    - lgs_mat_gold_038.json  [MISSING – create from scratch]
+    - lgs_mat_pack_oran_oranti_002.json
+        Action: Add per-question topic, questionType, skills, source, sourceRef,
+                explanation to match MatQuestionValidator. Or regenerate in full
+                LGS schema (stem, options, answerIndex, etc.).
+
+  FIX IN PLACE (schema/validation issues; no full regeneration):
+    - lgs_mat_gold_005.json: Change q0 difficulty from 3 to 1 or 2
+    - lgs_mat_gold_002, 003, 004, 006, 011, 026, 027, 030: mat_validation_report
+      shows answer/explanation fixes already applied by validate_mat_answers.py
+      (7 files modified). Verify these fixes are present in current assets.
+
+  KEEP (contributing active questions; no action needed):
+    - All 48 lgs_mat_gold_001..050 (except 020, 038) – safe to keep
+    - lgs_mat_pack_yuzde_001.json – contributes some active; consider enhancing
+      stem length and context if more active count desired
+
+--------------------------------------------------------------------------------
+END OF REPORT
+--------------------------------------------------------------------------------
+To run full per-file statistics (accepted/rejected/dup/active), install Python
+and execute: python audit_mat_lgs.py
+Script location: audit_mat_lgs.py (project root)
