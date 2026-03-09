@@ -766,6 +766,176 @@
   "explanation": "Parçada güçlü düşüncenin, yalnızca destekleyici değil karşı örnekler karşısında da varlığını koruyabilmesiyle anlaşılacağı vurgulanmaktadır.",
   "source": "brainbuddy",
   "sourceRef": "lgs_smoke:turkce:46"
+},
+{
+  "stem": "İnsanlar çoğu zaman bir düşüncenin doğruluğunu, o düşünceyi kaç kişinin kabul ettiğine bakarak değerlendirme eğilimindedir. Oysa bir görüşün yaygın olması, onun mutlaka doğru olduğu anlamına gelmez. Tarihte pek çok düşünce, uzun süre herkes tarafından doğru kabul edilmesine rağmen zamanla yanlış olduğu anlaşılmıştır. Bu nedenle bir düşüncenin değeri, kaç kişi tarafından benimsendiğiyle değil, hangi gerekçelere dayandığıyla ölçülmelidir.",
+  "options": [
+    "Bir düşüncenin doğru olduğu, onu kaç kişinin kabul ettiğine bağlıdır.",
+    "Yaygın kabul gören fikirler genellikle yanlıştır.",
+    "Bir düşüncenin değeri, onu destekleyen gerekçelerin sağlamlığıyla ilgilidir.",
+    "Tarihte kabul edilen düşünceler zamanla değişmez."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "akil_yurutme", "yorumlama"],
+  "explanation": "Parçada düşüncenin doğruluğunun yaygınlıkla değil, dayandığı gerekçelerin sağlamlığıyla ölçülmesi gerektiği vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:47"
+},
+{
+  "stem": "Bir metni anlamak bazen metnin söylediği şeyleri takip etmekten çok, neyi neden söylemediğini fark etmeyi gerektirir. Çünkü bazı yazarlar, düşüncenin bir bölümünü açıkça anlatmak yerine okurun kurmasını ister. Böyle bir metinde okur yalnızca okuyucu değil, aynı zamanda anlamın kurulmasına katılan bir düşünür hâline gelir.",
+  "options": [
+    "Metni anlamak için yalnızca yazılanları okumak yeterlidir.",
+    "Bazı metinlerde okur, anlamın kurulmasına aktif biçimde katılır.",
+    "Yazarlar metinde hiçbir şeyi gizlemez.",
+    "Okurun görevi yalnızca metni takip etmektir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "yorumlama", "metin_analizi"],
+  "explanation": "Parçada bazı metinlerde anlamın kurulmasında okurun da aktif rol aldığı belirtilmektedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:48"
+},
+{
+  "stem": "Bir düşüncenin güçlü olması yalnızca doğru görünmesine bağlı değildir. Çünkü doğru görünen birçok fikir, ilk ciddi sorgulamada zayıflayabilir. Bu nedenle sağlam düşünce, yalnızca kabul edilen değil, eleştiriler karşısında da ayakta kalabilen düşüncedir. ____",
+  "options": [
+    "Bu yüzden güçlü düşünceler eleştiriye ihtiyaç duymaz.",
+    "Bu nedenle bir düşüncenin değeri, eleştiri karşısındaki dayanıklılığıyla anlaşılır.",
+    "Bu yüzden insanlar yalnızca kendi görüşlerini savunmalıdır.",
+    "Bu nedenle bütün düşünceler aynı derecede değerlidir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "akil_yurutme", "cikarim"],
+  "explanation": "Parça düşüncenin eleştiriler karşısında da ayakta kalabilmesinin önemini vurguladığı için doğru tamamlayıcı cümle B'dir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:49"
+},
+{
+  "stem": "Aşağıdaki cümlelerden hangisi paragrafın akışını bozmaktadır?\n\n(1) İnsan çoğu zaman kendi düşünce biçimini doğal ve doğru kabul eder. (2) Bu yüzden farklı görüşlerle karşılaştığında onları anlamaya çalışmak yerine hemen reddedebilir. (3) Oysa başka bakış açılarını anlamak, insanın düşünce sınırlarını genişletebilir. (4) Günümüzde birçok şehirde bisiklet yollarının sayısı artmaktadır. (5) Bu nedenle farklı görüşleri dinlemek düşünsel gelişim için önemlidir.",
+  "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Paragrafta Akış",
+  "skills": ["akıs_bozan_cumle", "paragraf", "konu_butunlugu"],
+  "explanation": "Paragraf düşünce ve bakış açıları üzerine kuruludur. 4. cümle şehir ve bisiklet yollarından bahsettiği için konu bütünlüğünü bozar.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:50"
+},
+{
+  "stem": "I. metin: Bazı yazarlar, metni mümkün olduğunca açık kurarak okurun düşünceyi hızlı ve rahat biçimde izlemesini ister.\n\nII. metin: Bazı yazarlar ise okurun metni okurken yavaşlamasını, anlamın bir bölümünü kendisinin kurmasını önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metinde de okurun yorum yapması gereksiz görülmektedir.",
+    "I. metin açıklığı, II. metin ise okurun aktif katılımını öne çıkarır.",
+    "I. metin kapalılığı savunur.",
+    "II. metin anlamın gizli kalmasını amaçlar."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "metin_analizi", "yorumlama"],
+  "explanation": "İlk metin açıklığı ve hızlı anlaşılmayı, ikinci metin ise okurun anlam kurma sürecine katılmasını savunmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:51"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık kitap okuma gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %10'u hiç okumamakta, %22'si 1 gün, %26'sı 2 gün, %21'i 3 gün, %13'ü 4 gün, %8'i ise 5 gün ve üzeri okumaktadır. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 3 gün kitap okumaktadır.",
+    "En büyük grup haftada 2 gün kitap okuyanlardır.",
+    "Hiç okumayanlar en kalabalık gruptur.",
+    "Tüm öğrenciler haftada en az bir gün kitap okumaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilere göre en yüksek oran %26 ile haftada 2 gün kitap okuyan öğrencilerde görülmektedir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:52"
+},
+{
+  "stem": "Dört öğrenci (Lina, Mert, Ozan ve Selin) farklı günlerde sunum yapacaktır: pazartesi, salı, çarşamba ve perşembe. Lina, Mert'ten önce sunum yapacaktır. Ozan, perşembe günü sunum yapmayacaktır. Selin, Lina'dan sonra sunum yapacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Selin, Mert'ten sonra sunum yapacaktır.",
+    "Lina, Selin'den önce sunum yapacaktır.",
+    "Ozan, salı günü sunum yapacaktır.",
+    "Mert, çarşamba günü sunum yapacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Soruda Selin'in Lina'dan sonra sunum yapacağı verilmiştir; bu durumda Lina'nın Selin'den önce olduğu kesindir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:53"
+},
+{
+  "stem": ""Bu konuyu daha iyi anlamak için farklı kaynaklara baktı." cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Neden-sonuç",
+    "Amaç-sonuç",
+    "Koşul-sonuç",
+    "Karşılaştırma"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "amac_sonuc", "yorumlama"],
+  "explanation": "Kaynaklara bakma eylemi bir amaç için yapılmıştır; bu nedenle amaç-sonuç ilişkisi vardır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:54"
+},
+{
+  "stem": ""Toplantıda sonunda o da içindekileri döktü." cümlesinde "içindekileri dökmek" sözü hangi anlamda kullanılmıştır?",
+  "options": [
+    "Bir şeyi yere boşaltmak",
+    "Sakladığı düşünceleri açıkça söylemek",
+    "Bir nesneyi kırmak",
+    "Yük taşımak"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["deyim", "sozcukte_anlam", "mecaz"],
+  "explanation": "Deyim burada kişinin içinde tuttuğu düşünce ve duyguları açıkça söylemesi anlamında kullanılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:55"
+},
+{
+  "stem": "Bir düşüncenin gerçekten anlaşılması, yalnızca onun doğru olduğunu kabul etmekle ortaya çıkmaz. İnsan, anladığını düşündüğü bir fikri başka bir örnek üzerinde uyguladığında ya da farklı bir bakış açısından değerlendirdiğinde aslında onu ne kadar kavradığını fark eder. Çünkü yüzeysel kabul, ilk farklı durumda sarsılır; derin kavrayış ise yeni durumlara uyarlanabildiği için daha dayanıklıdır.",
+  "options": [
+    "Bir düşünceyi anlamak için onu yalnızca kabul etmek yeterlidir.",
+    "Yüzeysel kabul yeni durumlarda da aynı gücü korur.",
+    "Gerçek kavrayış, düşünceyi farklı durumlarda uygulayabilmekle anlaşılır.",
+    "Bir düşünceyi başka örneklerde denemek gereksizdir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Yorum",
+  "skills": ["yorumlama", "cikarim", "uygulama"],
+  "explanation": "Parçada gerçek kavrayışın düşünceyi farklı durumlara uygulayabilmekle ortaya çıktığı vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:56"
 }
   ]
 }
