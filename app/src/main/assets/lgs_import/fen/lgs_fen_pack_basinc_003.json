@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Taban alanı 25 cm² olan bir cisim zemine 100 N kuvvet uygulamaktadır. Aynı cisim üzerine 50 N daha yük konulduğunda zemine uygulanan basınç kaç N/cm² olur?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": ["kati_basinc", "basinc_formulu", "kuvvet"],
+      "explanation": "Toplam kuvvet 150 N olur. Basınç = Kuvvet / Alan = 150 / 25 = 6 N/cm².",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q01"
+    },
+    {
+      "stem": "Aşağıdaki uygulamalardan hangisi katı basıncını artırmak için yapılır?",
+      "options": [
+        "Kar ayakkabılarının geniş tabanlı yapılması",
+        "Traktör lastiklerinin geniş yapılması",
+        "Çivinin sivri yapılması",
+        "Paletli araçların geniş yüzeyli olması"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "Basınç",
+      "skills": ["kati_basinc", "günlük_hayat", "basinc_uygulamalari"],
+      "explanation": "Temas alanı küçültülerek basınç artırılır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q02"
+    },
+    {
+      "stem": "Aynı cins sıvı bulunan K, L ve M kaplarında sıvı yükseklikleri sırasıyla 2h, 3h ve h'dir. Kapların tabanlarında oluşan sıvı basınçları arasındaki ilişki aşağıdakilerden hangisidir?",
+      "options": [
+        "L > K > M",
+        "K > L > M",
+        "M > K > L",
+        "K = L = M"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "derinlik", "karsilastirma"],
+      "explanation": "Sıvı basıncı derinlikle doğru orantılıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q03"
+    },
+    {
+      "stem": "Bir deneyde sıvı derinliği ile basınç arasındaki ilişki grafikte doğrusal olarak artmaktadır. Bu grafik aşağıdaki sonuçlardan hangisini destekler?",
+      "options": [
+        "Sıvı basıncı kap şekline bağlıdır",
+        "Sıvı basıncı derinliğe bağlıdır",
+        "Sıvı basıncı yalnızca yoğunluğa bağlıdır",
+        "Sıvı basıncı sıvı miktarına bağlıdır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "grafik", "derinlik"],
+      "explanation": "Derinlik arttıkça sıvı basıncı artar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q04"
+    },
+    {
+      "stem": "Bir öğrenci aynı sıvı içinde farklı derinliklere basınç sensörleri yerleştiriyor. Sensörlerin gösterdiği değerler derinlik arttıkça artıyor. Bu deney aşağıdaki değişkenlerden hangisinin sıvı basıncını etkilediğini gösterir?",
+      "options": [
+        "Derinlik",
+        "Kap şekli",
+        "Sıvı miktarı",
+        "Kap genişliği"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "deney", "derinlik"],
+      "explanation": "Sıvı basıncı derinliğe bağlıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q05"
+    },
+    {
+      "stem": "Aşağıdaki olaylardan hangisi açık hava basıncı ile açıklanamaz?",
+      "options": [
+        "Pipetle içecek içilmesi",
+        "Bardağın ağzına karton kapatıldığında suyun dökülmemesi",
+        "Çivinin tahtaya batması",
+        "Vakumlu kapların çalışması"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basınç",
+      "skills": ["acik_hava_basinci", "kati_basinc", "kavram_ayrimi"],
+      "explanation": "Çivinin batması katı basıncı ile ilgilidir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q06"
+    },
+    {
+      "stem": "Taban alanı 40 cm² olan bir cisim zemine 120 N kuvvet uyguluyor. Zemine uygulanan basınç kaç N/cm² olur?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": ["kati_basinc", "basinc_formulu"],
+      "explanation": "Basınç = 120 / 40 = 3 N/cm².",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q07"
+    },
+    {
+      "stem": "Yükseğe çıkıldıkça açık hava basıncı nasıl değişir?",
+      "options": [
+        "Artar",
+        "Azalır",
+        "Değişmez",
+        "Önce artar sonra azalır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "Basınç",
+      "skills": ["acik_hava_basinci", "yükseklik"],
+      "explanation": "Atmosfer yoğunluğu azaldıkça basınç azalır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q08"
+    },
+    {
+      "stem": "K, L ve M kaplarında aynı sıvı bulunmaktadır. Sıvı yükseklikleri sırasıyla h, 4h ve 2h'dir. Kapların taban basınçları arasındaki ilişki hangisidir?",
+      "options": [
+        "L > M > K",
+        "K > M > L",
+        "M > L > K",
+        "K = L = M"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "derinlik", "karsilastirma"],
+      "explanation": "Derinlik arttıkça basınç artar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q09"
+    },
+    {
+      "stem": "Gaz basıncını artırmak için aşağıdakilerden hangisi yapılmalıdır?",
+      "options": [
+        "Kabın hacmini artırmak",
+        "Gazın sıcaklığını artırmak",
+        "Gaz miktarını azaltmak",
+        "Kabın hacmini büyütmek"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basınç",
+      "skills": ["gaz_basinci", "sicaklik", "molekul"],
+      "explanation": "Sıcaklık arttıkça moleküllerin çarpma sayısı artar ve basınç yükselir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_003_q10"
+    }
+  ]
+}
