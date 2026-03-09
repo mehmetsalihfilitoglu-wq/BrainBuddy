@@ -140,6 +140,21 @@ class PoolStatusActivity : AppCompatActivity() {
                     renderStatus()
                 }
             }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnImportLgsFenPacks)
+            .setOnClickListener {
+                lifecycleScope.launch {
+                    val result = withContext(Dispatchers.IO) {
+                        QuestionPackImporter.importFenLgsPacksFromAssets(this@PoolStatusActivity)
+                    }
+                    AlertDialog.Builder(this@PoolStatusActivity)
+                        .setTitle("LGS FEN Import Sonucu")
+                        .setMessage(result.summary)
+                        .setPositiveButton(android.R.string.ok) { _, _ -> }
+                        .show()
+                    renderStatus()
+                }
+            }
     }
 
     private fun renderStatus() {

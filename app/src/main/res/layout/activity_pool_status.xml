@@ -102,6 +102,15 @@
                         android:layout_marginTop="8dp"
                         android:text="Import LGS MAT Packs"
                         android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnImportLgsFenPacks"
+                        style="@style/BBButtonAlt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Import LGS FEN Packs"
+                        android:textAllCaps="false" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
