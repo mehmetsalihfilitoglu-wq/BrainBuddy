@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Mor çiçekli olma özelliğinin beyaz çiçekli olmaya baskın olduğu bir bitki türünde heterozigot mor çiçekli iki bitki çaprazlanıyor. Oluşan yavrulardan rastgele seçilen mor çiçekli bir bireyin saf döl olma olasılığı kaçtır?",
+      "options": [
+        "1/4",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "olasilik", "saf_dol"],
+      "explanation": "Mm × Mm çaprazlamasında genotip oranı 1 MM : 2 Mm : 1 mm olur. Mor fenotipli bireyler MM ve Mm olduğundan toplam 3 mor bireyden yalnızca 1'i saf döl (MM) olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q01"
+    },
+    {
+      "stem": "Bir DNA molekülünde toplam 2400 nükleotit bulunmaktadır. Guanin bazlarının sayısı adenin bazlarının sayısının 2 katıdır. Buna göre timin bazı sayısı kaçtır?",
+      "options": [
+        "300",
+        "400",
+        "600",
+        "800"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "nukleotit_sayisi"],
+      "explanation": "DNA'da A = T ve G = C'dir. Adenin sayısı x ise timin x, guanin 2x ve sitozin 2x olur. Toplam nükleotit sayısı 6x = 2400 → x = 400. Timin sayısı 400'dür.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q02"
+    },
+    {
+      "stem": "Aşağıdaki olaylardan hangisinde meydana gelen değişimin yavru bireylere aktarılması beklenmez?",
+      "options": [
+        "Üreme ana hücresindeki DNA diziliminin değişmesi",
+        "Tohum oluşmadan önce bitkide kromozom sayısının değişmesi",
+        "Bir sporcunun düzenli antrenman sonucu kaslarının gelişmesi",
+        "Bakteride antibiyotik direnci sağlayan gen değişimi"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitsal", "modifikasyon", "cevre_etkisi"],
+      "explanation": "Kas gelişimi çevresel etkidir ve kalıtsal değildir. Diğerlerinde genetik materyal değişir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q03"
+    },
+    {
+      "stem": "Bir DNA zincirinde 180 adenin ve 120 guanin bazı bulunmaktadır. Buna göre bu DNA molekülü ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Toplam nükleotit sayısı 300'dür",
+        "Diğer zincirde 180 timin ve 120 sitozin bulunur",
+        "DNA molekülünde toplam timin sayısı 120'dir",
+        "DNA molekülündeki sitozin sayısı adenin sayısından fazladır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "cift_zincir"],
+      "explanation": "A karşısında T, G karşısında C bulunur. Bu nedenle karşı zincirde 180 T ve 120 C vardır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q04"
+    },
+    {
+      "stem": "Bir karakter bakımından Aa genotipli bir birey ile fenotipi çekinik olan birey çaprazlanıyor. Yavruların %50'si baskın fenotip gösteriyor. Çekinik fenotipli bireyin genotipi nedir?",
+      "options": [
+        "AA",
+        "Aa",
+        "aa",
+        "Belirlenemez"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "genotip_belirleme"],
+      "explanation": "Çekinik fenotip yalnızca aa genotipinde görülür. Aa × aa çaprazlamasında yavruların yarısı baskın olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q05"
+    },
+    {
+      "stem": "Bir böcek türünde nadiren koyu renkli bireyler ortaya çıkmaktadır. Sanayi sonrası ağaç kabukları koyulaşınca bu bireyler daha iyi saklanmış ve sayıları artmıştır. Bu olay aşağıdakilerden hangisi ile açıklanır?",
+      "options": [
+        "Koyu renk oluşumu modifikasyon, artışı mutasyon",
+        "Koyu renk oluşumu mutasyon, artışı doğal seçilim",
+        "Koyu renk oluşumu adaptasyon, artışı modifikasyon",
+        "Koyu renk oluşumu doğal seçilim, artışı mutasyon"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MUTATION_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["mutasyon", "dogal_secilim", "evrim"],
+      "explanation": "Yeni özellik mutasyonla ortaya çıkar. Çevrede avantaj sağlayan bireylerin sayısının artması doğal seçilimdir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q06"
+    },
+    {
+      "stem": "Bir öğrenci DNA hakkında şu ifadeleri söylüyor:\nI. DNA'nın yapı birimi gendir\nII. Nükleotit şeker, fosfat ve organik bazdan oluşur\nIII. DNA'da karşılıklı baz eşleşmesi vardır\nIV. Her nükleotitte aynı baz bulunur\n\nHangileri doğrudur?",
+      "options": [
+        "Yalnız II ve III",
+        "I ve IV",
+        "II, III ve IV",
+        "I, II ve III"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "STRUCTURE_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "nukleotit", "yapi_birimi", "baz_esitligi"],
+      "explanation": "DNA'nın yapı birimi nükleotittir. Nükleotit şeker, fosfat ve bazdan oluşur. DNA'da karşılıklı baz eşleşmesi vardır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q07"
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi adaptasyon değildir?",
+      "options": [
+        "Çöl tilkisinin geniş kulakları",
+        "Kutup ayısının kalın yağ tabakası",
+        "Güneşte bronzlaşma",
+        "Devenin hörgücünde yağ depolaması"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["adaptasyon", "modifikasyon", "cevre_etkisi"],
+      "explanation": "Bronzlaşma çevresel etkidir ve modifikasyondur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q08"
+    },
+    {
+      "stem": "Bir DNA molekülünde adenin sayısı sitozin sayısından 50 fazladır. Toplam baz sayısı 700 olduğuna göre guanin sayısı kaçtır?",
+      "options": [
+        "150",
+        "175",
+        "200",
+        "250"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["dna_yapisi", "baz_esitligi", "nukleotit_sayisi"],
+      "explanation": "A=T ve C=G. C=x ise A=x+50 olur. Toplam baz sayısı x + x + (x+50) + (x+50) = 700 → 4x + 100 = 700 → x=150. Guaninin sayısı 150'dir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q09"
+    },
+    {
+      "stem": "Aa genotipli iki birey çaprazlanıyor. Yavruların üçü baskın fenotipli, biri çekinik fenotipli oluyor. Buna göre aşağıdakilerden hangisi kesinlikle yanlıştır?",
+      "options": [
+        "Yavrular arasında çekinik genotip bulunabilir",
+        "Tüm yavrular heterozigot olabilir",
+        "Saf döl baskın birey bulunabilir",
+        "Heterozigot birey bulunabilir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PUNNETT_REASONING",
+      "topic": "DNA ve Genetik Kod",
+      "skills": ["kalitim", "punnet_kare", "genotip_belirleme"],
+      "explanation": "Aa × Aa çaprazlamasında AA, Aa ve aa oluşabilir. Tüm yavruların heterozigot olması mümkün değildir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_dna_004_q10"
+    }
+  ]
+}
