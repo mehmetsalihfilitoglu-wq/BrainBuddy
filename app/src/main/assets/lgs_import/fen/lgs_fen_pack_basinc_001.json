@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Özdeş malzemeden yapılmış, yükseklikleri eşit üç prizma farklı taban alanlarına sahiptir. Bu cisimlerden K'nin taban alanı en küçük, M'nin taban alanı en büyük olacak şekilde yatay zemine dik olarak yerleştiriliyor. Cisimlerin ağırlıkları taban alanları ile doğru orantılı olduğuna göre zemine uyguladıkları katı basınçları arasındaki ilişki aşağıdakilerden hangisidir?",
+      "options": [
+        "K > L > M",
+        "K = L = M",
+        "M > L > K",
+        "K = L > M"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "Basınç",
+      "skills": ["kati_basinc", "oran", "basinc_formulu"],
+      "explanation": "Katı basıncı P = F / A bağıntısıyla bulunur. Özdeş malzemeden ve yükseklikleri eşit olan prizmalarda ağırlık taban alanı ile doğru orantılıdır. Kuvvet ve temas alanı aynı oranda arttığı için F/A oranı değişmez. Bu nedenle basınçları eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q01"
+    },
+    {
+      "stem": "Aynı yükseklikte sıvı bulunan özdeş K, L ve M kaplarının yan yüzeylerine, tabandan eşit uzaklıkta delikler açılıyor. K kabında yalnız su, L kabında yalnız yağ, M kabında yalnız tuzlu su bulunmaktadır. Sıvı yükseklikleri eşit olduğuna göre deliklerden çıkan sıvıların yatayda ulaştığı uzaklıklar arasındaki ilişki aşağıdakilerden hangisidir?",
+      "options": [
+        "K > L > M",
+        "M > K > L",
+        "L > M > K",
+        "K = L = M"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "yogunluk", "deney"],
+      "explanation": "Delikteki sıvı basıncı sıvının yoğunluğuna ve derinliğe bağlıdır. Aynı yükseklikte yoğunluğu en büyük olan tuzlu su en fazla basınç oluşturur. Su, yağdan daha yoğun olduğu için sıralama M > K > L olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q02"
+    },
+    {
+      "stem": "Bir öğrencinin derinliğe bağlı sıvı basıncını araştırmak için yaptığı deneyde aynı sıvıya daldırılan özdeş basınç sensörlerinden alınan veriler grafiğe aktarılıyor. Grafikte derinlik arttıkça basıncın doğrusal arttığı görülüyor. Öğrenci aynı işlemi başka bir sıvı ile tekrarladığında ikinci doğrunun eğiminin daha büyük olduğunu gözlüyor. Buna göre ikinci sıvı ile ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Yoğunluğu daha küçüktür",
+        "Kabın şekli farklıdır",
+        "Yoğunluğu daha büyüktür",
+        "Sıvı miktarı daha azdır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "grafik", "yogunluk"],
+      "explanation": "Sıvı basıncı derinlik ve yoğunluk arttıkça artar. Basınç-derinlik grafiğinde eğimin büyük olması, birim derinlik artışında basıncın daha fazla arttığını gösterir. Bu da sıvının yoğunluğunun daha büyük olduğunu gösterir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q03"
+    },
+    {
+      "stem": "Taban alanı 20 cm² olan bir cisim zemine 60 N'luk kuvvet uyguluyor. Aynı cisim daha sonra üzerine 40 N'luk ek yük konularak taban alanı 10 cm² olacak şekilde başka bir yüzeyi üzerine çevriliyor. Buna göre cismin zemine uyguladığı basınç ilk duruma göre kaç kat olur?",
+      "options": [
+        "2",
+        "3",
+        "10/3",
+        "4"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": ["kati_basinc", "basinc_formulu", "oran"],
+      "explanation": "İlk durumda basınç 60/20 = 3 birimdir. İkinci durumda toplam kuvvet 100 N, temas alanı 10 cm² olur. Basınç 100/10 = 10 birimdir. Son durumun ilk duruma oranı 10/3 olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q04"
+    },
+    {
+      "stem": "Aşağıdaki uygulamalardan hangisinde amaç basıncı artırmak değildir?",
+      "options": [
+        "Çivinin sivri ucunun tahta yüzeye temas ettirilmesi",
+        "Bıçağın ağzının bilenmesi",
+        "Kar ayakkabılarının tabanının geniş yapılması",
+        "Topuklu ayakkabının ince topuklu tasarlanması"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Basınç",
+      "skills": ["kati_basinc", "günlük_hayat", "basinc_uygulamalari"],
+      "explanation": "Kar ayakkabılarında temas alanı artırılarak basınç azaltılır. Diğer seçeneklerde temas alanı azaltılarak basınç artırılmak istenir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q05"
+    },
+    {
+      "stem": "Bir öğrenci sıvı basıncının bağlı olduğu değişkenleri araştırmak için aşağıdaki düzenekleri kuruyor:\nI. Aynı sıvı, farklı derinlikler\nII. Farklı sıvılar, aynı derinlik\nIII. Farklı kap şekilleri, aynı sıvı ve aynı derinlik\n\nBu düzeneklerden hangileri sıvı basıncının kabın şekline bağlı olmadığını göstermede kullanılabilir?",
+      "options": [
+        "Yalnız I",
+        "Yalnız III",
+        "I ve II",
+        "II ve III"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "EXPERIMENT_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "deney", "degiskenler"],
+      "explanation": "Kabın şeklinin etkisini araştırmak için diğer değişkenler sabit tutulmalıdır. Aynı sıvı ve aynı derinlikte yalnız kap şekli değiştirilen III. düzenek bu amaç için uygundur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q06"
+    },
+    {
+      "stem": "Açık hava basıncının etkisini göstermek isteyen bir öğrenci, ağzına kadar su dolu bardağın üzerine karton kapatıp bardağı ters çeviriyor ve kartonun düşmediğini gözlüyor. Bu olayın temel nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Bardak içindeki suyun ağırlığının kartonu yukarı itmesi",
+        "Açık hava basıncının kartona aşağıdan yukarıya doğru etki etmesi",
+        "Suyun yalnızca aşağı yönde basınç uygulaması",
+        "Kartona etki eden kuvvetlerin tamamen yok olması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "LOGIC_REASONING",
+      "topic": "Basınç",
+      "skills": ["acik_hava_basinci", "deney"],
+      "explanation": "Açık hava basıncı kartona dışarıdan yukarı doğru etki eder ve suyun aşağı yönlü etkisini dengeleyerek kartonun düşmesini engeller.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q07"
+    },
+    {
+      "stem": "Özdeş deliklere sahip iki kaptan birinde su, diğerinde zeytinyağı bulunuyor. Delikler sıvı yüzeyinden eşit uzaklıkta ve kapların yan yüzeyinde aynı seviyede açılıyor. Deliklerden çıkan sıvıların fışkırma uzaklıklarının farklı olduğu gözleniyor. Bu farkın temel nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Kap şekillerinin farklı olması",
+        "Sıvıların kaynama noktalarının farklı olması",
+        "Sıvıların yoğunluklarının farklı olması",
+        "Açık hava basıncının sıvılara farklı etki etmesi"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "yogunluk"],
+      "explanation": "Aynı derinlikte sıvı basıncı yoğunluğa bağlıdır. Su ve zeytinyağının yoğunlukları farklı olduğundan delikte oluşan basınç ve fışkırma uzaklığı farklı olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q08"
+    },
+    {
+      "stem": "Bir balon, deniz seviyesinden yükseldikçe hacminin arttığı gözleniyor. Bu durumun nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Yükseğe çıkıldıkça açık hava basıncının azalması",
+        "Yükseğe çıkıldıkça yer çekiminin artması",
+        "Yükseğe çıkıldıkça gazların ağırlığının artması",
+        "Yükseğe çıkıldıkça balon içindeki gazın yok olması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "DATA_REASONING",
+      "topic": "Basınç",
+      "skills": ["acik_hava_basinci", "gaz_basinci"],
+      "explanation": "Yükseğe çıkıldıkça açık hava basıncı azalır. Dış basınç azaldığı için balon içindeki gaz daha fazla genleşir ve hacim artar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q09"
+    },
+    {
+      "stem": "K, L ve M kaplarında aynı cins sıvılar bulunmaktadır. K kabında sıvı yüksekliği 2h, L kabında h, M kabında ise 3h'tir. Kapların taban alanları farklı olsa da tabanlarında oluşan sıvı basınçları karşılaştırılıyor. Buna göre aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "M > K > L",
+        "K > M > L",
+        "K = L = M",
+        "Taban alanları bilinmeden sıralama yapılamaz"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Basınç",
+      "skills": ["sivi_basinc", "derinlik", "karsilastirma"],
+      "explanation": "Aynı cins sıvılarda tabandaki sıvı basıncı yalnızca derinliğe bağlıdır, kap şekline ve taban alanına bağlı değildir. Yükseklikler 3h, 2h ve h olduğundan M > K > L olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_bas_001_q10"
+    }
+  ]
+}
