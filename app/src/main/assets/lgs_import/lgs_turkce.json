@@ -1276,6 +1276,176 @@
   "explanation": "Parçada gerçek kavrayışın düşünceyi farklı durumlarda uygulayabilmekle ortaya çıktığı belirtilmektedir.",
   "source": "brainbuddy",
   "sourceRef": "lgs_smoke:turkce:76"
+},
+{
+  "stem": "İnsanlar çoğu zaman bir düşünceyi değerlendirirken onun sonucuna odaklanır ve o sonuca hangi yoldan ulaşıldığını ikinci plana atar. Oysa aynı sonuca ulaşan iki düşünce aynı değerde olmayabilir. Biri sağlam gerekçelere, dikkatli ayrımlara ve tutarlı bir akıl yürütmeye dayanırken diğeri yalnızca rastlantıyla doğru bir sonuca varmış olabilir. Bu yüzden düşüncenin değeri, vardığı sonuç kadar o sonuca nasıl ulaştığında da aranmalıdır.",
+  "options": [
+    "Bir düşüncenin değeri yalnızca vardığı sonuçla belirlenir.",
+    "Aynı sonuca ulaşan düşünceler her zaman eşit derecede güçlüdür.",
+    "Bir düşüncenin gücü, yalnızca sonucunda değil, o sonuca ulaşma biçiminde de aranmalıdır.",
+    "Rastlantıyla doğru sonuca ulaşmak, sağlam düşünmenin göstergesidir."
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Ana Düşünce",
+  "skills": ["ana_dusunce", "akil_yurutme", "yorumlama"],
+  "explanation": "Parçada düşüncenin değerinin yalnızca sonuçta değil, o sonuca hangi akıl yürütmeyle ulaşıldığında da olduğu vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:77"
+},
+{
+  "stem": "Bazı metinler okura yalnızca bilgi vermez; aynı zamanda o bilgiyi nasıl değerlendirmesi gerektiğine dair bir yön de gösterir. Okur, böyle metinlerde yalnızca ne söylendiğine değil, hangi örneklerin seçildiğine, hangi karşıtlıkların kurulduğuna ve hangi ayrıntıların özellikle öne çıkarıldığına da dikkat etmek zorundadır. Çünkü metnin düşüncesi bazen tek tek cümlelerde değil, o cümlelerin birbirine bağlanışında ortaya çıkar.",
+  "options": [
+    "Bir metni anlamak için yalnızca açıkça söylenenleri takip etmek yeterlidir.",
+    "Bazı metinlerde düşünce, yalnızca cümlelerde değil, cümlelerin kuruluş ve bağlanış biçiminde de ortaya çıkar.",
+    "Örnekler ve karşıtlıklar metnin anlamını etkilemez.",
+    "Metindeki ayrıntıların seçiliş biçimi önemsizdir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Çıkarım",
+  "skills": ["cikarim", "metin_analizi", "yorumlama"],
+  "explanation": "Parçada düşüncenin yalnızca cümlelerde değil, anlatımın kuruluş biçiminde de oluştuğu anlatılmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:78"
+},
+{
+  "stem": "Bir yazının güçlü olması, okuru her zaman şaşırtmasına bağlı değildir. Bazen asıl etki, çok iyi bilinen bir durumu yeni bir dikkatle gösterebilmekten doğar. İnsan çoğu zaman alıştığı şeyleri görmez; onları ancak biri yeniden işaret ettiğinde fark eder. Bu nedenle bazı yazarlar yepyeni bir konu bulmaya çalışmak yerine, herkesin içinden geçtiği bir ayrıntıyı görünür kılmayı önemser. ____",
+  "options": [
+    "Bu yüzden etkili yazılar yalnızca sıra dışı olaylarla kurulabilir.",
+    "Bu nedenle güçlü yazı, bazen yeni konu bulmaktan çok alışılmış olanı yeniden fark ettirebilmekten doğar.",
+    "Bu yüzden okurun bildiği konular yazıda kullanılmamalıdır.",
+    "Bu nedenle sıradan ayrıntılar yazıyı zayıflatır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Tamamlama",
+  "skills": ["paragraf_tamamlama", "yorumlama", "cikarim"],
+  "explanation": "Parçanın bütününde etkili yazının bazen yeni konu bulmaktan çok alışılmış olanı yeniden fark ettirebilmesiyle oluştuğu vurgulanmaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:79"
+},
+{
+  "stem": "Aşağıdaki cümlelerden anlamlı bir paragraf oluşturulduğunda doğru sıralama hangisi olur?\n\nI. Çünkü bir düşüncenin gerçek gücü, yalnızca destekleyici örneklerle değil, itirazlar karşısındaki dayanıklılığıyla anlaşılır.\nII. İnsanlar bazen yalnızca kendi görüşlerini doğrulayan örneklere bakarak düşüncelerini güçlü sanır.\nIII. Oysa böyle bir bakış, düşüncenin zayıf yanlarını görmeyi zorlaştırır.\nIV. Bu nedenle bir fikri değerlendirirken ona karşı çıkan örnekleri de hesaba katmak gerekir.",
+  "options": [
+    "II - III - I - IV",
+    "III - II - I - IV",
+    "II - I - III - IV",
+    "III - I - II - IV"
+  ],
+  "answerIndex": 0,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Paragraf Sıralama",
+  "skills": ["paragraf_siralama", "akis", "mantik"],
+  "explanation": "Giriş cümlesi II'dir. III bu bakışın sonucunu açıklar. I gerekçeyi verir. IV ise sonuç cümlesidir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:80"
+},
+{
+  "stem": "Aşağıdaki cümlelerden hangisi paragrafın akışını bozmaktadır?\n\n(1) Bir düşüncenin güçlü görünmesi, onu savunan kişinin tavrından etkilenmemize neden olabilir. (2) Ancak düşüncenin değeri, onu söyleyen kişinin ününden değil, dayandığı gerekçelerden gelir. (3) Bu yüzden bir görüşü değerlendirirken kişiden çok düşüncenin kendi yapısına bakmak gerekir. (4) Son yıllarda çevrim içi eğitim platformlarının sayısı hızla artmıştır. (5) Aksi hâlde etkileyici görünen ama zayıf temellere dayanan düşünceleri güçlü sanabiliriz.",
+  "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "answerIndex": 2,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Paragrafta Akış",
+  "skills": ["akıs_bozan_cumle", "paragraf", "konu_butunlugu"],
+  "explanation": "Paragraf düşüncenin kişi yerine gerekçelerle değerlendirilmesi üzerinedir. 4. cümle çevrim içi eğitimden söz ederek konu dışına çıkar.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:81"
+},
+{
+  "stem": "I. metin: Bazı yazarlar, düşünceyi bütün bağlantılarıyla açık biçimde kurarak okurun mümkün olduğunca az zorlanmasını ister.\n\nII. metin: Bazı yazarlar ise anlamın bir bölümünü açıkta bırakır; böylece okurun metin üzerinde durmasını ve bazı bağlantıları kendisinin kurmasını önemser.\n\nBu iki metin karşılaştırıldığında aşağıdakilerden hangisi söylenebilir?",
+  "options": [
+    "Her iki metin de anlamın bütünüyle gizli kalmasını savunmaktadır.",
+    "I. metin açıklık ve yönlendirmeyi, II. metin ise okurun anlam kurma sürecine katılımını öne çıkarır.",
+    "I. metin kapalılığı, II. metin ise yalnızca açıklığı savunmaktadır.",
+    "Her iki metin de okurun yorum yapmasını gereksiz görmektedir."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "INTERPRETATION",
+  "topic": "Metin Karşılaştırma",
+  "skills": ["karsilastirma", "metin_analizi", "yorumlama"],
+  "explanation": "Birinci metin açık ve yönlendirici anlatımı, ikinci metin ise okurun anlam kurma sürecine katılımını vurgulamaktadır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:82"
+},
+{
+  "stem": "Bir araştırmada öğrencilerin haftalık deneme analizi gün sayıları incelenmiştir. Sonuçlara göre öğrencilerin %13'ü hiç analiz yapmamakta, %17'si 1 gün, %24'ü 2 gün, %23'ü 3 gün, %14'ü 4 gün, %9'u ise 5 gün ve üzeri analiz yapmaktadır. Buna göre aşağıdakilerden hangisi doğrudur?",
+  "options": [
+    "Öğrencilerin yarısından fazlası haftada en az 4 gün analiz yapmaktadır.",
+    "En büyük grup haftada 2 gün analiz yapanlardır.",
+    "Hiç analiz yapmayanlar en kalabalık gruptur.",
+    "Öğrencilerin tamamı haftada en az 1 gün analiz yapmaktadır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Grafik ve Veri Yorumlama",
+  "skills": ["veri_yorumlama", "oran_karsilastirma", "cikarim"],
+  "explanation": "Verilere göre en yüksek oran %24 ile haftada 2 gün analiz yapan öğrencilere aittir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:83"
+},
+{
+  "stem": "Dört öğrenci (Ayda, Burak, Cihan ve Eylül) farklı günlerde konuşma yapacaktır: pazartesi, salı, çarşamba ve perşembe. Ayda, Burak'tan önce konuşacaktır. Cihan, perşembe günü konuşma yapmayacaktır. Eylül, Ayda'dan sonra konuşacaktır. Buna göre aşağıdakilerden hangisi kesinlikle doğrudur?",
+  "options": [
+    "Eylül, Burak'tan sonra konuşacaktır.",
+    "Ayda, Eylül'den önce konuşacaktır.",
+    "Cihan, salı günü konuşacaktır.",
+    "Burak, çarşamba günü konuşacaktır."
+  ],
+  "answerIndex": 1,
+  "difficulty": 2,
+  "questionType": "REASONING",
+  "topic": "Sözel Mantık",
+  "skills": ["mantik", "siralama", "kesin_yargi"],
+  "explanation": "Soruda Eylül'ün Ayda'dan sonra konuşacağı verildiğinden Ayda'nın Eylül'den önce olduğu kesin olarak bilinir.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:84"
+},
+{
+  "stem": ""Metni daha iyi kavrayabilmek için önemli yerlerin altını çizdi." cümlesinde aşağıdaki anlam ilişkilerinden hangisi vardır?",
+  "options": [
+    "Neden-sonuç",
+    "Koşul-sonuç",
+    "Amaç-sonuç",
+    "Karşılaştırma"
+  ],
+  "answerIndex": 2,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Cümlede Anlam",
+  "skills": ["cumlede_anlam", "amac_sonuc", "yorumlama"],
+  "explanation": "Altını çizme eylemi, metni daha iyi kavrayabilmek amacıyla yapılmıştır; bu nedenle amaç-sonuç ilişkisi vardır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:85"
+},
+{
+  "stem": ""Ne söylediysek hepsini bir çırpıda geçiştirdi." cümlesinde "geçiştirmek" sözcüğü hangi anlamda kullanılmıştır?",
+  "options": [
+    "Bir işi ayrıntılı biçimde açıklamak",
+    "Üzerinde durmadan, önem vermeden geçmek",
+    "Bir yerden başka bir yere taşımak",
+    "Çok dikkatli incelemek"
+  ],
+  "answerIndex": 1,
+  "difficulty": 1,
+  "questionType": "INTERPRETATION",
+  "topic": "Sözcükte Anlam",
+  "skills": ["sozcukte_anlam", "mecaz", "yorumlama"],
+  "explanation": "Burada "geçiştirmek" sözcüğü, bir konu üzerinde önemle durmamak ve yüzeysel biçimde geçmek anlamında kullanılmıştır.",
+  "source": "brainbuddy",
+  "sourceRef": "lgs_smoke:turkce:86"
 }
   ]
 }
