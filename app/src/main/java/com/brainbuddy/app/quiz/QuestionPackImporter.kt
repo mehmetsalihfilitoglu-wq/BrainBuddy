@@ -94,6 +94,7 @@ object QuestionPackImporter {
 
     private const val LGS_GRADE = 8
     private const val LGS_MAT_IMPORT_DIR = "lgs_import/mat"
+    private const val LGS_FEN_IMPORT_DIR = "lgs_import/fen"
     private val LGS_IMPORT_FILES = listOf(
         "lgs_mat.json", "lgs_turkce.json", "lgs_fen.json",
         "lgs_inkilap.json", "lgs_din.json", "lgs_ing.json"
@@ -159,6 +160,36 @@ object QuestionPackImporter {
         )
     }
 
+    /** Import FEN LGS packs from lgs_import/lgs_fen.json and lgs_import/fen/ (all JSON files). Forces subject=fen. */
+    fun importFenLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runFenLgsImportFromAssets(context)
+    }
+
+    private suspend fun runFenLgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+
+        val fenFiles = mutableListOf<Pair<String, String>>()
+        readAsset(context, "lgs_import/lgs_fen.json")?.let { fenFiles.add("lgs_fen.json" to it) }
+        context.assets.list(LGS_FEN_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?.forEach { fileName ->
+                readAsset(context, "$LGS_FEN_IMPORT_DIR/$fileName")?.let { fenFiles.add(fileName to it) }
+            }
+
+        for ((packName, json) in fenFiles) {
+            val result = runLgsImport(context, json, forceSubject = "fen", packName = packName)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
     /** Import all LGS question packs from assets/lgs_import/. Returns summary. */
     fun importAllLgsPacksFromAssets(context: Context): LgsImportSummary = runBlocking(Dispatchers.IO) {
         var totalImported = 0
@@ -167,6 +198,14 @@ object QuestionPackImporter {
         var totalParseErrors = 0
 
         for (fileName in LGS_IMPORT_FILES) {
+            if (fileName == "lgs_fen.json") {
+                val fenResult = runFenLgsImportFromAssets(context)
+                totalImported += fenResult.inserted
+                totalSkippedDuplicate += fenResult.skippedDuplicate
+                totalDeactivatedLowQuality += fenResult.deactivatedTooBasic
+                totalParseErrors += fenResult.parseErrors
+                continue
+            }
             val json = readAsset(context, "lgs_import/$fileName") ?: continue
             val result = runLgsImport(context, json, forceSubject = null)
             totalImported += result.inserted
