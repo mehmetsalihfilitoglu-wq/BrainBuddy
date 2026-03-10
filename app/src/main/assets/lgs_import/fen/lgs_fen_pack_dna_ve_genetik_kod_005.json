@@ -29,12 +29,12 @@
         "800",
         "900"
       ],
-      "answerIndex": 1,
+      "answerIndex": 0,
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "nukleotit_sayisi"],
-      "explanation": "DNA'da A=T ve G=C'dir. G sayısına x dersek C de x, A ve T ise x+400 olur. Toplam nükleotit sayısı x + x + (x+400) + (x+400) = 3200 → 4x + 800 = 3200 → 4x = 2400 → x = 600 gibi görünür; fakat burada A sayısı G sayısından 400 fazla olduğundan A=x+400, T=x+400, G=x, C=x kurulumuyla toplam 4x+800 olur. 3200 için x=600 bulunur. Ancak seçenek kontrolünde sitozin 600'dür.",
+      "explanation": "DNA'da A=T ve G=C'dir. A = G + 400 olduğundan G sayısına x dersek A=T=x+400, C=x olur. Toplam: (x+400)+(x+400)+x+x = 4x+800 = 3200 → x=600. Sitozin = C = 600.",
       "source": "brainbuddy",
       "sourceRef": "fen_dna_005_q02"
     },

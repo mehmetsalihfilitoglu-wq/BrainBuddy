@@ -33,7 +33,7 @@
       "difficulty": 3,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "proton", "notron", "kutle_numarasi"],
+      "skills": ["atom", "proton", "nötron", "kutle_numarasi"],
       "explanation": "Kütle numarası proton ve nötron sayılarının toplamıdır: 13 + 14 = 27. Nötr atomda elektron sayısı proton sayısına eşittir, yani 13'tür.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q02"
@@ -59,16 +59,16 @@
       "stem": "Bir kapta 4 tane H2O, 3 tane CO2 ve 2 tane O2 molekülü bulunmaktadır. Buna göre kaptaki toplam atom sayısı kaçtır?",
       "options": [
         "21",
-        "24",
-        "27",
-        "30"
+        "23",
+        "25",
+        "27"
       ],
       "answerIndex": 2,
       "difficulty": 3,
       "questionType": "MOLECULE_REASONING",
       "topic": "Madde ve Endüstri",
       "skills": ["molekul", "atom", "hesaplama"],
-      "explanation": "H2O molekülü 3 atomludur: 4×3=12. CO2 molekülü 3 atomludur: 3×3=9. O2 molekülü 2 atomludur: 2×2=4. Toplam 12+9+4=25 atom. (Not: Seçeneklerle uyumsuzluk var, 25 cevap olmalı.)",
+      "explanation": "H2O: 4×3=12 atom. CO2: 3×3=9 atom. O2: 2×2=4 atom. Toplam 12+9+4=25 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q04"
     },

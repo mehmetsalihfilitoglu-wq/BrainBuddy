@@ -58,17 +58,17 @@
     {
       "stem": "Bir kapta 3 tane CO2, 2 tane H2O ve 4 tane O2 molekülü bulunmaktadır. Buna göre kaptaki toplam atom sayısı kaçtır?",
       "options": [
-        "20",
-        "22",
-        "24",
-        "26"
+        "21",
+        "23",
+        "25",
+        "27"
       ],
-      "answerIndex": 2,
+      "answerIndex": 1,
       "difficulty": 4,
       "questionType": "MOLECULE_REASONING",
       "topic": "Madde ve Endüstri",
       "skills": ["molekul", "atom", "hesaplama"],
-      "explanation": "CO2: 3×3=9, H2O: 2×3=6, O2: 4×2=8 atom. Toplam 23 atom. (Not: Seçeneklerde 23 olmalı.)",
+      "explanation": "CO2: 3×3=9 atom. H2O: 2×3=6 atom. O2: 4×2=8 atom. Toplam 9+6+8=23 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_008_q04"
     },
