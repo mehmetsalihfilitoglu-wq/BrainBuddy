@@ -1,10 +1,13 @@
 {
   "version": 1,
-  "mode": "LGS",
+  "mode": "PACK",
   "subject": "inkilap",
-  "publisher": "brainbuddy",
+  "publisher": "BrainBuddy",
+  "packId": "lgs_ink_pack_001",
   "questions": [
     {
+      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
+      "difficulty": "VERY_HARD",
       "stem": "Erzurum Kongresi'nde alınan 'Manda ve himaye kabul edilemez.' kararı ile Sivas Kongresi'nde alınan 'Bütün yararlı cemiyetler Anadolu ve Rumeli Müdafaa-i Hukuk Cemiyeti adı altında birleştirilecektir.' kararı birlikte değerlendirildiğinde aşağıdaki yorumlardan hangisine ulaşılamaz?",
       "options": [
         "Millî Mücadele'nin bağımsızlık anlayışı açık biçimde ortaya konmuştur.",
@@ -13,15 +16,11 @@
         "Dağınık direniş hareketleri ortak bir amaç etrafında toplanmıştır."
       ],
       "answerIndex": 2,
-      "difficulty": 2,
-      "questionType": "REASONING",
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "kongreler", "cikarim"],
-      "explanation": "Kongre kararları hem siyasi bağımsızlık hem de örgütlenmeyi hedefler. Sadece askerî yönün güçlendirilmesi amacı yoktur.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:1"
+      "explanation": "Kongre kararları hem siyasi bağımsızlık (manda reddi) hem de örgütlenmeyi (cemiyetlerin birleşmesi) hedefler. Sadece askerî yönün güçlendirilmesi amacı yoktur; siyasi ve örgütsel boyutlar da vardır."
     },
     {
+      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
+      "difficulty": "VERY_HARD",
       "stem": "Misak-ı Milli kararlarında Türklerin çoğunlukta olduğu bölgelerin ayrılmaz bir bütün olduğu vurgulanmış ve kapitülasyonların kabul edilemeyeceği belirtilmiştir. Buna göre Misak-ı Milli'nin aşağıdakilerden hangisini birlikte sağlamaya yönelik olduğu söylenebilir?",
       "options": [
         "Siyasi ve ekonomik bağımsızlığı",
@@ -30,15 +29,11 @@
         "Saltanat yönetiminin güçlendirilmesini"
       ],
       "answerIndex": 0,
-      "difficulty": 2,
-      "questionType": "REASONING",
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "misakı_milli", "yorumlama"],
-      "explanation": "Misak-ı Milli kararları hem siyasi bağımsızlığı hem ekonomik bağımsızlığı hedefler.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:2"
+      "explanation": "Milli sınırlar vurgusu siyasi bağımsızlığı, kapitülasyonların reddi ise ekonomik bağımsızlığı hedefler. İkisi birlikte tam bağımsızlık anlayışını ortaya koyar."
     },
     {
+      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
+      "difficulty": "VERY_HARD",
       "stem": "Amasya Genelgesi'nde 'Milletin bağımsızlığını yine milletin azim ve kararı kurtaracaktır.' ifadesi yer almıştır. Bu ifade aşağıdaki gelişmelerden hangisinin düşünsel temelini oluşturmuştur?",
       "options": [
         "Saltanatın kaldırılmasının",
@@ -47,132 +42,98 @@
         "Kapitülasyonların kaldırılmasının"
       ],
       "answerIndex": 1,
-      "difficulty": 2,
-      "questionType": "REASONING",
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "amasya_genelgesi", "baglanti"],
-      "explanation": "Egemenliğin millete ait olduğu anlayışı TBMM'nin açılmasının temelini oluşturmuştur.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:3"
+      "explanation": "Egemenliğin millete ait olduğu anlayışı, milli iradenin temsil edildiği TBMM'nin açılmasının fikirsel temelini oluşturmuştur."
     },
     {
-      "stem": "Erzurum Kongresi'nde 'Millî sınırlar içinde vatan bir bütündür, parçalanamaz.' kararı alınmıştır. Bu karar aşağıdaki gelişmelerden hangisiyle doğrudan ilişkilidir?",
-      "options": [
-        "Misak-ı Milli kararlarının ortaya çıkması",
-        "Saltanatın kaldırılması",
-        "Cumhuriyetin ilan edilmesi",
-        "Halifeliğin kaldırılması"
-      ],
-      "answerIndex": 0,
-      "difficulty": 2,
-      "questionType": "REASONING",
       "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "erzurum_kongresi", "baglanti"],
-      "explanation": "Misak-ı Milli kararları milli sınırlar anlayışının devamı niteliğindedir.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:4"
-    },
-    {
-      "stem": "Kuva-yi Milliye birlikleri işgaller karşısında yerel direniş hareketleri olarak ortaya çıkmıştır. Ancak zamanla düzenli ordunun kurulmasına ihtiyaç duyulmuştur. Bu durum aşağıdakilerden hangisinin göstergesidir?",
-      "options": [
-        "Kuva-yi Milliye birliklerinin tamamen başarısız olduğunun",
-        "Düzensiz birliklerin modern savaş koşullarında yetersiz kalabildiğinin",
-        "Halkın Millî Mücadele'yi desteklemediğinin",
-        "İşgallerin kısa sürede sona erdiğinin"
-      ],
-      "answerIndex": 1,
-      "difficulty": 2,
-      "questionType": "REASONING",
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "kuvayi_milliye", "yorumlama"],
-      "explanation": "Kuva-yi Milliye yerel direnişi başlatmış ancak düzenli ordunun kurulması daha güçlü askerî yapı ihtiyacından doğmuştur.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:5"
-    },
-    {
-      "stem": "Erzurum Kongresi bölgesel bir kongre olmasına rağmen aldığı kararlar bütün milleti ilgilendirmiştir. Bu durum aşağıdakilerden hangisini gösterir?",
+      "difficulty": "VERY_HARD",
+      "stem": "Erzurum Kongresi bölgesel bir kongre olmasına rağmen aldığı kararlar bütün milleti ilgilendirmiştir. Bu durum aşağıdakilerden hangisinin göstergesidir?",
       "options": [
         "Kongre kararlarının yalnızca Doğu Anadolu için geçerli olduğunu",
         "Kongrede alınan kararların millî nitelik taşıdığını",
         "Kongrenin Osmanlı hükümeti tarafından düzenlendiğini",
-        "Kongre kararlarının uygulanmadığını"
+        "Kongre kararlarının fiilen uygulanmadığını"
       ],
       "answerIndex": 1,
-      "difficulty": 2,
-      "questionType": "REASONING",
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "erzurum_kongresi", "yorumlama"],
-      "explanation": "Erzurum Kongresi bölgesel toplanmış olsa da aldığı kararlar millî nitelik taşır.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:6"
+      "explanation": "Bölgesel toplanan kongrenin aldığı kararların tüm milleti ilgilendirmesi, kararların millî nitelik taşıdığını gösterir."
     },
     {
-      "stem": "Sivas Kongresi'nde bütün yararlı cemiyetlerin birleştirilmesi aşağıdaki amaçlardan hangisine yöneliktir?",
-      "options": [
-        "Direniş hareketlerini tek merkezden yönetmek",
-        "İşgalleri kabul etmek",
-        "Saltanat yönetimini güçlendirmek",
-        "Osmanlı hükümetine bağlı kalmak"
-      ],
-      "answerIndex": 0,
-      "difficulty": 2,
-      "questionType": "REASONING",
       "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "sivas_kongresi", "orgutlenme"],
-      "explanation": "Cemiyetlerin birleştirilmesi Millî Mücadele'nin tek merkezden yönetilmesini sağlamıştır.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:7"
-    },
-    {
-      "stem": "Amasya Genelgesi'nde 'Vatanın bütünlüğü ve milletin bağımsızlığı tehlikededir.' ifadesi kullanılmıştır. Bu durum aşağıdakilerden hangisinin göstergesidir?",
+      "difficulty": "VERY_HARD",
+      "stem": "Sivas Kongresi'nde bütün yararlı cemiyetlerin birleştirilmesi kararı alınmıştır. Bu kararın, Erzurum Kongresi kararlarıyla birlikte değerlendirildiğinde hangi ortak amaca hizmet ettiği söylenebilir?",
       "options": [
-        "Osmanlı Devleti'nin işgallere karşı başarılı olduğunu",
-        "Ülkenin işgaller karşısında ciddi bir tehdit altında olduğunu",
-        "İşgallerin sona erdiğini",
-        "Osmanlı Devleti'nin siyasi gücünün arttığını"
+        "Yerel direnişlerin dağınık kalmasını sağlamak",
+        "Millî Mücadele'yi tek merkezden ve birlik içinde yürütmek",
+        "Osmanlı hükümetine bağlılığı artırmak",
+        "Manda ve himaye seçeneğini gündemde tutmak"
       ],
       "answerIndex": 1,
-      "difficulty": 2,
-      "questionType": "REASONING",
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "amasya_genelgesi", "yorumlama"],
-      "explanation": "Genelgede ülkenin işgaller karşısında büyük bir tehlike altında olduğu vurgulanmıştır.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:8"
+      "explanation": "Cemiyetlerin birleşmesi, dağınık direniş hareketlerini tek çatı altında toplayarak Millî Mücadele'nin merkezi yönetimini sağlamıştır."
     },
     {
-      "stem": "Misak-ı Milli kararlarının TBMM tarafından kabul edilmesi aşağıdakilerden hangisinin göstergesidir?",
-      "options": [
-        "Millî Mücadele'nin hedeflerinin belirlenmiş olduğunun",
-        "Osmanlı Devleti'nin tamamen güçlendiğinin",
-        "İşgallerin sona erdiğinin",
-        "Saltanat yönetiminin güçlendiğinin"
-      ],
-      "answerIndex": 0,
-      "difficulty": 2,
-      "questionType": "REASONING",
       "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "misakı_milli", "tbmm"],
-      "explanation": "Misak-ı Milli Millî Mücadele'nin hedeflerini ortaya koymuştur.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:9"
+      "difficulty": "VERY_HARD",
+      "stem": "Amasya Genelgesi'nde 'Vatanın bütünlüğü ve milletin bağımsızlığı tehlikededir.' ifadesi kullanılmıştır. Bu ifadenin, aşağıdakilerden hangisini gerekçelendirmek amacıyla kullanıldığı söylenebilir?",
+      "options": [
+        "İşgalleri kabul etme politikasını",
+        "Milli kongrelerin toplanması ve halkın harekete geçirilmesi ihtiyacını",
+        "Saltanatın devamını sağlama çabasını",
+        "Manda yönetimini kabul etme gereğini"
+      ],
+      "answerIndex": 1,
+      "explanation": "Tehlike vurgusu, halkın milli bilinçle harekete geçirilmesi ve kongreler aracılığıyla örgütlenmesi gerektiğinin gerekçesi olarak kullanılmıştır."
     },
     {
-      "stem": "Erzurum ve Sivas kongreleri birlikte değerlendirildiğinde aşağıdakilerden hangisine ulaşılabilir?",
+      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
+      "difficulty": "VERY_HARD",
+      "stem": "Erzurum Kongresi'nde 'Millî sınırlar içinde vatan bir bütündür, parçalanamaz.' kararı alınmıştır. Bu karar, Misak-ı Milli ile ilişkisi bakımından aşağıdaki yorumlardan hangisine dayanak oluşturur?",
       "options": [
-        "Millî Mücadele'nin hem bağımsızlık hem de örgütlenme yönü güçlendirilmiştir.",
-        "Osmanlı Devleti'nin askerî gücü artırılmıştır.",
-        "Saltanat yönetimi güçlendirilmiştir.",
-        "İşgaller kabul edilmiştir."
+        "Misak-ı Milli'nin sadece askeri hedefler içerdiğine",
+        "Misak-ı Milli kararlarının Erzurum'daki milli sınır anlayışının devamı niteliğinde olduğuna",
+        "Misak-ı Milli'nin saltanatı güçlendirdiğine",
+        "Misak-ı Milli kararlarının bölgesel nitelik taşıdığına"
+      ],
+      "answerIndex": 1,
+      "explanation": "Misak-ı Milli, Erzurum Kongresi'ndeki 'milli sınırlar içinde vatan bir bütündür' anlayışının Meclis-i Mebusan'da resmi metne dönüşmüş halidir."
+    },
+    {
+      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
+      "difficulty": "VERY_HARD",
+      "stem": "Kuva-yi Milliye birlikleri işgaller karşısında yerel direnişler olarak ortaya çıkmış, ancak zamanla düzenli ordunun kurulmasına ihtiyaç duyulmuştur. Bu gelişme aşağıdakilerden hangisinin göstergesidir?",
+      "options": [
+        "Kuva-yi Milliye'nin tamamen başarısız olduğunun",
+        "Yerel ve düzensiz birliklerin, uzun vadeli ve topyekûn savaşta sınırlı kalabildiğinin",
+        "Halkın Millî Mücadele'ye destek vermediğinin",
+        "İşgallerin kısa sürede sona erdiğinin"
+      ],
+      "answerIndex": 1,
+      "explanation": "Kuva-yi Milliye ilk direnişi başlattı ancak modern savaş koşullarında merkezi, düzenli bir ordunun kurulması kaçınılmaz hale gelmiştir."
+    },
+    {
+      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
+      "difficulty": "VERY_HARD",
+      "stem": "Erzurum ve Sivas kongreleri birlikte değerlendirildiğinde, aşağıdaki çıkarımlardan hangisine ulaşılamaz?",
+      "options": [
+        "Millî Mücadele hem bağımsızlık hem de örgütlenme yönünde güçlenmiştir.",
+        "Kongreler, işgallere karşı tepkinin siyasi ve örgütsel ifadesi olmuştur.",
+        "İşgaller kabul edilerek barış sağlanmıştır.",
+        "Dağınık direniş hareketleri ortak bir çatı altında birleştirilmiştir."
+      ],
+      "answerIndex": 2,
+      "explanation": "Kongreler işgalleri reddetmiş, manda ve himayeyi kabul etmemiş; tam bağımsızlık hedefiyle örgütlenmeyi güçlendirmiştir. İşgallerin kabulü söz konusu değildir."
+    },
+    {
+      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
+      "difficulty": "VERY_HARD",
+      "stem": "Misak-ı Milli kararlarının TBMM tarafından kabul edilmesi, aşağıdakilerden hangisinin göstergesi olarak yorumlanabilir?",
+      "options": [
+        "Millî Mücadele'nin siyasi hedeflerinin netleşmiş olduğunun",
+        "Saltanatın TBMM üzerinde etkin olduğunun",
+        "İşgallerin fiilen sona erdiğinin",
+        "Manda seçeneğinin yeniden gündeme geldiğinin"
       ],
       "answerIndex": 0,
-      "difficulty": 2,
-      "questionType": "REASONING",
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "skills": ["inkilap_tarihi", "kongreler", "cikarim"],
-      "explanation": "Erzurum Kongresi bağımsızlık anlayışını ortaya koyarken Sivas Kongresi örgütlenmeyi güçlendirmiştir.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_ink_pack_001:10"
+      "explanation": "TBMM'nin Misak-ı Milli'yi kabul etmesi, Millî Mücadele'nin hedeflerini ve sınırlarını netleştirdiğini gösterir."
     }
   ]
 }
