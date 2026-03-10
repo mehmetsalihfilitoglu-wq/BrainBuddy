@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Özdeş bir pil ile kurulan iki devreden K'de iki özdeş ampul seri, L'de ise iki özdeş ampul paralel bağlanmıştır. Buna göre aşağıdaki yargılardan hangisi doğrudur?",
+      "options": [
+        "K devresindeki ampuller, L devresindeki ampullerden daha parlaktır.",
+        "L devresindeki her bir ampul, K devresindeki her bir ampulden daha parlaktır.",
+        "K ve L devrelerinde her bir ampulün parlaklığı aynıdır.",
+        "Paralel bağlı L devresinde ampuller kesinlikle yanmaz."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CIRCUIT_ANALYSIS",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "paralel_devre", "parlaklik"],
+      "explanation": "Paralel devrede her ampul pile daha uygun koşullarda bağlandığı için daha parlak yanar. Seri devrede toplam direnç arttığından ampuller daha sönük yanar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q01"
+    },
+    {
+      "stem": "Seri bağlı özdeş üç ampullü bir devrede, ampullerden biri çıkarılıyor. Aynı ampullerle kurulan paralel devrede ise ampullerden biri çıkarılıyor. Bu iki durum karşılaştırıldığında aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Her iki devrede de tüm ampuller söner.",
+        "Her iki devrede de kalan ampuller daha parlak yanar.",
+        "Seri devrede tüm ampuller söner, paralel devrede kalan ampuller yanmaya devam eder.",
+        "Seri devrede kalan ampuller yanar, paralel devrede tümü söner."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CURRENT_PATH_REASONING",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "paralel_devre", "akim"],
+      "explanation": "Seri devrede bir eleman çıkarılırsa devre açılır ve akım kesilir. Paralel devrede ise diğer kollar çalışmaya devam eder.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q02"
+    },
+    {
+      "stem": "İletken bir cisim nötr iken başka bir iletkenle temas ettirildikten sonra negatif yüklü hale gelmiştir. Buna göre aşağıdakilerden hangisi kesinlikle gerçekleşmiştir?",
+      "options": [
+        "Cisim proton almıştır.",
+        "Cisim elektron almıştır.",
+        "Cisim nötron vermiştir.",
+        "Cisim atom numarasını değiştirmiştir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CHARGE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektriklenme", "elektron", "temas"],
+      "explanation": "Negatif yüklenme, elektron sayısının artmasıyla olur. Proton ve atom numarası değişmez.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q03"
+    },
+    {
+      "stem": "Pozitif yüklü bir elektroskopa, yine pozitif yüklü bir cisim dokundurulmadan yaklaştırıldığında yaprakların biraz daha açıldığı gözleniyor. Bu gözleme dayanarak aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Yaklaştırılan cisim yüksüzdür.",
+        "Yaklaştırılan cismin yükü elektroskopunkiyle aynı işaretlidir.",
+        "Elektroskop nötr hale gelmiştir.",
+        "Elektroskop topraklanmıştır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "ELECTROSCOPE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektroskop", "etki_ile_elektriklenme", "yuk"],
+      "explanation": "Aynı işaretli yükler birbirini iter. Bu nedenle yaprakların daha fazla açılması, yaklaştırılan cismin aynı işaretli olabileceğini gösterir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q04"
+    },
+    {
+      "stem": "Bir elektrik devresinde pil sayısı sabit tutulurken devreye seri bağlı özdeş bir ampul daha ekleniyor. Buna göre devre ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Toplam direnç azalır, akım artar.",
+        "Toplam direnç artar, akım azalır.",
+        "Toplam direnç değişmez, akım artar.",
+        "Toplam direnç azalır, parlaklık artar."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "RESISTANCE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "direnc", "akim"],
+      "explanation": "Seri bağlı her ampul devrenin toplam direncini artırır. Direnç artınca akım azalır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q05"
+    },
+    {
+      "stem": "Paralel bağlı özdeş iki ampullü bir devreye özdeş üçüncü bir ampul yine paralel olacak şekilde ekleniyor. Pile ait özellikler değişmediğine göre aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Önceden bağlı ampullerin parlaklığı azalır.",
+        "Önceden bağlı ampullerin parlaklığı değişmez.",
+        "Tüm ampuller söner.",
+        "Yalnız yeni eklenen ampul yanar."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "PARALLEL_REASONING",
+      "topic": "Elektrik",
+      "skills": ["paralel_devre", "parlaklik"],
+      "explanation": "Paralel devrede her kol pile ayrı bağlanmış gibi davranır. Özdeş ampuller için mevcut ampullerin parlaklığı değişmez.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q06"
+    },
+    {
+      "stem": "Bir deneyde seri bağlı özdeş ampul sayısı arttıkça bir ampulün parlaklığının azaldığı gözleniyor. Bu deney sonucu aşağıdakilerden hangisini destekler?",
+      "options": [
+        "Seri devrede ampul sayısı arttıkça toplam direnç artar.",
+        "Seri devrede ampul sayısı arttıkça pil gerilimi artar.",
+        "Seri devrede ampul sayısı arttıkça elektronlar yok olur.",
+        "Seri devrede ampul sayısı arttıkça her ampul daha parlak yanar."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "direnc", "parlaklik"],
+      "explanation": "Ampul sayısının seri devrede artması toplam direnci artırır. Akım azaldığı için parlaklık düşer.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q07"
+    },
+    {
+      "stem": "Birbirini iten iki cisimle ilgili aşağıdaki ifadelerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Cisimlerden biri nötrdür.",
+        "Cisimlerin yük işaretleri aynıdır.",
+        "Biri pozitif, diğeri negatiftir.",
+        "Her ikisi de yüksüzdür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CHARGE_INTERACTION",
+      "topic": "Elektrik",
+      "skills": ["yuk", "elektrik_etkilesim", "coulomb"],
+      "explanation": "Birbirini iten iki cisim aynı tür yük taşır. Zıt yükler birbirini çeker.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q08"
+    },
+    {
+      "stem": "Özdeş bir pil, özdeş ampuller ve özdeş anahtarlar kullanılarak iki devre kuruluyor. K devresinde iki ampul seri, L devresinde iki ampul paralel bağlıdır. Her iki devrede de anahtar kapatıldığında pilden çekilen toplam akım karşılaştırılıyor. Buna göre aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "K devresinde toplam akım daha büyüktür.",
+        "L devresinde toplam akım daha büyüktür.",
+        "İki devrede de toplam akım aynıdır.",
+        "Toplam akım karşılaştırılamaz."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "paralel_devre", "akim", "direnc"],
+      "explanation": "Paralel devrenin eşdeğer direnci seri devreye göre daha küçüktür. Direnç küçük olduğunda pilden çekilen toplam akım daha büyük olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q09"
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi yanlıştır?",
+      "options": [
+        "Nötr cisimlerde toplam pozitif ve negatif yük sayısı eşittir.",
+        "Elektriklenme sırasında proton alışverişi günlük olaylarda belirleyicidir.",
+        "Zıt yüklü cisimler birbirini çeker.",
+        "Elektrik akımı iletken içinde yük hareketiyle ilişkilidir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektriklenme", "elektron", "proton"],
+      "explanation": "Günlük elektriklenme olaylarında esas olarak elektron alışverişi olur. Protonlar çekirdekte bulunduğu için yer değiştirmez.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_003_q10"
+    }
+  ]
+}
