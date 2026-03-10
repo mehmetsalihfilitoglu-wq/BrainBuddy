@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Bir besin zinciri şu şekildedir:\n\nÇimen → Çekirge → Kurbağa → Yılan\n\nKurbağa sayısının azalması aşağıdaki sonuçlardan hangisine yol açabilir?",
+      "options": [
+        "Çekirge sayısının azalmasına",
+        "Çekirge sayısının artmasına",
+        "Çimen sayısının azalmasına",
+        "Yılan sayısının artmasına"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "FOOD_CHAIN_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_zinciri", "avci_av", "ekosistem"],
+      "explanation": "Kurbağa çekirgeleri tükettiği için sayısı azalırsa çekirge sayısı artabilir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q01"
+    },
+    {
+      "stem": "Enerji piramidinde üst basamaklara çıkıldıkça canlı sayısının genellikle azalmasının temel nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Enerjinin her basamakta azalması",
+        "Canlıların büyüklüğünün artması",
+        "Üreticilerin yok olması",
+        "Fotosentezin durması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "ENERGY_PYRAMID_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "enerji_akis", "ekosistem"],
+      "explanation": "Enerji aktarımında her basamakta enerji kaybı olduğu için üst basamaklarda daha az canlı bulunur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q02"
+    },
+    {
+      "stem": "Atmosferde karbondioksit miktarının artması aşağıdaki olaylardan hangisine doğrudan neden olabilir?",
+      "options": [
+        "Küresel sıcaklığın artmasına",
+        "Yer çekiminin azalmasına",
+        "Dünya'nın dönme hızının artmasına",
+        "Okyanus tuzluluğunun azalmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "ENVIRONMENT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["sera_gazi", "karbondioksit", "kuresel_isinma"],
+      "explanation": "Karbondioksit sera gazıdır ve küresel ısınmaya neden olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q03"
+    },
+    {
+      "stem": "Aşağıdaki enerji kaynaklarından hangisi hem yenilenebilir hem de çevreye en az zarar veren kaynaklardan biridir?",
+      "options": [
+        "Kömür",
+        "Petrol",
+        "Rüzgar",
+        "Doğal gaz"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "ENERGY_SOURCE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["yenilenebilir_enerji", "ruzgar", "cevre"],
+      "explanation": "Rüzgar enerjisi yenilenebilir ve çevreye zarar vermeyen kaynaklardan biridir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q04"
+    },
+    {
+      "stem": "Karbon döngüsünde aşağıdaki olaylardan hangisi atmosferdeki karbondioksit miktarını azaltır?",
+      "options": [
+        "Solunum",
+        "Fotosentez",
+        "Yanma",
+        "Sanayi faaliyetleri"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "CARBON_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["karbon_dongusu", "fotosentez", "karbondioksit"],
+      "explanation": "Fotosentez sırasında bitkiler atmosferdeki karbondioksiti kullanır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q05"
+    },
+    {
+      "stem": "Bir güneş paneli aşağıdaki enerji dönüşümlerinden hangisini gerçekleştirir?",
+      "options": [
+        "Işık → Elektrik",
+        "Isı → Elektrik",
+        "Elektrik → Işık",
+        "Kimyasal → Elektrik"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "ENERGY_TRANSFORMATION_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_donusumu", "gunes_paneli", "elektrik"],
+      "explanation": "Güneş panelleri ışık enerjisini elektrik enerjisine dönüştürür.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q06"
+    },
+    {
+      "stem": "Ormanların yok edilmesi aşağıdaki sonuçlardan hangisine yol açabilir?",
+      "options": [
+        "Atmosferdeki karbondioksitin azalmasına",
+        "Küresel ısınmanın artmasına",
+        "Fotosentezin artmasına",
+        "Oksijen üretiminin artmasına"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "ENVIRONMENT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["orman", "karbon_dongusu", "kuresel_isinma"],
+      "explanation": "Ormanların yok edilmesi fotosentezi azaltır ve karbondioksit artışına yol açabilir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q07"
+    },
+    {
+      "stem": "Bir ekosistemde enerji akışı ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Enerji sürekli geri dönüşür",
+        "Enerji üreticilerden tüketicilere aktarılır",
+        "Enerji tüketicilerden üreticilere geçer",
+        "Enerji ekosistemde sabit kalır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "ENERGY_FLOW_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_akis", "uretici", "tuketici"],
+      "explanation": "Enerji üreticilerden başlayarak tüketicilere doğru aktarılır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q08"
+    },
+    {
+      "stem": "Bir besin zincirinde üreticiler → birincil tüketiciler → ikincil tüketiciler bulunmaktadır. Buna göre enerji miktarı ile ilgili aşağıdaki yorumlardan hangisi doğrudur?",
+      "options": [
+        "Enerji üreticilerde en azdır",
+        "Enerji üst basamaklarda artar",
+        "Enerji üreticilerde en fazladır",
+        "Enerji tüm basamaklarda eşittir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_zinciri", "enerji_piramidi", "uretici"],
+      "explanation": "Enerji piramidinde en fazla enerji üreticilerde bulunur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q09"
+    },
+    {
+      "stem": "Aşağıdaki uygulamalardan hangisi çevre kirliliğini azaltmaya yardımcı olur?",
+      "options": [
+        "Fosil yakıt kullanımını artırmak",
+        "Yenilenebilir enerji kaynaklarını kullanmak",
+        "Ormanları kesmek",
+        "Sanayi atıklarını doğaya bırakmak"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["yenilenebilir_enerji", "cevre", "kirlilik"],
+      "explanation": "Yenilenebilir enerji kaynakları çevre kirliliğini azaltmaya yardımcı olur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_002_q10"
+    }
+  ]
+}
