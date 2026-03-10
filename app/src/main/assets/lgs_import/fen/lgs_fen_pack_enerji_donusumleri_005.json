@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Bir ekosistemde çimenlerle beslenen tavşan ve çekirgeler; çekirgelerle beslenen kurbağalar; tavşan ve kurbağalarla beslenen tilkiler bulunmaktadır. Bu ekosistemde çekirge sayısının uzun süreli artışı aşağıdakilerden hangisine doğrudan yol açabilir?",
+      "options": [
+        "Çimen miktarının artmasına",
+        "Kurbağa sayısının artmasına",
+        "Tilki sayısının kesin olarak azalmasına",
+        "Tavşan sayısının kesin olarak artmasına"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "FOOD_WEB_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_agi", "avci_av", "populasyon"],
+      "explanation": "Çekirge sayısının artması, onlarla beslenen kurbağalar için besin miktarını artırır. Bu nedenle kurbağa sayısında artış görülebilir. Diğer sonuçlar kesin değildir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q01"
+    },
+    {
+      "stem": "Bir enerji piramidinde üreticilerden üçüncül tüketicilere doğru çıkıldıkça toplam enerji azalmasına rağmen bazı üst basamak canlılarının vücut büyüklüğü daha fazla olabilir. Bu durum aşağıdakilerden hangisini gösterir?",
+      "options": [
+        "Bireysel büyüklük ile toplam enerji miktarı her zaman aynı yönde değişir",
+        "Toplam enerji azalması, tek tek canlıların kütlesinin mutlaka küçülmesini gerektirmez",
+        "Üreticiler tüm canlılardan daha küçüktür",
+        "Üst basamaklarda fotosentez gerçekleştiği için canlılar büyüktür"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "ENERGY_PYRAMID_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "biyokutle", "trofik_duzey"],
+      "explanation": "Enerji piramidi toplam enerji miktarını gösterir. Tek bir canlının büyük olması, o basamaktaki toplam enerjinin fazla olduğu anlamına gelmez.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q02"
+    },
+    {
+      "stem": "Bir bölgede kömür kullanımının azaltılıp güneş enerjisi santrallerinin artırılması planlanıyor. Bu değişiklikle aşağıdakilerden hangisinin azaltılması doğrudan hedeflenir?",
+      "options": [
+        "Yer çekimi etkisinin",
+        "Sera gazı salınımının",
+        "Güneş'ten gelen ışık miktarının",
+        "Açık hava basıncının"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "GREENHOUSE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["sera_gazi", "yenilenebilir_enerji", "gunes_enerjisi"],
+      "explanation": "Kömür gibi fosil yakıtların kullanımı sera gazı salınımını artırır. Güneş enerjisi kullanımının artması bu salınımı azaltmayı hedefler.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q03"
+    },
+    {
+      "stem": "Aşağıdaki olaylardan hangisi karbonun kısa sürede atmosferden canlı yapısına geçmesini sağlar?",
+      "options": [
+        "Yanma",
+        "Fotosentez",
+        "Solunum",
+        "Çürüme"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CARBON_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["karbon_dongusu", "fotosentez", "karbondioksit"],
+      "explanation": "Fotosentez sırasında bitkiler atmosferdeki karbondioksiti alarak organik maddelerin yapısına katar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q04"
+    },
+    {
+      "stem": "Aşağıdaki sistemlerden hangisinde başlıca enerji dönüşümü yanlış verilmiştir?",
+      "options": [
+        "Güneş paneli: ışık enerjisi → elektrik enerjisi",
+        "Rüzgar türbini: hareket enerjisi → elektrik enerjisi",
+        "Hidroelektrik santral: potansiyel enerji → elektrik enerjisi",
+        "Ampul: elektrik enerjisi → kimyasal enerji"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "ENERGY_TRANSFORMATION_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_donusumu", "elektrik", "aletler"],
+      "explanation": "Ampulde elektrik enerjisi ışık ve ısı enerjisine dönüşür. Kimyasal enerjiye dönüşüm söz konusu değildir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q05"
+    },
+    {
+      "stem": "Topraktaki azot bağlayıcı bakterilerin büyük ölçüde azalması durumunda aşağıdaki sonuçlardan hangisi öncelikle beklenir?",
+      "options": [
+        "Bitkilerin azotlu bileşik üretiminin zorlaşması",
+        "Güneş enerjisinin Dünya'ya daha az ulaşması",
+        "Atmosferdeki oksijenin aniden yok olması",
+        "Su döngüsünün tamamen durması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "NITROGEN_CYCLE_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["azot_dongusu", "bakteri", "bitki"],
+      "explanation": "Azot bağlayıcı bakteriler, atmosfer azotunun bitkilerin kullanabileceği forma dönüşmesini sağlar. Bu bakterilerin azalması bitkilerin azot kullanımını zorlaştırır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q06"
+    },
+    {
+      "stem": "Bir ekosistemde enerji miktarları şu şekilde verilmiştir:\nÜreticiler: 8000 birim\nBirincil tüketiciler: 800 birim\nİkincil tüketiciler: 80 birim\nÜçüncül tüketiciler: 8 birim\n\nBu verilerden aşağıdakilerden hangisi çıkarılabilir?",
+      "options": [
+        "Enerji her basamakta yaklaşık onda bire düşmektedir",
+        "Üçüncül tüketicilerin sayısı kesin olarak en fazladır",
+        "Birincil tüketiciler üreticilerden daha çok enerjiye sahiptir",
+        "İkincil tüketiciler fotosentez yapmaktadır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "GRAPH_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_piramidi", "veri_yorumlama", "trofik_duzey"],
+      "explanation": "Verilen sayılar her trofik basamakta enerjinin yaklaşık 1/10'unun aktarıldığını göstermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q07"
+    },
+    {
+      "stem": "Bir besin zincirinde üretici sayısının ciddi biçimde azalması, ilk olarak aşağıdakilerden hangisini etkiler?",
+      "options": [
+        "Birincil tüketicilere aktarılan enerji miktarını",
+        "Atmosfer basıncını",
+        "Dünya'nın dönme hızını",
+        "Yer kabuğunun yapısını"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "FOOD_CHAIN_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["besin_zinciri", "enerji_akis", "uretici"],
+      "explanation": "Enerji akışı üreticilerle başlar. Üreticilerin azalması, ilk olarak birincil tüketicilere aktarılan enerjiyi azaltır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q08"
+    },
+    {
+      "stem": "Aşağıdaki uygulamalardan hangisi hem doğal kaynakların korunmasına hem de sera gazı salınımının azaltılmasına katkı sağlar?",
+      "options": [
+        "Toplu taşıma kullanımını artırmak",
+        "Tek kullanımlık ürünlerin tüketimini artırmak",
+        "Fosil yakıt destekli santralleri yaygınlaştırmak",
+        "Orman alanlarını yerleşime açmak"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "ENVIRONMENT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["sera_gazi", "toplu_tasima", "cevre"],
+      "explanation": "Toplu taşımanın yaygınlaşması yakıt tüketimini ve buna bağlı sera gazı salınımını azaltır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q09"
+    },
+    {
+      "stem": "Enerji akışı ile madde döngüsü karşılaştırıldığında aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Her ikisi de ekosistemde sürekli aynı şekilde geri dönüşür",
+        "Enerji tek yönlü akar, maddeler döngüsel olarak yeniden kullanılır",
+        "Madde tek yönlü akar, enerji döngü yapar",
+        "Enerji ve madde ekosistemde birbirinden bağımsızdır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Enerji Dönüşümleri",
+      "skills": ["enerji_akis", "madde_dongusu", "ekosistem"],
+      "explanation": "Enerji ekosistemde tek yönlü akar ve ısı olarak kaybedilir. Maddeler ise çeşitli döngüler aracılığıyla tekrar kullanılır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_ed_005_q10"
+    }
+  ]
+}
