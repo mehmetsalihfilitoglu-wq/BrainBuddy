@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Periyodik tabloda bir elementin periyot numarası aşağıdakilerden hangisini gösterir?",
+      "options": [
+        "Proton sayısını",
+        "Katman sayısını",
+        "Elektron sayısını",
+        "Grup sayısını"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "explanation": "Periyot numarası atomun katman sayısını gösterir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q01"
+    },
+    {
+      "stem": "Bir atomda proton sayısı 8 ise bu atomun atom numarası kaçtır?",
+      "options": [
+        "4",
+        "8",
+        "16",
+        "24"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["atom", "proton", "atom_numarasi"],
+      "explanation": "Atom numarası proton sayısına eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q02"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem elementtir hem de molekül yapılıdır?",
+      "options": [
+        "Oksijen",
+        "Su",
+        "Tuz",
+        "Karbon dioksit"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["element", "molekul", "yapisal_ozellik"],
+      "explanation": "O2 molekül yapılı elementtir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q03"
+    },
+    {
+      "stem": "Bir molekül 2 hidrojen ve 1 oksijen atomundan oluşmaktadır. Buna göre bu molekül toplam kaç atom içerir?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["molekul", "atom", "hesaplama"],
+      "explanation": "2 hidrojen + 1 oksijen = 3 atom.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q04"
+    },
+    {
+      "stem": "Periyodik tabloda aynı grupta bulunan elementler için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Atom numaraları aynıdır",
+        "Kimyasal özellikleri benzerdir",
+        "Katman sayıları aynıdır",
+        "Hepsi aynı halde bulunur"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "grup", "kimyasal_ozellik"],
+      "explanation": "Aynı gruptaki elementlerin kimyasal özellikleri benzerdir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q05"
+    },
+    {
+      "stem": "Bir element periyodik tabloda 3. periyotta bulunuyorsa bu element ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "3 proton içerir",
+        "3 katmanı vardır",
+        "3 elektronu vardır",
+        "3 nötronu vardır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "TABLE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "explanation": "Periyot numarası katman sayısını gösterir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q06"
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi saf madde değildir?",
+      "options": [
+        "Altın",
+        "Demir",
+        "Hava",
+        "Oksijen"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["saf_madde", "karisim", "siniflandirma"],
+      "explanation": "Hava bir gaz karışımıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q07"
+    },
+    {
+      "stem": "Bir atomda proton sayısı 12 ise nötr halde elektron sayısı kaçtır?",
+      "options": [
+        "6",
+        "10",
+        "12",
+        "24"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["atom", "proton", "elektron", "nor_atom"],
+      "explanation": "Nötr atomda proton sayısı elektron sayısına eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q08"
+    },
+    {
+      "stem": "Bir molekül 1 karbon ve 2 oksijen atomundan oluşmaktadır. Buna göre bu molekülde toplam kaç atom vardır?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["molekul", "atom", "hesaplama"],
+      "explanation": "1 karbon + 2 oksijen = 3 atom.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q09"
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi elementtir?",
+      "options": [
+        "Su",
+        "Karbon dioksit",
+        "Demir",
+        "Tuz"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["element", "bilesik", "siniflandirma"],
+      "explanation": "Demir tek tür atomdan oluşan elementtir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_002_q10"
+    }
+  ]
+}
