@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Periyodik tabloda aynı grupta bulunan elementler için aşağıdaki özelliklerden hangisi kesinlikle aynıdır?",
+      "options": [
+        "Atom numarası",
+        "Katman sayısı",
+        "Son katman elektron sayısı",
+        "Nötron sayısı"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "grup", "elektron"],
+      "explanation": "Aynı gruptaki elementlerin son katman elektron sayıları aynıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q01"
+    },
+    {
+      "stem": "Bir atomda proton sayısı 17 ise bu atom ile ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Elektron sayısı 18'dir",
+        "Atom numarası 17'dir",
+        "Nötron sayısı 17'dir",
+        "Katman sayısı 17'dir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["atom", "proton", "atom_numarasi"],
+      "explanation": "Atom numarası proton sayısına eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q02"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem saf madde hem de bileşiktir?",
+      "options": [
+        "Oksijen",
+        "Hava",
+        "Karbon dioksit",
+        "Demir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["saf_madde", "bilesik", "element", "karisim"],
+      "explanation": "Karbon dioksit farklı atomların birleşmesiyle oluşan saf bileşiktir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q03"
+    },
+    {
+      "stem": "Bir kapta 4 adet CO2 molekülü bulunmaktadır. Buna göre kapta toplam kaç atom vardır?",
+      "options": [
+        "8",
+        "10",
+        "12",
+        "16"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "MOLECULE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["molekul", "atom", "hesaplama"],
+      "explanation": "CO2 molekülü 3 atom içerir. 4 × 3 = 12 atom.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q04"
+    },
+    {
+      "stem": "Periyodik tabloda bir element 3. periyotta bulunuyorsa bu element ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "3 protona sahiptir",
+        "3 katmanı vardır",
+        "3 elektronu vardır",
+        "3 nötrondan oluşur"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "explanation": "Periyot numarası atomun katman sayısını gösterir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q05"
+    },
+    {
+      "stem": "Periyodik tabloda soldan sağa doğru gidildikçe aşağıdakilerden hangisi artar?",
+      "options": [
+        "Atom numarası",
+        "Katman sayısı",
+        "Grup numarası",
+        "Son katman elektron sayısı azalır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "TABLE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "atom_numarasi"],
+      "explanation": "Periyot boyunca atom numarası artar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q06"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi karışım değildir?",
+      "options": [
+        "Hava",
+        "Deniz suyu",
+        "Şekerli su",
+        "Su"
+      ],
+      "answerIndex": 3,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["karisim", "bilesik", "siniflandirma"],
+      "explanation": "Su saf bileşiktir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q07"
+    },
+    {
+      "stem": "Bir atomda proton sayısı 8 ise nötr atomda elektron sayısı kaçtır?",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "16"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["atom", "proton", "elektron", "nor_atom"],
+      "explanation": "Nötr atomda proton sayısı elektron sayısına eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q08"
+    },
+    {
+      "stem": "Bir kapta 3 tane H2O molekülü ve 2 tane O2 molekülü vardır. Buna göre kaptaki toplam atom sayısı kaçtır?",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["molekul", "atom", "hesaplama"],
+      "explanation": "H2O → 3 atom × 3 = 9 atom. O2 → 2 atom × 2 = 4 atom. Toplam = 13 atom.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q09"
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi elementler için doğrudur?",
+      "options": [
+        "Kimyasal yöntemlerle daha basit maddelere ayrılabilirler",
+        "Farklı tür atomlardan oluşurlar",
+        "Tek tür atom içerirler",
+        "Karışım oluştururlar"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["element", "atom", "ozellik"],
+      "explanation": "Elementler tek tür atomdan oluşur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_005_q10"
+    }
+  ]
+}
