@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Aşağıdakilerden hangisi elementlerin ortak özelliklerinden biri değildir?",
+      "options": [
+        "Aynı tür atomlardan oluşmaları",
+        "Kimyasal yöntemlerle daha basit maddelere ayrılabilmeleri",
+        "Periyodik tabloda yer almaları",
+        "Saf madde olmaları"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["element", "saf_madde", "kimyasal_ozellik"],
+      "explanation": "Elementler kimyasal yöntemlerle daha basit maddelere ayrıştırılamaz.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q01"
+    },
+    {
+      "stem": "Periyodik tabloda aynı grupta bulunan elementler ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Atom numaraları aynıdır",
+        "Kimyasal özellikleri benzerdir",
+        "Katman sayıları aynıdır",
+        "Hepsi aynı fiziksel halde bulunur"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "TABLE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "grup", "kimyasal_ozellik"],
+      "explanation": "Aynı gruptaki elementlerin kimyasal özellikleri benzerdir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q02"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi bileşiktir?",
+      "options": [
+        "Oksijen",
+        "Demir",
+        "Su",
+        "Bakır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["bilesik", "element", "kimyasal_bag"],
+      "explanation": "Su farklı atomların kimyasal bağ ile birleşmesiyle oluşan bileşiktir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q03"
+    },
+    {
+      "stem": "Bir maddede iki farklı tür atom belirli oranlarda birleşmiştir ve bu madde kimyasal yöntemlerle ayrıştırılabilmektedir. Bu madde aşağıdakilerden hangisidir?",
+      "options": [
+        "Element",
+        "Bileşik",
+        "Karışım",
+        "Saf madde değildir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["bilesik", "element", "saf_madde"],
+      "explanation": "Farklı atomların belirli oranlarda birleşmesiyle bileşik oluşur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q04"
+    },
+    {
+      "stem": "Periyodik tabloda soldan sağa doğru gidildikçe aşağıdakilerden hangisi artar?",
+      "options": [
+        "Katman sayısı",
+        "Atom numarası",
+        "Grup sayısı",
+        "Elektron sayısı azalır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "atom_numarasi"],
+      "explanation": "Periyot boyunca atom numarası artar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q05"
+    },
+    {
+      "stem": "Periyodik tabloda aynı periyotta bulunan elementler için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Katman sayıları aynıdır",
+        "Atom numaraları aynıdır",
+        "Kimyasal özellikleri aynıdır",
+        "Grup numaraları aynıdır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "TABLE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "explanation": "Aynı periyottaki elementlerin katman sayıları aynıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q06"
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi karışıma örnektir?",
+      "options": [
+        "Tuz",
+        "Şeker",
+        "Hava",
+        "Altın"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["karisim", "bilesik", "element"],
+      "explanation": "Hava farklı gazların oluşturduğu karışımdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q07"
+    },
+    {
+      "stem": "Bir atomun proton sayısı 11 ise bu atom ile ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Elektron sayısı 10'dur",
+        "Atom numarası 11'dir",
+        "Nötron sayısı 11'dir",
+        "Katman sayısı 11'dir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["atom", "proton", "atom_numarasi"],
+      "explanation": "Atom numarası proton sayısına eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q08"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem element hem de molekül yapılı olabilir?",
+      "options": [
+        "Oksijen",
+        "Su",
+        "Tuz",
+        "Karbon dioksit"
+      ],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["element", "molekul", "yapisal_ozellik"],
+      "explanation": "O2 molekül yapılı bir elementtir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q09"
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi saf madde değildir?",
+      "options": [
+        "Demir",
+        "Su",
+        "Hava",
+        "Oksijen"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["saf_madde", "karisim", "siniflandirma"],
+      "explanation": "Hava bir gaz karışımıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_001_q10"
+    }
+  ]
+}
