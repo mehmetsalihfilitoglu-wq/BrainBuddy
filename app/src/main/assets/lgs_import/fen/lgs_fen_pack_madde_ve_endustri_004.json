@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Periyodik tabloda bir elementin atom numarası 12 ise bu element ile ilgili aşağıdaki bilgilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Son katmanında 12 elektron vardır",
+        "Proton sayısı 12'dir",
+        "Nötron sayısı 12'dir",
+        "Katman sayısı 12'dir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "atom_numarasi", "proton"],
+      "explanation": "Atom numarası proton sayısına eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q01"
+    },
+    {
+      "stem": "Bir atomda proton sayısı 15, elektron sayısı 15 ise bu tanecik ile ilgili aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Pozitif yüklü iyondur",
+        "Negatif yüklü iyondur",
+        "Nötr atomdur",
+        "Bileşiktir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["atom", "proton", "elektron", "nor_atom"],
+      "explanation": "Proton ve elektron sayıları eşitse atom nötrdür.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q02"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem saf madde hem de elementtir?",
+      "options": [
+        "Su",
+        "Tuz",
+        "Demir",
+        "Hava"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["saf_madde", "element", "siniflandirma"],
+      "explanation": "Demir tek tür atomdan oluşan elementtir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q03"
+    },
+    {
+      "stem": "Bir kapta 5 adet O2 molekülü bulunmaktadır. Buna göre kapta toplam kaç oksijen atomu vardır?",
+      "options": [
+        "5",
+        "8",
+        "10",
+        "12"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "MOLECULE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["molekul", "atom", "hesaplama"],
+      "explanation": "Her O2 molekülü 2 atom içerir. 5 × 2 = 10 atom.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q04"
+    },
+    {
+      "stem": "Periyodik tabloda aynı grupta bulunan elementler için aşağıdakilerden hangisi ortaktır?",
+      "options": [
+        "Atom numarası",
+        "Katman sayısı",
+        "Son katman elektron sayısı",
+        "Proton sayısı"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "grup", "elektron"],
+      "explanation": "Aynı gruptaki elementlerin son katman elektron sayıları aynıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q05"
+    },
+    {
+      "stem": "Bir element periyodik tabloda 2. periyotta bulunuyorsa bu elementin katman sayısı kaçtır?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "TABLE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "explanation": "Periyot numarası katman sayısını gösterir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q06"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi karışımdır?",
+      "options": [
+        "Altın",
+        "Karbon dioksit",
+        "Tuz",
+        "Hava"
+      ],
+      "answerIndex": 3,
+      "difficulty": 3,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["karisim", "element", "bilesik"],
+      "explanation": "Hava farklı gazların karışımıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q07"
+    },
+    {
+      "stem": "Bir atomun proton sayısı 10 ise nötr halde elektron sayısı kaçtır?",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["atom", "proton", "elektron", "nor_atom"],
+      "explanation": "Nötr atomda proton sayısı elektron sayısına eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q08"
+    },
+    {
+      "stem": "Bir kapta 2 tane CO2 molekülü ve 3 tane O2 molekülü bulunmaktadır. Buna göre kaptaki toplam atom sayısı kaçtır?",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["molekul", "atom", "hesaplama"],
+      "explanation": "CO2 → 3 atom × 2 = 6 atom. O2 → 2 atom × 3 = 6 atom. Toplam = 12 atom.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q09"
+    },
+    {
+      "stem": "Karışımlar ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Belirli formülleri vardır",
+        "Kimyasal yöntemlerle ayrılır",
+        "Fiziksel yöntemlerle ayrılır",
+        "Tek tür atom içerir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["karisim", "fiziksel_ayirma"],
+      "explanation": "Karışımlar fiziksel yöntemlerle ayrılabilir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_004_q10"
+    }
+  ]
+}
