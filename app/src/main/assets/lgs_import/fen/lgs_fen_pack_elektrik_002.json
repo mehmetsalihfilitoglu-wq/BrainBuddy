@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Özdeş iki ampul seri bağlanarak bir devre kuruluyor. Aynı ampuller paralel bağlanarak kurulan başka bir devre ile karşılaştırıldığında seri devredeki ampullerin parlaklığı için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Paralel devredeki ampullerden daha parlaktır",
+        "Paralel devredeki ampullerden daha sönüktür",
+        "Her iki devrede parlaklık aynıdır",
+        "Seri devrede ampuller yanmaz"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CIRCUIT_ANALYSIS",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "paralel_devre", "parlaklik"],
+      "explanation": "Seri devrede toplam direnç artar ve ampullerin parlaklığı azalır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q01"
+    },
+    {
+      "stem": "Özdeş üç ampul paralel bağlanmıştır. Ampullerden biri çıkarıldığında diğer ampuller için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "Daha parlak yanar",
+        "Aynı parlaklıkta yanmaya devam eder",
+        "Tamamen söner",
+        "Pil çalışmaz"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "PARALLEL_REASONING",
+      "topic": "Elektrik",
+      "skills": ["paralel_devre", "elektrik_devresi"],
+      "explanation": "Paralel devrede ampuller birbirinden bağımsızdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q02"
+    },
+    {
+      "stem": "Bir elektrik devresinde pil sayısı artırıldığında ampul parlaklığının artmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Devredeki akımın artması",
+        "Direncin artması",
+        "Elektronların yok olması",
+        "Ampul sayısının azalması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "CURRENT_REASONING",
+      "topic": "Elektrik",
+      "skills": ["akim", "gerilim", "devre"],
+      "explanation": "Pil sayısı arttıkça devredeki gerilim ve akım artar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q03"
+    },
+    {
+      "stem": "Bir devrede direncin artması aşağıdaki sonuçlardan hangisine neden olur?",
+      "options": [
+        "Akımın azalmasına",
+        "Akımın artmasına",
+        "Elektronların yok olmasına",
+        "Pil geriliminin artmasına"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "RESISTANCE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["direnc", "akim", "ohm"],
+      "explanation": "Direnç arttığında devredeki akım azalır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q04"
+    },
+    {
+      "stem": "İki cisim birbirini çekmektedir. Bu durum için aşağıdakilerden hangisi kesin olarak söylenebilir?",
+      "options": [
+        "Her ikisi de negatif yüklüdür",
+        "Her ikisi de pozitif yüklüdür",
+        "Zıt yüklü olabilirler",
+        "Yüksüzdürler"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "CHARGE_INTERACTION",
+      "topic": "Elektrik",
+      "skills": ["yuk", "elektrik_etkilesim", "coulomb"],
+      "explanation": "Zıt yüklü cisimler birbirini çeker.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q05"
+    },
+    {
+      "stem": "Negatif yüklü bir elektroskopa negatif yüklü bir cisim yaklaştırıldığında yaprakların daha fazla açıldığı gözleniyor. Bu durum aşağıdakilerden hangisiyle açıklanır?",
+      "options": [
+        "Yüklerin birbirini itmesi",
+        "Yüklerin yok olması",
+        "Elektrik akımının oluşması",
+        "Nötronların hareket etmesi"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "ELECTROSCOPE_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektroskop", "yuk", "etki"],
+      "explanation": "Aynı işaretli yükler birbirini iter.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q06"
+    },
+    {
+      "stem": "Seri bağlı iki ampulden biri patlarsa devrede aşağıdaki durumların hangisi gerçekleşir?",
+      "options": [
+        "Diğer ampul daha parlak yanar",
+        "Devre açık hale gelir ve akım kesilir",
+        "Diğer ampul aynı şekilde yanar",
+        "Pil çalışmayı durdurur"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CIRCUIT_ANALYSIS",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "akim", "elektrik_devresi"],
+      "explanation": "Seri devrede bir ampul çıkarılırsa devre tamamlanmaz ve akım kesilir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q07"
+    },
+    {
+      "stem": "Paralel devrelerin seri devrelere göre en önemli avantajı aşağıdakilerden hangisidir?",
+      "options": [
+        "Daha az pil kullanılması",
+        "Bir ampul bozulsa bile diğerlerinin çalışması",
+        "Direncin her zaman azalması",
+        "Elektronların yok olması"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "PARALLEL_REASONING",
+      "topic": "Elektrik",
+      "skills": ["paralel_devre", "seri_devre", "avantaj"],
+      "explanation": "Paralel devrede bir ampul çalışmasa bile diğerleri çalışmaya devam eder.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q08"
+    },
+    {
+      "stem": "Bir devrede ampul sayısı artırıldığında seri bağlanan devrede parlaklığın azalmasının temel nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Toplam direncin artması",
+        "Pil sayısının azalması",
+        "Elektronların yok olması",
+        "Gerilimin artması"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "CURRENT_REASONING",
+      "topic": "Elektrik",
+      "skills": ["seri_devre", "direnc", "akim"],
+      "explanation": "Seri devrede ampul sayısı arttıkça toplam direnç artar.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q09"
+    },
+    {
+      "stem": "Elektrik akımı ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Protonların hareketidir",
+        "Elektronların hareketidir",
+        "Nötronların hareketidir",
+        "Işık hareketidir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Elektrik",
+      "skills": ["elektrik_akimi", "elektron"],
+      "explanation": "Elektrik akımı iletken içindeki elektronların hareketidir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_el_002_q10"
+    }
+  ]
+}
