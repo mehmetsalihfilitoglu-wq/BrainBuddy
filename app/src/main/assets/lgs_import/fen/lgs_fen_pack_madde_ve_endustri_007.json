@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "stem": "Periyodik tabloda X elementi 3. periyot 1. grupta, Y elementi 3. periyot 7. grupta, Z elementi ise 2. periyot 1. grupta yer almaktadır. Buna göre aşağıdaki yorumlardan hangisi kesinlikle doğrudur?",
+      "options": [
+        "X ve Z'nin katman sayıları aynıdır.",
+        "X ve Y'nin katman sayıları aynıdır.",
+        "Y ve Z'nin kimyasal özellikleri benzerdir.",
+        "X'in atom numarası Z'den küçüktür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "explanation": "Aynı periyotta bulunan elementlerin katman sayıları aynıdır. X ve Y aynı periyottadır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q01"
+    },
+    {
+      "stem": "Bir atom 2 elektron verdiğinde oluşan tanecikle ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "options": [
+        "Negatif yüklüdür.",
+        "Nötron sayısı değişmiştir.",
+        "Pozitif yüklüdür.",
+        "Proton sayısı azalmıştır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "ION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["iyon", "elektron", "katyon"],
+      "explanation": "Elektron veren atom pozitif yüklü iyon oluşturur. Proton ve nötron sayısı değişmez.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q02"
+    },
+    {
+      "stem": "Bir tanecik modelinde yalnızca aynı tür atomlardan oluşmuş, ikili hâlde bulunan çok sayıda tanecik görülüyor. Bu model aşağıdaki maddelerden hangisine ait olabilir?",
+      "options": [
+        "H2",
+        "H2O",
+        "CO2",
+        "NaCl"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "PARTICLE_MODEL_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["tanecik_modeli", "molekul", "element"],
+      "explanation": "Aynı tür atomlardan oluşmuş ikili tanecikler molekül yapılı elementtir. H2 buna örnektir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q03"
+    },
+    {
+      "stem": "Bir kapta 2 tane NH3, 3 tane O2 ve 1 tane CO2 molekülü bulunmaktadır. Buna göre kaptaki toplam atom sayısı kaçtır?",
+      "options": [
+        "15",
+        "17",
+        "19",
+        "21"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "MOLECULE_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["molekul", "atom", "hesaplama"],
+      "explanation": "NH3 molekülü 4 atomludur: 2 × 4 = 8 atom. O2 molekülü 2 atomludur: 3 × 2 = 6 atom. CO2 molekülü 3 atomludur: 1 × 3 = 3 atom. Toplam 8 + 6 + 3 = 17 atomdur.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q04"
+    },
+    {
+      "stem": "Aşağıdaki maddelerden hangisi hem saf madde hem de molekül yapılı elementtir?",
+      "options": [
+        "Ozon",
+        "Karbon dioksit",
+        "Hava",
+        "Tuz"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["saf_madde", "element", "molekul"],
+      "explanation": "Ozon (O3) aynı tür atomlardan oluşan molekül yapılı elementtir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q05"
+    },
+    {
+      "stem": "Bir taneciğin proton sayısı 12, elektron sayısı 10'dur. Buna göre bu tanecikle ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "options": [
+        "Nötr atomdur.",
+        "2- yüklü iyondur.",
+        "2+ yüklü iyondur.",
+        "Bileşiktir."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "ATOM_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["atom", "iyon", "proton", "elektron"],
+      "explanation": "Proton sayısı elektron sayısından 2 fazla olduğundan tanecik 2+ yüklüdür.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q06"
+    },
+    {
+      "stem": "Bir elementin periyodik tablodaki yeri 2. grup, 3. periyot olarak verilmiştir. Bu element için aşağıdakilerden hangisi doğrudur?",
+      "options": [
+        "2 katmanı vardır.",
+        "3 son katman elektronu vardır.",
+        "3 katmanı vardır.",
+        "2 protona sahiptir."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "PERIODIC_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["periyodik_tablo", "periyot", "katman_sayisi", "grup"],
+      "explanation": "Periyot numarası katman sayısını verir. 3. periyotta olduğuna göre 3 katmanı vardır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q07"
+    },
+    {
+      "stem": "Aynı kapta 4 tane O2 ve 2 tane O3 molekülü bulunmaktadır. Buna göre kaptaki toplam oksijen atomu sayısı kaçtır?",
+      "options": [
+        "10",
+        "12",
+        "14",
+        "16"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "MULTI_STEP_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["molekul", "atom", "hesaplama"],
+      "explanation": "O2 molekülleri: 4 × 2 = 8 atom. O3 molekülleri: 2 × 3 = 6 atom. Toplam 14 atom.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q08"
+    },
+    {
+      "stem": "Aşağıdaki eşleştirmelerden hangisi yanlıştır?",
+      "options": [
+        "Demir — Element",
+        "Su — Bileşik",
+        "Hava — Karışım",
+        "Tuzlu su — Bileşik"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "CLASSIFICATION_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["element", "bilesik", "karisim", "siniflandirma"],
+      "explanation": "Tuzlu su bir karışımdır, bileşik değildir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q09"
+    },
+    {
+      "stem": "Aşağıdaki ifadelerden hangisi bileşikler için doğrudur?",
+      "options": [
+        "Tek tür atom içerirler.",
+        "Fiziksel yöntemlerle ayrılırlar.",
+        "Belirli formülleri vardır.",
+        "Periyodik tabloda sembolle gösterilirler."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "CONCEPT_REASONING",
+      "topic": "Madde ve Endüstri",
+      "skills": ["bilesik", "formul", "ozellik"],
+      "explanation": "Bileşiklerin belirli kimyasal formülleri vardır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen_mad_007_q10"
+    }
+  ]
+}
