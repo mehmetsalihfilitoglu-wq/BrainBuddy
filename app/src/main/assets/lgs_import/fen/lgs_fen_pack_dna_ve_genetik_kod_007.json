@@ -39,19 +39,19 @@
       "sourceRef": "fen_dna_007_q02"
     },
     {
-      "stem": "Bir DNA molekülünün bir zincirinde 210 timin bazı bulunmaktadır. Bu DNA molekülündeki toplam adenin bazı sayısı kaçtır?",
+      "stem": "Bir DNA molekülünün bir zincirinde 210 adenin bazı bulunmaktadır. Karşı zincirdeki adenin sayısı da 210 olduğuna göre bu DNA molekülündeki toplam adenin bazı sayısı kaçtır?",
       "options": [
         "210",
         "420",
         "630",
         "840"
       ],
-      "answerIndex": 0,
+      "answerIndex": 1,
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "cift_zincir"],
-      "explanation": "Bir zincirdeki T karşı zincirde A ile eşleşir. Ancak toplam A sayısı, bir zincirdeki A ile diğer zincirdeki A'nın toplamıdır. Verilen bilgi yalnızca karşı zincirdeki A'yı belirler. Bu nedenle toplam A sayısı için kesin değer değil ancak en doğru seçenek 210'dur.",
+      "explanation": "Toplam adenin sayısı = bir zincirdeki A + karşı zincirdeki A = 210 + 210 = 420.",
       "source": "brainbuddy",
       "sourceRef": "fen_dna_007_q03"
     },

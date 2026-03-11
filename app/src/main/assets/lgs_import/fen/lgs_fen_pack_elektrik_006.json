@@ -158,19 +158,19 @@
       "sourceRef": "fen_el_006_q09"
     },
     {
-      "stem": "Elektrik akımı aşağıdakilerden hangisinin hareketiyle oluşur?",
+      "stem": "Bir elektrik devresinde ampul yandığına göre devrede aşağıdakilerden hangisi kesinlikle gerçekleşmektedir?",
       "options": [
-        "Elektron",
-        "Proton",
-        "Nötron",
-        "Işık"
+        "İletken teldeki serbest elektronlar yönlü hareket etmektedir.",
+        "Pil içindeki protonlar devrede dolaşmaktadır.",
+        "Nötronlar iletken boyunca yer değiştirmektedir.",
+        "Işık enerjisi tel üzerinden taşınmaktadır."
       ],
       "answerIndex": 0,
       "difficulty": 5,
       "questionType": "CONCEPT_REASONING",
       "topic": "Elektrik",
-      "skills": ["elektrik_akimi", "elektron"],
-      "explanation": "Elektrik akımı iletken içindeki elektronların hareketidir.",
+      "skills": ["elektrik_akimi", "elektron", "devre"],
+      "explanation": "Akım, iletkendeki serbest elektronların yönlü hareketiyle oluşur. Ampulün yanması bu akımın varlığını gösterir.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_006_q10"
     }
