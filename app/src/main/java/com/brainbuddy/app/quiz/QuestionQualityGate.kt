@@ -138,7 +138,7 @@ object QuestionQualityGate {
         )
         val isShortTurkish = subject == Subject.TURKCE && stem.length < 80
         return when (subject) {
-            Subject.FEN, Subject.SOSYAL, Subject.INKILAP, Subject.DIN -> keywords.any { it in lower }
+            Subject.FEN, Subject.SOSYAL, Subject.HAYAT, Subject.INKILAP, Subject.DIN -> keywords.any { it in lower }
             Subject.TURKCE -> isShortTurkish && !lower.contains("paragraf")
             Subject.MAT, Subject.ING -> false
         }
@@ -185,6 +185,7 @@ object QuestionQualityGate {
             Subject.TURKCE -> "turkish_language"
             Subject.FEN -> "science_general"
             Subject.SOSYAL -> "social_science"
+            Subject.HAYAT -> "life_studies"
             Subject.ING -> "english_language"
             Subject.INKILAP -> "history_civics"
             Subject.DIN -> "religious_culture"

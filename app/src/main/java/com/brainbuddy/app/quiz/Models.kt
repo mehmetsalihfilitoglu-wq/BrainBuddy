@@ -14,6 +14,7 @@ enum class Subject(val tr: String) {
     TURKCE("Türkçe"),
     FEN("Fen Bilimleri"),
     SOSYAL("Sosyal Bilgiler"),
+    HAYAT("Hayat Bilgisi"),
     ING("İngilizce"),
     INKILAP("İnkılap Tarihi"),
     DIN("Din Kültürü")

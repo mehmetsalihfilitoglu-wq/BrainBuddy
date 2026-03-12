@@ -122,6 +122,7 @@ object QuestionPackImporter {
     private const val LGS_ENGLISH6_IMPORT_DIR = "lgs_import/english6"
     private const val LGS_ENGLISH7_IMPORT_DIR = "lgs_import/english7"
     private const val LGS_SOSYAL4_IMPORT_DIR = "lgs_import/sosyal4"
+    private const val LGS_HAYAT3_IMPORT_DIR = "lgs_import/hayat3"
     private const val LGS_SOSYAL5_IMPORT_DIR = "lgs_import/sosyal5"
     private const val LGS_SOSYAL6_IMPORT_DIR = "lgs_import/sosyal6"
     private val LGS_IMPORT_FILES = listOf(
@@ -283,6 +284,11 @@ object QuestionPackImporter {
     /** Import 4th grade Social Studies packs from lgs_import/sosyal4/ (all JSON files). Forces subject=sosyal, grade=4. */
     fun importSosyal4LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runSosyal4LgsImportFromAssets(context)
+    }
+
+    /** Import 3rd grade Life Studies (Hayat Bilgisi) packs from lgs_import/hayat3/ (all JSON files). Forces subject=hayat, grade=3. */
+    fun importHayat3LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runHayat3LgsImportFromAssets(context)
     }
 
     /** Import 5th grade Social Studies packs from lgs_import/sosyal5/ (all JSON files). Forces subject=sosyal, grade=5. */
@@ -687,6 +693,26 @@ object QuestionPackImporter {
         for (fileName in jsonFiles) {
             val json = readAsset(context, "$LGS_SOSYAL4_IMPORT_DIR/$fileName") ?: continue
             val result = runLgsImport(context, json, forceSubject = "sosyal", packName = fileName, forceGrade = 4)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
+    private suspend fun runHayat3LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val jsonFiles = context.assets.list(LGS_HAYAT3_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?: emptyList()
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$LGS_HAYAT3_IMPORT_DIR/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "hayat", packName = fileName, forceGrade = 3)
             totalInserted += result.inserted
             totalSkippedDuplicate += result.skippedDuplicate
             totalDeactivatedLowQuality += result.deactivatedTooBasic
@@ -1120,6 +1146,13 @@ object QuestionPackImporter {
         totalSkippedDuplicate += fen3Result.skippedDuplicate
         totalDeactivatedLowQuality += fen3Result.deactivatedTooBasic
         totalParseErrors += fen3Result.parseErrors
+
+        // Also import grade 3 Life Studies (hayat3) packs
+        val hayat3Result = importHayat3LgsPacksFromAssets(context)
+        totalImported += hayat3Result.inserted
+        totalSkippedDuplicate += hayat3Result.skippedDuplicate
+        totalDeactivatedLowQuality += hayat3Result.deactivatedTooBasic
+        totalParseErrors += hayat3Result.parseErrors
 
         // Also import grade 4 Science (fen4) packs
         val fen4Result = importFen4LgsPacksFromAssets(context)
@@ -1629,6 +1662,7 @@ object QuestionPackImporter {
             "turkce" -> Subject.TURKCE
             "fen" -> Subject.FEN
             "sosyal" -> Subject.SOSYAL
+            "hayat" -> Subject.HAYAT
             "ing" -> Subject.ING
             else -> Subject.MAT
         }
@@ -1677,6 +1711,7 @@ object QuestionPackImporter {
         "ing", "ingilizce", "english", "eng" -> "ing"
         "inkilap", "inkılap", "inkılap tarihi", "tc_inkilap" -> "inkilap"
         "din", "din kültürü", "din kültürü ve ahlak bilgisi" -> "din"
+        "hayat", "hayat bilgisi" -> "hayat"
         else -> "mat"
     }
 }

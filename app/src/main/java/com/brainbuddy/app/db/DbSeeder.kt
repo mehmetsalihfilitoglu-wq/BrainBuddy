@@ -371,6 +371,7 @@ object DbSeeder {
             "turkce" -> Subject.TURKCE
             "fen" -> Subject.FEN
             "sosyal" -> Subject.SOSYAL
+            "hayat" -> Subject.HAYAT
             "ing" -> Subject.ING
             else -> Subject.MAT
         }
@@ -443,6 +444,7 @@ object DbSeeder {
             "turkce" -> Subject.TURKCE
             "fen" -> Subject.FEN
             "sosyal" -> Subject.SOSYAL
+            "hayat" -> Subject.HAYAT
             "ing" -> Subject.ING
             else -> Subject.MAT
         }

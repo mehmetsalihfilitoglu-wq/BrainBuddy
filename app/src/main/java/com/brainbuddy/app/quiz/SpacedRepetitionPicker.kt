@@ -37,6 +37,7 @@ class SpacedRepetitionPicker(
         Subject.TURKCE -> "turkce"
         Subject.FEN -> "fen"
         Subject.SOSYAL -> "sosyal"
+        Subject.HAYAT -> "hayat"
         Subject.ING -> "ing"
         Subject.INKILAP -> "inkilap"
         Subject.DIN -> "din"

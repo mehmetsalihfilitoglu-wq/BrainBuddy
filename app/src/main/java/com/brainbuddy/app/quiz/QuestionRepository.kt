@@ -331,6 +331,7 @@ class QuestionRepository(private val context: Context) {
                     Subject.TURKCE -> "turkce"
                     Subject.FEN -> "fen"
                     Subject.SOSYAL -> "sosyal"
+                    Subject.HAYAT -> "hayat"
                     Subject.ING -> "ing"
                     Subject.INKILAP -> "inkilap"
                     Subject.DIN -> "din"
@@ -399,7 +400,7 @@ class QuestionRepository(private val context: Context) {
                             )
                         }
                     }
-                    Subject.FEN, Subject.SOSYAL -> {
+                    Subject.FEN, Subject.SOSYAL, Subject.HAYAT -> {
                         val isContextual = isContextualProblemLike(stem)
                         val isLongEnough = stem.length >= 80
                         if (!isContextual || !isLongEnough) {
@@ -430,6 +431,7 @@ class QuestionRepository(private val context: Context) {
                 Subject.TURKCE -> "turkce"
                 Subject.FEN -> "fen"
                 Subject.SOSYAL -> "sosyal"
+                Subject.HAYAT -> "hayat"
                 Subject.ING -> "ing"
                 Subject.INKILAP -> "inkilap"
                 Subject.DIN -> "din"

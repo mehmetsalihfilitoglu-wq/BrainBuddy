@@ -85,6 +85,7 @@ object QuestionMapper {
         "en", "ing" -> Subject.ING
         "fen" -> Subject.FEN
         "sosyal" -> Subject.SOSYAL
+        "hayat", "hayat bilgisi" -> Subject.HAYAT
         "inkilap" -> Subject.INKILAP
         "din" -> Subject.DIN
         else -> Subject.MAT
@@ -96,6 +97,7 @@ object QuestionMapper {
         Subject.TURKCE -> "turkce"
         Subject.FEN -> "fen"
         Subject.SOSYAL -> "sosyal"
+        Subject.HAYAT -> "hayat"
         Subject.ING -> "ing"
         Subject.INKILAP -> "inkilap"
         Subject.DIN -> "din"
