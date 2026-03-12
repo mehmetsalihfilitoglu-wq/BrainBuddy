@@ -125,6 +125,7 @@ object QuestionPackImporter {
     private const val LGS_ENGLISH6_IMPORT_DIR = "lgs_import/english6"
     private const val LGS_ENGLISH7_IMPORT_DIR = "lgs_import/english7"
     private const val LGS_SOSYAL4_IMPORT_DIR = "lgs_import/sosyal4"
+    private const val LGS_HAYAT2_IMPORT_DIR = "lgs_import/hayat2"
     private const val LGS_HAYAT3_IMPORT_DIR = "lgs_import/hayat3"
     private const val LGS_SOSYAL5_IMPORT_DIR = "lgs_import/sosyal5"
     private const val LGS_SOSYAL6_IMPORT_DIR = "lgs_import/sosyal6"
@@ -292,6 +293,11 @@ object QuestionPackImporter {
     /** Import 4th grade Social Studies packs from lgs_import/sosyal4/ (all JSON files). Forces subject=sosyal, grade=4. */
     fun importSosyal4LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runSosyal4LgsImportFromAssets(context)
+    }
+
+    /** Import 2nd grade Life Studies (Hayat Bilgisi) packs from lgs_import/hayat2/ (all JSON files). Forces subject=hayat, grade=2. */
+    fun importHayat2LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runHayat2LgsImportFromAssets(context)
     }
 
     /** Import 3rd grade Life Studies (Hayat Bilgisi) packs from lgs_import/hayat3/ (all JSON files). Forces subject=hayat, grade=3. */
@@ -751,6 +757,26 @@ object QuestionPackImporter {
         for (fileName in jsonFiles) {
             val json = readAsset(context, "$LGS_SOSYAL4_IMPORT_DIR/$fileName") ?: continue
             val result = runLgsImport(context, json, forceSubject = "sosyal", packName = fileName, forceGrade = 4)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
+    private suspend fun runHayat2LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val jsonFiles = context.assets.list(LGS_HAYAT2_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?: emptyList()
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$LGS_HAYAT2_IMPORT_DIR/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "hayat", packName = fileName, forceGrade = 2)
             totalInserted += result.inserted
             totalSkippedDuplicate += result.skippedDuplicate
             totalDeactivatedLowQuality += result.deactivatedTooBasic
@@ -1238,6 +1264,13 @@ object QuestionPackImporter {
         totalSkippedDuplicate += fen3Result.skippedDuplicate
         totalDeactivatedLowQuality += fen3Result.deactivatedTooBasic
         totalParseErrors += fen3Result.parseErrors
+
+        // Also import grade 2 Life Studies (hayat2) packs
+        val hayat2Result = importHayat2LgsPacksFromAssets(context)
+        totalImported += hayat2Result.inserted
+        totalSkippedDuplicate += hayat2Result.skippedDuplicate
+        totalDeactivatedLowQuality += hayat2Result.deactivatedTooBasic
+        totalParseErrors += hayat2Result.parseErrors
 
         // Also import grade 3 Life Studies (hayat3) packs
         val hayat3Result = importHayat3LgsPacksFromAssets(context)
