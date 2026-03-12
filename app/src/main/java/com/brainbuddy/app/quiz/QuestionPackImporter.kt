@@ -94,6 +94,7 @@ object QuestionPackImporter {
 
     private const val LGS_GRADE = 8
     private const val LGS_MAT_IMPORT_DIR = "lgs_import/mat"
+    private const val LGS_MAT7_IMPORT_DIR = "lgs_import/mat7"
     private const val LGS_FEN_IMPORT_DIR = "lgs_import/fen"
     private const val LGS_INKILAP_IMPORT_DIR = "lgs_import/inkilap"
     private const val LGS_TURKCE_IMPORT_DIR = "lgs_import/turkce"
@@ -103,6 +104,57 @@ object QuestionPackImporter {
         "lgs_mat.json", "lgs_turkce.json", "lgs_fen.json",
         "lgs_inkilap.json", "lgs_din.json", "lgs_ing.json"
     )
+
+    /** Import 7th grade math packs from assets/lgs_import/mat7/ (JSON files). Forces subject=mat, grade=7. */
+    fun importMat7LgsPacksFromAssets(context: Context): LgsMatImportSummary = runBlocking(Dispatchers.IO) {
+        val matDir = LGS_MAT7_IMPORT_DIR
+        val jsonFiles = context.assets.list(matDir)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?.toList()
+            ?: emptyList()
+        if (jsonFiles.isEmpty()) {
+            val db = DatabaseProvider.get(context)
+            val dao = db.questionDao()
+            val activeMat = dao.getLgsCountsBySubject().firstOrNull { it.subject == "mat" }?.count ?: 0
+            val inactiveMat = dao.countLgsInactiveLowQualityBySubject("mat")
+            val byDiff = dao.getLgsCountsByDifficultyForSubject("mat").associate { it.difficulty to it.count }
+            val byType = dao.getLgsCountsByQuestionTypeForSubject("mat").associate { it.questionType to it.count }
+            return@runBlocking LgsMatImportSummary(
+                importedCount = 0, skippedDuplicateCount = 0, deactivatedLowQualityCount = 0,
+                parseErrorCount = 0, validationRejectedCount = 0,
+                activeMatCount = activeMat, inactiveLowQualityMatCount = inactiveMat,
+                matCountsByDifficulty = byDiff, matCountsByQuestionType = byType
+            )
+        }
+        var totalImported = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        var totalValidationRejected = 0
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$matDir/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "mat", packName = fileName, forceGrade = 7)
+            totalImported += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+            totalValidationRejected += result.validationRejected
+        }
+        val db = DatabaseProvider.get(context)
+        val dao = db.questionDao()
+        val activeMat = dao.getLgsCountsBySubject().firstOrNull { it.subject == "mat" }?.count ?: 0
+        val inactiveMat = dao.countLgsInactiveLowQualityBySubject("mat")
+        val byDiff = dao.getLgsCountsByDifficultyForSubject("mat").associate { it.difficulty to it.count }
+        val byType = dao.getLgsCountsByQuestionTypeForSubject("mat").associate { it.questionType to it.count }
+        LgsMatImportSummary(
+            importedCount = totalImported, skippedDuplicateCount = totalSkippedDuplicate,
+            deactivatedLowQualityCount = totalDeactivatedLowQuality, parseErrorCount = totalParseErrors,
+            validationRejectedCount = totalValidationRejected,
+            activeMatCount = activeMat, inactiveLowQualityMatCount = inactiveMat,
+            matCountsByDifficulty = byDiff, matCountsByQuestionType = byType
+        )
+    }
 
     /** Import only math LGS packs from assets/lgs_import/mat/ (JSON files). Forces subject=mat, mode=LGS. */
     fun importMatLgsPacksFromAssets(context: Context): LgsMatImportSummary = runBlocking(Dispatchers.IO) {
@@ -382,6 +434,13 @@ object QuestionPackImporter {
             totalParseErrors += result.parseErrors
         }
 
+        // Also import grade 7 math (mat7) packs
+        val mat7Summary = importMat7LgsPacksFromAssets(context)
+        totalImported += mat7Summary.importedCount
+        totalSkippedDuplicate += mat7Summary.skippedDuplicateCount
+        totalDeactivatedLowQuality += mat7Summary.deactivatedLowQualityCount
+        totalParseErrors += mat7Summary.parseErrorCount
+
         val db = DatabaseProvider.get(context)
         val dao = db.questionDao()
         val totalLgs = dao.countLgsActive()
@@ -411,7 +470,7 @@ object QuestionPackImporter {
         runLgsImport(context, json, forceSubject = null)
     }
 
-    private suspend fun runLgsImport(context: Context, json: String, forceSubject: String? = null, packName: String? = null): ImportResult = withContext(Dispatchers.IO) {
+    private suspend fun runLgsImport(context: Context, json: String, forceSubject: String? = null, packName: String? = null, forceGrade: Int? = null): ImportResult = withContext(Dispatchers.IO) {
         val root = try {
             JSONObject(json)
         } catch (e: Exception) {
@@ -462,7 +521,8 @@ object QuestionPackImporter {
                 parseErrors++
                 continue
             }
-            val entity = parseLgsQuestion(qObj, i, packSubject)
+            val grade = forceGrade ?: LGS_GRADE
+            val entity = parseLgsQuestion(qObj, i, packSubject, grade)
             if (entity == null) {
                 parseErrors++
                 continue
@@ -527,7 +587,7 @@ object QuestionPackImporter {
         (0 until arr.length()).map { arr.optString(it, "") }.filter { it.isNotBlank() }
     } catch (_: Exception) { emptyList() }
 
-    private fun parseLgsQuestion(o: JSONObject, index: Int, defaultSubject: String): QuestionEntity? {
+    private fun parseLgsQuestion(o: JSONObject, index: Int, defaultSubject: String, defaultGrade: Int = LGS_GRADE): QuestionEntity? {
         val stem = o.optString("stem", "").ifBlank {
             o.optString("questionText", "").ifBlank {
                 o.optString("question", "")
@@ -574,11 +634,11 @@ object QuestionPackImporter {
         val stemNorm = QuestionStemHash.normalizeStem(stem)
         val hash = QuestionStemHash.stemHash(stem)
         val id = o.optString("id", "").takeIf { it.isNotBlank() }
-            ?: "lgs_${LGS_GRADE}_${subject}_${index}_${hash.take(8)}"
+            ?: "lgs_${defaultGrade}_${subject}_${index}_${hash.take(8)}"
 
         return QuestionEntity(
             id = id,
-            grade = LGS_GRADE,
+            grade = defaultGrade,
             subject = subject,
             difficulty = difficulty,
             questionText = stem,
