@@ -21,10 +21,12 @@ def main():
     total_img = 0
     packs_created = 0
 
+    by_subj = {}
     for name, d in DIRS:
         if not d.exists():
             errors.append(f"Directory missing: {d}")
             continue
+        by_subj[name] = {"packs": 0, "questions": 0, "imageAsset": 0}
         for p in sorted(d.glob("*.json")):
             try:
                 data = json.load(open(p, encoding="utf-8"))
@@ -32,12 +34,15 @@ def main():
                 errors.append(f"{p.name}: JSON error: {e}")
                 continue
             packs_created += 1
+            by_subj[name]["packs"] += 1
             for qq in data.get("questions", []):
                 total_q += 1
+                by_subj[name]["questions"] += 1
                 stem = (qq.get("stem") or "").lower()
                 img = qq.get("imageAsset") or ""
                 if img and img.strip():
                     total_img += 1
+                    by_subj[name]["imageAsset"] += 1
                     # Verify file exists
                     rel = img.replace("quiz_images/", "")
                     path = ASSETS / "quiz_images" / rel
@@ -51,9 +56,15 @@ def main():
     print("=" * 60)
     print("GRADE 1 VALIDATION REPORT")
     print("=" * 60)
-    print(f"Packs: {packs_created} (expected 40)")
-    print(f"Total questions: {total_q} (expected 400)")
+    print(f"Packs: {packs_created} (expected 100)")
+    print(f"Total questions: {total_q} (expected 1000)")
     print(f"With imageAsset: {total_img} ({100 * total_img / total_q:.0f}%)" if total_q else "N/A")
+    print("\nBy subject:")
+    for name, stats in by_subj.items():
+        qn = stats["questions"]
+        im = stats["imageAsset"]
+        pct = 100 * im / qn if qn else 0
+        print(f"  {name}: {stats['packs']} packs, {qn} questions, {im} imageAsset ({pct:.0f}%)")
     if errors:
         print(f"\nErrors ({len(errors)}):")
         for e in errors[:30]:
