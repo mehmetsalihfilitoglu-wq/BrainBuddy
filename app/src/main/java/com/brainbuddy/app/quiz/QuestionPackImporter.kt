@@ -98,6 +98,7 @@ object QuestionPackImporter {
     private const val LGS_FEN_IMPORT_DIR = "lgs_import/fen"
     private const val LGS_FEN7_IMPORT_DIR = "lgs_import/fen7"
     private const val LGS_INKILAP_IMPORT_DIR = "lgs_import/inkilap"
+    private const val LGS_INKILAP7_IMPORT_DIR = "lgs_import/inkilap7"
     private const val LGS_TURKCE_IMPORT_DIR = "lgs_import/turkce"
     private const val LGS_TURKCE7_IMPORT_DIR = "lgs_import/turkce7"
     private const val LGS_DIN_IMPORT_DIR = "lgs_import/din"
@@ -233,6 +234,11 @@ object QuestionPackImporter {
         runInkilapLgsImportFromAssets(context)
     }
 
+    /** Import 7th grade İnkılap packs from lgs_import/inkilap7/ (all JSON files). Forces subject=inkilap, grade=7. */
+    fun importInkilap7LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runInkilap7LgsImportFromAssets(context)
+    }
+
     /** Import Türkçe LGS packs from lgs_import/turkce/ (all JSON files). Forces subject=turkce. */
     fun importTurkceLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkceLgsImportFromAssets(context)
@@ -270,6 +276,26 @@ object QuestionPackImporter {
 
         for ((packName, json) in inkilapFiles) {
             val result = runLgsImport(context, json, forceSubject = "inkilap", packName = packName)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
+    private suspend fun runInkilap7LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val jsonFiles = context.assets.list(LGS_INKILAP7_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?: emptyList()
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$LGS_INKILAP7_IMPORT_DIR/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "inkilap", packName = fileName, forceGrade = 7)
             totalInserted += result.inserted
             totalSkippedDuplicate += result.skippedDuplicate
             totalDeactivatedLowQuality += result.deactivatedTooBasic
@@ -506,6 +532,13 @@ object QuestionPackImporter {
         totalSkippedDuplicate += fen7Result.skippedDuplicate
         totalDeactivatedLowQuality += fen7Result.deactivatedTooBasic
         totalParseErrors += fen7Result.parseErrors
+
+        // Also import grade 7 İnkılap (inkilap7) packs
+        val inkilap7Result = importInkilap7LgsPacksFromAssets(context)
+        totalImported += inkilap7Result.inserted
+        totalSkippedDuplicate += inkilap7Result.skippedDuplicate
+        totalDeactivatedLowQuality += inkilap7Result.deactivatedTooBasic
+        totalParseErrors += inkilap7Result.parseErrors
 
         val db = DatabaseProvider.get(context)
         val dao = db.questionDao()
