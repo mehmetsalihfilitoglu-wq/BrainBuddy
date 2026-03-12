@@ -155,6 +155,21 @@ class PoolStatusActivity : AppCompatActivity() {
                     renderStatus()
                 }
             }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnImportLgsEnglishPacks)
+            .setOnClickListener {
+                lifecycleScope.launch {
+                    val result = withContext(Dispatchers.IO) {
+                        QuestionPackImporter.importEnglishLgsPacksFromAssets(this@PoolStatusActivity)
+                    }
+                    AlertDialog.Builder(this@PoolStatusActivity)
+                        .setTitle("LGS English Import Sonucu")
+                        .setMessage(result.summary)
+                        .setPositiveButton(android.R.string.ok) { _, _ -> }
+                        .show()
+                    renderStatus()
+                }
+            }
     }
 
     private fun renderStatus() {

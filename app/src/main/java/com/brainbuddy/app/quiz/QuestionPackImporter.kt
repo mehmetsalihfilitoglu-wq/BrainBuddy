@@ -348,6 +348,14 @@ object QuestionPackImporter {
                 totalParseErrors += inkilapResult.parseErrors
                 continue
             }
+            if (fileName == "lgs_ing.json") {
+                val engResult = runEnglishLgsImportFromAssets(context)
+                totalImported += engResult.inserted
+                totalSkippedDuplicate += engResult.skippedDuplicate
+                totalDeactivatedLowQuality += engResult.deactivatedTooBasic
+                totalParseErrors += engResult.parseErrors
+                continue
+            }
             val json = readAsset(context, "lgs_import/$fileName") ?: continue
             val result = runLgsImport(context, json, forceSubject = null)
             totalImported += result.inserted
