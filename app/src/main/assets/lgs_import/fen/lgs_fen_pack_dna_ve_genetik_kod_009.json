@@ -22,7 +22,7 @@
       "sourceRef": "fen_dna_009_q01"
     },
     {
-      "stem": "Bir popülasyonda baskın (B) ve çekinik (b) alellerin frekansları eşittir. Rastgele çiftleşme varsayıldığında heterozigot (Bb) birey oranı için aşağıdakilerden hangisi beklenir?",
+      "stem": "Bir popülasyonda baskın (B) ve çekinik (b) aleller sayıca eşittir. Bu bireyler kendi aralarında rastgele çiftleştiğinde heterozigot (Bb) genotipli bireylerin oranı yaklaşık yüzde kaç olur?",
       "options": [
         "%25",
         "%50",
@@ -31,10 +31,10 @@
       ],
       "answerIndex": 1,
       "difficulty": 5,
-      "questionType": "POPULATION_REASONING",
+      "questionType": "PUNNETT_REASONING",
       "topic": "DNA ve Genetik Kod",
-      "skills": ["kalitim", "alel_frekansi", "heterozigot", "hardy_weinberg"],
-      "explanation": "B = b = 0,5 frekansında Bb = 2pq = 2·0,5·0,5 = 0,5 = %50. BB = %25, bb = %25, Bb = %50.",
+      "skills": ["kalitim", "alel_orani", "heterozigot", "populasyon"],
+      "explanation": "Baskın ve çekinik aleller eşit olduğunda (B=b=%50), çiftleşmelerde BB %25, bb %25, Bb %50 oranında oluşur. Bu, Punnett karesi ile bulunabilir.",
       "source": "brainbuddy",
       "sourceRef": "fen_dna_009_q02"
     },
