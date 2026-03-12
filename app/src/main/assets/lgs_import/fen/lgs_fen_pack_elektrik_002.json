@@ -158,19 +158,19 @@
       "sourceRef": "fen_el_002_q09"
     },
     {
-      "stem": "Elektrik akımı ile ilgili aşağıdaki ifadelerden hangisi doğrudur?",
+      "stem": "Bir öğretmen öğrencilerine elektrik akımıyla ilgili dört ifade veriyor:\n\nI. Nötr bir iletkende serbest elektronlar bulunur.\nII. Devrede anahtar kapalıyken bu serbest elektronlar iletken boyunca belirli bir yönde hareket eder.\nIII. Devredeki yük akışını sağlayan tanecikler protonlardır.\nIV. Ampul yanarken telden ışık akışı geçer.\n\nBuna göre elektrik akımını **doğru tanımlayan** ifade aşağıdakilerden hangisidir?",
       "options": [
-        "Protonların hareketidir",
-        "Elektronların hareketidir",
-        "Nötronların hareketidir",
-        "Işık hareketidir"
+        "Elektrik akımı, protonların devre boyunca hareket etmesidir.",
+        "Elektrik akımı, serbest elektronların iletken boyunca yönlü hareketidir.",
+        "Elektrik akımı, nötronların devre içinde yer değiştirmesidir.",
+        "Elektrik akımı, ışığın telden akarak ampule ulaşmasıdır."
       ],
       "answerIndex": 1,
       "difficulty": 5,
       "questionType": "CONCEPT_REASONING",
       "topic": "Elektrik",
-      "skills": ["elektrik_akimi", "elektron"],
-      "explanation": "Elektrik akımı iletken içindeki elektronların hareketidir.",
+      "skills": ["elektrik_akimi", "elektron", "devre"],
+      "explanation": "Elektrik akımı, iletkende bulunan serbest elektronların belirli bir yönde hareket etmesidir. Proton ve nötronlar çekirdekte tutulur, ışık ise akımın sebebi değil sonucudur.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_002_q10"
     }

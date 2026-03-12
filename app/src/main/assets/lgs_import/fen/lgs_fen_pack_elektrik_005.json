@@ -158,19 +158,19 @@
       "sourceRef": "fen_el_005_q09"
     },
     {
-      "stem": "Elektrik akımı aşağıdakilerden hangisinin hareketi ile oluşur?",
+      "stem": "Aşağıdaki devrelerden hangisinde **elektrik akımının kesinlikle oluşmadığı** söylenebilir?\n\nI. Pil, anahtar ve ampulden oluşan devrede anahtar açıkken\nII. Pil, anahtar ve ampulden oluşan devrede anahtar kapalıyken\nIII. Sürtünme ile yüklenmiş bir balonun, iletken bir tel ile pile bağlanmadığı durumda\nIV. İletken telin iki ucu aynı pil kutbuna bağlandığında\n\nSeçeneklerde verilen yorumlardan hangisi doğrudur?",
       "options": [
-        "Elektron",
-        "Proton",
-        "Nötron",
-        "Işık"
+        "Yalnız I ve III numaralı durumlarda akım oluşmaz.",
+        "Yalnız II numaralı durumda akım oluşur, diğerlerinde oluşmaz.",
+        "Tüm durumlarda elektron hareketi olduğundan her zaman akım vardır.",
+        "Hiçbir durumda akım oluşmaz; ampulün yanması akımla ilgili değildir."
       ],
-      "answerIndex": 0,
+      "answerIndex": 1,
       "difficulty": 5,
       "questionType": "CONCEPT_REASONING",
       "topic": "Elektrik",
-      "skills": ["elektrik_akimi", "elektron"],
-      "explanation": "Elektrik akımı iletken içindeki elektronların hareketiyle oluşur.",
+      "skills": ["elektrik_akimi", "devre", "koşullar"],
+      "explanation": "Kapalı devre ve potansiyel farkı yoksa serbest elektronların yönlü hareketi olmaz, dolayısıyla elektrik akımı oluşmaz. Yalnız II’de düzgün bir kapalı devre ve pil vardır; I’de anahtar açıktır, III ve IV’te pil üzerinden kapalı yol yoktur.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_005_q10"
     }

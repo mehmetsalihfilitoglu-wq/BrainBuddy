@@ -158,19 +158,19 @@
       "sourceRef": "fen_el_001_q09"
     },
     {
-      "stem": "Elektrik akımı aşağıdakilerden hangisi olarak tanımlanır?",
+      "stem": "Bir öğrenci, özdeş iletken tellerden kurduğu üç devrede aşağıdaki gözlemleri yapıyor:\n\nI. Devrede ampul yanarken pilin kutupları arasında bir potansiyel farkı ölçüyor.\nII. Devrede anahtar kapalıyken iletken telde serbest elektronların belirli bir yönde yer değiştirdiğini söylüyor.\nIII. Ampul söndüğünde de pilin içinde protonların devre boyunca dolaşmaya devam ettiğini düşünüyor.\n\nBu öğrenciye göre aşağıdaki yorumlardan hangisi **elektrik akımını doğru tanımlamaya en yakındır?**",
       "options": [
-        "Proton hareketi",
-        "Elektron akışı",
-        "Nötron akışı",
-        "Işık akışı"
+        "Elektrik akımı, pildeki protonların devre boyunca hareket etmesidir.",
+        "Elektrik akımı, iletken teldeki serbest elektronların yönlü hareketidir.",
+        "Elektrik akımı, ampulden yayılan ışık enerjisinin devreyi dolaşmasıdır.",
+        "Elektrik akımı, devredeki nötronların yer değiştirmesidir."
       ],
       "answerIndex": 1,
       "difficulty": 5,
       "questionType": "CONCEPT_REASONING",
       "topic": "Elektrik",
-      "skills": ["elektrik_akimi", "elektron"],
-      "explanation": "Elektrik akımı iletken içinde elektronların hareketi ile oluşur.",
+      "skills": ["elektrik_akimi", "elektron", "devre"],
+      "explanation": "Elektrik akımı, iletken teldeki serbest elektronların belirli bir yönde hareket etmesidir. Protonlar çekirdekte bulunur ve devre boyunca dolaşmaz; ışık ve nötron hareketi akımın tanımı değildir.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_001_q10"
     }
