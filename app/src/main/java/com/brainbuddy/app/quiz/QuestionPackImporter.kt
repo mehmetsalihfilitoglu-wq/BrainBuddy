@@ -262,6 +262,23 @@ object QuestionPackImporter {
         ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
     }
 
+    /** Wraps legacy raw-array Din JSON (lgs_din_pack_*.json) into object format expected by runLgsImport. */
+    private fun normalizeDinJsonForLgsImport(json: String): String {
+        if (!json.trimStart().startsWith("[")) return json
+        return try {
+            val arr = JSONArray(json)
+            JSONObject().apply {
+                put("version", 1)
+                put("mode", "LGS")
+                put("subject", "din")
+                put("questions", arr)
+            }.toString()
+        } catch (e: Exception) {
+            Log.w(TAG, "normalizeDinJson: failed to wrap array, passing through", e)
+            json
+        }
+    }
+
     private suspend fun runDinLgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
         var totalInserted = 0
         var totalSkippedDuplicate = 0
@@ -276,7 +293,8 @@ object QuestionPackImporter {
                 readAsset(context, "$LGS_DIN_IMPORT_DIR/$fileName")?.let { dinFiles.add(fileName to it) }
             }
         for ((packName, json) in dinFiles) {
-            val result = runLgsImport(context, json, forceSubject = "din", packName = packName)
+            val normalizedJson = normalizeDinJsonForLgsImport(json)
+            val result = runLgsImport(context, normalizedJson, forceSubject = "din", packName = packName)
             totalInserted += result.inserted
             totalSkippedDuplicate += result.skippedDuplicate
             totalDeactivatedLowQuality += result.deactivatedTooBasic
