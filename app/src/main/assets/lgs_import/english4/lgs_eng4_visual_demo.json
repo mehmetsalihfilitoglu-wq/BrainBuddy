@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "ing",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "eng4_visual_demo_001",
+      "stem": "[See the picture above.]\n\nIn the picture, the table has milk, bread, cheese and oranges. The family is having breakfast together.\n\nWhat does the picture show?",
+      "options": [
+        "An empty table.",
+        "Only drinks.",
+        "A dinner table.",
+        "A breakfast table with food and a family eating together."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "visual_interpretation",
+      "topic": "food_and_drinks",
+      "skills": ["food_and_drinks", "reading", "inference"],
+      "explanation": "The picture shows a breakfast table with milk, bread, cheese, oranges and a family eating together.",
+      "source": "brainbuddy",
+      "sourceRef": "eng4_visual_demo_001",
+      "imageAsset": "quiz_images/sample_breakfast.png",
+      "subject": "ing"
+    }
+  ]
+}
