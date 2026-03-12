@@ -5,19 +5,19 @@
   "publisher": "brainbuddy",
   "questions": [
     {
-      "stem": "Aşağıdakilerden hangisi elementlerin ortak özelliklerinden biri değildir?",
+      "stem": "Bir öğrenci periyodik tablodaki elementler için şu özellikleri listeliyor: aynı tür atomlardan oluşma, periyodik tabloda yer alma, saf madde olma. Daha sonra \"Bazı elementler elektroliz veya ısı ile daha basit maddelere ayrıştırılabilir.\" diye ekliyor. Öğretmen bu eklemeyi element tanımına aykırı buluyor.\n\nÖğretmenin itirazının gerekçesi aşağıdakilerden hangisidir?",
       "options": [
-        "Aynı tür atomlardan oluşmaları",
-        "Kimyasal yöntemlerle daha basit maddelere ayrılabilmeleri",
-        "Periyodik tabloda yer almaları",
-        "Saf madde olmaları"
+        "Elementler farklı tür atomlardan oluşabilir.",
+        "Elementler kimyasal yöntemlerle daha basit maddelere ayrıştırılamaz.",
+        "Elementler periyodik tabloda yer almaz.",
+        "Elementler saf madde değildir."
       ],
       "answerIndex": 1,
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Madde ve Endüstri",
       "skills": ["element", "saf_madde", "kimyasal_ozellik"],
-      "explanation": "Elementler kimyasal yöntemlerle daha basit maddelere ayrıştırılamaz.",
+      "explanation": "Elementler tek tür atomdan oluşur ve kimyasal yöntemlerle daha basit maddelere ayrıştırılamaz. Bu, elementin temel tanımıdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_001_q01"
     },
@@ -39,7 +39,7 @@
       "sourceRef": "fen_mad_001_q02"
     },
     {
-      "stem": "Aşağıdaki maddelerden hangisi bileşiktir?",
+      "stem": "Bir öğrenci dört maddeyi inceliyor: Oksijen (O2), demir (Fe), su (H2O), bakır (Cu). Bu maddelerden hangisinin farklı tür atomların kimyasal bağla birleşmesiyle oluştuğu ve kimyasal yöntemlerle daha basit maddelere ayrışabildiği söylenebilir?",
       "options": [
         "Oksijen",
         "Demir",
@@ -73,7 +73,7 @@
       "sourceRef": "fen_mad_001_q04"
     },
     {
-      "stem": "Periyodik tabloda soldan sağa doğru gidildikçe aşağıdakilerden hangisi artar?",
+      "stem": "Periyodik tabloda 2. periyotta soldan sağa (Lityum'dan Neona) ilerlenirken katman sayısı sabit kalır ancak başka özellikler değişir. Bu değişimler arasında aşağıdakilerden hangisi periyot boyunca kesinlikle artar?",
       "options": [
         "Katman sayısı",
         "Atom numarası",
@@ -107,7 +107,7 @@
       "sourceRef": "fen_mad_001_q06"
     },
     {
-      "stem": "Aşağıdakilerden hangisi karışıma örnektir?",
+      "stem": "Bir öğrenci maddeleri sınıflandırırken şu dört örnekten birinin diğerlerinden farklı olduğunu fark ediyor: Tuz, şeker, hava, altın. Bu dördü arasında belirli bir oranda birleşmemiş, fiziksel yöntemlerle ayrılabilen ve farklı tür moleküller içeren madde hangisidir?",
       "options": [
         "Tuz",
         "Şeker",
@@ -124,12 +124,12 @@
       "sourceRef": "fen_mad_001_q07"
     },
     {
-      "stem": "Bir atomun proton sayısı 11 ise bu atom ile ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "stem": "Nötr bir atomun proton sayısı 11 olarak ölçülüyor. Elektron sayısı iyon durumuna, nötron sayısı izotopa göre değişebilir. Buna rağmen bu atom için periyodik tabloda hangi değer kesinlikle 11 olarak belirtilir?",
       "options": [
-        "Elektron sayısı 10'dur",
-        "Atom numarası 11'dir",
-        "Nötron sayısı 11'dir",
-        "Katman sayısı 11'dir"
+        "Elektron sayısı",
+        "Atom numarası",
+        "Nötron sayısı",
+        "Katman sayısı"
       ],
       "answerIndex": 1,
       "difficulty": 3,
@@ -141,12 +141,12 @@
       "sourceRef": "fen_mad_001_q08"
     },
     {
-      "stem": "Aşağıdaki maddelerden hangisi hem element hem de molekül yapılı olabilir?",
+      "stem": "Bazı elementler tek atomlu (ör. Ar), bazıları ise aynı tür atomların birleşmesiyle molekül oluşturur. Doğada gaz halinde bulunan ve molekül yapılı olan element aşağıdakilerden hangisidir?",
       "options": [
-        "Oksijen",
-        "Su",
-        "Tuz",
-        "Karbon dioksit"
+        "Oksijen (O2)",
+        "Su (H2O)",
+        "Tuz (NaCl)",
+        "Karbon dioksit (CO2)"
       ],
       "answerIndex": 0,
       "difficulty": 3,
@@ -158,7 +158,7 @@
       "sourceRef": "fen_mad_001_q09"
     },
     {
-      "stem": "Aşağıdakilerden hangisi saf madde değildir?",
+      "stem": "Bir laboratuvarda demir, su, hava ve oksijen numuneleri inceleniyor. Bunlardan biri farklı gazların karışımından oluşmaktadır ve bileşenlerine fiziksel yöntemlerle ayrılabilmektedir. Bu özellikleri taşıyan numune hangisidir?",
       "options": [
         "Demir",
         "Su",
