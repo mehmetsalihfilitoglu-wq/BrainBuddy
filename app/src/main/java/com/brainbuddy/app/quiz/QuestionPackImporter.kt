@@ -94,6 +94,7 @@ object QuestionPackImporter {
 
     private const val LGS_GRADE = 8
     private const val LGS_MAT_IMPORT_DIR = "lgs_import/mat"
+    private const val LGS_MAT2_IMPORT_DIR = "lgs_import/mat2"
     private const val LGS_MAT3_IMPORT_DIR = "lgs_import/mat3"
     private const val LGS_MAT4_IMPORT_DIR = "lgs_import/mat4"
     private const val LGS_MAT5_IMPORT_DIR = "lgs_import/mat5"
@@ -130,6 +131,11 @@ object QuestionPackImporter {
         "lgs_mat.json", "lgs_turkce.json", "lgs_fen.json",
         "lgs_inkilap.json", "lgs_din.json", "lgs_ing.json"
     )
+
+    /** Import 2nd grade math packs from lgs_import/mat2/ (all JSON files). Forces subject=mat, grade=2. */
+    fun importMat2LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runMat2LgsImportFromAssets(context)
+    }
 
     /** Import 3rd grade math packs from lgs_import/mat3/ (all JSON files). Forces subject=mat, grade=3. */
     fun importMat3LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
@@ -559,6 +565,26 @@ object QuestionPackImporter {
 
         for ((packName, json) in fenFiles) {
             val result = runLgsImport(context, json, forceSubject = "fen", packName = packName)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
+    private suspend fun runMat2LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val jsonFiles = context.assets.list(LGS_MAT2_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?: emptyList()
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$LGS_MAT2_IMPORT_DIR/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "mat", packName = fileName, forceGrade = 2)
             totalInserted += result.inserted
             totalSkippedDuplicate += result.skippedDuplicate
             totalDeactivatedLowQuality += result.deactivatedTooBasic
@@ -1109,6 +1135,13 @@ object QuestionPackImporter {
             totalDeactivatedLowQuality += result.deactivatedTooBasic
             totalParseErrors += result.parseErrors
         }
+
+        // Also import grade 2 math (mat2) packs
+        val mat2Result = importMat2LgsPacksFromAssets(context)
+        totalImported += mat2Result.inserted
+        totalSkippedDuplicate += mat2Result.skippedDuplicate
+        totalDeactivatedLowQuality += mat2Result.deactivatedTooBasic
+        totalParseErrors += mat2Result.parseErrors
 
         // Also import grade 3 math (mat3) packs
         val mat3Result = importMat3LgsPacksFromAssets(context)
