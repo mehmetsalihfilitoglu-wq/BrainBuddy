@@ -104,6 +104,7 @@ object QuestionPackImporter {
     private const val LGS_INKILAP_IMPORT_DIR = "lgs_import/inkilap"
     private const val LGS_INKILAP7_IMPORT_DIR = "lgs_import/inkilap7"
     private const val LGS_TURKCE_IMPORT_DIR = "lgs_import/turkce"
+    private const val LGS_TURKCE4_IMPORT_DIR = "lgs_import/turkce4"
     private const val LGS_TURKCE5_IMPORT_DIR = "lgs_import/turkce5"
     private const val LGS_TURKCE7_IMPORT_DIR = "lgs_import/turkce7"
     private const val LGS_DIN_IMPORT_DIR = "lgs_import/din"
@@ -300,6 +301,11 @@ object QuestionPackImporter {
     /** Import Türkçe LGS packs from lgs_import/turkce/ (all JSON files). Forces subject=turkce. */
     fun importTurkceLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkceLgsImportFromAssets(context)
+    }
+
+    /** Import 4th grade Turkish packs from lgs_import/turkce4/ (all JSON files). Forces subject=turkce, grade=4. */
+    fun importTurkce4LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runTurkce4LgsImportFromAssets(context)
     }
 
     /** Import 5th grade Turkish packs from lgs_import/turkce5/ (all JSON files). Forces subject=turkce, grade=5. */
@@ -630,6 +636,26 @@ object QuestionPackImporter {
         ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
     }
 
+    private suspend fun runTurkce4LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val jsonFiles = context.assets.list(LGS_TURKCE4_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?: emptyList()
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$LGS_TURKCE4_IMPORT_DIR/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "turkce", packName = fileName, forceGrade = 4)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
     private suspend fun runTurkce5LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
         var totalInserted = 0
         var totalSkippedDuplicate = 0
@@ -870,6 +896,13 @@ object QuestionPackImporter {
         totalSkippedDuplicate += mat7Summary.skippedDuplicateCount
         totalDeactivatedLowQuality += mat7Summary.deactivatedLowQualityCount
         totalParseErrors += mat7Summary.parseErrorCount
+
+        // Also import grade 4 Turkish (turkce4) packs
+        val turkce4Result = importTurkce4LgsPacksFromAssets(context)
+        totalImported += turkce4Result.inserted
+        totalSkippedDuplicate += turkce4Result.skippedDuplicate
+        totalDeactivatedLowQuality += turkce4Result.deactivatedTooBasic
+        totalParseErrors += turkce4Result.parseErrors
 
         // Also import grade 5 Turkish (turkce5) packs
         val turkce5Result = importTurkce5LgsPacksFromAssets(context)
