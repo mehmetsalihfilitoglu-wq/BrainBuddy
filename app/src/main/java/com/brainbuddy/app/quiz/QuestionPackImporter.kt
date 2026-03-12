@@ -103,6 +103,7 @@ object QuestionPackImporter {
     private const val LGS_TURKCE_IMPORT_DIR = "lgs_import/turkce"
     private const val LGS_TURKCE7_IMPORT_DIR = "lgs_import/turkce7"
     private const val LGS_DIN_IMPORT_DIR = "lgs_import/din"
+    private const val LGS_DIN6_IMPORT_DIR = "lgs_import/din6"
     private const val LGS_DIN7_IMPORT_DIR = "lgs_import/din7"
     private const val LGS_ENGLISH_IMPORT_DIR = "lgs_import/english"
     private const val LGS_ENGLISH6_IMPORT_DIR = "lgs_import/english6"
@@ -277,6 +278,11 @@ object QuestionPackImporter {
     /** Import Din Kültürü LGS packs from lgs_import/din/ (all JSON files). Forces subject=din. */
     fun importDinLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runDinLgsImportFromAssets(context)
+    }
+
+    /** Import 6th grade Din Kültürü packs from lgs_import/din6/ (all JSON files). Forces subject=din, grade=6. */
+    fun importDin6LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runDin6LgsImportFromAssets(context)
     }
 
     /** Import 7th grade Din Kültürü packs from lgs_import/din7/ (all JSON files). Forces subject=din, grade=7. */
@@ -502,6 +508,26 @@ object QuestionPackImporter {
         ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
     }
 
+    private suspend fun runDin6LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val jsonFiles = context.assets.list(LGS_DIN6_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?: emptyList()
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$LGS_DIN6_IMPORT_DIR/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "din", packName = fileName, forceGrade = 6)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
     private suspend fun runDin7LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
         var totalInserted = 0
         var totalSkippedDuplicate = 0
@@ -697,6 +723,13 @@ object QuestionPackImporter {
         totalSkippedDuplicate += english7Result.skippedDuplicate
         totalDeactivatedLowQuality += english7Result.deactivatedTooBasic
         totalParseErrors += english7Result.parseErrors
+
+        // Also import grade 6 Din Kültürü (din6) packs
+        val din6Result = importDin6LgsPacksFromAssets(context)
+        totalImported += din6Result.inserted
+        totalSkippedDuplicate += din6Result.skippedDuplicate
+        totalDeactivatedLowQuality += din6Result.deactivatedTooBasic
+        totalParseErrors += din6Result.parseErrors
 
         // Also import grade 7 Din Kültürü (din7) packs
         val din7Result = importDin7LgsPacksFromAssets(context)
