@@ -109,6 +109,7 @@ object QuestionPackImporter {
     private const val LGS_DIN6_IMPORT_DIR = "lgs_import/din6"
     private const val LGS_DIN7_IMPORT_DIR = "lgs_import/din7"
     private const val LGS_ENGLISH_IMPORT_DIR = "lgs_import/english"
+    private const val LGS_ENGLISH5_IMPORT_DIR = "lgs_import/english5"
     private const val LGS_ENGLISH6_IMPORT_DIR = "lgs_import/english6"
     private const val LGS_ENGLISH7_IMPORT_DIR = "lgs_import/english7"
     private const val LGS_SOSYAL5_IMPORT_DIR = "lgs_import/sosyal5"
@@ -269,6 +270,11 @@ object QuestionPackImporter {
         runInkilapLgsImportFromAssets(context)
     }
 
+    /** Import 5th grade English packs from lgs_import/english5/ (all JSON files). Forces subject=ing, grade=5. */
+    fun importEnglish5LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runEnglish5LgsImportFromAssets(context)
+    }
+
     /** Import 6th grade English packs from lgs_import/english6/ (all JSON files). Forces subject=ing, grade=6. */
     fun importEnglish6LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglish6LgsImportFromAssets(context)
@@ -356,6 +362,26 @@ object QuestionPackImporter {
         for (fileName in jsonFiles) {
             val json = readAsset(context, "$LGS_INKILAP7_IMPORT_DIR/$fileName") ?: continue
             val result = runLgsImport(context, json, forceSubject = "inkilap", packName = fileName, forceGrade = 7)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
+    private suspend fun runEnglish5LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val jsonFiles = context.assets.list(LGS_ENGLISH5_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?: emptyList()
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$LGS_ENGLISH5_IMPORT_DIR/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "ing", packName = fileName, forceGrade = 5)
             totalInserted += result.inserted
             totalSkippedDuplicate += result.skippedDuplicate
             totalDeactivatedLowQuality += result.deactivatedTooBasic
@@ -841,6 +867,13 @@ object QuestionPackImporter {
         totalSkippedDuplicate += inkilap7Result.skippedDuplicate
         totalDeactivatedLowQuality += inkilap7Result.deactivatedTooBasic
         totalParseErrors += inkilap7Result.parseErrors
+
+        // Also import grade 5 English (english5) packs
+        val english5Result = importEnglish5LgsPacksFromAssets(context)
+        totalImported += english5Result.inserted
+        totalSkippedDuplicate += english5Result.skippedDuplicate
+        totalDeactivatedLowQuality += english5Result.deactivatedTooBasic
+        totalParseErrors += english5Result.parseErrors
 
         // Also import grade 6 English (english6) packs
         val english6Result = importEnglish6LgsPacksFromAssets(context)
