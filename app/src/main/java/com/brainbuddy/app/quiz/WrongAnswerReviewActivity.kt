@@ -1,9 +1,10 @@
 package com.brainbuddy.app.quiz
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.widget.Toast
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
@@ -119,6 +120,20 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         b.progressText.text = "${index + 1}/${questions.size}"
         b.subjectChip.text = "${q.subject.tr} • (İnceleme)"
         b.questionText.text = q.stem
+
+        if (!q.imageAsset.isNullOrBlank()) {
+            try {
+                assets.open(q.imageAsset!!.trim()).use { input ->
+                    val bmp = BitmapFactory.decodeStream(input)
+                    b.questionImage.setImageBitmap(bmp)
+                    b.questionImage.visibility = View.VISIBLE
+                }
+            } catch (_: Exception) {
+                b.questionImage.visibility = View.GONE
+            }
+        } else {
+            b.questionImage.visibility = View.GONE
+        }
 
         b.optA.text = q.choices.getOrNull(0) ?: "-"
         b.optB.text = q.choices.getOrNull(1) ?: "-"

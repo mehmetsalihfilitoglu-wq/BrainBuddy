@@ -98,12 +98,21 @@
                     android:textColor="@color/bb_text_dark"
                     android:lineSpacingMultiplier="1.2"/>
 
+                <ImageView
+                    android:id="@+id/questionImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="12dp"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone"
+                    android:contentDescription="@null"/>
+
                 <LinearLayout
                     android:id="@+id/summarySection"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:visibility="gone">
 
                     <TextView

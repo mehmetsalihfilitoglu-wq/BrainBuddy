@@ -1577,6 +1577,11 @@ object QuestionPackImporter {
         (0 until arr.length()).map { arr.optString(it, "") }.filter { it.isNotBlank() }
     } catch (_: Exception) { emptyList() }
 
+    /** Extracts image/visual asset path. Supports imageAsset, visualAsset, graphicAsset, tableAsset (first non-blank wins). */
+    private fun optImageAsset(o: JSONObject): String? = sequenceOf("imageAsset", "visualAsset", "graphicAsset", "tableAsset")
+        .mapNotNull { o.optString(it, "").takeIf { s -> s.isNotBlank() && s.lowercase() != "null" } }
+        .firstOrNull()
+
     private fun parseLgsQuestion(o: JSONObject, index: Int, defaultSubject: String, defaultGrade: Int = LGS_GRADE): QuestionEntity? {
         val stem = o.optString("stem", "").ifBlank {
             o.optString("questionText", "").ifBlank {
@@ -1617,7 +1622,7 @@ object QuestionPackImporter {
         } else "[]"
         val topic = o.optString("topic", "").takeIf { it.isNotBlank() }
         val explanation = o.optString("explanation", "").takeIf { it.isNotBlank() }
-        val imageAsset = o.optString("imageAsset", "").takeIf { it.isNotBlank() }
+        val imageAsset = optImageAsset(o)
         val source = o.optString("source", "").takeIf { it.isNotBlank() }
         val sourceRef = o.optString("sourceRef", "").takeIf { it.isNotBlank() }
 
@@ -1821,6 +1826,7 @@ object QuestionPackImporter {
         } else "[]"
 
         val sourceRef = o.optString("sourceRef", "").takeIf { it.isNotBlank() }
+        val imageAsset = optImageAsset(o)
 
         val subjectEnum = when (subject) {
             "mat" -> Subject.MAT
@@ -1854,7 +1860,7 @@ object QuestionPackImporter {
             deactivationReason = null,
             version = 1,
             examType = "GENERAL",
-            imageAsset = null,
+            imageAsset = imageAsset,
             type = questionType,
             skill = skillsArr?.optString(0, "")?.takeIf { it.isNotBlank() } ?: "UNKNOWN",
             stemNormalized = stemNorm,
