@@ -94,6 +94,7 @@ object QuestionPackImporter {
 
     private const val LGS_GRADE = 8
     private const val LGS_MAT_IMPORT_DIR = "lgs_import/mat"
+    private const val LGS_MAT5_IMPORT_DIR = "lgs_import/mat5"
     private const val LGS_MAT7_IMPORT_DIR = "lgs_import/mat7"
     private const val LGS_FEN_IMPORT_DIR = "lgs_import/fen"
     private const val LGS_FEN6_IMPORT_DIR = "lgs_import/fen6"
@@ -113,6 +114,11 @@ object QuestionPackImporter {
         "lgs_mat.json", "lgs_turkce.json", "lgs_fen.json",
         "lgs_inkilap.json", "lgs_din.json", "lgs_ing.json"
     )
+
+    /** Import 5th grade math packs from lgs_import/mat5/ (all JSON files). Forces subject=mat, grade=5. */
+    fun importMat5LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runMat5LgsImportFromAssets(context)
+    }
 
     /** Import 7th grade math packs from assets/lgs_import/mat7/ (JSON files). Forces subject=mat, grade=7. */
     fun importMat7LgsPacksFromAssets(context: Context): LgsMatImportSummary = runBlocking(Dispatchers.IO) {
@@ -405,6 +411,26 @@ object QuestionPackImporter {
         ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
     }
 
+    private suspend fun runMat5LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val jsonFiles = context.assets.list(LGS_MAT5_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?: emptyList()
+        for (fileName in jsonFiles) {
+            val json = readAsset(context, "$LGS_MAT5_IMPORT_DIR/$fileName") ?: continue
+            val result = runLgsImport(context, json, forceSubject = "mat", packName = fileName, forceGrade = 5)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
     private suspend fun runFen6LgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
         var totalInserted = 0
         var totalSkippedDuplicate = 0
@@ -667,6 +693,13 @@ object QuestionPackImporter {
             totalDeactivatedLowQuality += result.deactivatedTooBasic
             totalParseErrors += result.parseErrors
         }
+
+        // Also import grade 5 math (mat5) packs
+        val mat5Result = importMat5LgsPacksFromAssets(context)
+        totalImported += mat5Result.inserted
+        totalSkippedDuplicate += mat5Result.skippedDuplicate
+        totalDeactivatedLowQuality += mat5Result.deactivatedTooBasic
+        totalParseErrors += mat5Result.parseErrors
 
         // Also import grade 7 math (mat7) packs
         val mat7Summary = importMat7LgsPacksFromAssets(context)
