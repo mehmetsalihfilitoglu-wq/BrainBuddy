@@ -96,6 +96,9 @@ object QuestionPackImporter {
     private const val LGS_MAT_IMPORT_DIR = "lgs_import/mat"
     private const val LGS_FEN_IMPORT_DIR = "lgs_import/fen"
     private const val LGS_INKILAP_IMPORT_DIR = "lgs_import/inkilap"
+    private const val LGS_TURKCE_IMPORT_DIR = "lgs_import/turkce"
+    private const val LGS_DIN_IMPORT_DIR = "lgs_import/din"
+    private const val LGS_ENGLISH_IMPORT_DIR = "lgs_import/english"
     private val LGS_IMPORT_FILES = listOf(
         "lgs_mat.json", "lgs_turkce.json", "lgs_fen.json",
         "lgs_inkilap.json", "lgs_din.json", "lgs_ing.json"
@@ -171,6 +174,21 @@ object QuestionPackImporter {
         runInkilapLgsImportFromAssets(context)
     }
 
+    /** Import Türkçe LGS packs from lgs_import/turkce/ (all JSON files). Forces subject=turkce. */
+    fun importTurkceLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runTurkceLgsImportFromAssets(context)
+    }
+
+    /** Import Din Kültürü LGS packs from lgs_import/din/ (all JSON files). Forces subject=din. */
+    fun importDinLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runDinLgsImportFromAssets(context)
+    }
+
+    /** Import English LGS packs from lgs_import/english/ (all JSON files). Forces subject=ing. */
+    fun importEnglishLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
+        runEnglishLgsImportFromAssets(context)
+    }
+
     private suspend fun runInkilapLgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
         var totalInserted = 0
         var totalSkippedDuplicate = 0
@@ -221,6 +239,75 @@ object QuestionPackImporter {
         ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
     }
 
+    private suspend fun runTurkceLgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val turkceFiles = mutableListOf<Pair<String, String>>()
+        readAsset(context, "lgs_import/lgs_turkce.json")?.let { turkceFiles.add("lgs_turkce.json" to it) }
+        context.assets.list(LGS_TURKCE_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?.forEach { fileName ->
+                readAsset(context, "$LGS_TURKCE_IMPORT_DIR/$fileName")?.let { turkceFiles.add(fileName to it) }
+            }
+        for ((packName, json) in turkceFiles) {
+            val result = runLgsImport(context, json, forceSubject = "turkce", packName = packName)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
+    private suspend fun runDinLgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val dinFiles = mutableListOf<Pair<String, String>>()
+        readAsset(context, "lgs_import/lgs_din.json")?.let { dinFiles.add("lgs_din.json" to it) }
+        context.assets.list(LGS_DIN_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?.forEach { fileName ->
+                readAsset(context, "$LGS_DIN_IMPORT_DIR/$fileName")?.let { dinFiles.add(fileName to it) }
+            }
+        for ((packName, json) in dinFiles) {
+            val result = runLgsImport(context, json, forceSubject = "din", packName = packName)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
+    private suspend fun runEnglishLgsImportFromAssets(context: Context): ImportResult = withContext(Dispatchers.IO) {
+        var totalInserted = 0
+        var totalSkippedDuplicate = 0
+        var totalDeactivatedLowQuality = 0
+        var totalParseErrors = 0
+        val engFiles = mutableListOf<Pair<String, String>>()
+        readAsset(context, "lgs_import/lgs_ing.json")?.let { engFiles.add("lgs_ing.json" to it) }
+        context.assets.list(LGS_ENGLISH_IMPORT_DIR)
+            ?.filter { it.endsWith(".json", ignoreCase = true) }
+            ?.sorted()
+            ?.forEach { fileName ->
+                readAsset(context, "$LGS_ENGLISH_IMPORT_DIR/$fileName")?.let { engFiles.add(fileName to it) }
+            }
+        for ((packName, json) in engFiles) {
+            val result = runLgsImport(context, json, forceSubject = "ing", packName = packName)
+            totalInserted += result.inserted
+            totalSkippedDuplicate += result.skippedDuplicate
+            totalDeactivatedLowQuality += result.deactivatedTooBasic
+            totalParseErrors += result.parseErrors
+        }
+        ImportResult(totalInserted, totalSkippedDuplicate, totalDeactivatedLowQuality, totalParseErrors)
+    }
+
     /** Import all LGS question packs from assets/lgs_import/. Returns summary. */
     fun importAllLgsPacksFromAssets(context: Context): LgsImportSummary = runBlocking(Dispatchers.IO) {
         var totalImported = 0
@@ -235,6 +322,22 @@ object QuestionPackImporter {
                 totalSkippedDuplicate += fenResult.skippedDuplicate
                 totalDeactivatedLowQuality += fenResult.deactivatedTooBasic
                 totalParseErrors += fenResult.parseErrors
+                continue
+            }
+            if (fileName == "lgs_turkce.json") {
+                val turkceResult = runTurkceLgsImportFromAssets(context)
+                totalImported += turkceResult.inserted
+                totalSkippedDuplicate += turkceResult.skippedDuplicate
+                totalDeactivatedLowQuality += turkceResult.deactivatedTooBasic
+                totalParseErrors += turkceResult.parseErrors
+                continue
+            }
+            if (fileName == "lgs_din.json") {
+                val dinResult = runDinLgsImportFromAssets(context)
+                totalImported += dinResult.inserted
+                totalSkippedDuplicate += dinResult.skippedDuplicate
+                totalDeactivatedLowQuality += dinResult.deactivatedTooBasic
+                totalParseErrors += dinResult.parseErrors
                 continue
             }
             if (fileName == "lgs_inkilap.json") {
