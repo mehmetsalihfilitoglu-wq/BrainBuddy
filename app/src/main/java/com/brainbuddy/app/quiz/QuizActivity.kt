@@ -673,15 +673,32 @@ class QuizActivity : AppCompatActivity() {
         b.questionText.text = q.stem
 
         if (!q.imageAsset.isNullOrBlank()) {
+            val path = q.imageAsset!!.trim()
             try {
-                assets.open(q.imageAsset!!.trim()).use {
-                    b.questionImage.setImageBitmap(BitmapFactory.decodeStream(it))
-                    b.questionImage.visibility = View.VISIBLE
+                assets.open(path).use { stream ->
+                    val bitmap = BitmapFactory.decodeStream(stream)
+                    if (BuildConfig.DEBUG) {
+                        val w = bitmap?.width ?: 0
+                        val h = bitmap?.height ?: 0
+                        android.util.Log.d("QuizActivity", "[VISUAL] imageAsset=$path decodeOk=${bitmap != null} dims=${w}x$h visible=${if (bitmap != null) "VISIBLE" else "GONE"}")
+                    }
+                    if (bitmap != null) {
+                        b.questionImage.setImageBitmap(bitmap)
+                        b.questionImage.visibility = View.VISIBLE
+                    } else {
+                        android.util.Log.w("QuizActivity", "[VISUAL] imageAsset=$path decodeStream returned null")
+                        b.questionImage.visibility = View.GONE
+                    }
                 }
-            } catch (_: Exception) {
+            } catch (e: Exception) {
+                if (BuildConfig.DEBUG) {
+                    android.util.Log.e("QuizActivity", "[VISUAL] imageAsset=$path open failed", e)
+                }
                 b.questionImage.visibility = View.GONE
             }
-        } else b.questionImage.visibility = View.GONE
+        } else {
+            b.questionImage.visibility = View.GONE
+        }
 
         b.optA.text = q.choices.getOrNull(0) ?: "-"
         b.optB.text = q.choices.getOrNull(1) ?: "-"

@@ -62,11 +62,16 @@ class QuizActivityRetryWrong : AppCompatActivity() {
         b.questionText.text = q.stem
 
         if (!q.imageAsset.isNullOrBlank()) {
+            val path = q.imageAsset!!.trim()
             try {
-                assets.open(q.imageAsset!!).use { input ->
+                assets.open(path).use { input ->
                     val bmp = BitmapFactory.decodeStream(input)
-                    b.questionImage.setImageBitmap(bmp)
-                    b.questionImage.visibility = View.VISIBLE
+                    if (bmp != null) {
+                        b.questionImage.setImageBitmap(bmp)
+                        b.questionImage.visibility = View.VISIBLE
+                    } else {
+                        b.questionImage.visibility = View.GONE
+                    }
                 }
             } catch (_: Exception) {
                 b.questionImage.visibility = View.GONE
