@@ -6,39 +6,67 @@
   "questions": [
     {
       "stem": "Yukarıdaki metinde Atatürk'ün eğitim alanındaki reformları anlatılmaktadır. Metne göre harf devrimi ve eğitim birliği kanunu arasında hangi ilişki kurulabilir? Buna dayanarak eğitim politikasının amacı hakkında ne söylenebilir?",
-      "options": ["Harf devrimi eğitim birliğinden bağımsızdır", "Harf devrimi eğitim birliğini kolaylaştırmıştır", "İkisi arasında ilişki yoktur", "Eğitim birliği harf devriminden önce gelir"],
+      "options": [
+        "Harf devrimi eğitim birliğinden bağımsızdır",
+        "Harf devrimi eğitim birliğini kolaylaştırmıştır",
+        "İkisi arasında ilişki yoktur",
+        "Eğitim birliği harf devriminden önce gelir"
+      ],
       "answerIndex": 1,
       "difficulty": 1,
       "questionType": "REASONING",
       "topic": "Atatürk İlkeleri",
-      "skills": ["inkilap_tarihi", "eğitim", "cikarim"],
+      "skills": [
+        "inkilap_tarihi",
+        "eğitim",
+        "cikarim"
+      ],
       "explanation": "Latin harfleri eğitim birliğinin uygulanmasını kolaylaştırmıştır.",
       "source": "brainbuddy",
       "sourceRef": "lgs_smoke:inkilap:1"
     },
     {
-      "stem": "Tabloda Mondros Ateşkes Antlaşması sonrası işgal edilen bölgeler ve tarihleri verilmiştir. Bu bilgilere göre işgallerin zamanlaması ile ilgili hangi çıkarım yapılabilir? Tabloda farklı devletlerin işgalleri karşılaştırılmaktadır.",
-      "options": ["Tüm işgaller aynı günde yapılmıştır", "İşgaller kademeli olarak gerçekleşmiştir", "İşgal yapılmamıştır", "Sadece bir bölge işgal edilmiştir"],
+      "stem": "Verilen bilgilere göre Mondros Ateşkes Antlaşması sonrası işgal edilen bölgeler ve tarihleri verilmiştir. Bu bilgilere göre işgallerin zamanlaması ile ilgili hangi çıkarım yapılabilir? Verilen bilgilere göre farklı devletlerin işgalleri karşılaştırılmaktadır.",
+      "options": [
+        "Tüm işgaller aynı günde yapılmıştır",
+        "İşgaller kademeli olarak gerçekleşmiştir",
+        "İşgal yapılmamıştır",
+        "Sadece bir bölge işgal edilmiştir"
+      ],
       "answerIndex": 1,
       "difficulty": 1,
       "questionType": "INTERPRETATION",
       "topic": "Mondros Ateşkesi",
-      "skills": ["mondros", "işgal", "tablo_yorumlama"],
+      "skills": [
+        "mondros",
+        "işgal",
+        "tablo_yorumlama"
+      ],
       "explanation": "Mondros sonrası işgaller kademeli olarak gerçekleşmiştir.",
       "source": "brainbuddy",
       "sourceRef": "lgs_smoke:inkilap:2"
     },
     {
       "stem": "Haritada Kurtuluş Savaşı sırasındaki cepheler ve hareket yönleri gösterilmiştir. Haritaya göre Batı Cephesi ile Güney Cephesi'nin farklı özellikleri hakkında hangi yorum yapılabilir? Şekildeki bilgiler karşılaştırıldığında ne sonucuna varılır?",
-      "options": ["Her iki cephe de aynı düşmana karşı savaşmıştır", "Cepheler farklı düşmanlara karşı ve farklı koşullarda mücadele etmiştir", "Sadece Batı Cephesi önemlidir", "Güney Cephesi yoktur"],
+      "options": [
+        "Her iki cephe de aynı düşmana karşı savaşmıştır",
+        "Cepheler farklı düşmanlara karşı ve farklı koşullarda mücadele etmiştir",
+        "Sadece Batı Cephesi önemlidir",
+        "Güney Cephesi yoktur"
+      ],
       "answerIndex": 1,
       "difficulty": 2,
       "questionType": "INTERPRETATION",
       "topic": "Kurtuluş Savaşı Cepheleri",
-      "skills": ["cepheler", "harita", "karşılaştırma"],
+      "skills": [
+        "cepheler",
+        "harita",
+        "karşılaştırma"
+      ],
       "explanation": "Batı Cephesi Yunanlılara, Güney Fransız ve Ermenilere karşı savaşılmıştır.",
       "source": "brainbuddy",
-      "sourceRef": "lgs_smoke:inkilap:3"
+      "sourceRef": "lgs_smoke:inkilap:3",
+      "imageAsset": "quiz_images/inkilap/picture.png"
     }
   ]
 }
