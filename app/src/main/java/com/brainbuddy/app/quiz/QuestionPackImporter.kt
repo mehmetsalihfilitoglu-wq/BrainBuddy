@@ -1651,7 +1651,8 @@ object QuestionPackImporter {
             }
 
             val stemKey = "${entity.grade}|${entity.subject}|${entity.stemHash}"
-            if (stemKey in batchSeenStemKeys || stemKey in existingStemKeys) {
+            // Sadece aynı import batch'i içindeki tekrarları at; mevcut DB havuzuna göre agresif dedup yapma.
+            if (stemKey in batchSeenStemKeys) {
                 skippedDuplicate++
                 continue
             }
@@ -1666,10 +1667,12 @@ object QuestionPackImporter {
                 hasImageAsset = entity.imageAsset.isNullOrBlank().not(),
                 difficulty = entity.difficulty
             )
-            if (!qualityResult.isActive) deactivatedLowQuality++
+            // LGS kalite filtresi: istatistikleri koru ama yalnızca aşırı kısa/anlamsız soruları pasifleştir.
+            val shouldDeactivate = !qualityResult.isActive && qualityResult.deactivationReason == "too_short"
+            if (shouldDeactivate) deactivatedLowQuality++
 
             val finalEntity = entity.copy(
-                isActive = qualityResult.isActive,
+                isActive = !shouldDeactivate,
                 deactivationReason = qualityResult.deactivationReason,
                 qualityScore = qualityResult.qualityScore,
                 isNewGenerationLike = qualityResult.isNewGenerationLike,

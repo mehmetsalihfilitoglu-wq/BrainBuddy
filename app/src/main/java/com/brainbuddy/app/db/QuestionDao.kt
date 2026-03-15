@@ -110,7 +110,7 @@ interface QuestionDao {
         AND subject = :subject
         AND difficulty = :difficulty
         AND isActive = 1
-        LIMIT 200
+        LIMIT 2000
         """
     )
     suspend fun getCandidatePoolByGradeSubjectDifficulty(
@@ -130,7 +130,7 @@ interface QuestionDao {
         WHERE grade = :grade
         AND subject = :subject
         AND isActive = 1
-        LIMIT 200
+        LIMIT 2000
         """
     )
     suspend fun getCandidatePoolByGradeSubject(
@@ -149,7 +149,7 @@ interface QuestionDao {
         WHERE COALESCE(examType, 'GENERAL') = 'LGS'
         AND subject = :subject
         AND isActive = 1
-        LIMIT 300
+        LIMIT 2000
         """
     )
     suspend fun getCandidatePoolByLgsSubject(subject: String): List<QuestionCandidateRow>

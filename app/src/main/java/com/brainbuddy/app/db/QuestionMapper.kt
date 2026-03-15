@@ -47,10 +47,16 @@ object QuestionMapper {
             2, 3 -> QuizDifficulty.HARD
             else -> QuizDifficulty.MEDIUM
         }
-        val grade = e.grade.coerceIn(1, 7)
+        // Preserve true grade for LGS (typically 8); clamp to 1..7 only for non-LGS content.
+        val rawGrade = e.grade
         val examType = e.examType?.let {
             try { ExamType.valueOf(it) } catch (_: Exception) { ExamType.GENERAL }
         } ?: ExamType.GENERAL
+        val grade = if (examType == ExamType.LGS) {
+            rawGrade.coerceAtLeast(1)
+        } else {
+            rawGrade.coerceIn(1, 7)
+        }
         return Question(
             id = e.id,
             levelGroup = levelGroup,

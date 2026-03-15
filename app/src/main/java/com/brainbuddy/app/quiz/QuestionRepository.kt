@@ -309,19 +309,6 @@ class QuestionRepository(private val context: Context) {
         var deactivatedCount = 0
 
         // DB'de (grade, subject, stemHash) zaten var mı – dedup için
-        val existingStemKeysForFilter: MutableSet<String> = try {
-            val db = DatabaseProvider.get(context)
-            kotlinx.coroutines.runBlocking {
-                db.questionDao().getAllQuestions().mapTo(mutableSetOf()) { e ->
-                    val h = if (e.stemHash.contains(":dup:")) e.stemHash.substringBefore(":dup:") else e.stemHash
-                    "${e.grade}|${e.subject}|$h"
-                }
-            }
-        } catch (e: Exception) {
-            Log.w(TAG, "mergeImportedQuestions: failed to build existing stem-hash index: ${e.message}")
-            mutableSetOf()
-        }
-
         val batchSeenStemKeys = mutableSetOf<String>()
         for (i in 0 until arr.length()) {
             try {
@@ -337,10 +324,9 @@ class QuestionRepository(private val context: Context) {
                     Subject.DIN -> "din"
                 }
                 val h = QuestionStemHash.stemHash(q.stem)
-                val stemKey = "${q.grade.coerceIn(1, 7)}|$dbSubjectKey|$h"
+                val stemKey = "${q.grade}|$dbSubjectKey|$h"
                 if (stemKey in batchSeenStemKeys) continue
                 batchSeenStemKeys.add(stemKey)
-                if (stemKey in existingStemKeysForFilter) continue
                 if (q.id in existingIds) continue
                 toAdd.add(q)
                 existingIds.add(q.id)

@@ -19,8 +19,7 @@ import androidx.room.PrimaryKey
         Index(value = ["grade", "subject"], name = "index_questions_grade_subject"),
         Index(value = ["grade", "subject", "difficulty"], name = "index_questions_grade_subject_difficulty"),
         Index(value = ["grade", "subject", "difficulty", "isActive"], name = "index_questions_grade_subject_difficulty_active"),
-        Index(value = ["stemHash"], name = "index_questions_stem_hash"),
-        Index(value = ["grade", "subject", "stemHash"], name = "unique_questions_grade_subject_stem_hash", unique = true)
+        Index(value = ["stemHash"], name = "index_questions_stem_hash")
     ]
 )
 data class QuestionEntity(

@@ -57,7 +57,7 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getByGradeSubjectDifficulty(grade, subject, difficulty).map { QuestionMapper.toQuestion(it) }
     }
 
-    /** Candidate pool for fast quiz picking (LIMIT 200, single difficulty). */
+    /** Candidate pool for fast quiz picking (LIMIT 2000, single difficulty). */
     fun getCandidatePoolByGradeSubjectDifficulty(
         grade: Int,
         subject: String,
@@ -67,7 +67,7 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getCandidatePoolByGradeSubjectDifficulty(grade, subject, difficulty)
     }
 
-    /** Candidate pool per subject (LIMIT 200, any difficulty). Call from Dispatchers.IO. */
+    /** Candidate pool per subject (LIMIT 2000, any difficulty). Call from Dispatchers.IO. */
     fun getCandidatePoolByGradeSubject(
         grade: Int,
         subject: String

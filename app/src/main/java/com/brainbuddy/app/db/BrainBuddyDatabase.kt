@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 19,
+    version = 20,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -262,7 +262,15 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_difficulty ON questions(grade, subject, difficulty)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_difficulty_active ON questions(grade, subject, difficulty, isActive)")
                 database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_stem_hash ON questions(stemHash)")
-                database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS unique_questions_grade_subject_stem_hash ON questions(grade, subject, stemHash)")
+            }
+        }
+
+        // 19 -> 20: Relax dedup – drop UNIQUE(grade,subject,stemHash) so multiple variants per stem can coexist.
+        val MIGRATION_19_20: Migration = object : Migration(19, 20) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // Drop unique index if it exists, then recreate as a normal (non-unique) index for fast lookup only.
+                database.execSQL("DROP INDEX IF EXISTS unique_questions_grade_subject_stem_hash")
+                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_stem_hash ON questions(grade, subject, stemHash)")
             }
         }
 

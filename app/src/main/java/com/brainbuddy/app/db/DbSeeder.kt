@@ -270,20 +270,20 @@ object DbSeeder {
      */
     private fun parseQuestionObject(o: JSONObject, index: Int): QuestionEntity {
         // grade:
-        // 1) JSON'da "grade" varsa ve 1..7 aralığındaysa doğrudan kullan
-        // 2) Yoksa/Geçersizse gradeTag/grade_level gibi string alanlardan parse etmeyi dene
-        // 3) Parse edilemezse soruyu discard etmek için exception fırlat (default 6 yok)
+        // 1) JSON'da "grade" varsa ve 1..8 aralığındaysa doğrudan kullan (8. sınıf içerik de korunur).
+        // 2) Yoksa/Geçersizse gradeTag/grade_level gibi string alanlardan parse etmeyi dene.
+        // 3) Parse edilemezse soruyu discard etmek için exception fırlat (default 6 yok).
         val gradeFromJson = when {
             o.has("grade") -> o.optInt("grade", 0)
             o.has("grade_level") -> o.optInt("grade_level", 0)
             else -> 0
         }
         val grade = when {
-            gradeFromJson in 1..7 -> gradeFromJson
+            gradeFromJson in 1..8 -> gradeFromJson
             else -> {
                 val gradeTagStr = o.optString("gradeTag", o.optString("grade_level", ""))
                 val gradeTag = gradeTagStr.toIntOrNull()
-                (gradeTag ?: 0).coerceIn(1, 7).takeIf { it in 1..7 }
+                (gradeTag ?: 0).coerceIn(1, 8).takeIf { it in 1..8 }
                     ?: throw IllegalArgumentException("Invalid grade for question index=$index")
             }
         }
