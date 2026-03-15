@@ -357,8 +357,6 @@ class QuestionRepository(private val context: Context) {
         }
         importedFile.writeText(jsonArr.toString(), Charsets.UTF_8)
 
-        val existingStemKeys = existingStemKeysForFilter
-
         val toAddEntities = toAdd.map { q ->
             val diffInt = when (q.difficulty) {
                 QuizDifficulty.EASY -> 0
@@ -424,9 +422,6 @@ class QuestionRepository(private val context: Context) {
             }
             val stemNormalizedValue = QuestionStemHash.normalizeStem(q.stem)
             val stemHashValue = QuestionStemHash.stemHash(q.stem)
-            val stemKey = "${q.grade.coerceIn(1, 7)}|$dbSubjectKey|$stemHashValue"
-            if (stemKey in existingStemKeys) return@map null
-            existingStemKeys.add(stemKey)
             QuestionEntity(
                 id = q.id,
                 grade = q.grade.coerceIn(1, 7),
