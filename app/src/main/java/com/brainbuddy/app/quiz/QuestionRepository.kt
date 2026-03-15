@@ -1209,7 +1209,11 @@ class QuestionRepository(private val context: Context) {
         fun poolFor(subj: Subject): List<LgsCandidateRow> {
             return subjectPools.getOrPut(subj) {
                 val dbKey = com.brainbuddy.app.db.QuestionMapper.toDbSubject(subj)
-                roomStore.getLgsCandidatePoolWithQuality(dbKey).distinctBy { it.id }
+                // LGS mode must only use genuine LGS questions (grade 8 in our schema).
+                // Filter the LGS pool by grade == 8 to avoid mixing in grade 7 questions.
+                roomStore.getLgsCandidatePoolWithQuality(dbKey)
+                    .filter { it.grade == 8 }
+                    .distinctBy { it.id }
             }
         }
 
@@ -1266,6 +1270,14 @@ class QuestionRepository(private val context: Context) {
         } else 0.0
         lastRecentRelaxedCount = recentRelaxedCount
         lastBuildMs = System.currentTimeMillis() - buildStartMs
+
+        // Debug: log picked LGS questions with grade and subject to verify mode=LGS uses only grade 8.
+        if (orderPreserved.isNotEmpty()) {
+            android.util.Log.d(
+                "TestBuilder",
+                "LGS_PICK gradeList=${orderPreserved.joinToString { \"${it.id}:${it.grade}:${it.subject}\" }}"
+            )
+        }
 
         if (orderPreserved.isNotEmpty()) {
             roomStore.recordTestCreated(profileId, effectiveTestId, orderPreserved.map { it.id })
