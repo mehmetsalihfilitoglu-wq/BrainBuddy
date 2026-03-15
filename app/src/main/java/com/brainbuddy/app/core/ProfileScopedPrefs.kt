@@ -33,6 +33,10 @@ object ProfileScopedPrefs {
     fun wrongQuestion(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_wrong_question_store", migrationKey = "wrong_question_v1")
 
+    /** Wrong-question scheduler: spacing by completed tests (wrongPool + completedTests). */
+    fun wrongScheduler(context: Context): SharedPreferences =
+        profilePrefsWithMigration(context, baseName = "bb_wrong_scheduler", migrationKey = "wrong_scheduler_v1")
+
     fun league(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_league", migrationKey = "league_v1")
 

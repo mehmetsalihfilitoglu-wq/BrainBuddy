@@ -1127,6 +1127,12 @@ class QuestionRepository(private val context: Context) {
         roomStore.onQuizCompleted(questionIds)
     }
 
+    /** Load a single question by ID (e.g. for wrong-question scheduler injection). */
+    fun getQuestionById(questionId: String): Question? {
+        if (questionId.isBlank()) return null
+        return roomStore.getQuestionsByIds(listOf(questionId)).firstOrNull()
+    }
+
     /**
      * Sınıf bazlı test: Kullanıcının seçtiği grade (1-7) için havuzdan seçim.
      * Quiz size = 20, subjects = mat/turkce/fen/sosyal/ing, target quota = 4 each.
@@ -1144,7 +1150,8 @@ class QuestionRepository(private val context: Context) {
         count: Int = MIN_QUESTIONS_PER_TEST,
         testId: String? = null,
         preferredWrongIds: Set<String> = emptySet(),
-        maxWrongFraction: Double = 0.3
+        maxWrongFraction: Double = 0.3,
+        excludeIds: Set<String> = emptySet()
     ): List<Question> {
         if (grade !in 1..7) return emptyList()
         return runBlocking(Dispatchers.IO) {
@@ -1153,7 +1160,8 @@ class QuestionRepository(private val context: Context) {
                 count = count,
                 testId = testId,
                 preferredWrongIds = preferredWrongIds,
-                maxWrongFraction = maxWrongFraction
+                maxWrongFraction = maxWrongFraction,
+                excludeIds = excludeIds
             )
         }
     }
@@ -1165,16 +1173,18 @@ class QuestionRepository(private val context: Context) {
      */
     fun pickQuizQuestionsForLGS(
         count: Int = MIN_QUESTIONS_PER_TEST,
-        testId: String? = null
+        testId: String? = null,
+        excludeIds: Set<String> = emptySet()
     ): List<Question> {
         return runBlocking(Dispatchers.IO) {
-            pickQuizQuestionsForLGSInternal(count = count, testId = testId)
+            pickQuizQuestionsForLGSInternal(count = count, testId = testId, excludeIds = excludeIds)
         }
     }
 
     private suspend fun pickQuizQuestionsForLGSInternal(
         count: Int,
-        testId: String?
+        testId: String?,
+        excludeIds: Set<String> = emptySet()
     ): List<Question> {
         runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val buildStartMs = System.currentTimeMillis()
@@ -1189,7 +1199,7 @@ class QuestionRepository(private val context: Context) {
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
 
-        val usedIds = mutableSetOf<String>()
+        val usedIds = excludeIds.toMutableSet()
         val usedStemHashes = mutableSetOf<String>()
         val selectedRows = mutableListOf<LgsCandidateRow>()
         var recentRelaxedCount = 0
@@ -1294,7 +1304,8 @@ class QuestionRepository(private val context: Context) {
         count: Int,
         testId: String?,
         preferredWrongIds: Set<String>,
-        maxWrongFraction: Double
+        maxWrongFraction: Double,
+        excludeIds: Set<String> = emptySet()
     ): List<Question> {
         runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val buildStartMs = System.currentTimeMillis()
@@ -1357,7 +1368,7 @@ class QuestionRepository(private val context: Context) {
             perSubjectTotalForDiff[subjEnum] = primary.size
             perSubjectNonRecentAvailable[subjEnum] = pool.count { it.id !in recentIds }
         }
-        val usedIds = mutableSetOf<String>()
+        val usedIds = excludeIds.toMutableSet()
         val usedStemHashes = mutableSetOf<String>()
         val selectedTokenSets = mutableListOf<Set<String>>()
         val selectedPerSubject: MutableMap<Subject, MutableList<QuestionCandidateRow>> = mutableMapOf()

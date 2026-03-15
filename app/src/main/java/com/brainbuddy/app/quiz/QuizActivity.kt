@@ -220,6 +220,7 @@ class QuizActivity : AppCompatActivity() {
             val result = withTimeoutOrNull(5000L) {
                 withContext(Dispatchers.IO) {
                 buildQuizOnBackground(
+                    context = this@QuizActivity.applicationContext,
                     repo = repo,
                     quizPrefs = quizPrefs,
                     protectionPrefs = protectionPrefs,
@@ -299,6 +300,7 @@ class QuizActivity : AppCompatActivity() {
     )
 
     private fun buildQuizOnBackground(
+        context: android.content.Context,
         repo: QuestionRepository,
         quizPrefs: QuizPrefs,
         protectionPrefs: ProtectionPrefs,
@@ -317,6 +319,7 @@ class QuizActivity : AppCompatActivity() {
         targetCount: Int,
         intent: Intent
     ): QuizBuildResult {
+        val scheduler = WrongQuestionScheduler(context)
         val poolDebug = if (!isLgsMode && effectiveGrade in 1..7) {
             try {
                 repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
@@ -435,22 +438,41 @@ class QuizActivity : AppCompatActivity() {
                     else wrong.shuffled().take(targetCount)
                 }
             }
-            else -> when {
-                isLgsMode -> {
-                    pickerPath = "LGS"
-                    repo.pickQuizQuestionsForLGS(targetCount, quizId)
-                }
-                effectiveGrade in 1..7 -> {
-                    pickerPath = "GRADE"
-                    repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
-                }
-                else -> {
-                    pickerPath = "SUBJECT_ONLY"
-                    val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
-                    val categories = subjectFilter?.let { tr ->
-                        Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
-                    } ?: quizPrefs.selectedCategories()
-                    repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
+            else -> {
+                val dueId = scheduler.getDueWrongQuestion()
+                val dueQ = if (dueId != null) repo.getQuestionById(dueId) else null
+                when {
+                    isLgsMode -> {
+                        pickerPath = "LGS"
+                        if (dueQ != null && dueId != null) {
+                            val rest = repo.pickQuizQuestionsForLGS(targetCount, quizId, excludeIds = setOf(dueId))
+                            (rest.dropLast(1) + dueQ).shuffled()
+                        } else {
+                            repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                        }
+                    }
+                    effectiveGrade in 1..7 -> {
+                        pickerPath = "GRADE"
+                        if (dueQ != null && dueId != null) {
+                            val rest = repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId, excludeIds = setOf(dueId))
+                            (rest.dropLast(1) + dueQ).shuffled()
+                        } else {
+                            repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
+                        }
+                    }
+                    else -> {
+                        pickerPath = "SUBJECT_ONLY"
+                        val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
+                        val categories = subjectFilter?.let { tr ->
+                            Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
+                        } ?: quizPrefs.selectedCategories()
+                        val base = repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
+                        if (dueQ != null && dueId != null && dueId !in base.map { it.id }) {
+                            (base.dropLast(1) + dueQ).shuffled()
+                        } else {
+                            base
+                        }
+                    }
                 }
             }
         }
@@ -800,6 +822,10 @@ class QuizActivity : AppCompatActivity() {
                 repo.recordAnswers(answerRecords, questionsMap, quizId)
                 repo.onQuizCompleted(questions.map { it.id })
                 repo.insertSnapshot(quizId, correctCount, questions.size, questions.map { it.id }, answers.toMap(), wrongIds, breakdown)
+                val scheduler = WrongQuestionScheduler(this@QuizActivity.applicationContext)
+                wrongIds.forEach { scheduler.registerWrong(it) }
+                answerRecords.filter { it.isCorrect }.forEach { scheduler.markCorrect(it.questionId) }
+                scheduler.onTestCompleted()
             }
             val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
             val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)

@@ -299,6 +299,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
                 listOf(AnswerRecord(q.id, sel, q.correctIndex)),
                 questions.associateBy { it.id }
             )
+            WrongQuestionScheduler(applicationContext).markCorrect(q.id)
             analyticsStore.recordReviewCorrection()
         }
         b.nextBtn.text = if (index < questions.size - 1) "Sonraki →" else "Bitir"
