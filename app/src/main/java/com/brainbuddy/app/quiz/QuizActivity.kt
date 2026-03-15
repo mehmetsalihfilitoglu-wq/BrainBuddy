@@ -207,9 +207,9 @@ class QuizActivity : AppCompatActivity() {
             val needsLevel = !(isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST)
             if (needsLevel && !gradePrefs.hasLevelSelected()) {
                 android.widget.Toast.makeText(this@QuizActivity, com.brainbuddy.app.R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
-                startActivity(Intent(this@QuizActivity, com.brainbuddy.app.ui.TestSettingsActivity::class.java).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                })
+                // Navigate to TestSettings within the existing task so Back returns to the previous screen,
+                // not to the launcher. Do not use NEW_TASK here.
+                startActivity(Intent(this@QuizActivity, com.brainbuddy.app.ui.TestSettingsActivity::class.java))
                 finish()
                 return@launch
             }
