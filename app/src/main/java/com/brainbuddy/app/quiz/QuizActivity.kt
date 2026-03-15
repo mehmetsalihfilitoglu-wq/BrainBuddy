@@ -476,6 +476,13 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
         }
+        if (BuildConfig.DEBUG) {
+            val dueId = scheduler.getDueWrongQuestion()
+            android.util.Log.d(
+                "TestBuilder",
+                "quizId=$quizId pickerPath=$pickerPath total=${q.size} dueId=$dueId"
+            )
+        }
         return QuizBuildResult(q, poolDebug, pickerPath, remedialWarning, wrongUsed)
     }
 
