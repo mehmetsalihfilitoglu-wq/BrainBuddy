@@ -1273,10 +1273,8 @@ class QuestionRepository(private val context: Context) {
 
         // Debug: log picked LGS questions with grade and subject to verify mode=LGS uses only grade 8.
         if (orderPreserved.isNotEmpty()) {
-            android.util.Log.d(
-                "TestBuilder",
-                "LGS_PICK gradeList=${orderPreserved.joinToString { \"${it.id}:${it.grade}:${it.subject}\" }}"
-            )
+            val gradeList = orderPreserved.joinToString { "${it.id}:${it.grade}:${it.subject}" }
+            android.util.Log.d("TestBuilder", "LGS_PICK gradeList=$gradeList")
         }
 
         if (orderPreserved.isNotEmpty()) {
