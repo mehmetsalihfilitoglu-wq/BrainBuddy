@@ -331,11 +331,20 @@ class QuizActivity : AppCompatActivity() {
         var pickerPath = ""
         var remedialWarning = false
         var wrongUsed = 0
+        var injectedDueId: String? = null
 
         val q = when {
             isLgsMode && !(isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount) -> {
                 pickerPath = "LGS"
-                repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                val dueId = scheduler.getDueWrongQuestion()
+                val dueQ = if (dueId != null) repo.getQuestionById(dueId) else null
+                if (dueQ != null && dueId != null) {
+                    val rest = repo.pickQuizQuestionsForLGS(targetCount, quizId, excludeIds = setOf(dueId))
+                    injectedDueId = dueId
+                    (rest.dropLast(1) + dueQ).shuffled()
+                } else {
+                    repo.pickQuizQuestionsForLGS(targetCount, quizId)
+                }
             }
             isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount -> {
                 pickerPath = "REPLAY"
@@ -446,6 +455,7 @@ class QuizActivity : AppCompatActivity() {
                         pickerPath = "LGS"
                         if (dueQ != null && dueId != null) {
                             val rest = repo.pickQuizQuestionsForLGS(targetCount, quizId, excludeIds = setOf(dueId))
+                            injectedDueId = dueId
                             (rest.dropLast(1) + dueQ).shuffled()
                         } else {
                             repo.pickQuizQuestionsForLGS(targetCount, quizId)
@@ -455,6 +465,7 @@ class QuizActivity : AppCompatActivity() {
                         pickerPath = "GRADE"
                         if (dueQ != null && dueId != null) {
                             val rest = repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId, excludeIds = setOf(dueId))
+                            injectedDueId = dueId
                             (rest.dropLast(1) + dueQ).shuffled()
                         } else {
                             repo.pickQuizQuestionsByGrade(effectiveGrade, targetCount, quizId)
@@ -468,6 +479,7 @@ class QuizActivity : AppCompatActivity() {
                         } ?: quizPrefs.selectedCategories()
                         val base = repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
                         if (dueQ != null && dueId != null && dueId !in base.map { it.id }) {
+                            injectedDueId = dueId
                             (base.dropLast(1) + dueQ).shuffled()
                         } else {
                             base
@@ -476,11 +488,11 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
         }
+        injectedDueId?.let { scheduler.markShown(it) }
         if (BuildConfig.DEBUG) {
-            val dueId = scheduler.getDueWrongQuestion()
             android.util.Log.d(
                 "TestBuilder",
-                "quizId=$quizId pickerPath=$pickerPath total=${q.size} dueId=$dueId"
+                "quizId=$quizId pickerPath=$pickerPath total=${q.size} injectedDueId=$injectedDueId"
             )
         }
         return QuizBuildResult(q, poolDebug, pickerPath, remedialWarning, wrongUsed)

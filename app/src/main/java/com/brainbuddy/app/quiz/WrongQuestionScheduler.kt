@@ -70,12 +70,25 @@ class WrongQuestionScheduler(context: Context) {
     }
 
     /**
-     * Returns one question ID that is due (completedTests >= dueAfterTest), or null.
+     * Mark that a due question was actually injected into a test at the current completedTests index.
+     */
+    fun markShown(questionId: String) {
+        val w = wrongPool.find { it.questionId == questionId } ?: return
+        w.lastShownAtCompletedTest = completedTests
+        saveSchedulerState()
+    }
+
+    /**
+     * Returns one question ID that is due (completedTests >= dueAfterTest) and not shown in the
+     * immediately previous normal test, or null.
      * Only one question per call; does not remove from pool (removal happens on markCorrect).
      */
     fun getDueWrongQuestion(): String? {
-        val due = wrongPool.filter { completedTests >= it.dueAfterTest }
-            .minByOrNull { it.dueAfterTest } ?: return null
+        val due = wrongPool
+            .filter { completedTests >= it.dueAfterTest }
+            .filter { it.lastShownAtCompletedTest < completedTests - 1 }
+            .minByOrNull { it.dueAfterTest }
+            ?: return null
         Log.d(TAG, "Due wrong injected: ${due.questionId}")
         return due.questionId
     }
@@ -109,11 +122,13 @@ class WrongQuestionScheduler(context: Context) {
                     WrongQuestion(
                         questionId = o.optString(KEY_QID, ""),
                         wrongCount = o.optInt(KEY_WRONG_COUNT, 1),
-                        dueAfterTest = o.optInt(KEY_DUE_AFTER_TEST, completedTests + 3)
+                        dueAfterTest = o.optInt(KEY_DUE_AFTER_TEST, completedTests + 3),
+                        lastShownAtCompletedTest = o.optInt(KEY_LAST_SHOWN_AT, -1)
                     )
                 )
             }
-        } catch (_: Exception) { }
+        } catch (_: Exception) {
+        }
     }
 
     private fun poolToJson(): String {
@@ -124,6 +139,7 @@ class WrongQuestionScheduler(context: Context) {
                     put(KEY_QID, w.questionId)
                     put(KEY_WRONG_COUNT, w.wrongCount)
                     put(KEY_DUE_AFTER_TEST, w.dueAfterTest)
+                    put(KEY_LAST_SHOWN_AT, w.lastShownAtCompletedTest)
                 }
             )
         }
@@ -137,5 +153,7 @@ class WrongQuestionScheduler(context: Context) {
         private const val KEY_QID = "questionId"
         private const val KEY_WRONG_COUNT = "wrongCount"
         private const val KEY_DUE_AFTER_TEST = "dueAfterTest"
+        private const val KEY_LAST_SHOWN_AT = "lastShownAtCompletedTest"
     }
 }
+
