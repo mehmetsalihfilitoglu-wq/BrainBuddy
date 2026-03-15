@@ -22,11 +22,14 @@ object DbSeeder {
     private const val CURRENT_DB_SEED_VERSION = 2
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
 
-    /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs. */
+    /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
     private val PACK_FILE_REGEX = Regex(
-        pattern = "^grade(2|3|4|5|6|7|8)_(mat|turkce|fen|sosyal|ing)\\.json$",
+        pattern = "^grade(1|2|3|4|5|6|7|8)_(mat|turkce|fen|sosyal|ing)\\.json$",
         option = RegexOption.IGNORE_CASE
     )
+
+    /** Root-level GENERAL question JSON files (array or wrapped { "questions": [] }). */
+    private val ROOT_GENERAL_QUESTION_FILES = listOf("questions_tr.json", "import_template.json")
 
     /** Desteklenen ders anahtarları (DB'ye bu kısa kodlarla yazılır). */
     private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
@@ -124,30 +127,33 @@ object DbSeeder {
     private fun loadFromAssets(context: Context): List<QuestionEntity> {
         val all = mutableListOf<QuestionEntity>()
 
-        // 1) Ana gövde: mevcut birleşik havuz (geriyle uyumlu kalır).
-        try {
-            val json = context.assets.open("questions_tr.json").use { input ->
-                input.readBytes().toString(Charset.forName("UTF-8"))
+        // 1) Root-level GENERAL question files (array or wrapped { "questions": [], "grade", "subject" }).
+        for (assetName in ROOT_GENERAL_QUESTION_FILES) {
+            try {
+                val json = context.assets.open(assetName).use { input ->
+                    input.readBytes().toString(Charset.forName("UTF-8"))
+                }
+                val added = parseRootQuestionFile(assetName, json)
+                all += added
+                Log.i(TAG, "Loaded root general file: $assetName (${added.size} questions)")
+            } catch (e: Exception) {
+                Log.w(TAG, "Root file $assetName error: ${e.message}")
             }
-            all += parseJsonArray(JSONArray(json))
-        } catch (e: Exception) {
-            Log.e(TAG, "questions_tr.json error", e)
         }
 
-        // 2) Grade 1..7 × subject bazlı JSON paketleri (assets/packs altında otomatik tarama).
-        val packFiles = discoverPackAssetFiles(context)
+        // 2) Grade 1..8 × subject pack JSONs under assets/packs (recursive).
+        val packFiles = discoverPackAssetFilesRecursive(context)
         if (packFiles.isNotEmpty()) {
-            Log.i(TAG, "Discovered ${packFiles.size} pack assets: $packFiles")
-        } else {
-            Log.w(TAG, "No pack assets discovered under assets/packs – only base pool will be used.")
+            Log.i(TAG, "Discovered ${packFiles.size} pack assets")
         }
         packFiles.forEach { assetPath ->
             try {
                 val json = context.assets.open(assetPath).use { input ->
                     input.readBytes().toString(Charset.forName("UTF-8"))
                 }
-                all += parseJsonArray(JSONArray(json))
-                Log.i(TAG, "Loaded pack from $assetPath")
+                val parsed = parsePackFileContent(assetPath, json)
+                all += parsed
+                if (parsed.isNotEmpty()) Log.i(TAG, "Loaded pack $assetPath: ${parsed.size} questions")
             } catch (e: Exception) {
                 Log.w(TAG, "Pack load error for $assetPath: ${e.message}")
             }
@@ -168,23 +174,81 @@ object DbSeeder {
     }
 
     /**
-     * assets/packs altında bulunan tüm pack JSON dosyalarını otomatik keşfeder.
-     *
-     * İsim deseni:
-     *   grade{G}_{subject}.json
-     *   G ∈ 1..7, subject ∈ {mat,turkce,fen,sosyal,ing}
+     * Recursively discovers pack JSON files under assets/packs.
+     * Matches filename grade{G}_{subject}.json (G ∈ 1..8, subject ∈ mat,turkce,fen,sosyal,ing).
      */
-    private fun discoverPackAssetFiles(context: Context): List<String> {
-        return try {
-            val files = context.assets.list("packs")?.toList().orEmpty()
-            files
-                .filter { PACK_FILE_REGEX.matches(it) }
-                .sorted()
-                .map { "packs/$it" }
+    private fun discoverPackAssetFilesRecursive(context: Context): List<String> {
+        val out = mutableListOf<String>()
+        try {
+            collectPackPaths(context.assets, "packs", out)
+            out.sort()
         } catch (e: Exception) {
             Log.w(TAG, "Pack asset discovery failed: ${e.message}")
-            emptyList()
         }
+        return out
+    }
+
+    private fun collectPackPaths(assets: android.content.res.AssetManager, path: String, out: MutableList<String>) {
+        val names = assets.list(path)?.toList().orEmpty()
+        for (name in names) {
+            val childPath = if (path.isEmpty()) name else "$path/$name"
+            if (PACK_FILE_REGEX.matches(name)) {
+                out.add(childPath)
+            } else {
+                // Recurse into subdirs (list() on a dir returns non-null; on a file returns null/empty).
+                val sub = assets.list(childPath)
+                if (!sub.isNullOrEmpty()) {
+                    for (subName in sub) collectPackPaths(assets, "$childPath/$subName", out)
+                }
+            }
+        }
+    }
+
+    /** Parse root-level file: either a JSON array or wrapped { "questions": [], "grade", "subject" }. */
+    private fun parseRootQuestionFile(assetName: String, json: String): List<QuestionEntity> {
+        val trimmed = json.trimStart()
+        return when {
+            trimmed.startsWith("[") -> parseJsonArray(org.json.JSONArray(json))
+            trimmed.startsWith("{") -> {
+                val root = org.json.JSONObject(json)
+                val arr = root.optJSONArray("questions") ?: return emptyList()
+                parseWrappedQuestionArray(root, arr, assetName)
+            }
+            else -> emptyList()
+        }
+    }
+
+    /** Parse pack file content: array or wrapped object. */
+    private fun parsePackFileContent(assetPath: String, json: String): List<QuestionEntity> {
+        val trimmed = json.trimStart()
+        return when {
+            trimmed.startsWith("[") -> parseJsonArray(org.json.JSONArray(json))
+            trimmed.startsWith("{") -> {
+                val root = org.json.JSONObject(json)
+                val arr = root.optJSONArray("questions") ?: return emptyList()
+                parseWrappedQuestionArray(root, arr, assetPath)
+            }
+            else -> emptyList()
+        }
+    }
+
+    /** Parse questions array from wrapped format; inject root grade/subject into each item. */
+    private fun parseWrappedQuestionArray(root: org.json.JSONObject, arr: org.json.JSONArray, sourceLabel: String): List<QuestionEntity> {
+        val defaultGrade = root.optInt("grade", 6).coerceIn(1, 8)
+        val defaultSubject = root.optString("subject", "mat").trim().lowercase()
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val q = arr.getJSONObject(i)
+                val combined = org.json.JSONObject(q.toString())
+                combined.put("grade", q.optInt("grade", defaultGrade))
+                combined.put("subject", q.optString("subject", defaultSubject))
+                out.add(parseQuestionObject(combined, i))
+            } catch (e: Exception) {
+                Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
+            }
+        }
+        return out
     }
 
     private fun loadFromImported(context: Context): List<QuestionEntity> {
