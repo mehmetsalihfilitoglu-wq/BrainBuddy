@@ -58,7 +58,7 @@ class QuizActivityRetryWrong : AppCompatActivity() {
         val q = questions[index]
 
         b.progressText.text = "${index + 1}/${questions.size}"
-        b.subjectChip.text = "${q.subject.tr} • ${q.gradeTag} • (Yanlışları tekrar)"
+        b.subjectChip.text = "${q.subject.tr} • ${q.gradeDisplayLabel} • (Yanlışları tekrar)"
         b.questionText.text = q.stem
 
         if (!q.imageAsset.isNullOrBlank()) {

@@ -47,7 +47,10 @@ data class Question(
     val type: String = "UNKNOWN",
     /** Finer-grained sub-skill/topic for diversity. */
     val skill: String = "UNKNOWN"
-)
+) {
+    /** For header/subtitle: LGS mode shows "LGS", normal mode shows numeric grade (gradeTag). */
+    val gradeDisplayLabel: String get() = if (examType == ExamType.LGS) "LGS" else gradeTag
+}
 
 enum class QuizDifficulty(val tr: String) {
     EASY("Kolay"),

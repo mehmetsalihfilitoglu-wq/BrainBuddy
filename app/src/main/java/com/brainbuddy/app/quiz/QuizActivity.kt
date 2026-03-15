@@ -710,7 +710,7 @@ class QuizActivity : AppCompatActivity() {
         }
 
         b.progressText.text = "${index + 1}/${questions.size}"
-        b.subjectChip.text = "${q.subject.tr} • ${q.gradeTag}"
+        b.subjectChip.text = "${q.subject.tr} • ${q.gradeDisplayLabel}"
         b.questionText.text = q.stem
 
         if (!q.imageAsset.isNullOrBlank()) {
