@@ -15,8 +15,17 @@ object InstalledAppsHelper {
 
     fun getInstalledApps(pm: PackageManager): List<ApplicationInfo> {
         return try {
+            // Android 11+ package visibility requires QUERY_ALL_PACKAGES or <queries>.
+            // Here we list all user-installed / updated system apps, not just launcher apps,
+            // so that parents can block any relevant app (games, social, browsers, tools).
             pm.getInstalledApplications(PackageManager.GET_META_DATA)
-                .filter { pm.getLaunchIntentForPackage(it.packageName) != null }
+                .filter { app ->
+                    val flags = app.flags
+                    val isSystem = (flags and ApplicationInfo.FLAG_SYSTEM) != 0
+                    val isUpdatedSystem = (flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0
+                    // Show non-system apps and updated system apps; hide core system components.
+                    !isSystem || isUpdatedSystem
+                }
         } catch (e: Exception) {
             emptyList()
         }
