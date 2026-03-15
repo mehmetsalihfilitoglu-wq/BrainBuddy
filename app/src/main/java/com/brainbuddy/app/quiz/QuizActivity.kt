@@ -845,6 +845,15 @@ class QuizActivity : AppCompatActivity() {
                 wrongIds.forEach { scheduler.registerWrong(it) }
                 answerRecords.filter { it.isCorrect }.forEach { scheduler.markCorrect(it.questionId) }
                 scheduler.onTestCompleted()
+                // Daily mission progress: count this test and any corrected wrongs.
+                val mission = com.brainbuddy.app.core.DailyMissionManager(this@QuizActivity.applicationContext)
+                mission.onTestCompleted()
+                if (wrongIds.isNotEmpty()) {
+                    val correctedWrongCount = answerRecords.count { it.isCorrect && it.questionId in wrongIds }
+                    repeat(correctedWrongCount.coerceAtLeast(0)) {
+                        mission.onRetrySolved()
+                    }
+                }
             }
             val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
             val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
