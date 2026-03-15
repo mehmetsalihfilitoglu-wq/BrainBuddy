@@ -266,11 +266,10 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
         }
 
         // 19 -> 20: Relax dedup – drop UNIQUE(grade,subject,stemHash) so multiple variants per stem can coexist.
+        // Do NOT create any new index: QuestionEntity declares only 8 indices; Room validates exact match.
         val MIGRATION_19_20: Migration = object : Migration(19, 20) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                // Drop unique index if it exists, then recreate as a normal (non-unique) index for fast lookup only.
                 database.execSQL("DROP INDEX IF EXISTS unique_questions_grade_subject_stem_hash")
-                database.execSQL("CREATE INDEX IF NOT EXISTS index_questions_grade_subject_stem_hash ON questions(grade, subject, stemHash)")
             }
         }
 
