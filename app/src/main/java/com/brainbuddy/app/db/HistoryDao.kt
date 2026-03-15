@@ -112,4 +112,8 @@ interface HistoryDao {
 
     @Query("SELECT questionId FROM question_history WHERE userId = :userId AND wrongCount > 0")
     suspend fun getAllWrongIds(userId: String): List<String>
+
+    /** All history rows for a given user (for analytics / progress maps). */
+    @Query("SELECT * FROM question_history WHERE userId = :userId")
+    suspend fun getAllForUser(userId: String): List<QuestionHistoryEntity>
 }

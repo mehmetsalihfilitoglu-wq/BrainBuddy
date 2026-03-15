@@ -23,10 +23,7 @@ class WeakTopicAnalyzer(context: Context) {
      * considering only rows with some history (wrongCount + correctCount > 0).
      */
     fun getTopWeakTopics(limit: Int = 3): List<String> = runBlocking(Dispatchers.IO) {
-        // Join history with questions at the DB level is not exposed directly here, so we:
-        // 1) load all history rows for user
-        // 2) map questionId -> topic via QuestionDao
-        val history = questionDao.getAllHistoryForUser(userId) // extension defined on QuestionDao
+        val history = historyDao.getAllForUser(userId)
         if (history.isEmpty()) return@runBlocking emptyList()
 
         val byQuestion = history.groupBy { it.questionId }
