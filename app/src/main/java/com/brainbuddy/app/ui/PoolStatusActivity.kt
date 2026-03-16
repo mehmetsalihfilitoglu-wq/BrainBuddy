@@ -182,9 +182,11 @@ class PoolStatusActivity : AppCompatActivity() {
                         val db = DatabaseProvider.get(this@PoolStatusActivity)
                         val dao = db.questionDao()
                         val total = dao.countAll()
-                        val byGrade = (1..8).joinToString("\n") { g ->
-                            "  Grade $g: ${dao.countByGradeOnly(g)}"
+                        val gradeLines = mutableListOf<String>()
+                        for (g in 1..8) {
+                            gradeLines.add("  Grade $g: ${dao.countByGradeOnly(g)}")
                         }
+                        val byGrade = gradeLines.joinToString("\n")
                         val bySubject = dao.getCountsBySubject()
                             .joinToString("\n") { "  ${it.subject}: ${it.count}" }
                         buildString {
