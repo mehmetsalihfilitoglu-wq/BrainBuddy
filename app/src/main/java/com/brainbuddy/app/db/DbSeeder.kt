@@ -186,8 +186,8 @@ object DbSeeder {
     }
 
     /**
-     * Reclassifies certain grade-based JSON packs that physically live under assets/lgs_import/**
-     * into the GENERAL (non-LGS) question pool.
+     * Reclassifies certain grade-based JSON packs that physically live under assets/lgs_import/
+     * (grade-based subdirs) into the GENERAL (non-LGS) question pool.
      *
      * Bu dizinler isim ve raporlara göre sınıf bazlı (2–7. sınıf) müfredat soruları içerir;
      * gerçek LGS (8. sınıf sınav) içeriği değildir. Bu nedenle examType=GENERAL olarak
