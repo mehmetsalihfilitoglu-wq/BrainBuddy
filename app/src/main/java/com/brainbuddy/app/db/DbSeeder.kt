@@ -81,6 +81,25 @@ object DbSeeder {
     }
 
     /**
+     * DEBUG: Sadece GENERAL havuzunu temizleyip yeniden seed eder; LGS soruları korunur.
+     * Root GENERAL dosyaları, packs/ ve lgs_import/ altındaki sınıf paketleri (GENERAL) yeniden yüklenir.
+     */
+    suspend fun forceReseedGeneralBanks(context: Context): Boolean = withContext(Dispatchers.IO) {
+        val db = DatabaseProvider.get(context)
+        val meta = db.appMetaDao()
+        val questionDao = db.questionDao()
+        try {
+            Log.w(TAG, "Force reseed GENERAL: deleting only GENERAL questions, keeping LGS intact.")
+            questionDao.deleteGeneralQuestions()
+        } catch (e: Exception) {
+            Log.e(TAG, "Force reseed deleteGeneralQuestions failed", e)
+        }
+        meta.set(AppMetaEntity(KEY_DB_SEEDED, "false"))
+        meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, "0"))
+        performSeed(db, meta, context)
+    }
+
+    /**
      * Ortak seeding uygulaması: assets + imported JSON + sentetik grade 6 paketleri.
      * Hem ilk kurulum hem de DEBUG force-resede tarafından kullanılır.
      */

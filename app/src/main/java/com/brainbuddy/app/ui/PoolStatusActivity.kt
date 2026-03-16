@@ -14,6 +14,7 @@ import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
+import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.quiz.formatLgsMatSummaryText
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
@@ -165,6 +166,40 @@ class PoolStatusActivity : AppCompatActivity() {
                     AlertDialog.Builder(this@PoolStatusActivity)
                         .setTitle("LGS English Import Sonucu")
                         .setMessage(result.summary)
+                        .setPositiveButton(android.R.string.ok) { _, _ -> }
+                        .show()
+                    renderStatus()
+                }
+            }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnForceReseedGeneralBanks)
+            .setOnClickListener {
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity)
+                    }
+                    val summary = withContext(Dispatchers.IO) {
+                        val db = DatabaseProvider.get(this@PoolStatusActivity)
+                        val dao = db.questionDao()
+                        val total = dao.countAll()
+                        val byGrade = (1..8).joinToString("\n") { g ->
+                            "  Grade $g: ${dao.countByGradeOnly(g)}"
+                        }
+                        val bySubject = dao.getCountsBySubject()
+                            .joinToString("\n") { "  ${it.subject}: ${it.count}" }
+                        buildString {
+                            appendLine("Total DB count: $total")
+                            appendLine()
+                            appendLine("Counts by grade:")
+                            appendLine(byGrade)
+                            appendLine()
+                            appendLine("Counts by subject:")
+                            appendLine(bySubject)
+                        }
+                    }
+                    AlertDialog.Builder(this@PoolStatusActivity)
+                        .setTitle(getString(R.string.pool_status_force_reseed_title))
+                        .setMessage(summary)
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
                     renderStatus()

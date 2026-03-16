@@ -73,6 +73,9 @@ data class LgsNewGenCountBySubject(val subject: String, val newGenCount: Int, va
 /** LGS pool: questionType bazında ACTIVE soru sayıları (subject filtresi için). */
 data class LgsQuestionTypeCount(val questionType: String, val count: Int)
 
+/** Tüm sorularda ders bazında toplam sayı (debug özeti). */
+data class SubjectCount(val subject: String, val count: Int)
+
 @Dao
 interface QuestionDao {
 
@@ -190,6 +193,10 @@ interface QuestionDao {
     )
     suspend fun getCountsByGradeSubject(): List<GradeSubjectCount>
 
+    /** Tüm sorularda ders bazında toplam sayı (reseed özeti). */
+    @Query("SELECT subject, COUNT(*) AS count FROM questions GROUP BY subject ORDER BY subject")
+    suspend fun getCountsBySubject(): List<SubjectCount>
+
     /** Import sonrası debug: grade/subject/difficulty bazında ACTIVE sayıları. */
     @Query(
         """
@@ -285,6 +292,10 @@ interface QuestionDao {
     /** Tüm soru tablosunu sil – DEBUG/RESET için kullanılır. */
     @Query("DELETE FROM questions")
     suspend fun deleteAll()
+
+    /** GENERAL havuzunu sil; LGS (examType='LGS') satırları korunur. Force reseed GENERAL için. */
+    @Query("DELETE FROM questions WHERE COALESCE(examType, 'GENERAL') != 'LGS'")
+    suspend fun deleteGeneralQuestions()
 
     // ---- LGS pool diagnostics ----
 
