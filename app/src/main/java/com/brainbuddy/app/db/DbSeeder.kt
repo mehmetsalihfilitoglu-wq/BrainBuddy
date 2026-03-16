@@ -221,7 +221,35 @@ object DbSeeder {
      * - lgs_import/din4..7
      * - lgs_import/sosyal4..6
      * - lgs_import/inkilap7 (7. sınıf İnkılap)
+     *
+     * Grade ve subject JSON'da geçerli değilse veya yoksa path'ten türetilir (örn. fen3 -> grade=3, subject=fen).
      */
+    private val LGS_PATH_GRADE_SUBJECT_REGEX = Regex("^(mat|turkce|fen|sosyal|english|hayat|din|inkilap)(\\d+)$", RegexOption.IGNORE_CASE)
+
+    /**
+     * Derives (grade, subjectKey) from an lgs_import path segment.
+     * E.g. "fen3" -> (3, "fen"), "english2" -> (2, "ing"), "inkilap7" -> (7, "inkilap").
+     * Returns null if the path does not match a known grade-based folder.
+     */
+    private fun parseGradeAndSubjectFromLgsPath(assetPath: String): Pair<Int, String>? {
+        val segment = assetPath.removePrefix("lgs_import/").substringBefore("/")
+        val match = LGS_PATH_GRADE_SUBJECT_REGEX.find(segment) ?: return null
+        val (subjectPart, gradePart) = match.destructured
+        val grade = gradePart.toIntOrNull()?.coerceIn(1, 8) ?: return null
+        val subjectKey = when (subjectPart.lowercase()) {
+            "mat" -> "mat"
+            "turkce" -> "turkce"
+            "fen" -> "fen"
+            "sosyal" -> "sosyal"
+            "english" -> "ing"
+            "hayat" -> "hayat"
+            "din" -> "din"
+            "inkilap" -> "inkilap"
+            else -> return null
+        }
+        return grade to subjectKey
+    }
+
     private fun loadFromLgsGradePacksAsGeneral(context: Context): List<QuestionEntity> {
         val assets = context.assets
         val out = mutableListOf<QuestionEntity>()
@@ -281,28 +309,29 @@ object DbSeeder {
 
             for (fileName in fileNames) {
                 val assetPath = "$dir/$fileName"
+                val pathDerived = parseGradeAndSubjectFromLgsPath(assetPath)
+                val (pathGrade, pathSubject) = pathDerived ?: (6 to "mat")
                 try {
                     val json = assets.open(assetPath).use { input ->
                         input.readBytes().toString(Charset.forName("UTF-8"))
                     }
                     val trimmed = json.trimStart()
                     val entities: List<QuestionEntity> = when {
-                        // Wrapped LGS-style format: { version, mode, subject, publisher, year, grade, questions: [...] }
+                        // Wrapped LGS-style format: { version, mode, subject, publisher, questions: [...] }
                         trimmed.startsWith("{") -> {
                             val root = org.json.JSONObject(json)
                             val arr = root.optJSONArray("questions") ?: org.json.JSONArray()
-                            // Root'taki grade/subject değerlerini her soruya enjekte et.
-                            parseWrappedQuestionArray(root, arr, assetPath)
+                            parseWrappedQuestionArray(root, arr, assetPath, pathGrade, pathSubject)
                         }
-                        // Saf dizi: doğrudan parse et (sorular zaten grade/subject içeriyorsa kullanılır).
+                        // Saf dizi: path'ten türetilen grade/subject ile parse et.
                         trimmed.startsWith("[") -> {
-                            parseJsonArray(org.json.JSONArray(json))
+                            parseJsonArrayWithDefaults(org.json.JSONArray(json), pathGrade, pathSubject)
                         }
                         else -> emptyList()
                     }
                     if (entities.isNotEmpty()) {
                         out += entities
-                        Log.i(TAG, "Loaded $assetPath as GENERAL pack: ${entities.size} questions")
+                        Log.i(TAG, "Loaded $assetPath as GENERAL pack: ${entities.size} questions (grade=$pathGrade subject=$pathSubject)")
                     }
                 } catch (e: Exception) {
                     Log.w(TAG, "Failed to load $assetPath as GENERAL: ${e.message}")
@@ -372,20 +401,53 @@ object DbSeeder {
         }
     }
 
-    /** Parse questions array from wrapped format; inject root grade/subject into each item. */
-    private fun parseWrappedQuestionArray(root: org.json.JSONObject, arr: org.json.JSONArray, sourceLabel: String): List<QuestionEntity> {
-        val defaultGrade = root.optInt("grade", 6).coerceIn(1, 8)
-        val defaultSubject = root.optString("subject", "mat").trim().lowercase()
+    /**
+     * Parse questions array from wrapped format; inject grade/subject into each item.
+     * When pathGrade/pathSubject are provided (e.g. from lgs_import/fen3/), they override root when
+     * JSON grade/subject are missing or invalid (so grade 1–7 is correct for grade-based banks).
+     */
+    private fun parseWrappedQuestionArray(
+        root: org.json.JSONObject,
+        arr: org.json.JSONArray,
+        sourceLabel: String,
+        pathGrade: Int? = null,
+        pathSubject: String? = null
+    ): List<QuestionEntity> {
+        val rootGrade = root.optInt("grade", 6).coerceIn(1, 8)
+        val rootSubject = root.optString("subject", "mat").trim().lowercase()
+        val defaultGrade = pathGrade?.takeIf { it in 1..8 } ?: rootGrade
+        val defaultSubject = pathSubject?.takeIf { it.isNotBlank() } ?: rootSubject
         val out = mutableListOf<QuestionEntity>()
         for (i in 0 until arr.length()) {
             try {
                 val q = arr.getJSONObject(i)
                 val combined = org.json.JSONObject(q.toString())
-                combined.put("grade", q.optInt("grade", defaultGrade))
-                combined.put("subject", q.optString("subject", defaultSubject))
+                val qGrade = q.optInt("grade", -1)
+                val qSubject = q.optString("subject", "").trim().lowercase()
+                combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
+                combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
                 out.add(parseQuestionObject(combined, i))
             } catch (e: Exception) {
                 Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
+            }
+        }
+        return out
+    }
+
+    /** Parse JSON array when each item may lack grade/subject; use path-derived defaults. */
+    private fun parseJsonArrayWithDefaults(arr: JSONArray, defaultGrade: Int, defaultSubject: String): List<QuestionEntity> {
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val o = arr.getJSONObject(i)
+                val combined = org.json.JSONObject(o.toString())
+                val qGrade = o.optInt("grade", -1)
+                val qSubject = o.optString("subject", "").trim().lowercase()
+                combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
+                combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
+                out.add(parseQuestionObject(combined, i))
+            } catch (e: Exception) {
+                Log.w(TAG, "Parse failed array index $i: ${e.message}")
             }
         }
         return out
@@ -492,16 +554,18 @@ object DbSeeder {
             }
         }
 
-        // subject normalize -> mat/turkce/fen/sosyal/ing
-        val rawSubject = o.optString("subject", "").ifBlank {
-            throw IllegalArgumentException("Missing subject for question index=$index")
-        }
-        val subjectKey = when (rawSubject.trim().lowercase()) {
+        // subject normalize -> mat/turkce/fen/sosyal/ing/hayat/din/inkilap
+        val rawSubject = o.optString("subject", "").trim().lowercase()
+        val subjectKey = when (rawSubject) {
+            "", "null" -> throw IllegalArgumentException("Missing subject for question index=$index")
             "mat", "matematik", "math" -> "mat"
             "turkce", "türkçe", "tr" -> "turkce"
             "fen", "fen bilimleri" -> "fen"
             "sosyal", "sosyal bilgiler" -> "sosyal"
             "ing", "ingilizce", "ingilizce dersi", "english", "eng" -> "ing"
+            "hayat", "hayat bilgisi" -> "hayat"
+            "din", "din kültürü", "din kültürü ve ahlak bilgisi" -> "din"
+            "inkilap", "inkılap", "tc inkılap tarihi" -> "inkilap"
             else -> throw IllegalArgumentException("Unsupported subject '$rawSubject' at index=$index")
         }
 
@@ -577,6 +641,8 @@ object DbSeeder {
             "sosyal" -> Subject.SOSYAL
             "hayat" -> Subject.HAYAT
             "ing" -> Subject.ING
+            "din" -> Subject.DIN
+            "inkilap" -> Subject.INKILAP
             else -> Subject.MAT
         }
         val gate = QuestionQualityGate.evaluate(
