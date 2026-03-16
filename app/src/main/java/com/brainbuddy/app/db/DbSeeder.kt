@@ -129,7 +129,7 @@ object DbSeeder {
             "${e.grade}|${e.subject}|$h"
         }
         val dedupedList = questions.distinctBy { stemKey(it) }
-        if (dedupedList.size < questions.size()) {
+        if (dedupedList.size < questions.size) {
             Log.i(TAG, "Seed dedup: ${questions.size} -> ${dedupedList.size} (dropped ${questions.size - dedupedList.size} in-batch duplicates)")
         }
 
