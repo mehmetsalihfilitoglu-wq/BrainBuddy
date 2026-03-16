@@ -19,7 +19,7 @@ object DbSeeder {
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
-    private const val CURRENT_DB_SEED_VERSION = 2
+    private const val CURRENT_DB_SEED_VERSION = 3
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
 
     /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
@@ -121,18 +121,25 @@ object DbSeeder {
             questions.addAll(getFallbackEntities())
         }
 
+        Log.i(TAG, "Seed load complete: ${questions.size} questions from assets+imported before dedup")
+
         // (grade, subject, stemHash) dedup: batch içinde tekrarları at
         val stemKey = { e: QuestionEntity ->
             val h = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
             "${e.grade}|${e.subject}|$h"
         }
         val dedupedList = questions.distinctBy { stemKey(it) }
+        if (dedupedList.size < questions.size()) {
+            Log.i(TAG, "Seed dedup: ${questions.size} -> ${dedupedList.size} (dropped ${questions.size - dedupedList.size} in-batch duplicates)")
+        }
 
         val questionDao = db.questionDao()
+        val countBefore = questionDao.countAll()
         questionDao.insertAllIgnore(dedupedList)
+        val countAfter = questionDao.countAll()
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
-        Log.i(TAG, "Seeded ${dedupedList.size} questions (INSERT IGNORE, stemHash dedup, version=$CURRENT_DB_SEED_VERSION)")
+        Log.i(TAG, "Seeded ${dedupedList.size} questions (INSERT IGNORE, stemHash dedup, version=$CURRENT_DB_SEED_VERSION); DB total before=$countBefore after=$countAfter")
 
         // Import sonrası havuz doğrulama
         try {
@@ -257,6 +264,7 @@ object DbSeeder {
         // Dizin listesi: sadece sınıf-bazlı içerik, gerçek LGS kök dosyaları hariç.
         val gradeBasedDirs = listOf(
             // Hayat Bilgisi
+            "lgs_import/hayat1",
             "lgs_import/hayat2",
             "lgs_import/hayat3",
             // Fen Bilimleri
