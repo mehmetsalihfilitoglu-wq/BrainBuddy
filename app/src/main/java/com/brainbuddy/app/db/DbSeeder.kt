@@ -183,12 +183,16 @@ object DbSeeder {
         context: Context
     ): Boolean {
         Log.d("SEED_DEBUG", "performSeed ENTERED")
+        // STEP logs (requested)
+        Log.d("SEED_DEBUG", "STEP 1: performSeed START")
         lastPerformSeedEntered = true
         Log.i(TAG, "performSeed started")
         val items = mutableListOf<SeedItem>()
         val lgsAudit = LgsImportAudit()
         try {
+            Log.d("SEED_DEBUG", "STEP 2: before loadFromAssets")
             val fromAssets = loadFromAssetsWithProvenance(context, lgsAudit)
+            Log.d("SEED_DEBUG", "STEP 3: after loadFromAssets size=" + fromAssets.size)
             items.addAll(fromAssets)
             val imported = loadFromImported(context)
             val existingIds = items.map { it.entity.id }.toSet()
@@ -224,10 +228,12 @@ object DbSeeder {
         val questionDao = db.questionDao()
         val countBefore = questionDao.countAll()
         Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedItems.size} DB countBefore=$countBefore")
+        Log.d("SEED_DEBUG", "STEP 4: before insert size=" + dedupedItems.size)
         Log.d("SEED_DEBUG", "About to insert size=${dedupedItems.size}")
         lastAboutToInsertSize = dedupedItems.size
         val insertResults = questionDao.insertAllIgnore(dedupedItems.map { it.entity })
         val countAfter = questionDao.countAll()
+        Log.d("SEED_DEBUG", "STEP 5: after insert count=" + countAfter)
         Log.d("SEED_DEBUG", "After insert DB count=$countAfter")
         lastAfterInsertDbCount = countAfter
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
@@ -259,6 +265,7 @@ object DbSeeder {
         // Ensure lastSeedAudit is assigned at the very end (after insert + stats).
         lastSeedAudit = auditText
         Log.d("SEED_AUDIT_SAVE", "Audit saved successfully length=${auditText.length}")
+        Log.d("SEED_DEBUG", "STEP 6: performSeed END")
         return true
     }
 
