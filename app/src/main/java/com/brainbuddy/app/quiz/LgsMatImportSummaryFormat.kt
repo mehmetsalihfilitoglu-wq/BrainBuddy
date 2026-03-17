@@ -1,6 +1,6 @@
 package com.brainbuddy.app.quiz
 
-/** Result of importing only math LGS packs from assets/lgs_import/mat/. */
+/** Result of importing only math LGS packs from assets/lgs_exam/mat/. */
 data class LgsMatImportSummary(
     val importedCount: Int,
     val skippedDuplicateCount: Int,

@@ -49,7 +49,7 @@ object QuestionPackImporter {
             }
     }
 
-    /** Result of importing all LGS packs from assets/lgs_import/ */
+    /** Result of importing all LGS packs from assets/lgs_exam/ + legacy root JSON files under assets/lgs_import/ */
     data class LgsImportSummary(
         val importedCount: Int,
         val skippedDuplicateCount: Int,
@@ -93,47 +93,48 @@ object QuestionPackImporter {
     )
 
     private const val LGS_GRADE = 8
-    private const val LGS_MAT_IMPORT_DIR = "lgs_import/mat"
-    private const val LGS_MAT1_IMPORT_DIR = "lgs_import/mat1"
-    private const val LGS_MAT2_IMPORT_DIR = "lgs_import/mat2"
-    private const val LGS_MAT3_IMPORT_DIR = "lgs_import/mat3"
-    private const val LGS_MAT4_IMPORT_DIR = "lgs_import/mat4"
-    private const val LGS_MAT5_IMPORT_DIR = "lgs_import/mat5"
-    private const val LGS_MAT7_IMPORT_DIR = "lgs_import/mat7"
-    private const val LGS_FEN_IMPORT_DIR = "lgs_import/fen"
-    private const val LGS_FEN3_IMPORT_DIR = "lgs_import/fen3"
-    private const val LGS_FEN4_IMPORT_DIR = "lgs_import/fen4"
-    private const val LGS_FEN5_IMPORT_DIR = "lgs_import/fen5"
-    private const val LGS_FEN6_IMPORT_DIR = "lgs_import/fen6"
-    private const val LGS_FEN7_IMPORT_DIR = "lgs_import/fen7"
-    private const val LGS_INKILAP_IMPORT_DIR = "lgs_import/inkilap"
-    private const val LGS_INKILAP7_IMPORT_DIR = "lgs_import/inkilap7"
-    private const val LGS_TURKCE_IMPORT_DIR = "lgs_import/turkce"
-    private const val LGS_TURKCE1_IMPORT_DIR = "lgs_import/turkce1"
-    private const val LGS_TURKCE2_IMPORT_DIR = "lgs_import/turkce2"
-    private const val LGS_TURKCE3_IMPORT_DIR = "lgs_import/turkce3"
-    private const val LGS_TURKCE4_IMPORT_DIR = "lgs_import/turkce4"
-    private const val LGS_TURKCE5_IMPORT_DIR = "lgs_import/turkce5"
-    private const val LGS_TURKCE7_IMPORT_DIR = "lgs_import/turkce7"
-    private const val LGS_DIN_IMPORT_DIR = "lgs_import/din"
-    private const val LGS_DIN4_IMPORT_DIR = "lgs_import/din4"
-    private const val LGS_DIN5_IMPORT_DIR = "lgs_import/din5"
-    private const val LGS_DIN6_IMPORT_DIR = "lgs_import/din6"
-    private const val LGS_DIN7_IMPORT_DIR = "lgs_import/din7"
-    private const val LGS_ENGLISH_IMPORT_DIR = "lgs_import/english"
-    private const val LGS_ENGLISH1_IMPORT_DIR = "lgs_import/english1"
-    private const val LGS_ENGLISH2_IMPORT_DIR = "lgs_import/english2"
-    private const val LGS_ENGLISH3_IMPORT_DIR = "lgs_import/english3"
-    private const val LGS_ENGLISH4_IMPORT_DIR = "lgs_import/english4"
-    private const val LGS_ENGLISH5_IMPORT_DIR = "lgs_import/english5"
-    private const val LGS_ENGLISH6_IMPORT_DIR = "lgs_import/english6"
-    private const val LGS_ENGLISH7_IMPORT_DIR = "lgs_import/english7"
-    private const val LGS_SOSYAL4_IMPORT_DIR = "lgs_import/sosyal4"
-    private const val LGS_HAYAT1_IMPORT_DIR = "lgs_import/hayat1"
-    private const val LGS_HAYAT2_IMPORT_DIR = "lgs_import/hayat2"
-    private const val LGS_HAYAT3_IMPORT_DIR = "lgs_import/hayat3"
-    private const val LGS_SOSYAL5_IMPORT_DIR = "lgs_import/sosyal5"
-    private const val LGS_SOSYAL6_IMPORT_DIR = "lgs_import/sosyal6"
+    // Asset layout (2026-03): lgs_exam/ for root-subject LGS exam packs, grade_based/ for grade folders.
+    private const val LGS_MAT_IMPORT_DIR = "lgs_exam/mat"
+    private const val LGS_MAT1_IMPORT_DIR = "grade_based/mat1"
+    private const val LGS_MAT2_IMPORT_DIR = "grade_based/mat2"
+    private const val LGS_MAT3_IMPORT_DIR = "grade_based/mat3"
+    private const val LGS_MAT4_IMPORT_DIR = "grade_based/mat4"
+    private const val LGS_MAT5_IMPORT_DIR = "grade_based/mat5"
+    private const val LGS_MAT7_IMPORT_DIR = "grade_based/mat7"
+    private const val LGS_FEN_IMPORT_DIR = "lgs_exam/fen"
+    private const val LGS_FEN3_IMPORT_DIR = "grade_based/fen3"
+    private const val LGS_FEN4_IMPORT_DIR = "grade_based/fen4"
+    private const val LGS_FEN5_IMPORT_DIR = "grade_based/fen5"
+    private const val LGS_FEN6_IMPORT_DIR = "grade_based/fen6"
+    private const val LGS_FEN7_IMPORT_DIR = "grade_based/fen7"
+    private const val LGS_INKILAP_IMPORT_DIR = "lgs_exam/inkilap"
+    private const val LGS_INKILAP7_IMPORT_DIR = "grade_based/inkilap7"
+    private const val LGS_TURKCE_IMPORT_DIR = "lgs_exam/turkce"
+    private const val LGS_TURKCE1_IMPORT_DIR = "grade_based/turkce1"
+    private const val LGS_TURKCE2_IMPORT_DIR = "grade_based/turkce2"
+    private const val LGS_TURKCE3_IMPORT_DIR = "grade_based/turkce3"
+    private const val LGS_TURKCE4_IMPORT_DIR = "grade_based/turkce4"
+    private const val LGS_TURKCE5_IMPORT_DIR = "grade_based/turkce5"
+    private const val LGS_TURKCE7_IMPORT_DIR = "grade_based/turkce7"
+    private const val LGS_DIN_IMPORT_DIR = "lgs_exam/din"
+    private const val LGS_DIN4_IMPORT_DIR = "grade_based/din4"
+    private const val LGS_DIN5_IMPORT_DIR = "grade_based/din5"
+    private const val LGS_DIN6_IMPORT_DIR = "grade_based/din6"
+    private const val LGS_DIN7_IMPORT_DIR = "grade_based/din7"
+    private const val LGS_ENGLISH_IMPORT_DIR = "lgs_exam/english"
+    private const val LGS_ENGLISH1_IMPORT_DIR = "grade_based/english1"
+    private const val LGS_ENGLISH2_IMPORT_DIR = "grade_based/english2"
+    private const val LGS_ENGLISH3_IMPORT_DIR = "grade_based/english3"
+    private const val LGS_ENGLISH4_IMPORT_DIR = "grade_based/english4"
+    private const val LGS_ENGLISH5_IMPORT_DIR = "grade_based/english5"
+    private const val LGS_ENGLISH6_IMPORT_DIR = "grade_based/english6"
+    private const val LGS_ENGLISH7_IMPORT_DIR = "grade_based/english7"
+    private const val LGS_SOSYAL4_IMPORT_DIR = "grade_based/sosyal4"
+    private const val LGS_HAYAT1_IMPORT_DIR = "grade_based/hayat1"
+    private const val LGS_HAYAT2_IMPORT_DIR = "grade_based/hayat2"
+    private const val LGS_HAYAT3_IMPORT_DIR = "grade_based/hayat3"
+    private const val LGS_SOSYAL5_IMPORT_DIR = "grade_based/sosyal5"
+    private const val LGS_SOSYAL6_IMPORT_DIR = "grade_based/sosyal6"
     private val LGS_IMPORT_FILES = listOf(
         "lgs_mat.json", "lgs_turkce.json", "lgs_fen.json",
         "lgs_inkilap.json", "lgs_din.json", "lgs_ing.json"
@@ -164,7 +165,7 @@ object QuestionPackImporter {
         runMat5LgsImportFromAssets(context)
     }
 
-    /** Import 7th grade math packs from assets/lgs_import/mat7/ (JSON files). Forces subject=mat, grade=7. */
+    /** Import 7th grade math packs from assets/grade_based/mat7/ (JSON files). Forces subject=mat, grade=7. */
     fun importMat7LgsPacksFromAssets(context: Context): LgsMatImportSummary = runBlocking(Dispatchers.IO) {
         val matDir = LGS_MAT7_IMPORT_DIR
         val jsonFiles = context.assets.list(matDir)
@@ -215,7 +216,7 @@ object QuestionPackImporter {
         )
     }
 
-    /** Import only math LGS packs from assets/lgs_import/mat/ (JSON files). Forces subject=mat, mode=LGS. */
+    /** Import only math LGS packs from assets/lgs_exam/mat/ (JSON files). Forces subject=mat, mode=LGS. */
     fun importMatLgsPacksFromAssets(context: Context): LgsMatImportSummary = runBlocking(Dispatchers.IO) {
         val matDir = LGS_MAT_IMPORT_DIR
         val jsonFiles = context.assets.list(matDir)
@@ -275,172 +276,172 @@ object QuestionPackImporter {
         )
     }
 
-    /** Import FEN LGS packs from lgs_import/lgs_fen.json and lgs_import/fen/ (all JSON files). Forces subject=fen. */
+    /** Import FEN LGS packs from legacy lgs_import/lgs_fen.json and lgs_exam/fen/ (all JSON files). Forces subject=fen. */
     fun importFenLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runFenLgsImportFromAssets(context)
     }
 
-    /** Import 3rd grade Science packs from lgs_import/fen3/ (all JSON files). Forces subject=fen, grade=3. */
+    /** Import 3rd grade Science packs from grade_based/fen3/ (all JSON files). Forces subject=fen, grade=3. */
     fun importFen3LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runFen3LgsImportFromAssets(context)
     }
 
-    /** Import 4th grade Science packs from lgs_import/fen4/ (all JSON files). Forces subject=fen, grade=4. */
+    /** Import 4th grade Science packs from grade_based/fen4/ (all JSON files). Forces subject=fen, grade=4. */
     fun importFen4LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runFen4LgsImportFromAssets(context)
     }
 
-    /** Import 5th grade Science packs from lgs_import/fen5/ (all JSON files). Forces subject=fen, grade=5. */
+    /** Import 5th grade Science packs from grade_based/fen5/ (all JSON files). Forces subject=fen, grade=5. */
     fun importFen5LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runFen5LgsImportFromAssets(context)
     }
 
-    /** Import 6th grade Science packs from lgs_import/fen6/ (all JSON files). Forces subject=fen, grade=6. */
+    /** Import 6th grade Science packs from grade_based/fen6/ (all JSON files). Forces subject=fen, grade=6. */
     fun importFen6LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runFen6LgsImportFromAssets(context)
     }
 
-    /** Import 4th grade Social Studies packs from lgs_import/sosyal4/ (all JSON files). Forces subject=sosyal, grade=4. */
+    /** Import 4th grade Social Studies packs from grade_based/sosyal4/ (all JSON files). Forces subject=sosyal, grade=4. */
     fun importSosyal4LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runSosyal4LgsImportFromAssets(context)
     }
 
-    /** Import 1st grade Life Studies (Hayat Bilgisi) packs from lgs_import/hayat1/ (visual-first, grade=1). */
+    /** Import 1st grade Life Studies (Hayat Bilgisi) packs from grade_based/hayat1/ (visual-first, grade=1). */
     fun importHayat1LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runHayat1LgsImportFromAssets(context)
     }
 
-    /** Import 2nd grade Life Studies (Hayat Bilgisi) packs from lgs_import/hayat2/ (all JSON files). Forces subject=hayat, grade=2. */
+    /** Import 2nd grade Life Studies (Hayat Bilgisi) packs from grade_based/hayat2/ (all JSON files). Forces subject=hayat, grade=2. */
     fun importHayat2LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runHayat2LgsImportFromAssets(context)
     }
 
-    /** Import 3rd grade Life Studies (Hayat Bilgisi) packs from lgs_import/hayat3/ (all JSON files). Forces subject=hayat, grade=3. */
+    /** Import 3rd grade Life Studies (Hayat Bilgisi) packs from grade_based/hayat3/ (all JSON files). Forces subject=hayat, grade=3. */
     fun importHayat3LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runHayat3LgsImportFromAssets(context)
     }
 
-    /** Import 5th grade Social Studies packs from lgs_import/sosyal5/ (all JSON files). Forces subject=sosyal, grade=5. */
+    /** Import 5th grade Social Studies packs from grade_based/sosyal5/ (all JSON files). Forces subject=sosyal, grade=5. */
     fun importSosyal5LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runSosyal5LgsImportFromAssets(context)
     }
 
-    /** Import 6th grade Social Studies packs from lgs_import/sosyal6/ (all JSON files). Forces subject=sosyal, grade=6. */
+    /** Import 6th grade Social Studies packs from grade_based/sosyal6/ (all JSON files). Forces subject=sosyal, grade=6. */
     fun importSosyal6LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runSosyal6LgsImportFromAssets(context)
     }
 
-    /** Import 7th grade Science packs from lgs_import/fen7/ (all JSON files). Forces subject=fen, grade=7. */
+    /** Import 7th grade Science packs from grade_based/fen7/ (all JSON files). Forces subject=fen, grade=7. */
     fun importFen7LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runFen7LgsImportFromAssets(context)
     }
 
-    /** Import İnkılap LGS packs from lgs_import/lgs_inkilap.json and lgs_import/inkilap/ (all JSON files). Forces subject=inkilap. */
+    /** Import İnkılap LGS packs from legacy lgs_import/lgs_inkilap.json and lgs_exam/inkilap/ (all JSON files). Forces subject=inkilap. */
     fun importInkilapLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runInkilapLgsImportFromAssets(context)
     }
 
-    /** Import 1st grade English packs from lgs_import/english1/ (visual-first, grade=1). */
+    /** Import 1st grade English packs from grade_based/english1/ (visual-first, grade=1). */
     fun importEnglish1LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglish1LgsImportFromAssets(context)
     }
 
-    /** Import 2nd grade English packs from lgs_import/english2/ (all JSON files). Forces subject=ing, grade=2. */
+    /** Import 2nd grade English packs from grade_based/english2/ (all JSON files). Forces subject=ing, grade=2. */
     fun importEnglish2LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglish2LgsImportFromAssets(context)
     }
 
-    /** Import 3rd grade English packs from lgs_import/english3/ (all JSON files). Forces subject=ing, grade=3. */
+    /** Import 3rd grade English packs from grade_based/english3/ (all JSON files). Forces subject=ing, grade=3. */
     fun importEnglish3LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglish3LgsImportFromAssets(context)
     }
 
-    /** Import 4th grade English packs from lgs_import/english4/ (all JSON files). Forces subject=ing, grade=4. */
+    /** Import 4th grade English packs from grade_based/english4/ (all JSON files). Forces subject=ing, grade=4. */
     fun importEnglish4LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglish4LgsImportFromAssets(context)
     }
 
-    /** Import 5th grade English packs from lgs_import/english5/ (all JSON files). Forces subject=ing, grade=5. */
+    /** Import 5th grade English packs from grade_based/english5/ (all JSON files). Forces subject=ing, grade=5. */
     fun importEnglish5LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglish5LgsImportFromAssets(context)
     }
 
-    /** Import 6th grade English packs from lgs_import/english6/ (all JSON files). Forces subject=ing, grade=6. */
+    /** Import 6th grade English packs from grade_based/english6/ (all JSON files). Forces subject=ing, grade=6. */
     fun importEnglish6LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglish6LgsImportFromAssets(context)
     }
 
-    /** Import 7th grade English packs from lgs_import/english7/ (all JSON files). Forces subject=ing, grade=7. */
+    /** Import 7th grade English packs from grade_based/english7/ (all JSON files). Forces subject=ing, grade=7. */
     fun importEnglish7LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglish7LgsImportFromAssets(context)
     }
 
-    /** Import 7th grade İnkılap packs from lgs_import/inkilap7/ (all JSON files). Forces subject=inkilap, grade=7. */
+    /** Import 7th grade İnkılap packs from grade_based/inkilap7/ (all JSON files). Forces subject=inkilap, grade=7. */
     fun importInkilap7LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runInkilap7LgsImportFromAssets(context)
     }
 
-    /** Import Türkçe LGS packs from lgs_import/turkce/ (all JSON files). Forces subject=turkce. */
+    /** Import Türkçe LGS packs from lgs_exam/turkce/ (all JSON files). Forces subject=turkce. */
     fun importTurkceLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkceLgsImportFromAssets(context)
     }
 
-    /** Import 1st grade Turkish packs from lgs_import/turkce1/ (visual-first, grade=1). */
+    /** Import 1st grade Turkish packs from grade_based/turkce1/ (visual-first, grade=1). */
     fun importTurkce1LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkce1LgsImportFromAssets(context)
     }
 
-    /** Import 2nd grade Turkish packs from lgs_import/turkce2/ (all JSON files). Forces subject=turkce, grade=2. */
+    /** Import 2nd grade Turkish packs from grade_based/turkce2/ (all JSON files). Forces subject=turkce, grade=2. */
     fun importTurkce2LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkce2LgsImportFromAssets(context)
     }
 
-    /** Import 3rd grade Turkish packs from lgs_import/turkce3/ (all JSON files). Forces subject=turkce, grade=3. */
+    /** Import 3rd grade Turkish packs from grade_based/turkce3/ (all JSON files). Forces subject=turkce, grade=3. */
     fun importTurkce3LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkce3LgsImportFromAssets(context)
     }
 
-    /** Import 4th grade Turkish packs from lgs_import/turkce4/ (all JSON files). Forces subject=turkce, grade=4. */
+    /** Import 4th grade Turkish packs from grade_based/turkce4/ (all JSON files). Forces subject=turkce, grade=4. */
     fun importTurkce4LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkce4LgsImportFromAssets(context)
     }
 
-    /** Import 5th grade Turkish packs from lgs_import/turkce5/ (all JSON files). Forces subject=turkce, grade=5. */
+    /** Import 5th grade Turkish packs from grade_based/turkce5/ (all JSON files). Forces subject=turkce, grade=5. */
     fun importTurkce5LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkce5LgsImportFromAssets(context)
     }
 
-    /** Import 7th grade Turkish packs from lgs_import/turkce7/ (all JSON files). Forces subject=turkce, grade=7. */
+    /** Import 7th grade Turkish packs from grade_based/turkce7/ (all JSON files). Forces subject=turkce, grade=7. */
     fun importTurkce7LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runTurkce7LgsImportFromAssets(context)
     }
 
-    /** Import Din Kültürü LGS packs from lgs_import/din/ (all JSON files). Forces subject=din. */
+    /** Import Din Kültürü LGS packs from lgs_exam/din/ (all JSON files). Forces subject=din. */
     fun importDinLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runDinLgsImportFromAssets(context)
     }
 
-    /** Import 4th grade Din Kültürü packs from lgs_import/din4/ (all JSON files). Forces subject=din, grade=4. */
+    /** Import 4th grade Din Kültürü packs from grade_based/din4/ (all JSON files). Forces subject=din, grade=4. */
     fun importDin4LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runDin4LgsImportFromAssets(context)
     }
 
-    /** Import 5th grade Din Kültürü packs from lgs_import/din5/ (all JSON files). Forces subject=din, grade=5. */
+    /** Import 5th grade Din Kültürü packs from grade_based/din5/ (all JSON files). Forces subject=din, grade=5. */
     fun importDin5LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runDin5LgsImportFromAssets(context)
     }
 
-    /** Import 6th grade Din Kültürü packs from lgs_import/din6/ (all JSON files). Forces subject=din, grade=6. */
+    /** Import 6th grade Din Kültürü packs from grade_based/din6/ (all JSON files). Forces subject=din, grade=6. */
     fun importDin6LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runDin6LgsImportFromAssets(context)
     }
 
-    /** Import 7th grade Din Kültürü packs from lgs_import/din7/ (all JSON files). Forces subject=din, grade=7. */
+    /** Import 7th grade Din Kültürü packs from grade_based/din7/ (all JSON files). Forces subject=din, grade=7. */
     fun importDin7LgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runDin7LgsImportFromAssets(context)
     }
 
-    /** Import English LGS packs from lgs_import/english/ (all JSON files). Forces subject=ing. */
+    /** Import English LGS packs from lgs_exam/english/ (all JSON files). Forces subject=ing. */
     fun importEnglishLgsPacksFromAssets(context: Context): ImportResult = runBlocking(Dispatchers.IO) {
         runEnglishLgsImportFromAssets(context)
     }

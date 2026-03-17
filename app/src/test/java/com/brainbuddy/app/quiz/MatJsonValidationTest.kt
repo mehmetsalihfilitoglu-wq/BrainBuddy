@@ -14,10 +14,10 @@ class MatJsonValidationTest {
     fun allMatJsonFilesParseSuccessfully() {
         val cwd = File(System.getProperty("user.dir"))
         val matDir = sequenceOf(
-            File(cwd, "app/src/main/assets/lgs_import/mat"),
-            File(cwd, "src/main/assets/lgs_import/mat"),
-            File(cwd.parentFile, "app/src/main/assets/lgs_import/mat"),
-            File(cwd, "lgs_import/mat")
+            File(cwd, "app/src/main/assets/lgs_exam/mat"),
+            File(cwd, "src/main/assets/lgs_exam/mat"),
+            File(cwd.parentFile, "app/src/main/assets/lgs_exam/mat"),
+            File(cwd, "lgs_exam/mat")
         ).firstOrNull { it.exists() }
         if (matDir == null) {
             Assert.fail("MAT assets dir not found. CWD: ${cwd.absolutePath}")

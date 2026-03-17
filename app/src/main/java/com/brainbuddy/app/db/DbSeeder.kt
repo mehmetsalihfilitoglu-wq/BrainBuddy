@@ -246,29 +246,29 @@ object DbSeeder {
         }
         val packCount = all.size - rootCount
 
-        // 3) Grade-based packs that currently live under assets/lgs_import/** but are NOT true LGS exam-only content.
+        // 3) Grade-based packs under assets/grade_based/** (GENERAL).
         //    Bunlar MEB müfredatına göre 1–7. sınıf ders paketi olup normal GENERAL havuzunda görünmelidir.
         try {
             val lgsGradePacks = loadFromLgsGradePacksAsGeneral(context)
             if (lgsGradePacks.isNotEmpty()) {
-                Log.i(TAG, "Loaded ${lgsGradePacks.size} questions from lgs_import/* grade packs as GENERAL")
+                Log.i(TAG, "Loaded ${lgsGradePacks.size} questions from grade_based/* grade packs as GENERAL")
                 all += lgsGradePacks
             }
         } catch (e: Exception) {
-            Log.w(TAG, "Failed to load grade-based packs from lgs_import as GENERAL: ${e.message}")
+            Log.w(TAG, "Failed to load grade-based packs from grade_based as GENERAL: ${e.message}")
         }
         val lgsImportCount = all.size - rootCount - packCount
 
-        // 4) LGS-root subject dirs under assets/lgs_import/{mat,fen,din,english,inkilap} (recursive).
+        // 4) LGS-root subject dirs under assets/lgs_exam/{mat,fen,turkce,din,english,inkilap} (recursive).
         // These are NOT grade banks; they are treated as LGS-root mode only.
         try {
             val lgsRootDirs = loadFromLgsRootSubjectDirsAsLgs(context)
             if (lgsRootDirs.isNotEmpty()) {
-                Log.i(TAG, "Loaded ${lgsRootDirs.size} questions from lgs_import/* root subject dirs as LGS")
+                Log.i(TAG, "Loaded ${lgsRootDirs.size} questions from lgs_exam/* root subject dirs as LGS")
                 all += lgsRootDirs
             }
         } catch (e: Exception) {
-            Log.w(TAG, "Failed to load root subject dirs from lgs_import: ${e.message}")
+            Log.w(TAG, "Failed to load root subject dirs from lgs_exam: ${e.message}")
         }
         val lgsImportRootDirsCount = all.size - rootCount - packCount - lgsImportCount
 
@@ -284,7 +284,7 @@ object DbSeeder {
         }
         val syntheticCount = all.size - rootCount - packCount - lgsImportCount - lgsImportRootDirsCount
 
-        Log.i(TAG, "loadBySource: root=$rootCount packs=$packCount lgs_import_gradePacks=$lgsImportCount lgs_import_rootDirs(LGS)=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}")
+        Log.i(TAG, "loadBySource: root=$rootCount packs=$packCount grade_based_gradePacks=$lgsImportCount lgs_exam_rootDirs(LGS)=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}")
         return all
     }
 
@@ -300,22 +300,23 @@ object DbSeeder {
      * LGS-root mode loader (non-grade).
      *
      * Root subject folders (no trailing digit) are treated as LGS-only:
-     * - lgs_import/mat
-     * - lgs_import/fen
-     * - lgs_import/din
-     * - lgs_import/english
-     * - lgs_import/inkilap
+     * - lgs_exam/mat
+     * - lgs_exam/fen
+     * - lgs_exam/turkce
+     * - lgs_exam/din
+     * - lgs_exam/english
+     * - lgs_exam/inkilap
      *
      * Grade is NOT inferred from solving bank logic here. We store grade=7 as a safe in-range placeholder
      * because the LGS picker relies on examType='LGS' rather than grade filtering.
      */
     private fun loadFromLgsRootSubjectDirsAsLgs(context: Context): List<QuestionEntity> {
         val assets = context.assets
-        val rootFolders = listOf("mat", "fen", "din", "english", "inkilap")
+        val rootFolders = listOf("mat", "fen", "turkce", "din", "english", "inkilap")
         val out = mutableListOf<QuestionEntity>()
 
         for (folder in rootFolders) {
-            val rootPath = "lgs_import/$folder"
+            val rootPath = "lgs_exam/$folder"
             val files = discoverJsonAssetFilesRecursive(assets, rootPath)
             var loadedForFolder = 0
             for (assetPath in files) {
@@ -350,7 +351,7 @@ object DbSeeder {
                     // ignore individual file errors
                 }
             }
-            if (loadedForFolder > 0) Log.i(TAG, "Loaded lgs_import/$folder root: $loadedForFolder questions")
+            if (loadedForFolder > 0) Log.i(TAG, "Loaded lgs_exam/$folder root: $loadedForFolder questions")
         }
 
         return out
@@ -425,7 +426,7 @@ object DbSeeder {
      * Returns null if the path does not match a known grade-based folder.
      */
     private fun parseGradeAndSubjectFromLgsPath(assetPath: String): Pair<Int, String>? {
-        val segment = assetPath.removePrefix("lgs_import/").substringBefore("/")
+        val segment = assetPath.removePrefix("grade_based/").substringBefore("/")
         val match = LGS_PATH_GRADE_SUBJECT_REGEX.find(segment) ?: return null
         val (subjectPart, gradePart) = match.destructured
         val grade = gradePart.toIntOrNull()?.coerceIn(1, 8) ?: return null
@@ -447,51 +448,19 @@ object DbSeeder {
         val assets = context.assets
         val out = mutableListOf<QuestionEntity>()
 
-        // Dizin listesi: sadece sınıf-bazlı içerik, gerçek LGS kök dosyaları hariç.
-        val gradeBasedDirs = listOf(
-            // Hayat Bilgisi
-            "lgs_import/hayat1",
-            "lgs_import/hayat2",
-            "lgs_import/hayat3",
-            // Fen Bilimleri
-            "lgs_import/fen3",
-            "lgs_import/fen4",
-            "lgs_import/fen5",
-            "lgs_import/fen6",
-            "lgs_import/fen7",
-            // Matematik
-            "lgs_import/mat1",
-            "lgs_import/mat2",
-            "lgs_import/mat3",
-            "lgs_import/mat4",
-            "lgs_import/mat5",
-            // Türkçe
-            "lgs_import/turkce1",
-            "lgs_import/turkce2",
-            "lgs_import/turkce3",
-            "lgs_import/turkce4",
-            "lgs_import/turkce5",
-            "lgs_import/turkce7",
-            // İngilizce
-            "lgs_import/english1",
-            "lgs_import/english2",
-            "lgs_import/english3",
-            "lgs_import/english4",
-            "lgs_import/english5",
-            "lgs_import/english6",
-            "lgs_import/english7",
-            // Din Kültürü
-            "lgs_import/din4",
-            "lgs_import/din5",
-            "lgs_import/din6",
-            "lgs_import/din7",
-            // Sosyal Bilgiler
-            "lgs_import/sosyal4",
-            "lgs_import/sosyal5",
-            "lgs_import/sosyal6",
-            // 7. sınıf İnkılap
-            "lgs_import/inkilap7"
-        )
+        // Auto-discover: assets/grade_based/{subject}{1..7}/
+        // Only folders matching the allowed pattern are scanned; nothing else is treated as grade banks.
+        val allowed = Regex("^(hayat|mat|fen|turkce|english|din|sosyal|inkilap)[1-7]$", RegexOption.IGNORE_CASE)
+        val gradeBasedDirs = try {
+            assets.list("grade_based")
+                ?.filter { allowed.matches(it) }
+                ?.sorted()
+                ?.map { "grade_based/$it" }
+                .orEmpty()
+        } catch (e: Exception) {
+            Log.w(TAG, "Asset list failed for grade_based/: ${e.message}")
+            emptyList()
+        }
 
         for (dir in gradeBasedDirs) {
             val fileNames = try {
