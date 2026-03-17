@@ -2,7 +2,6 @@ package com.brainbuddy.app.ui
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.widget.Button
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -16,7 +15,6 @@ import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
-import com.brainbuddy.app.db.RoomQuizDataStore
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,12 +32,6 @@ class PoolStatusActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_pool_status)
 
-        // Show latest SEED_AUDIT immediately on screen (no DB / renderStatus dependency).
-        val tvSeedAudit = findViewById<TextView>(R.id.tvSeedAudit)
-        val audit = DbSeeder.getLastSeedAudit()
-        tvSeedAudit.text = audit ?: "NO AUDIT FOUND"
-        tvSeedAudit.visibility = View.VISIBLE
-
         val toolbar = findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -50,45 +42,7 @@ class PoolStatusActivity : AppCompatActivity() {
         layoutDebugFix.visibility = if (BuildConfig.DEBUG) View.VISIBLE else View.GONE
 
         setupFixButtons()
-
-        // Brute-force DB summary (bypass old summary builder completely).
-        val tvSummary = findViewById<TextView>(R.id.tvPoolStatus)
-        lifecycleScope.launch {
-            val text = try {
-                val (total, active, invalid) = withContext(Dispatchers.IO) {
-                    val db = DatabaseProvider.get(this@PoolStatusActivity)
-                    val dao = db.questionDao()
-                    Triple(dao.countAll(), dao.countAllActive(), dao.countInvalidGrades())
-                }
-                seedDebugBlock() + "\n\n" +
-                "TOTAL / ACTIVE\n" +
-                    "$total / $active\n\n" +
-                    "Invalid grade\n" +
-                    "$invalid"
-            } catch (e: Exception) {
-                seedDebugBlock() + "\n\n" +
-                    "DB READ FAILED: ${e.message ?: e.javaClass.simpleName}"
-            }
-            tvSummary.text = text
-        }
-    }
-
-    private fun seedDebugBlock(): String {
-        fun yn(v: Boolean?): String = when (v) {
-            true -> "YES"
-            false -> "NO"
-            null -> "UNKNOWN"
-        }
-        fun intOrUnknown(v: Int?): String = v?.toString() ?: "UNKNOWN"
-        return buildString {
-            appendLine("SEED DEBUG")
-            appendLine("STEP1 start: ${yn(DbSeeder.debugStep1Start)}")
-            appendLine("STEP2 before load: ${yn(DbSeeder.debugStep2BeforeLoad)}")
-            appendLine("STEP3 after load size: ${intOrUnknown(DbSeeder.debugStep3AfterLoadSize)}")
-            appendLine("STEP4 before insert size: ${intOrUnknown(DbSeeder.debugStep4BeforeInsertSize)}")
-            appendLine("STEP5 after insert count: ${intOrUnknown(DbSeeder.debugStep5AfterInsertCount)}")
-            append("STEP6 end: ${yn(DbSeeder.debugStep6End)}")
-        }
+        renderStatus()
     }
 
     private fun getPoolStatusGradeLabel(): String {
@@ -220,16 +174,9 @@ class PoolStatusActivity : AppCompatActivity() {
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnForceReseedGeneralBanks)
             .setOnClickListener {
                 lifecycleScope.launch {
-                    android.util.Log.d("SEED_DEBUG", "FORCE RESEED CLICKED")
-                    DbSeeder.markForceReseedClicked()
-                    android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) START")
-                    DbSeeder.markForceReseedStarted()
-                    // This is awaited (suspends) — not fire-and-forget.
-                    withContext(Dispatchers.IO) { DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity) }
-                    android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) END")
-                    DbSeeder.markForceReseedEnded()
-                    // Refresh the on-screen SEED DEBUG block immediately.
-                    findViewById<TextView>(R.id.tvPoolStatus).text = seedDebugBlock()
+                    withContext(Dispatchers.IO) {
+                        DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity)
+                    }
                     val summary = withContext(Dispatchers.IO) {
                         val db = DatabaseProvider.get(this@PoolStatusActivity)
                         val dao = db.questionDao()
@@ -263,62 +210,141 @@ class PoolStatusActivity : AppCompatActivity() {
 
     private fun renderStatus() {
         val tv = findViewById<TextView>(R.id.tvPoolStatus)
-        val tvAudit = findViewById<TextView>(R.id.tvSeedAudit)
-        val btnCopyAudit = findViewById<Button>(R.id.btnCopySeedAudit)
         val gradePrefs = GradePrefs(this)
         val quizPrefs = QuizPrefs(this)
         val selectedGrade = gradePrefs.getSelectedGrade()
         val difficulty = quizPrefs.difficulty()
 
         lifecycleScope.launch {
-            val (summary, auditText) = withContext(Dispatchers.IO) {
+            val summary = withContext(Dispatchers.IO) {
+                val db = DatabaseProvider.get(this@PoolStatusActivity)
+                val dao = db.questionDao()
+
+                val total = dao.countAll()
+                val active = dao.countAllActive()
+                val invalidGrades = dao.countInvalidGrades()
+                val diffOutOfRange = dao.countDifficultyOutOfRange()
+                val duplicates = dao.getTopDuplicateStemHashes()
+                val activeByGradeSubjectDiff = dao.getActiveCountsByGradeSubjectDifficulty()
+
                 val sb = StringBuilder()
-                var auditText = ""
-                try {
-                    RoomQuizDataStore(this@PoolStatusActivity).ensureSeeded()
-                    val db = DatabaseProvider.get(this@PoolStatusActivity)
-                    val dao = db.questionDao()
 
-                    // Minimal safe summary first (always show this)
-                    val total = dao.countAll()
-                    val active = dao.countAllActive()
-                    val invalidGrades = dao.countInvalidGrades()
+                // 1) TOTAL / ACTIVE
+                sb.append("TOTAL / ACTIVE\n")
+                sb.append("$total / $active\n\n")
 
-                    sb.append("TOTAL / ACTIVE\n")
-                    sb.append("$total / $active\n")
-                    sb.append("invalid grade: $invalidGrades\n")
-
-                    // Temporarily disabled detailed sections:
-                    // - grade dağılımı
-                    // - grade+subject+diff
-                    // - duplicate stemHash section
-
-                    auditText = db.appMetaDao().get("seed_audit_latest") ?: ""
-                } catch (e: Exception) {
-                    if (sb.isEmpty()) {
-                        sb.append("TOTAL / ACTIVE\n")
-                        sb.append("- / -\n")
-                        sb.append("invalid grade: -\n")
-                    }
-                    sb.append("\nERROR: ${e.message ?: e.javaClass.simpleName}")
+                // 2) Grade dağılımı (1..7)
+                sb.append("Grade dağılımı (1..7):\n")
+                for (g in 1..7) {
+                    val gTotal = dao.countByGradeOnly(g)
+                    val gActive = dao.countActiveByGradeOnly(g)
+                    sb.append("  grade=$g total/active: $gTotal / $gActive\n")
                 }
-                sb.toString().trimEnd() to auditText
+                if (invalidGrades > 0) {
+                    sb.append("  ⚠ Geçersiz grade (0,8,9+): $invalidGrades\n")
+                }
+                sb.append("\n")
+
+                // 3) grade+subject+diff ACTIVE sayıları
+                sb.append("grade+subject+diff ACTIVE:\n")
+                val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
+                for (g in 1..7) {
+                    val subjRows = activeByGradeSubjectDiff.filter { it.grade == g }.groupBy { it.subject }
+                    val line = subjects.joinToString("  ") { subj ->
+                        val diffs = subjRows[subj].orEmpty()
+                        val e = diffs.firstOrNull { it.difficulty == 0 }?.count ?: 0
+                        val m = diffs.firstOrNull { it.difficulty == 1 }?.count ?: 0
+                        val h = diffs.firstOrNull { it.difficulty == 2 }?.count ?: 0
+                        "$subj(E=$e M=$m H=$h)"
+                    }
+                    sb.append("  grade=$g: $line\n")
+                }
+                sb.append("\n")
+
+                // 4) Seçili mod / sınıf
+                val mode = gradePrefs.getSelectedMode()
+                sb.append(if (mode == LevelMode.LGS) "Seçili Mod: LGS"
+                    else if (selectedGrade == com.brainbuddy.app.core.GradePrefs.GRADE_JUNIOR) "Seçili Sınıf: Junior"
+                    else "Seçili Sınıf: $selectedGrade. Sınıf")
+                sb.append(", zorluk: ${difficulty.name}\n\n")
+
+                // 4b) LGS pool (when LGS mode selected)
+                if (mode == LevelMode.LGS) {
+                    val lgsTotal = dao.countLgsActive()
+                    val lgsBySubject = dao.getLgsCountsBySubject().associate { it.subject to it.count }
+                    val lgsByDiff = dao.getLgsCountsByDifficulty().associate { it.difficulty to it.count }
+                    val required = mapOf("mat" to 4, "turkce" to 4, "fen" to 4, "inkilap" to 3, "din" to 3, "ing" to 2)
+                    val subjects = listOf("mat", "turkce", "fen", "inkilap", "din", "ing")
+                    sb.append("LGS havuzu (examType=LGS):\n")
+                    sb.append("  Toplam aktif: $lgsTotal\n")
+                    sb.append("  Ders bazında: ")
+                    sb.append(subjects.joinToString(" ") { "$it=${lgsBySubject[it] ?: 0}" })
+                    sb.append("\n")
+                    sb.append("  Zorluk (0=Kolay 1=Orta 2=Zor): ")
+                    sb.append(listOf(0, 1, 2).joinToString(" ") { "diff$it=${lgsByDiff[it] ?: 0}" })
+                    sb.append("\n")
+                    val enough = subjects.all { (lgsBySubject[it] ?: 0) >= (required[it] ?: 0) }
+                    sb.append(if (enough) "  ✓ 20 soruluk LGS testi için yeterli\n"
+                        else "  ⚠ 20 soruluk LGS testi için YETERSİZ (MAT≥4 TURKCE≥4 FEN≥4 INKILAP≥3 DIN≥3 ING≥2)\n")
+                    val inactiveLow = dao.countLgsInactiveLowQuality()
+                    if (inactiveLow > 0 || lgsTotal > 0) {
+                        val avgBySubj = dao.getLgsAvgQualityBySubject()
+                        val newGenBySubj = dao.getLgsNewGenCountBySubject()
+                        sb.append("  LGS Kalite: aktif=$lgsTotal, pasif(düşük)=$inactiveLow\n")
+                        if (avgBySubj.isNotEmpty()) {
+                            sb.append("  Ort. qualityScore: ")
+                            sb.append(avgBySubj.joinToString(" ") { "${it.subject}=${it.avgQualityScore.toInt()}" })
+                            sb.append("\n")
+                        }
+                        if (newGenBySubj.isNotEmpty()) {
+                            sb.append("  Yeni nesil oranı: ")
+                            sb.append(newGenBySubj.joinToString(" ") { row ->
+                                val pct = if (row.totalCount > 0) (row.newGenCount * 100 / row.totalCount) else 0
+                                "${row.subject}=${pct}%"
+                            })
+                            sb.append("\n")
+                        }
+                    }
+                    // MAT LGS pool (math-only summary)
+                    val matActive = lgsBySubject["mat"] ?: 0
+                    val matByDiff = dao.getLgsCountsByDifficultyForSubject("mat").associate { it.difficulty to it.count }
+                    val matByType = dao.getLgsCountsByQuestionTypeForSubject("mat")
+                    val matAvgQuality = dao.getLgsAvgQualityBySubject().firstOrNull { it.subject == "mat" }?.avgQualityScore
+                    val matNewGen = dao.getLgsNewGenCountBySubject().firstOrNull { it.subject == "mat" }
+                    val matInactive = dao.countLgsInactiveLowQualityBySubject("mat")
+                    sb.append("  MAT LGS (math-only): aktif=$matActive, pasif=$matInactive\n")
+                    sb.append("  MAT zorluk: ")
+                    sb.append(listOf(0, 1, 2).joinToString(" ") { "diff$it=${matByDiff[it] ?: 0}" })
+                    sb.append("\n")
+                    sb.append("  MAT questionType: ")
+                    sb.append(matByType.joinToString(" ") { "${it.questionType}=${it.count}" }.ifEmpty { "(yok)" })
+                    sb.append("\n")
+                    if (matAvgQuality != null) sb.append("  MAT ort. qualityScore: ${matAvgQuality.toInt()}\n")
+                    if (matNewGen != null && matNewGen.totalCount > 0) {
+                        val ratio = matNewGen.newGenCount * 100 / matNewGen.totalCount
+                        sb.append("  MAT yeni nesil oranı: ${ratio}%\n")
+                    } else if (matActive > 0) sb.append("  MAT yeni nesil oranı: 0%\n")
+                    sb.append("\n")
+                }
+
+                // 5) Zorluk aralık dışı
+                if (diffOutOfRange > 0) {
+                    sb.append("⚠ Zorluk aralık dışı (0–2 dışı): $diffOutOfRange soru\n\n")
+                }
+
+                // 6) TOP 20 duplicate stemHash
+                sb.append("TOP 20 duplicate stemHash (aynı grade+subject içinde):\n")
+                if (duplicates.isEmpty()) {
+                    sb.append("  (yok)\n")
+                } else {
+                    duplicates.forEachIndexed { i, row ->
+                        sb.append("  ${i + 1}. grade=${row.grade} ${row.subject} hash=${row.stemHash.take(12)}… cnt=${row.cnt}\n")
+                    }
+                }
+
+                sb.toString().trimEnd()
             }
             tv.text = summary
-            if (!auditText.isNullOrBlank()) {
-                tvAudit.visibility = View.VISIBLE
-                btnCopyAudit.visibility = View.VISIBLE
-                tvAudit.text = auditText
-                btnCopyAudit.setOnClickListener {
-                    val clipboard = getSystemService(android.content.ClipboardManager::class.java)
-                    val clip = android.content.ClipData.newPlainText("Seed Audit", auditText)
-                    clipboard.setPrimaryClip(clip)
-                    Toast.makeText(this@PoolStatusActivity, "Seed audit copied to clipboard", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                tvAudit.visibility = View.GONE
-                btnCopyAudit.visibility = View.GONE
-            }
         }
     }
 }

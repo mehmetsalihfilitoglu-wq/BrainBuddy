@@ -19,79 +19,8 @@ object DbSeeder {
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
-    private const val KEY_SEED_AUDIT_LATEST = "seed_audit_latest"
     private const val CURRENT_DB_SEED_VERSION = 3
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
-    private const val SEED_AUDIT_TAG = "SEED_AUDIT"
-    private const val AUDIT_EXAMPLE_LIMIT = 5
-    private const val SEED_AUDIT_PREFS = "seed_audit_prefs"
-    private const val SEED_AUDIT_PREFS_KEY_LATEST = "seed_audit_latest"
-    private const val BRUTE_FORCE_ONE_FILE_SEED_TEST = false
-
-    // Log-once guards to avoid flooding Logcat for unsupported JSON shapes.
-    private val loggedMissingStemShapes = mutableSetOf<String>()
-
-    @Volatile
-    private var lastSeedAudit: String? = null
-
-    fun getLastSeedAudit(): String? = lastSeedAudit
-
-    // ---- SEED_DEBUG runtime markers (no-Logcat UI consumption) ----
-    @Volatile private var lastSeedIfNeededTriggered: Boolean? = null
-    @Volatile private var lastForceReseedClicked: Boolean? = null
-    @Volatile private var lastForceReseedStarted: Boolean? = null
-    @Volatile private var lastForceReseedEnded: Boolean? = null
-    @Volatile private var lastPerformSeedEntered: Boolean? = null
-    @Volatile private var lastAboutToInsertSize: Int? = null
-    @Volatile private var lastAfterInsertDbCount: Int? = null
-
-    fun getLastSeedIfNeededTriggered(): Boolean? = lastSeedIfNeededTriggered
-    fun getLastForceReseedClicked(): Boolean? = lastForceReseedClicked
-    fun getLastForceReseedStarted(): Boolean? = lastForceReseedStarted
-    fun getLastForceReseedEnded(): Boolean? = lastForceReseedEnded
-    fun getLastPerformSeedEntered(): Boolean? = lastPerformSeedEntered
-    fun getLastAboutToInsertSize(): Int? = lastAboutToInsertSize
-    fun getLastAfterInsertDbCount(): Int? = lastAfterInsertDbCount
-
-    // STEP 1..6 live debug fields (requested for UI)
-    @Volatile var debugStep1Start: Boolean? = null
-        private set
-    @Volatile var debugStep2BeforeLoad: Boolean? = null
-        private set
-    @Volatile var debugStep3AfterLoadSize: Int? = null
-        private set
-    @Volatile var debugStep4BeforeInsertSize: Int? = null
-        private set
-    @Volatile var debugStep5AfterInsertCount: Int? = null
-        private set
-    @Volatile var debugStep6End: Boolean? = null
-        private set
-
-    fun markForceReseedClicked() {
-        lastForceReseedClicked = true
-    }
-
-    fun markForceReseedStarted() {
-        lastForceReseedStarted = true
-        lastForceReseedEnded = false
-    }
-
-    fun markForceReseedEnded() {
-        lastForceReseedEnded = true
-    }
-
-    private fun saveLastSeedAudit(context: Context, text: String) {
-        lastSeedAudit = text
-        try {
-            context.getSharedPreferences(SEED_AUDIT_PREFS, Context.MODE_PRIVATE)
-                .edit()
-                .putString(SEED_AUDIT_PREFS_KEY_LATEST, text)
-                .apply()
-        } catch (_: Exception) {
-            // ignore: UI can still read in-memory audit
-        }
-        Log.d("SEED_AUDIT_SAVE", "Audit saved length=${text.length}")
-    }
 
     /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
     private val PACK_FILE_REGEX = Regex(
@@ -106,8 +35,6 @@ object DbSeeder {
     private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
     suspend fun seedIfNeeded(context: Context): Boolean = withContext(Dispatchers.IO) {
-        Log.d("SEED_DEBUG", "seedIfNeeded triggered")
-        lastSeedIfNeededTriggered = true
         Log.i(TAG, "seedIfNeeded entered (CURRENT_DB_SEED_VERSION=$CURRENT_DB_SEED_VERSION)")
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
@@ -121,25 +48,17 @@ object DbSeeder {
             legacySeededFlag == "true" -> 1 // previous apps that only had boolean flag
             else -> 0
         }
-        val count = try {
-            questionDao.countAll()
-        } catch (_: Exception) {
-            0
-        }
-        Log.i(
-            TAG,
-            "seedIfNeeded stored db_seed_version=$storedVersionStr legacySeeded=$legacySeededFlag computedStoredVersion=$storedVersion dbCount=$count skip=${storedVersion >= CURRENT_DB_SEED_VERSION && count > 0}"
-        )
+        Log.i(TAG, "seedIfNeeded stored db_seed_version=$storedVersionStr legacySeeded=$legacySeededFlag computedStoredVersion=$storedVersion skip=${storedVersion >= CURRENT_DB_SEED_VERSION}")
+        val count = try { questionDao.countAll() } catch (_: Exception) { 0 }
         if (storedVersion >= CURRENT_DB_SEED_VERSION && count > 0) {
             Log.d(TAG, "Seed already up to date (version=$storedVersion), skip")
             return@withContext false
         }
         if (storedVersion >= CURRENT_DB_SEED_VERSION && count == 0) {
-            Log.d("SEED_DEBUG", "Seed forced because DB is empty")
+            Log.d(TAG, "Seed forced because DB is empty (version=$storedVersion)")
         }
 
         Log.i(TAG, "performSeed will run (storedVersion=$storedVersion < $CURRENT_DB_SEED_VERSION)")
-        Log.d("SEED_DEBUG", "Calling performSeed now")
         performSeed(db, meta, context)
     }
 
@@ -197,135 +116,42 @@ object DbSeeder {
         meta: AppMetaDao,
         context: Context
     ): Boolean {
-        Log.d("SEED_DEBUG", "performSeed ENTERED")
-        // STEP logs (requested)
-        Log.d("SEED_DEBUG", "STEP 1: performSeed START")
-        debugStep1Start = true
-        debugStep6End = false
-        lastPerformSeedEntered = true
         Log.i(TAG, "performSeed started")
-        val items = mutableListOf<SeedItem>()
-        val lgsAudit = LgsImportAudit()
-        if (BRUTE_FORCE_ONE_FILE_SEED_TEST) {
-            // Brute-force isolation test: seed from exactly ONE known asset file.
-            debugStep2BeforeLoad = true
-            val testPath = "lgs_import/mat/lgs_mat_gold_001.json"
-            try {
-                val assets = context.assets
-                val json = assets.open(testPath).use { input -> input.readBytes().toString(Charset.forName("UTF-8")) }
-                val trimmed = json.trimStart()
-                val entities: List<QuestionEntity> = when {
-                    trimmed.startsWith("{") -> {
-                        val root = JSONObject(json)
-                        val arr = root.optJSONArray("questions") ?: JSONArray()
-                        // Force grade=8 for LGS-mode content in this one-file test.
-                        parseWrappedQuestionArrayStrictAudited(
-                            root = root,
-                            arr = arr,
-                            sourceLabel = testPath,
-                            pathGrade = 8,
-                            pathSubject = "mat",
-                            allowGrade8 = true,
-                            audit = lgsAudit,
-                            folder = "mat"
-                        )
-                    }
-                    trimmed.startsWith("[") -> {
-                        // Plain array format (grade forced to 8, subject mat).
-                        parseJsonArrayWithDefaultsStrictAudited(JSONArray(json), 8, "mat", testPath, "mat", lgsAudit)
-                    }
-                    else -> emptyList()
-                }
-                entities.forEach { e -> items.add(SeedItem(entity = e, sourceGroup = "lgs_import", sourceFolder = "mat", sourceFile = testPath)) }
-                debugStep3AfterLoadSize = entities.size
-                debugStep4BeforeInsertSize = entities.size
-            } catch (e: Exception) {
-                debugStep3AfterLoadSize = -999
-                debugStep4BeforeInsertSize = -999
-                debugStep5AfterInsertCount = -999
-                debugStep6End = false
-                return false
-            }
-        } else {
-            Log.d("SEED_DEBUG", "STEP 2: before loadFromAssets")
-            debugStep2BeforeLoad = true
-
-            var fromAssets: List<SeedItem> = emptyList()
-            try {
-                fromAssets = loadFromAssetsWithProvenance(context, lgsAudit)
-                debugStep3AfterLoadSize = fromAssets.size
-            } catch (e: Exception) {
-                Log.e("SEED_DEBUG", "LOAD CRASH", e)
-                debugStep3AfterLoadSize = -1
-            }
-            Log.d("SEED_DEBUG", "STEP 3: after loadFromAssets size=" + fromAssets.size)
-            items.addAll(fromAssets)
-
-            // Do NOT stop execution on error: continue pipeline even if loaded is empty.
-            runCatching {
-                val imported = loadFromImported(context)
-                val existingIds = items.map { it.entity.id }.toSet()
-                imported.filter { it.id !in existingIds }.forEach { e ->
-                    items.add(SeedItem(entity = e, sourceGroup = "imported", sourceFolder = null, sourceFile = "imported_questions.json"))
-                }
-            }.onFailure { e ->
-                Log.e(TAG, "Seed imported load error", e)
-            }
-            if (items.isEmpty()) {
-                Log.w(TAG, "performSeed: no questions from assets/imported, adding fallback entities")
-                getFallbackEntities().forEach { e ->
-                    items.add(SeedItem(entity = e, sourceGroup = "fallback", sourceFolder = null, sourceFile = "fallback"))
-                }
-            }
+        val questions = mutableListOf<QuestionEntity>()
+        try {
+            val fromAssets = loadFromAssets(context)
+            questions.addAll(fromAssets)
+            val imported = loadFromImported(context)
+            val existingIds = questions.map { it.id }.toSet()
+            imported.filter { it.id !in existingIds }.forEach { questions.add(it) }
+        } catch (e: Exception) {
+            Log.e(TAG, "Seed load error", e)
+        }
+        if (questions.isEmpty()) {
+            Log.w(TAG, "performSeed: no questions from assets/imported, adding fallback entities")
+            questions.addAll(getFallbackEntities())
         }
 
-        Log.i(TAG, "Seed load complete: ${items.size} questions from assets+imported before dedup")
+        Log.i(TAG, "Seed load complete: ${questions.size} questions from assets+imported before dedup")
 
-        // Dedup: only remove near-exact duplicates (keep intentional variants).
-        // Do NOT dedup based on stem similarity alone.
-        val dedupKey = { e: QuestionEntity ->
-            val stemHash = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
-            val optionsNorm = e.optionsJson.trim()
-            val explNorm = (e.explanation ?: "").trim()
-            // Include fields that distinguish intentional variants, while still collapsing exact copies.
-            "${e.grade}|${e.subject}|d=${e.difficulty}|a=${e.answerIndex}|stem=$stemHash|opt=${optionsNorm.hashCode()}|ex=${explNorm.hashCode()}"
+        // (grade, subject, stemHash) dedup: batch içinde tekrarları at
+        val stemKey = { e: QuestionEntity ->
+            val h = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
+            "${e.grade}|${e.subject}|$h"
         }
-        val dedupedItems = items.distinctBy { dedupKey(it.entity) }
-        if (dedupedItems.size < items.size) {
-            Log.i(TAG, "Seed dedup: ${items.size} -> ${dedupedItems.size} (dropped ${items.size - dedupedItems.size} in-batch duplicates)")
+        val dedupedList = questions.distinctBy { stemKey(it) }
+        if (dedupedList.size < questions.size) {
+            Log.i(TAG, "Seed dedup: ${questions.size} -> ${dedupedList.size} (dropped ${questions.size - dedupedList.size} in-batch duplicates)")
         }
 
         val questionDao = db.questionDao()
         val countBefore = questionDao.countAll()
-        Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedItems.size} DB countBefore=$countBefore")
-        Log.d("SEED_DEBUG", "STEP 4: before insert size=" + dedupedItems.size)
-        debugStep4BeforeInsertSize = dedupedItems.size
-        Log.d("SEED_DEBUG", "About to insert size=${dedupedItems.size}")
-        lastAboutToInsertSize = dedupedItems.size
-        val insertResults = questionDao.insertAllIgnore(dedupedItems.map { it.entity })
+        Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedList.size} DB countBefore=$countBefore")
+        questionDao.insertAllIgnore(dedupedList)
         val countAfter = questionDao.countAll()
-        Log.d("SEED_DEBUG", "STEP 5: after insert count=" + countAfter)
-        debugStep5AfterInsertCount = countAfter
-        Log.d("SEED_DEBUG", "After insert DB count=$countAfter")
-        lastAfterInsertDbCount = countAfter
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
-        Log.i(TAG, "performSeed done: inserted batch=${dedupedItems.size} DB total before=$countBefore after=$countAfter (seed complete)")
-
-        val auditText: String = runCatching {
-            lgsAudit.finish(
-                allItemsBeforeDedup = items,
-                allItemsAfterDedup = dedupedItems,
-                insertResults = insertResults
-            )
-            lgsAudit.buildSummaryText()
-        }.getOrElse { e ->
-            "SEED AUDIT\n(unavailable) error=${e.javaClass.simpleName}: ${e.message ?: ""}".trimEnd()
-        }
-        // Always persist something so the UI never shows blank.
-        saveLastSeedAudit(context, auditText)
-        runCatching { meta.set(AppMetaEntity(KEY_SEED_AUDIT_LATEST, auditText)) }
-        runCatching { lgsAudit.logSummaryFromText(auditText) }
+        Log.i(TAG, "performSeed done: inserted batch=${dedupedList.size} DB total before=$countBefore after=$countAfter (seed complete)")
 
         // Import sonrası havuz doğrulama
         try {
@@ -333,114 +159,180 @@ object DbSeeder {
         } catch (e: Exception) {
             Log.w(TAG, "Pool validation failed: ${e.message}")
         }
-
-        // Ensure lastSeedAudit is assigned at the very end (after insert + stats).
-        lastSeedAudit = auditText
-        Log.d("SEED_AUDIT_SAVE", "Audit saved successfully length=${auditText.length}")
-        Log.d("SEED_DEBUG", "STEP 6: performSeed END")
-        debugStep6End = true
         return true
     }
 
-    private data class SeedItem(
-        val entity: QuestionEntity,
-        val sourceGroup: String,
-        val sourceFolder: String?,
-        val sourceFile: String?
-    )
+    private fun loadFromAssets(context: Context): List<QuestionEntity> {
+        val all = mutableListOf<QuestionEntity>()
 
-    private fun loadFromAssetsWithProvenance(context: Context, lgsAudit: LgsImportAudit): List<SeedItem> {
-        return try {
-            val all = mutableListOf<SeedItem>()
-
-            // 1) Root-level GENERAL question files (array or wrapped { "questions": [], "grade", "subject" }).
-            for (assetName in ROOT_GENERAL_QUESTION_FILES) {
-                try {
-                    val json = context.assets.open(assetName).use { input ->
-                        input.readBytes().toString(Charset.forName("UTF-8"))
-                    }
-                    val added = runCatching { parseRootQuestionFile(assetName, json) }.getOrElse { emptyList() }
-                    added.forEach { e -> all += SeedItem(e, "root", null, assetName) }
-                    Log.i(TAG, "Loaded root general file: $assetName (${added.size} questions)")
-                } catch (e: Exception) {
-                    Log.e("SEED_DEBUG", "FAILED FILE: $assetName", e)
+        // 1) Root-level GENERAL question files (array or wrapped { "questions": [], "grade", "subject" }).
+        for (assetName in ROOT_GENERAL_QUESTION_FILES) {
+            try {
+                val json = context.assets.open(assetName).use { input ->
+                    input.readBytes().toString(Charset.forName("UTF-8"))
                 }
-            }
-            val rootCount = all.size
-            Log.d("SEED_DEBUG", "root loaded = $rootCount")
-
-            // 2) Grade 1..8 × subject pack JSONs under assets/packs (recursive, GENERAL).
-            val packFiles = try {
-                discoverPackAssetFilesRecursive(context)
+                val added = parseRootQuestionFile(assetName, json)
+                all += added
+                Log.i(TAG, "Loaded root general file: $assetName (${added.size} questions)")
             } catch (e: Exception) {
-                Log.e("SEED_DEBUG", "FOLDER SCAN FAILED: packs", e)
-                emptyList()
+                Log.w(TAG, "Root file $assetName error: ${e.message}")
             }
-            if (packFiles.isNotEmpty()) {
-                Log.i(TAG, "Discovered ${packFiles.size} pack assets")
-            }
-            packFiles.forEach { assetPath ->
-                try {
-                    val json = context.assets.open(assetPath).use { input ->
-                        input.readBytes().toString(Charset.forName("UTF-8"))
-                    }
-                    val parsed = runCatching { parsePackFileContent(assetPath, json) }.getOrElse { emptyList() }
-                    parsed.forEach { e -> all += SeedItem(e, "packs", null, assetPath) }
-                    if (parsed.isNotEmpty()) Log.i(TAG, "Loaded pack $assetPath: ${parsed.size} questions")
-                } catch (e: Exception) {
-                    Log.e("SEED_DEBUG", "FAILED FILE: $assetPath", e)
-                }
-            }
-            val packCount = all.size - rootCount
-            Log.d("SEED_DEBUG", "packs loaded = $packCount")
-
-            // 3) Grade-based packs under assets/lgs_import/**.
-            val lgsGradePacks = try {
-                loadFromLgsGradePacksAsGeneralAudited(context, lgsAudit)
-            } catch (e: Exception) {
-                Log.e("SEED_DEBUG", "FATAL LOAD ERROR: lgs_import grade-packs", e)
-                emptyList()
-            }
-            if (lgsGradePacks.isNotEmpty()) Log.i(TAG, "Loaded ${lgsGradePacks.size} questions from lgs_import/* grade packs as GENERAL")
-            all += lgsGradePacks
-            val lgsImportGradePacksCount = all.size - rootCount - packCount
-            Log.d("SEED_DEBUG", "lgs_import grade-packs loaded = $lgsImportGradePacksCount")
-
-            // 4) Root subject dirs under assets/lgs_import/{mat,fen,turkce,din,english,inkilap} (recursive).
-            val lgsRootDirs = try {
-                loadFromLgsRootSubjectDirsAudited(context, lgsAudit)
-            } catch (e: Exception) {
-                Log.e("SEED_DEBUG", "FATAL LOAD ERROR: lgs_import root-dirs", e)
-                emptyList()
-            }
-            if (lgsRootDirs.isNotEmpty()) Log.i(TAG, "Loaded ${lgsRootDirs.size} questions from lgs_import/* root subject dirs")
-            all += lgsRootDirs
-            val lgsImportRootDirsCount = all.size - rootCount - packCount - lgsImportGradePacksCount
-            Log.d("SEED_DEBUG", "lgs_import root-dirs loaded = $lgsImportRootDirsCount")
-
-            // 5) Synthetic grade 6 packs.
-            val existingIds = all.map { it.entity.id }.toMutableSet()
-            val g6Counts = all.filter { it.entity.grade == 6 }.groupBy { it.entity.subject }.mapValues { it.value.size }
-            val needSynthetic = SUBJECT_KEYS.any { (g6Counts[it] ?: 0) < TARGET_QUESTIONS_PER_SUBJECT }
-            if (needSynthetic) {
-                runCatching { generateGrade6SyntheticQuestions(existingIds) }
-                    .getOrElse { emptyList() }
-                    .forEach { e -> all += SeedItem(e, "synthetic", null, "synthetic:g6") }
-            } else {
-                Log.i(TAG, "Grade 6 packs have sufficient questions (>= $TARGET_QUESTIONS_PER_SUBJECT per subject), skip synthetic")
-            }
-            val syntheticCount = all.size - rootCount - packCount - lgsImportGradePacksCount - lgsImportRootDirsCount
-
-            Log.i(
-                TAG,
-                "loadBySource: root=$rootCount packs=$packCount lgs_import_gradePacks=$lgsImportGradePacksCount lgs_import_rootDirs=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}"
-            )
-            Log.d("SEED_DEBUG", "TOTAL LOADED = ${all.size}")
-            all
-        } catch (e: Exception) {
-            Log.e("SEED_DEBUG", "FATAL LOAD ERROR", e)
-            emptyList()
         }
+        val rootCount = all.size
+
+        // 2) Grade 1..8 × subject pack JSONs under assets/packs (recursive, GENERAL).
+        val packFiles = discoverPackAssetFilesRecursive(context)
+        if (packFiles.isNotEmpty()) {
+            Log.i(TAG, "Discovered ${packFiles.size} pack assets")
+        }
+        packFiles.forEach { assetPath ->
+            try {
+                val json = context.assets.open(assetPath).use { input ->
+                    input.readBytes().toString(Charset.forName("UTF-8"))
+                }
+                val parsed = parsePackFileContent(assetPath, json)
+                all += parsed
+                if (parsed.isNotEmpty()) Log.i(TAG, "Loaded pack $assetPath: ${parsed.size} questions")
+            } catch (e: Exception) {
+                Log.w(TAG, "Pack load error for $assetPath: ${e.message}")
+            }
+        }
+        val packCount = all.size - rootCount
+
+        // 3) Grade-based packs that currently live under assets/lgs_import/** but are NOT true LGS exam-only content.
+        //    Bunlar MEB müfredatına göre 1–7. sınıf ders paketi olup normal GENERAL havuzunda görünmelidir.
+        try {
+            val lgsGradePacks = loadFromLgsGradePacksAsGeneral(context)
+            if (lgsGradePacks.isNotEmpty()) {
+                Log.i(TAG, "Loaded ${lgsGradePacks.size} questions from lgs_import/* grade packs as GENERAL")
+                all += lgsGradePacks
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to load grade-based packs from lgs_import as GENERAL: ${e.message}")
+        }
+        val lgsImportCount = all.size - rootCount - packCount
+
+        // 4) Root subject dirs under assets/lgs_import/{mat,fen,turkce,din,english,inkilap} (recursive).
+        try {
+            val lgsRootDirs = loadFromLgsRootSubjectDirs(context)
+            if (lgsRootDirs.isNotEmpty()) {
+                Log.i(TAG, "Loaded ${lgsRootDirs.size} questions from lgs_import/* root subject dirs")
+                all += lgsRootDirs
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to load root subject dirs from lgs_import: ${e.message}")
+        }
+        val lgsImportRootDirsCount = all.size - rootCount - packCount - lgsImportCount
+
+        // 5) Programmatically üretilen 6. sınıf genişletme paketleri.
+        // Pack dosyalarında yeterli soru varsa (>= TARGET_QUESTIONS_PER_SUBJECT) atlanır.
+        val existingIds = all.map { it.id }.toMutableSet()
+        val g6Counts = all.filter { it.grade == 6 }.groupBy { it.subject }.mapValues { it.value.size }
+        val needSynthetic = SUBJECT_KEYS.any { (g6Counts[it] ?: 0) < TARGET_QUESTIONS_PER_SUBJECT }
+        if (needSynthetic) {
+            all += generateGrade6SyntheticQuestions(existingIds)
+        } else {
+            Log.i(TAG, "Grade 6 packs have sufficient questions (>= $TARGET_QUESTIONS_PER_SUBJECT per subject), skip synthetic")
+        }
+        val syntheticCount = all.size - rootCount - packCount - lgsImportCount - lgsImportRootDirsCount
+
+        Log.i(TAG, "loadBySource: root=$rootCount packs=$packCount lgs_import_gradePacks=$lgsImportCount lgs_import_rootDirs=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}")
+        return all
+    }
+
+    /**
+     * Recursively loads JSON question files under root subject folders:
+     * assets/lgs_import/{mat,fen,turkce,din,english,inkilap}/**/*.json
+     *
+     * Grade safety:
+     * - grade is inferred from path if possible (e.g. ".../fen7/..." -> 7)
+     * - if missing/unknown, defaults to 6 (never 8)
+     */
+    private fun loadFromLgsRootSubjectDirs(context: Context): List<QuestionEntity> {
+        val assets = context.assets
+        val rootFolders = listOf("mat", "fen", "turkce", "din", "english", "inkilap")
+        val out = mutableListOf<QuestionEntity>()
+
+        for (folder in rootFolders) {
+            val rootPath = "lgs_import/$folder"
+            val files = discoverJsonAssetFilesRecursive(assets, rootPath)
+            var loadedForFolder = 0
+            for (assetPath in files) {
+                try {
+                    val json = assets.open(assetPath).use { input ->
+                        input.readBytes().toString(Charset.forName("UTF-8"))
+                    }
+                    val subjectKey = when (folder.lowercase()) {
+                        "english" -> "ing"
+                        else -> folder.lowercase()
+                    }
+                    val derivedGrade = deriveGradeFromAssetPath(assetPath)?.takeIf { it in 1..7 } ?: 6
+
+                    val trimmed = json.trimStart()
+                    val entities: List<QuestionEntity> = when {
+                        trimmed.startsWith("{") -> {
+                            val root = JSONObject(json)
+                            val arr = root.optJSONArray("questions") ?: JSONArray()
+                            parseWrappedQuestionArrayStrict(root, arr, assetPath, derivedGrade, subjectKey)
+                        }
+                        trimmed.startsWith("[") -> {
+                            parseJsonArrayWithDefaultsStrict(JSONArray(json), derivedGrade, subjectKey)
+                        }
+                        else -> emptyList()
+                    }
+                    if (entities.isNotEmpty()) {
+                        out += entities
+                        loadedForFolder += entities.size
+                    }
+                } catch (_: Exception) {
+                    // ignore individual file errors
+                }
+            }
+            if (loadedForFolder > 0) Log.i(TAG, "Loaded lgs_import/$folder root: $loadedForFolder questions")
+        }
+
+        return out
+    }
+
+    private fun discoverJsonAssetFilesRecursive(
+        assets: android.content.res.AssetManager,
+        rootPath: String
+    ): List<String> {
+        val out = mutableListOf<String>()
+        try {
+            collectJsonPaths(assets, rootPath, out)
+            out.sort()
+        } catch (_: Exception) {}
+        return out
+    }
+
+    private fun collectJsonPaths(
+        assets: android.content.res.AssetManager,
+        path: String,
+        out: MutableList<String>
+    ) {
+        val names = try { assets.list(path)?.toList().orEmpty() } catch (_: Exception) { emptyList() }
+        for (name in names) {
+            val childPath = if (path.isEmpty()) name else "$path/$name"
+            if (name.endsWith(".json", ignoreCase = true)) {
+                out.add(childPath)
+            } else {
+                val sub = try { assets.list(childPath) } catch (_: Exception) { null }
+                if (!sub.isNullOrEmpty()) {
+                    collectJsonPaths(assets, childPath, out)
+                }
+            }
+        }
+    }
+
+    private fun deriveGradeFromAssetPath(assetPath: String): Int? {
+        val segments = assetPath.split('/', '\\').filter { it.isNotBlank() }
+        val regex = Regex("(?i)(?:grade)?([1-7])")
+        for (seg in segments.asReversed()) {
+            val m = regex.find(seg) ?: continue
+            return m.groupValues.getOrNull(1)?.toIntOrNull()
+        }
+        return null
     }
 
     /**
@@ -487,473 +379,6 @@ object DbSeeder {
             else -> return null
         }
         return grade to subjectKey
-    }
-
-    // ---- LGS import audit (assets/lgs_import/**) ----
-
-    private class LgsImportAudit {
-        private data class DropExample(val file: String, val index: Int, val reason: String, val stem: String?)
-
-        private data class FolderStats(
-            var jsonFilesFound: Int = 0,
-            var rawQuestionsParsed: Int = 0,
-            var validatedOk: Int = 0,
-            var fileParseErrors: Int = 0,
-            var unsupportedFormatFiles: Int = 0,
-            var dropInvalidGrade: Int = 0,
-            var dropInvalidSubject: Int = 0,
-            var dropMissingFields: Int = 0,
-            var dropOther: Int = 0,
-            var dedupDropped: Int = 0,
-            var dbConflictIgnored: Int = 0,
-            var dbInserted: Int = 0,
-            var rootFolderFiles: Int? = null,
-            var rootFolderLoaded: Int? = null,
-            val examples: MutableList<DropExample> = mutableListOf()
-        )
-
-        private val byFolder = linkedMapOf<String, FolderStats>()
-        private fun stats(folder: String) = byFolder.getOrPut(folder) { FolderStats() }
-
-        fun folderKeyForLgsPath(assetPath: String): String {
-            val seg = assetPath.removePrefix("lgs_import/").substringBefore("/").lowercase()
-            return when {
-                seg.startsWith("mat") -> "mat"
-                seg.startsWith("fen") -> "fen"
-                seg.startsWith("turkce") -> "turkce"
-                seg.startsWith("din") -> "din"
-                seg.startsWith("english") -> "english"
-                seg.startsWith("inkilap") -> "inkilap"
-                else -> "other"
-            }
-        }
-
-        fun onRootFolderFileCount(folder: String, files: Int) {
-            stats(folder).rootFolderFiles = files
-        }
-
-        fun onRootFolderLoadedQuestions(folder: String, loaded: Int) {
-            stats(folder).rootFolderLoaded = loaded
-        }
-
-        fun onJsonFileFound(folder: String) {
-            stats(folder).jsonFilesFound += 1
-        }
-
-        fun onRawQuestionsParsed(folder: String, rawCount: Int) {
-            stats(folder).rawQuestionsParsed += rawCount
-        }
-
-        fun onValidatedOk(folder: String, okCount: Int) {
-            stats(folder).validatedOk += okCount
-        }
-
-        fun onUnsupportedFormat(folder: String) {
-            stats(folder).unsupportedFormatFiles += 1
-        }
-
-        fun onFileParseError(folder: String) {
-            stats(folder).fileParseErrors += 1
-        }
-
-        fun onQuestionDropped(folder: String, file: String, index: Int, obj: JSONObject?, e: Exception) {
-            val reason = classify(e)
-            val s = stats(folder)
-            when (reason) {
-                "invalid_grade" -> s.dropInvalidGrade += 1
-                "invalid_subject" -> s.dropInvalidSubject += 1
-                "missing_fields" -> s.dropMissingFields += 1
-                else -> s.dropOther += 1
-            }
-            if (s.examples.size < AUDIT_EXAMPLE_LIMIT) {
-                val stem = obj?.optString("stem")?.ifBlank { obj.optString("questionText") }?.takeIf { it.isNotBlank() }?.take(140)
-                s.examples.add(DropExample(file = file, index = index, reason = "${reason}:${e.message ?: ""}", stem = stem))
-            }
-        }
-
-        private fun classify(e: Exception): String {
-            val msg = (e.message ?: "").lowercase()
-            return when {
-                msg.contains("invalid grade") -> "invalid_grade"
-                msg.contains("missing subject") -> "invalid_subject"
-                msg.contains("unsupported subject") -> "invalid_subject"
-                msg.contains("missing questiontext") || msg.contains("missing questiontext/stem") -> "missing_fields"
-                msg.contains("missing options") || msg.contains("not enough options") -> "missing_fields"
-                else -> "other"
-            }
-        }
-
-        fun finish(allItemsBeforeDedup: List<SeedItem>, allItemsAfterDedup: List<SeedItem>, insertResults: LongArray) {
-            // Dedup drops within lgs_import items, considering the actual global dedup winners.
-            val keptKeys = allItemsAfterDedup
-                .filter { it.sourceGroup == "lgs_import" }
-                .map { (it.sourceFolder ?: "other") to dedupKey(it.entity) }
-                .toSet()
-            allItemsBeforeDedup
-                .filter { it.sourceGroup == "lgs_import" }
-                .forEach { item ->
-                    val folder = item.sourceFolder ?: "other"
-                    if (!keptKeys.contains(folder to dedupKey(item.entity))) stats(folder).dedupDropped += 1
-                }
-
-            // DB ignores/inserts aligned with insertion order (after dedup).
-            for (i in allItemsAfterDedup.indices) {
-                val item = allItemsAfterDedup[i]
-                if (item.sourceGroup != "lgs_import") continue
-                val folder = item.sourceFolder ?: "other"
-                val res = insertResults.getOrNull(i) ?: -1L
-                if (res == -1L) stats(folder).dbConflictIgnored += 1 else stats(folder).dbInserted += 1
-            }
-        }
-
-        private fun dedupKey(e: QuestionEntity): String {
-            val h = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
-            return "${e.grade}|${e.subject}|$h"
-        }
-
-        fun buildSummaryText(): String {
-            val total = FolderStats()
-            fun add(t: FolderStats, s: FolderStats) {
-                t.jsonFilesFound += s.jsonFilesFound
-                t.rawQuestionsParsed += s.rawQuestionsParsed
-                t.validatedOk += s.validatedOk
-                t.fileParseErrors += s.fileParseErrors
-                t.unsupportedFormatFiles += s.unsupportedFormatFiles
-                t.dropInvalidGrade += s.dropInvalidGrade
-                t.dropInvalidSubject += s.dropInvalidSubject
-                t.dropMissingFields += s.dropMissingFields
-                t.dropOther += s.dropOther
-                t.dedupDropped += s.dedupDropped
-                t.dbConflictIgnored += s.dbConflictIgnored
-                t.dbInserted += s.dbInserted
-            }
-            byFolder.values.forEach { add(total, it) }
-
-            val buckets = listOf(
-                "invalid_grade" to total.dropInvalidGrade,
-                "invalid_subject" to total.dropInvalidSubject,
-                "missing_fields" to total.dropMissingFields,
-                "file_parse_errors" to total.fileParseErrors,
-                "unsupported_format" to total.unsupportedFormatFiles,
-                "dedup" to total.dedupDropped,
-                "db_conflict" to total.dbConflictIgnored,
-                "other" to total.dropOther
-            )
-            val biggest = buckets.maxByOrNull { it.second } ?: ("none" to 0)
-
-            val sb = StringBuilder()
-            sb.appendLine("SEED AUDIT")
-            sb.appendLine("lgs_import files=${total.jsonFilesFound} raw=${total.rawQuestionsParsed} ok=${total.validatedOk}")
-            sb.appendLine("drop_invalidGrade=${total.dropInvalidGrade}")
-            sb.appendLine("drop_invalidSubject=${total.dropInvalidSubject}")
-            sb.appendLine("drop_missingFields=${total.dropMissingFields}")
-            sb.appendLine("file_parseErrors=${total.fileParseErrors}")
-            sb.appendLine("file_unsupportedFormat=${total.unsupportedFormatFiles}")
-            sb.appendLine("dedupDropped=${total.dedupDropped}")
-            sb.appendLine("dbConflictIgnored=${total.dbConflictIgnored}")
-            sb.appendLine("inserted=${total.dbInserted}")
-            sb.appendLine("biggest_drop_reason=${biggest.first} count=${biggest.second}")
-            sb.appendLine()
-
-            val order = listOf("mat", "fen", "turkce", "din", "english", "inkilap", "other")
-            for (folder in order) {
-                val s = byFolder[folder] ?: continue
-                sb.appendLine("folder=$folder files=${s.jsonFilesFound} raw=${s.rawQuestionsParsed} ok=${s.validatedOk} " +
-                        "invGrade=${s.dropInvalidGrade} invSubj=${s.dropInvalidSubject} miss=${s.dropMissingFields} other=${s.dropOther} " +
-                        "parseErrFiles=${s.fileParseErrors} unsupportedFiles=${s.unsupportedFormatFiles} dedup=${s.dedupDropped} dbIgnore=${s.dbConflictIgnored} inserted=${s.dbInserted} " +
-                        "rootFiles=${s.rootFolderFiles ?: -1} rootLoaded=${s.rootFolderLoaded ?: -1}")
-                s.examples.take(3).forEach { ex ->
-                    sb.appendLine("drop_example folder=$folder file=${ex.file} idx=${ex.index} reason=${ex.reason} stem=${ex.stem ?: "<no-stem>"}")
-                }
-            }
-            return sb.toString().trimEnd()
-        }
-
-        fun logSummaryFromText(text: String) {
-            // Still mirror the key lines into Logcat for debugging if needed.
-            text.lineSequence().forEach { line ->
-                if (line.startsWith("SEED AUDIT") ||
-                    line.startsWith("lgs_import ") ||
-                    line.startsWith("drop_invalidGrade") ||
-                    line.startsWith("drop_invalidSubject") ||
-                    line.startsWith("drop_missingFields") ||
-                    line.startsWith("file_parseErrors") ||
-                    line.startsWith("file_unsupportedFormat") ||
-                    line.startsWith("dedupDropped") ||
-                    line.startsWith("dbConflictIgnored") ||
-                    line.startsWith("inserted") ||
-                    line.startsWith("biggest_drop_reason")
-                ) {
-                    Log.i(TAG, "[$SEED_AUDIT_TAG] $line")
-                }
-            }
-        }
-    }
-
-    private fun loadFromLgsGradePacksAsGeneralAudited(context: Context, audit: LgsImportAudit): List<SeedItem> {
-        val assets = context.assets
-        val out = mutableListOf<SeedItem>()
-
-        // Reuse the existing hardcoded directory list unchanged by delegating to the same list here.
-        val gradeBasedDirs = listOf(
-            "lgs_import/hayat1",
-            "lgs_import/hayat2",
-            "lgs_import/hayat3",
-            "lgs_import/fen3",
-            "lgs_import/fen4",
-            "lgs_import/fen5",
-            "lgs_import/fen6",
-            "lgs_import/fen7",
-            "lgs_import/mat1",
-            "lgs_import/mat2",
-            "lgs_import/mat3",
-            "lgs_import/mat4",
-            "lgs_import/mat5",
-            "lgs_import/turkce1",
-            "lgs_import/turkce2",
-            "lgs_import/turkce3",
-            "lgs_import/turkce4",
-            "lgs_import/turkce5",
-            "lgs_import/turkce7",
-            "lgs_import/english1",
-            "lgs_import/english2",
-            "lgs_import/english3",
-            "lgs_import/english4",
-            "lgs_import/english5",
-            "lgs_import/english6",
-            "lgs_import/english7",
-            "lgs_import/din4",
-            "lgs_import/din5",
-            "lgs_import/din6",
-            "lgs_import/din7",
-            "lgs_import/sosyal4",
-            "lgs_import/sosyal5",
-            "lgs_import/sosyal6",
-            "lgs_import/inkilap7"
-        )
-
-        for (dir in gradeBasedDirs) {
-            val fileNames = try {
-                assets.list(dir)?.filter { it.endsWith(".json", ignoreCase = true) }?.sorted()
-            } catch (e: Exception) {
-                Log.e("SEED_DEBUG", "FOLDER SCAN FAILED: $dir", e)
-                null
-            } ?: continue
-
-            for (fileName in fileNames) {
-                val assetPath = "$dir/$fileName"
-                val baseFolder = audit.folderKeyForLgsPath(assetPath)
-                audit.onJsonFileFound(baseFolder)
-                val pathDerived = parseGradeAndSubjectFromLgsPath(assetPath)
-                val (pathGrade, pathSubject) = pathDerived ?: (6 to "mat")
-                try {
-                    val json = assets.open(assetPath).use { input -> input.readBytes().toString(Charset.forName("UTF-8")) }
-                    val trimmed = json.trimStart()
-                    val entities: List<QuestionEntity> = when {
-                        trimmed.startsWith("{") -> {
-                            val root = JSONObject(json)
-                            val arr = root.optJSONArray("questions") ?: JSONArray()
-                            audit.onRawQuestionsParsed(baseFolder, arr.length())
-                            parseWrappedQuestionArrayStrictAudited(
-                                root = root,
-                                arr = arr,
-                                sourceLabel = assetPath,
-                                pathGrade = pathGrade,
-                                pathSubject = pathSubject,
-                                allowGrade8 = root.optString("mode", "").equals("LGS", ignoreCase = true),
-                                audit = audit,
-                                folder = baseFolder
-                            )
-                        }
-                        trimmed.startsWith("[") -> {
-                            val arr = JSONArray(json)
-                            audit.onRawQuestionsParsed(baseFolder, arr.length())
-                            parseJsonArrayWithDefaultsStrictAudited(arr, pathGrade, pathSubject, assetPath, baseFolder, audit)
-                        }
-                        else -> {
-                            audit.onUnsupportedFormat(baseFolder)
-                            emptyList()
-                        }
-                    }
-                    if (entities.isNotEmpty()) {
-                        audit.onValidatedOk(baseFolder, entities.size)
-                        entities.forEach { e -> out += SeedItem(e, "lgs_import", baseFolder, assetPath) }
-                    }
-                } catch (e: Exception) {
-                    audit.onFileParseError(baseFolder)
-                    Log.e("SEED_DEBUG", "FILE FAILED: $assetPath", e)
-                }
-            }
-        }
-        return out
-    }
-
-    private fun loadFromLgsRootSubjectDirsAudited(context: Context, audit: LgsImportAudit): List<SeedItem> {
-        return try {
-            val assets = context.assets
-            val rootFolders = listOf("mat", "fen", "turkce", "din", "english", "inkilap")
-            val out = mutableListOf<SeedItem>()
-
-            for (folder in rootFolders) {
-                Log.d("SEED_DEBUG", "Scanning folder: $folder")
-                val rootPath = "lgs_import/$folder"
-                val files = try {
-                    discoverJsonAssetFilesRecursive(assets, rootPath)
-                } catch (e: Exception) {
-                    Log.e("SEED_DEBUG", "FOLDER SCAN FAILED: $rootPath", e)
-                    emptyList()
-                }
-                audit.onRootFolderFileCount(folder, files.size)
-                Log.d(TAG, "LGS root scan: $rootPath files=${files.size}")
-                Log.d("SEED_DEBUG", "Folder $folder filesFound=${files.size}")
-
-                if (files.isEmpty() && folder == "mat") {
-                    // Fallback sanity test: try to open a known asset directly.
-                    val testPath = "lgs_import/mat/lgs_mat_gold_001.json"
-                    try {
-                        assets.open(testPath).use { it.readBytes() }
-                        Log.d("SEED_DEBUG", "Fallback open OK: $testPath")
-                    } catch (e: Exception) {
-                        Log.d("SEED_DEBUG", "Fallback open FAILED: $testPath err=${e.message}")
-                    }
-                }
-
-                var loadedForFolder = 0
-                for (assetPath in files) {
-                    audit.onJsonFileFound(folder)
-                    try {
-                        val json = assets.open(assetPath).use { input -> input.readBytes().toString(Charset.forName("UTF-8")) }
-                        val subjectKey = if (folder.equals("english", ignoreCase = true)) "ing" else folder.lowercase()
-                        val trimmed = json.trimStart()
-                        val entities: List<QuestionEntity> = try {
-                            when {
-                                trimmed.startsWith("{") -> {
-                                    val root = JSONObject(json)
-                                    val arr = root.optJSONArray("questions") ?: JSONArray()
-                                    audit.onRawQuestionsParsed(folder, arr.length())
-                                    val mode = root.optString("mode", "").trim()
-                                    val allowGrade8 = mode.equals("LGS", ignoreCase = true)
-                                    val derivedGrade = deriveGradeFromAssetPath(assetPath)
-                                    val safeDerivedGrade = derivedGrade?.takeIf { it in 1..7 }
-                                    parseWrappedQuestionArrayStrictAudited(
-                                        root = root,
-                                        arr = arr,
-                                        sourceLabel = assetPath,
-                                        pathGrade = safeDerivedGrade,
-                                        pathSubject = subjectKey,
-                                        allowGrade8 = allowGrade8,
-                                        audit = audit,
-                                        folder = folder
-                                    )
-                                }
-                                trimmed.startsWith("[") -> {
-                                    val arr = JSONArray(json)
-                                    audit.onRawQuestionsParsed(folder, arr.length())
-                                    val derivedGrade = deriveGradeFromAssetPath(assetPath)
-                                    val safeDerivedGrade = derivedGrade?.takeIf { it in 1..7 }
-                                    parseJsonArrayWithDefaultsStrictAudited(arr, safeDerivedGrade, subjectKey, assetPath, folder, audit)
-                                }
-                                else -> {
-                                    audit.onUnsupportedFormat(folder)
-                                    emptyList()
-                                }
-                            }
-                        } catch (e: Exception) {
-                            Log.e("SEED_DEBUG", "FAILED PARSE: $assetPath", e)
-                            emptyList()
-                        }
-                        if (entities.isNotEmpty()) {
-                            audit.onValidatedOk(folder, entities.size)
-                            entities.forEach { e -> out += SeedItem(e, "lgs_import", folder, assetPath) }
-                            loadedForFolder += entities.size
-                        }
-                    } catch (e: Exception) {
-                        audit.onFileParseError(folder)
-                        Log.e("SEED_DEBUG", "FAILED FILE: $assetPath", e)
-                    }
-                }
-                audit.onRootFolderLoadedQuestions(folder, loadedForFolder)
-                Log.d(TAG, "LGS root scan: $rootPath loadedQuestions=$loadedForFolder")
-            }
-
-            out
-        } catch (e: Exception) {
-            Log.e("SEED_DEBUG", "FATAL LOAD ERROR: lgs_import root-dirs", e)
-            emptyList()
-        }
-    }
-
-    private fun parseJsonArrayWithDefaultsStrictAudited(
-        arr: JSONArray,
-        defaultGrade: Int?,
-        defaultSubject: String,
-        sourceLabel: String,
-        folder: String,
-        audit: LgsImportAudit
-    ): List<QuestionEntity> {
-        val out = mutableListOf<QuestionEntity>()
-        for (i in 0 until arr.length()) {
-            try {
-                val o = arr.getJSONObject(i)
-                val combined = JSONObject(o.toString())
-                val qGrade = o.optInt("grade", -1)
-                val qSubject = o.optString("subject", "").trim().lowercase()
-                if (qGrade in 1..7) combined.put("grade", qGrade)
-                else if (defaultGrade != null) combined.put("grade", defaultGrade)
-                if (qSubject.isNotBlank()) combined.put("subject", qSubject) else combined.put("subject", defaultSubject)
-                out.add(parseQuestionObject(combined, i))
-            } catch (e: Exception) {
-                audit.onQuestionDropped(folder, sourceLabel, i, arr.optJSONObject(i), e)
-            }
-        }
-        return out
-    }
-
-    private fun parseWrappedQuestionArrayStrictAudited(
-        root: JSONObject,
-        arr: JSONArray,
-        sourceLabel: String,
-        pathGrade: Int?,
-        pathSubject: String,
-        allowGrade8: Boolean,
-        audit: LgsImportAudit,
-        folder: String
-    ): List<QuestionEntity> {
-        val rootGradeRaw = root.optInt("grade", -1)
-        // Never keep grade=8 in DB; map to folder/path grade when possible, else 6.
-        val rootGrade = when {
-            rootGradeRaw in 1..7 -> rootGradeRaw
-            rootGradeRaw == 8 -> (pathGrade ?: 6)
-            else -> null
-        }
-        val rootSubject = root.optString("subject", "").trim().lowercase().ifBlank { pathSubject }
-        val out = mutableListOf<QuestionEntity>()
-        for (i in 0 until arr.length()) {
-            try {
-                val q = arr.getJSONObject(i)
-                val combined = JSONObject(q.toString())
-                val qGrade = q.optInt("grade", -1)
-                val qSubject = q.optString("subject", "").trim().lowercase()
-                val chosenGrade: Int? = when {
-                    qGrade in 1..7 -> qGrade
-                    qGrade == 8 -> (pathGrade ?: rootGrade ?: 6)
-                    pathGrade != null -> pathGrade
-                    rootGrade != null -> rootGrade
-                    else -> 6
-                }
-                if (chosenGrade != null) combined.put("grade", chosenGrade)
-                val chosenSubject = when {
-                    qSubject.isNotBlank() -> qSubject
-                    rootSubject.isNotBlank() -> rootSubject
-                    else -> pathSubject
-                }
-                combined.put("subject", chosenSubject)
-                out.add(parseQuestionObject(combined, i))
-            } catch (e: Exception) {
-                audit.onQuestionDropped(folder, sourceLabel, i, arr.optJSONObject(i), e)
-            }
-        }
-        return out
     }
 
     private fun loadFromLgsGradePacksAsGeneral(context: Context): List<QuestionEntity> {
@@ -1050,211 +475,6 @@ object DbSeeder {
     }
 
     /**
-     * Recursively loads JSON question files under root subject folders:
-     * assets/lgs_import/{mat,fen,turkce,din,english,inkilap}/**/*.json
-     *
-     * Parsing uses the existing JSON import pipeline (parseWrappedQuestionArray / parseQuestionObject).
-     *
-     * Grade derivation:
-     * - Prefer explicit grade in JSON (root or per-question)
-     * - Otherwise attempt to derive grade from path segments / filename (1..7)
-     * - If grade can't be determined, do not inject defaults; invalid/missing grades will be rejected by parseQuestionObject.
-     *
-     * Grade safety:
-     * - Only allow grades 1..7 by default.
-     * - Grade 8 is only allowed when the wrapped root declares mode=="LGS" (intentional LGS-specific content).
-     */
-    private fun loadFromLgsRootSubjectDirs(context: Context): List<QuestionEntity> {
-        val assets = context.assets
-        val rootFolders = listOf("mat", "fen", "turkce", "din", "english", "inkilap")
-        val out = mutableListOf<QuestionEntity>()
-
-        for (folder in rootFolders) {
-            val rootPath = "lgs_import/$folder"
-            val files = discoverJsonAssetFilesRecursive(assets, rootPath)
-            Log.d(TAG, "LGS root scan: $rootPath files=${files.size}")
-
-            var loadedForFolder = 0
-            for (assetPath in files) {
-                try {
-                    val json = assets.open(assetPath).use { input ->
-                        input.readBytes().toString(Charset.forName("UTF-8"))
-                    }
-                    val subjectKey = when (folder.lowercase()) {
-                        "english" -> "ing"
-                        else -> folder.lowercase()
-                    }
-
-                    val trimmed = json.trimStart()
-                    val entities: List<QuestionEntity> = when {
-                        trimmed.startsWith("{") -> {
-                            val root = JSONObject(json)
-                            val arr = root.optJSONArray("questions") ?: JSONArray()
-
-                            // Only allow grade 8 when explicitly declared as LGS mode.
-                            val mode = root.optString("mode", "").trim()
-                            val allowGrade8 = mode.equals("LGS", ignoreCase = true)
-
-                            val derivedGrade = deriveGradeFromAssetPath(assetPath)
-                            val safeDerivedGrade = derivedGrade?.takeIf { it in 1..7 }
-                            parseWrappedQuestionArrayStrict(
-                                root = root,
-                                arr = arr,
-                                sourceLabel = assetPath,
-                                pathGrade = safeDerivedGrade,
-                                pathSubject = subjectKey,
-                                allowGrade8 = allowGrade8
-                            )
-                        }
-                        trimmed.startsWith("[") -> {
-                            val derivedGrade = deriveGradeFromAssetPath(assetPath)
-                            val safeDerivedGrade = derivedGrade?.takeIf { it in 1..7 }
-                            parseJsonArrayWithDefaultsStrict(JSONArray(json), safeDerivedGrade, subjectKey)
-                        }
-                        else -> emptyList()
-                    }
-                    if (entities.isNotEmpty()) {
-                        out += entities
-                        loadedForFolder += entities.size
-                    }
-                } catch (e: Exception) {
-                    Log.w(TAG, "LGS root load failed for $assetPath: ${e.message}")
-                }
-            }
-            Log.d(TAG, "LGS root scan: $rootPath loadedQuestions=$loadedForFolder")
-        }
-
-        return out
-    }
-
-    private fun discoverJsonAssetFilesRecursive(
-        assets: android.content.res.AssetManager,
-        rootPath: String
-    ): List<String> {
-        val out = mutableListOf<String>()
-        try {
-            collectJsonPaths(assets, rootPath, out)
-            out.sort()
-        } catch (e: Exception) {
-            Log.w(TAG, "JSON asset discovery failed for $rootPath: ${e.message}")
-        }
-        return out
-    }
-
-    private fun collectJsonPaths(
-        assets: android.content.res.AssetManager,
-        path: String,
-        out: MutableList<String>
-    ) {
-        val names = try {
-            assets.list(path)?.toList().orEmpty()
-        } catch (e: Exception) {
-            Log.e("SEED_DEBUG", "FOLDER SCAN FAILED: $path", e)
-            emptyList()
-        }
-        for (name in names) {
-            val childPath = if (path.isEmpty()) name else "$path/$name"
-            try {
-                if (name.endsWith(".json", ignoreCase = true)) {
-                    out.add(childPath)
-                    Log.d("SEED_DEBUG", "Found JSON file: $childPath")
-                } else {
-                    val sub = try { assets.list(childPath) } catch (_: Exception) { null }
-                    if (!sub.isNullOrEmpty()) {
-                        collectJsonPaths(assets, childPath, out)
-                    }
-                }
-            } catch (e: Exception) {
-                Log.e("SEED_DEBUG", "FOLDER WALK FAILED: $childPath", e)
-            }
-        }
-    }
-
-    /**
-     * Best-effort grade derivation from asset path.
-     * Looks for the first 1..8 digit group in any path segment or filename.
-     * Returns null if none found.
-     */
-    private fun deriveGradeFromAssetPath(assetPath: String): Int? {
-        val segments = assetPath.split('/', '\\').filter { it.isNotBlank() }
-        val regex = Regex("(?i)(?:grade)?([1-8])")
-        for (seg in segments.asReversed()) {
-            val m = regex.find(seg) ?: continue
-            return m.groupValues.getOrNull(1)?.toIntOrNull()
-        }
-        return null
-    }
-
-    private fun parseJsonArrayWithDefaultsStrict(
-        arr: JSONArray,
-        defaultGrade: Int?,
-        defaultSubject: String
-    ): List<QuestionEntity> {
-        val out = mutableListOf<QuestionEntity>()
-        for (i in 0 until arr.length()) {
-            try {
-                val o = arr.getJSONObject(i)
-                val combined = JSONObject(o.toString())
-                val qGrade = o.optInt("grade", -1)
-                val qSubject = o.optString("subject", "").trim().lowercase()
-                if (qGrade in 1..7) combined.put("grade", qGrade)
-                else if (defaultGrade != null) combined.put("grade", defaultGrade)
-                if (qSubject.isNotBlank()) combined.put("subject", qSubject) else combined.put("subject", defaultSubject)
-                out.add(parseQuestionObject(combined, i))
-            } catch (e: Exception) {
-                Log.w(TAG, "Parse failed array index $i: ${e.message}")
-            }
-        }
-        return out
-    }
-
-    private fun parseWrappedQuestionArrayStrict(
-        root: JSONObject,
-        arr: JSONArray,
-        sourceLabel: String,
-        pathGrade: Int?,
-        pathSubject: String,
-        allowGrade8: Boolean
-    ): List<QuestionEntity> {
-        val rootGradeRaw = root.optInt("grade", -1)
-        val rootGrade = when {
-            rootGradeRaw in 1..7 -> rootGradeRaw
-            allowGrade8 && rootGradeRaw == 8 -> 8
-            else -> null
-        }
-        val rootSubject = root.optString("subject", "").trim().lowercase().ifBlank { pathSubject }
-        val out = mutableListOf<QuestionEntity>()
-        for (i in 0 until arr.length()) {
-            try {
-                val q = arr.getJSONObject(i)
-                val combined = JSONObject(q.toString())
-                val qGrade = q.optInt("grade", -1)
-                val qSubject = q.optString("subject", "").trim().lowercase()
-
-                val chosenGrade: Int? = when {
-                    qGrade in 1..7 -> qGrade
-                    allowGrade8 && qGrade == 8 -> 8
-                    pathGrade != null -> pathGrade
-                    rootGrade != null -> rootGrade
-                    else -> null
-                }
-                if (chosenGrade != null) combined.put("grade", chosenGrade)
-
-                val chosenSubject = when {
-                    qSubject.isNotBlank() -> qSubject
-                    rootSubject.isNotBlank() -> rootSubject
-                    else -> pathSubject
-                }
-                combined.put("subject", chosenSubject)
-                out.add(parseQuestionObject(combined, i))
-            } catch (e: Exception) {
-                Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
-            }
-        }
-        return out
-    }
-
-    /**
      * Recursively discovers pack JSON files under assets/packs.
      * Matches filename grade{G}_{subject}.json (G ∈ 1..8, subject ∈ mat,turkce,fen,sosyal,ing).
      */
@@ -1327,8 +547,7 @@ object DbSeeder {
     ): List<QuestionEntity> {
         val rootGrade = root.optInt("grade", 6).coerceIn(1, 8)
         val rootSubject = root.optString("subject", "mat").trim().lowercase()
-        // App expects grade 1..7; never default to 8 here.
-        val defaultGrade = pathGrade?.takeIf { it in 1..7 } ?: rootGrade.coerceIn(1, 7)
+        val defaultGrade = pathGrade?.takeIf { it in 1..8 } ?: rootGrade
         val defaultSubject = pathSubject?.takeIf { it.isNotBlank() } ?: rootSubject
         val out = mutableListOf<QuestionEntity>()
         for (i in 0 until arr.length()) {
@@ -1337,12 +556,7 @@ object DbSeeder {
                 val combined = org.json.JSONObject(q.toString())
                 val qGrade = q.optInt("grade", -1)
                 val qSubject = q.optString("subject", "").trim().lowercase()
-                val g = when {
-                    qGrade in 1..7 -> qGrade
-                    qGrade == 8 -> defaultGrade
-                    else -> defaultGrade
-                }
-                combined.put("grade", g)
+                combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
                 combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
                 out.add(parseQuestionObject(combined, i))
             } catch (e: Exception) {
@@ -1361,12 +575,7 @@ object DbSeeder {
                 val combined = org.json.JSONObject(o.toString())
                 val qGrade = o.optInt("grade", -1)
                 val qSubject = o.optString("subject", "").trim().lowercase()
-                val g = when {
-                    qGrade in 1..7 -> qGrade
-                    qGrade == 8 -> defaultGrade
-                    else -> defaultGrade
-                }
-                combined.put("grade", g)
+                combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
                 combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
                 out.add(parseQuestionObject(combined, i))
             } catch (e: Exception) {
@@ -1401,6 +610,72 @@ object DbSeeder {
         return out
     }
 
+    private fun parseJsonArrayWithDefaultsStrict(arr: JSONArray, defaultGrade: Int, defaultSubject: String): List<QuestionEntity> {
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val o = arr.getJSONObject(i)
+                val combined = JSONObject(o.toString())
+                val qGrade = o.optInt("grade", -1)
+                val qSubject = o.optString("subject", "").trim().lowercase()
+                val g = when {
+                    qGrade in 1..7 -> qGrade
+                    qGrade == 8 -> defaultGrade
+                    else -> defaultGrade
+                }
+                combined.put("grade", g)
+                combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
+                out.add(parseQuestionObject(combined, i))
+            } catch (e: Exception) {
+                Log.w(TAG, "Parse failed array index $i: ${e.message}")
+            }
+        }
+        return out
+    }
+
+    private fun parseWrappedQuestionArrayStrict(
+        root: JSONObject,
+        arr: JSONArray,
+        sourceLabel: String,
+        pathGrade: Int,
+        pathSubject: String
+    ): List<QuestionEntity> {
+        val rootGradeRaw = root.optInt("grade", -1)
+        val rootGrade = when {
+            rootGradeRaw in 1..7 -> rootGradeRaw
+            rootGradeRaw == 8 -> pathGrade
+            else -> pathGrade
+        }
+        val rootSubject = root.optString("subject", "").trim().lowercase().ifBlank { pathSubject }
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val q = arr.getJSONObject(i)
+                val combined = JSONObject(q.toString())
+                val qGrade = q.optInt("grade", -1)
+                val qSubject = q.optString("subject", "").trim().lowercase()
+
+                val chosenGrade = when {
+                    qGrade in 1..7 -> qGrade
+                    qGrade == 8 -> pathGrade
+                    else -> rootGrade
+                }
+                combined.put("grade", chosenGrade)
+
+                val chosenSubject = when {
+                    qSubject.isNotBlank() -> qSubject
+                    rootSubject.isNotBlank() -> rootSubject
+                    else -> pathSubject
+                }
+                combined.put("subject", chosenSubject)
+                out.add(parseQuestionObject(combined, i))
+            } catch (e: Exception) {
+                Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
+            }
+        }
+        return out
+    }
+
     private fun getFallbackEntities(): List<QuestionEntity> {
         return listOf(
             makeFallbackEntity("fb1", 6, "mat", "12 × 15 işleminin sonucu kaçtır?",
@@ -1419,12 +694,7 @@ object DbSeeder {
         optionsJson: String, answerIndex: Int, explanation: String
     ): QuestionEntity {
         val stemNorm = QuestionStemHash.normalizeStem(questionText)
-        val opts = try {
-            (0 until JSONArray(optionsJson).length()).map { i -> JSONArray(optionsJson).optString(i, "") }
-        } catch (_: Exception) {
-            emptyList()
-        }
-        val hash = if (opts.isNotEmpty()) QuestionStemHash.stemHash(questionText, opts, answerIndex) else QuestionStemHash.stemHash(questionText)
+        val hash = QuestionStemHash.stemHash(questionText)
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -1464,16 +734,12 @@ object DbSeeder {
      */
     private fun parseQuestionObject(o: JSONObject, index: Int): QuestionEntity {
         // grade:
-        // 1) JSON'da "grade" varsa ve 1..8 aralığındaysa doğrudan kullan (8. sınıf içerik de korunur).
-        // 2) Yoksa/Geçersizse gradeTag/grade_level gibi string alanlardan parse etmeyi dene.
-        // 3) Parse edilemezse soruyu discard etmek için exception fırlat (default 6 yok).
+        // App expects 1..7. Never keep grade=8; map missing/invalid safely.
         val gradeFromJson = when {
             o.has("grade") -> o.optInt("grade", 0)
             o.has("grade_level") -> o.optInt("grade_level", 0)
             else -> 0
         }
-        // App expects grade 1..7. Never insert grade=8.
-        // If grade is missing/invalid/8, fall back safely to 6.
         val grade = when {
             gradeFromJson in 1..7 -> gradeFromJson
             gradeFromJson == 8 -> 6
@@ -1503,40 +769,12 @@ object DbSeeder {
             else -> throw IllegalArgumentException("Unsupported subject '$rawSubject' at index=$index")
         }
 
-        // question text: support common aliases used by imported JSONs
-        fun firstNonBlankString(vararg keys: String): String? {
-            for (k in keys) {
-                val v = o.optString(k, "").trim()
-                if (v.isNotBlank() && v.lowercase() != "null") return v
-            }
-            return null
-        }
-        fun logMissingStemShapeOnce() {
-            val keys = o.keys().asSequence().toList().sorted()
-            val signature = keys.joinToString(",")
-            val shouldLog = synchronized(loggedMissingStemShapes) { loggedMissingStemShapes.add(signature) }
-            if (shouldLog) {
-                Log.d(TAG, "[$SEED_AUDIT_TAG] Unsupported question shape (missing text). keys=[$signature]")
-            }
-        }
-
-        val questionObj = o.opt("question")
-        val questionText = firstNonBlankString(
-            "stem",
-            "questionText",
-            "question",        // used in some lgs_import banks (e.g. din packs)
-            "prompt",
-            "text",
-            "question_text",
-            "stemText",
-            "questionStem"
-        ) ?: run {
-            // Nested shape: { "question": { "text": "..." } }
-            val nested = (questionObj as? JSONObject)
-            nested?.optString("stem", "")?.trim().takeIf { !it.isNullOrBlank() }
-                ?: nested?.optString("text", "")?.trim().takeIf { !it.isNullOrBlank() }
-        } ?: run {
-            logMissingStemShapeOnce()
+        // question text: stem (yeni şema) veya questionText (eski) + imported alias: "question"
+        val questionText = o.optString("stem", "").ifBlank {
+            o.optString("questionText", "")
+        }.ifBlank {
+            o.optString("question", "")
+        }.ifBlank {
             throw IllegalArgumentException("Missing questionText/stem at index=$index")
         }
 
@@ -1593,10 +831,9 @@ object DbSeeder {
         val examType = o.optString("examType", "GENERAL").takeIf { it.isNotBlank() }
         val imageAsset = o.optString("imageAsset", "").takeIf { it.isNotBlank() }
 
-        // id: varsa kullan, yoksa içerik tabanlı deterministik üret (dosya bazlı index çakışmalarını önler).
+        // id: varsa kullan, yoksa grade+subject+index tabanlı üret
         val explicitId = o.optString("id", "").takeIf { it.isNotBlank() }
-        val deterministicHash = QuestionStemHash.stemHash(questionText, padded, answerIndex)
-        val id = explicitId ?: "${grade}_${subjectKey}_d${difficulty}_${deterministicHash.take(12)}"
+        val id = explicitId ?: "${grade}_${subjectKey}_${(index + 1).toString().padStart(6, '0')}"
 
         // Kalite gate: düşük kaliteli soruları pasifleştir, deactivationReason sakla.
         val subjectEnum = when (subjectKey) {
@@ -1623,7 +860,7 @@ object DbSeeder {
         val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, questionText)
 
         val stemNorm = QuestionStemHash.normalizeStem(questionText)
-        val hash = QuestionStemHash.stemHash(questionText, padded, answerIndex)
+        val hash = QuestionStemHash.stemHash(questionText)
 
         return QuestionEntity(
             id = id,
@@ -1707,7 +944,7 @@ object DbSeeder {
         val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, spec.stem)
 
         val stemNorm = QuestionStemHash.normalizeStem(spec.stem)
-        val hash = QuestionStemHash.stemHash(spec.stem, paddedOptions, answerIndex)
+        val hash = QuestionStemHash.stemHash(spec.stem)
 
         return QuestionEntity(
             id = id,
