@@ -227,133 +227,36 @@ class PoolStatusActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             val (summary, auditText) = withContext(Dispatchers.IO) {
-                RoomQuizDataStore(this@PoolStatusActivity).ensureSeeded()
-                val db = DatabaseProvider.get(this@PoolStatusActivity)
-                val dao = db.questionDao()
-
-                val total = dao.countAll()
-                val active = dao.countAllActive()
-                val invalidGrades = dao.countInvalidGrades()
-                val diffOutOfRange = dao.countDifficultyOutOfRange()
-                val duplicates = dao.getTopDuplicateStemHashes()
-                val activeByGradeSubjectDiff = dao.getActiveCountsByGradeSubjectDifficulty()
-
                 val sb = StringBuilder()
+                var auditText = ""
+                try {
+                    RoomQuizDataStore(this@PoolStatusActivity).ensureSeeded()
+                    val db = DatabaseProvider.get(this@PoolStatusActivity)
+                    val dao = db.questionDao()
 
-                // 1) TOTAL / ACTIVE
-                sb.append("TOTAL / ACTIVE\n")
-                sb.append("$total / $active\n\n")
+                    // Minimal safe summary first (always show this)
+                    val total = dao.countAll()
+                    val active = dao.countAllActive()
+                    val invalidGrades = dao.countInvalidGrades()
 
-                // 2) Grade dağılımı (1..7)
-                sb.append("Grade dağılımı (1..7):\n")
-                for (g in 1..7) {
-                    val gTotal = dao.countByGradeOnly(g)
-                    val gActive = dao.countActiveByGradeOnly(g)
-                    sb.append("  grade=$g total/active: $gTotal / $gActive\n")
-                }
-                if (invalidGrades > 0) {
-                    sb.append("  ⚠ Geçersiz grade (0,8,9+): $invalidGrades\n")
-                }
-                sb.append("\n")
+                    sb.append("TOTAL / ACTIVE\n")
+                    sb.append("$total / $active\n")
+                    sb.append("invalid grade: $invalidGrades\n")
 
-                // 3) grade+subject+diff ACTIVE sayıları
-                sb.append("grade+subject+diff ACTIVE:\n")
-                val subjects = listOf("mat", "turkce", "fen", "sosyal", "ing")
-                for (g in 1..7) {
-                    val subjRows = activeByGradeSubjectDiff.filter { it.grade == g }.groupBy { it.subject }
-                    val line = subjects.joinToString("  ") { subj ->
-                        val diffs = subjRows[subj].orEmpty()
-                        val e = diffs.firstOrNull { it.difficulty == 0 }?.count ?: 0
-                        val m = diffs.firstOrNull { it.difficulty == 1 }?.count ?: 0
-                        val h = diffs.firstOrNull { it.difficulty == 2 }?.count ?: 0
-                        "$subj(E=$e M=$m H=$h)"
+                    // Temporarily disabled detailed sections:
+                    // - grade dağılımı
+                    // - grade+subject+diff
+                    // - duplicate stemHash section
+
+                    auditText = db.appMetaDao().get("seed_audit_latest") ?: ""
+                } catch (e: Exception) {
+                    if (sb.isEmpty()) {
+                        sb.append("TOTAL / ACTIVE\n")
+                        sb.append("- / -\n")
+                        sb.append("invalid grade: -\n")
                     }
-                    sb.append("  grade=$g: $line\n")
+                    sb.append("\nERROR: ${e.message ?: e.javaClass.simpleName}")
                 }
-                sb.append("\n")
-
-                // 4) Seçili mod / sınıf
-                val mode = gradePrefs.getSelectedMode()
-                sb.append(if (mode == LevelMode.LGS) "Seçili Mod: LGS"
-                    else if (selectedGrade == com.brainbuddy.app.core.GradePrefs.GRADE_JUNIOR) "Seçili Sınıf: Junior"
-                    else "Seçili Sınıf: $selectedGrade. Sınıf")
-                sb.append(", zorluk: ${difficulty.name}\n\n")
-
-                // 4b) LGS pool (when LGS mode selected)
-                if (mode == LevelMode.LGS) {
-                    val lgsTotal = dao.countLgsActive()
-                    val lgsBySubject = dao.getLgsCountsBySubject().associate { it.subject to it.count }
-                    val lgsByDiff = dao.getLgsCountsByDifficulty().associate { it.difficulty to it.count }
-                    val required = mapOf("mat" to 4, "turkce" to 4, "fen" to 4, "inkilap" to 3, "din" to 3, "ing" to 2)
-                    val subjects = listOf("mat", "turkce", "fen", "inkilap", "din", "ing")
-                    sb.append("LGS havuzu (examType=LGS):\n")
-                    sb.append("  Toplam aktif: $lgsTotal\n")
-                    sb.append("  Ders bazında: ")
-                    sb.append(subjects.joinToString(" ") { "$it=${lgsBySubject[it] ?: 0}" })
-                    sb.append("\n")
-                    sb.append("  Zorluk (0=Kolay 1=Orta 2=Zor): ")
-                    sb.append(listOf(0, 1, 2).joinToString(" ") { "diff$it=${lgsByDiff[it] ?: 0}" })
-                    sb.append("\n")
-                    val enough = subjects.all { (lgsBySubject[it] ?: 0) >= (required[it] ?: 0) }
-                    sb.append(if (enough) "  ✓ 20 soruluk LGS testi için yeterli\n"
-                        else "  ⚠ 20 soruluk LGS testi için YETERSİZ (MAT≥4 TURKCE≥4 FEN≥4 INKILAP≥3 DIN≥3 ING≥2)\n")
-                    val inactiveLow = dao.countLgsInactiveLowQuality()
-                    if (inactiveLow > 0 || lgsTotal > 0) {
-                        val avgBySubj = dao.getLgsAvgQualityBySubject()
-                        val newGenBySubj = dao.getLgsNewGenCountBySubject()
-                        sb.append("  LGS Kalite: aktif=$lgsTotal, pasif(düşük)=$inactiveLow\n")
-                        if (avgBySubj.isNotEmpty()) {
-                            sb.append("  Ort. qualityScore: ")
-                            sb.append(avgBySubj.joinToString(" ") { "${it.subject}=${it.avgQualityScore.toInt()}" })
-                            sb.append("\n")
-                        }
-                        if (newGenBySubj.isNotEmpty()) {
-                            sb.append("  Yeni nesil oranı: ")
-                            sb.append(newGenBySubj.joinToString(" ") { row ->
-                                val pct = if (row.totalCount > 0) (row.newGenCount * 100 / row.totalCount) else 0
-                                "${row.subject}=${pct}%"
-                            })
-                            sb.append("\n")
-                        }
-                    }
-                    // MAT LGS pool (math-only summary)
-                    val matActive = lgsBySubject["mat"] ?: 0
-                    val matByDiff = dao.getLgsCountsByDifficultyForSubject("mat").associate { it.difficulty to it.count }
-                    val matByType = dao.getLgsCountsByQuestionTypeForSubject("mat")
-                    val matAvgQuality = dao.getLgsAvgQualityBySubject().firstOrNull { it.subject == "mat" }?.avgQualityScore
-                    val matNewGen = dao.getLgsNewGenCountBySubject().firstOrNull { it.subject == "mat" }
-                    val matInactive = dao.countLgsInactiveLowQualityBySubject("mat")
-                    sb.append("  MAT LGS (math-only): aktif=$matActive, pasif=$matInactive\n")
-                    sb.append("  MAT zorluk: ")
-                    sb.append(listOf(0, 1, 2).joinToString(" ") { "diff$it=${matByDiff[it] ?: 0}" })
-                    sb.append("\n")
-                    sb.append("  MAT questionType: ")
-                    sb.append(matByType.joinToString(" ") { "${it.questionType}=${it.count}" }.ifEmpty { "(yok)" })
-                    sb.append("\n")
-                    if (matAvgQuality != null) sb.append("  MAT ort. qualityScore: ${matAvgQuality.toInt()}\n")
-                    if (matNewGen != null && matNewGen.totalCount > 0) {
-                        val ratio = matNewGen.newGenCount * 100 / matNewGen.totalCount
-                        sb.append("  MAT yeni nesil oranı: ${ratio}%\n")
-                    } else if (matActive > 0) sb.append("  MAT yeni nesil oranı: 0%\n")
-                    sb.append("\n")
-                }
-
-                // 5) Zorluk aralık dışı
-                if (diffOutOfRange > 0) {
-                    sb.append("⚠ Zorluk aralık dışı (0–2 dışı): $diffOutOfRange soru\n\n")
-                }
-
-                // 6) TOP 20 duplicate stemHash
-                sb.append("TOP 20 duplicate stemHash (aynı grade+subject içinde):\n")
-                if (duplicates.isEmpty()) {
-                    sb.append("  (yok)\n")
-                } else {
-                    duplicates.forEachIndexed { i, row ->
-                        sb.append("  ${i + 1}. grade=${row.grade} ${row.subject} hash=${row.stemHash.take(12)}… cnt=${row.cnt}\n")
-                    }
-                }
-
-                val auditText = db.appMetaDao().get("seed_audit_latest") ?: ""
                 sb.toString().trimEnd() to auditText
             }
             tv.text = summary
