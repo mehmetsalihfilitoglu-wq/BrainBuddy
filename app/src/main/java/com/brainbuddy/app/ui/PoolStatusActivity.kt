@@ -50,7 +50,25 @@ class PoolStatusActivity : AppCompatActivity() {
         layoutDebugFix.visibility = if (BuildConfig.DEBUG) View.VISIBLE else View.GONE
 
         setupFixButtons()
-        renderStatus()
+
+        // Brute-force DB summary (bypass old summary builder completely).
+        val tvSummary = findViewById<TextView>(R.id.tvPoolStatus)
+        lifecycleScope.launch {
+            val text = try {
+                val (total, active, invalid) = withContext(Dispatchers.IO) {
+                    val db = DatabaseProvider.get(this@PoolStatusActivity)
+                    val dao = db.questionDao()
+                    Triple(dao.countAll(), dao.countAllActive(), dao.countInvalidGrades())
+                }
+                "TOTAL / ACTIVE\n" +
+                    "$total / $active\n\n" +
+                    "Invalid grade\n" +
+                    "$invalid"
+            } catch (e: Exception) {
+                "DB READ FAILED: ${e.message ?: e.javaClass.simpleName}"
+            }
+            tvSummary.text = text
+        }
     }
 
     private fun getPoolStatusGradeLabel(): String {
