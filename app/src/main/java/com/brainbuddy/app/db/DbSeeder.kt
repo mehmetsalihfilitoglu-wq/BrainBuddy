@@ -88,6 +88,7 @@ object DbSeeder {
         Log.i(TAG, "seedIfNeeded entered (CURRENT_DB_SEED_VERSION=$CURRENT_DB_SEED_VERSION)")
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
+        val questionDao = db.questionDao()
 
         // Versioned seeding: allows safe re-import when packs/assets grow.
         val storedVersionStr = meta.get(KEY_DB_SEED_VERSION)
@@ -97,10 +98,21 @@ object DbSeeder {
             legacySeededFlag == "true" -> 1 // previous apps that only had boolean flag
             else -> 0
         }
-        Log.i(TAG, "seedIfNeeded stored db_seed_version=$storedVersionStr legacySeeded=$legacySeededFlag computedStoredVersion=$storedVersion skip=${storedVersion >= CURRENT_DB_SEED_VERSION}")
-        if (storedVersion >= CURRENT_DB_SEED_VERSION) {
+        val count = try {
+            questionDao.countAll()
+        } catch (_: Exception) {
+            0
+        }
+        Log.i(
+            TAG,
+            "seedIfNeeded stored db_seed_version=$storedVersionStr legacySeeded=$legacySeededFlag computedStoredVersion=$storedVersion dbCount=$count skip=${storedVersion >= CURRENT_DB_SEED_VERSION && count > 0}"
+        )
+        if (storedVersion >= CURRENT_DB_SEED_VERSION && count > 0) {
             Log.d(TAG, "Seed already up to date (version=$storedVersion), skip")
             return@withContext false
+        }
+        if (storedVersion >= CURRENT_DB_SEED_VERSION && count == 0) {
+            Log.d("SEED_DEBUG", "Seed forced because DB is empty")
         }
 
         Log.i(TAG, "performSeed will run (storedVersion=$storedVersion < $CURRENT_DB_SEED_VERSION)")
