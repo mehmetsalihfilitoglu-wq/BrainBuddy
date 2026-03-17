@@ -85,7 +85,7 @@ interface QuestionDao {
 
     /** İlk seed sırasında id bazlı INSERT IGNORE. */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertAllIgnore(questions: List<QuestionEntity>)
+    suspend fun insertAllIgnore(questions: List<QuestionEntity>): LongArray
 
     @Query("SELECT * FROM questions WHERE isActive = 1 ORDER BY id")
     suspend fun getActiveQuestions(): List<QuestionEntity>
