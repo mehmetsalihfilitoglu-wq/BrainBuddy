@@ -160,12 +160,16 @@ object DbSeeder {
 
         Log.i(TAG, "Seed load complete: ${items.size} questions from assets+imported before dedup")
 
-        // (grade, subject, stemHash) dedup: batch içinde tekrarları at
-        val stemKey = { e: QuestionEntity ->
-            val h = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
-            "${e.grade}|${e.subject}|$h"
+        // Dedup: only remove near-exact duplicates (keep intentional variants).
+        // Do NOT dedup based on stem similarity alone.
+        val dedupKey = { e: QuestionEntity ->
+            val stemHash = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
+            val optionsNorm = e.optionsJson.trim()
+            val explNorm = (e.explanation ?: "").trim()
+            // Include fields that distinguish intentional variants, while still collapsing exact copies.
+            "${e.grade}|${e.subject}|d=${e.difficulty}|a=${e.answerIndex}|stem=$stemHash|opt=${optionsNorm.hashCode()}|ex=${explNorm.hashCode()}"
         }
-        val dedupedItems = items.distinctBy { stemKey(it.entity) }
+        val dedupedItems = items.distinctBy { dedupKey(it.entity) }
         if (dedupedItems.size < items.size) {
             Log.i(TAG, "Seed dedup: ${items.size} -> ${dedupedItems.size} (dropped ${items.size - dedupedItems.size} in-batch duplicates)")
         }
