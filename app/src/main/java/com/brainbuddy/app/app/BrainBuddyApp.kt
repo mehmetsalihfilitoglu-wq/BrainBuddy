@@ -45,9 +45,11 @@ class BrainBuddyApp : Application() {
         LeagueScheduler.scheduleNextReset(this)
 
         CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
+            Log.i(PERSISTENCE_LOG_TAG, "Seed started ASYNC (not awaited); UI may show before seed completes")
             withContext(Dispatchers.IO) {
                 logStartupPersistenceAsync(this@BrainBuddyApp)
-                DbSeeder.seedIfNeeded(this@BrainBuddyApp)
+                val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
+                Log.i(PERSISTENCE_LOG_TAG, "Seed finished async: didSeed=$didSeed")
             }
         }
 

@@ -35,6 +35,7 @@ object DbSeeder {
     private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
     suspend fun seedIfNeeded(context: Context): Boolean = withContext(Dispatchers.IO) {
+        Log.i(TAG, "seedIfNeeded entered (CURRENT_DB_SEED_VERSION=$CURRENT_DB_SEED_VERSION)")
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
 
@@ -46,11 +47,13 @@ object DbSeeder {
             legacySeededFlag == "true" -> 1 // previous apps that only had boolean flag
             else -> 0
         }
+        Log.i(TAG, "seedIfNeeded stored db_seed_version=$storedVersionStr legacySeeded=$legacySeededFlag computedStoredVersion=$storedVersion skip=${storedVersion >= CURRENT_DB_SEED_VERSION}")
         if (storedVersion >= CURRENT_DB_SEED_VERSION) {
             Log.d(TAG, "Seed already up to date (version=$storedVersion), skip")
             return@withContext false
         }
 
+        Log.i(TAG, "performSeed will run (storedVersion=$storedVersion < $CURRENT_DB_SEED_VERSION)")
         performSeed(db, meta, context)
     }
 
@@ -108,9 +111,11 @@ object DbSeeder {
         meta: AppMetaDao,
         context: Context
     ): Boolean {
+        Log.i(TAG, "performSeed started")
         val questions = mutableListOf<QuestionEntity>()
         try {
-            questions.addAll(loadFromAssets(context))
+            val fromAssets = loadFromAssets(context)
+            questions.addAll(fromAssets)
             val imported = loadFromImported(context)
             val existingIds = questions.map { it.id }.toSet()
             imported.filter { it.id !in existingIds }.forEach { questions.add(it) }
@@ -118,6 +123,7 @@ object DbSeeder {
             Log.e(TAG, "Seed load error", e)
         }
         if (questions.isEmpty()) {
+            Log.w(TAG, "performSeed: no questions from assets/imported, adding fallback entities")
             questions.addAll(getFallbackEntities())
         }
 
@@ -135,11 +141,12 @@ object DbSeeder {
 
         val questionDao = db.questionDao()
         val countBefore = questionDao.countAll()
+        Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedList.size} DB countBefore=$countBefore")
         questionDao.insertAllIgnore(dedupedList)
         val countAfter = questionDao.countAll()
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
-        Log.i(TAG, "Seeded ${dedupedList.size} questions (INSERT IGNORE, stemHash dedup, version=$CURRENT_DB_SEED_VERSION); DB total before=$countBefore after=$countAfter")
+        Log.i(TAG, "performSeed done: inserted batch=${dedupedList.size} DB total before=$countBefore after=$countAfter (seed complete)")
 
         // Import sonrası havuz doğrulama
         try {
@@ -166,6 +173,7 @@ object DbSeeder {
                 Log.w(TAG, "Root file $assetName error: ${e.message}")
             }
         }
+        val rootCount = all.size
 
         // 2) Grade 1..8 × subject pack JSONs under assets/packs (recursive, GENERAL).
         val packFiles = discoverPackAssetFilesRecursive(context)
@@ -184,6 +192,7 @@ object DbSeeder {
                 Log.w(TAG, "Pack load error for $assetPath: ${e.message}")
             }
         }
+        val packCount = all.size - rootCount
 
         // 3) Grade-based packs that currently live under assets/lgs_import/** but are NOT true LGS exam-only content.
         //    Bunlar MEB müfredatına göre 1–7. sınıf ders paketi olup normal GENERAL havuzunda görünmelidir.
@@ -196,6 +205,7 @@ object DbSeeder {
         } catch (e: Exception) {
             Log.w(TAG, "Failed to load grade-based packs from lgs_import as GENERAL: ${e.message}")
         }
+        val lgsImportCount = all.size - rootCount - packCount
 
         // 4) Programmatically üretilen 6. sınıf genişletme paketleri.
         // Pack dosyalarında yeterli soru varsa (>= TARGET_QUESTIONS_PER_SUBJECT) atlanır.
@@ -207,7 +217,9 @@ object DbSeeder {
         } else {
             Log.i(TAG, "Grade 6 packs have sufficient questions (>= $TARGET_QUESTIONS_PER_SUBJECT per subject), skip synthetic")
         }
+        val syntheticCount = all.size - rootCount - packCount - lgsImportCount
 
+        Log.i(TAG, "loadBySource: root=$rootCount packs=$packCount lgs_import=$lgsImportCount synthetic=$syntheticCount total=${all.size}")
         return all
     }
 

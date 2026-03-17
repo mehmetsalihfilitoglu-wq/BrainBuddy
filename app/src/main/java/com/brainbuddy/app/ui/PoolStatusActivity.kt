@@ -15,6 +15,7 @@ import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.db.RoomQuizDataStore
 import com.brainbuddy.app.quiz.formatLgsMatSummaryText
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
@@ -218,6 +219,7 @@ class PoolStatusActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             val summary = withContext(Dispatchers.IO) {
+                RoomQuizDataStore(this@PoolStatusActivity).ensureSeeded()
                 val db = DatabaseProvider.get(this@PoolStatusActivity)
                 val dao = db.questionDao()
 
