@@ -1224,7 +1224,12 @@ object DbSeeder {
         optionsJson: String, answerIndex: Int, explanation: String
     ): QuestionEntity {
         val stemNorm = QuestionStemHash.normalizeStem(questionText)
-        val hash = QuestionStemHash.stemHash(questionText)
+        val opts = try {
+            (0 until JSONArray(optionsJson).length()).map { i -> JSONArray(optionsJson).optString(i, "") }
+        } catch (_: Exception) {
+            emptyList()
+        }
+        val hash = if (opts.isNotEmpty()) QuestionStemHash.stemHash(questionText, opts, answerIndex) else QuestionStemHash.stemHash(questionText)
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -1387,9 +1392,10 @@ object DbSeeder {
         val examType = o.optString("examType", "GENERAL").takeIf { it.isNotBlank() }
         val imageAsset = o.optString("imageAsset", "").takeIf { it.isNotBlank() }
 
-        // id: varsa kullan, yoksa grade+subject+index tabanlı üret
+        // id: varsa kullan, yoksa içerik tabanlı deterministik üret (dosya bazlı index çakışmalarını önler).
         val explicitId = o.optString("id", "").takeIf { it.isNotBlank() }
-        val id = explicitId ?: "${grade}_${subjectKey}_${(index + 1).toString().padStart(6, '0')}"
+        val deterministicHash = QuestionStemHash.stemHash(questionText, padded, answerIndex)
+        val id = explicitId ?: "${grade}_${subjectKey}_d${difficulty}_${deterministicHash.take(12)}"
 
         // Kalite gate: düşük kaliteli soruları pasifleştir, deactivationReason sakla.
         val subjectEnum = when (subjectKey) {
@@ -1416,7 +1422,7 @@ object DbSeeder {
         val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, questionText)
 
         val stemNorm = QuestionStemHash.normalizeStem(questionText)
-        val hash = QuestionStemHash.stemHash(questionText)
+        val hash = QuestionStemHash.stemHash(questionText, padded, answerIndex)
 
         return QuestionEntity(
             id = id,
@@ -1500,7 +1506,7 @@ object DbSeeder {
         val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, spec.stem)
 
         val stemNorm = QuestionStemHash.normalizeStem(spec.stem)
-        val hash = QuestionStemHash.stemHash(spec.stem)
+        val hash = QuestionStemHash.stemHash(spec.stem, paddedOptions, answerIndex)
 
         return QuestionEntity(
             id = id,

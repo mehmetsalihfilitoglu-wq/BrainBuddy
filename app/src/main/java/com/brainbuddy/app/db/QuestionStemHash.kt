@@ -51,4 +51,21 @@ object QuestionStemHash {
         val digest = MessageDigest.getInstance("SHA-256").digest(bytes)
         return digest.joinToString("") { "%02x".format(it) }
     }
+
+    /**
+     * Hash for uniqueness/dedup that includes answer/options so variants don't collide.
+     * Still uses normalized stem to collapse exact template copies.
+     */
+    fun stemHash(stem: String, options: List<String>, answerIndex: Int): String {
+        val normalizedStem = normalizeStem(stem)
+        val normalizedOptions = options.joinToString("|") { opt ->
+            opt.lowercase(Locale("tr"))
+                .replace(Regex("\\s+"), " ")
+                .trim()
+        }
+        val payload = normalizedStem + "||" + normalizedOptions + "||" + answerIndex.toString()
+        val bytes = payload.toByteArray(Charset.forName("UTF-8"))
+        val digest = MessageDigest.getInstance("SHA-256").digest(bytes)
+        return digest.joinToString("") { "%02x".format(it) }
+    }
 }
