@@ -259,11 +259,12 @@ object DbSeeder {
         }
         val lgsImportCount = all.size - rootCount - packCount
 
-        // 4) Root subject dirs under assets/lgs_import/{mat,fen,turkce,din,english,inkilap} (recursive).
+        // 4) LGS-root subject dirs under assets/lgs_import/{mat,fen,din,english,inkilap} (recursive).
+        // These are NOT grade banks; they are treated as LGS-root mode only.
         try {
-            val lgsRootDirs = loadFromLgsRootSubjectDirs(context)
+            val lgsRootDirs = loadFromLgsRootSubjectDirsAsLgs(context)
             if (lgsRootDirs.isNotEmpty()) {
-                Log.i(TAG, "Loaded ${lgsRootDirs.size} questions from lgs_import/* root subject dirs")
+                Log.i(TAG, "Loaded ${lgsRootDirs.size} questions from lgs_import/* root subject dirs as LGS")
                 all += lgsRootDirs
             }
         } catch (e: Exception) {
@@ -283,7 +284,7 @@ object DbSeeder {
         }
         val syntheticCount = all.size - rootCount - packCount - lgsImportCount - lgsImportRootDirsCount
 
-        Log.i(TAG, "loadBySource: root=$rootCount packs=$packCount lgs_import_gradePacks=$lgsImportCount lgs_import_rootDirs=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}")
+        Log.i(TAG, "loadBySource: root=$rootCount packs=$packCount lgs_import_gradePacks=$lgsImportCount lgs_import_rootDirs(LGS)=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}")
         return all
     }
 
@@ -295,9 +296,22 @@ object DbSeeder {
      * - grade is inferred from path if possible (e.g. ".../fen7/..." -> 7)
      * - if missing/unknown, defaults to 6 (never 8)
      */
-    private fun loadFromLgsRootSubjectDirs(context: Context): List<QuestionEntity> {
+    /**
+     * LGS-root mode loader (non-grade).
+     *
+     * Root subject folders (no trailing digit) are treated as LGS-only:
+     * - lgs_import/mat
+     * - lgs_import/fen
+     * - lgs_import/din
+     * - lgs_import/english
+     * - lgs_import/inkilap
+     *
+     * Grade is NOT inferred from solving bank logic here. We store grade=7 as a safe in-range placeholder
+     * because the LGS picker relies on examType='LGS' rather than grade filtering.
+     */
+    private fun loadFromLgsRootSubjectDirsAsLgs(context: Context): List<QuestionEntity> {
         val assets = context.assets
-        val rootFolders = listOf("mat", "fen", "turkce", "din", "english", "inkilap")
+        val rootFolders = listOf("mat", "fen", "din", "english", "inkilap")
         val out = mutableListOf<QuestionEntity>()
 
         for (folder in rootFolders) {
@@ -313,22 +327,23 @@ object DbSeeder {
                         "english" -> "ing"
                         else -> folder.lowercase()
                     }
-                    val derivedGrade = deriveGradeFromAssetPath(assetPath)?.takeIf { it in 1..7 } ?: 6
+                    val lgsGradePlaceholder = 7
 
                     val trimmed = json.trimStart()
                     val entities: List<QuestionEntity> = when {
                         trimmed.startsWith("{") -> {
                             val root = JSONObject(json)
                             val arr = root.optJSONArray("questions") ?: JSONArray()
-                            parseWrappedQuestionArrayStrict(root, arr, assetPath, derivedGrade, subjectKey)
+                            parseWrappedQuestionArrayStrict(root, arr, assetPath, lgsGradePlaceholder, subjectKey)
                         }
                         trimmed.startsWith("[") -> {
-                            parseJsonArrayWithDefaultsStrict(JSONArray(json), derivedGrade, subjectKey)
+                            parseJsonArrayWithDefaultsStrict(JSONArray(json), lgsGradePlaceholder, subjectKey)
                         }
                         else -> emptyList()
                     }
                     if (entities.isNotEmpty()) {
-                        out += entities
+                        // Force LGS-root mode: examType=LGS; grade must be 1..7 (use placeholder).
+                        out += entities.map { it.copy(examType = "LGS", grade = lgsGradePlaceholder) }
                         loadedForFolder += entities.size
                     }
                 } catch (_: Exception) {
