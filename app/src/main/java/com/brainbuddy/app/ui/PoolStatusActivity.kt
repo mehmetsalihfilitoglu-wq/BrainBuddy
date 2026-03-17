@@ -83,8 +83,10 @@ class PoolStatusActivity : AppCompatActivity() {
         return buildString {
             appendLine("SEED DEBUG")
             appendLine("seedIfNeeded triggered: ${yn(DbSeeder.getLastSeedIfNeededTriggered())}")
+            appendLine("force reseed clicked: ${yn(DbSeeder.getLastForceReseedClicked())}")
             appendLine("force reseed started: ${yn(DbSeeder.getLastForceReseedStarted())}")
             appendLine("force reseed ended: ${yn(DbSeeder.getLastForceReseedEnded())}")
+            appendLine("performSeed entered: ${yn(DbSeeder.getLastPerformSeedEntered())}")
             appendLine("about to insert size: ${intOrUnknown(DbSeeder.getLastAboutToInsertSize())}")
             append("after insert DB count: ${intOrUnknown(DbSeeder.getLastAfterInsertDbCount())}")
         }
@@ -220,6 +222,7 @@ class PoolStatusActivity : AppCompatActivity() {
             .setOnClickListener {
                 lifecycleScope.launch {
                     android.util.Log.d("SEED_DEBUG", "FORCE RESEED CLICKED")
+                    DbSeeder.markForceReseedClicked()
                     android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) START")
                     DbSeeder.markForceReseedStarted()
                     // This is awaited (suspends) — not fire-and-forget.

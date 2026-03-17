@@ -37,16 +37,24 @@ object DbSeeder {
 
     // ---- SEED_DEBUG runtime markers (no-Logcat UI consumption) ----
     @Volatile private var lastSeedIfNeededTriggered: Boolean? = null
+    @Volatile private var lastForceReseedClicked: Boolean? = null
     @Volatile private var lastForceReseedStarted: Boolean? = null
     @Volatile private var lastForceReseedEnded: Boolean? = null
+    @Volatile private var lastPerformSeedEntered: Boolean? = null
     @Volatile private var lastAboutToInsertSize: Int? = null
     @Volatile private var lastAfterInsertDbCount: Int? = null
 
     fun getLastSeedIfNeededTriggered(): Boolean? = lastSeedIfNeededTriggered
+    fun getLastForceReseedClicked(): Boolean? = lastForceReseedClicked
     fun getLastForceReseedStarted(): Boolean? = lastForceReseedStarted
     fun getLastForceReseedEnded(): Boolean? = lastForceReseedEnded
+    fun getLastPerformSeedEntered(): Boolean? = lastPerformSeedEntered
     fun getLastAboutToInsertSize(): Int? = lastAboutToInsertSize
     fun getLastAfterInsertDbCount(): Int? = lastAfterInsertDbCount
+
+    fun markForceReseedClicked() {
+        lastForceReseedClicked = true
+    }
 
     fun markForceReseedStarted() {
         lastForceReseedStarted = true
@@ -175,6 +183,7 @@ object DbSeeder {
         context: Context
     ): Boolean {
         Log.d("SEED_DEBUG", "performSeed ENTERED")
+        lastPerformSeedEntered = true
         Log.i(TAG, "performSeed started")
         val items = mutableListOf<SeedItem>()
         val lgsAudit = LgsImportAudit()
