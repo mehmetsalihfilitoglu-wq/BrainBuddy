@@ -116,6 +116,7 @@ object DbSeeder {
         }
 
         Log.i(TAG, "performSeed will run (storedVersion=$storedVersion < $CURRENT_DB_SEED_VERSION)")
+        Log.d("SEED_DEBUG", "Calling performSeed now")
         performSeed(db, meta, context)
     }
 
@@ -173,6 +174,7 @@ object DbSeeder {
         meta: AppMetaDao,
         context: Context
     ): Boolean {
+        Log.d("SEED_DEBUG", "performSeed ENTERED")
         Log.i(TAG, "performSeed started")
         val items = mutableListOf<SeedItem>()
         val lgsAudit = LgsImportAudit()

@@ -219,11 +219,11 @@ class PoolStatusActivity : AppCompatActivity() {
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnForceReseedGeneralBanks)
             .setOnClickListener {
                 lifecycleScope.launch {
+                    android.util.Log.d("SEED_DEBUG", "FORCE RESEED CLICKED")
                     android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) START")
                     DbSeeder.markForceReseedStarted()
-                    withContext(Dispatchers.IO) {
-                        DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity)
-                    }
+                    // This is awaited (suspends) — not fire-and-forget.
+                    withContext(Dispatchers.IO) { DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity) }
                     android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) END")
                     DbSeeder.markForceReseedEnded()
                     // Refresh the on-screen SEED DEBUG block immediately.
