@@ -2,6 +2,7 @@ package com.brainbuddy.app.ui
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.widget.Button
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -212,13 +213,15 @@ class PoolStatusActivity : AppCompatActivity() {
 
     private fun renderStatus() {
         val tv = findViewById<TextView>(R.id.tvPoolStatus)
+        val tvAudit = findViewById<TextView>(R.id.tvSeedAudit)
+        val btnCopyAudit = findViewById<Button>(R.id.btnCopySeedAudit)
         val gradePrefs = GradePrefs(this)
         val quizPrefs = QuizPrefs(this)
         val selectedGrade = gradePrefs.getSelectedGrade()
         val difficulty = quizPrefs.difficulty()
 
         lifecycleScope.launch {
-            val summary = withContext(Dispatchers.IO) {
+            val (summary, auditText) = withContext(Dispatchers.IO) {
                 RoomQuizDataStore(this@PoolStatusActivity).ensureSeeded()
                 val db = DatabaseProvider.get(this@PoolStatusActivity)
                 val dao = db.questionDao()
@@ -345,9 +348,24 @@ class PoolStatusActivity : AppCompatActivity() {
                     }
                 }
 
-                sb.toString().trimEnd()
+                val auditText = db.appMetaDao().get("seed_audit_latest") ?: ""
+                sb.toString().trimEnd() to auditText
             }
             tv.text = summary
+            if (!auditText.isNullOrBlank()) {
+                tvAudit.visibility = View.VISIBLE
+                btnCopyAudit.visibility = View.VISIBLE
+                tvAudit.text = auditText
+                btnCopyAudit.setOnClickListener {
+                    val clipboard = getSystemService(android.content.ClipboardManager::class.java)
+                    val clip = android.content.ClipData.newPlainText("Seed Audit", auditText)
+                    clipboard.setPrimaryClip(clip)
+                    Toast.makeText(this@PoolStatusActivity, "Seed audit copied to clipboard", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                tvAudit.visibility = View.GONE
+                btnCopyAudit.visibility = View.GONE
+            }
         }
     }
 }

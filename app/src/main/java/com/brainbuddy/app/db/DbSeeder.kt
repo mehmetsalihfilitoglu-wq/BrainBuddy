@@ -19,6 +19,7 @@ object DbSeeder {
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
+    private const val KEY_SEED_AUDIT_LATEST = "seed_audit_latest"
     private const val CURRENT_DB_SEED_VERSION = 3
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val SEED_AUDIT_TAG = "SEED_AUDIT"
@@ -164,7 +165,9 @@ object DbSeeder {
                 allItemsAfterDedup = dedupedItems,
                 insertResults = insertResults
             )
-            lgsAudit.logSummary()
+            val auditText = lgsAudit.buildSummaryText()
+            meta.set(AppMetaEntity(KEY_SEED_AUDIT_LATEST, auditText))
+            lgsAudit.logSummaryFromText(auditText)
         } catch (e: Exception) {
             Log.w(TAG, "LGS import audit failed: ${e.message}")
         }
@@ -433,7 +436,7 @@ object DbSeeder {
             return "${e.grade}|${e.subject}|$h"
         }
 
-        fun logSummary() {
+        fun buildSummaryText(): String {
             val total = FolderStats()
             fun add(t: FolderStats, s: FolderStats) {
                 t.jsonFilesFound += s.jsonFilesFound
@@ -451,14 +454,6 @@ object DbSeeder {
             }
             byFolder.values.forEach { add(total, it) }
 
-            Log.i(
-                TAG,
-                "[$SEED_AUDIT_TAG] lgs_import files=${total.jsonFilesFound} raw=${total.rawQuestionsParsed} ok=${total.validatedOk} " +
-                    "drop_invalidGrade=${total.dropInvalidGrade} drop_invalidSubject=${total.dropInvalidSubject} drop_missingFields=${total.dropMissingFields} " +
-                    "file_parseErrors=${total.fileParseErrors} file_unsupportedFormat=${total.unsupportedFormatFiles} " +
-                    "dedupDropped=${total.dedupDropped} dbConflictIgnored=${total.dbConflictIgnored} inserted=${total.dbInserted}"
-            )
-
             val buckets = listOf(
                 "invalid_grade" to total.dropInvalidGrade,
                 "invalid_subject" to total.dropInvalidSubject,
@@ -470,20 +465,51 @@ object DbSeeder {
                 "other" to total.dropOther
             )
             val biggest = buckets.maxByOrNull { it.second } ?: ("none" to 0)
-            Log.w(TAG, "[$SEED_AUDIT_TAG] biggest_drop_reason=${biggest.first} count=${biggest.second}")
+
+            val sb = StringBuilder()
+            sb.appendLine("SEED AUDIT")
+            sb.appendLine("lgs_import files=${total.jsonFilesFound} raw=${total.rawQuestionsParsed} ok=${total.validatedOk}")
+            sb.appendLine("drop_invalidGrade=${total.dropInvalidGrade}")
+            sb.appendLine("drop_invalidSubject=${total.dropInvalidSubject}")
+            sb.appendLine("drop_missingFields=${total.dropMissingFields}")
+            sb.appendLine("file_parseErrors=${total.fileParseErrors}")
+            sb.appendLine("file_unsupportedFormat=${total.unsupportedFormatFiles}")
+            sb.appendLine("dedupDropped=${total.dedupDropped}")
+            sb.appendLine("dbConflictIgnored=${total.dbConflictIgnored}")
+            sb.appendLine("inserted=${total.dbInserted}")
+            sb.appendLine("biggest_drop_reason=${biggest.first} count=${biggest.second}")
+            sb.appendLine()
 
             val order = listOf("mat", "fen", "turkce", "din", "english", "inkilap", "other")
             for (folder in order) {
                 val s = byFolder[folder] ?: continue
-                Log.i(
-                    TAG,
-                    "[$SEED_AUDIT_TAG] folder=$folder files=${s.jsonFilesFound} raw=${s.rawQuestionsParsed} ok=${s.validatedOk} " +
+                sb.appendLine("folder=$folder files=${s.jsonFilesFound} raw=${s.rawQuestionsParsed} ok=${s.validatedOk} " +
                         "invGrade=${s.dropInvalidGrade} invSubj=${s.dropInvalidSubject} miss=${s.dropMissingFields} other=${s.dropOther} " +
                         "parseErrFiles=${s.fileParseErrors} unsupportedFiles=${s.unsupportedFormatFiles} dedup=${s.dedupDropped} dbIgnore=${s.dbConflictIgnored} inserted=${s.dbInserted} " +
-                        "rootFiles=${s.rootFolderFiles ?: -1} rootLoaded=${s.rootFolderLoaded ?: -1}"
-                )
+                        "rootFiles=${s.rootFolderFiles ?: -1} rootLoaded=${s.rootFolderLoaded ?: -1}")
                 s.examples.take(3).forEach { ex ->
-                    Log.i(TAG, "[$SEED_AUDIT_TAG] drop_example folder=$folder file=${ex.file} idx=${ex.index} reason=${ex.reason} stem=${ex.stem ?: "<no-stem>"}")
+                    sb.appendLine("drop_example folder=$folder file=${ex.file} idx=${ex.index} reason=${ex.reason} stem=${ex.stem ?: "<no-stem>"}")
+                }
+            }
+            return sb.toString().trimEnd()
+        }
+
+        fun logSummaryFromText(text: String) {
+            // Still mirror the key lines into Logcat for debugging if needed.
+            text.lineSequence().forEach { line ->
+                if (line.startsWith("SEED AUDIT") ||
+                    line.startsWith("lgs_import ") ||
+                    line.startsWith("drop_invalidGrade") ||
+                    line.startsWith("drop_invalidSubject") ||
+                    line.startsWith("drop_missingFields") ||
+                    line.startsWith("file_parseErrors") ||
+                    line.startsWith("file_unsupportedFormat") ||
+                    line.startsWith("dedupDropped") ||
+                    line.startsWith("dbConflictIgnored") ||
+                    line.startsWith("inserted") ||
+                    line.startsWith("biggest_drop_reason")
+                ) {
+                    Log.i(TAG, "[$SEED_AUDIT_TAG] $line")
                 }
             }
         }
