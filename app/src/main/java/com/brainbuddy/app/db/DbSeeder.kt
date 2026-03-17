@@ -200,6 +200,10 @@ object DbSeeder {
         } catch (e: Exception) {
             Log.w(TAG, "Pool validation failed: ${e.message}")
         }
+
+        // Ensure lastSeedAudit is assigned at the very end (after insert + stats).
+        lastSeedAudit = auditText
+        Log.d("SEED_AUDIT_SAVE", "Audit saved successfully length=${auditText.length}")
         return true
     }
 
