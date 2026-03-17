@@ -17,7 +17,6 @@ import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.RoomQuizDataStore
-import com.brainbuddy.app.quiz.formatLgsMatSummaryText
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -137,7 +136,7 @@ class PoolStatusActivity : AppCompatActivity() {
                     }
                     AlertDialog.Builder(this@PoolStatusActivity)
                         .setTitle("LGS MAT Import Sonucu")
-                        .setMessage(formatLgsMatSummaryText(summary))
+                        .setMessage(summary.toString())
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
                     renderStatus()
