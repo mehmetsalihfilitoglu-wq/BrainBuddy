@@ -61,6 +61,7 @@ object DbSeeder {
     private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
     suspend fun seedIfNeeded(context: Context): Boolean = withContext(Dispatchers.IO) {
+        Log.d("SEED_DEBUG", "seedIfNeeded triggered")
         Log.i(TAG, "seedIfNeeded entered (CURRENT_DB_SEED_VERSION=$CURRENT_DB_SEED_VERSION)")
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
@@ -177,8 +178,10 @@ object DbSeeder {
         val questionDao = db.questionDao()
         val countBefore = questionDao.countAll()
         Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedItems.size} DB countBefore=$countBefore")
+        Log.d("SEED_DEBUG", "About to insert size=${dedupedItems.size}")
         val insertResults = questionDao.insertAllIgnore(dedupedItems.map { it.entity })
         val countAfter = questionDao.countAll()
+        Log.d("SEED_DEBUG", "After insert DB count=$countAfter")
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
         Log.i(TAG, "performSeed done: inserted batch=${dedupedItems.size} DB total before=$countBefore after=$countAfter (seed complete)")

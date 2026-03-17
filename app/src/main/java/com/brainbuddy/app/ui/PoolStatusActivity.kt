@@ -200,9 +200,11 @@ class PoolStatusActivity : AppCompatActivity() {
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnForceReseedGeneralBanks)
             .setOnClickListener {
                 lifecycleScope.launch {
+                    android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) START")
                     withContext(Dispatchers.IO) {
                         DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity)
                     }
+                    android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) END")
                     val summary = withContext(Dispatchers.IO) {
                         val db = DatabaseProvider.get(this@PoolStatusActivity)
                         val dao = db.questionDao()
