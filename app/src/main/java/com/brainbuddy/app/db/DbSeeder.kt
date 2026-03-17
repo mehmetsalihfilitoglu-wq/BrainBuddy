@@ -26,6 +26,7 @@ object DbSeeder {
     private const val AUDIT_EXAMPLE_LIMIT = 5
     private const val SEED_AUDIT_PREFS = "seed_audit_prefs"
     private const val SEED_AUDIT_PREFS_KEY_LATEST = "seed_audit_latest"
+    private const val BRUTE_FORCE_ONE_FILE_SEED_TEST = true
 
     // Log-once guards to avoid flooding Logcat for unsupported JSON shapes.
     private val loggedMissingStemShapes = mutableSetOf<String>()
@@ -205,34 +206,76 @@ object DbSeeder {
         Log.i(TAG, "performSeed started")
         val items = mutableListOf<SeedItem>()
         val lgsAudit = LgsImportAudit()
-        Log.d("SEED_DEBUG", "STEP 2: before loadFromAssets")
-        debugStep2BeforeLoad = true
-
-        var fromAssets: List<SeedItem> = emptyList()
-        try {
-            fromAssets = loadFromAssetsWithProvenance(context, lgsAudit)
-            debugStep3AfterLoadSize = fromAssets.size
-        } catch (e: Exception) {
-            Log.e("SEED_DEBUG", "LOAD CRASH", e)
-            debugStep3AfterLoadSize = -1
-        }
-        Log.d("SEED_DEBUG", "STEP 3: after loadFromAssets size=" + fromAssets.size)
-        items.addAll(fromAssets)
-
-        // Do NOT stop execution on error: continue pipeline even if loaded is empty.
-        runCatching {
-            val imported = loadFromImported(context)
-            val existingIds = items.map { it.entity.id }.toSet()
-            imported.filter { it.id !in existingIds }.forEach { e ->
-                items.add(SeedItem(entity = e, sourceGroup = "imported", sourceFolder = null, sourceFile = "imported_questions.json"))
+        if (BRUTE_FORCE_ONE_FILE_SEED_TEST) {
+            // Brute-force isolation test: seed from exactly ONE known asset file.
+            debugStep2BeforeLoad = true
+            val testPath = "lgs_import/mat/lgs_mat_gold_001.json"
+            try {
+                val assets = context.assets
+                val json = assets.open(testPath).use { input -> input.readBytes().toString(Charset.forName("UTF-8")) }
+                val trimmed = json.trimStart()
+                val entities: List<QuestionEntity> = when {
+                    trimmed.startsWith("{") -> {
+                        val root = JSONObject(json)
+                        val arr = root.optJSONArray("questions") ?: JSONArray()
+                        // Force grade=8 for LGS-mode content in this one-file test.
+                        parseWrappedQuestionArrayStrictAudited(
+                            root = root,
+                            arr = arr,
+                            sourceLabel = testPath,
+                            pathGrade = 8,
+                            pathSubject = "mat",
+                            allowGrade8 = true,
+                            audit = lgsAudit,
+                            folder = "mat"
+                        )
+                    }
+                    trimmed.startsWith("[") -> {
+                        // Plain array format (grade forced to 8, subject mat).
+                        parseJsonArrayWithDefaultsStrictAudited(JSONArray(json), 8, "mat", testPath, "mat", lgsAudit)
+                    }
+                    else -> emptyList()
+                }
+                entities.forEach { e -> items.add(SeedItem(entity = e, sourceGroup = "lgs_import", sourceFolder = "mat", sourceFile = testPath)) }
+                debugStep3AfterLoadSize = entities.size
+                debugStep4BeforeInsertSize = entities.size
+            } catch (e: Exception) {
+                debugStep3AfterLoadSize = -999
+                debugStep4BeforeInsertSize = -999
+                debugStep5AfterInsertCount = -999
+                debugStep6End = false
+                return false
             }
-        }.onFailure { e ->
-            Log.e(TAG, "Seed imported load error", e)
-        }
-        if (items.isEmpty()) {
-            Log.w(TAG, "performSeed: no questions from assets/imported, adding fallback entities")
-            getFallbackEntities().forEach { e ->
-                items.add(SeedItem(entity = e, sourceGroup = "fallback", sourceFolder = null, sourceFile = "fallback"))
+        } else {
+            Log.d("SEED_DEBUG", "STEP 2: before loadFromAssets")
+            debugStep2BeforeLoad = true
+
+            var fromAssets: List<SeedItem> = emptyList()
+            try {
+                fromAssets = loadFromAssetsWithProvenance(context, lgsAudit)
+                debugStep3AfterLoadSize = fromAssets.size
+            } catch (e: Exception) {
+                Log.e("SEED_DEBUG", "LOAD CRASH", e)
+                debugStep3AfterLoadSize = -1
+            }
+            Log.d("SEED_DEBUG", "STEP 3: after loadFromAssets size=" + fromAssets.size)
+            items.addAll(fromAssets)
+
+            // Do NOT stop execution on error: continue pipeline even if loaded is empty.
+            runCatching {
+                val imported = loadFromImported(context)
+                val existingIds = items.map { it.entity.id }.toSet()
+                imported.filter { it.id !in existingIds }.forEach { e ->
+                    items.add(SeedItem(entity = e, sourceGroup = "imported", sourceFolder = null, sourceFile = "imported_questions.json"))
+                }
+            }.onFailure { e ->
+                Log.e(TAG, "Seed imported load error", e)
+            }
+            if (items.isEmpty()) {
+                Log.w(TAG, "performSeed: no questions from assets/imported, adding fallback entities")
+                getFallbackEntities().forEach { e ->
+                    items.add(SeedItem(entity = e, sourceGroup = "fallback", sourceFolder = null, sourceFile = "fallback"))
+                }
             }
         }
 
