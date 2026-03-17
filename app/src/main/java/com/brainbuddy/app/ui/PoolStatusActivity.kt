@@ -82,13 +82,12 @@ class PoolStatusActivity : AppCompatActivity() {
         fun intOrUnknown(v: Int?): String = v?.toString() ?: "UNKNOWN"
         return buildString {
             appendLine("SEED DEBUG")
-            appendLine("seedIfNeeded triggered: ${yn(DbSeeder.getLastSeedIfNeededTriggered())}")
-            appendLine("force reseed clicked: ${yn(DbSeeder.getLastForceReseedClicked())}")
-            appendLine("force reseed started: ${yn(DbSeeder.getLastForceReseedStarted())}")
-            appendLine("force reseed ended: ${yn(DbSeeder.getLastForceReseedEnded())}")
-            appendLine("performSeed entered: ${yn(DbSeeder.getLastPerformSeedEntered())}")
-            appendLine("about to insert size: ${intOrUnknown(DbSeeder.getLastAboutToInsertSize())}")
-            append("after insert DB count: ${intOrUnknown(DbSeeder.getLastAfterInsertDbCount())}")
+            appendLine("STEP1 start: ${yn(DbSeeder.debugStep1Start)}")
+            appendLine("STEP2 before load: ${yn(DbSeeder.debugStep2BeforeLoad)}")
+            appendLine("STEP3 after load size: ${intOrUnknown(DbSeeder.debugStep3AfterLoadSize)}")
+            appendLine("STEP4 before insert size: ${intOrUnknown(DbSeeder.debugStep4BeforeInsertSize)}")
+            appendLine("STEP5 after insert count: ${intOrUnknown(DbSeeder.debugStep5AfterInsertCount)}")
+            append("STEP6 end: ${yn(DbSeeder.debugStep6End)}")
         }
     }
 
