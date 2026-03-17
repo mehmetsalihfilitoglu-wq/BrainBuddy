@@ -24,6 +24,9 @@ object DbSeeder {
     private const val SEED_AUDIT_TAG = "SEED_AUDIT"
     private const val AUDIT_EXAMPLE_LIMIT = 5
 
+    // Log-once guards to avoid flooding Logcat for unsupported JSON shapes.
+    private val loggedMissingStemShapes = mutableSetOf<String>()
+
     /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
     private val PACK_FILE_REGEX = Regex(
         pattern = "^grade(1|2|3|4|5|6|7|8)_(mat|turkce|fen|sosyal|ing)\\.json$",
@@ -1238,10 +1241,40 @@ object DbSeeder {
             else -> throw IllegalArgumentException("Unsupported subject '$rawSubject' at index=$index")
         }
 
-        // question text: stem (yeni şema) veya questionText (eski)
-        val questionText = o.optString("stem", "").ifBlank {
-            o.optString("questionText", "")
-        }.ifBlank {
+        // question text: support common aliases used by imported JSONs
+        fun firstNonBlankString(vararg keys: String): String? {
+            for (k in keys) {
+                val v = o.optString(k, "").trim()
+                if (v.isNotBlank() && v.lowercase() != "null") return v
+            }
+            return null
+        }
+        fun logMissingStemShapeOnce() {
+            val keys = o.keys().asSequence().toList().sorted()
+            val signature = keys.joinToString(",")
+            val shouldLog = synchronized(loggedMissingStemShapes) { loggedMissingStemShapes.add(signature) }
+            if (shouldLog) {
+                Log.d(TAG, "[$SEED_AUDIT_TAG] Unsupported question shape (missing text). keys=[$signature]")
+            }
+        }
+
+        val questionObj = o.opt("question")
+        val questionText = firstNonBlankString(
+            "stem",
+            "questionText",
+            "question",        // used in some lgs_import banks (e.g. din packs)
+            "prompt",
+            "text",
+            "question_text",
+            "stemText",
+            "questionStem"
+        ) ?: run {
+            // Nested shape: { "question": { "text": "..." } }
+            val nested = (questionObj as? JSONObject)
+            nested?.optString("stem", "")?.trim().takeIf { !it.isNullOrBlank() }
+                ?: nested?.optString("text", "")?.trim().takeIf { !it.isNullOrBlank() }
+        } ?: run {
+            logMissingStemShapeOnce()
             throw IllegalArgumentException("Missing questionText/stem at index=$index")
         }
 
