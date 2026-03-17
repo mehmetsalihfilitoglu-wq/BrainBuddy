@@ -30,6 +30,24 @@ object DbSeeder {
     // Log-once guards to avoid flooding Logcat for unsupported JSON shapes.
     private val loggedMissingStemShapes = mutableSetOf<String>()
 
+    @Volatile
+    private var lastSeedAudit: String? = null
+
+    fun getLastSeedAudit(): String? = lastSeedAudit
+
+    private fun saveLastSeedAudit(context: Context, text: String) {
+        lastSeedAudit = text
+        try {
+            context.getSharedPreferences(SEED_AUDIT_PREFS, Context.MODE_PRIVATE)
+                .edit()
+                .putString(SEED_AUDIT_PREFS_KEY_LATEST, text)
+                .apply()
+        } catch (_: Exception) {
+            // ignore: UI can still read in-memory audit
+        }
+        Log.d("SEED_AUDIT_SAVE", "Audit saved length=${text.length}")
+    }
+
     /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
     private val PACK_FILE_REGEX = Regex(
         pattern = "^grade(1|2|3|4|5|6|7|8)_(mat|turkce|fen|sosyal|ing)\\.json$",
@@ -161,23 +179,20 @@ object DbSeeder {
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
         Log.i(TAG, "performSeed done: inserted batch=${dedupedItems.size} DB total before=$countBefore after=$countAfter (seed complete)")
 
-        try {
+        val auditText: String = runCatching {
             lgsAudit.finish(
                 allItemsBeforeDedup = items,
                 allItemsAfterDedup = dedupedItems,
                 insertResults = insertResults
             )
-            val auditText = lgsAudit.buildSummaryText()
-            meta.set(AppMetaEntity(KEY_SEED_AUDIT_LATEST, auditText))
-            // Also persist to SharedPreferences so UI can show it without DB queries.
-            context.getSharedPreferences(SEED_AUDIT_PREFS, Context.MODE_PRIVATE)
-                .edit()
-                .putString(SEED_AUDIT_PREFS_KEY_LATEST, auditText)
-                .apply()
-            lgsAudit.logSummaryFromText(auditText)
-        } catch (e: Exception) {
-            Log.w(TAG, "LGS import audit failed: ${e.message}")
+            lgsAudit.buildSummaryText()
+        }.getOrElse { e ->
+            "SEED AUDIT\n(unavailable) error=${e.javaClass.simpleName}: ${e.message ?: ""}".trimEnd()
         }
+        // Always persist something so the UI never shows blank.
+        saveLastSeedAudit(context, auditText)
+        runCatching { meta.set(AppMetaEntity(KEY_SEED_AUDIT_LATEST, auditText)) }
+        runCatching { lgsAudit.logSummaryFromText(auditText) }
 
         // Import sonrası havuz doğrulama
         try {

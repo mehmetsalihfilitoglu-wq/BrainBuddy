@@ -38,7 +38,8 @@ class PoolStatusActivity : AppCompatActivity() {
         runCatching {
             val tvAudit = findViewById<TextView>(R.id.tvSeedAudit)
             val prefs = getSharedPreferences("seed_audit_prefs", MODE_PRIVATE)
-            val auditText = prefs.getString("seed_audit_latest", null)
+            val auditText = DbSeeder.getLastSeedAudit()
+                ?: prefs.getString("seed_audit_latest", null)
             val visibleText = auditText?.takeIf { it.isNotBlank() } ?: "No SEED_AUDIT data yet"
             tvAudit.visibility = View.VISIBLE
             tvAudit.text = visibleText
