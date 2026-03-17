@@ -34,13 +34,11 @@ class PoolStatusActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_pool_status)
 
-        // Brute-force UI sanity check (no DB / seeding dependency).
-        findViewById<TextView>(R.id.tvSeedAudit).apply {
-            visibility = View.VISIBLE
-            text = "TV_SEED_AUDIT_WORKS"
-        }
-
-        // NOTE: seed audit wiring intentionally bypassed for brute-force UI test.
+        // Show latest SEED_AUDIT immediately on screen (no DB / renderStatus dependency).
+        val tvSeedAudit = findViewById<TextView>(R.id.tvSeedAudit)
+        val audit = DbSeeder.getLastSeedAudit()
+        tvSeedAudit.text = audit ?: "NO AUDIT FOUND"
+        tvSeedAudit.visibility = View.VISIBLE
 
         val toolbar = findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
