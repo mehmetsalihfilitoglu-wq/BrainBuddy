@@ -174,9 +174,14 @@ class PoolStatusActivity : AppCompatActivity() {
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnForceReseedGeneralBanks)
             .setOnClickListener {
                 lifecycleScope.launch {
-                    withContext(Dispatchers.IO) {
+                    val ok = withContext(Dispatchers.IO) {
                         DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity)
                     }
+                    Toast.makeText(
+                        this@PoolStatusActivity,
+                        if (ok) "Reseed successful" else "Reseed failed, old database preserved",
+                        Toast.LENGTH_LONG
+                    ).show()
                     val summary = withContext(Dispatchers.IO) {
                         val db = DatabaseProvider.get(this@PoolStatusActivity)
                         val dao = db.questionDao()

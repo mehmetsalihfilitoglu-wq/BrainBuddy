@@ -41,7 +41,7 @@ class GradePrefs(private val context: Context) {
         return when {
             raw in 1..7 -> raw
             raw == 0 -> 0  // Junior
-            else -> -1
+            else -> 6
         }
     }
 

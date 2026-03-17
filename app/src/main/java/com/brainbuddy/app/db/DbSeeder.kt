@@ -2,6 +2,7 @@ package com.brainbuddy.app.db
 
 import android.content.Context
 import android.util.Log
+import androidx.room.withTransaction
 import com.brainbuddy.app.quiz.QuestionQualityGate
 import com.brainbuddy.app.quiz.QuestionDiversity
 import com.brainbuddy.app.quiz.Subject
@@ -74,18 +75,30 @@ object DbSeeder {
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
 
-        try {
-            Log.w(TAG, "Force reseed requested – deleting all questions and reseeding from assets/imported JSON.")
-            questionDao.deleteAll()
-        } catch (e: Exception) {
-            Log.e(TAG, "Force reseed deleteAll() failed", e)
+        // SAFE/transactional: load first, only then replace DB.
+        val toInsert = buildSeedQuestions(context)
+        if (toInsert.isEmpty()) {
+            Log.e(TAG, "Force reseed aborted: loaded=0, preserving existing DB")
+            return@withContext false
         }
 
         // Version alanlarını güncel sürüme çek – böylece sonraki açılışlarda tekrar seedIfNeeded tetiklenmez.
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "false"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, "0"))
-
-        performSeed(db, meta, context)
+        return@withContext try {
+            db.withTransaction {
+                questionDao.deleteAll()
+                // Use REPLACE so the final DB exactly matches the loaded seed set.
+                questionDao.insertAll(toInsert)
+                meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
+                meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
+            }
+            Log.i(TAG, "Force reseed successful: inserted=${toInsert.size}")
+            true
+        } catch (e: Exception) {
+            Log.e(TAG, "Force reseed failed, old database may be preserved", e)
+            false
+        }
     }
 
     /**
@@ -96,15 +109,49 @@ object DbSeeder {
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
-        try {
-            Log.w(TAG, "Force reseed GENERAL: deleting only GENERAL questions, keeping LGS intact.")
-            questionDao.deleteGeneralQuestions()
-        } catch (e: Exception) {
-            Log.e(TAG, "Force reseed deleteGeneralQuestions failed", e)
+        // SAFE/transactional: load first, only then replace GENERAL rows.
+        val toInsert = buildSeedQuestions(context)
+        if (toInsert.isEmpty()) {
+            Log.e(TAG, "Force reseed GENERAL aborted: loaded=0, preserving existing DB")
+            return@withContext false
         }
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "false"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, "0"))
-        performSeed(db, meta, context)
+        return@withContext try {
+            db.withTransaction {
+                // Keep LGS rows intact; replace only GENERAL.
+                questionDao.deleteGeneralQuestions()
+                questionDao.insertAll(toInsert.filter { (it.examType ?: "GENERAL") != "LGS" })
+                meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
+                meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
+            }
+            Log.i(TAG, "Force reseed GENERAL successful: inserted=${toInsert.size}")
+            true
+        } catch (e: Exception) {
+            Log.e(TAG, "Force reseed GENERAL failed, old database preserved", e)
+            false
+        }
+    }
+
+    private fun buildSeedQuestions(context: Context): List<QuestionEntity> {
+        val questions = mutableListOf<QuestionEntity>()
+        try {
+            questions.addAll(loadFromAssets(context))
+            val imported = loadFromImported(context)
+            val existingIds = questions.map { it.id }.toSet()
+            imported.filter { it.id !in existingIds }.forEach { questions.add(it) }
+        } catch (e: Exception) {
+            Log.e(TAG, "Seed load error", e)
+        }
+        if (questions.isEmpty()) {
+            questions.addAll(getFallbackEntities())
+        }
+        // Keep the existing dedup behavior.
+        val stemKey = { e: QuestionEntity ->
+            val h = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
+            "${e.grade}|${e.subject}|$h"
+        }
+        return questions.distinctBy { stemKey(it) }
     }
 
     /**
