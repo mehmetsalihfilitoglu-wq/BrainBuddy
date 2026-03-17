@@ -205,20 +205,29 @@ object DbSeeder {
         Log.i(TAG, "performSeed started")
         val items = mutableListOf<SeedItem>()
         val lgsAudit = LgsImportAudit()
+        Log.d("SEED_DEBUG", "STEP 2: before loadFromAssets")
+        debugStep2BeforeLoad = true
+
+        var fromAssets: List<SeedItem> = emptyList()
         try {
-            Log.d("SEED_DEBUG", "STEP 2: before loadFromAssets")
-            debugStep2BeforeLoad = true
-            val fromAssets = loadFromAssetsWithProvenance(context, lgsAudit)
-            Log.d("SEED_DEBUG", "STEP 3: after loadFromAssets size=" + fromAssets.size)
+            fromAssets = loadFromAssetsWithProvenance(context, lgsAudit)
             debugStep3AfterLoadSize = fromAssets.size
-            items.addAll(fromAssets)
+        } catch (e: Exception) {
+            Log.e("SEED_DEBUG", "LOAD CRASH", e)
+            debugStep3AfterLoadSize = -1
+        }
+        Log.d("SEED_DEBUG", "STEP 3: after loadFromAssets size=" + fromAssets.size)
+        items.addAll(fromAssets)
+
+        // Do NOT stop execution on error: continue pipeline even if loaded is empty.
+        runCatching {
             val imported = loadFromImported(context)
             val existingIds = items.map { it.entity.id }.toSet()
             imported.filter { it.id !in existingIds }.forEach { e ->
                 items.add(SeedItem(entity = e, sourceGroup = "imported", sourceFolder = null, sourceFile = "imported_questions.json"))
             }
-        } catch (e: Exception) {
-            Log.e(TAG, "Seed load error", e)
+        }.onFailure { e ->
+            Log.e(TAG, "Seed imported load error", e)
         }
         if (items.isEmpty()) {
             Log.w(TAG, "performSeed: no questions from assets/imported, adding fallback entities")
@@ -310,7 +319,7 @@ object DbSeeder {
                 added.forEach { e -> all += SeedItem(e, "root", null, assetName) }
                 Log.i(TAG, "Loaded root general file: $assetName (${added.size} questions)")
             } catch (e: Exception) {
-                Log.w(TAG, "Root file $assetName error: ${e.message}")
+                Log.e("SEED_DEBUG", "FILE FAILED: $assetName", e)
             }
         }
         val rootCount = all.size
@@ -330,7 +339,7 @@ object DbSeeder {
                 parsed.forEach { e -> all += SeedItem(e, "packs", null, assetPath) }
                 if (parsed.isNotEmpty()) Log.i(TAG, "Loaded pack $assetPath: ${parsed.size} questions")
             } catch (e: Exception) {
-                Log.w(TAG, "Pack load error for $assetPath: ${e.message}")
+                Log.e("SEED_DEBUG", "FILE FAILED: $assetPath", e)
             }
         }
         val packCount = all.size - rootCount
@@ -343,7 +352,7 @@ object DbSeeder {
             if (lgsGradePacks.isNotEmpty()) Log.i(TAG, "Loaded ${lgsGradePacks.size} questions from lgs_import/* grade packs as GENERAL")
             all += lgsGradePacks
         } catch (e: Exception) {
-            Log.w(TAG, "Failed to load grade-based packs from lgs_import as GENERAL: ${e.message}")
+            Log.e("SEED_DEBUG", "LOAD CRASH: lgs_import grade-packs", e)
         }
         val lgsImportGradePacksCount = all.size - rootCount - packCount
         Log.d("SEED_DEBUG", "lgs_import grade-packs loaded = $lgsImportGradePacksCount")
@@ -355,7 +364,7 @@ object DbSeeder {
             if (lgsRootDirs.isNotEmpty()) Log.i(TAG, "Loaded ${lgsRootDirs.size} questions from lgs_import/* root subject dirs")
             all += lgsRootDirs
         } catch (e: Exception) {
-            Log.w(TAG, "Failed to load root subject dirs from lgs_import: ${e.message}")
+            Log.e("SEED_DEBUG", "LOAD CRASH: lgs_import root-dirs", e)
         }
         val lgsImportRootDirsCount = all.size - rootCount - packCount - lgsImportGradePacksCount
         Log.d("SEED_DEBUG", "lgs_import root-dirs loaded = $lgsImportRootDirsCount")
@@ -675,7 +684,7 @@ object DbSeeder {
             val fileNames = try {
                 assets.list(dir)?.filter { it.endsWith(".json", ignoreCase = true) }?.sorted()
             } catch (e: Exception) {
-                Log.w(TAG, "Asset list failed for $dir: ${e.message}")
+                Log.e("SEED_DEBUG", "FOLDER SCAN FAILED: $dir", e)
                 null
             } ?: continue
 
@@ -720,7 +729,7 @@ object DbSeeder {
                     }
                 } catch (e: Exception) {
                     audit.onFileParseError(baseFolder)
-                    Log.w(TAG, "Failed to load $assetPath as GENERAL: ${e.message}")
+                    Log.e("SEED_DEBUG", "FILE FAILED: $assetPath", e)
                 }
             }
         }
@@ -735,7 +744,12 @@ object DbSeeder {
         for (folder in rootFolders) {
             Log.d("SEED_DEBUG", "Scanning folder: $folder")
             val rootPath = "lgs_import/$folder"
-            val files = discoverJsonAssetFilesRecursive(assets, rootPath)
+            val files = try {
+                discoverJsonAssetFilesRecursive(assets, rootPath)
+            } catch (e: Exception) {
+                Log.e("SEED_DEBUG", "FOLDER SCAN FAILED: $rootPath", e)
+                emptyList()
+            }
             audit.onRootFolderFileCount(folder, files.size)
             Log.d(TAG, "LGS root scan: $rootPath files=${files.size}")
             Log.d("SEED_DEBUG", "Folder $folder filesFound=${files.size}")
@@ -797,7 +811,7 @@ object DbSeeder {
                     }
                 } catch (e: Exception) {
                     audit.onFileParseError(folder)
-                    Log.w(TAG, "LGS root load failed for $assetPath: ${e.message}")
+                    Log.e("SEED_DEBUG", "FILE FAILED: $assetPath", e)
                 }
             }
             audit.onRootFolderLoadedQuestions(folder, loadedForFolder)
