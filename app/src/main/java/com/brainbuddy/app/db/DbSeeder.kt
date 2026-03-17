@@ -205,9 +205,22 @@ object DbSeeder {
         } catch (e: Exception) {
             Log.w(TAG, "Failed to load grade-based packs from lgs_import as GENERAL: ${e.message}")
         }
-        val lgsImportCount = all.size - rootCount - packCount
+        val lgsImportGradePacksCount = all.size - rootCount - packCount
 
-        // 4) Programmatically üretilen 6. sınıf genişletme paketleri.
+        // 4) NEW: root subject dirs under assets/lgs_import/{mat,fen,turkce,din,english,inkilap} (recursive).
+        // Keep grade-based dirs scan as-is; this is additive.
+        try {
+            val lgsRootDirs = loadFromLgsRootSubjectDirs(context)
+            if (lgsRootDirs.isNotEmpty()) {
+                Log.i(TAG, "Loaded ${lgsRootDirs.size} questions from lgs_import/* root subject dirs")
+                all += lgsRootDirs
+            }
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to load root subject dirs from lgs_import: ${e.message}")
+        }
+        val lgsImportRootDirsCount = all.size - rootCount - packCount - lgsImportGradePacksCount
+
+        // 5) Programmatically üretilen 6. sınıf genişletme paketleri.
         // Pack dosyalarında yeterli soru varsa (>= TARGET_QUESTIONS_PER_SUBJECT) atlanır.
         val existingIds = all.map { it.id }.toMutableSet()
         val g6Counts = all.filter { it.grade == 6 }.groupBy { it.subject }.mapValues { it.value.size }
@@ -217,9 +230,12 @@ object DbSeeder {
         } else {
             Log.i(TAG, "Grade 6 packs have sufficient questions (>= $TARGET_QUESTIONS_PER_SUBJECT per subject), skip synthetic")
         }
-        val syntheticCount = all.size - rootCount - packCount - lgsImportCount
+        val syntheticCount = all.size - rootCount - packCount - lgsImportGradePacksCount - lgsImportRootDirsCount
 
-        Log.i(TAG, "loadBySource: root=$rootCount packs=$packCount lgs_import=$lgsImportCount synthetic=$syntheticCount total=${all.size}")
+        Log.i(
+            TAG,
+            "loadBySource: root=$rootCount packs=$packCount lgs_import_gradePacks=$lgsImportGradePacksCount lgs_import_rootDirs=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}"
+        )
         return all
     }
 
@@ -359,6 +375,201 @@ object DbSeeder {
             }
         }
 
+        return out
+    }
+
+    /**
+     * Recursively loads JSON question files under root subject folders:
+     * assets/lgs_import/{mat,fen,turkce,din,english,inkilap}/**/*.json
+     *
+     * Parsing uses the existing JSON import pipeline (parseWrappedQuestionArray / parseQuestionObject).
+     *
+     * Grade derivation:
+     * - Prefer explicit grade in JSON (root or per-question)
+     * - Otherwise attempt to derive grade from path segments / filename (1..7)
+     * - If grade can't be determined, do not inject defaults; invalid/missing grades will be rejected by parseQuestionObject.
+     *
+     * Grade safety:
+     * - Only allow grades 1..7 by default.
+     * - Grade 8 is only allowed when the wrapped root declares mode=="LGS" (intentional LGS-specific content).
+     */
+    private fun loadFromLgsRootSubjectDirs(context: Context): List<QuestionEntity> {
+        val assets = context.assets
+        val rootFolders = listOf("mat", "fen", "turkce", "din", "english", "inkilap")
+        val out = mutableListOf<QuestionEntity>()
+
+        for (folder in rootFolders) {
+            val rootPath = "lgs_import/$folder"
+            val files = discoverJsonAssetFilesRecursive(assets, rootPath)
+            Log.d(TAG, "LGS root scan: $rootPath files=${files.size}")
+
+            var loadedForFolder = 0
+            for (assetPath in files) {
+                try {
+                    val json = assets.open(assetPath).use { input ->
+                        input.readBytes().toString(Charset.forName("UTF-8"))
+                    }
+                    val subjectKey = when (folder.lowercase()) {
+                        "english" -> "ing"
+                        else -> folder.lowercase()
+                    }
+
+                    val trimmed = json.trimStart()
+                    val entities: List<QuestionEntity> = when {
+                        trimmed.startsWith("{") -> {
+                            val root = JSONObject(json)
+                            val arr = root.optJSONArray("questions") ?: JSONArray()
+
+                            // Only allow grade 8 when explicitly declared as LGS mode.
+                            val mode = root.optString("mode", "").trim()
+                            val allowGrade8 = mode.equals("LGS", ignoreCase = true)
+
+                            val derivedGrade = deriveGradeFromAssetPath(assetPath)
+                            val safeDerivedGrade = derivedGrade?.takeIf { it in 1..7 }
+                            parseWrappedQuestionArrayStrict(
+                                root = root,
+                                arr = arr,
+                                sourceLabel = assetPath,
+                                pathGrade = safeDerivedGrade,
+                                pathSubject = subjectKey,
+                                allowGrade8 = allowGrade8
+                            )
+                        }
+                        trimmed.startsWith("[") -> {
+                            val derivedGrade = deriveGradeFromAssetPath(assetPath)
+                            val safeDerivedGrade = derivedGrade?.takeIf { it in 1..7 }
+                            parseJsonArrayWithDefaultsStrict(JSONArray(json), safeDerivedGrade, subjectKey)
+                        }
+                        else -> emptyList()
+                    }
+                    if (entities.isNotEmpty()) {
+                        out += entities
+                        loadedForFolder += entities.size
+                    }
+                } catch (e: Exception) {
+                    Log.w(TAG, "LGS root load failed for $assetPath: ${e.message}")
+                }
+            }
+            Log.d(TAG, "LGS root scan: $rootPath loadedQuestions=$loadedForFolder")
+        }
+
+        return out
+    }
+
+    private fun discoverJsonAssetFilesRecursive(
+        assets: android.content.res.AssetManager,
+        rootPath: String
+    ): List<String> {
+        val out = mutableListOf<String>()
+        try {
+            collectJsonPaths(assets, rootPath, out)
+            out.sort()
+        } catch (e: Exception) {
+            Log.w(TAG, "JSON asset discovery failed for $rootPath: ${e.message}")
+        }
+        return out
+    }
+
+    private fun collectJsonPaths(
+        assets: android.content.res.AssetManager,
+        path: String,
+        out: MutableList<String>
+    ) {
+        val names = assets.list(path)?.toList().orEmpty()
+        for (name in names) {
+            val childPath = if (path.isEmpty()) name else "$path/$name"
+            if (name.endsWith(".json", ignoreCase = true)) {
+                out.add(childPath)
+            } else {
+                val sub = assets.list(childPath)
+                if (!sub.isNullOrEmpty()) {
+                    collectJsonPaths(assets, childPath, out)
+                }
+            }
+        }
+    }
+
+    /**
+     * Best-effort grade derivation from asset path.
+     * Looks for the first 1..8 digit group in any path segment or filename.
+     * Returns null if none found.
+     */
+    private fun deriveGradeFromAssetPath(assetPath: String): Int? {
+        val segments = assetPath.split('/', '\\').filter { it.isNotBlank() }
+        val regex = Regex("(?i)(?:grade)?([1-8])")
+        for (seg in segments.asReversed()) {
+            val m = regex.find(seg) ?: continue
+            return m.groupValues.getOrNull(1)?.toIntOrNull()
+        }
+        return null
+    }
+
+    private fun parseJsonArrayWithDefaultsStrict(
+        arr: JSONArray,
+        defaultGrade: Int?,
+        defaultSubject: String
+    ): List<QuestionEntity> {
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val o = arr.getJSONObject(i)
+                val combined = JSONObject(o.toString())
+                val qGrade = o.optInt("grade", -1)
+                val qSubject = o.optString("subject", "").trim().lowercase()
+                if (qGrade in 1..7) combined.put("grade", qGrade)
+                else if (defaultGrade != null) combined.put("grade", defaultGrade)
+                if (qSubject.isNotBlank()) combined.put("subject", qSubject) else combined.put("subject", defaultSubject)
+                out.add(parseQuestionObject(combined, i))
+            } catch (e: Exception) {
+                Log.w(TAG, "Parse failed array index $i: ${e.message}")
+            }
+        }
+        return out
+    }
+
+    private fun parseWrappedQuestionArrayStrict(
+        root: JSONObject,
+        arr: JSONArray,
+        sourceLabel: String,
+        pathGrade: Int?,
+        pathSubject: String,
+        allowGrade8: Boolean
+    ): List<QuestionEntity> {
+        val rootGradeRaw = root.optInt("grade", -1)
+        val rootGrade = when {
+            rootGradeRaw in 1..7 -> rootGradeRaw
+            allowGrade8 && rootGradeRaw == 8 -> 8
+            else -> null
+        }
+        val rootSubject = root.optString("subject", "").trim().lowercase().ifBlank { pathSubject }
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val q = arr.getJSONObject(i)
+                val combined = JSONObject(q.toString())
+                val qGrade = q.optInt("grade", -1)
+                val qSubject = q.optString("subject", "").trim().lowercase()
+
+                val chosenGrade: Int? = when {
+                    qGrade in 1..7 -> qGrade
+                    allowGrade8 && qGrade == 8 -> 8
+                    pathGrade != null -> pathGrade
+                    rootGrade != null -> rootGrade
+                    else -> null
+                }
+                if (chosenGrade != null) combined.put("grade", chosenGrade)
+
+                val chosenSubject = when {
+                    qSubject.isNotBlank() -> qSubject
+                    rootSubject.isNotBlank() -> rootSubject
+                    else -> pathSubject
+                }
+                combined.put("subject", chosenSubject)
+                out.add(parseQuestionObject(combined, i))
+            } catch (e: Exception) {
+                Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
+            }
+        }
         return out
     }
 
