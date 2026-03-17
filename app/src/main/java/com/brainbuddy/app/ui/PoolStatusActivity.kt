@@ -60,14 +60,33 @@ class PoolStatusActivity : AppCompatActivity() {
                     val dao = db.questionDao()
                     Triple(dao.countAll(), dao.countAllActive(), dao.countInvalidGrades())
                 }
+                seedDebugBlock() + "\n\n" +
                 "TOTAL / ACTIVE\n" +
                     "$total / $active\n\n" +
                     "Invalid grade\n" +
                     "$invalid"
             } catch (e: Exception) {
-                "DB READ FAILED: ${e.message ?: e.javaClass.simpleName}"
+                seedDebugBlock() + "\n\n" +
+                    "DB READ FAILED: ${e.message ?: e.javaClass.simpleName}"
             }
             tvSummary.text = text
+        }
+    }
+
+    private fun seedDebugBlock(): String {
+        fun yn(v: Boolean?): String = when (v) {
+            true -> "YES"
+            false -> "NO"
+            null -> "UNKNOWN"
+        }
+        fun intOrUnknown(v: Int?): String = v?.toString() ?: "UNKNOWN"
+        return buildString {
+            appendLine("SEED DEBUG")
+            appendLine("seedIfNeeded triggered: ${yn(DbSeeder.getLastSeedIfNeededTriggered())}")
+            appendLine("force reseed started: ${yn(DbSeeder.getLastForceReseedStarted())}")
+            appendLine("force reseed ended: ${yn(DbSeeder.getLastForceReseedEnded())}")
+            appendLine("about to insert size: ${intOrUnknown(DbSeeder.getLastAboutToInsertSize())}")
+            append("after insert DB count: ${intOrUnknown(DbSeeder.getLastAfterInsertDbCount())}")
         }
     }
 
@@ -201,10 +220,14 @@ class PoolStatusActivity : AppCompatActivity() {
             .setOnClickListener {
                 lifecycleScope.launch {
                     android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) START")
+                    DbSeeder.markForceReseedStarted()
                     withContext(Dispatchers.IO) {
                         DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity)
                     }
                     android.util.Log.d("SEED_DEBUG", "Force reseed (GENERAL banks) END")
+                    DbSeeder.markForceReseedEnded()
+                    // Refresh the on-screen SEED DEBUG block immediately.
+                    findViewById<TextView>(R.id.tvPoolStatus).text = seedDebugBlock()
                     val summary = withContext(Dispatchers.IO) {
                         val db = DatabaseProvider.get(this@PoolStatusActivity)
                         val dao = db.questionDao()

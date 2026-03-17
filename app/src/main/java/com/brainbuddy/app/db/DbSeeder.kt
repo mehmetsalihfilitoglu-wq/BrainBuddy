@@ -35,6 +35,28 @@ object DbSeeder {
 
     fun getLastSeedAudit(): String? = lastSeedAudit
 
+    // ---- SEED_DEBUG runtime markers (no-Logcat UI consumption) ----
+    @Volatile private var lastSeedIfNeededTriggered: Boolean? = null
+    @Volatile private var lastForceReseedStarted: Boolean? = null
+    @Volatile private var lastForceReseedEnded: Boolean? = null
+    @Volatile private var lastAboutToInsertSize: Int? = null
+    @Volatile private var lastAfterInsertDbCount: Int? = null
+
+    fun getLastSeedIfNeededTriggered(): Boolean? = lastSeedIfNeededTriggered
+    fun getLastForceReseedStarted(): Boolean? = lastForceReseedStarted
+    fun getLastForceReseedEnded(): Boolean? = lastForceReseedEnded
+    fun getLastAboutToInsertSize(): Int? = lastAboutToInsertSize
+    fun getLastAfterInsertDbCount(): Int? = lastAfterInsertDbCount
+
+    fun markForceReseedStarted() {
+        lastForceReseedStarted = true
+        lastForceReseedEnded = false
+    }
+
+    fun markForceReseedEnded() {
+        lastForceReseedEnded = true
+    }
+
     private fun saveLastSeedAudit(context: Context, text: String) {
         lastSeedAudit = text
         try {
@@ -62,6 +84,7 @@ object DbSeeder {
 
     suspend fun seedIfNeeded(context: Context): Boolean = withContext(Dispatchers.IO) {
         Log.d("SEED_DEBUG", "seedIfNeeded triggered")
+        lastSeedIfNeededTriggered = true
         Log.i(TAG, "seedIfNeeded entered (CURRENT_DB_SEED_VERSION=$CURRENT_DB_SEED_VERSION)")
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
@@ -179,9 +202,11 @@ object DbSeeder {
         val countBefore = questionDao.countAll()
         Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedItems.size} DB countBefore=$countBefore")
         Log.d("SEED_DEBUG", "About to insert size=${dedupedItems.size}")
+        lastAboutToInsertSize = dedupedItems.size
         val insertResults = questionDao.insertAllIgnore(dedupedItems.map { it.entity })
         val countAfter = questionDao.countAll()
         Log.d("SEED_DEBUG", "After insert DB count=$countAfter")
+        lastAfterInsertDbCount = countAfter
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
         Log.i(TAG, "performSeed done: inserted batch=${dedupedItems.size} DB total before=$countBefore after=$countAfter (seed complete)")
