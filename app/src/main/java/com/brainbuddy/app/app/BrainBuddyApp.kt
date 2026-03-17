@@ -1,14 +1,20 @@
 package com.brainbuddy.app
 
 import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.os.Process
+import android.util.Log
 import com.brainbuddy.app.core.ActiveProfileManager
+import com.brainbuddy.app.core.OnboardingPrefs
+import com.brainbuddy.app.core.ProfileStore
+import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.CrashRecoveryPrefs
 import com.brainbuddy.app.core.KillSwitchPrefs
@@ -19,11 +25,13 @@ import com.brainbuddy.app.resilience.AccessibilityMonitorService
 import com.brainbuddy.app.league.LeagueScheduler
 import com.brainbuddy.app.report.ReportScheduler
 import com.google.android.gms.ads.MobileAds
+import java.io.File
 
 class BrainBuddyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        logStartupPersistenceSync(this)
         MobileAds.initialize(this)
         // Ensure we always have a valid active profile on app start.
         ActiveProfileManager.getActiveProfileId(this)
@@ -36,8 +44,11 @@ class BrainBuddyApp : Application() {
         ReportScheduler.schedule(this)
         LeagueScheduler.scheduleNextReset(this)
 
-        CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
-            DbSeeder.seedIfNeeded(this@BrainBuddyApp)
+        CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
+            withContext(Dispatchers.IO) {
+                logStartupPersistenceAsync(this@BrainBuddyApp)
+                DbSeeder.seedIfNeeded(this@BrainBuddyApp)
+            }
         }
 
         Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
@@ -67,6 +78,38 @@ class BrainBuddyApp : Application() {
             Process.killProcess(Process.myPid())
             exitProcess(10)
         }
+    }
+}
+
+private const val PERSISTENCE_LOG_TAG = "BrainBuddyPersistence"
+
+/** Logs persistence values available on main thread (SharedPreferences, file existence). */
+private fun logStartupPersistenceSync(context: Context) {
+    try {
+        val onboardingDone = OnboardingPrefs.isDone(context)
+        val profileCount = ProfileStore(context).getProfiles().size
+        val dataDir = context.applicationInfo?.dataDir ?: context.filesDir?.parent ?: "?"
+        val sharedPrefsDir = File(dataDir, "shared_prefs")
+        val prefsExists = sharedPrefsDir.exists() && sharedPrefsDir.isDirectory
+        val onboardingPrefsFile = File(sharedPrefsDir, "bb_onboarding_prefs.xml")
+        Log.i(PERSISTENCE_LOG_TAG, "Persistence at startup (sync): onboardingDone=$onboardingDone profileCount=$profileCount dataDir=$dataDir sharedPrefsDirExists=$prefsExists onboardingPrefsFileExists=${onboardingPrefsFile.exists()}")
+    } catch (e: Exception) {
+        Log.w(PERSISTENCE_LOG_TAG, "logStartupPersistenceSync failed", e)
+    }
+}
+
+private suspend fun logStartupPersistenceAsync(context: Context) {
+    try {
+        val db = DatabaseProvider.get(context)
+        val dbPath = context.getDatabasePath("brainbuddy.db")?.absolutePath ?: "?"
+        val dbExists = context.getDatabasePath("brainbuddy.db")?.exists() ?: false
+        val meta = db.appMetaDao()
+        val dbSeeded = meta.get("db_seeded")
+        val dbSeedVersion = meta.get("db_seed_version")
+        val questionCount = db.questionDao().countAll()
+        Log.i(PERSISTENCE_LOG_TAG, "Persistence at startup (async): dbPath=$dbPath dbExists=$dbExists db_seeded=$dbSeeded db_seed_version=$dbSeedVersion questionCount=$questionCount")
+    } catch (e: Exception) {
+        Log.w(PERSISTENCE_LOG_TAG, "logStartupPersistenceAsync failed", e)
     }
 }
 
