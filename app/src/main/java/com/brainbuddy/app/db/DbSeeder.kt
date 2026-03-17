@@ -286,6 +286,7 @@ object DbSeeder {
             }
         }
         val rootCount = all.size
+        Log.d("SEED_DEBUG", "root loaded = $rootCount")
 
         // 2) Grade 1..8 × subject pack JSONs under assets/packs (recursive, GENERAL).
         val packFiles = discoverPackAssetFilesRecursive(context)
@@ -305,6 +306,7 @@ object DbSeeder {
             }
         }
         val packCount = all.size - rootCount
+        Log.d("SEED_DEBUG", "packs loaded = $packCount")
 
         // 3) Grade-based packs that currently live under assets/lgs_import/** but are NOT true LGS exam-only content.
         //    Bunlar MEB müfredatına göre 1–7. sınıf ders paketi olup normal GENERAL havuzunda görünmelidir.
@@ -316,6 +318,7 @@ object DbSeeder {
             Log.w(TAG, "Failed to load grade-based packs from lgs_import as GENERAL: ${e.message}")
         }
         val lgsImportGradePacksCount = all.size - rootCount - packCount
+        Log.d("SEED_DEBUG", "lgs_import grade-packs loaded = $lgsImportGradePacksCount")
 
         // 4) NEW: root subject dirs under assets/lgs_import/{mat,fen,turkce,din,english,inkilap} (recursive).
         // Keep grade-based dirs scan as-is; this is additive.
@@ -327,6 +330,7 @@ object DbSeeder {
             Log.w(TAG, "Failed to load root subject dirs from lgs_import: ${e.message}")
         }
         val lgsImportRootDirsCount = all.size - rootCount - packCount - lgsImportGradePacksCount
+        Log.d("SEED_DEBUG", "lgs_import root-dirs loaded = $lgsImportRootDirsCount")
 
         // 5) Programmatically üretilen 6. sınıf genişletme paketleri.
         // Pack dosyalarında yeterli soru varsa (>= TARGET_QUESTIONS_PER_SUBJECT) atlanır.
@@ -346,6 +350,7 @@ object DbSeeder {
             TAG,
             "loadBySource: root=$rootCount packs=$packCount lgs_import_gradePacks=$lgsImportGradePacksCount lgs_import_rootDirs=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}"
         )
+        Log.d("SEED_DEBUG", "TOTAL LOADED = ${all.size}")
         return all
     }
 
@@ -700,10 +705,23 @@ object DbSeeder {
         val out = mutableListOf<SeedItem>()
 
         for (folder in rootFolders) {
+            Log.d("SEED_DEBUG", "Scanning folder: $folder")
             val rootPath = "lgs_import/$folder"
             val files = discoverJsonAssetFilesRecursive(assets, rootPath)
             audit.onRootFolderFileCount(folder, files.size)
             Log.d(TAG, "LGS root scan: $rootPath files=${files.size}")
+            Log.d("SEED_DEBUG", "Folder $folder filesFound=${files.size}")
+
+            if (files.isEmpty() && folder == "mat") {
+                // Fallback sanity test: try to open a known asset directly.
+                val testPath = "lgs_import/mat/lgs_mat_gold_001.json"
+                try {
+                    assets.open(testPath).use { it.readBytes() }
+                    Log.d("SEED_DEBUG", "Fallback open OK: $testPath")
+                } catch (e: Exception) {
+                    Log.d("SEED_DEBUG", "Fallback open FAILED: $testPath err=${e.message}")
+                }
+            }
 
             var loadedForFolder = 0
             for (assetPath in files) {
@@ -1028,6 +1046,7 @@ object DbSeeder {
             val childPath = if (path.isEmpty()) name else "$path/$name"
             if (name.endsWith(".json", ignoreCase = true)) {
                 out.add(childPath)
+                Log.d("SEED_DEBUG", "Found JSON file: $childPath")
             } else {
                 val sub = assets.list(childPath)
                 if (!sub.isNullOrEmpty()) {
