@@ -25,7 +25,7 @@ object DbSeeder {
 
     /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
     private val PACK_FILE_REGEX = Regex(
-        pattern = "^grade(1|2|3|4|5|6|7|8)_(mat|turkce|fen|sosyal|ing)\\.json$",
+        pattern = "^grade(1|2|3|4|5|6|7)_(mat|turkce|fen|sosyal|ing)\\.json$",
         option = RegexOption.IGNORE_CASE
     )
 
@@ -231,6 +231,9 @@ object DbSeeder {
         val packFiles = discoverPackAssetFilesRecursive(context)
         if (packFiles.isNotEmpty()) {
             Log.i(TAG, "Discovered ${packFiles.size} pack assets")
+        }
+        if (packFiles.isEmpty()) {
+            Log.e(TAG, "PACKS NOT LOADED")
         }
         packFiles.forEach { assetPath ->
             try {
@@ -507,7 +510,7 @@ object DbSeeder {
 
     /**
      * Recursively discovers pack JSON files under assets/packs.
-     * Matches filename grade{G}_{subject}.json (G ∈ 1..8, subject ∈ mat,turkce,fen,sosyal,ing).
+     * Matches filename grade{G}_{subject}.json (G ∈ 1..7, subject ∈ mat,turkce,fen,sosyal,ing).
      */
     private fun discoverPackAssetFilesRecursive(context: Context): List<String> {
         val out = mutableListOf<String>()
@@ -550,18 +553,66 @@ object DbSeeder {
         }
     }
 
-    /** Parse pack file content: array or wrapped object. */
+    /** Parse pack file content: array or wrapped object. grade/subject are forced from filename. */
     private fun parsePackFileContent(assetPath: String, json: String): List<QuestionEntity> {
+        val fileName = assetPath.substringAfterLast('/')
+        val derived = deriveGradeAndSubjectFromPackFilename(fileName) ?: return emptyList()
+        val (forcedGrade, forcedSubject) = derived
         val trimmed = json.trimStart()
         return when {
-            trimmed.startsWith("[") -> parseJsonArray(org.json.JSONArray(json))
+            trimmed.startsWith("[") -> parsePackJsonArray(org.json.JSONArray(json), forcedGrade, forcedSubject, assetPath)
             trimmed.startsWith("{") -> {
                 val root = org.json.JSONObject(json)
                 val arr = root.optJSONArray("questions") ?: return emptyList()
-                parseWrappedQuestionArray(root, arr, assetPath)
+                parsePackWrappedQuestions(arr, forcedGrade, forcedSubject, assetPath)
             }
             else -> emptyList()
         }
+    }
+
+    private fun deriveGradeAndSubjectFromPackFilename(fileName: String): Pair<Int, String>? {
+        val m = PACK_FILE_REGEX.find(fileName) ?: return null
+        val grade = m.groupValues.getOrNull(1)?.toIntOrNull() ?: return null
+        val subject = m.groupValues.getOrNull(2)?.lowercase() ?: return null
+        return grade to subject
+    }
+
+    /**
+     * Pack parsing: force grade/subject from filename. Do NOT trust JSON grade/subject inside packs.
+     * Ensures questions stay in the GENERAL pool (grades 1..7).
+     */
+    private fun parsePackJsonArray(arr: JSONArray, forcedGrade: Int, forcedSubject: String, sourceLabel: String): List<QuestionEntity> {
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val o = arr.getJSONObject(i)
+                val combined = org.json.JSONObject(o.toString())
+                combined.put("grade", forcedGrade)
+                combined.put("subject", forcedSubject)
+                if (!combined.has("examType")) combined.put("examType", "GENERAL")
+                out.add(parseQuestionObject(combined, i))
+            } catch (e: Exception) {
+                Log.w(TAG, "Pack parse failed $sourceLabel index $i: ${e.message}")
+            }
+        }
+        return out
+    }
+
+    private fun parsePackWrappedQuestions(arr: JSONArray, forcedGrade: Int, forcedSubject: String, sourceLabel: String): List<QuestionEntity> {
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val q = arr.getJSONObject(i)
+                val combined = org.json.JSONObject(q.toString())
+                combined.put("grade", forcedGrade)
+                combined.put("subject", forcedSubject)
+                if (!combined.has("examType")) combined.put("examType", "GENERAL")
+                out.add(parseQuestionObject(combined, i))
+            } catch (e: Exception) {
+                Log.w(TAG, "Pack parse failed $sourceLabel index $i: ${e.message}")
+            }
+        }
+        return out
     }
 
     /**
