@@ -24,6 +24,8 @@ object DbSeeder {
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val SEED_AUDIT_TAG = "SEED_AUDIT"
     private const val AUDIT_EXAMPLE_LIMIT = 5
+    private const val SEED_AUDIT_PREFS = "seed_audit_prefs"
+    private const val SEED_AUDIT_PREFS_KEY_LATEST = "seed_audit_latest"
 
     // Log-once guards to avoid flooding Logcat for unsupported JSON shapes.
     private val loggedMissingStemShapes = mutableSetOf<String>()
@@ -167,6 +169,11 @@ object DbSeeder {
             )
             val auditText = lgsAudit.buildSummaryText()
             meta.set(AppMetaEntity(KEY_SEED_AUDIT_LATEST, auditText))
+            // Also persist to SharedPreferences so UI can show it without DB queries.
+            context.getSharedPreferences(SEED_AUDIT_PREFS, Context.MODE_PRIVATE)
+                .edit()
+                .putString(SEED_AUDIT_PREFS_KEY_LATEST, auditText)
+                .apply()
             lgsAudit.logSummaryFromText(auditText)
         } catch (e: Exception) {
             Log.w(TAG, "LGS import audit failed: ${e.message}")

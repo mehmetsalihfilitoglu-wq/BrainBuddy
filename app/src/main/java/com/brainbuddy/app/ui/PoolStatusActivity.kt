@@ -34,6 +34,17 @@ class PoolStatusActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_pool_status)
 
+        // Show latest SEED_AUDIT immediately on screen (independent from renderStatus / DB queries).
+        runCatching {
+            val tvAudit = findViewById<TextView>(R.id.tvSeedAudit)
+            val prefs = getSharedPreferences("seed_audit_prefs", MODE_PRIVATE)
+            val auditText = prefs.getString("seed_audit_latest", null)
+            val visibleText = auditText?.takeIf { it.isNotBlank() } ?: "No SEED_AUDIT data yet"
+            tvAudit.visibility = View.VISIBLE
+            tvAudit.text = visibleText
+            android.util.Log.d("SEED_AUDIT_UI", "Audit text length = ${visibleText.length}")
+        }
+
         val toolbar = findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
