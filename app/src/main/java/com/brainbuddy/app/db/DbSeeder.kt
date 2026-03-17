@@ -26,7 +26,7 @@ object DbSeeder {
     private const val AUDIT_EXAMPLE_LIMIT = 5
     private const val SEED_AUDIT_PREFS = "seed_audit_prefs"
     private const val SEED_AUDIT_PREFS_KEY_LATEST = "seed_audit_latest"
-    private const val BRUTE_FORCE_ONE_FILE_SEED_TEST = true
+    private const val BRUTE_FORCE_ONE_FILE_SEED_TEST = false
 
     // Log-once guards to avoid flooding Logcat for unsupported JSON shapes.
     private val loggedMissingStemShapes = mutableSetOf<String>()
@@ -920,9 +920,10 @@ object DbSeeder {
         folder: String
     ): List<QuestionEntity> {
         val rootGradeRaw = root.optInt("grade", -1)
+        // Never keep grade=8 in DB; map to folder/path grade when possible, else 6.
         val rootGrade = when {
             rootGradeRaw in 1..7 -> rootGradeRaw
-            allowGrade8 && rootGradeRaw == 8 -> 8
+            rootGradeRaw == 8 -> (pathGrade ?: 6)
             else -> null
         }
         val rootSubject = root.optString("subject", "").trim().lowercase().ifBlank { pathSubject }
@@ -935,10 +936,10 @@ object DbSeeder {
                 val qSubject = q.optString("subject", "").trim().lowercase()
                 val chosenGrade: Int? = when {
                     qGrade in 1..7 -> qGrade
-                    allowGrade8 && qGrade == 8 -> 8
+                    qGrade == 8 -> (pathGrade ?: rootGrade ?: 6)
                     pathGrade != null -> pathGrade
                     rootGrade != null -> rootGrade
-                    else -> null
+                    else -> 6
                 }
                 if (chosenGrade != null) combined.put("grade", chosenGrade)
                 val chosenSubject = when {
@@ -1326,7 +1327,8 @@ object DbSeeder {
     ): List<QuestionEntity> {
         val rootGrade = root.optInt("grade", 6).coerceIn(1, 8)
         val rootSubject = root.optString("subject", "mat").trim().lowercase()
-        val defaultGrade = pathGrade?.takeIf { it in 1..8 } ?: rootGrade
+        // App expects grade 1..7; never default to 8 here.
+        val defaultGrade = pathGrade?.takeIf { it in 1..7 } ?: rootGrade.coerceIn(1, 7)
         val defaultSubject = pathSubject?.takeIf { it.isNotBlank() } ?: rootSubject
         val out = mutableListOf<QuestionEntity>()
         for (i in 0 until arr.length()) {
@@ -1335,7 +1337,12 @@ object DbSeeder {
                 val combined = org.json.JSONObject(q.toString())
                 val qGrade = q.optInt("grade", -1)
                 val qSubject = q.optString("subject", "").trim().lowercase()
-                combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
+                val g = when {
+                    qGrade in 1..7 -> qGrade
+                    qGrade == 8 -> defaultGrade
+                    else -> defaultGrade
+                }
+                combined.put("grade", g)
                 combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
                 out.add(parseQuestionObject(combined, i))
             } catch (e: Exception) {
@@ -1354,7 +1361,12 @@ object DbSeeder {
                 val combined = org.json.JSONObject(o.toString())
                 val qGrade = o.optInt("grade", -1)
                 val qSubject = o.optString("subject", "").trim().lowercase()
-                combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
+                val g = when {
+                    qGrade in 1..7 -> qGrade
+                    qGrade == 8 -> defaultGrade
+                    else -> defaultGrade
+                }
+                combined.put("grade", g)
                 combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
                 out.add(parseQuestionObject(combined, i))
             } catch (e: Exception) {
@@ -1460,13 +1472,19 @@ object DbSeeder {
             o.has("grade_level") -> o.optInt("grade_level", 0)
             else -> 0
         }
+        // App expects grade 1..7. Never insert grade=8.
+        // If grade is missing/invalid/8, fall back safely to 6.
         val grade = when {
-            gradeFromJson in 1..8 -> gradeFromJson
+            gradeFromJson in 1..7 -> gradeFromJson
+            gradeFromJson == 8 -> 6
             else -> {
                 val gradeTagStr = o.optString("gradeTag", o.optString("grade_level", ""))
                 val gradeTag = gradeTagStr.toIntOrNull()
-                (gradeTag ?: 0).coerceIn(1, 8).takeIf { it in 1..8 }
-                    ?: throw IllegalArgumentException("Invalid grade for question index=$index")
+                when (gradeTag) {
+                    in 1..7 -> gradeTag!!
+                    8 -> 6
+                    else -> 6
+                }
             }
         }
 
