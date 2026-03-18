@@ -254,7 +254,19 @@ class PoolStatusActivity : AppCompatActivity() {
                         sb.append("total_after_normalize=${diag.total_after_normalize}\n")
                         sb.append("invalid_grade_before_normalize=${diag.invalid_grade_before_normalize}\n")
                         sb.append("invalid_grade_after_normalize=${diag.invalid_grade_after_normalize}\n")
+                        sb.append("normalization_applied=${if (diag.normalization_applied) "yes" else "no"}\n")
+                        sb.append("invalid_after_normalize=${diag.invalid_after_normalize}\n")
                         sb.append("final_inserted=${diag.final_inserted}\n\n")
+
+                        sb.append("DB_CHECK\n")
+                        sb.append("dbcheck_total_rows=${diag.dbcheck_total_rows}\n")
+                        sb.append("dbcheck_invalid_rows=${diag.dbcheck_invalid_rows}\n")
+                        sb.append("dbcheck_valid_rows=${diag.dbcheck_valid_rows}\n")
+                        sb.append("dbcheck_row1=${diag.dbcheck_row1}\n")
+                        sb.append("dbcheck_row2=${diag.dbcheck_row2}\n")
+                        sb.append("dbcheck_row3=${diag.dbcheck_row3}\n")
+                        sb.append("dbcheck_row4=${diag.dbcheck_row4}\n")
+                        sb.append("dbcheck_row5=${diag.dbcheck_row5}\n\n")
                     }
                 }
 

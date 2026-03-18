@@ -38,7 +38,17 @@ object DbSeeder {
         val total_after_normalize: Int,
         val invalid_grade_before_normalize: Int,
         val invalid_grade_after_normalize: Int,
-        val final_inserted: Int
+        val final_inserted: Int,
+        val normalization_applied: Boolean,
+        val invalid_after_normalize: Int,
+        val dbcheck_total_rows: Int,
+        val dbcheck_invalid_rows: Int,
+        val dbcheck_valid_rows: Int,
+        val dbcheck_row1: String,
+        val dbcheck_row2: String,
+        val dbcheck_row3: String,
+        val dbcheck_row4: String,
+        val dbcheck_row5: String
     )
 
     private data class SeedSourceCounts(
@@ -55,6 +65,53 @@ object DbSeeder {
     private var lastDiscoveredGradeBasedJsonFiles: Int = 0
 
     fun debugLastSeedDiagnostics(): SeedDiagnostics? = lastSeedDiagnostics
+
+    private fun updateDbCheckDiagnostics(
+        totalRows: Int,
+        invalidRows: Int,
+        validRows: Int,
+        first5: List<String>
+    ) {
+        val prev = lastSeedDiagnostics
+        if (prev == null) {
+            lastSeedDiagnostics = SeedDiagnostics(
+                loaded_root_general = lastSeedSourceCounts.loaded_root_general,
+                loaded_packs = lastSeedSourceCounts.loaded_packs,
+                loaded_grade_based = lastSeedSourceCounts.loaded_grade_based,
+                loaded_lgs_exam = lastSeedSourceCounts.loaded_lgs_exam,
+                loaded_synthetic = lastSeedSourceCounts.loaded_synthetic,
+                discovered_grade_based_dirs = lastDiscoveredGradeBasedDirs,
+                discovered_grade_based_json_files = lastDiscoveredGradeBasedJsonFiles,
+                total_before_normalize = 0,
+                total_after_normalize = 0,
+                invalid_grade_before_normalize = 0,
+                invalid_grade_after_normalize = 0,
+                final_inserted = 0,
+                normalization_applied = false,
+                invalid_after_normalize = 0,
+                dbcheck_total_rows = totalRows,
+                dbcheck_invalid_rows = invalidRows,
+                dbcheck_valid_rows = validRows,
+                dbcheck_row1 = first5.getOrNull(0) ?: "",
+                dbcheck_row2 = first5.getOrNull(1) ?: "",
+                dbcheck_row3 = first5.getOrNull(2) ?: "",
+                dbcheck_row4 = first5.getOrNull(3) ?: "",
+                dbcheck_row5 = first5.getOrNull(4) ?: ""
+            )
+            return
+        }
+
+        lastSeedDiagnostics = prev.copy(
+            dbcheck_total_rows = totalRows,
+            dbcheck_invalid_rows = invalidRows,
+            dbcheck_valid_rows = validRows,
+            dbcheck_row1 = first5.getOrNull(0) ?: "",
+            dbcheck_row2 = first5.getOrNull(1) ?: "",
+            dbcheck_row3 = first5.getOrNull(2) ?: "",
+            dbcheck_row4 = first5.getOrNull(3) ?: "",
+            dbcheck_row5 = first5.getOrNull(4) ?: ""
+        )
+    }
 
     /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
     private val PACK_FILE_REGEX = Regex(
@@ -158,12 +215,16 @@ object DbSeeder {
             // DEBUG: verify actual DB grades after reseed.
             try {
                 val all = questionDao.getAllQuestions()
-                Log.e("DB_CHECK", "TOTAL_ROWS=${all.size}")
-                Log.e("DB_CHECK", "INVALID=${all.count { it.grade !in 1..7 }}")
-                Log.e("DB_CHECK", "VALID=${all.count { it.grade in 1..7 }}")
-                all.take(5).forEach {
-                    Log.e("DB_CHECK", "ROW grade=${it.grade} examType=${it.examType}")
-                }
+                val totalRows = all.size
+                val invalidRows = all.count { it.grade !in 1..7 }
+                val validRows = all.count { it.grade in 1..7 }
+                val first5 = all.take(5).map { "grade=${it.grade} examType=${it.examType}" }
+                updateDbCheckDiagnostics(
+                    totalRows = totalRows,
+                    invalidRows = invalidRows,
+                    validRows = validRows,
+                    first5 = first5
+                )
             } catch (e: Exception) {
                 Log.e("DB_CHECK", "Failed to read back questions after forceReseed: ${e.message}", e)
             }
@@ -239,6 +300,33 @@ object DbSeeder {
 
         Log.e("SEED_DEBUG", "normalized_count=${normalized.size} invalid_after=${normalized.count { it.grade !in 1..7 }}")
 
+        // Store pre-insert diagnostics for in-app debug UI.
+        val invalidAfter = normalized.count { it.grade !in 1..7 }
+        lastSeedDiagnostics = SeedDiagnostics(
+            loaded_root_general = lastSeedSourceCounts.loaded_root_general,
+            loaded_packs = lastSeedSourceCounts.loaded_packs,
+            loaded_grade_based = lastSeedSourceCounts.loaded_grade_based,
+            loaded_lgs_exam = lastSeedSourceCounts.loaded_lgs_exam,
+            loaded_synthetic = lastSeedSourceCounts.loaded_synthetic,
+            discovered_grade_based_dirs = lastDiscoveredGradeBasedDirs,
+            discovered_grade_based_json_files = lastDiscoveredGradeBasedJsonFiles,
+            total_before_normalize = questions.size,
+            total_after_normalize = normalized.size,
+            invalid_grade_before_normalize = questions.count { it.grade !in 1..7 },
+            invalid_grade_after_normalize = invalidAfter,
+            final_inserted = deduped.size,
+            normalization_applied = true,
+            invalid_after_normalize = invalidAfter,
+            dbcheck_total_rows = -1,
+            dbcheck_invalid_rows = -1,
+            dbcheck_valid_rows = -1,
+            dbcheck_row1 = "",
+            dbcheck_row2 = "",
+            dbcheck_row3 = "",
+            dbcheck_row4 = "",
+            dbcheck_row5 = ""
+        )
+
         return deduped
     }
 
@@ -283,12 +371,16 @@ object DbSeeder {
         // DEBUG: verify actual DB grades after seeding.
         try {
             val all = questionDao.getAllQuestions()
-            Log.e("DB_CHECK", "TOTAL_ROWS=${all.size}")
-            Log.e("DB_CHECK", "INVALID=${all.count { it.grade !in 1..7 }}")
-            Log.e("DB_CHECK", "VALID=${all.count { it.grade in 1..7 }}")
-            all.take(5).forEach {
-                Log.e("DB_CHECK", "ROW grade=${it.grade} examType=${it.examType}")
-            }
+            val totalRows = all.size
+            val invalidRows = all.count { it.grade !in 1..7 }
+            val validRows = all.count { it.grade in 1..7 }
+            val first5 = all.take(5).map { "grade=${it.grade} examType=${it.examType}" }
+            updateDbCheckDiagnostics(
+                totalRows = totalRows,
+                invalidRows = invalidRows,
+                validRows = validRows,
+                first5 = first5
+            )
         } catch (e: Exception) {
             Log.e("DB_CHECK", "Failed to read back questions after performSeed: ${e.message}", e)
         }
