@@ -50,6 +50,7 @@ class BrainBuddyApp : Application() {
                 logStartupPersistenceAsync(this@BrainBuddyApp)
                 val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
                 Log.i(PERSISTENCE_LOG_TAG, "Seed finished async: didSeed=$didSeed")
+                logRuntimeQuestionPoolSnapshot(this@BrainBuddyApp)
             }
         }
 
@@ -112,6 +113,34 @@ private suspend fun logStartupPersistenceAsync(context: Context) {
         Log.i(PERSISTENCE_LOG_TAG, "Persistence at startup (async): dbPath=$dbPath dbExists=$dbExists db_seeded=$dbSeeded db_seed_version=$dbSeedVersion questionCount=$questionCount")
     } catch (e: Exception) {
         Log.w(PERSISTENCE_LOG_TAG, "logStartupPersistenceAsync failed", e)
+    }
+}
+
+/**
+ * DEBUG-ONLY: logs a snapshot of the real Room question pool after seeding.
+ *
+ * This runs only on app startup and has no functional impact; it just prints:
+ * - total DB row count
+ * - active row count
+ * - sample candidate pool sizes for:
+ *   grade 6 MAT, grade 4 ING, LGS MAT.
+ */
+private suspend fun logRuntimeQuestionPoolSnapshot(context: Context) {
+    if (!BuildConfig.DEBUG) return
+    try {
+        val db = DatabaseProvider.get(context)
+        val dao = db.questionDao()
+        val total = dao.countAll()
+        val active = dao.countAllActive()
+        val g6Mat = dao.getCandidatePoolByGradeSubject(6, "mat").size
+        val g4Ing = dao.getCandidatePoolByGradeSubject(4, "ing").size
+        val lgsMat = dao.getCandidatePoolByLgsSubject("mat").size
+        Log.i(
+            PERSISTENCE_LOG_TAG,
+            "RUNTIME_SEED_DB total=$total active=$active g6_mat_candidates=$g6Mat g4_ing_candidates=$g4Ing lgs_mat_candidates=$lgsMat"
+        )
+    } catch (e: Exception) {
+        Log.w(PERSISTENCE_LOG_TAG, "logRuntimeQuestionPoolSnapshot failed", e)
     }
 }
 
