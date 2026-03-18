@@ -51,6 +51,18 @@ android {
         unitTests.all {
             it.testLogging.showStandardStreams = true
         }
+
+        managedDevices {
+            devices {
+                // Gradle Managed Device for runtime/instrumentation verification.
+                // Uses AOSP image to avoid vendor dependencies.
+                create<com.android.build.api.dsl.ManagedVirtualDevice>("seedDevice") {
+                    device = "Pixel 2"
+                    apiLevel = 30
+                    systemImageSource = "aosp"
+                }
+            }
+        }
     }
 }
 
