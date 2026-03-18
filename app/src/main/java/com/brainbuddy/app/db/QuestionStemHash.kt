@@ -53,18 +53,20 @@ object QuestionStemHash {
     }
 
     /**
-     * Hash for uniqueness/dedup that includes answer/options so variants don't collide.
-     * Still uses normalized stem to collapse exact template copies.
+     * Strict/exact normalization for true-duplicate detection.
+     * Intentionally does NOT replace numbers/names; only collapses whitespace + lowercases.
      */
-    fun stemHash(stem: String, options: List<String>, answerIndex: Int): String {
-        val normalizedStem = normalizeStem(stem)
-        val normalizedOptions = options.joinToString("|") { opt ->
-            opt.lowercase(Locale("tr"))
-                .replace(Regex("\\s+"), " ")
-                .trim()
-        }
-        val payload = normalizedStem + "||" + normalizedOptions + "||" + answerIndex.toString()
-        val bytes = payload.toByteArray(Charset.forName("UTF-8"))
+    fun normalizeStemExact(stem: String): String {
+        return stem
+            .lowercase(Locale("tr"))
+            .replace(Regex("\\s+"), " ")
+            .trim()
+    }
+
+    /** SHA-256 hash of normalizeStemExact(stem). */
+    fun stemHashExact(stem: String): String {
+        val normalized = normalizeStemExact(stem)
+        val bytes = normalized.toByteArray(Charset.forName("UTF-8"))
         val digest = MessageDigest.getInstance("SHA-256").digest(bytes)
         return digest.joinToString("") { "%02x".format(it) }
     }

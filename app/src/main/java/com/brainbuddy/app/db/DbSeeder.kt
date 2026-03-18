@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONObject
+import java.security.MessageDigest
 import java.nio.charset.Charset
 
 /**
@@ -22,6 +23,7 @@ object DbSeeder {
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
     private const val CURRENT_DB_SEED_VERSION = 3
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
+    private const val MIN_REASONABLE_DB_COUNT = 8000
 
     /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
     private val PACK_FILE_REGEX = Regex(
@@ -52,6 +54,29 @@ object DbSeeder {
         Log.i(TAG, "seedIfNeeded stored db_seed_version=$storedVersionStr legacySeeded=$legacySeededFlag computedStoredVersion=$storedVersion skip=${storedVersion >= CURRENT_DB_SEED_VERSION}")
         val count = try { questionDao.countAll() } catch (_: Exception) { 0 }
         if (storedVersion >= CURRENT_DB_SEED_VERSION && count > 0) {
+            // Critical recovery path: older buggy builds may have marked seed_version as up-to-date
+            // while only inserting a small subset of the asset pool. Never clear the DB here;
+            // instead, safely "top up" by inserting any missing IDs (INSERT IGNORE).
+            if (count < MIN_REASONABLE_DB_COUNT) {
+                Log.w(TAG, "Seed recovery: DB count seems too low (count=$count, version=$storedVersion). Will top-up seed safely.")
+                val toInsert = buildSeedQuestions(context)
+                if (toInsert.isEmpty()) {
+                    Log.e(TAG, "Seed recovery aborted: loaded=0, preserving existing DB (count=$count)")
+                    return@withContext false
+                }
+                val before = count
+                try {
+                    questionDao.insertAllIgnore(toInsert)
+                    val after = questionDao.countAll()
+                    meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
+                    meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
+                    Log.i(TAG, "Seed recovery complete: attempted=${toInsert.size} DB before=$before after=$after (added=${after - before})")
+                    return@withContext (after > before)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Seed recovery failed; existing DB preserved", e)
+                    return@withContext false
+                }
+            }
             Log.d(TAG, "Seed already up to date (version=$storedVersion), skip")
             return@withContext false
         }
@@ -146,12 +171,10 @@ object DbSeeder {
         if (questions.isEmpty()) {
             questions.addAll(getFallbackEntities())
         }
-        // Keep the existing dedup behavior.
-        val stemKey = { e: QuestionEntity ->
-            val h = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
-            "${e.grade}|${e.subject}|$h"
-        }
-        return questions.distinctBy { stemKey(it) }
+        // Dedup should only drop true duplicates.
+        // Many banks intentionally reuse the same stem with different options; dedup on stem alone
+        // destroys the pool. Use (grade, subject, exactStem, options, answer) as key.
+        return questions.distinctBy(::dedupKey)
     }
 
     /**
@@ -181,12 +204,8 @@ object DbSeeder {
 
         Log.i(TAG, "Seed load complete: ${questions.size} questions from assets+imported before dedup")
 
-        // (grade, subject, stemHash) dedup: batch içinde tekrarları at
-        val stemKey = { e: QuestionEntity ->
-            val h = (e.stemHash.ifEmpty { QuestionStemHash.stemHash(e.questionText) }).substringBefore(":dup:")
-            "${e.grade}|${e.subject}|$h"
-        }
-        val dedupedList = questions.distinctBy { stemKey(it) }
+        // (grade, subject, exactStem+options+answer) dedup: only drop true duplicates.
+        val dedupedList = questions.distinctBy(::dedupKey)
         if (dedupedList.size < questions.size) {
             Log.i(TAG, "Seed dedup: ${questions.size} -> ${dedupedList.size} (dropped ${questions.size - dedupedList.size} in-batch duplicates)")
         }
@@ -232,9 +251,7 @@ object DbSeeder {
         if (packFiles.isNotEmpty()) {
             Log.i(TAG, "Discovered ${packFiles.size} pack assets")
         }
-        if (packFiles.isEmpty()) {
-            Log.e(TAG, "PACKS NOT LOADED")
-        }
+        // packs/ is optional; absence is fine (grade_based & lgs_exam are the main pools).
         packFiles.forEach { assetPath ->
             try {
                 val json = context.assets.open(assetPath).use { input ->
@@ -860,6 +877,10 @@ object DbSeeder {
             throw IllegalArgumentException("Missing questionText/stem at index=$index")
         }
 
+        // Hashes (used for ID fallback + duplicate diagnostics).
+        val stemNorm = QuestionStemHash.normalizeStem(questionText)
+        val hash = QuestionStemHash.stemHash(questionText)
+
         // options: options (yeni) veya choices (eski)
         val optionsArray = when {
             o.has("options") -> o.optJSONArray("options")
@@ -915,7 +936,8 @@ object DbSeeder {
 
         // id: varsa kullan, yoksa grade+subject+index tabanlı üret
         val explicitId = o.optString("id", "").takeIf { it.isNotBlank() }
-        val id = explicitId ?: "${grade}_${subjectKey}_${(index + 1).toString().padStart(6, '0')}"
+        // Avoid PK collisions across multiple files where index restarts (notably lgs_exam).
+        val id = explicitId ?: "${grade}_${subjectKey}_${hash.take(16)}_${(index + 1).toString().padStart(4, '0')}"
 
         // Kalite gate: düşük kaliteli soruları pasifleştir, deactivationReason sakla.
         val subjectEnum = when (subjectKey) {
@@ -941,9 +963,6 @@ object DbSeeder {
         val diversityType = QuestionDiversity.inferType(subjectEnum, questionText)
         val diversitySkill = QuestionDiversity.inferSkill(subjectEnum, grade, diversityType, questionText)
 
-        val stemNorm = QuestionStemHash.normalizeStem(questionText)
-        val hash = QuestionStemHash.stemHash(questionText)
-
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -965,6 +984,20 @@ object DbSeeder {
             stemNormalized = stemNorm,
             stemHash = hash
         )
+    }
+
+    private fun dedupKey(e: QuestionEntity): String {
+        val exactStem = QuestionStemHash.normalizeStemExact(e.questionText)
+        val payload = buildString {
+            append(exactStem)
+            append('\n')
+            append(e.optionsJson)
+            append('\n')
+            append(e.answerIndex)
+        }
+        val digest = MessageDigest.getInstance("SHA-256").digest(payload.toByteArray(Charsets.UTF_8))
+        val contentHash = digest.joinToString("") { "%02x".format(it) }
+        return "${e.grade}|${e.subject}|$contentHash"
     }
 
     // --- Synthetic Grade 6 packs (programmatic) ---
