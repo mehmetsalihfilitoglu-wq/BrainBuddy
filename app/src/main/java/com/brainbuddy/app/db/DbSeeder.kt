@@ -6,6 +6,7 @@ import androidx.room.withTransaction
 import com.brainbuddy.app.quiz.QuestionQualityGate
 import com.brainbuddy.app.quiz.QuestionDiversity
 import com.brainbuddy.app.quiz.Subject
+import com.brainbuddy.app.BuildConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
@@ -42,6 +43,12 @@ object DbSeeder {
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
+
+        // DEBUG: Always force reseed on app startup (bypass seed version/flags logic).
+        if (BuildConfig.DEBUG) {
+            Log.w(TAG, "seedIfNeeded DEBUG: forcing full reseed (bypass seed flags/version checks)")
+            return@withContext forceReseed(context)
+        }
 
         // Versioned seeding: allows safe re-import when packs/assets grow.
         val storedVersionStr = meta.get(KEY_DB_SEED_VERSION)
@@ -358,7 +365,12 @@ object DbSeeder {
                             parseWrappedQuestionArrayStrict(root, arr, assetPath, lgsGradePlaceholder, subjectKey)
                         }
                         trimmed.startsWith("[") -> {
-                            parseJsonArrayWithDefaultsStrict(JSONArray(json), lgsGradePlaceholder, subjectKey)
+                            parseJsonArrayWithDefaultsStrict(
+                                JSONArray(json),
+                                lgsGradePlaceholder,
+                                subjectKey,
+                                sourceLabel = assetPath
+                            )
                         }
                         else -> emptyList()
                     }
@@ -483,15 +495,8 @@ object DbSeeder {
         }
 
         for (dir in gradeBasedDirs) {
-            val fileNames = try {
-                assets.list(dir)?.filter { it.endsWith(".json", ignoreCase = true) }?.sorted()
-            } catch (e: Exception) {
-                Log.w(TAG, "Asset list failed for $dir: ${e.message}")
-                null
-            } ?: continue
-
-            for (fileName in fileNames) {
-                val assetPath = "$dir/$fileName"
+            val assetPaths = discoverJsonAssetFilesRecursive(assets, dir)
+            for (assetPath in assetPaths) {
                 val pathDerived = parseGradeAndSubjectFromLgsPath(assetPath)
                 val (pathGrade, pathSubject) = pathDerived ?: (6 to "mat")
                 try {
@@ -508,13 +513,26 @@ object DbSeeder {
                         }
                         // Saf dizi: path'ten türetilen grade/subject ile parse et.
                         trimmed.startsWith("[") -> {
-                            parseJsonArrayWithDefaults(org.json.JSONArray(json), pathGrade, pathSubject)
+                            parseJsonArrayWithDefaults(
+                                org.json.JSONArray(json),
+                                pathGrade,
+                                pathSubject,
+                                sourceLabel = "grade_based_defaults|grade=$pathGrade|subject=$pathSubject|$assetPath"
+                            )
                         }
                         else -> emptyList()
                     }
                     if (entities.isNotEmpty()) {
-                        out += entities
-                        Log.i(TAG, "Loaded $assetPath as GENERAL pack: ${entities.size} questions (grade=$pathGrade subject=$pathSubject)")
+                        val normalizedGrade = pathGrade.coerceIn(1, 7)
+                        val normalized = entities.map {
+                            it.copy(
+                                grade = normalizedGrade,
+                                subject = pathSubject,
+                                examType = "GENERAL"
+                            )
+                        }
+                        out += normalized
+                        Log.i(TAG, "Loaded $assetPath as GENERAL pack: ${normalized.size} questions (grade=$normalizedGrade subject=$pathSubject)")
                     }
                 } catch (e: Exception) {
                     Log.w(TAG, "Failed to load $assetPath as GENERAL: ${e.message}")
@@ -560,7 +578,7 @@ object DbSeeder {
     private fun parseRootQuestionFile(assetName: String, json: String): List<QuestionEntity> {
         val trimmed = json.trimStart()
         return when {
-            trimmed.startsWith("[") -> parseJsonArray(org.json.JSONArray(json))
+            trimmed.startsWith("[") -> parseJsonArray(org.json.JSONArray(json), sourceLabel = "root_json_array|$assetName")
             trimmed.startsWith("{") -> {
                 val root = org.json.JSONObject(json)
                 val arr = root.optJSONArray("questions") ?: return emptyList()
@@ -607,7 +625,7 @@ object DbSeeder {
                 combined.put("grade", forcedGrade)
                 combined.put("subject", forcedSubject)
                 if (!combined.has("examType")) combined.put("examType", "GENERAL")
-                out.add(parseQuestionObject(combined, i))
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
             } catch (e: Exception) {
                 Log.w(TAG, "Pack parse failed $sourceLabel index $i: ${e.message}")
             }
@@ -624,7 +642,7 @@ object DbSeeder {
                 combined.put("grade", forcedGrade)
                 combined.put("subject", forcedSubject)
                 if (!combined.has("examType")) combined.put("examType", "GENERAL")
-                out.add(parseQuestionObject(combined, i))
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
             } catch (e: Exception) {
                 Log.w(TAG, "Pack parse failed $sourceLabel index $i: ${e.message}")
             }
@@ -657,7 +675,7 @@ object DbSeeder {
                 val qSubject = q.optString("subject", "").trim().lowercase()
                 combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
                 combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
-                out.add(parseQuestionObject(combined, i))
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
             } catch (e: Exception) {
                 Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
             }
@@ -666,7 +684,12 @@ object DbSeeder {
     }
 
     /** Parse JSON array when each item may lack grade/subject; use path-derived defaults. */
-    private fun parseJsonArrayWithDefaults(arr: JSONArray, defaultGrade: Int, defaultSubject: String): List<QuestionEntity> {
+    private fun parseJsonArrayWithDefaults(
+        arr: JSONArray,
+        defaultGrade: Int,
+        defaultSubject: String,
+        sourceLabel: String
+    ): List<QuestionEntity> {
         val out = mutableListOf<QuestionEntity>()
         for (i in 0 until arr.length()) {
             try {
@@ -676,7 +699,7 @@ object DbSeeder {
                 val qSubject = o.optString("subject", "").trim().lowercase()
                 combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
                 combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
-                out.add(parseQuestionObject(combined, i))
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
             } catch (e: Exception) {
                 Log.w(TAG, "Parse failed array index $i: ${e.message}")
             }
@@ -689,19 +712,19 @@ object DbSeeder {
         if (!file.exists()) return emptyList()
         return try {
             val json = file.readText(Charsets.UTF_8)
-            parseJsonArray(JSONArray(json))
+            parseJsonArray(JSONArray(json), sourceLabel = "imported_json_array")
         } catch (e: Exception) {
             Log.e(TAG, "imported load error", e)
             emptyList()
         }
     }
 
-    private fun parseJsonArray(arr: JSONArray): List<QuestionEntity> {
+    private fun parseJsonArray(arr: JSONArray, sourceLabel: String): List<QuestionEntity> {
         val out = mutableListOf<QuestionEntity>()
         for (i in 0 until arr.length()) {
             try {
                 val o = arr.getJSONObject(i)
-                out.add(parseQuestionObject(o, i))
+                out.add(parseQuestionObject(o, i, sourceLabel = sourceLabel))
             } catch (e: Exception) {
                 Log.w(TAG, "Parse failed index $i: ${e.message}")
             }
@@ -709,7 +732,12 @@ object DbSeeder {
         return out
     }
 
-    private fun parseJsonArrayWithDefaultsStrict(arr: JSONArray, defaultGrade: Int, defaultSubject: String): List<QuestionEntity> {
+    private fun parseJsonArrayWithDefaultsStrict(
+        arr: JSONArray,
+        defaultGrade: Int,
+        defaultSubject: String,
+        sourceLabel: String
+    ): List<QuestionEntity> {
         val out = mutableListOf<QuestionEntity>()
         for (i in 0 until arr.length()) {
             try {
@@ -724,7 +752,7 @@ object DbSeeder {
                 }
                 combined.put("grade", g)
                 combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
-                out.add(parseQuestionObject(combined, i))
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
             } catch (e: Exception) {
                 Log.w(TAG, "Parse failed array index $i: ${e.message}")
             }
@@ -767,7 +795,7 @@ object DbSeeder {
                     else -> pathSubject
                 }
                 combined.put("subject", chosenSubject)
-                out.add(parseQuestionObject(combined, i))
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
             } catch (e: Exception) {
                 Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
             }
@@ -831,7 +859,16 @@ object DbSeeder {
      * - answerIndex yerine correctIndex
      * - hint yerine explanation
      */
-    private fun parseQuestionObject(o: JSONObject, index: Int): QuestionEntity {
+    private fun sha1(input: String): String {
+        val digest = MessageDigest.getInstance("SHA-1").digest(input.toByteArray(Charsets.UTF_8))
+        return digest.joinToString("") { "%02x".format(it) }
+    }
+
+    private fun parseQuestionObject(
+        o: JSONObject,
+        index: Int,
+        sourceLabel: String = "unknown"
+    ): QuestionEntity {
         // grade:
         // App expects 1..7. Never keep grade=8; map missing/invalid safely.
         val gradeFromJson = when {
@@ -936,8 +973,9 @@ object DbSeeder {
 
         // id: varsa kullan, yoksa grade+subject+index tabanlı üret
         val explicitId = o.optString("id", "").takeIf { it.isNotBlank() }
-        // Avoid PK collisions across multiple files where index restarts (notably lgs_exam).
-        val id = explicitId ?: "${grade}_${subjectKey}_${hash.take(16)}_${(index + 1).toString().padStart(4, '0')}"
+        val rawId = explicitId ?: "${grade}_${subjectKey}_${hash.take(16)}_${(index + 1).toString().padStart(4, '0')}"
+        // Source scoped: prevent collisions across files that reuse the same `id` or index fallback.
+        val id = sha1("$sourceLabel|$rawId")
 
         // Kalite gate: düşük kaliteli soruları pasifleştir, deactivationReason sakla.
         val subjectEnum = when (subjectKey) {
