@@ -16,10 +16,15 @@
       "difficulty": 4,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
       "explanation": "Aynı periyotta bulunan elementlerin katman sayıları aynıdır.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_006_q01"
+      "sourceRef": "fen_mad_006_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bir atom elektron vererek iyon oluşturduğunda aşağıdakilerden hangisi gerçekleşir?",
@@ -33,7 +38,11 @@
       "difficulty": 4,
       "questionType": "ION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["iyon", "elektron", "katyon"],
+      "skills": [
+        "iyon",
+        "elektron",
+        "katyon"
+      ],
       "explanation": "Elektron veren atom pozitif iyon (katyon) oluşturur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_006_q02"
@@ -50,7 +59,11 @@
       "difficulty": 4,
       "questionType": "MOLECULE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "CO2 → 3 atom × 3 = 9 atom. H2O → 3 atom × 2 = 6 atom. O2 → 2 atom × 1 = 2 atom. Toplam = 17 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_006_q03"
@@ -67,7 +80,11 @@
       "difficulty": 4,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["element", "molekul", "yapisal_ozellik"],
+      "skills": [
+        "element",
+        "molekul",
+        "yapisal_ozellik"
+      ],
       "explanation": "O2 aynı tür atomlardan oluşan molekül yapılı elementtir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_006_q04"
@@ -84,10 +101,15 @@
       "difficulty": 4,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "atom_numarasi"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "atom_numarasi"
+      ],
       "explanation": "Periyot boyunca atom numarası artar.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_006_q05"
+      "sourceRef": "fen_mad_006_q05",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bir tanecik modelinde aynı tür atomlardan oluşan iki atomlu moleküller görülmektedir. Bu madde aşağıdakilerden hangisi olabilir?",
@@ -101,7 +123,11 @@
       "difficulty": 4,
       "questionType": "PARTICLE_MODEL_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["tanecik_modeli", "molekul", "element"],
+      "skills": [
+        "tanecik_modeli",
+        "molekul",
+        "element"
+      ],
       "explanation": "O2 aynı tür atomlardan oluşan iki atomlu moleküldür.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_006_q06"
@@ -118,7 +144,12 @@
       "difficulty": 4,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "iyon", "proton", "elektron"],
+      "skills": [
+        "atom",
+        "iyon",
+        "proton",
+        "elektron"
+      ],
       "explanation": "Proton sayısı elektron sayısından büyük olduğu için pozitif iyondur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_006_q07"
@@ -135,7 +166,11 @@
       "difficulty": 4,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "O2 → 2 × 2 = 4 atom. N2 → 3 × 2 = 6 atom. Toplam = 10 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_006_q08"
@@ -152,7 +187,12 @@
       "difficulty": 4,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["saf_madde", "element", "bilesik", "siniflandirma"],
+      "skills": [
+        "saf_madde",
+        "element",
+        "bilesik",
+        "siniflandirma"
+      ],
       "explanation": "Su saf maddedir fakat element değil bileşiktir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_006_q09"
@@ -169,10 +209,16 @@
       "difficulty": 4,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "grup", "elektron", "son_katman"],
+      "skills": [
+        "periyodik_tablo",
+        "grup",
+        "elektron",
+        "son_katman"
+      ],
       "explanation": "Grup numarası son katmandaki elektron sayısını gösterir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_006_q10"
+      "sourceRef": "fen_mad_006_q10",
+      "imageAsset": "quiz_images/fen/picture.png"
     }
   ]
 }

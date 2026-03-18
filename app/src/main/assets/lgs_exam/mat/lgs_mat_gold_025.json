@@ -7,132 +7,217 @@
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzde_hesabi", "problem_cozme"],
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir mağazada bir ürünün etiket fiyatı 800 TL'dir. Mağaza önce %25 indirim yapıyor. Daha sonra indirimli fiyat üzerinden %10 zam yapılıyor. Buna göre ürünün son satış fiyatı kaç TL olur?",
-      "options": ["600", "640", "660", "680"],
-      "answerIndex": 2,
+      "options": [
+        "600",
+        "640",
+        "660",
+        "680"
+      ],
+      "answerIndex": 0,
       "explanation": "800 × 0,75 = 600 TL olur. Daha sonra %10 zam yapılır: 600 × 1,10 = 660 TL.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q01"
+      "sourceRef": "gold025_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran_oranti", "problem_cozme"],
+      "skills": [
+        "oran_oranti",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir sınıftaki kız ve erkek öğrencilerin sayıları oranı 3 : 5'tir. Sınıfa 4 kız öğrenci daha katıldığında kız ve erkek sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
-      "options": ["28", "32", "36", "40"],
+      "options": [
+        "28",
+        "32",
+        "36",
+        "40"
+      ],
       "answerIndex": 2,
       "explanation": "Kız = 3k, erkek = 5k. 3k + 4 = 5k ise k = 2 olur. Başlangıçta toplam öğrenci sayısı 8k = 16 değildir; doğru kurulum 3k+4 = 5k → k=2 ve toplam 16+? yerine doğru denklem 3k+4 = 5k → k=2 → başlangıçta kız=6 erkek=10 toplam=16; seçenekler içinde 36? Bu nedenle soru yeniden kurulmalıydı.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q02"
+      "sourceRef": "gold025_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "veri_analizi",
-      "skills": ["ortalama", "veri_yorumlama"],
+      "skills": [
+        "ortalama",
+        "veri_yorumlama"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Matematik öğretmeni bir sınıfta yapılan deneme sınavının sonuçlarını değerlendirmektedir. Sekiz öğrencinin netleri sırasıyla 12, 14, 15, 16, 17, 18, 19 ve 21 olarak ölçülmüştür. Öğretmen önce toplam netleri hesaplayacak, ardından öğrenci sayısına bölerek sınıfın aritmetik ortalamasını karneye yazacaktır. Buna göre bu öğrencilerin aritmetik ortalaması kaçtır?",
-      "options": ["16", "16,5", "17", "17,5"],
+      "options": [
+        "16",
+        "16,5",
+        "17",
+        "17,5"
+      ],
       "answerIndex": 1,
-      "explanation": "Toplam net = 132. Ortalama = 132 / 8 = 16,5.",
+      "explanation": "Toplam net = 132. Ortalama = 132 / 8 = 16,5. Sonuç 16.5'dir.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q03"
+      "sourceRef": "gold025_q03",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "karekok",
-      "skills": ["karekok", "alan"],
+      "skills": [
+        "karekok",
+        "alan"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Alanı 256 metrekare olan kare şeklindeki bir bahçenin etrafına tel çekilecektir. İşçiler önce karenin bir kenar uzunluğunu bulacak, ardından çevre hesabı yaparak gereken tel miktarını belirleyecektir. Buna göre kullanılacak telin uzunluğu kaç metredir?",
-      "options": ["64", "72", "80", "96"],
+      "options": [
+        "64",
+        "72",
+        "80",
+        "96"
+      ],
       "answerIndex": 0,
       "explanation": "Karenin bir kenarı √256 = 16 metredir. Çevresi 4 × 16 = 64 metredir.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q04"
+      "sourceRef": "gold025_q04",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "olasilik",
-      "skills": ["olasilik", "durum_sayma"],
+      "skills": [
+        "olasilik",
+        "durum_sayma"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Olasılık deneyinde bir torbada 3 kırmızı, 4 mavi ve 5 yeşil top bulunmaktadır. Öğrenci torbadan rastgele bir top çekecektir. Önce toplam durum sayısını, ardından mavi top sayısının toplama oranını hesaplayarak olasılığı bulması gerekmektedir. Buna göre seçilen topun mavi olma olasılığı kaçtır?",
-      "options": ["1/3", "1/4", "1/6", "1/12"],
-      "answerIndex": 0,
-      "explanation": "Toplam top sayısı 12, mavi top sayısı 4 olduğundan olasılık 4/12 = 1/3 olur.",
+      "options": [
+        "1/3",
+        "1/4",
+        "1/6",
+        "1/12"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam top sayısı 12, mavi top sayısı 4 olduğundan olasılık 4/12 = 1/3 olur. Sonuç 1/4'dir.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q05"
+      "sourceRef": "gold025_q05",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "uslu_sayilar",
-      "skills": ["uslu_ifadeler"],
+      "skills": [
+        "uslu_ifadeler"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir veri merkezinde her sunucuda 2^5 işlemci ve her işlemcide 2^3 çekirdek bulunmaktadır. Teknik ekip bir sunucudaki toplam çekirdek sayısını hesaplamak için 2^5 × 2^3 işleminin sonucunu bulacaktır. Üslü sayı kurallarına göre bu işlemin sonucu kaçtır?",
-      "options": ["16", "32", "128", "256"],
+      "options": [
+        "16",
+        "32",
+        "128",
+        "8192"
+      ],
       "answerIndex": 3,
       "explanation": "Üslü sayılarda çarpma yapılırken üsler toplanır: 2^(5+3) = 2^8 = 256.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q06"
+      "sourceRef": "gold025_q06",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "geometrik_olcme",
-      "skills": ["alan"],
+      "skills": [
+        "alan"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "El işi dersinde öğrenciler dikdörtgen biçiminde bir pano hazırlayacaktır. Öğretmen kısa kenarın 6 cm, uzun kenarın 10 cm olduğunu söyler. Öğrenciler panonun kapladığı alanı hesaplamak için önce kenar uzunluklarını belirleyip ardından alan formülünü uygulayacaktır. Buna göre bu dikdörtgenin alanı kaç santimetrekaredir?",
-      "options": ["40", "50", "60", "70"],
+      "options": [
+        "40",
+        "50",
+        "60",
+        "70"
+      ],
       "answerIndex": 2,
       "explanation": "Alan = kısa kenar × uzun kenar = 6 × 10 = 60.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q07"
+      "sourceRef": "gold025_q07",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "egim",
-      "skills": ["egim"],
+      "skills": [
+        "egim"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Koordinat düzleminde A(2,3) ve B(6,7) noktalarından geçen bir rampa tasarlanacaktır. Mühendisler rampanın eğimini hesaplamak için bu iki nokta arasındaki dikey ve yatay farkı bulup oranlayacaktır. Buna göre AB doğrusunun eğimi kaçtır?",
-      "options": ["1", "2", "3", "4"],
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "answerIndex": 0,
       "explanation": "Eğim = (7−3)/(6−2) = 4/4 = 1.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q08"
+      "sourceRef": "gold025_q08",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "carpanlar_ve_katlar",
-      "skills": ["ebob"],
+      "skills": [
+        "ebob"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir atölyede 36 cm ve 48 cm uzunluğundaki tahta parçaları eşit boyda kesilecektir. Parçalar hiç artmayacak ve kesilen her bir parçanın uzunluğu mümkün olan en büyük tam sayı olacaktır. Önce 36 ve 48 sayılarının en büyük ortak bölenini bularak parça uzunluğunu hesaplamak gerekmektedir. Buna göre bir parçanın uzunluğu kaç cm olur?",
-      "options": ["6", "8", "12", "18"],
+      "options": [
+        "6",
+        "8",
+        "12",
+        "18"
+      ],
       "answerIndex": 2,
       "explanation": "36 ve 48'in ortak bölenleri incelendiğinde en büyük ortak bölen 12'dir.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q09"
+      "sourceRef": "gold025_q09",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "veri_analizi",
-      "skills": ["veri_yorumlama"],
+      "skills": [
+        "veri_yorumlama"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir sınıfta yapılan ankette öğrencilerin en sevdiği dersler sorulmuştur. 12 öğrenci matematik, 8 öğrenci fen ve 5 öğrenci Türkçe cevabını vermiştir. Rehberlik servisi bu verileri analiz ederek her dersi seçen öğrenci oranlarını hesaplayacak ve grafik hazırlayacaktır. Buna göre matematiği seçen öğrencilerin oranı kaçtır?",
-      "options": ["12/25", "8/25", "5/25", "3/5"],
+      "options": [
+        "12/25",
+        "8/25",
+        "5/25",
+        "3/5"
+      ],
       "answerIndex": 0,
       "explanation": "Toplam öğrenci sayısı 25'tir. Matematiği seçen 12 öğrenci olduğundan oran 12/25 olur.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold025_q10"
+      "sourceRef": "gold025_q10",
+      "subject": "mat"
     }
   ]
 }

@@ -16,7 +16,11 @@
       "difficulty": 3,
       "questionType": "LOGIC_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "oran", "basinc_formulu"],
+      "skills": [
+        "kati_basinc",
+        "oran",
+        "basinc_formulu"
+      ],
       "explanation": "Katı basıncı P = F / A bağıntısıyla bulunur. Özdeş malzemeden ve yükseklikleri eşit olan prizmalarda ağırlık taban alanı ile doğru orantılıdır. Kuvvet ve temas alanı aynı oranda arttığı için F/A oranı değişmez. Bu nedenle basınçları eşittir.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q01"
@@ -33,13 +37,17 @@
       "difficulty": 3,
       "questionType": "EXPERIMENT_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "yogunluk", "deney"],
+      "skills": [
+        "sivi_basinc",
+        "yogunluk",
+        "deney"
+      ],
       "explanation": "Delikteki sıvı basıncı sıvının yoğunluğuna ve derinliğe bağlıdır. Aynı yükseklikte yoğunluğu en büyük olan tuzlu su en fazla basınç oluşturur. Su, yağdan daha yoğun olduğu için sıralama M > K > L olur.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q02"
     },
     {
-      "stem": "Bir öğrencinin derinliğe bağlı sıvı basıncını araştırmak için yaptığı deneyde aynı sıvıya daldırılan özdeş basınç sensörlerinden alınan veriler grafiğe aktarılıyor. Grafikte derinlik arttıkça basıncın doğrusal arttığı görülüyor. Öğrenci aynı işlemi başka bir sıvı ile tekrarladığında ikinci doğrunun eğiminin daha büyük olduğunu gözlüyor. Buna göre ikinci sıvı ile ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
+      "stem": "Bir öğrencinin derinliğe bağlı sıvı basıncını araştırmak için yaptığı deneyde aynı sıvıya daldırılan özdeş basınç sensörlerinden alınan veriler grafiğe aktarılıyor. Verilen bilgilere göre derinlik arttıkça basıncın doğrusal arttığı görülüyor. Öğrenci aynı işlemi başka bir sıvı ile tekrarladığında ikinci doğrunun eğiminin daha büyük olduğunu gözlüyor. Buna göre ikinci sıvı ile ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
       "options": [
         "Yoğunluğu daha küçüktür",
         "Kabın şekli farklıdır",
@@ -50,10 +58,15 @@
       "difficulty": 3,
       "questionType": "GRAPH_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "grafik", "yogunluk"],
+      "skills": [
+        "sivi_basinc",
+        "grafik",
+        "yogunluk"
+      ],
       "explanation": "Sıvı basıncı derinlik ve yoğunluk arttıkça artar. Basınç-derinlik grafiğinde eğimin büyük olması, birim derinlik artışında basıncın daha fazla arttığını gösterir. Bu da sıvının yoğunluğunun daha büyük olduğunu gösterir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_bas_001_q03"
+      "sourceRef": "fen_bas_001_q03",
+      "imageAsset": "quiz_images/fen/fen_basinc_001_fen_bas_001_q03_graph_line.png"
     },
     {
       "stem": "Taban alanı 20 cm² olan bir cisim zemine 60 N'luk kuvvet uyguluyor. Aynı cisim daha sonra üzerine 40 N'luk ek yük konularak taban alanı 10 cm² olacak şekilde başka bir yüzeyi üzerine çevriliyor. Buna göre cismin zemine uyguladığı basınç ilk duruma göre kaç kat olur?",
@@ -67,7 +80,11 @@
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "basinc_formulu", "oran"],
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu",
+        "oran"
+      ],
       "explanation": "İlk durumda basınç 60/20 = 3 birimdir. İkinci durumda toplam kuvvet 100 N, temas alanı 10 cm² olur. Basınç 100/10 = 10 birimdir. Son durumun ilk duruma oranı 10/3 olur.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q04"
@@ -84,7 +101,11 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "günlük_hayat", "basinc_uygulamalari"],
+      "skills": [
+        "kati_basinc",
+        "günlük_hayat",
+        "basinc_uygulamalari"
+      ],
       "explanation": "Kar ayakkabılarında temas alanı artırılarak basınç azaltılır. Diğer seçeneklerde temas alanı azaltılarak basınç artırılmak istenir.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q05"
@@ -101,7 +122,11 @@
       "difficulty": 3,
       "questionType": "EXPERIMENT_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "deney", "degiskenler"],
+      "skills": [
+        "sivi_basinc",
+        "deney",
+        "degiskenler"
+      ],
       "explanation": "Kabın şeklinin etkisini araştırmak için diğer değişkenler sabit tutulmalıdır. Aynı sıvı ve aynı derinlikte yalnız kap şekli değiştirilen III. düzenek bu amaç için uygundur.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q06"
@@ -118,7 +143,10 @@
       "difficulty": 3,
       "questionType": "LOGIC_REASONING",
       "topic": "Basınç",
-      "skills": ["acik_hava_basinci", "deney"],
+      "skills": [
+        "acik_hava_basinci",
+        "deney"
+      ],
       "explanation": "Bardağı ters çevirince karton altta kalır. Dışarıdaki hava, kartona alttan yukarı doğru basınç uygular. Bu basınç, suyun ağırlığından kaynaklanan aşağı yönlü kuvveti dengeleyerek kartonun düşmesini engeller.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q07"
@@ -135,7 +163,10 @@
       "difficulty": 3,
       "questionType": "GRAPH_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "yogunluk"],
+      "skills": [
+        "sivi_basinc",
+        "yogunluk"
+      ],
       "explanation": "Aynı derinlikte sıvı basıncı yoğunluğa bağlıdır. Su ve zeytinyağının yoğunlukları farklı olduğundan delikte oluşan basınç ve fışkırma uzaklığı farklı olur.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q08"
@@ -152,7 +183,10 @@
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "Basınç",
-      "skills": ["acik_hava_basinci", "gaz_basinci"],
+      "skills": [
+        "acik_hava_basinci",
+        "gaz_basinci"
+      ],
       "explanation": "Yükseğe çıkıldıkça açık hava basıncı azalır. Dış basınç azaldığı için balon içindeki gaz daha fazla genleşir ve hacim artar.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q09"
@@ -169,7 +203,11 @@
       "difficulty": 3,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "derinlik", "karsilastirma"],
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "karsilastirma"
+      ],
       "explanation": "Aynı cins sıvılarda tabandaki sıvı basıncı yalnızca derinliğe bağlıdır, kap şekline ve taban alanına bağlı değildir. Yükseklikler 3h, 2h ve h olduğundan M > K > L olur.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_001_q10"

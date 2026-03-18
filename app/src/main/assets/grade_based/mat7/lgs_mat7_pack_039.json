@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0380",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "9",
+        "10",
+        "8",
+        "12"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0380",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0381",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 87, 87, 87, 87, 89 puan almıştır. Altıncı sınava girince ortalaması 89 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "102",
+        "89",
+        "92",
+        "97"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 437. 6. sınav x ise (total5 + x)/6 = 89 → x = 97.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0381",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0382",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "8",
+        "9",
+        "12",
+        "10"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0382",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0383",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 12 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "40",
+        "35",
+        "43",
+        "45"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 12. k+3 = 2(e+2) → e = 13, k = 27. Toplam = 40.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0383",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0384",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 13 TL zam yapılmış, ardından 7 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "-7",
+        "0",
+        "13",
+        "6"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 13 - 7 = 2x → x(1-2) = -6 → x = 6 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0384",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0385",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 5) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "97",
+        "87",
+        "80",
+        "92"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+5) = 44 → x = 6. Alan = x(2x+5) = 92 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0385",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0386",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 5 katından 20 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "22",
+        "17",
+        "27",
+        "25"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 5e - 20. k+3 = 2(e+2) → e = 7, k = 15. Toplam = 22.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0386",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0387",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "1"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0387",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0388",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 100 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "860",
+        "740",
+        "400",
+        "800"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +100 litre eklenince 4V/(8) dolu. Denklemden V=800 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0388",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0389",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0389",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

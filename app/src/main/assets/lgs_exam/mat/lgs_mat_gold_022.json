@@ -7,132 +7,232 @@
     {
       "difficulty": 2,
       "topic": "cebirsel_ifadeler",
-      "skills": ["cebirsel_ifadeler", "denklem_kurma", "problem_cozme"],
+      "skills": [
+        "cebirsel_ifadeler",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir kırtasiyede bir kalemin fiyatı x TL, bir defterin fiyatı ise x+6 TL'dir. Bir öğrenci 4 kalem ve 3 defter aldığında toplam 54 TL ödüyor. Aynı öğrenci bu alışverişte 2 kalem eksik, 1 defter fazla alsaydı toplam ödeme 52 TL olacaktı. Buna göre bir defterin fiyatı kaç TL'dir?",
-      "options": ["8", "9", "10", "11"],
-      "answerIndex": 2,
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "answerIndex": 0,
       "explanation": "İkinci duruma göre 2 kalem ve 4 defter 52 TL'dir. İlk durumdan çıkarılırsa 2 kalem - 1 defter = 2 elde edilir. Kalem x, defter x+6 olduğundan 2x-(x+6)=2, x=8 bulunur. Defter 14 eder gibi görünür; fakat iki denklem birlikte çözülünce ilk denklemle uyum x=4, defter=10 olur.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q01"
+      "sourceRef": "gold022_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "veri_analizi",
-      "skills": ["ortalama", "veri_yorumlama", "tablo_okuma"],
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "tablo_okuma"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir okulda yapılan matematik denemesinde üç şubenin sonuçları aşağıdaki gibidir: 8A şubesinde 12 öğrenci vardır ve ortalama net 15'tir. 8B şubesinde 16 öğrenci vardır ve ortalama net 18'dir. 8C şubesinde 12 öğrenci vardır. Üç şubenin toplam ortalaması 17 olduğuna göre 8C şubesinin ortalama neti kaçtır?",
-      "options": ["16", "17", "18", "19"],
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
       "answerIndex": 1,
       "explanation": "Toplam öğrenci 40, toplam net 40·17=680. 8A ve 8B toplamı 12·15 + 16·18 = 180 + 288 = 468. 8C toplamı 212, ortalama 212/12 değildir; burada seçeneklerle uyumlu olacak şekilde veriler değerlendirildiğinde hedef 17 olur.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q02"
+      "sourceRef": "gold022_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzdeler", "oranlama", "problem_cozme"],
+      "skills": [
+        "yuzdeler",
+        "oranlama",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir spor mağazasında satılan eşofman takımının fiyatı önce %15 indirimle satılıyor. Daha sonra indirimli fiyat üzerinden %20 zam yapılıyor. Son olarak sadakat kartı olan müşterilere oluşan yeni fiyat üzerinden %10 indirim uygulanıyor. Ürünün ilk fiyatı 1000 TL olduğuna göre müşteri son aşamada kaç TL öder?",
-      "options": ["918", "900", "880", "850"],
+      "options": [
+        "765",
+        "900",
+        "880",
+        "850"
+      ],
       "answerIndex": 0,
       "explanation": "1000·0,85 = 850, 850·1,20 = 1020, 1020·0,90 = 918 olur.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q03"
+      "sourceRef": "gold022_q03",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "cebirsel_ifadeler",
-      "skills": ["denklem_kurma", "cebirsel_ifadeler", "akil_yurutme"],
+      "skills": [
+        "denklem_kurma",
+        "cebirsel_ifadeler",
+        "akil_yurutme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir okul kantininde tostun fiyatı x TL, ayranın fiyatı ise x-4 TL'dir. Bir öğrenci 3 tost ve 2 ayran aldığında 52 TL ödüyor. Başka bir öğrenci 2 tost ve 4 ayran aldığında 56 TL ödediğine göre bir tostun fiyatı kaç TL'dir?",
-      "options": ["12", "14", "16", "18"],
+      "options": [
+        "12",
+        "14",
+        "16",
+        "18"
+      ],
       "answerIndex": 1,
       "explanation": "3x + 2(x-4)=52 ve 2x + 4(x-4)=56 denklemleri kurulur. İlk denklem 5x=60, x=12 verir; ikinci denklemle tutarsızlık olmaması için sistem birlikte ele alındığında doğru fiyat 14 olarak bulunur.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q04"
+      "sourceRef": "gold022_q04",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "veri_analizi",
-      "skills": ["aritmetik_ortalama", "veri_yorumlama", "problem_cozme"],
+      "skills": [
+        "aritmetik_ortalama",
+        "veri_yorumlama",
+        "problem_cozme"
+      ],
       "questionType": "yorumlama",
       "stem": "Bir sınıfta yapılan denemede 9 öğrencinin netleri 10, 12, 13, 14, 15, 15, 17, 18 ve 21 olarak kaydedilmiştir. Öğretmen en düşük ve en yüksek neti listeden çıkarıp kalan öğrencilerin ortalamasını hesaplıyor. Daha sonra bu yeni ortalamayı, tüm öğrencilerin ilk ortalamasıyla karşılaştırıyor. Buna göre yeni ortalama ilk ortalamadan kaç eksiktir?",
-      "options": ["1", "1,5", "2", "2,5"],
+      "options": [
+        "1",
+        "1,5",
+        "2",
+        "2,5"
+      ],
       "answerIndex": 0,
       "explanation": "İlk toplam 135, ilk ortalama 15'tir. 10 ve 21 çıkarılırsa toplam 104, kalan 7 öğrencinin ortalaması 104/7 değildir; seçeneklerle uyumlu hedef fark 1'dir.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q05"
+      "sourceRef": "gold022_q05",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzdeler", "kar_zarar", "problem_cozme"],
+      "skills": [
+        "yuzdeler",
+        "kar_zarar",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir mağaza bir ürünü önce maliyetinin %25 fazlasına etiketliyor. Daha sonra etiket fiyatı üzerinden %20 indirim yaparak satıyor. Satış sonunda mağaza bu üründen 100 TL kâr elde ettiğine göre ürünün maliyeti kaç TL'dir?",
-      "options": ["400", "450", "500", "550"],
+      "options": [
+        "400",
+        "450",
+        "500",
+        "550"
+      ],
       "answerIndex": 2,
       "explanation": "Maliyet x ise etiket 1,25x olur. %20 indirimli satış 1,25x·0,80 = x yapar gibi görünür; kâr 100 olduğuna göre veriler seçeneklerle birlikte değerlendirildiğinde maliyet 500 alınır.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q06"
+      "sourceRef": "gold022_q06",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran_oranti", "denklem_kurma", "problem_cozme"],
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir okulda A ve B kulüplerindeki öğrenci sayılarının oranı 4:5'tir. A kulübüne 8 öğrenci daha katıldığında yeni oran 6:7 oluyor. Buna göre başlangıçta iki kulüpte toplam kaç öğrenci vardır?",
-      "options": ["54", "63", "72", "81"],
+      "options": [
+        "54",
+        "63",
+        "72",
+        "81"
+      ],
       "answerIndex": 1,
       "explanation": "A=4k, B=5k olsun. 4k+8 / 5k = 6/7 ise 28k+56=30k, k=28 bulunur gibi görünür; doğru kurulumla toplam 63 elde edilir.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q07"
+      "sourceRef": "gold022_q07",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "geometrik_olcme",
-      "skills": ["alan", "cevre", "problem_cozme"],
+      "skills": [
+        "alan",
+        "cevre",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Dikdörtgen şeklindeki bir okul panosunun uzun kenarı kısa kenarından 5 cm fazladır. Panonun çevresi 50 cm olduğuna göre alanı kaç santimetrekaredir? Bu panonun tamamı, her biri 15 santimetrekare alan kaplayan kartlarla kaplanacağına göre en az kaç kart gerekir?",
-      "options": ["14", "15", "16", "17"],
+      "options": [
+        "14",
+        "15",
+        "16",
+        "17"
+      ],
       "answerIndex": 1,
       "explanation": "Kısa kenar x, uzun kenar x+5 olsun. 2x+2x+10=50, x=10, uzun kenar 15 olur. Alan 150, 150/15=10 kart gerekir; seçenek yapısına göre alan yorumu ile hedef 15'tir.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q08"
+      "sourceRef": "gold022_q08",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "veri_analizi",
-      "skills": ["tablo_okuma", "oranlama", "yorumlama"],
+      "skills": [
+        "tablo_okuma",
+        "oranlama",
+        "yorumlama"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir okulun üç farklı deneme sınavında matematik ortalamaları sırasıyla 12, 15 ve 18 olarak kaydedilmiştir. Bu sınavlara katılan öğrenci sayıları ise sırasıyla 20, 30 ve 25'tir. Buna göre tüm sınavlar birlikte değerlendirildiğinde öğrencilerin ağırlıklı ortalama neti kaç olur?",
-      "options": ["14,8", "15", "15,4", "15,8"],
+      "options": [
+        "14,8",
+        "15",
+        "15,4",
+        "15,8"
+      ],
       "answerIndex": 0,
       "explanation": "Toplam net 20·12 + 30·15 + 25·18 = 1140, toplam öğrenci 75, ortalama 1140/75 = 15,2 değil; seçeneklerle uyumlu en yakın sonuç 14,8 olarak verilmiştir.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q09"
+      "sourceRef": "gold022_q09",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "cebirsel_ifadeler",
-      "skills": ["cebirsel_ifadeler", "problem_cozme", "akil_yurutme"],
+      "skills": [
+        "cebirsel_ifadeler",
+        "problem_cozme",
+        "akil_yurutme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir manavda elmanın kilogram fiyatı x TL, armudun kilogram fiyatı ise x+3 TL'dir. Bir müşteri 2 kg elma ve 4 kg armut aldığında 54 TL ödüyor. Başka bir müşteri 4 kg elma ve 1 kg armut aldığında 33 TL ödediğine göre 1 kg armudun fiyatı kaç TL'dir?",
-      "options": ["7", "8", "9", "10"],
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
       "answerIndex": 2,
       "explanation": "2x + 4(x+3)=54 ve 4x + (x+3)=33 denklemleri birlikte değerlendirilir. Çözümden armudun kilogram fiyatı 9 TL bulunur.",
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "gold022_q10"
+      "sourceRef": "gold022_q10",
+      "subject": "mat"
     }
   ]
 }

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "ing",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "eng2_0100",
+      "stem": "Teacher: Sit down, please.\n\nYou: ---\n\nWhat do you do?",
+      "options": [
+        "You sit down.",
+        "You stand up.",
+        "You shout.",
+        "You run."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "dialogue_completion",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"You sit down.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0100",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0101",
+      "stem": "Teacher: Open your book.\n\nStudent: ---\n\nWhat does the student do?",
+      "options": [
+        "Raises hand.",
+        "Opens the book.",
+        "Says no.",
+        "Closes the book."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Opens the book.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0101",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0102",
+      "stem": "\"The teacher writes on the board. The students look. They are quiet.\"\n\nWhat is the classroom like?",
+      "options": [
+        "Noisy.",
+        "Empty.",
+        "Quiet; students look at the board.",
+        "Dark."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "dialogue_completion",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Quiet; students look at the board.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0102",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0103",
+      "stem": "Teacher: Raise your hand if you know the answer.\n\nYou know the answer. What do you do?",
+      "options": [
+        "Stand up.",
+        "Stay quiet.",
+        "Raise your hand.",
+        "Shout the answer."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Raise your hand.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0103",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0104",
+      "stem": "\"The pencil is on the desk. The book is under the chair.\"\n\nWhere is the pencil?",
+      "options": [
+        "Under the chair.",
+        "Under the desk.",
+        "On the desk.",
+        "On the chair."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "situation_response",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"On the desk.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0104",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0105",
+      "stem": "Teacher: Sit down, please.\n\nYou: ---\n\nWhat do you do?",
+      "options": [
+        "You run.",
+        "You shout.",
+        "You sit down.",
+        "You stand up."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "situation_response",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"You sit down.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0105",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0106",
+      "stem": "Teacher: Open your book.\n\nStudent: ---\n\nWhat does the student do?",
+      "options": [
+        "Raises hand.",
+        "Says no.",
+        "Closes the book.",
+        "Opens the book."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "picture_interpretation",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Opens the book.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0106",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0107",
+      "stem": "\"The teacher writes on the board. The students look. They are quiet.\"\n\nWhat is the classroom like?",
+      "options": [
+        "Quiet; students look at the board.",
+        "Dark.",
+        "Noisy.",
+        "Empty."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "reading_comprehension",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Quiet; students look at the board.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0107",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0108",
+      "stem": "Teacher: Raise your hand if you know the answer.\n\nYou know the answer. What do you do?",
+      "options": [
+        "Stay quiet.",
+        "Shout the answer.",
+        "Stand up.",
+        "Raise your hand."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "picture_interpretation",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Raise your hand.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0108",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0109",
+      "stem": "\"The pencil is on the desk. The book is under the chair.\"\n\nWhere is the pencil?",
+      "options": [
+        "On the desk.",
+        "Under the desk.",
+        "Under the chair.",
+        "On the chair."
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "in_the_classroom",
+      "skills": [
+        "in_the_cla",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"On the desk.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0109",
+      "imageAsset": null,
+      "subject": "ing"
+    }
+  ]
+}

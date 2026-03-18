@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "fen6_0430",
+      "stem": "Düzenli check-up ve sağlık taramalarının önemi vurgulanıyor.\n\nBunun bilimsel gerekçesi aşağıdakilerden hangisidir?",
+      "options": [
+        "Sağlık kendiliğinden korunur",
+        "Check-up sadece hastalar içindir",
+        "Tarama gereksizdir",
+        "Erken teşhis hastalıkların tedavisini kolaylaştırır"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "tablo_yorumlama",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Erken teşhis hastalıkların tedavisini kolaylaştırır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0430",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0431",
+      "stem": "Seri bağlı iki ampulden biri patladığında diğeri de söndü. Paralel bağlı devrede bir ampul patlayınca diğeri yanmaya devam etti.\n\nBu farkın sebebi nedir?",
+      "options": [
+        "Ampul sayısı önemsizdir",
+        "Seri devrede akım tek yol izler; paralelde her ampulün ayrı yolu vardır",
+        "Seri devre daha iyidir",
+        "Paralel devre daha güçlüdür"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "sebep_sonuc",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Seri devrede akım tek yol izler; paralelde her ampulün ayrı yolu vardır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0431",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0432",
+      "stem": "Pil sayısı artırıldığında (seri bağlı) ampulün parlaklığı arttı.\n\nBu deneyin yorumu aşağıdakilerden hangisidir?",
+      "options": [
+        "Pil sayısı arttıkça devreye sağlanan gerilim artar, ampul daha parlak yanar",
+        "Pil sayısı parlaklığı etkilemez",
+        "Ampul pil sayısını belirler",
+        "Tek pil yeterlidir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Pil sayısı arttıkça devreye sağlanan gerilim artar, ampul daha parlak yanar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0432",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0433",
+      "stem": "Ay'ın evreleri (yeni ay, ilk dördün, dolunay, son dördün) Dünya'dan görünümündeki değişimdir. Ay kendi etrafında ve Dünya etrafında döner.\n\nAy'ın hep aynı yüzünün görünmesinin nedeni nedir?",
+      "options": [
+        "Dünya Ay'ı gizler",
+        "Ay dönmez",
+        "Ay'ın kendi etrafında dönme süresi, Dünya etrafında dönme süresine eşittir",
+        "Ay çok uzaktır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "sebep_sonuc",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ay'ın kendi etrafında dönme süresi, Dünya etrafında dönme süresine eşittir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0433",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0434",
+      "stem": "Güneş tutulması Dünya'nın belirli bir bölgesinden görülür; Ay tutulması gece olan her yerden görülebilir.\n\nBu farkın nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Ay tutulması daha nadirdir",
+        "Dünya dönmez",
+        "Güneş tutulmasında Ay'ın gölgesi Dünya'da dar bir alana düşer; Ay tutulmasında Dünya'nın gölgesi Ay'ı tam kaplar",
+        "Güneş daha büyüktür"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Güneş tutulmasında Ay'ın gölgesi Dünya'da dar bir alana düşer; Ay tutulmasında Dünya'nın gölgesi Ay'ı tam kaplar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0434",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0435",
+      "stem": "Boşaltım sisteminde böbrekler kanı süzer, zararlı maddeleri idrarla atar.\n\nBu bilgiye göre böbreklerin görevi nedir?",
+      "options": [
+        "Oksijen taşımak",
+        "Besin depolamak",
+        "Kanı süzerek atık maddeleri vücuttan uzaklaştırmak",
+        "Kan üretmek"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "cok_adinli_dusunme",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Kanı süzerek atık maddeleri vücuttan uzaklaştırmak\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0435",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0436",
+      "stem": "Destek ve hareket sisteminde kemikler iskeleti oluşturur, kaslar kasılma ile hareketi sağlar.\n\nKas ve kemik ilişkisi nasıldır?",
+      "options": [
+        "İkisi bağımsızdır",
+        "Kaslar kemiklere bağlıdır; kasılan kaslar kemikleri hareket ettirir",
+        "Kemikler kasları hareket ettirir",
+        "Kaslar kemik üretir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Kaslar kemiklere bağlıdır; kasılan kaslar kemikleri hareket ettirir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0436",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0437",
+      "stem": "Sabit sürtünmeli yüzeyde cisme uygulanan kuvvet artırıldı. Cisim belirli bir kuvvetten sonra hareket etmeye başladı.\n\nBu deney statik ve kinetik sürtünme ile ilgili ne gösterir?",
+      "options": [
+        "Kuvvet sürtünmeyi etkilemez",
+        "Sürtünme yoktur",
+        "Cismi harekete geçirmek için statik sürtünmeyi yenmek gerekir; hareket başlayınca kinetik sürtünme devreye girer",
+        "Tüm sürtünmeler aynıdır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "kavram_baglantisi",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Cismi harekete geçirmek için statik sürtünmeyi yenmek gerekir; hareket başlayınca kinetik sürtünme devreye girer\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0437",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0438",
+      "stem": "Eşit kütleli farklı maddelere eşit ısı verildi. Sıcaklık artışları farklı oldu.\n\nBu farkın nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Kütle sıcaklığı belirler",
+        "Maddelerin özgül ısı kapasiteleri farklıdır",
+        "Isı maddeye bağlı değildir",
+        "Tüm maddeler aynı ısıyı alır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "grafik_yorumlama",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Maddelerin özgül ısı kapasiteleri farklıdır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0438",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen6_0439",
+      "stem": "Sesin yansıması (eko) deneyinde ses duvara çarpıp geri döndü. Ses kaynağına uzak duvarda gecikme daha fazlaydı.\n\nBu gözlemin açıklaması nedir?",
+      "options": [
+        "Eko sadece dağda olur",
+        "Ses yansımaz",
+        "Ses yansır; mesafe arttıkça gidiş-dönüş süresi artar",
+        "Ses duvardan geçer"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "cok_adinli_dusunme",
+      "topic": "elektrigin_iletimi",
+      "skills": [
+        "elektrigin",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses yansır; mesafe arttıkça gidiş-dönüş süresi artar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen6_0439",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

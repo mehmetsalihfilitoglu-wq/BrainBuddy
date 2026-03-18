@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0120",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 60 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "540",
+        "300",
+        "600",
+        "660"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +60 litre eklenince 4V/(10) dolu. Denklemden V=600 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0120",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0121",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "9",
+        "10",
+        "8",
+        "12"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0121",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0122",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 2 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 2E. E + 2E = 180° → E = 60°. Kenar sayısı n = 360/E = 6.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0122",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0123",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 120° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "60",
+        "150",
+        "180",
+        "240"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 120° ise diğerleri toplam 240°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0123",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0124",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 6 katından 18 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "5",
+        "15",
+        "13",
+        "10"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 6e - 18. k+3 = 2(e+2) → e = 4, k = 6. Toplam = 10.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0124",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0125",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0125",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0126",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0126",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0127",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 78, 78, 78, 78, 80 puan almıştır. Altıncı sınava girince ortalaması 81 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "81",
+        "94",
+        "89",
+        "99"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 392. 6. sınav x ise (total5 + x)/6 = 81 → x = 94.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0127",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0128",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 45° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "225",
+        "180",
+        "135",
+        "315"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 45° ise diğerleri toplam 315°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0128",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0129",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0129",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

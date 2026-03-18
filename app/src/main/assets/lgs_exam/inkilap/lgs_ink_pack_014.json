@@ -1,139 +1,248 @@
 {
   "version": 1,
-  "mode": "PACK",
+  "mode": "LGS",
   "subject": "inkilap",
-  "publisher": "BrainBuddy",
-  "packId": "lgs_ink_pack_014",
+  "publisher": "brainbuddy",
   "questions": [
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması ile kapitülasyonların tamamen kaldırılması aşağıdakilerden hangisinin en açık göstergesidir?",
+      "stem": "Atatürk'ün vefatı sonrası İsmet İnönü'nün cumhurbaşkanı seçilmesi, aşağıdakilerden hangisinin göstergesidir?",
       "options": [
-        "Türkiye'nin ekonomik ve hukuki bağımsızlığını sağlamak istediğinin",
-        "Osmanlı Devleti'nin ekonomik düzeninin devam ettirildiğinin",
-        "İtilaf Devletleri'nin Türkiye üzerinde siyasi hakimiyet kurduğunun",
-        "Türkiye'nin dış ticareti tamamen reddettiğinin"
+        "Cumhuriyet rejiminin kesintiye uğradığının",
+        "Cumhuriyet kurumlarının işleyişe devam ettiğinin",
+        "Saltanatın geri geldiğinin",
+        "Seçimlerin iptal edildiğinin"
       ],
-      "answerIndex": 0,
-      "explanation": "Kapitülasyonların kaldırılması Türkiye'nin ekonomik ve hukuki bağımsızlığını sağlamaya yöneliktir."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Seçimle cumhurbaşkanı belirleme, cumhuriyet rejiminin sürdüğünü gösterir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q01",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması ile azınlıkların Türk vatandaşı kabul edilmesi aşağıdakilerden hangisini sağlamaya yöneliktir?",
+      "stem": "II. Dünya Savaşı'nda Türkiye'nin tarafsız kalma çabası, hangi ilke ile ilişkilendirilebilir?",
       "options": [
-        "Türkiye'nin iç işlerine dış müdahaleleri önlemeyi",
-        "Osmanlı millet sistemini sürdürmeyi",
-        "Azınlıklara ayrı devlet kurma hakkı vermeyi",
-        "Türkiye'nin uluslararası denetime girmesini"
+        "Savaşçılık",
+        "'Yurtta barış dünyada barış' anlayışı ve ülke güvenliği",
+        "Tam ittifak",
+        "İzolasyon"
       ],
-      "answerIndex": 0,
-      "explanation": "Azınlıkların Türk vatandaşı sayılması yabancı devletlerin müdahalesini engellemek amacı taşır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Tarafsızlık, savaştan uzak durma ve ülke güvenliğini koruma amacıyla uyumludur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q02",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması ile Türkiye'nin uluslararası alanda tanınması aşağıdakilerden hangisini göstermektedir?",
+      "stem": "Çok partili hayata geçişin 1946'da başlaması, demokratikleşme süreci açısından nasıl yorumlanabilir?",
       "options": [
-        "Yeni Türk Devleti'nin bağımsızlığının kabul edildiğini",
-        "Osmanlı Devleti'nin yeniden kurulduğunu",
-        "İtilaf Devletleri'nin savaşı kazandığını",
-        "Türkiye'nin manda yönetimine girdiğini"
+        "Demokrasi hiç denenmemiştir.",
+        "İç ve dış koşulların uygunlaşmasıyla çok partili sisteme adım atılmıştır.",
+        "Saltanat geri gelmiştir.",
+        "Seçimler kaldırılmıştır."
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan Türkiye'nin bağımsızlığını uluslararası alanda kabul ettirmiştir."
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "1946'da çok partili sisteme geçiş, demokratikleşmede önemli bir dönemeçtir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q03",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması ile aşağıdaki sorunlardan hangisi çözüme kavuşmamıştır?",
+      "stem": "Atatürk ilke ve inkılaplarının 'korunması' vurgusunun sonraki dönemlerde sıkça yer alması neyi gösterir?",
       "options": [
-        "Musul sorunu",
-        "Kapitülasyonlar",
-        "Azınlıklar",
-        "Sınırlar"
+        "İnkılapların terk edildiğini",
+        "Cumhuriyetin temel değerlerinin sürdürülmesi hedefinin benimsendiğini",
+        "Saltanatın geri geldiğini",
+        "Halifeliğin yeniden kurulduğunu"
       ],
-      "answerIndex": 0,
-      "explanation": "Musul sorunu Lozan'da çözülememiş ve daha sonra İngiltere ile yapılan görüşmelere bırakılmıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Koruma vurgusu, Cumhuriyet değerlerinin sürdürülmesi amacını yansıtır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q04",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması'nın imzalanması aşağıdakilerden hangisinin hukuken sona erdiğini göstermektedir?",
+      "stem": "12 Temmuz 1947 Beyannamesi veya benzeri girişimler, çok partili dönemde neyi hedeflemiştir?",
       "options": [
-        "Sevr Antlaşması'nın",
-        "Mondros Ateşkes Antlaşması'nın",
-        "Ankara Antlaşması'nın",
-        "Mudanya Ateşkes Antlaşması'nın"
+        "Partileri kapatmayı",
+        "Demokratik rekabetin adil koşullarda sürmesini sağlamayı",
+        "Tek partiyi güçlendirmeyi",
+        "Seçimleri iptal etmeyi"
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan Antlaşması ile Sevr Antlaşması tamamen geçersiz hale gelmiştir."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "comparison",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Bu tür girişimler, muhalefetin haklarının korunması ve adil seçim ortamı hedefini taşır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q05",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması ile Boğazların uluslararası bir komisyon tarafından yönetilmesi aşağıdakilerden hangisini göstermektedir?",
+      "stem": "II. Dünya Savaşı sonrası Türkiye'nin BM'ye katılması, dış politika açısından nasıl değerlendirilebilir?",
       "options": [
-        "Türkiye'nin bazı konularda uluslararası denetimi kabul etmek zorunda kaldığını",
-        "Türkiye'nin Boğazlar üzerindeki tüm haklarından vazgeçtiğini",
-        "Türkiye'nin Boğazları tamamen kapattığını",
-        "Boğazların Osmanlı yönetimine bırakıldığını"
+        "İzolasyon tercihi",
+        "Çok taraflı diplomasiye katılım ve uluslararası barışa katkı",
+        "Savaş bloklarına katılım",
+        "Tarafsızlıktan tam vazgeçiş"
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan'da Boğazlar uluslararası komisyon yönetimine bırakılmıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "inference",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "BM'ye katılım, uluslararası işbirliği ve barışa katkı anlayışının devamıdır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q06",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması'nın imzalanması aşağıdakilerden hangisinin gerçekleşmesinde etkili olmuştur?",
+      "stem": "Atatürk sonrası dönemde eğitim alanında yapılanlar (Köy Enstitüleri vb.), hangi hedefle ilişkilendirilebilir?",
       "options": [
-        "Türkiye'nin uluslararası alanda tanınmasında",
-        "Saltanatın kaldırılmasında",
-        "Cumhuriyetin ilan edilmesinde",
-        "Halifeliğin kaldırılmasında"
+        "Eğitimi zayıflatmak",
+        "Eğitimi yaygınlaştırmak ve çağdaşlaşmayı sürdürmek",
+        "Dini eğitimi tekelleştirmek",
+        "Özel okulları kapatmak"
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan ile Türkiye'nin bağımsızlığı uluslararası alanda kabul edilmiştir."
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Köy Enstitüleri, eğitimi yaygınlaştırma ve kalkınma hedefiyle uyumludur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q07",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması'nın aşağıdaki yönlerinden hangisi Misak-ı Milli hedefleriyle doğrudan ilişkilidir?",
+      "stem": "Cumhuriyet rejiminin 1946 sonrası çok partili döneme geçişte yaşadığı zorluklar, aşağıdakilerden hangisiyle açıklanabilir?",
       "options": [
-        "Kapitülasyonların kaldırılması",
-        "Boğazların uluslararası yönetime bırakılması",
-        "Musul sorununun çözülememesi",
-        "Yabancı okulların faaliyet göstermesi"
+        "Demokrasinin kolay olduğu",
+        "Tek parti alışkanlığından çok partili kültüre geçişin zorluğu",
+        "Saltanatın geri gelmesi",
+        "Seçimlerin kaldırılması"
       ],
-      "answerIndex": 0,
-      "explanation": "Tam bağımsızlık anlayışı Misak-ı Milli'nin temel hedeflerinden biridir."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Uzun tek parti döneminden çok partili sisteme geçiş, kültürel ve kurumsal uyum gerektirmiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q08",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması aşağıdaki yönlerden hangisi bakımından Millî Mücadele'nin diplomatik başarısı olarak kabul edilir?",
+      "stem": "Atatürk'ün 'Benden sonra beni izlemek isteyenler, bu temel eksen üzerinde akıllıca ve bilinçli bir ölçüde yürüsünler.' sözü, sonraki kuşaklar için ne anlama gelir?",
       "options": [
-        "Türkiye'nin bağımsızlığının uluslararası alanda kabul edilmesi",
-        "Osmanlı Devleti'nin yeniden kurulması",
-        "İtilaf Devletleri'nin Anadolu'daki hakimiyetinin sürmesi",
-        "Türkiye'nin manda yönetimine girmesi"
+        "Körü körüne taklit",
+        "İlke ve inkılapları çağın koşullarına göre yorumlayarak sürdürme sorumluluğu",
+        "Her şeyi değiştirme",
+        "Hiçbir şeyi korumama"
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan Millî Mücadele'nin diplomatik zaferidir."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Temel ilkeleri koruyarak, çağın gereklerine uygun biçimde ilerleme sorumluluğu vurgulanır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q09",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Lozan Antlaşması'nın aşağıdaki gelişmelerden hangisinin sonucu olduğu söylenebilir?",
+      "stem": "Türkiye'nin NATO'ya girişi (1952), Atatürk dönemi dış politikasıyla karşılaştırıldığında nasıl yorumlanabilir?",
       "options": [
-        "Büyük Taarruz ve Mudanya Ateşkesi'nin",
-        "Mondros Ateşkes Antlaşması'nın",
-        "Sevr Antlaşması'nın",
-        "Balkan Savaşları'nın"
+        "Tamamen aynı politika devam etmiştir.",
+        "Soğuk Savaş koşullarında güvenlik arayışı; bloklaşma dönemine özgü bir tercih",
+        "Atatürk dönemiyle çelişir.",
+        "Tarafsızlık artmıştır."
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan Antlaşması Büyük Taarruz ve Mudanya Ateşkesi sonrasında imzalanmıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk'ün Ölümü ve Sonrası",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Soğuk Savaş döneminde güvenlik ihtiyacı, blok içinde yer almayı getirmiştir; koşullar değişmiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack014_q10",
+      "subject": "inkilap",
+      "imageAsset": null
     }
   ]
 }

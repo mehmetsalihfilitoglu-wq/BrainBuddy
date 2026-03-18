@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "fen7_0450",
+      "stem": "Bir öğrenci rampadan aşağı bırakılan topun farklı yüzeylerde farklı mesafeler katettiğini gözlemledi. Halı üzerinde az, parke üzerinde daha fazla yol aldı. Öğretmen \"Bu farkın nedeni ne olabilir?\" diye sordu.\n\nBu deneye göre topun katettiği mesafenin değişmesinin temel nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Topun bırakıldığı yükseklik",
+        "Topun ağırlığı",
+        "Rampanın eğimi",
+        "Yüzeylerin sürtünme katsayısı farkı"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Yüzeylerin sürtünme katsayısı farkı. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0450",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0451",
+      "stem": "Laboratuvarda öğrenciler tuzlu su ve şekerli suyu karıştırdı. Tuzlu suda tuz görünmezken, kum-su karışımında kum dibe çöktü. Öğretmen \"Tuzlu su homojen, kum-su karışımı heterojen mi?\" diye sordu.\n\nBu gözlemlere dayanarak homojen ve heterojen karışım ayrımı aşağıdakilerden hangisiyle açıklanır?",
+      "options": [
+        "Karışımın rengi",
+        "Karışımın görünümünde tek veya fazla faz olması",
+        "Karışan maddelerin miktarı",
+        "Karışımın sıcaklığı"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Karışımın görünümünde tek veya fazla faz olması. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0451",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0452",
+      "stem": "Öğrenciler bir ışık demetini düz ayna, çukur ayna ve tümsek aynaya yöneltti. Görüntülerin farklı oluştuğunu gözlemlediler. Düz aynada düz, çukur aynada büyütülmüş görüntü elde ettiler.\n\nBu deneyde farklı görüntülerin oluşmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Aynaların büyüklüğü",
+        "Aynaların yansıtma yüzeylerinin şekli",
+        "Işığın rengi",
+        "Işığın yoğunluğu"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "deney_yorum",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Aynaların yansıtma yüzeylerinin şekli. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0452",
+      "imageAsset": "quiz_images/fen/fen_046_fen7_0452_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0453",
+      "stem": "Bir öğrenci fasulye tohumlarını nemli pamuk üzerinde çimlendirdi. Bir hafta sonra kökün aşağı, gövdenin yukarı doğru büyüdüğünü gözlemledi. Aynı koşullarda farklı tohumlarda da benzer durum gördü.\n\nBu gözleme dayanarak tohum çimlenmesinde kök ve gövde büyüme yönüyle ilgili aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Kök aşağı (yer çekimi), gövde yukarı yönelir",
+        "Rastgele yönelir",
+        "Her ikisi de yukarı büyür",
+        "Işık yönüne bağlıdır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Kök aşağı (yer çekimi), gövde yukarı yönelir. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0453",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0454",
+      "stem": "Öğrenciler basit bir elektrik devresi kurdular. Pil, ampul ve anahtardan oluşan seri devrede ampul yandı. Devreye ikinci bir pil ekleyince ampulün parlaklığı arttı. Anahtarı açınca ampul söndü.\n\nBu deneyde ampulün parlaklığının artmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Anahtarın konumu",
+        "Ampulün gücü",
+        "Devredeki tel uzunluğu",
+        "Devreye eklenen pil ile gerilim artışı"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "gozlem_yorum",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Devreye eklenen pil ile gerilim artışı. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0454",
+      "imageAsset": "quiz_images/fen/fen_046_fen7_0454_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0455",
+      "stem": "Verilen bilgilere göre bir gezegenin Güneş'e uzaklığına göre yörünge periyodu (yıl süresi) gösterilmiştir. Güneş'e yakın gezegenlerin periyodu kısa, uzak gezegenlerinki uzundur. Bu Verilen bilgilere göre aşağıdakilerden hangisi çıkarılabilir?",
+      "options": [
+        "Güneş'e uzaklık arttıkça yörünge periyodu uzar",
+        "Tüm gezegenler aynı hızda döner",
+        "İç gezegenler daha hızlıdır",
+        "Gezegen boyutu periyodu etkiler"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "deney_yorum",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Güneş'e uzaklık arttıkça yörünge periyodu uzar. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0455",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0456",
+      "stem": "Mitoz bölünmede bir hücre ikiye bölünür. Öğrenciler soğan kökü ucu preparatında farklı aşamaları gözlemledi: kromozomların yoğunlaştığı, ekvator düzleminde dizildiği ve kutuplara çekildiği aşamalar.\n\nBu gözlemlere dayanarak mitoz bölünmenin temel özelliği aşağıdakilerden hangisidir?",
+      "options": [
+        "Yeni genetik çeşitlilik oluşturur",
+        "Ana hücreyle aynı genetik yapıda iki yavru hücre oluşur",
+        "Sadece üreme hücrelerinde görülür",
+        "Tek aşamada gerçekleşir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "gozlem_yorum",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Ana hücreyle aynı genetik yapıda iki yavru hücre oluşur. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0456",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0457",
+      "stem": "Bir öğrenci sarkacın salınımını inceledi. Sarkacı farklı açılardan bıraktığında salınım süresinin değişmediğini, ancak sarkacın uzunluğunu değiştirdiğinde sürenin değiştiğini gözlemledi.\n\nBu deneyde salınım periyodunu etkileyen temel değişken aşağıdakilerden hangisidir?",
+      "options": [
+        "Ortam sıcaklığı",
+        "Sarkacın uzunluğu",
+        "Topun kütlesi",
+        "Bırakma açısı"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Sarkacın uzunluğu. Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0457",
+      "imageAsset": "quiz_images/fen/fen_046_fen7_0457_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0458",
+      "stem": "Filtreleme deneyinde tuzlu su-kum karışımı filtreden geçirildi. Kum filtrede kaldı, tuzlu su süzüldü. Süzüntü buharlaştırıldığında tuz geri elde edildi.\n\nBu deneyde kum ve tuzu ayırmada kullanılan yöntemlerin dayandığı özellikler aşağıdakilerden hangisinde doğru verilmiştir?",
+      "options": [
+        "Kum çözünür, tuz çözünmez",
+        "Kum süzülür, tuz eritilir",
+        "Her ikisi de buharlaştırılır",
+        "Kum çözünmez (filtreyle ayrılır), tuz çözünür (buharlaştırmayla elde edilir)"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "veri_analiz",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Kum çözünmez (filtreyle ayrılır), tuz çözünür (buharlaştırmayla elde edilir). Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0458",
+      "imageAsset": "quiz_images/fen/fen_046_fen7_0458_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen7_0459",
+      "stem": "Işık prizma içinden geçirildiğinde gökkuşağı renklerine ayrıldı. Öğrenciler kırmızı ışığın en az, mor ışığın en çok kırıldığını gözlemledi.\n\nFarklı renklerin farklı açılarla kırılmasının nedeni aşağıdakilerden hangisidir?",
+      "options": [
+        "Ortam sıcaklığı",
+        "Prizma malzemesi",
+        "Dalga boyu farkı (her rengin farklı kırılma indisi)",
+        "Işık şiddeti"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "elektrik_devreleri",
+      "skills": [
+        "elektrik_d",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarının dikkatli yorumu gerekir. Doğru cevap: Dalga boyu farkı (her rengin farklı kırılma indisi). Bilimsel kavramlar ve neden-sonuç ilişkisi dikkate alınmalıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "fen7_0459",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

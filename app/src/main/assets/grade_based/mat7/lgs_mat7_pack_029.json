@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0280",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 2 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "4",
+        "6",
+        "8",
+        "5"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 2E. E + 2E = 180° → E = 60°. Kenar sayısı n = 360/E = 6.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0280",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0281",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %10 zam yapılmış, ardından indirim döneminde %30 indirim uygulanmıştır. İndirimli fiyat 385 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "525",
+        "550",
+        "500",
+        "450"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+10/100) · (1-30/100) = 385. x = 500 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0281",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0282",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 1 TL zam yapılmış, ardından 1 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "8",
+        "-4",
+        "4",
+        "0"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0282",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0283",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 2) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "107",
+        "90",
+        "97",
+        "102"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+2) = 44 → x = 7. Alan = x(2x+2) = 102 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0283",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0284",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 12 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "35",
+        "45",
+        "40",
+        "43"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 12. k+3 = 2(e+2) → e = 13, k = 27. Toplam = 40.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0284",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0285",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 5 katından 20 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "22",
+        "17",
+        "25",
+        "27"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 5e - 20. k+3 = 2(e+2) → e = 7, k = 15. Toplam = 22.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0285",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0286",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %30 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 780 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "840",
+        "880",
+        "720",
+        "800"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+30/100) · (1-25/100) = 780. x = 800 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0286",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0287",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 11 TL zam yapılmış, ardından 6 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "-6",
+        "11",
+        "5",
+        "0"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 11 - 6 = 2x → x(1-2) = -5 → x = 5 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0287",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0288",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 80, 80, 80, 80, 80 puan almıştır. Altıncı sınava girince ortalaması 81 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "81",
+        "82",
+        "92",
+        "87"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 400. 6. sınav x ise (total5 + x)/6 = 81 → x = 87.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0288",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0289",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 23 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "73",
+        "78",
+        "76",
+        "68"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 23. k+3 = 2(e+2) → e = 24, k = 49. Toplam = 73.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0289",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

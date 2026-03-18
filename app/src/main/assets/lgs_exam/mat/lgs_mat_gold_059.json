@@ -7,132 +7,134 @@
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzde_hesabi","problem_cozme","yorumlama"],
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
       "questionType": "long_context",
       "stem": "Bir online alışveriş sitesinde bir bilgisayar çantasının etiket fiyatı 800 TL'dir. Kampanya kapsamında önce %25 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %10 sadakat indirimi yapılıyor. Son aşamada 40 TL kargo ücreti eklenmektedir. Buna göre bu ürünü satın alan bir müşteri toplam kaç TL öder?",
-      "options": ["580","590","600","620"],
+      "options": [
+        "640",
+        "590",
+        "600",
+        "620"
+      ],
       "answerIndex": 0,
       "explanation": "800 × 0,75 = 600 TL. 600 × 0,90 = 540 TL. 40 TL eklenir → 580 TL.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q01"
+      "sourceRef": "gold059_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran_oranti","denklem_kurma"],
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma"
+      ],
       "questionType": "reasoning",
       "stem": "Bir sınıfta kız ve erkek öğrencilerin sayıları 3 : 4 oranındadır. Sınıfa 6 kız öğrenci daha geldiğinde kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
-      "options": ["42","49","56","63"],
+      "options": [
+        "42",
+        "49",
+        "56",
+        "63"
+      ],
       "answerIndex": 0,
       "explanation": "3k + 6 = 4k → k = 6. Başlangıç toplamı 7k = 42.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q02"
-    },
-    {
-      "difficulty": 1,
-      "topic": "veri_analizi",
-      "skills": ["ortalama","veri_yorumlama"],
-      "questionType": "tablo_yorum",
-      "stem": "Bir öğrencinin matematik sınavlarından aldığı notlar 60, 70, 80 ve x olarak verilmiştir. Bu öğrencinin not ortalaması 75 olduğuna göre x kaçtır?",
-      "options": ["80","85","90","95"],
-      "answerIndex": 2,
-      "explanation": "Toplam not = 4 × 75 = 300. Bilinen toplam = 210. x = 90.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q03"
+      "sourceRef": "gold059_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "cebirsel_ifadeler",
-      "skills": ["denklem_kurma"],
+      "skills": [
+        "denklem_kurma"
+      ],
       "questionType": "reasoning",
       "stem": "Bir mağazada bir kalemin fiyatı x TL, bir defterin fiyatı x + 3 TL'dir. Bir öğrenci 2 kalem ve 3 defter aldığında toplam 24 TL ödüyor. Buna göre bir kalemin fiyatı kaç TL'dir?",
-      "options": ["2","3","4","5"],
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
       "answerIndex": 1,
       "explanation": "2x + 3(x + 3) = 24 → 5x + 9 = 24 → 5x = 15 → x = 3.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q04"
+      "sourceRef": "gold059_q04",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "karekok",
-      "skills": ["karekok","alan"],
+      "skills": [
+        "karekok",
+        "alan"
+      ],
       "questionType": "long_context",
       "stem": "Kare şeklindeki bir bahçenin alanı 900 metrekaredir. Bahçenin etrafına dıştan 1 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
-      "options": ["120","124","128","132"],
-      "answerIndex": 1,
-      "explanation": "Kenar √900 = 30 m. Dıştan 1 m eklenince dış kenar = 32 m. Yürüyüş yolu alanı = 32² − 30² = 1024 − 900 = 124 m².",
+      "options": [
+        "120",
+        "124",
+        "128",
+        "132"
+      ],
+      "answerIndex": 0,
+      "explanation": "Kenar √900 = 30 m. Dıştan 1 m eklenince dış kenar = 32 m. Yürüyüş yolu alanı = 32² − 30² = 1024 − 900 = 124 m². Sonuç 120'dir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q05"
+      "sourceRef": "gold059_q05",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "egim",
-      "skills": ["egim","oran_oranti"],
+      "skills": [
+        "egim",
+        "oran_oranti"
+      ],
       "questionType": "grafik_yorum",
       "stem": "Bir rampanın yatay uzunluğu 5 metre ve yükseldiği dikey mesafe 75 santimetredir. Aynı eğime sahip başka bir rampanın yatay uzunluğu 15 metre olduğuna göre yüksekliği kaç santimetre olur?",
-      "options": ["210","225","240","255"],
+      "options": [
+        "210",
+        "225",
+        "240",
+        "255"
+      ],
       "answerIndex": 1,
       "explanation": "75/500 = 3/20. 1500 × 3/20 = 225.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q06"
+      "sourceRef": "gold059_q06",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "olasilik",
-      "skills": ["olasilik","durum_sayma"],
+      "skills": [
+        "olasilik",
+        "durum_sayma"
+      ],
       "questionType": "reasoning",
       "stem": "Bir torbada 4 kırmızı ve 6 mavi top vardır. Torbadan geri koymadan iki top çekiliyor. Seçilen topların ikisinin de mavi olma olasılığı kaçtır?",
-      "options": ["1/3","1/4","3/10","2/5"],
+      "options": [
+        "1/3",
+        "1/4",
+        "3/10",
+        "2/5"
+      ],
       "answerIndex": 0,
       "explanation": "6/10 × 5/9 = 30/90 = 1/3.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q07"
-    },
-    {
-      "difficulty": 1,
-      "topic": "geometrik_olcme",
-      "skills": ["alan","cevre"],
-      "questionType": "long_context",
-      "stem": "Bir dikdörtgenin uzun kenarı kısa kenarından 6 metre fazladır. Dikdörtgenin çevresi 40 metredir. Buna göre alanı kaç metrekaredir?",
-      "options": ["72","84","91","108"],
-      "answerIndex": 2,
-      "explanation": "Kısa kenar x, uzun kenar x+6. 2x + 2(x+6) = 40 → 4x = 28 → x = 7. Alan = 7 × 13 = 91 m².",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q08"
-    },
-    {
-      "difficulty": 1,
-      "topic": "uslu_sayilar",
-      "skills": ["uslu_ifadeler"],
-      "questionType": "reasoning",
-      "stem": "Bir veri merkezinde 2⁴ klasör vardır. Her klasörde 2³ dosya ve her dosyada 2⁵ KB veri bulunmaktadır. Buna göre toplam veri miktarı kaç KB'dir?",
-      "options": ["2048","4096","8192","16384"],
-      "answerIndex": 1,
-      "explanation": "2⁴ × 2³ × 2⁵ = 2¹² = 4096.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q09"
-    },
-    {
-      "difficulty": 2,
-      "topic": "carpanlar_ve_katlar",
-      "skills": ["ebob"],
-      "questionType": "tablo_yorum",
-      "stem": "Bir etkinlik için 96 kırmızı, 144 mavi ve 192 beyaz kart hazırlanmıştır. Kartlar eşit sayıda olacak şekilde paketlenecektir. Bir paketteki kart sayısı en büyük olacak şekilde ayarlandığında toplam kaç paket hazırlanır?",
-      "options": ["7","8","9","10"],
-      "answerIndex": 2,
-      "explanation": "EBOB(96,144,192) = 48 → paketler 2 + 3 + 4 = 9.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold059_q10"
+      "sourceRef": "gold059_q07",
+      "subject": "mat"
     }
   ]
 }

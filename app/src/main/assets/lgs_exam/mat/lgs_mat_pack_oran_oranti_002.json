@@ -7,122 +7,221 @@
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "denklem", "problem_cozme"],
+      "skills": [
+        "oran",
+        "denklem",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir okul kütüphanesinde fen kitapları ile hikâye kitaplarının sayısı başlangıçta 3 : 5 oranındadır. Dönem ortasında kütüphaneye bağış olarak 24 fen kitabı ve 16 hikâye kitabı gelir. Bu bağıştan sonra fen kitaplarının sayısının hikâye kitaplarının sayısına oranı 5 : 7 olur. Buna göre kütüphanede bağıştan önceki toplam kitap sayısı kaçtır?",
-      "options": ["168", "172", "176", "184"],
+      "options": [
+        "168",
+        "172",
+        "176",
+        "184"
+      ],
       "answerIndex": 2,
       "explanation": "Başlangıçta 3k fen, 5k hikâye. Bağış sonrası (3k+24)/(5k+16)=5/7. 21k+168=25k+80 → 4k=88 → k=22. Toplam 8k=176.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-1"
+      "sourceRef": "pack-oran-oranti-002-1",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "denklem", "problem_cozme"],
+      "skills": [
+        "oran",
+        "denklem",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir sınıfta kız ve erkek öğrenci sayılarının oranı başlangıçta 5 : 7'dir. Başka bir sınıftan 10 kız öğrenci bu sınıfa geçer, aynı anda 4 erkek öğrenci başka gruba alınır. Bu değişimden sonra kızların sayısının erkeklere oranı 4 : 5 olur. Buna göre başlangıçta sınıfta kaç erkek öğrenci vardır?",
-      "options": ["140", "147", "154", "161"],
+      "options": [
+        "140",
+        "147",
+        "154",
+        "161"
+      ],
       "answerIndex": 2,
       "explanation": "5k kız, 7k erkek. (5k+10)/(7k-4)=4/5. 25k+50=28k-16 → k=22. Erkek 7k=154.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-2"
+      "sourceRef": "pack-oran-oranti-002-2",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "denklem", "problem_cozme"],
+      "skills": [
+        "oran",
+        "denklem",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir içecek firması meyve karışımında meyve özü ile suyu 2 : 5 oranında kullanmaktadır. Karışıma sonradan 8 litre meyve özü ve 6 litre su eklenince oran 1 : 2 oluyor. Buna göre karışımın ilk toplam miktarı kaç litredir?",
-      "options": ["56", "63", "70", "77"],
+      "options": [
+        "56",
+        "63",
+        "70",
+        "77"
+      ],
       "answerIndex": 2,
       "explanation": "Başlangıç 2k öz, 5k su. (2k+8)/(5k+6)=1/2 → 4k+16=5k+6 → k=10. Toplam 7k=70 litre.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-3"
+      "sourceRef": "pack-oran-oranti-002-3",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "yuzde", "problem_cozme"],
+      "skills": [
+        "oran",
+        "yuzde",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir gezi kulübü haritada 6 cm ölçülen iki ilçe arasında yol planlıyor. Harita ölçeği 1 : 250000'dir. Gidişte kısa yol, dönüşte %20 daha uzun alternatif güzergâh kullanılıyor. Buna göre gidiş-dönüş toplam gerçek yol kaç kilometredir?",
-      "options": ["30", "31", "33", "36"],
+      "options": [
+        "30",
+        "31",
+        "33",
+        "36"
+      ],
       "answerIndex": 2,
       "explanation": "6 cm = 6×2.5 km = 15 km gidiş. Dönüş 15×1.2=18 km. Toplam 33 km.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-4"
+      "sourceRef": "pack-oran-oranti-002-4",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["ters_oran", "problem_cozme"],
+      "skills": [
+        "ters_oran",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "8 işçi 6 günde 3 sınıfı boyayabilmektedir. Aynı hızla 12 işçi 6 sınıfı kaç günde boyar?",
-      "options": ["6", "7", "8", "9"],
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
       "answerIndex": 2,
       "explanation": "İş 3 sınıf, süre 6 gün, işçi 8. Yeni iş 6 sınıf (2 kat). İşçi 12 (1.5 kat). Süre 6×2/1.5=8 gün.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-5"
+      "sourceRef": "pack-oran-oranti-002-5",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "denklem", "problem_cozme"],
+      "skills": [
+        "oran",
+        "denklem",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir öğrencinin matematik ve fen doğru sayıları oranı 5 : 4'tür. Matematik optiğinde 6 doğru daha eklenince oran 11 : 8 oluyor. Buna göre başlangıçta iki dersteki toplam doğru sayısı kaçtır?",
-      "options": ["96", "102", "108", "114"],
+      "options": [
+        "96",
+        "102",
+        "108",
+        "114"
+      ],
       "answerIndex": 2,
       "explanation": "Mat 5k, fen 4k. (5k+6)/4k=11/8 → 40k+48=44k → k=12. Toplam 9k=108.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-6"
+      "sourceRef": "pack-oran-oranti-002-6",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "denklem", "problem_cozme"],
+      "skills": [
+        "oran",
+        "denklem",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir laboratuvarda tuzlu suda tuz ve su miktarları 1 : 9 oranındadır. Kaptaki sudan 18 litre buharlaşınca tuzun suya oranı 1 : 6 oluyor. Buna göre karışımın başlangıçtaki toplam miktarı kaç litredir?",
-      "options": ["54", "60", "66", "72"],
+      "options": [
+        "54",
+        "60",
+        "66",
+        "72"
+      ],
       "answerIndex": 1,
       "explanation": "Başlangıç tuz k, su 9k. Buharlaşma sonrası k/(9k-18)=1/6. 6k=9k-18 → k=6. Toplam 10k=60 litre.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-7"
+      "sourceRef": "pack-oran-oranti-002-7",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "is_orani", "problem_cozme"],
+      "skills": [
+        "oran",
+        "is_orani",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir servis aracı sabit hızla 5 saatte okula ulaşacaktır. Araç ilk 2 saati planlanan hızla gidiyor, sonra hızını 3/4'e düşürerek kalan yolu tamamlıyor. Buna göre araç varışa kaç dakika gecikmeyle ulaşır?",
-      "options": ["20", "40", "60", "80"],
+      "options": [
+        "20",
+        "40",
+        "60",
+        "80"
+      ],
       "answerIndex": 2,
       "explanation": "Toplam yol 5v. 2 saatte 2v gider. Kalan 3v, hız 3v/4. Süre 3v/(3v/4)=4 saat. Toplam 6 saat, gecikme 60 dk.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-8"
+      "sourceRef": "pack-oran-oranti-002-8",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "denklem", "problem_cozme"],
+      "skills": [
+        "oran",
+        "denklem",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir yaz kampında A, B ve C kulübelerindeki öğrenci sayıları 3 : 4 : 5 oranındadır. A'ya 14, B'ye 6 öğrenci eklenince A ve B'deki sayılar eşit oluyor. Buna göre başlangıçta C kulübesinde kaç öğrenci vardır?",
-      "options": ["35", "40", "45", "50"],
+      "options": [
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
       "answerIndex": 1,
       "explanation": "A=3k, B=4k, C=5k. 3k+14=4k+6 → k=8. C=5k=40.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-9"
+      "sourceRef": "pack-oran-oranti-002-9",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran", "denklem", "problem_cozme"],
+      "skills": [
+        "oran",
+        "denklem",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir kafede nar aromalı içecekte nar özü ile su 3 : 7 oranındadır. Karışımdan 20 litre servis edildikten sonra tanka 5 litre nar özü ve 1 litre su eklenince oran 1 : 2 oluyor. Buna göre ilk karışım kaç litredir?",
-      "options": ["80", "90", "100", "110"],
+      "options": [
+        "80",
+        "90",
+        "100",
+        "110"
+      ],
       "answerIndex": 3,
       "explanation": "İlk 3k öz, 7k su, toplam 10k. 20 L serviste 6 öz, 14 su gider. Kalan 3k-6, 7k-14. Eklenince (3k-1)/(7k-13)=1/2 → k=11. Toplam 110 L.",
       "source": "brainbuddy_generated",
-      "sourceRef": "pack-oran-oranti-002-10"
+      "sourceRef": "pack-oran-oranti-002-10",
+      "subject": "mat"
     }
   ]
 }

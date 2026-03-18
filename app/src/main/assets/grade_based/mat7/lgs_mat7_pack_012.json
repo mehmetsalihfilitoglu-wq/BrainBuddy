@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0110",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 30° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "240",
+        "150",
+        "330",
+        "180"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 30° ise diğerleri toplam 330°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0110",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0111",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 120 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "1140",
+        "1260",
+        "600",
+        "1200"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +120 litre eklenince 4V/(10) dolu. Denklemden V=1200 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0111",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0112",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 60 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "210",
+        "420",
+        "480",
+        "360"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +60 litre eklenince 3V/(7) dolu. Denklemden V=420 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0112",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0113",
+      "stem": "Kenarları 10 m ve 18 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "132",
+        "105",
+        "48",
+        "180"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (10-6)×(18-6) = 4×12 = 48 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0113",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0114",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "4",
+        "3",
+        "1"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0114",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0115",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 2 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 2E. E + 2E = 180° → E = 60°. Kenar sayısı n = 360/E = 6.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0115",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0116",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "7",
+        "6",
+        "8",
+        "10"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0116",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0117",
+      "stem": "Kenarları 15 m ve 8 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "102",
+        "120",
+        "18",
+        "60"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (15-6)×(8-6) = 9×2 = 18 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0117",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0118",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 1 TL zam yapılmış, ardından 11 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "0",
+        "8",
+        "4",
+        "-4"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0118",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0119",
+      "stem": "Kenarları 18 m ve 12 m olan dikdörtgen bahçenin her kenarından 2 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "160",
+        "216",
+        "104",
+        "112"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (18-4)×(12-4) = 14×8 = 112 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0119",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

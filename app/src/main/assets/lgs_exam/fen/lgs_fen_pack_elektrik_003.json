@@ -16,7 +16,11 @@
       "difficulty": 5,
       "questionType": "CIRCUIT_ANALYSIS",
       "topic": "Elektrik",
-      "skills": ["seri_devre", "paralel_devre", "parlaklik"],
+      "skills": [
+        "seri_devre",
+        "paralel_devre",
+        "parlaklik"
+      ],
       "explanation": "Paralel devrede her ampul pile daha uygun koşullarda bağlandığı için daha parlak yanar. Seri devrede toplam direnç arttığından ampuller daha sönük yanar.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q01"
@@ -33,7 +37,11 @@
       "difficulty": 5,
       "questionType": "CURRENT_PATH_REASONING",
       "topic": "Elektrik",
-      "skills": ["seri_devre", "paralel_devre", "akim"],
+      "skills": [
+        "seri_devre",
+        "paralel_devre",
+        "akim"
+      ],
       "explanation": "Seri devrede bir eleman çıkarılırsa devre açılır ve akım kesilir. Paralel devrede ise diğer kollar çalışmaya devam eder.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q02"
@@ -50,7 +58,11 @@
       "difficulty": 5,
       "questionType": "CHARGE_REASONING",
       "topic": "Elektrik",
-      "skills": ["elektriklenme", "elektron", "temas"],
+      "skills": [
+        "elektriklenme",
+        "elektron",
+        "temas"
+      ],
       "explanation": "Negatif yüklenme, elektron sayısının artmasıyla olur. Proton ve atom numarası değişmez.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q03"
@@ -67,7 +79,11 @@
       "difficulty": 5,
       "questionType": "ELECTROSCOPE_REASONING",
       "topic": "Elektrik",
-      "skills": ["elektroskop", "etki_ile_elektriklenme", "yuk"],
+      "skills": [
+        "elektroskop",
+        "etki_ile_elektriklenme",
+        "yuk"
+      ],
       "explanation": "Aynı işaretli yükler birbirini iter. Bu nedenle yaprakların daha fazla açılması, yaklaştırılan cismin aynı işaretli olabileceğini gösterir.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q04"
@@ -84,7 +100,11 @@
       "difficulty": 5,
       "questionType": "RESISTANCE_REASONING",
       "topic": "Elektrik",
-      "skills": ["seri_devre", "direnc", "akim"],
+      "skills": [
+        "seri_devre",
+        "direnc",
+        "akim"
+      ],
       "explanation": "Seri bağlı her ampul devrenin toplam direncini artırır. Direnç artınca akım azalır.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q05"
@@ -101,7 +121,10 @@
       "difficulty": 5,
       "questionType": "PARALLEL_REASONING",
       "topic": "Elektrik",
-      "skills": ["paralel_devre", "parlaklik"],
+      "skills": [
+        "paralel_devre",
+        "parlaklik"
+      ],
       "explanation": "Paralel devrede her kol pile ayrı bağlanmış gibi davranır. Özdeş ampuller için mevcut ampullerin parlaklığı değişmez.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q06"
@@ -118,10 +141,15 @@
       "difficulty": 5,
       "questionType": "GRAPH_REASONING",
       "topic": "Elektrik",
-      "skills": ["seri_devre", "direnc", "parlaklik"],
+      "skills": [
+        "seri_devre",
+        "direnc",
+        "parlaklik"
+      ],
       "explanation": "Ampul sayısının seri devrede artması toplam direnci artırır. Akım azaldığı için parlaklık düşer.",
       "source": "brainbuddy",
-      "sourceRef": "fen_el_003_q07"
+      "sourceRef": "fen_el_003_q07",
+      "imageAsset": "quiz_images/fen/fen_elektrik_003_fen_el_003_q07_experiment.png"
     },
     {
       "stem": "Birbirini iten iki cisimle ilgili aşağıdaki ifadelerden hangisi kesinlikle doğrudur?",
@@ -135,7 +163,11 @@
       "difficulty": 5,
       "questionType": "CHARGE_INTERACTION",
       "topic": "Elektrik",
-      "skills": ["yuk", "elektrik_etkilesim", "coulomb"],
+      "skills": [
+        "yuk",
+        "elektrik_etkilesim",
+        "coulomb"
+      ],
       "explanation": "Birbirini iten iki cisim aynı tür yük taşır. Zıt yükler birbirini çeker.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q08"
@@ -152,7 +184,12 @@
       "difficulty": 5,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Elektrik",
-      "skills": ["seri_devre", "paralel_devre", "akim", "direnc"],
+      "skills": [
+        "seri_devre",
+        "paralel_devre",
+        "akim",
+        "direnc"
+      ],
       "explanation": "Paralel devrenin eşdeğer direnci seri devreye göre daha küçüktür. Direnç küçük olduğunda pilden çekilen toplam akım daha büyük olur.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q09"
@@ -169,7 +206,11 @@
       "difficulty": 5,
       "questionType": "CONCEPT_REASONING",
       "topic": "Elektrik",
-      "skills": ["elektriklenme", "elektron", "proton"],
+      "skills": [
+        "elektriklenme",
+        "elektron",
+        "proton"
+      ],
       "explanation": "Günlük elektriklenme olaylarında esas olarak elektron alışverişi olur. Protonlar çekirdekte bulunduğu için yer değiştirmez.",
       "source": "brainbuddy",
       "sourceRef": "fen_el_003_q10"

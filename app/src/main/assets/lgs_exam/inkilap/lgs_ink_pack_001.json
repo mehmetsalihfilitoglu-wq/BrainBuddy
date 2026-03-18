@@ -1,139 +1,248 @@
 {
   "version": 1,
-  "mode": "PACK",
+  "mode": "LGS",
   "subject": "inkilap",
-  "publisher": "BrainBuddy",
-  "packId": "lgs_ink_pack_001",
+  "publisher": "brainbuddy",
   "questions": [
     {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Erzurum Kongresi'nde alınan 'Manda ve himaye kabul edilemez.' kararı ile Sivas Kongresi'nde alınan 'Bütün yararlı cemiyetler Anadolu ve Rumeli Müdafaa-i Hukuk Cemiyeti adı altında birleştirilecektir.' kararı birlikte değerlendirildiğinde aşağıdaki yorumlardan hangisine ulaşılamaz?",
+      "stem": "Atatürk'ün askeri eğitim sürecinde, manastır ve İstanbul'daki okullarda geçirdiği yıllar ve bu dönemde Osmanlı coğrafyasının siyasi durumu birlikte değerlendirildiğinde aşağıdaki çıkarımlardan hangisine ulaşılabilir?",
       "options": [
-        "Millî Mücadele'nin bağımsızlık anlayışı açık biçimde ortaya konmuştur.",
-        "Direniş hareketlerinin tek merkezden yönetilmesi amaçlanmıştır.",
-        "Millî Mücadele'nin yalnızca askerî yönü güçlendirilmek istenmiştir.",
-        "Dağınık direniş hareketleri ortak bir amaç etrafında toplanmıştır."
+        "Atatürk sadece askerlik mesleğine odaklanmıştır.",
+        "Bu dönem, vatanseverlik ve çağdaşlaşma düşüncesinin şekillenmesinde etkili olmuştur.",
+        "Osmanlı Devleti o dönemde en güçlü devletler arasındadır.",
+        "Askeri okullar siyasetten tamamen uzaktı."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Manastır ve İstanbul'daki eğitim, Osmanlı'nın dağılma sürecine tanıklık ettiği; bu da vatanseverlik ve çağdaşlaşma düşüncesinin oluşumunda etkili olmuştur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q01",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "'Vatan ve Hürriyet' cemiyetinin kurulması ve bu cemiyetin İttihat ve Terakki ile ilişkisi düşünüldüğünde, aşağıdaki yorumlardan hangisi bu gelişmelerle uyumludur?",
+      "options": [
+        "Atatürk hiçbir siyasi örgüte katılmamıştır.",
+        "Gençlik döneminde özgürlük ve vatan fikrine dayalı örgütlenmelere yönelmiştir.",
+        "Cemiyetler sadece askeri amaçlıydı.",
+        "İttihat ve Terakki ile hiçbir bağ yoktur."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Vatan ve Hürriyet cemiyeti, Atatürk'ün gençlik yıllarında özgürlük ve vatanseverlik temelinde örgütlü faaliyetlere katıldığını gösterir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q02",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Trablusgarp Savaşı'nda Atatürk'ün gösterdiği başarı ve bu savaşın sonuçları birlikte değerlendirildiğinde aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        "Trablusgarp tamamen kurtarılmıştır.",
+        "Savaş deneyimi kazanılmış; ancak siyasi sonuçlar Osmanlı aleyhine gelişmiştir.",
+        "İtalya hiçbir toprak elde edememiştir.",
+        "Atatürk bu savaşta yer almamıştır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Trablusgarp'ta askeri deneyim kazanılmış ancak Uşi Antlaşması ile İtalya'ya toprak verilmiştir; bu da Osmanlı'nın zayıflığını gösterir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q03",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Çanakkale Savaşı'nda Mustafa Kemal'in 'Size taarruzu emretmiyorum; ölmeyi emrediyorum.' sözünün, askerler üzerindeki etkisi ve savaşın seyri düşünüldüğünde bu ifade nasıl yorumlanabilir?",
+      "options": [
+        "Sadece bir cesaret sözü olarak kalmıştır.",
+        "Komutanın kararlılığı ve fedakarlık beklentisi, savunma ruhunu güçlendirmiştir.",
+        "Askerler bu emre uymamıştır.",
+        "Savaşın kaybedilmesine neden olmuştur."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Bu söz, komutanın kararlılığını ve fedakarlık beklentisini gösterir; savunma azminin simgesi haline gelmiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q04",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Atatürk'ün I. Dünya Savaşı öncesi ve sırasındaki görevleri (Çanakkale, Kafkasya, Suriye) birlikte değerlendirildiğinde aşağıdaki çıkarımlardan hangisine ulaşılamaz?",
+      "options": [
+        "Farklı cephelerde tecrübe kazanmıştır.",
+        "Milli Mücadele öncesi askeri ve stratejik birikim oluşturmuştur.",
+        "Sadece Çanakkale'de bulunmuştur.",
+        "Osmanlı ordusunda önemli görevler üstlenmiştir."
       ],
       "answerIndex": 2,
-      "explanation": "Kongre kararları hem siyasi bağımsızlık (manda reddi) hem de örgütlenmeyi (cemiyetlerin birleşmesi) hedefler. Sadece askerî yönün güçlendirilmesi amacı yoktur; siyasi ve örgütsel boyutlar da vardır."
-    },
-    {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Misak-ı Milli kararlarında Türklerin çoğunlukta olduğu bölgelerin ayrılmaz bir bütün olduğu vurgulanmış ve kapitülasyonların kabul edilemeyeceği belirtilmiştir. Buna göre Misak-ı Milli'nin aşağıdakilerden hangisini birlikte sağlamaya yönelik olduğu söylenebilir?",
-      "options": [
-        "Siyasi ve ekonomik bağımsızlığı",
-        "Askerî ve kültürel üstünlüğü",
-        "Yönetim biçimi ile eğitim reformlarını",
-        "Saltanat yönetiminin güçlendirilmesini"
+      "difficulty": 5,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "comparison",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
       ],
-      "answerIndex": 0,
-      "explanation": "Milli sınırlar vurgusu siyasi bağımsızlığı, kapitülasyonların reddi ise ekonomik bağımsızlığı hedefler. İkisi birlikte tam bağımsızlık anlayışını ortaya koyar."
+      "explanation": "Atatürk Çanakkale dışında Kafkasya ve Suriye cephelerinde de görev almıştır. Sadece Çanakkale yanlıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q05",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Amasya Genelgesi'nde 'Milletin bağımsızlığını yine milletin azim ve kararı kurtaracaktır.' ifadesi yer almıştır. Bu ifade aşağıdaki gelişmelerden hangisinin düşünsel temelini oluşturmuştur?",
+      "stem": "Atatürk'ün eğitim aldığı Şemsi Efendi Mektebi ve askeri okullar karşılaştırıldığında, bu sürecin ona sağladığı temel kazanım aşağıdakilerden hangisi olarak yorumlanabilir?",
       "options": [
-        "Saltanatın kaldırılmasının",
-        "TBMM'nin açılmasının",
-        "Lozan Antlaşması'nın imzalanmasının",
-        "Kapitülasyonların kaldırılmasının"
+        "Sadece geleneksel eğitim almıştır.",
+        "Hem geleneksel hem modern eğitimin birleşimi; çağdaş düşünceye açılım sağlanmıştır.",
+        "Yalnızca din eğitimi almıştır.",
+        "Hiç okula gitmemiştir."
       ],
       "answerIndex": 1,
-      "explanation": "Egemenliğin millete ait olduğu anlayışı, milli iradenin temsil edildiği TBMM'nin açılmasının fikirsel temelini oluşturmuştur."
+      "difficulty": 5,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "inference",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Şemsi Efendi'de temel eğitim, askeri okullarda modern eğitim; bu ikili yapı çağdaş düşünceye açılım sağlamıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q06",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Erzurum Kongresi bölgesel bir kongre olmasına rağmen aldığı kararlar bütün milleti ilgilendirmiştir. Bu durum aşağıdakilerden hangisinin göstergesidir?",
+      "stem": "31 Mart Olayı sonrasında Hareket Ordusu'nun İstanbul'a gelişi ve Mustafa Kemal'in bu orduda görev alması, aşağıdakilerden hangisinin göstergesi olarak değerlendirilebilir?",
       "options": [
-        "Kongre kararlarının yalnızca Doğu Anadolu için geçerli olduğunu",
-        "Kongrede alınan kararların millî nitelik taşıdığını",
-        "Kongrenin Osmanlı hükümeti tarafından düzenlendiğini",
-        "Kongre kararlarının fiilen uygulanmadığını"
+        "Saltanat yanlısı olduğunun",
+        "Meşrutiyet rejiminin korunması için harekete geçtiğinin",
+        "Padişaha bağlılığını artırdığının",
+        "Askerlikten ayrıldığının"
       ],
       "answerIndex": 1,
-      "explanation": "Bölgesel toplanan kongrenin aldığı kararların tüm milleti ilgilendirmesi, kararların millî nitelik taşıdığını gösterir."
+      "difficulty": 5,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Hareket Ordusu meşrutiyete karşı isyanı bastırmak için harekete geçmiş; Mustafa Kemal de bu süreçte yer almıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q07",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Sivas Kongresi'nde bütün yararlı cemiyetlerin birleştirilmesi kararı alınmıştır. Bu kararın, Erzurum Kongresi kararlarıyla birlikte değerlendirildiğinde hangi ortak amaca hizmet ettiği söylenebilir?",
+      "stem": "Sofya'da askeri ateşe olarak görev yapan Mustafa Kemal'in bu dönemde Balkanlar'daki siyasi gelişmeleri yakından takip etmesi, aşağıdaki çıkarımlardan hangisini destekler?",
       "options": [
-        "Yerel direnişlerin dağınık kalmasını sağlamak",
-        "Millî Mücadele'yi tek merkezden ve birlik içinde yürütmek",
-        "Osmanlı hükümetine bağlılığı artırmak",
-        "Manda ve himaye seçeneğini gündemde tutmak"
+        "Sadece askeri konulara ilgi duyduğunu",
+        "Uluslararası siyaseti ve bölge dinamiklerini anlamaya çalıştığını",
+        "Türkiye'den tamamen koptuğunu",
+        "Osmanlı'nın güçlü olduğunu düşündüğünü"
       ],
       "answerIndex": 1,
-      "explanation": "Cemiyetlerin birleşmesi, dağınık direniş hareketlerini tek çatı altında toplayarak Millî Mücadele'nin merkezi yönetimini sağlamıştır."
+      "difficulty": 4,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Askeri ateşe olarak Balkanlar'daki gelişmeleri takip etmesi, uluslararası siyaseti ve bölge dinamiklerini anlama çabasını gösterir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q08",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Amasya Genelgesi'nde 'Vatanın bütünlüğü ve milletin bağımsızlığı tehlikededir.' ifadesi kullanılmıştır. Bu ifadenin, aşağıdakilerden hangisini gerekçelendirmek amacıyla kullanıldığı söylenebilir?",
+      "stem": "Atatürk'ün gençlik döneminde Namık Kemal, Tevfik Fikret gibi aydınları okuması ve etkilenmesi, onun hangi yönünü beslemiş olabilir?",
       "options": [
-        "İşgalleri kabul etme politikasını",
-        "Milli kongrelerin toplanması ve halkın harekete geçirilmesi ihtiyacını",
-        "Saltanatın devamını sağlama çabasını",
-        "Manda yönetimini kabul etme gereğini"
+        "Sadece askeri düşüncesini",
+        "Vatan, özgürlük ve çağdaşlaşma fikirlerini",
+        "Saltanatı güçlendirme amacını",
+        "Gelenekçi bir anlayışı"
       ],
       "answerIndex": 1,
-      "explanation": "Tehlike vurgusu, halkın milli bilinçle harekete geçirilmesi ve kongreler aracılığıyla örgütlenmesi gerektiğinin gerekçesi olarak kullanılmıştır."
+      "difficulty": 5,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Bu aydınlar vatanseverlik, özgürlük ve çağdaşlaşma temalarını işlemiş; Atatürk'ün düşünce dünyasını beslemiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q09",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Erzurum Kongresi'nde 'Millî sınırlar içinde vatan bir bütündür, parçalanamaz.' kararı alınmıştır. Bu karar, Misak-ı Milli ile ilişkisi bakımından aşağıdaki yorumlardan hangisine dayanak oluşturur?",
+      "stem": "Çanakkale Zaferi'nin, Mustafa Kemal'in askeri itibarı ve sonraki süreçteki rolü üzerindeki etkisi düşünüldüğünde aşağıdaki yorumlardan hangisi doğrudur?",
       "options": [
-        "Misak-ı Milli'nin sadece askeri hedefler içerdiğine",
-        "Misak-ı Milli kararlarının Erzurum'daki milli sınır anlayışının devamı niteliğinde olduğuna",
-        "Misak-ı Milli'nin saltanatı güçlendirdiğine",
-        "Misak-ı Milli kararlarının bölgesel nitelik taşıdığına"
+        "Çanakkale zaferi hiçbir etki yaratmamıştır.",
+        "Zafer, Milli Mücadele'de halkın ve ordunun ona güvenini artıran bir temel oluşturmuştur.",
+        "Sadece İtilaf devletleri etkilenmiştir.",
+        "Mustafa Kemal savaştan sonra askerlikten ayrılmıştır."
       ],
       "answerIndex": 1,
-      "explanation": "Misak-ı Milli, Erzurum Kongresi'ndeki 'milli sınırlar içinde vatan bir bütündür' anlayışının Meclis-i Mebusan'da resmi metne dönüşmüş halidir."
-    },
-    {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Kuva-yi Milliye birlikleri işgaller karşısında yerel direnişler olarak ortaya çıkmış, ancak zamanla düzenli ordunun kurulmasına ihtiyaç duyulmuştur. Bu gelişme aşağıdakilerden hangisinin göstergesidir?",
-      "options": [
-        "Kuva-yi Milliye'nin tamamen başarısız olduğunun",
-        "Yerel ve düzensiz birliklerin, uzun vadeli ve topyekûn savaşta sınırlı kalabildiğinin",
-        "Halkın Millî Mücadele'ye destek vermediğinin",
-        "İşgallerin kısa sürede sona erdiğinin"
+      "difficulty": 5,
+      "topic": "Bir Kahraman Doğuyor",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
       ],
-      "answerIndex": 1,
-      "explanation": "Kuva-yi Milliye ilk direnişi başlattı ancak modern savaş koşullarında merkezi, düzenli bir ordunun kurulması kaçınılmaz hale gelmiştir."
-    },
-    {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Erzurum ve Sivas kongreleri birlikte değerlendirildiğinde, aşağıdaki çıkarımlardan hangisine ulaşılamaz?",
-      "options": [
-        "Millî Mücadele hem bağımsızlık hem de örgütlenme yönünde güçlenmiştir.",
-        "Kongreler, işgallere karşı tepkinin siyasi ve örgütsel ifadesi olmuştur.",
-        "İşgaller kabul edilerek barış sağlanmıştır.",
-        "Dağınık direniş hareketleri ortak bir çatı altında birleştirilmiştir."
-      ],
-      "answerIndex": 2,
-      "explanation": "Kongreler işgalleri reddetmiş, manda ve himayeyi kabul etmemiş; tam bağımsızlık hedefiyle örgütlenmeyi güçlendirmiştir. İşgallerin kabulü söz konusu değildir."
-    },
-    {
-      "topic": "Milli Uyanış: Yurdumuzun İşgaline Tepkiler",
-      "difficulty": "VERY_HARD",
-      "stem": "Misak-ı Milli kararlarının TBMM tarafından kabul edilmesi, aşağıdakilerden hangisinin göstergesi olarak yorumlanabilir?",
-      "options": [
-        "Millî Mücadele'nin siyasi hedeflerinin netleşmiş olduğunun",
-        "Saltanatın TBMM üzerinde etkin olduğunun",
-        "İşgallerin fiilen sona erdiğinin",
-        "Manda seçeneğinin yeniden gündeme geldiğinin"
-      ],
-      "answerIndex": 0,
-      "explanation": "TBMM'nin Misak-ı Milli'yi kabul etmesi, Millî Mücadele'nin hedeflerini ve sınırlarını netleştirdiğini gösterir."
+      "explanation": "Çanakkale'deki başarı, Atatürk'ün askeri ve siyasi itibarını güçlendirmiş; Milli Mücadele'de güven temeli oluşturmuştur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack001_q10",
+      "subject": "inkilap",
+      "imageAsset": null
     }
   ]
 }

@@ -1,139 +1,248 @@
 {
   "version": 1,
-  "mode": "PACK",
+  "mode": "LGS",
   "subject": "inkilap",
-  "publisher": "BrainBuddy",
-  "packId": "lgs_ink_pack_013",
+  "publisher": "brainbuddy",
   "questions": [
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un ardından Mudanya Ateşkes Antlaşması'nın imzalanması, Millî Mücadele'nin hangi aşamasına geçildiğini göstermektedir?",
+      "stem": "'Yurtta barış, dünyada barış' ilkesi, Atatürk dönemi dış politikasında nasıl yansımıştır?",
       "options": [
-        "Askerî mücadelenin büyük ölçüde sona erip diplomatik sürecin başlamasına",
-        "Türk ordusunun savunma savaşına yeniden dönmesine",
-        "Osmanlı Devleti'nin yönetimi tekrar devralmasına",
-        "İtilaf Devletleri'nin Anadolu'daki işgallerini artırmasına"
+        "Saldırgan bir dış politika izlenmiştir.",
+        "Uluslararası işbirliği ve barışçıl çözüm arayışları ön planda tutulmuştur.",
+        "Tek taraflı silahsızlanma yapılmıştır.",
+        "İzolasyon tercih edilmiştir."
       ],
-      "answerIndex": 0,
-      "explanation": "Büyük Taarruz sonrasında askeri mücadele büyük ölçüde sona ermiş ve diplomatik süreç başlamıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Bu ilke, uluslararası barış ve işbirliğine dayalı bir dış politika anlayışını yansıtır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q01",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması ile Doğu Trakya'nın savaş yapılmadan Türkiye'ye bırakılması aşağıdakilerden hangisinin en açık göstergesidir?",
+      "stem": "Lozan'dan kalan sorunların (boğazlar, Hatay vb.) barışçıl yollarla çözülmesi, aşağıdakilerden hangisiyle ilişkilendirilebilir?",
       "options": [
-        "Türk ordusunun askerî başarısının diplomatik kazanım sağlamasının",
-        "İtilaf Devletleri'nin Anadolu üzerindeki tüm haklarından vazgeçmesinin",
-        "Osmanlı Devleti'nin yeniden siyasi güç kazanmasının",
-        "TBMM'nin askeri mücadeleyi tamamen sona erdirmesinin"
+        "Savaş politikası",
+        "Diplomasi ve barışçıl çözüm tercihi",
+        "Taviz vermek",
+        "İzolasyon"
       ],
-      "answerIndex": 0,
-      "explanation": "Mudanya ile Doğu Trakya savaş yapılmadan alınmıştır. Bu askeri zaferin diplomatik sonuç doğurduğunu gösterir."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Görüşmeler ve antlaşmalarla çözüm, diplomasi ve barışçı politikanın örneğidir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q02",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması sonrasında İstanbul ve Boğazlar meselesinin kesin çözümünün Lozan Konferansı'na bırakılması aşağıdakilerden hangisini göstermektedir?",
+      "stem": "Balkan Antantı ve Sadabat Paktı'nın ortak özelliği aşağıdakilerden hangisidir?",
       "options": [
-        "Bazı sorunların diplomatik görüşmelerle çözüleceğini",
-        "TBMM'nin bu bölgeler üzerindeki haklarından vazgeçtiğini",
-        "İtilaf Devletleri'nin savaş hazırlığı yaptığını",
-        "Türk ordusunun geri çekildiğini"
+        "Saldırı ittifakı olmaları",
+        "Bölgesel işbirliği ve güvenlik arayışı",
+        "Sadece ekonomik amaçlı olmaları",
+        "Türkiye dışında kalması"
       ],
-      "answerIndex": 0,
-      "explanation": "Mudanya geçici bir anlaşmadır. Kesin çözüm Lozan'a bırakılmıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Her ikisi de bölgesel güvenlik ve işbirliği amacı taşır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q03",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması sonrasında TBMM'nin barış görüşmelerine hazırlanması aşağıdakilerden hangisini göstermektedir?",
+      "stem": "Montreux Boğazlar Sözleşmesi (1936) ile Boğazlar üzerinde Türkiye'nin egemenlik haklarının artması, Lozan'dan farklı olarak neyi gösterir?",
       "options": [
-        "Millî Mücadele'nin askeri başarısının diplomatik aşamaya taşındığını",
-        "TBMM'nin askeri mücadeleden vazgeçtiğini",
-        "Osmanlı Devleti'nin yönetimi tekrar ele aldığını",
-        "İşgallerin yeniden başladığını"
+        "Türkiye'nin zayıfladığını",
+        "Uluslararası koşulların değişmesiyle daha lehte bir düzenleme sağlandığını",
+        "Boğazların tamamen kapatıldığını",
+        "Savaş çıktığını"
       ],
-      "answerIndex": 0,
-      "explanation": "Mudanya sonrası Lozan görüşmeleri başlamıştır."
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Montreux ile Türkiye'nin Boğazlar üzerindeki kontrolü artmıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q04",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması'nın imzalanması aşağıdakilerden hangisinin gerçekleşmesinde etkili olmuştur?",
+      "stem": "Türkiye'nin Milletler Cemiyeti'ne girişi, dış politikada nasıl bir tercihi yansıtır?",
       "options": [
-        "Saltanatın kaldırılmasında",
-        "Cumhuriyetin ilan edilmesinde",
-        "Halifeliğin kaldırılmasında",
-        "Çok partili hayata geçilmesinde"
+        "İzolasyon",
+        "Uluslararası kurumlara katılarak barış ve işbirliğine katkı",
+        "Savaş hazırlığı",
+        "Bölgesel çatışma"
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan görüşmelerine kimin katılacağı sorunu saltanatın kaldırılmasına yol açmıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "comparison",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Milletler Cemiyeti'ne giriş, çok taraflı diplomasi ve barışa katkı tercihini gösterir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q05",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması ile aşağıdaki gelişmelerden hangisi doğrudan sağlanmıştır?",
+      "stem": "Hatay'ın anavatana katılması süreci, Atatürk dönemi dış politikası açısından nasıl değerlendirilebilir?",
       "options": [
-        "Silahlı çatışmaların sona ermesi",
-        "Cumhuriyetin ilan edilmesi",
-        "Saltanat yönetiminin sona ermesi",
-        "Türkiye'nin uluslararası tanınması"
+        "Savaşla alınmıştır.",
+        "Diplomasi ve halk oylamasıyla barışçıl yoldan sağlanmıştır.",
+        "Hiç gündeme gelmemiştir.",
+        "Fransa'ya bırakılmıştır."
       ],
-      "answerIndex": 0,
-      "explanation": "Mudanya bir ateşkes anlaşmasıdır ve savaşın durmasını sağlamıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "inference",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Hatay, antlaşmalar ve halkoyuyla barışçıl yoldan Türkiye'ye katılmıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q06",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması'nın imzalanması aşağıdakilerden hangisini en açık biçimde göstermektedir?",
+      "stem": "Türkiye'nin dış politikada 'denge' arayışı, aşağıdakilerden hangisiyle açıklanabilir?",
       "options": [
-        "Türk ordusunun askeri başarısının kabul edildiğini",
-        "Osmanlı Devleti'nin yeniden güç kazandığını",
-        "İtilaf Devletleri'nin savaşı kazandığını",
-        "Saltanat yönetiminin güçlendiğini"
+        "Tek blokta yer alma",
+        "Farklı güçler arasında bağımsız karar alma imkanı arama",
+        "Tam izolasyon",
+        "Sürekli savaş hali"
       ],
-      "answerIndex": 0,
-      "explanation": "Mudanya, Türk askeri başarısının kabul edilmesidir."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Denge politikası, tek tarafa bağlanmadan bağımsız karar almayı hedefler.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q07",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması sonrasında barış görüşmelerinin Lozan'da yapılmasına karar verilmesi aşağıdakilerden hangisini göstermektedir?",
+      "stem": "Lozan'dan kalan borçlar meselesinin çözülmesi, dış politikada neyi gösterir?",
       "options": [
-        "Savaşın diplomatik yollarla sona erdirilmek istendiğini",
-        "Türk ordusunun savaşı kaybettiğini",
-        "Osmanlı Devleti'nin yeniden güç kazandığını",
-        "İşgallerin yeniden başladığını"
+        "Savaşı tercih etmeyi",
+        "Görüşme ve antlaşmalarla sorun çözme yaklaşımını",
+        "Tavizsiz kalınmasını",
+        "İzolasyonu"
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan görüşmeleri savaşın diplomatik çözüm sürecidir."
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Borçlar görüşmelerle çözülmüş; diplomasi tercih edilmiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q08",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması aşağıdakilerden hangisinin gerçekleşmesinde dolaylı olarak etkili olmuştur?",
+      "stem": "Atatürk döneminde Sovyetler Birliği ile ilişkilerin kurulması, hangi ihtiyacın sonucu olabilir?",
       "options": [
-        "Saltanatın kaldırılmasında",
-        "Cumhuriyetin ilan edilmesinde",
-        "Halifeliğin kaldırılmasında",
-        "Çok partili hayata geçilmesinde"
+        "Sovyetlere tam bağımlılık",
+        "Karşılıklı çıkar ve işbirliği; Batı'ya karşı alternatif ilişki",
+        "Savaş hazırlığı",
+        "Din birliği"
       ],
-      "answerIndex": 0,
-      "explanation": "Lozan'a kimin katılacağı sorunu saltanatın kaldırılmasına yol açmıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Her iki taraf da Batı karşısında denge ve işbirliği aramıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q09",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Mudanya Ateşkes Antlaşması aşağıdaki süreçlerden hangisinin başlangıcı olarak kabul edilir?",
+      "stem": "Türkiye'nin 1930'larda batılı devletlerle (İngiltere, Fransa, Yunanistan) ilişkilerini geliştirmesi, 'yurtta barış dünyada barış' ilkesiyle nasıl örtüşür?",
       "options": [
-        "Lozan Barış görüşmelerinin",
-        "Cumhuriyet döneminin",
-        "Saltanat yönetiminin",
-        "Osmanlı Devleti'nin yeniden güçlenmesinin"
+        "Çelişir.",
+        "Barışçı ve işbirlikçi dış politika ile uyumludur.",
+        "Sadece savaş amaçlıdır.",
+        "İzolasyon gerektirir."
       ],
-      "answerIndex": 0,
-      "explanation": "Mudanya sonrası Lozan görüşmeleri başlamıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Atatürk Dönemi Türk Dış Politikası",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Batılı devletlerle ilişki geliştirme, barışçı ve işbirlikçi dış politikanın parçasıdır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack013_q10",
+      "subject": "inkilap",
+      "imageAsset": null
     }
   ]
 }

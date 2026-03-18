@@ -7,132 +7,232 @@
     {
       "difficulty": 1,
       "topic": "yuzdeler",
-      "skills": ["yuzde_hesabi", "problem_cozme", "yorumlama"],
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
       "questionType": "long_context",
       "stem": "Bir spor mağazasında satılan eşofman takımının etiket fiyatı 900 TL'dir. Hafta sonu kampanyasında önce ürün fiyatına %20 indirim uygulanıyor. Daha sonra kargo ve paketleme için indirimli fiyatın üzerine 80 TL ekleniyor. Son olarak öğrenci kartı gösteren müşterilere oluşan yeni fiyat üzerinden %5 indirim yapılıyor. Buna göre öğrenci bu ürün için son aşamada kaç TL öder?",
-      "options": ["740", "760", "780", "800"],
+      "options": [
+        "740",
+        "760",
+        "780",
+        "800"
+      ],
       "answerIndex": 1,
       "explanation": "900 × 0,80 = 720 TL olur. 80 TL eklenince 800 TL olur. Son olarak %5 indirim uygulanır: 800 × 0,95 = 760 TL.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q01"
+      "sourceRef": "gold028_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "veri_analizi",
-      "skills": ["ortalama", "veri_yorumlama", "problem_cozme"],
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "problem_cozme"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir okulda yapılan matematik denemesinde üç şubenin sonuçları inceleniyor. 8A şubesinde 10 öğrenci vardır ve sınıf ortalaması 14'tür. 8B şubesinde 15 öğrenci vardır ve sınıf ortalaması 18'dir. 8C şubesinde 15 öğrenci bulunmaktadır. Üç şubenin tamamının ortalaması 17 olduğuna göre 8C şubesinin ortalama neti kaçtır?",
-      "options": ["16", "17", "18", "19"],
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
       "answerIndex": 2,
       "explanation": "Toplam öğrenci sayısı 40'tır. Toplam net sayısı 40 × 17 = 680 olur. 8A ve 8B'nin toplam neti 10 × 14 + 15 × 18 = 140 + 270 = 410'dur. 8C'nin toplam neti 680 − 410 = 270, ortalaması ise 270 / 15 = 18 olur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q02"
+      "sourceRef": "gold028_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran_oranti", "denklem_kurma", "problem_cozme"],
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir okulda robotik kulübü ile yazılım kulübündeki öğrenci sayılarının oranı 3 : 5'tir. Daha sonra robotik kulübüne 6 öğrenci katılırken yazılım kulübünden 4 öğrenci ayrılıyor. Bu değişimden sonra iki kulüpteki öğrenci sayıları eşit oluyor. Buna göre başlangıçta bu iki kulüpte toplam kaç öğrenci vardır?",
-      "options": ["32", "40", "48", "56"],
+      "options": [
+        "32",
+        "40",
+        "48",
+        "56"
+      ],
       "answerIndex": 1,
       "explanation": "Başlangıçta robotik 3k, yazılım 5k olsun. Değişimden sonra 3k + 6 = 5k − 4 olur. Buradan 2k = 10 ve k = 5 bulunur. Başlangıçtaki toplam öğrenci sayısı 3k + 5k = 8k = 40'tır.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q03"
+      "sourceRef": "gold028_q03",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "karekok",
-      "skills": ["karekok", "alan", "geometrik_yorum"],
+      "skills": [
+        "karekok",
+        "alan",
+        "geometrik_yorum"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Kare şeklindeki bir okul bahçesinin alanı 441 metrekaredir. Bu bahçenin etrafına dıştan 1 metre genişliğinde yürüyüş yolu yapılacaktır. Yalnızca yürüyüş yolunun kapladığı alan için, her biri 8 metrekare kaplama yapan taşlardan kullanılacağına göre en az kaç taş gerekir?",
-      "options": ["9", "10", "11", "12"],
+      "options": [
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
       "answerIndex": 2,
       "explanation": "Bahçenin bir kenarı √441 = 21 metredir. Dıştan 1'er metre eklenince dış karenin bir kenarı 23 metre olur. Yürüyüş yolunun alanı 23² − 21² = 529 − 441 = 88 metrekaredir. 88 / 8 = 11 taş gerekir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q04"
+      "sourceRef": "gold028_q04",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "olasilik",
-      "skills": ["olasilik", "durum_sayma", "problem_cozme"],
+      "skills": [
+        "olasilik",
+        "durum_sayma",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir kutuda 4 kırmızı, 6 mavi ve 5 yeşil top vardır. Kutudan art arda ve geri koymadan iki top seçiliyor. Buna göre seçilen toplardan birinin kırmızı, diğerinin mavi olma olasılığı kaçtır?",
-      "options": ["4/35", "6/35", "8/35", "12/35"],
+      "options": [
+        "4/35",
+        "6/35",
+        "8/35",
+        "12/35"
+      ],
       "answerIndex": 2,
       "explanation": "İki durum vardır: önce kırmızı sonra mavi veya önce mavi sonra kırmızı. Olasılık 4/15 × 6/14 + 6/15 × 4/14 = 24/210 + 24/210 = 48/210 = 8/35 olur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q05"
+      "sourceRef": "gold028_q05",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "uslu_sayilar",
-      "skills": ["uslu_ifadeler", "birim_donusturme", "problem_cozme"],
+      "skills": [
+        "uslu_ifadeler",
+        "birim_donusturme",
+        "problem_cozme"
+      ],
       "questionType": "reasoning",
       "stem": "Bir dijital arşivde A klasöründe 2^4 alt klasör, her alt klasörde 2^3 dosya ve her dosyada 2^5 KB veri vardır. B klasöründe ise 2^5 alt klasör, her alt klasörde 2^3 dosya ve her dosyada 2^5 KB veri bulunmaktadır. Buna göre B klasöründeki veri miktarı, A klasöründeki veri miktarından kaç MB fazladır? (1 MB = 1024 KB)",
-      "options": ["2", "4", "6", "8"],
-      "answerIndex": 1,
+      "options": [
+        "4096",
+        "4",
+        "6",
+        "8"
+      ],
+      "answerIndex": 0,
       "explanation": "A klasörü 2^4 × 2^3 × 2^5 = 2^12 = 4096 KB = 4 MB'dir. B klasörü 2^5 × 2^3 × 2^5 = 2^13 = 8192 KB = 8 MB'dir. Aradaki fark 8 − 4 = 4 MB'dir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q06"
+      "sourceRef": "gold028_q06",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "geometrik_olcme",
-      "skills": ["cevre", "alan", "problem_cozme"],
+      "skills": [
+        "cevre",
+        "alan",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Dikdörtgen şeklindeki bir afiş panosunun uzun kenarı, kısa kenarından 3 metre fazladır. Panonun çevresi 34 metredir. Buna göre bu panonun alanı kaç metrekaredir?",
-      "options": ["60", "70", "72", "84"],
+      "options": [
+        "60",
+        "70",
+        "72",
+        "84"
+      ],
       "answerIndex": 1,
       "explanation": "Kısa kenar x, uzun kenar x + 3 olsun. 2x + 2(x + 3) = 34 ise 4x + 6 = 34, buradan 4x = 28 ve x = 7 olur. Uzun kenar 10 metredir. Alan 7 × 10 = 70 metrekaredir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q07"
+      "sourceRef": "gold028_q07",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "egim",
-      "skills": ["egim", "oran_oranti", "problem_cozme"],
+      "skills": [
+        "egim",
+        "oran_oranti",
+        "problem_cozme"
+      ],
       "questionType": "grafik_yorum",
       "stem": "Bir okul girişine yapılan rampanın yatay uzunluğu 4 metre, yükseldiği dikey mesafe ise 60 santimetredir. Aynı eğime sahip ikinci bir rampa, sahne çıkışı için yapılacak ve yatay uzunluğu 7 metre olacaktır. Buna göre ikinci rampanın yükseldiği dikey mesafe kaç santimetre olur?",
-      "options": ["90", "95", "105", "120"],
+      "options": [
+        "90",
+        "95",
+        "105",
+        "120"
+      ],
       "answerIndex": 2,
       "explanation": "İlk rampada eğim oranı 60/400 = 3/20'dir. Aynı eğimde 7 metre yani 700 santimetre yatay uzunluk için dikey yükselme 700 × 3/20 = 105 santimetre olur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q08"
+      "sourceRef": "gold028_q08",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "carpanlar_ve_katlar",
-      "skills": ["ebob", "problem_cozme", "akil_yurutme"],
+      "skills": [
+        "ebob",
+        "problem_cozme",
+        "akil_yurutme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Bir etkinlikte kullanılmak üzere 72 kırmızı, 96 mavi ve 120 beyaz kart hazırlanmıştır. Kartlar, her pakette yalnızca tek renk olacak ve bütün paketlerde eşit sayıda kart bulunacak şekilde düzenlenecektir. Kart başına paket sayısının mümkün olduğunca az olması için bir paketteki kart sayısı en büyük kaç olmalıdır?",
-      "options": ["12", "18", "24", "30"],
+      "options": [
+        "12",
+        "18",
+        "24",
+        "30"
+      ],
       "answerIndex": 2,
       "explanation": "Bir paketteki kart sayısının en büyük olması için 72, 96 ve 120 sayılarının EBOB'u alınır. EBOB(72, 96, 120) = 24 olduğundan bir pakette en fazla 24 kart bulunabilir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q09"
+      "sourceRef": "gold028_q09",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "donusum_geometrisi",
-      "skills": ["koordinat_duzlemi", "yansima", "oteleme"],
+      "skills": [
+        "koordinat_duzlemi",
+        "yansima",
+        "oteleme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Koordinat düzleminde P noktası (-3, 4) konumundadır. Bu nokta önce y eksenine göre yansıtılıyor. Daha sonra oluşan yeni nokta 2 birim sola ve 5 birim aşağı öteleniyor. Buna göre son oluşan noktanın koordinatları aşağıdakilerden hangisidir?",
-      "options": ["(1, -1)", "(5, -1)", "(1, 1)", "(5, 1)"],
+      "options": [
+        "(1, -1)",
+        "(5, -1)",
+        "(1, 1)",
+        "(5, 1)"
+      ],
       "answerIndex": 0,
       "explanation": "P noktası y eksenine göre yansıtılınca (3, 4) olur. 2 birim sola ötelenince (1, 4), 5 birim aşağı ötelenince (1, -1) elde edilir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold028_q10"
+      "sourceRef": "gold028_q10",
+      "subject": "mat"
     }
   ]
 }

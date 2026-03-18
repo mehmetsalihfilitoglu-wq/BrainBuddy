@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat5_0340",
+      "stem": "5 öğrencinin sınav notları 70, 80, 75, 85, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "82",
+        "79",
+        "78",
+        "80"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 400, 400÷5=80.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0340",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0341",
+      "stem": "Bir veri grubunda en çok tekrar eden değere ne denir?",
+      "options": [
+        "Tepe değer (mod)",
+        "Medyan",
+        "Ortalama",
+        "Aralık"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En sık tekrar eden değer tepe değer (mod) olarak adlandırılır.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0341",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0342",
+      "stem": "Sütun grafiğinde Pazartesi 40, Salı 35, Çarşamba 45 kitap okunmuştur. Ortalama günlük okunan kitap sayısı kaçtır?",
+      "options": [
+        "39",
+        "40",
+        "38",
+        "42"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 40+35+45=120, 120÷3=40.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0342",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0343",
+      "stem": "Bir grafikte en yüksek değer 60, en düşük 20 ise aralık (range) kaçtır?",
+      "options": [
+        "30",
+        "40",
+        "80",
+        "50"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Aralık = 60 - 20 = 40.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0343",
+      "imageAsset": "quiz_images/mat/mat_035_mat5_0343_graph_line.png",
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0344",
+      "stem": "12 450 sayısının yüzler basamağındaki rakamın basamak değeri kaçtır?",
+      "options": [
+        "4",
+        "450",
+        "400",
+        "40"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4 yüzler basamağında: 4×100=400.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0344",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0345",
+      "stem": "Bir mağazada 15 kutu, her kutuda 24 kalem vardır. 5 kutu satıldığında geriye kaç kalem kalır?",
+      "options": [
+        "240",
+        "360",
+        "300",
+        "180"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 15×24=360. Satılan 5×24=120. Kalan 360-120=240.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0345",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0346",
+      "stem": "4/9 kesri 2/3 kesrinden küçük mü, büyük mü?",
+      "options": [
+        "Eşit",
+        "Karşılaştırılamaz",
+        "Büyük",
+        "Küçük"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2/3=6/9, 4/9 < 6/9.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0346",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0347",
+      "stem": "3/4 - 1/2 işleminin sonucu kaçtır?",
+      "options": [
+        "2/4",
+        "1/4",
+        "2/2",
+        "1/2"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1/2=2/4, 3/4-2/4=1/4.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0347",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0348",
+      "stem": "2,8 - 1,35 işleminin sonucu kaçtır?",
+      "options": [
+        "1,53",
+        "1,45",
+        "1,55",
+        "1,35"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2,80 - 1,35 = 1,45.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0348",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0349",
+      "stem": "200 TL'nin %15'i kaç TL'dir?",
+      "options": [
+        "30",
+        "35",
+        "25",
+        "20"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "uzunluk_olcme",
+      "skills": [
+        "uzunluk_ol",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "200 × 0,15 = 30 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0349",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

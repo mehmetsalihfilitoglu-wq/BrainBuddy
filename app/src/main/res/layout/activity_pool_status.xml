@@ -50,28 +50,6 @@
                     android:textColor="@color/bb_text"
                     android:fontFamily="monospace" />
 
-                <!-- SEED AUDIT (DEBUG seeding pipeline summary) -->
-                <TextView
-                    android:id="@+id/tvSeedAudit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="SEED AUDIT"
-                    android:textSize="12sp"
-                    android:textColor="@color/bb_text"
-                    android:fontFamily="monospace"
-                    android:visibility="gone" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCopySeedAudit"
-                    style="@style/BBButtonAlt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Copy Seed Audit"
-                    android:textAllCaps="false"
-                    android:visibility="gone" />
-
                 <!-- Fix butonları sadece DEBUG build'de görünür (visibility Activity'de ayarlanır) -->
                 <LinearLayout
                     android:id="@+id/layoutDebugFixButtons"

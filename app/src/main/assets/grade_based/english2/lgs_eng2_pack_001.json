@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "ing",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "eng2_0000",
+      "stem": "Teacher: What is this?\n\nTeacher shows a book.\n\nYou: ---",
+      "options": [
+        "I have a book.",
+        "I like book.",
+        "It is a book.",
+        "Book is red."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "dialogue_completion",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"It is a book.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0000",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0001",
+      "stem": "Friend: Is this your pen?\n\nYou: ---\n\nWhat do you say if it is yours?",
+      "options": [
+        "No.",
+        "I don't know.",
+        "Pen is blue.",
+        "Yes, it is. Thank you!"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "picture_interpretation",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Yes, it is. Thank you!\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0001",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0002",
+      "stem": "\"The desk is big. The chair is small. I sit on the chair.\"\n\nWhat is the text about?",
+      "options": [
+        "A desk and a chair; the child sits on the chair.",
+        "Only a chair.",
+        "Only a desk.",
+        "School."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "dialogue_completion",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"A desk and a chair; the child sits on the chair.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0002",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0003",
+      "stem": "Mum: What do you have in your bag?\n\nYou: ---\n\nChoose a natural answer.",
+      "options": [
+        "I have my books, my pencil and my rubber.",
+        "It is heavy.",
+        "A bag.",
+        "I don't know."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "reading_comprehension",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"I have my books, my pencil and my rubber.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0003",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0004",
+      "stem": "Teacher: Good morning, class!\n\nStudents: ---",
+      "options": [
+        "I am fine.",
+        "Good morning, teacher!",
+        "Thank you.",
+        "Goodbye!"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "meaning_inference",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Good morning, teacher!\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0004",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0005",
+      "stem": "Teacher: What is this?\n\nTeacher shows a book.\n\nYou: ---",
+      "options": [
+        "I have a book.",
+        "It is a book.",
+        "Book is red.",
+        "I like book."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "picture_interpretation",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"It is a book.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0005",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0006",
+      "stem": "Friend: Is this your pen?\n\nYou: ---\n\nWhat do you say if it is yours?",
+      "options": [
+        "Yes, it is. Thank you!",
+        "Pen is blue.",
+        "I don't know.",
+        "No."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "situation_response",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Yes, it is. Thank you!\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0006",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0007",
+      "stem": "\"The desk is big. The chair is small. I sit on the chair.\"\n\nWhat is the text about?",
+      "options": [
+        "School.",
+        "Only a desk.",
+        "Only a chair.",
+        "A desk and a chair; the child sits on the chair."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "situation_response",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"A desk and a chair; the child sits on the chair.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0007",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0008",
+      "stem": "Mum: What do you have in your bag?\n\nYou: ---\n\nChoose a natural answer.",
+      "options": [
+        "I have my books, my pencil and my rubber.",
+        "It is heavy.",
+        "I don't know.",
+        "A bag."
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"I have my books, my pencil and my rubber.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0008",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0009",
+      "stem": "Teacher: Good morning, class!\n\nStudents: ---",
+      "options": [
+        "Goodbye!",
+        "Good morning, teacher!",
+        "Thank you.",
+        "I am fine."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "meaning_inference",
+      "topic": "words",
+      "skills": [
+        "words",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Good morning, teacher!\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0009",
+      "imageAsset": null,
+      "subject": "ing"
+    }
+  ]
+}

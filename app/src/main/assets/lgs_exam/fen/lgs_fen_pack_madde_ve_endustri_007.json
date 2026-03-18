@@ -16,10 +16,15 @@
       "difficulty": 4,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
       "explanation": "Aynı periyotta bulunan elementlerin katman sayıları aynıdır. X ve Y aynı periyottadır.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_007_q01"
+      "sourceRef": "fen_mad_007_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bir atom 2 elektron verdiğinde oluşan tanecikle ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
@@ -33,7 +38,11 @@
       "difficulty": 4,
       "questionType": "ION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["iyon", "elektron", "katyon"],
+      "skills": [
+        "iyon",
+        "elektron",
+        "katyon"
+      ],
       "explanation": "Elektron veren atom pozitif yüklü iyon oluşturur. Proton ve nötron sayısı değişmez.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_007_q02"
@@ -50,7 +59,11 @@
       "difficulty": 4,
       "questionType": "PARTICLE_MODEL_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["tanecik_modeli", "molekul", "element"],
+      "skills": [
+        "tanecik_modeli",
+        "molekul",
+        "element"
+      ],
       "explanation": "Aynı tür atomlardan oluşmuş ikili tanecikler molekül yapılı elementtir. H2 buna örnektir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_007_q03"
@@ -67,7 +80,11 @@
       "difficulty": 4,
       "questionType": "MOLECULE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "NH3 molekülü 4 atomludur: 2 × 4 = 8 atom. O2 molekülü 2 atomludur: 3 × 2 = 6 atom. CO2 molekülü 3 atomludur: 1 × 3 = 3 atom. Toplam 8 + 6 + 3 = 17 atomdur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_007_q04"
@@ -84,7 +101,11 @@
       "difficulty": 4,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["saf_madde", "element", "molekul"],
+      "skills": [
+        "saf_madde",
+        "element",
+        "molekul"
+      ],
       "explanation": "Ozon (O3) aynı tür atomlardan oluşan molekül yapılı elementtir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_007_q05"
@@ -101,7 +122,12 @@
       "difficulty": 4,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "iyon", "proton", "elektron"],
+      "skills": [
+        "atom",
+        "iyon",
+        "proton",
+        "elektron"
+      ],
       "explanation": "Proton sayısı elektron sayısından 2 fazla olduğundan tanecik 2+ yüklüdür.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_007_q06"
@@ -118,10 +144,16 @@
       "difficulty": 4,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "katman_sayisi", "grup"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi",
+        "grup"
+      ],
       "explanation": "Periyot numarası katman sayısını verir. 3. periyotta olduğuna göre 3 katmanı vardır.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_007_q07"
+      "sourceRef": "fen_mad_007_q07",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Aynı kapta 4 tane O2 ve 2 tane O3 molekülü bulunmaktadır. Buna göre kaptaki toplam oksijen atomu sayısı kaçtır?",
@@ -135,7 +167,11 @@
       "difficulty": 4,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "O2 molekülleri: 4 × 2 = 8 atom. O3 molekülleri: 2 × 3 = 6 atom. Toplam 14 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_007_q08"
@@ -152,7 +188,12 @@
       "difficulty": 4,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["element", "bilesik", "karisim", "siniflandirma"],
+      "skills": [
+        "element",
+        "bilesik",
+        "karisim",
+        "siniflandirma"
+      ],
       "explanation": "Tuzlu su bir karışımdır, bileşik değildir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_007_q09"
@@ -169,7 +210,11 @@
       "difficulty": 4,
       "questionType": "CONCEPT_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["bilesik", "formul", "ozellik"],
+      "skills": [
+        "bilesik",
+        "formul",
+        "ozellik"
+      ],
       "explanation": "Bileşiklerin belirli kimyasal formülleri vardır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_007_q10"

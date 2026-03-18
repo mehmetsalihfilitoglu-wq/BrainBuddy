@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "ing",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "eng3_0340",
+      "stem": "\"In the picture, there is a big park. Children play. Parents sit on benches. There are trees and flowers.\"\n\nWhat does the picture show?",
+      "options": [
+        "Only trees.",
+        "A hospital.",
+        "A park with children playing, parents on benches, trees and flowers.",
+        "A school."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "dialogue_completion",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"A park with children playing, parents on benches, trees and flowers.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0340",
+      "imageAsset": "quiz_images/english/picture.png",
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0341",
+      "stem": "Dad: The museum is in the city centre. How can we get there?\n\nChild: ---\n\nWhat is logical?",
+      "options": [
+        "We fly.",
+        "We can take the bus or we can walk if it's not far.",
+        "We can't go.",
+        "We stay home."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "situation_response",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"We can take the bus or we can walk if it's not far.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0341",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0342",
+      "stem": "Visitor: What places are in your city?\n\nYou: ---\n\nWhat would be a clear answer?",
+      "options": [
+        "A city.",
+        "Many places.",
+        "I don't go out.",
+        "We have a park, a library, a supermarket and a hospital. I like the park."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "logical_response",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"We have a park, a library, a supermarket and a hospital. I like the park.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0342",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0343",
+      "stem": "\"The library is quiet. People read books there. Children can borrow books. It is open every day.\"\n\nWhat can you do at the library?",
+      "options": [
+        "Sleep.",
+        "Play football.",
+        "Read and borrow books.",
+        "Eat lunch."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"Read and borrow books.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0343",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0344",
+      "stem": "Mum: We need bread. Where should we go?\n\nChild: ---\n\nWhat is the correct place?",
+      "options": [
+        "We should go to the supermarket or the bakery.",
+        "To the park.",
+        "To school.",
+        "To the hospital."
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "meaning_inference",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"We should go to the supermarket or the bakery.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0344",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0345",
+      "stem": "Friend: Where do you go when you are ill?\n\nYou: ---\n\nChoose the right answer.",
+      "options": [
+        "I stay at home.",
+        "To school.",
+        "I go to the hospital or the doctor. The doctor helps me feel better.",
+        "To the park."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "situation_interpretation",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"I go to the hospital or the doctor. The doctor helps me feel better.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0345",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0346",
+      "stem": "\"In the picture, there is a big park. Children play. Parents sit on benches. There are trees and flowers.\"\n\nWhat does the picture show?",
+      "options": [
+        "Only trees.",
+        "A park with children playing, parents on benches, trees and flowers.",
+        "A hospital.",
+        "A school."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "reading_comprehension",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"A park with children playing, parents on benches, trees and flowers.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0346",
+      "imageAsset": "quiz_images/english/picture.png",
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0347",
+      "stem": "Dad: The museum is in the city centre. How can we get there?\n\nChild: ---\n\nWhat is logical?",
+      "options": [
+        "We can't go.",
+        "We stay home.",
+        "We can take the bus or we can walk if it's not far.",
+        "We fly."
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "dialogue_completion",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"We can take the bus or we can walk if it's not far.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0347",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0348",
+      "stem": "Visitor: What places are in your city?\n\nYou: ---\n\nWhat would be a clear answer?",
+      "options": [
+        "I don't go out.",
+        "We have a park, a library, a supermarket and a hospital. I like the park.",
+        "Many places.",
+        "A city."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "situation_response",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"We have a park, a library, a supermarket and a hospital. I like the park.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0348",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng3_0349",
+      "stem": "\"The library is quiet. People read books there. Children can borrow books. It is open every day.\"\n\nWhat can you do at the library?",
+      "options": [
+        "Play football.",
+        "Sleep.",
+        "Eat lunch.",
+        "Read and borrow books."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "logical_response",
+      "topic": "in_my_city",
+      "skills": [
+        "in_my_city",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context, tone and situation. \"Read and borrow books.\" is appropriate. Other options misunderstand the situation, tone or implied meaning.",
+      "source": "brainbuddy",
+      "sourceRef": "eng3_0349",
+      "imageAsset": null,
+      "subject": "ing"
+    }
+  ]
+}

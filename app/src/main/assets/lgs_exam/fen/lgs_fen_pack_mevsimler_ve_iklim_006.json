@@ -16,7 +16,12 @@
       "difficulty": 3,
       "questionType": "GRAPH_REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["gunduz_suresi", "golge_boyu", "yarim_kure", "grafik_yorumlama"],
+      "skills": [
+        "gunduz_suresi",
+        "golge_boyu",
+        "yarim_kure",
+        "grafik_yorumlama"
+      ],
       "explanation": "Haziranda en uzun gündüz ve en kısa gölge Kuzey Yarım Küre özelliğidir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q01"
@@ -33,10 +38,16 @@
       "difficulty": 3,
       "questionType": "EXPERIMENT_REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["mevsimlerin_olusumu", "dolanim", "eksen_egikligi", "deney"],
+      "skills": [
+        "mevsimlerin_olusumu",
+        "dolanim",
+        "eksen_egikligi",
+        "deney"
+      ],
       "explanation": "Dolanım ve eksen eğikliği birlikte modelleniyorsa amaç mevsimlerin oluşumunu göstermektir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mvs_006_q02"
+      "sourceRef": "fen_mvs_006_q02",
+      "imageAsset": "quiz_images/fen/fen_mevsimler_ve_ikl_fen_mvs_006_q02_experiment.png"
     },
     {
       "stem": "Aynı gün K, L ve M şehirlerinde öğle vakti ölçülen gölge boyları şöyledir:\n\nK: 22 cm\nL: 50 cm\nM: 78 cm\n\nBuna göre şehirlerin Güneş ışınlarını alma açılarıyla ilgili aşağıdaki yorumlardan hangisi doğrudur?",
@@ -50,7 +61,10 @@
       "difficulty": 3,
       "questionType": "TABLE_REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["golge_boyu", "gunes_isinlarinin_gelis_acisi"],
+      "skills": [
+        "golge_boyu",
+        "gunes_isinlarinin_gelis_acisi"
+      ],
       "explanation": "Gölge boyu kısa olan yerde Güneş ışınları daha dik gelir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q03"
@@ -67,7 +81,11 @@
       "difficulty": 3,
       "questionType": "MULTI_REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["mevsimlerin_olusumu", "eksen_egikligi", "dolanim"],
+      "skills": [
+        "mevsimlerin_olusumu",
+        "eksen_egikligi",
+        "dolanim"
+      ],
       "explanation": "Mevsimler eksen eğikliği ve dolanım sonucu oluşur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q04"
@@ -84,7 +102,11 @@
       "difficulty": 3,
       "questionType": "REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["gundonumu", "gunduz_suresi", "yarim_kure"],
+      "skills": [
+        "gundonumu",
+        "gunduz_suresi",
+        "yarim_kure"
+      ],
       "explanation": "21 Aralık Kuzey Yarım Küre'de kış gündönümüdür.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q05"
@@ -101,7 +123,11 @@
       "difficulty": 3,
       "questionType": "EXPERIMENT",
       "topic": "Mevsimler ve İklim",
-      "skills": ["gunes_isinlarinin_gelis_acisi", "deney", "enerji"],
+      "skills": [
+        "gunes_isinlarinin_gelis_acisi",
+        "deney",
+        "enerji"
+      ],
       "explanation": "Eğik gelen ışınlar daha geniş alanı aydınlatır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q06"
@@ -118,7 +144,11 @@
       "difficulty": 3,
       "questionType": "REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["eksen_egikligi", "mevsimlerin_olusumu", "yarim_kure"],
+      "skills": [
+        "eksen_egikligi",
+        "mevsimlerin_olusumu",
+        "yarim_kure"
+      ],
       "explanation": "Eksen eğikliği nedeniyle yarım kürelerde farklı mevsimler yaşanır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q07"
@@ -135,7 +165,11 @@
       "difficulty": 3,
       "questionType": "REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["iklim", "hava_olaylari", "ayirt_etme"],
+      "skills": [
+        "iklim",
+        "hava_olaylari",
+        "ayirt_etme"
+      ],
       "explanation": "Kısa süreli ve anlık olaylar hava olayıdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q08"
@@ -152,7 +186,11 @@
       "difficulty": 3,
       "questionType": "REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["iklim", "klimatoloji", "meteoroloji"],
+      "skills": [
+        "iklim",
+        "klimatoloji",
+        "meteoroloji"
+      ],
       "explanation": "Uzun yıllara ait verilerle iklim incelenir ve bu alan klimatolojidir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q09"
@@ -169,7 +207,10 @@
       "difficulty": 3,
       "questionType": "REASONING",
       "topic": "Mevsimler ve İklim",
-      "skills": ["eksen_egikligi", "mevsimlerin_olusumu"],
+      "skills": [
+        "eksen_egikligi",
+        "mevsimlerin_olusumu"
+      ],
       "explanation": "Mevsimler eksen eğikliği sayesinde oluşur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mvs_006_q10"

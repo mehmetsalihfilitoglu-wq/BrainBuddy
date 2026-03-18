@@ -4,136 +4,216 @@
   "subject": "mat",
   "publisher": "brainbuddy",
   "questions": [
-
-{
-"difficulty":2,
-"questionType":"yeni_nesil_problem",
-"topic":"oran_oranti",
-"skills":["oran","yorumlama"],
-"stem":"Bir okulda düzenlenen kitap okuma yarışmasında öğrenciler belirli sayıda kitap okumaktadır. Ali'nin okuduğu kitap sayısı, Mehmet'in okuduğu kitap sayısının 3/4'üne eşittir. Mehmet 28 kitap okuduğuna göre Ali ile Mehmet'in okuduğu kitap sayıları toplamı kaçtır?",
-"options":["45","49","50","56"],
-"answerIndex":1,
-"explanation":"Ali = 28×3/4 = 21. Toplam = 21+28 = 49.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-1"
-},
-
-{
-"difficulty":2,
-"questionType":"reasoning",
-"topic":"denklem",
-"skills":["denklem","problem_cozme"],
-"stem":"Okul açılışında veliler toplu kırtasiye alışverişi yapar. Bir veli 2 defter ve 3 kalem alıp 36 TL öder; başka bir veli 4 defter ve 1 kalem alıp 44 TL öder. Sınıf annesi masrafları hesaplamak için birim fiyatları bulmak ister. Önce denklem sistemi kurup defter fiyatını hesaplayacak, ardından kalem fiyatına ulaşacaktır. Buna göre bir kalemin fiyatı kaç TL'dir?",
-"options":["6","8","10","12"],
-"answerIndex":1,
-"explanation":"2d+3k=36 ve 4d+k=44. İkinci denklemden k=44−4d. Yerine yazılır ve çözülür → k=8.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-2"
-},
-
-{
-"difficulty":2,
-"questionType":"geometri_yorum",
-"topic":"alan",
-"skills":["geometri","alan","yorumlama"],
-"stem":"Kenar uzunlukları 50 m ve 30 m olan dikdörtgen şeklindeki bir bahçenin ortasına kare biçiminde bir çim alan yapılmıştır. Çim alan dışındaki bölümün alanı 1100 m² olduğuna göre kare biçimindeki alanın bir kenarı kaç metredir?",
-"options":["10","15","20","25"],
-"answerIndex":2,
-"explanation":"Toplam alan 50×30=1500. Çim alan =1500−1100=400. Karenin kenarı √400=20.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-3"
-},
-
-{
-"difficulty":2,
-"questionType":"paragraph",
-"topic":"ortalama",
-"skills":["ortalama","veri"],
-"stem":"Matematik öğretmeni bir öğrencinin dört deneme sınavındaki puanlarını karne ortalamasına eklemek üzere inceliyor. İlk üç denemede alınan puanlar sırasıyla 60, 72 ve 84'tür. Dördüncü denemedeki puan henüz sisteme girilmemiştir. Öğretmen önce karneye yazılacak ortalamanın 75 olması gerektiğini kontrol eder, ardından dördüncü denemeden alınması gereken minimum puanı hesaplar. Buna göre dördüncü denemede alınan puan (x) kaçtır?",
-"options":["84","90","96","102"],
-"answerIndex":1,
-"explanation":"Toplam = 4×75 = 300. İlk üç = 216. x=84 değil 84+216=300 → x=84 olur.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-4"
-},
-
-{
-"difficulty":2,
-"questionType":"reasoning",
-"topic":"kesirler",
-"skills":["kesir","problem"],
-"stem":"Kitap okuma kulübünde bir öğrenci roman okuma planı yapar. İlk gün kitabın 1/4'ünü okur. İkinci gün kalan sayfaların 1/3'ünü okur. Üçüncü gün başladığında elinde 60 sayfa kaldığını fark eder. Öğrenci önce ilk iki gün okunan toplam sayfa oranını hesaplayıp ardından kitabın tamamının sayfa sayısına ulaşmak ister. Buna göre kitabın toplam sayfa sayısı kaçtır?",
-"options":["120","144","180","240"],
-"answerIndex":2,
-"explanation":"Toplam x. İlk gün x/4 okunur → kalan 3x/4. İkinci gün bunun 1/3'ü = x/4 okunur. Kalan x/2 olur. x/2=60 → x=120.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-5"
-},
-
-{
-"difficulty":2,
-"questionType":"grafik_yorum",
-"topic":"veri_analizi",
-"skills":["grafik","yorumlama"],
-"stem":"Bir öğrencinin çözdüğü soru sayısı her gün bir önceki güne göre 10 artmaktadır. Pazartesi 20 soru çözen bu öğrenci dört gün boyunca toplam kaç soru çözmüştür?",
-"options":["110","120","130","140"],
-"answerIndex":1,
-"explanation":"20+30+40+50 = 140.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-6"
-},
-
-{
-"difficulty":2,
-"questionType":"reasoning",
-"topic":"oran_oranti",
-"skills":["oran","problem"],
-"stem":"Sınıf rehber öğretmeni yeni dönem öncesi sınıf listesini günceller. Mevcut listede kız ve erkek öğrenci sayıları 3:5 oranındadır. Kayıt döneminde 4 kız öğrenci daha sınıfa eklenir. Güncel listeye bakıldığında kız-erkek oranı 4:5 olmuştur. Öğretmen önce oran değişiminden hareketle denklem kurar, sonra nakil öncesi sınıf mevcudunu bulur. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
-"options":["32","40","48","56"],
-"answerIndex":1,
-"explanation":"3k ve 5k olsun. (3k+4)/(5k)=4/5 → 15k+20=20k → k=4 → toplam 32.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-7"
-},
-
-{
-"difficulty":2,
-"questionType":"yeni_nesil_problem",
-"topic":"yuzdeler",
-"skills":["yuzde","problem"],
-"stem":"Bir ürünün fiyatına önce %20 indirim uygulanıyor, sonra indirimli fiyat üzerinden %25 zam yapılıyor. Ürünün ilk fiyatı 200 TL olduğuna göre son fiyatı kaç TL olur?",
-"options":["180","190","200","210"],
-"answerIndex":2,
-"explanation":"200×0,80=160 → 160×1,25=200.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-8"
-},
-
-{
-"difficulty":2,
-"questionType":"paragraph",
-"topic":"alan_cevre",
-"skills":["geometri","problem"],
-"stem":"El işi dersinde öğrenciler dikdörtgen biçiminde bir pano hazırlayacaktır. Öğretmen kısa kenarın 18 cm olduğunu, uzun kenarın ise kısa kenardan 6 cm daha uzun olacağını söyler. Öğrenciler önce uzun kenarın uzunluğunu bulup ardından panonun kapladığı toplam alanı hesaplamalıdır. Buna göre bu dikdörtgen panonun alanı kaç santimetrekaredir?",
-"options":["360","396","432","450"],
-"answerIndex":2,
-"explanation":"Uzun kenar 24. Alan = 18×24 = 432.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-9"
-},
-
-{
-"difficulty":2,
-"questionType":"paragraph",
-"topic":"ortalama",
-"skills":["veri","yorumlama"],
-"stem":"Bir öğrenci haftalık matematik soru çözme hedefi koyar ve her gün çözdüğü soru sayısını defterine not eder. Pazartesi 24, salı 36, çarşamba 30 ve perşembe 42 soru çözmüştür. Cuma günü haftalık raporu hazırlamak isteyen öğrenci önce dört günlük toplam soru sayısını hesaplayacak, ardından günlük ortalamayı bulacaktır. Buna göre bu dört günün günlük ortalama soru sayısı kaçtır?",
-"options":["30","31","32","33"],
-"answerIndex":2,
-"explanation":"Toplam = 132 → 132/4 = 33.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-007-10"
-}
-
-]
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "yorumlama"
+      ],
+      "stem": "Bir okulda düzenlenen kitap okuma yarışmasında öğrenciler belirli sayıda kitap okumaktadır. Ali'nin okuduğu kitap sayısı, Mehmet'in okuduğu kitap sayısının 3/4'üne eşittir. Mehmet 28 kitap okuduğuna göre Ali ile Mehmet'in okuduğu kitap sayıları toplamı kaçtır?",
+      "options": [
+        "45",
+        "49",
+        "50",
+        "56"
+      ],
+      "answerIndex": 1,
+      "explanation": "Ali = 28×3/4 = 21. Toplam = 21+28 = 49.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "denklem",
+      "skills": [
+        "denklem",
+        "problem_cozme"
+      ],
+      "stem": "Okul açılışında veliler toplu kırtasiye alışverişi yapar. Bir veli 2 defter ve 3 kalem alıp 36 TL öder; başka bir veli 4 defter ve 1 kalem alıp 44 TL öder. Sınıf annesi masrafları hesaplamak için birim fiyatları bulmak ister. Önce denklem sistemi kurup defter fiyatını hesaplayacak, ardından kalem fiyatına ulaşacaktır. Buna göre bir kalemin fiyatı kaç TL'dir?",
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "answerIndex": 1,
+      "explanation": "2d+3k=36 ve 4d+k=44. İkinci denklemden k=44−4d. Yerine yazılır ve çözülür → k=8.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan",
+        "yorumlama"
+      ],
+      "stem": "Kenar uzunlukları 50 m ve 30 m olan dikdörtgen şeklindeki bir bahçenin ortasına kare biçiminde bir çim alan yapılmıştır. Çim alan dışındaki bölümün alanı 1100 m² olduğuna göre kare biçimindeki alanın bir kenarı kaç metredir?",
+      "options": [
+        "10",
+        "15",
+        "20",
+        "25"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam alan 50×30=1500. Çim alan =1500−1100=400. Karenin kenarı √400=20.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-3",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "ortalama",
+      "skills": [
+        "ortalama",
+        "veri"
+      ],
+      "stem": "Matematik öğretmeni bir öğrencinin dört deneme sınavındaki puanlarını karne ortalamasına eklemek üzere inceliyor. İlk üç denemede alınan puanlar sırasıyla 60, 72 ve 84'tür. Dördüncü denemedeki puan henüz sisteme girilmemiştir. Öğretmen önce karneye yazılacak ortalamanın 75 olması gerektiğini kontrol eder, ardından dördüncü denemeden alınması gereken minimum puanı hesaplar. Buna göre dördüncü denemede alınan puan (x) kaçtır?",
+      "options": [
+        "84",
+        "90",
+        "96",
+        "102"
+      ],
+      "answerIndex": 0,
+      "explanation": "Toplam = 4×75 = 300. İlk üç = 216. x=84 değil 84+216=300 → x=84 olur.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem"
+      ],
+      "stem": "Kitap okuma kulübünde bir öğrenci roman okuma planı yapar. İlk gün kitabın 1/4'ünü okur. İkinci gün kalan sayfaların 1/3'ünü okur. Üçüncü gün başladığında elinde 60 sayfa kaldığını fark eder. Öğrenci önce ilk iki gün okunan toplam sayfa oranını hesaplayıp ardından kitabın tamamının sayfa sayısına ulaşmak ister. Buna göre kitabın toplam sayfa sayısı kaçtır?",
+      "options": [
+        "120",
+        "144",
+        "180",
+        "240"
+      ],
+      "answerIndex": 0,
+      "explanation": "Toplam x. İlk gün x/4 okunur → kalan 3x/4. İkinci gün bunun 1/3'ü = x/4 okunur. Kalan x/2 olur. x/2=60 → x=120.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-5",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "grafik",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin çözdüğü soru sayısı her gün bir önceki güne göre 10 artmaktadır. Pazartesi 20 soru çözen bu öğrenci dört gün boyunca toplam kaç soru çözmüştür?",
+      "options": [
+        "110",
+        "120",
+        "130",
+        "140"
+      ],
+      "answerIndex": 3,
+      "explanation": "20+30+40+50 = 140.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-6",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "problem"
+      ],
+      "stem": "Sınıf rehber öğretmeni yeni dönem öncesi sınıf listesini günceller. Mevcut listede kız ve erkek öğrenci sayıları 3:5 oranındadır. Kayıt döneminde 4 kız öğrenci daha sınıfa eklenir. Güncel listeye bakıldığında kız-erkek oranı 4:5 olmuştur. Öğretmen önce oran değişiminden hareketle denklem kurar, sonra nakil öncesi sınıf mevcudunu bulur. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "32",
+        "40",
+        "48",
+        "56"
+      ],
+      "answerIndex": 0,
+      "explanation": "3k ve 5k olsun. (3k+4)/(5k)=4/5 → 15k+20=20k → k=4 → toplam 32.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-7",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem"
+      ],
+      "stem": "Bir ürünün fiyatına önce %20 indirim uygulanıyor, sonra indirimli fiyat üzerinden %25 zam yapılıyor. Ürünün ilk fiyatı 200 TL olduğuna göre son fiyatı kaç TL olur?",
+      "options": [
+        "180",
+        "190",
+        "160",
+        "210"
+      ],
+      "answerIndex": 2,
+      "explanation": "200×0,80=160 → 160×1,25=200.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-8",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "alan_cevre",
+      "skills": [
+        "geometri",
+        "problem"
+      ],
+      "stem": "El işi dersinde öğrenciler dikdörtgen biçiminde bir pano hazırlayacaktır. Öğretmen kısa kenarın 18 cm olduğunu, uzun kenarın ise kısa kenardan 6 cm daha uzun olacağını söyler. Öğrenciler önce uzun kenarın uzunluğunu bulup ardından panonun kapladığı toplam alanı hesaplamalıdır. Buna göre bu dikdörtgen panonun alanı kaç santimetrekaredir?",
+      "options": [
+        "360",
+        "396",
+        "432",
+        "450"
+      ],
+      "answerIndex": 2,
+      "explanation": "Uzun kenar 24. Alan = 18×24 = 432.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-9",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "ortalama",
+      "skills": [
+        "veri",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrenci haftalık matematik soru çözme hedefi koyar ve her gün çözdüğü soru sayısını defterine not eder. Pazartesi 24, salı 36, çarşamba 30 ve perşembe 42 soru çözmüştür. Cuma günü haftalık raporu hazırlamak isteyen öğrenci önce dört günlük toplam soru sayısını hesaplayacak, ardından günlük ortalamayı bulacaktır. Buna göre bu dört günün günlük ortalama soru sayısı kaçtır?",
+      "options": [
+        "30",
+        "31",
+        "32",
+        "33"
+      ],
+      "answerIndex": 3,
+      "explanation": "Toplam = 132 → 132/4 = 33.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-007-10",
+      "subject": "mat"
+    }
+  ]
 }

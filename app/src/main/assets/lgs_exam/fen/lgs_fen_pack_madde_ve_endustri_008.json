@@ -16,10 +16,15 @@
       "difficulty": 4,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
       "explanation": "Aynı periyotta bulunan elementlerin katman sayıları aynıdır. Y ve Z aynı periyottadır.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_008_q01"
+      "sourceRef": "fen_mad_008_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bir atom 3 elektron aldığında oluşan tanecikle ilgili aşağıdakilerden hangisi kesinlikle doğrudur?",
@@ -33,7 +38,11 @@
       "difficulty": 4,
       "questionType": "ION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["iyon", "elektron", "anyon"],
+      "skills": [
+        "iyon",
+        "elektron",
+        "anyon"
+      ],
       "explanation": "Elektron alan atom negatif yüklü iyon (anyon) oluşturur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_008_q02"
@@ -50,7 +59,11 @@
       "difficulty": 4,
       "questionType": "PARTICLE_MODEL_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["tanecik_modeli", "molekul", "bilesik"],
+      "skills": [
+        "tanecik_modeli",
+        "molekul",
+        "bilesik"
+      ],
       "explanation": "CO molekülü iki farklı atomdan oluşan iki atomlu moleküldür.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_008_q03"
@@ -67,7 +80,11 @@
       "difficulty": 4,
       "questionType": "MOLECULE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "CO2: 3×3=9 atom. H2O: 2×3=6 atom. O2: 4×2=8 atom. Toplam 9+6+8=23 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_008_q04"
@@ -84,7 +101,11 @@
       "difficulty": 4,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["saf_madde", "bilesik", "element"],
+      "skills": [
+        "saf_madde",
+        "bilesik",
+        "element"
+      ],
       "explanation": "Su farklı atomlardan oluşan saf bileşiktir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_008_q05"
@@ -101,7 +122,12 @@
       "difficulty": 4,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "iyon", "proton", "elektron"],
+      "skills": [
+        "atom",
+        "iyon",
+        "proton",
+        "elektron"
+      ],
       "explanation": "Elektron sayısı proton sayısından 2 fazla olduğu için tanecik 2- yüklü iyondur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_008_q06"
@@ -118,10 +144,16 @@
       "difficulty": 4,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "katman_sayisi", "grup"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi",
+        "grup"
+      ],
       "explanation": "Periyot numarası katman sayısını gösterir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_008_q07"
+      "sourceRef": "fen_mad_008_q07",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Aynı kapta 5 tane O2 ve 3 tane O3 molekülü bulunmaktadır. Buna göre kaptaki toplam oksijen atomu sayısı kaçtır?",
@@ -135,7 +167,11 @@
       "difficulty": 4,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "O2 → 5 × 2 = 10 atom. O3 → 3 × 3 = 9 atom. Toplam 19 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_008_q08"
@@ -152,7 +188,12 @@
       "difficulty": 4,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["element", "bilesik", "karisim", "siniflandirma"],
+      "skills": [
+        "element",
+        "bilesik",
+        "karisim",
+        "siniflandirma"
+      ],
       "explanation": "Su bir bileşiktir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_008_q09"
@@ -169,10 +210,16 @@
       "difficulty": 4,
       "questionType": "GRAPH_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom_numarasi", "proton", "deney", "grafik"],
+      "skills": [
+        "atom_numarasi",
+        "proton",
+        "deney",
+        "grafik"
+      ],
       "explanation": "Atom numarası proton sayısına eşittir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_008_q10"
+      "sourceRef": "fen_mad_008_q10",
+      "imageAsset": "quiz_images/fen/fen_madde_ve_endustr_fen_mad_008_q10_picture.png"
     }
   ]
 }

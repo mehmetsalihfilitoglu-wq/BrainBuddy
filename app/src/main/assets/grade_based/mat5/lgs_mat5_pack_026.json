@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat5_0250",
+      "stem": "80 sayısının %25'i kaçtır?",
+      "options": [
+        "25",
+        "16",
+        "20",
+        "24"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzdeler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "%25 = 1/4, 80÷4=20.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0250",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0251",
+      "stem": "120'nin %40'ı kaçtır?",
+      "options": [
+        "52",
+        "40",
+        "44",
+        "48"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzdeler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "120 × 0,40 = 48 veya 120 × 40/100 = 48.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0251",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0252",
+      "stem": "Aynı doğru üzerinde olmayan 3 nokta birleştirildiğinde kaç üçgen oluşur?",
+      "options": [
+        "1",
+        "0",
+        "2",
+        "3"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Üç farklı nokta bir üçgen oluşturur.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0252",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0253",
+      "stem": "Bir açının ölçüsü 90 dereceden küçükse bu açıya ne denir?",
+      "options": [
+        "Tam açı",
+        "Dar açı",
+        "Dik açı",
+        "Geniş açı"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "90°'den küçük açı dar açıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0253",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0254",
+      "stem": "İki kenarı eşit olan üçgene ne denir?",
+      "options": [
+        "Eşkenar üçgen",
+        "İkizkenar üçgen",
+        "Dik üçgen",
+        "Çeşitkenar üçgen"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "İki kenarı eşit olan üçgen ikizkenar üçgendir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0254",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0255",
+      "stem": "Kare ve dikdörtgenin ortak özelliği aşağıdakilerden hangisidir?",
+      "options": [
+        "Köşegen sayısı 1'dir",
+        "Açıları 90 derecedir",
+        "Tüm kenarları eşittir",
+        "Dört köşesi vardır"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Her ikisi de dörtgen olduğu için 4 köşesi vardır. (Dikdörtgenin kenarları eşit olmayabilir)",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0255",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0256",
+      "stem": "2 m 45 cm kaç cm'dir?",
+      "options": [
+        "247",
+        "240",
+        "245",
+        "250"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2 m = 200 cm, 200 + 45 = 245 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0256",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0257",
+      "stem": "3450 m kaç km kaç m'dir?",
+      "options": [
+        "34 km 50 m",
+        "3 km 450 m",
+        "3 km 45 m",
+        "345 km 0 m"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3450 m = 3000 m + 450 m = 3 km 450 m.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0257",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0258",
+      "stem": "Kenar uzunlukları 8 cm ve 5 cm olan dikdörtgenin alanı kaç cm²'dir?",
+      "options": [
+        "26",
+        "35",
+        "45",
+        "40"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Dikdörtgen alanı = 8 × 5 = 40 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0258",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0259",
+      "stem": "Bir karenin bir kenarı 6 cm ise alanı kaç cm²'dir?",
+      "options": [
+        "12",
+        "36",
+        "30",
+        "24"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "temel_geometrik_kavramlar",
+      "skills": [
+        "temel_geom",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Kare alanı = 6 × 6 = 36 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0259",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

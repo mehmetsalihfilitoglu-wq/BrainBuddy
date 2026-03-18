@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0010",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "4",
+        "3",
+        "1"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0010",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0011",
+      "stem": "Bir torbada 3 kırmızı, 5 yeşil ve 4 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "47/66",
+        "1/12",
+        "46/66",
+        "47/67"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 12 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 47/66.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0011",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0012",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 45° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "225",
+        "315",
+        "135",
+        "180"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 45° ise diğerleri toplam 315°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0012",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0013",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 89, 89, 89, 89, 92 puan almıştır. Altıncı sınava girince ortalaması 89 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "91",
+        "89",
+        "86",
+        "81"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 448. 6. sınav x ise (total5 + x)/6 = 89 → x = 86.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0013",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0014",
+      "stem": "Bir torbada 4 kırmızı, 3 yeşil ve 5 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "47/66",
+        "1/12",
+        "46/66",
+        "47/67"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 12 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 47/66.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0014",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0015",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 60° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "120",
+        "300",
+        "210",
+        "180"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 60° ise diğerleri toplam 300°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0015",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0016",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %15 indirim uygulanmıştır. İndirimli fiyat 850 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "880",
+        "800",
+        "720",
+        "840"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-15/100) = 850. x = 800 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0016",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0017",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %20 indirim uygulanmıştır. İndirimli fiyat 500 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "550",
+        "450",
+        "500",
+        "525"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-20/100) = 500. x = 500 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0017",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0018",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 77, 77, 77, 77, 80 puan almıştır. Altıncı sınava girince ortalaması 79 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "79",
+        "81",
+        "86",
+        "91"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 388. 6. sınav x ise (total5 + x)/6 = 79 → x = 86.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0018",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0019",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %30 zam yapılmış, ardından indirim döneminde %15 indirim uygulanmıştır. İndirimli fiyat 442 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "400",
+        "420",
+        "440",
+        "360"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+30/100) · (1-15/100) = 442. x = 400 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0019",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

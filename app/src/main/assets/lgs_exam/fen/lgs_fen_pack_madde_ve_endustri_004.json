@@ -16,10 +16,15 @@
       "difficulty": 3,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "atom_numarasi", "proton"],
+      "skills": [
+        "periyodik_tablo",
+        "atom_numarasi",
+        "proton"
+      ],
       "explanation": "Atom numarası proton sayısına eşittir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_004_q01"
+      "sourceRef": "fen_mad_004_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bir atomda proton sayısı 15, elektron sayısı 15 ise bu tanecik ile ilgili aşağıdakilerden hangisi doğrudur?",
@@ -33,7 +38,12 @@
       "difficulty": 3,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "proton", "elektron", "nor_atom"],
+      "skills": [
+        "atom",
+        "proton",
+        "elektron",
+        "nor_atom"
+      ],
       "explanation": "Proton ve elektron sayıları eşitse atom nötrdür.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_004_q02"
@@ -50,7 +60,11 @@
       "difficulty": 3,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["saf_madde", "element", "siniflandirma"],
+      "skills": [
+        "saf_madde",
+        "element",
+        "siniflandirma"
+      ],
       "explanation": "Demir tek tür atomdan oluşan elementtir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_004_q03"
@@ -67,7 +81,11 @@
       "difficulty": 3,
       "questionType": "MOLECULE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "Her O2 molekülü 2 atom içerir. 5 × 2 = 10 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_004_q04"
@@ -84,10 +102,16 @@
       "difficulty": 3,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "grup", "elektron", "son_katman"],
+      "skills": [
+        "periyodik_tablo",
+        "grup",
+        "elektron",
+        "son_katman"
+      ],
       "explanation": "Aynı gruptaki elementlerin son katman elektron sayıları aynıdır.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_004_q05"
+      "sourceRef": "fen_mad_004_q05",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bir element periyodik tabloda 2. periyotta bulunuyorsa bu elementin katman sayısı kaçtır?",
@@ -101,10 +125,15 @@
       "difficulty": 3,
       "questionType": "TABLE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
       "explanation": "Periyot numarası katman sayısını gösterir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_004_q06"
+      "sourceRef": "fen_mad_004_q06",
+      "imageAsset": "quiz_images/fen/fen_madde_ve_endustr_fen_mad_004_q06_picture.png"
     },
     {
       "stem": "Aşağıdaki maddelerden hangisi karışımdır?",
@@ -118,7 +147,11 @@
       "difficulty": 3,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["karisim", "element", "bilesik"],
+      "skills": [
+        "karisim",
+        "element",
+        "bilesik"
+      ],
       "explanation": "Hava farklı gazların karışımıdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_004_q07"
@@ -135,7 +168,12 @@
       "difficulty": 3,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "proton", "elektron", "nor_atom"],
+      "skills": [
+        "atom",
+        "proton",
+        "elektron",
+        "nor_atom"
+      ],
       "explanation": "Nötr atomda proton sayısı elektron sayısına eşittir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_004_q08"
@@ -152,7 +190,11 @@
       "difficulty": 3,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "CO2 → 3 atom × 2 = 6 atom. O2 → 2 atom × 3 = 6 atom. Toplam = 12 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_004_q09"
@@ -169,7 +211,11 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["karisim", "fiziksel_ayirma", "ozellik"],
+      "skills": [
+        "karisim",
+        "fiziksel_ayirma",
+        "ozellik"
+      ],
       "explanation": "Karışımlar fiziksel yöntemlerle ayrılabilir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_004_q10"

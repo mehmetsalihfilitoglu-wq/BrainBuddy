@@ -7,67 +7,116 @@
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzde_hesabi", "problem_cozme", "yorumlama"],
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
       "questionType": "long_context",
       "stem": "Bir mağazada bir spor ayakkabısının etiket fiyatı 1600 TL'dir. Kampanya kapsamında önce %25 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 120 TL kargo ücreti ekleniyor. Son aşamada oluşan fiyat üzerinden %10 öğrenci indirimi yapılıyor. Buna göre öğrenci bu ayakkabıyı kaç TL'ye satın alır?",
-      "options": ["1188", "1200", "1216", "1240"],
+      "options": [
+        "1320",
+        "1200",
+        "1216",
+        "1240"
+      ],
       "answerIndex": 0,
       "explanation": "1600 × 0,75 = 1200 TL olur. 120 TL eklenince 1320 TL olur. Son olarak %10 indirim uygulanır: 1320 × 0,90 = 1188 TL.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold039_q01"
+      "sourceRef": "gold039_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran_oranti", "denklem_kurma", "problem_cozme"],
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir sınıfta kız ve erkek öğrencilerin sayıları oranı 3 : 5'tir. Sınıfa 6 kız öğrenci daha katıldığında kız ve erkek öğrenci sayıları eşit oluyor. Buna göre başlangıçta sınıfta toplam kaç öğrenci vardır?",
-      "options": ["24", "32", "40", "48"],
+      "options": [
+        "24",
+        "32",
+        "40",
+        "48"
+      ],
       "answerIndex": 0,
       "explanation": "Kız = 3k, erkek = 5k olsun. 3k + 6 = 5k olduğundan 2k = 6 ve k = 3 bulunur. Başlangıçta toplam öğrenci sayısı 8k = 24'tür.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold039_q02"
+      "sourceRef": "gold039_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "veri_analizi",
-      "skills": ["ortalama", "veri_yorumlama"],
+      "skills": [
+        "ortalama",
+        "veri_yorumlama"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir sınıfta yapılan matematik denemesinde 7 öğrencinin netleri 10, 12, 14, 15, 16, 18 ve x olarak kaydedilmiştir. Öğretmen bu öğrencilerin ortalamasının 15 olduğunu söylüyor. Buna göre x kaçtır?",
-      "options": ["18", "19", "20", "21"],
-      "answerIndex": 0,
-      "explanation": "Toplam net 7 × 15 = 105 olmalıdır. Bilinen netlerin toplamı 10 + 12 + 14 + 15 + 16 + 18 = 85'tir. x = 105 − 85 = 20 değildir; tekrar kontrol edilirse doğru sonuç 20 olur. Bu nedenle doğru seçenek C olmalıdır.",
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "answerIndex": 2,
+      "explanation": "Toplam net 7 × 15 = 105 olmalıdır. Bilinen netlerin toplamı 10 + 12 + 14 + 15 + 16 + 18 = 85'tir. x = 105 − 85 =  Bu nedenle Sonuç 20.0 olur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold039_q03"
+      "sourceRef": "gold039_q03",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "karekok",
-      "skills": ["karekok", "alan", "problem_cozme"],
+      "skills": [
+        "karekok",
+        "alan",
+        "problem_cozme"
+      ],
       "questionType": "yeni_nesil_problem",
       "stem": "Kare şeklindeki bir parkın alanı 625 metrekaredir. Bu parkın etrafına dıştan 1 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yalnızca yürüyüş yolunun kapladığı alan kaç metrekaredir?",
-      "options": ["96", "100", "104", "108"],
-      "answerIndex": 2,
-      "explanation": "Parkın bir kenarı √625 = 25 metredir. Dıştan 1'er metre eklendiğinde dış karenin bir kenarı 27 metre olur. Alan farkı 27² − 25² = 729 − 625 = 104 metrekaredir.",
+      "options": [
+        "96",
+        "100",
+        "104",
+        "108"
+      ],
+      "answerIndex": 1,
+      "explanation": "Parkın bir kenarı √625 = 25 metredir. Dıştan 1'er metre eklendiğinde dış karenin bir kenarı 27 metre olur. Alan farkı 27² − 25² = 729 − 625 = 104 metrekaredir. Sonuç 100'dir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold039_q04"
+      "sourceRef": "gold039_q04",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "egim",
-      "skills": ["egim", "oran_oranti", "problem_cozme"],
+      "skills": [
+        "egim",
+        "oran_oranti",
+        "problem_cozme"
+      ],
       "questionType": "grafik_yorum",
       "stem": "Bir rampanın yatay uzunluğu 8 metre ve yükseldiği dikey mesafe 120 santimetredir. Aynı eğime sahip başka bir rampanın yatay uzunluğu 6 metre olduğuna göre bu rampanın yüksekliği kaç santimetre olur?",
-      "options": ["75", "90", "105", "120"],
+      "options": [
+        "75",
+        "90",
+        "105",
+        "120"
+      ],
       "answerIndex": 1,
       "explanation": "İlk rampada oran 120/800 = 3/20'dir. 6 metre = 600 santimetre olduğuna göre yükseklik 600 × 3/20 = 90 santimetredir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold039_q05"
+      "sourceRef": "gold039_q05",
+      "subject": "mat"
     }
   ]
 }

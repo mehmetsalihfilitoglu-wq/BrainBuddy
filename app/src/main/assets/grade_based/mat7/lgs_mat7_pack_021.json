@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0200",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 6 : 4 : 2 oranındadır. Birinci sınıfa 5 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "41",
+        "36",
+        "26",
+        "46"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 4k, 6k, 2k. 4k + 5 = 6k → k = 2.5. Toplam = 12·k = 36.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0200",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0201",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 7 TL zam yapılmış, ardından 7 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 3 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "-2",
+        "2",
+        "6",
+        "-6"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 3x → x(1-3) = -4 → x = 2 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0201",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0202",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "10",
+        "8",
+        "6",
+        "7"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0202",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0203",
+      "stem": "Bir torbada 3 kırmızı, 5 yeşil ve 4 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "47/67",
+        "46/66",
+        "47/66",
+        "1/12"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 12 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 47/66.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0203",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0204",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0204",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0205",
+      "stem": "Kenarları 18 m ve 12 m olan dikdörtgen bahçenin her kenarından 4 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "40",
+        "176",
+        "112",
+        "216"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (18-8)×(12-8) = 10×4 = 40 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0205",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0206",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %20 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 540 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "600",
+        "660",
+        "630",
+        "540"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+20/100) · (1-25/100) = 540. x = 600 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0206",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0207",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0207",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0208",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 5 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "14",
+        "10",
+        "11",
+        "12"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 5E. E + 5E = 180° → E = 30°. Kenar sayısı n = 360/E = 12.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0208",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0209",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %15 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 431 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "550",
+        "525",
+        "450",
+        "500"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+15/100) · (1-25/100) = 431. x = 500 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0209",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

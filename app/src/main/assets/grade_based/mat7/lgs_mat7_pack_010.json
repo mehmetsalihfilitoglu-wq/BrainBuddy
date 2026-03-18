@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0090",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "1",
+        "3",
+        "4",
+        "2"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0090",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0091",
+      "stem": "Bir torbada 5 kırmızı, 2 yeşil ve 4 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "37/55",
+        "38/56",
+        "38/55",
+        "1/11"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 11 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 38/55.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0091",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0092",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 80, 80, 80, 80, 80 puan almıştır. Altıncı sınava girince ortalaması 78 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "76",
+        "66",
+        "78",
+        "71"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 400. 6. sınav x ise (total5 + x)/6 = 78 → x = 71.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0092",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0093",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "700",
+        "580",
+        "640",
+        "320"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +80 litre eklenince 4V/(8) dolu. Denklemden V=640 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0093",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0094",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 82, 82, 82, 82, 84 puan almıştır. Altıncı sınava girince ortalaması 82 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "82",
+        "75",
+        "85",
+        "80"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 412. 6. sınav x ise (total5 + x)/6 = 82 → x = 80.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0094",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0095",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "3",
+        "2",
+        "1",
+        "4"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0095",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0096",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "91",
+        "96",
+        "97",
+        "101"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0096",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0097",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "96",
+        "97",
+        "91",
+        "101"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0097",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0098",
+      "stem": "Bir torbada 3 kırmızı, 4 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "1/9",
+        "13/19",
+        "12/18",
+        "13/18"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 9 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 13/18.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0098",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0099",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "4",
+        "3",
+        "1"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0099",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

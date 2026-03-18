@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0000",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 72° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "198",
+        "180",
+        "108",
+        "288"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 72° ise diğerleri toplam 288°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0000",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0001",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 79, 79, 79, 79, 80 puan almıştır. Altıncı sınava girince ortalaması 78 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "67",
+        "78",
+        "77",
+        "72"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 396. 6. sınav x ise (total5 + x)/6 = 78 → x = 72.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0001",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0002",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %10 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 495 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "540",
+        "600",
+        "660",
+        "630"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+10/100) · (1-25/100) = 495. x = 600 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0002",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0003",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 5 katından 19 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "12",
+        "20",
+        "22",
+        "17"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 5e - 19. k+3 = 2(e+2) → e = 6, k = 11. Toplam = 17.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0003",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0004",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %15 zam yapılmış, ardından indirim döneminde %30 indirim uygulanmıştır. İndirimli fiyat 643 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "720",
+        "840",
+        "880",
+        "800"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+15/100) · (1-30/100) = 643. x = 800 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0004",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0005",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 5 : 6 : 2 oranındadır. Birinci sınıfa 4 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "42",
+        "57",
+        "52",
+        "62"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 5k, 6k, 2k. 5k + 4 = 6k → k = 4.0. Toplam = 13·k = 52.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0005",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0006",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %30 zam yapılmış, ardından indirim döneminde %10 indirim uygulanmıştır. İndirimli fiyat 468 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "400",
+        "360",
+        "420",
+        "440"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+30/100) · (1-10/100) = 468. x = 400 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0006",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0007",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 100 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "1000",
+        "940",
+        "500",
+        "1060"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +100 litre eklenince 4V/(10) dolu. Denklemden V=1000 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0007",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0008",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 3 TL zam yapılmış, ardından 12 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "8",
+        "0",
+        "-4",
+        "4"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0008",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0009",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 84, 84, 84, 84, 88 puan almıştır. Altıncı sınava girince ortalaması 83 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "83",
+        "74",
+        "69",
+        "79"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 424. 6. sınav x ise (total5 + x)/6 = 83 → x = 74.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0009",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

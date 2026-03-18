@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "fen4_0130",
+      "stem": "Sigara ve alkolün sağlığa zararlı olduğu deney ve metinlerle anlatıldı.\n\nBu bilgiye dayanarak hangi çıkarım yapılabilir?",
+      "options": [
+        "Sadece yetişkinler etkilenir",
+        "Sigara ve alkolden uzak durulmalıdır",
+        "Az miktarda zararsızdır",
+        "Sağlığa faydalıdır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "gozlem_yorumlama",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Sigara ve alkolden uzak durulmalıdır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0130",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0131",
+      "stem": "Vitamin ve mineral eksikliğinin hastalıklara yol açabileceği Verilen bilgilere göre gösterildi. D vitamini eksikliğinde kemikler zayıflar. Verilen bilgilere göre hangi çıkarım yapılabilir?",
+      "options": [
+        "Vitamin ve mineraller sağlık için gereklidir",
+        "Sadece protein önemlidir",
+        "Vitaminler önemsizdir",
+        "Mineral eksikliği zararsızdır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Vitamin ve mineraller sağlık için gereklidir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0131",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0132",
+      "stem": "Sütün protein içerdiğini göstermek için yapılan deneyde süt ısıtıldığında kesilme (pıhtılaşma) gözlemlendi.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Süt ısıtılınca bozulur",
+        "Sütte protein vardır; ısı protein pıhtılaşmasına yol açar",
+        "Protein ısıya dayanıklıdır",
+        "Süt sadece karbonhidrat içerir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "kavram_baglantisi",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Sütte protein vardır; ısı protein pıhtılaşmasına yol açar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0132",
+      "imageAsset": "quiz_images/fen/fen_014_fen4_0132_experiment.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0133",
+      "stem": "Öğrenciler besin içerikleri tablosunu inceledi. Karbonhidrat, protein, yağ, vitamin ve mineraller listelendi. Verilen bilgilere göre dengeli beslenme için ne gereklidir?",
+      "options": [
+        "Sadece karbonhidrat tüketmek",
+        "Sadece protein tüketmek",
+        "Farklı besin gruplarından yeterli ve dengeli almak",
+        "Tek bir besinle yetinmek"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "cok_adimli_dusunme",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Farklı besin gruplarından yeterli ve dengeli almak\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0133",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0134",
+      "stem": "Lugol çözeltisi deneyinde ekmek ve patatesin mavi-mor renge dönüştüğü gözlemlendi.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Ekmek protein içerir",
+        "Ekmek ve patateste nişasta (karbonhidrat) vardır",
+        "Patates yağ içerir",
+        "Lugol her besini mavi yapar"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ekmek ve patateste nişasta (karbonhidrat) vardır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0134",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0135",
+      "stem": "Bilinçsiz beslenmenin obeziteye yol açabileceği metinde vurgulandı.\n\nBu bilgiye göre obeziteyi önlemek için ne yapılmalıdır?",
+      "options": [
+        "Sadece tatlı tüketmek",
+        "Hiç yemek yememek",
+        "Dengeli beslenme ve düzenli hareket",
+        "Sadece fast food yemek"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Dengeli beslenme ve düzenli hareket\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0135",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0136",
+      "stem": "Besin israfı grafiğinde evlerde atılan yiyecek miktarının yüksek olduğu görüldü.\n\nBu grafiğe göre hangi önlem alınmalıdır?",
+      "options": [
+        "Besin almayı durdurmak",
+        "İhtiyaca göre alışveriş, artan yemekleri değerlendirme",
+        "Grafik yanıltıcıdır",
+        "Daha fazla atık üretmek"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "cok_adimli_dusunme",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"İhtiyaca göre alışveriş, artan yemekleri değerlendirme\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0136",
+      "imageAsset": "quiz_images/fen/fen_014_fen4_0136_graph_line.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0137",
+      "stem": "Sigara ve alkolün sağlığa zararlı olduğu deney ve metinlerle anlatıldı.\n\nBu bilgiye dayanarak hangi çıkarım yapılabilir?",
+      "options": [
+        "Sağlığa faydalıdır",
+        "Sadece yetişkinler etkilenir",
+        "Sigara ve alkolden uzak durulmalıdır",
+        "Az miktarda zararsızdır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Sigara ve alkolden uzak durulmalıdır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0137",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0138",
+      "stem": "Vitamin ve mineral eksikliğinin hastalıklara yol açabileceği Verilen bilgilere göre gösterildi. D vitamini eksikliğinde kemikler zayıflar. Verilen bilgilere göre hangi çıkarım yapılabilir?",
+      "options": [
+        "Vitamin ve mineraller sağlık için gereklidir",
+        "Vitaminler önemsizdir",
+        "Mineral eksikliği zararsızdır",
+        "Sadece protein önemlidir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "cok_adimli_dusunme",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Vitamin ve mineraller sağlık için gereklidir\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0138",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_0139",
+      "stem": "Sütün protein içerdiğini göstermek için yapılan deneyde süt ısıtıldığında kesilme (pıhtılaşma) gözlemlendi.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Protein ısıya dayanıklıdır",
+        "Süt sadece karbonhidrat içerir",
+        "Sütte protein vardır; ısı protein pıhtılaşmasına yol açar",
+        "Süt ısıtılınca bozulur"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "gozlem_yorumlama",
+      "topic": "besinlerimiz",
+      "skills": [
+        "besinlerim",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Sütte protein vardır; ısı protein pıhtılaşmasına yol açar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen4_0139",
+      "imageAsset": "quiz_images/fen/fen_014_fen4_0139_experiment.png",
+      "subject": "fen"
+    }
+  ]
+}

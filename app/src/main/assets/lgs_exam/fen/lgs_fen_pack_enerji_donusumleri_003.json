@@ -16,7 +16,11 @@
       "difficulty": 5,
       "questionType": "ENERGY_PYRAMID_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["enerji_piramidi", "enerji_akis", "trofik_duzey"],
+      "skills": [
+        "enerji_piramidi",
+        "enerji_akis",
+        "trofik_duzey"
+      ],
       "explanation": "Enerji aktarımı sırasında her trofik düzeyde enerjinin bir kısmı ısı olarak kaybedilir. Bu nedenle üst basamaklara daha az enerji aktarılır.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q01"
@@ -33,7 +37,11 @@
       "difficulty": 5,
       "questionType": "FOOD_CHAIN_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["besin_zinciri", "avci_av", "populasyon"],
+      "skills": [
+        "besin_zinciri",
+        "avci_av",
+        "populasyon"
+      ],
       "explanation": "Yılanlar kurbağaları tüketir. Yılan sayısı azaldığında kurbağalar üzerindeki av baskısı azalır ve kısa vadede kurbağa sayısı artabilir.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q02"
@@ -50,7 +58,11 @@
       "difficulty": 5,
       "questionType": "FOOD_WEB_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["besin_agi", "populasyon", "ekosistem"],
+      "skills": [
+        "besin_agi",
+        "populasyon",
+        "ekosistem"
+      ],
       "explanation": "Tavşan sayısının azalması, onu tüketen canlılar için besin azalması demektir. Bu yüzden tilki ve kartalın kesin olarak artacağı söylenemez.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q03"
@@ -67,7 +79,11 @@
       "difficulty": 5,
       "questionType": "CARBON_CYCLE_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["karbon_dongusu", "orman", "fotosentez"],
+      "skills": [
+        "karbon_dongusu",
+        "orman",
+        "fotosentez"
+      ],
       "explanation": "Orman alanlarının artması fotosentezi artırır. Fotosentez sırasında atmosferdeki karbondioksit kullanılır.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q04"
@@ -84,7 +100,11 @@
       "difficulty": 5,
       "questionType": "GREENHOUSE_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["sera_etkisi", "kuresel_isinma", "iklim"],
+      "skills": [
+        "sera_etkisi",
+        "kuresel_isinma",
+        "iklim"
+      ],
       "explanation": "Doğal sera etkisi Dünya'nın yaşanabilir sıcaklıkta kalmasına yardımcı olur. Tamamen ortadan kalkarsa ortalama sıcaklık ciddi biçimde düşer.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q05"
@@ -101,7 +121,11 @@
       "difficulty": 5,
       "questionType": "ENERGY_TRANSFORMATION_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["enerji_donusumu", "elektrik", "aletler"],
+      "skills": [
+        "enerji_donusumu",
+        "elektrik",
+        "aletler"
+      ],
       "explanation": "Ampul elektrik enerjisini başlıca ışık ve ısı enerjisine dönüştürür, kimyasal enerjiye değil.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q06"
@@ -118,7 +142,11 @@
       "difficulty": 5,
       "questionType": "RENEWABLE_ENERGY_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["yenilenebilir_enerji", "sera_gazi", "enerji_politikasi"],
+      "skills": [
+        "yenilenebilir_enerji",
+        "sera_gazi",
+        "enerji_politikasi"
+      ],
       "explanation": "Yenilenebilir enerji kaynaklarına yönelmek, fosil yakıtlardan kaynaklanan sera gazı salınımını azaltmayı amaçlar.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q07"
@@ -135,7 +163,11 @@
       "difficulty": 5,
       "questionType": "NITROGEN_CYCLE_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["azot_dongusu", "bakteri", "bitki"],
+      "skills": [
+        "azot_dongusu",
+        "bakteri",
+        "bitki"
+      ],
       "explanation": "Azot bağlayıcı bakteriler, atmosferik azotu bitkilerin kullanabileceği forma dönüştürür. Bu canlılar olmazsa bitkilerin azot kaynağı azalır.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q08"
@@ -152,10 +184,15 @@
       "difficulty": 5,
       "questionType": "GRAPH_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["enerji_piramidi", "veri_yorumlama", "trofik_duzey"],
+      "skills": [
+        "enerji_piramidi",
+        "veri_yorumlama",
+        "trofik_duzey"
+      ],
       "explanation": "Verilen sayısal değerler, her basamakta enerjinin yaklaşık 1/10 oranında aktarıldığını göstermektedir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_ed_003_q09"
+      "sourceRef": "fen_ed_003_q09",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Aşağıdaki uygulamalardan hangisi hem doğal kaynakların korunmasına hem de küresel ısınmanın azaltılmasına katkı sağlar?",
@@ -169,7 +206,11 @@
       "difficulty": 5,
       "questionType": "CONCEPT_REASONING",
       "topic": "Enerji Dönüşümleri",
-      "skills": ["kuresel_isinma", "toplu_tasima", "cevre"],
+      "skills": [
+        "kuresel_isinma",
+        "toplu_tasima",
+        "cevre"
+      ],
       "explanation": "Toplu taşıma kullanımı yakıt tüketimini ve sera gazı salınımını azaltır. Böylece hem kaynak kullanımı azalır hem çevre korunur.",
       "source": "brainbuddy",
       "sourceRef": "fen_ed_003_q10"

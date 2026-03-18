@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0330",
+      "stem": "Bir torbada 3 kırmızı, 4 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "12/18",
+        "13/19",
+        "1/9",
+        "13/18"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 9 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 13/18.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0330",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0331",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 12 TL zam yapılmış, ardından 15 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "8",
+        "4",
+        "-4",
+        "0"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0331",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0332",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 5) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "92",
+        "87",
+        "80",
+        "97"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+5) = 44 → x = 6. Alan = x(2x+5) = 92 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0332",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0333",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 100 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "1060",
+        "940",
+        "500",
+        "1000"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +100 litre eklenince 4V/(10) dolu. Denklemden V=1000 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0333",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0334",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 60° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "180",
+        "210",
+        "120",
+        "300"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 60° ise diğerleri toplam 300°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0334",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0335",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 5 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "14",
+        "11",
+        "12",
+        "10"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 5E. E + 5E = 180° → E = 30°. Kenar sayısı n = 360/E = 12.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0335",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0336",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 6 katından 11 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "5",
+        "15",
+        "13",
+        "10"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 6e - 11. k+3 = 2(e+2) → e = 3, k = 7. Toplam = 10.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0336",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0337",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 2) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "107",
+        "90",
+        "102",
+        "97"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+2) = 44 → x = 7. Alan = x(2x+2) = 102 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0337",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0338",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 5) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "92",
+        "97",
+        "80",
+        "87"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+5) = 44 → x = 6. Alan = x(2x+5) = 92 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0338",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0339",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 3 katından 28 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "93",
+        "83",
+        "88",
+        "91"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 28. k+3 = 2(e+2) → e = 29, k = 59. Toplam = 88.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0339",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

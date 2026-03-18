@@ -16,10 +16,15 @@
       "difficulty": 3,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
       "explanation": "Aynı periyotta bulunan elementlerin katman sayıları aynıdır. Ancak kimyasal özellikleri, proton sayıları ve fiziksel hâlleri farklı olabilir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_003_q01"
+      "sourceRef": "fen_mad_003_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Nötr X atomunun proton sayısı 13, nötron sayısı 14'tür. Buna göre X atomu ile ilgili aşağıdakilerden hangisi doğrudur?",
@@ -33,7 +38,12 @@
       "difficulty": 3,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "proton", "nötron", "kutle_numarasi"],
+      "skills": [
+        "atom",
+        "proton",
+        "nötron",
+        "kutle_numarasi"
+      ],
       "explanation": "Kütle numarası proton ve nötron sayılarının toplamıdır: 13 + 14 = 27. Nötr atomda elektron sayısı proton sayısına eşittir, yani 13'tür.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q02"
@@ -50,7 +60,12 @@
       "difficulty": 3,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["bilesik", "element", "karisim", "tanim"],
+      "skills": [
+        "bilesik",
+        "element",
+        "karisim",
+        "tanim"
+      ],
       "explanation": "Bileşikler, farklı tür atomların belirli oranlarda kimyasal bağlarla birleşmesiyle oluşur. Elementler tek tür atomdan oluşur, karışımlar ise maddelerin kendi özelliklerini koruduğu yapılardır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q03"
@@ -67,7 +82,11 @@
       "difficulty": 3,
       "questionType": "MOLECULE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["molekul", "atom", "hesaplama"],
+      "skills": [
+        "molekul",
+        "atom",
+        "hesaplama"
+      ],
       "explanation": "H2O: 4×3=12 atom. CO2: 3×3=9 atom. O2: 2×2=4 atom. Toplam 12+9+4=25 atom.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q04"
@@ -84,10 +103,16 @@
       "difficulty": 3,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "grup", "katman_sayisi", "elektron"],
+      "skills": [
+        "periyodik_tablo",
+        "grup",
+        "katman_sayisi",
+        "elektron"
+      ],
       "explanation": "Aynı gruptaki elementlerin son katman elektron sayıları aynıdır, kimyasal özellikleri benzerdir ve aynı sütunda yer alırlar. Ancak katman sayıları aynı olmak zorunda değildir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_003_q05"
+      "sourceRef": "fen_mad_003_q05",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "K, L ve M elementleriyle ilgili bazı bilgiler aşağıda verilmiştir:\n\nK: 2. periyot, 1. grup\nL: 2. periyot, 7. grup\nM: 3. periyot, 1. grup\n\nBuna göre aşağıdaki yorumlardan hangisi doğrudur?",
@@ -101,7 +126,12 @@
       "difficulty": 3,
       "questionType": "TABLE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "grup", "periyot", "kimyasal_ozellik"],
+      "skills": [
+        "periyodik_tablo",
+        "grup",
+        "periyot",
+        "kimyasal_ozellik"
+      ],
       "explanation": "Aynı grupta bulunan elementlerin kimyasal özellikleri benzerdir. K ve M 1. gruptadır. K ve L aynı periyotta oldukları için katman sayıları aynıdır. L ve M farklı periyottadır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q06"
@@ -118,7 +148,12 @@
       "difficulty": 3,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["saf_madde", "bilesik", "element", "karisim"],
+      "skills": [
+        "saf_madde",
+        "bilesik",
+        "element",
+        "karisim"
+      ],
       "explanation": "Karbondioksit, farklı tür atomlardan oluşan saf bir bileşiktir. Demir elementtir, hava ve deniz suyu karışımdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q07"
@@ -135,7 +170,11 @@
       "difficulty": 3,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "proton", "atom_numarasi"],
+      "skills": [
+        "atom",
+        "proton",
+        "atom_numarasi"
+      ],
       "explanation": "Atom numarası proton sayısına eşittir. Nötron sayısı, katman sayısı ya da kütle numarası tek başına atom numarasını belirlemez.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q08"
@@ -152,7 +191,12 @@
       "difficulty": 3,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["element", "molekul", "atom", "yapisal_ozellik"],
+      "skills": [
+        "element",
+        "molekul",
+        "atom",
+        "yapisal_ozellik"
+      ],
       "explanation": "Elementler aynı tür atomlardan oluşur. Bu nedenle tek atomlu yapıda da olabilir, aynı tür atomlardan oluşan molekül yapıda da olabilir. Farklı tür atomlar içeriyorsa bileşik olur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q09"
@@ -169,7 +213,11 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["karisim", "fiziksel_ayirma", "ozellik"],
+      "skills": [
+        "karisim",
+        "fiziksel_ayirma",
+        "ozellik"
+      ],
       "explanation": "Karışımların bileşenleri kendi özelliklerini korur ve fiziksel yöntemlerle ayrılabilir. Belirli kimyasal formülleri yoktur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_003_q10"

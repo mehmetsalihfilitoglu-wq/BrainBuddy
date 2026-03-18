@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0180",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 3 : 4 : 5 oranındadır. Birinci sınıfa 8 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "106",
+        "86",
+        "96",
+        "101"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 4k, 5k. 3k + 8 = 4k → k = 8.0. Toplam = 12·k = 96.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0180",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0181",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 60° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "180",
+        "300",
+        "120",
+        "210"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 60° ise diğerleri toplam 300°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0181",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0182",
+      "stem": "Bir torbada 2 kırmızı, 5 yeşil ve 3 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "31/45",
+        "31/46",
+        "30/45",
+        "1/10"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0182",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0183",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 6 : 5 : 4 oranındadır. Birinci sınıfa 11 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "170",
+        "155",
+        "175",
+        "165"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 5k, 6k, 4k. 5k + 11 = 6k → k = 11.0. Toplam = 15·k = 165.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0183",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0184",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 4 TL zam yapılmış, ardından 15 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "8",
+        "0",
+        "-4",
+        "4"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0184",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0185",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 86, 86, 86, 86, 89 puan almıştır. Altıncı sınava girince ortalaması 85 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "85",
+        "82",
+        "77",
+        "72"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 433. 6. sınav x ise (total5 + x)/6 = 85 → x = 77.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0185",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0186",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 3 : 5 oranındadır. Birinci sınıfa 5 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "65",
+        "60",
+        "50",
+        "70"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 4k, 5k. 3k + 5 = 4k → k = 5.0. Toplam = 12·k = 60.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0186",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0187",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 25 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "74",
+        "79",
+        "84",
+        "82"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 25. k+3 = 2(e+2) → e = 26, k = 53. Toplam = 79.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0187",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0188",
+      "stem": "Kenarları 12 m ve 18 m olan dikdörtgen bahçenin her kenarından 4 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "112",
+        "216",
+        "176",
+        "40"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (12-8)×(18-8) = 4×10 = 40 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0188",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0189",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %15 indirim uygulanmıştır. İndirimli fiyat 637 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "600",
+        "660",
+        "540",
+        "630"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-15/100) = 637. x = 600 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0189",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

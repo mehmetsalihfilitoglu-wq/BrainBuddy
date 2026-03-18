@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "fen3_0280",
+      "stem": "Farklı maddelerin sertlik, yumuşaklık tablosu verildi. Pamuk yumuşak, taş sert gösterildi.\n\nBu tabloya göre maddeler nasıl nitelenir?",
+      "options": [
+        "Dokunma duyusuyla sert-yumuşak gibi özellikleriyle",
+        "Sadece kokusuyla",
+        "Sadece rengiyle",
+        "Tüm maddeler aynıdır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gozlem_yorumlama",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Dokunma duyusuyla sert-yumuşak gibi özellikleriyle\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0280",
+      "imageAsset": "quiz_images/fen/fen_029_fen3_0280_picture.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0281",
+      "stem": "Farklı maddelerin renk, koku, tat tablosu verildi. Limon ekşi, şeker tatlı gösterildi.\n\nBu tabloya göre maddeleri nasıl ayırt edebiliriz?",
+      "options": [
+        "Ayırt edemeyiz",
+        "Duyu organlarımızla (dil ile tat, burun ile koku, göz ile renk)",
+        "Sadece elle",
+        "Sadece gözle"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Duyu organlarımızla (dil ile tat, burun ile koku, göz ile renk)\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0281",
+      "imageAsset": "quiz_images/fen/fen_029_fen3_0281_picture.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0282",
+      "stem": "Öğrenciler su, taş ve hava örneklerini inceledi. Su ve havanın akışkan, taşın katı olduğu gözlemlendi.\n\nBu sınıflandırmanın ölçütü nedir?",
+      "options": [
+        "Maddenin ağırlığı",
+        "Maddenin rengi",
+        "Maddenin şekil ve hacim alabilme özelliği",
+        "Maddenin sıcaklığı"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "kavram_baglantisi",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Maddenin şekil ve hacim alabilme özelliği\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0282",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0283",
+      "stem": "Şeker suda çözündü, kum çözünmedi. Bu deneyin sonucu nedir?",
+      "options": [
+        "Tüm maddeler suda çözünür",
+        "Bazı maddeler suda çözünür, bazıları çözünmez",
+        "Şeker çözünmez",
+        "Kum suda erir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Bazı maddeler suda çözünür, bazıları çözünmez\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0283",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0284",
+      "stem": "Isıtılan buzun suya dönüştüğü deneyle gösterildi.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Isı maddeyi etkilemez",
+        "Sadece soğukta erir",
+        "Buz asla erimez",
+        "Isı alan katı madde sıvıya dönüşebilir (erime)"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "kavram_baglantisi",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Isı alan katı madde sıvıya dönüşebilir (erime)\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0284",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0285",
+      "stem": "Suyu buzdolabına koyduğumuzda ne olur?",
+      "options": [
+        "Hiçbir şey olmaz",
+        "Su kaybolur",
+        "Su soğur, yeterince soğursa donarak buz olur",
+        "Su ısınır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "kavram_baglantisi",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Su soğur, yeterince soğursa donarak buz olur\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0285",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0286",
+      "stem": "Farklı maddelerin sertlik, yumuşaklık tablosu verildi. Pamuk yumuşak, taş sert gösterildi.\n\nBu tabloya göre maddeler nasıl nitelenir?",
+      "options": [
+        "Sadece rengiyle",
+        "Tüm maddeler aynıdır",
+        "Dokunma duyusuyla sert-yumuşak gibi özellikleriyle",
+        "Sadece kokusuyla"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "tablo_yorumlama",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Dokunma duyusuyla sert-yumuşak gibi özellikleriyle\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0286",
+      "imageAsset": "quiz_images/fen/fen_029_fen3_0286_picture.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0287",
+      "stem": "Farklı maddelerin renk, koku, tat tablosu verildi. Limon ekşi, şeker tatlı gösterildi.\n\nBu tabloya göre maddeleri nasıl ayırt edebiliriz?",
+      "options": [
+        "Duyu organlarımızla (dil ile tat, burun ile koku, göz ile renk)",
+        "Sadece gözle",
+        "Ayırt edemeyiz",
+        "Sadece elle"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "grafik_yorumlama",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Duyu organlarımızla (dil ile tat, burun ile koku, göz ile renk)\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0287",
+      "imageAsset": "quiz_images/fen/fen_029_fen3_0287_picture.png",
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0288",
+      "stem": "Öğrenciler su, taş ve hava örneklerini inceledi. Su ve havanın akışkan, taşın katı olduğu gözlemlendi.\n\nBu sınıflandırmanın ölçütü nedir?",
+      "options": [
+        "Maddenin rengi",
+        "Maddenin sıcaklığı",
+        "Maddenin ağırlığı",
+        "Maddenin şekil ve hacim alabilme özelliği"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "tablo_yorumlama",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Maddenin şekil ve hacim alabilme özelliği\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0288",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen3_0289",
+      "stem": "Şeker suda çözündü, kum çözünmedi. Bu deneyin sonucu nedir?",
+      "options": [
+        "Tüm maddeler suda çözünür",
+        "Kum suda erir",
+        "Şeker çözünmez",
+        "Bazı maddeler suda çözünür, bazıları çözünmez"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "maddeyi_taniyalim",
+      "skills": [
+        "maddeyi_ta",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Bazı maddeler suda çözünür, bazıları çözünmez\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen3_0289",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

@@ -7,132 +7,212 @@
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir yayınevi, deneme sınavı kitabının satış fiyatını belirlerken üç aşamalı bir plan uyguluyor. Kitabın ilk fiyatı üzerinden önce %20 indirim yapılıyor. Ardından indirimli fiyat üzerinden kargo ve paketleme maliyeti gerekçesiyle %10 zam uygulanıyor. Son olarak öğrenci kampanyası kapsamında oluşan yeni fiyat üzerinden %25 indirim yapılıyor. Kitabın ilk fiyatı 320 TL olduğuna göre son satış fiyatı kaç TL olur?",
-      "options": ["198", "204", "211.2", "224"],
+      "options": [
+        "198",
+        "204",
+        "192",
+        "224"
+      ],
       "answerIndex": 2,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir okulun düzenlediği bilgi yarışmasına katılan öğrenciler üç gruba ayrılmıştır. A grubundaki öğrenci sayısının B grubundaki öğrenci sayısına oranı 3 : 4, B grubundaki öğrenci sayısının C grubundaki öğrenci sayısına oranı ise 2 : 5'tir. Yarışmaya toplam 126 öğrenci katıldığına göre C grubunda kaç öğrenci vardır?",
-      "options": ["45", "50", "60", "70"],
+      "options": [
+        "45",
+        "50",
+        "60",
+        "70"
+      ],
       "answerIndex": 2,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "veri_analizi",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir sınıfta yapılan deneme sınavında 8 öğrencinin netleri sırasıyla 12, 14, 15, 15, 17, 18, 19 ve 22 olarak kaydedilmiştir. Öğretmen, sınavın genel başarı düzeyini daha sağlıklı değerlendirmek için en düşük ve en yüksek neti listeden çıkarıp kalan öğrencilerin ortalamasını hesaplıyor. Buna göre yeni ortalama kaç olur?",
-      "options": ["16", "16.2", "16.5", "17"],
+      "options": [
+        "16",
+        "16.2",
+        "16.5",
+        "17"
+      ],
       "answerIndex": 2,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "cebirsel_ifadeler",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir kırtasiyede kalemlerin tanesi x TL, silgilerin tanesi ise x + 2 TL'dir. Bir öğrenci 4 kalem ve 3 silgi aldığında toplam 34 TL ödüyor. Aynı öğrenci 2 kalem daha almış olsaydı toplam ödeme 44 TL olacaktı. Buna göre bir silginin fiyatı kaç TL'dir?",
-      "options": ["4", "5", "6", "7"],
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
       "answerIndex": 2,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "karekok",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Kare şeklindeki bir okul bahçesinin alanı 484 metrekaredir. Okul yönetimi bu bahçenin etrafına, her köşe dahil olacak şekilde yalnızca dış sınır boyunca ışıklandırma kablosu döşeyecektir. Buna göre döşenecek kablonun toplam uzunluğu kaç metredir?",
-      "options": ["44", "66", "88", "96"],
+      "options": [
+        "44",
+        "66",
+        "88",
+        "96"
+      ],
       "answerIndex": 2,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "geometrik_olcme",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "reasoning",
       "stem": "El işi dersinde dikdörtgen biçiminde bir pano hazırlanacaktır. Öğretmen kısa kenarın x cm, uzun kenarın ise x + 6 cm olduğunu söyler. Çerçeve için kullanılacak şerit 52 cm'dir; bu miktar tam olarak dikdörtgenin çevresine eşittir. Öğrenciler önce çevre denkleminden x değerini bulacak, ardından kenar uzunluklarını kullanarak panonun alanını hesaplayacaktır. Buna göre panonun alanı kaç santimetrekaredir?",
-      "options": ["112", "120", "128", "144"],
+      "options": [
+        "112",
+        "120",
+        "128",
+        "144"
+      ],
       "answerIndex": 0,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "egim",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir bisiklet parkurunda başlangıç noktasından bitiş noktasına kadar 240 metre yatay ilerlenirken toplam 48 metre yükselme olmaktadır. Parkurun eğimi bu iki büyüklüğün oranı olarak tanımlandığına göre parkurun eğimi kaçtır?",
-      "options": ["0.15", "0.2", "0.25", "0.3"],
+      "options": [
+        "0.15",
+        "0.2",
+        "0.25",
+        "0.3"
+      ],
       "answerIndex": 1,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "olasilik",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir kutuda 5 kırmızı, 7 mavi, 4 sarı ve 4 yeşil top bulunmaktadır. Kutudan rastgele seçilen bir topun ne kırmızı ne de sarı olma olasılığı soruluyor. Buna göre seçilen topun mavi veya yeşil olma olasılığı kaçtır?",
-      "options": ["9/20", "11/20", "3/5", "13/20"],
+      "options": [
+        "9/20",
+        "11/20",
+        "3/5",
+        "13/20"
+      ],
       "answerIndex": 1,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "donusum_geometrisi",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Koordinat düzleminde A noktası (4, -3) konumundadır. Bu nokta önce y eksenine göre yansıtılıyor, ardından oluşan yeni nokta x eksenine göre yansıtılıyor. Buna göre son oluşan noktanın koordinatları aşağıdakilerden hangisidir?",
-      "options": ["(-4, 3)", "(4, 3)", "(-4, -3)", "(3, 4)"],
+      "options": [
+        "(-4, 3)",
+        "(4, 3)",
+        "(-4, -3)",
+        "(3, 4)"
+      ],
       "answerIndex": 0,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "veri_analizi",
-      "skills": ["problem_cozme"],
+      "skills": [
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir sınıfta yapılan fen denemesinde 6 öğrencinin doğru sayıları 8, 10, 12, 14, 16 ve 18'dir. Öğretmen, bu sınıfa aynı sınava giren ve 22 doğru yapan bir öğrencinin sonucu da eklendiğinde oluşacak yeni aritmetik ortalamayı hesaplıyor. Buna göre yeni ortalama kaç olur?",
-      "options": ["14", "14.5", "15", "15.5"],
+      "options": [
+        "14",
+        "14.5",
+        "15",
+        "15.5"
+      ],
       "answerIndex": 0,
       "explanation": null,
       "imageAsset": null,
       "source": "generated_from_pdf",
-      "sourceRef": "mat-style-ref-017"
+      "sourceRef": "mat-style-ref-017",
+      "subject": "mat"
     }
   ]
 }

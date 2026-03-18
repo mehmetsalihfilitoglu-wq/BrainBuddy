@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0040",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 79, 79, 79, 79, 80 puan almıştır. Altıncı sınava girince ortalaması 82 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "96",
+        "91",
+        "82",
+        "101"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 396. 6. sınav x ise (total5 + x)/6 = 82 → x = 96.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0040",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0041",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %30 indirim uygulanmıştır. İndirimli fiyat 700 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "800",
+        "840",
+        "880",
+        "720"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-30/100) = 700. x = 800 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0041",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0042",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 45° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "225",
+        "315",
+        "180",
+        "135"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 45° ise diğerleri toplam 315°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0042",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0043",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 5 : 6 oranındadır. Birinci sınıfa 10 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "160",
+        "150",
+        "140",
+        "155"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 4k, 5k, 6k. 4k + 10 = 5k → k = 10.0. Toplam = 15·k = 150.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0043",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0044",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 13 TL zam yapılmış, ardından 14 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "8",
+        "-4",
+        "4",
+        "0"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 8 - 4 = 2x → x(1-2) = -4 → x = 4 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0044",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0045",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "280",
+        "500",
+        "560",
+        "620"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +80 litre eklenince 3V/(7) dolu. Denklemden V=560 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0045",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0046",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 83, 83, 83, 83, 83 puan almıştır. Altıncı sınava girince ortalaması 85 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "90",
+        "95",
+        "100",
+        "85"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 415. 6. sınav x ise (total5 + x)/6 = 85 → x = 95.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0046",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0047",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 5 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "12",
+        "14",
+        "11",
+        "10"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 5E. E + 5E = 180° → E = 30°. Kenar sayısı n = 360/E = 12.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0047",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0048",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %20 indirim uygulanmıştır. İndirimli fiyat 600 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "630",
+        "600",
+        "660",
+        "540"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-20/100) = 600. x = 600 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0048",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0049",
+      "stem": "Kenarları 18 m ve 8 m olan dikdörtgen bahçenin her kenarından 2 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "144",
+        "88",
+        "96",
+        "56"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (18-4)×(8-4) = 14×4 = 56 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0049",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0360",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 2 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "8"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 2E. E + 2E = 180° → E = 60°. Kenar sayısı n = 360/E = 6.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0360",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0361",
+      "stem": "Bir torbada 3 kırmızı, 2 yeşil ve 4 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "1/9",
+        "13/19",
+        "13/18",
+        "12/18"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 9 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 13/18.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0361",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0362",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 2) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "97",
+        "107",
+        "102",
+        "90"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+2) = 44 → x = 7. Alan = x(2x+2) = 102 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0362",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0363",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0363",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0364",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0364",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0365",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 3 : 4 : 2 oranındadır. Birinci sınıfa 12 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "113",
+        "98",
+        "108",
+        "118"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 4k, 2k. 3k + 12 = 4k → k = 12.0. Toplam = 9·k = 108.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0365",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0366",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 60 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "420",
+        "480",
+        "540",
+        "240"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +60 litre eklenince 4V/(8) dolu. Denklemden V=480 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0366",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0367",
+      "stem": "Bir torbada 2 kırmızı, 5 yeşil ve 4 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "37/55",
+        "38/55",
+        "1/11",
+        "38/56"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 11 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 38/55.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0367",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0368",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "9",
+        "8",
+        "12",
+        "10"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0368",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0369",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 86, 86, 86, 86, 89 puan almıştır. Altıncı sınava girince ortalaması 84 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "76",
+        "66",
+        "71",
+        "84"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 433. 6. sınav x ise (total5 + x)/6 = 84 → x = 71.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0369",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

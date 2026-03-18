@@ -7,67 +7,117 @@
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzde_hesabi", "problem_cozme", "yorumlama"],
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
       "questionType": "long_context",
       "stem": "Bir mağazada bir akıllı saatin etiket fiyatı 2400 TL'dir. Kampanya kapsamında önce %25 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 180 TL kargo ve kurulum ücreti ekleniyor. Son aşamada öğrenci indirimi olarak oluşan yeni fiyat üzerinden %10 indirim yapılıyor. Buna göre müşteri bu akıllı saati kaç TL'ye satın alır?",
-      "options": ["1782", "1800", "1836", "1890"],
+      "options": [
+        "1782",
+        "1800",
+        "1836",
+        "1890"
+      ],
       "answerIndex": 0,
       "explanation": "2400 × 0,75 = 1800 TL olur. 180 TL eklenince 1980 TL olur. Son olarak %10 indirim uygulanır: 1980 × 0,90 = 1782 TL.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold037_q01"
+      "sourceRef": "gold037_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran_oranti", "denklem_kurma", "problem_cozme"],
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir okulda bilim kulübü ile sanat kulübündeki öğrenci sayılarının oranı 3 : 5'tir. Bilim kulübüne 10 öğrenci daha katılıp sanat kulübünden 6 öğrenci ayrıldığında iki kulüpteki öğrenci sayıları eşit oluyor. Buna göre başlangıçta bu iki kulüpte toplam kaç öğrenci vardır?",
-      "options": ["48", "56", "64", "72"],
+      "options": [
+        "48",
+        "56",
+        "64",
+        "72"
+      ],
       "answerIndex": 2,
       "explanation": "Başlangıçta bilim 3k, sanat 5k olsun. 3k + 10 = 5k - 6 olduğundan 2k = 16 ve k = 8 olur. Başlangıçta toplam öğrenci sayısı 8k = 64'tür.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold037_q02"
+      "sourceRef": "gold037_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "veri_analizi",
-      "skills": ["ortalama", "veri_yorumlama", "tablo_okuma"],
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "tablo_okuma"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir sınıfta yapılan matematik denemesinde 8 öğrencinin netleri 11, 12, 14, 15, 16, 17, 19 ve x olarak kaydedilmiştir. Öğretmen bu öğrencilerin ortalamasının 15 olduğunu söylüyor. Buna göre x kaçtır?",
-      "options": ["14", "15", "16", "17"],
+      "options": [
+        "14",
+        "15",
+        "16",
+        "17"
+      ],
       "answerIndex": 2,
       "explanation": "Toplam net 8 × 15 = 120 olmalıdır. Bilinen netlerin toplamı 104'tür. x = 120 - 104 = 16 bulunur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold037_q03"
+      "sourceRef": "gold037_q03",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "geometrik_olcme",
-      "skills": ["cevre", "alan", "problem_cozme"],
+      "skills": [
+        "cevre",
+        "alan",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Dikdörtgen şeklindeki bir bahçenin uzun kenarı kısa kenarından 6 metre fazladır. Bahçenin çevresi 44 metredir. Bu bahçenin içine metrekare başına bir lale dikileceğine göre toplam kaç lale gerekir?",
-      "options": ["96", "100", "108", "112"],
+      "options": [
+        "96",
+        "100",
+        "108",
+        "112"
+      ],
       "answerIndex": 3,
       "explanation": "Kısa kenar x, uzun kenar x + 6 olsun. 2x + 2(x + 6) = 44 ise 4x + 12 = 44 olur. Buradan x = 8 bulunur. Uzun kenar 14 metredir. Alan 8 × 14 = 112 metrekaredir. Her metrekareye bir lale dikildiğine göre 112 lale gerekir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold037_q04"
+      "sourceRef": "gold037_q04",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "olasilik",
-      "skills": ["olasilik", "durum_sayma", "problem_cozme"],
+      "skills": [
+        "olasilik",
+        "durum_sayma",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir kutuda 5 kırmızı, 4 mavi ve 3 yeşil top vardır. Kutudan art arda ve geri koymadan iki top seçiliyor. Buna göre seçilen toplardan birinin kırmızı, diğerinin mavi olma olasılığı kaçtır?",
-      "options": ["10/33", "5/11", "8/33", "20/33"],
+      "options": [
+        "10/33",
+        "5/11",
+        "8/33",
+        "20/33"
+      ],
       "answerIndex": 0,
       "explanation": "İki durum vardır: önce kırmızı sonra mavi veya önce mavi sonra kırmızı. Olasılık 5/12 × 4/11 + 4/12 × 5/11 = 40/132 = 10/33 olur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold037_q05"
+      "sourceRef": "gold037_q05",
+      "subject": "mat"
     }
   ]
 }

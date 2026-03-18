@@ -16,7 +16,11 @@
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "basinc_formulu", "alan"],
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu",
+        "alan"
+      ],
       "explanation": "İlk durumda basınç P = 90/30 = 3 birimdir. İkinci durumda P = 90/15 = 6 olur. Basınç 2 katına çıkar.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q01"
@@ -33,7 +37,11 @@
       "difficulty": 3,
       "questionType": "LOGIC_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "günlük_hayat", "basinc_uygulamalari"],
+      "skills": [
+        "kati_basinc",
+        "günlük_hayat",
+        "basinc_uygulamalari"
+      ],
       "explanation": "Temas alanı arttırılarak basınç azaltılır. Kar ayakkabılarının tabanı geniş yapılır.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q02"
@@ -50,7 +58,11 @@
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "derinlik", "basinc_formulu"],
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "basinc_formulu"
+      ],
       "explanation": "Sıvı basıncı derinlikle doğru orantılıdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q03"
@@ -67,7 +79,11 @@
       "difficulty": 3,
       "questionType": "EXPERIMENT_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "deney", "derinlik"],
+      "skills": [
+        "sivi_basinc",
+        "deney",
+        "derinlik"
+      ],
       "explanation": "Sıvı basıncı derinliğe bağlıdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q04"
@@ -84,10 +100,15 @@
       "difficulty": 3,
       "questionType": "GRAPH_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "grafik", "yogunluk"],
+      "skills": [
+        "sivi_basinc",
+        "grafik",
+        "yogunluk"
+      ],
       "explanation": "Sıvı basıncı yoğunluk ve derinliğe bağlıdır.",
       "source": "brainbuddy",
-      "sourceRef": "fen_bas_002_q05"
+      "sourceRef": "fen_bas_002_q05",
+      "imageAsset": "quiz_images/fen/fen_basinc_002_fen_bas_002_q05_graph_line.png"
     },
     {
       "stem": "Bir öğrenci pipeti bardağa daldırıp ağzından hava çektiğinde meyve suyunun pipette yükseldiğini gözlemliyor. Bu olay hangi fiziksel etkiyle en iyi açıklanır?",
@@ -101,7 +122,10 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Basınç",
-      "skills": ["acik_hava_basinci", "günlük_hayat"],
+      "skills": [
+        "acik_hava_basinci",
+        "günlük_hayat"
+      ],
       "explanation": "Pipetle içecek içilmesi açık hava basıncı sayesinde gerçekleşir.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q06"
@@ -118,7 +142,10 @@
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "basinc_formulu"],
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu"
+      ],
       "explanation": "Basınç = Kuvvet / Alan = 200 / 50 = 4 N/cm².",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q07"
@@ -135,7 +162,10 @@
       "difficulty": 3,
       "questionType": "LOGIC_REASONING",
       "topic": "Basınç",
-      "skills": ["acik_hava_basinci", "gaz_basinci"],
+      "skills": [
+        "acik_hava_basinci",
+        "gaz_basinci"
+      ],
       "explanation": "Yükseğe çıkıldıkça açık hava basıncı azalır ve balon genleşir.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q08"
@@ -152,7 +182,11 @@
       "difficulty": 3,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "derinlik", "karsilastirma"],
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "karsilastirma"
+      ],
       "explanation": "Sıvı basıncı yalnızca derinliğe bağlıdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q09"
@@ -169,7 +203,11 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Basınç",
-      "skills": ["gaz_basinci", "sicaklik", "molekul"],
+      "skills": [
+        "gaz_basinci",
+        "sicaklik",
+        "molekul"
+      ],
       "explanation": "Sıcaklık arttıkça gaz moleküllerinin çarpma sayısı ve basınç artar.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_002_q10"

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat5_0450",
+      "stem": "80 sayısının %25'i kaçtır?",
+      "options": [
+        "16",
+        "24",
+        "25",
+        "20"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "%25 = 1/4, 80÷4=20.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0450",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0451",
+      "stem": "120'nin %40'ı kaçtır?",
+      "options": [
+        "52",
+        "44",
+        "40",
+        "48"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "120 × 0,40 = 48 veya 120 × 40/100 = 48.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0451",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0452",
+      "stem": "Aynı doğru üzerinde olmayan 3 nokta birleştirildiğinde kaç üçgen oluşur?",
+      "options": [
+        "3",
+        "0",
+        "2",
+        "1"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Üç farklı nokta bir üçgen oluşturur.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0452",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0453",
+      "stem": "Bir açının ölçüsü 90 dereceden küçükse bu açıya ne denir?",
+      "options": [
+        "Geniş açı",
+        "Tam açı",
+        "Dar açı",
+        "Dik açı"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "90°'den küçük açı dar açıdır.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0453",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0454",
+      "stem": "İki kenarı eşit olan üçgene ne denir?",
+      "options": [
+        "Dik üçgen",
+        "Çeşitkenar üçgen",
+        "Eşkenar üçgen",
+        "İkizkenar üçgen"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "İki kenarı eşit olan üçgen ikizkenar üçgendir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0454",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0455",
+      "stem": "Kare ve dikdörtgenin ortak özelliği aşağıdakilerden hangisidir?",
+      "options": [
+        "Köşegen sayısı 1'dir",
+        "Tüm kenarları eşittir",
+        "Dört köşesi vardır",
+        "Açıları 90 derecedir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Her ikisi de dörtgen olduğu için 4 köşesi vardır. (Dikdörtgenin kenarları eşit olmayabilir)",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0455",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0456",
+      "stem": "2 m 45 cm kaç cm'dir?",
+      "options": [
+        "245",
+        "247",
+        "250",
+        "240"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2 m = 200 cm, 200 + 45 = 245 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0456",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0457",
+      "stem": "3450 m kaç km kaç m'dir?",
+      "options": [
+        "34 km 50 m",
+        "3 km 45 m",
+        "3 km 450 m",
+        "345 km 0 m"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3450 m = 3000 m + 450 m = 3 km 450 m.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0457",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0458",
+      "stem": "Kenar uzunlukları 8 cm ve 5 cm olan dikdörtgenin alanı kaç cm²'dir?",
+      "options": [
+        "35",
+        "40",
+        "26",
+        "45"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "veri_toplama_analiz",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Dikdörtgen alanı = 8 × 5 = 40 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0458",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0459",
+      "stem": "Bir karenin bir kenarı 6 cm ise alanı kaç cm²'dir?",
+      "options": [
+        "36",
+        "30",
+        "24",
+        "12"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "grafik_yorumlama",
+      "skills": [
+        "grafik_yor",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Kare alanı = 6 × 6 = 36 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0459",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

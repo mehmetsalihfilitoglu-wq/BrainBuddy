@@ -7,132 +7,111 @@
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzde_hesabi","problem_cozme","yorumlama"],
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
       "questionType": "long_context",
       "stem": "Bir spor mağazasında bir bisikletin etiket fiyatı 6000 TL'dir. Kampanya kapsamında önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %10 ek indirim yapılmaktadır. Son aşamada alışverişe 240 TL kargo ve hizmet bedeli eklenmektedir. Buna göre bu bisikleti satın alan bir müşteri toplam kaç TL öder?",
-      "options": ["4560","4600","4700","4800"],
+      "options": [
+        "5040",
+        "4600",
+        "4700",
+        "4800"
+      ],
       "answerIndex": 0,
       "explanation": "6000 × 0,80 = 4800 TL. 4800 × 0,90 = 4320 TL. 240 TL eklenir → 4560 TL.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q01"
+      "sourceRef": "gold060_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran_oranti","denklem_kurma"],
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma"
+      ],
       "questionType": "reasoning",
       "stem": "Bir okulda basketbol ve voleybol oynayan öğrencilerin sayıları 5 : 7 oranındadır. Basketbol takımına 8 öğrenci daha katıldığında iki takımın öğrenci sayıları eşit oluyor. Buna göre başlangıçta iki takımda toplam kaç öğrenci vardır?",
-      "options": ["48","60","72","96"],
+      "options": [
+        "48",
+        "60",
+        "72",
+        "96"
+      ],
       "answerIndex": 0,
       "explanation": "Basketbol = 5k, voleybol = 7k. 5k + 8 = 7k → 2k = 8 → k = 4. Başlangıç toplamı = 12k = 48.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q02"
-    },
-    {
-      "difficulty": 1,
-      "topic": "veri_analizi",
-      "skills": ["ortalama","veri_yorumlama"],
-      "questionType": "tablo_yorum",
-      "stem": "Bir öğrencinin matematik sınavlarından aldığı notlar 70, 75, 80 ve x olarak verilmiştir. Bu öğrencinin not ortalaması 80 olduğuna göre x kaçtır?",
-      "options": ["90","95","100","105"],
-      "answerIndex": 1,
-      "explanation": "Toplam not = 4 × 80 = 320. Bilinen toplam = 225. x = 95.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q03"
+      "sourceRef": "gold060_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "cebirsel_ifadeler",
-      "skills": ["denklem_kurma"],
+      "skills": [
+        "denklem_kurma"
+      ],
       "questionType": "reasoning",
       "stem": "Bir kafede bir tostun fiyatı x TL, ayranın fiyatı ise x − 3 TL'dir. Bir öğrenci 3 tost ve 2 ayran aldığında toplam 39 TL ödüyor. Buna göre bir tostun fiyatı kaç TL'dir?",
-      "options": ["6","7","8","9"],
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
       "answerIndex": 3,
       "explanation": "3x + 2(x − 3) = 39 → 5x − 6 = 39 → 5x = 45 → x = 9.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q04"
+      "sourceRef": "gold060_q04",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "karekok",
-      "skills": ["karekok","alan"],
+      "skills": [
+        "karekok",
+        "alan"
+      ],
       "questionType": "long_context",
       "stem": "Kare şeklindeki bir bahçenin alanı 1600 metrekaredir. Bahçenin etrafına dıştan 2 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yürüyüş yolunun kapladığı alan kaç metrekaredir?",
-      "options": ["324","336","352","368"],
+      "options": [
+        "324",
+        "336",
+        "352",
+        "368"
+      ],
       "answerIndex": 1,
       "explanation": "Kenar = √1600 = 40. Dış kenar = 44. Alan farkı = 44² − 40² = 1936 − 1600 = 336.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q05"
-    },
-    {
-      "difficulty": 2,
-      "topic": "egim",
-      "skills": ["egim","oran_oranti"],
-      "questionType": "grafik_yorum",
-      "stem": "Bir rampanın yatay uzunluğu 8 metre ve yükseldiği dikey mesafe 120 santimetredir. Aynı eğime sahip başka bir rampanın yatay uzunluğu 20 metre olduğuna göre yüksekliği kaç santimetre olur?",
-      "options": ["260","280","300","320"],
-      "answerIndex": 2,
-      "explanation": "120/800 = 3/20. 2000 × 3/20 = 300.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q06"
-    },
-    {
-      "difficulty": 2,
-      "topic": "olasilik",
-      "skills": ["olasilik","durum_sayma"],
-      "questionType": "reasoning",
-      "stem": "Bir torbada 5 kırmızı ve 7 mavi top vardır. Torbadan geri koymadan iki top çekiliyor. Buna göre seçilen topların ikisinin de kırmızı olma olasılığı kaçtır?",
-      "options": ["5/22","10/33","5/33","1/6"],
-      "answerIndex": 2,
-      "explanation": "5/12 × 4/11 = 20/132 = 5/33.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q07"
-    },
-    {
-      "difficulty": 1,
-      "topic": "geometrik_olcme",
-      "skills": ["alan","cevre"],
-      "questionType": "long_context",
-      "stem": "Bir dikdörtgenin uzun kenarı kısa kenarından 4 metre fazladır. Dikdörtgenin çevresi 36 metredir. Buna göre bu dikdörtgenin alanı kaç metrekaredir?",
-      "options": ["66","72","77","84"],
-      "answerIndex": 2,
-      "explanation": "x ve x+4 → 2x + 2(x+4) = 36 → 4x = 28 → x = 7 → alan = 7 × 11 = 77.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q08"
+      "sourceRef": "gold060_q05",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "uslu_sayilar",
-      "skills": ["uslu_ifadeler"],
+      "skills": [
+        "uslu_ifadeler"
+      ],
       "questionType": "reasoning",
       "stem": "Bir veri merkezinde 2⁵ klasör vardır. Her klasörde 2³ dosya ve her dosyada 2⁴ KB veri bulunmaktadır. Buna göre toplam veri miktarı kaç KB'dir?",
-      "options": ["1024","2048","4096","8192"],
+      "options": [
+        "1024",
+        "2048",
+        "4096",
+        "8192"
+      ],
       "answerIndex": 2,
       "explanation": "2⁵ × 2³ × 2⁴ = 2¹² = 4096.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q09"
-    },
-    {
-      "difficulty": 2,
-      "topic": "carpanlar_ve_katlar",
-      "skills": ["ebob"],
-      "questionType": "tablo_yorum",
-      "stem": "Bir etkinlik için 72 kırmızı, 108 mavi ve 144 beyaz kart hazırlanmıştır. Kartlar eşit sayıda olacak şekilde paketlenecektir. Bir paketteki kart sayısı en büyük olacak şekilde ayarlandığında toplam kaç paket hazırlanır?",
-      "options": ["7","8","9","10"],
-      "answerIndex": 2,
-      "explanation": "EBOB(72,108,144) = 36 → paketler 2 + 3 + 4 = 9.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold060_q10"
+      "sourceRef": "gold060_q09",
+      "subject": "mat"
     }
   ]
 }

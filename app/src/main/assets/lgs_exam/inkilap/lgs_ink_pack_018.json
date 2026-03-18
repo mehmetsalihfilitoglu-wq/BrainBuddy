@@ -1,139 +1,248 @@
 {
   "version": 1,
-  "mode": "PACK",
+  "mode": "LGS",
   "subject": "inkilap",
-  "publisher": "BrainBuddy",
-  "packId": "lgs_ink_pack_018",
+  "publisher": "brainbuddy",
   "questions": [
     {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Türk Medeni Kanunu'nun kabul edilmesiyle kadın ve erkek arasında hukuki eşitlik sağlanmaya çalışılmıştır. Bu durum aşağıdaki Atatürk ilkelerinden hangisiyle daha doğrudan ilişkilidir?",
+      "stem": "Saltanatın kaldırılması ile TBMM'nin egemenlik anlayışı arasındaki ilişki aşağıdakilerden hangisinde doğru ifade edilmiştir?",
       "options": [
+        "Saltanatın kaldırılması milli egemenlikle çelişir.",
+        "Saltanatın kaldırılması, egemenliğin millette olduğu anlayışının siyasi yansımasıdır.",
+        "TBMM saltanatı güçlendirmek istemiştir.",
+        "Saltanat TBMM'den bağımsız devam etmiştir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Milli egemenlik, tek bir egemen (padişah) anlayışını reddeder; saltanatın kaldırılması bunu tamamlar.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q01",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Harf İnkılabı'nın 'çağdaşlaşma' ve 'okur-yazarlık' hedefleriyle ilişkisi nasıl kurulabilir?",
+      "options": [
+        "Latin harfleri sadece estetik nedenle seçilmiştir.",
+        "Latin alfabesi okuma-yazmayı kolaylaştırarak eğitim ve çağdaşlaşmayı hızlandırmayı hedeflemiştir.",
+        "Arap harfleri daha kolaydır.",
+        "Hiçbir ilişki yoktur."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Latin alfabesi okuma-yazmayı kolaylaştırarak eğitim seviyesini ve çağdaşlığı artırmayı hedeflemiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q02",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Soyadı Kanunu'nun çıkarılma gerekçeleri arasında aşağıdakilerden hangisi yer alır?",
+      "options": [
+        "Saltanatı güçlendirmek",
+        "Toplumsal karışıklığı önlemek ve çağdaş kimlik oluşturmak",
+        "Halifeliği kaldırmak",
+        "Dini kuralları değiştirmek"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Soyadı Kanunu, kimlik belirlemede karışıklığı önlemek ve çağdaş bir toplum yapısı oluşturmak içindir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q03",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Tevhid-i Tedrisat Kanunu ile getirilen düzenlemenin temel amacı aşağıdakilerden hangisidir?",
+      "options": [
+        "Eğitimi zayıflatmak",
+        "Eğitimi tek çatı altında toplayarak çağdaş ve milli bir eğitim sistemi oluşturmak",
+        "Dini eğitimi artırmak",
+        "Eğitimi özel kurumlara bırakmak"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Tevhid-i Tedrisat, tüm eğitim kurumlarını Milli Eğitim Bakanlığı altında birleştirerek tek ve çağdaş bir sistem oluşturur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q04",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Şapka Kanunu ve kıyafet devrimi, hangi ilke ile en iyi ilişkilendirilebilir?",
+      "options": [
+        "Saltanat",
+        "Laiklik ve çağdaşlaşma",
+        "Ümmetçilik",
+        "Gelenekçilik"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "comparison",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Kıyafet devrimi, laik ve çağdaş bir toplum görünümü oluşturmayı hedefler.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q05",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Kadınlara seçme ve seçilme hakkının verilmesi, aşağıdaki Atatürk ilkelerinden hangisiyle doğrudan ilişkilidir?",
+      "options": [
+        "Saltanat",
         "Halkçılık",
         "Devletçilik",
+        "İnkılapçılık"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "inference",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Halkçılık, tüm vatandaşların eşitliğini içerir; kadınlara siyasi haklar bu ilkeyle uyumludur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q06",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Halifeliğin kaldırılmasının laiklik ilkesiyle ilişkisi aşağıdakilerden hangisinde doğru ifade edilmiştir?",
+      "options": [
+        "Laiklik güçlenmiştir; din ve devlet işleri ayrılmıştır.",
+        "Laiklik zayıflamıştır.",
+        "Halifelik laikliği güçlendirir.",
+        "İkisi arasında ilişki yoktur."
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Halifeliğin kaldırılması, din ile devlet işlerinin ayrılmasında önemli bir adımdır; laikliği güçlendirir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q07",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Medeni Kanun'un kabulünde İsviçre Medeni Kanunu'nun örnek alınmasının gerekçesi aşağıdakilerden hangisi olabilir?",
+      "options": [
+        "İsviçre'ye siyasi bağımlılık",
+        "Kadın-erkek eşitliği ve çağdaş hukuk ilkelerini içermesi",
+        "Dini kuralları koruması",
+        "Eski hukuku devam ettirmesi"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "İsviçre Medeni Kanunu, kadın-erkek eşitliği ve çağdaş hukuk prensipleri açısından model alınmıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q08",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Türk Tarih Kurumu ve Türk Dil Kurumu'nun kurulması, hangi ilke ile ilişkilendirilebilir?",
+      "options": [
+        "Saltanat",
         "Milliyetçilik",
-        "Cumhuriyetçilik"
+        "Ümmetçilik",
+        "Bölgeselcilik"
       ],
-      "answerIndex": 0,
-      "explanation": "Halkçılık ilkesi toplum içinde eşitliği savunur. Medeni Kanun ile kadın ve erkek arasında hukuki eşitlik sağlanmıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Tarih ve dil kurumları, milliyetçilik ilkesi çerçevesinde milli kimliğin bilimsel temellerini güçlendirmek için kurulmuştur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q09",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Türk Medeni Kanunu ile evlenme, boşanma ve miras gibi konuların dini kurallardan ayrılarak hukuk kurallarına bağlanması aşağıdaki ilkelerden hangisiyle doğrudan ilişkilidir?",
+      "stem": "Takvim, saat ve ölçü birimlerinde yapılan değişikliklerin ortak amacı aşağıdakilerden hangisidir?",
       "options": [
-        "Laiklik",
-        "Milliyetçilik",
-        "Devletçilik",
-        "Cumhuriyetçilik"
+        "Gelenekleri korumak",
+        "Uluslararası standartlara uyum ve çağdaş hayatı kolaylaştırmak",
+        "Dini uygulamaları değiştirmek",
+        "Yerel sistemleri güçlendirmek"
       ],
-      "answerIndex": 0,
-      "explanation": "Dini kuralların hukuk sisteminden ayrılması laiklik ilkesinin uygulanmasıdır."
-    },
-    {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Kadınlara seçme ve seçilme hakkının verilmesi aşağıdakilerden hangisinin göstergesidir?",
-      "options": [
-        "Toplumsal eşitliğin sağlanmaya çalışıldığının",
-        "Saltanat yönetiminin güçlendiğinin",
-        "Osmanlı yönetim sisteminin devam ettiğinin",
-        "Devlet yönetiminin askeri otoriteye bırakıldığının"
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Çağdaş Türkiye Yolunda Adımlar",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
       ],
-      "answerIndex": 0,
-      "explanation": "Kadınlara siyasi hakların verilmesi toplumsal eşitliği güçlendirmiştir."
-    },
-    {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Türk Medeni Kanunu'nun kabul edilmesi aşağıdaki alanlardan hangisinde değişim meydana getirmiştir?",
-      "options": [
-        "Aile hukuku",
-        "Askeri yapı",
-        "Dış politika",
-        "Ekonomik sistem"
-      ],
-      "answerIndex": 0,
-      "explanation": "Medeni Kanun özellikle aile hukuku alanında değişiklik getirmiştir."
-    },
-    {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Kadınlara seçme ve seçilme hakkının verilmesi aşağıdaki Atatürk ilkelerinden hangisinin uygulanmasına örnek gösterilebilir?",
-      "options": [
-        "Halkçılık",
-        "Devletçilik",
-        "Laiklik",
-        "Milliyetçilik"
-      ],
-      "answerIndex": 0,
-      "explanation": "Halkçılık toplumda eşitliği savunur."
-    },
-    {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Türk Medeni Kanunu ile çok eşliliğin yasaklanması aşağıdakilerden hangisini sağlamaya yöneliktir?",
-      "options": [
-        "Aile yapısında eşitliğin sağlanmasını",
-        "Osmanlı hukuk sisteminin devamını",
-        "Dini kuralların güçlendirilmesini",
-        "Saltanat yönetiminin sürdürülmesini"
-      ],
-      "answerIndex": 0,
-      "explanation": "Medeni Kanun aile içinde eşitliği sağlamayı amaçlamıştır."
-    },
-    {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Kadınların siyasi haklar elde etmesi aşağıdakilerden hangisinin güçlendiğini göstermektedir?",
-      "options": [
-        "Demokratik katılımın",
-        "Saltanat yönetiminin",
-        "Osmanlı devlet sisteminin",
-        "Askeri yönetimin"
-      ],
-      "answerIndex": 0,
-      "explanation": "Kadınların siyasete katılması demokratik yapıyı güçlendirmiştir."
-    },
-    {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Türk Medeni Kanunu'nun kabul edilmesi aşağıdakilerden hangisine katkı sağlamıştır?",
-      "options": [
-        "Modern hukuk sisteminin oluşturulmasına",
-        "Osmanlı hukuk sisteminin devamına",
-        "Saltanat yönetiminin güçlenmesine",
-        "Dini mahkemelerin etkisinin artmasına"
-      ],
-      "answerIndex": 0,
-      "explanation": "Medeni Kanun modern hukuk sisteminin temelini oluşturmuştur."
-    },
-    {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Kadınlara siyasi hakların verilmesi aşağıdakilerden hangisinin gelişmesine katkı sağlamıştır?",
-      "options": [
-        "Toplumsal eşitliğin",
-        "Saltanat yönetiminin",
-        "Osmanlı devlet düzeninin",
-        "Dini otoritenin"
-      ],
-      "answerIndex": 0,
-      "explanation": "Kadın hakları toplumsal eşitliği güçlendirmiştir."
-    },
-    {
-      "topic": "Atatürkçülük ve Çağdaşlaşan Türkiye",
-      "difficulty": "VERY_HARD",
-      "stem": "Medeni Kanun ve kadınlara verilen siyasi haklar birlikte değerlendirildiğinde aşağıdaki sonuçlardan hangisine ulaşılabilir?",
-      "options": [
-        "Toplumsal yapının modernleştirilmek istendiği",
-        "Osmanlı yönetim sisteminin korunmak istendiği",
-        "Saltanat yönetiminin güçlendirildiği",
-        "Dini kuralların devlet yönetiminde artırıldığı"
-      ],
-      "answerIndex": 0,
-      "explanation": "Bu reformlar toplumsal modernleşmeyi hedeflemiştir."
+      "explanation": "Bu değişiklikler uluslararası standartlarla uyum ve günlük hayatı kolaylaştırma amacı taşır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack018_q10",
+      "subject": "inkilap",
+      "imageAsset": null
     }
   ]
 }

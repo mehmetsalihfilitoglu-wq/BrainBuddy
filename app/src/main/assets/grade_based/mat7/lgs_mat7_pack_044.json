@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0430",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 4 : 6 : 3 oranındadır. Birinci sınıfa 5 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "49",
+        "39",
+        "29",
+        "44"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 4k, 6k, 3k. 4k + 5 = 6k → k = 2.5. Toplam = 13·k = 39.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0430",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0431",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 2 : 5 : 6 oranındadır. Birinci sınıfa 6 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "36",
+        "26",
+        "16",
+        "31"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 5k, 6k. 2k + 6 = 5k → k = 2.0. Toplam = 13·k = 26.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0431",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0432",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "96",
+        "97",
+        "91",
+        "101"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0432",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0433",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %15 zam yapılmış, ardından indirim döneminde %25 indirim uygulanmıştır. İndirimli fiyat 344 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "440",
+        "400",
+        "360",
+        "420"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+15/100) · (1-25/100) = 344. x = 400 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0433",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0434",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 3 : 6 : 4 oranındadır. Birinci sınıfa 10 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "42",
+        "52",
+        "57",
+        "62"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 6k, 4k. 3k + 10 = 6k → k = 3.3333333333333335. Toplam = 13·k = 52.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0434",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0435",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 4 katından 15 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "25",
+        "30",
+        "20",
+        "28"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 4e - 15. k+3 = 2(e+2) → e = 8, k = 17. Toplam = 25.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0435",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0436",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %25 zam yapılmış, ardından indirim döneminde %30 indirim uygulanmıştır. İndirimli fiyat 437 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "550",
+        "450",
+        "500",
+        "525"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+25/100) · (1-30/100) = 437. x = 500 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0436",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0437",
+      "stem": "Bir dairenin alanı ile çevresinin sayısal değerleri eşittir. (π = 3 alınacaktır.) Buna göre bu dairenin yarıçapı kaç cm'dir?",
+      "options": [
+        "4",
+        "2",
+        "1",
+        "3"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cember_ve_daire",
+      "skills": [
+        "cember",
+        "daire",
+        "alan"
+      ],
+      "explanation": "Alan = πr², Çevre = 2πr. πr² = 2πr → r = 2 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0437",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0438",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "7",
+        "6",
+        "10",
+        "8"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0438",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0439",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 2 : 5 : 3 oranındadır. Birinci sınıfa 9 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "40",
+        "30",
+        "20",
+        "35"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 5k, 3k. 2k + 9 = 5k → k = 3.0. Toplam = 10·k = 30.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0439",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

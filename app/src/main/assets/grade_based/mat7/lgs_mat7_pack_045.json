@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0440",
+      "stem": "Bir torbada 2 kırmızı, 3 yeşil ve 5 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "1/10",
+        "31/46",
+        "31/45",
+        "30/45"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0440",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0441",
+      "stem": "Bir torbada 4 kırmızı, 5 yeşil ve 2 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "38/56",
+        "37/55",
+        "38/55",
+        "1/11"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 11 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 38/55.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0441",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0442",
+      "stem": "Bir torbada 4 kırmızı, 2 yeşil ve 5 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "1/11",
+        "38/55",
+        "38/56",
+        "37/55"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 11 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 38/55.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0442",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0443",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 5 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "14",
+        "11",
+        "10",
+        "12"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 5E. E + 5E = 180° → E = 30°. Kenar sayısı n = 360/E = 12.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0443",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0444",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 78, 78, 78, 78, 81 puan almıştır. Altıncı sınava girince ortalaması 81 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "88",
+        "98",
+        "81",
+        "93"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 393. 6. sınav x ise (total5 + x)/6 = 81 → x = 93.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0444",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0445",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 81, 81, 81, 81, 85 puan almıştır. Altıncı sınava girince ortalaması 84 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "90",
+        "84",
+        "95",
+        "100"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 409. 6. sınav x ise (total5 + x)/6 = 84 → x = 95.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0445",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0446",
+      "stem": "Kenarları 12 m ve 8 m olan dikdörtgen bahçenin her kenarından 3 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "12",
+        "45",
+        "84",
+        "96"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (12-6)×(8-6) = 6×2 = 12 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0446",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0447",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 3 katından 27 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "88",
+        "90",
+        "80",
+        "85"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 27. k+3 = 2(e+2) → e = 28, k = 57. Toplam = 85.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0447",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0448",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 3) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "94",
+        "90",
+        "99",
+        "104"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+3) = 44 → x = 6. Alan = x(2x+3) = 99 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0448",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0449",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 2 katından 18 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "53",
+        "58",
+        "61",
+        "63"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 18. k+3 = 2(e+2) → e = 19, k = 39. Toplam = 58.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0449",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

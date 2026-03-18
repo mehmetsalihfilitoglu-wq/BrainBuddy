@@ -1,139 +1,248 @@
 {
   "version": 1,
-  "mode": "PACK",
+  "mode": "LGS",
   "subject": "inkilap",
-  "publisher": "BrainBuddy",
-  "packId": "lgs_ink_pack_003",
+  "publisher": "brainbuddy",
   "questions": [
     {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Amasya Genelgesi'nde 'Milletin bağımsızlığını yine milletin azim ve kararı kurtaracaktır.' ifadesi yer almıştır. Bu ifade dikkate alındığında aşağıdaki gelişmelerden hangisinin bu anlayış doğrultusunda ortaya çıktığı söylenebilir?",
+      "stem": "I. İnönü Zaferi sonrası Londra Konferansı'na davet edilmesi, aşağıdakilerden hangisinin göstergesi olarak yorumlanabilir?",
       "options": [
-        "Saltanatın kaldırılması",
-        "TBMM'nin açılması",
-        "Lozan Antlaşması'nın imzalanması",
-        "Kapitülasyonların kaldırılması"
+        "TBMM'nin tamamen tanındığının",
+        "TBMM gücünün uluslararası alanda fark edilmeye başladığının",
+        "Savaşın bittiğinin",
+        "İtilaf devletlerinin tamamen uzlaştığının"
       ],
       "answerIndex": 1,
-      "explanation": "Amasya Genelgesi'nde egemenliğin millete ait olması gerektiği vurgulanmıştır. Bu düşüncenin en açık sonucu TBMM'nin açılmasıdır."
+      "difficulty": 5,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "İnönü zaferi, TBMM'nin varlığını ve gücünü uluslararası arenada fark ettirmiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q01",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Erzurum Kongresi'nde alınan bazı kararlar şunlardır: \n\n• Millî sınırlar içinde vatan bir bütündür, parçalanamaz.\n• Manda ve himaye kabul edilemez.\n\nBu kararlar aşağıdaki amaçlardan hangisine yöneliktir?",
+      "stem": "Sakarya Meydan Muharebesi'nden sonra Atatürk'e 'Gazi' unvanı ve 'Mareşal' rütbesi verilmesi, bu zaferin nasıl değerlendirildiğini gösterir?",
       "options": [
-        "Osmanlı Devleti'nin askerî gücünü artırmak",
-        "Millî Mücadele'nin bağımsızlık anlayışını ortaya koymak",
-        "Saltanat yönetimini güçlendirmek",
-        "İtilaf Devletleri ile uzlaşmak"
+        "Önemsiz bir çarpışma olarak görüldüğünü",
+        "Millî Mücadele'nin dönüm noktası olarak algılandığını",
+        "Savaşın bittiğini",
+        "Saltanatın güçlendiğini"
       ],
       "answerIndex": 1,
-      "explanation": "Erzurum Kongresi kararları Millî Mücadele'nin bağımsızlık anlayışını ortaya koymuştur."
-    },
-    {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Sivas Kongresi'nde bütün yararlı cemiyetlerin Anadolu ve Rumeli Müdafaa-i Hukuk Cemiyeti adı altında birleştirilmesi aşağıdaki gelişmelerden hangisinin sağlanmasına yöneliktir?",
-      "options": [
-        "Direniş hareketlerinin tek merkezden yönetilmesi",
-        "Osmanlı hükümetinin güçlendirilmesi",
-        "İşgallerin kabul edilmesi",
-        "Saltanatın korunması"
+      "difficulty": 4,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
       ],
-      "answerIndex": 0,
-      "explanation": "Cemiyetlerin birleştirilmesi Millî Mücadele'nin tek merkezden yönetilmesini sağlamıştır."
+      "explanation": "Gazi ve Mareşal unvanları, Sakarya'nın dönüm noktası olarak görüldüğünü gösterir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q02",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Kuva-yi Milliye birlikleri işgaller karşısında halkın oluşturduğu direniş hareketleri olarak ortaya çıkmıştır. Ancak daha sonra düzenli ordu kurulmuştur.\n\nBu durum aşağıdakilerden hangisini göstermektedir?",
+      "stem": "'Hattı müdafaa yoktur, sathı müdafaa vardır. O satıh bütün vatandır.' sözünün Büyük Taarruz ile ilişkisi nasıl kurulabilir?",
       "options": [
-        "Kuva-yi Milliye birliklerinin tamamen başarısız olduğunu",
-        "Modern savaş koşullarında düzenli ordunun gerekli olduğunu",
-        "Halkın Millî Mücadele'yi desteklemediğini",
-        "İşgallerin kısa sürede sona erdiğini"
+        "Savunmanın sürdürülmesi hedeflenmiştir.",
+        "Vatanın her karışının savunulacağı; taarruzun da bu anlayışın bir parçası olduğu",
+        "Sadece cephe hattı korunacaktır.",
+        "Taarruzdan vazgeçilmiştir."
       ],
       "answerIndex": 1,
-      "explanation": "Kuva-yi Milliye yerel direnişi başlatmış ancak düzenli ordu modern savaş için gerekli görülmüştür."
-    },
-    {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Aşağıdaki gelişmelerden hangisi Millî Mücadele'nin siyasi örgütlenme sürecinin önemli aşamalarından biri değildir?",
-      "options": [
-        "Amasya Genelgesi",
-        "Erzurum Kongresi",
-        "Sivas Kongresi",
-        "Mondros Ateşkes Antlaşması"
+      "difficulty": 5,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
       ],
-      "answerIndex": 3,
-      "explanation": "Mondros Ateşkes Antlaşması Millî Mücadele'nin başlamasına zemin hazırlamıştır ancak örgütlenme aşaması değildir."
+      "explanation": "Vatanın bütününü savunma anlayışı, sonunda taarruzla düşmanı vatandan atmaya yönelmiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q03",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Misak-ı Milli kararlarının TBMM tarafından kabul edilmesi aşağıdakilerden hangisini göstermektedir?",
+      "stem": "Mudanya Ateşkes Antlaşması ile elde edilenler düşünüldüğünde aşağıdakilerden hangisi doğrudur?",
       "options": [
-        "Millî Mücadele'nin hedeflerinin belirlenmiş olduğunu",
-        "Osmanlı Devleti'nin güçlendiğini",
-        "İşgallerin sona erdiğini",
-        "Saltanat yönetiminin güçlendiğini"
-      ],
-      "answerIndex": 0,
-      "explanation": "Misak-ı Milli Millî Mücadele'nin hedeflerini belirlemiştir."
-    },
-    {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Erzurum ve Sivas kongreleri birlikte değerlendirildiğinde aşağıdaki yorumlardan hangisine ulaşılabilir?",
-      "options": [
-        "Millî Mücadele'nin bağımsızlık ve örgütlenme süreci güçlenmiştir.",
-        "Osmanlı Devleti'nin askerî gücü artırılmıştır.",
-        "Saltanat yönetimi güçlendirilmiştir.",
-        "İşgaller kabul edilmiştir."
-      ],
-      "answerIndex": 0,
-      "explanation": "Erzurum Kongresi bağımsızlık anlayışını, Sivas Kongresi ise örgütlenmeyi güçlendirmiştir."
-    },
-    {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Amasya Genelgesi'nin yayımlanması aşağıdakilerden hangisinin başlangıcı olarak kabul edilir?",
-      "options": [
-        "Millî Mücadele'nin örgütlenme sürecinin",
-        "Cumhuriyet döneminin",
-        "Lozan görüşmelerinin",
-        "Çok partili hayata geçişin"
-      ],
-      "answerIndex": 0,
-      "explanation": "Amasya Genelgesi Millî Mücadele'nin örgütlenme sürecini başlatmıştır."
-    },
-    {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Erzurum Kongresi'nin bölgesel olarak toplanmasına rağmen aldığı kararların millî nitelik taşıması aşağıdakilerden hangisini göstermektedir?",
-      "options": [
-        "Kongrenin yalnızca Doğu Anadolu'yu ilgilendirdiğini",
-        "Kongre kararlarının bütün milleti ilgilendirdiğini",
-        "Osmanlı hükümetinin kongreyi desteklediğini",
-        "Kongre kararlarının uygulanmadığını"
+        "Savaş devam etmiştir.",
+        "Doğu Trakya savaş yapılmadan kurtarılmıştır.",
+        "İstanbul hâlâ işgal altındadır.",
+        "Lozan Antlaşması imzalanmıştır."
       ],
       "answerIndex": 1,
-      "explanation": "Erzurum Kongresi kararları millî nitelik taşımaktadır."
+      "difficulty": 5,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Mudanya ile Doğu Trakya ve İstanbul savaş yapılmadan Türk yönetimine geçmiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q04",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Milli Uyanış",
-      "difficulty": "VERY_HARD",
-      "stem": "Aşağıdaki gelişmelerden hangisi Millî Mücadele'nin yönetim merkezinin oluşmasına doğrudan katkı sağlamıştır?",
+      "stem": "Lozan Antlaşması'nda kapitülasyonların kaldırılması, aşağıdaki ilkelerden hangisiyle doğrudan ilişkilidir?",
       "options": [
-        "TBMM'nin açılması",
-        "Lozan Antlaşması'nın imzalanması",
-        "Saltanatın kaldırılması",
-        "Cumhuriyetin ilan edilmesi"
+        "Saltanatın devamı",
+        "Ekonomik bağımsızlık",
+        "Halifeliğin güçlendirilmesi",
+        "Bölgesel yönetim"
       ],
-      "answerIndex": 0,
-      "explanation": "TBMM Millî Mücadele'nin yönetim merkezi olmuştur."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "comparison",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Kapitülasyonların kaldırılması ekonomik bağımsızlığın sağlanması anlamına gelir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q05",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "TBMM'nin açılışı ile Amasya Genelgesi'ndeki 'milletin azim ve kararı' vurgusu arasındaki ilişki nasıldır?",
+      "options": [
+        "Hiçbir ilişki yoktur.",
+        "TBMM, milli iradenin teşkilatlı temsilidir; Amasya bu iradenin önemini vurgular.",
+        "TBMM saltanatı güçlendirmek için açılmıştır.",
+        "Amasya Genelgesi TBMM'yi reddeder."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "inference",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Amasya'daki milli irade vurgusu, TBMM'nin fikirsel temelini oluşturur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q06",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Sevr Antlaşması ile Lozan Antlaşması karşılaştırıldığında temel fark aşağıdakilerden hangisidir?",
+      "options": [
+        "Her ikisi de aynı koşulları içerir.",
+        "Sevr Türkiye'yi parçalama; Lozan bağımsız Türkiye'yi tanıma ve sınırları belirleme",
+        "Lozan daha ağır şartlar getirir.",
+        "Sevr Türkiye lehinedir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Sevr işgalci tasarımı; Lozan Millî Mücadele'nin zaferiyle bağımsız Türkiye'yi tanır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q07",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Kütahya-Eskişehir Muharebeleri sonrası ordunun Sakarya'nın doğusuna çekilmesi, aşağıdakilerden hangisiyle açıklanabilir?",
+      "options": [
+        "Savaştan tamamen vazgeçildiği",
+        "Zaman kazanma ve yeniden toparlanma stratejisi",
+        "İstanbul'a teslim olma niyeti",
+        "Yunan ordusunun barış istemesi"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Geri çekilme, ordunun toparlanması ve Sakarya'da karşı taarruza hazırlanması stratejisinin parçasıdır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q08",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Büyük Taarruz'un hazırlık aşamasında gizliliğe verilen önem, aşağıdakilerden hangisinin göstergesidir?",
+      "options": [
+        "Ordunun zayıf olduğunun",
+        "Stratejik baskın etkisi yaratma amacının",
+        "Savaştan vazgeçildiğinin",
+        "Yardım beklendiğinin"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Gizlilik, düşmanı hazırlıksız yakalayarak taarruzun etkisini artırmak içindir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q09",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Lozan'da boğazlar konusunda alınan kararın, tam bağımsızlık anlayışıyla tam örtüşmemesi aşağıdakilerden hangisiyle ilişkilendirilebilir?",
+      "options": [
+        "Türkiye'nin tüm isteklerinin kabul edildiği",
+        "Uluslararası dengeler nedeniyle bazı tavizlerin verildiği",
+        "Boğazların tamamen kapalı olduğu",
+        "Savaşın devam ettiği"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Ya İstiklal Ya Ölüm",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Boğazlar konusunda uluslararası komisyon kabul edilmiş; tam bağımsızlık açısından eksik kalmıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack003_q10",
+      "subject": "inkilap",
+      "imageAsset": null
     }
   ]
 }

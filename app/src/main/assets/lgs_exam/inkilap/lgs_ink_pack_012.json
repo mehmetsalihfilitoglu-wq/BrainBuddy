@@ -1,139 +1,248 @@
 {
   "version": 1,
-  "mode": "PACK",
+  "mode": "LGS",
   "subject": "inkilap",
-  "publisher": "BrainBuddy",
-  "packId": "lgs_ink_pack_012",
+  "publisher": "brainbuddy",
   "questions": [
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un ardından Mustafa Kemal'in \"Ordular! İlk hedefiniz Akdeniz'dir, ileri!\" emrini vermesi aşağıdakilerden hangisini göstermektedir?",
+      "stem": "Cumhuriyet'in ilanı ile saltanatın kaldırılması arasındaki kronolojik ve mantıksal ilişki nasıldır?",
       "options": [
-        "Türk ordusunun savunma stratejisinden tamamen vazgeçtiğini",
-        "Yunan ordusunun Anadolu'daki askeri varlığının tamamen ortadan kaldırılmasının hedeflendiğini",
-        "Savaşın yalnızca Batı Anadolu'da devam edeceğini",
-        "Türk ordusunun geri çekilme stratejisini uygulayacağını"
+        "Saltanat cumhuriyetten sonra kaldırılmıştır.",
+        "Önce saltanat kaldırılmış; ardından cumhuriyet ilan edilerek yeni rejim netleştirilmiştir.",
+        "İkisi aynı gün gerçekleşmiştir.",
+        "Cumhuriyet saltanatı güçlendirmiştir."
       ],
       "answerIndex": 1,
-      "explanation": "Bu emir Türk ordusunun Yunan kuvvetlerini tamamen Anadolu'dan çıkarmayı hedeflediğini göstermektedir."
-    },
-    {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un kazanılması aşağıdaki gelişmelerden hangisine doğrudan zemin hazırlamıştır?",
-      "options": [
-        "Mudanya Ateşkes Antlaşması'nın imzalanmasına",
-        "Cumhuriyetin ilan edilmesine",
-        "Saltanatın kaldırılmasına",
-        "Ankara Antlaşması'nın imzalanmasına"
+      "difficulty": 4,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
       ],
-      "answerIndex": 0,
-      "explanation": "Büyük Taarruz'un ardından Yunan ordusu Anadolu'dan çekilmiş ve Mudanya Ateşkesi imzalanmıştır."
+      "explanation": "Önce saltanat kaldırılmış (1922), sonra cumhuriyet ilan edilmiştir (1923).",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q01",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Sakarya Savaşı sonrasında yaklaşık bir yıl boyunca taarruza geçilmemesi aşağıdakilerden hangisinin göstergesi olarak değerlendirilebilir?",
+      "stem": "Çok partili hayata geçiş denemelerinde (Terakkiperver Cumhuriyet Fırkası, Serbest Fırka) yaşanan kapatmalar, aşağıdakilerden hangisiyle ilişkilendirilebilir?",
       "options": [
-        "Türk ordusunun saldırı gücünün tamamen kaybolduğunun",
-        "Türk ordusunun büyük bir saldırı için hazırlık yaptığı stratejik bir sürecin yaşandığının",
-        "İtilaf Devletleri ile barış görüşmelerinin sürdüğünün",
-        "Savaşın tamamen sona erdiğinin"
+        "Demokrasinin güçlenmesi",
+        "Rejim karşıtı faaliyetler ve istikrar endişesi",
+        "Partilerin güçlenmesi",
+        "Seçimlerin iptali"
       ],
       "answerIndex": 1,
-      "explanation": "Sakarya sonrası geçen süre Büyük Taarruz için hazırlık sürecidir."
+      "difficulty": 5,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Partiler rejim karşıtı faaliyetlere karıştığı gerekçesiyle kapatılmış; rejim güvenliği ön planda tutulmuştur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q02",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Başkomutanlık Meydan Muharebesi'nin kazanılması aşağıdakilerden hangisini en güçlü biçimde göstermektedir?",
+      "stem": "Kadınlara belediye seçimlerinde (1930) ve genel seçimlerde (1934) seçme ve seçilme hakkı verilmesi, aşamalı olarak nasıl yorumlanabilir?",
       "options": [
-        "Türk ordusunun Anadolu'daki askeri üstünlüğü kesin olarak ele geçirdiğini",
-        "İtilaf Devletleri'nin Anadolu'daki tüm siyasi etkisinin sona erdiğini",
-        "Osmanlı Devleti'nin yeniden güç kazandığını",
-        "Saltanat yönetiminin güçlendiğini"
+        "Kadınlar hiç hak kazanmamıştır.",
+        "Siyasi haklar aşamalı olarak genişletilerek demokratik katılım artırılmıştır.",
+        "Sadece erkeklere hak verilmiştir.",
+        "Haklar geri alınmıştır."
       ],
-      "answerIndex": 0,
-      "explanation": "Başkomutanlık Meydan Muharebesi Türk ordusunun kesin askeri üstünlüğünü sağlamıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Önce yerel, sonra genel seçimlerde hak tanınması aşamalı demokratikleşmeyi gösterir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q03",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un başarıyla sonuçlanması aşağıdakilerden hangisinin gerçekleşmesini zorunlu hale getirmiştir?",
+      "stem": "1924 Anayasası'nda 'Türkiye Devleti bir Cumhuriyettir.' hükmünün yer alması neyin göstergesidir?",
       "options": [
-        "İtilaf Devletleri'nin ateşkes görüşmelerine razı olmasını",
-        "Osmanlı hükümetinin yeniden yönetimi devralmasını",
-        "Türk ordusunun savunma savaşına geri dönmesini",
-        "TBMM'nin yetkilerinin azaltılmasını"
+        "Saltanatın devam ettiğinin",
+        "Cumhuriyet rejiminin anayasal temele oturtulduğunun",
+        "Halifeliğin güçlendiğinin",
+        "Monarşinin kabul edildiğinin"
       ],
-      "answerIndex": 0,
-      "explanation": "Türk ordusunun kesin zaferi İtilaf Devletleri'ni ateşkes görüşmelerine zorlamıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Anayasa, cumhuriyet rejimini hukuki temele oturtmuştur.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q04",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un kazanılması Millî Mücadele'nin hangi aşamasının başladığını göstermektedir?",
+      "stem": "Atatürk'ün 'Egemenlik kayıtsız şartsız milletindir.' sözü ile cumhuriyet rejimi arasındaki ilişki nasıldır?",
       "options": [
-        "Askeri mücadelenin büyük ölçüde tamamlanıp diplomatik sürecin ön plana çıktığını",
-        "Millî Mücadele'nin yeni başladığını",
-        "Türk ordusunun savunma aşamasına döndüğünü",
-        "Savaşın Anadolu dışında devam edeceğini"
+        "Cumhuriyet egemenliği padişahta toplar.",
+        "Cumhuriyet, milli egemenliğin rejimsel ifadesidir.",
+        "Egemenlik hâlâ saltanattadır.",
+        "Millet egemenliği cumhuriyetle zayıflar."
       ],
-      "answerIndex": 0,
-      "explanation": "Büyük Taarruz sonrası askeri mücadele büyük ölçüde tamamlanmış ve diplomasi süreci başlamıştır."
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "comparison",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Cumhuriyet, egemenliğin millette olduğu anlayışının rejim biçimidir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q05",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un ardından Yunan ordusunun Anadolu'dan çekilmesi aşağıdakilerden hangisini doğrudan sağlamıştır?",
+      "stem": "1921 Anayasası'nda 'Egemenlik kayıtsız şartsız milletindir.' maddesi, aşağıdakilerden hangisini yansıtır?",
       "options": [
-        "Batı Anadolu'daki işgalin sona ermesini",
-        "İtilaf Devletleri'nin Anadolu'dan tamamen çekilmesini",
-        "Saltanatın kaldırılmasını",
-        "Cumhuriyetin ilan edilmesini"
+        "Saltanatın güçlenmesini",
+        "Milli irade ve egemenlik anlayışını",
+        "Padişahın yetkilerinin artmasını",
+        "Halifeliğin devamını"
       ],
-      "answerIndex": 0,
-      "explanation": "Büyük Taarruz Batı Anadolu'daki Yunan işgalini sona erdirmiştir."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "inference",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Bu madde milli egemenlik ilkesinin anayasal ifadesidir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q06",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un başarısı aşağıdakilerden hangisinin gerçekleşmesini hızlandırmıştır?",
+      "stem": "Hukuk alanındaki inkılaplar (Medeni Kanun, Ceza Kanunu vb.) hangi ilke ile örtüşür?",
       "options": [
-        "Mudanya Ateşkes Antlaşması'nın imzalanmasını",
-        "Cumhuriyetin ilan edilmesini",
-        "Halifeliğin kaldırılmasını",
-        "Çok partili hayata geçişi"
+        "Saltanat",
+        "Laiklik",
+        "Ümmetçilik",
+        "Gelenekçilik"
       ],
-      "answerIndex": 0,
-      "explanation": "Zafer sonrası ateşkes görüşmeleri başlamıştır."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "paragraph_interpretation",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Hukukun laikleştirilmesi, din-devlet ayrımının hukuk alanındaki yansımasıdır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q07",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un kazanılması aşağıdakilerden hangisinin Millî Mücadele'deki rolünü en açık biçimde göstermektedir?",
+      "stem": "Terakkiperver Cumhuriyet Fırkası'nın 'partimiz dini inançlara saygılıdır' ifadesi, neden rejim açısından sorunlu görülmüş olabilir?",
       "options": [
-        "TBMM'nin askeri ve siyasi liderliğini",
-        "Osmanlı hükümetinin etkinliğini",
-        "Saltanat yönetiminin gücünü",
-        "İtilaf Devletleri'nin üstünlüğünü"
+        "Din özgürlüğü desteklendiği için",
+        "Laik rejime karşı siyasi araç olarak kullanılabileceği endişesi",
+        "Parti çok laik olduğu için",
+        "Din hiç önemsenmediği için"
       ],
-      "answerIndex": 0,
-      "explanation": "Zafer TBMM'nin askeri ve siyasi liderliğini göstermiştir."
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "cause_effect",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Dinin siyasi malzeme yapılma riski, laik rejim açısından endişe yaratmıştır.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q08",
+      "subject": "inkilap",
+      "imageAsset": null
     },
     {
-      "topic": "Ya İstiklal Ya Ölüm",
-      "difficulty": "VERY_HARD",
-      "stem": "Büyük Taarruz'un ardından Mudanya Ateşkes Antlaşması'nın imzalanması aşağıdakilerden hangisinin göstergesidir?",
+      "stem": "Serbest Fırka deneyiminin kısa sürede sona ermesi, aşağıdakilerden hangisiyle açıklanabilir?",
       "options": [
-        "Askerî başarının diplomatik başarıya dönüştüğünün",
-        "Savaşın yeniden başladığının",
-        "Osmanlı Devleti'nin yeniden güçlendiğinin",
-        "Saltanat yönetiminin güçlendiğinin"
+        "Partinin çok başarılı olması",
+        "Rejim karşıtı gösterilerin partilerle ilişkilendirilmesi ve istikrar endişesi",
+        "Seçim kazanması",
+        "Halkın ilgi göstermemesi"
       ],
-      "answerIndex": 0,
-      "explanation": "Büyük Taarruz askeri başarıyı diplomatik başarıya dönüştürmüştür."
+      "answerIndex": 1,
+      "difficulty": 4,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "historical_analysis",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Rejim karşıtı olayların partiyle ilişkilendirilmesi, kapatma kararını getirmiştir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q09",
+      "subject": "inkilap",
+      "imageAsset": null
+    },
+    {
+      "stem": "Cumhuriyet Halk Fırkası'nın tek parti olarak uzun süre kalması, demokratikleşme süreci açısından nasıl değerlendirilebilir?",
+      "options": [
+        "Tam demokrasi sağlanmıştır.",
+        "Çok partili sistem henüz yerleşememiş; tek parti dönemi geçiş aşaması olmuştur.",
+        "Hiç seçim yapılmamıştır.",
+        "Padişah yönetimi devam etmiştir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "topic": "Demokratikleşme Çabaları",
+      "questionType": "principle_matching",
+      "skills": [
+        "comprehension",
+        "cause_effect",
+        "inference",
+        "context"
+      ],
+      "explanation": "Tek parti dönemi, rejimin yerleşmesi sürecinde geçici bir aşama olarak görülebilir.",
+      "source": "brainbuddy_premium",
+      "sourceRef": "ink_pack012_q10",
+      "subject": "inkilap",
+      "imageAsset": null
     }
   ]
 }

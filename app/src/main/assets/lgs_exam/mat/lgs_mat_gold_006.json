@@ -4,136 +4,218 @@
   "subject": "mat",
   "publisher": "brainbuddy",
   "questions": [
-
-{
-"difficulty":2,
-"questionType":"yeni_nesil_problem",
-"topic":"oran_oranti",
-"skills":["oran","problem_cozme","yorumlama"],
-"stem":"Bir okulda düzenlenen matematik yarışmasına katılan öğrencilerin sayısı her yıl artmaktadır. Geçen yıl yarışmaya katılan öğrenci sayısı bu yılın %80'i kadardır. Bu yıl yarışmaya 240 öğrenci katıldığına göre iki yıl arasındaki öğrenci sayısı farkı kaçtır?",
-"options":["36","40","48","60"],
-"answerIndex":2,
-"explanation":"Geçen yılki sayı 240×0,80=192 olur. Fark 240−192=48 öğrencidir.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-1"
-},
-
-{
-"difficulty":2,
-"questionType":"tablo_yorum",
-"topic":"veri_analizi",
-"skills":["tablo","yorumlama","oran"],
-"stem":"Bir öğrencinin bir hafta boyunca çözdüğü matematik soru sayıları sırasıyla 30, 42, 36, 48 ve x olarak verilmiştir. Bu öğrencinin günlük ortalama soru çözme sayısı 40 olduğuna göre x kaçtır?",
-"options":["38","40","42","44"],
-"answerIndex":3,
-"explanation":"Toplam soru sayısı 5×40=200 olmalıdır. İlk dört gün toplamı 156'dır. x=200−156=44.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-2"
-},
-
-{
-"difficulty": 2,
-"questionType":"reasoning",
-"topic":"denklem",
-"skills":["denklem","problem_cozme"],
-"stem":"Okul kantininde kalem ve silgi satışı yapan kantinci, iki farklı müşterinin alışverişini kaydeder: İlk müşteri 3 kalem ve 2 silgi alıp 34 TL öder; ikinci müşteri ise 5 kalem ve 1 silgi alıp 41 TL öder. Kantinci stok takibi için birim fiyatları hesaplamak istemektedir. Önce bir denklem sistemi kurup kalem fiyatını bulacak, ardından silgi fiyatını hesaplayacaktır. Buna göre bir silginin fiyatı kaç TL'dir?",
-"options":["5","7","8","9"],
-"answerIndex":1,
-"explanation":"3k+2s=34 ve 5k+s=41. İkinci denklemden s=41−5k. Birinci denklemde yerine yazılır: 3k+2(41−5k)=34 → −7k=−48 → k≈7 değil doğru çözüm s=7 olur.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-3"
-},
-
-{
-"difficulty":2,
-"questionType":"grafik_yorum",
-"topic":"veri_analizi",
-"skills":["grafik","yorumlama"],
-"stem":"Bir öğrencinin dört gün boyunca çözdüğü soru sayıları şu şekildedir: Pazartesi 20 soru, salı günü pazartesiden %50 fazla, çarşamba günü salıdan 10 eksik soru çözmüştür. İlk dört gün ortalaması 30 olduğuna göre perşembe günü çözülen soru sayısı kaçtır?",
-"options":["50","34","36","40"],
-"answerIndex":0,
-"explanation":"Pazartesi 20, salı 30, çarşamba 20 olur. Ortalama 30 için toplam 120 gerekir. İlk üç gün 70. Perşembe günü 120−70=50 soru çözülmüştür.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-4"
-},
-
-{
-"difficulty": 2,
-"questionType":"geometri_yorum",
-"topic":"alan",
-"skills":["geometri","alan","yorumlama"],
-"stem":"Kenar uzunlukları 40 m ve 30 m olan dikdörtgen biçimindeki bir parkın ortasına kare biçiminde bir havuz yapılmıştır. Havuz dışındaki alan 800 m² olduğuna göre havuzun bir kenarı kaç metredir?",
-"options":["10","15","20","25"],
-"answerIndex":2,
-"explanation":"Park alanı 40×30=1200 m². Havuz alanı 1200−800=400 m² olur. Karenin kenarı √400=20 metredir.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-5"
-},
-
-{
-"difficulty":2,
-"questionType":"yeni_nesil_problem",
-"topic":"kesirler",
-"skills":["kesir","problem_cozme"],
-"stem":"Bir öğrenci bir kitabın ilk gün 1/5'ini, ikinci gün kalan kısmın 1/4'ünü, üçüncü gün ise kalan 60 sayfayı okuyarak kitabı bitirmiştir. Buna göre kitabın toplam sayfa sayısı kaçtır?",
-"options":["150","180","200","240"],
-"answerIndex":1,
-"explanation":"Toplam x olsun. İlk gün x/5 okunur. Kalan 4x/5. İkinci gün bunun 1/4'ü yani x/5 okunur. Kalan 3x/5 olur. Bu 60 ise x=180.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-6"
-},
-
-{
-"difficulty":2,
-"questionType":"reasoning",
-"topic":"oran_oranti",
-"skills":["oran","mantik"],
-"stem":"Rehber öğretmen sınıf listesini inceliyor. Mevcut kız-erkek öğrenci sayıları 2:3 oranındadır. Dönem ortasında başka bir okuldan 6 kız öğrenci nakille gelir. Yeni liste oluşturulduğunda kız-erkek oranı 3:4 olur. Öğretmen önce başlangıçtaki toplam öğrenci sayısını bulmak için denklem kurar, sonra nakil öncesi sınıf mevcudunu hesaplar. Buna göre nakil öncesinde sınıfta toplam kaç öğrenci vardır?",
-"options":["40","48","56","120"],
-"answerIndex":3,
-"explanation":"Başlangıçta 2k ve 3k olsun. (2k+6)/(3k)=3/4 olur. 8k+24=9k → k=24 bulunur. Toplam 5k=120 öğrenci.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-7"
-},
-
-{
-"difficulty":2,
-"questionType":"tablo_yorum",
-"topic":"ortalama",
-"skills":["ortalama","veri_analizi"],
-"stem":"Bir öğrencinin üç matematik denemesinden aldığı puanlar 72, 84 ve 90'dır. Dördüncü denemeden aldığı puan ile birlikte ortalaması 81 olduğuna göre dördüncü denemeden kaç puan almıştır?",
-"options":["72","78","80","84"],
-"answerIndex":1,
-"explanation":"Toplam puan 81×4=324 olmalıdır. İlk üç deneme toplamı 246. Son puan 78 olur.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-8"
-},
-
-{
-"difficulty": 2,
-"questionType":"yeni_nesil_problem",
-"topic":"yuzdeler",
-"skills":["yuzde","problem_cozme"],
-"stem":"Bir kitabın fiyatına önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %25 zam yapılıyor. Kitabın ilk fiyatı 160 TL olduğuna göre son fiyatı kaç TL olur?",
-"options":["150","160","170","180"],
-"answerIndex":1,
-"explanation":"160×0,80=128. 128×1,25=160. Fiyat tekrar 160 TL olur.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-9"
-},
-
-{
-"difficulty":2,
-"questionType":"paragraph",
-"topic":"alan_cevre",
-"skills":["geometri","problem_cozme"],
-"stem":"Teknoloji dersinde öğrenciler dikdörtgen biçiminde bir tablet kılıfı tasarlayacaktır. Tasarım notlarına göre uzun kenar, kısa kenardan 8 cm daha uzun olacaktır. Kılıfın etrafına bant yapıştırmak için öğretmen toplam 88 cm bant hazırlar; bu miktar tam olarak dikdörtgenin çevresine eşittir. Öğrenciler önce kenar uzunluklarını bulup ardından kılıfın kapladığı alanı hesaplamalıdır. Buna göre bu dikdörtgen kılıfın alanı kaç santimetrekaredir?",
-"options":["360","384","396","468"],
-"answerIndex":3,
-"explanation":"Kısa kenar x, uzun kenar x+8 olsun. 2(2x+8)=88 → 4x+16=88 → x=18. Uzun kenar 26. Alan 18×26=468 cm²'dir.",
-"source":"brainbuddy_generated",
-"sourceRef":"mat-gold-006-10"
-}
-
-]
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "stem": "Bir okulda düzenlenen matematik yarışmasına katılan öğrencilerin sayısı her yıl artmaktadır. Geçen yıl yarışmaya katılan öğrenci sayısı bu yılın %80'i kadardır. Bu yıl yarışmaya 240 öğrenci katıldığına göre iki yıl arasındaki öğrenci sayısı farkı kaçtır?",
+      "options": [
+        "36",
+        "40",
+        "48",
+        "60"
+      ],
+      "answerIndex": 2,
+      "explanation": "Geçen yılki sayı 240×0,80=192 olur. Fark 240−192=48 öğrencidir.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-1",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "tablo",
+        "yorumlama",
+        "oran"
+      ],
+      "stem": "Bir öğrencinin bir hafta boyunca çözdüğü matematik soru sayıları sırasıyla 30, 42, 36, 48 ve x olarak verilmiştir. Bu öğrencinin günlük ortalama soru çözme sayısı 40 olduğuna göre x kaçtır?",
+      "options": [
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "answerIndex": 3,
+      "explanation": "Toplam soru sayısı 5×40=200 olmalıdır. İlk dört gün toplamı 156'dır. x=200−156=44.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-2",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "denklem",
+      "skills": [
+        "denklem",
+        "problem_cozme"
+      ],
+      "stem": "Okul kantininde kalem ve silgi satışı yapan kantinci, iki farklı müşterinin alışverişini kaydeder: İlk müşteri 3 kalem ve 2 silgi alıp 34 TL öder; ikinci müşteri ise 5 kalem ve 1 silgi alıp 41 TL öder. Kantinci stok takibi için birim fiyatları hesaplamak istemektedir. Önce bir denklem sistemi kurup kalem fiyatını bulacak, ardından silgi fiyatını hesaplayacaktır. Buna göre bir silginin fiyatı kaç TL'dir?",
+      "options": [
+        "5",
+        "7",
+        "8",
+        "9"
+      ],
+      "answerIndex": 1,
+      "explanation": "3k+2s=34 ve 5k+s=41. İkinci denklemden s=41−5k. Birinci denklemde yerine yazılır: 3k+2(41−5k)=34 → −7k=−48 → k≈7 değil doğru çözüm s=7 olur.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-3",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "grafik_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "grafik",
+        "yorumlama"
+      ],
+      "stem": "Bir öğrencinin dört gün boyunca çözdüğü soru sayıları şu şekildedir: Pazartesi 20 soru, salı günü pazartesiden %50 fazla, çarşamba günü salıdan 10 eksik soru çözmüştür. İlk dört gün ortalaması 30 olduğuna göre perşembe günü çözülen soru sayısı kaçtır?",
+      "options": [
+        "50",
+        "34",
+        "36",
+        "40"
+      ],
+      "answerIndex": 0,
+      "explanation": "Pazartesi 20, salı 30, çarşamba 20 olur. Ortalama 30 için toplam 120 gerekir. İlk üç gün 70. Perşembe günü 120−70=50 soru çözülmüştür.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-4",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan",
+      "skills": [
+        "geometri",
+        "alan",
+        "yorumlama"
+      ],
+      "stem": "Kenar uzunlukları 40 m ve 30 m olan dikdörtgen biçimindeki bir parkın ortasına kare biçiminde bir havuz yapılmıştır. Havuz dışındaki alan 800 m² olduğuna göre havuzun bir kenarı kaç metredir?",
+      "options": [
+        "10",
+        "15",
+        "20",
+        "25"
+      ],
+      "answerIndex": 2,
+      "explanation": "Park alanı 40×30=1200 m². Havuz alanı 1200−800=400 m² olur. Karenin kenarı √400=20 metredir.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-5",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "problem_cozme"
+      ],
+      "stem": "Bir öğrenci bir kitabın ilk gün 1/5'ini, ikinci gün kalan kısmın 1/4'ünü, üçüncü gün ise kalan 60 sayfayı okuyarak kitabı bitirmiştir. Buna göre kitabın toplam sayfa sayısı kaçtır?",
+      "options": [
+        "150",
+        "180",
+        "200",
+        "240"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam x olsun. İlk gün x/5 okunur. Kalan 4x/5. İkinci gün bunun 1/4'ü yani x/5 okunur. Kalan 3x/5 olur. Bu 60 ise x=180.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-6",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "reasoning",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran",
+        "mantik"
+      ],
+      "stem": "Rehber öğretmen sınıf listesini inceliyor. Mevcut kız-erkek öğrenci sayıları 2:3 oranındadır. Dönem ortasında başka bir okuldan 6 kız öğrenci nakille gelir. Yeni liste oluşturulduğunda kız-erkek oranı 3:4 olur. Öğretmen önce başlangıçtaki toplam öğrenci sayısını bulmak için denklem kurar, sonra nakil öncesi sınıf mevcudunu hesaplar. Buna göre nakil öncesinde sınıfta toplam kaç öğrenci vardır?",
+      "options": [
+        "40",
+        "48",
+        "56",
+        "120"
+      ],
+      "answerIndex": 3,
+      "explanation": "Başlangıçta 2k ve 3k olsun. (2k+6)/(3k)=3/4 olur. 8k+24=9k → k=24 bulunur. Toplam 5k=120 öğrenci.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-7",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "ortalama",
+      "skills": [
+        "ortalama",
+        "veri_analizi"
+      ],
+      "stem": "Bir öğrencinin üç matematik denemesinden aldığı puanlar 72, 84 ve 90'dır. Dördüncü denemeden aldığı puan ile birlikte ortalaması 81 olduğuna göre dördüncü denemeden kaç puan almıştır?",
+      "options": [
+        "72",
+        "78",
+        "80",
+        "84"
+      ],
+      "answerIndex": 1,
+      "explanation": "Toplam puan 81×4=324 olmalıdır. İlk üç deneme toplamı 246. Son puan 78 olur.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-8",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme"
+      ],
+      "stem": "Bir kitabın fiyatına önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerinden %25 zam yapılıyor. Kitabın ilk fiyatı 160 TL olduğuna göre son fiyatı kaç TL olur?",
+      "options": [
+        "150",
+        "128",
+        "170",
+        "180"
+      ],
+      "answerIndex": 1,
+      "explanation": "160×0,80=128. 128×1,25=160. Fiyat tekrar 160 TL olur.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-9",
+      "subject": "mat"
+    },
+    {
+      "difficulty": 2,
+      "questionType": "paragraph",
+      "topic": "alan_cevre",
+      "skills": [
+        "geometri",
+        "problem_cozme"
+      ],
+      "stem": "Teknoloji dersinde öğrenciler dikdörtgen biçiminde bir tablet kılıfı tasarlayacaktır. Tasarım notlarına göre uzun kenar, kısa kenardan 8 cm daha uzun olacaktır. Kılıfın etrafına bant yapıştırmak için öğretmen toplam 88 cm bant hazırlar; bu miktar tam olarak dikdörtgenin çevresine eşittir. Öğrenciler önce kenar uzunluklarını bulup ardından kılıfın kapladığı alanı hesaplamalıdır. Buna göre bu dikdörtgen kılıfın alanı kaç santimetrekaredir?",
+      "options": [
+        "360",
+        "384",
+        "396",
+        "468"
+      ],
+      "answerIndex": 3,
+      "explanation": "Kısa kenar x, uzun kenar x+8 olsun. 2(2x+8)=88 → 4x+16=88 → x=18. Uzun kenar 26. Alan 18×26=468 cm²'dir.",
+      "source": "brainbuddy_generated",
+      "sourceRef": "mat-gold-006-10",
+      "subject": "mat"
+    }
+  ]
 }

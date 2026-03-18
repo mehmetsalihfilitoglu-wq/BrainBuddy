@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat3_0290",
+      "stem": "Ali'nin 50 TL'si var. 18 TL harcadı. Geriye kaç TL kalmıştır?",
+      "options": [
+        "33",
+        "31",
+        "32",
+        "68"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "para_problemleri",
+      "skills": [
+        "para_probl",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "50-18=32 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0290",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0291",
+      "stem": "3 ekmek 12 TL ise 1 ekmek kaç TL'dir?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "36"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "para_problemleri",
+      "skills": [
+        "para_probl",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "12÷3=4 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0291",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0292",
+      "stem": "Elif 2 TL'ye silgi, 5 TL'ye kalem aldı. 10 TL verdiğinde kaç TL para üstü alır?",
+      "options": [
+        "4",
+        "3",
+        "2",
+        "7"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "para_problemleri",
+      "skills": [
+        "para_probl",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2+5=7, 10-7=3 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0292",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0293",
+      "stem": "Zeynep 3 defter aldı, her biri 6 TL. Toplam kaç TL ödedi?",
+      "options": [
+        "21",
+        "3",
+        "9",
+        "18"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "gunluk_hayat_senaryosu",
+      "topic": "para_problemleri",
+      "skills": [
+        "para_probl",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "3×6=18 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0293",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0294",
+      "stem": "Karenin 4 kenarı eşit, dikdörtgenin ise karşılıklı kenarları eşittir. Hangisi doğrudur?",
+      "options": [
+        "Kare 5 kenarlıdır",
+        "Dikdörtgen 3 kenarlıdır",
+        "Sadece kare dörtgendir",
+        "İkisi de dörtgendir"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "geometrik_sekiller",
+      "skills": [
+        "geometrik_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Kare ve dikdörtgen dörtgenlerdir (4 kenarlı).",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0294",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0295",
+      "stem": "Karenin kaç kenarı vardır?",
+      "options": [
+        "6",
+        "5",
+        "4",
+        "3"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "geometrik_sekiller",
+      "skills": [
+        "geometrik_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Kare 4 kenarlı bir şekildir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0295",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0296",
+      "stem": "Üçgenin kaç köşesi vardır?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "5"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "gunluk_hayat_senaryosu",
+      "topic": "geometrik_sekiller",
+      "skills": [
+        "geometrik_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Üçgen 3 köşelidir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0296",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0297",
+      "stem": "Aşağıdakilerden hangisi dikdörtgenin özelliğidir?",
+      "options": [
+        "Karşılıklı kenarları eşittir",
+        "Tüm kenarları eşittir",
+        "3 kenarı vardır",
+        "Köşesi yoktur"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "geometrik_sekiller",
+      "skills": [
+        "geometrik_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Dikdörtgende karşılıklı kenarlar eşittir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0297",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0298",
+      "stem": "Dairenin kaç kenarı vardır?",
+      "options": [
+        "Çok",
+        "1",
+        "4",
+        "Kenarı yoktur (eğri çizgidir)"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "geometrik_sekiller",
+      "skills": [
+        "geometrik_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Daire kenarı olmayan eğri bir şekildir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0298",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0299",
+      "stem": "Karenin 4 kenarı eşit, dikdörtgenin ise karşılıklı kenarları eşittir. Hangisi doğrudur?",
+      "options": [
+        "İkisi de dörtgendir",
+        "Kare 5 kenarlıdır",
+        "Dikdörtgen 3 kenarlıdır",
+        "Sadece kare dörtgendir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "geometrik_sekiller",
+      "skills": [
+        "geometrik_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Kare ve dikdörtgen dörtgenlerdir (4 kenarlı).",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0299",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

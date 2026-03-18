@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0170",
+      "stem": "Bir su deposunun 3/10'i doluyken depoya 120 litre su ekleniyor. Bu işlemden sonra deponun 4/10'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "1140",
+        "600",
+        "1200",
+        "1260"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/10 dolu. +120 litre eklenince 4V/(10) dolu. Denklemden V=1200 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0170",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0171",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 5 katından 24 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "19",
+        "29",
+        "27",
+        "24"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 5e - 24. k+3 = 2(e+2) → e = 8, k = 16. Toplam = 24.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0171",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0172",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 13 TL zam yapılmış, ardından 3 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 2 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "13",
+        "10",
+        "0",
+        "-3"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 13 - 3 = 2x → x(1-2) = -10 → x = 10 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0172",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0173",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 3 katından 14 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "51",
+        "46",
+        "41",
+        "49"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 14. k+3 = 2(e+2) → e = 15, k = 31. Toplam = 46.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0173",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0174",
+      "stem": "Bir torbada 4 kırmızı, 5 yeşil ve 3 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "47/67",
+        "46/66",
+        "47/66",
+        "1/12"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 12 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 47/66.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0174",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0175",
+      "stem": "İki paralel doğru bir kesenle kesilmektedir. İç açılardan birinin ölçüsü 30° dir. Diğer iç açıların ölçüleri toplamı kaç derecedir?",
+      "options": [
+        "180",
+        "150",
+        "330",
+        "240"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "dogrular_ve_acilar",
+      "skills": [
+        "acilar",
+        "geometri",
+        "yorumlama"
+      ],
+      "explanation": "Paralel iki doğru kesenle kesildiğinde 4 iç açı oluşur, toplam 360°. Bir tanesi 30° ise diğerleri toplam 330°.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0175",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0176",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %15 zam yapılmış, ardından indirim döneminde %20 indirim uygulanmıştır. İndirimli fiyat 368 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "420",
+        "440",
+        "360",
+        "400"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+15/100) · (1-20/100) = 368. x = 400 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0176",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0177",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 14 TL zam yapılmış, ardından 2 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 3 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "6",
+        "8",
+        "-6",
+        "-8"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 14 - 2 = 3x → x(1-3) = -12 → x = 6 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0177",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0178",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 3 : 2 : 6 oranındadır. Birinci sınıfa 11 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "111",
+        "121",
+        "131",
+        "126"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 2k, 3k, 6k. 2k + 11 = 3k → k = 11.0. Toplam = 11·k = 121.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0178",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0179",
+      "stem": "Bir mağazada bir ürünün fiyatına önce %10 zam yapılmış, ardından indirim döneminde %15 indirim uygulanmıştır. İndirimli fiyat 374 TL olduğuna göre ürünün ilk fiyatı kaç TL'dir?",
+      "options": [
+        "440",
+        "360",
+        "400",
+        "420"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "yuzdeler",
+      "skills": [
+        "yuzde",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "İlk fiyat x olsun. x · (1+10/100) · (1-15/100) = 374. x = 400 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0179",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

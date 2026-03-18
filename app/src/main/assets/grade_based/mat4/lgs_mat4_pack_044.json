@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat4_0430",
+      "stem": "Bir veri grubunda en çok tekrar eden değere ne denir?",
+      "options": [
+        "Aralık",
+        "Tepe değer (mod)",
+        "Medyan",
+        "Ortalama"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En sık tekrar eden tepe değerdir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0430",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0431",
+      "stem": "4 öğrencinin sınav notları 60, 70, 80, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "76",
+        "73",
+        "74",
+        "75"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "300÷4=75.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0431",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0432",
+      "stem": "5 öğrencinin notları 70, 80, 75, 85, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "79",
+        "82",
+        "78",
+        "80"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 400, 400÷5=80.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0432",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0433",
+      "stem": "Bir veri grubunda en çok tekrar eden değere ne denir?",
+      "options": [
+        "Tepe değer (mod)",
+        "Aralık",
+        "Ortalama",
+        "Medyan"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En sık tekrar eden tepe değerdir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0433",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0434",
+      "stem": "4 öğrencinin sınav notları 60, 70, 80, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "76",
+        "74",
+        "73",
+        "75"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "300÷4=75.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0434",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0435",
+      "stem": "5 öğrencinin notları 70, 80, 75, 85, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "79",
+        "78",
+        "82",
+        "80"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 400, 400÷5=80.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0435",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0436",
+      "stem": "Bir veri grubunda en çok tekrar eden değere ne denir?",
+      "options": [
+        "Aralık",
+        "Tepe değer (mod)",
+        "Medyan",
+        "Ortalama"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En sık tekrar eden tepe değerdir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0436",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0437",
+      "stem": "4 öğrencinin sınav notları 60, 70, 80, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "73",
+        "75",
+        "76",
+        "74"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "300÷4=75.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0437",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0438",
+      "stem": "5 öğrencinin notları 70, 80, 75, 85, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "78",
+        "82",
+        "80",
+        "79"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 400, 400÷5=80.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0438",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_0439",
+      "stem": "Bir veri grubunda en çok tekrar eden değere ne denir?",
+      "options": [
+        "Ortalama",
+        "Aralık",
+        "Medyan",
+        "Tepe değer (mod)"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "veri_toplama",
+      "skills": [
+        "veri_topla",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En sık tekrar eden tepe değerdir.",
+      "source": "brainbuddy",
+      "sourceRef": "mat4_0439",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

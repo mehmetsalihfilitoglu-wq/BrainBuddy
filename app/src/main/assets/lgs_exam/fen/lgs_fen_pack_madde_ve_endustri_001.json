@@ -16,10 +16,15 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["element", "saf_madde", "kimyasal_ozellik"],
+      "skills": [
+        "element",
+        "saf_madde",
+        "kimyasal_ozellik"
+      ],
       "explanation": "Elementler tek tür atomdan oluşur ve kimyasal yöntemlerle daha basit maddelere ayrıştırılamaz. Bu, elementin temel tanımıdır.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_001_q01"
+      "sourceRef": "fen_mad_001_q01",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Periyodik tabloda aynı grupta bulunan elementler ile ilgili aşağıdakilerden hangisi doğrudur?",
@@ -33,10 +38,15 @@
       "difficulty": 3,
       "questionType": "TABLE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "grup", "kimyasal_ozellik"],
+      "skills": [
+        "periyodik_tablo",
+        "grup",
+        "kimyasal_ozellik"
+      ],
       "explanation": "Aynı gruptaki elementlerin kimyasal özellikleri benzerdir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_001_q02"
+      "sourceRef": "fen_mad_001_q02",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bir öğrenci dört maddeyi inceliyor: Oksijen (O2), demir (Fe), su (H2O), bakır (Cu). Bu maddelerden hangisinin farklı tür atomların kimyasal bağla birleşmesiyle oluştuğu ve kimyasal yöntemlerle daha basit maddelere ayrışabildiği söylenebilir?",
@@ -50,7 +60,11 @@
       "difficulty": 3,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["bilesik", "element", "kimyasal_bag"],
+      "skills": [
+        "bilesik",
+        "element",
+        "kimyasal_bag"
+      ],
       "explanation": "Su farklı atomların kimyasal bağ ile birleşmesiyle oluşan bileşiktir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_001_q03"
@@ -67,7 +81,11 @@
       "difficulty": 3,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["bilesik", "element", "saf_madde"],
+      "skills": [
+        "bilesik",
+        "element",
+        "saf_madde"
+      ],
       "explanation": "Farklı atomların belirli oranlarda birleşmesiyle bileşik oluşur.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_001_q04"
@@ -84,10 +102,15 @@
       "difficulty": 3,
       "questionType": "PERIODIC_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "atom_numarasi"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "atom_numarasi"
+      ],
       "explanation": "Periyot boyunca atom numarası artar.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_001_q05"
+      "sourceRef": "fen_mad_001_q05",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Periyodik tabloda aynı periyotta bulunan elementler için aşağıdakilerden hangisi doğrudur?",
@@ -101,10 +124,15 @@
       "difficulty": 3,
       "questionType": "TABLE_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["periyodik_tablo", "periyot", "katman_sayisi"],
+      "skills": [
+        "periyodik_tablo",
+        "periyot",
+        "katman_sayisi"
+      ],
       "explanation": "Aynı periyottaki elementlerin katman sayıları aynıdır.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_001_q06"
+      "sourceRef": "fen_mad_001_q06",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bir öğrenci maddeleri sınıflandırırken şu dört örnekten birinin diğerlerinden farklı olduğunu fark ediyor: Tuz, şeker, hava, altın. Bu dördü arasında belirli bir oranda birleşmemiş, fiziksel yöntemlerle ayrılabilen ve farklı tür moleküller içeren madde hangisidir?",
@@ -118,7 +146,11 @@
       "difficulty": 3,
       "questionType": "CLASSIFICATION_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["karisim", "bilesik", "element"],
+      "skills": [
+        "karisim",
+        "bilesik",
+        "element"
+      ],
       "explanation": "Hava farklı gazların oluşturduğu karışımdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_001_q07"
@@ -135,10 +167,15 @@
       "difficulty": 3,
       "questionType": "ATOM_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["atom", "proton", "atom_numarasi"],
+      "skills": [
+        "atom",
+        "proton",
+        "atom_numarasi"
+      ],
       "explanation": "Atom numarası proton sayısına eşittir.",
       "source": "brainbuddy",
-      "sourceRef": "fen_mad_001_q08"
+      "sourceRef": "fen_mad_001_q08",
+      "imageAsset": "quiz_images/fen/picture.png"
     },
     {
       "stem": "Bazı elementler tek atomlu (ör. Ar), bazıları ise aynı tür atomların birleşmesiyle molekül oluşturur. Doğada gaz halinde bulunan ve molekül yapılı olan element aşağıdakilerden hangisidir?",
@@ -152,7 +189,11 @@
       "difficulty": 3,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["element", "molekul", "yapisal_ozellik"],
+      "skills": [
+        "element",
+        "molekul",
+        "yapisal_ozellik"
+      ],
       "explanation": "O2 molekül yapılı bir elementtir.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_001_q09"
@@ -169,7 +210,11 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Madde ve Endüstri",
-      "skills": ["saf_madde", "karisim", "siniflandirma"],
+      "skills": [
+        "saf_madde",
+        "karisim",
+        "siniflandirma"
+      ],
       "explanation": "Hava bir gaz karışımıdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_mad_001_q10"

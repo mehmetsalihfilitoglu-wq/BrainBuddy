@@ -7,67 +7,117 @@
     {
       "difficulty": 2,
       "topic": "cebirsel_ifadeler",
-      "skills": ["denklem_kurma", "cebirsel_ifadeler", "problem_cozme"],
+      "skills": [
+        "denklem_kurma",
+        "cebirsel_ifadeler",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Bir kırtasiyede bir kalemin fiyatı x TL, bir defterin fiyatı ise x + 5 TL'dir. Bir öğrenci 3 kalem ve 2 defter aldığında toplam 35 TL ödüyor. Buna göre bir defterin fiyatı kaç TL'dir?",
-      "options": ["7", "8", "9", "10"],
-      "answerIndex": 1,
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answerIndex": 3,
       "explanation": "3x + 2(x + 5) = 35 olduğundan 5x + 10 = 35 olur. Buradan 5x = 25 ve x = 5 bulunur. Defterin fiyatı x + 5 = 10'dur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold034_q01"
+      "sourceRef": "gold034_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "geometrik_olcme",
-      "skills": ["cevre", "alan", "problem_cozme"],
+      "skills": [
+        "cevre",
+        "alan",
+        "problem_cozme"
+      ],
       "questionType": "paragraph",
       "stem": "Dikdörtgen şeklindeki bir afiş panosunun uzun kenarı kısa kenarından 4 metre fazladır. Panonun çevresi 32 metredir. Buna göre bu panonun alanı kaç metrekaredir?",
-      "options": ["48", "56", "60", "64"],
+      "options": [
+        "48",
+        "56",
+        "60",
+        "64"
+      ],
       "answerIndex": 2,
       "explanation": "Kısa kenar x, uzun kenar x + 4 olsun. 2x + 2(x + 4) = 32 ise 4x + 8 = 32 olur. Buradan x = 6, uzun kenar 10 bulunur. Alan 6 × 10 = 60 metrekaredir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold034_q02"
+      "sourceRef": "gold034_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "egim",
-      "skills": ["egim", "oran_oranti", "problem_cozme"],
+      "skills": [
+        "egim",
+        "oran_oranti",
+        "problem_cozme"
+      ],
       "questionType": "grafik_yorum",
       "stem": "Bir okul girişine yapılan rampanın yatay uzunluğu 8 metre, yükseldiği dikey mesafe ise 120 santimetredir. Aynı eğime sahip ikinci bir rampanın yatay uzunluğu 5 metre olduğuna göre bu rampanın yüksekliği kaç santimetre olur?",
-      "options": ["60", "75", "90", "100"],
+      "options": [
+        "60",
+        "75",
+        "90",
+        "100"
+      ],
       "answerIndex": 1,
       "explanation": "İlk rampada eğim oranı 120/800 = 3/20'dir. Aynı eğimde 5 metre yani 500 santimetre için yükseklik 500 × 3/20 = 75 santimetredir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold034_q03"
+      "sourceRef": "gold034_q03",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "veri_analizi",
-      "skills": ["aritmetik_ortalama", "veri_yorumlama", "problem_cozme"],
+      "skills": [
+        "aritmetik_ortalama",
+        "veri_yorumlama",
+        "problem_cozme"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir sınıfta yapılan matematik denemesinde 7 öğrencinin netleri 12, 13, 14, 15, 16, 17 ve x olarak kaydedilmiştir. Öğretmen bu öğrencilerin ortalamasının 15 olduğunu söylüyor. Buna göre x kaçtır?",
-      "options": ["16", "17", "18", "19"],
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
       "answerIndex": 2,
       "explanation": "Toplam net 7 × 15 = 105 olmalıdır. Bilinen netlerin toplamı 87'dir. x = 105 - 87 = 18 bulunur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold034_q04"
+      "sourceRef": "gold034_q04",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzde_hesabi", "problem_cozme", "yorumlama"],
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
       "questionType": "long_context",
       "stem": "Bir mağazada satılan okul çantasının etiket fiyatı 900 TL'dir. Önce %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 60 TL kargo bedeli ekleniyor. Son aşamada öğrenci kartı olan müşterilere oluşan yeni fiyat üzerinden %5 indirim yapılıyor. Buna göre müşteri son olarak kaç TL öder?",
-      "options": ["741", "760", "779", "798"],
+      "options": [
+        "741",
+        "760",
+        "779",
+        "798"
+      ],
       "answerIndex": 0,
       "explanation": "900 × 0,80 = 720 TL olur. 60 TL eklenince 780 TL olur. Son olarak %5 indirim uygulanır: 780 × 0,95 = 741 TL.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold034_q05"
+      "sourceRef": "gold034_q05",
+      "subject": "mat"
     }
   ]
 }

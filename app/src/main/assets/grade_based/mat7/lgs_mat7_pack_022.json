@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0210",
+      "stem": "Bir torbada 4 kırmızı, 2 yeşil ve 3 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "1/9",
+        "13/18",
+        "12/18",
+        "13/19"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 9 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 13/18.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0210",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0211",
+      "stem": "Üç farklı sınıftaki öğrenci sayıları 5 : 3 : 4 oranındadır. Birinci sınıfa 8 öğrenci eklenince birinci ve ikinci sınıfların öğrenci sayıları eşit oluyor. Buna göre üç sınıftaki toplam öğrenci sayısı kaçtır?",
+      "options": [
+        "38",
+        "58",
+        "53",
+        "48"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "oran_oranti",
+      "skills": [
+        "oran_oranti",
+        "mantik",
+        "problem_cozme"
+      ],
+      "explanation": "Öğrenci sayıları 3k, 5k, 4k. 3k + 8 = 5k → k = 4.0. Toplam = 12·k = 48.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0211",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0212",
+      "stem": "Kenarları 18 m ve 8 m olan dikdörtgen bahçenin her kenarından 2 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "96",
+        "144",
+        "88",
+        "56"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (18-4)×(8-4) = 14×4 = 56 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0212",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0213",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 81, 81, 81, 81, 84 puan almıştır. Altıncı sınava girince ortalaması 83 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "85",
+        "83",
+        "90",
+        "95"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 408. 6. sınav x ise (total5 + x)/6 = 83 → x = 90.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0213",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0214",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 6 katından 27 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "25",
+        "27",
+        "22",
+        "17"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 6e - 27. k+3 = 2(e+2) → e = 7, k = 15. Toplam = 22.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0214",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0215",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 4) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "91",
+        "97",
+        "101",
+        "96"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+4) = 44 → x = 6. Alan = x(2x+4) = 96 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0215",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0216",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "12",
+        "9",
+        "8",
+        "10"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0216",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0217",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 4 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "9",
+        "10",
+        "12",
+        "8"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 4E. E + 4E = 180° → E = 36°. Kenar sayısı n = 360/E = 10.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0217",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0218",
+      "stem": "Bir sınıftaki kız öğrenci sayısı, erkek öğrenci sayısının 3 katından 14 eksiktir. Sınıfa 3 kız ve 2 erkek gelince kızların sayısı erkeklerin 2 katı oluyor. Buna göre başlangıçta sınıfta kaç öğrenci vardır?",
+      "options": [
+        "46",
+        "49",
+        "51",
+        "41"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "denklemler",
+      "skills": [
+        "denklem",
+        "problem_cozme",
+        "yorumlama"
+      ],
+      "explanation": "Erkek e, kız k = 3e - 14. k+3 = 2(e+2) → e = 15, k = 31. Toplam = 46.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0218",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0219",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 2 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "8",
+        "6",
+        "4",
+        "5"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 2E. E + 2E = 180° → E = 60°. Kenar sayısı n = 360/E = 6.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0219",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

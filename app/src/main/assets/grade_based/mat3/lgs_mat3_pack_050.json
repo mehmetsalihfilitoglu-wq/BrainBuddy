@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat3_0490",
+      "stem": "Tablo: Pazartesi 15, Salı 20, Çarşamba 10 kitap okundu. Toplam kaç kitap okunmuştur?",
+      "options": [
+        "15",
+        "45",
+        "50",
+        "40"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "15+20+10=45.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0490",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0491",
+      "stem": "Grafikte 1. gün 8, 2. gün 12, 3. gün 6 puan alınmış. Ortalama günlük puan kaçtır?",
+      "options": [
+        "26",
+        "10",
+        "8",
+        "9"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+12+6=26, 26÷3≈8,67. Yaklaşık 9.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0491",
+      "imageAsset": "quiz_images/mat/mat_050_mat3_0491_graph_line.png",
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0492",
+      "stem": "Sütun grafiğinde Pazartesi 10, Salı 15, Çarşamba 5 oyuncak satılmış. En çok hangi gün satılmıştır?",
+      "options": [
+        "Çarşamba",
+        "Salı",
+        "Pazartesi",
+        "Eşit"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "15 > 10 > 5, en çok Salı.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0492",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0493",
+      "stem": "Bir tabloda 3 gün boyunca sırasıyla 4, 6, 5 elma toplandı. Toplam kaç elma toplanmıştır?",
+      "options": [
+        "14",
+        "10",
+        "15",
+        "16"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4+6+5=15 elma.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0493",
+      "imageAsset": "quiz_images/mat/mat_050_mat3_0493_picture.png",
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0494",
+      "stem": "Tablo: 1. gün 8, 2. gün 10, 3. gün 6 sayfa okundu. Ortalama günde kaç sayfa okunmuştur?",
+      "options": [
+        "24",
+        "9",
+        "8",
+        "7"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+10+6=24, 24÷3=8.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0494",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0495",
+      "stem": "Tablo: Pazartesi 15, Salı 20, Çarşamba 10 kitap okundu. Toplam kaç kitap okunmuştur?",
+      "options": [
+        "45",
+        "15",
+        "40",
+        "50"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "15+20+10=45.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0495",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0496",
+      "stem": "Grafikte 1. gün 8, 2. gün 12, 3. gün 6 puan alınmış. Ortalama günlük puan kaçtır?",
+      "options": [
+        "10",
+        "26",
+        "9",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+12+6=26, 26÷3≈8,67. Yaklaşık 9.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0496",
+      "imageAsset": "quiz_images/mat/mat_050_mat3_0496_graph_line.png",
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0497",
+      "stem": "Sütun grafiğinde Pazartesi 10, Salı 15, Çarşamba 5 oyuncak satılmış. En çok hangi gün satılmıştır?",
+      "options": [
+        "Pazartesi",
+        "Çarşamba",
+        "Eşit",
+        "Salı"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "15 > 10 > 5, en çok Salı.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0497",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0498",
+      "stem": "Bir tabloda 3 gün boyunca sırasıyla 4, 6, 5 elma toplandı. Toplam kaç elma toplanmıştır?",
+      "options": [
+        "14",
+        "15",
+        "10",
+        "16"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "mantik_yuruttme",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4+6+5=15 elma.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0498",
+      "imageAsset": "quiz_images/mat/mat_050_mat3_0498_picture.png",
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0499",
+      "stem": "Tablo: 1. gün 8, 2. gün 10, 3. gün 6 sayfa okundu. Ortalama günde kaç sayfa okunmuştur?",
+      "options": [
+        "7",
+        "9",
+        "24",
+        "8"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "tablo_grafik_yorumlama",
+      "skills": [
+        "tablo_graf",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+10+6=24, 24÷3=8.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0499",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

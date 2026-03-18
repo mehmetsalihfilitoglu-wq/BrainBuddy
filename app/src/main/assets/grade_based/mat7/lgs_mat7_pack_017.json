@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat7_0160",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 5 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "14",
+        "12",
+        "10",
+        "11"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 5E. E + 5E = 180° → E = 30°. Kenar sayısı n = 360/E = 12.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0160",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0161",
+      "stem": "Kenarları 18 m ve 15 m olan dikdörtgen bahçenin her kenarından 4 m içeriye yürüyüş yolu yapılmaktadır. Yürüyüş yolu hariç kalan çim alanı kaç m²'dir?",
+      "options": [
+        "154",
+        "70",
+        "200",
+        "270"
+      ],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "alan_problemleri",
+      "skills": [
+        "alan",
+        "geometri",
+        "problem_cozme"
+      ],
+      "explanation": "İç dikdörtgen: (18-8)×(15-8) = 10×7 = 70 m².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0161",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0162",
+      "stem": "Bir mağazada bir ürünün fiyatına önce 9 TL zam yapılmış, ardından 3 TL indirim uygulanmıştır. İndirimli fiyat, ilk fiyatın 3 katına eşit olduğuna göre ürünün başlangıç fiyatı kaç TL'dir?",
+      "options": [
+        "-3",
+        "-6",
+        "3",
+        "6"
+      ],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "tam_sayilar",
+      "skills": [
+        "tam_sayilar",
+        "problem_cozme",
+        "denklem"
+      ],
+      "explanation": "Başlangıç x TL. x + 9 - 3 = 3x → x(1-3) = -6 → x = 3 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0162",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0163",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "7",
+        "6",
+        "10",
+        "8"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0163",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0164",
+      "stem": "Bir öğrenci beş sınavda sırasıyla 74, 74, 74, 74, 76 puan almıştır. Altıncı sınava girince ortalaması 76 oluyor. Buna göre altıncı sınavdan kaç puan almıştır?",
+      "options": [
+        "84",
+        "89",
+        "79",
+        "76"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "tablo_yorum",
+      "topic": "veri_analizi",
+      "skills": [
+        "veri_analizi",
+        "ortalama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam ilk 5: 372. 6. sınav x ise (total5 + x)/6 = 76 → x = 84.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0164",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0165",
+      "stem": "Bir düzgün çokgenin bir iç açısı, bir dış açısının 3 katıdır. Buna göre bu çokgen kaç kenarlıdır?",
+      "options": [
+        "10",
+        "6",
+        "7",
+        "8"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cokgenler",
+      "skills": [
+        "cokgen",
+        "acilar",
+        "geometri"
+      ],
+      "explanation": "Dış açı E, iç açı 3E. E + 3E = 180° → E = 45°. Kenar sayısı n = 360/E = 8.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0165",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0166",
+      "stem": "Bir su deposunun 2/7'i doluyken depoya 80 litre su ekleniyor. Bu işlemden sonra deponun 3/7'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "280",
+        "620",
+        "500",
+        "560"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 2V/7 dolu. +80 litre eklenince 3V/(7) dolu. Denklemden V=560 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0166",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0167",
+      "stem": "Bir torbada 2 kırmızı, 5 yeşil ve 3 mavi bilye vardır. Çekilen bilye geri konmadan ardışık 2 bilye çekildiğinde ikisinin de farklı renkte olma olasılığı kaçtır?",
+      "options": [
+        "31/45",
+        "30/45",
+        "31/46",
+        "1/10"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "olasilik",
+      "skills": [
+        "olasilik",
+        "yorumlama",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam 10 bilye. İkisinin de aynı renkte olma olasılığı hesaplanıp 1'den çıkarılır: 31/45.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0167",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0168",
+      "stem": "Bir dikdörtgenin kısa kenarı x cm, uzun kenarı (2x + 3) cm'dir. Çevresi 44 cm olduğuna göre alanı kaç cm²'dir?",
+      "options": [
+        "90",
+        "94",
+        "104",
+        "99"
+      ],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "questionType": "geometri_yorum",
+      "topic": "cebirsel_ifadeler",
+      "skills": [
+        "cebirsel_ifade",
+        "geometri",
+        "denklem"
+      ],
+      "explanation": "Çevre: 2(x + 2x+3) = 44 → x = 6. Alan = x(2x+3) = 99 cm².",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0168",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat7_0169",
+      "stem": "Bir su deposunun 3/8'i doluyken depoya 100 litre su ekleniyor. Bu işlemden sonra deponun 4/8'i doluyor. Buna göre deponun tamamı kaç litredir?",
+      "options": [
+        "800",
+        "740",
+        "400",
+        "860"
+      ],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "questionType": "yeni_nesil_problem",
+      "topic": "rasyonel_sayilar",
+      "skills": [
+        "rasyonel_sayilar",
+        "kesirler",
+        "problem_cozme"
+      ],
+      "explanation": "Depo V litre. Başlangıç 3V/8 dolu. +100 litre eklenince 4V/(8) dolu. Denklemden V=800 litre.",
+      "source": "brainbuddy",
+      "sourceRef": "mat7_pack_0169",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat2_0430",
+      "stem": "5 çocuğun yaşları 7, 8, 7, 9, 7'dir. En çok tekrar eden yaş kaçtır?",
+      "options": [
+        "Hiçbiri",
+        "9",
+        "7",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "7 üç kez, diğerleri daha az.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0430",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0431",
+      "stem": "Tablo: 3 gün boyunca sırasıyla 4, 6, 5 simit satıldı. Toplam kaç simit satılmıştır?",
+      "options": [
+        "16",
+        "15",
+        "6",
+        "14"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "tablo_veri_yorumlama",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4+6+5=15 simit.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0431",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0432",
+      "stem": "Tablo: Pazartesi 8, Salı 12, Çarşamba 6 kitap okundu. Toplam kaç kitap okunmuştur?",
+      "options": [
+        "26",
+        "24",
+        "20",
+        "8"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "tablo_veri_yorumlama",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+12+6=26 kitap.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0432",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0433",
+      "stem": "Sütun grafiğinde Pazartesi 5, Salı 9, Çarşamba 4 oyuncak satılmış. En çok hangi gün satılmıştır?",
+      "options": [
+        "Çarşamba",
+        "Pazartesi",
+        "Eşit",
+        "Salı"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "9 > 5 > 4, en çok Salı.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0433",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0434",
+      "stem": "4 öğrencinin boyları 115, 118, 115, 120 cm. En kısa boy kaç cm'dir?",
+      "options": [
+        "120",
+        "114",
+        "118",
+        "115"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "tablo_veri_yorumlama",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En küçük değer 115 cm.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0434",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0435",
+      "stem": "Tablo: 1. gün 5, 2. gün 7, 3. gün 6 elma toplandı. Ortalama günde kaç elma toplanmıştır?",
+      "options": [
+        "6",
+        "7",
+        "5",
+        "18"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "5+7+6=18, 18÷3=6.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0435",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0436",
+      "stem": "5 çocuğun yaşları 7, 8, 7, 9, 7'dir. En çok tekrar eden yaş kaçtır?",
+      "options": [
+        "Hiçbiri",
+        "9",
+        "7",
+        "8"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "7 üç kez, diğerleri daha az.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0436",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0437",
+      "stem": "Tablo: 3 gün boyunca sırasıyla 4, 6, 5 simit satıldı. Toplam kaç simit satılmıştır?",
+      "options": [
+        "6",
+        "16",
+        "15",
+        "14"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4+6+5=15 simit.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0437",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0438",
+      "stem": "Tablo: Pazartesi 8, Salı 12, Çarşamba 6 kitap okundu. Toplam kaç kitap okunmuştur?",
+      "options": [
+        "26",
+        "20",
+        "8",
+        "24"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "gunluk_hayat_problemi",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+12+6=26 kitap.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0438",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0439",
+      "stem": "Sütun grafiğinde Pazartesi 5, Salı 9, Çarşamba 4 oyuncak satılmış. En çok hangi gün satılmıştır?",
+      "options": [
+        "Pazartesi",
+        "Salı",
+        "Eşit",
+        "Çarşamba"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "veri_tablo_grafik",
+      "skills": [
+        "veri_tablo_g",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "9 > 5 > 4, en çok Salı.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0439",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

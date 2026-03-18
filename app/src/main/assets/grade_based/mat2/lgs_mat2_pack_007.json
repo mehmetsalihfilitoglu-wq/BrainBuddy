@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat2_0060",
+      "stem": "Sayı doğrusunda 30 ile 50 arasında kaç tam sayı vardır? (30 ve 50 dahil değil)",
+      "options": [
+        "20",
+        "18",
+        "21",
+        "19"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "31,32,...,49 → 49-31+1=19 sayı.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0060",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0061",
+      "stem": "456 sayısının çözümlemesi aşağıdakilerden hangisidir?",
+      "options": [
+        "4 + 5 + 6",
+        "400 + 50 + 6",
+        "456",
+        "40 + 56"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "456=4×100+5×10+6=400+50+6.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0061",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0062",
+      "stem": "89 sayısının onlar basamağı ile birler basamağındaki rakamların toplamı kaçtır?",
+      "options": [
+        "8",
+        "9",
+        "89",
+        "17"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+9=17.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0062",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0063",
+      "stem": "72 sayısının onlar basamağındaki rakamın basamak değeri kaçtır?",
+      "options": [
+        "2",
+        "70",
+        "72",
+        "7"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Onlar basamağında 7 var: 7×10=70.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0063",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0064",
+      "stem": "5 onluk + 3 birlik kaç eder?",
+      "options": [
+        "8",
+        "53",
+        "35",
+        "15"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "5 onluk=50, 3 birlik=3. 50+3=53.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0064",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0065",
+      "stem": "348 sayısında 4'ün basamak değeri kaçtır?",
+      "options": [
+        "40",
+        "4",
+        "400",
+        "48"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "tablo_veri_yorumlama",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4 onlar basamağında: 4×10=40.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0065",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0066",
+      "stem": "Bir sayı 2 yüzlük ve 6 onluktan oluşuyor. Bu sayı kaçtır?",
+      "options": [
+        "80",
+        "62",
+        "260",
+        "206"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2×100+6×10=200+60=260.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0066",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0067",
+      "stem": "Sayı doğrusunda 30 ile 50 arasında kaç tam sayı vardır? (30 ve 50 dahil değil)",
+      "options": [
+        "20",
+        "19",
+        "21",
+        "18"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "31,32,...,49 → 49-31+1=19 sayı.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0067",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0068",
+      "stem": "456 sayısının çözümlemesi aşağıdakilerden hangisidir?",
+      "options": [
+        "40 + 56",
+        "456",
+        "400 + 50 + 6",
+        "4 + 5 + 6"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "gunluk_hayat_problemi",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "456=4×100+5×10+6=400+50+6.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0068",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat2_0069",
+      "stem": "89 sayısının onlar basamağı ile birler basamağındaki rakamların toplamı kaçtır?",
+      "options": [
+        "89",
+        "9",
+        "8",
+        "17"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "gunluk_hayat_problemi",
+      "topic": "dogal_sayilar_sayi_dogrusu",
+      "skills": [
+        "dogal_sayila",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "8+9=17.",
+      "source": "brainbuddy",
+      "sourceRef": "mat2_0069",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat5_0100",
+      "stem": "5 öğrencinin sınav notları 70, 80, 75, 85, 90'dır. Ortalama kaçtır?",
+      "options": [
+        "78",
+        "80",
+        "82",
+        "79"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 400, 400÷5=80.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0100",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0101",
+      "stem": "Bir veri grubunda en çok tekrar eden değere ne denir?",
+      "options": [
+        "Ortalama",
+        "Medyan",
+        "Tepe değer (mod)",
+        "Aralık"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "En sık tekrar eden değer tepe değer (mod) olarak adlandırılır.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0101",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0102",
+      "stem": "Sütun grafiğinde Pazartesi 40, Salı 35, Çarşamba 45 kitap okunmuştur. Ortalama günlük okunan kitap sayısı kaçtır?",
+      "options": [
+        "40",
+        "39",
+        "42",
+        "38"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 40+35+45=120, 120÷3=40.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0102",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0103",
+      "stem": "Bir grafikte en yüksek değer 60, en düşük 20 ise aralık (range) kaçtır?",
+      "options": [
+        "30",
+        "50",
+        "40",
+        "80"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "gercek_hayat_senaryosu",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Aralık = 60 - 20 = 40.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0103",
+      "imageAsset": "quiz_images/mat/mat_011_mat5_0103_graph_line.png",
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0104",
+      "stem": "12 450 sayısının yüzler basamağındaki rakamın basamak değeri kaçtır?",
+      "options": [
+        "400",
+        "450",
+        "40",
+        "4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4 yüzler basamağında: 4×100=400.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0104",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0105",
+      "stem": "Bir mağazada 15 kutu, her kutuda 24 kalem vardır. 5 kutu satıldığında geriye kaç kalem kalır?",
+      "options": [
+        "300",
+        "180",
+        "360",
+        "240"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Toplam 15×24=360. Satılan 5×24=120. Kalan 360-120=240.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0105",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0106",
+      "stem": "4/9 kesri 2/3 kesrinden küçük mü, büyük mü?",
+      "options": [
+        "Büyük",
+        "Eşit",
+        "Küçük",
+        "Karşılaştırılamaz"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2/3=6/9, 4/9 < 6/9.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0106",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0107",
+      "stem": "3/4 - 1/2 işleminin sonucu kaçtır?",
+      "options": [
+        "1/2",
+        "2/4",
+        "2/2",
+        "1/4"
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "yorum_gerektiren",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1/2=2/4, 3/4-2/4=1/4.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0107",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0108",
+      "stem": "2,8 - 1,35 işleminin sonucu kaçtır?",
+      "options": [
+        "1,53",
+        "1,45",
+        "1,35",
+        "1,55"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "2,80 - 1,35 = 1,45.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0108",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_0109",
+      "stem": "200 TL'nin %15'i kaç TL'dir?",
+      "options": [
+        "20",
+        "35",
+        "25",
+        "30"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "cok_adinli_islem",
+      "topic": "kesirler",
+      "skills": [
+        "kesirler",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "200 × 0,15 = 30 TL.",
+      "source": "brainbuddy",
+      "sourceRef": "mat5_0109",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

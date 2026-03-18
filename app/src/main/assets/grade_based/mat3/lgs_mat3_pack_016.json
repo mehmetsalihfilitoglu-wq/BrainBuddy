@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "mat3_0150",
+      "stem": "Bir pizza 4 eşit parçaya bölündü. Zeynep 1 parça yedi. Zeynep pizzanın kaçta kaçını yemiştir?",
+      "options": [
+        "1/4",
+        "1/2",
+        "2/4",
+        "3/4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4 parçadan 1'i: 1/4.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0150",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0151",
+      "stem": "1/2 kesri ile 1/4 kesrinden hangisi büyüktür?",
+      "options": [
+        "1/4",
+        "Karşılaştırılamaz",
+        "Eşit",
+        "1/2"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "grafik_tablo_yorum",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1/2=2/4, 2/4 > 1/4.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0151",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0152",
+      "stem": "Bir pastanın 2/4'ü yendi. Kalan kısım pastanın kaçta kaçıdır?",
+      "options": [
+        "2/4 veya 1/2",
+        "3/4",
+        "1/4",
+        "4/4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1-2/4=4/4-2/4=2/4=1/2.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0152",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0153",
+      "stem": "3/4 kesrinin payı kaçtır?",
+      "options": [
+        "3",
+        "7",
+        "1",
+        "4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Kesirde üstteki pay, alttaki paydadır. Pay 3.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0153",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0154",
+      "stem": "48 sayfası olan defterin 1/4'ü kullanıldı. Kaç sayfa kullanılmıştır?",
+      "options": [
+        "16",
+        "12",
+        "24",
+        "44"
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "48÷4=12 sayfa.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0154",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0155",
+      "stem": "Bir pizza 4 eşit parçaya bölündü. Zeynep 1 parça yedi. Zeynep pizzanın kaçta kaçını yemiştir?",
+      "options": [
+        "1/4",
+        "3/4",
+        "1/2",
+        "2/4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "yorum_gerektiren",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "4 parçadan 1'i: 1/4.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0155",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0156",
+      "stem": "1/2 kesri ile 1/4 kesrinden hangisi büyüktür?",
+      "options": [
+        "1/2",
+        "Eşit",
+        "1/4",
+        "Karşılaştırılamaz"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1/2=2/4, 2/4 > 1/4.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0156",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0157",
+      "stem": "Bir pastanın 2/4'ü yendi. Kalan kısım pastanın kaçta kaçıdır?",
+      "options": [
+        "2/4 veya 1/2",
+        "1/4",
+        "4/4",
+        "3/4"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "1-2/4=4/4-2/4=2/4=1/2.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0157",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0158",
+      "stem": "3/4 kesrinin payı kaçtır?",
+      "options": [
+        "7",
+        "4",
+        "1",
+        "3"
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "mantik_yuruttme",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "Kesirde üstteki pay, alttaki paydadır. Pay 3.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0158",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat3_0159",
+      "stem": "48 sayfası olan defterin 1/4'ü kullanıldı. Kaç sayfa kullanılmıştır?",
+      "options": [
+        "12",
+        "44",
+        "16",
+        "24"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "cok_adinli_islem",
+      "topic": "kesirlere_giris",
+      "skills": [
+        "kesirlere_",
+        "problem_cozme",
+        "mat"
+      ],
+      "explanation": "48÷4=12 sayfa.",
+      "source": "brainbuddy",
+      "sourceRef": "mat3_0159",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

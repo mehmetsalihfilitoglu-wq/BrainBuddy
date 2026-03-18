@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "ing",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "eng2_0150",
+      "stem": "Teacher: How old are you?\n\nYou are seven. You say: ---",
+      "options": [
+        "I am seven.",
+        "Seven years.",
+        "I have seven.",
+        "I am fine."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "dialogue_completion",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"I am seven.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0150",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0151",
+      "stem": "Friend: How many pencils do you have?\n\nYou have three. You say: ---",
+      "options": [
+        "I don't know.",
+        "I have three pencils.",
+        "Three.",
+        "Pencils."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "situation_response",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"I have three pencils.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0151",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0152",
+      "stem": "\"There are five apples. There are three oranges. How many fruits?\"\n\nWhat is the total?",
+      "options": [
+        "Eight.",
+        "Two.",
+        "Five.",
+        "Three."
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "meaning_inference",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Eight.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0152",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0153",
+      "stem": "Mum: How many people are in our family?\n\nYou: ---\n\nChoose a natural answer.",
+      "options": [
+        "Four.",
+        "Family.",
+        "I don't know.",
+        "There are four: mum, dad, my brother and me."
+      ],
+      "answerIndex": 3,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"There are four: mum, dad, my brother and me.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0153",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0154",
+      "stem": "Mum: How many eggs do we need? Five or six?\n\nYou need five. You say: ---",
+      "options": [
+        "Five.",
+        "Six.",
+        "Eggs.",
+        "We need five eggs."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "meaning_inference",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"We need five eggs.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0154",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0155",
+      "stem": "Teacher: How old are you?\n\nYou are seven. You say: ---",
+      "options": [
+        "I have seven.",
+        "Seven years.",
+        "I am fine.",
+        "I am seven."
+      ],
+      "answerIndex": 3,
+      "difficulty": 5,
+      "questionType": "situation_response",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"I am seven.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0155",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0156",
+      "stem": "Friend: How many pencils do you have?\n\nYou have three. You say: ---",
+      "options": [
+        "Three.",
+        "I have three pencils.",
+        "Pencils.",
+        "I don't know."
+      ],
+      "answerIndex": 1,
+      "difficulty": 5,
+      "questionType": "picture_interpretation",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"I have three pencils.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0156",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0157",
+      "stem": "\"There are five apples. There are three oranges. How many fruits?\"\n\nWhat is the total?",
+      "options": [
+        "Five.",
+        "Eight.",
+        "Three.",
+        "Two."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"Eight.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0157",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0158",
+      "stem": "Mum: How many people are in our family?\n\nYou: ---\n\nChoose a natural answer.",
+      "options": [
+        "I don't know.",
+        "There are four: mum, dad, my brother and me.",
+        "Four.",
+        "Family."
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "meaning_inference",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"There are four: mum, dad, my brother and me.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0158",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng2_0159",
+      "stem": "Mum: How many eggs do we need? Five or six?\n\nYou need five. You say: ---",
+      "options": [
+        "Eggs.",
+        "Six.",
+        "We need five eggs.",
+        "Five."
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "reading_comprehension",
+      "topic": "numbers",
+      "skills": [
+        "numbers",
+        "reading",
+        "inference"
+      ],
+      "explanation": "The correct answer fits the context and situation. \"We need five eggs.\" is appropriate. Other options show misunderstanding, wrong response or partial meaning errors.",
+      "source": "brainbuddy",
+      "sourceRef": "eng2_0159",
+      "imageAsset": null,
+      "subject": "ing"
+    }
+  ]
+}

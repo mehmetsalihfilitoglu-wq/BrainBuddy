@@ -16,7 +16,11 @@
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "basinc_formulu", "kuvvet"],
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu",
+        "kuvvet"
+      ],
       "explanation": "Toplam kuvvet 120 N olur. Basınç = Kuvvet / Alan = 120 / 20 = 6 N/cm².",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q01"
@@ -33,7 +37,11 @@
       "difficulty": 3,
       "questionType": "LOGIC_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "günlük_hayat", "basinc_uygulamalari"],
+      "skills": [
+        "kati_basinc",
+        "günlük_hayat",
+        "basinc_uygulamalari"
+      ],
       "explanation": "Temas alanı artırıldığında basınç azalır.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q02"
@@ -50,7 +58,11 @@
       "difficulty": 3,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "derinlik", "karsilastirma"],
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "karsilastirma"
+      ],
       "explanation": "Sıvı basıncı derinlikle doğru orantılıdır.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q03"
@@ -67,10 +79,15 @@
       "difficulty": 3,
       "questionType": "GRAPH_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "grafik", "derinlik"],
+      "skills": [
+        "sivi_basinc",
+        "grafik",
+        "derinlik"
+      ],
       "explanation": "Derinlik arttıkça sıvı basıncı artar.",
       "source": "brainbuddy",
-      "sourceRef": "fen_bas_004_q04"
+      "sourceRef": "fen_bas_004_q04",
+      "imageAsset": "quiz_images/fen/fen_basinc_004_fen_bas_004_q04_graph_line.png"
     },
     {
       "stem": "Bir öğrenci farklı sıvılar kullanarak aynı derinlikte basınç ölçümü yapıyor. Yoğunluğu daha büyük olan sıvının basıncının daha fazla olduğunu gözlüyor. Bu deney aşağıdaki sonuçlardan hangisini destekler?",
@@ -84,7 +101,11 @@
       "difficulty": 3,
       "questionType": "EXPERIMENT_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "yogunluk", "deney"],
+      "skills": [
+        "sivi_basinc",
+        "yogunluk",
+        "deney"
+      ],
       "explanation": "Yoğunluk arttıkça sıvı basıncı artar.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q05"
@@ -101,7 +122,10 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Basınç",
-      "skills": ["acik_hava_basinci", "günlük_hayat"],
+      "skills": [
+        "acik_hava_basinci",
+        "günlük_hayat"
+      ],
       "explanation": "Pipetle içecek içilmesi açık hava basıncı sayesinde olur.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q06"
@@ -118,7 +142,10 @@
       "difficulty": 3,
       "questionType": "DATA_REASONING",
       "topic": "Basınç",
-      "skills": ["kati_basinc", "basinc_formulu"],
+      "skills": [
+        "kati_basinc",
+        "basinc_formulu"
+      ],
       "explanation": "Basınç = Kuvvet / Alan = 180 / 60 = 3 N/cm².",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q07"
@@ -135,7 +162,10 @@
       "difficulty": 3,
       "questionType": "LOGIC_REASONING",
       "topic": "Basınç",
-      "skills": ["acik_hava_basinci", "gaz_basinci"],
+      "skills": [
+        "acik_hava_basinci",
+        "gaz_basinci"
+      ],
       "explanation": "Yükseğe çıkıldıkça açık hava basıncı azalır.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q08"
@@ -152,7 +182,11 @@
       "difficulty": 3,
       "questionType": "MULTI_STEP_REASONING",
       "topic": "Basınç",
-      "skills": ["sivi_basinc", "derinlik", "karsilastirma"],
+      "skills": [
+        "sivi_basinc",
+        "derinlik",
+        "karsilastirma"
+      ],
       "explanation": "Derinlik arttıkça sıvı basıncı artar.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q09"
@@ -169,7 +203,11 @@
       "difficulty": 3,
       "questionType": "CONCEPT_REASONING",
       "topic": "Basınç",
-      "skills": ["gaz_basinci", "sicaklik", "molekul"],
+      "skills": [
+        "gaz_basinci",
+        "sicaklik",
+        "molekul"
+      ],
       "explanation": "Sıcaklık arttıkça gaz basıncı artar.",
       "source": "brainbuddy",
       "sourceRef": "fen_bas_004_q10"

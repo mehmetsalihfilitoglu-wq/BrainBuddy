@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy",
+  "questions": [
+    {
+      "id": "fen5_0370",
+      "stem": "Gürültü kirliliğinin işitme kaybına ve stres yaratabileceği metinde vurgulandı.\n\nBu bilgiye göre gürültüyü azaltmak için aşağıdakilerden hangisi önerilir?",
+      "options": [
+        "Ses kirliliği önlenemez",
+        "Gürültü zararsızdır",
+        "Ses yalıtımı, sessiz alanlar, gürültü yapan kaynakların azaltılması",
+        "Kulaklık takmak yeterlidir"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "sebep_sonuc",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses yalıtımı, sessiz alanlar, gürültü yapan kaynakların azaltılması\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0370",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0371",
+      "stem": "Titreşen diyapazon suya batırıldığında suyun sıçradığı görüldü. Titreşim durduğunda sıçrama da durdu.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Su sesi yükseltir",
+        "Diyapazon suda sessizdir",
+        "Ses titreşimle oluşur; titreşim yoksa ses de yoktur",
+        "Ses suda oluşmaz"
+      ],
+      "answerIndex": 2,
+      "difficulty": 4,
+      "questionType": "tablo_yorumlama",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses titreşimle oluşur; titreşim yoksa ses de yoktur\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0371",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0372",
+      "stem": "Sesin duvara çarpıp geri dönmesi (eko) deneyinde uzak duvarda gecikme daha fazlaydı.\n\nBu gözlemin açıklaması nedir?",
+      "options": [
+        "Ses yansır; mesafe arttıkça sesin gidip dönme süresi artar",
+        "Ses duvardan geçer",
+        "Uzaklık sesi etkilemez",
+        "Eko sadece dağda olur"
+      ],
+      "answerIndex": 0,
+      "difficulty": 4,
+      "questionType": "gozlem_yorumlama",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses yansır; mesafe arttıkça sesin gidip dönme süresi artar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0372",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0373",
+      "stem": "Farklı kalınlıktaki tellerden çıkan sesler karşılaştırıldı. İnce tel daha tiz ses çıkardı.\n\nBu deneye göre sesin tizliği (perdesi) ile ilgili hangi ilişki kurulabilir?",
+      "options": [
+        "Titreşen cisim inceyse ses tiz, kalınsa pes olur",
+        "Ses tizliği ısıya bağlıdır",
+        "Kalın teller daha tiz ses çıkarır",
+        "Tüm teller aynı sesi çıkarır"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "cok_adinli_dusunme",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Titreşen cisim inceyse ses tiz, kalınsa pes olur\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0373",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0374",
+      "stem": "Sesin boşlukta (havası alınmış fanusta) yayılmadığı deneyle gösterildi. Fanustaki zil sesi duyulmadı.\n\nBu deneyin sonucu neyi gösterir?",
+      "options": [
+        "Fanus sesi engeller",
+        "Ses maddesel ortamda (taneciklerle) yayılır",
+        "Zil sessizdir",
+        "Ses boşlukta da yayılır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "kavram_baglantisi",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses maddesel ortamda (taneciklerle) yayılır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0374",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0375",
+      "stem": "Işık ve sesin özellikleri tablosunda \"ışık boşlukta yayılır, ses yayılmaz\" ifadesi vardır.\n\nBu farkın sebebi nedir?",
+      "options": [
+        "Işık maddesel ortam gerektirir",
+        "Işık elektromanyetik dalgadır; ses ise maddesel ortamda titreşimle yayılır",
+        "İkisi de aynıdır",
+        "Ses daha hızlıdır"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "deney_yorumlama",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Işık elektromanyetik dalgadır; ses ise maddesel ortamda titreşimle yayılır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0375",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0376",
+      "stem": "Sesin kaynağa yaklaştıkça daha şiddetli, uzaklaştıkça daha zayıf duyulduğu gözlemlendi.\n\nBu ilişkinin sebebi nedir?",
+      "options": [
+        "Ses her yerde aynıdır",
+        "Ses enerjisi uzaklaştıkça dağılır, şiddet azalır",
+        "Uzaklık sesi etkilemez",
+        "Yakın ses daha tizdir"
+      ],
+      "answerIndex": 1,
+      "difficulty": 4,
+      "questionType": "cok_adinli_dusunme",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses enerjisi uzaklaştıkça dağılır, şiddet azalır\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0376",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0377",
+      "stem": "Gürültü kirliliğinin işitme kaybına ve stres yaratabileceği metinde vurgulandı.\n\nBu bilgiye göre gürültüyü azaltmak için aşağıdakilerden hangisi önerilir?",
+      "options": [
+        "Kulaklık takmak yeterlidir",
+        "Ses kirliliği önlenemez",
+        "Ses yalıtımı, sessiz alanlar, gürültü yapan kaynakların azaltılması",
+        "Gürültü zararsızdır"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses yalıtımı, sessiz alanlar, gürültü yapan kaynakların azaltılması\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0377",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0378",
+      "stem": "Titreşen diyapazon suya batırıldığında suyun sıçradığı görüldü. Titreşim durduğunda sıçrama da durdu.\n\nBu deneyden çıkarılabilecek sonuç nedir?",
+      "options": [
+        "Ses titreşimle oluşur; titreşim yoksa ses de yoktur",
+        "Su sesi yükseltir",
+        "Ses suda oluşmaz",
+        "Diyapazon suda sessizdir"
+      ],
+      "answerIndex": 0,
+      "difficulty": 5,
+      "questionType": "tablo_yorumlama",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses titreşimle oluşur; titreşim yoksa ses de yoktur\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0378",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_0379",
+      "stem": "Sesin duvara çarpıp geri dönmesi (eko) deneyinde uzak duvarda gecikme daha fazlaydı.\n\nBu gözlemin açıklaması nedir?",
+      "options": [
+        "Uzaklık sesi etkilemez",
+        "Ses duvardan geçer",
+        "Ses yansır; mesafe arttıkça sesin gidip dönme süresi artar",
+        "Eko sadece dağda olur"
+      ],
+      "answerIndex": 2,
+      "difficulty": 5,
+      "questionType": "deney_yorumlama",
+      "topic": "isik_ses",
+      "skills": [
+        "isik_ses",
+        "deney_yorum",
+        "veri_analiz"
+      ],
+      "explanation": "Deney/gözlem sonuçlarına ve bilimsel kavramlara göre doğru cevap \"Ses yansır; mesafe arttıkça sesin gidip dönme süresi artar\" seçeneğidir. Diğer seçenekler sebep-sonuç ilişkisini yanlış kurmakta, deneyi yanlış yorumlamakta veya kavram karışıklığı içermektedir.",
+      "source": "brainbuddy",
+      "sourceRef": "fen5_0379",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

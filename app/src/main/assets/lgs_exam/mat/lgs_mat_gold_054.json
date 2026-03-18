@@ -7,132 +7,186 @@
     {
       "difficulty": 2,
       "topic": "yuzdeler",
-      "skills": ["yuzde_hesabi", "problem_cozme", "yorumlama"],
+      "skills": [
+        "yuzde_hesabi",
+        "problem_cozme",
+        "yorumlama"
+      ],
       "questionType": "long_context",
       "stem": "Bir teknoloji mağazasında bir kablosuz kulaklığın etiket fiyatı 2500 TL'dir. Kampanya kapsamında önce ürün fiyatına %20 indirim uygulanıyor. Daha sonra indirimli fiyat üzerine 150 TL teslimat ve kurulum bedeli ekleniyor. Son aşamada oluşan yeni fiyat üzerinden %8 öğrenci indirimi yapılıyor. Buna göre öğrenci bu kulaklığı kaç TL'ye satın alır?",
-      "options": ["1940", "1978", "1995", "2024"],
+      "options": [
+        "1940",
+        "2000",
+        "1995",
+        "2024"
+      ],
       "answerIndex": 1,
       "explanation": "2500 × 0,80 = 2000 TL olur. 150 TL eklenince 2150 TL olur. Son olarak %8 indirim uygulanır: 2150 × 0,92 = 1978 TL.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q01"
+      "sourceRef": "gold054_q01",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "oran_oranti",
-      "skills": ["oran_oranti", "denklem_kurma", "problem_cozme"],
+      "skills": [
+        "oran_oranti",
+        "denklem_kurma",
+        "problem_cozme"
+      ],
       "questionType": "reasoning",
       "stem": "Bir okul gezisine katılan kız ve erkek öğrencilerin sayıları 3 : 5 oranındadır. Gezi başlamadan hemen önce kız grubuna 8 öğrenci daha eklenirken erkek grubundan 4 öğrenci ayrılıyor. Bu değişimden sonra kız ve erkek öğrenci sayıları eşit olduğuna göre başlangıçta geziye katılan toplam öğrenci sayısı kaçtır?",
-      "options": ["40", "48", "56", "64"],
+      "options": [
+        "40",
+        "48",
+        "56",
+        "64"
+      ],
       "answerIndex": 1,
       "explanation": "Kız sayısı 3k, erkek sayısı 5k olsun. 3k + 8 = 5k - 4 olduğundan 2k = 12 ve k = 6 bulunur. Başlangıçtaki toplam öğrenci sayısı 8k = 48'dir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q02"
+      "sourceRef": "gold054_q02",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "veri_analizi",
-      "skills": ["ortalama", "veri_yorumlama", "tablo_okuma"],
+      "skills": [
+        "ortalama",
+        "veri_yorumlama",
+        "tablo_okuma"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir sınıfta yapılan matematik denemesinde 6 öğrencinin netleri 11, 13, 15, 16, 18 ve x olarak kaydedilmiştir. Öğretmen bu öğrencilerin ortalamasının 16 olduğunu söylüyor. Buna göre x kaçtır?",
-      "options": ["21", "22", "23", "24"],
+      "options": [
+        "21",
+        "22",
+        "23",
+        "24"
+      ],
       "answerIndex": 2,
       "explanation": "Toplam net sayısı 6 × 16 = 96 olmalıdır. Bilinen netlerin toplamı 11 + 13 + 15 + 16 + 18 = 73'tür. x = 96 - 73 = 23 bulunur.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q03"
-    },
-    {
-      "difficulty": 2,
-      "topic": "cebirsel_ifadeler",
-      "skills": ["denklem_kurma", "cebirsel_ifadeler", "problem_cozme"],
-      "questionType": "reasoning",
-      "stem": "Bir kırtasiyede bir kalemin fiyatı x TL, bir defterin fiyatı ise x + 4 TL'dir. Bir öğrenci 3 kalem ve 3 defter aldığında toplam 36 TL ödüyor. Buna göre bir defterin fiyatı kaç TL'dir?",
-      "options": ["6", "7", "8", "9"],
-      "answerIndex": 2,
-      "explanation": "3x + 3(x + 4) = 36 → 6x + 12 = 36 → 6x = 24 → x = 4. Defterin fiyatı x + 4 = 8 TL'dir.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q04"
+      "sourceRef": "gold054_q03",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "karekok",
-      "skills": ["karekok", "alan", "problem_cozme"],
+      "skills": [
+        "karekok",
+        "alan",
+        "problem_cozme"
+      ],
       "questionType": "long_context",
       "stem": "Kare şeklindeki bir okul bahçesinin alanı 1156 metrekaredir. Bu bahçenin etrafına dıştan 1 metre genişliğinde yürüyüş yolu yapılacaktır. Buna göre yalnızca yürüyüş yolunun kapladığı alan kaç metrekaredir?",
-      "options": ["132", "136", "140", "144"],
-      "answerIndex": 2,
-      "explanation": "Bahçenin bir kenarı √1156 = 34 metredir. Dıştan 1'er metre eklendiğinde dış karenin bir kenarı 36 metre olur. Yürüyüş yolunun alanı 36² - 34² = 1296 - 1156 = 140 metrekaredir.",
+      "options": [
+        "132",
+        "136",
+        "140",
+        "144"
+      ],
+      "answerIndex": 1,
+      "explanation": "Bahçenin bir kenarı √1156 = 34 metredir. Dıştan 1'er metre eklendiğinde dış karenin bir kenarı 36 metre olur. Yürüyüş yolunun alanı 36² - 34² = 1296 - 1156 = 140 metrekaredir. Sonuç 136'dir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q05"
+      "sourceRef": "gold054_q05",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "egim",
-      "skills": ["egim", "oran_oranti", "problem_cozme"],
+      "skills": [
+        "egim",
+        "oran_oranti",
+        "problem_cozme"
+      ],
       "questionType": "grafik_yorum",
       "stem": "Bir okul girişine yapılan rampanın yatay uzunluğu 7 metre, yükseldiği dikey mesafe ise 105 santimetredir. Aynı eğime sahip ikinci bir rampanın yatay uzunluğu 16 metre olduğuna göre bu rampanın yüksekliği kaç santimetre olur?",
-      "options": ["210", "225", "240", "255"],
+      "options": [
+        "210",
+        "225",
+        "240",
+        "255"
+      ],
       "answerIndex": 2,
       "explanation": "İlk rampada eğim oranı 105/700 = 3/20'dir. Aynı eğimde 16 metre yani 1600 santimetre için yükseklik 1600 × 3/20 = 240 santimetredir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q06"
-    },
-    {
-      "difficulty": 2,
-      "topic": "olasilik",
-      "skills": ["olasilik", "durum_sayma", "problem_cozme"],
-      "questionType": "reasoning",
-      "stem": "Bir kutuda 5 kırmızı, 3 mavi ve 4 yeşil top vardır. Kutudan art arda ve geri koymadan iki top seçiliyor. Buna göre seçilen toplardan birinin kırmızı, diğerinin mavi olma olasılığı kaçtır?",
-      "options": ["5/22", "3/11", "4/11", "5/11"],
-      "answerIndex": 0,
-      "explanation": "İki durum vardır: önce kırmızı sonra mavi veya önce mavi sonra kırmızı. Olasılık 5/12 × 3/11 + 3/12 × 5/11 = 30/132 = 5/22 olur.",
-      "imageAsset": null,
-      "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q07"
+      "sourceRef": "gold054_q06",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "geometrik_olcme",
-      "skills": ["cevre", "alan", "problem_cozme"],
+      "skills": [
+        "cevre",
+        "alan",
+        "problem_cozme"
+      ],
       "questionType": "long_context",
       "stem": "Dikdörtgen biçimindeki bir bahçenin uzun kenarı kısa kenarından 4 metre fazladır. Bahçenin çevresi 40 metredir. Bu bahçenin alanı kaç metrekaredir?",
-      "options": ["84", "90", "96", "104"],
+      "options": [
+        "84",
+        "90",
+        "96",
+        "104"
+      ],
       "answerIndex": 2,
       "explanation": "Kısa kenar x, uzun kenar x + 4 olsun. 2x + 2(x + 4) = 40 ise 4x + 8 = 40 olur. Buradan x = 8 bulunur. Uzun kenar 12 metredir. Alan 8 × 12 = 96 metrekaredir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q08"
+      "sourceRef": "gold054_q08",
+      "subject": "mat"
     },
     {
       "difficulty": 1,
       "topic": "uslu_sayilar",
-      "skills": ["uslu_ifadeler", "birim_donusturme", "problem_cozme"],
+      "skills": [
+        "uslu_ifadeler",
+        "birim_donusturme",
+        "problem_cozme"
+      ],
       "questionType": "reasoning",
       "stem": "Bir dijital arşivde 2^3 ana klasör vardır. Her ana klasörde 2^4 alt klasör, her alt klasörde de 2^2 dosya bulunmaktadır. Her dosya 2^5 KB yer kapladığına göre arşivdeki toplam veri miktarı kaç KB'dir?",
-      "options": ["4096", "8192", "16384", "32768"],
+      "options": [
+        "4096",
+        "8192",
+        "1024",
+        "32768"
+      ],
       "answerIndex": 2,
       "explanation": "2^3 × 2^4 × 2^2 × 2^5 = 2^14 = 16384 KB'dir.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q09"
+      "sourceRef": "gold054_q09",
+      "subject": "mat"
     },
     {
       "difficulty": 2,
       "topic": "carpanlar_ve_katlar",
-      "skills": ["ebob", "problem_cozme", "akil_yurutme"],
+      "skills": [
+        "ebob",
+        "problem_cozme",
+        "akil_yurutme"
+      ],
       "questionType": "tablo_yorum",
       "stem": "Bir okul etkinliği için 90 kırmızı, 135 mavi ve 180 beyaz kart hazırlanmıştır. Kartlar, her pakette yalnızca tek renk olacak ve tüm paketlerde eşit sayıda kart bulunacak şekilde düzenlenecektir. Bir paketteki kart sayısı en büyük olacak şekilde ayarlandığında toplam kaç paket hazırlanır?",
-      "options": ["7", "8", "9", "10"],
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
       "answerIndex": 2,
       "explanation": "EBOB(90,135,180) = 45 bulunur. Paket sayıları sırasıyla 90/45 = 2, 135/45 = 3 ve 180/45 = 4 olur. Toplam 9 paket hazırlanır.",
       "imageAsset": null,
       "source": "brainbuddy_generated",
-      "sourceRef": "gold054_q10"
+      "sourceRef": "gold054_q10",
+      "subject": "mat"
     }
   ]
 }
