@@ -95,7 +95,8 @@ class SeedAuditTest {
         // IMPORTANT: source order must mirror DbSeeder.loadFromAssets:
         // root files -> packs -> grade_based -> lgs_exam -> synthetic
         // This order determines which item "wins" during in-memory distinctBy().
-        val packs = auditPacks(File(assetsRoot, "packs"), mode)
+        val packsRoot = File(assetsRoot, "packs")
+        val packs = auditPacks(packsRoot, mode)
         val gradeBased = auditGradeBased(File(assetsRoot, "grade_based"), mode)
         val lgs = auditLgsExam(File(assetsRoot, "lgs_exam"), mode)
 
@@ -200,6 +201,11 @@ class SeedAuditTest {
                 "deduped=${deduped.size} inMemDedupDrops=$sumSourceDedupDrops " +
                 "dbConflicts=$dbConflicts finalInserted=$finalInserted sumSourceInserted=$sumSourceInserted sumSourceDbConflicts=$sumSourceDbConflicts"
         )
+        if (mode == Mode.CURRENT) {
+            println("SEED_AUDIT_PACKS_ROOT ${packsRoot.path} exists=${packsRoot.exists()} filesOnDisk=${packsRoot.walkTopDown().count { it.isFile && it.extension.equals("json", true) }}")
+            println("SEED_AUDIT_PACKS_DISCOVERED count=${packs.third.size}")
+            packs.third.forEach { line -> println("SEED_AUDIT_PACKS_FILE $line") }
+        }
         printSource(lgs.first)
         printSource(gradeBased.first)
         printSource(packs.first)
@@ -352,10 +358,20 @@ class SeedAuditTest {
         return stats to out
     }
 
-    private fun auditPacks(root: File, mode: Mode): Pair<SourceStats, List<ParsedQuestion>> {
+    private fun auditPacks(root: File, mode: Mode): Triple<SourceStats, List<ParsedQuestion>, List<String>> {
         val stats = SourceStats("packs")
         val out = mutableListOf<ParsedQuestion>()
-        if (!root.exists()) return stats to out
+        val discoveredEvidence = mutableListOf<String>()
+        if (!root.exists()) return Triple(stats, out, discoveredEvidence)
+
+        // Mirror DbSeeder PACK_FILE_REGEX exactly.
+        val packFileRegex = Regex("(?i)^grade(1|2|3|4|5|6|7)_(mat|turkce|fen|sosyal|ing)\\.json$")
+        val discovered = root.walkTopDown()
+            .filter { it.isFile && it.extension.equals("json", ignoreCase = true) && packFileRegex.matches(it.name) }
+            .map { it.relativeTo(root.parentFile ?: root).invariantSeparatorsPath } // "packs/..."
+            .sorted()
+            .toList()
+        discoveredEvidence += discovered.map { "path=$it" }
 
         val files = root.walkTopDown().filter { it.isFile && it.extension.equals("json", ignoreCase = true) }.toList()
         for (f in files) {
@@ -370,6 +386,11 @@ class SeedAuditTest {
                 if (arr == null) {
                     stats.bucket.unsupportedFormat++
                     continue
+                }
+                // Evidence: per-file question count as parsed by production shape.
+                if (mode == Mode.CURRENT && f.parentFile?.name.equals("packs", ignoreCase = true)) {
+                    val shape = if (trimmed.startsWith("[")) "array" else "object"
+                    discoveredEvidence += "file=${f.name} shape=$shape questionsLen=${arr.length()}"
                 }
                 stats.bucket.rawQuestions += arr.length()
                 for (i in 0 until arr.length()) {
@@ -396,7 +417,7 @@ class SeedAuditTest {
                 stats.bucket.parseErrors++
             }
         }
-        return stats to out
+        return Triple(stats, out, discoveredEvidence)
     }
 
     private fun parseQuestionLikeSeeder(
