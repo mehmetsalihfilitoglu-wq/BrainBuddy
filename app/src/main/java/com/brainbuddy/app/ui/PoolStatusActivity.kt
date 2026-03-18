@@ -238,6 +238,26 @@ class PoolStatusActivity : AppCompatActivity() {
                 sb.append("TOTAL / ACTIVE\n")
                 sb.append("$total / $active\n\n")
 
+                // DEBUG seed diagnostics (runtime).
+                if (BuildConfig.DEBUG) {
+                    val diag = DbSeeder.debugLastSeedDiagnostics()
+                    if (diag != null) {
+                        sb.append("SEED_SOURCE_COUNTS_AND_NORMALIZE_DEBUG\n")
+                        sb.append("loaded_root_general=${diag.loaded_root_general}\n")
+                        sb.append("loaded_packs=${diag.loaded_packs}\n")
+                        sb.append("loaded_grade_based=${diag.loaded_grade_based}\n")
+                        sb.append("loaded_lgs_exam=${diag.loaded_lgs_exam}\n")
+                        sb.append("loaded_synthetic=${diag.loaded_synthetic}\n")
+                        sb.append("discovered_grade_based_dirs=${diag.discovered_grade_based_dirs}\n")
+                        sb.append("discovered_grade_based_json_files=${diag.discovered_grade_based_json_files}\n")
+                        sb.append("total_before_normalize=${diag.total_before_normalize}\n")
+                        sb.append("total_after_normalize=${diag.total_after_normalize}\n")
+                        sb.append("invalid_grade_before_normalize=${diag.invalid_grade_before_normalize}\n")
+                        sb.append("invalid_grade_after_normalize=${diag.invalid_grade_after_normalize}\n")
+                        sb.append("final_inserted=${diag.final_inserted}\n\n")
+                    }
+                }
+
                 // 2) Grade dağılımı (1..7)
                 sb.append("Grade dağılımı (1..7):\n")
                 for (g in 1..7) {

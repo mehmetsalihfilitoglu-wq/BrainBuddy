@@ -26,6 +26,36 @@ object DbSeeder {
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val MIN_REASONABLE_DB_COUNT = 8000
 
+    data class SeedDiagnostics(
+        val loaded_root_general: Int,
+        val loaded_packs: Int,
+        val loaded_grade_based: Int,
+        val loaded_lgs_exam: Int,
+        val loaded_synthetic: Int,
+        val discovered_grade_based_dirs: Int,
+        val discovered_grade_based_json_files: Int,
+        val total_before_normalize: Int,
+        val total_after_normalize: Int,
+        val invalid_grade_before_normalize: Int,
+        val invalid_grade_after_normalize: Int,
+        val final_inserted: Int
+    )
+
+    private data class SeedSourceCounts(
+        val loaded_root_general: Int,
+        val loaded_packs: Int,
+        val loaded_grade_based: Int,
+        val loaded_lgs_exam: Int,
+        val loaded_synthetic: Int
+    )
+
+    private var lastSeedDiagnostics: SeedDiagnostics? = null
+    private var lastSeedSourceCounts: SeedSourceCounts = SeedSourceCounts(0, 0, 0, 0, 0)
+    private var lastDiscoveredGradeBasedDirs: Int = 0
+    private var lastDiscoveredGradeBasedJsonFiles: Int = 0
+
+    fun debugLastSeedDiagnostics(): SeedDiagnostics? = lastSeedDiagnostics
+
     /** Pack asset name pattern: grade{G}_{subject}.json under assets/packs (and subdirs). */
     private val PACK_FILE_REGEX = Regex(
         pattern = "^grade(1|2|3|4|5|6|7)_(mat|turkce|fen|sosyal|ing)\\.json$",
@@ -178,10 +208,47 @@ object DbSeeder {
         if (questions.isEmpty()) {
             questions.addAll(getFallbackEntities())
         }
+
+        // Final normalization step: guarantee grade/examType invariants BEFORE dedup+insert.
+        val totalBeforeNormalize = questions.size
+        val invalidBefore = questions.count { it.grade < 1 || it.grade > 7 }
+
+        val normalized = questions.map { q ->
+            val examTypeNorm = q.examType?.takeIf { it.isNotBlank() } ?: "GENERAL"
+            val gradeNorm = if (examTypeNorm == "LGS") {
+                7
+            } else {
+                if (q.grade in 1..7) q.grade
+                else if (q.subject in setOf("mat", "turkce", "fen", "sosyal", "ing")) 6 else 6
+            }
+            q.copy(
+                grade = gradeNorm,
+                examType = examTypeNorm
+            )
+        }
+
+        val totalAfterNormalize = normalized.size
+        val invalidAfter = normalized.count { it.grade < 1 || it.grade > 7 }
+
         // Dedup should only drop true duplicates.
-        // Many banks intentionally reuse the same stem with different options; dedup on stem alone
-        // destroys the pool. Use (grade, subject, exactStem, options, answer) as key.
-        return questions.distinctBy(::dedupKey)
+        val deduped = normalized.distinctBy(::dedupKey)
+
+        lastSeedDiagnostics = SeedDiagnostics(
+            loaded_root_general = lastSeedSourceCounts.loaded_root_general,
+            loaded_packs = lastSeedSourceCounts.loaded_packs,
+            loaded_grade_based = lastSeedSourceCounts.loaded_grade_based,
+            loaded_lgs_exam = lastSeedSourceCounts.loaded_lgs_exam,
+            loaded_synthetic = lastSeedSourceCounts.loaded_synthetic,
+            discovered_grade_based_dirs = lastDiscoveredGradeBasedDirs,
+            discovered_grade_based_json_files = lastDiscoveredGradeBasedJsonFiles,
+            total_before_normalize = totalBeforeNormalize,
+            total_after_normalize = totalAfterNormalize,
+            invalid_grade_before_normalize = invalidBefore,
+            invalid_grade_after_normalize = invalidAfter,
+            final_inserted = deduped.size
+        )
+
+        return deduped
     }
 
     /**
@@ -312,6 +379,13 @@ object DbSeeder {
         val syntheticCount = all.size - rootCount - packCount - lgsImportCount - lgsImportRootDirsCount
 
         Log.i(TAG, "loadBySource: root=$rootCount packs=$packCount grade_based_gradePacks=$lgsImportCount lgs_exam_rootDirs(LGS)=$lgsImportRootDirsCount synthetic=$syntheticCount total=${all.size}")
+        lastSeedSourceCounts = SeedSourceCounts(
+            loaded_root_general = rootCount,
+            loaded_packs = packCount,
+            loaded_grade_based = lgsImportCount,
+            loaded_lgs_exam = lgsImportRootDirsCount,
+            loaded_synthetic = syntheticCount
+        )
         return all
     }
 
@@ -450,7 +524,10 @@ object DbSeeder {
      *
      * Grade ve subject JSON'da geçerli değilse veya yoksa path'ten türetilir (örn. fen3 -> grade=3, subject=fen).
      */
-    private val LGS_PATH_GRADE_SUBJECT_REGEX = Regex("^(mat|turkce|fen|sosyal|english|hayat|din|inkilap)(\\d+)$", RegexOption.IGNORE_CASE)
+    private val LGS_PATH_GRADE_SUBJECT_REGEX = Regex(
+        "^(mat|turkce|fen|sosyal|english|hayat|din|inkilap)[^0-9]*(\\d+)$",
+        RegexOption.IGNORE_CASE
+    )
 
     /**
      * Derives (grade, subjectKey) from an lgs_import path segment.
@@ -458,22 +535,26 @@ object DbSeeder {
      * Returns null if the path does not match a known grade-based folder.
      */
     private fun parseGradeAndSubjectFromLgsPath(assetPath: String): Pair<Int, String>? {
-        val segment = assetPath.removePrefix("grade_based/").substringBefore("/")
-        val match = LGS_PATH_GRADE_SUBJECT_REGEX.find(segment) ?: return null
-        val (subjectPart, gradePart) = match.destructured
-        val grade = gradePart.toIntOrNull()?.coerceIn(1, 8) ?: return null
-        val subjectKey = when (subjectPart.lowercase()) {
-            "mat" -> "mat"
-            "turkce" -> "turkce"
-            "fen" -> "fen"
-            "sosyal" -> "sosyal"
-            "english" -> "ing"
-            "hayat" -> "hayat"
-            "din" -> "din"
-            "inkilap" -> "inkilap"
-            else -> return null
+        val relative = assetPath.removePrefix("grade_based/").trimStart('/')
+        val segments = relative.split('/', '\\').filter { it.isNotBlank() }
+        for (seg in segments.asReversed()) {
+            val match = LGS_PATH_GRADE_SUBJECT_REGEX.find(seg) ?: continue
+            val (subjectPart, gradePart) = match.destructured
+            val grade = gradePart.toIntOrNull()?.coerceIn(1, 8) ?: continue
+            val subjectKey = when (subjectPart.lowercase()) {
+                "mat" -> "mat"
+                "turkce" -> "turkce"
+                "fen" -> "fen"
+                "sosyal" -> "sosyal"
+                "english" -> "ing"
+                "hayat" -> "hayat"
+                "din" -> "din"
+                "inkilap" -> "inkilap"
+                else -> continue
+            }
+            return grade to subjectKey
         }
-        return grade to subjectKey
+        return null
     }
 
     private fun loadFromLgsGradePacksAsGeneral(context: Context): List<QuestionEntity> {
@@ -482,17 +563,32 @@ object DbSeeder {
 
         // Auto-discover: assets/grade_based/{subject}{1..7}/
         // Only folders matching the allowed pattern are scanned; nothing else is treated as grade banks.
-        val allowed = Regex("^(hayat|mat|fen|turkce|english|din|sosyal|inkilap)[1-7]$", RegexOption.IGNORE_CASE)
-        val gradeBasedDirs = try {
-            assets.list("grade_based")
-                ?.filter { allowed.matches(it) }
-                ?.sorted()
-                ?.map { "grade_based/$it" }
-                .orEmpty()
+        val allowed = Regex(
+            "^(hayat|mat|fen|turkce|english|din|sosyal|inkilap)\\D*[1-7]$",
+            RegexOption.IGNORE_CASE
+        )
+        val topEntries = try {
+            assets.list("grade_based")?.sorted().orEmpty()
         } catch (e: Exception) {
             Log.w(TAG, "Asset list failed for grade_based/: ${e.message}")
             emptyList()
         }
+        val allowedGradeBasedDirs = topEntries.filter { allowed.matches(it) }.map { "grade_based/$it" }
+        val gradeBasedDirs = if (allowedGradeBasedDirs.isNotEmpty()) {
+            allowedGradeBasedDirs
+        } else {
+            // Fallback: scan the entire grade_based root recursively to avoid root/path mismatches.
+            // This is required for runtime verification when top-level directory naming differs.
+            listOf("grade_based")
+        }
+
+        // Runtime discovery audit (for debug UI).
+        var discoveredJsonFiles = 0
+        for (dir in gradeBasedDirs) {
+            discoveredJsonFiles += discoverJsonAssetFilesRecursive(assets, dir).size
+        }
+        lastDiscoveredGradeBasedDirs = gradeBasedDirs.size
+        lastDiscoveredGradeBasedJsonFiles = discoveredJsonFiles
 
         for (dir in gradeBasedDirs) {
             val assetPaths = discoverJsonAssetFilesRecursive(assets, dir)
@@ -522,18 +618,19 @@ object DbSeeder {
                         }
                         else -> emptyList()
                     }
-                    if (entities.isNotEmpty()) {
-                        val normalizedGrade = pathGrade.coerceIn(1, 7)
-                        val normalized = entities.map {
-                            it.copy(
-                                grade = normalizedGrade,
-                                subject = pathSubject,
-                                examType = "GENERAL"
-                            )
-                        }
-                        out += normalized
-                        Log.i(TAG, "Loaded $assetPath as GENERAL pack: ${normalized.size} questions (grade=$normalizedGrade subject=$pathSubject)")
+                    val normalizedGrade = pathGrade.coerceIn(1, 7)
+                    val normalized = entities.map {
+                        it.copy(
+                            grade = normalizedGrade,
+                            subject = pathSubject,
+                            examType = "GENERAL"
+                        )
                     }
+                    if (normalized.isNotEmpty()) out += normalized
+                    Log.i(
+                        TAG,
+                        "Loaded $assetPath as GENERAL pack: ${normalized.size} questions (grade=$normalizedGrade subject=$pathSubject)"
+                    )
                 } catch (e: Exception) {
                     Log.w(TAG, "Failed to load $assetPath as GENERAL: ${e.message}")
                 }

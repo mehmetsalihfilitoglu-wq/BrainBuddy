@@ -7,6 +7,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.BuildConfig
+import com.brainbuddy.app.db.DbSeeder
 
 /**
  * DEBUG-ONLY screen that shows the real runtime DB seeding result.
@@ -37,6 +38,22 @@ class DebugSeedStatusActivity : AppCompatActivity() {
                 appendLine("g6_mat=$g6Mat")
                 appendLine("g4_ing=$g4Ing")
                 appendLine("lgs_mat=$lgsMat")
+
+                val diag = DbSeeder.debugLastSeedDiagnostics()
+                appendLine()
+                appendLine("SEED_SOURCE_COUNTS_AND_NORMALIZE_DEBUG")
+                appendLine("loaded_root_general=${diag?.loaded_root_general ?: -1}")
+                appendLine("loaded_packs=${diag?.loaded_packs ?: -1}")
+                appendLine("loaded_grade_based=${diag?.loaded_grade_based ?: -1}")
+                appendLine("loaded_lgs_exam=${diag?.loaded_lgs_exam ?: -1}")
+                appendLine("loaded_synthetic=${diag?.loaded_synthetic ?: -1}")
+                appendLine("discovered_grade_based_dirs=${diag?.discovered_grade_based_dirs ?: -1}")
+                appendLine("discovered_grade_based_json_files=${diag?.discovered_grade_based_json_files ?: -1}")
+                appendLine("total_before_normalize=${diag?.total_before_normalize ?: -1}")
+                appendLine("total_after_normalize=${diag?.total_after_normalize ?: -1}")
+                appendLine("invalid_grade_before_normalize=${diag?.invalid_grade_before_normalize ?: -1}")
+                appendLine("invalid_grade_after_normalize=${diag?.invalid_grade_after_normalize ?: -1}")
+                appendLine("final_inserted=${diag?.final_inserted ?: -1}")
             }
             text = textLines
             textSize = 18f
