@@ -155,6 +155,18 @@ object DbSeeder {
                 meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
                 meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
             }
+            // DEBUG: verify actual DB grades after reseed.
+            try {
+                val all = questionDao.getAllQuestions()
+                Log.e("DB_CHECK", "TOTAL_ROWS=${all.size}")
+                Log.e("DB_CHECK", "INVALID=${all.count { it.grade !in 1..7 }}")
+                Log.e("DB_CHECK", "VALID=${all.count { it.grade in 1..7 }}")
+                all.take(5).forEach {
+                    Log.e("DB_CHECK", "ROW grade=${it.grade} examType=${it.examType}")
+                }
+            } catch (e: Exception) {
+                Log.e("DB_CHECK", "Failed to read back questions after forceReseed: ${e.message}", e)
+            }
             Log.i(TAG, "Force reseed successful: inserted=${toInsert.size}")
             true
         } catch (e: Exception) {
@@ -268,6 +280,18 @@ object DbSeeder {
         Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedList.size} DB countBefore=$countBefore")
         questionDao.insertAllIgnore(dedupedList)
         val countAfter = questionDao.countAll()
+        // DEBUG: verify actual DB grades after seeding.
+        try {
+            val all = questionDao.getAllQuestions()
+            Log.e("DB_CHECK", "TOTAL_ROWS=${all.size}")
+            Log.e("DB_CHECK", "INVALID=${all.count { it.grade !in 1..7 }}")
+            Log.e("DB_CHECK", "VALID=${all.count { it.grade in 1..7 }}")
+            all.take(5).forEach {
+                Log.e("DB_CHECK", "ROW grade=${it.grade} examType=${it.examType}")
+            }
+        } catch (e: Exception) {
+            Log.e("DB_CHECK", "Failed to read back questions after performSeed: ${e.message}", e)
+        }
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
         Log.i(TAG, "performSeed done: inserted batch=${dedupedList.size} DB total before=$countBefore after=$countAfter (seed complete)")
