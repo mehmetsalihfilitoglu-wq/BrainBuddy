@@ -15,7 +15,7 @@
         tools:ignore="QueryAllPackagesPermission" />
 
     <application
-        android:name=".BrainBuddyApp"
+        android:name=".app.BrainBuddyApp"
         android:allowBackup="false"
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"

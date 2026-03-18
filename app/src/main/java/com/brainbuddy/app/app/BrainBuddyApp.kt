@@ -1,10 +1,12 @@
-package com.brainbuddy.app
+package com.brainbuddy.app.app
 
 import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.os.Process
 import android.util.Log
+import com.brainbuddy.app.BuildConfig
+import com.brainbuddy.app.CrashActivity
 import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.OnboardingPrefs
 import com.brainbuddy.app.core.ProfileStore
