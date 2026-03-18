@@ -66,60 +66,156 @@ class SeedAuditTest {
         val assetsRoot = resolveAssetsRoot()
         require(assetsRoot.exists()) { "assets root not found: ${assetsRoot.absolutePath}" }
 
-        val lgs = auditLgsExam(File(assetsRoot, "lgs_exam"))
-        val gradeBased = auditGradeBased(File(assetsRoot, "grade_based"))
-        val packs = auditPacks(File(assetsRoot, "packs"))
+        // Run both:
+        // - LEGACY: simulates the pre-fix behavior (template stemHash dedup + index-based fallback IDs)
+        // - CURRENT: mirrors the active production seeder behavior (content dedup key + hash-based fallback IDs)
+        val legacy = runAudit(assetsRoot, Mode.LEGACY)
+        val current = runAudit(assetsRoot, Mode.CURRENT)
+        println("SEED_AUDIT_BEFORE rawTotal=${legacy.totalRaw} insertedTotal=${legacy.totalInserted}")
+        println("SEED_AUDIT_AFTER  rawTotal=${current.totalRaw} insertedTotal=${current.totalInserted}")
+    }
+
+    private enum class Mode { LEGACY, CURRENT }
+
+    private data class AuditResult(
+        val mode: Mode,
+        val totalRaw: Int,
+        val totalParsed: Int,
+        val totalValid: Int,
+        val totalDeduped: Int,
+        val totalInMemDedupDrops: Int,
+        val totalDbConflicts: Int,
+        val totalInserted: Int,
+        val lgs: SourceStats,
+        val gradeBased: SourceStats,
+        val packs: SourceStats
+    )
+
+    private fun runAudit(assetsRoot: File, mode: Mode): AuditResult {
+        // IMPORTANT: source order must mirror DbSeeder.loadFromAssets:
+        // root files -> packs -> grade_based -> lgs_exam -> synthetic
+        // This order determines which item "wins" during in-memory distinctBy().
+        val packs = auditPacks(File(assetsRoot, "packs"), mode)
+        val gradeBased = auditGradeBased(File(assetsRoot, "grade_based"), mode)
+        val lgs = auditLgsExam(File(assetsRoot, "lgs_exam"), mode)
 
         // Merge and compute dedup + simulated DB conflicts (by id).
         val all = mutableListOf<ParsedQuestion>()
-        all += lgs.second
-        all += gradeBased.second
         all += packs.second
+        all += gradeBased.second
+        all += lgs.second
 
         val totalRaw = lgs.first.bucket.rawQuestions + gradeBased.first.bucket.rawQuestions + packs.first.bucket.rawQuestions
         val totalParsed = lgs.first.bucket.parsedQuestions + gradeBased.first.bucket.parsedQuestions + packs.first.bucket.parsedQuestions
         val totalValid = lgs.first.bucket.validQuestions + gradeBased.first.bucket.validQuestions + packs.first.bucket.validQuestions
 
-        val deduped = run {
-            val key = { q: ParsedQuestion ->
-                val exactStem = QuestionStemHash.normalizeStemExact(q.questionText)
-                val payload = exactStem + "\n" + q.optionsJson + "\n" + q.answerIndex
-                val digest = java.security.MessageDigest.getInstance("SHA-256").digest(payload.toByteArray(Charsets.UTF_8))
-                val contentHash = digest.joinToString("") { "%02x".format(it) }
-                "${q.grade}|${q.subject}|$contentHash"
+        val key = when (mode) {
+            Mode.CURRENT -> {
+                { q: ParsedQuestion ->
+                    val exactStem = QuestionStemHash.normalizeStemExact(q.questionText)
+                    val payload = exactStem + "\n" + q.optionsJson + "\n" + q.answerIndex
+                    val digest = java.security.MessageDigest.getInstance("SHA-256").digest(payload.toByteArray(Charsets.UTF_8))
+                    val contentHash = digest.joinToString("") { "%02x".format(it) }
+                    "${q.grade}|${q.subject}|$contentHash"
+                }
             }
-            val distinct = all.distinctBy(key)
-            // Attribute in-memory dedup drops per source (distinctBy keeps the first occurrence).
-            val keptLgs = distinct.count { it.source == "lgs_exam" }
-            val keptGradeBased = distinct.count { it.source.startsWith("grade_based") }
-            val keptPacks = distinct.count { it.source == "packs" }
-            lgs.first.bucket.inMemoryDedupDrops = lgs.second.size - keptLgs
-            gradeBased.first.bucket.inMemoryDedupDrops = gradeBased.second.size - keptGradeBased
-            packs.first.bucket.inMemoryDedupDrops = packs.second.size - keptPacks
-            distinct
+            Mode.LEGACY -> {
+                { q: ParsedQuestion ->
+                    // pre-fix: template-normalized stem hash only
+                    val h = QuestionStemHash.stemHash(q.questionText)
+                    "${q.grade}|${q.subject}|$h"
+                }
+            }
         }
 
-        // DB conflicts (Room INSERT IGNORE): primary key collisions by id.
-        val idCounts = deduped.groupingBy { it.id }.eachCount()
-        val idConflicts = idCounts.values.sumOf { (it - 1).coerceAtLeast(0) }
+        // In-memory dedup (mirrors DbSeeder.questions.distinctBy(dedupKey)).
+        val deduped = all.distinctBy(key)
 
-        fun conflictsFor(source: List<ParsedQuestion>): Int {
-            return source.count { (idCounts[it.id] ?: 0) > 1 }
+        // Compute per-source in-memory dedup drops as: valid - keptAfterDedup.
+        val keptAfterDedupBySource = deduped.groupingBy { it.source }.eachCount()
+        fun kept(sourceName: String): Int = keptAfterDedupBySource[sourceName] ?: 0
+        val keptPacks = kept("packs")
+        val keptGradeBased = keptAfterDedupBySource.entries
+            .filter { it.key.startsWith("grade_based") }
+            .sumOf { it.value }
+        val keptLgs = kept("lgs_exam")
+        packs.first.bucket.inMemoryDedupDrops = packs.second.size - keptPacks
+        gradeBased.first.bucket.inMemoryDedupDrops = gradeBased.second.size - keptGradeBased
+        lgs.first.bucket.inMemoryDedupDrops = lgs.second.size - keptLgs
+
+        // DB PK conflicts (Room INSERT IGNORE): only the FIRST occurrence of each id is inserted.
+        val inserted = mutableListOf<ParsedQuestion>()
+        val seenIds = HashSet<String>(deduped.size)
+        for (q in deduped) {
+            if (seenIds.add(q.id)) inserted += q
         }
+        val dbConflicts = deduped.size - inserted.size
 
-        lgs.first.bucket.dbConflictIgnored = conflictsFor(lgs.second)
-        gradeBased.first.bucket.dbConflictIgnored = conflictsFor(gradeBased.second)
-        packs.first.bucket.dbConflictIgnored = conflictsFor(packs.second)
+        // Per-source DB conflict ignored counts: keptAfterDedup - insertedFromSource.
+        val insertedBySource = inserted.groupingBy { it.source }.eachCount()
+        val insertedPacks = insertedBySource["packs"] ?: 0
+        val insertedGradeBased = insertedBySource.entries
+            .filter { it.key.startsWith("grade_based") }
+            .sumOf { it.value }
+        val insertedLgs = insertedBySource["lgs_exam"] ?: 0
+        packs.first.bucket.dbConflictIgnored = keptPacks - insertedPacks
+        gradeBased.first.bucket.dbConflictIgnored = keptGradeBased - insertedGradeBased
+        lgs.first.bucket.dbConflictIgnored = keptLgs - insertedLgs
 
-        val finalInserted = deduped.size - idConflicts
-        lgs.first.bucket.finalInserted = lgs.second.size - lgs.first.bucket.dbConflictIgnored
-        gradeBased.first.bucket.finalInserted = gradeBased.second.size - gradeBased.first.bucket.dbConflictIgnored
-        packs.first.bucket.finalInserted = packs.second.size - packs.first.bucket.dbConflictIgnored
+        // Final per-source inserted contribution.
+        packs.first.bucket.finalInserted = insertedPacks
+        gradeBased.first.bucket.finalInserted = insertedGradeBased
+        lgs.first.bucket.finalInserted = insertedLgs
 
-        println("SEED_AUDIT_TOTAL raw=$totalRaw parsed=$totalParsed valid=$totalValid deduped=${deduped.size} dbConflicts=$idConflicts finalInserted=$finalInserted")
+        val finalInserted = inserted.size
+
+        val sumSourceInserted = packs.first.bucket.finalInserted + gradeBased.first.bucket.finalInserted + lgs.first.bucket.finalInserted
+        val sumSourceDedupDrops = packs.first.bucket.inMemoryDedupDrops + gradeBased.first.bucket.inMemoryDedupDrops + lgs.first.bucket.inMemoryDedupDrops
+        val sumSourceDbConflicts = packs.first.bucket.dbConflictIgnored + gradeBased.first.bucket.dbConflictIgnored + lgs.first.bucket.dbConflictIgnored
+
+        // --- Mathematical consistency checks (hard fail if any mismatch) ---
+        require(totalValid == deduped.size + sumSourceDedupDrops) {
+            "Invariant failed: totalValid($totalValid) != deduped(${deduped.size}) + totalDedupDrops($sumSourceDedupDrops)"
+        }
+        require(deduped.size == finalInserted + dbConflicts) {
+            "Invariant failed: deduped(${deduped.size}) != inserted($finalInserted) + dbConflicts($dbConflicts)"
+        }
+        require(finalInserted == sumSourceInserted) {
+            "Invariant failed: inserted($finalInserted) != sumSourceInserted($sumSourceInserted)"
+        }
+        require(dbConflicts == sumSourceDbConflicts) {
+            "Invariant failed: dbConflicts($dbConflicts) != sumSourceDbConflicts($sumSourceDbConflicts)"
+        }
+        require(packs.first.bucket.finalInserted <= packs.first.bucket.validQuestions)
+        require(gradeBased.first.bucket.finalInserted <= gradeBased.first.bucket.validQuestions)
+        require(lgs.first.bucket.finalInserted <= lgs.first.bucket.validQuestions)
+
+        // Totals are printed in a mathematically consistent way:
+        // totalValid == deduped + totalDedupDrops
+        // deduped == finalInserted + dbConflicts
+        // finalInserted == sum(source.finalInserted)
+        println(
+            "SEED_AUDIT_TOTAL mode=$mode " +
+                "raw=$totalRaw parsed=$totalParsed valid=$totalValid " +
+                "deduped=${deduped.size} inMemDedupDrops=$sumSourceDedupDrops " +
+                "dbConflicts=$dbConflicts finalInserted=$finalInserted sumSourceInserted=$sumSourceInserted sumSourceDbConflicts=$sumSourceDbConflicts"
+        )
         printSource(lgs.first)
         printSource(gradeBased.first)
         printSource(packs.first)
+        return AuditResult(
+            mode = mode,
+            totalRaw = totalRaw,
+            totalParsed = totalParsed,
+            totalValid = totalValid,
+            totalDeduped = deduped.size,
+            totalInMemDedupDrops = sumSourceDedupDrops,
+            totalDbConflicts = dbConflicts,
+            totalInserted = finalInserted,
+            lgs = lgs.first,
+            gradeBased = gradeBased.first,
+            packs = packs.first
+        )
     }
 
     private fun resolveAssetsRoot(): File {
@@ -146,7 +242,7 @@ class SeedAuditTest {
         )
     }
 
-    private fun auditLgsExam(root: File): Pair<SourceStats, List<ParsedQuestion>> {
+    private fun auditLgsExam(root: File, mode: Mode): Pair<SourceStats, List<ParsedQuestion>> {
         val stats = SourceStats("lgs_exam")
         val out = mutableListOf<ParsedQuestion>()
         if (!root.exists()) return stats to out
@@ -175,7 +271,8 @@ class SeedAuditTest {
                             index = i,
                             forcedGrade = 7, // seeder placeholder for LGS root
                             forcedSubject = null,
-                            sourceTag = "lgs_exam"
+                            sourceTag = "lgs_exam",
+                            mode = mode
                         )
                         if (parsed != null) {
                             stats.bucket.validQuestions++
@@ -192,7 +289,7 @@ class SeedAuditTest {
         return stats to out
     }
 
-    private fun auditGradeBased(root: File): Pair<SourceStats, List<ParsedQuestion>> {
+    private fun auditGradeBased(root: File, mode: Mode): Pair<SourceStats, List<ParsedQuestion>> {
         val stats = SourceStats("grade_based")
         val out = mutableListOf<ParsedQuestion>()
         if (!root.exists()) return stats to out
@@ -236,7 +333,8 @@ class SeedAuditTest {
                                 index = i,
                                 forcedGrade = grade,
                                 forcedSubject = subject,
-                                sourceTag = "grade_based/${dir.name}"
+                                sourceTag = "grade_based/${dir.name}",
+                                mode = mode
                             )
                             if (parsed != null) {
                                 stats.bucket.validQuestions++
@@ -254,7 +352,7 @@ class SeedAuditTest {
         return stats to out
     }
 
-    private fun auditPacks(root: File): Pair<SourceStats, List<ParsedQuestion>> {
+    private fun auditPacks(root: File, mode: Mode): Pair<SourceStats, List<ParsedQuestion>> {
         val stats = SourceStats("packs")
         val out = mutableListOf<ParsedQuestion>()
         if (!root.exists()) return stats to out
@@ -283,7 +381,8 @@ class SeedAuditTest {
                             index = i,
                             forcedGrade = null,
                             forcedSubject = null,
-                            sourceTag = "packs"
+                            sourceTag = "packs",
+                            mode = mode
                         )
                         if (parsed != null) {
                             stats.bucket.validQuestions++
@@ -305,7 +404,8 @@ class SeedAuditTest {
         index: Int,
         forcedGrade: Int?,
         forcedSubject: String?,
-        sourceTag: String
+        sourceTag: String,
+        mode: Mode
     ): ParsedQuestion? {
         // grade (force when provided, else mimic DbSeeder's "8 -> 6, else default 6")
         val gradeFromJson = when {
@@ -345,9 +445,11 @@ class SeedAuditTest {
         val answerIndex = rawAnswerIndex.coerceIn(0, padded.size - 1)
 
         val stemHash = QuestionStemHash.stemHash(questionText)
-
         val explicitId = obj.optString("id", "").takeIf { it.isNotBlank() }
-        val id = explicitId ?: "${grade}_${subject}_${stemHash.take(16)}_${(index + 1).toString().padStart(4, '0')}"
+        val id = when (mode) {
+            Mode.CURRENT -> explicitId ?: "${grade}_${subject}_${stemHash.take(16)}_${(index + 1).toString().padStart(4, '0')}"
+            Mode.LEGACY -> explicitId ?: "${grade}_${subject}_${(index + 1).toString().padStart(6, '0')}"
+        }
         return ParsedQuestion(
             source = sourceTag,
             id = id,
