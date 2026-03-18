@@ -10,6 +10,7 @@ import com.brainbuddy.app.core.OnboardingPrefs
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.ui.DebugSeedStatusActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -46,11 +47,21 @@ class BrainBuddyApp : Application() {
 
         CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
             Log.i(PERSISTENCE_LOG_TAG, "Seed started ASYNC (not awaited); UI may show before seed completes")
-            withContext(Dispatchers.IO) {
+            val snapshot = withContext(Dispatchers.IO) {
                 logStartupPersistenceAsync(this@BrainBuddyApp)
                 val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
                 Log.i(PERSISTENCE_LOG_TAG, "Seed finished async: didSeed=$didSeed")
-                logRuntimeQuestionPoolSnapshot(this@BrainBuddyApp)
+                computeRuntimeQuestionPoolSnapshot(this@BrainBuddyApp)
+            }
+            if (BuildConfig.DEBUG && snapshot != null) {
+                DebugSeedStatusActivity.launch(
+                    this@BrainBuddyApp,
+                    total = snapshot.total,
+                    active = snapshot.active,
+                    g6Mat = snapshot.g6Mat,
+                    g4Ing = snapshot.g4Ing,
+                    lgsMat = snapshot.lgsMat
+                )
             }
         }
 
@@ -116,18 +127,20 @@ private suspend fun logStartupPersistenceAsync(context: Context) {
     }
 }
 
+private data class RuntimeSeedSnapshot(
+    val total: Int,
+    val active: Int,
+    val g6Mat: Int,
+    val g4Ing: Int,
+    val lgsMat: Int
+)
+
 /**
- * DEBUG-ONLY: logs a snapshot of the real Room question pool after seeding.
- *
- * This runs only on app startup and has no functional impact; it just prints:
- * - total DB row count
- * - active row count
- * - sample candidate pool sizes for:
- *   grade 6 MAT, grade 4 ING, LGS MAT.
+ * Computes the real Room question pool snapshot after seeding.
+ * Returns null on failure; never throws.
  */
-private suspend fun logRuntimeQuestionPoolSnapshot(context: Context) {
-    if (!BuildConfig.DEBUG) return
-    try {
+private suspend fun computeRuntimeQuestionPoolSnapshot(context: Context): RuntimeSeedSnapshot? {
+    return try {
         val db = DatabaseProvider.get(context)
         val dao = db.questionDao()
         val total = dao.countAll()
@@ -135,12 +148,16 @@ private suspend fun logRuntimeQuestionPoolSnapshot(context: Context) {
         val g6Mat = dao.getCandidatePoolByGradeSubject(6, "mat").size
         val g4Ing = dao.getCandidatePoolByGradeSubject(4, "ing").size
         val lgsMat = dao.getCandidatePoolByLgsSubject("mat").size
-        Log.i(
-            PERSISTENCE_LOG_TAG,
-            "RUNTIME_SEED_DB total=$total active=$active g6_mat_candidates=$g6Mat g4_ing_candidates=$g4Ing lgs_mat_candidates=$lgsMat"
+        RuntimeSeedSnapshot(
+            total = total,
+            active = active,
+            g6Mat = g6Mat,
+            g4Ing = g4Ing,
+            lgsMat = lgsMat
         )
     } catch (e: Exception) {
-        Log.w(PERSISTENCE_LOG_TAG, "logRuntimeQuestionPoolSnapshot failed", e)
+        Log.w(PERSISTENCE_LOG_TAG, "computeRuntimeQuestionPoolSnapshot failed", e)
+        null
     }
 }
 

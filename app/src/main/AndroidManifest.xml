@@ -156,6 +156,11 @@
             android:name=".quiz.PastTestDetailActivity"
             android:exported="false" />
 
+        <!-- Debug-only seed status screen (launched from BrainBuddyApp; has no launcher intent). -->
+        <activity
+            android:name=".ui.DebugSeedStatusActivity"
+            android:exported="false" />
+
         <receiver
             android:name=".receiver.PackageChangeReceiver"
             android:exported="false">
