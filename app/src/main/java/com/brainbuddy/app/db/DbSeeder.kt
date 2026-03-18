@@ -208,45 +208,24 @@ object DbSeeder {
         if (questions.isEmpty()) {
             questions.addAll(getFallbackEntities())
         }
-
-        // Final normalization step: guarantee grade/examType invariants BEFORE dedup+insert.
-        val totalBeforeNormalize = questions.size
-        val invalidBefore = questions.count { it.grade < 1 || it.grade > 7 }
-
         val normalized = questions.map { q ->
-            val examTypeNorm = q.examType?.takeIf { it.isNotBlank() } ?: "GENERAL"
-            val gradeNorm = if (examTypeNorm == "LGS") {
-                7
-            } else {
-                if (q.grade in 1..7) q.grade
-                else if (q.subject in setOf("mat", "turkce", "fen", "sosyal", "ing")) 6 else 6
+            val fixedExamType = q.examType ?: "GENERAL"
+
+            val fixedGrade = when {
+                fixedExamType == "LGS" -> 7
+                q.grade in 1..7 -> q.grade
+                else -> 6
             }
+
             q.copy(
-                grade = gradeNorm,
-                examType = examTypeNorm
+                grade = fixedGrade,
+                examType = fixedExamType
             )
         }
 
-        val totalAfterNormalize = normalized.size
-        val invalidAfter = normalized.count { it.grade < 1 || it.grade > 7 }
-
-        // Dedup should only drop true duplicates.
         val deduped = normalized.distinctBy(::dedupKey)
 
-        lastSeedDiagnostics = SeedDiagnostics(
-            loaded_root_general = lastSeedSourceCounts.loaded_root_general,
-            loaded_packs = lastSeedSourceCounts.loaded_packs,
-            loaded_grade_based = lastSeedSourceCounts.loaded_grade_based,
-            loaded_lgs_exam = lastSeedSourceCounts.loaded_lgs_exam,
-            loaded_synthetic = lastSeedSourceCounts.loaded_synthetic,
-            discovered_grade_based_dirs = lastDiscoveredGradeBasedDirs,
-            discovered_grade_based_json_files = lastDiscoveredGradeBasedJsonFiles,
-            total_before_normalize = totalBeforeNormalize,
-            total_after_normalize = totalAfterNormalize,
-            invalid_grade_before_normalize = invalidBefore,
-            invalid_grade_after_normalize = invalidAfter,
-            final_inserted = deduped.size
-        )
+        Log.e("SEED_DEBUG", "normalized_count=${normalized.size} invalid_after=${normalized.count { it.grade !in 1..7 }}")
 
         return deduped
     }
