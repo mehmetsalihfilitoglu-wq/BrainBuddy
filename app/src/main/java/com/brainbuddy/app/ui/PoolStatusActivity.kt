@@ -305,6 +305,24 @@ class PoolStatusActivity : AppCompatActivity() {
                     }
                     sb.append("\n")
 
+                    val g6Pack = DbSeeder.GRADE6_MAT_SOURCE_PACK
+                    val g6Ingest = DbSeeder.debugGrade6MatFileIngest()
+                    val g6Inserted = dao.countBySourcePack(g6Pack)
+                    val g6Active = dao.countActiveBySourcePack(g6Pack)
+                    val g6Inactive = dao.countInactiveBySourcePack(g6Pack)
+                    val g6DistinctStem = dao.countDistinctStemHashBySourcePack(g6Pack)
+                    val g6Dup = (g6Inserted - g6DistinctStem).coerceAtLeast(0)
+                    val g6Rejected = dao.countRejectedQualityGateBySourcePack(g6Pack)
+                    sb.append("GRADE6_MAT_FILE_INGEST (asset → sourcePack=$g6Pack)\n")
+                    sb.append("mat6_file_seen=${if (g6Ingest?.fileSeen == true) "yes" else "no"}\n")
+                    sb.append("mat6_file_parsed_count=${g6Ingest?.lastParsedCount ?: 0}\n")
+                    sb.append("mat6_file_inserted_count=$g6Inserted\n")
+                    sb.append("mat6_file_active_count=$g6Active\n")
+                    sb.append("mat6_file_inactive_count=$g6Inactive\n")
+                    sb.append("mat6_file_duplicate_count=$g6Dup\n")
+                    sb.append("mat6_file_rejected_count=$g6Rejected\n")
+                    sb.append("\n")
+
                     val diag = DbSeeder.debugLastSeedDiagnostics()
                     if (diag != null) {
                         sb.append("SEED_SOURCE_COUNTS_AND_NORMALIZE_DEBUG\n")

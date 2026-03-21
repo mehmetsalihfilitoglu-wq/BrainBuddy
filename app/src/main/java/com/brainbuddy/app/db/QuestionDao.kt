@@ -488,4 +488,30 @@ interface QuestionDao {
         """
     )
     suspend fun getSampleIdsForMat6StemHash(stemHash: String): List<String>
+
+    // ---- DEBUG: rows ingested from assets grade6_mat.json (sourcePack tag) ----
+
+    @Query("SELECT COUNT(*) FROM questions WHERE sourcePack = :pack")
+    suspend fun countBySourcePack(pack: String): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE sourcePack = :pack AND isActive = 1")
+    suspend fun countActiveBySourcePack(pack: String): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE sourcePack = :pack AND isActive = 0")
+    suspend fun countInactiveBySourcePack(pack: String): Int
+
+    @Query("SELECT COUNT(DISTINCT stemHash) FROM questions WHERE sourcePack = :pack")
+    suspend fun countDistinctStemHashBySourcePack(pack: String): Int
+
+    /** Inactive rows deactivated by QuestionQualityGate-style reasons (parse-time). */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE sourcePack = :pack AND isActive = 0
+        AND COALESCE(deactivationReason, '') IN (
+            'too_trivial', 'too_short', 'too_basic', 'too_simple_math', 'too_memorization'
+        )
+        """
+    )
+    suspend fun countRejectedQualityGateBySourcePack(pack: String): Int
 }

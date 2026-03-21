@@ -20,6 +20,12 @@ import java.nio.charset.Charset
  * Idempotent: app_meta["db_seeded"] == "true" skips.
  */
 object DbSeeder {
+
+    companion object {
+        /** Tag written to [QuestionEntity.sourcePack] for questions parsed from this asset. */
+        const val GRADE6_MAT_SOURCE_PACK = "grade6_mat.json"
+    }
+
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
@@ -74,6 +80,15 @@ object DbSeeder {
 
     private var lastMat6PipelineDiagnostics: Mat6PipelineDiagnostics? = null
 
+    /** Last load of assets [GRADE6_MAT_SOURCE_PACK] during [loadFromAssets] (DEBUG PoolStatus). */
+    data class Grade6MatFileIngestDiagnostics(
+        val fileSeen: Boolean,
+        val lastParsedCount: Int,
+        val lastLoadError: String?
+    )
+
+    private var lastGrade6MatFileIngest: Grade6MatFileIngestDiagnostics? = null
+
     private object Mat6PipelineStats {
         var generatedJsonQuestions: Int = 0
         var parsedEntitiesMat6: Int = 0
@@ -91,6 +106,8 @@ object DbSeeder {
     }
 
     fun debugMat6PipelineDiagnostics(): Mat6PipelineDiagnostics? = lastMat6PipelineDiagnostics
+
+    fun debugGrade6MatFileIngest(): Grade6MatFileIngestDiagnostics? = lastGrade6MatFileIngest
     private var lastSeedSourceCounts: SeedSourceCounts = SeedSourceCounts(0, 0, 0, 0, 0)
     private var lastDiscoveredGradeBasedDirs: Int = 0
     private var lastDiscoveredGradeBasedJsonFiles: Int = 0
@@ -170,7 +187,7 @@ object DbSeeder {
     private val ROOT_GENERAL_QUESTION_FILES = listOf("questions_tr.json", "import_template.json")
 
     /** Root-level pack JSONs matching [PACK_FILE_REGEX] (same as assets/packs/). */
-    private val ROOT_PACK_FILES = listOf("grade6_mat.json")
+    private val ROOT_PACK_FILES = listOf(GRADE6_MAT_SOURCE_PACK)
 
     /** Desteklenen ders anahtarları (DB'ye bu kısa kodlarla yazılır). */
     private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
@@ -451,6 +468,7 @@ object DbSeeder {
 
     private fun loadFromAssets(context: Context): List<QuestionEntity> {
         Mat6PipelineStats.reset()
+        lastGrade6MatFileIngest = null
         val all = mutableListOf<QuestionEntity>()
 
         // 1) Root-level GENERAL question files (array or wrapped { "questions": [], "grade", "subject" }).
@@ -479,16 +497,15 @@ object DbSeeder {
                 all += parsed
                 if (parsed.isNotEmpty()) {
                     Log.i(TAG, "Loaded root pack file: $assetName (${parsed.size} questions)")
-                    if (assetName.equals("grade6_mat.json", ignoreCase = true)) {
-                        try {
-                            val root = JSONObject(json)
-                            val arr = root.optJSONArray("questions")
-                            Mat6PipelineStats.generatedJsonQuestions += (arr?.length() ?: 0)
-                            Mat6PipelineStats.parsedEntitiesMat6 += parsed.size
-                        } catch (_: Exception) { }
-                    }
                 }
             } catch (e: Exception) {
+                if (assetName.equals(GRADE6_MAT_SOURCE_PACK, ignoreCase = true)) {
+                    lastGrade6MatFileIngest = Grade6MatFileIngestDiagnostics(
+                        fileSeen = false,
+                        lastParsedCount = 0,
+                        lastLoadError = e.message
+                    )
+                }
                 Log.w(TAG, "Root pack file $assetName error: ${e.message}")
             }
         }
@@ -508,6 +525,13 @@ object DbSeeder {
                 all += parsed
                 if (parsed.isNotEmpty()) Log.i(TAG, "Loaded pack $assetPath: ${parsed.size} questions")
             } catch (e: Exception) {
+                if (assetPath.substringAfterLast('/').equals(GRADE6_MAT_SOURCE_PACK, ignoreCase = true)) {
+                    lastGrade6MatFileIngest = Grade6MatFileIngestDiagnostics(
+                        fileSeen = false,
+                        lastParsedCount = 0,
+                        lastLoadError = e.message
+                    )
+                }
                 Log.w(TAG, "Pack load error for $assetPath: ${e.message}")
             }
         }
@@ -863,16 +887,45 @@ object DbSeeder {
         val fileName = assetPath.substringAfterLast('/')
         val derived = deriveGradeAndSubjectFromPackFilename(fileName) ?: return emptyList()
         val (forcedGrade, forcedSubject) = derived
+        val sourcePackTag =
+            if (fileName.equals(GRADE6_MAT_SOURCE_PACK, ignoreCase = true)) GRADE6_MAT_SOURCE_PACK else null
         val trimmed = json.trimStart()
-        return when {
-            trimmed.startsWith("[") -> parsePackJsonArray(org.json.JSONArray(json), forcedGrade, forcedSubject, assetPath)
+        val result = when {
+            trimmed.startsWith("[") -> parsePackJsonArray(
+                org.json.JSONArray(json),
+                forcedGrade,
+                forcedSubject,
+                assetPath,
+                sourcePackTag
+            )
             trimmed.startsWith("{") -> {
                 val root = org.json.JSONObject(json)
-                val arr = root.optJSONArray("questions") ?: return emptyList()
-                parsePackWrappedQuestions(arr, forcedGrade, forcedSubject, assetPath)
+                val arr = root.optJSONArray("questions")
+                if (arr == null) emptyList()
+                else parsePackWrappedQuestions(arr, forcedGrade, forcedSubject, assetPath, sourcePackTag)
             }
             else -> emptyList()
         }
+        if (fileName.equals(GRADE6_MAT_SOURCE_PACK, ignoreCase = true)) {
+            try {
+                when {
+                    trimmed.startsWith("{") -> {
+                        val root = JSONObject(json)
+                        Mat6PipelineStats.generatedJsonQuestions += (root.optJSONArray("questions")?.length() ?: 0)
+                    }
+                    trimmed.startsWith("[") -> {
+                        Mat6PipelineStats.generatedJsonQuestions += org.json.JSONArray(json).length()
+                    }
+                }
+            } catch (_: Exception) { }
+            Mat6PipelineStats.parsedEntitiesMat6 += result.size
+            lastGrade6MatFileIngest = Grade6MatFileIngestDiagnostics(
+                fileSeen = true,
+                lastParsedCount = result.size,
+                lastLoadError = null
+            )
+        }
+        return result
     }
 
     private fun deriveGradeAndSubjectFromPackFilename(fileName: String): Pair<Int, String>? {
@@ -886,7 +939,13 @@ object DbSeeder {
      * Pack parsing: force grade/subject from filename. Do NOT trust JSON grade/subject inside packs.
      * Ensures questions stay in the GENERAL pool (grades 1..7).
      */
-    private fun parsePackJsonArray(arr: JSONArray, forcedGrade: Int, forcedSubject: String, sourceLabel: String): List<QuestionEntity> {
+    private fun parsePackJsonArray(
+        arr: JSONArray,
+        forcedGrade: Int,
+        forcedSubject: String,
+        sourceLabel: String,
+        sourcePackTag: String? = null
+    ): List<QuestionEntity> {
         val out = mutableListOf<QuestionEntity>()
         for (i in 0 until arr.length()) {
             try {
@@ -895,7 +954,7 @@ object DbSeeder {
                 combined.put("grade", forcedGrade)
                 combined.put("subject", forcedSubject)
                 if (!combined.has("examType")) combined.put("examType", "GENERAL")
-                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel, sourcePackTag = sourcePackTag))
             } catch (e: Exception) {
                 Log.w(TAG, "Pack parse failed $sourceLabel index $i: ${e.message}")
             }
@@ -903,7 +962,13 @@ object DbSeeder {
         return out
     }
 
-    private fun parsePackWrappedQuestions(arr: JSONArray, forcedGrade: Int, forcedSubject: String, sourceLabel: String): List<QuestionEntity> {
+    private fun parsePackWrappedQuestions(
+        arr: JSONArray,
+        forcedGrade: Int,
+        forcedSubject: String,
+        sourceLabel: String,
+        sourcePackTag: String? = null
+    ): List<QuestionEntity> {
         val out = mutableListOf<QuestionEntity>()
         for (i in 0 until arr.length()) {
             try {
@@ -912,7 +977,7 @@ object DbSeeder {
                 combined.put("grade", forcedGrade)
                 combined.put("subject", forcedSubject)
                 if (!combined.has("examType")) combined.put("examType", "GENERAL")
-                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel, sourcePackTag = sourcePackTag))
             } catch (e: Exception) {
                 Log.w(TAG, "Pack parse failed $sourceLabel index $i: ${e.message}")
             }
@@ -1173,7 +1238,8 @@ object DbSeeder {
     private fun parseQuestionObject(
         o: JSONObject,
         index: Int,
-        sourceLabel: String = "unknown"
+        sourceLabel: String = "unknown",
+        sourcePackTag: String? = null
     ): QuestionEntity {
         // grade:
         // App expects 1..7. Never keep grade=8; map missing/invalid safely.
@@ -1326,7 +1392,8 @@ object DbSeeder {
             type = diversityType,
             skill = diversitySkill,
             stemNormalized = stemNorm,
-            stemHash = hash
+            stemHash = hash,
+            sourcePack = sourcePackTag
         )
     }
 
