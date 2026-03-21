@@ -194,31 +194,93 @@ object DbSeeder {
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
 
-        // SAFE/transactional: load first, only then replace DB.
-        val toInsert = buildSeedQuestions(context)
-        if (toInsert.isEmpty()) {
-            Log.e(TAG, "Force reseed aborted: loaded=0, preserving existing DB")
-            return@withContext false
-        }
-
-        // Version alanlarını güncel sürüme çek – böylece sonraki açılışlarda tekrar seedIfNeeded tetiklenmez.
-        meta.set(AppMetaEntity(KEY_DB_SEEDED, "false"))
-        meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, "0"))
         return@withContext try {
+            var inserted = 0
             db.withTransaction {
                 questionDao.deleteAll()
-                // Use REPLACE so the final DB exactly matches the loaded seed set.
-                questionDao.insertAll(toInsert)
-                meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
-                meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
+
+                val all = mutableListOf<QuestionEntity>()
+
+                val assets = context.assets
+                val files = assets.list("lgs_exam") ?: emptyArray()
+
+                for (dir in files) {
+                    val path = "lgs_exam/$dir"
+                    val subFiles = assets.list(path) ?: continue
+
+                    for (file in subFiles) {
+                        if (!file.endsWith(".json")) continue
+
+                        val json = assets.open("$path/$file").bufferedReader().use { it.readText() }
+
+                        val arr = if (json.trim().startsWith("{")) {
+                            JSONObject(json).optJSONArray("questions") ?: JSONArray()
+                        } else {
+                            JSONArray(json)
+                        }
+
+                        for (i in 0 until arr.length()) {
+                            val o = arr.getJSONObject(i)
+
+                            val questionText = o.optString("stem", o.optString("question", ""))
+
+                            val optionsArr = o.optJSONArray("options") ?: o.optJSONArray("choices") ?: continue
+                            val options = mutableListOf<String>()
+                            for (j in 0 until optionsArr.length()) {
+                                options.add(optionsArr.optString(j))
+                            }
+                            while (options.size < 4) options.add("-")
+
+                            val answerIndex = o.optInt("answerIndex", o.optInt("correctIndex", 0))
+
+                            val subject = when (dir) {
+                                "math", "mat" -> "mat"
+                                "fen" -> "fen"
+                                "turkce" -> "turkce"
+                                "english" -> "ing"
+                                "sosyal" -> "sosyal"
+                                "inkilap" -> "inkilap"
+                                "din" -> "din"
+                                else -> "mat"
+                            }
+
+                            val id = java.util.UUID.randomUUID().toString()
+
+                            all.add(
+                                QuestionEntity(
+                                    id = id,
+                                    grade = 6,
+                                    subject = subject,
+                                    difficulty = 1,
+                                    questionText = questionText,
+                                    optionsJson = JSONArray(options).toString(),
+                                    answerIndex = answerIndex,
+                                    explanation = null,
+                                    isActive = true,
+                                    version = 1,
+                                    examType = "GENERAL",
+                                    imageAsset = null,
+                                    stemNormalized = questionText,
+                                    stemHash = id
+                                )
+                            )
+                        }
+                    }
+                }
+
+                questionDao.insertAll(all)
+
+                meta.set(AppMetaEntity("db_seeded", "true"))
+                meta.set(AppMetaEntity("db_seed_version", "999"))
+                inserted = all.size
             }
             // DEBUG: verify actual DB grades after reseed.
             try {
-                val all = questionDao.getAllQuestions()
-                val totalRows = all.size
-                val invalidRows = all.count { it.grade !in 1..7 }
-                val validRows = all.count { it.grade in 1..7 }
-                val first5 = all.take(5).map { "grade=${it.grade} examType=${it.examType}" }
+                val allRows = questionDao.getAllQuestions()
+                val totalRows = allRows.size
+                val invalidRows = allRows.count { it.grade !in 1..7 }
+                val validRows = allRows.count { it.grade in 1..7 }
+                val first5 = allRows.take(5).map { "grade=${it.grade} examType=${it.examType}" }
                 updateDbCheckDiagnostics(
                     totalRows = totalRows,
                     invalidRows = invalidRows,
@@ -228,7 +290,7 @@ object DbSeeder {
             } catch (e: Exception) {
                 Log.e("DB_CHECK", "Failed to read back questions after forceReseed: ${e.message}", e)
             }
-            Log.i(TAG, "Force reseed successful: inserted=${toInsert.size}")
+            Log.i(TAG, "Force reseed successful: inserted=$inserted")
             true
         } catch (e: Exception) {
             Log.e(TAG, "Force reseed failed, old database may be preserved", e)
