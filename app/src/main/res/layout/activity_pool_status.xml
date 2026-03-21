@@ -129,6 +129,15 @@
                         android:layout_marginTop="16dp"
                         android:text="@string/pool_status_force_reseed_button"
                         android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUpgradeGateFailedQuestions"
+                        style="@style/BBButtonAlt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Gate-fail soruları iyileştir (DB, silme yok)"
+                        android:textAllCaps="false" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

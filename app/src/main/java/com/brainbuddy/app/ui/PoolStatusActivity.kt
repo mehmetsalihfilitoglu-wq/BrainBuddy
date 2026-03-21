@@ -15,7 +15,9 @@ import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.db.GateFailedQuestionUpgrader
 import com.brainbuddy.app.db.PoolQuotaEnforcer
+import com.brainbuddy.app.db.QuestionDao
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -223,6 +225,58 @@ class PoolStatusActivity : AppCompatActivity() {
                     renderStatus()
                 }
             }
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnUpgradeGateFailedQuestions)
+            .setOnClickListener {
+                if (!BuildConfig.DEBUG) return@setOnClickListener
+                lifecycleScope.launch {
+                    val message = withContext(Dispatchers.IO) {
+                        val db = DatabaseProvider.get(this@PoolStatusActivity)
+                        val dao = db.questionDao()
+                        val totalBefore = dao.countAll()
+                        val activeBefore = dao.countAllActive()
+                        val inactiveBefore = totalBefore - activeBefore
+                        val gateLossBefore = dao.countInactiveGateReasonsCore()
+                        val quotaDeficitSumBefore = computeTotalCoreDeficit(dao)
+                        val up = GateFailedQuestionUpgrader.upgradeAll(this@PoolStatusActivity)
+                        val quota = PoolQuotaEnforcer.enforceCoreQuotas(this@PoolStatusActivity)
+                        val quotaDeficitSumAfter = quota.deficitAfter.values.sum()
+                        val totalAfter = dao.countAll()
+                        val activeAfter = dao.countAllActive()
+                        val inactiveAfter = totalAfter - activeAfter
+                        val gateLossAfter = dao.countInactiveGateReasonsCore()
+                        buildString {
+                            appendLine("GATE_UPGRADE + QUOTA (no deletions)")
+                            appendLine()
+                            appendLine("target gate-failed rows: ${up.totalFound}")
+                            appendLine("upgraded to ACTIVE: ${up.upgradedActive}")
+                            appendLine("unchanged (still gate-fail): ${up.unchangedStillInactive}")
+                            appendLine()
+                            appendLine("BEFORE — active_count=$activeBefore inactive_count=$inactiveBefore gate_loss_count=$gateLossBefore quota_deficit_before(sum_to_500)=$quotaDeficitSumBefore")
+                            appendLine("AFTER  — active_count=$activeAfter inactive_count=$inactiveAfter gate_loss_count=$gateLossAfter quota_deficit_after(sum_to_500)=$quotaDeficitSumAfter")
+                            appendLine()
+                            appendLine("No questions were deleted; only improved in place (REPLACE by id).")
+                        }
+                    }
+                    AlertDialog.Builder(this@PoolStatusActivity)
+                        .setTitle("Gate iyileştirme")
+                        .setMessage(message)
+                        .setPositiveButton(android.R.string.ok) { _, _ -> }
+                        .show()
+                    renderStatus()
+                }
+            }
+    }
+
+    private suspend fun computeTotalCoreDeficit(dao: QuestionDao): Int {
+        var total = 0
+        for (g in 1..7) {
+            for (s in PoolQuotaEnforcer.CORE_SUBJECTS) {
+                val a = dao.countActiveByGradeSubject(g, s)
+                total += (PoolQuotaEnforcer.CORE_MIN_ACTIVE - a).coerceAtLeast(0)
+            }
+        }
+        return total
     }
 
     private fun renderStatus() {

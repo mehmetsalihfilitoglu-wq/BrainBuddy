@@ -529,4 +529,33 @@ interface QuestionDao {
         """
     )
     suspend fun countRejectedQualityGateBySourcePack(pack: String): Int
+
+    /**
+     * Inactive rows deactivated by [QuestionQualityGate] (parse-time reasons), core subjects only.
+     */
+    @Query(
+        """
+        SELECT * FROM questions
+        WHERE isActive = 0
+        AND COALESCE(deactivationReason, '') IN (
+            'too_short', 'too_trivial', 'too_basic', 'too_simple_math', 'too_memorization'
+        )
+        AND grade BETWEEN 1 AND 7
+        AND LOWER(subject) IN ('mat','turkce','fen','sosyal','ing')
+        """
+    )
+    suspend fun getGateFailedInactiveCoreSubjects(): List<QuestionEntity>
+
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE isActive = 0
+        AND COALESCE(deactivationReason, '') IN (
+            'too_short', 'too_trivial', 'too_basic', 'too_simple_math', 'too_memorization'
+        )
+        AND grade BETWEEN 1 AND 7
+        AND LOWER(subject) IN ('mat','turkce','fen','sosyal','ing')
+        """
+    )
+    suspend fun countInactiveGateReasonsCore(): Int
 }
