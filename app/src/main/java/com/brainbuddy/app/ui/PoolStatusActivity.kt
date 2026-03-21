@@ -17,6 +17,7 @@ import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -42,6 +43,16 @@ class PoolStatusActivity : AppCompatActivity() {
         layoutDebugFix.visibility = if (BuildConfig.DEBUG) View.VISIBLE else View.GONE
 
         setupFixButtons()
+        renderStatus()
+        // seedIfNeeded runs async in Application; first paint can be pre-seed — refresh shortly after open.
+        lifecycleScope.launch {
+            delay(450)
+            renderStatus()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
         renderStatus()
     }
 
@@ -234,8 +245,8 @@ class PoolStatusActivity : AppCompatActivity() {
 
                 val sb = StringBuilder()
 
-                // 1) TOTAL / ACTIVE
-                sb.append("TOTAL / ACTIVE\n")
+                // 1) TOTAL / ACTIVE — full table (all examType rows); not LGS-only.
+                sb.append("TOTAL / ACTIVE (tüm questions tablosu)\n")
                 sb.append("$total / $active\n\n")
 
                 // DEBUG seed diagnostics (runtime).

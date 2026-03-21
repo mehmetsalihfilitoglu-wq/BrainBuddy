@@ -200,10 +200,10 @@ interface QuestionDao {
     /** Import sonrası debug: grade/subject/difficulty bazında ACTIVE sayıları. */
     @Query(
         """
-        SELECT grade, subject, difficulty, COUNT(*) AS count
+        SELECT grade, LOWER(subject) AS subject, difficulty, COUNT(*) AS count
         FROM questions
         WHERE isActive = 1 AND grade BETWEEN 1 AND 7
-        GROUP BY grade, subject, difficulty
+        GROUP BY grade, LOWER(subject), difficulty
         ORDER BY grade, subject, difficulty
         """
     )
