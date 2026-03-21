@@ -12,6 +12,7 @@ import com.brainbuddy.app.core.OnboardingPrefs
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.db.PoolQuotaEnforcer
 import com.brainbuddy.app.ui.DebugSeedStatusActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,6 +54,12 @@ class BrainBuddyApp : Application() {
                 logStartupPersistenceAsync(this@BrainBuddyApp)
                 val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
                 Log.i(PERSISTENCE_LOG_TAG, "Seed finished async: didSeed=$didSeed")
+                val quotaReport = PoolQuotaEnforcer.enforceCoreQuotas(this@BrainBuddyApp)
+                Log.i(PERSISTENCE_LOG_TAG, quotaReport.formatActiveTable("QUOTA_ACTIVE_AFTER", quotaReport.activeAfter))
+                Log.i(PERSISTENCE_LOG_TAG, quotaReport.formatDeficitTable(quotaReport.deficitAfter))
+                if (!quotaReport.allCoreCellsSatisfied) {
+                    Log.w(PERSISTENCE_LOG_TAG, "Core pool quota: not all grade×subject cells reached ${PoolQuotaEnforcer.CORE_MIN_ACTIVE} ACTIVE")
+                }
                 computeRuntimeQuestionPoolSnapshot(this@BrainBuddyApp)
             }
             if (BuildConfig.DEBUG && snapshot != null) {

@@ -233,6 +233,20 @@ interface QuestionDao {
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND isActive = 1")
     suspend fun countActiveByGradeSubject(grade: Int, subject: String): Int
 
+    /** Pasif sorular (kalite gate vb.) — kota teşhisi için. */
+    @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND isActive = 0")
+    suspend fun countInactiveByGradeSubject(grade: Int, subject: String): Int
+
+    /** Aktif LGS satırları (examType=LGS) — grade 7 havuz karışımı notu için. */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE grade = :grade AND subject = :subject
+        AND isActive = 1 AND COALESCE(examType, 'GENERAL') = 'LGS'
+        """
+    )
+    suspend fun countActiveLgsByGradeSubject(grade: Int, subject: String): Int
+
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND difficulty = :difficulty")
     suspend fun countByGradeSubjectDifficulty(grade: Int, subject: String, difficulty: Int): Int
 
