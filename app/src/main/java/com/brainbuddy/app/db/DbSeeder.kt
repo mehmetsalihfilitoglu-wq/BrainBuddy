@@ -182,6 +182,21 @@ object DbSeeder {
         performSeed(db, meta, context)
     }
 
+    private fun listJsonRecursive(assets: android.content.res.AssetManager, path: String, out: MutableList<String>) {
+        val list = assets.list(path) ?: return
+        for (name in list) {
+            val full = "$path/$name"
+            if (name.endsWith(".json")) {
+                out.add(full)
+            } else {
+                val sub = assets.list(full)
+                if (!sub.isNullOrEmpty()) {
+                    listJsonRecursive(assets, full, out)
+                }
+            }
+        }
+    }
+
     /**
      * DEBUG: Tüm soru tablosunu temizleyip, asset ve import edilmiş JSON'lardan
      * seeding işlemini baştan çalıştırır.
@@ -202,69 +217,64 @@ object DbSeeder {
                 val all = mutableListOf<QuestionEntity>()
 
                 val assets = context.assets
-                val files = assets.list("lgs_exam") ?: emptyArray()
+                val allJsonPaths = mutableListOf<String>()
+                listJsonRecursive(assets, "lgs_exam", allJsonPaths)
+                Log.e("SEED_DEBUG", "TOTAL_JSON_FILES=${allJsonPaths.size}")
 
-                for (dir in files) {
-                    val path = "lgs_exam/$dir"
-                    val subFiles = assets.list(path) ?: continue
+                for (assetPath in allJsonPaths) {
+                    val json = assets.open(assetPath).bufferedReader().use { it.readText() }
 
-                    for (file in subFiles) {
-                        if (!file.endsWith(".json")) continue
+                    val subject = when {
+                        assetPath.contains("/mat") -> "mat"
+                        assetPath.contains("/fen") -> "fen"
+                        assetPath.contains("/turkce") -> "turkce"
+                        assetPath.contains("/english") -> "ing"
+                        assetPath.contains("/sosyal") -> "sosyal"
+                        assetPath.contains("/inkilap") -> "inkilap"
+                        assetPath.contains("/din") -> "din"
+                        else -> "mat"
+                    }
 
-                        val json = assets.open("$path/$file").bufferedReader().use { it.readText() }
+                    val arr = if (json.trim().startsWith("{")) {
+                        JSONObject(json).optJSONArray("questions") ?: JSONArray()
+                    } else {
+                        JSONArray(json)
+                    }
 
-                        val arr = if (json.trim().startsWith("{")) {
-                            JSONObject(json).optJSONArray("questions") ?: JSONArray()
-                        } else {
-                            JSONArray(json)
+                    for (i in 0 until arr.length()) {
+                        val o = arr.getJSONObject(i)
+
+                        val questionText = o.optString("stem", o.optString("question", ""))
+
+                        val optionsArr = o.optJSONArray("options") ?: o.optJSONArray("choices") ?: continue
+                        val options = mutableListOf<String>()
+                        for (j in 0 until optionsArr.length()) {
+                            options.add(optionsArr.optString(j))
                         }
+                        while (options.size < 4) options.add("-")
 
-                        for (i in 0 until arr.length()) {
-                            val o = arr.getJSONObject(i)
+                        val answerIndex = o.optInt("answerIndex", o.optInt("correctIndex", 0))
 
-                            val questionText = o.optString("stem", o.optString("question", ""))
+                        val id = java.util.UUID.randomUUID().toString()
 
-                            val optionsArr = o.optJSONArray("options") ?: o.optJSONArray("choices") ?: continue
-                            val options = mutableListOf<String>()
-                            for (j in 0 until optionsArr.length()) {
-                                options.add(optionsArr.optString(j))
-                            }
-                            while (options.size < 4) options.add("-")
-
-                            val answerIndex = o.optInt("answerIndex", o.optInt("correctIndex", 0))
-
-                            val subject = when (dir) {
-                                "math", "mat" -> "mat"
-                                "fen" -> "fen"
-                                "turkce" -> "turkce"
-                                "english" -> "ing"
-                                "sosyal" -> "sosyal"
-                                "inkilap" -> "inkilap"
-                                "din" -> "din"
-                                else -> "mat"
-                            }
-
-                            val id = java.util.UUID.randomUUID().toString()
-
-                            all.add(
-                                QuestionEntity(
-                                    id = id,
-                                    grade = 6,
-                                    subject = subject,
-                                    difficulty = 1,
-                                    questionText = questionText,
-                                    optionsJson = JSONArray(options).toString(),
-                                    answerIndex = answerIndex,
-                                    explanation = null,
-                                    isActive = true,
-                                    version = 1,
-                                    examType = "GENERAL",
-                                    imageAsset = null,
-                                    stemNormalized = questionText,
-                                    stemHash = id
-                                )
+                        all.add(
+                            QuestionEntity(
+                                id = id,
+                                grade = 6,
+                                subject = subject,
+                                difficulty = 1,
+                                questionText = questionText,
+                                optionsJson = JSONArray(options).toString(),
+                                answerIndex = answerIndex,
+                                explanation = null,
+                                isActive = true,
+                                version = 1,
+                                examType = "GENERAL",
+                                imageAsset = null,
+                                stemNormalized = questionText,
+                                stemHash = id
                             )
-                        }
+                        )
                     }
                 }
 
