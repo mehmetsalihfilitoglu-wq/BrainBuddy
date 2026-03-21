@@ -182,24 +182,11 @@ object DbSeeder {
         performSeed(db, meta, context)
     }
 
-    private fun listJsonRecursive(assets: android.content.res.AssetManager, path: String, out: MutableList<String>) {
-        val list = assets.list(path) ?: return
-        for (name in list) {
-            val full = "$path/$name"
-            if (name.endsWith(".json")) {
-                out.add(full)
-            } else {
-                val sub = assets.list(full)
-                if (!sub.isNullOrEmpty()) {
-                    listJsonRecursive(assets, full, out)
-                }
-            }
-        }
-    }
-
     /**
      * DEBUG: Tüm soru tablosunu temizleyip, asset ve import edilmiş JSON'lardan
      * seeding işlemini baştan çalıştırır.
+     *
+     * Aynı pipeline: loadFromAssets + loadFromImported (içinde buildSeedQuestions) → deleteAll → insertAll.
      *
      * Kullanım senaryosu:
      * - Yeni paketler eklendikten sonra uygulamayı yeniden yüklemeden havuzu tazelemek.
@@ -209,80 +196,20 @@ object DbSeeder {
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
 
+        val toInsert = buildSeedQuestions(context)
+        if (toInsert.isEmpty()) {
+            Log.e(TAG, "Force reseed aborted: loaded=0, preserving existing DB")
+            return@withContext false
+        }
+
         return@withContext try {
             var inserted = 0
             db.withTransaction {
                 questionDao.deleteAll()
-
-                val all = mutableListOf<QuestionEntity>()
-
-                val assets = context.assets
-                val allJsonPaths = mutableListOf<String>()
-                listJsonRecursive(assets, "lgs_exam", allJsonPaths)
-                Log.e("SEED_DEBUG", "TOTAL_JSON_FILES=${allJsonPaths.size}")
-
-                for (assetPath in allJsonPaths) {
-                    val json = assets.open(assetPath).bufferedReader().use { it.readText() }
-
-                    val subject = when {
-                        assetPath.contains("/mat") -> "mat"
-                        assetPath.contains("/fen") -> "fen"
-                        assetPath.contains("/turkce") -> "turkce"
-                        assetPath.contains("/english") -> "ing"
-                        assetPath.contains("/sosyal") -> "sosyal"
-                        assetPath.contains("/inkilap") -> "inkilap"
-                        assetPath.contains("/din") -> "din"
-                        else -> "mat"
-                    }
-
-                    val arr = if (json.trim().startsWith("{")) {
-                        JSONObject(json).optJSONArray("questions") ?: JSONArray()
-                    } else {
-                        JSONArray(json)
-                    }
-
-                    for (i in 0 until arr.length()) {
-                        val o = arr.getJSONObject(i)
-
-                        val questionText = o.optString("stem", o.optString("question", ""))
-
-                        val optionsArr = o.optJSONArray("options") ?: o.optJSONArray("choices") ?: continue
-                        val options = mutableListOf<String>()
-                        for (j in 0 until optionsArr.length()) {
-                            options.add(optionsArr.optString(j))
-                        }
-                        while (options.size < 4) options.add("-")
-
-                        val answerIndex = o.optInt("answerIndex", o.optInt("correctIndex", 0))
-
-                        val id = java.util.UUID.randomUUID().toString()
-
-                        all.add(
-                            QuestionEntity(
-                                id = id,
-                                grade = 6,
-                                subject = subject,
-                                difficulty = 1,
-                                questionText = questionText,
-                                optionsJson = JSONArray(options).toString(),
-                                answerIndex = answerIndex,
-                                explanation = null,
-                                isActive = true,
-                                version = 1,
-                                examType = "GENERAL",
-                                imageAsset = null,
-                                stemNormalized = questionText,
-                                stemHash = id
-                            )
-                        )
-                    }
-                }
-
-                questionDao.insertAll(all)
-
-                meta.set(AppMetaEntity("db_seeded", "true"))
-                meta.set(AppMetaEntity("db_seed_version", "999"))
-                inserted = all.size
+                questionDao.insertAll(toInsert)
+                meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
+                meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
+                inserted = toInsert.size
             }
             // DEBUG: verify actual DB grades after reseed.
             try {
