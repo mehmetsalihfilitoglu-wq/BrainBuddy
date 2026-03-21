@@ -251,6 +251,60 @@ class PoolStatusActivity : AppCompatActivity() {
 
                 // DEBUG seed diagnostics (runtime).
                 if (BuildConfig.DEBUG) {
+                    val pipe = DbSeeder.debugMat6PipelineDiagnostics()
+                    val mat6Inserted = dao.countGrade6MatGeneral()
+                    val mat6Active = dao.countGrade6MatGeneralActive()
+                    val mat6Inactive = dao.countGrade6MatGeneralInactive()
+                    val mat6QGateInactive = dao.countGrade6MatInactiveQualityGateReasons()
+                    val mat6TopReasons = dao.getGrade6MatTopInactiveReasons()
+                    val mat6DupGroups = dao.getGrade6MatDuplicateStemGroups()
+                    val dupExtraRows = mat6DupGroups.sumOf { row -> (row.cnt - 1).coerceAtLeast(0) }
+                    val generated = pipe?.generatedMat6Total ?: 0
+                    val rejectedNotActive = (generated - mat6Active).coerceAtLeast(0)
+
+                    sb.append("MAT6_MAT_DEBUG (subject=mat, grade=6, examType=GENERAL)\n")
+                    sb.append("generated_mat6_total=$generated\n")
+                    sb.append("parsed_mat6_total=${pipe?.parsedMat6Total ?: 0}\n")
+                    sb.append("inserted_mat6_total=$mat6Inserted\n")
+                    sb.append("active_mat6_total=$mat6Active\n")
+                    sb.append("inactive_mat6_total=$mat6Inactive\n")
+                    sb.append("duplicate_mat6_total=${(pipe?.mat6DedupDropped ?: 0) + dupExtraRows}\n")
+                    sb.append("rejected_mat6_total=$rejectedNotActive\n")
+                    sb.append("\n")
+                    sb.append("reason_quality_gate=${mat6QGateInactive}\n")
+                    sb.append("reason_duplicate=${pipe?.mat6DedupDropped ?: 0}\n")
+                    sb.append("reason_missing_fields=${pipe?.parseMissingFields ?: 0}\n")
+                    sb.append("reason_invalid_schema=${pipe?.parseInvalidSchema ?: 0}\n")
+                    val otherInactive =
+                        (mat6Inactive - mat6QGateInactive).coerceAtLeast(0)
+                    sb.append(
+                        "reason_other=${(pipe?.parseOther ?: 0) + otherInactive}\n"
+                    )
+                    sb.append("\n")
+                    sb.append("TOP_5_DEACTIVATION_REASONS (g6 mat GENERAL inactive)\n")
+                    if (mat6TopReasons.isEmpty()) {
+                        sb.append("  (yok)\n")
+                    } else {
+                        mat6TopReasons.forEachIndexed { i, row ->
+                            val r = row.reason?.ifBlank { "(null)" } ?: "(null)"
+                            sb.append("  ${i + 1}. $r → ${row.cnt}\n")
+                        }
+                    }
+                    sb.append("\n")
+                    sb.append("TOP_10_DUPLICATE_STEM_HASH (g6 mat GENERAL)\n")
+                    if (mat6DupGroups.isEmpty()) {
+                        sb.append("  (yok)\n")
+                    } else {
+                        mat6DupGroups.forEachIndexed { i, row ->
+                            val ids = dao.getSampleIdsForMat6StemHash(row.stemHash)
+                            val idPart = ids.joinToString(", ").ifBlank { "-" }
+                            sb.append(
+                                "  ${i + 1}. hash=${row.stemHash.take(16)}… cnt=${row.cnt} ids=[$idPart]\n"
+                            )
+                        }
+                    }
+                    sb.append("\n")
+
                     val diag = DbSeeder.debugLastSeedDiagnostics()
                     if (diag != null) {
                         sb.append("SEED_SOURCE_COUNTS_AND_NORMALIZE_DEBUG\n")

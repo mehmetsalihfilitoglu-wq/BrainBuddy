@@ -76,6 +76,9 @@ data class LgsQuestionTypeCount(val questionType: String, val count: Int)
 /** Tüm sorularda ders bazında toplam sayı (debug özeti). */
 data class SubjectCount(val subject: String, val count: Int)
 
+/** PoolStatus DEBUG: inactive reason bucket (nullable reason → empty string). */
+data class DeactivationReasonCountRow(val reason: String?, val cnt: Int)
+
 @Dao
 interface QuestionDao {
 
@@ -413,4 +416,76 @@ interface QuestionDao {
         """
     )
     suspend fun countLgsInactiveLowQualityBySubject(subject: String): Int
+
+    // ---- DEBUG: grade 6 mat GENERAL pipeline diagnostics ----
+
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE grade = 6 AND LOWER(subject) = 'mat' AND COALESCE(examType, 'GENERAL') = 'GENERAL'
+        """
+    )
+    suspend fun countGrade6MatGeneral(): Int
+
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE grade = 6 AND LOWER(subject) = 'mat' AND COALESCE(examType, 'GENERAL') = 'GENERAL' AND isActive = 1
+        """
+    )
+    suspend fun countGrade6MatGeneralActive(): Int
+
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE grade = 6 AND LOWER(subject) = 'mat' AND COALESCE(examType, 'GENERAL') = 'GENERAL' AND isActive = 0
+        """
+    )
+    suspend fun countGrade6MatGeneralInactive(): Int
+
+    /** Inactive g6 mat where QuestionQualityGate-style reasons apply. */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE grade = 6 AND LOWER(subject) = 'mat' AND COALESCE(examType, 'GENERAL') = 'GENERAL' AND isActive = 0
+        AND COALESCE(deactivationReason, '') IN (
+            'too_trivial', 'too_short', 'too_basic', 'too_simple_math', 'too_memorization'
+        )
+        """
+    )
+    suspend fun countGrade6MatInactiveQualityGateReasons(): Int
+
+    /** Top inactive reasons for g6 mat GENERAL (DEBUG). */
+    @Query(
+        """
+        SELECT COALESCE(deactivationReason, '') AS reason, COUNT(*) AS cnt FROM questions
+        WHERE grade = 6 AND LOWER(subject) = 'mat' AND COALESCE(examType, 'GENERAL') = 'GENERAL' AND isActive = 0
+        GROUP BY deactivationReason
+        ORDER BY cnt DESC
+        LIMIT 5
+        """
+    )
+    suspend fun getGrade6MatTopInactiveReasons(): List<DeactivationReasonCountRow>
+
+    /** Duplicate stemHash groups for g6 mat GENERAL (active+inactive). */
+    @Query(
+        """
+        SELECT grade, subject, stemHash, COUNT(*) AS cnt FROM questions
+        WHERE grade = 6 AND LOWER(subject) = 'mat' AND COALESCE(examType, 'GENERAL') = 'GENERAL'
+        GROUP BY stemHash
+        HAVING cnt > 1
+        ORDER BY cnt DESC
+        LIMIT 10
+        """
+    )
+    suspend fun getGrade6MatDuplicateStemGroups(): List<DuplicateStemHashRow>
+
+    @Query(
+        """
+        SELECT id FROM questions
+        WHERE grade = 6 AND LOWER(subject) = 'mat' AND stemHash = :stemHash
+        LIMIT 3
+        """
+    )
+    suspend fun getSampleIdsForMat6StemHash(stemHash: String): List<String>
 }

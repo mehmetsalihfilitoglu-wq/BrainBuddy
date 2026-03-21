@@ -10,6 +10,7 @@ import com.brainbuddy.app.BuildConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
+import org.json.JSONException
 import org.json.JSONObject
 import java.security.MessageDigest
 import java.nio.charset.Charset
@@ -60,11 +61,57 @@ object DbSeeder {
     )
 
     private var lastSeedDiagnostics: SeedDiagnostics? = null
+
+    /** Last seed run: grade_based/mat6 JSON pipeline (DEBUG PoolStatus). */
+    data class Mat6PipelineDiagnostics(
+        val generatedMat6Total: Int,
+        val parsedMat6Total: Int,
+        val mat6DedupDropped: Int,
+        val parseMissingFields: Int,
+        val parseInvalidSchema: Int,
+        val parseOther: Int
+    )
+
+    private var lastMat6PipelineDiagnostics: Mat6PipelineDiagnostics? = null
+
+    private object Mat6PipelineStats {
+        var generatedJsonQuestions: Int = 0
+        var parsedEntitiesMat6: Int = 0
+        var parseMissingFields: Int = 0
+        var parseInvalidSchema: Int = 0
+        var parseOther: Int = 0
+
+        fun reset() {
+            generatedJsonQuestions = 0
+            parsedEntitiesMat6 = 0
+            parseMissingFields = 0
+            parseInvalidSchema = 0
+            parseOther = 0
+        }
+    }
+
+    fun debugMat6PipelineDiagnostics(): Mat6PipelineDiagnostics? = lastMat6PipelineDiagnostics
     private var lastSeedSourceCounts: SeedSourceCounts = SeedSourceCounts(0, 0, 0, 0, 0)
     private var lastDiscoveredGradeBasedDirs: Int = 0
     private var lastDiscoveredGradeBasedJsonFiles: Int = 0
 
     fun debugLastSeedDiagnostics(): SeedDiagnostics? = lastSeedDiagnostics
+
+    private fun finalizeMat6PipelineDiagnostics(
+        normalized: List<QuestionEntity>,
+        deduped: List<QuestionEntity>
+    ) {
+        val m6Before = normalized.count { it.grade == 6 && it.subject == "mat" }
+        val m6After = deduped.count { it.grade == 6 && it.subject == "mat" }
+        lastMat6PipelineDiagnostics = Mat6PipelineDiagnostics(
+            generatedMat6Total = Mat6PipelineStats.generatedJsonQuestions,
+            parsedMat6Total = Mat6PipelineStats.parsedEntitiesMat6,
+            mat6DedupDropped = (m6Before - m6After).coerceAtLeast(0),
+            parseMissingFields = Mat6PipelineStats.parseMissingFields,
+            parseInvalidSchema = Mat6PipelineStats.parseInvalidSchema,
+            parseOther = Mat6PipelineStats.parseOther
+        )
+    }
 
     private fun updateDbCheckDiagnostics(
         totalRows: Int,
@@ -299,6 +346,8 @@ object DbSeeder {
 
         Log.e("SEED_DEBUG", "normalized_count=${normalized.size} invalid_after=${normalized.count { it.grade !in 1..7 }}")
 
+        finalizeMat6PipelineDiagnostics(normalized, deduped)
+
         // Store pre-insert diagnostics for in-app debug UI.
         val invalidAfter = normalized.count { it.grade !in 1..7 }
         lastSeedDiagnostics = SeedDiagnostics(
@@ -361,6 +410,7 @@ object DbSeeder {
         if (dedupedList.size < questions.size) {
             Log.i(TAG, "Seed dedup: ${questions.size} -> ${dedupedList.size} (dropped ${questions.size - dedupedList.size} in-batch duplicates)")
         }
+        finalizeMat6PipelineDiagnostics(questions, dedupedList)
 
         val questionDao = db.questionDao()
         val countBefore = questionDao.countAll()
@@ -397,6 +447,7 @@ object DbSeeder {
     }
 
     private fun loadFromAssets(context: Context): List<QuestionEntity> {
+        Mat6PipelineStats.reset()
         val all = mutableListOf<QuestionEntity>()
 
         // 1) Root-level GENERAL question files (array or wrapped { "questions": [], "grade", "subject" }).
@@ -869,6 +920,42 @@ object DbSeeder {
                 out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
             } catch (e: Exception) {
                 Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
+            }
+        }
+        return out
+    }
+
+    /**
+     * Same as [parseWrappedQuestionArray] but records mat6 parse-failure categories for DEBUG PoolStatus.
+     */
+    private fun parseWrappedQuestionArrayMat6Instrumented(
+        root: org.json.JSONObject,
+        arr: org.json.JSONArray,
+        sourceLabel: String,
+        pathGrade: Int? = null,
+        pathSubject: String? = null
+    ): List<QuestionEntity> {
+        val rootGrade = root.optInt("grade", 6).coerceIn(1, 8)
+        val rootSubject = root.optString("subject", "mat").trim().lowercase()
+        val defaultGrade = pathGrade?.takeIf { it in 1..8 } ?: rootGrade
+        val defaultSubject = pathSubject?.takeIf { it.isNotBlank() } ?: rootSubject
+        val out = mutableListOf<QuestionEntity>()
+        for (i in 0 until arr.length()) {
+            try {
+                val q = arr.getJSONObject(i)
+                val combined = org.json.JSONObject(q.toString())
+                val qGrade = q.optInt("grade", -1)
+                val qSubject = q.optString("subject", "").trim().lowercase()
+                combined.put("grade", if (qGrade in 1..8) qGrade else defaultGrade)
+                combined.put("subject", if (qSubject.isNotBlank()) qSubject else defaultSubject)
+                out.add(parseQuestionObject(combined, i, sourceLabel = sourceLabel))
+            } catch (e: Exception) {
+                Log.w(TAG, "Parse failed $sourceLabel index $i: ${e.message}")
+                when (e) {
+                    is IllegalArgumentException -> Mat6PipelineStats.parseMissingFields++
+                    is JSONException -> Mat6PipelineStats.parseInvalidSchema++
+                    else -> Mat6PipelineStats.parseOther++
+                }
             }
         }
         return out
