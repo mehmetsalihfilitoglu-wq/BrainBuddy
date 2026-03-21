@@ -240,6 +240,21 @@ interface QuestionDao {
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade AND subject = :subject AND isActive = 0")
     suspend fun countInactiveByGradeSubject(grade: Int, subject: String): Int
 
+    /**
+     * Inactive rows whose [QuestionEntity.deactivationReason] matches [com.brainbuddy.app.quiz.QuestionQualityGate]
+     * (parse-time deactivation). Per core (grade, subject) effectiveness.
+     */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE grade = :grade AND subject = :subject AND isActive = 0
+        AND COALESCE(deactivationReason, '') IN (
+            'too_trivial', 'too_short', 'too_basic', 'too_simple_math', 'too_memorization'
+        )
+        """
+    )
+    suspend fun countInactiveQualityGateByGradeSubject(grade: Int, subject: String): Int
+
     /** Aktif LGS satırları (examType=LGS) — grade 7 havuz karışımı notu için. */
     @Query(
         """

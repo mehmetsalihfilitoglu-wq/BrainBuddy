@@ -15,6 +15,7 @@ import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.db.PoolQuotaEnforcer
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -251,6 +252,29 @@ class PoolStatusActivity : AppCompatActivity() {
 
                 // DEBUG seed diagnostics (runtime).
                 if (BuildConfig.DEBUG) {
+                    val quotaReport = PoolQuotaEnforcer.lastReport()
+                    sb.append("CORE_CELL_MEASUREMENTS (device DB + last PoolQuotaEnforcer report)\n")
+                    sb.append("Cells: grades 1..7 × mat,turkce,fen,sosyal,ing\n")
+                    if (quotaReport == null) {
+                        sb.append("(quota_* fields n/a until enforceCoreQuotas has run this session)\n")
+                    }
+                    sb.append("Fields: active_count inactive_count quota_deficit_before quota_deficit_after gate_loss_count quota_topup_count\n\n")
+                    for (g in 1..7) {
+                        for (subj in PoolQuotaEnforcer.CORE_SUBJECTS) {
+                            val activeC = dao.countActiveByGradeSubject(g, subj)
+                            val inactiveC = dao.countInactiveByGradeSubject(g, subj)
+                            val gateLoss = dao.countInactiveQualityGateByGradeSubject(g, subj)
+                            val defB = quotaReport?.deficitBefore?.get(g to subj)
+                            val defA = quotaReport?.deficitAfter?.get(g to subj)
+                            val topUp = if (quotaReport == null) null else (quotaReport.insertedPerCell[g to subj] ?: 0)
+                            val defBStr = defB?.toString() ?: "n/a"
+                            val defAStr = defA?.toString() ?: "n/a"
+                            val topUpStr = topUp?.toString() ?: "n/a"
+                            sb.append("g${g}_$subj: active_count=$activeC inactive_count=$inactiveC quota_deficit_before=$defBStr quota_deficit_after=$defAStr gate_loss_count=$gateLoss quota_topup_count=$topUpStr\n")
+                        }
+                    }
+                    sb.append("\n")
+
                     val pipe = DbSeeder.debugMat6PipelineDiagnostics()
                     val mat6Inserted = dao.countGrade6MatGeneral()
                     val mat6Active = dao.countGrade6MatGeneralActive()
