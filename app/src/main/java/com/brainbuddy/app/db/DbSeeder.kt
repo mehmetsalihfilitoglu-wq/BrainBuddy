@@ -169,6 +169,9 @@ object DbSeeder {
     /** Root-level GENERAL question JSON files (array or wrapped { "questions": [] }). */
     private val ROOT_GENERAL_QUESTION_FILES = listOf("questions_tr.json", "import_template.json")
 
+    /** Root-level pack JSONs matching [PACK_FILE_REGEX] (same as assets/packs/). */
+    private val ROOT_PACK_FILES = listOf("grade6_mat.json")
+
     /** Desteklenen ders anahtarları (DB'ye bu kısa kodlarla yazılır). */
     private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
@@ -464,6 +467,31 @@ object DbSeeder {
             }
         }
         val rootCount = all.size
+
+        // 1b) Root-level pack files matching PACK_FILE_REGEX (e.g. grade6_mat.json).
+        for (assetName in ROOT_PACK_FILES) {
+            if (!PACK_FILE_REGEX.matches(assetName)) continue
+            try {
+                val json = context.assets.open(assetName).use { input ->
+                    input.readBytes().toString(Charset.forName("UTF-8"))
+                }
+                val parsed = parsePackFileContent(assetName, json)
+                all += parsed
+                if (parsed.isNotEmpty()) {
+                    Log.i(TAG, "Loaded root pack file: $assetName (${parsed.size} questions)")
+                    if (assetName.equals("grade6_mat.json", ignoreCase = true)) {
+                        try {
+                            val root = JSONObject(json)
+                            val arr = root.optJSONArray("questions")
+                            Mat6PipelineStats.generatedJsonQuestions += (arr?.length() ?: 0)
+                            Mat6PipelineStats.parsedEntitiesMat6 += parsed.size
+                        } catch (_: Exception) { }
+                    }
+                }
+            } catch (e: Exception) {
+                Log.w(TAG, "Root pack file $assetName error: ${e.message}")
+            }
+        }
 
         // 2) Grade 1..8 × subject pack JSONs under assets/packs (recursive, GENERAL).
         val packFiles = discoverPackAssetFilesRecursive(context)

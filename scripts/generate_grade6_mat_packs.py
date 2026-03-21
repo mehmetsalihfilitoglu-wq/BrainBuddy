@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""500 grade-6 mat questions — exact topicTheme & difficulty quotas, verified arithmetic."""
+"""500 grade-6 mat questions — single assets/grade6_mat.json (PACK_FILE_REGEX name)."""
 from __future__ import annotations
 
 import json
@@ -8,7 +8,9 @@ import os
 import random
 
 
-OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "app", "src", "main", "assets", "grade_based", "mat6")
+OUT_FILE = os.path.join(
+    os.path.dirname(__file__), "..", "app", "src", "main", "assets", "grade6_mat.json"
+)
 
 
 def build_pairs() -> list[tuple[int, int]]:
@@ -340,6 +342,8 @@ def main() -> None:
         body = dispatch(topic, diff, vi)
         q = {
             "id": qid,
+            "grade": 6,
+            "subject": "mat",
             "topicTheme": topic,
             "difficulty": diff,
             "stem": body["stem"],
@@ -358,15 +362,11 @@ def main() -> None:
     assert tcount == {1: 128, 2: 112, 3: 68, 4: 112, 5: 80}
     assert dcount == {1: 150, 2: 350}
 
-    os.makedirs(OUT_DIR, exist_ok=True)
-    for pack in range(10):
-        chunk = questions[pack * 50 : (pack + 1) * 50]
-        name = f"grade6_mat_pack{pack+1:02d}.json"
-        payload = {"grade": 6, "subject": "mat", "examType": "GENERAL", "questions": chunk}
-        path = os.path.join(OUT_DIR, name)
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=2)
-    print("OK", OUT_DIR)
+    os.makedirs(os.path.dirname(OUT_FILE), exist_ok=True)
+    payload = {"questions": questions}
+    with open(OUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+    print("OK", OUT_FILE)
 
 
 if __name__ == "__main__":
