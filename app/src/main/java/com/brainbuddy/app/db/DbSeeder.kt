@@ -21,17 +21,15 @@ import java.nio.charset.Charset
  */
 object DbSeeder {
 
-    companion object {
-        /** Tag written to [QuestionEntity.sourcePack] for questions parsed from this asset. */
-        const val GRADE6_MAT_SOURCE_PACK = "grade6_mat.json"
-    }
-
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
     private const val CURRENT_DB_SEED_VERSION = 3
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val MIN_REASONABLE_DB_COUNT = 8000
+
+    /** Tag written to [QuestionEntity.sourcePack] for questions parsed from this asset. */
+    const val GRADE6_MAT_SOURCE_PACK = "grade6_mat.json"
 
     data class SeedDiagnostics(
         val loaded_root_general: Int,
