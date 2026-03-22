@@ -1,6 +1,7 @@
 package com.brainbuddy.app.ui
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -44,6 +45,10 @@ class PoolStatusActivity : AppCompatActivity() {
 
         val layoutDebugFix = findViewById<View>(R.id.layoutDebugFixButtons)
         layoutDebugFix.visibility = if (BuildConfig.DEBUG) View.VISIBLE else View.GONE
+
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnOpenSeedAudit).setOnClickListener {
+            startActivity(Intent(this, SeedAuditActivity::class.java))
+        }
 
         setupFixButtons()
         renderStatus()

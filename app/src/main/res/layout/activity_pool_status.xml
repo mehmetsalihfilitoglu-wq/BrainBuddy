@@ -50,6 +50,15 @@
                     android:textColor="@color/bb_text"
                     android:fontFamily="monospace" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOpenSeedAudit"
+                    style="@style/BBButtonAlt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Seed / Pool Audit"
+                    android:textAllCaps="false" />
+
                 <!-- Fix butonları sadece DEBUG build'de görünür (visibility Activity'de ayarlanır) -->
                 <LinearLayout
                     android:id="@+id/layoutDebugFixButtons"

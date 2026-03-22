@@ -108,6 +108,11 @@
             android:name=".ui.TestSettingsActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.SeedAuditActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BrainBuddy" />
+
+        <activity
             android:name=".ui.PoolStatusActivity"
             android:exported="false" />
 

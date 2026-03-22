@@ -8,6 +8,8 @@ import com.brainbuddy.app.quiz.QuestionDiversity
 import com.brainbuddy.app.quiz.Subject
 import com.brainbuddy.app.BuildConfig
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONException
@@ -32,6 +34,18 @@ object DbSeeder {
     private const val DEBUG_FORCE_RESEED = false
 
     private const val SEED_AUDIT_LOG_TAG = "BrainBuddySeedAudit"
+
+    private val seedIfNeededMutex = Mutex()
+
+    /** Last [seedIfNeeded] outcome (for audit UI). Updated from [logSeedAudit]. */
+    @Volatile
+    var lastSeedSkipped: Boolean = true
+        internal set
+
+    /** Rows inserted in the last [seedIfNeeded] run (delta), best-effort. */
+    @Volatile
+    var lastInsertedThisRun: Int = 0
+        internal set
 
     /** Tag written to [QuestionEntity.sourcePack] for questions parsed from this asset. */
     const val GRADE6_MAT_SOURCE_PACK = "grade6_mat.json"
@@ -118,6 +132,8 @@ object DbSeeder {
     fun debugLastSeedDiagnostics(): SeedDiagnostics? = lastSeedDiagnostics
 
     private suspend fun logSeedAudit(questionDao: QuestionDao, insertedThisRun: Int, skipped: Boolean) {
+        lastSeedSkipped = skipped
+        lastInsertedThisRun = insertedThisRun
         val total = questionDao.countAll()
         val active = questionDao.countAllActive()
         val inactive = questionDao.countAllInactive()
@@ -206,62 +222,64 @@ object DbSeeder {
     private val SUBJECT_KEYS = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
     suspend fun seedIfNeeded(context: Context): Boolean = withContext(Dispatchers.IO) {
-        Log.i(TAG, "seedIfNeeded entered (CURRENT_DB_SEED_VERSION=$CURRENT_DB_SEED_VERSION)")
-        val db = DatabaseProvider.get(context)
-        val meta = db.appMetaDao()
-        val questionDao = db.questionDao()
+        seedIfNeededMutex.withLock {
+            Log.i(TAG, "seedIfNeeded entered (CURRENT_DB_SEED_VERSION=$CURRENT_DB_SEED_VERSION)")
+            val db = DatabaseProvider.get(context)
+            val meta = db.appMetaDao()
+            val questionDao = db.questionDao()
 
-        if (BuildConfig.DEBUG && DEBUG_FORCE_RESEED) {
-            Log.w(TAG, "seedIfNeeded DEBUG: DEBUG_FORCE_RESEED=true — running forceReseed")
-            return@withContext forceReseed(context)
-        }
-
-        // Versioned seeding: allows safe re-import when packs/assets grow.
-        val storedVersionStr = meta.get(KEY_DB_SEED_VERSION)
-        val legacySeededFlag = meta.get(KEY_DB_SEEDED)
-        val storedVersion = when {
-            storedVersionStr != null -> storedVersionStr.toIntOrNull() ?: 0
-            legacySeededFlag == "true" -> 1 // previous apps that only had boolean flag
-            else -> 0
-        }
-        Log.i(TAG, "seedIfNeeded stored db_seed_version=$storedVersionStr legacySeeded=$legacySeededFlag computedStoredVersion=$storedVersion skip=${storedVersion >= CURRENT_DB_SEED_VERSION}")
-        val count = try { questionDao.countAll() } catch (_: Exception) { 0 }
-        if (storedVersion >= CURRENT_DB_SEED_VERSION && count > 0) {
-            // Critical recovery path: older buggy builds may have marked seed_version as up-to-date
-            // while only inserting a small subset of the asset pool. Never clear the DB here;
-            // instead, safely "top up" by inserting any missing IDs (INSERT IGNORE).
-            if (count < MIN_REASONABLE_DB_COUNT) {
-                Log.w(TAG, "Seed recovery: DB count seems too low (count=$count, version=$storedVersion). Will top-up seed safely.")
-                val toInsert = buildSeedQuestions(context)
-                if (toInsert.isEmpty()) {
-                    Log.e(TAG, "Seed recovery aborted: loaded=0, preserving existing DB (count=$count)")
-                    logSeedAudit(questionDao, insertedThisRun = 0, skipped = true)
-                    return@withContext false
-                }
-                val before = count
-                try {
-                    questionDao.insertAllIgnore(toInsert)
-                    val after = questionDao.countAll()
-                    meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
-                    meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
-                    Log.i(TAG, "Seed recovery complete: attempted=${toInsert.size} DB before=$before after=$after (added=${after - before})")
-                    logSeedAudit(questionDao, insertedThisRun = (after - before), skipped = false)
-                    return@withContext (after > before)
-                } catch (e: Exception) {
-                    Log.e(TAG, "Seed recovery failed; existing DB preserved", e)
-                    return@withContext false
-                }
+            if (BuildConfig.DEBUG && DEBUG_FORCE_RESEED) {
+                Log.w(TAG, "seedIfNeeded DEBUG: DEBUG_FORCE_RESEED=true — running forceReseed")
+                return@withLock forceReseed(context)
             }
-            Log.d(TAG, "Seed already up to date (version=$storedVersion), skip")
-            logSeedAudit(questionDao, insertedThisRun = 0, skipped = true)
-            return@withContext false
-        }
-        if (storedVersion >= CURRENT_DB_SEED_VERSION && count == 0) {
-            Log.d(TAG, "Seed forced because DB is empty (version=$storedVersion)")
-        }
 
-        Log.i(TAG, "performSeed will run (storedVersion=$storedVersion CURRENT=$CURRENT_DB_SEED_VERSION count=$count)")
-        return@withContext performSeed(db, meta, context)
+            // Versioned seeding: allows safe re-import when packs/assets grow.
+            val storedVersionStr = meta.get(KEY_DB_SEED_VERSION)
+            val legacySeededFlag = meta.get(KEY_DB_SEEDED)
+            val storedVersion = when {
+                storedVersionStr != null -> storedVersionStr.toIntOrNull() ?: 0
+                legacySeededFlag == "true" -> 1 // previous apps that only had boolean flag
+                else -> 0
+            }
+            Log.i(TAG, "seedIfNeeded stored db_seed_version=$storedVersionStr legacySeeded=$legacySeededFlag computedStoredVersion=$storedVersion skip=${storedVersion >= CURRENT_DB_SEED_VERSION}")
+            val count = try { questionDao.countAll() } catch (_: Exception) { 0 }
+            if (storedVersion >= CURRENT_DB_SEED_VERSION && count > 0) {
+                // Critical recovery path: older buggy builds may have marked seed_version as up-to-date
+                // while only inserting a small subset of the asset pool. Never clear the DB here;
+                // instead, safely "top up" by inserting any missing IDs (INSERT IGNORE).
+                if (count < MIN_REASONABLE_DB_COUNT) {
+                    Log.w(TAG, "Seed recovery: DB count seems too low (count=$count, version=$storedVersion). Will top-up seed safely.")
+                    val toInsert = buildSeedQuestions(context)
+                    if (toInsert.isEmpty()) {
+                        Log.e(TAG, "Seed recovery aborted: loaded=0, preserving existing DB (count=$count)")
+                        logSeedAudit(questionDao, insertedThisRun = 0, skipped = true)
+                        return@withLock false
+                    }
+                    val before = count
+                    try {
+                        questionDao.insertAllIgnore(toInsert)
+                        val after = questionDao.countAll()
+                        meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
+                        meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
+                        Log.i(TAG, "Seed recovery complete: attempted=${toInsert.size} DB before=$before after=$after (added=${after - before})")
+                        logSeedAudit(questionDao, insertedThisRun = (after - before), skipped = false)
+                        return@withLock (after > before)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Seed recovery failed; existing DB preserved", e)
+                        return@withLock false
+                    }
+                }
+                Log.d(TAG, "Seed already up to date (version=$storedVersion), skip")
+                logSeedAudit(questionDao, insertedThisRun = 0, skipped = true)
+                return@withLock false
+            }
+            if (storedVersion >= CURRENT_DB_SEED_VERSION && count == 0) {
+                Log.d(TAG, "Seed forced because DB is empty (version=$storedVersion)")
+            }
+
+            Log.i(TAG, "performSeed will run (storedVersion=$storedVersion CURRENT=$CURRENT_DB_SEED_VERSION count=$count)")
+            return@withLock performSeed(db, meta, context)
+        }
     }
 
     /**
@@ -281,6 +299,9 @@ object DbSeeder {
         val toInsert = buildSeedQuestions(context)
         if (toInsert.isEmpty()) {
             Log.e(TAG, "Force reseed aborted: loaded=0, preserving existing DB")
+            try {
+                logSeedAudit(questionDao, insertedThisRun = 0, skipped = true)
+            } catch (_: Exception) { }
             return@withContext false
         }
 

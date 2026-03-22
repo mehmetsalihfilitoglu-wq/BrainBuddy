@@ -14,6 +14,12 @@ data class GradeSubjectCount(
     val count: Int
 )
 
+/** Total rows per grade (all active + inactive). */
+data class GradeCountRow(
+    val grade: Int,
+    val count: Int
+)
+
 /** grade+subject+difficulty bazında ACTIVE soru sayıları (import debug ekranı). */
 data class GradeSubjectDifficultyCount(
     val grade: Int,
@@ -195,6 +201,28 @@ interface QuestionDao {
         """
     )
     suspend fun getCountsByGradeSubject(): List<GradeSubjectCount>
+
+    /** All rows: grade × subject counts (includes inactive). */
+    @Query(
+        """
+        SELECT grade, subject, COUNT(*) AS count
+        FROM questions
+        GROUP BY grade, subject
+        ORDER BY grade, subject
+        """
+    )
+    suspend fun getAllGroupedByGradeSubject(): List<GradeSubjectCount>
+
+    /** All rows: count per grade (includes inactive). */
+    @Query(
+        """
+        SELECT grade, COUNT(*) AS count
+        FROM questions
+        GROUP BY grade
+        ORDER BY grade
+        """
+    )
+    suspend fun getCountsGroupedByGrade(): List<GradeCountRow>
 
     /** Tüm sorularda ders bazında toplam sayı (reseed özeti). */
     @Query("SELECT subject, COUNT(*) AS count FROM questions GROUP BY subject ORDER BY subject")

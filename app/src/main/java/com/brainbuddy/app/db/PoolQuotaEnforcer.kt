@@ -19,6 +19,12 @@ object PoolQuotaEnforcer {
     val CORE_SUBJECTS = listOf("mat", "turkce", "fen", "sosyal", "ing")
 
     data class QuotaReport(
+        /** Total question rows before quota inserts. */
+        val totalRowCountBefore: Int,
+        /** Total question rows after quota inserts. */
+        val totalRowCountAfter: Int,
+        /** Net rows added (after - before). */
+        val totalRowsAdded: Int,
         /** Active counts before top-up: grade -> subject -> count */
         val activeBefore: Map<Pair<Int, String>, Int>,
         /** Deficit to 500 before top-up */
@@ -160,6 +166,9 @@ object PoolQuotaEnforcer {
         }
 
         val report = QuotaReport(
+            totalRowCountBefore = beforeTotal,
+            totalRowCountAfter = afterTotal,
+            totalRowsAdded = addedTotal,
             activeBefore = activeBefore,
             deficitBefore = deficitBefore.toMap(),
             causes = causes.toMap(),
