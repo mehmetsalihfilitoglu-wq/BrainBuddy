@@ -19,7 +19,9 @@ object TemplateQualityDetector {
             val group = keyed[shellKey(e)] ?: return@map e
             if (group.size < MIN_CLUSTER) return@map e
             val weak = group.count {
-                it.reasoningScore < 45 || it.qualityTier == QuestionQualityClassifier.TIER_EASY
+                it.reasoningScore < 45 ||
+                    it.qualityTier == QuestionQualityClassifier.TIER_EASY ||
+                    it.qualityTier == QuestionQualityClassifier.TIER_BORDERLINE
             }
             if (weak < group.size * WEAK_RATIO) return@map e
             val flags = appendFlagJson(e.qualityFlagsJson, "weak_template_cluster")

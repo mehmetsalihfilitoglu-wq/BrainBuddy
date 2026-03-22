@@ -14,6 +14,8 @@ object QuestionQualityGate {
         val questionType: String,
         val skillsJson: String,
         val qualityTier: String,
+        /** 0..3 — maps to EASY/BORDERLINE/MEDIUM/HARD. */
+        val reasoningLevel: Int,
         val reasoningScore: Int,
         val distractorQualityScore: Int,
         val contextComplexityScore: Int,
@@ -112,32 +114,10 @@ object QuestionQualityGate {
             reason = "too_short"
         }
 
-        if (isActive && cls.qualityTier == QuestionQualityClassifier.TIER_EASY &&
-            cls.reasoningScore < 24 && cls.distractorQualityScore < 30
-        ) {
-            isActive = false
-            reason = reason ?: "classifier_trivial_composite"
-        }
-        if (isActive && cls.qualityFlags.contains("severe_distractor_failure")) {
-            isActive = false
-            reason = reason ?: "severe_distractors"
-        }
-
         val questionType = inferQuestionType(subject, stem, lower)
         val skillsJson = buildSkillsJson(subject, grade, questionType, isFactRecall)
 
-        var unservable: String? = null
-        if (trivial) {
-            unservable = "TRIVIAL"
-        } else if (isActive) {
-            if (cls.reasoningScore < QuizQualityPolicy.MIN_REASONING_SCORE_TO_SERVE) {
-                unservable = "LOW_REASONING"
-            } else if (cls.distractorQualityScore < QuizQualityPolicy.MIN_DISTRACTOR_SCORE_TO_SERVE) {
-                unservable = "WEAK_DISTRACTORS"
-            } else if (cls.qualityTier == QuestionQualityClassifier.TIER_EASY) {
-                unservable = "QUALITY_TIER_EASY"
-            }
-        }
+        val unservable: String? = if (!isActive && trivial) "TRIVIAL" else null
 
         return Result(
             isActive = isActive,
@@ -145,6 +125,7 @@ object QuestionQualityGate {
             questionType = questionType,
             skillsJson = skillsJson,
             qualityTier = cls.qualityTier,
+            reasoningLevel = cls.reasoningLevel,
             reasoningScore = cls.reasoningScore,
             distractorQualityScore = cls.distractorQualityScore,
             contextComplexityScore = cls.contextComplexityScore,

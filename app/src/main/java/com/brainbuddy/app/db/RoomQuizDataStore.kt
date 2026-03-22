@@ -36,6 +36,11 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getQuestionsByIds(ids).map { QuestionMapper.toQuestion(it) }
     }
 
+    fun getQuestionEntitiesByIds(ids: List<String>): List<QuestionEntity> = runBlocking(Dispatchers.IO) {
+        if (ids.isEmpty()) return@runBlocking emptyList()
+        questionDao.getQuestionsByIds(ids)
+    }
+
     /** Sınıf bazlı havuz (1-7). Tüm derslerden. */
     fun getQuestionsByGrade(grade: Int): List<Question> = runBlocking(Dispatchers.IO) {
         if (grade !in 1..7) return@runBlocking emptyList()

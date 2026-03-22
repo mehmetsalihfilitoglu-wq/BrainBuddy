@@ -80,6 +80,7 @@ object QuotaSyntheticQuestions {
             stemNormalized = stemNorm,
             stemHash = hash,
             qualityTier = gate.qualityTier,
+            reasoningLevel = gate.reasoningLevel,
             reasoningScore = gate.reasoningScore,
             distractorQualityScore = gate.distractorQualityScore,
             contextComplexityScore = gate.contextComplexityScore,

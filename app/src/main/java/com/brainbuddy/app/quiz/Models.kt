@@ -46,7 +46,13 @@ data class Question(
     /** Coarse question type for diversity (e.g. PROBLEM, PARAGRAPH, MAP). */
     val type: String = "UNKNOWN",
     /** Finer-grained sub-skill/topic for diversity. */
-    val skill: String = "UNKNOWN"
+    val skill: String = "UNKNOWN",
+    /** Runtime-only stem override (quality upgrade); does not change DB. */
+    val presentationStem: String? = null,
+    /** Runtime-only choices override (distractor fix); does not change DB. */
+    val presentationChoices: List<String>? = null,
+    /** Content tier at serve time (HARD/MEDIUM/BORDERLINE/EASY). */
+    val contentQualityTier: String? = null,
 ) {
     /** For header/subtitle: LGS mode shows "LGS", normal mode shows numeric grade (gradeTag). */
     val gradeDisplayLabel: String get() = if (examType == ExamType.LGS) "LGS" else gradeTag

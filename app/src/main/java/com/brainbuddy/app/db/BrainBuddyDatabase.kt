@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 22,
+    version = 23,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -397,6 +397,43 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                     UPDATE questions SET unservableReason = 'WEAK_DISTRACTORS'
                     WHERE distractorQualityScore < 40
                     AND (unservableReason IS NULL OR TRIM(unservableReason) = '')
+                    """.trimIndent()
+                )
+            }
+        }
+
+        /**
+         * reasoningLevel 0..3, BORDERLINE tier, reopen EASY for adaptive serving (no data loss).
+         */
+        val MIGRATION_22_23: Migration = object : Migration(22, 23) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN reasoningLevel INTEGER NOT NULL DEFAULT 2"
+                )
+                database.execSQL(
+                    """
+                    UPDATE questions SET reasoningLevel = CASE
+                        WHEN COALESCE(qualityTier, 'MEDIUM') = 'HARD' THEN 3
+                        WHEN COALESCE(qualityTier, 'MEDIUM') = 'MEDIUM' THEN 2
+                        WHEN COALESCE(qualityTier, 'MEDIUM') = 'BORDERLINE' THEN 1
+                        WHEN COALESCE(qualityTier, 'MEDIUM') = 'EASY' THEN 0
+                        WHEN reasoningScore >= 68 THEN 3
+                        WHEN reasoningScore >= 45 THEN 2
+                        WHEN reasoningScore >= 20 THEN 1
+                        ELSE 0
+                    END
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    UPDATE questions SET qualityTier = 'BORDERLINE'
+                    WHERE reasoningLevel = 1 AND (qualityTier IS NULL OR qualityTier NOT IN ('BORDERLINE','EASY','MEDIUM','HARD'))
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    UPDATE questions SET unservableReason = NULL
+                    WHERE COALESCE(unservableReason, '') IN ('LOW_REASONING','WEAK_DISTRACTORS','QUALITY_TIER_EASY')
                     """.trimIndent()
                 )
             }

@@ -315,6 +315,7 @@ object GateFailedQuestionUpgrader {
             type = divType,
             skill = divSkill,
             qualityTier = gate.qualityTier,
+            reasoningLevel = gate.reasoningLevel,
             reasoningScore = gate.reasoningScore,
             distractorQualityScore = gate.distractorQualityScore,
             contextComplexityScore = gate.contextComplexityScore,

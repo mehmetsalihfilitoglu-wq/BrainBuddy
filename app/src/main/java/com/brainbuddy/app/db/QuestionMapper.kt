@@ -38,8 +38,13 @@ object QuestionMapper {
      *  - subject: "mat" | "turkce" | "fen" | "sosyal" | "ing"
      *  - difficulty: 0=EASY,1=MEDIUM,2=HARD (eski verilerde 3=HARD olarak ele alınır)
      */
-    fun toQuestion(e: QuestionEntity): Question {
-        val choices = parseChoices(e.optionsJson)
+    fun toQuestion(
+        e: QuestionEntity,
+        presentationStem: String? = null,
+        presentationChoices: List<String>? = null,
+        contentQualityTier: String? = null,
+    ): Question {
+        val choices = presentationChoices ?: parseChoices(e.optionsJson)
         val subject = mapSubject(e.subject)
         val levelGroup = LevelGroup.GRADE_5_8
         val difficulty = when (e.difficulty) {
@@ -57,13 +62,14 @@ object QuestionMapper {
         } else {
             rawGrade.coerceIn(1, 7)
         }
+        val stem = presentationStem ?: e.questionText
         return Question(
             id = e.id,
             levelGroup = levelGroup,
             subject = subject,
             gradeTag = grade.toString(),
             grade = grade,
-            stem = e.questionText,
+            stem = stem,
             choices = choices,
             correctIndex = e.answerIndex.coerceIn(0, choices.size - 1),
             hint = e.explanation?.takeIf { it.isNotBlank() },
@@ -72,7 +78,10 @@ object QuestionMapper {
             examType = examType,
             topic = null,
             type = e.type,
-            skill = e.skill
+            skill = e.skill,
+            presentationStem = presentationStem,
+            presentationChoices = presentationChoices,
+            contentQualityTier = contentQualityTier ?: e.qualityTier,
         )
     }
 

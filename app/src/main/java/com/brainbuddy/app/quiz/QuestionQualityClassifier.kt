@@ -5,19 +5,20 @@ import java.util.Locale
 import kotlin.math.abs
 
 /**
- * Global content-quality classifier for all grades and core subjects.
- * Produces tier (EASY/MEDIUM/HARD), scores 0..100, and structured flags.
- *
- * Serving rules use [QuizQualityPolicy] thresholds; HARD requires high reasoning.
+ * Global content-quality classifier: [reasoningLevel] 0..3 maps to
+ * EASY / BORDERLINE / MEDIUM / HARD per product rules.
  */
 object QuestionQualityClassifier {
 
     const val TIER_EASY = "EASY"
+    const val TIER_BORDERLINE = "BORDERLINE"
     const val TIER_MEDIUM = "MEDIUM"
     const val TIER_HARD = "HARD"
 
     data class Output(
         val qualityTier: String,
+        /** 0=EASY, 1=BORDERLINE, 2=MEDIUM, 3=HARD */
+        val reasoningLevel: Int,
         val reasoningScore: Int,
         val distractorQualityScore: Int,
         val contextComplexityScore: Int,
@@ -41,35 +42,26 @@ object QuestionQualityClassifier {
         val distractorScore = DistractorQualityEvaluator.score(opts, stem)
         val reasoningScore = scoreReasoning(subject, grade, stem, lower, opts, difficultyInt, contextScore, distractorScore, flags)
 
-        var tier = mapScoresToTier(reasoningScore, contextScore, distractorScore, difficultyInt)
-
+        var tier = mapCompositeToTier(reasoningScore, contextScore, distractorScore, difficultyInt)
         tier = applySubjectRules(subject, stem, lower, opts, grade, tier, flags)
 
-        if (reasoningScore < QuizQualityPolicy.MIN_REASONING_SCORE_TO_SERVE) {
-            tier = TIER_EASY
-            flags.add("low_reasoning")
-        }
-
-        if (distractorScore < QuizQualityPolicy.MIN_DISTRACTOR_SCORE_TO_SERVE) {
+        if (distractorScore < QuizQualityPolicy.DISTRACTOR_SOFT_FLOOR) {
             flags.add("weak_distractors")
-            if (tier == TIER_HARD) tier = TIER_MEDIUM
-            if (distractorScore < QuizQualityPolicy.MIN_DISTRACTOR_SCORE_TO_SERVE / 2) {
-                tier = TIER_EASY
+            tier = tier.coerceAtMost(TIER_MEDIUM)
+            if (distractorScore < QuizQualityPolicy.DISTRACTOR_SOFT_FLOOR / 2) {
+                tier = tier.coerceAtMost(TIER_BORDERLINE)
                 flags.add("severe_distractor_failure")
             }
-        }
-
-        if (tier == TIER_HARD && reasoningScore < QuizQualityPolicy.MIN_REASONING_SCORE_FOR_HARD_TIER) {
-            tier = TIER_MEDIUM
-            flags.add("hard_downgrade_low_reasoning")
         }
 
         if (stem.length < 22) flags.add("stem_too_short")
         if (DistractorQualityEvaluator.isAnswerLengthOutlier(opts)) flags.add("length_bias_reveals_answer")
 
+        val reasoningLevel = levelFromTier(tier)
         val distinctFlags = flags.distinct()
         return Output(
             qualityTier = tier,
+            reasoningLevel = reasoningLevel,
             reasoningScore = reasoningScore.coerceIn(0, 100),
             distractorQualityScore = distractorScore.coerceIn(0, 100),
             contextComplexityScore = contextScore.coerceIn(0, 100),
@@ -77,9 +69,31 @@ object QuestionQualityClassifier {
         )
     }
 
+    fun levelFromTier(tier: String): Int = when (normalizeTier(tier)) {
+        TIER_HARD -> 3
+        TIER_MEDIUM -> 2
+        TIER_BORDERLINE -> 1
+        else -> 0
+    }
+
+    fun normalizeTier(t: String): String = when (t.uppercase(Locale.ROOT)) {
+        TIER_HARD -> TIER_HARD
+        TIER_MEDIUM -> TIER_MEDIUM
+        TIER_BORDERLINE -> TIER_BORDERLINE
+        TIER_EASY -> TIER_EASY
+        else -> TIER_MEDIUM
+    }
+
+    fun tierFromReasoningLevel(level: Int): String = when (level.coerceIn(0, 3)) {
+        3 -> TIER_HARD
+        2 -> TIER_MEDIUM
+        1 -> TIER_BORDERLINE
+        else -> TIER_EASY
+    }
+
     fun flagsToJson(flags: List<String>): String = JSONArray(flags).toString()
 
-    private fun mapScoresToTier(
+    private fun mapCompositeToTier(
         reasoning: Int,
         context: Int,
         distractor: Int,
@@ -93,7 +107,8 @@ object QuestionQualityClassifier {
         }.coerceIn(0, 100)
         return when {
             boosted >= 72 -> TIER_HARD
-            boosted >= 48 -> TIER_MEDIUM
+            boosted >= 52 -> TIER_MEDIUM
+            boosted >= 32 -> TIER_BORDERLINE
             else -> TIER_EASY
         }
     }
@@ -232,10 +247,11 @@ object QuestionQualityClassifier {
         return t
     }
 
+    private val tierOrder = listOf(TIER_EASY, TIER_BORDERLINE, TIER_MEDIUM, TIER_HARD)
+
     private fun String.coerceAtMost(max: String): String {
-        val order = listOf(TIER_EASY, TIER_MEDIUM, TIER_HARD)
-        val ai = order.indexOf(this)
-        val bi = order.indexOf(max)
+        val ai = tierOrder.indexOf(normalizeTier(this))
+        val bi = tierOrder.indexOf(normalizeTier(max))
         if (ai < 0 || bi < 0) return this
         return if (ai > bi) max else this
     }
@@ -273,9 +289,8 @@ object DistractorQualityEvaluator {
     }
 
     fun passesServeThreshold(opts: List<String>, stem: String): Boolean =
-        score(opts, stem) >= QuizQualityPolicy.MIN_DISTRACTOR_SCORE_TO_SERVE
+        score(opts, stem) >= QuizQualityPolicy.DISTRACTOR_SOFT_FLOOR
 
-    /** One option much longer than others (answer stands out). */
     fun isAnswerLengthOutlier(opts: List<String>): Boolean {
         val o = opts.map { it.trim() }.filter { it.isNotBlank() && it != "-" }
         if (o.size < 2) return false
@@ -286,7 +301,6 @@ object DistractorQualityEvaluator {
         return maxL > minL * 2 + 12
     }
 
-    /** Count of options that look absurd vs stem domain (numeric vs text). */
     fun obviousOutlierCount(options: List<String>, stem: String): Int {
         val o = options.map { it.trim() }.filter { it.isNotBlank() && it != "-" }
         if (o.size < 2) return o.size

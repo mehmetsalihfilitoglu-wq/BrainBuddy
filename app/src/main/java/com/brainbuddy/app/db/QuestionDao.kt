@@ -40,6 +40,7 @@ data class LgsCandidateRow(
     val skill: String,
     val qualityScore: Int,
     val qualityTier: String,
+    val reasoningLevel: Int,
 )
 
 /**
@@ -56,6 +57,7 @@ data class QuestionCandidateRow(
     val type: String,
     val skill: String,
     val qualityTier: String,
+    val reasoningLevel: Int,
 )
 
 /** Pool Status: Aynı grade+subject içinde en çok tekrar eden stemHash. */
@@ -123,6 +125,7 @@ interface QuestionDao {
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
         , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
+        , COALESCE(reasoningLevel, 2) AS reasoningLevel
         FROM questions
         WHERE grade = :grade
         AND subject = :subject
@@ -130,8 +133,6 @@ interface QuestionDao {
         AND isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
-        AND reasoningScore >= 40
-        AND distractorQualityScore >= 40
         LIMIT 2000
         """
     )
@@ -150,14 +151,13 @@ interface QuestionDao {
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
         , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
+        , COALESCE(reasoningLevel, 2) AS reasoningLevel
         FROM questions
         WHERE grade = :grade
         AND subject = :subject
         AND isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
-        AND reasoningScore >= 40
-        AND distractorQualityScore >= 40
         LIMIT 2000
         """
     )
@@ -175,14 +175,13 @@ interface QuestionDao {
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
         , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
+        , COALESCE(reasoningLevel, 2) AS reasoningLevel
         FROM questions
         WHERE COALESCE(examType, 'GENERAL') = 'LGS'
         AND subject = :subject
         AND isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
-        AND reasoningScore >= 40
-        AND distractorQualityScore >= 40
         LIMIT 2000
         """
     )
@@ -196,15 +195,14 @@ interface QuestionDao {
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill,
                COALESCE(qualityScore, 0) AS qualityScore,
-               COALESCE(qualityTier, 'MEDIUM') AS qualityTier
+               COALESCE(qualityTier, 'MEDIUM') AS qualityTier,
+               COALESCE(reasoningLevel, 2) AS reasoningLevel
         FROM questions
         WHERE COALESCE(examType, 'GENERAL') = 'LGS'
         AND subject = :subject
         AND isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
-        AND reasoningScore >= 40
-        AND distractorQualityScore >= 40
         ORDER BY qualityScore DESC
         LIMIT 300
         """
@@ -632,7 +630,7 @@ interface QuestionDao {
         """
         SELECT COUNT(*) FROM questions
         WHERE isActive = 1 AND grade = :grade AND LOWER(subject) = LOWER(:subject)
-        AND COALESCE(qualityTier, 'MEDIUM') IN ('MEDIUM', 'HARD')
+        AND COALESCE(qualityTier, 'MEDIUM') IN ('MEDIUM', 'HARD', 'BORDERLINE')
         """
     )
     suspend fun countActiveMediumHardByGradeSubject(grade: Int, subject: String): Int
@@ -668,9 +666,7 @@ interface QuestionDao {
         SELECT COUNT(*) FROM questions
         WHERE isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
-        AND COALESCE(qualityTier, 'MEDIUM') IN ('MEDIUM', 'HARD')
-        AND reasoningScore >= 40
-        AND distractorQualityScore >= 40
+        AND COALESCE(qualityTier, 'MEDIUM') IN ('MEDIUM', 'HARD', 'BORDERLINE')
         """
     )
     suspend fun countPlayableStrictPool(): Int

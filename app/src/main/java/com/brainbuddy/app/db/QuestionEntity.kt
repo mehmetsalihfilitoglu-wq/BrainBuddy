@@ -64,10 +64,12 @@ data class QuestionEntity(
     val isNewGenerationLike: Boolean = false,
     /**
      * Content quality tier from [com.brainbuddy.app.quiz.QuestionQualityClassifier] (not quiz UI difficulty).
-     * EASY = shallow/trivial; MEDIUM/HARD = playable pool by default.
+     * HARD / MEDIUM / BORDERLINE / EASY — serving order is adaptive at runtime.
      */
     val qualityTier: String = "MEDIUM",
-    /** 0..100 — inference, multi-step, traps, context. */
+    /** 0=EASY … 3=HARD — primary label for adaptive serving. */
+    val reasoningLevel: Int = 2,
+    /** 0..100 — inference, multi-step, traps, context (legacy analytic score). */
     val reasoningScore: Int = 0,
     /** 0..100 — plausibility and balance of wrong options. */
     val distractorQualityScore: Int = 0,
