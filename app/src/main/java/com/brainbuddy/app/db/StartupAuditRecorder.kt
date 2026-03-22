@@ -12,6 +12,12 @@ object StartupAuditRecorder {
 
     const val AUDIT_FILENAME = "brainbuddy_audit.txt"
 
+    data class StartupReadyPayload(
+        val auditSnapshot: StartupAuditSnapshot,
+        val auditText: String,
+        val auditPath: String?
+    )
+
     @Volatile
     var lastAuditText: String = ""
 
@@ -63,20 +69,22 @@ object StartupAuditRecorder {
         }
     }
 
-    suspend fun captureAfterStartup(
+    /**
+     * Call only after [DbSeeder.seedIfNeeded] and [PoolQuotaEnforcer.enforceCoreQuotas] complete.
+     * Recomputes all counts from DB (post-quota), writes [AUDIT_FILENAME] once for startup, and returns the published payload.
+     */
+    suspend fun finalizeStartupAudit(
         context: Context,
-        pool: StartupPoolSnapshot?,
         quotaReport: PoolQuotaEnforcer.QuotaReport
-    ) = withContext(Dispatchers.IO) {
+    ): StartupReadyPayload = withContext(Dispatchers.IO) {
         val app = context.applicationContext
         val dao = DatabaseProvider.get(app).questionDao()
-        val total = pool?.total ?: dao.countAll()
-        val active = pool?.active ?: dao.countAllActive()
-        val inactive = pool?.inactive ?: dao.countAllInactive()
-        val candG6 = pool?.candidateSampleSizeG6Mat ?: dao.getCandidatePoolByGradeSubject(6, "mat").size
-        val candG4 = pool?.candidateSampleSizeG4Ing ?: dao.getCandidatePoolByGradeSubject(4, "ing").size
-        val candLgs = pool?.candidateSampleSizeLgsMat ?: dao.getCandidatePoolByLgsSubject("mat").size
-
+        val total = dao.countAll()
+        val active = dao.countAllActive()
+        val inactive = dao.countAllInactive()
+        val candG6 = dao.getCandidatePoolByGradeSubject(6, "mat").size
+        val candG4 = dao.getCandidatePoolByGradeSubject(4, "ing").size
+        val candLgs = dao.getCandidatePoolByLgsSubject("mat").size
         val gradeMap = dao.getCountsGroupedByGrade().associate { it.grade to it.count }
         val gsLines = dao.getAllGroupedByGradeSubject().map { "${it.grade}-${it.subject}=${it.count}" }
 
@@ -100,24 +108,38 @@ object StartupAuditRecorder {
         val dir = app.getExternalFilesDir(null) ?: app.filesDir
         val f = File(dir, AUDIT_FILENAME)
         auditFileAbsolutePath = f.absolutePath
-        val text = formatAuditText(snap, auditFileAbsolutePath)
+        val text = formatAuditText(
+            snap,
+            auditFileAbsolutePath,
+            startupStatusLine = "FINALIZED"
+        )
         lastAuditText = text
         f.writeText(text)
+        StartupReadyPayload(auditSnapshot = snap, auditText = text, auditPath = auditFileAbsolutePath)
     }
 
+    /**
+     * Manual refresh: recomputes DB counts; quota lines use last enforce report or last finalized snapshot (never -1).
+     */
     suspend fun buildLiveReport(context: Context): String = withContext(Dispatchers.IO) {
         val app = context.applicationContext
         val dao = DatabaseProvider.get(app).questionDao()
         val quota = PoolQuotaEnforcer.lastReport()
+        val ls = lastSnapshot
+        val qb = quota?.totalRowCountBefore ?: ls?.quotaBefore
+        val qa = quota?.totalRowCountAfter ?: ls?.quotaAfter
+        val qadd = quota?.totalRowsAdded ?: ls?.quotaAdded
+        val haveQuota = qb != null && qa != null && qadd != null
+
         val snap = StartupAuditSnapshot(
             total = dao.countAll(),
             active = dao.countAllActive(),
             inactive = dao.countAllInactive(),
             seedSkipped = DbSeeder.lastSeedSkipped,
             insertedThisRun = DbSeeder.lastInsertedThisRun,
-            quotaBefore = quota?.totalRowCountBefore ?: -1,
-            quotaAfter = quota?.totalRowCountAfter ?: -1,
-            quotaAdded = quota?.totalRowsAdded ?: -1,
+            quotaBefore = qb ?: 0,
+            quotaAfter = qa ?: 0,
+            quotaAdded = qadd ?: 0,
             candidateSampleG6Mat = dao.getCandidatePoolByGradeSubject(6, "mat").size,
             candidateSampleG4Ing = dao.getCandidatePoolByGradeSubject(4, "ing").size,
             candidateSampleLgsMat = dao.getCandidatePoolByLgsSubject("mat").size,
@@ -128,23 +150,38 @@ object StartupAuditRecorder {
         val dir = app.getExternalFilesDir(null) ?: app.filesDir
         val f = File(dir, AUDIT_FILENAME)
         auditFileAbsolutePath = f.absolutePath
-        val text = formatAuditText(snap, auditFileAbsolutePath)
+        val text = formatAuditText(
+            snap,
+            auditFileAbsolutePath,
+            startupStatusLine = "REFRESHED",
+            includeQuotaLines = haveQuota
+        )
         lastSnapshot = snap
         lastAuditText = text
         f.writeText(text)
         text
     }
 
-    fun formatAuditText(s: StartupAuditSnapshot, auditFilePath: String? = null): String = buildString {
+    fun formatAuditText(
+        s: StartupAuditSnapshot,
+        auditFilePath: String? = null,
+        startupStatusLine: String? = null,
+        includeQuotaLines: Boolean = true
+    ): String = buildString {
         appendLine("AppStartupAudit")
+        if (startupStatusLine != null) {
+            appendLine("startupStatus=$startupStatusLine")
+        }
         appendLine("total=${s.total}")
         appendLine("active=${s.active}")
         appendLine("inactive=${s.inactive}")
         appendLine("seedSkipped=${s.seedSkipped}")
         appendLine("insertedThisRun=${s.insertedThisRun}")
-        appendLine("quotaBefore=${s.quotaBefore}")
-        appendLine("quotaAfter=${s.quotaAfter}")
-        appendLine("quotaAdded=${s.quotaAdded}")
+        if (includeQuotaLines) {
+            appendLine("quotaBefore=${s.quotaBefore}")
+            appendLine("quotaAfter=${s.quotaAfter}")
+            appendLine("quotaAdded=${s.quotaAdded}")
+        }
         appendLine()
         appendLine("CandidateSampleSizes (LIMIT queries; not full DB)")
         appendLine("candidateSample_g6_mat=${s.candidateSampleG6Mat}")

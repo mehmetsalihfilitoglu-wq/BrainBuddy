@@ -16,6 +16,7 @@ import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.db.StartupRuntimeState
 import com.brainbuddy.app.db.GateFailedQuestionUpgrader
 import com.brainbuddy.app.db.PoolQuotaEnforcer
 import com.brainbuddy.app.db.QuestionDao
@@ -51,17 +52,27 @@ class PoolStatusActivity : AppCompatActivity() {
         }
 
         setupFixButtons()
-        renderStatus()
-        // seedIfNeeded runs async in Application; first paint can be pre-seed — refresh shortly after open.
         lifecycleScope.launch {
-            delay(450)
-            renderStatus()
+            StartupRuntimeState.phase.collect { phase ->
+                when (phase) {
+                    is StartupRuntimeState.StartupPhase.Initializing -> {
+                        findViewById<TextView>(R.id.tvPoolStatus).text =
+                            getString(R.string.pool_status_initializing)
+                    }
+                    is StartupRuntimeState.StartupPhase.Ready -> renderStatusFull()
+                }
+            }
         }
     }
 
     override fun onResume() {
         super.onResume()
-        renderStatus()
+        if (StartupRuntimeState.startupInitializationComplete) {
+            renderStatusFull()
+        } else {
+            findViewById<TextView>(R.id.tvPoolStatus).text =
+                getString(R.string.pool_status_initializing)
+        }
     }
 
     private fun getPoolStatusGradeLabel(): String {
@@ -107,7 +118,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         db.questionDao().fixInvalidGrades(target)
                     }
                     Toast.makeText(this@PoolStatusActivity, "$updated soru $target. sınıfa taşındı.", Toast.LENGTH_SHORT).show()
-                    renderStatus()
+                    renderStatusFull()
                 }
             }
 
@@ -126,7 +137,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         else -> "Düzeltildi: $low (çok düşük) + $high (çok yüksek)."
                     }
                     Toast.makeText(this@PoolStatusActivity, msg, Toast.LENGTH_SHORT).show()
-                    renderStatus()
+                    renderStatusFull()
                 }
             }
 
@@ -141,7 +152,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         .setMessage(summary.summaryText)
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
-                    renderStatus()
+                    renderStatusFull()
                 }
             }
 
@@ -156,7 +167,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         .setMessage(summary.toString())
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
-                    renderStatus()
+                    renderStatusFull()
                 }
             }
 
@@ -171,7 +182,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         .setMessage(result.summary)
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
-                    renderStatus()
+                    renderStatusFull()
                 }
             }
 
@@ -186,7 +197,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         .setMessage(result.summary)
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
-                    renderStatus()
+                    renderStatusFull()
                 }
             }
 
@@ -227,7 +238,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         .setMessage(summary)
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
-                    renderStatus()
+                    renderStatusFull()
                 }
             }
 
@@ -268,7 +279,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         .setMessage(message)
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
-                    renderStatus()
+                    renderStatusFull()
                 }
             }
     }
@@ -284,8 +295,12 @@ class PoolStatusActivity : AppCompatActivity() {
         return total
     }
 
-    private fun renderStatus() {
+    private fun renderStatusFull() {
         val tv = findViewById<TextView>(R.id.tvPoolStatus)
+        if (!StartupRuntimeState.startupInitializationComplete) {
+            tv.text = getString(R.string.pool_status_initializing)
+            return
+        }
         val gradePrefs = GradePrefs(this)
         val quizPrefs = QuizPrefs(this)
         val selectedGrade = gradePrefs.getSelectedGrade()

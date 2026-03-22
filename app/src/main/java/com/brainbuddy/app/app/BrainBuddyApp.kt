@@ -14,6 +14,7 @@ import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.PoolQuotaEnforcer
 import com.brainbuddy.app.db.StartupAuditRecorder
+import com.brainbuddy.app.db.StartupRuntimeState
 import com.brainbuddy.app.ui.DebugSeedStatusActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -50,39 +51,36 @@ class BrainBuddyApp : Application() {
         LeagueScheduler.scheduleNextReset(this)
 
         CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
-            Log.i(PERSISTENCE_LOG_TAG, "Seed started ASYNC (not awaited); UI may show before seed completes")
-            val snapshot = withContext(Dispatchers.IO) {
+            StartupRuntimeState.markInitializing()
+            Log.i(PERSISTENCE_LOG_TAG, "Startup: seed → quota → DB recount → publish (sequential IO)")
+            val payload = withContext(Dispatchers.IO) {
                 logStartupPersistenceAsync(this@BrainBuddyApp)
                 val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
-                Log.i(PERSISTENCE_LOG_TAG, "Seed finished async: didSeed=$didSeed")
+                Log.i(PERSISTENCE_LOG_TAG, "Seed finished: didSeed=$didSeed")
                 val quotaReport = PoolQuotaEnforcer.enforceCoreQuotas(this@BrainBuddyApp)
                 Log.i(PERSISTENCE_LOG_TAG, quotaReport.formatActiveTable("QUOTA_ACTIVE_AFTER", quotaReport.activeAfter))
                 Log.i(PERSISTENCE_LOG_TAG, quotaReport.formatDeficitTable(quotaReport.deficitAfter))
                 if (!quotaReport.allCoreCellsSatisfied) {
                     Log.w(PERSISTENCE_LOG_TAG, "Core pool quota: not all grade×subject cells reached ${PoolQuotaEnforcer.CORE_MIN_ACTIVE} ACTIVE")
                 }
-                val poolSnap = StartupAuditRecorder.computePoolSnapshot(this@BrainBuddyApp)
-                StartupAuditRecorder.captureAfterStartup(this@BrainBuddyApp, poolSnap, quotaReport)
-                try {
-                    val dao = DatabaseProvider.get(this@BrainBuddyApp).questionDao()
-                    Log.i(
-                        "AppStartupAudit",
-                        "AppStartupAudit: total=${dao.countAll()} active=${dao.countAllActive()} inactive=${dao.countAllInactive()}"
-                    )
-                } catch (e: Exception) {
-                    Log.w(PERSISTENCE_LOG_TAG, "AppStartupAudit failed", e)
-                }
-                poolSnap
+                val p = StartupAuditRecorder.finalizeStartupAudit(this@BrainBuddyApp, quotaReport)
+                Log.i(
+                    "AppStartupAudit",
+                    "AppStartupAudit: total=${p.auditSnapshot.total} active=${p.auditSnapshot.active} inactive=${p.auditSnapshot.inactive}"
+                )
+                p
             }
-            if (BuildConfig.DEBUG && snapshot != null) {
+            StartupRuntimeState.publishReady(payload)
+            if (BuildConfig.DEBUG) {
+                val snap = payload.auditSnapshot
                 DebugSeedStatusActivity.launch(
                     this@BrainBuddyApp,
-                    total = snapshot.total,
-                    active = snapshot.active,
-                    inactive = snapshot.inactive,
-                    candidateSampleSizeG6Mat = snapshot.candidateSampleSizeG6Mat,
-                    candidateSampleSizeG4Ing = snapshot.candidateSampleSizeG4Ing,
-                    candidateSampleSizeLgsMat = snapshot.candidateSampleSizeLgsMat
+                    total = snap.total,
+                    active = snap.active,
+                    inactive = snap.inactive,
+                    candidateSampleSizeG6Mat = snap.candidateSampleG6Mat,
+                    candidateSampleSizeG4Ing = snap.candidateSampleG4Ing,
+                    candidateSampleSizeLgsMat = snap.candidateSampleLgsMat
                 )
             }
         }
