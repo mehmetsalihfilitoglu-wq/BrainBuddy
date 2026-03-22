@@ -3,6 +3,7 @@ package com.brainbuddy.app.db
 import android.content.Context
 import com.brainbuddy.app.quiz.AnswerRecord
 import com.brainbuddy.app.quiz.Question
+import com.brainbuddy.app.quiz.QuizQualityPolicy
 import com.brainbuddy.app.db.QuestionMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -61,29 +62,37 @@ class RoomQuizDataStore(private val context: Context) {
     fun getCandidatePoolByGradeSubjectDifficulty(
         grade: Int,
         subject: String,
-        difficulty: Int
+        difficulty: Int,
+        allowedTiers: List<String> = QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY,
     ): List<QuestionCandidateRow> = runBlocking(Dispatchers.IO) {
         if (grade !in 1..7) return@runBlocking emptyList()
-        questionDao.getCandidatePoolByGradeSubjectDifficulty(grade, subject, difficulty)
+        questionDao.getCandidatePoolByGradeSubjectDifficulty(grade, subject, difficulty, allowedTiers)
     }
 
     /** Candidate pool per subject (LIMIT 2000, any difficulty). Call from Dispatchers.IO. */
     fun getCandidatePoolByGradeSubject(
         grade: Int,
-        subject: String
+        subject: String,
+        allowedTiers: List<String> = QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY,
     ): List<QuestionCandidateRow> = runBlocking(Dispatchers.IO) {
         if (grade !in 1..7) return@runBlocking emptyList()
-        questionDao.getCandidatePoolByGradeSubject(grade, subject)
+        questionDao.getCandidatePoolByGradeSubject(grade, subject, allowedTiers)
     }
 
     /** LGS pool: examType=LGS, subject. Does NOT use grade. */
-    fun getCandidatePoolByLgsSubject(subject: String): List<QuestionCandidateRow> = runBlocking(Dispatchers.IO) {
-        questionDao.getCandidatePoolByLgsSubject(subject)
+    fun getCandidatePoolByLgsSubject(
+        subject: String,
+        allowedTiers: List<String> = QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY,
+    ): List<QuestionCandidateRow> = runBlocking(Dispatchers.IO) {
+        questionDao.getCandidatePoolByLgsSubject(subject, allowedTiers)
     }
 
     /** LGS pool with qualityScore for blueprint-based planner. */
-    fun getLgsCandidatePoolWithQuality(subject: String): List<com.brainbuddy.app.db.LgsCandidateRow> = runBlocking(Dispatchers.IO) {
-        questionDao.getLgsCandidatePoolWithQuality(subject)
+    fun getLgsCandidatePoolWithQuality(
+        subject: String,
+        allowedTiers: List<String> = QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY,
+    ): List<com.brainbuddy.app.db.LgsCandidateRow> = runBlocking(Dispatchers.IO) {
+        questionDao.getLgsCandidatePoolWithQuality(subject, allowedTiers)
     }
 
     fun insertQuestions(entities: List<QuestionEntity>) = runBlocking(Dispatchers.IO) {

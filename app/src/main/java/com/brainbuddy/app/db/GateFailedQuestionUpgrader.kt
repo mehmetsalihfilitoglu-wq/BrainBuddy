@@ -313,7 +313,13 @@ object GateFailedQuestionUpgrader {
             questionType = gate.questionType,
             skillsJson = gate.skillsJson,
             type = divType,
-            skill = divSkill
+            skill = divSkill,
+            qualityTier = gate.qualityTier,
+            reasoningScore = gate.reasoningScore,
+            distractorQualityScore = gate.distractorQualityScore,
+            contextComplexityScore = gate.contextComplexityScore,
+            qualityFlagsJson = gate.qualityFlagsJson,
+            unservableReason = gate.unservableReason,
         )
     }
 

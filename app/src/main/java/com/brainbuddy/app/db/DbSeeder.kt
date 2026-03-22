@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.room.withTransaction
 import com.brainbuddy.app.quiz.QuestionQualityGate
+import com.brainbuddy.app.quiz.TemplateQualityDetector
 import com.brainbuddy.app.quiz.QuestionDiversity
 import com.brainbuddy.app.quiz.Subject
 import com.brainbuddy.app.BuildConfig
@@ -354,11 +355,13 @@ object DbSeeder {
             )
         }
 
-        val deduped = normalized.distinctBy(::dedupKey)
+        var deduped = normalized.distinctBy(::dedupKey)
 
         Log.e("SEED_DEBUG", "normalized_count=${normalized.size} invalid_after=${normalized.count { it.grade !in 1..7 }}")
 
         finalizeMat6PipelineDiagnostics(normalized, deduped)
+
+        deduped = TemplateQualityDetector.applyShellClustering(deduped)
 
         // Store pre-insert diagnostics for in-app debug UI.
         val invalidAfter = normalized.count { it.grade !in 1..7 }
@@ -1367,7 +1370,13 @@ object DbSeeder {
             skill = diversitySkill,
             stemNormalized = stemNorm,
             stemHash = hash,
-            sourcePack = sourcePackTag
+            sourcePack = sourcePackTag,
+            qualityTier = gate.qualityTier,
+            reasoningScore = gate.reasoningScore,
+            distractorQualityScore = gate.distractorQualityScore,
+            contextComplexityScore = gate.contextComplexityScore,
+            qualityFlagsJson = gate.qualityFlagsJson,
+            unservableReason = gate.unservableReason,
         )
     }
 
@@ -1465,7 +1474,13 @@ object DbSeeder {
             type = diversityType,
             skill = diversitySkill,
             stemNormalized = stemNorm,
-            stemHash = hash
+            stemHash = hash,
+            qualityTier = gate.qualityTier,
+            reasoningScore = gate.reasoningScore,
+            distractorQualityScore = gate.distractorQualityScore,
+            contextComplexityScore = gate.contextComplexityScore,
+            qualityFlagsJson = gate.qualityFlagsJson,
+            unservableReason = gate.unservableReason,
         )
     }
 

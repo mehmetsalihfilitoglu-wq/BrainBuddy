@@ -19,7 +19,8 @@ import androidx.room.PrimaryKey
         Index(value = ["grade", "subject"], name = "index_questions_grade_subject"),
         Index(value = ["grade", "subject", "difficulty"], name = "index_questions_grade_subject_difficulty"),
         Index(value = ["grade", "subject", "difficulty", "isActive"], name = "index_questions_grade_subject_difficulty_active"),
-        Index(value = ["stemHash"], name = "index_questions_stem_hash")
+        Index(value = ["stemHash"], name = "index_questions_stem_hash"),
+        Index(value = ["qualityTier"], name = "index_questions_qualityTier")
     ]
 )
 data class QuestionEntity(
@@ -60,5 +61,20 @@ data class QuestionEntity(
     /** LGS quality score 0..100. Higher = better quality. */
     val qualityScore: Int = 0,
     /** True if question resembles new-generation style (reasoning, visuals, inference). */
-    val isNewGenerationLike: Boolean = false
+    val isNewGenerationLike: Boolean = false,
+    /**
+     * Content quality tier from [com.brainbuddy.app.quiz.QuestionQualityClassifier] (not quiz UI difficulty).
+     * EASY = shallow/trivial; MEDIUM/HARD = playable pool by default.
+     */
+    val qualityTier: String = "MEDIUM",
+    /** 0..100 — inference, multi-step, traps, context. */
+    val reasoningScore: Int = 0,
+    /** 0..100 — plausibility and balance of wrong options. */
+    val distractorQualityScore: Int = 0,
+    /** 0..100 — stem length, structure, non-trivial context. */
+    val contextComplexityScore: Int = 0,
+    /** JSON array of string flags e.g. ["weak_distractors","single_step_mat"]. */
+    val qualityFlagsJson: String = "[]",
+    /** If set, question is excluded from playable pool without requiring isActive=0. */
+    val unservableReason: String? = null,
 )

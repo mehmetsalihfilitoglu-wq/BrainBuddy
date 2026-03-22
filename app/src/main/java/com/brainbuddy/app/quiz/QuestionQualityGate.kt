@@ -4,10 +4,7 @@ import org.json.JSONArray
 import java.util.Locale
 
 /**
- * Basit soru kalite gate'i ve tür/skill çıkarımı.
- *
- * - Çok kısa / salt işlem / ezber soruları pasifler.
- * - questionType ve skillsJson alanlarını doldurur.
+ * Question quality gate: combines legacy trivial filters with [QuestionQualityClassifier] outputs.
  */
 object QuestionQualityGate {
 
@@ -15,19 +12,27 @@ object QuestionQualityGate {
         val isActive: Boolean,
         val deactivationReason: String?,
         val questionType: String,
-        val skillsJson: String
+        val skillsJson: String,
+        val qualityTier: String,
+        val reasoningScore: Int,
+        val distractorQualityScore: Int,
+        val contextComplexityScore: Int,
+        val qualityFlagsJson: String,
+        val unservableReason: String?,
     )
 
-    /** @param difficulty 0=EASY, 1=MEDIUM, 2=HARD. EASY stays permissive; MEDIUM/HARD get trivial filter. */
+    /** @param difficulty 0=EASY, 1=MEDIUM, 2=HARD (quiz JSON difficulty, not content tier). */
     fun evaluate(
         subject: Subject,
         grade: Int,
         questionText: String,
         options: List<String>,
-        difficulty: Int = 1
+        difficulty: Int = 1,
     ): Result {
         val stem = questionText.trim()
         val lower = stem.lowercase(Locale("tr"))
+
+        val cls = QuestionQualityClassifier.classify(subject, grade, questionText, options, difficulty)
 
         val isTooShort = stem.length < 25
         val isMathDrill = subject == Subject.MAT && isSimpleMathExpression(stem)
@@ -59,22 +64,39 @@ object QuestionQualityGate {
             reason = "too_short"
         }
 
+        if (isActive && cls.qualityTier == QuestionQualityClassifier.TIER_EASY &&
+            cls.reasoningScore < 24 && cls.distractorQualityScore < 30
+        ) {
+            isActive = false
+            reason = reason ?: "classifier_trivial_composite"
+        }
+        if (isActive && cls.qualityFlags.contains("severe_distractor_failure")) {
+            isActive = false
+            reason = reason ?: "severe_distractors"
+        }
+
         val questionType = inferQuestionType(subject, stem, lower)
         val skillsJson = buildSkillsJson(subject, grade, questionType, isFactRecall)
+
+        var unservable: String? = null
+        if (isActive && cls.qualityTier == QuestionQualityClassifier.TIER_EASY) {
+            unservable = "quality_tier_easy"
+        }
 
         return Result(
             isActive = isActive,
             deactivationReason = reason,
             questionType = questionType,
-            skillsJson = skillsJson
+            skillsJson = skillsJson,
+            qualityTier = cls.qualityTier,
+            reasoningScore = cls.reasoningScore,
+            distractorQualityScore = cls.distractorQualityScore,
+            contextComplexityScore = cls.contextComplexityScore,
+            qualityFlagsJson = QuestionQualityClassifier.flagsToJson(cls.qualityFlags),
+            unservableReason = unservable,
         )
     }
 
-    /**
-     * Extremely simple questions for MEDIUM/HARD. Examples: "1 metre kaç santimetredir?",
-     * "Suyun donma noktası kaçtır?", "3+5 kaçtır?". Stronger filtering for MAT and FEN.
-     * EASY questions are not checked (caller passes difficulty).
-     */
     fun isTrivialQuestion(subject: Subject, stem: String, lower: String): Boolean {
         if (stem.length < 25) return true
         val trivialEndings = listOf("kaçtır?", "kaçtır", "nedir?", "nedir", "hangisidir?", "hangisidir")
@@ -91,7 +113,6 @@ object QuestionQualityGate {
         return stem.length < 50
     }
 
-    /** Math: sadece birim dönüşümü (örn: "1 km kaç metredir?") - too_basic. */
     private fun isMathOnlyConversion(stem: String, lower: String): Boolean {
         if (stem.length > 60) return false
         val conversionPatterns = listOf(
@@ -104,7 +125,6 @@ object QuestionQualityGate {
             !lower.contains("probleme") && !lower.contains("problem")
     }
 
-    /** Tek bilgi sorusu: kısa, ezber/tek cümle (başkent, tarih, formül vs). */
     private fun isSingleFactLike(subject: Subject, lower: String): Boolean {
         if (subject == Subject.ING) return false
         val factKeywords = listOf(
@@ -129,7 +149,7 @@ object QuestionQualityGate {
     private fun isFactRecallQuestion(
         subject: Subject,
         stem: String,
-        lower: String
+        lower: String,
     ): Boolean {
         if (stem.length > 80) return false
         val keywords = listOf(
@@ -147,7 +167,7 @@ object QuestionQualityGate {
     private fun inferQuestionType(
         subject: Subject,
         stem: String,
-        lower: String
+        lower: String,
     ): String {
         val sentences = stem.split(Regex("[.!?]"))
             .map { it.trim() }
@@ -176,7 +196,7 @@ object QuestionQualityGate {
         subject: Subject,
         grade: Int,
         questionType: String,
-        isFactRecall: Boolean
+        isFactRecall: Boolean,
     ): String {
         val skills = mutableListOf<String>()
 
@@ -206,4 +226,3 @@ object QuestionQualityGate {
         return JSONArray(skills.distinct()).toString()
     }
 }
-

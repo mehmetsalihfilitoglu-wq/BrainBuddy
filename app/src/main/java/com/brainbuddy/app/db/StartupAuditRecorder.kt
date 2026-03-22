@@ -1,6 +1,7 @@
 package com.brainbuddy.app.db
 
 import android.content.Context
+import com.brainbuddy.app.quiz.QuizQualityPolicy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -61,9 +62,9 @@ object StartupAuditRecorder {
                 total = dao.countAll(),
                 active = dao.countAllActive(),
                 inactive = dao.countAllInactive(),
-                candidateSampleSizeG6Mat = dao.getCandidatePoolByGradeSubject(6, "mat").size,
-                candidateSampleSizeG4Ing = dao.getCandidatePoolByGradeSubject(4, "ing").size,
-                candidateSampleSizeLgsMat = dao.getCandidatePoolByLgsSubject("mat").size
+                candidateSampleSizeG6Mat = dao.getCandidatePoolByGradeSubject(6, "mat", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size,
+                candidateSampleSizeG4Ing = dao.getCandidatePoolByGradeSubject(4, "ing", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size,
+                candidateSampleSizeLgsMat = dao.getCandidatePoolByLgsSubject("mat", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size
             )
         } catch (_: Exception) {
             null
@@ -83,9 +84,9 @@ object StartupAuditRecorder {
         val total = dao.countAll()
         val active = dao.countAllActive()
         val inactive = dao.countAllInactive()
-        val candG6 = dao.getCandidatePoolByGradeSubject(6, "mat").size
-        val candG4 = dao.getCandidatePoolByGradeSubject(4, "ing").size
-        val candLgs = dao.getCandidatePoolByLgsSubject("mat").size
+        val candG6 = dao.getCandidatePoolByGradeSubject(6, "mat", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size
+        val candG4 = dao.getCandidatePoolByGradeSubject(4, "ing", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size
+        val candLgs = dao.getCandidatePoolByLgsSubject("mat", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size
         val gradeMap = dao.getCountsGroupedByGrade().associate { it.grade to it.count }
         val gsLines = dao.getAllGroupedByGradeSubject().map { "${it.grade}-${it.subject}=${it.count}" }
 
@@ -143,9 +144,9 @@ object StartupAuditRecorder {
             quotaBefore = if (haveQuota) qb else null,
             quotaAfter = if (haveQuota) qa else null,
             quotaAdded = if (haveQuota) qadd else null,
-            candidateSampleG6Mat = dao.getCandidatePoolByGradeSubject(6, "mat").size,
-            candidateSampleG4Ing = dao.getCandidatePoolByGradeSubject(4, "ing").size,
-            candidateSampleLgsMat = dao.getCandidatePoolByLgsSubject("mat").size,
+            candidateSampleG6Mat = dao.getCandidatePoolByGradeSubject(6, "mat", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size,
+            candidateSampleG4Ing = dao.getCandidatePoolByGradeSubject(4, "ing", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size,
+            candidateSampleLgsMat = dao.getCandidatePoolByLgsSubject("mat", QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY).size,
             gradeDistribution = dao.getCountsGroupedByGrade().associate { it.grade to it.count },
             gradeSubjectLines = dao.getAllGroupedByGradeSubject().map { "${it.grade}-${it.subject}=${it.count}" },
             capturedAtEpochMs = System.currentTimeMillis(),

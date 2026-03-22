@@ -28,7 +28,8 @@ object DatabaseProvider {
                         BrainBuddyDatabase.MIGRATION_16_17,
                         BrainBuddyDatabase.MIGRATION_17_18,
                         BrainBuddyDatabase.MIGRATION_18_19,
-                        BrainBuddyDatabase.MIGRATION_19_20
+                        BrainBuddyDatabase.MIGRATION_19_20,
+                        BrainBuddyDatabase.MIGRATION_20_21
                     )
                 if (BuildConfig.DEBUG) {
                     builder.fallbackToDestructiveMigration()

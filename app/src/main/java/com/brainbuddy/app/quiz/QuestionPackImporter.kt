@@ -1767,6 +1767,17 @@ object QuestionPackImporter {
         val id = o.optString("id", "").takeIf { it.isNotBlank() }
             ?: "lgs_${defaultGrade}_${subject}_${index}_${hash.take(8)}"
 
+        val subjectEnum = when (subject) {
+            "mat" -> Subject.MAT
+            "turkce" -> Subject.TURKCE
+            "fen" -> Subject.FEN
+            "sosyal" -> Subject.SOSYAL
+            "ing" -> Subject.ING
+            "inkilap" -> Subject.INKILAP
+            "din" -> Subject.DIN
+            else -> Subject.MAT
+        }
+        val gate = QuestionQualityGate.evaluate(subjectEnum, defaultGrade, stem, options, difficulty)
         return QuestionEntity(
             id = id,
             grade = defaultGrade,
@@ -1776,10 +1787,10 @@ object QuestionPackImporter {
             optionsJson = JSONArray(options).toString(),
             answerIndex = answerIndex,
             explanation = explanation,
-            isActive = true,
-            questionType = questionType,
-            skillsJson = skillsJson,
-            deactivationReason = null,
+            isActive = gate.isActive,
+            questionType = gate.questionType,
+            skillsJson = gate.skillsJson,
+            deactivationReason = gate.deactivationReason,
             version = 1,
             examType = "LGS",
             imageAsset = imageAsset,
@@ -1792,7 +1803,13 @@ object QuestionPackImporter {
             sourceRef = sourceRef,
             publisher = null,
             year = null,
-            topic = topic
+            topic = topic,
+            qualityTier = gate.qualityTier,
+            reasoningScore = gate.reasoningScore,
+            distractorQualityScore = gate.distractorQualityScore,
+            contextComplexityScore = gate.contextComplexityScore,
+            qualityFlagsJson = gate.qualityFlagsJson,
+            unservableReason = gate.unservableReason,
         )
     }
 
@@ -1903,7 +1920,13 @@ object QuestionPackImporter {
                 deactivationReason = gate.deactivationReason,
                 publisher = publisher,
                 year = year,
-                sourcePack = sourcePack
+                sourcePack = sourcePack,
+                qualityTier = gate.qualityTier,
+                reasoningScore = gate.reasoningScore,
+                distractorQualityScore = gate.distractorQualityScore,
+                contextComplexityScore = gate.contextComplexityScore,
+                qualityFlagsJson = gate.qualityFlagsJson,
+                unservableReason = gate.unservableReason,
             )
             toInsert.add(finalEntity)
         }

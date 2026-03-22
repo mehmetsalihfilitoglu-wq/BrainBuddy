@@ -93,6 +93,16 @@ class QuestionRepository(private val context: Context) {
     var lastAvgQualityScore: Double = 0.0
         private set
 
+    /** Pool pick: how many times EASY tier was included after empty MEDIUM/HARD pool (requires allow flag). */
+    @Volatile
+    var lastFallbackEasyTierUsed: Int = 0
+        private set
+
+    /** Last grade-test quality pool summary for debug. */
+    @Volatile
+    var lastQualityPickSummary: String = ""
+        private set
+
     companion object {
         private const val TAG = "QuestionRepository"
         /** Every test (gate, normal, remedial, boss) has exactly this many questions. */
@@ -438,7 +448,13 @@ class QuestionRepository(private val context: Context) {
                 type = q.type,
                 skill = q.skill,
             stemNormalized = stemNormalizedValue,
-            stemHash = stemHashValue
+            stemHash = stemHashValue,
+            qualityTier = gate.qualityTier,
+            reasoningScore = gate.reasoningScore,
+            distractorQualityScore = gate.distractorQualityScore,
+            contextComplexityScore = gate.contextComplexityScore,
+            qualityFlagsJson = gate.qualityFlagsJson,
+            unservableReason = gate.unservableReason,
             )
         }
         val entitiesToInsert = toAddEntities.filterNotNull()
@@ -1171,6 +1187,7 @@ class QuestionRepository(private val context: Context) {
         lastBlueprintSummary = "${blueprint.mode} total=${blueprint.totalQuestionCount}"
         lastRecentRelaxedCount = 0
         lastCapReached = false
+        lastFallbackEasyTierUsed = 0
 
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
@@ -1186,11 +1203,16 @@ class QuestionRepository(private val context: Context) {
         fun poolFor(subj: Subject): List<LgsCandidateRow> {
             return subjectPools.getOrPut(subj) {
                 val dbKey = com.brainbuddy.app.db.QuestionMapper.toDbSubject(subj)
-                // LGS mode must only use genuine LGS questions (grade 8 in our schema).
-                // Filter the LGS pool by grade == 8 to avoid mixing in grade 7 questions.
-                roomStore.getLgsCandidatePoolWithQuality(dbKey)
+                var pool = roomStore.getLgsCandidatePoolWithQuality(dbKey, QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY)
                     .filter { it.grade == 8 }
                     .distinctBy { it.id }
+                if (pool.isEmpty() && QuizQualityPolicy.ALLOW_EASY_FALLBACK) {
+                    lastFallbackEasyTierUsed++
+                    pool = roomStore.getLgsCandidatePoolWithQuality(dbKey, QuizQualityPolicy.PLAYABLE_TIERS_WITH_EASY_FALLBACK)
+                        .filter { it.grade == 8 }
+                        .distinctBy { it.id }
+                }
+                pool
             }
         }
 
@@ -1247,6 +1269,8 @@ class QuestionRepository(private val context: Context) {
         } else 0.0
         lastRecentRelaxedCount = recentRelaxedCount
         lastBuildMs = System.currentTimeMillis() - buildStartMs
+        lastQualityPickSummary =
+            "LGS qualityPool=MEDIUM+HARD fallbackSteps=$lastFallbackEasyTierUsed allowEasy=${QuizQualityPolicy.ALLOW_EASY_FALLBACK}"
 
         // Debug: log picked LGS questions with grade and subject to verify mode=LGS uses only grade 8.
         if (orderPreserved.isNotEmpty()) {
@@ -1333,6 +1357,8 @@ class QuestionRepository(private val context: Context) {
         lastDbQueryMs = 0
         lastBuildMs = 0
         lastCapReached = false
+        lastFallbackEasyTierUsed = 0
+        lastQualityPickSummary = ""
 
         val dbQueryStartMs = System.currentTimeMillis()
         val recentIds: Set<String> = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
@@ -1344,7 +1370,13 @@ class QuestionRepository(private val context: Context) {
         val perSubjectTotalForDiff: MutableMap<Subject, Int> = mutableMapOf()
         val perSubjectNonRecentAvailable: MutableMap<Subject, Int> = mutableMapOf()
         for ((subjEnum, dbKey) in subjectOrder) {
-            val pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey).distinctBy { it.id }
+            var pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey, QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY)
+                .distinctBy { it.id }
+            if (pool.isEmpty() && QuizQualityPolicy.ALLOW_EASY_FALLBACK) {
+                lastFallbackEasyTierUsed++
+                pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey, QuizQualityPolicy.PLAYABLE_TIERS_WITH_EASY_FALLBACK)
+                    .distinctBy { it.id }
+            }
             val primary = pool.filter { it.difficulty == diffInt }
             val primaryIds = primary.map { it.id }.toSet()
             val relaxed = pool.filter { it.id !in primaryIds }
@@ -1846,6 +1878,8 @@ class QuestionRepository(private val context: Context) {
 
         // Performance: candidate-pool strategy targets buildMs < 500ms (no full DB scan).
         lastBuildMs = System.currentTimeMillis() - buildStartMs
+        lastQualityPickSummary =
+            "qualityPool=MEDIUM+HARD fallbackSteps=$lastFallbackEasyTierUsed allowEasy=${QuizQualityPolicy.ALLOW_EASY_FALLBACK}"
         return finalQuestions
     }
 

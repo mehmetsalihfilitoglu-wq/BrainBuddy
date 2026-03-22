@@ -1,6 +1,7 @@
 package com.brainbuddy.app.db
 
 import com.brainbuddy.app.quiz.QuestionDiversity
+import com.brainbuddy.app.quiz.QuestionQualityGate
 import com.brainbuddy.app.quiz.Subject
 import org.json.JSONArray
 
@@ -57,6 +58,7 @@ object QuotaSyntheticQuestions {
         val skill = QuestionDiversity.inferSkill(se, grade, type, stem)
         val stemNorm = QuestionStemHash.normalizeStem(stem)
         val hash = QuestionStemHash.stemHash(stem)
+        val gate = QuestionQualityGate.evaluate(se, grade, stem, padded, difficulty.coerceIn(0, 2))
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -66,17 +68,23 @@ object QuotaSyntheticQuestions {
             optionsJson = JSONArray(padded).toString(),
             answerIndex = ai,
             explanation = explanation,
-            isActive = true,
-            questionType = "context_problem",
-            skillsJson = "[]",
-            deactivationReason = null,
+            isActive = gate.isActive,
+            questionType = gate.questionType,
+            skillsJson = gate.skillsJson,
+            deactivationReason = gate.deactivationReason,
             version = 1,
             examType = "GENERAL",
             imageAsset = null,
             type = type,
             skill = skill,
             stemNormalized = stemNorm,
-            stemHash = hash
+            stemHash = hash,
+            qualityTier = gate.qualityTier,
+            reasoningScore = gate.reasoningScore,
+            distractorQualityScore = gate.distractorQualityScore,
+            contextComplexityScore = gate.contextComplexityScore,
+            qualityFlagsJson = gate.qualityFlagsJson,
+            unservableReason = gate.unservableReason,
         )
     }
 

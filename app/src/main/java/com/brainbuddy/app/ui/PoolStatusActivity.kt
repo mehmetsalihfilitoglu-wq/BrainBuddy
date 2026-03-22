@@ -19,6 +19,7 @@ import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.StartupRuntimeState
 import com.brainbuddy.app.db.GateFailedQuestionUpgrader
 import com.brainbuddy.app.db.PoolQuotaEnforcer
+import com.brainbuddy.app.quiz.QuizQualityPolicy
 import com.brainbuddy.app.db.QuestionDao
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
@@ -326,6 +327,14 @@ class PoolStatusActivity : AppCompatActivity() {
 
                 // DEBUG seed diagnostics (runtime).
                 if (BuildConfig.DEBUG) {
+                    sb.append("QUALITY_STATS (content tier, active)\n")
+                    for (row in dao.countActiveByQualityTier()) {
+                        sb.append("${row.qualityTier}=${row.count} ")
+                    }
+                    sb.append("\nweakDistractor_flags=${dao.countActiveWithWeakDistractorFlag()} ")
+                    sb.append("weakTemplate_inactive=${dao.countInactiveWeakTemplateFlag()}\n")
+                    sb.append("ALLOW_EASY_FALLBACK=${QuizQualityPolicy.ALLOW_EASY_FALLBACK}\n\n")
+
                     val quotaReport = PoolQuotaEnforcer.lastReport()
                     sb.append("CORE_CELL_MEASUREMENTS (device DB + last PoolQuotaEnforcer report)\n")
                     sb.append("Cells: grades 1..7 × mat,turkce,fen,sosyal,ing\n")

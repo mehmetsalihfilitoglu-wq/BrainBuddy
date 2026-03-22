@@ -38,7 +38,8 @@ data class LgsCandidateRow(
     val stemNormalized: String,
     val type: String,
     val skill: String,
-    val qualityScore: Int
+    val qualityScore: Int,
+    val qualityTier: String,
 )
 
 /**
@@ -53,7 +54,8 @@ data class QuestionCandidateRow(
     val stemHash: String,
     val stemNormalized: String,
     val type: String,
-    val skill: String
+    val skill: String,
+    val qualityTier: String,
 )
 
 /** Pool Status: Aynı grade+subject içinde en çok tekrar eden stemHash. */
@@ -84,6 +86,9 @@ data class SubjectCount(val subject: String, val count: Int)
 
 /** PoolStatus DEBUG: inactive reason bucket (nullable reason → empty string). */
 data class DeactivationReasonCountRow(val reason: String?, val cnt: Int)
+
+/** Debug: counts per content quality tier (active rows). */
+data class QualityTierCountRow(val qualityTier: String, val count: Int)
 
 @Dao
 interface QuestionDao {
@@ -117,37 +122,45 @@ interface QuestionDao {
     @Query(
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
         FROM questions
         WHERE grade = :grade
         AND subject = :subject
         AND difficulty = :difficulty
         AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
         LIMIT 2000
         """
     )
     suspend fun getCandidatePoolByGradeSubjectDifficulty(
         grade: Int,
         subject: String,
-        difficulty: Int
+        difficulty: Int,
+        allowedTiers: List<String>,
     ): List<QuestionCandidateRow>
 
     /**
-     * Candidate pool per subject (LIMIT 200). Any difficulty; partition in memory.
-     * Used by grade-based picker to avoid scanning the entire database.
+     * Candidate pool per subject (LIMIT 2000). Any difficulty; partition in memory.
+     * [allowedTiers] typically MEDIUM+HARD for playable pool.
      */
     @Query(
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
         FROM questions
         WHERE grade = :grade
         AND subject = :subject
         AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
         LIMIT 2000
         """
     )
     suspend fun getCandidatePoolByGradeSubject(
         grade: Int,
-        subject: String
+        subject: String,
+        allowedTiers: List<String>,
     ): List<QuestionCandidateRow>
 
     /**
@@ -157,14 +170,17 @@ interface QuestionDao {
     @Query(
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
         FROM questions
         WHERE COALESCE(examType, 'GENERAL') = 'LGS'
         AND subject = :subject
         AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
         LIMIT 2000
         """
     )
-    suspend fun getCandidatePoolByLgsSubject(subject: String): List<QuestionCandidateRow>
+    suspend fun getCandidatePoolByLgsSubject(subject: String, allowedTiers: List<String>): List<QuestionCandidateRow>
 
     /**
      * LGS pool with qualityScore for blueprint-based planner.
@@ -173,16 +189,19 @@ interface QuestionDao {
     @Query(
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill,
-               COALESCE(qualityScore, 0) AS qualityScore
+               COALESCE(qualityScore, 0) AS qualityScore,
+               COALESCE(qualityTier, 'MEDIUM') AS qualityTier
         FROM questions
         WHERE COALESCE(examType, 'GENERAL') = 'LGS'
         AND subject = :subject
         AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
         ORDER BY qualityScore DESC
         LIMIT 300
         """
     )
-    suspend fun getLgsCandidatePoolWithQuality(subject: String): List<LgsCandidateRow>
+    suspend fun getLgsCandidatePoolWithQuality(subject: String, allowedTiers: List<String>): List<LgsCandidateRow>
 
     /** Tüm sınıf havuzu (grade 1-7 için test oluşturma). */
     @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND grade > 0")
@@ -589,4 +608,49 @@ interface QuestionDao {
         """
     )
     suspend fun countInactiveGateReasonsCore(): Int
+
+    // ---- Content quality tier (debug / audit) ----
+
+    @Query(
+        """
+        SELECT COALESCE(qualityTier, 'MEDIUM') AS qualityTier, COUNT(*) AS count
+        FROM questions WHERE isActive = 1
+        GROUP BY COALESCE(qualityTier, 'MEDIUM')
+        """
+    )
+    suspend fun countActiveByQualityTier(): List<QualityTierCountRow>
+
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE isActive = 1 AND grade = :grade AND LOWER(subject) = LOWER(:subject)
+        AND COALESCE(qualityTier, 'MEDIUM') IN ('MEDIUM', 'HARD')
+        """
+    )
+    suspend fun countActiveMediumHardByGradeSubject(grade: Int, subject: String): Int
+
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE isActive = 1 AND grade = :grade AND LOWER(subject) = LOWER(:subject)
+        AND COALESCE(qualityTier, 'MEDIUM') = 'EASY'
+        """
+    )
+    suspend fun countActiveEasyByGradeSubject(grade: Int, subject: String): Int
+
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE isActive = 1 AND qualityFlagsJson LIKE '%weak_distractors%'
+        """
+    )
+    suspend fun countActiveWithWeakDistractorFlag(): Int
+
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE isActive = 0 AND qualityFlagsJson LIKE '%weak_template_cluster%'
+        """
+    )
+    suspend fun countInactiveWeakTemplateFlag(): Int
 }

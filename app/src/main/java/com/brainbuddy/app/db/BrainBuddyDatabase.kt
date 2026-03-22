@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 20,
+    version = 21,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -341,6 +341,33 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                 )
                 database.execSQL(
                     "ALTER TABLE questions ADD COLUMN isNewGenerationLike INTEGER NOT NULL DEFAULT 0"
+                )
+            }
+        }
+
+        /** 20 -> 21: Global content quality classifier fields (tier, scores, flags, unservable). */
+        val MIGRATION_20_21: Migration = object : Migration(20, 21) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN qualityTier TEXT NOT NULL DEFAULT 'MEDIUM'"
+                )
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN reasoningScore INTEGER NOT NULL DEFAULT 0"
+                )
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN distractorQualityScore INTEGER NOT NULL DEFAULT 0"
+                )
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN contextComplexityScore INTEGER NOT NULL DEFAULT 0"
+                )
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN qualityFlagsJson TEXT NOT NULL DEFAULT '[]'"
+                )
+                database.execSQL(
+                    "ALTER TABLE questions ADD COLUMN unservableReason TEXT"
+                )
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_questions_qualityTier ON questions(qualityTier)"
                 )
             }
         }
