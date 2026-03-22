@@ -126,6 +126,7 @@ object PoolQuotaEnforcer {
 
         val insertedPerCell = mutableMapOf<Pair<Int, String>, Int>()
 
+        val beforeTotal = dao.countAll()
         db.withTransaction {
             for (g in 1..7) {
                 for (s in CORE_SUBJECTS) {
@@ -141,6 +142,9 @@ object PoolQuotaEnforcer {
                 }
             }
         }
+        val afterTotal = dao.countAll()
+        val addedTotal = (afterTotal - beforeTotal).coerceAtLeast(0)
+        Log.i(TAG, "QuotaAudit: before=$beforeTotal after=$afterTotal added=$addedTotal")
 
         val activeAfter = snapshotActiveSuspend()
         val deficitAfter = mutableMapOf<Pair<Int, String>, Int>()

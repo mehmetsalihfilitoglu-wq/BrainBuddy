@@ -196,9 +196,9 @@ class RoomQuizDataStore(private val context: Context) {
         appMetaDao.get(KEY_DB_SEEDED) == "true"
     }
 
+    /** Seeding runs only from [com.brainbuddy.app.app.BrainBuddyApp]; this reports whether meta says seeded. */
     fun ensureSeeded(): Boolean = runBlocking(Dispatchers.IO) {
-        if (isSeeded()) return@runBlocking true
-        DbSeeder.seedIfNeeded(context)
+        isSeeded()
     }
 
     fun insertSnapshot(

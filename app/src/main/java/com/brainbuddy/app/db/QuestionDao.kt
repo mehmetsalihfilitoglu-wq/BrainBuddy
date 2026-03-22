@@ -224,6 +224,9 @@ interface QuestionDao {
     @Query("SELECT COUNT(*) FROM questions WHERE isActive = 1")
     suspend fun countAllActive(): Int
 
+    @Query("SELECT COUNT(*) FROM questions WHERE isActive = 0")
+    suspend fun countAllInactive(): Int
+
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade")
     suspend fun countByGrade(grade: Int): Int
 

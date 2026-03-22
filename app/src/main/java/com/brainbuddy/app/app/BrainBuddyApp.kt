@@ -60,16 +60,27 @@ class BrainBuddyApp : Application() {
                 if (!quotaReport.allCoreCellsSatisfied) {
                     Log.w(PERSISTENCE_LOG_TAG, "Core pool quota: not all grade×subject cells reached ${PoolQuotaEnforcer.CORE_MIN_ACTIVE} ACTIVE")
                 }
-                computeRuntimeQuestionPoolSnapshot(this@BrainBuddyApp)
+                val snap = computeRuntimeQuestionPoolSnapshot(this@BrainBuddyApp)
+                try {
+                    val dao = DatabaseProvider.get(this@BrainBuddyApp).questionDao()
+                    Log.i(
+                        "AppStartupAudit",
+                        "AppStartupAudit: total=${dao.countAll()} active=${dao.countAllActive()} inactive=${dao.countAllInactive()}"
+                    )
+                } catch (e: Exception) {
+                    Log.w(PERSISTENCE_LOG_TAG, "AppStartupAudit failed", e)
+                }
+                snap
             }
             if (BuildConfig.DEBUG && snapshot != null) {
                 DebugSeedStatusActivity.launch(
                     this@BrainBuddyApp,
                     total = snapshot.total,
                     active = snapshot.active,
-                    g6Mat = snapshot.g6Mat,
-                    g4Ing = snapshot.g4Ing,
-                    lgsMat = snapshot.lgsMat
+                    inactive = snapshot.inactive,
+                    candidateSampleSizeG6Mat = snapshot.candidateSampleSizeG6Mat,
+                    candidateSampleSizeG4Ing = snapshot.candidateSampleSizeG4Ing,
+                    candidateSampleSizeLgsMat = snapshot.candidateSampleSizeLgsMat
                 )
             }
         }
@@ -139,14 +150,15 @@ private suspend fun logStartupPersistenceAsync(context: Context) {
 private data class RuntimeSeedSnapshot(
     val total: Int,
     val active: Int,
-    val g6Mat: Int,
-    val g4Ing: Int,
-    val lgsMat: Int
+    val inactive: Int,
+    /** LIMIT-based candidate row count (not full DB size). */
+    val candidateSampleSizeG6Mat: Int,
+    val candidateSampleSizeG4Ing: Int,
+    val candidateSampleSizeLgsMat: Int
 )
 
 /**
- * Computes the real Room question pool snapshot after seeding.
- * Returns null on failure; never throws.
+ * Full DB counts plus optional LIMIT-based candidate sample sizes for debug UI.
  */
 private suspend fun computeRuntimeQuestionPoolSnapshot(context: Context): RuntimeSeedSnapshot? {
     return try {
@@ -154,15 +166,24 @@ private suspend fun computeRuntimeQuestionPoolSnapshot(context: Context): Runtim
         val dao = db.questionDao()
         val total = dao.countAll()
         val active = dao.countAllActive()
-        val g6Mat = dao.getCandidatePoolByGradeSubject(6, "mat").size
-        val g4Ing = dao.getCandidatePoolByGradeSubject(4, "ing").size
-        val lgsMat = dao.getCandidatePoolByLgsSubject("mat").size
+        val inactive = dao.countAllInactive()
+        val candidateSampleSizeG6Mat = dao.getCandidatePoolByGradeSubject(6, "mat").size
+        val candidateSampleSizeG4Ing = dao.getCandidatePoolByGradeSubject(4, "ing").size
+        val candidateSampleSizeLgsMat = dao.getCandidatePoolByLgsSubject("mat").size
+        Log.i(
+            PERSISTENCE_LOG_TAG,
+            "RuntimePoolSnapshot: total=$total active=$active inactive=$inactive " +
+                "candidateSampleSizeG6Mat=$candidateSampleSizeG6Mat " +
+                "candidateSampleSizeG4Ing=$candidateSampleSizeG4Ing " +
+                "candidateSampleSizeLgsMat=$candidateSampleSizeLgsMat"
+        )
         RuntimeSeedSnapshot(
             total = total,
             active = active,
-            g6Mat = g6Mat,
-            g4Ing = g4Ing,
-            lgsMat = lgsMat
+            inactive = inactive,
+            candidateSampleSizeG6Mat = candidateSampleSizeG6Mat,
+            candidateSampleSizeG4Ing = candidateSampleSizeG4Ing,
+            candidateSampleSizeLgsMat = candidateSampleSizeLgsMat
         )
     } catch (e: Exception) {
         Log.w(PERSISTENCE_LOG_TAG, "computeRuntimeQuestionPoolSnapshot failed", e)

@@ -3,7 +3,6 @@ package com.brainbuddy.app.db
 import com.brainbuddy.app.quiz.QuestionDiversity
 import com.brainbuddy.app.quiz.Subject
 import org.json.JSONArray
-import java.util.UUID
 
 /**
  * Deficit-only synthetic questions for core (grade 1..7 × mat/turkce/fen/sosyal/ing).
@@ -30,7 +29,7 @@ object QuotaSyntheticQuestions {
     }
 
     private fun newId(grade: Int, subject: String, seq: Int): String =
-        "quota_${grade}_${subject}_${seq}_${UUID.randomUUID().toString().replace("-", "").take(12)}"
+        "quota_${grade}_${subject}_${seq}"
 
     private fun subjectEnum(key: String): Subject = when (key) {
         "mat" -> Subject.MAT

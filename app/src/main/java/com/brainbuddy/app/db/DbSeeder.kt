@@ -28,6 +28,11 @@ object DbSeeder {
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val MIN_REASONABLE_DB_COUNT = 8000
 
+    /** When true (and DEBUG build), [seedIfNeeded] runs [forceReseed]. Default: never auto-reseed in debug. */
+    private const val DEBUG_FORCE_RESEED = false
+
+    private const val SEED_AUDIT_LOG_TAG = "BrainBuddySeedAudit"
+
     /** Tag written to [QuestionEntity.sourcePack] for questions parsed from this asset. */
     const val GRADE6_MAT_SOURCE_PACK = "grade6_mat.json"
 
@@ -111,6 +116,16 @@ object DbSeeder {
     private var lastDiscoveredGradeBasedJsonFiles: Int = 0
 
     fun debugLastSeedDiagnostics(): SeedDiagnostics? = lastSeedDiagnostics
+
+    private suspend fun logSeedAudit(questionDao: QuestionDao, insertedThisRun: Int, skipped: Boolean) {
+        val total = questionDao.countAll()
+        val active = questionDao.countAllActive()
+        val inactive = questionDao.countAllInactive()
+        Log.i(
+            SEED_AUDIT_LOG_TAG,
+            "SeedAudit: total=$total active=$active inactive=$inactive inserted=$insertedThisRun skipped=$skipped"
+        )
+    }
 
     private fun finalizeMat6PipelineDiagnostics(
         normalized: List<QuestionEntity>,
@@ -196,9 +211,8 @@ object DbSeeder {
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
 
-        // DEBUG: Always force reseed on app startup (bypass seed version/flags logic).
-        if (BuildConfig.DEBUG) {
-            Log.w(TAG, "seedIfNeeded DEBUG: forcing full reseed (bypass seed flags/version checks)")
+        if (BuildConfig.DEBUG && DEBUG_FORCE_RESEED) {
+            Log.w(TAG, "seedIfNeeded DEBUG: DEBUG_FORCE_RESEED=true — running forceReseed")
             return@withContext forceReseed(context)
         }
 
@@ -221,6 +235,7 @@ object DbSeeder {
                 val toInsert = buildSeedQuestions(context)
                 if (toInsert.isEmpty()) {
                     Log.e(TAG, "Seed recovery aborted: loaded=0, preserving existing DB (count=$count)")
+                    logSeedAudit(questionDao, insertedThisRun = 0, skipped = true)
                     return@withContext false
                 }
                 val before = count
@@ -230,6 +245,7 @@ object DbSeeder {
                     meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
                     meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
                     Log.i(TAG, "Seed recovery complete: attempted=${toInsert.size} DB before=$before after=$after (added=${after - before})")
+                    logSeedAudit(questionDao, insertedThisRun = (after - before), skipped = false)
                     return@withContext (after > before)
                 } catch (e: Exception) {
                     Log.e(TAG, "Seed recovery failed; existing DB preserved", e)
@@ -237,14 +253,15 @@ object DbSeeder {
                 }
             }
             Log.d(TAG, "Seed already up to date (version=$storedVersion), skip")
+            logSeedAudit(questionDao, insertedThisRun = 0, skipped = true)
             return@withContext false
         }
         if (storedVersion >= CURRENT_DB_SEED_VERSION && count == 0) {
             Log.d(TAG, "Seed forced because DB is empty (version=$storedVersion)")
         }
 
-        Log.i(TAG, "performSeed will run (storedVersion=$storedVersion < $CURRENT_DB_SEED_VERSION)")
-        performSeed(db, meta, context)
+        Log.i(TAG, "performSeed will run (storedVersion=$storedVersion CURRENT=$CURRENT_DB_SEED_VERSION count=$count)")
+        return@withContext performSeed(db, meta, context)
     }
 
     /**
@@ -293,6 +310,7 @@ object DbSeeder {
                 Log.e("DB_CHECK", "Failed to read back questions after forceReseed: ${e.message}", e)
             }
             Log.i(TAG, "Force reseed successful: inserted=$inserted")
+            logSeedAudit(questionDao, insertedThisRun = inserted, skipped = false)
             true
         } catch (e: Exception) {
             Log.e(TAG, "Force reseed failed, old database may be preserved", e)
@@ -317,6 +335,7 @@ object DbSeeder {
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "false"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, "0"))
         return@withContext try {
+            val countBeforeTotal = questionDao.countAll()
             db.withTransaction {
                 // Keep LGS rows intact; replace only GENERAL.
                 questionDao.deleteGeneralQuestions()
@@ -324,7 +343,10 @@ object DbSeeder {
                 meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
                 meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
             }
-            Log.i(TAG, "Force reseed GENERAL successful: inserted=${toInsert.size}")
+            val countAfterTotal = questionDao.countAll()
+            val delta = (countAfterTotal - countBeforeTotal).coerceAtLeast(0)
+            Log.i(TAG, "Force reseed GENERAL successful: batchNonLgs=${toInsert.count { (it.examType ?: "GENERAL") != "LGS" }} DB total before=$countBeforeTotal after=$countAfterTotal")
+            logSeedAudit(questionDao, insertedThisRun = delta, skipped = false)
             true
         } catch (e: Exception) {
             Log.e(TAG, "Force reseed GENERAL failed, old database preserved", e)
@@ -332,10 +354,13 @@ object DbSeeder {
         }
     }
 
-    private fun buildSeedQuestions(context: Context): List<QuestionEntity> {
-        val questions = mutableListOf<QuestionEntity>()
+    /**
+     * Full seed pipeline: merge [rawFromAssets] with imports, fallback, normalize, dedupe.
+     * @param rawFromAssets result of [loadFromAssets] only (no imports).
+     */
+    private fun buildSeedQuestions(context: Context, rawFromAssets: List<QuestionEntity>): List<QuestionEntity> {
+        val questions = rawFromAssets.toMutableList()
         try {
-            questions.addAll(loadFromAssets(context))
             val imported = loadFromImported(context)
             val existingIds = questions.map { it.id }.toSet()
             imported.filter { it.id !in existingIds }.forEach { questions.add(it) }
@@ -396,6 +421,10 @@ object DbSeeder {
         return deduped
     }
 
+    /** Loads assets, then runs [buildSeedQuestions] (import + fallback + normalize + dedupe). */
+    private fun buildSeedQuestions(context: Context): List<QuestionEntity> =
+        buildSeedQuestions(context, loadFromAssets(context))
+
     /**
      * Ortak seeding uygulaması: assets + imported JSON + sentetik grade 6 paketleri.
      * Hem ilk kurulum hem de DEBUG force-resede tarafından kullanılır.
@@ -406,35 +435,17 @@ object DbSeeder {
         context: Context
     ): Boolean {
         Log.i(TAG, "performSeed started")
-        val questions = mutableListOf<QuestionEntity>()
-        try {
-            val fromAssets = loadFromAssets(context)
-            questions.addAll(fromAssets)
-            val imported = loadFromImported(context)
-            val existingIds = questions.map { it.id }.toSet()
-            imported.filter { it.id !in existingIds }.forEach { questions.add(it) }
-        } catch (e: Exception) {
-            Log.e(TAG, "Seed load error", e)
-        }
-        if (questions.isEmpty()) {
-            Log.w(TAG, "performSeed: no questions from assets/imported, adding fallback entities")
-            questions.addAll(getFallbackEntities())
-        }
-
-        Log.i(TAG, "Seed load complete: ${questions.size} questions from assets+imported before dedup")
-
-        // (grade, subject, exactStem+options+answer) dedup: only drop true duplicates.
-        val dedupedList = questions.distinctBy(::dedupKey)
-        if (dedupedList.size < questions.size) {
-            Log.i(TAG, "Seed dedup: ${questions.size} -> ${dedupedList.size} (dropped ${questions.size - dedupedList.size} in-batch duplicates)")
-        }
-        finalizeMat6PipelineDiagnostics(questions, dedupedList)
+        val raw = loadFromAssets(context)
+        val dedupedList = buildSeedQuestions(context, raw)
+        Log.i(TAG, "performSeed: pipeline complete deduped.size=${dedupedList.size}")
 
         val questionDao = db.questionDao()
         val countBefore = questionDao.countAll()
         Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedList.size} DB countBefore=$countBefore")
         questionDao.insertAllIgnore(dedupedList)
         val countAfter = questionDao.countAll()
+        val inserted = (countAfter - countBefore).coerceAtLeast(0)
+        logSeedAudit(questionDao, insertedThisRun = inserted, skipped = false)
         // DEBUG: verify actual DB grades after seeding.
         try {
             val all = questionDao.getAllQuestions()

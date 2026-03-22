@@ -6,7 +6,6 @@ import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
-import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.GradeSubjectDifficultyCount
 import com.brainbuddy.app.db.LgsCandidateRow
@@ -223,13 +222,11 @@ class QuestionRepository(private val context: Context) {
     fun getPoolSizeForGrade(grade: Int): Int {
         if (grade !in 1..7) return 0
         return try {
-            runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
             roomStore.getQuestionsByGrade(grade).distinctBy { it.id }.size
         } catch (_: Exception) { 0 }
     }
 
     fun loadAllQuestionsWithStats(): Pair<List<Question>, LoadStats> {
-        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val fromRoom = roomStore.getActiveQuestions()
         return if (fromRoom.isNotEmpty()) {
             Pair(fromRoom, LoadStats(fileFound = true, totalInJson = fromRoom.size, parsedTotal = fromRoom.size, parseFailed = 0))
@@ -1167,7 +1164,6 @@ class QuestionRepository(private val context: Context) {
         testId: String?,
         excludeIds: Set<String> = emptySet()
     ): List<Question> {
-        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val buildStartMs = System.currentTimeMillis()
         val effectiveCount = count.coerceAtMost(MIN_QUESTIONS_PER_TEST).coerceAtLeast(MIN_QUESTIONS_PER_TEST)
 
@@ -1298,7 +1294,6 @@ class QuestionRepository(private val context: Context) {
         maxWrongFraction: Double,
         excludeIds: Set<String> = emptySet()
     ): List<Question> {
-        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val buildStartMs = System.currentTimeMillis()
 
         val selectedDifficulty = try {
@@ -2007,7 +2002,6 @@ class QuestionRepository(private val context: Context) {
     /** Gate questions - sadece grade filtresi ile (grade 1-7). */
     fun pickGateQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         if (grade !in 1..7) return emptyList()
-        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
         if (pool.isEmpty()) pool = getFallbackQuestions()
@@ -2051,7 +2045,6 @@ class QuestionRepository(private val context: Context) {
     /** Boss questions - sadece grade filtresi ile (grade 1-7). */
     fun pickBossQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         if (grade !in 1..7) return emptyList()
-        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
         if (pool.isEmpty()) pool = getFallbackQuestions()
@@ -2079,7 +2072,6 @@ class QuestionRepository(private val context: Context) {
     /** Remedial questions - sadece grade filtresi ile. */
     fun pickRemedialQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
         if (grade !in 1..7) return Pair(emptyList(), true)
-        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val all = roomStore.getQuestionsByGrade(grade).ifEmpty { getFallbackQuestions().filter { it.grade == grade } }
             .ifEmpty { getFallbackQuestions() }
         val allMap = all.associateBy { it.id }
@@ -2114,7 +2106,6 @@ class QuestionRepository(private val context: Context) {
         val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
         val wrongIds = roomStore.getAllWrongIds(userId)
         if (wrongIds.isEmpty()) return emptyList()
-        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         val all = roomStore.getQuestionsByGrade(grade).associateBy { it.id }
         val fallback = getFallbackQuestions().filter { it.grade == grade }.associateBy { it.id }
         val allMap = if (all.isEmpty()) fallback else all
@@ -2274,7 +2265,6 @@ class QuestionRepository(private val context: Context) {
         testId: String? = null
     ): List<Question> {
         if (grade !in 1..7) return emptyList()
-        runBlocking(Dispatchers.IO) { DbSeeder.seedIfNeeded(context) }
         var pool = roomStore.getQuestionsByGrade(grade)
         if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
         if (pool.isEmpty()) pool = getFallbackQuestions()
