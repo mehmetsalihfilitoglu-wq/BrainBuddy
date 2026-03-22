@@ -110,11 +110,21 @@ interface QuestionDao {
     suspend fun getQuestionsByIds(ids: List<String>): List<QuestionEntity>
 
     /** Sınıf bazlı havuz: grade ve subject'e göre (index kullanır). */
-    @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND subject = :subject")
+    @Query(
+        """
+        SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND subject = :subject
+        AND COALESCE(examType, 'GENERAL') != 'LGS'
+        """
+    )
     suspend fun getByGradeSubject(grade: Int, subject: String): List<QuestionEntity>
 
     /** Sınıf + ders + zorluk filtresi. */
-    @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND subject = :subject AND difficulty = :difficulty")
+    @Query(
+        """
+        SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND subject = :subject AND difficulty = :difficulty
+        AND COALESCE(examType, 'GENERAL') != 'LGS'
+        """
+    )
     suspend fun getByGradeSubjectDifficulty(grade: Int, subject: String, difficulty: Int): List<QuestionEntity>
 
     /**
@@ -131,6 +141,7 @@ interface QuestionDao {
         AND subject = :subject
         AND difficulty = :difficulty
         AND isActive = 1
+        AND COALESCE(examType, 'GENERAL') != 'LGS'
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
         LIMIT 2000
@@ -156,6 +167,7 @@ interface QuestionDao {
         WHERE grade = :grade
         AND subject = :subject
         AND isActive = 1
+        AND COALESCE(examType, 'GENERAL') != 'LGS'
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
         LIMIT 2000
@@ -210,8 +222,21 @@ interface QuestionDao {
     suspend fun getLgsCandidatePoolWithQuality(subject: String, allowedTiers: List<String>): List<LgsCandidateRow>
 
     /** Tüm sınıf havuzu (grade 1-7 için test oluşturma). */
-    @Query("SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND grade > 0")
+    @Query(
+        """
+        SELECT * FROM questions WHERE isActive = 1 AND grade = :grade AND grade > 0
+        AND COALESCE(examType, 'GENERAL') != 'LGS'
+        """
+    )
     suspend fun getByGrade(grade: Int): List<QuestionEntity>
+
+    @Query(
+        """
+        UPDATE questions SET unservableReason = :reason, qualityTier = :tier
+        WHERE id = :id
+        """
+    )
+    suspend fun updateQuarantineFlags(id: String, reason: String, tier: String)
 
     /**
      * Havuz doğrulama için grade+subject bazında COUNT.

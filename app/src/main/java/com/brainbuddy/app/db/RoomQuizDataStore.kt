@@ -104,6 +104,10 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.insertAll(entities)
     }
 
+    fun updateQuarantineFlags(id: String, reason: String, tier: String) = runBlocking(Dispatchers.IO) {
+        questionDao.updateQuarantineFlags(id, reason, tier)
+    }
+
     /** @param userId profileId (multi-account: her şey userId bazlı) */
     fun recordAnswers(userId: String, answers: List<AnswerRecord>, testId: String?) = runBlocking(Dispatchers.IO) {
         val now = System.currentTimeMillis()

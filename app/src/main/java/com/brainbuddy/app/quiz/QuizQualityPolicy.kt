@@ -30,4 +30,14 @@ object QuizQualityPolicy {
 
     /** Soft floor for distractor heuristic warnings (not a DB filter). */
     const val DISTRACTOR_SOFT_FLOOR: Int = 40
+
+    /** Minimum analytic scores to consider a row for normal serving (pool + runtime quarantine). */
+    const val MIN_REASONING_SCORE_SERVE: Int = 28
+    const val MIN_DISTRACTOR_SCORE_SERVE: Int = 28
+
+    /** Persisted when a row is quarantined from normal serving (low quality / recall). */
+    const val LOW_QUALITY_QUARANTINED: String = "LOW_QUALITY_QUARANTINED"
+
+    /** OFF: never mix GENERAL grade banks into LGS picker or vice versa. */
+    const val DEBUG_ALLOW_CROSS_MODE_FALLBACK: Boolean = false
 }

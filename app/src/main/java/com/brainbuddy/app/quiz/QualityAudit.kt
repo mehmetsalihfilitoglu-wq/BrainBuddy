@@ -26,6 +26,37 @@ object QualityAudit {
     @Volatile
     var emergencyFallbackUsed: Boolean = false
 
+    /** Last picker: GRADE vs LGS */
+    @Volatile
+    var currentSelectedMode: String = "UNKNOWN"
+
+    @Volatile
+    var currentSelectedGrade: Int = -1
+
+    @Volatile
+    var currentPoolSourceSummary: String = ""
+
+    @Volatile
+    var servedGeneralCount: Int = 0
+
+    @Volatile
+    var servedLgsCount: Int = 0
+
+    @Volatile
+    var rejectedWrongModeCount: Int = 0
+
+    @Volatile
+    var quarantinedLowQualityCount: Int = 0
+
+    @Volatile
+    var playablePoolSizeLastQuery: Int = 0
+
+    /** Aliases for debug dashboards (same backing fields). */
+    val servedHardCount: Int get() = hardServed
+    val servedMediumCount: Int get() = mediumServed
+    val servedBorderlineCount: Int get() = borderlineServed
+    val servedEasyEmergencyCount: Int get() = easyEmergencyUsed
+
     fun reset() {
         hardServed = 0
         mediumServed = 0
@@ -34,6 +65,14 @@ object QualityAudit {
         upgradedQuestionsCount = 0
         syntheticGeneratedCount = 0
         emergencyFallbackUsed = false
+        currentSelectedMode = "UNKNOWN"
+        currentSelectedGrade = -1
+        currentPoolSourceSummary = ""
+        servedGeneralCount = 0
+        servedLgsCount = 0
+        rejectedWrongModeCount = 0
+        quarantinedLowQualityCount = 0
+        playablePoolSizeLastQuery = 0
     }
 
     fun recordTier(tier: String?) {

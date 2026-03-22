@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 23,
+    version = 24,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -435,6 +435,15 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                     UPDATE questions SET unservableReason = NULL
                     WHERE COALESCE(unservableReason, '') IN ('LOW_REASONING','WEAK_DISTRACTORS','QUALITY_TIER_EASY')
                     """.trimIndent()
+                )
+            }
+        }
+
+        /** Index for grade vs LGS isolation queries (examType + grade + subject). */
+        val MIGRATION_23_24: Migration = object : Migration(23, 24) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_questions_grade_subject_exam ON questions(grade, subject, examType, isActive)"
                 )
             }
         }
