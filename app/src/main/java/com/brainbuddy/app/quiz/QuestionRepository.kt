@@ -15,6 +15,7 @@ import com.brainbuddy.app.db.QuestionStemHash
 import com.brainbuddy.app.db.QuestionMapper
 import com.brainbuddy.app.db.QuotaSyntheticQuestions
 import com.brainbuddy.app.db.RoomQuizDataStore
+import com.brainbuddy.app.db.SyntheticHardQuestionGenerator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import org.json.JSONArray
@@ -1381,15 +1382,14 @@ class QuestionRepository(private val context: Context) {
         val perSubjectEasy: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
         val perSubjectTotalForDiff: MutableMap<Subject, Int> = mutableMapOf()
         val perSubjectNonRecentAvailable: MutableMap<Subject, Int> = mutableMapOf()
+        fun isEasyBucketRow(row: QuestionCandidateRow): Boolean =
+            AdaptiveQuizRuntime.normalizeContentTier(row.qualityTier) == QuizQualityPolicy.TIER_EASY ||
+                row.reasoningLevel == 0
         for ((subjEnum, dbKey) in subjectOrder) {
             var pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey, QuizQualityPolicy.ALL_CONTENT_TIERS)
                 .distinctBy { it.id }
-            perSubjectEasy[subjEnum] = pool.filter {
-                AdaptiveQuizRuntime.normalizeContentTier(it.qualityTier) == QuizQualityPolicy.TIER_EASY
-            }
-            var nonEasy = pool.filter {
-                AdaptiveQuizRuntime.normalizeContentTier(it.qualityTier) != QuizQualityPolicy.TIER_EASY
-            }
+            perSubjectEasy[subjEnum] = pool.filter { isEasyBucketRow(it) }
+            var nonEasy = pool.filter { !isEasyBucketRow(it) }
             nonEasy = AdaptiveQuizRuntime.sortByTierPriority(nonEasy) { it.qualityTier }
             if (nonEasy.isEmpty()) {
                 val batch = QuotaSyntheticQuestions.generateEmergencyTopUp(grade, dbKey, 8)
@@ -1397,25 +1397,21 @@ class QuestionRepository(private val context: Context) {
                 lastSyntheticEmergencyTopUpCount += batch.size
                 pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey, QuizQualityPolicy.ALL_CONTENT_TIERS)
                     .distinctBy { it.id }
-                perSubjectEasy[subjEnum] = pool.filter {
-                    AdaptiveQuizRuntime.normalizeContentTier(it.qualityTier) == QuizQualityPolicy.TIER_EASY
-                }
+                perSubjectEasy[subjEnum] = pool.filter { isEasyBucketRow(it) }
                 nonEasy = AdaptiveQuizRuntime.sortByTierPriority(
-                    pool.filter { AdaptiveQuizRuntime.normalizeContentTier(it.qualityTier) != QuizQualityPolicy.TIER_EASY }
+                    pool.filter { !isEasyBucketRow(it) }
                 ) { it.qualityTier }
             }
             if (nonEasy.isEmpty()) {
-                val hardBatch = com.brainbuddy.app.db.SyntheticHardQuestionGenerator.generate(grade, dbKey, 6)
+                val hardBatch = SyntheticHardQuestionGenerator.generate(grade, dbKey, 6)
                 if (hardBatch.isNotEmpty()) {
                     roomStore.insertQuestions(hardBatch)
                     QualityAudit.syntheticGeneratedCount += hardBatch.size
                     pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey, QuizQualityPolicy.ALL_CONTENT_TIERS)
                         .distinctBy { it.id }
-                    perSubjectEasy[subjEnum] = pool.filter {
-                        AdaptiveQuizRuntime.normalizeContentTier(it.qualityTier) == QuizQualityPolicy.TIER_EASY
-                    }
+                    perSubjectEasy[subjEnum] = pool.filter { isEasyBucketRow(it) }
                     nonEasy = AdaptiveQuizRuntime.sortByTierPriority(
-                        pool.filter { AdaptiveQuizRuntime.normalizeContentTier(it.qualityTier) != QuizQualityPolicy.TIER_EASY }
+                        pool.filter { !isEasyBucketRow(it) }
                     ) { it.qualityTier }
                 }
             }
@@ -1878,6 +1874,8 @@ class QuestionRepository(private val context: Context) {
             }
         }
 
+        ensureHardMediumQuota(selectedCandidateRows, grade)
+
         // 4) Materialize final questions (decode full Question objects) only for selected IDs.
         val selectedIdsInOrder = selectedCandidateRows.map { it.id }.distinct().take(effectiveCount)
         val entityRows = roomStore.getQuestionEntitiesByIds(selectedIdsInOrder)
@@ -1965,6 +1963,58 @@ class QuestionRepository(private val context: Context) {
                 "audit H/M/B/E=${QualityAudit.hardServed}/${QualityAudit.mediumServed}/${QualityAudit.borderlineServed}/${QualityAudit.easyEmergencyUsed} " +
                 "upgraded=${QualityAudit.upgradedQuestionsCount} emergency=${QualityAudit.emergencyFallbackUsed}"
         return finalQuestions
+    }
+
+    private fun QuestionEntity.toCandidateRow(): QuestionCandidateRow = QuestionCandidateRow(
+        id = id,
+        subject = subject,
+        difficulty = difficulty,
+        grade = grade,
+        stemHash = stemHash,
+        stemNormalized = stemNormalized,
+        type = type,
+        skill = skill,
+        qualityTier = qualityTier,
+        reasoningLevel = reasoningLevel,
+    )
+
+    /**
+     * Final quiz must be at least 60% HARD+MEDIUM; replace weaker rows with synthetic HARD.
+     */
+    private fun ensureHardMediumQuota(rows: MutableList<QuestionCandidateRow>, grade: Int): Int {
+        val n = rows.size
+        if (n == 0) return 0
+        fun isHm(row: QuestionCandidateRow): Boolean {
+            val t = AdaptiveQuizRuntime.normalizeContentTier(row.qualityTier)
+            return t == QuizQualityPolicy.TIER_HARD || t == QuizQualityPolicy.TIER_MEDIUM
+        }
+        var hm = rows.count { isHm(it) }
+        val target = kotlin.math.ceil(n * 0.6).toInt()
+        var need = (target - hm).coerceAtLeast(0)
+        if (need == 0) return 0
+        val replaceIndices = rows.indices
+            .filter { !isHm(rows[it]) }
+            .sortedBy { idx ->
+                when (AdaptiveQuizRuntime.normalizeContentTier(rows[idx].qualityTier)) {
+                    QuizQualityPolicy.TIER_EASY -> 0
+                    QuizQualityPolicy.TIER_BORDERLINE -> 1
+                    else -> 2
+                }
+            }
+        var replaced = 0
+        for (idx in replaceIndices) {
+            if (need <= 0) break
+            val old = rows[idx]
+            val batch = SyntheticHardQuestionGenerator.generate(grade, old.subject, 1)
+            if (batch.isEmpty()) continue
+            roomStore.insertQuestions(batch)
+            QualityAudit.syntheticGeneratedCount += batch.size
+            val newEntity = batch.first()
+            rows[idx] = newEntity.toCandidateRow()
+            replaced++
+            need--
+        }
+        return replaced
     }
 
     /**

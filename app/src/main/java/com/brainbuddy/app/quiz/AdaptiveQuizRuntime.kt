@@ -54,6 +54,28 @@ object AdaptiveQuizRuntime {
     }
 
     /**
+     * Before serving EASY / reasoningLevel 0 items: reframe as a short scenario (memory-only; DB unchanged).
+     */
+    fun scenarioRewriteForEasyServe(subject: Subject, grade: Int, stem: String): String? {
+        val trimmed = stem.trim()
+        if (trimmed.length >= 220) return null
+        val l = trimmed.lowercase(Locale("tr"))
+        if (subject == Subject.FEN && Regex("fotosentez|hangi gaz|oksijen|karbondioksit").containsMatchIn(l)) {
+            return "Bir bitki ışık altında bırakılıyor; deney sonucu hangi gazın arttığı gözlemlenir? (Fotosentez bağlamında düşününüz.)"
+        }
+        if (subject == Subject.SOSYAL && Regex("mondros|lozan|hangi yıl|hangi tarih|kaç yılında").containsMatchIn(l)) {
+            return "Bir kaynak parçasına göre aşağıdaki olayın hangi yılda gerçekleştiği sorulmaktadır: $trimmed"
+        }
+        if (subject == Subject.ING && Regex("\\b(am|is|are|was|were)\\b").containsMatchIn(l)) {
+            return "Kısa bir metinde boş bırakılan yere hangi yardımcı fiil gelmelidir? $trimmed"
+        }
+        if (subject == Subject.MAT && trimmed.length < 95 && Regex("\\d").containsMatchIn(trimmed)) {
+            return "Gerçek yaşam bağlamında (model): $trimmed"
+        }
+        return "$grade. sınıf düzeyinde bir sınav senaryosunda şu soru sorulur: $trimmed"
+    }
+
+    /**
      * Wraps recall into a short scenario (memory-only; DB unchanged).
      */
     fun upgradeStemIfWeak(subject: Subject, grade: Int, stem: String): String? {
@@ -81,7 +103,14 @@ object AdaptiveQuizRuntime {
 
     fun maybeUpgradeEntity(entity: QuestionEntity): Pair<String?, Boolean> {
         val subj = QuestionMapper.mapSubject(entity.subject)
-        val upgraded = upgradeStemIfWeak(subj, entity.grade, entity.questionText)
+        val tier = normalizeContentTier(entity.qualityTier)
+        val forceEasyServe = tier == QuizQualityPolicy.TIER_EASY || entity.reasoningLevel == 0
+        val upgraded = if (forceEasyServe) {
+            scenarioRewriteForEasyServe(subj, entity.grade, entity.questionText)
+                ?: upgradeStemIfWeak(subj, entity.grade, entity.questionText)
+        } else {
+            upgradeStemIfWeak(subj, entity.grade, entity.questionText)
+        }
         return upgraded to (upgraded != null)
     }
 

@@ -77,7 +77,7 @@ object QuestionQualityGate {
         val stem = questionText.trim()
         val lower = stem.lowercase(Locale("tr"))
 
-        val cls = QuestionQualityClassifier.classify(subject, grade, questionText, options, difficulty)
+        val cls = QuestionQualityClassifier.classify(subject, grade, questionText, options, difficulty, answerIndex)
 
         val trivial = isTrivial(subject, grade, questionText, options, difficulty, answerIndex)
 

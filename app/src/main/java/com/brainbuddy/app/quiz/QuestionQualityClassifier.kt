@@ -5,8 +5,8 @@ import java.util.Locale
 import kotlin.math.abs
 
 /**
- * Global content-quality classifier: [reasoningLevel] 0..3 maps to
- * EASY / BORDERLINE / MEDIUM / HARD per product rules.
+ * Strict content tiering: HARD / MEDIUM / BORDERLINE / EASY.
+ * Trivial or recall-heavy items are forced to EASY; BORDERLINE never carries plain recall.
  */
 object QuestionQualityClassifier {
 
@@ -31,6 +31,7 @@ object QuestionQualityClassifier {
         questionText: String,
         options: List<String>,
         difficultyInt: Int,
+        answerIndex: Int? = null,
     ): Output {
         val stem = questionText.trim()
         val lower = stem.lowercase(Locale("tr"))
@@ -42,25 +43,38 @@ object QuestionQualityClassifier {
         val distractorScore = DistractorQualityEvaluator.score(opts, stem)
         val reasoningScore = scoreReasoning(subject, grade, stem, lower, opts, difficultyInt, contextScore, distractorScore, flags)
 
-        var tier = mapCompositeToTier(reasoningScore, contextScore, distractorScore, difficultyInt)
-        tier = applySubjectRules(subject, stem, lower, opts, grade, tier, flags)
+        val tier = assignStrictTier(subject, stem, lower, opts, answerIndex, distractorScore, flags)
 
+        var finalTier = tier
         if (distractorScore < QuizQualityPolicy.DISTRACTOR_SOFT_FLOOR) {
             flags.add("weak_distractors")
-            tier = tier.coerceAtMost(TIER_MEDIUM)
+            finalTier = finalTier.coerceAtMost(TIER_MEDIUM)
             if (distractorScore < QuizQualityPolicy.DISTRACTOR_SOFT_FLOOR / 2) {
-                tier = tier.coerceAtMost(TIER_BORDERLINE)
+                finalTier = finalTier.coerceAtMost(TIER_BORDERLINE)
                 flags.add("severe_distractor_failure")
+            }
+            if (distractorScore < 28) {
+                finalTier = finalTier.coerceAtMost(TIER_EASY)
+                flags.add("distractors_too_weak_to_serve_mid")
             }
         }
 
         if (stem.length < 22) flags.add("stem_too_short")
         if (DistractorQualityEvaluator.isAnswerLengthOutlier(opts)) flags.add("length_bias_reveals_answer")
 
-        val reasoningLevel = levelFromTier(tier)
+        if (finalTier == TIER_BORDERLINE && flags.contains("recall_pattern")) {
+            finalTier = TIER_EASY
+            flags.add("borderline_downgrade_recall")
+        }
+        if (finalTier == TIER_MEDIUM && flags.contains("recall_pattern")) {
+            finalTier = TIER_EASY
+            flags.add("medium_downgrade_recall")
+        }
+
+        val reasoningLevel = levelFromTier(finalTier)
         val distinctFlags = flags.distinct()
         return Output(
-            qualityTier = tier,
+            qualityTier = finalTier,
             reasoningLevel = reasoningLevel,
             reasoningScore = reasoningScore.coerceIn(0, 100),
             distractorQualityScore = distractorScore.coerceIn(0, 100),
@@ -93,24 +107,160 @@ object QuestionQualityClassifier {
 
     fun flagsToJson(flags: List<String>): String = JSONArray(flags).toString()
 
-    private fun mapCompositeToTier(
-        reasoning: Int,
-        context: Int,
-        distractor: Int,
-        difficultyInt: Int,
+    private fun assignStrictTier(
+        subject: Subject,
+        stem: String,
+        lower: String,
+        options: List<String>,
+        answerIndex: Int?,
+        distractorScore: Int,
+        flags: MutableList<String>,
     ): String {
-        val composite = (reasoning * 5 + context * 3 + distractor * 2) / 10
-        val boosted = when {
-            difficultyInt >= 2 -> composite + 6
-            difficultyInt <= 0 -> composite - 14
-            else -> composite
-        }.coerceIn(0, 100)
-        return when {
-            boosted >= 72 -> TIER_HARD
-            boosted >= 52 -> TIER_MEDIUM
-            boosted >= 32 -> TIER_BORDERLINE
-            else -> TIER_EASY
+        val interpretation = hasInterpretationCue(lower)
+        val scenario = hasScenarioOrContext(stem, lower)
+        val steps = estimateReasoningSteps(subject, stem, lower)
+        val directRecall = isDirectRecall(subject, stem, lower, options)
+        val singleStep = isSingleStepObvious(subject, stem, lower)
+        val noContext = isNoContext(stem, lower, interpretation, scenario)
+        val fakePara = isFakeParagraphAnswerInText(stem, options, answerIndex)
+
+        if (directRecall) flags.add("recall_pattern")
+        if (singleStep) flags.add("single_step")
+        if (noContext) flags.add("no_context")
+        if (fakePara) flags.add("fake_paragraph_answer_in_text")
+
+        val forceEasy = directRecall || singleStep || noContext || fakePara ||
+            isGrammarFillIn(lower, stem.length) ||
+            isShortDefinitionRecall(subject, stem, lower)
+
+        if (forceEasy) return TIER_EASY
+
+        val hardEligible = (steps >= 2 || interpretation || scenario)
+        if (hardEligible) {
+            flags.add("hard_signal")
+            return TIER_HARD
         }
+
+        val mediumEligible = (steps >= 1 || interpretation) && !directRecall
+        if (mediumEligible) {
+            flags.add("medium_signal")
+            return TIER_MEDIUM
+        }
+
+        val borderlineEligible = isBorderlineOnly(lower, stem, distractorScore, directRecall)
+        if (borderlineEligible) {
+            flags.add("borderline_signal")
+            return TIER_BORDERLINE
+        }
+
+        return TIER_EASY
+    }
+
+    private fun hasInterpretationCue(lower: String): Boolean {
+        val cues = listOf(
+            "metne göre", "parçaya göre", "çıkarım", "yorumla", "yorum", "varsayım",
+            "hangisi olamaz", "hangisi değildir", "yanlış", "en uygun olmayan",
+            "infer", "imply", "according to", "except", "least", "most",
+            "neden", "sonuç", "karşılaştır", "analiz"
+        )
+        return cues.any { it in lower }
+    }
+
+    /**
+     * True context/scenario — not merely a long stem — so trivial items cannot reach HARD on length alone.
+     */
+    private fun hasScenarioOrContext(stem: String, lower: String): Boolean {
+        val keywordContext = Regex(
+            "deney|problem|parça|grafik|tablo|şekil|sınıf|model|örnek|bağlam|hikaye|durum|senaryo|metne göre|parçaya göre|aşağıdaki metin"
+        ).containsMatchIn(lower)
+        val multiSentence = stem.count { it == '.' } >= 2 || stem.count { it == '\n' } >= 1
+        if (stem.length >= 150 && (multiSentence || keywordContext)) return true
+        if (stem.length >= 90 && keywordContext) return true
+        if (multiSentence && stem.length >= 75) return true
+        return false
+    }
+
+    private fun estimateReasoningSteps(subject: Subject, stem: String, lower: String): Int {
+        var s = 0
+        if (Regex("ve sonra|ardından|ilk|ikinci|önce|sonra|ardışık|zincir|çok adım|iki işlem").containsMatchIn(lower)) s += 2
+        if (subject == Subject.MAT) {
+            val compact = stem.replace("\\s+".toRegex(), "")
+            val ops = Regex("[+\\-×*/÷]").findAll(compact).count()
+            s += ops.coerceAtMost(3)
+            if (Regex("oran|yüzde|problem|koşul|gizli").containsMatchIn(lower)) s += 1
+        } else {
+            if (interpretationDepth(lower)) s += 1
+        }
+        return s.coerceIn(0, 5)
+    }
+
+    private fun interpretationDepth(lower: String): Boolean =
+        listOf("çıkarım", "örtük", "ima", "anlam", "karşılaştır").any { it in lower }
+
+    private fun isDirectRecall(subject: Subject, stem: String, lower: String, @Suppress("UNUSED_PARAMETER") options: List<String>): Boolean {
+        if (Regex("\\b(1[0-9]{3}|20[0-9]{2})\\b").containsMatchIn(stem)) return true
+        if (Regex("mondros|lozan|kurtuluş savaşı|hangi yıl|hangi tarih|kaç yılında").containsMatchIn(lower)) return true
+        if (Regex("fotosentez|oksijen gazı|karbondioksit|hangi gaz|hangi organel|mitokondri|ribozom").containsMatchIn(lower) &&
+            stem.length < 130
+        ) {
+            return true
+        }
+        if (Regex("başkent|kimdir|nerededir|tarihi nedir|kuruluş").containsMatchIn(lower) && stem.length < 100) return true
+        if (subject == Subject.ING && Regex("\\b(am|is|are|was|were)\\b").containsMatchIn(lower) && stem.length < 95) return true
+        if (listOf("nedir?", "nedir", "hangisidir?", "hangisidir").any { lower.trimEnd().endsWith(it) } && stem.length < 85) return true
+        return false
+    }
+
+    private fun isSingleStepObvious(subject: Subject, stem: String, lower: String): Boolean {
+        if (subject != Subject.MAT) return false
+        val compact = stem.replace("\\s+".toRegex(), "")
+        val opCount = Regex("[+\\-×*/÷]").findAll(compact).count()
+        return opCount <= 1 && stem.length < 55 && Regex("\\d").containsMatchIn(stem)
+    }
+
+    private fun isNoContext(stem: String, lower: String, interpretation: Boolean, scenario: Boolean): Boolean {
+        if (interpretation || scenario) return false
+        return stem.length < 55
+    }
+
+    private fun isGrammarFillIn(lower: String, stemLen: Int): Boolean {
+        return stemLen < 100 && Regex("\\b(am|is|are|was|were)\\b").containsMatchIn(lower) &&
+            (lower.contains("___") || lower.contains("…") || Regex("\\s_\\s").containsMatchIn(lower))
+    }
+
+    private fun isShortDefinitionRecall(subject: Subject, stem: String, lower: String): Boolean {
+        if (stem.length >= 100) return false
+        return when (subject) {
+            Subject.FEN -> Regex("\\bnedir\\b|tanımı|tanımıdır|hangi element").containsMatchIn(lower) &&
+                !Regex("deney|grafik|tablo|gözlem|sonuç|hipotez").containsMatchIn(lower)
+            Subject.TURKCE -> stem.length < 90 && !lower.contains("paragraf") && !lower.contains("metne göre")
+            else -> false
+        }
+    }
+
+    private fun isFakeParagraphAnswerInText(stem: String, options: List<String>, answerIndex: Int?): Boolean {
+        if (answerIndex == null || answerIndex !in options.indices) return false
+        val looksParagraph = stem.length >= 160 || stem.lowercase(Locale("tr")).contains("paragraf") ||
+            stem.count { it == '.' } >= 3
+        if (!looksParagraph) return false
+        val ans = options[answerIndex].trim()
+        if (ans.length < 5) return false
+        val nStem = stem.lowercase(Locale("tr")).replace("\\s+".toRegex(), " ")
+        val nAns = ans.lowercase(Locale("tr")).replace("\\s+".toRegex(), " ")
+        if (nStem.contains(nAns)) return true
+        if (ans.length >= 14) {
+            val chunk = nAns.take((nAns.length * 2 / 3).coerceAtLeast(12))
+            if (chunk.length >= 12 && nStem.contains(chunk)) return true
+        }
+        return false
+    }
+
+    private fun isBorderlineOnly(lower: String, stem: String, distractorScore: Int, directRecall: Boolean): Boolean {
+        if (directRecall) return false
+        val elim = Regex("hangisi|değildir|olamaz|yanlış|uygun olmayan|hariç|en uygun olmayan").containsMatchIn(lower)
+        val lightReasoning = Regex("çıkarım|yorum|anlam|örtük|ima|karşılaştır").containsMatchIn(lower)
+        val light = stem.length >= 68 && distractorScore >= 40 && (lightReasoning || elim)
+        return (elim && distractorScore >= 34) || light
     }
 
     private fun scoreContextComplexity(subject: Subject, stem: String, lower: String, options: List<String>): Int {
@@ -185,66 +335,6 @@ object QuestionQualityClassifier {
         if (difficultyInt >= 2) r += 8
         if (difficultyInt <= 0) r -= 12
         return r.coerceIn(0, 100)
-    }
-
-    private fun applySubjectRules(
-        subject: Subject,
-        stem: String,
-        lower: String,
-        options: List<String>,
-        @Suppress("UNUSED_PARAMETER") grade: Int,
-        tier: String,
-        flags: MutableList<String>,
-    ): String {
-        var t = tier
-        when (subject) {
-            Subject.MAT -> {
-                if (Regex("^\\s*\\d+\\s*[+\\-×*/]\\s*\\d+").containsMatchIn(stem.replace(" ", "")) &&
-                    stem.length < 55
-                ) {
-                    t = TIER_EASY
-                    flags.add("mat_one_step_drill")
-                }
-                if (!Regex("problem|oran|yüzde|grafik|tablo|şekil|çok|adım|koşul|gizli|karşılaştır|çıkarım").containsMatchIn(lower) &&
-                    stem.length < 75
-                ) {
-                    t = TIER_EASY
-                    flags.add("mat_lacks_reasoning_context")
-                }
-            }
-            Subject.TURKCE -> {
-                if (stem.length < 140 && !lower.contains("paragraf") && !lower.contains("metne göre") && !lower.contains("çıkarım")) {
-                    t = t.coerceAtMost(TIER_MEDIUM)
-                    flags.add("turkce_insufficient_context")
-                }
-            }
-            Subject.FEN -> {
-                if (!Regex("deney|gözlem|yorum|grafik|tablo|değişken|hipotez|sonuç|neden|sonuç|ilişki").containsMatchIn(lower) &&
-                    stem.length < 95
-                ) {
-                    t = t.coerceAtMost(TIER_MEDIUM)
-                    flags.add("fen_lacks_interpretation")
-                }
-            }
-            Subject.SOSYAL -> {
-                if (Regex("\\b(1[0-9]{3}|20[0-9]{2})\\b").containsMatchIn(stem) ||
-                    Regex("antlaşma|mondros|lozan|başkent|kimdir|hangi yıl|hangi tarihte").containsMatchIn(lower)
-                ) {
-                    t = TIER_EASY
-                    flags.add("sosyal_banned_recall_pattern")
-                }
-            }
-            Subject.ING -> {
-                if (Regex("\\b(am|is|are|was|were)\\b").containsMatchIn(lower) &&
-                    stem.length < 90 && options.size <= 4
-                ) {
-                    t = TIER_EASY
-                    flags.add("ing_basic_be_verb")
-                }
-            }
-            else -> {}
-        }
-        return t
     }
 
     private val tierOrder = listOf(TIER_EASY, TIER_BORDERLINE, TIER_MEDIUM, TIER_HARD)
