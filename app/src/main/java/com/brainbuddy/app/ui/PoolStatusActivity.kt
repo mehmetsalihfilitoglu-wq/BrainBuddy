@@ -421,33 +421,53 @@ class PoolStatusActivity : AppCompatActivity() {
                     sb.append("mat6_file_rejected_count=$g6Rejected\n")
                     sb.append("\n")
 
-                    val diag = DbSeeder.debugLastSeedDiagnostics()
-                    if (diag != null) {
-                        sb.append("SEED_SOURCE_COUNTS_AND_NORMALIZE_DEBUG\n")
-                        sb.append("loaded_root_general=${diag.loaded_root_general}\n")
-                        sb.append("loaded_packs=${diag.loaded_packs}\n")
-                        sb.append("loaded_grade_based=${diag.loaded_grade_based}\n")
-                        sb.append("loaded_lgs_exam=${diag.loaded_lgs_exam}\n")
-                        sb.append("loaded_synthetic=${diag.loaded_synthetic}\n")
-                        sb.append("discovered_grade_based_dirs=${diag.discovered_grade_based_dirs}\n")
-                        sb.append("discovered_grade_based_json_files=${diag.discovered_grade_based_json_files}\n")
-                        sb.append("total_before_normalize=${diag.total_before_normalize}\n")
-                        sb.append("total_after_normalize=${diag.total_after_normalize}\n")
-                        sb.append("invalid_grade_before_normalize=${diag.invalid_grade_before_normalize}\n")
-                        sb.append("invalid_grade_after_normalize=${diag.invalid_grade_after_normalize}\n")
-                        sb.append("normalization_applied=${if (diag.normalization_applied) "yes" else "no"}\n")
-                        sb.append("invalid_after_normalize=${diag.invalid_after_normalize}\n")
-                        sb.append("final_inserted=${diag.final_inserted}\n\n")
-
-                        sb.append("DB_CHECK\n")
-                        sb.append("dbcheck_total_rows=${diag.dbcheck_total_rows}\n")
-                        sb.append("dbcheck_invalid_rows=${diag.dbcheck_invalid_rows}\n")
-                        sb.append("dbcheck_valid_rows=${diag.dbcheck_valid_rows}\n")
-                        sb.append("dbcheck_row1=${diag.dbcheck_row1}\n")
-                        sb.append("dbcheck_row2=${diag.dbcheck_row2}\n")
-                        sb.append("dbcheck_row3=${diag.dbcheck_row3}\n")
-                        sb.append("dbcheck_row4=${diag.dbcheck_row4}\n")
-                        sb.append("dbcheck_row5=${diag.dbcheck_row5}\n\n")
+                    val diag = DbSeeder.getLastSeedDiagnosticsSnapshot()
+                    when {
+                        diag == null -> {
+                            sb.append("SEED_DIAGNOSTICS\n")
+                            sb.append("Seed diagnostics not recorded for this run.\n\n")
+                        }
+                        !diag.hasAnyRecordedValue() -> {
+                            sb.append("SEED_DIAGNOSTICS\n")
+                            sb.append("No seed diagnostics captured in this run.\n\n")
+                        }
+                        else -> {
+                            fun ni(n: Int?) = n?.toString() ?: "not available"
+                            fun nb(b: Boolean?) = when (b) {
+                                null -> "not available"
+                                true -> "yes"
+                                false -> "no"
+                            }
+                            sb.append("SEED_SOURCE_COUNTS_AND_NORMALIZE_DEBUG\n")
+                            sb.append("loaded_root_general=${ni(diag.loadedRootGeneral)}\n")
+                            sb.append("loaded_packs=${ni(diag.loadedPacks)}\n")
+                            sb.append("loaded_grade_based=${ni(diag.loadedGradeBased)}\n")
+                            sb.append("loaded_lgs_exam=${ni(diag.loadedLgsExam)}\n")
+                            sb.append("loaded_synthetic=${ni(diag.loadedSynthetic)}\n")
+                            sb.append("discovered_grade_based_dirs=${ni(diag.discoveredGradeBasedDirs)}\n")
+                            sb.append("discovered_grade_based_json_files=${ni(diag.discoveredGradeBasedJsonFiles)}\n")
+                            sb.append("total_before_normalize=${ni(diag.totalBeforeNormalize)}\n")
+                            sb.append("total_after_normalize=${ni(diag.totalAfterNormalize)}\n")
+                            sb.append("invalid_grade_before_normalize=${ni(diag.invalidGradeBeforeNormalize)}\n")
+                            sb.append("invalid_grade_after_normalize=${ni(diag.invalidGradeAfterNormalize)}\n")
+                            sb.append("normalization_applied=${nb(diag.normalizationApplied)}\n")
+                            sb.append("invalid_after_normalize=${ni(diag.invalidAfterNormalize)}\n")
+                            sb.append("final_inserted=${ni(diag.finalInserted)}\n\n")
+                            sb.append("DB_CHECK\n")
+                            sb.append("dbcheck_total_rows=${ni(diag.dbCheckTotalRows)}\n")
+                            sb.append("dbcheck_invalid_rows=${ni(diag.dbCheckInvalidRows)}\n")
+                            sb.append("dbcheck_valid_rows=${ni(diag.dbCheckValidRows)}\n")
+                            val samples = diag.dbCheckSampleRows
+                            if (samples.isNullOrEmpty()) {
+                                sb.append("dbcheck_sample_rows=not available\n\n")
+                            } else {
+                                sb.append("dbcheck_sample_rows:\n")
+                                samples.forEachIndexed { i, row ->
+                                    sb.append("  ${i + 1}: $row\n")
+                                }
+                                sb.append("\n")
+                            }
+                        }
                     }
                 }
 

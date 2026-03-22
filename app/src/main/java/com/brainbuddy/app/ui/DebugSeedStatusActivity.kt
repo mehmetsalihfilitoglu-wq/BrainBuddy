@@ -24,38 +24,68 @@ class DebugSeedStatusActivity : AppCompatActivity() {
             return
         }
 
-        val total = intent.getIntExtra(EXTRA_TOTAL, -1)
-        val active = intent.getIntExtra(EXTRA_ACTIVE, -1)
-        val inactive = intent.getIntExtra(EXTRA_INACTIVE, -1)
-        val candidateSampleSizeG6Mat = intent.getIntExtra(EXTRA_CAND_SAMPLE_G6_MAT, -1)
-        val candidateSampleSizeG4Ing = intent.getIntExtra(EXTRA_CAND_SAMPLE_G4_ING, -1)
-        val candidateSampleSizeLgsMat = intent.getIntExtra(EXTRA_CAND_SAMPLE_LGS_MAT, -1)
+        val total = intent.getIntExtra(EXTRA_TOTAL, Int.MIN_VALUE)
+        val active = intent.getIntExtra(EXTRA_ACTIVE, Int.MIN_VALUE)
+        val inactive = intent.getIntExtra(EXTRA_INACTIVE, Int.MIN_VALUE)
+        val candidateSampleSizeG6Mat = intent.getIntExtra(EXTRA_CAND_SAMPLE_G6_MAT, Int.MIN_VALUE)
+        val candidateSampleSizeG4Ing = intent.getIntExtra(EXTRA_CAND_SAMPLE_G4_ING, Int.MIN_VALUE)
+        val candidateSampleSizeLgsMat = intent.getIntExtra(EXTRA_CAND_SAMPLE_LGS_MAT, Int.MIN_VALUE)
+
+        fun ni(n: Int) = if (n == Int.MIN_VALUE) "not available" else n.toString()
 
         val tv = TextView(this).apply {
             val textLines = buildString {
                 appendLine("RUNTIME_SEED_DB")
-                appendLine("total=$total")
-                appendLine("active=$active")
-                appendLine("inactive=$inactive")
-                appendLine("candidateSampleSize_g6_mat=$candidateSampleSizeG6Mat")
-                appendLine("candidateSampleSize_g4_ing=$candidateSampleSizeG4Ing")
-                appendLine("candidateSampleSize_lgs_mat=$candidateSampleSizeLgsMat")
+                appendLine("total=${ni(total)}")
+                appendLine("active=${ni(active)}")
+                appendLine("inactive=${ni(inactive)}")
+                appendLine("candidateSampleSize_g6_mat=${ni(candidateSampleSizeG6Mat)}")
+                appendLine("candidateSampleSize_g4_ing=${ni(candidateSampleSizeG4Ing)}")
+                appendLine("candidateSampleSize_lgs_mat=${ni(candidateSampleSizeLgsMat)}")
 
-                val diag = DbSeeder.debugLastSeedDiagnostics()
+                val diag = DbSeeder.getLastSeedDiagnosticsSnapshot()
                 appendLine()
                 appendLine("SEED_SOURCE_COUNTS_AND_NORMALIZE_DEBUG")
-                appendLine("loaded_root_general=${diag?.loaded_root_general ?: -1}")
-                appendLine("loaded_packs=${diag?.loaded_packs ?: -1}")
-                appendLine("loaded_grade_based=${diag?.loaded_grade_based ?: -1}")
-                appendLine("loaded_lgs_exam=${diag?.loaded_lgs_exam ?: -1}")
-                appendLine("loaded_synthetic=${diag?.loaded_synthetic ?: -1}")
-                appendLine("discovered_grade_based_dirs=${diag?.discovered_grade_based_dirs ?: -1}")
-                appendLine("discovered_grade_based_json_files=${diag?.discovered_grade_based_json_files ?: -1}")
-                appendLine("total_before_normalize=${diag?.total_before_normalize ?: -1}")
-                appendLine("total_after_normalize=${diag?.total_after_normalize ?: -1}")
-                appendLine("invalid_grade_before_normalize=${diag?.invalid_grade_before_normalize ?: -1}")
-                appendLine("invalid_grade_after_normalize=${diag?.invalid_grade_after_normalize ?: -1}")
-                appendLine("final_inserted=${diag?.final_inserted ?: -1}")
+                when {
+                    diag == null -> appendLine("Seed diagnostics not recorded for this run.")
+                    !diag.hasAnyRecordedValue() -> appendLine("No seed diagnostics captured in this run.")
+                    else -> {
+                        fun nix(x: Int?) = x?.toString() ?: "not available"
+                        fun nb(b: Boolean?) = when (b) {
+                            null -> "not available"
+                            true -> "yes"
+                            false -> "no"
+                        }
+                        appendLine("loaded_root_general=${nix(diag.loadedRootGeneral)}")
+                        appendLine("loaded_packs=${nix(diag.loadedPacks)}")
+                        appendLine("loaded_grade_based=${nix(diag.loadedGradeBased)}")
+                        appendLine("loaded_lgs_exam=${nix(diag.loadedLgsExam)}")
+                        appendLine("loaded_synthetic=${nix(diag.loadedSynthetic)}")
+                        appendLine("discovered_grade_based_dirs=${nix(diag.discoveredGradeBasedDirs)}")
+                        appendLine("discovered_grade_based_json_files=${nix(diag.discoveredGradeBasedJsonFiles)}")
+                        appendLine("total_before_normalize=${nix(diag.totalBeforeNormalize)}")
+                        appendLine("total_after_normalize=${nix(diag.totalAfterNormalize)}")
+                        appendLine("invalid_grade_before_normalize=${nix(diag.invalidGradeBeforeNormalize)}")
+                        appendLine("invalid_grade_after_normalize=${nix(diag.invalidGradeAfterNormalize)}")
+                        appendLine("normalization_applied=${nb(diag.normalizationApplied)}")
+                        appendLine("invalid_after_normalize=${nix(diag.invalidAfterNormalize)}")
+                        appendLine("final_inserted=${nix(diag.finalInserted)}")
+                        appendLine()
+                        appendLine("DB_CHECK")
+                        appendLine("dbcheck_total_rows=${nix(diag.dbCheckTotalRows)}")
+                        appendLine("dbcheck_invalid_rows=${nix(diag.dbCheckInvalidRows)}")
+                        appendLine("dbcheck_valid_rows=${nix(diag.dbCheckValidRows)}")
+                        val samples = diag.dbCheckSampleRows
+                        if (samples.isNullOrEmpty()) {
+                            appendLine("dbcheck_sample_rows=not available")
+                        } else {
+                            appendLine("dbcheck_sample_rows:")
+                            samples.forEachIndexed { i, row ->
+                                appendLine("  ${i + 1}: $row")
+                            }
+                        }
+                    }
+                }
             }
             text = textLines
             textSize = 18f
@@ -96,4 +126,3 @@ class DebugSeedStatusActivity : AppCompatActivity() {
         }
     }
 }
-

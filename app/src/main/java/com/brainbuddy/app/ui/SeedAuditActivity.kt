@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,13 +26,14 @@ class SeedAuditActivity : AppCompatActivity() {
         setContentView(R.layout.activity_seed_audit)
 
         val tvStatus = findViewById<TextView>(R.id.tvAuditStatus)
+        val tvCounts = findViewById<TextView>(R.id.tvAuditCounts)
         val tvBody = findViewById<TextView>(R.id.tvAuditBody)
         val tvPath = findViewById<TextView>(R.id.tvAuditPath)
         val btnCopy = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnCopyAudit)
         val btnRefresh = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnRefreshAudit)
 
         btnCopy.setOnClickListener {
-            val text = tvBody.text?.toString().orEmpty()
+            val text = StartupAuditRecorder.lastAuditText.ifEmpty { tvBody.text?.toString().orEmpty() }
             val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             cm.setPrimaryClip(ClipData.newPlainText("BrainBuddy audit", text))
             Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show()
@@ -43,10 +45,19 @@ class SeedAuditActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             lifecycleScope.launch {
-                val text = StartupAuditRecorder.buildLiveReport(this@SeedAuditActivity)
-                tvBody.text = text
-                tvPath.text = StartupAuditRecorder.auditFileAbsolutePath
-                    ?: getString(R.string.seed_audit_path_unknown)
+                StartupAuditRecorder.buildLiveReport(this@SeedAuditActivity)
+                val snap = StartupAuditRecorder.lastSnapshot
+                if (snap != null) {
+                    tvCounts.text = formatPrimaryCounts(snap.total, snap.active, snap.inactive)
+                    tvCounts.visibility = View.VISIBLE
+                    tvBody.text = StartupAuditRecorder.formatAuditBodyForDisplay(
+                        snap,
+                        StartupAuditRecorder.auditFileAbsolutePath,
+                        "REFRESHED"
+                    )
+                    tvPath.text = StartupAuditRecorder.auditFileAbsolutePath
+                        ?: getString(R.string.seed_audit_path_unknown)
+                }
             }
         }
 
@@ -55,14 +66,23 @@ class SeedAuditActivity : AppCompatActivity() {
                 when (phase) {
                     is StartupRuntimeState.StartupPhase.Initializing -> {
                         tvStatus.text = "STATUS: INITIALIZING"
+                        tvCounts.text = ""
+                        tvCounts.visibility = View.GONE
                         tvBody.text = getString(R.string.seed_audit_initializing)
                         tvPath.text = ""
                         btnCopy.isEnabled = false
                         btnRefresh.isEnabled = false
                     }
                     is StartupRuntimeState.StartupPhase.Ready -> {
+                        val snap = phase.payload.auditSnapshot
                         tvStatus.text = "STATUS: FINALIZED"
-                        tvBody.text = phase.payload.auditText
+                        tvCounts.text = formatPrimaryCounts(snap.total, snap.active, snap.inactive)
+                        tvCounts.visibility = View.VISIBLE
+                        tvBody.text = StartupAuditRecorder.formatAuditBodyForDisplay(
+                            snap,
+                            phase.payload.auditPath,
+                            "FINALIZED"
+                        )
                         tvPath.text = phase.payload.auditPath
                             ?: getString(R.string.seed_audit_path_unknown)
                         btnCopy.isEnabled = true
@@ -72,4 +92,7 @@ class SeedAuditActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun formatPrimaryCounts(total: Int, active: Int, inactive: Int): String =
+        "TOTAL: $total\nACTIVE: $active\nINACTIVE: $inactive"
 }

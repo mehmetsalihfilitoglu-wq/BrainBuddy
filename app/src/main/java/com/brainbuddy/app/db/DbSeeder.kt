@@ -50,31 +50,6 @@ object DbSeeder {
     /** Tag written to [QuestionEntity.sourcePack] for questions parsed from this asset. */
     const val GRADE6_MAT_SOURCE_PACK = "grade6_mat.json"
 
-    data class SeedDiagnostics(
-        val loaded_root_general: Int,
-        val loaded_packs: Int,
-        val loaded_grade_based: Int,
-        val loaded_lgs_exam: Int,
-        val loaded_synthetic: Int,
-        val discovered_grade_based_dirs: Int,
-        val discovered_grade_based_json_files: Int,
-        val total_before_normalize: Int,
-        val total_after_normalize: Int,
-        val invalid_grade_before_normalize: Int,
-        val invalid_grade_after_normalize: Int,
-        val final_inserted: Int,
-        val normalization_applied: Boolean,
-        val invalid_after_normalize: Int,
-        val dbcheck_total_rows: Int,
-        val dbcheck_invalid_rows: Int,
-        val dbcheck_valid_rows: Int,
-        val dbcheck_row1: String,
-        val dbcheck_row2: String,
-        val dbcheck_row3: String,
-        val dbcheck_row4: String,
-        val dbcheck_row5: String
-    )
-
     private data class SeedSourceCounts(
         val loaded_root_general: Int,
         val loaded_packs: Int,
@@ -83,7 +58,7 @@ object DbSeeder {
         val loaded_synthetic: Int
     )
 
-    private var lastSeedDiagnostics: SeedDiagnostics? = null
+    private var lastSeedDiagnosticsSnapshot: SeedDiagnosticsSnapshot? = null
 
     /** Last seed run: grade_based/mat6 JSON pipeline (DEBUG PoolStatus). */
     data class Mat6PipelineDiagnostics(
@@ -129,7 +104,8 @@ object DbSeeder {
     private var lastDiscoveredGradeBasedDirs: Int = 0
     private var lastDiscoveredGradeBasedJsonFiles: Int = 0
 
-    fun debugLastSeedDiagnostics(): SeedDiagnostics? = lastSeedDiagnostics
+    /** Latest seed-run diagnostics (nullable fields only where computed). Null if no seed pipeline ran this session. */
+    fun getLastSeedDiagnosticsSnapshot(): SeedDiagnosticsSnapshot? = lastSeedDiagnosticsSnapshot
 
     private suspend fun logSeedAudit(questionDao: QuestionDao, insertedThisRun: Int, skipped: Boolean) {
         lastSeedSkipped = skipped
@@ -165,44 +141,13 @@ object DbSeeder {
         validRows: Int,
         first5: List<String>
     ) {
-        val prev = lastSeedDiagnostics
-        if (prev == null) {
-            lastSeedDiagnostics = SeedDiagnostics(
-                loaded_root_general = lastSeedSourceCounts.loaded_root_general,
-                loaded_packs = lastSeedSourceCounts.loaded_packs,
-                loaded_grade_based = lastSeedSourceCounts.loaded_grade_based,
-                loaded_lgs_exam = lastSeedSourceCounts.loaded_lgs_exam,
-                loaded_synthetic = lastSeedSourceCounts.loaded_synthetic,
-                discovered_grade_based_dirs = lastDiscoveredGradeBasedDirs,
-                discovered_grade_based_json_files = lastDiscoveredGradeBasedJsonFiles,
-                total_before_normalize = 0,
-                total_after_normalize = 0,
-                invalid_grade_before_normalize = 0,
-                invalid_grade_after_normalize = 0,
-                final_inserted = 0,
-                normalization_applied = false,
-                invalid_after_normalize = 0,
-                dbcheck_total_rows = totalRows,
-                dbcheck_invalid_rows = invalidRows,
-                dbcheck_valid_rows = validRows,
-                dbcheck_row1 = first5.getOrNull(0) ?: "",
-                dbcheck_row2 = first5.getOrNull(1) ?: "",
-                dbcheck_row3 = first5.getOrNull(2) ?: "",
-                dbcheck_row4 = first5.getOrNull(3) ?: "",
-                dbcheck_row5 = first5.getOrNull(4) ?: ""
-            )
-            return
-        }
-
-        lastSeedDiagnostics = prev.copy(
-            dbcheck_total_rows = totalRows,
-            dbcheck_invalid_rows = invalidRows,
-            dbcheck_valid_rows = validRows,
-            dbcheck_row1 = first5.getOrNull(0) ?: "",
-            dbcheck_row2 = first5.getOrNull(1) ?: "",
-            dbcheck_row3 = first5.getOrNull(2) ?: "",
-            dbcheck_row4 = first5.getOrNull(3) ?: "",
-            dbcheck_row5 = first5.getOrNull(4) ?: ""
+        val prev = lastSeedDiagnosticsSnapshot ?: SeedDiagnosticsSnapshot()
+        val samples = first5.take(5).filter { it.isNotBlank() }.takeIf { it.isNotEmpty() }
+        lastSeedDiagnosticsSnapshot = prev.copy(
+            dbCheckTotalRows = totalRows,
+            dbCheckInvalidRows = invalidRows,
+            dbCheckValidRows = validRows,
+            dbCheckSampleRows = samples
         )
     }
 
@@ -223,6 +168,7 @@ object DbSeeder {
 
     suspend fun seedIfNeeded(context: Context): Boolean = withContext(Dispatchers.IO) {
         seedIfNeededMutex.withLock {
+            lastSeedDiagnosticsSnapshot = null
             Log.i(TAG, "seedIfNeeded entered (CURRENT_DB_SEED_VERSION=$CURRENT_DB_SEED_VERSION)")
             val db = DatabaseProvider.get(context)
             val meta = db.appMetaDao()
@@ -292,6 +238,7 @@ object DbSeeder {
      * - Yeni paketler eklendikten sonra uygulamayı yeniden yüklemeden havuzu tazelemek.
      */
     suspend fun forceReseed(context: Context): Boolean = withContext(Dispatchers.IO) {
+        lastSeedDiagnosticsSnapshot = null
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
@@ -344,6 +291,7 @@ object DbSeeder {
      * Root GENERAL dosyaları, packs/ ve lgs_import/ altındaki sınıf paketleri (GENERAL) yeniden yüklenir.
      */
     suspend fun forceReseedGeneralBanks(context: Context): Boolean = withContext(Dispatchers.IO) {
+        lastSeedDiagnosticsSnapshot = null
         val db = DatabaseProvider.get(context)
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
@@ -414,29 +362,25 @@ object DbSeeder {
 
         // Store pre-insert diagnostics for in-app debug UI.
         val invalidAfter = normalized.count { it.grade !in 1..7 }
-        lastSeedDiagnostics = SeedDiagnostics(
-            loaded_root_general = lastSeedSourceCounts.loaded_root_general,
-            loaded_packs = lastSeedSourceCounts.loaded_packs,
-            loaded_grade_based = lastSeedSourceCounts.loaded_grade_based,
-            loaded_lgs_exam = lastSeedSourceCounts.loaded_lgs_exam,
-            loaded_synthetic = lastSeedSourceCounts.loaded_synthetic,
-            discovered_grade_based_dirs = lastDiscoveredGradeBasedDirs,
-            discovered_grade_based_json_files = lastDiscoveredGradeBasedJsonFiles,
-            total_before_normalize = questions.size,
-            total_after_normalize = normalized.size,
-            invalid_grade_before_normalize = questions.count { it.grade !in 1..7 },
-            invalid_grade_after_normalize = invalidAfter,
-            final_inserted = deduped.size,
-            normalization_applied = true,
-            invalid_after_normalize = invalidAfter,
-            dbcheck_total_rows = -1,
-            dbcheck_invalid_rows = -1,
-            dbcheck_valid_rows = -1,
-            dbcheck_row1 = "",
-            dbcheck_row2 = "",
-            dbcheck_row3 = "",
-            dbcheck_row4 = "",
-            dbcheck_row5 = ""
+        lastSeedDiagnosticsSnapshot = SeedDiagnosticsSnapshot(
+            loadedRootGeneral = lastSeedSourceCounts.loaded_root_general,
+            loadedPacks = lastSeedSourceCounts.loaded_packs,
+            loadedGradeBased = lastSeedSourceCounts.loaded_grade_based,
+            loadedLgsExam = lastSeedSourceCounts.loaded_lgs_exam,
+            loadedSynthetic = lastSeedSourceCounts.loaded_synthetic,
+            discoveredGradeBasedDirs = lastDiscoveredGradeBasedDirs,
+            discoveredGradeBasedJsonFiles = lastDiscoveredGradeBasedJsonFiles,
+            totalBeforeNormalize = questions.size,
+            totalAfterNormalize = normalized.size,
+            invalidGradeBeforeNormalize = questions.count { it.grade !in 1..7 },
+            invalidGradeAfterNormalize = invalidAfter,
+            finalInserted = deduped.size,
+            normalizationApplied = true,
+            invalidAfterNormalize = invalidAfter,
+            dbCheckTotalRows = null,
+            dbCheckInvalidRows = null,
+            dbCheckValidRows = null,
+            dbCheckSampleRows = null
         )
 
         return deduped
