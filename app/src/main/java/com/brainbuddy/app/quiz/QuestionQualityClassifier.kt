@@ -3,11 +3,12 @@ package com.brainbuddy.app.quiz
 import org.json.JSONArray
 import java.util.Locale
 import kotlin.math.abs
-import kotlin.math.roundToInt
 
 /**
  * Global content-quality classifier for all grades and core subjects.
  * Produces tier (EASY/MEDIUM/HARD), scores 0..100, and structured flags.
+ *
+ * Serving rules use [QuizQualityPolicy] thresholds; HARD requires high reasoning.
  */
 object QuestionQualityClassifier {
 
@@ -44,17 +45,27 @@ object QuestionQualityClassifier {
 
         tier = applySubjectRules(subject, stem, lower, opts, grade, tier, flags)
 
-        if (distractorScore < 35) {
+        if (reasoningScore < QuizQualityPolicy.MIN_REASONING_SCORE_TO_SERVE) {
+            tier = TIER_EASY
+            flags.add("low_reasoning")
+        }
+
+        if (distractorScore < QuizQualityPolicy.MIN_DISTRACTOR_SCORE_TO_SERVE) {
             flags.add("weak_distractors")
             if (tier == TIER_HARD) tier = TIER_MEDIUM
-            if (distractorScore < 18) {
+            if (distractorScore < QuizQualityPolicy.MIN_DISTRACTOR_SCORE_TO_SERVE / 2) {
                 tier = TIER_EASY
                 flags.add("severe_distractor_failure")
             }
         }
 
+        if (tier == TIER_HARD && reasoningScore < QuizQualityPolicy.MIN_REASONING_SCORE_FOR_HARD_TIER) {
+            tier = TIER_MEDIUM
+            flags.add("hard_downgrade_low_reasoning")
+        }
+
         if (stem.length < 22) flags.add("stem_too_short")
-        if (isObviousAnswerLengthBias(opts)) flags.add("length_bias_reveals_answer")
+        if (DistractorQualityEvaluator.isAnswerLengthOutlier(opts)) flags.add("length_bias_reveals_answer")
 
         val distinctFlags = flags.distinct()
         return Output(
@@ -76,19 +87,19 @@ object QuestionQualityClassifier {
     ): String {
         val composite = (reasoning * 5 + context * 3 + distractor * 2) / 10
         val boosted = when {
-            difficultyInt >= 2 -> composite + 8
-            difficultyInt <= 0 -> composite - 10
+            difficultyInt >= 2 -> composite + 6
+            difficultyInt <= 0 -> composite - 14
             else -> composite
         }.coerceIn(0, 100)
         return when {
-            boosted >= 68 -> TIER_HARD
-            boosted >= 42 -> TIER_MEDIUM
+            boosted >= 72 -> TIER_HARD
+            boosted >= 48 -> TIER_MEDIUM
             else -> TIER_EASY
         }
     }
 
     private fun scoreContextComplexity(subject: Subject, stem: String, lower: String, options: List<String>): Int {
-        var s = 30
+        var s = 28
         if (stem.length >= 120) s += 18
         if (stem.length >= 220) s += 12
         if (stem.count { it == '\n' } >= 1) s += 6
@@ -99,10 +110,10 @@ object QuestionQualityClassifier {
         )
         s += 4 * ctxWords.count { it in lower }
         if (subject == Subject.TURKCE && stem.length >= 180) s += 10
-        if (subject == Subject.MAT && (Regex("oran|yüzde|problem|çok adım|iki işlem").containsMatchIn(lower))) s += 12
-        if (subject == Subject.FEN && Regex("deney|gözlem|grafik|tablo|hipotez|değişken").containsMatchIn(lower)) s += 12
-        if (subject == Subject.SOSYAL && Regex("harita|kronoloji|neden|sonuç|karşılaştır|yorum").containsMatchIn(lower)) s += 12
-        if (subject == Subject.ING && Regex("paragraph|passage|according to|infer|imply").containsMatchIn(lower)) s += 12
+        if (subject == Subject.MAT && Regex("oran|yüzde|problem|çok adım|iki işlem|koşul|gizli").containsMatchIn(lower)) s += 12
+        if (subject == Subject.FEN && Regex("deney|gözlem|grafik|tablo|hipotez|değişken|neden|sonuç").containsMatchIn(lower)) s += 12
+        if (subject == Subject.SOSYAL && Regex("harita|kronoloji|neden|sonuç|karşılaştır|yorum|ilişki").containsMatchIn(lower)) s += 12
+        if (subject == Subject.ING && Regex("paragraph|passage|according to|infer|imply|context").containsMatchIn(lower)) s += 12
         s += (options.sumOf { it.length } / 120).coerceAtMost(8)
         return s.coerceIn(0, 100)
     }
@@ -112,7 +123,7 @@ object QuestionQualityClassifier {
         grade: Int,
         stem: String,
         lower: String,
-        options: List<String>,
+        @Suppress("UNUSED_PARAMETER") options: List<String>,
         difficultyInt: Int,
         contextScore: Int,
         distractorScore: Int,
@@ -129,28 +140,28 @@ object QuestionQualityClassifier {
         if (Regex("\\d+\\s*[+\\-×*/÷]").containsMatchIn(stem.replace(" ", ""))) {
             val opCount = Regex("[+\\-×*/÷]").findAll(stem).count()
             if (opCount <= 1 && subject == Subject.MAT) {
-                r -= 22
+                r -= 24
                 flags.add("single_step_math")
             }
         }
         if (listOf("kaçtır", "nedir", "hangisidir", "kimdir", "başkent").any { lower.endsWith(it) } && stem.length < 90) {
-            r -= 18
+            r -= 20
             flags.add("trivial_recall_ending")
         }
-        if (subject == Subject.TURKCE && stem.length < 100 && !lower.contains("paragraf")) {
-            r -= 12
+        if (subject == Subject.TURKCE && stem.length < 100 && !lower.contains("paragraf") && !lower.contains("metne göre")) {
+            r -= 14
             flags.add("turkce_short_non_paragraph")
         }
         if (subject == Subject.ING && stem.length < 80) {
-            r -= 14
+            r -= 16
             flags.add("ing_too_short")
         }
-        if (subject == Subject.FEN && stem.length < 70 && !Regex("deney|grafik|tablo|gözlem").containsMatchIn(lower)) {
-            r -= 12
+        if (subject == Subject.FEN && stem.length < 70 && !Regex("deney|grafik|tablo|gözlem|neden|sonuç|hipotez").containsMatchIn(lower)) {
+            r -= 14
             flags.add("fen_memorization_like")
         }
-        if (subject == Subject.SOSYAL && stem.length < 75 && Regex("tarih|kim|nerede|kaç").containsMatchIn(lower)) {
-            r -= 10
+        if (subject == Subject.SOSYAL && stem.length < 85 && Regex("hangi tarih|kimdir|nerededir|başkent|kaç yıl").containsMatchIn(lower)) {
+            r -= 18
             flags.add("sosyal_plain_recall")
         }
         r += (contextScore - 50) / 5
@@ -179,21 +190,21 @@ object QuestionQualityClassifier {
                     t = TIER_EASY
                     flags.add("mat_one_step_drill")
                 }
-                if (!Regex("problem|oran|yüzde|grafik|tablo|şekil|çok|adım|koşul|gizli").containsMatchIn(lower) &&
-                    stem.length < 70
+                if (!Regex("problem|oran|yüzde|grafik|tablo|şekil|çok|adım|koşul|gizli|karşılaştır|çıkarım").containsMatchIn(lower) &&
+                    stem.length < 75
                 ) {
                     t = TIER_EASY
                     flags.add("mat_lacks_reasoning_context")
                 }
             }
             Subject.TURKCE -> {
-                if (stem.length < 140 && !lower.contains("paragraf") && !lower.contains("metne göre")) {
+                if (stem.length < 140 && !lower.contains("paragraf") && !lower.contains("metne göre") && !lower.contains("çıkarım")) {
                     t = t.coerceAtMost(TIER_MEDIUM)
                     flags.add("turkce_insufficient_context")
                 }
             }
             Subject.FEN -> {
-                if (!Regex("deney|gözlem|yorum|grafik|tablo|değişken|hipotez|sonuç|neden").containsMatchIn(lower) &&
+                if (!Regex("deney|gözlem|yorum|grafik|tablo|değişken|hipotez|sonuç|neden|sonuç|ilişki").containsMatchIn(lower) &&
                     stem.length < 95
                 ) {
                     t = t.coerceAtMost(TIER_MEDIUM)
@@ -201,9 +212,11 @@ object QuestionQualityClassifier {
                 }
             }
             Subject.SOSYAL -> {
-                if (stem.length < 85 && Regex("hangi tarih|kimdir|nerededir|başkent").containsMatchIn(lower)) {
+                if (Regex("\\b(1[0-9]{3}|20[0-9]{2})\\b").containsMatchIn(stem) ||
+                    Regex("antlaşma|mondros|lozan|başkent|kimdir|hangi yıl|hangi tarihte").containsMatchIn(lower)
+                ) {
                     t = TIER_EASY
-                    flags.add("sosyal_plain_fact")
+                    flags.add("sosyal_banned_recall_pattern")
                 }
             }
             Subject.ING -> {
@@ -226,18 +239,9 @@ object QuestionQualityClassifier {
         if (ai < 0 || bi < 0) return this
         return if (ai > bi) max else this
     }
-
-    private fun isObviousAnswerLengthBias(opts: List<String>): Boolean {
-        if (opts.size < 2) return false
-        val lens = opts.map { it.length }
-        val maxL = lens.maxOrNull() ?: 0
-        val minL = lens.minOrNull() ?: 0
-        if (maxL < 12) return false
-        return maxL > minL * 2 + 12
-    }
 }
 
-/** Heuristic distractor plausibility (0 = broken, 100 = strong). */
+/** Distractor plausibility (0 = broken, 100 = strong). */
 object DistractorQualityEvaluator {
 
     fun score(options: List<String>, stem: String): Int {
@@ -260,6 +264,84 @@ object DistractorQualityEvaluator {
         val gramHint = o.count { Regex("^[a-zA-ZğüşıöçĞÜŞİÖÇ]+$").matches(it) } == 1 && o.size >= 3
         if (gramHint) s -= 18
         if (o.any { it.contains(stem.take(20), ignoreCase = true) }) s -= 15
+
+        s += tokenSimilarityBonus(o)
+        s -= categoryMismatchPenalty(o)
+        s -= obviousOutlierCount(o, stem) * 14
+
         return s.coerceIn(0, 100)
+    }
+
+    fun passesServeThreshold(opts: List<String>, stem: String): Boolean =
+        score(opts, stem) >= QuizQualityPolicy.MIN_DISTRACTOR_SCORE_TO_SERVE
+
+    /** One option much longer than others (answer stands out). */
+    fun isAnswerLengthOutlier(opts: List<String>): Boolean {
+        val o = opts.map { it.trim() }.filter { it.isNotBlank() && it != "-" }
+        if (o.size < 2) return false
+        val lens = o.map { it.length }
+        val maxL = lens.maxOrNull() ?: 0
+        val minL = lens.minOrNull() ?: 0
+        if (maxL < 12) return false
+        return maxL > minL * 2 + 12
+    }
+
+    /** Count of options that look absurd vs stem domain (numeric vs text). */
+    fun obviousOutlierCount(options: List<String>, stem: String): Int {
+        val o = options.map { it.trim() }.filter { it.isNotBlank() && it != "-" }
+        if (o.size < 2) return o.size
+        val stemHasDigit = Regex("\\d").containsMatchIn(stem)
+        val stemIsMath = Regex("[+\\-×*/=]").containsMatchIn(stem)
+        var bad = 0
+        for (t in o) {
+            val optDigit = Regex("\\d").containsMatchIn(t)
+            if (stemIsMath) continue
+            if (stemHasDigit != optDigit && t.length > 2) bad++
+        }
+        return bad
+    }
+
+    private fun tokenSimilarityBonus(opts: List<String>): Int {
+        if (opts.size < 2) return 0
+        val tokens = opts.map { tokenize(it) }
+        if (tokens.any { it.isEmpty() }) return 0
+        var sum = 0.0
+        var pairs = 0
+        for (i in tokens.indices) {
+            for (j in i + 1 until tokens.size) {
+                sum += jaccard(tokens[i], tokens[j])
+                pairs++
+            }
+        }
+        if (pairs == 0) return 0
+        val avg = sum / pairs
+        return when {
+            avg >= 0.35 -> 0
+            avg >= 0.2 -> -8
+            else -> -18
+        }
+    }
+
+    private fun categoryMismatchPenalty(opts: List<String>): Int {
+        if (opts.size < 2) return 0
+        val numeric = opts.count { Regex("^\\s*[+-]?\\d").containsMatchIn(it) }
+        val allText = opts.count { !Regex("\\d").containsMatchIn(it) && it.length > 2 }
+        if (numeric > 0 && allText > 0 && numeric + allText == opts.size) return 22
+        return 0
+    }
+
+    private fun tokenize(s: String): Set<String> =
+        s.lowercase(Locale("tr"))
+            .replace(Regex("[^a-zA-ZğüşıöçĞÜŞİÖÇ0-9]+"), " ")
+            .trim()
+            .split(Regex("\\s+"))
+            .filter { it.length > 1 }
+            .toSet()
+
+    private fun jaccard(a: Set<String>, b: Set<String>): Double {
+        if (a.isEmpty() && b.isEmpty()) return 1.0
+        val inter = a.intersect(b).size
+        val union = a.union(b).size
+        return if (union == 0) 0.0 else inter.toDouble() / union
     }
 }

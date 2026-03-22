@@ -1343,7 +1343,8 @@ object DbSeeder {
             grade = grade,
             questionText = questionText,
             options = padded,
-            difficulty = difficulty
+            difficulty = difficulty,
+            answerIndex = answerIndex
         )
 
         // Diversity tags for picker: subject-specific type + sub-skill.
@@ -1446,7 +1447,8 @@ object DbSeeder {
             grade = grade,
             questionText = spec.stem,
             options = paddedOptions,
-            difficulty = normalizedDifficulty
+            difficulty = normalizedDifficulty,
+            answerIndex = answerIndex
         )
 
         val diversityType = QuestionDiversity.inferType(subjectEnum, spec.stem)

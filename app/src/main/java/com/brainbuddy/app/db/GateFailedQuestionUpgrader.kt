@@ -98,7 +98,7 @@ object GateFailedQuestionUpgrader {
         // --- Soft fallback (legacy wraps, options unchanged) ---
         for (round in 0 until 8) {
             val candidate = rewriteStem(stem, reason, q.grade, subj, round)
-            val gate = QuestionQualityGate.evaluate(subj, q.grade, candidate, options, q.difficulty)
+            val gate = QuestionQualityGate.evaluate(subj, q.grade, candidate, options, q.difficulty, answerIndex = q.answerIndex)
             if (gate.isActive) {
                 return buildEntityFromGate(q, subj, candidate, options, gate)
             }
@@ -124,12 +124,12 @@ object GateFailedQuestionUpgrader {
         val newOpts = buildCloseMatDistractors(value, ci, opts, seed)
 
         for (s in stems) {
-            var gate = QuestionQualityGate.evaluate(Subject.MAT, q.grade, s, newOpts, q.difficulty)
+            var gate = QuestionQualityGate.evaluate(Subject.MAT, q.grade, s, newOpts, q.difficulty, answerIndex = q.answerIndex)
             if (gate.isActive) {
                 return buildEntityFromGate(q, Subject.MAT, s, newOpts, gate)
             }
             val s2 = s + " Ek kısıt: ara değerler tam sayıya yuvarlanmadan zincirleme uygulanır; yüzdeler kesre çevrilip sırayla tabana uygulanır."
-            gate = QuestionQualityGate.evaluate(Subject.MAT, q.grade, s2, newOpts, q.difficulty)
+            gate = QuestionQualityGate.evaluate(Subject.MAT, q.grade, s2, newOpts, q.difficulty, answerIndex = q.answerIndex)
             if (gate.isActive) {
                 return buildEntityFromGate(q, Subject.MAT, s2, newOpts, gate)
             }
@@ -245,12 +245,12 @@ object GateFailedQuestionUpgrader {
             buildHardNonMatStemB(q.grade, q.questionText, subj, seed)
         )
         for (s in stems) {
-            var gate = QuestionQualityGate.evaluate(subj, q.grade, s, opts, q.difficulty)
+            var gate = QuestionQualityGate.evaluate(subj, q.grade, s, opts, q.difficulty, answerIndex = q.answerIndex)
             if (gate.isActive) {
                 return buildEntityFromGate(q, subj, s, opts, gate)
             }
             val s2 = s + " Ek talimat: önce koşulları sıralayıp, sonra metindeki örtük anlamı çıkarınız; tek cümlelik ezber yanıtı yeterli sayılmaz."
-            gate = QuestionQualityGate.evaluate(subj, q.grade, s2, opts, q.difficulty)
+            gate = QuestionQualityGate.evaluate(subj, q.grade, s2, opts, q.difficulty, answerIndex = q.answerIndex)
             if (gate.isActive) {
                 return buildEntityFromGate(q, subj, s2, opts, gate)
             }

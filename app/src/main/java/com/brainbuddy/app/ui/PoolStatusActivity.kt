@@ -19,7 +19,6 @@ import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.StartupRuntimeState
 import com.brainbuddy.app.db.GateFailedQuestionUpgrader
 import com.brainbuddy.app.db.PoolQuotaEnforcer
-import com.brainbuddy.app.quiz.QuizQualityPolicy
 import com.brainbuddy.app.db.QuestionDao
 import com.brainbuddy.app.quiz.QuestionPackImporter
 import kotlinx.coroutines.Dispatchers
@@ -333,7 +332,10 @@ class PoolStatusActivity : AppCompatActivity() {
                     }
                     sb.append("\nweakDistractor_flags=${dao.countActiveWithWeakDistractorFlag()} ")
                     sb.append("weakTemplate_inactive=${dao.countInactiveWeakTemplateFlag()}\n")
-                    sb.append("ALLOW_EASY_FALLBACK=${QuizQualityPolicy.ALLOW_EASY_FALLBACK}\n\n")
+                    sb.append("rejected_trivial=${dao.countRejectedTrivial()} ")
+                    sb.append("rejected_low_reasoning=${dao.countRejectedLowReasoning()} ")
+                    sb.append("rejected_weak_distractors=${dao.countRejectedWeakDistractors()}\n")
+                    sb.append("playable_strict_pool=${dao.countPlayableStrictPool()} (MEDIUM/HARD, reasoning>=40, distractor>=40, unservable null)\n\n")
 
                     val quotaReport = PoolQuotaEnforcer.lastReport()
                     sb.append("CORE_CELL_MEASUREMENTS (device DB + last PoolQuotaEnforcer report)\n")

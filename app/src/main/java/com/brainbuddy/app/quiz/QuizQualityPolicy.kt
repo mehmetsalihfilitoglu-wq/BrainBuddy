@@ -1,15 +1,22 @@
 package com.brainbuddy.app.quiz
 
 /**
- * Runtime policy for which content `qualityTier` values may be served in quizzes.
- * EASY is excluded from the primary pool unless [ALLOW_EASY_FALLBACK] is enabled (debug only).
+ * Strict production policy: only thinking-based items are served.
+ * EASY tier is never served; there is no fallback to EASY.
+ *
+ * Thresholds align with [QuestionDao] candidate queries (literal 40 in SQL).
  */
 object QuizQualityPolicy {
 
-    /** Last-resort only; keep false in production for medium-hard pools. */
-    const val ALLOW_EASY_FALLBACK: Boolean = false
-
+    /** Served content tiers only. */
     val PLAYABLE_TIERS_PRIMARY: List<String> = listOf("MEDIUM", "HARD")
 
-    val PLAYABLE_TIERS_WITH_EASY_FALLBACK: List<String> = listOf("EASY", "MEDIUM", "HARD")
+    /** 0..100 reasoning score — must be >= this to be pool-eligible (reasoning level >= 2). */
+    const val MIN_REASONING_SCORE_TO_SERVE: Int = 40
+
+    /** HARD tier requires at least this reasoning score (level >= 3 on 0..5 scale). */
+    const val MIN_REASONING_SCORE_FOR_HARD_TIER: Int = 60
+
+    /** 0..100 distractor score — must be >= this to be pool-eligible. */
+    const val MIN_DISTRACTOR_SCORE_TO_SERVE: Int = 40
 }

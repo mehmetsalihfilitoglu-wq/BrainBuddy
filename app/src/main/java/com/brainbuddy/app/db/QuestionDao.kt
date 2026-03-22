@@ -130,6 +130,8 @@ interface QuestionDao {
         AND isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
+        AND reasoningScore >= 40
+        AND distractorQualityScore >= 40
         LIMIT 2000
         """
     )
@@ -154,6 +156,8 @@ interface QuestionDao {
         AND isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
+        AND reasoningScore >= 40
+        AND distractorQualityScore >= 40
         LIMIT 2000
         """
     )
@@ -177,6 +181,8 @@ interface QuestionDao {
         AND isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
+        AND reasoningScore >= 40
+        AND distractorQualityScore >= 40
         LIMIT 2000
         """
     )
@@ -197,6 +203,8 @@ interface QuestionDao {
         AND isActive = 1
         AND (unservableReason IS NULL OR unservableReason = '')
         AND COALESCE(qualityTier, 'MEDIUM') IN (:allowedTiers)
+        AND reasoningScore >= 40
+        AND distractorQualityScore >= 40
         ORDER BY qualityScore DESC
         LIMIT 300
         """
@@ -653,4 +661,26 @@ interface QuestionDao {
         """
     )
     suspend fun countInactiveWeakTemplateFlag(): Int
+
+    /** Strict playable pool (matches candidate picker filters). */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND COALESCE(qualityTier, 'MEDIUM') IN ('MEDIUM', 'HARD')
+        AND reasoningScore >= 40
+        AND distractorQualityScore >= 40
+        """
+    )
+    suspend fun countPlayableStrictPool(): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(unservableReason, '') = 'TRIVIAL'")
+    suspend fun countRejectedTrivial(): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(unservableReason, '') = 'LOW_REASONING'")
+    suspend fun countRejectedLowReasoning(): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(unservableReason, '') = 'WEAK_DISTRACTORS'")
+    suspend fun countRejectedWeakDistractors(): Int
 }

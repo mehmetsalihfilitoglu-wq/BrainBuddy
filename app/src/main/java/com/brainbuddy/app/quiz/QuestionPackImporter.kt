@@ -1777,7 +1777,7 @@ object QuestionPackImporter {
             "din" -> Subject.DIN
             else -> Subject.MAT
         }
-        val gate = QuestionQualityGate.evaluate(subjectEnum, defaultGrade, stem, options, difficulty)
+        val gate = QuestionQualityGate.evaluate(subjectEnum, defaultGrade, stem, options, difficulty, answerIndex = answerIndex)
         return QuestionEntity(
             id = id,
             grade = defaultGrade,
@@ -1997,7 +1997,7 @@ object QuestionPackImporter {
             else -> Subject.MAT
         }
 
-        val gate = QuestionQualityGate.evaluate(subjectEnum, grade, stem, options, difficulty)
+        val gate = QuestionQualityGate.evaluate(subjectEnum, grade, stem, options, difficulty, answerIndex = answerIndex)
         val stemNorm = QuestionStemHash.normalizeStem(stem)
         val hash = QuestionStemHash.stemHash(stem)
 

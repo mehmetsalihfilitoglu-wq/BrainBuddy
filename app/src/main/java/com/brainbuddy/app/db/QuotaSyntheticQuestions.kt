@@ -58,7 +58,7 @@ object QuotaSyntheticQuestions {
         val skill = QuestionDiversity.inferSkill(se, grade, type, stem)
         val stemNorm = QuestionStemHash.normalizeStem(stem)
         val hash = QuestionStemHash.stemHash(stem)
-        val gate = QuestionQualityGate.evaluate(se, grade, stem, padded, difficulty.coerceIn(0, 2))
+        val gate = QuestionQualityGate.evaluate(se, grade, stem, padded, difficulty.coerceIn(0, 2), answerIndex = ai)
         return QuestionEntity(
             id = id,
             grade = grade,
@@ -86,6 +86,18 @@ object QuotaSyntheticQuestions {
             qualityFlagsJson = gate.qualityFlagsJson,
             unservableReason = gate.unservableReason,
         )
+    }
+
+    /**
+     * Inserts unique IDs so REPLACE does not collide with prior quota rows when the pool is empty.
+     */
+    fun generateEmergencyTopUp(grade: Int, subjectKey: String, count: Int): List<QuestionEntity> {
+        require(grade in 1..7)
+        require(count > 0)
+        val salt = System.nanoTime()
+        return generate(grade, subjectKey, count).mapIndexed { i, e ->
+            e.copy(id = "quota_em_${grade}_${subjectKey}_${salt}_$i")
+        }
     }
 
     private fun mat(grade: Int, seq: Int): QuestionEntity {

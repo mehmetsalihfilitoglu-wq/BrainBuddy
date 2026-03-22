@@ -13,6 +13,7 @@ import com.brainbuddy.app.db.QuestionCandidateRow
 import com.brainbuddy.app.db.QuestionEntity
 import com.brainbuddy.app.db.QuestionStemHash
 import com.brainbuddy.app.db.QuestionMapper
+import com.brainbuddy.app.db.QuotaSyntheticQuestions
 import com.brainbuddy.app.db.RoomQuizDataStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -93,9 +94,9 @@ class QuestionRepository(private val context: Context) {
     var lastAvgQualityScore: Double = 0.0
         private set
 
-    /** Pool pick: how many times EASY tier was included after empty MEDIUM/HARD pool (requires allow flag). */
+    /** Grade pick: synthetic rows inserted when the strict pool was empty (no EASY fallback). */
     @Volatile
-    var lastFallbackEasyTierUsed: Int = 0
+    var lastSyntheticEmergencyTopUpCount: Int = 0
         private set
 
     /** Last grade-test quality pool summary for debug. */
@@ -370,7 +371,7 @@ class QuestionRepository(private val context: Context) {
                 QuizDifficulty.HARD -> 2
                 else -> 1
             }
-            var gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices, diffInt)
+            var gate = QuestionQualityGate.evaluate(q.subject, q.grade, q.stem, q.choices, diffInt, answerIndex = q.correctIndex)
 
             // Ek kalite kuralları: HARD gerçekten zor olsun.
             val stem = q.stem
@@ -1187,7 +1188,6 @@ class QuestionRepository(private val context: Context) {
         lastBlueprintSummary = "${blueprint.mode} total=${blueprint.totalQuestionCount}"
         lastRecentRelaxedCount = 0
         lastCapReached = false
-        lastFallbackEasyTierUsed = 0
 
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
@@ -1203,16 +1203,9 @@ class QuestionRepository(private val context: Context) {
         fun poolFor(subj: Subject): List<LgsCandidateRow> {
             return subjectPools.getOrPut(subj) {
                 val dbKey = com.brainbuddy.app.db.QuestionMapper.toDbSubject(subj)
-                var pool = roomStore.getLgsCandidatePoolWithQuality(dbKey, QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY)
+                roomStore.getLgsCandidatePoolWithQuality(dbKey, QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY)
                     .filter { it.grade == 8 }
                     .distinctBy { it.id }
-                if (pool.isEmpty() && QuizQualityPolicy.ALLOW_EASY_FALLBACK) {
-                    lastFallbackEasyTierUsed++
-                    pool = roomStore.getLgsCandidatePoolWithQuality(dbKey, QuizQualityPolicy.PLAYABLE_TIERS_WITH_EASY_FALLBACK)
-                        .filter { it.grade == 8 }
-                        .distinctBy { it.id }
-                }
-                pool
             }
         }
 
@@ -1270,7 +1263,7 @@ class QuestionRepository(private val context: Context) {
         lastRecentRelaxedCount = recentRelaxedCount
         lastBuildMs = System.currentTimeMillis() - buildStartMs
         lastQualityPickSummary =
-            "LGS qualityPool=MEDIUM+HARD fallbackSteps=$lastFallbackEasyTierUsed allowEasy=${QuizQualityPolicy.ALLOW_EASY_FALLBACK}"
+            "LGS qualityPool=MEDIUM+HARD+strict (no EASY fallback; empty pool leaves slot unfilled)"
 
         // Debug: log picked LGS questions with grade and subject to verify mode=LGS uses only grade 8.
         if (orderPreserved.isNotEmpty()) {
@@ -1357,7 +1350,7 @@ class QuestionRepository(private val context: Context) {
         lastDbQueryMs = 0
         lastBuildMs = 0
         lastCapReached = false
-        lastFallbackEasyTierUsed = 0
+        lastSyntheticEmergencyTopUpCount = 0
         lastQualityPickSummary = ""
 
         val dbQueryStartMs = System.currentTimeMillis()
@@ -1372,9 +1365,11 @@ class QuestionRepository(private val context: Context) {
         for ((subjEnum, dbKey) in subjectOrder) {
             var pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey, QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY)
                 .distinctBy { it.id }
-            if (pool.isEmpty() && QuizQualityPolicy.ALLOW_EASY_FALLBACK) {
-                lastFallbackEasyTierUsed++
-                pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey, QuizQualityPolicy.PLAYABLE_TIERS_WITH_EASY_FALLBACK)
+            if (pool.isEmpty()) {
+                val batch = QuotaSyntheticQuestions.generateEmergencyTopUp(grade, dbKey, 8)
+                roomStore.insertQuestions(batch)
+                lastSyntheticEmergencyTopUpCount += batch.size
+                pool = roomStore.getCandidatePoolByGradeSubject(grade, dbKey, QuizQualityPolicy.PLAYABLE_TIERS_PRIMARY)
                     .distinctBy { it.id }
             }
             val primary = pool.filter { it.difficulty == diffInt }
@@ -1879,7 +1874,7 @@ class QuestionRepository(private val context: Context) {
         // Performance: candidate-pool strategy targets buildMs < 500ms (no full DB scan).
         lastBuildMs = System.currentTimeMillis() - buildStartMs
         lastQualityPickSummary =
-            "qualityPool=MEDIUM+HARD fallbackSteps=$lastFallbackEasyTierUsed allowEasy=${QuizQualityPolicy.ALLOW_EASY_FALLBACK}"
+            "qualityPool=MEDIUM+HARD+strict reasoning>=40 distractor>=40 syntheticTopUp=$lastSyntheticEmergencyTopUpCount"
         return finalQuestions
     }
 

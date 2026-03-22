@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         AppMetaEntity::class,
         WrongAnswerEntity::class
     ],
-    version = 21,
+    version = 22,
     exportSchema = false
 )
 abstract class BrainBuddyDatabase : RoomDatabase() {
@@ -368,6 +368,36 @@ abstract class BrainBuddyDatabase : RoomDatabase() {
                 )
                 database.execSQL(
                     "CREATE INDEX IF NOT EXISTS index_questions_qualityTier ON questions(qualityTier)"
+                )
+            }
+        }
+
+        /**
+         * One-time strict quality cleanup: mark rows that fail reasoning/distractor/tier rules as unservable.
+         * Does not delete rows.
+         */
+        val MIGRATION_21_22: Migration = object : Migration(21, 22) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                    UPDATE questions SET unservableReason = 'TRIVIAL'
+                    WHERE COALESCE(qualityTier, 'MEDIUM') = 'EASY'
+                    AND (unservableReason IS NULL OR TRIM(unservableReason) = '')
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    UPDATE questions SET unservableReason = 'LOW_REASONING'
+                    WHERE reasoningScore < 40
+                    AND (unservableReason IS NULL OR TRIM(unservableReason) = '')
+                    """.trimIndent()
+                )
+                database.execSQL(
+                    """
+                    UPDATE questions SET unservableReason = 'WEAK_DISTRACTORS'
+                    WHERE distractorQualityScore < 40
+                    AND (unservableReason IS NULL OR TRIM(unservableReason) = '')
+                    """.trimIndent()
                 )
             }
         }

@@ -28,6 +28,7 @@ object TemplateQualityDetector {
                 qualityFlagsJson = flags,
                 isActive = false,
                 deactivationReason = e.deactivationReason ?: "weak_template_cluster",
+                unservableReason = e.unservableReason ?: "TRIVIAL",
             )
         }
     }
