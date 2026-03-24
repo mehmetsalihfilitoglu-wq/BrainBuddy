@@ -1,6 +1,8 @@
 [
   {
-    "question": "Bir öğretmen öğrencilerine şu bilgiyi verir: \"İslam'da yapılan yardımlar yalnızca ihtiyaç sahiplerinin eksiklerini gidermeyi amaçlamaz; aynı zamanda veren kişiyi cimrilikten uzaklaştırır, paylaşma alışkanlığı kazandırır.\" Buna göre yardımla ilgili aşağıdaki yargılardan hangisine ulaşılabilir?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Bir öğretmen öğrencilerine şu bilgiyi verir: \"İslam'da yapılan yardımlar yalnızca ihtiyaç sahiplerinin eksiklerini gidermeyi amaçlamaz; aynı zamanda veren kişiyi cimrilikten uzaklaştırır, paylaşma alışkanlığı kazandırır.\" Buna göre yardımla ilgili aşağıdaki yargılardan hangisine ulaşılabilir?",
     "options": [
       "Yardım ibadetleri hem bireyi hem toplumu olumlu etkiler.",
       "Yardımların asıl amacı sadece ekonomik eşitsizliği azaltmaktır.",
@@ -8,10 +10,21 @@
       "Paylaşmanın insanın karakteri üzerinde belirgin bir etkisi yoktur."
     ],
     "answerIndex": 0,
-    "explanation": "Paragrafta yardımın sadece alan kişiyi değil, veren kişiyi de olumlu yönde etkilediği belirtilmektedir."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "Paragrafta yardımın sadece alan kişiyi değil, veren kişiyi de olumlu yönde etkilediği belirtilmektedir.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_001"
   },
   {
-    "question": "Dört öğrencinin zekât ve sadaka ile ilgili yorumları şöyledir:\n\nAyşe: Zekât, belirli şartları taşıyan Müslümanlara farzdır.\nBerk: Sadaka, kişinin imkânına göre yapabileceği gönüllü yardımdır.\nCeren: Zekât ve sadaka arasında amaç bakımından hiçbir ortak yön yoktur.\nDeniz: Sadaka sadece maddi yardım şeklinde olmaz.\n\nBuna göre hangi öğrencinin yorumu yanlıştır?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Dört öğrencinin zekât ve sadaka ile ilgili yorumları şöyledir:\n\nAyşe: Zekât, belirli şartları taşıyan Müslümanlara farzdır.\nBerk: Sadaka, kişinin imkânına göre yapabileceği gönüllü yardımdır.\nCeren: Zekât ve sadaka arasında amaç bakımından hiçbir ortak yön yoktur.\nDeniz: Sadaka sadece maddi yardım şeklinde olmaz.\n\nBuna göre hangi öğrencinin yorumu yanlıştır?",
     "options": [
       "Ceren",
       "Ayşe",
@@ -19,10 +32,21 @@
       "Deniz"
     ],
     "answerIndex": 0,
-    "explanation": "Zekât ve sadakanın ortak yönleri vardır. İkisi de yardımlaşma, paylaşma ve ihtiyaç sahiplerini destekleme amacına hizmet eder."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "Zekât ve sadakanın ortak yönleri vardır. İkisi de yardımlaşma, paylaşma ve ihtiyaç sahiplerini destekleme amacına hizmet eder.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_002"
   },
   {
-    "question": "Bir öğretmen infak kavramını anlatırken şu açıklamayı yapar: \"İnfak, insanın sahip olduğu nimetleri Allah rızası için yerinde ve doğru biçimde harcamasıdır.\" Bu açıklamaya göre aşağıdakilerden hangisi infak anlayışına uygun bir davranıştır?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Bir öğretmen infak kavramını anlatırken şu açıklamayı yapar: \"İnfak, insanın sahip olduğu nimetleri Allah rızası için yerinde ve doğru biçimde harcamasıdır.\" Bu açıklamaya göre aşağıdakilerden hangisi infak anlayışına uygun bir davranıştır?",
     "options": [
       "Kişinin sahip olduğu imkânları ihtiyaç sahipleriyle paylaşması",
       "Malını sadece kendi rahatını artırmak için kullanması",
@@ -30,10 +54,21 @@
       "Başkalarının ihtiyacını görmesine rağmen duyarsız kalması"
     ],
     "answerIndex": 0,
-    "explanation": "İnfak, Allah rızası için paylaşmayı ve nimetleri doğru yerde kullanmayı ifade eder."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "İnfak, Allah rızası için paylaşmayı ve nimetleri doğru yerde kullanmayı ifade eder.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_003"
   },
   {
-    "question": "Bir öğrenci şöyle demektedir: \"Bir insanın ihtiyaç sahibine yardım ederken bunu küçümseyici tavırlarla değil, saygılı ve incitmeden yapması gerekir.\" Bu düşünce aşağıdaki değerlerden hangisini en çok vurgular?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Bir öğrenci şöyle demektedir: \"Bir insanın ihtiyaç sahibine yardım ederken bunu küçümseyici tavırlarla değil, saygılı ve incitmeden yapması gerekir.\" Bu düşünce aşağıdaki değerlerden hangisini en çok vurgular?",
     "options": [
       "İnsan onuruna saygı",
       "Ekonomik güç",
@@ -41,10 +76,21 @@
       "Rekabet"
     ],
     "answerIndex": 0,
-    "explanation": "Yardımın incitmeden yapılması, ihtiyaç sahibinin onurunu korumakla ilgilidir."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "Yardımın incitmeden yapılması, ihtiyaç sahibinin onurunu korumakla ilgilidir.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_004"
   },
   {
-    "question": "Bir öğretmen öğrencilerine şu soruyu yöneltiyor: \"Bir kişinin sahip olduğu malın belirli bir oranını, dinen belirlenen kimselere vermesi hangi kavramla ifade edilir?\" Buna göre doğru cevap aşağıdakilerden hangisidir?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Bir öğretmen öğrencilerine şu soruyu yöneltiyor: \"Bir kişinin sahip olduğu malın belirli bir oranını, dinen belirlenen kimselere vermesi hangi kavramla ifade edilir?\" Buna göre doğru cevap aşağıdakilerden hangisidir?",
     "options": [
       "Zekât",
       "Sadaka",
@@ -52,10 +98,21 @@
       "Kanaat"
     ],
     "answerIndex": 0,
-    "explanation": "Belirli şartları taşıyan Müslümanların mallarının belirli bir oranını ihtiyaç sahiplerine vermesine zekât denir."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "Belirli şartları taşıyan Müslümanların mallarının belirli bir oranını ihtiyaç sahiplerine vermesine zekât denir.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_005"
   },
   {
-    "question": "Bir öğrenci, \"Yardımlaşmanın yaygın olduğu toplumlarda insanlar yalnızca kendi hayatlarına odaklanmaz; çevresindekilerin ihtiyaçlarını da fark eder.\" demektedir. Bu söz aşağıdaki sonuçlardan hangisini destekler?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Bir öğrenci, \"Yardımlaşmanın yaygın olduğu toplumlarda insanlar yalnızca kendi hayatlarına odaklanmaz; çevresindekilerin ihtiyaçlarını da fark eder.\" demektedir. Bu söz aşağıdaki sonuçlardan hangisini destekler?",
     "options": [
       "Yardımlaşma toplumsal duyarlılığı artırır.",
       "Yardım etmek bireysel özgürlüğü azaltır.",
@@ -63,10 +120,21 @@
       "Paylaşma davranışı yalnızca maddi imkânla ilgilidir."
     ],
     "answerIndex": 0,
-    "explanation": "Sözde yardımlaşmanın insanlarda çevresine karşı duyarlılık oluşturduğu vurgulanmaktadır."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "Sözde yardımlaşmanın insanlarda çevresine karşı duyarlılık oluşturduğu vurgulanmaktadır.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_006"
   },
   {
-    "question": "Bir öğretmen, \"Sadaka sadece para vermek değildir; bir insanı sevindirmek, yol göstermek veya güzel söz söylemek de sadaka sayılabilir.\" demektedir. Bu açıklama aşağıdakilerden hangisini göstermektedir?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Bir öğretmen, \"Sadaka sadece para vermek değildir; bir insanı sevindirmek, yol göstermek veya güzel söz söylemek de sadaka sayılabilir.\" demektedir. Bu açıklama aşağıdakilerden hangisini göstermektedir?",
     "options": [
       "Sadakanın kapsamının geniş olduğunu",
       "Sadakanın yalnızca zenginlere ait bir ibadet olduğunu",
@@ -74,10 +142,21 @@
       "Sadakanın zekâttan daha dar bir kavram olduğunu"
     ],
     "answerIndex": 0,
-    "explanation": "Açıklamada sadakanın yalnızca maddi yardımla sınırlı olmadığı ve kapsamının geniş olduğu belirtilmektedir."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "Açıklamada sadakanın yalnızca maddi yardımla sınırlı olmadığı ve kapsamının geniş olduğu belirtilmektedir.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_007"
   },
   {
-    "question": "Dört öğrencinin infak ile ilgili yaptığı çıkarımlar şunlardır:\n\nI. İnfak, sadece farz olan yardımları kapsar.\nII. İnfak, Allah rızası için yapılan paylaşımı ifade eder.\nIII. İnfak, kişinin sahip olduklarını ihtiyaç sahipleriyle paylaşmasıyla ilgilidir.\nIV. İnfak kavramı, zekât ve sadakadan daha dar kapsamlıdır.\n\nBuna göre hangi çıkarımlar doğrudur?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Dört öğrencinin infak ile ilgili yaptığı çıkarımlar şunlardır:\n\nI. İnfak, sadece farz olan yardımları kapsar.\nII. İnfak, Allah rızası için yapılan paylaşımı ifade eder.\nIII. İnfak, kişinin sahip olduklarını ihtiyaç sahipleriyle paylaşmasıyla ilgilidir.\nIV. İnfak kavramı, zekât ve sadakadan daha dar kapsamlıdır.\n\nBuna göre hangi çıkarımlar doğrudur?",
     "options": [
       "II ve III",
       "I ve II",
@@ -85,10 +164,21 @@
       "III ve IV"
     ],
     "answerIndex": 0,
-    "explanation": "İnfak, Allah rızası için yapılan paylaşımı ifade eder ve sadece farz yardımlarla sınırlı değildir. Bu nedenle II ve III doğrudur."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "İnfak, Allah rızası için yapılan paylaşımı ifade eder ve sadece farz yardımlarla sınırlı değildir. Bu nedenle II ve III doğrudur.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_008"
   },
   {
-    "question": "Bir kişi yaptığı yardımı çevresindekilere sürekli anlatarak takdir toplamaya çalışırken, başka bir kişi yardımını sessizce yapıp bununla övünmemektedir. Bu iki davranış arasındaki temel fark aşağıdakilerden hangisidir?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Bir kişi yaptığı yardımı çevresindekilere sürekli anlatarak takdir toplamaya çalışırken, başka bir kişi yardımını sessizce yapıp bununla övünmemektedir. Bu iki davranış arasındaki temel fark aşağıdakilerden hangisidir?",
     "options": [
       "Niyet ve samimiyet",
       "Maddi imkân düzeyi",
@@ -96,10 +186,21 @@
       "Toplumsal çevre"
     ],
     "answerIndex": 0,
-    "explanation": "Soruda yardımların miktarından çok, hangi niyetle yapıldığı karşılaştırılmaktadır. Biri gösteriş, diğeri samimiyet içermektedir."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "Soruda yardımların miktarından çok, hangi niyetle yapıldığı karşılaştırılmaktadır. Biri gösteriş, diğeri samimiyet içermektedir.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_009"
   },
   {
-    "question": "Bir öğretmen öğrencilerine, \"Zekât, sadaka ve infak kavramlarının ortak yönlerinden biri de insanı bencillikten uzaklaştırmalarıdır.\" demektedir. Buna göre bu kavramların ortak amacı aşağıdakilerden hangisidir?",
+    "grade": 8,
+    "subject": "din",
+    "stem": "Bir öğretmen öğrencilerine, \"Zekât, sadaka ve infak kavramlarının ortak yönlerinden biri de insanı bencillikten uzaklaştırmalarıdır.\" demektedir. Buna göre bu kavramların ortak amacı aşağıdakilerden hangisidir?",
     "options": [
       "Paylaşma ve sosyal sorumluluk bilinci kazandırmak",
       "Yalnızca ekonomik düzen oluşturmak",
@@ -107,6 +208,15 @@
       "Maddi zenginliği azaltmak"
     ],
     "answerIndex": 0,
-    "explanation": "Bu kavramlar insanı paylaşmaya, duyarlılığa ve sosyal sorumluluğa yöneltir."
+    "difficulty": 2,
+    "questionType": "multiple_choice",
+    "topic": "Din Kulturu",
+    "skills": [
+      "reasoning",
+      "religious_knowledge"
+    ],
+    "explanation": "Bu kavramlar insanı paylaşmaya, duyarlılığa ve sosyal sorumluluğa yöneltir.",
+    "source": "brainbuddy_cleaned",
+    "sourceRef": "cleaned_lgs_din_pack_010_010"
   }
 ]

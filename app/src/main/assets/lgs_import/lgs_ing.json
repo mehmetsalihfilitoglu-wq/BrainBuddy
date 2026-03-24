@@ -1,32 +1,48 @@
-{
-  "version": 1,
-  "mode": "LGS",
-  "subject": "ing",
-  "publisher": "brainbuddy",
-  "questions": [
-    {
-      "stem": "The passage describes a school project about environmental awareness. According to the text, what can be inferred about the students' approach to the problem? The passage mentions recycling, saving water, and daily life habits.",
-      "options": ["They only focus on theory", "They combine practical actions with awareness", "They ignore the environment", "They work alone without cooperation"],
-      "answerIndex": 1,
-      "difficulty": 1,
-      "questionType": "REASONING",
-      "topic": "Reading Comprehension",
-      "skills": ["reading", "inference", "comprehension"],
-      "explanation": "The text suggests combining practical actions with awareness.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_smoke:ing:1"
-    },
-    {
-      "stem": "Based on the table and chart showing different countries' energy consumption, which conclusion can be drawn? The graph compares renewable and non-renewable energy sources. Compare the data and choose the best inference.",
-      "options": ["All countries use the same amount", "Countries differ in their energy mix", "Renewable energy is not used anywhere", "No comparison is possible"],
-      "answerIndex": 1,
-      "difficulty": 2,
-      "questionType": "INTERPRETATION",
-      "topic": "Graph and Table",
-      "skills": ["graph", "table", "inference"],
-      "explanation": "Different countries have different energy consumption patterns.",
-      "source": "brainbuddy",
-      "sourceRef": "lgs_smoke:ing:2"
-    }
-  ]
-}
+[
+  {
+    "stem": "The passage describes a school project about environmental awareness. According to the text, what can be inferred about the students' approach to the problem? The passage mentions recycling, saving water, and daily life habits.",
+    "options": [
+      "They only focus on theory",
+      "They combine practical actions with awareness",
+      "They ignore the environment",
+      "They work alone without cooperation"
+    ],
+    "answerIndex": 1,
+    "difficulty": 1,
+    "questionType": "REASONING",
+    "topic": "Reading Comprehension",
+    "skills": [
+      "reading",
+      "inference",
+      "comprehension"
+    ],
+    "explanation": "The text suggests combining practical actions with awareness.",
+    "source": "brainbuddy",
+    "sourceRef": "lgs_smoke:ing:1",
+    "grade": 8,
+    "subject": "ing"
+  },
+  {
+    "stem": "Based on the table and chart showing different countries' energy consumption, which conclusion can be drawn? The graph compares renewable and non-renewable energy sources. Compare the data and choose the best inference.",
+    "options": [
+      "All countries use the same amount",
+      "Countries differ in their energy mix",
+      "Renewable energy is not used anywhere",
+      "No comparison is possible"
+    ],
+    "answerIndex": 1,
+    "difficulty": 2,
+    "questionType": "INTERPRETATION",
+    "topic": "Graph and Table",
+    "skills": [
+      "graph",
+      "table",
+      "inference"
+    ],
+    "explanation": "Different countries have different energy consumption patterns.",
+    "source": "brainbuddy",
+    "sourceRef": "lgs_smoke:ing:2",
+    "grade": 8,
+    "subject": "ing"
+  }
+]
