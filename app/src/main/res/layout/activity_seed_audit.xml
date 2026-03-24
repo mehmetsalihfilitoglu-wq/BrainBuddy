@@ -67,6 +67,18 @@
             android:textAllCaps="false" />
     </LinearLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNuclearReset"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="☢ Nuclear Reset (Wipe &amp; Reseed)"
+        android:textAllCaps="false"
+        android:textColor="#CC0000"
+        app:strokeColor="#CC0000"
+        xmlns:app="http://schemas.android.com/apk/res-auto" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -102,6 +102,23 @@ object DbSeeder {
         }
     }
 
+    /** The seed version baked into this build. Readable by UI without accessing private constants. */
+    val currentSeedVersion: Int get() = CURRENT_DB_SEED_VERSION
+
+    /** Reads the seed version stored in the device DB (the last successfully applied version). */
+    suspend fun readStoredSeedVersion(context: Context): String {
+        return try {
+            val meta = DatabaseProvider.get(context).appMetaDao()
+            meta.get("db_seed_version") ?: "null (never seeded)"
+        } catch (e: Exception) {
+            "ERROR: ${e.message}"
+        }
+    }
+
+    /** Returns the absolute path of the SQLite DB file used at runtime. */
+    fun getDatabasePath(context: Context): String =
+        context.getDatabasePath("brainbuddy_db").absolutePath
+
     fun debugMat6PipelineDiagnostics(): Mat6PipelineDiagnostics? = lastMat6PipelineDiagnostics
 
     fun debugGrade6MatFileIngest(): Grade6MatFileIngestDiagnostics? = lastGrade6MatFileIngest
