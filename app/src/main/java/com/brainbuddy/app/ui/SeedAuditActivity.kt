@@ -14,7 +14,6 @@ import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.R
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
-import com.brainbuddy.app.db.PoolQuotaEnforcer
 import com.brainbuddy.app.db.StartupAuditRecorder
 import com.brainbuddy.app.db.StartupRuntimeState
 import kotlinx.coroutines.Dispatchers
@@ -124,8 +123,7 @@ class SeedAuditActivity : AppCompatActivity() {
                             val countAfterSeed = try { DatabaseProvider.get(this@SeedAuditActivity).questionDao().countAll() } catch (_: Exception) { -1 }
                             android.util.Log.w("NUCLEAR_RESET", "countAfterSeed=$countAfterSeed ok=$ok")
 
-                            // Step 3: quota enforcer
-                            PoolQuotaEnforcer.enforceCoreQuotas(this@SeedAuditActivity)
+                            // Step 3: quota enforcer intentionally skipped — no synthetic fill wanted.
 
                             // Step 4: rebuild audit snapshot
                             val liveText = StartupAuditRecorder.buildLiveReport(this@SeedAuditActivity)

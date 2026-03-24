@@ -72,12 +72,13 @@ object StartupAuditRecorder {
     }
 
     /**
-     * Call only after [DbSeeder.seedIfNeeded] and [PoolQuotaEnforcer.enforceCoreQuotas] complete.
-     * Recomputes all counts from DB (post-quota), writes [AUDIT_FILENAME] once for startup, and returns the published payload.
+     * Call after [DbSeeder.seedIfNeeded] completes.
+     * Recomputes all counts from DB, writes [AUDIT_FILENAME] once for startup, and returns the published payload.
+     * [quotaReport] is optional — pass null (default) when PoolQuotaEnforcer is disabled.
      */
     suspend fun finalizeStartupAudit(
         context: Context,
-        quotaReport: PoolQuotaEnforcer.QuotaReport
+        quotaReport: PoolQuotaEnforcer.QuotaReport? = null
     ): StartupReadyPayload = withContext(Dispatchers.IO) {
         val app = context.applicationContext
         val dao = DatabaseProvider.get(app).questionDao()
@@ -96,9 +97,9 @@ object StartupAuditRecorder {
             inactive = inactive,
             seedSkipped = DbSeeder.lastSeedSkipped,
             insertedThisRun = DbSeeder.lastInsertedThisRun,
-            quotaBefore = quotaReport.totalRowCountBefore,
-            quotaAfter = quotaReport.totalRowCountAfter,
-            quotaAdded = quotaReport.totalRowsAdded,
+            quotaBefore = quotaReport?.totalRowCountBefore,
+            quotaAfter = quotaReport?.totalRowCountAfter,
+            quotaAdded = quotaReport?.totalRowsAdded,
             candidateSampleG6Mat = candG6,
             candidateSampleG4Ing = candG4,
             candidateSampleLgsMat = candLgs,

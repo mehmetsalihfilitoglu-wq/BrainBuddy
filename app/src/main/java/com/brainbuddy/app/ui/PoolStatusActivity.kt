@@ -220,9 +220,8 @@ class PoolStatusActivity : AppCompatActivity() {
                         result
                     }
 
-                    // Step 2: re-run quota enforcer to fill synthetic gaps (mirrors startup sequence)
+                    // Step 2: read DB counts (quota enforcer intentionally disabled — no synthetic fill)
                     val summary = withContext(Dispatchers.IO) {
-                        val quotaReport = PoolQuotaEnforcer.enforceCoreQuotas(this@PoolStatusActivity)
                         val db = DatabaseProvider.get(this@PoolStatusActivity)
                         val dao = db.questionDao()
                         val total = dao.countAll()
@@ -285,8 +284,8 @@ class PoolStatusActivity : AppCompatActivity() {
                         val gateLossBefore = dao.countInactiveGateReasonsCore()
                         val quotaDeficitSumBefore = computeTotalCoreDeficit(dao)
                         val up = GateFailedQuestionUpgrader.upgradeAll(this@PoolStatusActivity)
-                        val quota = PoolQuotaEnforcer.enforceCoreQuotas(this@PoolStatusActivity)
-                        val quotaDeficitSumAfter = quota.deficitAfter.values.sum()
+                        // PoolQuotaEnforcer.enforceCoreQuotas() intentionally disabled — no synthetic fill.
+                        val quotaDeficitSumAfter = computeTotalCoreDeficit(dao)
                         val totalAfter = dao.countAll()
                         val activeAfter = dao.countAllActive()
                         val inactiveAfter = totalAfter - activeAfter

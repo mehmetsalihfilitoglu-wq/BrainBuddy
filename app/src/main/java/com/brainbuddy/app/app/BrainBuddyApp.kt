@@ -12,7 +12,6 @@ import com.brainbuddy.app.core.OnboardingPrefs
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
-import com.brainbuddy.app.db.PoolQuotaEnforcer
 import com.brainbuddy.app.db.StartupAuditRecorder
 import com.brainbuddy.app.db.StartupRuntimeState
 import com.brainbuddy.app.ui.DebugSeedStatusActivity
@@ -57,13 +56,10 @@ class BrainBuddyApp : Application() {
                 logStartupPersistenceAsync(this@BrainBuddyApp)
                 val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
                 Log.i(PERSISTENCE_LOG_TAG, "Seed finished: didSeed=$didSeed")
-                val quotaReport = PoolQuotaEnforcer.enforceCoreQuotas(this@BrainBuddyApp)
-                Log.i(PERSISTENCE_LOG_TAG, quotaReport.formatActiveTable("QUOTA_ACTIVE_AFTER", quotaReport.activeAfter))
-                Log.i(PERSISTENCE_LOG_TAG, quotaReport.formatDeficitTable(quotaReport.deficitAfter))
-                if (!quotaReport.allCoreCellsSatisfied) {
-                    Log.w(PERSISTENCE_LOG_TAG, "Core pool quota: not all grade×subject cells reached ${PoolQuotaEnforcer.CORE_MIN_ACTIVE} ACTIVE")
-                }
-                val p = StartupAuditRecorder.finalizeStartupAudit(this@BrainBuddyApp, quotaReport)
+                // PoolQuotaEnforcer.enforceCoreQuotas() intentionally disabled —
+                // synthetic fill was corrupting the clean asset-only dataset.
+                // quotaAdded will be null in audit snapshots until re-enabled.
+                val p = StartupAuditRecorder.finalizeStartupAudit(this@BrainBuddyApp)
                 Log.i(
                     "AppStartupAudit",
                     "AppStartupAudit: total=${p.auditSnapshot.total} active=${p.auditSnapshot.active} inactive=${p.auditSnapshot.inactive}"
