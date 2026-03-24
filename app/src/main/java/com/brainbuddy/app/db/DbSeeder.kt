@@ -627,8 +627,20 @@ object DbSeeder {
                     }
                     if (entities.isNotEmpty()) {
                         // Force LGS-root mode: examType=LGS; grade must be 1..7 (use placeholder).
-                        out += entities.map { it.copy(examType = "LGS", grade = lgsGradePlaceholder) }
-                        loadedForFolder += entities.size
+                        // Also force isActive=true: lgs_exam/* questions are curated/pre-vetted;
+                        // the general quality gate (designed for grade-based content) must not
+                        // deactivate them at parse time. LGS picker relies on these being active.
+                        val lgsEntities = entities.map {
+                            it.copy(
+                                examType = "LGS",
+                                grade = lgsGradePlaceholder,
+                                isActive = true,
+                                deactivationReason = null
+                            )
+                        }
+                        Log.i(TAG, "lgs_exam/$folder/$assetPath: loaded=${lgsEntities.size} all forced isActive=true")
+                        out += lgsEntities
+                        loadedForFolder += lgsEntities.size
                     }
                 } catch (_: Exception) {
                     // ignore individual file errors

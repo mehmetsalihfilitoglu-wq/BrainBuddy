@@ -205,41 +205,55 @@ class PoolStatusActivity : AppCompatActivity() {
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnForceReseedGeneralBanks)
             .setOnClickListener {
                 lifecycleScope.launch {
+                    // Step 1: full wipe + reseed (deleteAll → insertAll from all asset folders)
                     val ok = withContext(Dispatchers.IO) {
-                        DbSeeder.forceReseedGeneralBanks(this@PoolStatusActivity)
+                        val db = DatabaseProvider.get(this@PoolStatusActivity)
+                        val dao = db.questionDao()
+                        val countBefore = dao.countAll()
+                        val activeBefore = dao.countAllActive()
+                        android.util.Log.i("FORCE_RESEED", "BEFORE wipe: total=$countBefore active=$activeBefore")
+                        val result = DbSeeder.forceReseed(this@PoolStatusActivity)
+                        val countAfterSeed = dao.countAll()
+                        val activeAfterSeed = dao.countAllActive()
+                        android.util.Log.i("FORCE_RESEED", "AFTER seed: total=$countAfterSeed active=$activeAfterSeed result=$result")
+                        result
                     }
-                    Toast.makeText(
-                        this@PoolStatusActivity,
-                        if (ok) "Reseed successful" else "Reseed failed, old database preserved",
-                        Toast.LENGTH_LONG
-                    ).show()
+
+                    // Step 2: re-run quota enforcer to fill synthetic gaps (mirrors startup sequence)
                     val summary = withContext(Dispatchers.IO) {
+                        val quotaReport = PoolQuotaEnforcer.enforceCoreQuotas(this@PoolStatusActivity)
                         val db = DatabaseProvider.get(this@PoolStatusActivity)
                         val dao = db.questionDao()
                         val total = dao.countAll()
-                        val gradeLines = mutableListOf<String>()
-                        for (g in 1..8) {
-                            gradeLines.add("  Grade $g: ${dao.countByGradeOnly(g)}")
-                        }
-                        val byGrade = gradeLines.joinToString("\n")
-                        val bySubject = dao.getCountsBySubject()
-                            .joinToString("\n") { "  ${it.subject}: ${it.count}" }
+                        val active = dao.countAllActive()
+                        val inactive = total - active
+                        android.util.Log.i("FORCE_RESEED", "AFTER quota: total=$total active=$active inactive=$inactive")
+                        val lgsTotal = dao.countLgsQuestions()
+                        val lgsActive = dao.countActiveLgsQuestions()
+                        val gradeLines = (1..8).map { g -> "  Grade $g: ${dao.countByGradeOnly(g)}" }
                         buildString {
-                            appendLine("Total DB count: $total")
+                            appendLine(if (ok) "✅ Full wipe + reseed complete" else "❌ Reseed failed — DB preserved")
                             appendLine()
-                            appendLine("Counts by grade:")
-                            appendLine(byGrade)
+                            appendLine("TOTAL:    $total")
+                            appendLine("ACTIVE:   $active")
+                            appendLine("INACTIVE: $inactive")
                             appendLine()
-                            appendLine("Counts by subject:")
-                            appendLine(bySubject)
+                            appendLine("LGS total:  $lgsTotal")
+                            appendLine("LGS active: $lgsActive")
+                            appendLine()
+                            appendLine("By grade:")
+                            appendLine(gradeLines.joinToString("\n"))
                         }
                     }
+
                     AlertDialog.Builder(this@PoolStatusActivity)
                         .setTitle(getString(R.string.pool_status_force_reseed_title))
                         .setMessage(summary)
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
-                    renderStatusFull()
+
+                    // Step 3: force-refresh UI directly from DB (bypass stale StartupRuntimeState)
+                    renderStatusFromDb()
                 }
             }
 
@@ -294,6 +308,36 @@ class PoolStatusActivity : AppCompatActivity() {
             }
         }
         return total
+    }
+
+    /**
+     * Force-refresh the pool status text directly from the live DB, bypassing the
+     * [StartupRuntimeState.startupInitializationComplete] guard. Called after manual
+     * Force Reseed so the user sees real post-wipe counts immediately.
+     */
+    private fun renderStatusFromDb() {
+        val tv = findViewById<TextView>(R.id.tvPoolStatus) ?: return
+        lifecycleScope.launch {
+            val text = withContext(Dispatchers.IO) {
+                val dao = DatabaseProvider.get(this@PoolStatusActivity).questionDao()
+                val total   = dao.countAll()
+                val active  = dao.countAllActive()
+                val inactive = total - active
+                val lgsTotal  = dao.countLgsQuestions()
+                val lgsActive = dao.countActiveLgsQuestions()
+                buildString {
+                    appendLine("=== POST-RESEED LIVE DB ===")
+                    appendLine("TOTAL:    $total")
+                    appendLine("ACTIVE:   $active")
+                    appendLine("INACTIVE: $inactive")
+                    appendLine("LGS total:  $lgsTotal")
+                    appendLine("LGS active: $lgsActive")
+                }
+            }
+            tv.text = text
+            // Then do the full render once StartupRuntimeState is Ready
+            renderStatusFull()
+        }
     }
 
     private fun renderStatusFull() {

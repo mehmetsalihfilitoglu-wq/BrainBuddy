@@ -305,6 +305,12 @@ interface QuestionDao {
     @Query("SELECT COUNT(*) FROM questions WHERE isActive = 0")
     suspend fun countAllInactive(): Int
 
+    @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(examType,'GENERAL') = 'LGS'")
+    suspend fun countLgsQuestions(): Int
+
+    @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(examType,'GENERAL') = 'LGS' AND isActive = 1")
+    suspend fun countActiveLgsQuestions(): Int
+
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade")
     suspend fun countByGrade(grade: Int): Int
 
