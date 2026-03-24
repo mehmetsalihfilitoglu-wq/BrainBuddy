@@ -27,7 +27,7 @@ object DbSeeder {
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
-    private const val CURRENT_DB_SEED_VERSION = 3
+    private const val CURRENT_DB_SEED_VERSION = 4
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val MIN_REASONABLE_DB_COUNT = 8000
 
@@ -409,10 +409,13 @@ object DbSeeder {
 
         val questionDao = db.questionDao()
         val countBefore = questionDao.countAll()
-        Log.i(TAG, "performSeed: inserting dedupedList.size=${dedupedList.size} DB countBefore=$countBefore")
-        questionDao.insertAllIgnore(dedupedList)
+        Log.i(TAG, "performSeed: wiping DB (countBefore=$countBefore) then inserting dedupedList.size=${dedupedList.size}")
+        db.withTransaction {
+            questionDao.deleteAll()
+            questionDao.insertAll(dedupedList)
+        }
         val countAfter = questionDao.countAll()
-        val inserted = (countAfter - countBefore).coerceAtLeast(0)
+        val inserted = countAfter  // full wipe + reinsert: countAfter == rows inserted
         logSeedAudit(questionDao, insertedThisRun = inserted, skipped = false)
         // DEBUG: verify actual DB grades after seeding.
         try {
@@ -432,7 +435,7 @@ object DbSeeder {
         }
         meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
         meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
-        Log.i(TAG, "performSeed done: inserted batch=${dedupedList.size} DB total before=$countBefore after=$countAfter (seed complete)")
+        Log.i(TAG, "performSeed done: wiped=$countBefore inserted=${dedupedList.size} DB after=$countAfter (clean reset complete)")
 
         // Import sonrası havuz doğrulama
         try {
