@@ -16,6 +16,7 @@ import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
+import com.brainbuddy.app.db.StartupAuditRecorder
 import com.brainbuddy.app.db.StartupRuntimeState
 import com.brainbuddy.app.db.GateFailedQuestionUpgrader
 import com.brainbuddy.app.db.PoolQuotaEnforcer
@@ -231,6 +232,17 @@ class PoolStatusActivity : AppCompatActivity() {
                         val lgsTotal = dao.countLgsQuestions()
                         val lgsActive = dao.countActiveLgsQuestions()
                         val gradeLines = (1..8).map { g -> "  Grade $g: ${dao.countByGradeOnly(g)}" }
+
+                        // Step 3: rebuild the StartupAuditRecorder snapshot so the audit screen
+                        // shows fresh post-reseed values (seedSkipped=false, insertedThisRun=N)
+                        // instead of the stale startup snapshot (seedSkipped=true, insertedThisRun=0).
+                        try {
+                            StartupAuditRecorder.buildLiveReport(this@PoolStatusActivity)
+                            android.util.Log.i("FORCE_RESEED", "Audit snapshot rebuilt: seedSkipped=${DbSeeder.lastSeedSkipped} insertedThisRun=${DbSeeder.lastInsertedThisRun}")
+                        } catch (e: Exception) {
+                            android.util.Log.e("FORCE_RESEED", "Audit rebuild failed: ${e.message}")
+                        }
+
                         buildString {
                             appendLine(if (ok) "✅ Full wipe + reseed complete" else "❌ Reseed failed — DB preserved")
                             appendLine()
@@ -240,6 +252,9 @@ class PoolStatusActivity : AppCompatActivity() {
                             appendLine()
                             appendLine("LGS total:  $lgsTotal")
                             appendLine("LGS active: $lgsActive")
+                            appendLine()
+                            appendLine("seedSkipped=${DbSeeder.lastSeedSkipped}")
+                            appendLine("insertedThisRun=${DbSeeder.lastInsertedThisRun}")
                             appendLine()
                             appendLine("By grade:")
                             appendLine(gradeLines.joinToString("\n"))
@@ -252,7 +267,7 @@ class PoolStatusActivity : AppCompatActivity() {
                         .setPositiveButton(android.R.string.ok) { _, _ -> }
                         .show()
 
-                    // Step 3: force-refresh UI directly from DB (bypass stale StartupRuntimeState)
+                    // Step 4: force-refresh pool status UI directly from DB
                     renderStatusFromDb()
                 }
             }

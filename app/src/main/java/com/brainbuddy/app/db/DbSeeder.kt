@@ -27,7 +27,11 @@ object DbSeeder {
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
-    private const val CURRENT_DB_SEED_VERSION = 4
+    // Version 5: force full wipe + reseed on all devices still carrying dirty v4 DB.
+    // v4 was deployed but the stored version was already 4 on-device, so startup silently
+    // skipped the clean reseed. Bumping to 5 guarantees performSeed (deleteAll + insertAll)
+    // runs on next launch regardless of current DB state.
+    private const val CURRENT_DB_SEED_VERSION = 5
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val MIN_REASONABLE_DB_COUNT = 8000
 
@@ -244,9 +248,14 @@ object DbSeeder {
         val meta = db.appMetaDao()
         val questionDao = db.questionDao()
 
+        val countBefore = try { questionDao.countAll() } catch (_: Exception) { -1 }
+        Log.w(TAG, "FORCE_RESEED_START: countBefore=$countBefore — loading assets now")
+
         val toInsert = buildSeedQuestions(context)
+        Log.w(TAG, "FORCE_RESEED_LOADED: assetCount=${toInsert.size} lgsCount=${toInsert.count { it.examType == "LGS" }} activeCount=${toInsert.count { it.isActive }}")
+
         if (toInsert.isEmpty()) {
-            Log.e(TAG, "Force reseed aborted: loaded=0, preserving existing DB")
+            Log.e(TAG, "FORCE_RESEED_ABORTED: loaded=0, preserving existing DB (countBefore=$countBefore)")
             try {
                 logSeedAudit(questionDao, insertedThisRun = 0, skipped = true)
             } catch (_: Exception) { }
@@ -257,32 +266,34 @@ object DbSeeder {
             var inserted = 0
             db.withTransaction {
                 questionDao.deleteAll()
+                val countAfterDelete = questionDao.countAll()
+                Log.w(TAG, "FORCE_RESEED_WIPED: countAfterDelete=$countAfterDelete (expected 0)")
                 questionDao.insertAll(toInsert)
                 meta.set(AppMetaEntity(KEY_DB_SEEDED, "true"))
                 meta.set(AppMetaEntity(KEY_DB_SEED_VERSION, CURRENT_DB_SEED_VERSION.toString()))
                 inserted = toInsert.size
             }
+            val countAfter = try { questionDao.countAll() } catch (_: Exception) { -1 }
+            val activeAfter = try { questionDao.countAllActive() } catch (_: Exception) { -1 }
+            val inactiveAfter = countAfter - activeAfter
+            val lgsActive = try { questionDao.countActiveLgsQuestions() } catch (_: Exception) { -1 }
+            Log.w(TAG, "FORCE_RESEED_DONE: inserted=$inserted countAfter=$countAfter activeAfter=$activeAfter inactiveAfter=$inactiveAfter lgsActive=$lgsActive")
             // DEBUG: verify actual DB grades after reseed.
             try {
                 val allRows = questionDao.getAllQuestions()
-                val totalRows = allRows.size
-                val invalidRows = allRows.count { it.grade !in 1..7 }
-                val validRows = allRows.count { it.grade in 1..7 }
-                val first5 = allRows.take(5).map { "grade=${it.grade} examType=${it.examType}" }
                 updateDbCheckDiagnostics(
-                    totalRows = totalRows,
-                    invalidRows = invalidRows,
-                    validRows = validRows,
-                    first5 = first5
+                    totalRows = allRows.size,
+                    invalidRows = allRows.count { it.grade !in 1..7 },
+                    validRows = allRows.count { it.grade in 1..7 },
+                    first5 = allRows.take(5).map { "grade=${it.grade} examType=${it.examType} isActive=${it.isActive}" }
                 )
             } catch (e: Exception) {
                 Log.e("DB_CHECK", "Failed to read back questions after forceReseed: ${e.message}", e)
             }
-            Log.i(TAG, "Force reseed successful: inserted=$inserted")
             logSeedAudit(questionDao, insertedThisRun = inserted, skipped = false)
             true
         } catch (e: Exception) {
-            Log.e(TAG, "Force reseed failed, old database may be preserved", e)
+            Log.e(TAG, "FORCE_RESEED_FAILED: old database may be preserved — ${e.message}", e)
             false
         }
     }
