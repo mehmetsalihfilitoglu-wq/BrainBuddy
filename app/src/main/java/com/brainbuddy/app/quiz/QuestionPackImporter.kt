@@ -1673,8 +1673,9 @@ object QuestionPackImporter {
             if (shouldDeactivate) deactivatedLowQuality++
 
             val finalEntity = entity.copy(
-                isActive = !shouldDeactivate,
-                deactivationReason = qualityResult.deactivationReason,
+                isActive = true,           // asset-sourced; quality gate classifies but must not suppress
+                deactivationReason = null,
+                unservableReason = null,
                 qualityScore = qualityResult.qualityScore,
                 isNewGenerationLike = qualityResult.isNewGenerationLike,
                 type = qualityResult.questionType,
@@ -1787,10 +1788,10 @@ object QuestionPackImporter {
             optionsJson = JSONArray(options).toString(),
             answerIndex = answerIndex,
             explanation = explanation,
-            isActive = gate.isActive,
+            isActive = true,           // asset-sourced; gate classifies but must not suppress
             questionType = gate.questionType,
             skillsJson = gate.skillsJson,
-            deactivationReason = gate.deactivationReason,
+            deactivationReason = null,
             version = 1,
             examType = "LGS",
             imageAsset = imageAsset,
@@ -1810,7 +1811,7 @@ object QuestionPackImporter {
             distractorQualityScore = gate.distractorQualityScore,
             contextComplexityScore = gate.contextComplexityScore,
             qualityFlagsJson = gate.qualityFlagsJson,
-            unservableReason = gate.unservableReason,
+            unservableReason = null,
         )
     }
 
@@ -1915,10 +1916,10 @@ object QuestionPackImporter {
             }
 
             val finalEntity = entity.copy(
-                isActive = gate.isActive,
+                isActive = true,           // asset-sourced; gate classifies but must not suppress
                 questionType = gate.questionType,
                 skillsJson = parsed.skillsJson,
-                deactivationReason = gate.deactivationReason,
+                deactivationReason = null,
                 publisher = publisher,
                 year = year,
                 sourcePack = sourcePack,
@@ -1928,7 +1929,7 @@ object QuestionPackImporter {
                 distractorQualityScore = gate.distractorQualityScore,
                 contextComplexityScore = gate.contextComplexityScore,
                 qualityFlagsJson = gate.qualityFlagsJson,
-                unservableReason = gate.unservableReason,
+                unservableReason = null,
             )
             toInsert.add(finalEntity)
         }

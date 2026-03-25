@@ -308,8 +308,8 @@ object GateFailedQuestionUpgrader {
             optionsJson = optionsJson,
             stemNormalized = stemNorm,
             stemHash = stemHash,
-            isActive = gate.isActive,
-            deactivationReason = if (gate.isActive) null else gate.deactivationReason,
+            isActive = true,           // upgrader always produces active result; gate classifies only
+            deactivationReason = null,
             questionType = gate.questionType,
             skillsJson = gate.skillsJson,
             type = divType,
@@ -320,7 +320,7 @@ object GateFailedQuestionUpgrader {
             distractorQualityScore = gate.distractorQualityScore,
             contextComplexityScore = gate.contextComplexityScore,
             qualityFlagsJson = gate.qualityFlagsJson,
-            unservableReason = gate.unservableReason,
+            unservableReason = null,
         )
     }
 

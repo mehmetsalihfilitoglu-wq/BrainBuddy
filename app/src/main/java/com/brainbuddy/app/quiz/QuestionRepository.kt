@@ -440,10 +440,10 @@ class QuestionRepository(private val context: Context) {
                 optionsJson = org.json.JSONArray(q.choices).toString(),
                 answerIndex = q.correctIndex,
                 explanation = q.hint?.takeIf { it.isNotBlank() },
-                isActive = gate.isActive,
+                isActive = true,
                 questionType = gate.questionType,
                 skillsJson = gate.skillsJson,
-                deactivationReason = gate.deactivationReason,
+                deactivationReason = null,
                 version = 1,
                 examType = q.examType.name,
                 imageAsset = q.imageAsset?.takeIf { it.isNotBlank() },
@@ -457,7 +457,7 @@ class QuestionRepository(private val context: Context) {
             distractorQualityScore = gate.distractorQualityScore,
             contextComplexityScore = gate.contextComplexityScore,
             qualityFlagsJson = gate.qualityFlagsJson,
-            unservableReason = gate.unservableReason,
+            unservableReason = null,
             )
         }
         val entitiesToInsert = toAddEntities.filterNotNull()

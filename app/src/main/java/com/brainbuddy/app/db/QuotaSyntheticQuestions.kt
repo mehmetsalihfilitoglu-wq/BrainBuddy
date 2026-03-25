@@ -68,10 +68,10 @@ object QuotaSyntheticQuestions {
             optionsJson = JSONArray(padded).toString(),
             answerIndex = ai,
             explanation = explanation,
-            isActive = gate.isActive,
+            isActive = true,
             questionType = gate.questionType,
             skillsJson = gate.skillsJson,
-            deactivationReason = gate.deactivationReason,
+            deactivationReason = null,
             version = 1,
             examType = "GENERAL",
             imageAsset = null,
@@ -85,7 +85,7 @@ object QuotaSyntheticQuestions {
             distractorQualityScore = gate.distractorQualityScore,
             contextComplexityScore = gate.contextComplexityScore,
             qualityFlagsJson = gate.qualityFlagsJson,
-            unservableReason = gate.unservableReason,
+            unservableReason = null,
         )
     }
 
