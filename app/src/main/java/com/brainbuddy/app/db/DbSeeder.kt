@@ -391,6 +391,23 @@ object DbSeeder {
 
         deduped = TemplateQualityDetector.applyShellClustering(deduped)
 
+        // Trust the curated asset source.
+        // The quality gate and template detector preserve useful metadata (qualityTier,
+        // reasoningScore, qualityFlagsJson) for display and future analytics, but they
+        // must NOT suppress pre-vetted asset questions from the live pool.
+        //
+        // Two fields block a question from being served even when isActive=true:
+        //   - isActive=false        → excluded from all active-question queries
+        //   - unservableReason≠null → excluded from candidate-pool queries (getCandidatePool*)
+        //
+        // Force both to their "safe" values so every loaded asset question is playable.
+        // lgs_exam/* questions are already forced active in loadFromLgsRootSubjectDirsAsLgs();
+        // this pass handles grade_based/*, packs, and any other source.
+        deduped = deduped.map { q ->
+            if (q.isActive && q.unservableReason == null) q  // already clean — skip copy
+            else q.copy(isActive = true, deactivationReason = null, unservableReason = null)
+        }
+
         // Store pre-insert diagnostics for in-app debug UI.
         val invalidAfter = normalized.count { it.grade !in 1..7 }
         lastSeedDiagnosticsSnapshot = SeedDiagnosticsSnapshot(
