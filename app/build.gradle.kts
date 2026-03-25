@@ -12,13 +12,13 @@ android {
         applicationId = "com.brainbuddy.app"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.1"
+        versionCode = 3
+        versionName = "1.2"
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
         // Embed seed version so audit screen can show it without importing DbSeeder
-        buildConfigField("int", "DB_SEED_VERSION", "5")
+        buildConfigField("int", "DB_SEED_VERSION", "6")
 
         // 🔥 adaptive icon hatasını engelle
         vectorDrawables.useSupportLibrary = true

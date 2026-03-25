@@ -27,11 +27,15 @@ object DbSeeder {
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
-    // Version 5: force full wipe + reseed on all devices still carrying dirty v4 DB.
-    // v4 was deployed but the stored version was already 4 on-device, so startup silently
-    // skipped the clean reseed. Bumping to 5 guarantees performSeed (deleteAll + insertAll)
-    // runs on next launch regardless of current DB state.
-    private const val CURRENT_DB_SEED_VERSION = 5
+    // Version 6: force full wipe + reseed on all devices still carrying v5 DB.
+    // v5 had isActive/unservableReason set by QuestionQualityGate at parse time, causing
+    // 71% of asset questions to be inactive. Fixed by:
+    //   - parseQuestionObject(): isActive=true, deactivationReason=null, unservableReason=null
+    //   - buildGrade6MatQuestion(): same
+    //   - loadFromLgsRootSubjectDirsAsLgs(): added unservableReason=null to force-copy
+    //   - TemplateQualityDetector.applyShellClustering(): disabled
+    //   - buildSeedQuestions(): belt-and-suspenders cleanup pass + verification log
+    private const val CURRENT_DB_SEED_VERSION = 6
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val MIN_REASONABLE_DB_COUNT = 8000
 
@@ -389,24 +393,24 @@ object DbSeeder {
 
         finalizeMat6PipelineDiagnostics(normalized, deduped)
 
-        deduped = TemplateQualityDetector.applyShellClustering(deduped)
+        // TemplateQualityDetector disabled: it sets isActive=false + unservableReason="TRIVIAL"
+        // on clusters of similar questions. Pre-curated asset questions must not be suppressed
+        // this way. Re-enable once asset quality is managed separately from algorithmic filters.
+        // deduped = TemplateQualityDetector.applyShellClustering(deduped)
 
-        // Trust the curated asset source.
-        // The quality gate and template detector preserve useful metadata (qualityTier,
-        // reasoningScore, qualityFlagsJson) for display and future analytics, but they
-        // must NOT suppress pre-vetted asset questions from the live pool.
-        //
-        // Two fields block a question from being served even when isActive=true:
-        //   - isActive=false        → excluded from all active-question queries
-        //   - unservableReason≠null → excluded from candidate-pool queries (getCandidatePool*)
-        //
-        // Force both to their "safe" values so every loaded asset question is playable.
-        // lgs_exam/* questions are already forced active in loadFromLgsRootSubjectDirsAsLgs();
-        // this pass handles grade_based/*, packs, and any other source.
+        // Belt-and-suspenders: even though parse functions now produce isActive=true/
+        // unservableReason=null directly, enforce it here one final time before insert.
+        // This catches any edge case (future parse path, fallback entities, etc.) that
+        // might slip through with suppression fields set.
+        val suppressedCount = deduped.count { !it.isActive || it.unservableReason != null }
+        if (suppressedCount > 0) {
+            Log.w(TAG, "SEED_ACTIVE_REPAIR: $suppressedCount questions had isActive=false or unservableReason≠null — forcing clean before insert")
+        }
         deduped = deduped.map { q ->
-            if (q.isActive && q.unservableReason == null) q  // already clean — skip copy
+            if (q.isActive && q.unservableReason == null) q
             else q.copy(isActive = true, deactivationReason = null, unservableReason = null)
         }
+        Log.w(TAG, "SEED_ACTIVE_VERIFY: total=${deduped.size} inactive=${deduped.count { !it.isActive }} unservable=${deduped.count { it.unservableReason != null }} (both must be 0)")
 
         // Store pre-insert diagnostics for in-app debug UI.
         val invalidAfter = normalized.count { it.grade !in 1..7 }
@@ -680,10 +684,11 @@ object DbSeeder {
                                 examType = "LGS",
                                 grade = lgsGradePlaceholder,
                                 isActive = true,
-                                deactivationReason = null
+                                deactivationReason = null,
+                                unservableReason = null  // must clear: gate may have set "TRIVIAL"; candidate-pool queries filter on this
                             )
                         }
-                        Log.i(TAG, "lgs_exam/$folder/$assetPath: loaded=${lgsEntities.size} all forced isActive=true")
+                        Log.i(TAG, "lgs_exam/$folder/$assetPath: loaded=${lgsEntities.size} all forced isActive=true unservableReason=null")
                         out += lgsEntities
                         loadedForFolder += lgsEntities.size
                     }
@@ -1420,10 +1425,14 @@ object DbSeeder {
             optionsJson = optionsJson,
             answerIndex = answerIndex,
             explanation = explanation,
-            isActive = gate.isActive,
+            // Asset-sourced questions are always active — the quality gate classifies
+            // but must not suppress pre-curated content. isActive/deactivationReason/
+            // unservableReason are forced to their safe values here at parse time so
+            // no later stage needs to "repair" them.
+            isActive = true,
             questionType = gate.questionType,
             skillsJson = gate.skillsJson,
-            deactivationReason = gate.deactivationReason,
+            deactivationReason = null,
             version = 1,
             examType = examType,
             imageAsset = imageAsset,
@@ -1438,7 +1447,7 @@ object DbSeeder {
             distractorQualityScore = gate.distractorQualityScore,
             contextComplexityScore = gate.contextComplexityScore,
             qualityFlagsJson = gate.qualityFlagsJson,
-            unservableReason = gate.unservableReason,
+            unservableReason = null,
         )
     }
 
@@ -1527,10 +1536,10 @@ object DbSeeder {
             optionsJson = JSONArray(paddedOptions).toString(),
             answerIndex = answerIndex,
             explanation = spec.explanation,
-            isActive = gate.isActive,
+            isActive = true,
             questionType = gate.questionType,
             skillsJson = gate.skillsJson,
-            deactivationReason = gate.deactivationReason,
+            deactivationReason = null,
             version = 1,
             examType = "GENERAL",
             imageAsset = null,
@@ -1544,7 +1553,7 @@ object DbSeeder {
             distractorQualityScore = gate.distractorQualityScore,
             contextComplexityScore = gate.contextComplexityScore,
             qualityFlagsJson = gate.qualityFlagsJson,
-            unservableReason = gate.unservableReason,
+            unservableReason = null,
         )
     }
 
