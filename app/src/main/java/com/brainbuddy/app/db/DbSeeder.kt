@@ -121,7 +121,7 @@ object DbSeeder {
 
     /** Returns the absolute path of the SQLite DB file used at runtime. */
     fun getDatabasePath(context: Context): String =
-        context.getDatabasePath("brainbuddy_db").absolutePath
+        context.getDatabasePath("brainbuddy.db").absolutePath
 
     fun debugMat6PipelineDiagnostics(): Mat6PipelineDiagnostics? = lastMat6PipelineDiagnostics
 
@@ -692,8 +692,8 @@ object DbSeeder {
                         out += lgsEntities
                         loadedForFolder += lgsEntities.size
                     }
-                } catch (_: Exception) {
-                    // ignore individual file errors
+                } catch (e: Exception) {
+                    Log.w(TAG, "lgs_exam load failed for $assetPath: ${e.message}", e)
                 }
             }
             if (loadedForFolder > 0) Log.i(TAG, "Loaded lgs_exam/$folder root: $loadedForFolder questions")
@@ -796,6 +796,44 @@ object DbSeeder {
         return null
     }
 
+    /**
+     * Fallback when folder names don't match [LGS_PATH_GRADE_SUBJECT_REGEX] (e.g. unusual layouts).
+     * Typical committed packs: `lgs_eng2_pack_035.json`, `lgs_fen3_pack_029.json`.
+     */
+    private val PACK_FILENAME_GRADE_SUBJECT_REGEX = Regex(
+        "(?i)lgs_(mat|turkce|fen|sosyal|eng|din|hayat|inkilap)(\\d+)_pack",
+    )
+
+    private fun parseGradeSubjectFromPackFilenameSegment(fileName: String): Pair<Int, String>? {
+        val m = PACK_FILENAME_GRADE_SUBJECT_REGEX.find(fileName) ?: return null
+        val sub = m.groupValues[1].lowercase()
+        val g = m.groupValues[2].toIntOrNull()?.coerceIn(1, 8) ?: return null
+        val subjectKey = when (sub) {
+            "mat" -> "mat"
+            "turkce" -> "turkce"
+            "fen" -> "fen"
+            "sosyal" -> "sosyal"
+            "eng" -> "ing"
+            "din" -> "din"
+            "hayat" -> "hayat"
+            "inkilap" -> "inkilap"
+            else -> return null
+        }
+        return g to subjectKey
+    }
+
+    private fun resolveGradeSubjectForGradeBasedAsset(assetPath: String): Pair<Int, String> {
+        parseGradeAndSubjectFromLgsPath(assetPath)?.let { return it }
+        parseGradeSubjectFromPackFilenameSegment(assetPath.substringAfterLast('/'))?.let { return it }
+        val g = deriveGradeFromAssetPath(assetPath)?.coerceIn(1, 7)
+        if (g != null) {
+            Log.w(TAG, "resolveGradeSubject: using path-derived grade=$g only, subject default mat path=$assetPath")
+            return g to "mat"
+        }
+        Log.w(TAG, "resolveGradeSubject: could not derive grade/subject; using 6/mat path=$assetPath")
+        return 6 to "mat"
+    }
+
     private fun loadFromLgsGradePacksAsGeneral(context: Context): List<QuestionEntity> {
         val assets = context.assets
         val out = mutableListOf<QuestionEntity>()
@@ -832,8 +870,7 @@ object DbSeeder {
         for (dir in gradeBasedDirs) {
             val assetPaths = discoverJsonAssetFilesRecursive(assets, dir)
             for (assetPath in assetPaths) {
-                val pathDerived = parseGradeAndSubjectFromLgsPath(assetPath)
-                val (pathGrade, pathSubject) = pathDerived ?: (6 to "mat")
+                val (pathGrade, pathSubject) = resolveGradeSubjectForGradeBasedAsset(assetPath)
                 try {
                     val json = assets.open(assetPath).use { input ->
                         input.readBytes().toString(Charset.forName("UTF-8"))
@@ -1277,6 +1314,14 @@ object DbSeeder {
         return digest.joinToString("") { "%02x".format(it) }
     }
 
+    /** Same alias order as [com.brainbuddy.app.quiz.QuestionPackImporter.optImageAsset]. */
+    private fun optImageAssetFromJson(o: JSONObject): String? =
+        sequenceOf("imageAsset", "visualAsset", "graphicAsset", "tableAsset")
+            .mapNotNull { key ->
+                o.optString(key, "").takeIf { s -> s.isNotBlank() && s.lowercase() != "null" }
+            }
+            .firstOrNull()
+
     private fun parseQuestionObject(
         o: JSONObject,
         index: Int,
@@ -1383,7 +1428,7 @@ object DbSeeder {
         }
 
         val examType = o.optString("examType", "GENERAL").takeIf { it.isNotBlank() }
-        val imageAsset = o.optString("imageAsset", "").takeIf { it.isNotBlank() }
+        val imageAsset = optImageAssetFromJson(o)
 
         // id: varsa kullan, yoksa grade+subject+index tabanlı üret
         val explicitId = o.optString("id", "").takeIf { it.isNotBlank() }
@@ -1451,19 +1496,7 @@ object DbSeeder {
         )
     }
 
-    private fun dedupKey(e: QuestionEntity): String {
-        val exactStem = QuestionStemHash.normalizeStemExact(e.questionText)
-        val payload = buildString {
-            append(exactStem)
-            append('\n')
-            append(e.optionsJson)
-            append('\n')
-            append(e.answerIndex)
-        }
-        val digest = MessageDigest.getInstance("SHA-256").digest(payload.toByteArray(Charsets.UTF_8))
-        val contentHash = digest.joinToString("") { "%02x".format(it) }
-        return "${e.grade}|${e.subject}|$contentHash"
-    }
+    private fun dedupKey(e: QuestionEntity): String = QuestionStemHash.contentDedupKey(e)
 
     // --- Synthetic Grade 6 packs (programmatic) ---
 

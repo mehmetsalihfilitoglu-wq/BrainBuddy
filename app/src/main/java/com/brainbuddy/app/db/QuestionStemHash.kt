@@ -2,6 +2,7 @@ package com.brainbuddy.app.db
 
 import java.security.MessageDigest
 import java.nio.charset.Charset
+import java.nio.charset.StandardCharsets
 import java.util.Locale
 
 /**
@@ -70,4 +71,31 @@ object QuestionStemHash {
         val digest = MessageDigest.getInstance("SHA-256").digest(bytes)
         return digest.joinToString("") { "%02x".format(it) }
     }
+
+    /**
+     * Exact-content duplicate key: stem (exact norm) + full options JSON + answer index.
+     * Used for general seed distinctBy and for pack import duplicate detection.
+     */
+    fun contentDedupKey(
+        grade: Int,
+        subject: String,
+        questionText: String,
+        optionsJson: String,
+        answerIndex: Int
+    ): String {
+        val exactStem = normalizeStemExact(questionText)
+        val payload = buildString {
+            append(exactStem)
+            append('\n')
+            append(optionsJson)
+            append('\n')
+            append(answerIndex)
+        }
+        val digest = MessageDigest.getInstance("SHA-256").digest(payload.toByteArray(StandardCharsets.UTF_8))
+        val contentHash = digest.joinToString("") { "%02x".format(it) }
+        return "$grade|$subject|$contentHash"
+    }
+
+    fun contentDedupKey(entity: QuestionEntity): String =
+        contentDedupKey(entity.grade, entity.subject, entity.questionText, entity.optionsJson, entity.answerIndex)
 }

@@ -1623,8 +1623,7 @@ object QuestionPackImporter {
         val db = DatabaseProvider.get(context)
         val questionDao = db.questionDao()
         val existingStemKeys = questionDao.getAllQuestions().mapTo(mutableSetOf()) { e ->
-            val h = e.stemHash.substringBefore(":dup:")
-            "${e.grade}|${e.subject}|$h"
+            QuestionStemHash.contentDedupKey(e)
         }
 
         var inserted = 0
@@ -1651,9 +1650,9 @@ object QuestionPackImporter {
                 continue
             }
 
-            val stemKey = "${entity.grade}|${entity.subject}|${entity.stemHash}"
-            // Sadece aynı import batch'i içindeki tekrarları at; mevcut DB havuzuna göre agresif dedup yapma.
-            if (stemKey in batchSeenStemKeys) {
+            val stemKey = QuestionStemHash.contentDedupKey(entity)
+            // Exact-content dedup (stem + options + answerIndex), aligned with DbSeeder seed.
+            if (stemKey in batchSeenStemKeys || stemKey in existingStemKeys) {
                 skippedDuplicate++
                 continue
             }
@@ -1738,7 +1737,7 @@ object QuestionPackImporter {
             ?: o.optInt("correctIndex", 0)).coerceIn(0, options.size - 1)
 
         val subject = o.optString("subject", "").let { s ->
-            if (s.isBlank()) defaultSubject else normalizeSubject(s)
+            if (s.isBlank()) defaultSubject else normalizeSubject(s, defaultSubject)
         }
 
         val difficulty = when (val d = o.opt("difficulty")) {
@@ -1875,8 +1874,7 @@ object QuestionPackImporter {
         val questionDao = db.questionDao()
 
         val existingStemKeys = questionDao.getAllQuestions().mapTo(mutableSetOf()) { e ->
-            val h = e.stemHash.substringBefore(":dup:")
-            "${e.grade}|${e.subject}|$h"
+            QuestionStemHash.contentDedupKey(e)
         }
 
         var inserted = 0
@@ -1901,7 +1899,7 @@ object QuestionPackImporter {
 
             val entity = parsed.entity
             val gate = parsed.gate
-            val stemKey = "${entity.grade}|${entity.subject}|${entity.stemHash}"
+            val stemKey = QuestionStemHash.contentDedupKey(entity)
 
             if (stemKey in batchSeenStemKeys || stemKey in existingStemKeys) {
                 skippedDuplicate++
@@ -1967,7 +1965,7 @@ object QuestionPackImporter {
 
         val grade = (o.optInt("grade", 0).takeIf { it in 1..7 } ?: defaultGrade).coerceIn(1, 7)
         val subject = o.optString("subject", "").let { s ->
-            if (s.isBlank()) defaultSubject else normalizeSubject(s)
+            if (s.isBlank()) defaultSubject else normalizeSubject(s, defaultSubject)
         }
 
         val difficulty = when (val d = o.opt("difficulty")) {
@@ -2036,7 +2034,7 @@ object QuestionPackImporter {
         return ParsedQuestion(entity, gate, skillsJson)
     }
 
-    private fun normalizeSubject(s: String): String = when (s.trim().lowercase()) {
+    private fun normalizeSubject(s: String, fallback: String = "mat"): String = when (s.trim().lowercase()) {
         "mat", "matematik", "math" -> "mat"
         "turkce", "türkçe", "tr" -> "turkce"
         "fen", "fen bilimleri" -> "fen"
@@ -2045,6 +2043,6 @@ object QuestionPackImporter {
         "inkilap", "inkılap", "inkılap tarihi", "tc_inkilap" -> "inkilap"
         "din", "din kültürü", "din kültürü ve ahlak bilgisi" -> "din"
         "hayat", "hayat bilgisi" -> "hayat"
-        else -> "mat"
+        else -> fallback
     }
 }
