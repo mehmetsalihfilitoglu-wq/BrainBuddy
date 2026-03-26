@@ -1,0 +1,961 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "hayat",
+  "questions": [
+    {
+      "stem": "Bir çocuk hastalandığında en doğru davranış hangisidir?",
+      "options": ["Okula gitmeye devam eder", "Ailesi ile birlikte doktora gider", "İlaç reklâmından gördüğü ilacı içer", "Komşudan ilaç ister"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Sağlık hizmetleri",
+      "skills": ["Sağlıklı yaşam", "Karar verme"],
+      "explanation": "Hastalık durumunda mutlaka bir yetişkin eşliğinde doktora başvurulmalı; kendi kendine ilaç alınmamalıdır."
+    },
+    {
+      "stem": "Hastanede çalışan ve hastaları muayene edip tedavi eden kişiye ne denir?",
+      "options": ["Hemşire", "Doktor", "Eczacı", "Teknisyen"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Doktor, hastaları muayene ederek teşhis koyar ve tedavi planlar."
+    },
+    {
+      "stem": "Eczane nedir?",
+      "options": ["Hastaların yattığı yer", "İlaçların satıldığı ve hazırlandığı iş yeri", "Ameliyatların yapıldığı yer", "Diş çekilen yer"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Eczane, doktorun yazdığı reçetelere göre ilaçların temin edildiği iş yeridir."
+    },
+    {
+      "stem": "Komşularla iyi geçinmek için aşağıdakilerden hangisi yapılmamalıdır?",
+      "options": ["Gece geç saatlerde yüksek sesle müzik açmak", "Selamlaşmak", "Kapı önünü temiz tutmak", "Yardımlaşmak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Komşuluk ilişkileri",
+      "skills": ["Sosyal değerler", "Saygı"],
+      "explanation": "Gece yüksek ses komşuları rahatsız eder; iyi komşuluk saygı ve sessizliği gerektirir."
+    },
+    {
+      "stem": "Komşunun kapısı çalındığında tanımadığın biri çıkarsa ne yapmalısın?",
+      "options": ["İçeri girer misin diye bekler", "Yanlış kapıyı çaldığını söyleyip ayrılır", "Komşunun evini gezersin", "Evin içini merak edersin"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Komşuluk ilişkileri",
+      "skills": ["Sosyal değerler"],
+      "explanation": "Yanlış kapıyı çaldığında kibar şekilde özür dileyip ayrılmak doğru davranıştır."
+    },
+    {
+      "stem": "Toplu taşımada yaşlı birine yer vermek ne tür bir davranıştır?",
+      "options": ["Kurallara aykırı", "Saygılı ve yardımsever", "Gereksiz", "Tehlikeli"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Toplumsal yaşam",
+      "skills": ["Saygı", "Yardımseverlik"],
+      "explanation": "Yaşlı, engelli ve hamilelere yer vermek saygılı bir toplumsal davranıştır."
+    },
+    {
+      "stem": "Öğretmenin görevi nedir?",
+      "options": ["Yemek pişirmek", "Öğrencileri eğitmek ve bilgi kazandırmak", "Arabaları tamir etmek", "Yangınları söndürmek"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Öğretmenler, öğrencilerin bilgi ve beceri kazanmalarına rehberlik eder."
+    },
+    {
+      "stem": "İtfaiyecilerin görevi nedir?",
+      "options": ["Trafik düzenlemek", "Yangınları söndürmek ve can kurtarmak", "Hastaları tedavi etmek", "Mahkemelerde karar vermek"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "İtfaiyeciler, yangın söndürme ve kaza durumlarında can ile mal kurtarma görevini yapar."
+    },
+    {
+      "stem": "Polis memurları toplumda ne işe yarar?",
+      "options": ["Yolları temizler", "Halkın güvenliğini sağlar ve suçluları yakalar", "Operasyon yapar", "Mahkeme kararı verir"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Polis, toplumun güvenliğini korumak, suçu önlemek ve suçluları yakalamakla görevlidir."
+    },
+    {
+      "stem": "Çiftçilerin (çiftçi) görevi nedir?",
+      "options": ["Uzayda çalışmak", "Toprak işleyerek bitki ve hayvan yetiştirmek", "Köprü inşa etmek", "Uçak kullanmak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Çiftçiler, tarım yaparak toplumun gıda ihtiyacını karşılar."
+    },
+    {
+      "stem": "Para ne için kullanılır?",
+      "options": ["Yalnızca oyun oynamak için", "Mal ve hizmet almak için", "Yalnızca dekorasyon için", "Yakıt olarak kullanmak için"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Ekonomi temelleri",
+      "skills": ["Finansal okuryazarlık"],
+      "explanation": "Para, ihtiyaç duyulan mal ve hizmetleri satın almak için kullanılan değişim aracıdır."
+    },
+    {
+      "stem": "Harçlığını akıllıca kullanmak için ne yapmalısın?",
+      "options": ["Hepsini hemen harcamalısın", "İhtiyaçlarını belirleyip tasarruf etmelisin", "Başkasına vermelisin", "Yere atmalısın"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Ekonomi temelleri",
+      "skills": ["Finansal okuryazarlık", "Karar verme"],
+      "explanation": "Harçlığı akıllıca kullanmak; önce ihtiyaçları belirlemek, gereksiz harcamalardan kaçınmak ve bir kısmını biriktirmek demektir."
+    },
+    {
+      "stem": "Türkiye'nin en uzun nehri hangisidir?",
+      "options": ["Yeşilırmak", "Sakarya", "Kızılırmak", "Fırat"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Kızılırmak, yaklaşık 1355 km uzunluğuyla Türkiye'nin en uzun nehridir ve tamamen Türkiye sınırları içinde akar."
+    },
+    {
+      "stem": "Türkiye'nin en büyük gölü hangisidir?",
+      "options": ["Beyşehir Gölü", "Tuz Gölü", "Van Gölü", "Eğirdir Gölü"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Van Gölü, yaklaşık 3713 km² yüz ölçümüyle Türkiye'nin en büyük gölüdür."
+    },
+    {
+      "stem": "Türkiye hangi kıtada yer almaktadır?",
+      "options": ["Yalnızca Avrupa", "Yalnızca Asya", "Hem Avrupa hem Asya (iki kıta)", "Afrika"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Türkiye, İstanbul Boğazı ile Çanakkale Boğazı sayesinde hem Avrupa hem de Asya kıtasında toprakları olan bir ülkedir."
+    },
+    {
+      "stem": "Türkiye'nin güneyinde hangi deniz bulunmaktadır?",
+      "options": ["Karadeniz", "Ege Denizi", "Akdeniz", "Marmara Denizi"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Türkiye'nin güney kıyıları Akdeniz ile çevrilmektedir."
+    },
+    {
+      "stem": "Türkiye'nin kuzeyindeki deniz hangisidir?",
+      "options": ["Akdeniz", "Ege Denizi", "Karadeniz", "Hazar Denizi"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Karadeniz, Türkiye'nin kuzey kıyıları boyunca uzanmaktadır."
+    },
+    {
+      "stem": "Ağrı Dağı ile ilgili doğru olan bilgi hangisidir?",
+      "options": ["Türkiye'nin en kısa dağıdır", "Türkiye'nin en yüksek dağıdır (5137 m)", "Yurt dışındadır", "Orta Anadolu'dadır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Ağrı Dağı, 5137 metre yüksekliği ile Türkiye'nin en yüksek dağıdır ve Doğu Anadolu'da yer alır."
+    },
+    {
+      "stem": "Türkiye'de dört mevsim en belirgin şekilde hangi bölgede yaşanır?",
+      "options": ["Karadeniz Bölgesi", "İç Anadolu Bölgesi", "Akdeniz Bölgesi", "Ege Bölgesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "İç Anadolu'da kara iklimi hâkim olduğundan yazlar sıcak ve kurak, kışlar soğuk ve karlı geçer; dört mevsim belirgin biçimde hissedilir."
+    },
+    {
+      "stem": "Karadeniz Bölgesi'nin iklimi nasıldır?",
+      "options": ["Çok sıcak ve kurak", "Yağışlı ve nemli", "Çok soğuk ve karlı", "Çok kuru ve rüzgârlı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Karadeniz kıyıları yıl boyunca yağışlı ve nemli bir iklime sahiptir."
+    },
+    {
+      "stem": "Hangi bölgede turunçgiller (portakal, limon) en çok yetişir?",
+      "options": ["Karadeniz Bölgesi", "İç Anadolu Bölgesi", "Akdeniz Bölgesi", "Doğu Anadolu Bölgesi"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye tarımı",
+      "skills": ["Coğrafi farkındalık", "Tarım"],
+      "explanation": "Akdeniz'in sıcak ve ılıman iklimi turunçgil yetiştiriciliğine çok elverişlidir."
+    },
+    {
+      "stem": "Fındık üretiminde Türkiye dünyada hangi sıradadadır?",
+      "options": ["Onuncu", "Beşinci", "Birinci", "İkinci"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye tarımı",
+      "skills": ["Ekonomik farkındalık"],
+      "explanation": "Türkiye, dünya fındık üretiminin yaklaşık %70'ini karşılayarak birinci sıradadır; Karadeniz kıyıları fındık bahçeleriyle ünlüdür."
+    },
+    {
+      "stem": "Hangi taşıt havada yolcu taşır?",
+      "options": ["Gemi", "Tren", "Uçak", "Otobüs"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Ulaşım",
+      "skills": ["Genel bilgi"],
+      "explanation": "Uçak, hava yoluyla yolcu ve yük taşıma aracıdır."
+    },
+    {
+      "stem": "Denizde yolcu veya yük taşıyan büyük araca ne denir?",
+      "options": ["Uçak", "Tren", "Gemi", "Otomobil"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Ulaşım",
+      "skills": ["Genel bilgi"],
+      "explanation": "Gemi, deniz yoluyla yolcu ve yük taşıyan büyük deniz aracıdır."
+    },
+    {
+      "stem": "Bisiklet kullanırken hangi koruyucu ekipman mutlaka takılmalıdır?",
+      "options": ["Önlük", "Kask (miğfer)", "Eldiven", "Ayak bileği bandajı"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Trafik ve güvenlik",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Kask, bisiklet ve diğer küçük araç kullanımında kafa yaralanmalarını önlemenin en etkili yoludur."
+    },
+    {
+      "stem": "Araçta seyahat ederken emniyet kemeri neden takılmalıdır?",
+      "options": ["Sadece ön koltuklarda gereklidir", "Kaza anında vücudu korur ve hayat kurtarır", "Sürücüyü rahatlatır", "Yakıt tasarrufu sağlar"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Trafik ve güvenlik",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Emniyet kemeri, kaza anında ani frenleme ve çarpışmalarda vücudun öne fırlamasını engelleyerek hayat kurtarır."
+    },
+    {
+      "stem": "Doğal afet sonrasında evler güvenli olmayabilir. Bu durumda nereye sığınılır?",
+      "options": ["Ağaçların altına", "Köprünün altına", "Toplanma alanı veya deprem çadır kentine", "Elektrik direklerinin yanına"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Afet güvenliği",
+      "skills": ["Afet bilinci"],
+      "explanation": "Deprem sonrası güvenli olmayan yapılardan uzaklaşılarak belirlenen toplanma alanlarına veya çadır kentlere gidilmelidir."
+    },
+    {
+      "stem": "Çöpleri nereye atmalıyız?",
+      "options": ["Yollara ve parklara", "Denizlere ve nehirlere", "Çöp kutularına ve geri dönüşüm kutularına", "Ağaçların dibine"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Çevre koruma",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Çöpler mutlaka çöp kutusuna atılmalı; cam, plastik ve kâğıt gibi geri dönüşebilir maddeler ayrı kutulara konulmalıdır."
+    },
+    {
+      "stem": "Plastik bir şişeyi geri dönüşüme vermek yerine çöpe atarsak ne olur?",
+      "options": ["Hızla yok olur", "Doğada yüzlerce yıl bozulmadan kalır ve çevre kirliliği yaratır", "Gübre olur", "Suya karışarak iyileşir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["Çevre bilinci", "Neden-sonuç"],
+      "explanation": "Plastik, doğal yollarla yüzlerce yıl bozulmaz; toprağa ve suya karışarak canlılara zarar verir. Bu yüzden geri dönüşüm çok önemlidir."
+    },
+    {
+      "stem": "Ormanlarda neden yangın çıkarmamak gerekir?",
+      "options": ["Ormanlar zaten yaşlıdır", "Yangın ormandaki tüm canlıları yok eder ve yeniden yetişmesi onlarca yıl alır", "Yangın ağaçlara fayda sağlar", "İtfaiyeciler zaten söndürür"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["Çevre bilinci", "Neden-sonuç"],
+      "explanation": "Orman yangınları binlerce canlının yaşam alanını yok eder; bir ormanın yeniden oluşması onlarca, hatta yüzlerce yıl alabilir."
+    },
+    {
+      "stem": "Kâğıt hangi doğal kaynaktan elde edilir?",
+      "options": ["Taşlardan", "Ağaçlardan", "Balıklardan", "Cam parçalarından"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Doğal kaynaklar",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Kâğıt, ağaç odunundan elde edilen selülozdan üretilir; kâğıt geri dönüşümü ormanların korunmasına yardımcı olur."
+    },
+    {
+      "stem": "Güneş enerjisi neden yenilenebilir bir enerji kaynağıdır?",
+      "options": ["Çok pahalıdır", "Hiç kullanılmaz", "Tükenmez; güneş ışığı sürekli gelir", "Sadece fabrikalar kullanabilir"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Enerji kaynakları",
+      "skills": ["Çevre bilinci", "Eleştirel düşünme"],
+      "explanation": "Güneş enerjisi, güneşin ışınımından elde edildiğinden tükenmez ve çevre dostu bir yenilenebilir enerji kaynağıdır."
+    },
+    {
+      "stem": "Rüzgâr enerjisi nasıl elde edilir?",
+      "options": ["Kömür yakılarak", "Rüzgâr türbinleri döndürülerek elektrik üretilerek", "Güneş panelleriyle", "Barajlardan"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Enerji kaynakları",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Rüzgâr türbinleri, rüzgârın gücüyle dönerek jeneratör yardımıyla elektrik üretir."
+    },
+    {
+      "stem": "Bitkilerin büyümesi için hangisi şarttır?",
+      "options": ["Sadece ışık", "Su, ışık ve toprak (besin maddeleri)", "Sadece su", "Sadece gübre"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Bitkiler büyümek için suya, güneş ışığına ve topraktan aldıkları mineral besinlere ihtiyaç duyar."
+    },
+    {
+      "stem": "Fotosentez nedir?",
+      "options": ["Bitkilerin hareket etmesi", "Bitkilerin güneş ışığı, su ve karbondioksitten besin üretmesi", "Bitkilerin uyuması", "Bitkilerin tohum üretmesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Fotosentez, yeşil bitkilerin güneş enerjisini kullanarak su ve karbondioksidi şekere dönüştürdüğü ve oksijen açığa çıkardığı süreçtir."
+    },
+    {
+      "stem": "Hangi hayvan suda yaşar ve solungaçlarla nefes alır?",
+      "options": ["Kurbağa", "Balık", "Kaplumbağa", "Yunus"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Canlılar dünyası",
+      "skills": ["Hayvan sınıflandırması"],
+      "explanation": "Balıklar, solungaçlarıyla suyun içindeki oksijeni alarak nefes alan su canlılarıdır."
+    },
+    {
+      "stem": "Aşağıdaki hayvanlardan hangisi memeli değildir?",
+      "options": ["İnek", "Yunus", "Karga", "Köpek"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Hayvan sınıflandırması"],
+      "explanation": "Karga bir kuştur; kuşlar memeli değildir. Memeli hayvanlar yavrularını sütle besler; kuşlar yumurtlayarak ürer."
+    },
+    {
+      "stem": "Hangi hayvan kışın uyur (kış uykusu)?",
+      "options": ["Kartal", "Ayı", "At", "Koyun"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Canlılar dünyası",
+      "skills": ["Hayvan davranışları"],
+      "explanation": "Ayılar, kış aylarında besin bulamadıkları için kış uykusuna yatarlar."
+    },
+    {
+      "stem": "Arılar çiçekler arasında uçarak ne sağlar?",
+      "options": ["Çiçeklere zarar verir", "Tozlaşmayı sağlar ve bitkilerin üremesine yardım eder", "Çiçekleri yer", "Kış uyandırır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Ekosistem", "Neden-sonuç"],
+      "explanation": "Arılar çiçeklerden bal özü toplarken üzerlerine yapışan çiçek tozunu (polenini) diğer çiçeklere taşıyarak tozlaşmayı sağlar."
+    },
+    {
+      "stem": "Kelebeklerin yaşam döngüsü sırasıyla nasıldır?",
+      "options": ["Larva → yumurta → kelebek", "Yumurta → tırtıl (larva) → krizalit (pupa) → kelebek", "Yumurta → kelebek → tırtıl", "Tırtıl → yumurta → kelebek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Bilimsel süreç"],
+      "explanation": "Kelebekler dört aşamalı tam başkalaşım geçirir: yumurta → tırtıl → krizalit → kelebek."
+    },
+    {
+      "stem": "Harita üzerinde belirli bir yeri bulmak için ne kullanılır?",
+      "options": ["Cetvel", "Pusula ve koordinatlar", "Eldiven", "Termometre"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Harita okuma",
+      "skills": ["Coğrafi beceriler"],
+      "explanation": "Harita üzerinde konum bulmak için pusula (yön) ve koordinat sistemi (enlem-boylam) kullanılır."
+    },
+    {
+      "stem": "Haritada kuzey yönü genellikle hangi yöne işaret eder?",
+      "options": ["Aşağıya", "Sağa", "Yukarıya", "Sola"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Harita okuma",
+      "skills": ["Coğrafi beceriler"],
+      "explanation": "Standart haritalarda kuzey, haritanın üst tarafında gösterilir."
+    },
+    {
+      "stem": "Türkiye'nin başkenti Ankara'da bulunan önemli yapı hangisidir?",
+      "options": ["Dolmabahçe Sarayı", "Atatürk'ün türbesi Anıtkabir", "Topkapı Sarayı", "Sümela Manastırı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi ve kültürü",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "Anıtkabir, Mustafa Kemal Atatürk'ün türbesinin bulunduğu anıt yapı olup Ankara'dadır."
+    },
+    {
+      "stem": "Mustafa Kemal Atatürk hangi yıl Türkiye Cumhuriyeti'ni kurmuştur?",
+      "options": ["1920", "1923", "1930", "1938"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "Türkiye Cumhuriyeti, 29 Ekim 1923 tarihinde Mustafa Kemal Atatürk öncülüğünde ilan edilmiştir."
+    },
+    {
+      "stem": "Atatürk'ün çocuklara verdiği önem hangi söz/tutumla en iyi özetlenir?",
+      "options": ["'Çocuklar görülmeli ama duyulmamalı'", "'Çocuklar milletin geleceğidir'", "'Çocuklar çalışmamalıdır'", "'Çocuklar okula gitmelidir ama spor yapmamalıdır'"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi ve kültürü",
+      "skills": ["Tarihsel farkındalık", "Değerler eğitimi"],
+      "explanation": "Atatürk, 'Çocuklar milletin geleceğidir' sözüyle çocuklara büyük değer verdiğini göstermiş; 23 Nisan'ı çocuklara armağan etmiştir."
+    },
+    {
+      "stem": "Kurtuluş Savaşı hangi yıllar arasında verilmiştir?",
+      "options": ["1908-1918", "1919-1922", "1923-1930", "1914-1918"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "Kurtuluş Savaşı, 19 Mayıs 1919'dan 9 Eylül 1922'ye kadar sürmüş ve Türk milletinin bağımsızlığını kazanmasıyla sonuçlanmıştır."
+    },
+    {
+      "stem": "Türkiye Büyük Millet Meclisi (TBMM) nerede bulunmaktadır?",
+      "options": ["İstanbul", "İzmir", "Ankara", "Bursa"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Devlet yapısı",
+      "skills": ["Vatandaşlık bilgisi"],
+      "explanation": "TBMM, Türkiye'nin başkenti Ankara'da bulunmaktadır ve millî iradenin temsil edildiği yasama organıdır."
+    },
+    {
+      "stem": "Vatandaşların en temel görevi hangisidir?",
+      "options": ["Sadece vergi ödemek", "Yasalara uymak, oy kullanmak ve ülkeye katkı sağlamak", "Yalnızca şikâyetçi olmak", "Hiçbir görev yoktur"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["Vatandaşlık bilgisi"],
+      "explanation": "İyi bir vatandaş yasalara uyar, oy kullanarak demokrasiye katılır, vergi öder ve topluma katkı sağlar."
+    },
+    {
+      "stem": "Müzeler neden önemlidir?",
+      "options": ["Sadece turistler için açılır", "Geçmişin eserlerini koruyarak toplumun tarihini ve kültürünü yaşatır", "Yalnızca eğlence yeridir", "Pahalı dükkanlar barındırır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kültür ve sanat",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Müzeler, tarihî eserleri ve sanat yapıtlarını koruyarak toplumların kültürel mirasını gelecek nesillere aktarır."
+    },
+    {
+      "stem": "Kütüphane ne işe yarar?",
+      "options": ["Yalnızca gazete okunur", "Kitap, dergi ve dijital kaynaklara ulaşmayı sağlar; bilgi ve kültür merkezi işlevi görür", "Yalnızca film izlenir", "Müzik dinleme mekanıdır"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Kültür ve sanat",
+      "skills": ["Kültürel farkındalık", "Okuma alışkanlığı"],
+      "explanation": "Kütüphane, kitap ve çeşitli yayınları kullanıcılara sunarak bilgiye erişimi kolaylaştıran kültür kurumudur."
+    },
+    {
+      "stem": "Kitap okumak neden faydalıdır?",
+      "options": ["Gözleri bozar", "Kelime dağarcığını geliştirir, hayal gücünü zenginleştirir ve bilgi kazandırır", "Zaman kaybettirir", "Sadece büyükler için gereklidir"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Okuma alışkanlığı",
+      "skills": ["Öğrenme stratejileri"],
+      "explanation": "Düzenli okuma; dil becerilerini, hayal gücünü, empatiyi ve genel bilgi düzeyini önemli ölçüde geliştirir."
+    },
+    {
+      "stem": "Türk folklorunda hangi enstrüman en çok tanınır?",
+      "options": ["Piyano", "Saz (bağlama)", "Keman", "Davul yalnız"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kültür ve sanat",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Bağlama (saz), Türk halk müziğinin simgesi sayılan telli çalgıdır."
+    },
+    {
+      "stem": "Ramazan Bayramı kaç gün sürer?",
+      "options": ["1 gün", "2 gün", "3 gün", "7 gün"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Kültür ve bayramlar",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Ramazan Bayramı (Şeker Bayramı) üç gün sürer ve Ramazan ayının ardından kutlanır."
+    },
+    {
+      "stem": "Kurban Bayramı ne zaman kutlanır?",
+      "options": ["Ramazan ayının sonunda", "Hicri takvimde Zilhicce ayının 10. günü ve ardından 3 gün", "Yılbaşında", "Baharın gelişiyle"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kültür ve bayramlar",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Kurban Bayramı (Eid al-Adha), Hicri takvimin Zilhicce ayının 10. günü başlar ve dört gün sürer."
+    },
+    {
+      "stem": "Nevruz ne zaman kutlanır ve ne anlama gelir?",
+      "options": ["Sonbaharın başlangıcı; 22 Eylül", "İlkbaharın başlangıcı; 21 Mart (Bahar Bayramı)", "Kışın başlangıcı; 21 Aralık", "Yazın başlangıcı; 21 Haziran"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kültür ve bayramlar",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Nevruz, 21 Mart'ta yılın başlangıcını ve baharı simgeleyen Türk ve diğer bazı halkların bayramıdır."
+    },
+    {
+      "stem": "Hangi davranış sınıfta derse saygısızlık sayılır?",
+      "options": ["Soru sorarak öğretmene katılmak", "Sessizce not almak", "Ders sırasında arkadaşlarla konuşmak ve gürültü yapmak", "El kaldırarak söz istemek"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Okul kuralları",
+      "skills": ["Sosyal değerler", "Saygı"],
+      "explanation": "Ders sırasında izinsiz konuşmak hem öğretmene hem de arkadaşlara saygısızlıktır ve öğrenme ortamını bozar."
+    },
+    {
+      "stem": "Sınıfta bir fikir paylaşmak istediğinde ne yapmalısın?",
+      "options": ["Bağırarak konuşmalısın", "El kaldırarak sıranı beklemelisin", "Öğretmeni yarıda kesmelisin", "Defterine yazıp bırakmalısın"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Okul kuralları",
+      "skills": ["Sosyal değerler"],
+      "explanation": "El kaldırarak söz istemek, hem saygılı hem de düzenli bir iletişim yöntemidir."
+    },
+    {
+      "stem": "Arkadaşın yanlışlıkla seni ittiğinde ne yapmalısın?",
+      "options": ["Hemen kavga etmelisin", "Sakin bir şekilde konuşarak sorunu çözmelisin", "Öğretmene kızgınlıkla şikâyet etmelisin", "Ona daha sert vurmalısın"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çatışma çözümü",
+      "skills": ["Sosyal-duygusal beceriler", "Empati"],
+      "explanation": "Sakin kalmak ve diyalog kurmak, çatışmaları barışçıl yollarla çözmenin temelidir."
+    },
+    {
+      "stem": "Zorbalık (bully) nedir?",
+      "options": ["Arkadaşlara yardım etmek", "Birini kasıtlı ve tekrarlı olarak incitmek veya rahatsız etmek", "Birlikte oyun oynamak", "Hediye vermek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Zorbalıkla başa çıkma",
+      "skills": ["Sosyal-duygusal beceriler"],
+      "explanation": "Zorbalık, bir kişiye kasıtlı ve sürekli olarak fiziksel, sözlü ya da duygusal zarar verme davranışıdır."
+    },
+    {
+      "stem": "Zorbalığa uğrayan bir arkadaşını gördüğünde ne yapmalısın?",
+      "options": ["Görmezden gelmelisin", "Sen de katılmalısın", "Güvenilir bir yetişkine bildirmelisin", "Sadece izlemelisin"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Zorbalıkla başa çıkma",
+      "skills": ["Sosyal-duygusal beceriler", "Empati"],
+      "explanation": "Zorbalığa sessiz kalmak onu desteklemek anlamına gelir; güvenilir bir yetişkine bildirmek durumu düzelterek zarar görmesini önler."
+    },
+    {
+      "stem": "Sağlıklı bir arkadaşlık ilişkisinde hangisi yoktur?",
+      "options": ["Güven", "Saygı", "Baskı ve tehdit", "Paylaşım"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Sosyal ilişkiler",
+      "skills": ["Sosyal-duygusal beceriler"],
+      "explanation": "Sağlıklı arkadaşlıklar karşılıklı güven, saygı ve paylaşıma dayanır; baskı ve tehdit sağlıklı ilişkinin karşıtıdır."
+    },
+    {
+      "stem": "İnsanlara yardım etmek neden önemlidir?",
+      "options": ["Karşılık beklediğimiz için", "Toplumsal dayanışmayı güçlendirir ve toplumu daha mutlu kılar", "Yasalar zorladığı için", "Ödül alacağımız için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Değerler eğitimi",
+      "skills": ["Sosyal-duygusal beceriler", "Empati"],
+      "explanation": "Yardımseverlik, toplumsal bağları güçlendiren temel bir değerdir; karşılıksız yardım etmek birlikte yaşamın özüdür."
+    },
+    {
+      "stem": "Dürüstlük ne demektir?",
+      "options": ["Her zaman kazanmayı istemek", "Doğruyu söylemek ve söylediklerimizle yaptıklarımızın örtüşmesi", "Başkalarını eleştirmek", "Her şeyi paylaşmak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Değerler eğitimi",
+      "skills": ["Sosyal-duygusal beceriler"],
+      "explanation": "Dürüstlük; doğruyu söylemek, sözünü tutmak ve içimizle dışımızın uyumlu olmasıdır."
+    },
+    {
+      "stem": "Sorumluluk almak ne anlama gelir?",
+      "options": ["Sadece büyüklere ait bir kavramdır", "Üstlenilen görev ve yükümlülükleri eksiksiz yerine getirmek", "Başkalarının işini yapmak", "Sadece okul ödevlerini teslim etmek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Değerler eğitimi",
+      "skills": ["Sosyal-duygusal beceriler"],
+      "explanation": "Sorumluluk, üstlendiğin görevleri özenle yerine getirmek ve sonuçlarını kabullenebilmektir."
+    },
+    {
+      "stem": "Doğru bir beslenme tabağında hangisi yer almalıdır?",
+      "options": ["Yalnızca et", "Yalnızca meyve", "Sebze, meyve, tahıl, protein ve süt ürünleri dengeli şekilde", "Yalnızca şekerli yiyecekler"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Sağlıklı beslenme",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Dengeli beslenme; her besin grubundan (sebze-meyve, tahıl, protein kaynakları, süt ürünleri) uygun miktarlarda almayı gerektirir."
+    },
+    {
+      "stem": "Kahvaltı neden önemlidir?",
+      "options": ["Gerekli değildir", "Gece boyunca boş kalan vücuda enerji sağlar ve dikkat-konsantrasyonu artırır", "Sadece hafta sonları yapılır", "Akşam yemeğini değiştirir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sağlıklı beslenme",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Kahvaltı, gece açlığından sonra vücudu ve beyni enerjilendirerek öğrenim başarısını ve konsantrasyonu artırır."
+    },
+    {
+      "stem": "Egzersiz yapmak sağlığa nasıl katkı sağlar?",
+      "options": ["Yalnızca kilo vermek için gereklidir", "Kalp-damar sağlığını güçlendirir, stresi azaltır ve kemikleri geliştirir", "Sadece sporculara yarar", "Zararlıdır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Düzenli egzersiz; kas ve kemik gelişimini destekler, kalp sağlığını korur, stresi azaltır ve genel refahı artırır."
+    },
+    {
+      "stem": "Bir çocuğun günde kaç saat uyuması önerilir?",
+      "options": ["4-5 saat", "6-7 saat", "9-11 saat", "14-16 saat"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Okul çağındaki çocukların sağlıklı büyüme ve gelişme için günde 9-11 saat uyuması önerilir."
+    },
+    {
+      "stem": "Dişlerini ne zaman fırçalamalısın?",
+      "options": ["Ayda bir kez", "Sadece gece yatmadan önce", "Sabah uyandıktan sonra ve gece yatmadan önce (günde en az iki kez)", "Yalnızca tatlı yedikten sonra"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Kişisel hijyen",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Dişler en az sabah ve gece olmak üzere günde iki kez fırçalanmalı; her fırçalamada en az iki dakika geçirilmelidir."
+    },
+    {
+      "stem": "Ellerimizi yıkamak için en az kaç saniye ovmalıyız?",
+      "options": ["5 saniye", "10 saniye", "20 saniye", "60 saniye"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Kişisel hijyen",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Dünya Sağlık Örgütü'ne göre eller, sabunla en az 20 saniye ovalanarak yıkanmalıdır."
+    },
+    {
+      "stem": "Hapşırdığında veya öksürdüğünde ne yapmalısın?",
+      "options": ["Ellerinle ağzını kapatmalısın", "Dirseğinin iç kısmıyla veya mendille ağzını ve burnunu kapatmalısın", "Başkalarına bakarak hapşırmalısın", "Hiçbir şey yapmamalısın"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Kişisel hijyen",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Öksürürken veya hapşırırken dirseğin iç kısmını veya mendili kullanmak mikropların havaya yayılmasını önler."
+    },
+    {
+      "stem": "Beyin, vücudumuzda ne işe yarar?",
+      "options": ["Yalnızca düşünmeye yarar", "Vücudun tüm işlevlerini denetler; düşünme, hareket, his ve organların çalışmasını koordine eder", "Sadece uyku sırasında çalışır", "Kalbi durdurmaya yarar"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "İnsan vücudu",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Beyin, merkezi sinir sisteminin ana organıdır; düşünce, hareket, his ve tüm organların koordinasyonunu sağlar."
+    },
+    {
+      "stem": "Kalbimiz ne işe yarar?",
+      "options": ["Oksijeni üretir", "Kanı tüm vücuda pompalar", "Besinleri sindirir", "Sesi duyar"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "İnsan vücudu",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Kalp, kasılarak kanı damarlar aracılığıyla tüm vücuda pompalar ve dokular için oksijen ile besin taşımasını sağlar."
+    },
+    {
+      "stem": "Kemiklerimiz ne için önemlidir?",
+      "options": ["Sadece hareket için", "Vücuda destek sağlar, organları korur ve kan hücrelerini üretir", "Yalnızca büyüme için", "Sadece denge için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "İnsan vücudu",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Kemikler; vücuda destek verir, iç organları korur ve kemik iliğinde kan hücreleri üretir."
+    },
+    {
+      "stem": "Sütün kemik gelişimine katkısı nedir?",
+      "options": ["Hiçbir katkısı yoktur", "Kalsiyum içeriği sayesinde kemikleri güçlendirir", "Sadece kasları büyütür", "Sadece dişlere faydalıdır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sağlıklı beslenme",
+      "skills": ["Sağlık bilinci", "Neden-sonuç"],
+      "explanation": "Süt, yüksek kalsiyum içeriğiyle kemik ve diş gelişiminde kritik rol oynar; özellikle büyüme çağındaki çocuklar için önemlidir."
+    },
+    {
+      "stem": "Türkiye'de hangi doğal afet en sık yaşanır?",
+      "options": ["Kasırga", "Deprem", "Tsunami", "Volkan patlaması"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Afet güvenliği",
+      "skills": ["Coğrafi farkındalık", "Afet bilinci"],
+      "explanation": "Türkiye, aktif fay hatları üzerinde yer aldığından depremler en sık yaşanan doğal afettir."
+    },
+    {
+      "stem": "Deprem sırasında dışarıdaysan ne yapmalısın?",
+      "options": ["Binalara yaklaşmalısın", "Binalardan, elektrik direklerinden ve ağaçlardan uzak, açık bir alana gitmelisin", "Arabanın altına girmelisin", "Köprünün altına sığınmalısın"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Afet güvenliği",
+      "skills": ["Afet bilinci"],
+      "explanation": "Dışarıda iken deprem olursa bina, ağaç ve elektrik direklerinden uzak, açık bir alana çömelerek başınızı koruyun."
+    },
+    {
+      "stem": "Sel felaketi sırasında dere ve ırmak yataklarından uzak durulması gerekir. Neden?",
+      "options": ["Su temiz olduğu için", "Ani yükselen sular can ve mal kaybına yol açar", "Derelerde balık yoktur", "Sular soğuk olduğu için"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Afet güvenliği",
+      "skills": ["Afet bilinci", "Neden-sonuç"],
+      "explanation": "Sel sırasında dere yatakları aniden kabararak şiddetli akıntıya dönüşebilir; yüksek alanlara çekilmek hayat kurtarır."
+    },
+    {
+      "stem": "Türkiye'de okul öncesi (4-6 yaş) eğitim nerede verilir?",
+      "options": ["Ortaokullarda", "Anaokulları ve anaokulu sınıflarında", "Liselerde", "Üniversitelerde"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Eğitim sistemi",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Türkiye'de 4-6 yaş arası çocuklar, temel becerilerin kazandırıldığı anaokulu ve anasınıflarında eğitim görür."
+    },
+    {
+      "stem": "İlköğretim kaç yılı kapsar?",
+      "options": ["4 yıl", "8 yıl", "12 yıl", "6 yıl"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Eğitim sistemi",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Türkiye'de zorunlu ilköğretim ilkokul (4 yıl) ve ortaokul (4 yıl) olmak üzere toplam 8 yıldır."
+    },
+    {
+      "stem": "Okulda başarılı olmak için ne yapmalısın?",
+      "options": ["Sadece sınavdan önce çalışmak", "Derslere düzenli çalışmak, ödev yapmak ve dikkatli dinlemek", "Yalnızca öğretmenin favorisi olmak", "Hiç çalışmamak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Öğrenme alışkanlıkları",
+      "skills": ["Öğrenme stratejileri"],
+      "explanation": "Okul başarısı; düzenli çalışma, aktif dinleme ve ödevlerin zamanında yapılmasına dayanır."
+    },
+    {
+      "stem": "Türkiye Cumhuriyeti'nin millî marşının adı nedir?",
+      "options": ["Özgürlük Marşı", "İstiklal Marşı", "Cumhuriyet Marşı", "Kurtuluş Marşı"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Millî semboller",
+      "skills": ["Vatandaşlık bilgisi"],
+      "explanation": "Türkiye Cumhuriyeti'nin ulusal marşı, Mehmet Akif Ersoy tarafından yazılan İstiklal Marşı'dır."
+    },
+    {
+      "stem": "Türk bayrağının üzerindeki semboller nelerdir?",
+      "options": ["Güneş ve yıldız", "Ay yıldız (hilal ve beş köşeli yıldız)", "Çift başlı kartal", "Üç ay"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Millî semboller",
+      "skills": ["Vatandaşlık bilgisi"],
+      "explanation": "Türk bayrağı, kırmızı zemin üzerine beyaz hilal (ay) ve beş köşeli yıldızdan oluşur."
+    },
+    {
+      "stem": "19 Mayıs hangi olayı anmak için kutlanır?",
+      "options": ["Cumhuriyetin ilanı", "Atatürk'ün Samsun'a çıkışı ve Kurtuluş Savaşı'nın başlangıcı", "Çocuklara verilen bayram", "Zafer Bayramı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Millî bayramlar",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "19 Mayıs 1919'da Mustafa Kemal'in Samsun'a çıkışı, Kurtuluş Savaşı'nın fiilen başladığının sembolüdür; aynı zamanda Gençlik ve Spor Bayramı'dır."
+    },
+    {
+      "stem": "30 Ağustos Zafer Bayramı neyi kutlar?",
+      "options": ["Cumhuriyetin kuruluşunu", "1922'de Dumlupınar'da kazanılan büyük zaferi", "23 Nisan bayramını", "İstanbul'un fethini"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Millî bayramlar",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "30 Ağustos 1922'de Dumlupınar'da kazanılan Büyük Taarruz zaferi, işgal kuvvetlerini Anadolu'dan çıkarmıştır."
+    },
+    {
+      "stem": "Hangi davranış çevremizi temiz tutar?",
+      "options": ["Plastik poşet kullanmak", "Çöpü çöp kutusuna atmak ve geri dönüşümü desteklemek", "Fabrika dumanını artırmak", "Arabayla kısa mesafe gitmek"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Çevre koruma",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Çöpü doğru yere atmak ve geri dönüşümü yaşam biçimi hâline getirmek çevreyi korumanın temel adımlarıdır."
+    },
+    {
+      "stem": "Su tasarrufu için en etkili yöntem hangisidir?",
+      "options": ["Musluğu açık bırakarak fırçalamak", "Duş yerine küvet kullanmak", "Muslukları kapatmak ve damlayan musluğu onartmak", "Her gün araba yıkamak"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Su tasarrufu",
+      "skills": ["Çevre bilinci", "Neden-sonuç"],
+      "explanation": "Muslukları gereksiz açık bırakmamak ve damlayan muslukları onartmak en pratik su tasarrufu yöntemleridir; damlayan bir musluk yılda binlerce litre su kaybettirir."
+    },
+    {
+      "stem": "Elektrik tasarrufu için ne yapmalıyız?",
+      "options": ["Kullanmadığımız ışıkları açık bırakmalıyız", "Kullanılmayan odaların ışıklarını söndürmeliyiz", "Televizyonu sürekli açık bırakmalıyız", "Klimayı en yüksek ayarda kullanmalıyız"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Enerji tasarrufu",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Kullanılmayan ışıkları ve elektronik cihazları kapatmak hem enerji hem de para tasarrufu sağlar."
+    },
+    {
+      "stem": "Hangi alışkanlık sağlıklı bir uyku düzeni için önemlidir?",
+      "options": ["Her gece farklı saatte yatmak", "Her gece aynı saatte yatmak ve uyku öncesi ekran kullanımından kaçınmak", "Akşam çok tatlı yemek", "Yatmadan önce çok fazla egzersiz yapmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Düzenli uyku saatleri ve yatmadan önce ekrandan uzak durmak beyin ve vücudun dinlenmesini kolaylaştırır."
+    },
+    {
+      "stem": "Stres veya üzüntü hissettiğinde ne yapmalısın?",
+      "options": ["Kimseyle konuşmaman gerekir", "Güvendiğin bir kişiyle konuşmalı veya hobilerle ilgilenmelisin", "Aşırı yemek yemelisin", "Ders çalışmayı tamamen bırakmalısın"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Duygusal sağlık",
+      "skills": ["Sosyal-duygusal beceriler"],
+      "explanation": "Güvenilir birinden destek almak, hobilerle meşgul olmak veya hareket etmek stresi azaltmanın sağlıklı yollarıdır."
+    },
+    {
+      "stem": "İnternet üzerinden tanışmadığın biri sana fotoğraflarını isterse ne yapmalısın?",
+      "options": ["Göndermelisin, zarar vermez", "Reddetmeli ve güvenilir bir yetişkine bildirmelisin", "E-posta adresini paylaşmalısın", "Arkadaşlarınla paylaşmalısın"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Dijital güvenlik",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Tanımadığın kişilere kişisel bilgi ve fotoğraf vermek güvenli değildir; bu tür istekleri hemen güvenilir bir yetişkine bildirmelisin."
+    },
+    {
+      "stem": "Sosyal medyada paylaşım yaparken neye dikkat etmeliyiz?",
+      "options": ["Her şeyi herkesle paylaşabiliriz", "Adres, telefon gibi kişisel bilgileri ve özel fotoğrafları paylaşmaktan kaçınmalıyız", "Yabancılara her soruyu cevaplamamız gerekir", "Şifremizi arkadaşlarımızla paylaşabiliriz"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Dijital güvenlik",
+      "skills": ["Güvenlik farkındalığı", "Medya okuryazarlığı"],
+      "explanation": "Sosyal medyada kişisel bilgiler paylaşmak gizlilik ihlallerine ve tehlikeli durumlara yol açabilir."
+    },
+    {
+      "stem": "Ekran başında geçirilen sürenin fazla olması hangi soruna yol açar?",
+      "options": ["Daha zeki olmayı sağlar", "Göz yorgunluğu, uyku sorunları ve hareketsizliğe bağlı sağlık sorunlarına yol açar", "Sadece eğlenceli olduğu için zararsızdır", "Sosyal becerileri geliştirir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Dijital sağlık",
+      "skills": ["Sağlık bilinci", "Eleştirel düşünme"],
+      "explanation": "Aşırı ekran kullanımı göz bozukluğu, uyku düzensizliği, obezite ve sosyal izolasyon gibi sorunlara neden olabilir."
+    },
+    {
+      "stem": "Oyun oynamak çocuklar için neden önemlidir?",
+      "options": ["Sadece eğlence amaçlıdır", "Sosyal, duygusal ve bilişsel gelişimi destekler; yaratıcılığı artırır", "Gereksiz zaman kaybıdır", "Sadece fiziksel güç için önemlidir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çocuk gelişimi",
+      "skills": ["Sosyal-duygusal beceriler"],
+      "explanation": "Oyun; dil, sosyal ilişki, problem çözme ve yaratıcılık gibi kritik gelişim alanlarını destekler."
+    },
+    {
+      "stem": "Hayvanlara iyi davranmak neden önemlidir?",
+      "options": ["Sadece evcil hayvanlar için geçerlidir", "Tüm canlıların yaşama hakkı vardır; acı çekmemelerini sağlamak ahlaki bir sorumluluktur", "Hayvanlar duygusaldır ama sorumluluk gerektirmez", "Sadece çiftlikteki hayvanlar için önemlidir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Hayvan hakları",
+      "skills": ["Empati", "Değerler eğitimi"],
+      "explanation": "Hayvanlara saygılı davranmak canlılara duyulan saygının ve empatin yansımasıdır; tüm canlıların acı çekmeme hakkı vardır."
+    },
+    {
+      "stem": "Türkiye'de nesli tehlike altında olan hayvan hangisidir?",
+      "options": ["Keçi", "Anadolu Leoparı", "Tavuk", "Koyun"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Biyoçeşitlilik",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Anadolu Leoparı, yaşam alanı kaybı ve kaçak avcılık nedeniyle Türkiye'de nesli tükenmekte olan türler arasındadır."
+    },
+    {
+      "stem": "Biyoçeşitlilik neden önemlidir?",
+      "options": ["Yalnızca bilim insanları için önemlidir", "Her tür, ekosistemde farklı bir rol üstlenir; bir türün yok olması tüm dengeyi bozabilir", "Fazla tür olması zararlıdır", "Yalnızca büyük hayvanlar önemlidir"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Biyoçeşitlilik",
+      "skills": ["Çevre bilinci", "Eleştirel düşünme"],
+      "explanation": "Her canlı türü besin zincirleri ve ekosistem döngüleri içinde rol oynar; bir türün kaybı domino etkisiyle diğer türleri ve insanları da etkiler."
+    },
+    {
+      "stem": "Hangi davranış yabani hayvanlara zarar verir?",
+      "options": ["Doğal alanları korumak", "Yabani hayvanları yakalamak veya evde beslemek", "Ulusal parkları ziyaret etmek", "Doğa yürüyüşü yapmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Hayvan hakları",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Yabani hayvanları doğal ortamlarından koparmak hem hayvanların hem de ekosistemin zarar görmesine yol açar."
+    },
+    {
+      "stem": "Tohum nedir?",
+      "options": ["Bitkinin kökü", "Yeni bir bitkinin gelişeceği, besin deposu içeren yapı", "Bitkinin yaprağı", "Çiçeğin rengi"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Canlılar dünyası",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Tohum, içinde yeni bir bitkinin embriyosunu ve besin depolayan yapısını barındıran çoğalma organıdır."
+    },
+    {
+      "stem": "Hangi mevsimde ağaçların yaprakları dökülür?",
+      "options": ["İlkbahar", "Yaz", "Sonbahar", "Kış"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Mevsimler",
+      "skills": ["Doğa gözlemi"],
+      "explanation": "Yaprak döken ağaçlar, soğuk ve az ışıklı sonbahar döneminde yapraklarını dökerek kışa hazırlanır."
+    },
+    {
+      "stem": "İlkbaharda doğada ne gözlemlenir?",
+      "options": ["Yaprakların dökülmesi", "Karın yağması", "Çiçeklerin açması ve kuşların geri dönmesi", "Göllerin donması"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Mevsimler",
+      "skills": ["Doğa gözlemi"],
+      "explanation": "İlkbaharda hava ısınır, çiçekler açar, bitkiler filizlenir ve göç eden kuşlar geri döner."
+    },
+    {
+      "stem": "Gökkuşağı nasıl oluşur?",
+      "options": ["Yıldızların çarpışmasıyla", "Güneş ışığının yağmur damlacıklarından kırılarak dağılmasıyla", "Şimşeğin yağmurla buluşmasıyla", "Bulutların renkli ışık yutmasıyla"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Doğa olayları",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Güneş ışığı (beyaz ışık), yağmur damlacıklarından geçerken kırılır ve 7 temel renge ayrılarak gökkuşağını oluşturur."
+    },
+    {
+      "stem": "Hava durumu tahmini neden önemlidir?",
+      "options": ["Sadece çiftçiler için gereklidir", "Günlük planlarımızı ve güvenliğimizi etkiler; fırtına uyarıları hayat kurtarabilir", "Yalnızca pilot ve denizciler kullanır", "Tamamen güvenilmezdir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Hava ve iklim",
+      "skills": ["Coğrafi farkındalık", "Eleştirel düşünme"],
+      "explanation": "Hava tahmini; çiftçilik, ulaşım, giyim seçimi ve afet hazırlığı gibi pek çok konuda karar almayı kolaylaştırır."
+    },
+    {
+      "stem": "Termometre ne ölçer?",
+      "options": ["Basıncı", "Sıcaklığı", "Rüzgâr hızını", "Yağış miktarını"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Bilimsel araçlar",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Termometre, bir ortamın veya nesnenin sıcaklığını ölçen araçtır."
+    },
+    {
+      "stem": "Hangisi canlıların üç temel özelliğinden biridir?",
+      "options": ["Işık yaymak", "Büyümek ve çoğalmak", "Donmak", "Parlamak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Tüm canlılar beslenme, büyüme, çoğalma ve hücresel organizasyon gibi temel özellikler taşır."
+    },
+    {
+      "stem": "Besin zincirinde üreticiler kimlerdir?",
+      "options": ["Hayvanlar", "Mantarlar", "Yeşil bitkiler", "Bakteriler"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Ekosistem"],
+      "explanation": "Yeşil bitkiler, güneş enerjisini kullanarak fotosentezle besin ürettiği için besin zincirinin 'üreticileri' sayılır."
+    }
+  ]
+}

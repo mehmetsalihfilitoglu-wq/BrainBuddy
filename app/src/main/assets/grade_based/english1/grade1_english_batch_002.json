@@ -1,0 +1,916 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "ing",
+  "questions": [
+    {
+      "stem": "'Park' ne anlama gelir?",
+      "options": ["Okul", "Market", "Park / Yeşil alan", "Hastane"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Mekânlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Park = park (yeşil dinlenme alanı)."
+    },
+    {
+      "stem": "İngilizcede market nasıl söylenir?",
+      "options": ["School", "Library", "Supermarket", "Hospital"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Mekânlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Supermarket = süpermarket / market."
+    },
+    {
+      "stem": "'Library' ne anlama gelir?",
+      "options": ["Hastane", "Okul", "Kütüphane", "Park"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Mekânlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Library = kütüphane."
+    },
+    {
+      "stem": "İngilizcede 'teacher' ne anlama gelir?",
+      "options": ["Doktor", "Polis", "Öğretmen", "Aşçı"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Teacher = öğretmen."
+    },
+    {
+      "stem": "'Doctor' ne anlama gelir?",
+      "options": ["Hemşire", "Eczacı", "Doktor", "Öğretmen"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Doctor = doktor."
+    },
+    {
+      "stem": "İngilizcede polis nasıl söylenir?",
+      "options": ["Firefighter", "Police officer", "Nurse", "Chef"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Police officer = polis memuru."
+    },
+    {
+      "stem": "'Firefighter' ne anlama gelir?",
+      "options": ["Polis", "İtfaiyeci", "Doktor", "Hemşire"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Firefighter = itfaiyeci."
+    },
+    {
+      "stem": "İngilizcede 'nurse' ne anlama gelir?",
+      "options": ["Doktor", "Hemşire", "Eczacı", "Diş hekimi"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Nurse = hemşire."
+    },
+    {
+      "stem": "'Farmer' ne anlama gelir?",
+      "options": ["Balıkçı", "Avcı", "Çiftçi", "Bahçıvan"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Meslekler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Farmer = çiftçi."
+    },
+    {
+      "stem": "İngilizcede 'house' ne anlama gelir?",
+      "options": ["Bina", "Ev", "Oda", "Bahçe"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Ev ve çevre",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "House = ev."
+    },
+    {
+      "stem": "'Garden' ne anlama gelir?",
+      "options": ["Mutfak", "Bahçe", "Salon", "Yatak odası"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Ev ve çevre",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Garden = bahçe."
+    },
+    {
+      "stem": "İngilizcede mutfak nasıl söylenir?",
+      "options": ["Bedroom", "Bathroom", "Kitchen", "Living room"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Ev ve çevre",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Kitchen = mutfak."
+    },
+    {
+      "stem": "'Bedroom' ne anlama gelir?",
+      "options": ["Mutfak", "Banyo", "Yatak odası", "Oturma odası"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Ev ve çevre",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Bedroom = yatak odası."
+    },
+    {
+      "stem": "İngilizcede 'bathroom' ne anlama gelir?",
+      "options": ["Mutfak", "Bahçe", "Banyo", "Garaj"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Ev ve çevre",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Bathroom = banyo."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi 'Elma seviyorum.' anlamına gelir?",
+      "options": ["I have an apple.", "I eat apple.", "I like apples.", "I want apple."],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Sevme ifadesi",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'I like apples.' → 'Elmaları / elmayı seviyorum.' (çoğul -s ile daha doğal)."
+    },
+    {
+      "stem": "'She has a cat.' ne anlama gelir?",
+      "options": ["O (erkek) bir kedi istiyor.", "O (kız) bir kedisi var.", "Onlar bir kedi alıyor.", "Kedi onu seviyor."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sahiplik ifadesi",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'She' dişil zamirdir (o – kız/kadın); 'has' → var; 'a cat' → bir kedi."
+    },
+    {
+      "stem": "İngilizcede 'he' zamiri kimi/neyi ifade eder?",
+      "options": ["Kız/kadın", "Erkek/Adam", "Nesne/hayvan (tarafsız)", "Çoğul kişi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Zamirler",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'He' erkek için kullanılan üçüncü tekil şahıs zamiridir."
+    },
+    {
+      "stem": "'They are students.' ne anlama gelir?",
+      "options": ["O bir öğrencidir.", "Biz öğrenciyiz.", "Onlar öğrencidirler.", "Sen öğrencisin."],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Zamirler",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'They' = onlar; 'are students' = öğrencidirler."
+    },
+    {
+      "stem": "Boşluğu doldurun: '___ is my friend.' (O – kız anlamında)",
+      "options": ["He", "They", "She", "We"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Zamirler",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "Kız/kadın için 'She' kullanılır."
+    },
+    {
+      "stem": "İngilizcede 'we' ne anlama gelir?",
+      "options": ["Ben", "Sen", "Onlar", "Biz"],
+      "answerIndex": 3,
+      "difficulty": 1,
+      "topic": "Zamirler",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "We = biz."
+    },
+    {
+      "stem": "İngilizcede 'you' ne anlama gelir?",
+      "options": ["Ben", "Sen/Siz", "O", "Biz"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Zamirler",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "You = sen (tekil) / siz (çoğul)."
+    },
+    {
+      "stem": "'am / is / are' fiillerinden 'I' ile kullanılan hangisidir?",
+      "options": ["is", "are", "am", "be"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "To be fiili",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'To be' fiilinin birinci tekil şahıs (I) hâli 'am'dir: I am…"
+    },
+    {
+      "stem": "'He ___ a student.' Boşluğa hangi sözcük gelir?",
+      "options": ["am", "are", "is", "be"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "To be fiili",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "He/She/It ile 'is' kullanılır: He is a student."
+    },
+    {
+      "stem": "Çoğul yapılırken İngilizcede genellikle sözcüğün sonuna ne eklenir?",
+      "options": ["-ed", "-ing", "-s / -es", "-ly"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Çoğul yapısı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "İngilizcede düzenli çoğul eki '-s' ya da '-es'tir: cat → cats, box → boxes."
+    },
+    {
+      "stem": "'Cats' sözcüğü neyin çoğuludur?",
+      "options": ["Köpek", "Kuş", "Kedi", "At"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Çoğul yapısı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "Cats = cat (kedi) sözcüğünün çoğuludur."
+    },
+    {
+      "stem": "'a' ve 'an' artikellerinden hangisi sesli harf (vowel) ile başlayan sözcüklerin önüne gelir?",
+      "options": ["a", "an", "the", "one"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Artikel kullanımı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'An' sesli harfle (a, e, i, o, u) başlayan sözcüklerin önüne gelir: an apple, an orange."
+    },
+    {
+      "stem": "Hangi ifade doğru kullanılmıştır?",
+      "options": ["a apple", "an dog", "a cat", "an book"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Artikel kullanımı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "Cat ünsüz harfle başlar → 'a cat'. Apple sesliyle başlar → 'an apple'; dog ünsüz → 'a dog'; book ünsüz → 'a book'."
+    },
+    {
+      "stem": "İngilizcede soru cümlesi yaparken 'am/is/are' nereye geçer?",
+      "options": ["Cümlenin ortasına", "Cümlenin sonuna", "Cümlenin başına (öznenin önüne)", "Hiçbir yere taşınmaz"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Soru cümlesi",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "Is/Are/Am öznenin önüne alınarak soru yapılır: 'He is happy.' → 'Is he happy?'"
+    },
+    {
+      "stem": "'Are you a student?' sorusuna olumsuz yanıt hangisidir?",
+      "options": ["Yes, I am.", "No, I am not.", "Yes, she is.", "No, you aren't."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kısa yanıtlar",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "Birinci tekil şahıs (I) için olumsuz yanıt 'No, I am not.' ya da 'No, I'm not.' şeklindedir."
+    },
+    {
+      "stem": "İngilizcede 'in' edatı nerede kullanılır?",
+      "options": ["Üzerinde (yüzey)", "İçinde", "Altında", "Yanında"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Edatlar (prepositions)",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'In' = içinde. The cat is in the box. → Kedi kutunun içindedir."
+    },
+    {
+      "stem": "'The book is on the table.' cümlesinde 'on' ne anlama gelir?",
+      "options": ["Altında", "Yanında", "Üzerinde", "Arkasında"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Edatlar",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'On' = üzerinde (yüzeyle temas). The book is on the table → Kitap masanın üzerindedir."
+    },
+    {
+      "stem": "'Under' ne anlama gelir?",
+      "options": ["Üzerinde", "Yanında", "Altında", "Arkasında"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Edatlar",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "Under = altında."
+    },
+    {
+      "stem": "İngilizcede 'next to' ne anlama gelir?",
+      "options": ["Önünde", "Arkasında", "Altında", "Yanında"],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "topic": "Edatlar",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "Next to = yanında, bitişiğinde."
+    },
+    {
+      "stem": "Aşağıdaki cümlenin Türkçe karşılığı nedir? 'There is a dog in the garden.'",
+      "options": ["Köpek bahçenin üstündedir.", "Bahçede bir köpek var.", "Köpek bahçeyi sevmiyor.", "Bir köpek bahçeye geliyor."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "There is/are yapısı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'There is…' var anlamında varlık bildirir. 'There is a dog in the garden.' → 'Bahçede bir köpek var.'"
+    },
+    {
+      "stem": "'There are three cats.' ne anlama gelir?",
+      "options": ["Üç kedi yok.", "Bir kedi var.", "Üç kedi var.", "Kediler bahçede."],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "There is/are yapısı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'There are' çoğul varlık bildirir. 'There are three cats.' → 'Üç kedi var.'"
+    },
+    {
+      "stem": "İngilizcede 'Can you swim?' ne anlama gelir?",
+      "options": ["Yüzmeyi öğreniyor musun?", "Yüzebiliyor musun?", "Yüzmek ister misin?", "Yüzüyor musun?"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Can yapısı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'Can' yetenek bildirir. 'Can you swim?' → 'Yüzebiliyor musun?'"
+    },
+    {
+      "stem": "'I can ride a bike.' ne anlama gelir?",
+      "options": ["Bisiklet kullanmak istiyorum.", "Bisiklet kullanabiliyorum.", "Bisiklet kullanamıyorum.", "Bisikletim var."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Can yapısı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'I can…' → Yapabilme yeteneği. 'I can ride a bike.' → 'Bisiklet kullanabiliyorum.'"
+    },
+    {
+      "stem": "'I can't fly.' cümlesinde 'can't' ne anlama gelir?",
+      "options": ["Yapabiliyorum", "Yapamıyorum", "Yapacağım", "Yapıyorum"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Can yapısı",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'Can't = cannot' → yapamıyorum. 'I can't fly.' → 'Uçamıyorum.'"
+    },
+    {
+      "stem": "İngilizcede 'spring' hangi mevsimi ifade eder?",
+      "options": ["Yaz", "Sonbahar", "Kış", "İlkbahar"],
+      "answerIndex": 3,
+      "difficulty": 1,
+      "topic": "Mevsimler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Spring = ilkbahar."
+    },
+    {
+      "stem": "'Summer' hangi mevsimin İngilizcesidir?",
+      "options": ["Kış", "Sonbahar", "Yaz", "İlkbahar"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Mevsimler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Summer = yaz."
+    },
+    {
+      "stem": "İngilizcede kış nasıl söylenir?",
+      "options": ["Autumn", "Summer", "Spring", "Winter"],
+      "answerIndex": 3,
+      "difficulty": 1,
+      "topic": "Mevsimler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Winter = kış."
+    },
+    {
+      "stem": "'Autumn' hangi mevsimin İngilizcesidir?",
+      "options": ["İlkbahar", "Yaz", "Sonbahar", "Kış"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Mevsimler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Autumn = sonbahar (Amerikan İngilizcesinde 'fall' de denir)."
+    },
+    {
+      "stem": "İngilizcede 'morning' ne anlama gelir?",
+      "options": ["Öğleden sonra", "Akşam", "Sabah", "Gece"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Günün bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Morning = sabah."
+    },
+    {
+      "stem": "'Afternoon' ne anlama gelir?",
+      "options": ["Sabah", "Gece", "Öğleden sonra", "Akşam"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Günün bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Afternoon = öğleden sonra."
+    },
+    {
+      "stem": "'Evening' ne anlama gelir?",
+      "options": ["Sabah", "Öğlen", "Akşam", "Gece yarısı"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Günün bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Evening = akşam (genellikle 18:00'dan itibaren)."
+    },
+    {
+      "stem": "İngilizcede 'night' ne anlama gelir?",
+      "options": ["Sabah", "Öğleden sonra", "Akşam", "Gece"],
+      "answerIndex": 3,
+      "difficulty": 1,
+      "topic": "Günün bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Night = gece."
+    },
+    {
+      "stem": "İngilizcede 'tree' ne anlama gelir?",
+      "options": ["Çiçek", "Ağaç", "Çimen", "Yaprak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Tree = ağaç."
+    },
+    {
+      "stem": "'Flower' ne anlama gelir?",
+      "options": ["Ağaç", "Yaprak", "Çiçek", "Çimen"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Flower = çiçek."
+    },
+    {
+      "stem": "İngilizcede 'sun' ne anlama gelir?",
+      "options": ["Ay", "Yıldız", "Güneş", "Bulut"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Sun = güneş."
+    },
+    {
+      "stem": "'Moon' ne anlama gelir?",
+      "options": ["Güneş", "Yıldız", "Ay", "Bulut"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Moon = ay."
+    },
+    {
+      "stem": "İngilizcede 'star' ne anlama gelir?",
+      "options": ["Güneş", "Ay", "Yıldız", "Gezegen"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Star = yıldız."
+    },
+    {
+      "stem": "'Mountain' ne anlama gelir?",
+      "options": ["Deniz", "Nehir", "Dağ", "Orman"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Mountain = dağ."
+    },
+    {
+      "stem": "İngilizcede 'sea' ne anlama gelir?",
+      "options": ["Göl", "Nehir", "Deniz", "Okyanus"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Sea = deniz."
+    },
+    {
+      "stem": "'River' ne anlama gelir?",
+      "options": ["Deniz", "Göl", "Nehir", "Bataklık"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "River = nehir."
+    },
+    {
+      "stem": "İngilizcede 'forest' ne anlama gelir?",
+      "options": ["Çimen alan", "Dağ", "Orman", "Çöl"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Doğa",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Forest = orman."
+    },
+    {
+      "stem": "'What time is it?' sorusu ne sormaktadır?",
+      "options": ["Tarih nedir?", "Hava nasıl?", "Saat kaç?", "Nerede?"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Saat sorma",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'What time is it?' → 'Saat kaç?'"
+    },
+    {
+      "stem": "'It is three o'clock.' ne anlama gelir?",
+      "options": ["Saat dört.", "Saat iki.", "Saat üç.", "Saat beş."],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Saat",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'It is three o'clock.' → 'Saat üç.'"
+    },
+    {
+      "stem": "İngilizcede 'half past two' saat kaçı ifade eder?",
+      "options": ["2:00", "2:15", "2:30", "2:45"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Saat",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'Half past two' → 2:30 (ikiyi otuz geçiyor / iki buçuk)."
+    },
+    {
+      "stem": "'Quarter past four' saat kaçı ifade eder?",
+      "options": ["4:00", "4:15", "4:30", "4:45"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Saat",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'Quarter past four' → 4:15 (dördü çeyrek geçiyor)."
+    },
+    {
+      "stem": "İngilizcede 'birthday' ne anlama gelir?",
+      "options": ["Tatil", "Doğum günü", "Bayram", "Parti"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Özel günler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Birthday = doğum günü."
+    },
+    {
+      "stem": "'Happy Birthday!' ne anlama gelir?",
+      "options": ["İyi tatiller!", "İyi geceler!", "Mutlu yıllar!", "İyi günler!"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Özel günler",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'Happy Birthday!' = 'İyi ki doğdun! / Mutlu yıllar!' (doğum günü kutlama ifadesi)."
+    },
+    {
+      "stem": "İngilizcede 'present / gift' ne anlama gelir?",
+      "options": ["Mektup", "Kart", "Hediye", "Balon"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Özel günler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Present / gift = hediye."
+    },
+    {
+      "stem": "İngilizcede 'favourite' (BrE) / 'favorite' (AmE) ne anlama gelir?",
+      "options": ["Farklı", "En iyi / Favori", "Kötü", "Eski"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sıfatlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Favourite/favorite = en sevilen, favori."
+    },
+    {
+      "stem": "'What is your favourite colour?' sorusu ne sormaktadır?",
+      "options": ["En sevdiğin yiyecek nedir?", "En sevdiğin renk nedir?", "En sevdiğin hayvan nedir?", "En sevdiğin mevsim nedir?"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sevme ifadesi",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "Favourite colour = en sevilen renk."
+    },
+    {
+      "stem": "'My favourite animal is a dog.' ne anlama gelir?",
+      "options": ["Bir köpeğim var.", "En sevdiğim hayvan köpek.", "Köpekleri sevmiyorum.", "Köpek görüyorum."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sevme ifadesi",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'My favourite animal is a dog.' → 'En sevdiğim hayvan köpek.'"
+    },
+    {
+      "stem": "İngilizcede 'swim' ne anlama gelir?",
+      "options": ["Koşmak", "Yüzmek", "Atlamak", "Dans etmek"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Swim = yüzmek."
+    },
+    {
+      "stem": "'Jump' ne anlama gelir?",
+      "options": ["Koşmak", "Oturmak", "Atlamak", "Durmak"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Jump = atlamak."
+    },
+    {
+      "stem": "İngilizcede 'draw' ne anlama gelir?",
+      "options": ["Boyamak (renk)", "Çizmek (resim)", "Yazmak", "Okumak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Draw = çizmek, resim yapmak."
+    },
+    {
+      "stem": "'Sing' ne anlama gelir?",
+      "options": ["Dans etmek", "Çalmak (enstrüman)", "Şarkı söylemek", "Konuşmak"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Sing = şarkı söylemek."
+    },
+    {
+      "stem": "İngilizcede 'dance' ne anlama gelir?",
+      "options": ["Şarkı söylemek", "Dans etmek", "Oynamak", "Koşmak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Dance = dans etmek."
+    },
+    {
+      "stem": "'Read' ne anlama gelir?",
+      "options": ["Yazmak", "Çizmek", "Okumak", "Konuşmak"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Read = okumak."
+    },
+    {
+      "stem": "İngilizcede 'write' ne anlama gelir?",
+      "options": ["Okumak", "Çizmek", "Yazmak", "Boyamak"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Write = yazmak."
+    },
+    {
+      "stem": "'Listen' ne anlama gelir?",
+      "options": ["Konuşmak", "Dinlemek", "Sormak", "Cevaplamak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Listen = dinlemek."
+    },
+    {
+      "stem": "İngilizcede 'speak' ne anlama gelir?",
+      "options": ["Dinlemek", "Yazmak", "Konuşmak", "Okumak"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Fiiller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Speak = konuşmak."
+    },
+    {
+      "stem": "Aşağıdaki hangi seçenek 'zıt anlamlı' çift değildir?",
+      "options": ["big – small", "hot – cold", "happy – sad", "cat – dog"],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "topic": "Zıt anlamlılar",
+      "skills": ["Kelime bilgisi"],
+      "explanation": "Cat (kedi) ve dog (köpek) zıt anlamlı değil, farklı hayvan adlarıdır. Diğerleri gerçek karşıt çiftlerdir."
+    },
+    {
+      "stem": "'Fast' kelimesinin zıt anlamlısı hangisidir?",
+      "options": ["Big", "Slow", "Hot", "Tall"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Zıt anlamlılar",
+      "skills": ["Kelime bilgisi"],
+      "explanation": "Fast (hızlı) ↔ Slow (yavaş)."
+    },
+    {
+      "stem": "'Long' kelimesinin zıt anlamlısı hangisidir?",
+      "options": ["Wide", "Thin", "Short", "Hard"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Zıt anlamlılar",
+      "skills": ["Kelime bilgisi"],
+      "explanation": "Long (uzun) ↔ Short (kısa)."
+    },
+    {
+      "stem": "'New' kelimesinin zıt anlamlısı hangisidir?",
+      "options": ["Young", "Large", "Good", "Old"],
+      "answerIndex": 3,
+      "difficulty": 2,
+      "topic": "Zıt anlamlılar",
+      "skills": ["Kelime bilgisi"],
+      "explanation": "New (yeni) ↔ Old (eski/yaşlı)."
+    },
+    {
+      "stem": "'Good' kelimesinin zıt anlamlısı hangisidir?",
+      "options": ["Well", "Bad", "Nice", "Kind"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Zıt anlamlılar",
+      "skills": ["Kelime bilgisi"],
+      "explanation": "Good (iyi) ↔ Bad (kötü)."
+    },
+    {
+      "stem": "İngilizcede 'What's the weather like today?' ne sormaktadır?",
+      "options": ["Bugün kaç derece?", "Bugün hava nasıl?", "Yağmur mu yağacak?", "Hava soğuk mu?"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Hava durumu",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'What's the weather like today?' → 'Bugün hava nasıl?' sorusunu sormaktadır."
+    },
+    {
+      "stem": "'It is windy.' ne anlama gelir?",
+      "options": ["Hava bulutlu.", "Hava yağmurlu.", "Hava rüzgârlı.", "Hava güneşli."],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Hava durumu",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "Windy = rüzgârlı. 'It is windy.' → 'Hava rüzgârlı.'"
+    },
+    {
+      "stem": "İngilizcede 'cloudy' ne anlama gelir?",
+      "options": ["Yağmurlu", "Rüzgârlı", "Bulutlu", "Karlı"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Hava durumu",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Cloudy = bulutlu."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi şimdiki zaman (present continuous) yapısındadır?",
+      "options": ["I eat breakfast.", "I am eating breakfast.", "I ate breakfast.", "I will eat breakfast."],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Şimdiki sürekli zaman",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "Present continuous = am/is/are + fiil-ing. 'I am eating.' şu an yemek yendiğini gösterir."
+    },
+    {
+      "stem": "'She is reading a book.' ne anlama gelir?",
+      "options": ["O (kız) kitap okudu.", "O (kız) şu an kitap okuyor.", "O (kız) kitap okuyacak.", "O (kız) kitap seviyor."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Şimdiki sürekli zaman",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'She is reading' = şu an okuyor; present continuous yapısıyla süregelen eylem belirtilir."
+    },
+    {
+      "stem": "İngilizcede 'purple' hangi rengi ifade eder?",
+      "options": ["Pembe", "Turuncu", "Mor", "Kahverengi"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Renkler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Purple = mor."
+    },
+    {
+      "stem": "'Pink' hangi rengin İngilizcesidir?",
+      "options": ["Mor", "Pembe", "Turuncu", "Bej"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Renkler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Pink = pembe."
+    },
+    {
+      "stem": "İngilizcede 'brown' hangi rengi ifade eder?",
+      "options": ["Gri", "Bej", "Kahverengi", "Koyu mavi"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Renkler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Brown = kahverengi."
+    },
+    {
+      "stem": "'Orange' (renk olarak) hangi rengi ifade eder?",
+      "options": ["Sarı", "Turuncu", "Kırmızı", "Mor"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Renkler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Orange = turuncu (renk) / portakal (meyve)."
+    },
+    {
+      "stem": "İngilizcede 'cow' ne anlama gelir?",
+      "options": ["At", "Keçi", "Koyun", "İnek"],
+      "answerIndex": 3,
+      "difficulty": 1,
+      "topic": "Çiftlik hayvanları",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Cow = inek."
+    },
+    {
+      "stem": "'Sheep' ne anlama gelir?",
+      "options": ["Keçi", "Koyun", "İnek", "At"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Çiftlik hayvanları",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Sheep = koyun (tekil ve çoğul şekli aynıdır)."
+    },
+    {
+      "stem": "İngilizcede 'chicken' ne anlama gelir?",
+      "options": ["Ördek", "Hindi", "Tavuk", "Kaz"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Çiftlik hayvanları",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Chicken = tavuk."
+    },
+    {
+      "stem": "'Duck' ne anlama gelir?",
+      "options": ["Kaz", "Ördek", "Horoz", "Hindi"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Çiftlik hayvanları",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Duck = ördek."
+    },
+    {
+      "stem": "İngilizcede 'monkey' ne anlama gelir?",
+      "options": ["Fil", "Kaplan", "Maymun", "Zürafa"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Yabani hayvanlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Monkey = maymun."
+    },
+    {
+      "stem": "'Giraffe' ne anlama gelir?",
+      "options": ["Fil", "Aslan", "Zürafa", "Zebra"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Yabani hayvanlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Giraffe = zürafa."
+    },
+    {
+      "stem": "İngilizcede 'snake' ne anlama gelir?",
+      "options": ["Kertenkele", "Kaplumbağa", "Yılan", "Timsah"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Yabani hayvanlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Snake = yılan."
+    },
+    {
+      "stem": "'Bear' ne anlama gelir?",
+      "options": ["Kurt", "Tilki", "Ayı", "Geyik"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Yabani hayvanlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Bear = ayı."
+    },
+    {
+      "stem": "İngilizcede 'wolf' ne anlama gelir?",
+      "options": ["Tilki", "Ayı", "Kurt", "Geyik"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Yabani hayvanlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Wolf = kurt."
+    },
+    {
+      "stem": "'Fox' ne anlama gelir?",
+      "options": ["Kurt", "Tavşan", "Tilki", "Sincap"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Yabani hayvanlar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Fox = tilki."
+    },
+    {
+      "stem": "İngilizcede 'pen' ile 'pencil' arasındaki fark nedir?",
+      "options": ["İkisi de aynı anlama gelir", "Pen = tükenmez/dolma kalem; pencil = kurşun kalem", "Pen = silgi; pencil = kalem", "Pen = cetvel; pencil = silgi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Okul eşyaları",
+      "skills": ["Kelime bilgisi", "Ayrım yapma"],
+      "explanation": "Pen (tükenmez ya da dolma kalem) mürekkeple yazarken pencil (kurşun kalem) kurşun uçlu kalemdir."
+    },
+    {
+      "stem": "Hangisi 'okul eşyası' değildir?",
+      "options": ["Pencil", "Ruler", "Tomato", "Eraser"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Kelime kategorileri",
+      "skills": ["Sınıflandırma"],
+      "explanation": "Tomato (domates) bir sebzedir; pencil, ruler ve eraser okul eşyalarıdır."
+    },
+    {
+      "stem": "İngilizcede 'I go to school.' cümlesinde 'go to' ne anlama gelir?",
+      "options": ["…'den gelmek", "…'e gitmek", "…'de kalmak", "…'i sevmek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Temel ifadeler",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'Go to' → gitmek (bir yere). 'I go to school.' → 'Okula gidiyorum.'"
+    }
+  ]
+}

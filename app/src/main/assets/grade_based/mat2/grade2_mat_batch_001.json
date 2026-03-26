@@ -1,0 +1,934 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "mat",
+  "questions": [
+    {
+      "stem": "Bir markette 235 elma ve 148 portakal vardır. Toplam kaç meyve vardır?",
+      "options": ["383", "373", "393", "363"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı toplama",
+      "skills": ["toplama işlemi", "problem çözme"],
+      "explanation": "235 + 148 = 383. Birler: 5+8=13, 1 onluk elde var. Onlar: 3+4+1=8. Yüzler: 2+1=3. Sonuç: 383."
+    },
+    {
+      "stem": "Bir kütüphanede 467 kitap vardı. 189 kitap daha getirildi. Kütüphanede kaç kitap oldu?",
+      "options": ["656", "646", "666", "636"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı toplama",
+      "skills": ["toplama işlemi", "problem çözme"],
+      "explanation": "467 + 189 = 656. Birler: 7+9=16, 1 onluk elde. Onlar: 6+8+1=15, 1 yüzlük elde. Yüzler: 4+1+1=6. Sonuç: 656."
+    },
+    {
+      "stem": "375 + 248 = ?",
+      "options": ["623", "613", "633", "603"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı toplama",
+      "skills": ["toplama işlemi"],
+      "explanation": "375 + 248: Birler 5+8=13 (1 elde), Onlar 7+4+1=12 (1 elde), Yüzler 3+2+1=6. Sonuç: 623."
+    },
+    {
+      "stem": "Bir çiftlikte 524 koyun vardı. 137 koyun satıldı. Çiftlikte kaç koyun kaldı?",
+      "options": ["387", "397", "377", "407"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı çıkarma",
+      "skills": ["çıkarma işlemi", "problem çözme"],
+      "explanation": "524 - 137 = 387. Birler: 4 < 7, onlardan ödünç alınır: 14-7=7. Onlar: 1(kalan)-3 < 0, yüzden ödünç: 11-3=8 (onlar). Yüzler: 4-1=3. Sonuç: 387."
+    },
+    {
+      "stem": "632 - 285 = ?",
+      "options": ["347", "357", "337", "367"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı çıkarma",
+      "skills": ["çıkarma işlemi"],
+      "explanation": "632 - 285: Birler 2<5, ödünç al → 12-5=7. Onlar 2<8 (ödünç sonrası 2), ödünç al → 12-8=4. Yüzler 5-2=3. Sonuç: 347."
+    },
+    {
+      "stem": "Bir kasap 800 gram et kesmiş, 356 gram satmıştır. Kaç gram eti kalmıştır?",
+      "options": ["444", "454", "434", "464"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı çıkarma",
+      "skills": ["çıkarma işlemi", "problem çözme"],
+      "explanation": "800 - 356 = 444. Birler: 0<6, ödünç → 10-6=4. Onlar: 9<5 değil (9-1=9, ama ödünç verdikten sonra -1=9), 9-5=4 değil... 800-356: 800-300=500, 500-56=444. Sonuç: 444."
+    },
+    {
+      "stem": "Aşağıdaki sayıların hangisi 500 ile 600 arasındadır?",
+      "options": ["547", "489", "612", "498"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "sayı sıralama",
+      "skills": ["sayı karşılaştırma"],
+      "explanation": "547, 500'den büyük ve 600'den küçüktür. 489 < 500, 612 > 600, 498 < 500."
+    },
+    {
+      "stem": "374, 347, 437, 473 sayıları küçükten büyüğe sıralandığında hangisi en büyüktür?",
+      "options": ["473", "437", "374", "347"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "sayı sıralama",
+      "skills": ["sayı karşılaştırma"],
+      "explanation": "Yüzler basamağı: 473'ün yüzler basamağı 4, 437'nin de 4. Onlar: 473'ün onları 7, 437'nin onları 3. 473 > 437. Sıralama: 347 < 374 < 437 < 473."
+    },
+    {
+      "stem": "2 × 7 kaçtır?",
+      "options": ["14", "12", "16", "18"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "çarpım tablosu",
+      "skills": ["2 ile çarpma"],
+      "explanation": "2 × 7 = 14. 2'nin 7 katı: 2+2+2+2+2+2+2 = 14."
+    },
+    {
+      "stem": "3 × 6 = ?",
+      "options": ["18", "15", "21", "24"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "çarpım tablosu",
+      "skills": ["3 ile çarpma"],
+      "explanation": "3 × 6 = 18. 3'ün 6 katı: 3+3+3+3+3+3 = 18."
+    },
+    {
+      "stem": "4 × 8 = ?",
+      "options": ["32", "28", "36", "24"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "çarpım tablosu",
+      "skills": ["4 ile çarpma"],
+      "explanation": "4 × 8 = 32. 4+4+4+4+4+4+4+4 = 32."
+    },
+    {
+      "stem": "5 × 9 = ?",
+      "options": ["45", "40", "50", "35"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "çarpım tablosu",
+      "skills": ["5 ile çarpma"],
+      "explanation": "5 × 9 = 45. 5'in 9 katı: 5, 10, 15, 20, 25, 30, 35, 40, 45."
+    },
+    {
+      "stem": "Bir rafta 6 satır vardır. Her satırda 4 kitap bulunmaktadır. Rafta toplam kaç kitap vardır?",
+      "options": ["24", "20", "28", "18"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma işlemi", "problem çözme"],
+      "explanation": "6 satır × 4 kitap = 24 kitap. 4+4+4+4+4+4 = 24 ya da 4×6 = 24."
+    },
+    {
+      "stem": "Bir çocuk günde 3 bardak süt içmektedir. 7 günde kaç bardak süt içer?",
+      "options": ["21", "18", "24", "15"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma işlemi", "problem çözme"],
+      "explanation": "3 bardak × 7 gün = 21 bardak. 3×7 = 21."
+    },
+    {
+      "stem": "2 × 9 = ? işleminin sonucu hangisidir?",
+      "options": ["18", "16", "20", "14"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "çarpım tablosu",
+      "skills": ["2 ile çarpma"],
+      "explanation": "2 × 9 = 18. 2'nin 9 katı: 2,4,6,8,10,12,14,16,18."
+    },
+    {
+      "stem": "5 × 6 = ? işleminin sonucu aşağıdakilerden hangisidir?",
+      "options": ["30", "25", "35", "20"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "çarpım tablosu",
+      "skills": ["5 ile çarpma"],
+      "explanation": "5 × 6 = 30. 5'in 6 katı: 5,10,15,20,25,30."
+    },
+    {
+      "stem": "4 × 5 = ? ve 5 × 4 = ? işlemlerinin sonuçları hakkında aşağıdakilerden hangisi doğrudur?",
+      "options": ["İkisi de 20'dir", "4×5=20, 5×4=25", "İkisi de 25'tir", "4×5=16, 5×4=20"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpmanın değişme özelliği",
+      "skills": ["çarpma", "değişme özelliği"],
+      "explanation": "Çarpmada yer değiştirme özelliği: a×b = b×a. 4×5 = 5×4 = 20."
+    },
+    {
+      "stem": "20 ÷ 4 = ? işleminin sonucu nedir?",
+      "options": ["5", "4", "6", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme"],
+      "explanation": "20 ÷ 4 = 5. Çünkü 4 × 5 = 20."
+    },
+    {
+      "stem": "18 şeker 3 çocuğa eşit paylaştırılıyor. Her çocuğa kaç şeker düşer?",
+      "options": ["6", "5", "7", "4"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "18 ÷ 3 = 6. Çünkü 3 × 6 = 18."
+    },
+    {
+      "stem": "25 ÷ 5 = ?",
+      "options": ["5", "4", "6", "7"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "bölme işlemi",
+      "skills": ["bölme"],
+      "explanation": "25 ÷ 5 = 5. Çünkü 5 × 5 = 25."
+    },
+    {
+      "stem": "Bir sınıfta 24 öğrenci 4 gruba eşit bölünüyor. Her grupta kaç öğrenci olur?",
+      "options": ["6", "5", "8", "7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "24 ÷ 4 = 6. Her grupta 6 öğrenci olur. 4 × 6 = 24 doğrulama."
+    },
+    {
+      "stem": "32 ÷ 4 = ? işleminin sonucu nedir?",
+      "options": ["8", "7", "9", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme"],
+      "explanation": "32 ÷ 4 = 8. Çünkü 4 × 8 = 32."
+    },
+    {
+      "stem": "Bir çuval 45 kg buğday içermektedir. Bu buğday 5 torbaya eşit bölünüyor. Her torbada kaç kg buğday olur?",
+      "options": ["9", "8", "10", "7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "45 ÷ 5 = 9 kg. Çünkü 5 × 9 = 45."
+    },
+    {
+      "stem": "Bir ip 36 cm uzunluğundadır. Bu ip 4 eşit parçaya bölünüyor. Her parça kaç cm olur?",
+      "options": ["9 cm", "8 cm", "10 cm", "7 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "ölçme"],
+      "explanation": "36 ÷ 4 = 9 cm. 4 × 9 = 36 doğrulama."
+    },
+    {
+      "stem": "Bir cetvel 30 cm uzunluğundadır. Bu 30 cm kaç dm'dir?",
+      "options": ["3 dm", "30 dm", "0,3 dm", "300 dm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "uzunluk ölçme",
+      "skills": ["cm-dm dönüşümü"],
+      "explanation": "1 dm = 10 cm. 30 cm ÷ 10 = 3 dm."
+    },
+    {
+      "stem": "Ali'nin boyu 125 cm, Ayşe'nin boyu 1 m 18 cm'dir. Hangisi daha uzundur ve farkları kaç cm'dir?",
+      "options": ["Ali, 7 cm", "Ayşe, 7 cm", "Ali, 17 cm", "Eşit uzunluktalar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "uzunluk ölçme",
+      "skills": ["cm-m dönüşümü", "karşılaştırma"],
+      "explanation": "Ayşe'nin boyu: 1 m 18 cm = 100 + 18 = 118 cm. Ali: 125 cm. 125 > 118, fark = 125 - 118 = 7 cm. Ali daha uzun."
+    },
+    {
+      "stem": "2 m 45 cm = ? cm",
+      "options": ["245 cm", "24,5 cm", "2045 cm", "245 m"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "uzunluk ölçme",
+      "skills": ["m-cm dönüşümü"],
+      "explanation": "1 m = 100 cm. 2 m = 200 cm. 200 + 45 = 245 cm."
+    },
+    {
+      "stem": "Bir masa 150 cm uzunluğundadır. Bu masanın uzunluğu kaç m kaç cm'dir?",
+      "options": ["1 m 50 cm", "15 m 0 cm", "1 m 5 cm", "0 m 150 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "uzunluk ölçme",
+      "skills": ["cm-m dönüşümü"],
+      "explanation": "150 cm = 100 cm + 50 cm = 1 m 50 cm."
+    },
+    {
+      "stem": "Saat 10:00'da başlayan ders 45 dakika sürmektedir. Ders hangi saatte biter?",
+      "options": ["10:45", "10:30", "11:00", "11:15"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "zaman ölçme",
+      "skills": ["saat", "dakika hesabı"],
+      "explanation": "10:00 + 45 dakika = 10:45."
+    },
+    {
+      "stem": "Saat 14:30'da başlayan film 1 saat 20 dakika sürmektedir. Film kaçta biter?",
+      "options": ["15:50", "15:30", "16:00", "15:20"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "zaman ölçme",
+      "skills": ["saat hesabı"],
+      "explanation": "14:30 + 1 saat = 15:30. 15:30 + 20 dakika = 15:50."
+    },
+    {
+      "stem": "Bir saat 9:15'tir. 30 dakika sonra saat kaç olur?",
+      "options": ["9:45", "9:30", "10:15", "10:00"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "zaman ölçme",
+      "skills": ["saat hesabı"],
+      "explanation": "9:15 + 30 dakika = 9:45."
+    },
+    {
+      "stem": "1 saat kaç dakikadır?",
+      "options": ["60 dakika", "30 dakika", "100 dakika", "24 dakika"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "zaman ölçme",
+      "skills": ["zaman birimleri"],
+      "explanation": "1 saat = 60 dakika."
+    },
+    {
+      "stem": "Okul 8:00'de başlıyor, öğleden sonra 13:00'te bitiyor. Okulda kaç saat kalınıyor?",
+      "options": ["5 saat", "4 saat", "6 saat", "7 saat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "zaman ölçme",
+      "skills": ["saat farkı hesabı"],
+      "explanation": "13:00 - 8:00 = 5 saat."
+    },
+    {
+      "stem": "1 günde kaç saat vardır?",
+      "options": ["24 saat", "12 saat", "36 saat", "60 saat"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "zaman ölçme",
+      "skills": ["zaman birimleri"],
+      "explanation": "1 gün = 24 saattir. Gündüz 12 saat + gece 12 saat = 24 saat."
+    },
+    {
+      "stem": "Annem marketten 5 TL'lik ekmek, 8 TL'lik peynir ve 12 TL'lik yoğurt aldı. Toplamda kaç TL ödedi?",
+      "options": ["25 TL", "23 TL", "27 TL", "20 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "para",
+      "skills": ["para hesabı", "toplama"],
+      "explanation": "5 + 8 + 12 = 25 TL."
+    },
+    {
+      "stem": "50 TL'si olan bir çocuk 37 TL'lik oyuncak alıyor. Kaç TL para üstü alır?",
+      "options": ["13 TL", "17 TL", "12 TL", "23 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "para",
+      "skills": ["para üstü hesabı", "çıkarma"],
+      "explanation": "50 - 37 = 13 TL para üstü alır."
+    },
+    {
+      "stem": "Bir defterin fiyatı 7 TL'dir. 3 defter kaç TL'dir?",
+      "options": ["21 TL", "14 TL", "28 TL", "18 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "para",
+      "skills": ["çarpma", "para hesabı"],
+      "explanation": "7 × 3 = 21 TL."
+    },
+    {
+      "stem": "100 TL'ye 4 eşit parça halinde ödenecek bir kitabın her taksidi kaç TL'dir?",
+      "options": ["25 TL", "20 TL", "30 TL", "40 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "para",
+      "skills": ["bölme", "para hesabı"],
+      "explanation": "100 ÷ 4 = 25 TL her taksit."
+    },
+    {
+      "stem": "Bir üçgenin üç kenarının uzunlukları 5 cm, 7 cm ve 8 cm'dir. Üçgenin çevresi kaç cm'dir?",
+      "options": ["20 cm", "22 cm", "18 cm", "15 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "temel geometri",
+      "skills": ["çevre hesabı"],
+      "explanation": "Üçgenin çevresi = 5 + 7 + 8 = 20 cm."
+    },
+    {
+      "stem": "Bir karenin bir kenarı 6 cm'dir. Karenin çevresi kaç cm'dir?",
+      "options": ["24 cm", "18 cm", "36 cm", "12 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "temel geometri",
+      "skills": ["kare", "çevre hesabı"],
+      "explanation": "Karenin 4 kenarı eşittir. Çevre = 4 × 6 = 24 cm."
+    },
+    {
+      "stem": "Aşağıdaki şekillerden hangisi dört eşit kenara sahiptir?",
+      "options": ["Kare", "Dikdörtgen", "Üçgen", "Daire"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "temel geometri",
+      "skills": ["şekil tanıma"],
+      "explanation": "Karenin dört kenarı birbirine eşittir."
+    },
+    {
+      "stem": "Bir dikdörtgenin uzun kenarı 9 cm, kısa kenarı 4 cm'dir. Dikdörtgenin çevresi kaç cm'dir?",
+      "options": ["26 cm", "36 cm", "22 cm", "13 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "temel geometri",
+      "skills": ["dikdörtgen", "çevre hesabı"],
+      "explanation": "Dikdörtgenin çevresi = 2 × (uzun + kısa) = 2 × (9 + 4) = 2 × 13 = 26 cm."
+    },
+    {
+      "stem": "Kaç köşesi olan bir şeklin adı üçgendir?",
+      "options": ["3 köşesi", "4 köşesi", "5 köşesi", "6 köşesi"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "temel geometri",
+      "skills": ["şekil tanıma"],
+      "explanation": "Üçgenin 3 köşesi, 3 kenarı ve 3 açısı vardır."
+    },
+    {
+      "stem": "125 + □ = 300. Kutudaki sayı nedir?",
+      "options": ["175", "165", "185", "195"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "eksik sayı bulma",
+      "skills": ["çıkarma", "denklem"],
+      "explanation": "□ = 300 - 125 = 175."
+    },
+    {
+      "stem": "□ - 147 = 253. Kutudaki sayı nedir?",
+      "options": ["400", "390", "410", "380"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "eksik sayı bulma",
+      "skills": ["toplama", "denklem"],
+      "explanation": "□ = 253 + 147 = 400."
+    },
+    {
+      "stem": "3 × □ = 27. Kutudaki sayı nedir?",
+      "options": ["9", "8", "7", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "eksik sayı bulma",
+      "skills": ["çarpma-bölme ilişkisi"],
+      "explanation": "□ = 27 ÷ 3 = 9. Çünkü 3 × 9 = 27."
+    },
+    {
+      "stem": "□ ÷ 4 = 8. Kutudaki sayı nedir?",
+      "options": ["32", "28", "36", "24"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "eksik sayı bulma",
+      "skills": ["çarpma-bölme ilişkisi"],
+      "explanation": "□ = 8 × 4 = 32."
+    },
+    {
+      "stem": "Bir torba 100 kg taşıyabilmektedir. İçine 37 kg tahıl ve 45 kg mısır konmuştur. Torbaya daha kaç kg koyulabilir?",
+      "options": ["18 kg", "22 kg", "28 kg", "8 kg"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı çıkarma",
+      "skills": ["toplama", "çıkarma", "problem çözme"],
+      "explanation": "Toplam yüklenen: 37 + 45 = 82 kg. Kalan kapasite: 100 - 82 = 18 kg."
+    },
+    {
+      "stem": "Annem sabah 145 TL ile çarşıya çıktı. 87 TL harcadı. Kaç TL'si kaldı?",
+      "options": ["58 TL", "68 TL", "48 TL", "62 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı çıkarma",
+      "skills": ["çıkarma", "problem çözme"],
+      "explanation": "145 - 87 = 58 TL."
+    },
+    {
+      "stem": "Aşağıdaki işlemlerden hangisinin sonucu en büyüktür?",
+      "options": ["4 × 9", "3 × 8 + 5", "5 × 7", "2 × 9 + 10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "karşılaştırma",
+      "skills": ["işlem önceliği", "karşılaştırma"],
+      "explanation": "4×9=36, 3×8+5=29, 5×7=35, 2×9+10=28. En büyük: 36."
+    },
+    {
+      "stem": "100 sayısına en yakın olan aşağıdaki sayı hangisidir?",
+      "options": ["98", "89", "107", "112"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "sayı karşılaştırma",
+      "skills": ["yakın sayı belirleme"],
+      "explanation": "|98-100|=2, |89-100|=11, |107-100|=7, |112-100|=12. En yakın: 98."
+    },
+    {
+      "stem": "Bir çocuk haftada 5 gün okula gitmektedir. 4 haftada kaç gün okula gider?",
+      "options": ["20 gün", "24 gün", "16 gün", "28 gün"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma", "problem çözme"],
+      "explanation": "5 gün × 4 hafta = 20 gün."
+    },
+    {
+      "stem": "2 × 2 × 3 = ?",
+      "options": ["12", "8", "10", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["ardışık çarpma"],
+      "explanation": "2 × 2 = 4, 4 × 3 = 12."
+    },
+    {
+      "stem": "Bir oyun parkında 3 salıncak ve 5 kaydırak vardır. Her gün 4 çocuk salıncağa, 3 çocuk kaydırağa biniyor. Bir günde toplam kaç çocuk bu oyuncaklara biner?",
+      "options": ["27", "24", "21", "30"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma", "toplama", "problem çözme"],
+      "explanation": "Salıncak: 3 × 4 = 12 çocuk. Kaydırak: 5 × 3 = 15 çocuk. Toplam: 12 + 15 = 27 çocuk."
+    },
+    {
+      "stem": "Bir sayı 5'e bölündüğünde 7 elde ediliyor. Bu sayı kaçtır?",
+      "options": ["35", "30", "40", "45"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["çarpma-bölme ilişkisi"],
+      "explanation": "Sayı = 5 × 7 = 35."
+    },
+    {
+      "stem": "Elinde 50 TL olan Ali, 4 arkadaşına eşit para dağıtıyor. Her arkadaşa kaç TL düşer, Ali'de kaç TL kalır?",
+      "options": ["Her birine 12 TL, Ali'de 2 TL kalır", "Her birine 10 TL, Ali'de 10 TL kalır", "Her birine 12 TL, Ali'de 8 TL kalır", "Her birine 13 TL, Ali'de 2 TL kalır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "kalan"],
+      "explanation": "50 ÷ 4 = 12 kalan 2. Her arkadaşa 12 TL düşer, Ali'de 2 TL kalır."
+    },
+    {
+      "stem": "Bir kutu 8 kalem içermektedir. 5 kutu kalemde toplam kaç kalem vardır?",
+      "options": ["40", "35", "45", "30"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma", "problem çözme"],
+      "explanation": "8 × 5 = 40 kalem."
+    },
+    {
+      "stem": "Küçükten büyüğe doğru: 208, 280, 802, 820. Bu sıralamada 3. sıradaki sayı hangisidir?",
+      "options": ["802", "280", "208", "820"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "sayı sıralama",
+      "skills": ["sıralama"],
+      "explanation": "Sıralama: 208 < 280 < 802 < 820. 3. sıradaki: 802."
+    },
+    {
+      "stem": "Hangi sayı hem 2'ye hem de 5'e tam bölünür?",
+      "options": ["30", "12", "25", "22"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölünebilme",
+      "skills": ["bölme", "analiz"],
+      "explanation": "30 ÷ 2 = 15, 30 ÷ 5 = 6. 30 her ikisine de tam bölünür."
+    },
+    {
+      "stem": "450 sayısında 4 rakamı kaç değerindedir?",
+      "options": ["400", "4", "40", "4000"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "basamak değeri",
+      "skills": ["basamak değeri"],
+      "explanation": "450 sayısında 4, yüzler basamağında bulunur. Değeri: 4 × 100 = 400."
+    },
+    {
+      "stem": "386 sayısında rakamların basamak değerlerinin toplamı kaçtır?",
+      "options": ["386", "17", "380", "360"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "basamak değeri",
+      "skills": ["basamak analizi"],
+      "explanation": "3 yüzler → 300, 8 onlar → 80, 6 birler → 6. 300+80+6 = 386."
+    },
+    {
+      "stem": "Bir sayının yüzler basamağı 5, onlar basamağı 0, birler basamağı 7'dir. Bu sayı kaçtır?",
+      "options": ["507", "570", "705", "750"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "basamak değeri",
+      "skills": ["sayı oluşturma"],
+      "explanation": "Yüzler: 5, onlar: 0, birler: 7 → 507."
+    },
+    {
+      "stem": "Hangisi çift sayıdır?",
+      "options": ["246", "137", "259", "381"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "çift-tek sayılar",
+      "skills": ["çift sayı tanıma"],
+      "explanation": "Birler basamağı 0, 2, 4, 6 veya 8 olan sayılar çifttir. 246'nın birler basamağı 6 → çift."
+    },
+    {
+      "stem": "1'den 10'a kadar olan tek sayıların toplamı kaçtır?",
+      "options": ["25", "30", "20", "35"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çift-tek sayılar",
+      "skills": ["tek sayı tanıma", "toplama"],
+      "explanation": "1'den 10'a tek sayılar: 1, 3, 5, 7, 9. Toplam: 1+3+5+7+9 = 25."
+    },
+    {
+      "stem": "Bir çocuk 3 günde 24 sayfa kitap okudu. Günde eşit sayfa okuduysa, bir günde kaç sayfa okudu?",
+      "options": ["8 sayfa", "6 sayfa", "9 sayfa", "7 sayfa"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "24 ÷ 3 = 8 sayfa/gün."
+    },
+    {
+      "stem": "Bir bahçede 5 sıra domates fidesi var. Her sırада 9 fide var. Toplam kaç domates fidesi vardır?",
+      "options": ["45", "40", "50", "35"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma", "problem çözme"],
+      "explanation": "5 × 9 = 45 fide."
+    },
+    {
+      "stem": "299'dan sonra gelen 3 sayıyı sıralayan seçenek hangisidir?",
+      "options": ["300, 301, 302", "289, 290, 291", "298, 300, 301", "300, 302, 304"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "sayı dizisi",
+      "skills": ["ardışık sayılar"],
+      "explanation": "299'dan sonra: 300, 301, 302."
+    },
+    {
+      "stem": "2'şer atlayarak sayma: 2, 4, 6, 8, __, 12. Boşluğa gelecek sayı nedir?",
+      "options": ["10", "9", "11", "13"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "sayı dizisi",
+      "skills": ["örüntü tanıma"],
+      "explanation": "2'şer atlayarak: 8'den sonra 10 gelir."
+    },
+    {
+      "stem": "5'er atlayarak sayma: 5, 10, 15, 20, __, 30. Boşluk kaçtır?",
+      "options": ["25", "24", "26", "23"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "sayı dizisi",
+      "skills": ["örüntü tanıma"],
+      "explanation": "5'er atlayarak: 20'den sonra 25 gelir."
+    },
+    {
+      "stem": "10'ar atlayarak sayma: 100, 110, 120, __, 140. Boşluk kaçtır?",
+      "options": ["130", "125", "135", "115"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "sayı dizisi",
+      "skills": ["örüntü tanıma"],
+      "explanation": "10'ar atlayarak: 120'den sonra 130 gelir."
+    },
+    {
+      "stem": "100'er atlayarak sayma: 100, 200, 300, __, 500. Boşluk kaçtır?",
+      "options": ["400", "350", "450", "300"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "sayı dizisi",
+      "skills": ["örüntü tanıma"],
+      "explanation": "100'er atlayarak: 300'den sonra 400 gelir."
+    },
+    {
+      "stem": "Bir torta 8 eşit dilime kesilmiştir. 3 dilim yenilmiştir. Tortanın kaçta kaçı yenilmiştir?",
+      "options": ["3/8", "3/5", "5/8", "8/3"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "kesirler",
+      "skills": ["basit kesir"],
+      "explanation": "8 eşit parçadan 3'ü yenildi → 3/8."
+    },
+    {
+      "stem": "Bir pasta 4 eşit parçaya bölünmüştür. Her parça pastanın kaçta kaçıdır?",
+      "options": ["1/4", "1/3", "1/2", "4/1"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "kesirler",
+      "skills": ["birim kesir"],
+      "explanation": "4 eşit parçadan her biri = 1/4."
+    },
+    {
+      "stem": "1/2 ile 1/4 kesirlerinden hangisi büyüktür?",
+      "options": ["1/2", "1/4", "Eşittirler", "Karşılaştırılamaz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "kesirler",
+      "skills": ["kesir karşılaştırma"],
+      "explanation": "Paylar aynı (1), paydası küçük olan kesir büyüktür. 2 < 4 olduğundan 1/2 > 1/4."
+    },
+    {
+      "stem": "Bir kek 6 eşit parçaya bölünmüştür. Ahmet 2 parça, Mehmet 3 parça yedi. İki kişi birlikte kekin kaçta kaçını yedi?",
+      "options": ["5/6", "2/3", "1/2", "6/5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "kesirler",
+      "skills": ["kesir toplama", "problem çözme"],
+      "explanation": "2/6 + 3/6 = 5/6."
+    },
+    {
+      "stem": "Bir bahçe 3 eşit bölüme ayrılmıştır. 2 bölümüne çiçek ekilmiştir. Çiçek ekilen alan tüm bahçenin kaçta kaçıdır?",
+      "options": ["2/3", "1/3", "3/2", "2/5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "kesirler",
+      "skills": ["basit kesir"],
+      "explanation": "3 eşit bölümden 2'si çiçekli → 2/3."
+    },
+    {
+      "stem": "Bir sınıfta 24 öğrencinin 12'si kız, 12'si erkektir. Kız öğrenciler sınıfın kaçta kaçını oluşturur?",
+      "options": ["1/2", "1/4", "3/4", "2/3"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "kesirler",
+      "skills": ["kesir hesabı"],
+      "explanation": "12/24 = 1/2. Kız öğrenciler sınıfın yarısını oluşturur."
+    },
+    {
+      "stem": "500 + 200 + 30 + 7 = ?",
+      "options": ["737", "527", "730", "700"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "basamak değeri",
+      "skills": ["genişletilmiş gösterim"],
+      "explanation": "500 + 200 = 700. 700 + 30 = 730. 730 + 7 = 737."
+    },
+    {
+      "stem": "623 sayısının genişletilmiş gösterimi aşağıdakilerden hangisidir?",
+      "options": ["600 + 20 + 3", "600 + 200 + 3", "60 + 20 + 3", "62 + 3"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "basamak değeri",
+      "skills": ["genişletilmiş gösterim"],
+      "explanation": "623: 6 yüzler → 600, 2 onlar → 20, 3 birler → 3. 600+20+3."
+    },
+    {
+      "stem": "256 + 344 = ?",
+      "options": ["600", "590", "610", "560"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı toplama",
+      "skills": ["toplama"],
+      "explanation": "256 + 344 = 600. Birler: 6+4=10, 1 elde. Onlar: 5+4+1=10, 1 elde. Yüzler: 2+3+1=6. Sonuç: 600."
+    },
+    {
+      "stem": "700 - 456 = ?",
+      "options": ["244", "254", "234", "264"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı çıkarma",
+      "skills": ["çıkarma"],
+      "explanation": "700 - 456: 700-400=300, 300-56=244. Sonuç: 244."
+    },
+    {
+      "stem": "Bir sınıfta 32 öğrenciden 4 grubu oluşturuluyor. Her grup eşit sayıda öğrenciden oluşuyorsa, bir grupta kaç öğrenci vardır?",
+      "options": ["8", "6", "9", "7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "32 ÷ 4 = 8 öğrenci/grup."
+    },
+    {
+      "stem": "Bir dükkânda 3 renkte tişört ve her renkte 9 beden vardır. Toplam kaç çeşit tişört vardır?",
+      "options": ["27", "12", "18", "24"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma", "problem çözme"],
+      "explanation": "3 renk × 9 beden = 27 çeşit tişört."
+    },
+    {
+      "stem": "Haftanın ilk 3 günü toplam 126 km yol gidilmiştir. Her gün eşit yol gidildiyse, bir günde kaç km gidilmiştir?",
+      "options": ["42 km", "36 km", "48 km", "63 km"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "126 ÷ 3 = 42 km/gün."
+    },
+    {
+      "stem": "2 × 8 = ? ve 8 × 2 = ? sonuçları hakkında ne söylenebilir?",
+      "options": ["İkisi de 16'dır", "2×8=16, 8×2=10", "2×8=10, 8×2=16", "İkisi de 10'dur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpmanın değişme özelliği",
+      "skills": ["çarpma", "değişme özelliği"],
+      "explanation": "Çarpmanın değişme özelliği: a×b = b×a. 2×8 = 8×2 = 16."
+    },
+    {
+      "stem": "Sabah saat 7:00'de kalkan biri akşam saat 21:00'de yatıyor. Gün içinde kaç saat uyanık kalmıştır?",
+      "options": ["14 saat", "12 saat", "16 saat", "10 saat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "zaman ölçme",
+      "skills": ["saat farkı"],
+      "explanation": "21 - 7 = 14 saat uyanık."
+    },
+    {
+      "stem": "Bir hafta kaç gündür? 3 hafta kaç gün eder?",
+      "options": ["7 gün, 21 gün", "7 gün, 14 gün", "6 gün, 18 gün", "5 gün, 15 gün"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "zaman ölçme",
+      "skills": ["çarpma", "zaman birimleri"],
+      "explanation": "1 hafta = 7 gün. 3 hafta = 7 × 3 = 21 gün."
+    },
+    {
+      "stem": "Kasım ayı 30 gündür. Bu ay kaç haftadan kaç gün fazladır?",
+      "options": ["4 hafta 2 gün", "4 hafta 0 gün", "5 hafta 0 gün", "3 hafta 9 gün"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "zaman ölçme",
+      "skills": ["bölme", "kalan"],
+      "explanation": "30 ÷ 7 = 4 hafta kalan 2 gün. 30 = 4 × 7 + 2."
+    },
+    {
+      "stem": "Bir kutu içinde 5 sıra top var, her sırada 6 top var. Kutudaki toplam top sayısı kaçtır?",
+      "options": ["30", "24", "36", "25"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma"],
+      "explanation": "5 × 6 = 30 top."
+    },
+    {
+      "stem": "Bir sayı 4 ile çarpılınca 36 elde ediliyor. Bu sayı kaçtır?",
+      "options": ["9", "8", "7", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["ters işlem"],
+      "explanation": "Sayı × 4 = 36 → sayı = 36 ÷ 4 = 9."
+    },
+    {
+      "stem": "16 ÷ 2 = ? ve 16 ÷ 4 = ? işlemlerinin sonuçlarının toplamı kaçtır?",
+      "options": ["12", "8", "16", "10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölme işlemi",
+      "skills": ["bölme", "toplama"],
+      "explanation": "16÷2=8, 16÷4=4. 8+4=12."
+    },
+    {
+      "stem": "Bir şehirden diğer şehire gitmek 3 saat 30 dakika sürüyor. Saat 10:00'da yola çıkılırsa, kaçta varılır?",
+      "options": ["13:30", "13:00", "14:00", "12:30"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "zaman ölçme",
+      "skills": ["saat hesabı"],
+      "explanation": "10:00 + 3 saat = 13:00. 13:00 + 30 dakika = 13:30."
+    },
+    {
+      "stem": "Bir çocuğun 72 TL'si var. Bu parayla her biri 9 TL olan kaç oyuncak alabilir?",
+      "options": ["8 oyuncak", "7 oyuncak", "9 oyuncak", "6 oyuncak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "para",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "72 ÷ 9 = 8 oyuncak."
+    },
+    {
+      "stem": "Bir masada 4 kişi oturuyor. Her masada 4 fincan çay var. 5 masada toplam kaç fincan çay vardır?",
+      "options": ["20", "16", "24", "25"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "çarpım tablosu",
+      "skills": ["çarpma", "problem çözme"],
+      "explanation": "4 fincan × 5 masa = 20 fincan çay."
+    },
+    {
+      "stem": "150 cm olan tahtadan 37 cm kesildi. Kalan tahta kaç cm'dir?",
+      "options": ["113 cm", "123 cm", "107 cm", "143 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "uzunluk ölçme",
+      "skills": ["çıkarma", "ölçme"],
+      "explanation": "150 - 37 = 113 cm."
+    },
+    {
+      "stem": "Bir ip 5 eşit parçaya kesilmiştir. Her parça 12 cm'dir. İpin toplam uzunluğu kaç cm'dir?",
+      "options": ["60 cm", "50 cm", "55 cm", "65 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "uzunluk ölçme",
+      "skills": ["çarpma", "ölçme"],
+      "explanation": "12 cm × 5 parça = 60 cm."
+    },
+    {
+      "stem": "Bir sayı 400'den 155 fazladır. Bu sayı kaçtır?",
+      "options": ["555", "545", "565", "245"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı toplama",
+      "skills": ["toplama", "problem çözme"],
+      "explanation": "400 + 155 = 555."
+    },
+    {
+      "stem": "850'nin 275 eksiği kaçtır?",
+      "options": ["575", "585", "565", "625"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı çıkarma",
+      "skills": ["çıkarma"],
+      "explanation": "850 - 275 = 575."
+    },
+    {
+      "stem": "Aşağıdaki toplamalardan hangisi 500'den büyük sonuç verir?",
+      "options": ["263 + 248", "220 + 270", "150 + 340", "199 + 299"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "3 basamaklı toplama",
+      "skills": ["toplama", "tahmin"],
+      "explanation": "263+248=511 > 500. 220+270=490, 150+340=490, 199+299=498."
+    },
+    {
+      "stem": "Bir bahçede 4 ağaç vardır. Her ağaçta 9 elma vardır. Tüm elmalar 3 kişiye eşit dağıtılırsa, her kişiye kaç elma düşer?",
+      "options": ["12", "9", "15", "18"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "karma işlemler",
+      "skills": ["çarpma", "bölme", "problem çözme"],
+      "explanation": "Toplam elma: 4 × 9 = 36. Her kişiye: 36 ÷ 3 = 12 elma."
+    },
+    {
+      "stem": "Bir arabada 4 koltuk, bir minibüste 16 koltuk vardır. Minibüste araca göre kaç kat fazla koltuk vardır?",
+      "options": ["4 kat", "12 kat", "3 kat", "8 kat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "karma işlemler",
+      "skills": ["bölme", "problem çözme"],
+      "explanation": "16 ÷ 4 = 4 kat fazla."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi 3'e tam bölünür?",
+      "options": ["27", "25", "28", "26"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "bölünebilme",
+      "skills": ["bölme"],
+      "explanation": "27 ÷ 3 = 9. 25÷3 ve 28÷3 ve 26÷3 tam bölünmez."
+    },
+    {
+      "stem": "Bir sayı 5 ile çarpılıp 15 eklendiğinde 50 elde ediliyor. Bu sayı kaçtır?",
+      "options": ["7", "8", "6", "9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "karma işlemler",
+      "skills": ["çarpma", "ters işlem"],
+      "explanation": "Sayı × 5 + 15 = 50. Sayı × 5 = 35. Sayı = 35 ÷ 5 = 7."
+    }
+  ]
+}

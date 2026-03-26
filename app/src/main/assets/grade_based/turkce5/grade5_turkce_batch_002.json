@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "turkce",
+  "questions": [
+    {
+      "stem": "Türkçede 'ad soylu yüklem' ne demektir?",
+      "options": ["Yüklemi isim, sıfat, zarf veya zamir olan cümle; ek-fiil ile tamamlanır", "Fiil olan yüklem", "Soru olan yüklem", "Olumsuz yüklem"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yüklem türleri",
+      "skills": ["cümle bilgisi"],
+      "explanation": "Ad soylu yüklem: Bir isim, sıfat ya da zarfın ek-fiil alarak yüklem görevini üstlenmesidir. 'Hava güzeldir.'"
+    },
+    {
+      "stem": "'Tuz ekmek hakkı' deyimi hangi anlamda kullanılır?",
+      "options": ["Paylaşılan ekmek ve tuzdan doğan vefa, minnet ve dostluk bağı", "Tuz ve ekmeğin ekonomik değeri", "Yemek paylaşımına dair kural", "Tuz ve ekmeğin sağlığa faydası"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["deyim anlamı"],
+      "explanation": "'Tuz ekmek hakkı': Birlikte yenen yemeğin yarattığı manevi borç ve vefa duygusunu ifade eder."
+    },
+    {
+      "stem": "Türkçede 'çokluk eki' olan '-lar/-ler' hangi koşullarda kullanılır?",
+      "options": ["Büyük ünlü uyumuna göre son ünlü ince ise '-ler', kalın ise '-lar' kullanılır", "Her zaman '-lar' kullanılır", "Her zaman '-ler' kullanılır", "Sözcüğün uzunluğuna göre değişir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses uyumu",
+      "skills": ["büyük ünlü uyumu"],
+      "explanation": "'-lar/-ler' büyük ünlü uyumuna tabidir: 'kitaplar' (a→lar), 'defterler' (e→ler)."
+    },
+    {
+      "stem": "Bir metnin 'tutarlılığı' ne anlama gelir?",
+      "options": ["Metnin içindeki fikirlerin birbiriyle çelişmemesi ve mantıksal bütünlük içinde olması", "Yalnızca noktalama işaretlerinin doğru kullanılması", "Metnin uzun olması", "Metnin basit cümlelerden oluşması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin yapısı",
+      "skills": ["metin anlama"],
+      "explanation": "Tutarlılık: Metindeki bilgilerin birbiriyle çelişmemesi, aynı konuyu tutarlı biçimde işlemesidir."
+    },
+    {
+      "stem": "'Bağdaşıklık' kavramı metinde neyi sağlar?",
+      "options": ["Cümlelerin birbiriyle dilbilgisel açıdan uyumlu, akıcı bağlanmasını sağlar", "Metni kısaltır", "Yalnızca noktalama işaretlerini düzenler", "Sözcüklerin anlamını belirler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin yapısı",
+      "skills": ["metin dilbilgisi"],
+      "explanation": "Bağdaşıklık (cohesion): Cümleler arasındaki dilsel bağın sağlamlığı; zamir, bağlaç ve zarf kullanımıyla kurulur."
+    },
+    {
+      "stem": "Aşağıdakilerin hangisi 'anlatı metnine' özgü değildir?",
+      "options": ["İstatistik ve grafik kullanımı", "Olay kurgusu", "Kişiler ve mekân", "Zaman sıralaması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["tür analizi"],
+      "explanation": "İstatistik ve grafik; bilgi/rapor metinlerine özgüdür. Anlatı metinleri olay, kişi, mekân ve zaman üzerine kuruludur."
+    },
+    {
+      "stem": "Türkçede 'belgisiz zamir' örneklerinden hangisi doğrudur?",
+      "options": ["Herkes, kimse, hiçbiri, bazısı", "Ben, sen, o", "Bu, şu, o (işaret)", "Kim, ne, hangi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zamirler",
+      "skills": ["zamir türleri"],
+      "explanation": "Belgisiz zamirler: Kişiyi ya da şeyi belli etmeden göndermede bulunan zamirler; herkes, kimse, bazısı gibi."
+    },
+    {
+      "stem": "Aşağıdaki sözcük çiftlerinden hangisi 'eş sesli (sesteş)' sözcük örneğidir?",
+      "options": ["Yüz (sayı) – Yüz (insan yüzü)", "Güzel – Çirkin", "Kitap – Defter", "Hızlı – Yavaş"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sesteş sözcükler",
+      "skills": ["anlam bilgisi"],
+      "explanation": "Sesteş (eş sesli) sözcükler: Yazılışları aynı, anlamları farklı sözcükler. 'Yüz' hem sayı hem organ anlamı taşır."
+    },
+    {
+      "stem": "Bir 'biyografi'de neler anlatılır?",
+      "options": ["Gerçek bir kişinin hayatı, başarıları, mücadeleleri ve katkıları", "Kurgu bir kahramanın macerası", "Tarihsel olayların kronolojisi", "Yazarın kendi hayatı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["tür bilgisi"],
+      "explanation": "Biyografi: Bir başkasının hayatını anlatan; gerçek olayları, kişinin başarılarını ve dönemini aktaran yazı türüdür."
+    },
+    {
+      "stem": "'Özgeçmiş' (CV) yazarken hangi bilgiler kesinlikle yer almalıdır?",
+      "options": ["Kişisel bilgiler, eğitim durumu, iş deneyimi ve beceriler", "Yalnızca ad ve soyad", "Yalnızca eğitim bilgisi", "Yalnızca hobiler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazma becerileri",
+      "skills": ["yazma"],
+      "explanation": "Özgeçmişte: Kişisel bilgiler, eğitim, iş deneyimi ve beceriler yer almalıdır."
+    },
+    {
+      "stem": "Türkçede okuduğumuz bir metni 'not alarak' okumak hangi beceriyi destekler?",
+      "options": ["Önemli bilgileri belirleme, özetleme ve eleştirel okuma becerisi", "Yalnızca hız okuma", "Yalnızca ezber", "Yalnızca yüzeysel anlama"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma becerileri",
+      "skills": ["okuma stratejileri"],
+      "explanation": "Not alarak okumak; temel bilgileri belirlemeyi, sentez yapmayı ve eleştirel düşünmeyi destekler."
+    },
+    {
+      "stem": "Türkçe bir yazıda 'bağlam dışı sözcük' kullanmak ne tür bir hatadır?",
+      "options": ["Anlatım bozukluğu; yanlış ya da uyumsuz sözcük seçimi", "Noktalama hatası", "Yazım hatası", "Paragraf hatası"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlatım bozuklukları",
+      "skills": ["dil bilgisi"],
+      "explanation": "Bağlam dışı ya da yanlış sözcük seçimi anlatım bozukluğuna yol açar; cümlenin anlamını bulanıklaştırır."
+    },
+    {
+      "stem": "Dil öğrenme sürecinde 'okuduğunu anlama'yı geliştirmenin en etkili yolu nedir?",
+      "options": ["Düzenli ve çeşitli türlerde okumak; okuma sonrası sorular sormak", "Yalnızca ders kitabını okumak", "Yalnızca film izlemek", "Yalnızca sözlük çalışmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma becerileri",
+      "skills": ["okuma stratejileri"],
+      "explanation": "Okuduğunu anlama; geniş okuma, aktif sorgulamа ve strateji kullanımıyla gelişir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde 'gerçek (düz) anlam' içeren cümle hangisidir?",
+      "options": ["Kitap masanın üzerinde duruyor.", "Bu soru beni çok düşündürdü.", "O bir ateş topu gibi konuştu.", "Söylediği sözler beni yaktı."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Anlam türleri",
+      "skills": ["anlam analizi"],
+      "explanation": "'Kitap masanın üzerinde duruyor.' → Her sözcük gerçek, fiziksel anlamıyla kullanılmış → düz anlam."
+    },
+    {
+      "stem": "Türkçede bir cümlede 'konu' ve 'yoruma açıklık' bulunmasının önemi nedir?",
+      "options": ["Farklı okuyucuların metinden farklı anlamlar çıkarabilmesi; edebi metinlere özgü bir zenginliktir", "Her metnin yalnızca tek bir anlamı olmalıdır", "Yoruma açık metinler hatalıdır", "Yalnızca fıkra türünde görülür"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin anlama",
+      "skills": ["eleştirel okuma"],
+      "explanation": "Edebi metinler çok anlamlılığa açık olabilir; bu özellik estetik değerini artırır ve farklı yorumları mümkün kılar."
+    }
+  ]
+}

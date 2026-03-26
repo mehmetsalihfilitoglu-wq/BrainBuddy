@@ -1,0 +1,862 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "hayat",
+  "questions": [
+    {
+      "stem": "Türkiye kaç coğrafi bölgeye ayrılmaktadır?",
+      "options": ["5", "6", "7", "8"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Türkiye; Karadeniz, Marmara, Ege, Akdeniz, İç Anadolu, Doğu Anadolu ve Güneydoğu Anadolu olmak üzere 7 coğrafi bölgeye ayrılır."
+    },
+    {
+      "stem": "İstanbul hangi coğrafi bölgededir?",
+      "options": ["Ege Bölgesi", "Marmara Bölgesi", "Karadeniz Bölgesi", "İç Anadolu Bölgesi"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "İstanbul, Marmara Bölgesi'nde yer alır ve Türkiye'nin en kalabalık şehridir."
+    },
+    {
+      "stem": "İzmir hangi bölgede yer alır?",
+      "options": ["Akdeniz Bölgesi", "Marmara Bölgesi", "Ege Bölgesi", "İç Anadolu Bölgesi"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "İzmir, Ege kıyısında yer alır ve Ege Bölgesi'nin en büyük şehridir."
+    },
+    {
+      "stem": "Güneydoğu Anadolu Bölgesi'nde hangi büyük proje hayata geçirilmiştir?",
+      "options": ["İstanbul Köprüleri", "GAP (Güneydoğu Anadolu Projesi)", "Boğaz Tüneli", "Kanal İstanbul"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye ekonomisi",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "GAP, Fırat ve Dicle nehirleri üzerinde barajlar ve sulama kanalları inşa ederek bölgeyi geliştirmeyi amaçlayan büyük bir projedir."
+    },
+    {
+      "stem": "Ayasofya hangi şehirdedir?",
+      "options": ["Ankara", "İzmir", "İstanbul", "Bursa"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Türkiye tarihi ve kültürü",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "Ayasofya, İstanbul'da bulunan ve Bizans döneminde inşa edilmiş tarihi bir yapıdır; günümüzde müze ve cami olarak ziyaret edilmektedir."
+    },
+    {
+      "stem": "İstanbul'u Avrupa ve Asya'ya bağlayan Boğaz'ın adı nedir?",
+      "options": ["Çanakkale Boğazı", "Kerç Boğazı", "İstanbul Boğazı (Boğaziçi)", "Hürmüz Boğazı"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "İstanbul Boğazı (Boğaziçi), İstanbul'u Avrupa ve Asya yakasına ayırır; Karadeniz ile Marmara Denizi'ni birbirine bağlar."
+    },
+    {
+      "stem": "Osmanlı İmparatorluğu'nun kurucusu kimdir?",
+      "options": ["Yıldırım Bayezid", "Fatih Sultan Mehmet", "Osman Bey", "Orhan Gazi"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "Osmanlı İmparatorluğu, 13. yüzyılın sonunda Osman Bey tarafından kurulmuştur."
+    },
+    {
+      "stem": "İstanbul'u fetheden Osmanlı padişahı kimdir?",
+      "options": ["Kanuni Sultan Süleyman", "Yıldırım Bayezid", "II. Mehmet (Fatih)", "III. Murat"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "İstanbul, 29 Mayıs 1453'te II. Mehmet (Fatih Sultan Mehmet) tarafından fethedilmiş ve Osmanlı'nın başkenti yapılmıştır."
+    },
+    {
+      "stem": "Selçuklu Devleti'nin kurulduğu dönem hangi yüzyıldır?",
+      "options": ["8. yüzyıl", "10. yüzyıl", "11. yüzyıl", "13. yüzyıl"],
+      "answerIndex": 2,
+      "difficulty": 3,
+      "topic": "Türkiye tarihi",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "Büyük Selçuklu Devleti 11. yüzyılda kurulmuştur; Türklerin Anadolu'ya yerleşmesinde büyük rol oynamıştır."
+    },
+    {
+      "stem": "Türk mutfağında 'dolma' ne demektir?",
+      "options": ["Izgara et yemeği", "Pilav çeşidi", "Biber, yaprak veya kabak gibi sebzelerin iç harçla doldurulmasıyla yapılan yemek", "Tatlı çeşidi"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türk kültürü",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Dolma, çeşitli sebzelerin pirinç, kıyma veya bulgur karışımıyla doldurularak pişirilmesiyle yapılır; Türk mutfağının vazgeçilmezidir."
+    },
+    {
+      "stem": "Türkiye'de geleneksel olarak yapılan el sanatlarından biri hangisidir?",
+      "options": ["Origami", "Çini ve seramik sanatı", "Flamenco", "Bonsai"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk kültürü",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Çini, renkli sır ve boyalarla süslenen pişmiş toprak (seramik) üzerine yapılan geleneksel Türk sanatıdır; Kütahya ve İznik çinileri ünlüdür."
+    },
+    {
+      "stem": "Türk halı ve kilim sanatı neden önemlidir?",
+      "options": ["Yalnızca ısınma için kullanılır", "Yüzyıllık el emeği ve kültürel desenleri aktaran önemli bir geleneksel sanattır", "Sadece ihraç edilir", "Makine yapımıdır ve kültürel önemi yoktur"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk kültürü",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Türk halı ve kilimleri, bölgeye özgü geleneksel desenler ve el işçiliğiyle yüzyıllık kültürel mirası yansıtır."
+    },
+    {
+      "stem": "Ebru sanatı ne üzerinde yapılır?",
+      "options": ["Tuval üzerine", "Su yüzeyine boyalar damlatılarak", "Tahta oyularak", "Cam üzerine"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk kültürü",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Ebru, su yüzeyine özel boyalar damlatılarak şekiller oluşturulması ve bu desenlerin kâğıda aktarılmasıyla yapılan geleneksel Türk sanatıdır."
+    },
+    {
+      "stem": "Trafik işaretlerinde kırmızı sekizgen ne anlama gelir?",
+      "options": ["Yavaşla", "Dur (STOP)", "İleri git", "Dikkat"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Trafik güvenliği",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Kırmızı sekizgen (oktagon) 'DUR' işaretidir; araçlar bu işarette tam durmalıdır."
+    },
+    {
+      "stem": "Sarı üçgen şeklindeki trafik işareti ne anlama gelir?",
+      "options": ["Park yasağı", "Dikkat veya uyarı", "Hız limiti", "Geçiş üstünlüğü"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Trafik güvenliği",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Sarı veya beyaz üçgen şeklindeki işaretler 'uyarı/dikkat' anlamına gelir; sürücüleri yoldaki tehlikelere karşı uyarır."
+    },
+    {
+      "stem": "Mavi daire şeklindeki trafik işareti ne anlama gelir?",
+      "options": ["Yasak", "Zorunluluk/Emir (o yönde gidilmesi zorunlu)", "Uyarı", "Bilgi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Trafik güvenliği",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Mavi daire içindeki işaretler 'zorunluluk' bildirir; ör. düz ok varsa o yönde gitmek zorunludur."
+    },
+    {
+      "stem": "Biri fenalaştığında yapılacak ilk iş nedir?",
+      "options": ["Yanından ayrılmak", "112 Acil'i aramak ve bir yetişkinden yardım istemek", "Soğuk su dökmek", "Beklemek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "İlk yardım temelleri",
+      "skills": ["Güvenlik farkındalığı", "Afet bilinci"],
+      "explanation": "Acil durumda önce 112'yi arayarak tıbbi yardım çağırılmalı ve yetişkin desteği alınmalıdır; kendi kendine müdahale genellikle durumu kötüleştirebilir."
+    },
+    {
+      "stem": "Kesik bir yara olduğunda ne yapılmalıdır?",
+      "options": ["Yabancı madde ile kapatılmalı", "Temiz bezle basınç uygulanarak yara kapatılmalı ve doktora gidilmeli", "Tuz serpilmeli", "Sıcak su dökülmeli"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "İlk yardım temelleri",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Kesik yarada temiz bezle baskı uygulamak kanamayı yavaşlatır; derin yaralarda mutlaka tıbbi yardım alınmalıdır."
+    },
+    {
+      "stem": "Yanık (hafif) olduğunda ne yapılmalıdır?",
+      "options": ["Tereyağı veya diş macunu sürmek", "Soğuk akan su altında en az 10 dakika tutmak", "Buz doğrudan uygulamak", "Patlayan kabarcığı patlatmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "İlk yardım temelleri",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Yanık bölge soğuk akan su altında tutularak ısı çekilir; buz doğrudan uygulanmamalı, üzerine yağ veya macun sürülmemelidir."
+    },
+    {
+      "stem": "Belediyenin görevi nedir?",
+      "options": ["Yurt dışı seyahat düzenlemek", "Şehrin temizliği, ulaşımı ve altyapısını yönetmek", "Askerî kararlar almak", "Mahkeme kararı vermek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Yerel yönetim",
+      "skills": ["Vatandaşlık bilgisi"],
+      "explanation": "Belediye; çevre temizliği, yol, park, ulaşım ve su gibi şehir hizmetlerini yürütür."
+    },
+    {
+      "stem": "Muhtarlık ne işe yarar?",
+      "options": ["Vergi toplar", "Mahalle düzeyinde vatandaşlara hizmet verir ve sorunları yetkililere iletir", "Yargı kararı verir", "Askerlik işlemlerini yürütür"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Yerel yönetim",
+      "skills": ["Vatandaşlık bilgisi"],
+      "explanation": "Muhtarlık, mahalle veya köy düzeyinde en küçük yerel yönetim birimidir; ikametgâh belgesi gibi işlemleri yürütür."
+    },
+    {
+      "stem": "Su döngüsünde 'buharlaşma' ne anlama gelir?",
+      "options": ["Suyun donması", "Sıvı suyun ısı etkisiyle gaz hâline geçmesi", "Bulutların yağmura dönüşmesi", "Suyun toprağa sızması"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Doğa döngüleri",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Buharlaşma, güneş enerjisiyle su yüzeylerinden sıvı suyun su buharına (gaz) dönüşmesidir; su döngüsünün ilk adımıdır."
+    },
+    {
+      "stem": "Su döngüsünde 'yoğunlaşma' ne anlama gelir?",
+      "options": ["Suyun buharlaşması", "Su buharının soğuyarak sıvı damlacıklara dönüşmesi ve bulut oluşturması", "Yağmurun toprağa düşmesi", "Suyun donması"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Doğa döngüleri",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Yoğunlaşma, atmosfere yükselen su buharının soğuyarak küçük su damlacıklarına dönüşmesidir; bu süreç bulutları oluşturur."
+    },
+    {
+      "stem": "Güneş'e en yakın gezegen hangisidir?",
+      "options": ["Venüs", "Dünya", "Merkür", "Mars"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Uzay ve astronomi",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Merkür, Güneş Sistemi'nde Güneş'e en yakın gezegendir."
+    },
+    {
+      "stem": "Dünya'nın tek doğal uydusu hangisidir?",
+      "options": ["Mars", "Venüs", "Ay", "Jüpiter"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Uzay ve astronomi",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Ay, Dünya'nın tek doğal uydusu olup Dünya'nın çevresinde döner."
+    },
+    {
+      "stem": "Güneş Sistemi'nde en büyük gezegen hangisidir?",
+      "options": ["Satürn", "Jüpiter", "Neptün", "Uranüs"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Uzay ve astronomi",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Jüpiter, Güneş Sistemi'nin en büyük gezegenidir; kütlesi diğer tüm gezegenlerin toplamının iki katından büyüktür."
+    },
+    {
+      "stem": "Yıldızlar neden parlak görünür?",
+      "options": ["Ayın ışığını yansıtırlar", "Kendi ışıklarını üretirler (nükleer tepkimelerle)", "Güneş'in ışığını yansıtırlar", "Parlayan gazdan oluşurlar ama ışık üretemezler"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Uzay ve astronomi",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Yıldızlar, çekirdeğindeki nükleer tepkimelerle ısı ve ışık üreten dev gaz kürelerdir; güneşimiz de bir yıldızdır."
+    },
+    {
+      "stem": "Güneş tutulması ne zaman gerçekleşir?",
+      "options": ["Ay Dünya'nın gölgesine girdiğinde", "Ay, Dünya ile Güneş arasına girip Güneş'i kapattığında", "Dünya Güneş'e en yakın olduğunda", "Geceleyin"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Uzay ve astronomi",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Güneş tutulması, Ay'ın Dünya ile Güneş arasına girerek Güneş'i kısmen ya da tamamen örtmesiyle oluşur."
+    },
+    {
+      "stem": "Hava kirliliğine neden olan en önemli etkenlerden biri nedir?",
+      "options": ["Yağmur", "Araç egzozları ve sanayi dumanı", "Rüzgâr", "Kar"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre kirliliği",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Araç egzozlarından ve fabrika bacalarından çıkan zararlı gazlar hava kirliliğinin başlıca nedenleridir."
+    },
+    {
+      "stem": "Hava kirliliği sağlığımızı nasıl etkiler?",
+      "options": ["Hiç etkilemez", "Solunum yolu hastalıklarına, astıma ve kalp sorunlarına yol açar", "Yalnızca bitkileri etkiler", "Sadece yaşlıları etkiler"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre kirliliği",
+      "skills": ["Çevre bilinci", "Sağlık bilinci"],
+      "explanation": "Hava kirliliğindeki partikül maddeler ve zararlı gazlar solunum yolu ve kalp-damar hastalıklarına neden olabilir."
+    },
+    {
+      "stem": "Toprak kirliliğine neden olan başlıca etken hangisidir?",
+      "options": ["Yağmur suyu", "Tarımda aşırı kimyasal kullanımı ve düzensiz çöp depolama", "Rüzgâr erozyonu", "Güneş ışığı"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre kirliliği",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Tarımda bilinçsiz pestisit ve gübre kullanımı ile çöplerin yanlış depolanması toprağı kirletir."
+    },
+    {
+      "stem": "Su kirliliğini azaltmak için ne yapabiliriz?",
+      "options": ["Fabrika atıklarını nehirlere dökmek", "Deterjanları ve kimyasalları kanalizasyona dökülmeden arıtmak; suları bilinçli kullanmak", "Plastik şişeleri denizlere atmak", "Sulama kanallarını kapatmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre kirliliği",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Kimyasalların ve atıkların arıtılmadan suya karışmasını önlemek su kirliliğini azaltmanın temel yoludur."
+    },
+    {
+      "stem": "Gürültü kirliliği neye neden olur?",
+      "options": ["Hava kalitesini artırır", "İşitme kaybı, stres ve uyku sorunlarına yol açar", "Bitkileri güçlendirir", "Su kirliliği oluşturur"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre kirliliği",
+      "skills": ["Çevre bilinci", "Sağlık bilinci"],
+      "explanation": "Yüksek ve sürekli gürültü; işitme kaybı, stres, konsantrasyon güçlüğü ve uyku sorunlarına neden olur."
+    },
+    {
+      "stem": "Organik tarım nedir?",
+      "options": ["Kimyasal gübre ve ilaç kullanarak yapılan tarım", "Sentetik kimyasallar kullanılmadan, doğal yöntemlerle yapılan tarım", "Yalnızca sanayi tesislerinde yapılan tarım", "Tohumların laboratuvarda değiştirilmesiyle yapılan tarım"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sürdürülebilir tarım",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Organik tarım, sentetik pestisit ve yapay gübre kullanmadan toprağı ve çevreyi koruyarak yapılan tarım biçimidir."
+    },
+    {
+      "stem": "Sürdürülebilir yaşam ne demektir?",
+      "options": ["Mümkün olduğunca çok tüketmek", "İhtiyaç duyduğundan fazlasını tüketmemek ve doğal kaynakları korumak", "Yalnızca zengin ülkelerin yapabileceği bir yaşam biçimi", "Doğayla hiç etkileşmemek"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sürdürülebilirlik",
+      "skills": ["Çevre bilinci", "Eleştirel düşünme"],
+      "explanation": "Sürdürülebilir yaşam; doğal kaynakları aşırı tüketmeden, gelecek nesillerin ihtiyaçlarını da düşünerek yaşamaktır."
+    },
+    {
+      "stem": "Engelli bireylere nasıl davranılmalıdır?",
+      "options": ["Acıma ile bakılmalıdır", "Saygı gösterilerek ihtiyaç duydukları desteği sunmak gerekir; eşit birer birey olarak kabul edilmelidirler", "Ayrı tutulmalıdırlar", "Kendi başlarına bırakılmalıdırlar"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kapsayıcılık ve eşitlik",
+      "skills": ["Empati", "İnsan hakları"],
+      "explanation": "Engelli bireyler toplumun eşit üyeleridir; saygı gösterip gerektiğinde yardım sunmak, ayrımcılık yapmamak temel insani bir sorumluluktur."
+    },
+    {
+      "stem": "Farklı kültürlere saygı göstermek neden önemlidir?",
+      "options": ["Gerekli değildir", "Toplumsal barışı ve anlayışı güçlendirir; dünyayı zenginleştirir", "Yalnızca yurt dışında gereklidir", "Kendi kültürümüzü zayıflatır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kültürel çeşitlilik",
+      "skills": ["Empati", "Küresel vatandaşlık"],
+      "explanation": "Kültürel farklılıklara saygı; anlayış, hoşgörü ve barış içinde bir arada yaşamanın temelidir."
+    },
+    {
+      "stem": "Posta (mektup/kargo) hizmeti ne işe yarar?",
+      "options": ["Yalnızca para transferi yapar", "Mektup, paket ve kargo göndererek iletişim ve ticaret sağlar", "Yalnızca devlet kurumlarına hizmet eder", "Sadece faturalar için kullanılır"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Toplumsal kurumlar",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Posta hizmeti, kişi ve kurumlar arasında mektup, belge ve kargo gönderimini sağlayarak iletişim ve ticarete katkıda bulunur."
+    },
+    {
+      "stem": "Banka ne işe yarar?",
+      "options": ["Yalnızca para depolamak için", "Para yatırma/çekme, kredi verme ve para transferi gibi finansal hizmetler sunar", "Vergi toplar", "Sigorta poliçesi yazar"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Toplumsal kurumlar",
+      "skills": ["Finansal okuryazarlık"],
+      "explanation": "Bankalar; para yatırma, çekme, kredi, transfer ve yatırım gibi finansal hizmetleri sunarak ekonominin işleyişine katkı sağlar."
+    },
+    {
+      "stem": "Yangın tüpü ne zaman kullanılır?",
+      "options": ["Her gün temizlik için", "Küçük çaplı bir yangının başlangıcında söndürmek için", "Yalnızca büyük yangınlarda", "Hiçbir zaman kullanılmaz"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Yangın güvenliği",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Yangın tüpü, küçük yangınların başlangıcında devreye sokulur; büyük yangınlarda güvenli bölgeye çekilip itfaiye çağırılmalıdır."
+    },
+    {
+      "stem": "Ev yangınında dumanın tehlikeli olduğunu biliyoruz. Bu yüzden ne yapılmalıdır?",
+      "options": ["Ayakta koşarak kaçmak", "Eğilerek, mümkünse ıslak bezle ağzı kapatarak hareket etmek", "Duman içinde beklemek", "Gözleri kapatarak koşmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Yangın güvenliği",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Yangın dumanı zehirlidir ve tavanda birikirken yerde daha az yoğundur; bu yüzden eğilerek ve ağzı kapatarak hareket etmek gerekir."
+    },
+    {
+      "stem": "Doğal gaz kokusu hissedildiğinde ne yapılmamalıdır?",
+      "options": ["Pencereleri açmak", "Doğal gaz vanasını kapatmak", "Elektrik düğmesine basmak veya çakmak çakmak", "Evi terk etmek"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Ev güvenliği",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Doğal gaz sızdığında elektrik düğmesi ya da çakmak kıvılcım yaratarak patlamaya neden olabilir; vanayı kapatmak, havalandırmak ve evi terk etmek gerekir."
+    },
+    {
+      "stem": "Elektrikli aletleri ıslak elle kullanmak neden tehlikelidir?",
+      "options": ["Alet bozulur ama insana zarar vermez", "Su elektriği ilettiği için çarpılma (elektrik şoku) riski oluşur", "Yalnızca aletler ıslanır", "Tehlikeli değildir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Ev güvenliği",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Su, elektriği iyi ileten bir maddedir; ıslak eller veya ayakla elektrikli alete dokunmak ciddi elektrik çarpmalarına yol açabilir."
+    },
+    {
+      "stem": "Işık kirliliği ne anlama gelir?",
+      "options": ["Lambaların kırılması", "Gereksiz ve aşırı yapay ışık kullanımının doğa ve insan sağlığına zarar vermesi", "Güneş ışığının azalması", "Karanlık bölgelerde ışık olmaması"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Çevre kirliliği",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Işık kirliliği; şehirlerdeki aşırı yapay aydınlatmanın gökyüzünü karartması, hayvanların davranışlarını bozması ve insanların uyku düzenini etkilemesidir."
+    },
+    {
+      "stem": "Maddenin üç hâli nelerdir?",
+      "options": ["Katı, sıvı, plazma", "Katı, sıvı, gaz", "Sıvı, gaz, ateş", "Katı, gaz, enerji"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Madde ve özellikleri",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Madde; katı, sıvı ve gaz olmak üzere üç temel hâlde bulunur."
+    },
+    {
+      "stem": "Su ısıtıldığında katı hâlden sıvı hâle geçmesi nasıl adlandırılır?",
+      "options": ["Buharlaşma", "Yoğunlaşma", "Erime", "Donma"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Madde ve özellikleri",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Katı hâlin sıvı hâle geçmesi 'erime' olarak adlandırılır; örneğin buz ısıtıldığında erir."
+    },
+    {
+      "stem": "Suyun 0°C'de donması hangi hâl değişimidir?",
+      "options": ["Buharlaşma", "Erime", "Donma (katılaşma)", "Yoğunlaşma"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Madde ve özellikleri",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Sıvı hâlin katı hâle geçmesi 'donma' veya 'katılaşma' olarak adlandırılır; su 0°C'de donar."
+    },
+    {
+      "stem": "Mıknatıs hangi maddeleri çeker?",
+      "options": ["Tüm metalleri", "Yalnızca demir, nikel ve kobalt gibi ferromanyetik metalleri", "Plastik ve ahşap malzemeleri", "Tüm cisimleri"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Mıknatıs ve kuvvetler",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Mıknatıslar yalnızca demir, nikel ve kobalt gibi ferromanyetik metalleri çeker; altın, gümüş ve alüminyum gibi metaller mıknatısa çekilmez."
+    },
+    {
+      "stem": "İki mıknatısın aynı kutupları (N-N veya S-S) birbirine yaklaştırıldığında ne olur?",
+      "options": ["Birbirini çeker", "Birbirini iter", "Hiçbir şey olmaz", "Birleşirler"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Mıknatıs ve kuvvetler",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Manyetizmada zıt kutuplar çeker, aynı kutuplar iter; bu manyetik kuvvetin temel kuralıdır."
+    },
+    {
+      "stem": "Ses nasıl oluşur?",
+      "options": ["Işığın yayılmasıyla", "Titreşimler aracılığıyla", "Isının artmasıyla", "Rüzgârın esmesiyle"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Ses",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Ses, titreşen cisimlerden yayılan ve ortamdaki tanecikleri titreştirerek ilerleyen dalgalardan oluşur."
+    },
+    {
+      "stem": "Ses boşlukta (vakumda) ilerleyebilir mi?",
+      "options": ["Evet, her ortamda ilerler", "Hayır; ses iletmek için hava, su veya katı gibi bir ortam gerekir", "Yalnızca uzayda ilerler", "Sadece suda ilerler"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Ses",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Ses, titreşimi iletecek tanecikler olmadığından boşlukta (vakumda) yayılamaz; bir ortam gerekmektedir."
+    },
+    {
+      "stem": "Işık neden önemlidir?",
+      "options": ["Yalnızca görmemizi sağlar", "Görmeyi sağlar, bitkilerin fotosentezini mümkün kılar ve ısı verir", "Yalnızca güneşin ısısını taşır", "Zararlıdır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Işık",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Işık; görmeyi sağlar, fotosentez için gereklidir ve Güneş'ten gelen ısıyı taşır."
+    },
+    {
+      "stem": "Ayna ile ışık arasındaki ilişki nedir?",
+      "options": ["Ayna ışığı emer", "Ayna ışığı yansıtır", "Ayna ışığı söndürür", "Ayna ışığı üretir"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Işık",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Düzgün yüzeyli aynalar, üzerlerine düşen ışığı yansıtır; bu yüzden kendimizi aynada görebiliriz."
+    },
+    {
+      "stem": "Bir çocuk yabancı biri tarafından arabasına çekilmek istenirse ne yapmalıdır?",
+      "options": ["Arabaya binmelidir", "Bağırarak kaçmalı ve güvenilir bir yetişkine ulaşmalıdır", "Yabancıyla konuşmalıdır", "Paket ya da hediye alabilirse gidebilir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kişisel güvenlik",
+      "skills": ["Güvenlik farkındalığı"],
+      "explanation": "Yabancılarla arabaya binmek son derece tehlikelidir; bağırarak kaçmak ve güvenilir bir yetişkini ya da polis numarası 155'i aramak gerekir."
+    },
+    {
+      "stem": "Kişisel alan (mahremiyetin) ne demektir?",
+      "options": ["Herkesle her şeyi paylaşmak", "Başkalarının sınırlarına saygı göstermek ve kendi vücut bütünlüğüne sahip çıkmak", "Yalnızca fiziksel mesafe", "Sadece özel eşyaların korunması"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kişisel güvenlik",
+      "skills": ["Güvenlik farkındalığı", "Değerler eğitimi"],
+      "explanation": "Kişisel mahremiyet; vücut bütünlüğüne, özel bilgilere ve kişisel sınırlara saygı göstermek anlamına gelir."
+    },
+    {
+      "stem": "Gıda etiketinde 'son kullanma tarihi' ne anlama gelir?",
+      "options": ["Ürünün bu tarihten önce satılması gerekir", "Ürünün bu tarihten sonra tüketilmemesi gerekir (güvenli tüketim süresi)", "Ürünün üretildiği tarihtir", "Ürünün indirimde olduğu tarihtir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Gıda güvenliği",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Son kullanma tarihi, ürünün bu tarihten sonra tüketilmesinin güvenli olmadığını gösterir."
+    },
+    {
+      "stem": "Buzdolabında saklanan yiyecekler neden bozulmaz?",
+      "options": ["Buzdolabı yiyeceği ışıkla korur", "Düşük sıcaklık mikropların çoğalmasını yavaşlatır", "Buzdolabı besinlere vitamin ekler", "Buzdolabı yiyecekleri dondurur"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Gıda güvenliği",
+      "skills": ["Sağlık bilinci", "Neden-sonuç"],
+      "explanation": "Soğuk ortam, bakteri ve küf gibi mikroorganizmaların üremesini yavaşlatır; bu sayede yiyecekler daha uzun süre tazeliğini korur."
+    },
+    {
+      "stem": "Pişirilmeden yenilen sebze ve meyveleri yemeden önce ne yapmalıyız?",
+      "options": ["Direkt yenilir, yıkamaya gerek yok", "Bol suda iyice yıkamalıyız", "Kaynar suya batırmalıyız", "Derin dondurucuya koymalıyız"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Gıda güvenliği",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Taze meyve ve sebzeleri yemeden önce akan suda iyice yıkamak, üzerlerindeki toprak, bakteri ve kimyasal kalıntıları temizler."
+    },
+    {
+      "stem": "Hangi vitamin güneş ışığı sayesinde vücutta üretilir?",
+      "options": ["Vitamin A", "Vitamin C", "Vitamin D", "Vitamin B12"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Sağlıklı beslenme",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "D vitamini, derimiz güneş ışığına maruz kaldığında vücutta sentezlenir; kemik sağlığı için kritik öneme sahiptir."
+    },
+    {
+      "stem": "Şeker ve tuzun fazla tüketilmesi hangi sorunlara yol açar?",
+      "options": ["Hiçbir sağlık sorununa yol açmaz", "Aşırı şeker diş çürüğü ve obeziteye, aşırı tuz ise tansiyon yüksekliğine neden olur", "Yalnızca çocukları etkiler", "Sadece mide ağrısına neden olur"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sağlıklı beslenme",
+      "skills": ["Sağlık bilinci", "Neden-sonuç"],
+      "explanation": "Aşırı şeker dişleri çürütür ve kilo artışına neden olurken aşırı tuz tansiyonu yükseltir; her ikisi de uzun vadede ciddi hastalıklara yol açar."
+    },
+    {
+      "stem": "Su içmenin faydaları nelerdir?",
+      "options": ["Sadece susuzluğu giderir", "Vücut fonksiyonlarını düzenler, toksinleri atar, cildi nemlendirir ve konsantrasyonu artırır", "Yalnızca böbreklere yarar", "Sadece sporcular için gereklidir"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Su, vücudun neredeyse tüm işlevleri için gereklidir; yeterli su içmek sindirim, dolaşım ve enerji dengesine katkı sağlar."
+    },
+    {
+      "stem": "Türkiye'de 10 Kasım neden önemlidir?",
+      "options": ["Cumhuriyet'in ilan günüdür", "Atatürk'ün vefat yıl dönümüdür; 09:05'te tüm ülkede saygı duruşunda bulunulur", "Çocuk Bayramı'dır", "Kurtuluş Savaşı'nın başladığı gündür"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Millî semboller",
+      "skills": ["Tarihsel farkındalık"],
+      "explanation": "10 Kasım 1938, Atatürk'ün vefat ettiği gündür. Her yıl bu tarihte saat 09:05'te anma törenleri düzenlenir ve saygı duruşunda bulunulur."
+    },
+    {
+      "stem": "Türkiye'de hangi kurum ücretsiz temel sağlık hizmeti sağlar?",
+      "options": ["Özel hastaneler", "Devlet hastaneleri ve sağlık ocakları", "Yalnızca eczaneler", "Sigorta şirketleri"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sağlık hizmetleri",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Devlet hastaneleri ve aile sağlığı merkezleri, Türkiye'de tüm vatandaşlara temel sağlık hizmetleri sunar."
+    },
+    {
+      "stem": "Aşı (vaccine) ne işe yarar?",
+      "options": ["Hastalığı doğrudan tedavi eder", "Bağışıklık sistemi eğiterek hastalıklara karşı koruma sağlar", "Sadece ağrıyı keser", "Yalnızca çocuklara uygulanır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Sağlık hizmetleri",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Aşılar, bağışıklık sistemini belirli hastalıklara karşı önceden eğiterek gerçek enfeksiyona karşı koruma sağlar."
+    },
+    {
+      "stem": "El yıkamadan önce takılar çıkarılmalı mıdır?",
+      "options": ["Hayır, gerek yoktur", "Evet; bilezik ve yüzük altında mikroplar kalabilir", "Sadece ameliyat sırasında", "Sadece gıda hazırlarken"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kişisel hijyen",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Bilezik ve yüzük altındaki deri yüzeyinde mikroplar kalabileceğinden el yıkamada bu bölgeler de temizlenmelidir."
+    },
+    {
+      "stem": "Tırnaklarımızı neden kısa tutmalıyız?",
+      "options": ["Görünüm için", "Uzun tırnakların altında bakteri ve kir birikir; bu mikroplar yiyeceklere geçebilir", "Kısa tırnaklar daha sağlamdır", "Moda gereği"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kişisel hijyen",
+      "skills": ["Sağlık bilinci"],
+      "explanation": "Uzun tırnakların altında bakteri ve kir birikerek hastalık etkenlerinin yayılmasına zemin hazırlar; temizlik için kısa ve bakımlı tutulmalıdır."
+    },
+    {
+      "stem": "Türkiye'de en fazla hangi enerji kaynağından elektrik üretilmektedir?",
+      "options": ["Yalnızca kömür", "Yalnızca güneş", "Hidro (su), rüzgâr, doğal gaz ve kömür gibi çeşitli kaynaklar birlikte", "Yalnızca nükleer"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Enerji kaynakları",
+      "skills": ["Coğrafi farkındalık", "Çevre bilinci"],
+      "explanation": "Türkiye, elektrik üretiminde hidroelektrik, rüzgâr, güneş, doğal gaz ve kömür başta olmak üzere birden fazla kaynağı bir arada kullanır."
+    },
+    {
+      "stem": "Güneş panelleri ne işe yarar?",
+      "options": ["Suyu ısıtmak için sadece", "Güneş ışığını doğrudan elektrik enerjisine dönüştürür", "Yalnızca uzaylara ait bir teknolojidir", "Sadece soğuk ülkelerde kullanılır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Yenilenebilir enerji",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Fotovoltaik güneş panelleri, güneş ışığındaki fotonları elektron hareketine çevirerek doğrudan elektrik üretir."
+    },
+    {
+      "stem": "Türkiye'deki hangi şehir lale bahçeleriyle meşhurdur?",
+      "options": ["Antalya", "İstanbul (Emirgân)", "Bursa", "Konya"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk kültürü",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "İstanbul'un Emirgân Korusu her yıl bahar aylarında düzenlenen Lale Festivali ile ünlüdür."
+    },
+    {
+      "stem": "Lale hangi ülkenin ulusal çiçeği olarak Türk kültüründe simgesel öneme sahiptir?",
+      "options": ["Hollanda", "Türkiye", "İran", "Japonya"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türk kültürü",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Lale, Türk kültüründe ve tarihinde önemli bir simgedir; Osmanlı sanatında yaygın olarak kullanılmıştır."
+    },
+    {
+      "stem": "Çevre bilincini artırmak için okulda ne yapılabilir?",
+      "options": ["Hiçbir şey yapılamaz", "Geri dönüşüm kutuları koymak, enerji tasarrufu kampanyaları düzenlemek ve ağaç dikmek", "Yalnızca ders kitabı okumak", "Sadece temizlik yapmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["Çevre bilinci", "Vatandaşlık"],
+      "explanation": "Geri dönüşüm uygulamaları, enerji tasarrufu farkındalığı ve ağaç dikme etkinlikleri çevre bilincini somut şekilde artırır."
+    },
+    {
+      "stem": "Ağaç dikmek çevreye nasıl katkı sağlar?",
+      "options": ["Hiçbir katkısı yoktur", "Karbondioksit emer, oksijen üretir, toprağı korur ve biyoçeşitlilik sağlar", "Yalnızca estetik açıdan güzelleştirir", "Sadece gölge sağlar"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Ağaçlar; CO₂ emerek hava kalitesini artırır, oksijen üretir, toprağı erozyona karşı korur ve pek çok canlıya yaşam alanı sağlar."
+    },
+    {
+      "stem": "Hangi hayvan bal üretir?",
+      "options": ["Kelebek", "Arı", "Sinek", "Böcek (genel)"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Canlılar dünyası",
+      "skills": ["Genel bilgi"],
+      "explanation": "Bal arıları, çiçeklerden topladıkları nektarı kovanda işleyerek bala dönüştürür."
+    },
+    {
+      "stem": "Hangi hayvan kabuğundan ipek üretilir?",
+      "options": ["Arı", "Kelebek", "İpek böceği (Bombyx mori)", "Örümcek"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Genel bilgi", "Tarım"],
+      "explanation": "İpek böceğinin kelebeğe dönüşmek için ördüğü koza, iplik hâline getirilerek ipek kumaş yapımında kullanılır; Türkiye'de özellikle Bursa ipekçilikle meşhurdur."
+    },
+    {
+      "stem": "Hangi hayvan, köyden köye süt ve yük taşımak amacıyla Anadolu'da yüzyıllarca kullanılmıştır?",
+      "options": ["Zürafa", "Eşek", "Aslan", "Timsah"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Canlılar dünyası",
+      "skills": ["Kültürel farkındalık"],
+      "explanation": "Eşek, Anadolu'da tarih boyunca yük ve ulaşım için kullanılan önemli bir çalışma hayvanıdır."
+    },
+    {
+      "stem": "Hangi bitki hem gıda hem ilaç olarak kullanılır?",
+      "options": ["Plastik", "Nane (ör. nane çayı)", "Taş", "Metal"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Bitkiler ve kullanımı",
+      "skills": ["Genel bilgi"],
+      "explanation": "Nane, hem mutfakta baharat olarak hem de sindirim ve soğuk algınlığında şifalı bitki olarak kullanılır."
+    },
+    {
+      "stem": "Zeytinyağı Türkiye'nin hangi bölgesinde en çok üretilir?",
+      "options": ["Karadeniz", "İç Anadolu", "Ege ve Akdeniz kıyıları", "Doğu Anadolu"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye tarımı",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Akdeniz iklimine sahip Ege ve Akdeniz kıyıları, zeytinyağı üretiminin merkezidir; zeytin bahçeleri bu bölgelerde yoğundur."
+    },
+    {
+      "stem": "Çay yetiştiriciliği Türkiye'nin hangi bölgesinde yapılır?",
+      "options": ["Ege Bölgesi", "Akdeniz Bölgesi", "Karadeniz Bölgesi (özellikle Rize)", "İç Anadolu Bölgesi"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye tarımı",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Rize başta olmak üzere Karadeniz'in yağışlı ve nemli kıyıları, Türkiye çay üretiminin kalbidir."
+    },
+    {
+      "stem": "Türkiye'de hangi ilimiz ipekçilik ve tarihî kent dokusuyla bilinir?",
+      "options": ["Van", "Bursa", "Erzurum", "Trabzon"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi ve kültürü",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Bursa, Osmanlı döneminin erken başkentlerinden olup UNESCO listesindeki tarihi dokusu ve ipekçilik geleneğiyle tanınmaktadır."
+    },
+    {
+      "stem": "Kapadokya hangi bölgede yer alır ve nesiyle ünlüdür?",
+      "options": ["Ege; sahilleriyle", "İç Anadolu; peri bacaları ve yer altı şehirleriyle", "Karadeniz; ormanlarıyla", "Güneydoğu; GAP'la"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Kapadokya, İç Anadolu'da yer alan; volkanik kayalar, peri bacaları ve yer altı şehirleriyle dünyaca ünlü bir bölgedir."
+    },
+    {
+      "stem": "Pamukkale hangi ilin sınırları içindedir?",
+      "options": ["Konya", "Antalya", "Denizli", "Muğla"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Pamukkale, Denizli iline bağlı olup kalsiyum karbonat birikimiyle oluşan beyaz travertenlerle ünlüdür."
+    },
+    {
+      "stem": "Toprak erozyonu nedir?",
+      "options": ["Toprağın nemli tutulması", "Toprak katmanlarının rüzgâr veya su yoluyla aşınarak taşınması", "Toprağın gübrelenmesi", "Toprağın donar hâle gelmesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre ve toprak",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Erozyon; rüzgâr ve yağmur sularının işlenmemiş, çıplak toprağı aşındırıp uzak yerlere taşımasıdır; orman kesimi erozyonu artırır."
+    },
+    {
+      "stem": "Toprak erozyonunu önlemenin en etkili yolu nedir?",
+      "options": ["Ağaçları kesmek", "Ağaç ve çalı dikerek bitki örtüsünü korumak", "Tarım arazilerini genişletmek", "Sulama kanallarını açmak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre ve toprak",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Bitki kökleri toprağı tutar; orman ve çalılık örtüsü erozyona karşı en güçlü doğal koruyucudur."
+    },
+    {
+      "stem": "Yaşlılara saygı göstermek neden önemlidir?",
+      "options": ["Gerekli değildir", "Deneyim ve bilgeliklerinden yararlanmak, toplumsal bütünlüğü ve dayanışmayı güçlendirmek için", "Yalnızca büyükanne ve büyükbabalar için geçerlidir", "Sadece resmî törenlerde gösterilir"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Değerler eğitimi",
+      "skills": ["Empati", "Sosyal değerler"],
+      "explanation": "Yaşlılara saygı göstermek; toplumsal bütünlüğü pekiştirir, onların birikimlerinden faydalanmamızı sağlar ve nesiller arası köprü kurar."
+    },
+    {
+      "stem": "Misafir geldiğinde nasıl davranılmalıdır?",
+      "options": ["Misafiri görmezden gelmek", "Sıcaklıkla karşılamak, ikramda bulunmak ve saygıyla davranmak", "Odaya kapanmak", "Yalnızca yemek sunmak"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Kültürel değerler",
+      "skills": ["Sosyal değerler"],
+      "explanation": "Türk kültüründe misafirperverlik önemli bir değerdir; misafiri sıcaklıkla karşılamak ve ikramda bulunmak geleneksel bir sanattır."
+    },
+    {
+      "stem": "İyi bir dinleyici olmak ne anlama gelir?",
+      "options": ["Karşındaki konuşurken onun sözünü kesmek", "Konuşanı dikkatle dinlemek, göz teması kurmak ve sözünü kesmemek", "Cep telefonuna bakmaya devam etmek", "Yalnızca başını sallamak"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "İletişim becerileri",
+      "skills": ["Sosyal-duygusal beceriler"],
+      "explanation": "Aktif dinleme; karşı tarafı dikkatle izlemek, sözünü kesmemek ve anlamaya çalışmaktır; sağlıklı iletişimin temelidir."
+    },
+    {
+      "stem": "Özür dilemek neden önemlidir?",
+      "options": ["Zayıflık göstergesidir", "Hataları kabullenerek ilişkileri onarır ve karşı tarafın duygularına saygı gösterir", "Gereksizdir", "Yalnızca resmî durumlarda yapılır"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Değerler eğitimi",
+      "skills": ["Sosyal-duygusal beceriler", "Empati"],
+      "explanation": "İçten bir özür, hatayı kabullenme ve karşı tarafın duygularına değer vermek anlamına gelir; güveni yeniden inşa eder."
+    },
+    {
+      "stem": "Çöp toplama araçları (çöp kamyonları) şehre ne katkı sağlar?",
+      "options": ["Yalnızca estetik", "Atıkları düzenli toplayarak hastalık ve kötü kokuyu önler; çevre temizliğini sağlar", "Sadece gürültü çıkarır", "Trafiği engeller"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Toplumsal hizmetler",
+      "skills": ["Toplumsal farkındalık"],
+      "explanation": "Düzenli çöp toplama, şehirlerdeki sağlık risklerini azaltır, kötü kokuyu önler ve çevre kirliliğiyle mücadelede temel bir hizmettir."
+    },
+    {
+      "stem": "Hangi hayvan Türkiye'nin doğusunda yaşayan ve nesli tehlikede olan bir kuş türüdür?",
+      "options": ["Güvercin", "Kızıl akbaba", "Tavuk", "Serçe"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Biyoçeşitlilik",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Kızıl akbaba, leş yiyerek ekosistemi 'temizleyen' bir kuştur; Türkiye'de bazı bölgelerde nesli tehdit altındadır."
+    },
+    {
+      "stem": "Deniz kaplumbağaları yumurtlamak için nereye gelir?",
+      "options": ["Dağ tepelerine", "Kumsal sahillere", "Nehir yataklarına", "Ormanlara"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Canlılar dünyası",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Deniz kaplumbağaları, yumurtalarını doğdukları kumsal sahillere dönerek gömerler; Dalyan ve Belek gibi Türkiye sahilleri önemli yumurtlama alanlarıdır."
+    },
+    {
+      "stem": "Tarihsel kalıntıları kazmak ve incelemek hangi bilim dalının işidir?",
+      "options": ["Astronomi", "Arkeoloji", "Biyoloji", "Fizik"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Bilim dalları",
+      "skills": ["Genel bilgi"],
+      "explanation": "Arkeoloji, insanlığın geçmişteki yaşamını toprak altındaki kalıntıları kazarak inceleyen bilim dalıdır."
+    },
+    {
+      "stem": "Sismograf ne işe yarar?",
+      "options": ["Hava sıcaklığını ölçer", "Depremlerin şiddetini ve yerini saptar", "Deniz dalgalarını ölçer", "Rüzgâr hızını ölçer"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Bilimsel araçlar",
+      "skills": ["Fen bilgisi temelleri"],
+      "explanation": "Sismograf, yer kabuğundaki titreşimleri (deprem dalgalarını) kaydederek depremlerin büyüklüğünü ve odak noktasını belirlemede kullanılır."
+    },
+    {
+      "stem": "Fay hattı nedir?",
+      "options": ["Deniz altındaki dağ sırası", "Yer kabuğundaki kırık çizgisi; depremlerin bu hatlarda oluşur", "Nehrin aktığı çizgi", "Hava akımlarının yolu"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Afet bilinci",
+      "skills": ["Coğrafi farkındalık"],
+      "explanation": "Fay hatları, yer kabuğu levhalarının kırıldığı veya kayıştığı çizgilerdir; Türkiye'nin büyük bölümü aktif fay hatları üzerindedir."
+    },
+    {
+      "stem": "Türkiye coğrafyasında hangi çevre sorunu en yaygın görülmektedir?",
+      "options": ["Kutup buzullarının erimesi", "Orman yangınları, erozyon ve su kirliliği", "Volkan patlaması", "Okyanus asitlenmesi"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Çevre sorunları",
+      "skills": ["Çevre bilinci"],
+      "explanation": "Türkiye'de orman yangınları (özellikle Ege-Akdeniz), toprak erozyonu ve nehir-göl kirliliği en yaygın çevre sorunları arasındadır."
+    },
+    {
+      "stem": "Yaz tatilinde tatil yaptığın yeri temiz bırakmak neden önemlidir?",
+      "options": ["Önemli değildir, başkaları temizler", "Sonraki ziyaretçilere ve doğaya saygı göstererek çevreyi korur", "Sadece otel görevlilerinin işidir", "Yalnızca para cezasından kaçınmak için"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Çevre koruma",
+      "skills": ["Çevre bilinci", "Değerler eğitimi"],
+      "explanation": "Ziyaret ettiğimiz yerleri temiz bırakmak; hem başkalarına saygı hem de doğal güzelliklerin korunması için temel bir sorumluluktur."
+    }
+  ]
+}

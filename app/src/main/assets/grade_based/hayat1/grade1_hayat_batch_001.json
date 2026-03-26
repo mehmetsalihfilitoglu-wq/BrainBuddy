@@ -1,0 +1,718 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "hayat",
+  "questions": [
+    {
+      "stem": "Her sabah dişlerimizi neden fırçalamalıyız?",
+      "options": ["Diş çürümelerini önlemek, ağız sağlığını korumak ve bakteri oluşumunu engellemek için", "Yalnızca güzel görünmek için", "Yalnızca nefes kokusu için", "Günde bir kez yeterlidir; sabah gerek yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kişisel hijyen",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Düzenli diş fırçalama; diş çürüğünü, diş eti hastalıklarını ve ağız bakterilerini önler. Günde en az 2 kez fırçalanmalıdır."
+    },
+    {
+      "stem": "Ellerimizi ne zaman yıkamalıyız?",
+      "options": ["Yemekten önce ve sonra, tuvaletten sonra ve dışarıdan gelince", "Yalnızca görünür kir olduğunda", "Sadece yemekten önce", "Haftada bir kez"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kişisel hijyen",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "El yıkama en basit ve etkili hijyen önlemidir: yemek öncesi/sonrası, tuvalet sonrası, dışarıdan gelince mutlaka yıkanmalıdır."
+    },
+    {
+      "stem": "Trafik ışıklarında kırmızı renk ne anlama gelir?",
+      "options": ["Dur, geçme", "Dikkatli ilerle", "Geç", "Yavaşla"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Trafik güvenliği",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Trafik ışıklarında kırmızı=dur, sarı=hazırlan/dikkat, yeşil=geç. Kırmızıda geçmek hem kuraldışı hem tehlikelidir."
+    },
+    {
+      "stem": "Acil yardım için aranacak telefon numarası kaçtır?",
+      "options": ["112", "155", "110", "122"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Acil durum",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "112 Türkiye'de acil yardım (ambulans + itfaiye + polis) numarasıdır. Hayati tehlike durumunda hemen aranmalıdır."
+    },
+    {
+      "stem": "Deprem sırasında ne yapmalıyız?",
+      "options": ["Çök-Kapan-Tutun: sağlam mobilyanın yanına çömelip başı koru ve sarsıntı bitene kadar bekle", "Hemen dışarı koş", "Balkondan atla", "Pencere yanında bekle"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Afet güvenliği",
+      "skills": ["acil durum bilgisi"],
+      "explanation": "Çök-Kapan-Tutun: Masanın altına ya da iç duvara yönel, başını koru ve sarsıntı bitene kadar hareket etme. Dışarı koşmak tehlikelidir."
+    },
+    {
+      "stem": "Aile içinde sevgi ve saygı göstermek neden önemlidir?",
+      "options": ["Aile bireylerinin mutlu ve güvende hissetmesini sağlar; güçlü ilişkiler kurar", "Yalnızca büyüklere karşı gereklidir", "Sevgi göstermek gereksizdir", "Yalnızca özel günlerde önemlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Aile ve değerler",
+      "skills": ["sosyal beceri"],
+      "explanation": "Sevgi ve saygı; aile bağını güçlendirir, güvenli bir ortam oluşturur ve çocuğun duygusal gelişimine katkı sağlar."
+    },
+    {
+      "stem": "İlkbahar mevsiminin en belirgin özellikleri nelerdir?",
+      "options": ["Hava ısınır, çiçekler açar, doğa canlanır ve yağmurlar artar", "Kar yağar ve soğuk olur", "Yapraklar döker", "En sıcak mevsimdir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mevsimler",
+      "skills": ["doğa bilgisi"],
+      "explanation": "İlkbaharda (Mart-Nisan-Mayıs) hava ısınır, çiçekler açar, kuşlar döner ve yağmurlar artar; doğa yenilenir."
+    },
+    {
+      "stem": "Evcil hayvanlarımıza nasıl davranmalıyız?",
+      "options": ["İhtiyaçlarını karşılamalı, beslemeli, sevmeli ve veterinere götürmeliyiz", "Yalnızca yemek vermeliyiz", "Onlara acı çektirmeliyiz", "Onları eve almamak en iyisidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hayvan bakımı",
+      "skills": ["sorumluluk"],
+      "explanation": "Evcil hayvanlar beslenme, su, barınak, sevgi ve sağlık hizmetine ihtiyaç duyar; bu sorumlulukları karşılamak hayvan sahibinin görevidir."
+    },
+    {
+      "stem": "Okul sıralarına neden saygılı davranmalıyız?",
+      "options": ["Okul eşyaları ortaktır; bakımlı tutmak herkesin kullanımını kolaylaştırır ve sorumluluk öğretir", "Yalnızca öğretmen kızacağı için", "Sıraların değeri yoktur", "Yalnızca yeni okulda gereklidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okul kuralları",
+      "skills": ["sorumluluk ve saygı"],
+      "explanation": "Ortak mülke saygı; toplumsal sorumluluk ve dayanışma anlayışının temelidir. Okul eşyaları herkesin faydalandığı kaynaklardır."
+    },
+    {
+      "stem": "Yazın dışarıda uzun süre güneşte kalırken nasıl korunmalıyız?",
+      "options": ["Güneş kremi sürmek, şapka takmak, gölgede kalmak ve bol su içmek", "Güneşten hiç korunmaya gerek yoktur", "Yalnızca şapka yeterlidir", "Siyah giysiler giymek yeterlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "UV ışınları cilt yanığına ve uzun vadede cilt kanserine yol açabilir; güneş kremi, şapka ve gölge korunmayı sağlar."
+    },
+    {
+      "stem": "Temiz su kaynakları neden korunmalıdır?",
+      "options": ["İnsan ve hayvan sağlığı için zorunludur; kirli su hastalıklara neden olur; su kaynakları sınırlıdır", "Yalnızca estetik açıdan güzel görünmesi için", "Su her yerde bol olduğu için korunmasına gerek yoktur", "Yalnızca balıklar için önemlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Su kaynakları",
+      "skills": ["çevre bilinci"],
+      "explanation": "Su hayatın temelidir; kirli su; kolera, ishal, tifo gibi hastalıklara yol açar. Temiz su kaynakları korunmalı ve israf edilmemelidir."
+    },
+    {
+      "stem": "Bir tanıdık yetişkin, dokunulmak istemediğin bir şekilde dokunmaya çalışırsa ne yapmalısın?",
+      "options": ["'Hayır!' de, oradan uzaklaş ve güvendiğin bir büyüğe anlat", "Sessiz kal ve katlan", "Yalnız baş et, kimseye söyleme", "İzin ver, o yetişkindir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kişisel güvenlik",
+      "skills": ["vücut güvenliği"],
+      "explanation": "Vücudun senin; 'Hayır' deme hakkın var. Güvende olmadığında güvendiğin bir yetişkine (aile, öğretmen) anlatmak doğru ve önemlidir."
+    },
+    {
+      "stem": "Bisiklete binerken neden kask takmalıyız?",
+      "options": ["Düşme veya çarpma durumunda başı korur ve ciddi baş yaralanmalarını önler", "Yalnızca moda için takılır", "Kasksız binmek yasaktır ama zararı yoktur", "Yetişkinler için gerekli, çocuklar için değil"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Trafik güvenliği",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Kask; beyin ve kafatasını korur. Bisiklet kazalarında kafa yaralanmaları en ölümcül türdür; kask bu riski büyük ölçüde azaltır."
+    },
+    {
+      "stem": "Yiyecekleri almadan önce son kullanma tarihi neden kontrol edilmelidir?",
+      "options": ["Süresi dolmuş yiyecekler zararlı mikroorganizma içerebilir; gıda zehirlenmesine yol açabilir", "Yalnızca süt ürünleri için gereklidir", "Son kullanma tarihi önemsizdir", "Yalnızca alerjisi olanlar kontrol etmeli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gıda güvenliği",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Son kullanma tarihi geçmiş yiyeceklerde bakteri ve küf üremesi olabilir; gıda zehirlenmesi ishale, kusma, ateşe neden olur."
+    },
+    {
+      "stem": "Türkiye'nin başkenti hangisidir?",
+      "options": ["Ankara", "İstanbul", "İzmir", "Bursa"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["genel kültür"],
+      "explanation": "Ankara, 1923'te Türkiye Cumhuriyeti'nin kuruluşuyla birlikte başkent ilan edildi. İstanbul ticaret ve kültür merkezi olmaya devam ediyor."
+    },
+    {
+      "stem": "Atatürk hangi tarihte Türkiye Cumhuriyeti'ni kurdu?",
+      "options": ["29 Ekim 1923", "19 Mayıs 1919", "23 Nisan 1920", "30 Ağustos 1922"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarih",
+      "skills": ["tarih bilgisi"],
+      "explanation": "29 Ekim 1923'te Mustafa Kemal Atatürk önderliğinde Türkiye Cumhuriyeti resmen ilan edildi."
+    },
+    {
+      "stem": "Geri dönüşüm neden yapılır?",
+      "options": ["Doğal kaynakları korumak, çevreyi temiz tutmak ve atık miktarını azaltmak için", "Yalnızca para kazanmak için", "Zorunlu olduğu için", "Yalnızca plastik için geçerlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["çevre bilinci"],
+      "explanation": "Geri dönüşüm; hammadde kullanımını, enerji tüketimini ve çöp miktarını azaltır; ekosistemi korur."
+    },
+    {
+      "stem": "Cumhuriyet Bayramı kaçıncı ay ve kaçıncı günündedir?",
+      "options": ["29 Ekim", "23 Nisan", "19 Mayıs", "30 Ağustos"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Millî bayramlar",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Cumhuriyet Bayramı 29 Ekim'de kutlanır; 1923'te Türkiye Cumhuriyeti'nin ilanını anmak için."
+    },
+    {
+      "stem": "Bitkiler büyümek için neye ihtiyaç duyar?",
+      "options": ["Güneş ışığı, su, hava (CO₂) ve toprak besinleri", "Yalnızca suya", "Yalnızca güneşe", "Yalnızca toprağa"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bitkiler",
+      "skills": ["fen bilgisi"],
+      "explanation": "Bitkiler; güneş enerjisi, su, karbondioksit ve topraktaki minerallere ihtiyaç duyar. Bunlardan biri eksik olursa sağlıklı büyüyemezler."
+    },
+    {
+      "stem": "Hasta bir arkadaşın yanındayken ne yapmalısın?",
+      "options": ["Hastalığın bulaşmaması için mesafe koru, iyi dileklerini ilet ve ihtiyacı varsa yardım et", "Yanına hiç gitmemelisin", "Her zaman yanında oturmalısın", "Onu yalnız bırakmadan oyuna çekmelisin"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlık ve empati",
+      "skills": ["sosyal beceri"],
+      "explanation": "Hasta birinin yanındayken dikkatli olmak hem kendi hem de karşının sağlığı içindir; aynı zamanda empati ve ilgi göstermek gerekir."
+    },
+    {
+      "stem": "Yağmur yağdıktan sonra gökyüzünde neden gökkuşağı oluşabilir?",
+      "options": ["Güneş ışığı havadaki su damlacıklarından geçerek renklere ayrılır", "Yağmur gökkuşağı üretir", "Gökyüzündeki boyalar erir", "Güneş yağmuru iter"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Doğa olayları",
+      "skills": ["fen gözlemi"],
+      "explanation": "Güneş ışığı su damlacıklarında kırılarak 7 temel renge ayrılır (kırmızı, turuncu, sarı, yeşil, mavi, lacivert, mor)."
+    },
+    {
+      "stem": "Yiyecekleri pişirmek neden önemlidir?",
+      "options": ["Pişirme zararlı bakterileri ve parazitleri öldürür; yiyeceği daha güvenli ve sindirilmesi daha kolay hale getirir", "Yalnızca lezzet için", "Yalnızca renk için", "Pişirmek gerekli değil"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gıda güvenliği",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Yeterli ısı bakterileri öldürür; çiğ et, balık ve yumurtada salmonella, E. coli gibi zararlı bakteriler bulunabilir."
+    },
+    {
+      "stem": "Akıllı telefon ya da tabletle her gün çok uzun süre vakit geçirmek sağlık açısından neden zararlı olabilir?",
+      "options": ["Göz yorgunluğu, uyku bozukluğu, sosyal geri çekilme ve hareketsizliğe yol açabilir", "Hiçbir zararı yoktur", "Yalnızca gözleri etkiler", "Yalnızca büyükler için zararlıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dijital sağlık",
+      "skills": ["sağlıklı yaşam"],
+      "explanation": "Aşırı ekran süresi; uyku kalitesini düşürür, bel/boyun ağrısı, göz kuruluğu ve sosyal iletişim eksikliğine yol açar."
+    },
+    {
+      "stem": "Türkiye'de '23 Nisan' neden kutlanır?",
+      "options": ["TBMM'nin açılışı ve Ulusal Egemenlik ile Çocuk Bayramı'dır", "Cumhuriyetin ilanıdır", "Kurtuluş Savaşı'nın zaferidir", "Atatürk'ün doğum günüdür"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Millî bayramlar",
+      "skills": ["tarih bilgisi"],
+      "explanation": "23 Nisan 1920'de TBMM açıldı; Atatürk bu günü dünya çocuklarına armağan etti → Ulusal Egemenlik ve Çocuk Bayramı."
+    },
+    {
+      "stem": "Sağlıklı beslenmek için tabağımızda neler olmalıdır?",
+      "options": ["Meyve, sebze, protein, tahıl ve süt ürünleri içeren dengeli bir öğün", "Yalnızca et yemekleri", "Yalnızca fast food", "Yalnızca şeker ve tatlılar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı beslenme",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Dengeli beslenme; vücudun ihtiyaç duyduğu tüm besin öğelerini (vitamin, mineral, protein, karbonhidrat, yağ) sağlar."
+    },
+    {
+      "stem": "Çevremizi temiz tutmak için ne yapabiliriz?",
+      "options": ["Çöpleri çöpe atmak, geri dönüşüm yapmak, doğaya zarar vermemek ve başkalarını da bilinçlendirmek", "Çöpleri istediğimiz yere atmak", "Yalnızca evimizin içini temizlemek", "Hiçbir şey; yetkililer temizler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre temizliği",
+      "skills": ["çevre bilinci"],
+      "explanation": "Temiz çevre herkesin sorumluluğudur; bireysel davranışlar toplu etkiyle büyük fark yaratır."
+    },
+    {
+      "stem": "Kış mevsiminde soğuktan korunmak için ne yapmalıyız?",
+      "options": ["Kalın ve katmanlı giyinmek, sıcak içecekler tüketmek, kapalı alanlarda ısınmak ve bağışıklığı güçlendiren besinler yemek", "Kışın güneş kremi sürmek", "Bol terlemeyi sağlamak", "Pencere açık bırakmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Soğuk havada katmanlı giyim vücut ısısını korur; D vitamini, C vitamini ve sıcak yiyecekler bağışıklığı destekler."
+    },
+    {
+      "stem": "Türk bayrağının renkleri ve üzerindeki semboller nelerdir?",
+      "options": ["Kırmızı zemin üzerine beyaz ay-yıldız", "Mavi zemin üzerine beyaz ay-yıldız", "Yeşil zemin üzerine kırmızı ay-yıldız", "Kırmızı zemin üzerine sarı yıldız"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Millî semboller",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Türk bayrağı; al (kırmızı) zemin üzerine beyaz hilal ve yıldızdan oluşur. Ay ve yıldız İslam geleneğini ve bağımsızlığı simgeler."
+    },
+    {
+      "stem": "Yabancı birisi seni araba ya da araçla gitmeye davet ederse ne yapmalısın?",
+      "options": ["Kesinlikle gitme; 'Hayır' de ve hemen güvendiğin bir yetişkine anlat", "Merak ettiğin için git", "Ailenden izin isteyerek git", "Arkadaşlarına söyle ve birlikte gidin"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kişisel güvenlik",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Yabancıyla yalnız gitmek tehlikelidir. Her zaman 'Hayır' demek ve güvendiğin bir yetişkine bildirmek doğru davranıştır."
+    },
+    {
+      "stem": "Su tasarrufu için evde neler yapabiliriz?",
+      "options": ["Musluğu açık bırakmamak, kısa duş almak, damlayan muslukları tamir ettirmek ve suyu verimli kullanmak", "Suyu istediğimiz kadar kullanmak", "Her gün küvet doldurmak", "Yalnızca yaz aylarında tasarruf yapmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Su tasarrufu",
+      "skills": ["çevre bilinci"],
+      "explanation": "Dünya'nın içilebilir su kaynakları sınırlıdır; tasarruf hem kaynakları korur hem de aile bütçesine katkıda bulunur."
+    },
+    {
+      "stem": "Kamp yaparken ateş yakıldıktan sonra ne yapılmalıdır?",
+      "options": ["Ateşi hiçbir zaman yanında bırakmamalı, ayrılmadan tamamen söndürmeli ve çevreye zarar vermemelisin", "Ateşi sabaha kadar yanık bırakabilirsin", "Ateşi söndürmek için su gerekmez", "Ateşi bir çocuk da söndürebilir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yangın güvenliği",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Söndürülmemiş ateş orman yangınlarına ve kaza yangınlarına neden olabilir; kamp ateşi mutlaka su veya toprakla tamamen söndürülmeli."
+    },
+    {
+      "stem": "Bitkileri sulama ve bakım neden çocuklar için de önemlidir?",
+      "options": ["Sorumluluk duygusu, doğayla bağ ve canlı bakımı konusunda farkındalık geliştirir", "Yalnızca büyüklerin yapması gereken bir iştir", "Bitkiler sulamaya ihtiyaç duymaz", "Yalnızca bahçesi olanlar ilgilenmeli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bitki bakımı",
+      "skills": ["sorumluluk"],
+      "explanation": "Bitki yetiştirmek; çocuklara sabır, düzen, sorumluluk ve canlı varlıklara empati kazandırır."
+    },
+    {
+      "stem": "Okul dışında internette hangi davranışlar güvenli değildir?",
+      "options": ["Yabancılarla kişisel bilgi paylaşmak, tanımadıklarla buluşmak, şifreleri paylaşmak", "Güvenilir eğitim sitelerini kullanmak", "Aile denetiminde video izlemek", "Öğretmenin önerdiği içeriklere bakmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnternet güvenliği",
+      "skills": ["dijital güvenlik"],
+      "explanation": "Çevrimiçi ortamda kişisel bilgiler (adres, okul, fotoğraf) paylaşmak ve tanımadıklarla buluşmak ciddi güvenlik riskleri taşır."
+    },
+    {
+      "stem": "Sonbahar mevsiminde doğada ne gibi değişiklikler olur?",
+      "options": ["Yapraklar renklenip dökülür, havalar serinler, gündüzler kısalır ve hayvanlar kışa hazırlanır", "Çiçekler açar", "Kar yağar", "En sıcak günler yaşanır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mevsimler",
+      "skills": ["doğa gözlemi"],
+      "explanation": "Sonbaharda (Eylül-Ekim-Kasım) fotosentez azalır, yapraklar renklenir ve dökülür; gün kısalır, sıcaklık düşer."
+    },
+    {
+      "stem": "Bir arkadaşın üzgün görünüyorsa ne yapmalısın?",
+      "options": ["Yanına git, nasıl olduğunu sor, dinle ve destek olmaya çalış", "Onu görmezden gel", "Onunla dalga geç", "Gidip başkalarına anlat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Empati ve sosyal beceriler",
+      "skills": ["duygusal zeka"],
+      "explanation": "Empati; başkasının duygularını anlamak ve uygun destek sunmaktır. Yanında olmak ve dinlemek güçlü arkadaşlık davranışıdır."
+    },
+    {
+      "stem": "Türkiye'de hangi trafik kuralı yayaları korumak için vardır?",
+      "options": ["Yaya geçitlerinde araçların durması zorunludur", "Yayalar her yerden karşıya geçebilir", "Araçlar yaya geçidinde hızlanır", "Trafik ışığı olmayan yerde yayaların hakkı yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Trafik güvenliği",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Yaya geçitlerinde sürücülerin yaya geçişine öncelik tanıması hem yasal yükümlülük hem de güvenlik kuralıdır."
+    },
+    {
+      "stem": "Yaz aylarında serinlemek için en sağlıklı yöntem nedir?",
+      "options": ["Bol su içmek, serin ortamlarda dinlenmek ve serinletici yiyecekler/içecekler tüketmek", "Çok spor yapmak", "Soğuk duş sık sık almak (sağlıklı ama tek başına yeterli değil)", "Ağır yiyecekler yemek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yaz sağlığı",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Sıcak havalarda vücut daha fazla ter yoluyla su kaybeder; bol su içmek, serin giyinmek ve aşırı güneşten kaçınmak gerekir."
+    },
+    {
+      "stem": "Hayvanların doğal yaşam alanlarını korumak neden önemlidir?",
+      "options": ["Hayvanların yaşaması, nesillerin sürmesi ve ekosistemin dengesinin korunması için", "Yalnızca turistleri çekmek için", "Yalnızca evcil hayvanlar korunmalıdır", "Vahşi hayvanların insanlara zarar vermemesi için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Doğa koruma",
+      "skills": ["çevre bilinci"],
+      "explanation": "Her tür belirli bir ekolojik işlev üstlenir; bir türün yok olması tüm beslenme zincirine zarar verebilir."
+    },
+    {
+      "stem": "Okul çantasını her gün kendim hazırlamak hangi değeri geliştirir?",
+      "options": ["Sorumluluk, özerklik ve düzenlilik", "Yalnızca zaman yönetimi", "Yalnızca fiziksel güç", "Hiçbir değeri yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Öz yönetim",
+      "skills": ["sorumluluk"],
+      "explanation": "Kendi eşyalarını hazırlamak; planlama, düzen ve sorumluluk alma becerilerini geliştiren günlük bir alışkanlıktır."
+    },
+    {
+      "stem": "Işığı odada bırakıp çıkmak enerji açısından neden yanlıştır?",
+      "options": ["Gereksiz elektrik tüketimine ve enerji israfına yol açar; hem bütçeye hem çevreye zarar verir", "Ampuller daha iyi çalışır", "Ev daha güzel görünür", "Elektrik sınırsız olduğu için sorun teşkil etmez"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji tasarrufu",
+      "skills": ["çevre bilinci"],
+      "explanation": "Gereksiz elektrik kullanımı fosil yakıt tüketimini artırır; doğal kaynakları tüketir ve sera gazı salınımına katkıda bulunur."
+    },
+    {
+      "stem": "Türkiye'de bir depremde güvenli davranış sırası nasıl olmalıdır?",
+      "options": ["Çök-Kapan-Tutun → sarsıntı bitince dikkatli çık → açık alana geç ve yetkililerin talimatlarına uy", "Hemen dışarı koş, asansörü kullan", "Pencereye yaklaş ve etrafa bak", "Ateş yakarak sinyal ver"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deprem güvenliği",
+      "skills": ["afet bilgisi"],
+      "explanation": "Sarsıntı sırasında sağlam yerlere çömel, başı koru, bitince çıkış noktalarına dikkat ederek aç alana geç. Asansör asla kullanılmaz."
+    },
+    {
+      "stem": "Sağlıklı bir uykuya kavuşmak için ne yapmalıyız?",
+      "options": ["Düzenli uyku saatine uymak, ekrandan uzak durmak, karanlık ve sakin ortamda uyumak", "Mümkün olduğunca az uyumak", "Yatmadan hemen önce bol yemek yemek", "Gece geç saate kadar ekran başında kalmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uyku sağlığı",
+      "skills": ["sağlıklı yaşam"],
+      "explanation": "Kaliteli uyku büyüme, öğrenme, bağışıklık ve ruh sağlığı için zorunludur. Ekranlardaki mavi ışık uyku hormonunu baskılar."
+    },
+    {
+      "stem": "Toplu taşımada (otobüs, metro) başkalarına saygı göstermek için ne yapmalıyız?",
+      "options": ["Yaşlı ve engellilere yer vermek, gürültü yapmamak, sıraya uymak ve çevreyi temiz tutmak", "İstediğimiz gibi davranmak", "Yalnızca kendi koltuğumuza bakmak", "Gürültü yaparak eğlenmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal saygı",
+      "skills": ["vatandaşlık değerleri"],
+      "explanation": "Kamusal alanda saygılı davranış; toplu yaşamın temel kuralıdır. Örnek davranışlar toplumsal uyumu güçlendirir."
+    },
+    {
+      "stem": "Türkiye'de itfaiye numarası kaçtır? (ayrı aranabileceği durum)",
+      "options": ["110", "155", "156", "182"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Acil numaralar",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Türkiye'de itfaiye 110, polis 155, jandarma 156, acil ambulans 112'dir. Günümüzde 112 tüm acilleri kapsar."
+    },
+    {
+      "stem": "Evcil bir köpeği ilk gördüğümüzde nasıl yaklaşmalıyız?",
+      "options": ["Sahibine sorup izin alarak, yavaş hareketlerle ve hayvanın kokuması için elini uzatarak", "Aniden koşup sarılmak", "Bağırıp sesini kesmek için gözdağı vermek", "Sahibi olmadan da pekâlâ yaklaşılabilir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hayvan güvenliği",
+      "skills": ["güvenlik ve empati"],
+      "explanation": "Tanımadığınız hayvanlar strese girince ısırabilir. Sahibinden izin almak ve yavaş yaklaşmak hem kendini hem hayvanı korur."
+    },
+    {
+      "stem": "Anneler Günü neden kutlanır?",
+      "options": ["Annelerin emeğini, sevgisini ve fedakârlığını takdir etmek ve onlara minnettarlığı göstermek için", "Yalnızca hediye almak için", "Yasal zorunluluk olduğu için", "Sadece büyük şehirlerde kutlanır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Özel günler",
+      "skills": ["aile değerleri"],
+      "explanation": "Anneler Günü; annelerin ve anneler gibi sevgi gösteren bireylerin emeklerine duyulan minneti ifade etmek için kutlanır."
+    },
+    {
+      "stem": "Bir yangın çıktığında ne yapmamalıyız?",
+      "options": ["Asansör kullanmak", "Alçak pozisyonda merdivenlerden inmek", "Kapıların sıcaklığını kontrol etmek", "Buluşma noktasında toplamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yangın güvenliği",
+      "skills": ["acil durum bilgisi"],
+      "explanation": "Yangında asansör asla kullanılmaz; elektrik kesilince ya da aşırı ısınabilir. Merdivenlerden alçak pozisyonda inerek dumanın üstünden kaçınılır."
+    },
+    {
+      "stem": "Doğada çöp bırakmak ne gibi zararlar verir?",
+      "options": ["Hayvanlar çöpü yiyerek zarar görür, toprak ve su kirlenir, doğal güzellik bozulur", "Hiçbir zararı yoktur", "Yalnızca görüntü kirliliği yaratır", "Yalnızca plastiğin zararı vardır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["çevre bilinci"],
+      "explanation": "Doğaya bırakılan çöpler; hayvanlar için ölümcül olabilir, toprağı ve su kaynaklarını kirletir, turizmi olumsuz etkiler."
+    },
+    {
+      "stem": "Çocuk hakları hangi temel alanlarda güvence altına alınmıştır?",
+      "options": ["Eğitim, sağlık, korunma, kimlik ve katılım hakları (BM Çocuk Hakları Sözleşmesi)", "Yalnızca eğitim hakkı", "Yalnızca beslenme hakkı", "Yalnızca oyun oynama hakkı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çocuk hakları",
+      "skills": ["hak bilgisi"],
+      "explanation": "BM Çocuk Hakları Sözleşmesi; 0-18 yaş çocuklara yaşam, eğitim, sağlık, kimlik, oyun ve şiddetten korunma gibi hakları güvence altına alır."
+    },
+    {
+      "stem": "Türkiye'de 19 Mayıs neden kutlanır?",
+      "options": ["Atatürk'ü Anma, Gençlik ve Spor Bayramı; Kurtuluş Savaşı'nın başlangıcını simgeler", "Cumhuriyetin kuruluşu", "TBMM'nin açılışı", "Zafer Bayramı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Millî bayramlar",
+      "skills": ["tarih bilgisi"],
+      "explanation": "19 Mayıs 1919'da Mustafa Kemal Samsun'a çıkarak kurtuluş mücadelesini başlattı; bu tarih gençliğe armağan edildi."
+    },
+    {
+      "stem": "Bir arkadaşın eşyasını izin almadan kullanmak doğru mudur?",
+      "options": ["Hayır; her zaman izin alınmalı, aksi takdirde güven ve saygı zedelenir", "Evet, arkadaşlar her şeyi paylaşmalı", "Küçük eşyalar için izne gerek yok", "İzin almak zaman kaybıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Saygı ve sorumluluk",
+      "skills": ["sosyal değerler"],
+      "explanation": "Başkasının eşyasını izinsiz almak ya da kullanmak güveni ve saygıyı zedeler; her zaman izin istemek toplumsal bir kuraldır."
+    },
+    {
+      "stem": "Kış mevsiminde doğada ne gibi değişiklikler olur?",
+      "options": ["Kar yağar, hava soğur, bazı hayvanlar kış uykusuna yatar, ağaçlar yapraksızlaşır", "Çiçekler açar", "Hava sıcaklaşır", "Yağmurlar durur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mevsimler",
+      "skills": ["doğa gözlemi"],
+      "explanation": "Kışın (Aralık-Ocak-Şubat) sıcaklık düşer, kar yağabilir; fotosentez durur; bazı hayvanlar kış uykusuna girer."
+    },
+    {
+      "stem": "Evde kimyasal temizlik ürünleri (deterjan, çamaşır suyu) çocuklar için neden tehlikeli olabilir?",
+      "options": ["İçilmesi zehirlenmeye, cilde değmesi yanıklara ve buharları solunması solunum sorunlarına yol açabilir", "Hiçbir tehlikesi yoktur", "Yalnızca büyükler için zararlıdır", "Yalnızca dışarıda kullanılanlar tehlikeli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ev güvenliği",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Kimyasal maddeler çocukların erişemeyeceği kilitli dolaplarda saklanmalı; ambalaj üzerindeki güvenlik uyarıları okunmalıdır."
+    },
+    {
+      "stem": "Doğru el yıkama süresi ne kadar olmalıdır?",
+      "options": ["En az 20 saniye; sabunla iyice ovarak", "3-5 saniye yeterlidir", "Yalnızca suyla yıkamak yeterlidir", "Süre önemli değildir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hijyen",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "DSÖ ve sağlık uzmanları; el yıkamanın sabunla en az 20 saniye sürmesi gerektiğini belirtir; bu süre zararlı mikropları temizlemek için yeterlidir."
+    },
+    {
+      "stem": "Türkiye'nin ulusal marşı 'İstiklal Marşı'nı kim yazmıştır?",
+      "options": ["Mehmet Akif Ersoy", "Mustafa Kemal Atatürk", "Ziya Gökalp", "Yahya Kemal Beyatlı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Millî semboller",
+      "skills": ["tarih ve kültür bilgisi"],
+      "explanation": "İstiklal Marşı, şair Mehmet Akif Ersoy tarafından yazılmış ve 1921'de TBMM tarafından millî marş olarak kabul edilmiştir."
+    },
+    {
+      "stem": "Sokak köpeklerinin sizi kovaladığında ne yapmalısınız?",
+      "options": ["Koşmadan sakin durmak, köpeğe bakmadan yavaşça uzaklaşmak ve etrafındaki yetkililerden yardım istemek", "Hızla kaçmak", "Üzerine yürümek ve bağırmak", "Taş atmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kişisel güvenlik",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Koşmak köpeğin içgüdüsünü tetikler. Sakin durmak, göz temasından kaçınmak ve yavaşça uzaklaşmak en güvenli yaklaşımdır."
+    },
+    {
+      "stem": "Hasta olduğumuzda antibiyotik kullanmak için ne gereklidir?",
+      "options": ["Mutlaka doktor tavsiyesi; antibiyotikler yalnızca bakteriyel enfeksiyonlarda kullanılır, virüse karşı etkisi yoktur", "Her hastalıkta kullanılabilir", "Eczaneden kendiniz alabilirsiniz", "Antibiyotik her zaman gereklidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlık bilgisi",
+      "skills": ["ilaç güvenliği"],
+      "explanation": "Antibiyotikler yalnızca bakteriyel enfeksiyonlarda doktor reçetesiyle kullanılmalı; gereksiz kullanım antibiyotik direncine yol açar."
+    },
+    {
+      "stem": "Sabah kahvaltısını atlamamak neden önemlidir?",
+      "options": ["Vücuda enerji sağlar, konsantrasyonu artırır, metabolizmayı harekete geçirir ve okul başarısına katkıda bulunur", "Yalnızca ağırlık kontrolü için", "Sabah yemek isteğe bağlıdır", "Kahvaltı sağlığa zararıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı beslenme",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Kahvaltı; gece boyu düşen kan şekerini yükseltir, beyne enerji sağlar ve öğrenme kapasitesini artırır."
+    },
+    {
+      "stem": "Türkiye'de Kurban Bayramı ne amaçla kutlanır?",
+      "options": ["Hz. İbrahim'in Allah'a olan teslimiyetini ve fedakârlığını anmak; ibadet ve dayanışma amacıyla", "Yalnızca tatil için", "Yılın başlangıcını kutlamak için", "Ramazan ayı sonrasını kutlamak için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dini ve kültürel bayramlar",
+      "skills": ["kültür bilgisi"],
+      "explanation": "Kurban Bayramı (İd-al-Adha); Hz. İbrahim'in sınavını ve Allah'a teslimiyetini anmak amacıyla kurban kesilip paylaşılır."
+    },
+    {
+      "stem": "Bir yabancı sana üzücü bir haber vererek 'kimseye söyleme' derse ne yapmalısın?",
+      "options": ["Sırrı saklamak zorunda değilsin; güvendiğin bir yetişkine hemen anlat", "Tamam deyip sırrı sakla", "Arkadaşlarınla paylaş ama aileye söyleme", "Konuyu değiştir ve unut"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kişisel güvenlik",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Kötü amaçlı yetişkinler çocuklara 'sır tut' diyerek susturmaya çalışabilir; güvenlik sırları saklanmaz, güvenilir yetişkine aktarılır."
+    },
+    {
+      "stem": "Sabah uyanınca ve geceleri yatmadan yaptığımız hijyen alışkanlıklarını sıralayabilir misin?",
+      "options": ["Yüz yıkama, diş fırçalama, saç tarama, temiz giysi ve gerekirse duş alma", "Yalnızca diş fırçalama", "Yalnızca el yıkama", "Yüzü yıkamamak daha iyidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kişisel hijyen",
+      "skills": ["günlük rutin"],
+      "explanation": "Sabah ve akşam higyen rutini; mikroplardan korunma, özgüven ve sağlıklı yaşam alışkanlığının temelidir."
+    },
+    {
+      "stem": "Açık alanda piknik yaparken çevreye nasıl saygı gösteririz?",
+      "options": ["Çöpleri çanta/torbayla alıp götürmek, ateş yakmamak (izinsiz) ve bitkiye zarar vermemek", "Çöpleri yere bırakmak çünkü görevliler toplar", "Ateş yakıp bırakmak", "Çiçekleri koparmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre saygısı",
+      "skills": ["çevre bilinci"],
+      "explanation": "Doğada 'bıraktığın yeri bulduğun gibi bırak' kuralı; hem doğal güzelliği hem de tüm canlıların yaşam alanlarını korur."
+    },
+    {
+      "stem": "Türkiye'de polis olmayan bir durumda (örneğin kaybolmak) kime başvurmalısın?",
+      "options": ["Yakınındaki güvenilir bir yetişkine (mağaza görevlisi, öğretmen) ya da 155'i aramak", "Yabancıya sormak", "Kendini saklamak", "Panikleyerek koşmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güvenlik",
+      "skills": ["acil durum bilgisi"],
+      "explanation": "Kaybolunca; sakin kal, tanıdık/güvenilir yetişkine ya da polise başvur. 155 polis acil hattıdır."
+    },
+    {
+      "stem": "Hangi mevsimde gündüzler en uzun ve geceler en kısadır?",
+      "options": ["Yaz mevsimi", "Kış mevsimi", "Sonbahar", "İlkbahar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mevsimler",
+      "skills": ["astronomi ve doğa bilgisi"],
+      "explanation": "Yaz gündönümü (21 Haziran) Kuzey Yarımküre'de gündüzlerin en uzun, gecelerin en kısa olduğu gündür."
+    },
+    {
+      "stem": "Spor yapmanın sağlığa faydaları nelerdir?",
+      "options": ["Kalp-damar sağlığını güçlendirir, kilo kontrolüne yardımcı olur, stresi azaltır ve ruh halini iyileştirir", "Yalnızca kas geliştirmek için gereklidir", "Spor yalnızca rekabet amacıyla yapılmalıdır", "Günlük spor zararlıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["sağlık bilgisi"],
+      "explanation": "Düzenli egzersiz; kalp, akciğer, kas-iskelet sistemi, bağışıklık, uyku kalitesi ve ruh sağlığı üzerinde olumlu etkiler yaratır."
+    },
+    {
+      "stem": "Türkiye'nin millî geliri artırmanın yollarından biri hangisidir?",
+      "options": ["Eğitim kalitesini artırmak ve üretimi geliştirmek", "Daha az üretmek", "İthalatı artırmak", "Vergileri azaltmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi temelleri",
+      "skills": ["sosyal bilgisi"],
+      "explanation": "Eğitimli ve nitelikli iş gücü, yenilik ve üretim artışı ülkenin ekonomik gelişmesinin temel unsurlarıdır."
+    },
+    {
+      "stem": "Yemek yerken hangi davranış görgü kurallarına uygundur?",
+      "options": ["Ağzı kapalı çiğnemek, konuşmak isteyince yuttuktan sonra konuşmak ve masayı düzenli tutmak", "Ağzı açık çiğnemek ve bağırarak konuşmak", "Masaya ayak uzatmak", "Yemeği fırlatarak paylaşmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Görgü kuralları",
+      "skills": ["sosyal beceriler"],
+      "explanation": "Yemek görgüsü; toplu yaşamda saygı ve nezaketin somut göstergesidir. Ağzı kapalı çiğnemek ve masa düzenine uymak temel kurallardır."
+    },
+    {
+      "stem": "Neden toplumda gönüllü çalışmalar yapılır?",
+      "options": ["Topluma katkı sağlamak, yardıma ihtiyacı olanlara destek olmak ve dayanışmayı güçlendirmek için", "Yalnızca ödül kazanmak için", "Zorunlu olduğu için", "Yalnızca okul projeleri için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sivil sorumluluk",
+      "skills": ["vatandaşlık değerleri"],
+      "explanation": "Gönüllülük; kişisel gelişim sağlar, toplumsal bağları güçlendirir, dezavantajlı bireylere destek sunar ve empatiyi pekiştirir."
+    },
+    {
+      "stem": "Türkiye'de 30 Ağustos'un adı ve anlamı nedir?",
+      "options": ["Zafer Bayramı; 1922'de Kurtuluş Savaşı'nın son büyük zaferi olan Başkomutanlık Meydan Muharebesi'nin kazanıldığı gün", "Cumhuriyet Bayramı", "Çocuk Bayramı", "Gençlik ve Spor Bayramı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Millî bayramlar",
+      "skills": ["tarih bilgisi"],
+      "explanation": "30 Ağustos 1922'de Türk ordusu Dumlupınar'da Başkomutanlık Meydan Muharebesi'ni kazandı; bu zafer kurtuluşun sembolüdür."
+    },
+    {
+      "stem": "Dengeli ve sağlıklı bir yaşam için uyku, beslenme ve egzersizden hangisi daha önemlidir?",
+      "options": ["Üçü de eşit ölçüde önemlidir; birbiriyle ilişkilidir ve hepsine dikkat edilmelidir", "Yalnızca uyku", "Yalnızca beslenme", "Yalnızca egzersiz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı yaşam",
+      "skills": ["bütüncül sağlık anlayışı"],
+      "explanation": "Sağlık; uyku, beslenme ve fiziksel aktivitenin dengesiyle sağlanır. Biri eksikse diğerleri de olumsuz etkilenir."
+    },
+    {
+      "stem": "Bir ortamda sigaranın içilmesi (pasif sigara) çocukları nasıl etkiler?",
+      "options": ["Solunum yolu hastalıkları, astım ve akciğer sorunları riskini artırır", "Hiçbir etkisi yoktur", "Yalnızca koku rahatsızlığı yaratır", "Yalnızca büyükleri etkiler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlık",
+      "skills": ["pasif sigara bilgisi"],
+      "explanation": "Pasif sigara; özellikle çocuklarda astım, bronşit ve akciğer gelişimi sorunlarına yol açar; kapalı ortamlarda sigara içilmesi yasaktır."
+    },
+    {
+      "stem": "Bir çocuk internette rahatsız edici ya da korkutucu bir içerikle karşılaşırsa ne yapmalıdır?",
+      "options": ["Sayfayı kapatıp hemen güvendiği bir yetişkine (ebeveyn, öğretmen) anlatmalıdır", "İçeriği arkadaşlarıyla paylaşmalı", "İçeriği incelemeye devam etmeli", "Kimseye söylememeli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dijital güvenlik",
+      "skills": ["internet güvenliği"],
+      "explanation": "Zararlı içerikle karşılaşılınca kapatmak ve yetişkine bildirmek; hem çocuğu korur hem de sorunun çözülmesine yardımcı olur."
+    },
+    {
+      "stem": "Öğretmenler neden saygı görmeyi hak eder?",
+      "options": ["Bilgi ve beceri kazanmamıza rehberlik ederler; toplumun geleceğini şekillendirirler", "Yalnızca ders verdikleri için", "Zorunlu olduğu için saygı duyulur", "Saygı göstermek gerekli değildir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Değerler",
+      "skills": ["saygı"],
+      "explanation": "Öğretmenler; bireylerin ve toplumun gelişimini yönlendiren, bilgiyi ve değerleri aktaran kıymetli rehberlerdir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'sağlıklı bir iletişim' biçimidir?",
+      "options": ["Karşındakini dinlemek, düşünceni saygılı biçimde ifade etmek ve anlamadığında soru sormak", "Sürekli kendinizin haklı olduğunu savunmak", "Konuşurken karşındakini dinlememek", "Yalnızca yazarak iletişim kurmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İletişim becerileri",
+      "skills": ["sosyal beceriler"],
+      "explanation": "Sağlıklı iletişim; aktif dinleme, saygılı konuşma, empati ve açıklık içerir. Bu beceriler tüm ilişkilerin temelidir."
+    },
+    {
+      "stem": "Türkiye'de Ramazan Bayramı ne anlama gelir ve ne zaman kutlanır?",
+      "options": ["Ramazan orucunun bitişini kutlamak amacıyla 3 gün boyunca kutlanır; ziyaret, tatlı ve hediyeleşme öne çıkar", "Kurban kesildiği bayramdır", "Yalnızca dini ibadetle geçen bir gündür", "4 gün süren bayramdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dini ve kültürel bayramlar",
+      "skills": ["kültür bilgisi"],
+      "explanation": "Ramazan Bayramı (Şeker Bayramı): Ramazan ayı orucunun bitiminde 3 gün boyunca bayram namazı, ziyaret, şeker ve tatlı paylaşımıyla kutlanır."
+    },
+    {
+      "stem": "Bir sınıfta herkese eşit ve adil davranmak neden önemlidir?",
+      "options": ["Herkesin değerli hissetmesini sağlar; güven, iş birliği ve pozitif okul ortamı oluşturur", "Yalnızca öğretmen için önemlidir", "Yalnızca zayıf öğrenciler için gereklidir", "Adalet yalnızca mahkemelerde gerekli"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Adalet ve eşitlik",
+      "skills": ["vatandaşlık değerleri"],
+      "explanation": "Eşit ve adil davranış; sınıf ortamını kapsayıcı ve güvenli kılar; öğrencilerin kendilerini değerli hissetmesine olanak tanır."
+    },
+    {
+      "stem": "Toplu yaşam alanlarında (park, alışveriş merkezi) dikkat edilmesi gereken güvenlik kuralı hangisidir?",
+      "options": ["Ailenizle birlikte gidin, belirli buluşma noktaları belirleyin ve kaybolursanız yetkililere başvurun", "İstediğiniz yere tek başınıza gidin", "Yabancıların yanında oturun", "Güvenlik kuralı gerekmez"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kamusal alan güvenliği",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Toplu alanlarda aileyle yakın kalmak, önceden buluşma noktası belirlemek ve kaybolunca yetkililere gitmek temel güvenlik önlemleridir."
+    },
+    {
+      "stem": "Türkiye'deki ulusal eğitim sisteminde ilkokul kaç yıl sürer?",
+      "options": ["4 yıl (1-4. sınıflar)", "5 yıl", "3 yıl", "6 yıl"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim sistemi",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Türkiye'de 12 yıllık zorunlu eğitim; ilkokul (1-4), ortaokul (5-8) ve lise (9-12) olmak üzere üç kademeye ayrılır."
+    },
+    {
+      "stem": "Sorumlu bir vatandaş olmak ne anlama gelir?",
+      "options": ["Kurallara uymak, haklarını kullanmak, çevresine katkı sağlamak ve toplumsal sorunlara duyarlı olmak", "Yalnızca oy kullanmak", "Yalnızca vergi ödemek", "Devletin her kararına itirazsız uymak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["vatandaşlık değerleri"],
+      "explanation": "Sorumlu vatandaşlık; hem hakları kullanmayı hem de görevleri yerine getirmeyi, hem kendi iyiliğini hem toplumun iyiliğini gözetmeyi içerir."
+    }
+  ]
+}

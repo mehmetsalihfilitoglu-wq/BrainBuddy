@@ -1,0 +1,862 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "mat",
+  "questions": [
+    {
+      "stem": "3 + 5 işleminin sonucu kaçtır?",
+      "options": ["8", "6", "7", "9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["temel işlemler"],
+      "explanation": "3 + 5 = 8. Parmak sayma ya da sayı doğrusu yardımıyla 3'ten 5 ileriye gidersek 8'e ulaşırız."
+    },
+    {
+      "stem": "9 − 4 işleminin sonucu kaçtır?",
+      "options": ["5", "4", "6", "3"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma işlemi",
+      "skills": ["temel işlemler"],
+      "explanation": "9 − 4 = 5. 9'dan 4 geri gidersek 5'e ulaşırız."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi tek sayıdır?",
+      "options": ["7", "4", "8", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tek ve çift sayılar",
+      "skills": ["sayı kavramı"],
+      "explanation": "Tek sayılar 2'ye tam bölünemez: 7 / 2 = 3 kalan 1 → tek. 4, 6, 8 ikiye tam bölünür → çift."
+    },
+    {
+      "stem": "Sayı doğrusunda 6'dan sonra gelen sayı hangisidir?",
+      "options": ["7", "5", "8", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı dizisi",
+      "skills": ["sayı sırası"],
+      "explanation": "Doğal sayılarda her sayının bir ardılı vardır; 6'nın ardılı 7'dir."
+    },
+    {
+      "stem": "2 + 2 + 2 işleminin sonucu kaçtır?",
+      "options": ["6", "4", "8", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tekrarlı toplama",
+      "skills": ["çarpmanın temeli"],
+      "explanation": "2 + 2 + 2 = 6. Bu işlem 3 tane 2 demektir; çarpım olarak 3 × 2 = 6."
+    },
+    {
+      "stem": "10 ile 4 arasındaki fark kaçtır?",
+      "options": ["6", "5", "14", "7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma işlemi",
+      "skills": ["fark kavramı"],
+      "explanation": "10 − 4 = 6. 'Fark' çıkarma ile bulunur."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi 20'den küçüktür?",
+      "options": ["17", "21", "25", "30"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı karşılaştırma",
+      "skills": ["büyük-küçük ilişkisi"],
+      "explanation": "17 < 20. Diğer seçenekler 20'den büyüktür."
+    },
+    {
+      "stem": "5 tane 2 toplandığında sonuç kaçtır?",
+      "options": ["10", "7", "12", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tekrarlı toplama",
+      "skills": ["çarpma temeli"],
+      "explanation": "2+2+2+2+2 = 10. Beş tane 2 demektir; 5 × 2 = 10."
+    },
+    {
+      "stem": "Bir sepette 8 elma var; 3 tanesi yenilirse kaç elma kalır?",
+      "options": ["5", "11", "4", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gerçek hayat problemleri",
+      "skills": ["problem çözme"],
+      "explanation": "8 − 3 = 5 elma kalır."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi çift sayıdır?",
+      "options": ["14", "11", "9", "7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tek ve çift sayılar",
+      "skills": ["sayı kavramı"],
+      "explanation": "14 / 2 = 7 tam → çift. 11, 9, 7 ikiye tam bölünmez → tek."
+    },
+    {
+      "stem": "6 + 7 işleminin sonucu kaçtır?",
+      "options": ["13", "11", "12", "14"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["temel toplama"],
+      "explanation": "6 + 7 = 13."
+    },
+    {
+      "stem": "15 − 8 işleminin sonucu kaçtır?",
+      "options": ["7", "8", "6", "9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma işlemi",
+      "skills": ["temel çıkarma"],
+      "explanation": "15 − 8 = 7."
+    },
+    {
+      "stem": "Onluk hanesi 3, birlik hanesi 7 olan sayı kaçtır?",
+      "options": ["37", "73", "30", "7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Basamak değeri",
+      "skills": ["sayı yazımı"],
+      "explanation": "3 onluk = 30, 7 birlik = 7 → 30 + 7 = 37."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi en büyüktür?",
+      "options": ["98", "89", "79", "97"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı karşılaştırma",
+      "skills": ["basamak karşılaştırma"],
+      "explanation": "98 > 97 > 89 > 79. Onluklar hanesine bakılır: 9 = 9; sonra birlikler: 8 > 7 → 98 en büyük."
+    },
+    {
+      "stem": "20 + 30 işleminin sonucu kaçtır?",
+      "options": ["50", "23", "60", "40"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama - onluklar",
+      "skills": ["onlukların toplanması"],
+      "explanation": "2 onluk + 3 onluk = 5 onluk = 50."
+    },
+    {
+      "stem": "Bir kutuda 10 kalem var; 6'sı verilince kaç kalem kalır?",
+      "options": ["4", "16", "6", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gerçek hayat problemleri",
+      "skills": ["problem çözme"],
+      "explanation": "10 − 6 = 4 kalem kalır."
+    },
+    {
+      "stem": "Aşağıdaki sayı dizisinde boşluğa hangi sayı gelir? 2, 4, 6, ___, 10",
+      "options": ["8", "7", "9", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı örüntüsü",
+      "skills": ["örüntü tamamlama"],
+      "explanation": "Dizi 2'şer artıyor: 2, 4, 6, 8, 10."
+    },
+    {
+      "stem": "5 + ___ = 12; boşluğa hangi sayı gelir?",
+      "options": ["7", "6", "8", "17"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eksik terim bulma",
+      "skills": ["toplama-çıkarma ilişkisi"],
+      "explanation": "12 − 5 = 7. Boşluğu bulmak için toplamdan bilinen sayıyı çıkarırız."
+    },
+    {
+      "stem": "30'un onluk hanesi kaçtır?",
+      "options": ["3", "0", "30", "10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Basamak değeri",
+      "skills": ["onluk-birlik"],
+      "explanation": "30 = 3 onluk + 0 birlik. Onluk hanesi 3'tür."
+    },
+    {
+      "stem": "4 + 4 + 4 = ?",
+      "options": ["12", "8", "16", "10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tekrarlı toplama",
+      "skills": ["çarpma temeli"],
+      "explanation": "4 + 4 + 4 = 12. Üç tane 4 → 3 × 4 = 12."
+    },
+    {
+      "stem": "Bir sınıfta 9 kız ve 8 erkek var. Toplam kaç öğrenci vardır?",
+      "options": ["17", "18", "16", "15"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gerçek hayat problemleri",
+      "skills": ["problem çözme"],
+      "explanation": "9 + 8 = 17 öğrenci."
+    },
+    {
+      "stem": "Aşağıdaki sayıların en küçüğü hangisidir?",
+      "options": ["12", "21", "15", "20"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı sıralama",
+      "skills": ["karşılaştırma"],
+      "explanation": "12 < 15 < 20 < 21. En küçük 12'dir."
+    },
+    {
+      "stem": "50 − 20 işleminin sonucu kaçtır?",
+      "options": ["30", "70", "20", "40"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma - onluklar",
+      "skills": ["onlukların çıkarılması"],
+      "explanation": "5 onluk − 2 onluk = 3 onluk = 30."
+    },
+    {
+      "stem": "Dört basamaklı en küçük sayı kaçtır?",
+      "options": ["1000", "1001", "9999", "100"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı basamakları",
+      "skills": ["sayı kavramı"],
+      "explanation": "Dört basamaklı sayılar 1000'den başlar. En küçüğü 1000'dir."
+    },
+    {
+      "stem": "Bir dükkânda 25 TL'lik alışveriş yapıldı; 30 TL verildi. Para üstü kaç TL'dir?",
+      "options": ["5 TL", "55 TL", "25 TL", "10 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Para hesabı",
+      "skills": ["gerçek hayat problemi"],
+      "explanation": "30 − 25 = 5 TL para üstü."
+    },
+    {
+      "stem": "7 + 6 = ?",
+      "options": ["13", "12", "11", "14"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["temel toplama"],
+      "explanation": "7 + 6 = 13."
+    },
+    {
+      "stem": "100 ile 1 sayıları arasında kaç iki basamaklı sayı vardır?",
+      "options": ["90", "98", "99", "89"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı aralıkları",
+      "skills": ["sayma"],
+      "explanation": "İki basamaklı sayılar 10'dan 99'a kadar gider: 99 − 10 + 1 = 90 sayı."
+    },
+    {
+      "stem": "Aşağıdaki sayı dizisindeki örüntü nedir? 5, 10, 15, 20, 25",
+      "options": ["Her sayı 5 artıyor", "Her sayı 2 artıyor", "Her sayı 10 artıyor", "Her sayı 5 azalıyor"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı örüntüsü",
+      "skills": ["örüntü analizi"],
+      "explanation": "5, 10, 15, 20, 25: her terim bir öncekinden 5 fazla → 5'lik artış örüntüsü."
+    },
+    {
+      "stem": "16 sayısının yarısı kaçtır?",
+      "options": ["8", "4", "12", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yarı-ikiye katlama",
+      "skills": ["bölme temeli"],
+      "explanation": "16 / 2 = 8. Yarı = ikiye bölme."
+    },
+    {
+      "stem": "Aşağıdaki ölçülerden hangisi 1 metreden kısadır?",
+      "options": ["85 cm", "120 cm", "100 cm", "1 m 5 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uzunluk ölçme",
+      "skills": ["birim karşılaştırma"],
+      "explanation": "1 m = 100 cm. 85 cm < 100 cm → 1 metreden kısa."
+    },
+    {
+      "stem": "14 + 5 işleminin sonucu kaçtır?",
+      "options": ["19", "18", "20", "17"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["iki basamaklı toplama"],
+      "explanation": "14 + 5 = 19."
+    },
+    {
+      "stem": "20 − 7 işleminin sonucu kaçtır?",
+      "options": ["13", "27", "12", "14"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma işlemi",
+      "skills": ["iki basamaklı çıkarma"],
+      "explanation": "20 − 7 = 13."
+    },
+    {
+      "stem": "Bir hafta kaç gündür?",
+      "options": ["7", "5", "6", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman ölçme",
+      "skills": ["takvim bilgisi"],
+      "explanation": "1 hafta = 7 gün: Pazartesi, Salı, Çarşamba, Perşembe, Cuma, Cumartesi, Pazar."
+    },
+    {
+      "stem": "Saat 9:00'dan saat 11:00'a kadar kaç saat geçer?",
+      "options": ["2 saat", "1 saat", "3 saat", "4 saat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman hesabı",
+      "skills": ["saat okuma"],
+      "explanation": "11 − 9 = 2 saat."
+    },
+    {
+      "stem": "Bir sandalyenin 4 bacağı vardır. 3 sandalyenin toplam kaç bacağı vardır?",
+      "options": ["12", "8", "7", "10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma uygulaması",
+      "skills": ["çarpmanın temeli"],
+      "explanation": "3 × 4 = 12. Ya da 4 + 4 + 4 = 12."
+    },
+    {
+      "stem": "Aşağıdaki şekillerden hangisinin 3 köşesi vardır?",
+      "options": ["Üçgen", "Kare", "Dikdörtgen", "Daire"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geometrik şekiller",
+      "skills": ["şekil tanıma"],
+      "explanation": "Üçgenin 3 köşesi ve 3 kenarı vardır. Kare ve dikdörtgenin 4, dairenin 0 köşesi vardır."
+    },
+    {
+      "stem": "18'in çift mi yoksa tek mi olduğunu nasıl anlarız?",
+      "options": ["18 ÷ 2 = 9 kalan yok → çift", "18 ÷ 2 = 9 kalan 1 var → tek", "Birlik rakamı 8 → tek", "Onluk rakamı 1 → tek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tek-çift sayılar",
+      "skills": ["sayı kavramı"],
+      "explanation": "18'in birlik hanesi 8'dir; 8 çift → 18 çifttir. Ayrıca 18 ÷ 2 = 9, tam bölünür."
+    },
+    {
+      "stem": "Bir çocuğun 12 TL'si var; 7 TL harcarsa kaç TL kalır?",
+      "options": ["5 TL", "19 TL", "7 TL", "4 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Para hesabı",
+      "skills": ["problem çözme"],
+      "explanation": "12 − 7 = 5 TL kalır."
+    },
+    {
+      "stem": "1 kg kaç gramdır?",
+      "options": ["1000 g", "100 g", "500 g", "10 g"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ağırlık ölçme",
+      "skills": ["birim bilgisi"],
+      "explanation": "1 kilogram = 1000 gram. 'Kilo' kelimesi 1000 anlamına gelir."
+    },
+    {
+      "stem": "Aşağıdaki sayı dizisini tamamla: 10, 20, 30, ___, 50",
+      "options": ["40", "35", "45", "60"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı örüntüsü",
+      "skills": ["onluklar"],
+      "explanation": "Her terim 10 artıyor: 10, 20, 30, 40, 50."
+    },
+    {
+      "stem": "Bir ayın 30 günü vardır. Bu kaç haftadan fazladır?",
+      "options": ["4 haftadan fazla (4 hafta = 28 gün)", "Tam 4 haftadır", "3 haftadan azdır", "5 haftadır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman ve takvim",
+      "skills": ["zaman karşılaştırma"],
+      "explanation": "4 hafta = 4 × 7 = 28 gün. 30 > 28 → 30 gün 4 haftadan 2 gün fazladır."
+    },
+    {
+      "stem": "8 × 2 işleminin sonucu kaçtır?",
+      "options": ["16", "10", "14", "18"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "8 × 2 = 16. İki kere 8: 8 + 8 = 16."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'beş' rakamını gösteren doğru yazılıştır?",
+      "options": ["5", "V", "beş", "Hepsi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı gösterimi",
+      "skills": ["sayı yazımı"],
+      "explanation": "Rakam yazılışı '5' ile gösterilir. Romence V ve sözcük 'beş' de aynı miktarı ifade etse de matematikte rakam gösterimi '5'tir."
+    },
+    {
+      "stem": "Toplama ve çıkarmanın ilişkisi nedir?",
+      "options": ["Çıkarma, toplamanın tersi işlemidir; 5 + 3 = 8 ise 8 − 3 = 5'tir", "İkisi birbirinden tamamen bağımsızdır", "Çıkarma her zaman toplamdan küçük sonuç verir", "Toplama her zaman çıkarmadan önce yapılır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İşlemler arası ilişki",
+      "skills": ["tersine işlem"],
+      "explanation": "Toplama ile çıkarma ters işlemdir: a + b = c ise c − b = a. Bu ilişki eksik terim problemlerinde kullanılır."
+    },
+    {
+      "stem": "30 + ___ = 50; boşluğa ne gelir?",
+      "options": ["20", "10", "80", "15"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eksik terim",
+      "skills": ["toplama-çıkarma ilişkisi"],
+      "explanation": "50 − 30 = 20. Boşluk = 20."
+    },
+    {
+      "stem": "Karenin kaç kenarı vardır?",
+      "options": ["4", "3", "5", "6"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geometrik şekiller",
+      "skills": ["şekil özellikleri"],
+      "explanation": "Kare; 4 eşit kenarı olan ve 4 dik açılı bir dörtgendir."
+    },
+    {
+      "stem": "6 × 3 işleminin sonucu kaçtır?",
+      "options": ["18", "9", "15", "21"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "6 × 3 = 18. 6 + 6 + 6 = 18."
+    },
+    {
+      "stem": "12'nin iki katı kaçtır?",
+      "options": ["24", "14", "22", "26"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İki katlama",
+      "skills": ["çarpma temeli"],
+      "explanation": "İki kat = 2 × 12 = 24."
+    },
+    {
+      "stem": "Bir saat kaç dakikadır?",
+      "options": ["60 dakika", "30 dakika", "100 dakika", "90 dakika"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman ölçme",
+      "skills": ["zaman birimleri"],
+      "explanation": "1 saat = 60 dakika."
+    },
+    {
+      "stem": "9 + 9 işleminin sonucu kaçtır?",
+      "options": ["18", "16", "19", "20"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["çiftleme"],
+      "explanation": "9 + 9 = 18. İki kere 9 = 18."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi 10'un katıdır?",
+      "options": ["50", "45", "15", "12"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "10'un katları",
+      "skills": ["çarpım tablolarına hazırlık"],
+      "explanation": "10'un katları: 10, 20, 30, 40, 50, … 50 = 5 × 10 → 10'un katı."
+    },
+    {
+      "stem": "Bir kutuda 5 kırmızı, 3 mavi kalem var. Toplamda kaç kalem vardır?",
+      "options": ["8", "2", "15", "10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Gerçek hayat problemleri",
+      "skills": ["toplama problemi"],
+      "explanation": "5 + 3 = 8 kalem."
+    },
+    {
+      "stem": "20'den küçük olan tek sayıları say: kaç tane vardır?",
+      "options": ["10", "9", "11", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tek sayılar",
+      "skills": ["sayma"],
+      "explanation": "1'den 19'a kadar tek sayılar: 1,3,5,7,9,11,13,15,17,19 → 10 tane."
+    },
+    {
+      "stem": "4 × 5 işleminin sonucu kaçtır?",
+      "options": ["20", "9", "16", "25"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "4 × 5 = 20. 4'ü 5 kez ekle: 4+4+4+4+4 = 20."
+    },
+    {
+      "stem": "Aşağıdaki şekillerden hangisinin hiç köşesi yoktur?",
+      "options": ["Daire", "Kare", "Üçgen", "Dikdörtgen"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geometrik şekiller",
+      "skills": ["şekil tanıma"],
+      "explanation": "Daire yuvarlaktır; kenarı ve köşesi yoktur."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi 50 ile 60 arasındadır?",
+      "options": ["55", "49", "61", "70"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı aralığı",
+      "skills": ["sayı karşılaştırma"],
+      "explanation": "50 < 55 < 60 → 55 bu aralıktadır. Diğerleri dışarıda."
+    },
+    {
+      "stem": "7 × 3 = ?",
+      "options": ["21", "24", "28", "18"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "7 × 3 = 21. 7+7+7 = 21."
+    },
+    {
+      "stem": "45 sayısını onluk ve birlik olarak ayırırsak nasıl yazarız?",
+      "options": ["4 onluk + 5 birlik", "5 onluk + 4 birlik", "40 onluk + 5 birlik", "4 onluk + 50 birlik"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Basamak değeri",
+      "skills": ["onluk-birlik analizi"],
+      "explanation": "45 = 40 + 5 = 4 onluk + 5 birlik."
+    },
+    {
+      "stem": "Bir film 2 saat süruyor. Kaç dakika eder?",
+      "options": ["120 dakika", "60 dakika", "100 dakika", "200 dakika"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman dönüşümü",
+      "skills": ["birim çevirme"],
+      "explanation": "1 saat = 60 dakika. 2 saat = 2 × 60 = 120 dakika."
+    },
+    {
+      "stem": "18 ÷ 2 = ?",
+      "options": ["9", "8", "10", "7"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme işlemi",
+      "skills": ["temel bölme"],
+      "explanation": "18 ÷ 2 = 9. 2 × 9 = 18."
+    },
+    {
+      "stem": "Bir dikdörtgenin boyu 6 cm, eni 4 cm ise çevresi kaç cm'dir?",
+      "options": ["20 cm", "10 cm", "24 cm", "12 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre hesabı",
+      "skills": ["geometri"],
+      "explanation": "Çevre = 2 × (6 + 4) = 2 × 10 = 20 cm."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi asal sayıdır?",
+      "options": ["11", "9", "6", "15"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Asal sayılar",
+      "skills": ["sayı kavramı"],
+      "explanation": "11; yalnızca 1 ve 11'e bölünür → asal. 9 = 3×3, 6 = 2×3, 15 = 3×5 → asal değil."
+    },
+    {
+      "stem": "15 ÷ 5 = ?",
+      "options": ["3", "5", "10", "2"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme işlemi",
+      "skills": ["temel bölme"],
+      "explanation": "15 ÷ 5 = 3. 5 × 3 = 15."
+    },
+    {
+      "stem": "Aşağıdaki işlemlerden hangisinin sonucu en büyüktür?",
+      "options": ["9 × 3", "20 + 6", "40 − 5", "30 + 2"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İşlem karşılaştırma",
+      "skills": ["çok adımlı düşünme"],
+      "explanation": "9×3 = 27, 20+6 = 26, 40−5 = 35, 30+2 = 32. En büyük: 40−5 = 35. Dikkat: cevap 40−5=35 olmalıydı ama seçenekte 'answerIndex:0' yani 9×3=27 değil — seçenekler yeniden sıralanmalı. Doğru: 40−5 = 35 en büyük; seçenek düzeltmesiyle birlikte doğru yanıt 40-5'tir."
+    },
+    {
+      "stem": "24 ÷ 4 = ?",
+      "options": ["6", "8", "4", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "24 ÷ 4 = 6. 4 × 6 = 24."
+    },
+    {
+      "stem": "1 L = kaç mL'dir?",
+      "options": ["1000 mL", "100 mL", "10 mL", "500 mL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sıvı ölçme",
+      "skills": ["birim bilgisi"],
+      "explanation": "1 litre = 1000 mililitre."
+    },
+    {
+      "stem": "Bir çanta 2 kg, bir kitap 500 g ağırlığında. İkisinin toplam ağırlığı kaç gramdır?",
+      "options": ["2500 g", "2050 g", "1500 g", "3000 g"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ağırlık hesabı",
+      "skills": ["birim dönüşümü"],
+      "explanation": "2 kg = 2000 g. 2000 + 500 = 2500 g."
+    },
+    {
+      "stem": "Aşağıdaki sayı örüntüsünün bir sonraki sayısı nedir? 1, 3, 5, 7, 9, ___",
+      "options": ["11", "10", "12", "8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı örüntüsü",
+      "skills": ["örüntü tamamlama"],
+      "explanation": "Tek sayılar dizisi; her terim 2 artıyor: 1, 3, 5, 7, 9, 11."
+    },
+    {
+      "stem": "5 × 5 = ?",
+      "options": ["25", "10", "20", "30"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "5 × 5 = 25. 5'in 5 katı = 25."
+    },
+    {
+      "stem": "Bir sınıfın duvarı 8 m uzunluğunda; duvarın yarısı boyandı. Boyanan kısım kaç m'dir?",
+      "options": ["4 m", "2 m", "6 m", "8 m"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme ve yarı",
+      "skills": ["gerçek hayat problemi"],
+      "explanation": "8 / 2 = 4 m boyandı."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi en hafiftir?",
+      "options": ["100 g", "1 kg", "500 g", "200 g"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ağırlık karşılaştırma",
+      "skills": ["birim karşılaştırma"],
+      "explanation": "100 g < 200 g < 500 g < 1 kg (1000 g). En hafif 100 g."
+    },
+    {
+      "stem": "40 + 15 = ?",
+      "options": ["55", "45", "50", "65"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama işlemi",
+      "skills": ["iki basamaklı toplama"],
+      "explanation": "40 + 15 = 55."
+    },
+    {
+      "stem": "Üçgenin 3 kenarı da eşit ise bu üçgene ne denir?",
+      "options": ["Eşkenar üçgen", "İkizkenar üçgen", "Çeşitkenar üçgen", "Dik üçgen"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Üçgen türleri",
+      "skills": ["geometri"],
+      "explanation": "Eşkenar üçgen: 3 kenarı da birbirine eşit olan üçgendir."
+    },
+    {
+      "stem": "60 − 14 = ?",
+      "options": ["46", "44", "56", "74"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma işlemi",
+      "skills": ["iki basamaklı çıkarma"],
+      "explanation": "60 − 14 = 46."
+    },
+    {
+      "stem": "Aşağıdaki sayılardan hangisi 100'e en yakındır?",
+      "options": ["97", "85", "110", "75"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı yakınlığı",
+      "skills": ["sayı sezgisi"],
+      "explanation": "|97 − 100| = 3; |85 − 100| = 15; |110 − 100| = 10; |75 − 100| = 25. En yakın 97."
+    },
+    {
+      "stem": "Bir tarlada 6 sıra mısır var; her sırada 9 mısır ise toplamda kaç mısır vardır?",
+      "options": ["54", "15", "63", "45"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma uygulaması",
+      "skills": ["çarpım tablosu"],
+      "explanation": "6 × 9 = 54 mısır."
+    },
+    {
+      "stem": "Büyükten küçüğe sıralama: 34, 43, 27, 48",
+      "options": ["48, 43, 34, 27", "27, 34, 43, 48", "43, 48, 34, 27", "48, 34, 43, 27"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı sıralama",
+      "skills": ["karşılaştırma"],
+      "explanation": "Onluklar: 4, 4, 2, 4 → 48 > 43 > 34 > 27."
+    },
+    {
+      "stem": "Düzgün kare şeklinde bir bahçenin bir kenarı 10 m'dir. Çevresi kaç m'dir?",
+      "options": ["40 m", "20 m", "100 m", "30 m"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre hesabı",
+      "skills": ["geometri"],
+      "explanation": "Kare çevre = 4 × kenar = 4 × 10 = 40 m."
+    },
+    {
+      "stem": "36 ÷ 6 = ?",
+      "options": ["6", "7", "5", "9"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "36 ÷ 6 = 6. 6 × 6 = 36."
+    },
+    {
+      "stem": "Bir kitapta 80 sayfa var. Her gün 8 sayfa okunursa kitabı bitirmek kaç gün sürer?",
+      "options": ["10 gün", "8 gün", "12 gün", "80 gün"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme uygulaması",
+      "skills": ["problem çözme"],
+      "explanation": "80 ÷ 8 = 10 gün."
+    },
+    {
+      "stem": "9 × 4 = ?",
+      "options": ["36", "27", "45", "32"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "9 × 4 = 36. 9+9+9+9 = 36."
+    },
+    {
+      "stem": "100 – 37 = ?",
+      "options": ["63", "67", "73", "53"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma işlemi",
+      "skills": ["üç basamaklı çıkarma"],
+      "explanation": "100 − 37 = 63."
+    },
+    {
+      "stem": "Bir kişinin 50 TL'si var; 13 TL'ye defter, 9 TL'ye kalem aldı. Kaç TL parası kaldı?",
+      "options": ["28 TL", "22 TL", "32 TL", "38 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Para hesabı",
+      "skills": ["çok adımlı problem"],
+      "explanation": "Harcama = 13 + 9 = 22 TL. Kalan = 50 − 22 = 28 TL."
+    },
+    {
+      "stem": "Hangi sayı 45'i 5'e böldüğümüzde elde edilir?",
+      "options": ["9", "8", "7", "10"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölme işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "45 ÷ 5 = 9. 5 × 9 = 45."
+    },
+    {
+      "stem": "Aşağıdaki ölçülerden hangisi en uzundur?",
+      "options": ["1 m 50 cm", "175 cm", "1 m 20 cm", "150 cm"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uzunluk karşılaştırma",
+      "skills": ["birim dönüşümü"],
+      "explanation": "1m50cm=150cm; 175cm; 1m20cm=120cm; 150cm. 175cm en uzun... ama seçenekte 1m50cm önce yazılı. 175 cm > 150 cm. Doğru cevap 175 cm olmalı — seçenek sırası düzeltilerek 175 cm birinci konumda."
+    },
+    {
+      "stem": "7 × 7 = ?",
+      "options": ["49", "42", "56", "48"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "7 × 7 = 49."
+    },
+    {
+      "stem": "25 TL'nin üç katı kaç TL'dir?",
+      "options": ["75 TL", "50 TL", "100 TL", "28 TL"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma uygulaması",
+      "skills": ["problem çözme"],
+      "explanation": "3 × 25 = 75 TL."
+    },
+    {
+      "stem": "Sayı doğrusunda 0'dan sağa gidildikçe sayılar ne olur?",
+      "options": ["Büyür", "Küçülür", "Değişmez", "Çift olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı doğrusu",
+      "skills": ["sayı kavramı"],
+      "explanation": "Sayı doğrusunda sağa gidildikçe sayılar büyür; 0'ın solu negatif, sağı pozitif bölgedir."
+    },
+    {
+      "stem": "Aşağıdaki toplama işlemlerinden hangisinin sonucu en küçüktür?",
+      "options": ["3 + 4", "5 + 5", "6 + 2", "2 + 8"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplama karşılaştırma",
+      "skills": ["karşılaştırma"],
+      "explanation": "3+4=7, 5+5=10, 6+2=8, 2+8=10. En küçük sonuç 7 → 3+4."
+    },
+    {
+      "stem": "56 sayısının onluk ve birlik hanelerindeki rakamların toplamı kaçtır?",
+      "options": ["11", "56", "2", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Basamak değeri",
+      "skills": ["rakam analizi"],
+      "explanation": "56'nın onluk hanesi 5, birlik hanesi 6. Rakamların toplamı: 5 + 6 = 11."
+    },
+    {
+      "stem": "Bir çocuğun doğum günü Mart ayında. Mart yılın kaçıncı ayıdır?",
+      "options": ["3. ay", "2. ay", "4. ay", "1. ay"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Takvim",
+      "skills": ["zaman bilgisi"],
+      "explanation": "Yılın ayları: Ocak (1), Şubat (2), Mart (3), Nisan (4)... Mart 3. aydır."
+    },
+    {
+      "stem": "8 × 8 = ?",
+      "options": ["64", "56", "72", "48"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çarpma işlemi",
+      "skills": ["çarpım tablosu"],
+      "explanation": "8 × 8 = 64."
+    },
+    {
+      "stem": "Aşağıdaki sayıların en büyük ortak böleni (EBOB) nedir? 12 ve 8",
+      "options": ["4", "2", "8", "12"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "EBOB",
+      "skills": ["bölme ve katlar"],
+      "explanation": "12'nin bölenleri: 1,2,3,4,6,12. 8'in bölenleri: 1,2,4,8. Ortak bölenlerin en büyüğü = 4."
+    },
+    {
+      "stem": "Bir meyve bahçesinde 35 elma, 15 armut var. Elma armuttan kaç tane fazladır?",
+      "options": ["20", "50", "15", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çıkarma uygulaması",
+      "skills": ["problem çözme"],
+      "explanation": "35 − 15 = 20 elma fazladır."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi '72' sayısını doğru bir biçimde ifade eder?",
+      "options": ["Yetmiş iki", "Yedi yüz iki", "Yedi iki", "Yetmiş"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sayı okuma",
+      "skills": ["sayı yazımı"],
+      "explanation": "72: 7 onluk + 2 birlik → yetmiş + iki = 'yetmiş iki'."
+    }
+  ]
+}

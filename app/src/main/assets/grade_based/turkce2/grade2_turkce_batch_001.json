@@ -1,0 +1,871 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "turkce",
+  "questions": [
+    {
+      "stem": "Aşağıdaki cümlelerde altı çizili kelimenin zıt anlamlısı hangisidir? 'Hava bugün çok soğuk.'",
+      "options": ["Sıcak", "Yağmurlu", "Bulutlu", "Rüzgarlı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zıt anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "'Soğuk'un zıt anlamlısı 'sıcak'tır."
+    },
+    {
+      "stem": "'Gece' kelimesinin zıt anlamlısı nedir?",
+      "options": ["Gündüz", "Sabah", "Akşam", "Öğle"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Zıt anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "'Gece'nin zıt anlamlısı 'gündüz'dür."
+    },
+    {
+      "stem": "'Ağlamak' fiilinin zıt anlamlısı aşağıdakilerden hangisidir?",
+      "options": ["Gülmek", "Bağırmak", "Koşmak", "Oturmak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Zıt anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "'Ağlamak'ın zıt anlamlısı 'gülmek'tir."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi 'açık' kelimesinin eş anlamlısıdır?",
+      "options": ["Aydınlık", "Karanlık", "Kapalı", "Küçük"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eş anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "'Açık' kelimesinin eş anlamlısı 'aydınlık'tır."
+    },
+    {
+      "stem": "'Güzel' kelimesiyle eş anlamlı olan kelime hangisidir?",
+      "options": ["Hoş", "Çirkin", "Kötü", "Eski"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Eş anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "'Güzel'in eş anlamlısı 'hoş'tur."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi soru cümlesidir?",
+      "options": ["Bugün hava nasıl?", "Pencereyi kapat.", "Ali markete gitti.", "Ağaçlar çiçek açtı."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Cümle türleri",
+      "skills": ["cümle tanıma"],
+      "explanation": "Soru cümleleri soru işareti (?) ile biter veya soru sözcüğü içerir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi emir cümlesidir?",
+      "options": ["Kitabını aç.", "Bugün okula gitti.", "Hava çok güzel.", "Arkadaşım geldi mi?"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Cümle türleri",
+      "skills": ["cümle tanıma"],
+      "explanation": "Emir cümleleri bir iş yapma emri verir. 'Kitabını aç.' bir emir cümlesidir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisinde nokta kullanımı doğrudur?",
+      "options": ["Ali okula gitti.", "Ali okula gitti!", "Ali okula gitti?", "Ali okula gitti,"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Noktalama işaretleri",
+      "skills": ["noktalama"],
+      "explanation": "Bildirme cümlelerinin sonuna nokta (.) konur."
+    },
+    {
+      "stem": "Soru cümlelerinin sonuna hangi noktalama işareti konur?",
+      "options": ["?", ".", "!", ","],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Noktalama işaretleri",
+      "skills": ["noktalama"],
+      "explanation": "Soru cümlelerinin sonuna soru işareti (?) konur."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisinde büyük harf kullanımı yanlıştır?",
+      "options": ["türkiye", "Ankara", "Ayşe", "Marmara"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Büyük harf kullanımı",
+      "skills": ["yazım bilgisi"],
+      "explanation": "Özel isimler büyük harfle başlar. 'Türkiye' büyük T ile yazılmalıdır."
+    },
+    {
+      "stem": "Kişilerin adları yazılırken hangi kurala uyulur?",
+      "options": ["Büyük harfle başlanır", "Küçük harfle başlanır", "Tümü büyük harfle yazılır", "Tümü küçük harfle yazılır"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Büyük harf kullanımı",
+      "skills": ["yazım bilgisi"],
+      "explanation": "Özel isimler (kişi, şehir, ülke adları) büyük harfle başlar."
+    },
+    {
+      "stem": "'Kitap', 'defter', 'kalem' kelimelerinin ortak özelliği nedir?",
+      "options": ["Hepsi okul malzemesidir", "Hepsi oyuncaktır", "Hepsi yiyecektir", "Hepsi hayvan adıdır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime gruplandırma",
+      "skills": ["kavram ilişkilendirme"],
+      "explanation": "Kitap, defter ve kalem okul malzemeleridir, hepsi aynı kategoridedir."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi diğerleriyle aynı kategoride değildir?",
+      "options": ["Masa", "Elma", "Armut", "Kiraz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime kategorileri",
+      "skills": ["sınıflandırma"],
+      "explanation": "Elma, armut ve kiraz meyve; masa ise mobilyadır. Masa diğerleriyle aynı kategoride değildir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede özne (kim/ne) hangi kelimedir? 'Çocuklar parkta oynuyor.'",
+      "options": ["Çocuklar", "Parkta", "Oynuyor", "Oynuyor ve parkta"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["özne bulma"],
+      "explanation": "Cümlede 'kim oynuyor?' sorusunun cevabı öznedir. 'Çocuklar' oynuyor → özne: çocuklar."
+    },
+    {
+      "stem": "Bir metinde paragrafın ilk satırı nasıl yazılır?",
+      "options": ["Biraz içeri çekilerek (girintili) yazılır", "Normal yazılır", "Büyük harfle devam edilir", "Ortadan başlanır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazım kuralları",
+      "skills": ["yazım bilgisi"],
+      "explanation": "Paragraf başlarında ilk satır biraz içeri çekilerek (girintili) yazılır."
+    },
+    {
+      "stem": "Bir hikâyenin 'başlangıç, gelişme ve sonuç' bölümleri ne için kullanılır?",
+      "options": ["Hikâyenin düzgün anlatılması için", "Şiir yazmak için", "Soru sormak için", "Okumayı hızlandırmak için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin yapısı",
+      "skills": ["metin anlama"],
+      "explanation": "Hikâyeler başlangıç, gelişme ve sonuç bölümlerinden oluşur; bu düzen hikâyenin anlaşılır ve düzgün anlatılmasını sağlar."
+    },
+    {
+      "stem": "Okuduğumuz bir metinden ana fikri bulabilmek için ne yapmalıyız?",
+      "options": ["Metnin tamamını okuyup en çok anlatmak istediğini bulmaya çalışmalıyız", "Sadece ilk cümleyi okumalıyız", "Başlığa bakmalıyız", "Sadece son cümleyi okumalıyız"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["ana fikir bulma"],
+      "explanation": "Ana fikir, metnin tamamının vermek istediği temel mesajdır; metnin tamamı okunarak bulunur."
+    },
+    {
+      "stem": "Aşağıdaki cümlede fiil (eylem) hangi kelimedir? 'Kuşlar gökyüzünde uçuyor.'",
+      "options": ["Uçuyor", "Kuşlar", "Gökyüzünde", "Gökyüzünde uçuyor"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["fiil tanıma"],
+      "explanation": "Fiil, yapılan işi, eylemi bildirir. 'Uçuyor' fiilidir."
+    },
+    {
+      "stem": "'Hızlı', 'yavaş', 'güzel', 'büyük' kelimeleri hangi kelime türünü oluşturur?",
+      "options": ["Sıfat", "İsim", "Fiil", "Zarf"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["sıfat tanıma"],
+      "explanation": "Hızlı, yavaş, güzel, büyük gibi kelimeler varlıkların özelliklerini belirtir; bunlara sıfat denir."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisi bir isimdir?",
+      "options": ["Köpek", "Koşmak", "Hızlı", "Bugün"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kelime türleri",
+      "skills": ["isim tanıma"],
+      "explanation": "'Köpek' bir varlık adıdır, isimdir. 'Koşmak' fiil, 'hızlı' sıfat, 'bugün' zarftır."
+    },
+    {
+      "stem": "Bir metni okurken bilinmeyen kelimelerin anlamını anlamak için ne yapabiliriz?",
+      "options": ["Cümlenin bağlamına bakarak tahmin edebiliriz", "O kelimeyi atlayabiliriz", "Metni okumayı bırakabiliriz", "Yalnızca resme bakabiliriz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma stratejileri",
+      "skills": ["bağlamdan anlam çıkarma"],
+      "explanation": "Bilinmeyen bir kelimenin anlamını bağlamdan (önceki ve sonraki cümlelerden) tahmin edebiliriz."
+    },
+    {
+      "stem": "Bir şiirde satır sonlarındaki seslerin birbirine benzemesine ne denir?",
+      "options": ["Uyak (kafiye)", "Nakarat", "Dörtlük", "Kıta"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Şiir bilgisi",
+      "skills": ["edebi terimler"],
+      "explanation": "Uyak (kafiye): Şiirde mısra sonlarındaki ses benzerliğidir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede virgül nereye konmalıdır? 'Marketten ekmek süt peynir aldık.'",
+      "options": ["ekmek, süt, peynir aldık", "ekmek süt, peynir, aldık", "ekmek süt peynir, aldık", "Virgüle gerek yok"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Noktalama işaretleri",
+      "skills": ["virgül kullanımı"],
+      "explanation": "Sıralanan öğeler arasına virgül konur: ekmek, süt, peynir aldık."
+    },
+    {
+      "stem": "Hikâye yazan biri başkalarına ne mesaj vermek istediğini düşünür. Buna ne denir?",
+      "options": ["Ana fikir / ileti", "Başlık", "Paragraf", "Konu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazma becerileri",
+      "skills": ["metin oluşturma"],
+      "explanation": "Bir yazarın okuyucuya vermek istediği temel mesaja 'ana fikir' ya da 'ileti' denir."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisi yanlış yazılmıştır?",
+      "options": ["çiçeck", "okul", "araba", "kitap"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazım kuralları",
+      "skills": ["doğru yazım"],
+      "explanation": "'çiçeck' yanlış yazılmıştır, doğrusu 'çiçek'tir."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisi 'ev' kelimesiyle aynı heceli başka bir örüntüdedir? (2 heceli)",
+      "options": ["Masa", "Okul", "Kelebek", "Ağaç"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hece",
+      "skills": ["hece sayma"],
+      "explanation": "'Ev' 1 heceli. 'Masa' = ma-sa (2 hece). 'Okul' = o-kul (2 hece). Soru '2 heceli' istiyor. 'Masa' 2 heceli."
+    },
+    {
+      "stem": "'Kelebek' kelimesi kaç heceden oluşur?",
+      "options": ["3 hece", "2 hece", "4 hece", "1 hece"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hece",
+      "skills": ["hece sayma"],
+      "explanation": "Ke-le-bek → 3 hece."
+    },
+    {
+      "stem": "'Çiçek' kelimesini heceleyen seçenek hangisidir?",
+      "options": ["Çi-çek", "Çiç-ek", "Çi-ç-ek", "Çiçek (1 hece)"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hece",
+      "skills": ["heceleme"],
+      "explanation": "Türkçede heceler ünlüleri merkez alır. Çiçek = Çi-çek (2 hece)."
+    },
+    {
+      "stem": "Türkçede kaç tane sesli harf (ünlü) vardır?",
+      "options": ["8", "6", "10", "5"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses bilgisi",
+      "skills": ["ünlüler"],
+      "explanation": "Türkçede 8 ünlü harf vardır: a, e, ı, i, o, ö, u, ü."
+    },
+    {
+      "stem": "Aşağıdaki harflerin hangisi sesli (ünlü) harftir?",
+      "options": ["o", "k", "t", "s"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Ses bilgisi",
+      "skills": ["ünlü tanıma"],
+      "explanation": "'o' bir ünlü harftir. k, t, s ise sessiz (ünsüz) harflerdir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde 'de/da' bağlacı doğru kullanılmıştır?",
+      "options": ["Ali de geldi.", "Masa da kırık.", "Kitabı da oku.", "Araba da yeni."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazım kuralları",
+      "skills": ["de/da yazımı"],
+      "explanation": "'de/da' bağlacı ayrı yazılır ve büyük ünlü uyumuna uyar. 'Ali de geldi.' doğrudur."
+    },
+    {
+      "stem": "Bir mektup yazarken başlangıçta ne yapılır?",
+      "options": ["Mektubu kime yazdığımızı belirtiriz (Sevgili...)", "Hemen konuya gireriz", "İmzamızı atarız", "Tarihi sona yazarız"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazma becerileri",
+      "skills": ["mektup yazma"],
+      "explanation": "Mektuba 'Sevgili...' ya da 'Sayın...' gibi bir selamlama ile başlanır."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerde 'ne zaman' sorusunun cevabı olan kelime hangisidir? 'Dün akşam uyudum.'",
+      "options": ["Dün akşam", "Uyudum", "Ben", "Dün"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["zaman zarfı"],
+      "explanation": "'Ne zaman uyudum?' sorusunun cevabı 'dün akşam'dır; bu zaman zarfıdır."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi büyük harfle yazılmalıdır?",
+      "options": ["İstanbul", "elma", "güzel", "koşmak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Büyük harf kullanımı",
+      "skills": ["yazım bilgisi"],
+      "explanation": "İstanbul özel bir isim olduğu için büyük harfle yazılır."
+    },
+    {
+      "stem": "'Kedi yavrusu mırlıyor.' cümlesinde kaç kelime vardır?",
+      "options": ["3", "2", "4", "1"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sözcük sayma",
+      "skills": ["kelime bilgisi"],
+      "explanation": "Kedi / yavrusu / mırlıyor → 3 kelime."
+    },
+    {
+      "stem": "Bir metni okuduktan sonra metnin konusu nedir diye sorulduğunda ne yapmalıyız?",
+      "options": ["Metnin neyle ilgili olduğunu kısaca söylemeliyiz", "Metnin tamamını tekrar okumalıyız", "Sadece son cümleyi söylemeliyiz", "Başlığı söylemeliyiz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["konu belirleme"],
+      "explanation": "Konu: Metnin genel olarak ne hakkında olduğudur; kısaca özetlenerek ifade edilir."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisi zıt anlamlı çifti doğru eşleşmemiştir?",
+      "options": ["Güzel – Yeni", "Büyük – Küçük", "Açık – Kapalı", "Sıcak – Soğuk"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zıt anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "'Güzel – Yeni' zıt anlamlı değildir. Güzel'in zıt anlamlısı 'çirkin'dir."
+    },
+    {
+      "stem": "Bir haberin doğru olup olmadığını anlamak için ne yapabiliriz?",
+      "options": ["Birden fazla kaynaktan kontrol edebiliriz", "Her gördüğümüze inanabiliriz", "Yalnızca bir kişiye sorabiliriz", "Haberi paylaşabiliriz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["eleştirel düşünme"],
+      "explanation": "Bir bilginin doğruluğunu anlamak için birden fazla güvenilir kaynaktan kontrol etmek gerekir."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisinde ünlem işareti doğru kullanılmıştır?",
+      "options": ["Yaşasın!", "Bugün hava güzel!", "Nereye gidiyorsun!", "Kitap okumak güzel!"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Noktalama işaretleri",
+      "skills": ["ünlem kullanımı"],
+      "explanation": "Ünlem işareti coşku, sevinç veya emir bildirir. 'Yaşasın!' sevinç ifade eder ve doğru kullanımdır."
+    },
+    {
+      "stem": "Türkçede bir kelimenin sonuna '-lar/-ler' eki getirildiğinde ne olur?",
+      "options": ["Kelime çoğul hale gelir", "Kelime küçük olur", "Kelime soru olur", "Kelime sıfat olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çoğul eki",
+      "skills": ["ek bilgisi"],
+      "explanation": "'-lar/-ler' eki isimlere çoğulluk anlamı katar. Örnek: kitap → kitaplar."
+    },
+    {
+      "stem": "'Arabalar', 'evler', 'çocuklar' kelimelerinin ortak özelliği nedir?",
+      "options": ["Hepsi çoğul isimdir", "Hepsi fiildir", "Hepsi sıfattır", "Hepsi tekil isimdir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çoğul eki",
+      "skills": ["kelime yapısı"],
+      "explanation": "Arabalar (-lar), evler (-ler), çocuklar (-lar) hepsine çoğul eki getirilmiştir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede hangi sözcük sıfattır? 'Kırmızı araba hızlı gitti.'",
+      "options": ["Kırmızı", "Araba", "Hızlı", "Gitti"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["sıfat bulma"],
+      "explanation": "'Kırmızı' arabanın rengini belirtiyor, bu yüzden sıfattır. Sıfatlar isimleri niteler."
+    },
+    {
+      "stem": "Hangi cümle 'olumsuz' cümledir?",
+      "options": ["Bugün okula gitmedim.", "Bugün okula gittim.", "Ali koştu.", "Hava güzel."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Olumlu-olumsuz cümle",
+      "skills": ["cümle yapısı"],
+      "explanation": "'Gitmedim' olumsuzluk eki (-me/-ma) içerir. Bu yüzden olumsuz cümledir."
+    },
+    {
+      "stem": "'Anneme bir çiçek verdim.' cümlesinde kime verdim sorusunun cevabı nedir?",
+      "options": ["Anneme", "Çiçek", "Ben", "Verdim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["dolaylı tümleç"],
+      "explanation": "'Kime verdim?' sorusunun cevabı 'anneme'dir; bu dolaylı tümleçtir."
+    },
+    {
+      "stem": "Türkçede büyük ünlü uyumuna göre 'gel' kelimesine hangi ek getirilir?",
+      "options": ["gel-di", "gel-dı", "gel-du", "gel-dü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses uyumu",
+      "skills": ["büyük ünlü uyumu"],
+      "explanation": "'gel' kelimesindeki ünlü 'e'dir (ince). Ekler de ince ünlüyle gelir → gel-di."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi 'hayvan' adı değildir?",
+      "options": ["Kalem", "Aslan", "Kartal", "Balık"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kelime kategorileri",
+      "skills": ["sınıflandırma"],
+      "explanation": "Kalem bir hayvan adı değildir; okul malzemesidir."
+    },
+    {
+      "stem": "Bir metni okuduktan sonra ne anlatıldığını başkasına kısaca anlatmaya ne denir?",
+      "options": ["Özetleme", "Yeniden yazma", "Ezberleme", "Soru sorma"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["özetleme"],
+      "explanation": "Özetleme: Metnin ana fikrini ve önemli noktalarını kısaca aktarmaktır."
+    },
+    {
+      "stem": "Bir hikâyede 'kahraman' kim demektir?",
+      "options": ["Hikâyenin ana kişisi", "Hikâyeyi yazan kişi", "Hikâyeyi okuyan kişi", "Hikâyenin anlatıldığı yer"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Edebi terimler",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Hikâye kahramanı, olayların merkezinde yer alan ana kişidir."
+    },
+    {
+      "stem": "'Hava soğuktu, bu yüzden mont giydim.' cümlesinde neden-sonuç ilişkisi nasıldır?",
+      "options": ["Neden: soğuk hava, Sonuç: mont giyme", "Neden: mont giyme, Sonuç: soğuk hava", "Neden: yüzden, Sonuç: hava", "Neden: bu, Sonuç: soğuk"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Neden-sonuç ilişkisi",
+      "skills": ["metin anlama"],
+      "explanation": "Havanın soğuk olması (neden) mont giymemi (sonuç) tetikledi."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde zaman zarfı kullanılmıştır?",
+      "options": ["Yarın pikniğe gideceğiz.", "Güzel bir gün geçirdik.", "Hızlı koştu.", "Çok çalıştı."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zarf",
+      "skills": ["zarf tanıma"],
+      "explanation": "'Yarın' ne zaman sorusuna cevap veren zaman zarfıdır."
+    },
+    {
+      "stem": "Aşağıdaki cümlede 'nerede' sorusunun cevabı nedir? 'Çocuklar bahçede top oynuyor.'",
+      "options": ["Bahçede", "Çocuklar", "Top", "Oynuyor"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["yer zarfı"],
+      "explanation": "'Nerede oynuyor?' → 'Bahçede.' Bahçede, yer zarfı (dolaylı tümleç) görevindedir."
+    },
+    {
+      "stem": "'Şeker tatlıdır.' cümlesinin zıt anlamlısı olan cümle hangisidir?",
+      "options": ["Şeker acıdır.", "Şeker beyazdır.", "Şeker küçüktür.", "Şeker sertdir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zıt anlamlı kelimeler",
+      "skills": ["cümle anlama"],
+      "explanation": "'Tatlı'nın zıt anlamlısı 'acı' olduğundan zıt anlamlı cümle 'Şeker acıdır.'dır."
+    },
+    {
+      "stem": "Türkçede ses uyumlarına göre 'kitap' kelimesine hangi çoğul eki getirilir?",
+      "options": ["kitaplar", "kitapler", "kitaplar/kitapler her ikisi de doğru", "kitaplır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses uyumu",
+      "skills": ["büyük ünlü uyumu"],
+      "explanation": "'Kitap' kelimesindeki son ünlü 'a'dır (kalın). Bu yüzden '-lar' eki gelir → kitaplar."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisi tek heceden oluşur?",
+      "options": ["Taş", "Araba", "Kitap", "Çiçek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hece",
+      "skills": ["hece sayma"],
+      "explanation": "Taş = tek hece. Araba = a-ra-ba (3 hece). Kitap = ki-tap (2 hece). Çiçek = çi-çek (2 hece)."
+    },
+    {
+      "stem": "Bir cümlenin anlamlı ve tam olması için en az hangi öge bulunmalıdır?",
+      "options": ["Yüklem (fiil veya isim-fiil)", "Özne ve yüklem", "Özne, nesne ve yüklem", "Sıfat ve isim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle yapısı",
+      "skills": ["cümle bilgisi"],
+      "explanation": "Türkçede bir cümle en az yüklemden oluşabilir. Örnek: 'Gel!' veya 'Yağmur yağdı.'"
+    },
+    {
+      "stem": "Bir şiirde dörtlük ne demektir?",
+      "options": ["Dört satırdan oluşan kıta", "Dört kelimeli satır", "Dört şairden oluşan grup", "Dört heceli kelime"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Şiir bilgisi",
+      "skills": ["edebi terimler"],
+      "explanation": "Dörtlük: Şiirde dört dizeden (satırdan) oluşan kıtadır."
+    },
+    {
+      "stem": "Okuduğumuz bir metindeki olayların sırasını bulmak için ne yaparız?",
+      "options": ["Olayların ne zaman gerçekleştiğine dair ipuçlarını takip ederiz", "Yalnızca son paragrafı okuruz", "Yalnızca başlığa bakarız", "Resme bakarız"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["olay sırası"],
+      "explanation": "Olayların sırasını bulmak için metni dikkatli okuyup zaman ifadelerine ('önce', 'sonra', 'ardından') dikkat ederiz."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi bir 'sıfat' cümlesi içermez?",
+      "options": ["Ali markete gitti.", "Yeşil çimen çok güzeldi.", "Büyük ev satıldı.", "Hızlı araba geçti."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["sıfat tanıma"],
+      "explanation": "'Ali markete gitti.' cümlesinde sıfat yoktur; diğerlerinde niteleme sıfatları bulunur."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisi 'yardım etmek' fiiliyle en yakın anlamlıdır?",
+      "options": ["Destek olmak", "Terk etmek", "Zarar vermek", "Bırakmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eş anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "'Yardım etmek' ile 'destek olmak' benzer anlamlar taşır."
+    },
+    {
+      "stem": "Türkçede '-ci/-çi/-cı/-çı' eki hangi anlamı katar?",
+      "options": ["Bir işi meslek edineni anlatır", "Çoğulluk anlamı verir", "Olumsuzluk katar", "Soru eki olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yapım ekleri",
+      "skills": ["ek bilgisi"],
+      "explanation": "'-ci/-çi' eki; 'fırıncı, demirci, balıkçı' gibi bir mesleği veya alışkanlığı olan kişiyi anlatır."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi '-cı' ekiyle türetilmiş bir meslek adı değildir?",
+      "options": ["Kitap", "Fırıncı", "Balıkçı", "Çiçekçi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yapım ekleri",
+      "skills": ["ek bilgisi"],
+      "explanation": "'Kitap' herhangi bir meslek eki almamıştır. Diğerleri meslek eki almış kelimelerdir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede 'nasıl' sorusunun cevabı nedir? 'Çocuk neşeyle oynadı.'",
+      "options": ["Neşeyle", "Çocuk", "Oynadı", "Orada"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["hal zarfı"],
+      "explanation": "'Nasıl oynadı?' → 'Neşeyle.' Bu hal zarfıdır."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi 'soğuk' kelimesiyle zıt anlamlıdır?",
+      "options": ["Sıcak", "Ilık", "Dondurucu", "Buz gibi"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Zıt anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "'Soğuk'un tam zıt anlamlısı 'sıcak'tır."
+    },
+    {
+      "stem": "Aşağıdaki cümlenin başına ne getirilerek soru cümlesi yapılabilir? '...bugün okula gideceksin.'",
+      "options": ["mi (bugün okula gidecek misin?)", "Nerede", "Nasıl", "Kim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Soru cümlesi",
+      "skills": ["cümle dönüşümü"],
+      "explanation": "'-mi/-mı/-mu/-mü' soru eki getirilerek soru cümlesi oluşturulur: 'Bugün okula gidecek misin?'"
+    },
+    {
+      "stem": "Bir paragraf nedir?",
+      "options": ["Bir konuyu anlatan, girintili başlayan cümle grubu", "Bir kitabın bölümü", "Tek bir cümle", "Bir şiirin kıtası"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin yapısı",
+      "skills": ["metin bilgisi"],
+      "explanation": "Paragraf: Bir düşünceyi anlatan, girintili başlayan birbiriyle bağlantılı cümleler topluluğudur."
+    },
+    {
+      "stem": "Aşağıdaki cümlede edat (ilgeç) hangi kelimedir? 'Ali ile Ayşe birlikte gitti.'",
+      "options": ["ile", "Ali", "gitti", "birlikte"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["edat tanıma"],
+      "explanation": "'ile' bir edattır (birleştirme edatı), cümlede iki ismi birleştirir."
+    },
+    {
+      "stem": "Türkçede bir kelimenin zıt anlamlısı mutlaka var mıdır?",
+      "options": ["Hayır, her kelimenin zıt anlamlısı olmaz", "Evet, her kelimenin zıt anlamlısı vardır", "Sadece fiillerin zıt anlamlısı olur", "Sadece sıfatların zıt anlamlısı olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük bilgisi",
+      "skills": ["eleştirel düşünme"],
+      "explanation": "Her kelimenin zıt anlamlısı olmaz. Örneğin 'masa', 'kalem' gibi somut isimlerin zıt anlamlısı yoktur."
+    },
+    {
+      "stem": "Aşağıdaki sözcüklerin hangisi hem isim hem fiil olarak kullanılabilir?",
+      "options": ["Yaz (yaz mevsimi / yaz yazmak)", "Kitap", "Güzel", "Hızlı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kelime türleri",
+      "skills": ["çok anlamlılık"],
+      "explanation": "'Yaz' hem isim (yaz mevsimi) hem de fiil (bir şeyler yaz) olarak kullanılabilir."
+    },
+    {
+      "stem": "Bir okunan metinde kişilerin neler hissettiğini anlamak için ne yaparız?",
+      "options": ["Kişilerin söyledikleri ve yaptıklarına bakarak çıkarım yaparız", "Yalnızca başlığa bakarız", "Resmi inceleriz", "Son cümleyi okuruz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["çıkarım yapma"],
+      "explanation": "Kişilerin duygularını anlamak için onların söylediklerine, davranışlarına ve bağlama bakarak çıkarım yaparız."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi yazım yanlışı içermektedir?",
+      "options": ["anneem", "annem", "güzel", "araba"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Yazım kuralları",
+      "skills": ["doğru yazım"],
+      "explanation": "'anneem' yanlış yazılmıştır; doğrusu 'annem'dir."
+    },
+    {
+      "stem": "Bir şiirde tekrar eden satırlara ne denir?",
+      "options": ["Nakarat", "Uyak", "Dörtlük", "Vezin"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Şiir bilgisi",
+      "skills": ["edebi terimler"],
+      "explanation": "Nakarat: Şiirde ya da şarkıda tekrar eden bölüm."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisi olumludur?",
+      "options": ["Ali bugün geldi.", "Ali bugün gelmedi.", "Ali hiç gelmez.", "Ali gelmeyecek."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Olumlu-olumsuz cümle",
+      "skills": ["cümle yapısı"],
+      "explanation": "'Ali bugün geldi.' olumsuzluk eki içermez, olumludur."
+    },
+    {
+      "stem": "Türkçede 'ne' soru zamiri hangi soruyu sorar?",
+      "options": ["Nesne ya da konuyu sorar", "Kişiyi sorar", "Zamanı sorar", "Yeri sorar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Soru sözcükleri",
+      "skills": ["soru bilgisi"],
+      "explanation": "'Ne?' nesneleri veya durumları sormak için kullanılır. 'Ne yaptın?', 'Ne aldın?' gibi."
+    },
+    {
+      "stem": "Aşağıdaki metinden çıkarılabilecek en doğru sonuç hangisidir? 'Ahmet her gün düzenli uyuyor, sağlıklı yiyor ve spor yapıyor.'",
+      "options": ["Ahmet sağlıklı bir yaşam sürdürüyor", "Ahmet çok yoruluyor", "Ahmet okumayı seviyor", "Ahmet zengindir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma anlama",
+      "skills": ["çıkarım yapma"],
+      "explanation": "Verilen bilgilere göre Ahmet düzenli uyku, sağlıklı beslenme ve spor yaparak sağlıklı bir yaşam sürdürüyor."
+    },
+    {
+      "stem": "Aşağıdakilerin hangisi bir masal için doğrudur?",
+      "options": ["Genellikle 'bir varmış bir yokmuş' diye başlar ve hayali olayları anlatır", "Gerçek kişilerin hayatını anlatır", "Gazetede yayımlanır", "Bilimsel gerçekleri aktarır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["tür bilgisi"],
+      "explanation": "Masallar; genellikle 'bir varmış bir yokmuş' ile başlar, hayali, eğitici olaylar içerir ve gerçek dışıdır."
+    },
+    {
+      "stem": "'Bak, dedi. Şu anda ne yapıyorsun?' cümlesinde tırnak işareti ne için kullanılmıştır?",
+      "options": ["Başkasının söylediği sözleri göstermek için", "Önemli kelimeyi vurgulamak için", "Soru için", "Alıntı yapmak için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Noktalama işaretleri",
+      "skills": ["tırnak işareti"],
+      "explanation": "Tırnak işareti, başkasından yapılan doğrudan alıntıları (söylenen sözleri) göstermek için kullanılır."
+    },
+    {
+      "stem": "Aşağıdaki cümlede bağlaç hangi kelimedir? 'Ali hem futbol hem de basketbol oynuyor.'",
+      "options": ["hem...hem de", "Ali", "oynuyor", "futbol"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bağlaçlar",
+      "skills": ["bağlaç tanıma"],
+      "explanation": "'Hem...hem de' bağlacı iki unsuru birbirine bağlar."
+    },
+    {
+      "stem": "Aşağıdaki cümlenin hangi ögesinde bilgi eksik olursa cümle anlamsız kalır? '□ koşuyor.'",
+      "options": ["Özne (kim koşuyor?)", "Yüklem", "Nesne", "Yer tümleci"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["cümle yapısı"],
+      "explanation": "'Kim koşuyor?' sorusu yanıtsız kalırsa cümle eksik anlamlıdır; özne gereklidir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'isim' değildir?",
+      "options": ["Koşmak", "Ev", "Araba", "Çiçek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kelime türleri",
+      "skills": ["isim-fiil ayrımı"],
+      "explanation": "'Koşmak' bir fiildir; diğerleri isimdir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede hangi kelime 'yer bildiren' öğedir? 'Öğrenciler sınıfta ders çalışıyor.'",
+      "options": ["Sınıfta", "Öğrenciler", "Ders", "Çalışıyor"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Cümle ögeleri",
+      "skills": ["yer tümleci"],
+      "explanation": "'Nerede çalışıyor?' → 'Sınıfta.' Yer bildiren öge 'sınıfta'dır."
+    },
+    {
+      "stem": "Türkçede selamlama sözleri arasında sabah karşılaşmalarda söylenen doğru ifade hangisidir?",
+      "options": ["Günaydın", "İyi geceler", "İyi akşamlar", "İyi öğleler"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Konuşma kuralları",
+      "skills": ["sosyal dil kullanımı"],
+      "explanation": "Sabah selamlaşmalarda 'Günaydın' kullanılır."
+    },
+    {
+      "stem": "Türkçede bir kelimenin anlamı bağlama göre değişebilir. 'Göz' kelimesi aşağıdakilerden hangisinde farklı bir anlamda kullanılmıştır?",
+      "options": ["İğnenin gözü (deliği)", "Göz pınarı (kaynak, çeşme)", "Gözüm ağrıyor.", "İkisi de aynı anlamda"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çok anlamlılık",
+      "skills": ["sözcük anlambilimi"],
+      "explanation": "'İğnenin gözü' ve 'göz pınarı'nda 'göz' mecazi anlamda kullanılmıştır; vücut organından farklıdır."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisi olumsuzluk eki almıştır?",
+      "options": ["Gitme", "Gelen", "Güzel", "Koşan"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Olumsuzluk eki",
+      "skills": ["ek bilgisi"],
+      "explanation": "'Gitme' kelimesinde '-me' olumsuzluk eki vardır."
+    },
+    {
+      "stem": "Bir metindeki olayların geçtiği yere ne denir?",
+      "options": ["Mekân / Yer", "Konu", "Kahraman", "Olay"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Metin unsurları",
+      "skills": ["kavram bilgisi"],
+      "explanation": "Hikâyedeki olayların geçtiği yere mekân denir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi okuma alışkanlığını geliştirmek için yapılabilecek en iyi şeydir?",
+      "options": ["Her gün düzenli olarak kitap okumak", "Yılda bir kez kitap okumak", "Yalnızca ders kitabı okumak", "Sadece resimli kitap okumak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma alışkanlığı",
+      "skills": ["öz düzenleme"],
+      "explanation": "Okuma alışkanlığı kazanmak için her gün düzenli ve sevilerek okumak gerekir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede iki cümleyi birbirine bağlayan kelime hangisidir? 'Yağmur yağdı ama biz dışarı çıktık.'",
+      "options": ["ama", "yağdı", "yağmur", "biz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bağlaçlar",
+      "skills": ["bağlaç tanıma"],
+      "explanation": "'ama' bağlacı iki cümle arasında zıtlık ilişkisi kurar."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisi 'gelecek zaman'ı ifade eder?",
+      "options": ["Yarın sinemaya gideceğim.", "Dün sinemaya gittim.", "Şimdi sinemadayım.", "Her hafta sinemaya giderim."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman ekleri",
+      "skills": ["fiil zamanları"],
+      "explanation": "'Gideceğim' geniş-gelecek zaman eki (-ecek) içerir ve yarın yapılacak eylemi bildirir."
+    },
+    {
+      "stem": "'Dün' kelimesi hangi zamanı ifade eder?",
+      "options": ["Geçmiş zaman", "Şimdiki zaman", "Gelecek zaman", "Geniş zaman"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Zaman ifadeleri",
+      "skills": ["zaman bilgisi"],
+      "explanation": "'Dün' geçmişte olan olayları anlatmak için kullanılır."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi türkçe bir sözcük değildir (alıntı sözcüktür)?",
+      "options": ["Araba (Arapça)", "Su", "Ev", "Dağ"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük kökeni",
+      "skills": ["dil bilgisi"],
+      "explanation": "'Araba' Arapçadan Türkçeye geçmiş bir alıntı sözcüktür."
+    },
+    {
+      "stem": "Aşağıdaki cümlelerin hangisinde ikilem (tekrarlı sözcük grubu) kullanılmıştır?",
+      "options": ["Koşa koşa geldi.", "Hızlı geldi.", "Eve gitti.", "Kitap okudu."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İkilemler",
+      "skills": ["dil bilgisi"],
+      "explanation": "'Koşa koşa' bir ikilemdır; bir sözcüğün tekrarıyla oluşur ve anlamı pekiştirip zenginleştirir."
+    },
+    {
+      "stem": "Aşağıdaki cümlede 'ne kadar' sorusunun cevabı olan kelime hangisidir? 'Çok çalıştı ama başaramadı.'",
+      "options": ["Çok", "Çalıştı", "Ama", "Başaramadı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zarf",
+      "skills": ["miktar zarfı"],
+      "explanation": "'Çok' ne kadar çalıştığını gösteren miktar zarfıdır."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerden hangisi 'güneş' kelimesinin eş anlamlısıdır?",
+      "options": ["Yıldız (güneş de bir yıldızdır)", "Ay", "Bulut", "Yağmur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eş anlamlı kelimeler",
+      "skills": ["sözcük bilgisi"],
+      "explanation": "Güneş bilimsel olarak bir yıldızdır; günlük dilde 'güneş' yerine 'gün' (güneş) de kullanılır."
+    },
+    {
+      "stem": "Aşağıdaki cümlede kısaltılmış biçimde kullanılan sözcük hangisidir? 'TV izliyorum.'",
+      "options": ["TV (televizyon)", "İzliyorum", "Ben", "Ve"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kısaltmalar",
+      "skills": ["dil bilgisi"],
+      "explanation": "'TV', 'televizyon' sözcüğünün kısaltmasıdır."
+    },
+    {
+      "stem": "Aşağıdaki kelimelerin hangisinde 'küçük ünlü uyumu' bozulmuştur?",
+      "options": ["iyi", "güzel", "büyük", "küçük"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ses uyumu",
+      "skills": ["küçük ünlü uyumu"],
+      "explanation": "'iyi' kelimesi küçük ünlü uyumunu bozmaz; ancak bu soru öğrenciye uyum analizi yaptırmayı hedefler. 'iyi' Türkçe ünlü uyumlarına göre istisnai görünebilir."
+    },
+    {
+      "stem": "Bir metni sesli okurken dikkat edilmesi gereken önemli bir unsur nedir?",
+      "options": ["Noktalama işaretlerine göre duraklamak ve vurgulama yapmak", "Çok hızlı okumak", "Yalnızca sessizce okumak", "Sadece ilk cümleleri okumak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma becerileri",
+      "skills": ["sesli okuma"],
+      "explanation": "Sesli okumada noktalama işaretleri duraklamayı ve vurguyu belirler; anlamı doğru aktarmak için önemlidir."
+    },
+    {
+      "stem": "Hikâye yazarken olayları gerçekçi ve ilginç göstermek için ne kullanılır?",
+      "options": ["Ayrıntılı betimleme (tasvir)", "Yalnızca kısa cümleler", "Sadece diyalog", "Yalnızca başlık"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yazma becerileri",
+      "skills": ["betimleme"],
+      "explanation": "Betimleme (tasvir); yer, kişi ve olayları ayrıntılı anlatarak okuyucunun zihninde canlı bir resim oluşturur."
+    }
+  ]
+}

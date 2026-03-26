@@ -1,0 +1,781 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "sosyal",
+  "questions": [
+    {
+      "stem": "Haritada gösterilen renk, sembol ve işaretlerin açıklandığı bölüme ne denir?",
+      "options": ["Lejant", "Ölçek", "Kuzey oku", "Koordinat"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita bilgisi",
+      "skills": ["harita okuryazarlığı"],
+      "explanation": "Lejant (harita anahtarı): Haritada kullanılan renk ve sembollerin anlamlarının gösterildiği bölümdür."
+    },
+    {
+      "stem": "Haritada küçükten büyüğe gösteren ok ne anlatır?",
+      "options": ["Kuzey yönünü gösterir", "Ölçeği gösterir", "Eğimi gösterir", "Yükseltiyi gösterir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita bilgisi",
+      "skills": ["harita okuryazarlığı"],
+      "explanation": "Haritadaki kuzey oku; haritanın yönünü belirler ve okuyucunun yönünü bulmasına yardımcı olur."
+    },
+    {
+      "stem": "Türkiye'nin hangi bölgesinde dört mevsim net olarak yaşanır ve en dengeli iklim görülür?",
+      "options": ["Marmara Bölgesi", "Doğu Anadolu", "Güneydoğu Anadolu", "İç Anadolu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İklim",
+      "skills": ["iklim bilgisi"],
+      "explanation": "Marmara Bölgesi dört mevsimi belirgin biçimde yaşayan, geçiş iklimi özelliklerine sahip dengeli bir iklime sahiptir."
+    },
+    {
+      "stem": "Bir ülkenin haritasını yaptığımızda ölçek neden önemlidir?",
+      "options": ["Haritadaki mesafelerin gerçekteki mesafelere oranını gösterir", "Haritanın renklerini belirler", "Ülkenin nüfusunu gösterir", "Haritanın sahibini belirtir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita bilgisi",
+      "skills": ["harita okuryazarlığı"],
+      "explanation": "Ölçek: Harita üzerindeki bir mesafenin gerçekteki mesafeye oranıdır. Doğru mesafe hesabı için şarttır."
+    },
+    {
+      "stem": "Türkiye'de her yıl 18 Mart'ta hangi önemli gün kutlanır?",
+      "options": ["Çanakkale Zaferi ve Şehitler Günü", "Cumhuriyet Bayramı", "Zafer Bayramı", "Atatürk'ü Anma Günü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Milli tarih",
+      "skills": ["tarih bilgisi"],
+      "explanation": "18 Mart 1915'te Çanakkale Deniz Zaferi kazanılmış; bu gün hem zafer hem de şehitleri anma günü olarak kutlanmaktadır."
+    },
+    {
+      "stem": "Türkiye'de aileler yüzyıllar boyu köyden şehre göç etmiştir. Bu göçün temel nedeni nedir?",
+      "options": ["Daha iyi iş imkânı ve yaşam standardı arayışı", "Köylerin çok soğuk olması", "Eğitim yokluğu yalnızca", "Zorunlu hükümet kararı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus hareketleri",
+      "skills": ["coğrafya analizi"],
+      "explanation": "Köyden kente göçün başlıca nedeni; istihdam, eğitim ve sağlık hizmetlerine daha kolay erişimdir."
+    },
+    {
+      "stem": "Türkiye'deki aile yapısı son yüzyılda nasıl değişmiştir?",
+      "options": ["Geniş aileden çekirdek aileye doğru bir geçiş yaşanmıştır", "Ailelerin büyüklüğü değişmemiştir", "Her zaman tek kişilik aileler yaygındı", "Aile yapısı tamamen bozulmuştur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal değişim",
+      "skills": ["sosyal analiz"],
+      "explanation": "Kentleşme ve modernleşmeyle birlikte büyük aile yapısı yerini çekirdek aileye bırakmıştır."
+    },
+    {
+      "stem": "Bir toplumda 'toplumsal dayanışma' neden önemlidir?",
+      "options": ["Zorlukların birlikte aşılmasını ve toplumun güçlenmesini sağlar", "Yalnızca ekonomik kazanç sağlar", "Yalnızca doğal afetlerde gereklidir", "Toplumsal dayanışmanın önemi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal değerler",
+      "skills": ["dayanışma"],
+      "explanation": "Dayanışma; yardımlaşmayı, toplumsal bütünlüğü ve ortak zorlukların üstesinden gelmeyi sağlar."
+    },
+    {
+      "stem": "Türkiye'de 4. sınıf öğrencilerinin öğrendiği 'Türkiye'nin coğrafi özellikleri' konusunda hangi bilgi doğrudur?",
+      "options": ["Türkiye üç tarafı denizlerle çevrili, dağlık ve iklim çeşitliliği olan bir ülkedir", "Türkiye tamamen düzdür", "Türkiye yalnızca bir iklim tipine sahiptir", "Türkiye'nin denize çıkışı yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Türkiye üç tarafı denizlerle çevrili, dağlık iç bölgeler ve farklı iklim bölgelerinden oluşmaktadır."
+    },
+    {
+      "stem": "Türkiye'nin komşu ülkelerinden hangisiyle sınırı en uzundur?",
+      "options": ["Suriye", "Yunanistan", "Gürcistan", "Irak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Türkiye'nin Suriye ile kara sınırı yaklaşık 900 km ile en uzun sınırdır."
+    },
+    {
+      "stem": "Kıyı bölgelerinde insanlar genellikle hangi geçim kaynağını kullanır?",
+      "options": ["Balıkçılık ve deniz ticareti", "Madencilik", "Çobanlık", "Orman işletmeciliği"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Coğrafya-yaşam ilişkisi",
+      "skills": ["geçim kaynakları"],
+      "explanation": "Kıyı bölgelerinde denize olan yakınlık balıkçılık ve deniz ticaretini temel geçim kaynakları hâline getirmiştir."
+    },
+    {
+      "stem": "Dağlık bölgelerde yaşayan insanların geçim kaynağı genellikle nedir?",
+      "options": ["Hayvancılık ve orman ürünleri", "Deniz ticareti", "Tarım (tahıl üretimi)", "Sanayi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Coğrafya-yaşam ilişkisi",
+      "skills": ["geçim kaynakları"],
+      "explanation": "Dağlık bölgelerde tarım arazisi sınırlıdır; hayvancılık ve orman ürünleri temel geçim kaynağıdır."
+    },
+    {
+      "stem": "Türkiye'de hayvancılık en çok hangi bölgede yaygındır?",
+      "options": ["Doğu Anadolu", "Ege", "Akdeniz kıyısı", "Marmara"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarım ve hayvancılık",
+      "skills": ["ekonomik coğrafya"],
+      "explanation": "Doğu Anadolu'nun sert iklimi ve dağlık yapısı tarıma elverişsiz; geniş yaylalar hayvancılığa uygundur."
+    },
+    {
+      "stem": "Türkiye'de fındık en çok hangi bölgede yetiştirilir?",
+      "options": ["Karadeniz Bölgesi", "İç Anadolu", "Ege", "Akdeniz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarım",
+      "skills": ["ürün coğrafyası"],
+      "explanation": "Karadeniz Bölgesi ılıman ve yağışlı iklimi ile dünyanın en büyük fındık üreticisidir."
+    },
+    {
+      "stem": "Türkiye'de zeytin üretimi en çok hangi bölgede yapılır?",
+      "options": ["Ege ve Akdeniz Bölgeleri", "Karadeniz", "İç Anadolu", "Doğu Anadolu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarım",
+      "skills": ["ürün coğrafyası"],
+      "explanation": "Zeytin; Akdeniz iklimiyle Ege ve Akdeniz kıyılarında yetişir."
+    },
+    {
+      "stem": "Türkiye'nin en önemli tekstil (dokuma) merkezlerinden biri hangisidir?",
+      "options": ["Bursa ve İstanbul", "Erzurum", "Kars", "Hakkari"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sanayi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "Bursa ve İstanbul Türkiye'nin en köklü tekstil üretim merkezleri arasında yer alır."
+    },
+    {
+      "stem": "Türkiye'de hangi bölge hem tarım hem sanayi hem de ticaret açısından en gelişmiş bölgedir?",
+      "options": ["Marmara Bölgesi", "Doğu Anadolu", "Güneydoğu Anadolu", "Karadeniz"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomik coğrafya",
+      "skills": ["bölge analizi"],
+      "explanation": "Marmara Bölgesi; İstanbul, Bursa, Kocaeli gibi sanayi ve ticaret merkezleri ile hem ekonomik hem de nüfus yoğunluğu bakımından öndedir."
+    },
+    {
+      "stem": "Türk kültüründe bayramlar ne zaman kutlanır ve toplumsal önemi nedir?",
+      "options": ["Dini ve millî bayramlarda aile bir araya gelir; toplumsal bütünlük ve paylaşım pekişir", "Yalnızca çocuklar için kutlanır", "Yalnızca devlet törenleri yapılır", "Bayramların kutlanmasına gerek yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel değerler",
+      "skills": ["toplum bilgisi"],
+      "explanation": "Bayramlar aileyi bir araya getirir, dayanışmayı güçlendirir ve toplumsal değerleri canlı tutar."
+    },
+    {
+      "stem": "Türkiye'de 'Kurban Bayramı'nın toplumsal yönü nedir?",
+      "options": ["Kesilen kurban etinin fakirlerle paylaşılması; dayanışma ve yardımlaşma", "Yalnızca ailenin yemek yemesi", "Yalnızca çocuklara hediye vermek", "Ticaret fuarı yapmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel değerler",
+      "skills": ["toplumsal değerler"],
+      "explanation": "Kurban Bayramı'nda etin paylaşılması yardımlaşma ve dayanışmanın somut bir göstergesidir."
+    },
+    {
+      "stem": "Türkiye'de Ramazan Bayramı (Şeker Bayramı) kaç gündür?",
+      "options": ["3 gün", "7 gün", "1 gün", "5 gün"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kültürel değerler",
+      "skills": ["kültür bilgisi"],
+      "explanation": "Ramazan Bayramı 3 gün sürer."
+    },
+    {
+      "stem": "Türk toplumunda 'büyük saygısı' geleneği ne demektir?",
+      "options": ["Yaşlı ve deneyimli kişilere saygı göstermek, onların görüşlerine değer vermek", "Yalnızca yabancı misafirlere saygı", "Büyük bedenli kişilere saygı", "Yalnızca aile üyelerine saygı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel değerler",
+      "skills": ["sosyal değerler"],
+      "explanation": "Türk toplumunda yaşlılara saygı köklü bir gelenektir; bu hem ahlaki hem de kültürel bir değerdir."
+    },
+    {
+      "stem": "Okulda sınıf başkanı seçimi hangi kavramın uygulamasıdır?",
+      "options": ["Demokratik seçim ilkesi", "Öğretmen otoritesi", "Kura ile belirleme", "Rastgele seçim"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi",
+      "skills": ["demokratik değerler"],
+      "explanation": "Sınıf başkanlığı seçimi oy kullanarak yapılır; bu demokratik seçim ilkesinin okul ortamındaki uygulamasıdır."
+    },
+    {
+      "stem": "Bir vatandaşın seçimlere katılması neden önemlidir?",
+      "options": ["Yöneticileri belirleme ve toplumsal kararlara katkıda bulunma hakkını kullanır", "Yalnızca yasal zorunluluktur", "Hiçbir etkisi yoktur", "Yalnızca büyük şehirlerde önemlidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi",
+      "skills": ["vatandaşlık"],
+      "explanation": "Oy kullanmak; yöneticileri belirleme, toplumsal kararları etkileme ve demokratik sistemi yaşatma hakkıdır."
+    },
+    {
+      "stem": "Türkiye Büyük Millet Meclisi nerede bulunur?",
+      "options": ["Ankara'da", "İstanbul'da", "İzmir'de", "Bursa'da"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Yönetim",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Türkiye Büyük Millet Meclisi (TBMM) başkent Ankara'da yer almaktadır."
+    },
+    {
+      "stem": "'Hak' ve 'sorumluluk' kavramları arasındaki ilişki nedir?",
+      "options": ["Bir hakkın kullanılması genellikle bir sorumluluğu da beraberinde getirir", "İkisi birbirinden bağımsızdır", "Hak daha önemlidir, sorumluluğa gerek yoktur", "Sorumluluk daha önemlidir, hak önemsizdir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Haklar ve sorumluluklar",
+      "skills": ["vatandaşlık"],
+      "explanation": "Her hakkın bir sorumluluğu vardır: Eğitim hakkı → okula düzenli gitme sorumluluğu."
+    },
+    {
+      "stem": "Türkiye'de öğrenciler hangi yaşta ilkokula başlar?",
+      "options": ["6-7 yaş", "4-5 yaş", "8-9 yaş", "10 yaş"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Eğitim",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye'de ilkokul 6-7 yaşında başlar."
+    },
+    {
+      "stem": "Doğal çevre koşulları insanların barınma biçimini nasıl şekillendirir?",
+      "options": ["Soğuk bölgelerde kalın duvarlı taş evler; yağışlı bölgelerde çatısı eğimli evler yapılır", "Her yerde aynı evler inşa edilir", "Çevre koşullarının barınmaya etkisi yoktur", "Yalnızca ekonomi belirler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Coğrafya-yaşam ilişkisi",
+      "skills": ["analiz"],
+      "explanation": "İklim ve doğal çevre; barınak türünü, yapı malzemesini ve mimari özellikleri doğrudan belirler."
+    },
+    {
+      "stem": "Türkiye'nin hangi bölgesinde geleneksel yayla hayvancılığı en yaygındır?",
+      "options": ["Doğu Anadolu ve Karadeniz", "Ege kıyıları", "Marmara ovası", "Akdeniz kıyıları"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomik coğrafya",
+      "skills": ["tarım bilgisi"],
+      "explanation": "Yüksek yaylaları olan Doğu Anadolu ve Karadeniz bölgelerinde geleneksel yaylacılık ve hayvancılık yaygındır."
+    },
+    {
+      "stem": "Türkiye'de ulaşım türleri arasında hangisi tarihsel açıdan en eski ve yaygın olanıdır?",
+      "options": ["Kara yolu", "Hava yolu", "Demir yolu", "Boru hattı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ulaşım",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Kara yolu ulaşımı, insanlık tarihinde en eski ve Türkiye'de en yaygın kullanılan ulaşım türüdür."
+    },
+    {
+      "stem": "Türkiye'de neden çok sayıda liman bulunmaktadır?",
+      "options": ["Üç tarafı denizlerle çevrili olduğundan denizyolu ticareti için limanlar stratejik önemdedir", "Balıkçılık için yeterlidir", "Sadece turistik amaçlıdır", "Devlet binası olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ulaşım ve ticaret",
+      "skills": ["coğrafya analizi"],
+      "explanation": "Türkiye'nin üç tarafının denizlerle çevrili olması, deniz ticareti ve liman inşasına zemin hazırlar."
+    },
+    {
+      "stem": "Köy yaşamı ile şehir yaşamının en belirgin farkı nedir?",
+      "options": ["Şehirlerde sanayi, hizmet sektörü ve hızlı ulaşım; köylerde tarım ve doğayla iç içe yaşam", "Her ikisi de aynıdır", "Köylerde daha çok sanayi vardır", "Şehirlerde tarım hakimdir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Köy-şehir karşılaştırması",
+      "skills": ["analiz"],
+      "explanation": "Köy: Tarım ve hayvancılık, sakin yaşam. Şehir: Sanayi, hizmet sektörü, hızlı yaşam temposu."
+    },
+    {
+      "stem": "Türkiye'nin sanayi şehirleri arasında hangisi en bilinenidir?",
+      "options": ["İstanbul, Bursa, İzmir, Kocaeli", "Ağrı, Şırnak, Hakkari", "Yalnızca Ankara", "Yalnızca Antalya"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sanayi",
+      "skills": ["ekonomi coğrafyası"],
+      "explanation": "İstanbul, Bursa, İzmir ve Kocaeli Türkiye'nin en büyük sanayi merkezleridir."
+    },
+    {
+      "stem": "Türkiye'nin turizm açısından öne çıkan özelliği nedir?",
+      "options": ["Tarihi miras, doğal güzellikler, uzun kıyı şeridi ve kültürel çeşitlilik", "Yalnızca kar turizmi", "Yalnızca iş turizmi", "Yalnızca tarihî kalıntılar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Turizm",
+      "skills": ["ekonomi analizi"],
+      "explanation": "Türkiye'nin binlerce yıllık tarihi, Ege ve Akdeniz kıyıları, kültürel çeşitliliği ve doğal güzellikleri turizmi çeşitlendiriyor."
+    },
+    {
+      "stem": "Antalya neden Türkiye'nin turizm başkenti olarak anılır?",
+      "options": ["Uzun kıyı şeridi, güneşli iklim, tarihi kalıntılar ve modern tatil tesisleri", "Türkiye'nin başkenti olduğu için", "En büyük sanayi şehri olduğu için", "Tarımsal üretimi en yüksek olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Turizm",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Antalya; Akdeniz iklimi, tarihi Perge ve Aspendos kalıntıları, uzun kumsalları ve beş yıldızlı tesisleri ile turizmin merkezi konumundadır."
+    },
+    {
+      "stem": "Tarihî eserler neden korunmalıdır?",
+      "options": ["Geçmişi ve kültürel mirası gelecek kuşaklara aktarmak için", "Yalnızca turizm geliri için", "Yalnızca devlet için önemlidir", "Tarihi eserler korunmaya değmez"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel miras",
+      "skills": ["değer eğitimi"],
+      "explanation": "Tarihî eserler; geçmiş uygarlıkların izlerini, kültürel kimliği ve toplumsal hafızayı taşır; gelecek için korunmalıdır."
+    },
+    {
+      "stem": "Türkiye'de UNESCO Dünya Mirası listesinde yer alan en bilinen bölge hangisidir?",
+      "options": ["Kapadokya", "Ankara", "Konya ovası", "Akdeniz kıyıları"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel miras",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Kapadokya; volkanik kayaçlardan oluşan peri bacaları ve yeraltı şehirleriyle UNESCO listesinde yer alan önemli bir miras alanıdır."
+    },
+    {
+      "stem": "Toplumda herkesin farklı bir meslek edinmesi neden gereklidir?",
+      "options": ["Her meslek toplumun farklı bir ihtiyacını karşılar; işbölümü toplumsal yaşamı mümkün kılar", "Yalnızca para kazanmak için", "Devlet mecbur kıldığı için", "Meslek seçimi önemsizdir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Meslekler ve işbölümü",
+      "skills": ["toplum bilgisi"],
+      "explanation": "İşbölümü; toplumun tüm ihtiyaçlarını karşılayan uzman bireyler yetiştirerek ortak yaşamı sürdürür."
+    },
+    {
+      "stem": "Hizmet sektörü ne anlama gelir?",
+      "options": ["Ticaret, ulaşım, sağlık, eğitim gibi fiziksel ürün değil hizmet sunan sektör", "Yalnızca tarım", "Yalnızca sanayi", "Yalnızca maden çıkarımı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "Hizmet sektörü: Ticaret, ulaşım, sağlık, eğitim, finans gibi somut ürün üretmeden hizmet sağlayan alandır."
+    },
+    {
+      "stem": "Para birimi neden önemlidir?",
+      "options": ["Ekonomide ortak bir değişim aracı sağlar ve ticaret kolaylaşır", "Yalnızca devlet için gereklidir", "Mal takasını mümkün kılar", "Para yerine altın kullanılabilir, önemi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "Ortak para birimi; ticaret kolaylaştırır, fiyatları karşılaştırmayı mümkün kılar ve ekonomik işlemleri standartlaştırır."
+    },
+    {
+      "stem": "Türkiye'nin para birimi hangisidir?",
+      "options": ["Türk Lirası", "Euro", "Dolar", "Pound"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Ekonomi",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye'nin resmî para birimi Türk Lirası'dır."
+    },
+    {
+      "stem": "Türkiye'de hangi tarihte Cumhuriyet ilan edilmiştir?",
+      "options": ["29 Ekim 1923", "19 Mayıs 1919", "30 Ağustos 1922", "23 Nisan 1920"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Türkiye Cumhuriyeti 29 Ekim 1923 tarihinde Mustafa Kemal Atatürk liderliğinde ilan edilmiştir."
+    },
+    {
+      "stem": "Atatürk'ün 'Milli Egemenlik' anlayışı neyi ifade eder?",
+      "options": ["Devleti yönetme yetkisinin millete ait olduğu; hiçbir kişi veya grubun bu yetkiyi gasp edemeyeceği ilkesi", "Yalnızca ordunun yönetimi elinde tutması", "Bir kişinin ülkeyi sonsuza kadar yönetmesi", "Yabancıların ülkeyi yönetmesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atatürk ilkeleri",
+      "skills": ["analiz"],
+      "explanation": "Milli Egemenlik: Hâkimiyetin kayıtsız şartsız millete ait olduğu, yönetim yetkisinin halktan geldiği ilkesidir."
+    },
+    {
+      "stem": "Türkiye'de çocukların devletten aldığı haklar arasında hangisi yer alır?",
+      "options": ["Eğitim, sağlık ve korunma hakları", "Yalnızca eğitim hakkı", "Yalnızca sağlık hakkı", "Çocukların devletten hak beklentisi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çocuk hakları",
+      "skills": ["vatandaşlık"],
+      "explanation": "Çocuk haklarına göre; eğitim, sağlık, korunma ve her türlü kötü muameleden korunma hakları güvence altındadır."
+    },
+    {
+      "stem": "Bir toplumda kanunların herkes için geçerli olmasının anlamı nedir?",
+      "options": ["Hukukun üstünlüğü; hiçbir kişinin kanunun üzerinde olmadığı eşit hukuk düzeni", "Yalnızca fakir kesim için geçerlidir", "Zenginler için farklı kurallar uygulanır", "Kanunlar yalnızca suçlulara uygulanır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hukuk",
+      "skills": ["vatandaşlık"],
+      "explanation": "Hukukun üstünlüğü: Herkes, zengin veya fakir, güçlü ya da zayıf, aynı kanunlara tabi olur."
+    },
+    {
+      "stem": "Türk dilinin korunması ve geliştirilmesi için kurulan kuruluş hangisidir?",
+      "options": ["Türk Dil Kurumu (TDK)", "Türk Tarih Kurumu", "Milli Eğitim Bakanlığı", "Kültür Bakanlığı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türk kültürü",
+      "skills": ["kültür bilgisi"],
+      "explanation": "Türk Dil Kurumu (TDK); Türkçeyi araştırmak, geliştirmek ve korumak amacıyla 1932'de Atatürk'ün talimatıyla kurulmuştur."
+    },
+    {
+      "stem": "Toplumda eğitimin önemi neden büyüktür?",
+      "options": ["Bireylere bilgi ve beceri kazandırır; ekonomik ve toplumsal kalkınmayı destekler", "Yalnızca iş bulmayı sağlar", "Yalnızca okuma-yazma öğretir", "Eğitimin toplumsal önemi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim",
+      "skills": ["analiz"],
+      "explanation": "Eğitim; bireyleri bilinçli vatandaşlar olarak yetiştirir, ekonomik üretkenliği artırır ve toplumsal gelişimi mümkün kılar."
+    },
+    {
+      "stem": "Türkiye'de standart eğitim dili nedir?",
+      "options": ["Türkçe", "İngilizce", "Arapça", "Farsça"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Eğitim",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye'de eğitimin resmî dili Türkçedir."
+    },
+    {
+      "stem": "Nüfus cüzdanı neden önemlidir?",
+      "options": ["Kişinin kimliğini resmî olarak kanıtlar; hizmetlere ve haklara erişimi sağlar", "Yalnızca yurt dışı seyahati için", "Yalnızca bankacılık işlemleri için", "Önemi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Nüfus cüzdanı (TC kimlik kartı); kişinin kimliğini ispatlayan, devlet hizmetlerine erişimini sağlayan resmî belgedir."
+    },
+    {
+      "stem": "Türkiye'de sağlık hizmetleri kim tarafından sunulur?",
+      "options": ["Hem devlet (kamu) hem özel hastane ve sağlık kuruluşları", "Yalnızca devlet hastaneleri", "Yalnızca özel hastaneler", "Yalnızca yabancı kurumlar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Devlet hizmetleri",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye'de sağlık hizmetleri hem devlet hem de özel sektör tarafından yürütülmektedir."
+    },
+    {
+      "stem": "Türkiye'de kaç il (vilayet) bulunmaktadır?",
+      "options": ["81 il", "67 il", "100 il", "50 il"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye yönetimi",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye 81 ile ayrılmıştır."
+    },
+    {
+      "stem": "Türk milletinin kökenlerinin büyük bölümü hangi coğrafyadan gelmektedir?",
+      "options": ["Orta Asya", "Afrika", "Avrupa", "Hindistan"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türk tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Türkler köken olarak Orta Asya'dan göç eden bozkır halklarından gelmektedir."
+    },
+    {
+      "stem": "Osmanlı Devleti başkent olarak önce hangi şehri kullanmıştır?",
+      "options": ["Bursa", "İstanbul", "Ankara", "Edirne"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Osmanlı tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Osmanlı Devleti'nin ilk başkenti Bursa'dır; ardından Edirne, sonra İstanbul başkent olmuştur."
+    },
+    {
+      "stem": "Milli Mücadele sırasında Türk milletinin en zor mücadelesi neydi?",
+      "options": ["Anadolu'yu işgal eden güçlere karşı bağımsızlık savaşı vermek", "Ekonomiyi geliştirmek", "Okullar açmak", "Denizyollarını güvence altına almak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türk tarihi",
+      "skills": ["analiz"],
+      "explanation": "Milli Mücadele'de Türk milleti; I. Dünya Savaşı sonrası Anadolu'yu işgal eden Yunan, İngiliz ve diğer güçlere karşı bağımsızlık için savaştı."
+    },
+    {
+      "stem": "19 Mayıs 1919'da Atatürk'ün Samsun'a çıkması neyin simgesidir?",
+      "options": ["Milli Mücadele'nin başlangıcı", "Cumhuriyetin ilanı", "Osmanlı'nın kuruluşu", "İstanbul'un fethi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türk tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "19 Mayıs 1919: Atatürk'ün İngiliz denetimine rağmen Samsun'a çıkması Milli Mücadele'nin fiilen başladığını simgeler."
+    },
+    {
+      "stem": "Türkiye'nin millî marşı İstiklal Marşı'nı kim yazmıştır?",
+      "options": ["Mehmet Akif Ersoy", "Namık Kemal", "Tevfik Fikret", "Yahya Kemal"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kültür ve tarih",
+      "skills": ["bilgi"],
+      "explanation": "İstiklal Marşı, Milli Mücadele yıllarında Mehmet Akif Ersoy tarafından yazılmıştır."
+    },
+    {
+      "stem": "Atatürk'ün kadın haklarına katkısı nedir?",
+      "options": ["Kadınlara seçme ve seçilme hakkı tanındı; eğitim ve çalışma hayatına katılım sağlandı", "Kadınlara yalnızca eğitim hakkı verildi", "Kadın hakları Atatürk döneminde değişmedi", "Kadınların siyasete girmesi yasaklandı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atatürk ilkeleri",
+      "skills": ["analiz"],
+      "explanation": "1934'te Türk kadını milletvekili seçme ve seçilme hakkı kazandı; bu dünyanın pek çok ülkesinden önce gerçekleşti."
+    },
+    {
+      "stem": "Türkiye'de ilk kez hangi tarihte çok partili seçim yapılmıştır?",
+      "options": ["1950", "1923", "1960", "1980"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Türkiye'nin ilk çok partili genel seçimi 1950 yılında yapılmış; Demokrat Parti iktidarı kazanmıştır."
+    },
+    {
+      "stem": "Toplumda ortak bir dil kullanmanın önemi nedir?",
+      "options": ["İletişimi kolaylaştırır, toplumsal bütünlüğü pekiştirir ve kültürel paylaşımı sağlar", "Yalnızca okulda gereklidir", "Dil birliğinin önemi yoktur", "Yalnızca yazışmalar için gereklidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal değerler",
+      "skills": ["toplum bilgisi"],
+      "explanation": "Ortak dil; iletişimi kolaylaştırır, toplumsal bağları güçlendirir ve kültürel kimlikleri birbirine bağlar."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'çevre kirliliğine' yol açan insan faaliyetidir?",
+      "options": ["Fabrika atıklarını dereye boşaltmak", "Ağaç dikmek", "Geri dönüşüm yapmak", "Elektrikli araç kullanmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre bilinci",
+      "skills": ["çevre sorunları"],
+      "explanation": "Fabrika atıklarının sulara boşaltılması ciddi su kirliliğine ve ekosistem tahribatına yol açar."
+    },
+    {
+      "stem": "Çevre koruma konusunda bireysel olarak neler yapılabilir?",
+      "options": ["Plastik kullanımını azaltmak, geri dönüşüm yapmak ve su tasarrufu sağlamak", "Yalnızca hükümet yapabilir", "Hiçbir şey yapılamaz", "Yalnızca büyük firmalar sorumludur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre bilinci",
+      "skills": ["sürdürülebilirlik"],
+      "explanation": "Bireyler; plastik tüketimini kısarak, geri dönüşüm yaparak ve su tasarruf ederek çevreye önemli katkı sağlayabilir."
+    },
+    {
+      "stem": "Toplumsal eşitlik ne anlama gelir?",
+      "options": ["Her bireyin hak, fırsat ve saygı açısından eşit muamele görmesi", "Herkesin aynı miktarda para kazanması", "Yalnızca cinsiyet eşitliği", "Sadece ekonomik eşitlik"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnsan hakları",
+      "skills": ["analiz"],
+      "explanation": "Toplumsal eşitlik: Her bireyin ırk, din, cinsiyet ve sosyal statüden bağımsız olarak eşit hak ve fırsatlara sahip olmasıdır."
+    },
+    {
+      "stem": "Türkiye'de bölgeler arasındaki sosyo-ekonomik farklılıkların azaltılması için ne yapılmaktadır?",
+      "options": ["Az gelişmiş bölgelere yatırım yapılması, altyapı geliştirilmesi ve teşvik uygulanması", "Hiçbir şey yapılmamaktadır", "Yalnızca nüfusu azaltmak", "Yalnızca vergi almak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kalkınma",
+      "skills": ["ekonomi analizi"],
+      "explanation": "Bölgesel dengesizlikleri azaltmak için teşvikler, altyapı yatırımları ve kalkınma programları uygulanmaktadır."
+    },
+    {
+      "stem": "Türkiye'de bir köy ile büyük şehrin ortak ihtiyacı nedir?",
+      "options": ["Temiz su, sağlık, eğitim ve güvenlik", "Yalnızca tarım arazisi", "Yalnızca fabrika", "Yalnızca denize çıkış"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal kurumlar",
+      "skills": ["analiz"],
+      "explanation": "Her topluluk (köy ya da şehir) temiz suya, sağlık hizmetine, eğitime ve güvenliğe ihtiyaç duyar."
+    },
+    {
+      "stem": "Toplumda sorunların demokratik yollarla çözülmesi ne anlama gelir?",
+      "options": ["Diyalog, oy kullanma ve hukukun çerçevesinde uzlaşma yoluyla çözüm bulmak", "Güçlünün doğrudan karar vermesi", "Her şeyi hükümetin çözmesi", "Sorunları görmezden gelmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi",
+      "skills": ["demokratik değerler"],
+      "explanation": "Demokratik problem çözme; diyalog, müzakere, oy kullanma ve hukuk çerçevesinde uzlaşmayı içerir."
+    },
+    {
+      "stem": "Türkiye'de çocukların korunmasını sağlayan temel yasal güvence nedir?",
+      "options": ["Türkiye Cumhuriyeti Anayasası ve Çocuk Hakları Sözleşmesi", "Yalnızca aile kuralları", "Yalnızca okul yönetmelikleri", "Çocukların yasal güvencesi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çocuk hakları",
+      "skills": ["hukuk bilgisi"],
+      "explanation": "TC Anayasası ve Türkiye'nin taraf olduğu BM Çocuk Hakları Sözleşmesi çocukları koruma altına alır."
+    },
+    {
+      "stem": "Toplumsal kurallara ve kanunlara neden uyulmalıdır?",
+      "options": ["Herkes için güvenli ve adil bir toplumsal düzen sağlar; hak ihlallerini önler", "Yalnızca cezadan korkmak için", "Yalnızca devlet istediği için", "Kuralların önemi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yurttaşlık",
+      "skills": ["vatandaşlık"],
+      "explanation": "Kurallara uymak; toplumsal düzeni, güvenliği ve hakların korunmasını sağlar."
+    },
+    {
+      "stem": "Türkiye'de depreme karşı alınabilecek bireysel önlemler nelerdir?",
+      "options": ["Sağlam bina seçimi, deprem çantası hazırlama ve tahliye planı yapma", "Hiçbir önlem almak gerekmez", "Yalnızca devlet önlem almalıdır", "Depremi tahmin etmeye çalışmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Afet yönetimi",
+      "skills": ["güvenlik bilgisi"],
+      "explanation": "Depreme hazırlık: Sağlam bina, acil çanta, tahliye planı ve deprem tatbikatına katılım bireysel önlemler arasındadır."
+    },
+    {
+      "stem": "Türkiye'de bazı bölgelerin nüfusunun az olmasının başlıca nedeni nedir?",
+      "options": ["Sert iklim, engebeli arazi ve ekonomik fırsatların sınırlı olması", "İnsanların orada yaşamak istememesi", "Devletin o bölgeye nüfusu yasaklaması", "Yalnızca iklim sertliği"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus coğrafyası",
+      "skills": ["analiz"],
+      "explanation": "Doğu Anadolu gibi sert iklimli, engebeli ve ekonomik olarak kısıtlı bölgelerde nüfus yoğunluğu düşüktür."
+    },
+    {
+      "stem": "Tarihin hangi döneminde Türkler Anadolu'ya yerleşmeye başlamıştır?",
+      "options": ["11. yüzyıl (1071 Malazgirt Savaşı sonrası)", "5. yüzyıl", "16. yüzyıl", "3. yüzyıl"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türk tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "1071 Malazgirt Savaşı'nda Selçukluların Bizans'ı yenmesiyle Türkler Anadolu'ya sistematik biçimde yerleşmeye başladı."
+    },
+    {
+      "stem": "Türk geleneklerinde misafirperverlik neden özel bir yere sahiptir?",
+      "options": ["Konuğa saygı ve ikram Türk kültürünün ayrılmaz bir parçasıdır; toplumsal bağları güçlendirir", "Yalnızca gösteriş için", "Ekonomik kazanç amacıyla", "Yalnızca yabancı ülke misafirleri için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel değerler",
+      "skills": ["değer eğitimi"],
+      "explanation": "Türk misafirperverliği; paylaşma, saygı ve sosyal bağları pekiştiren köklü bir kültürel değerdir."
+    },
+    {
+      "stem": "Türkiye'de 'muhtarlık' hangi yönetim birimini temsil eder?",
+      "options": ["Köy ya da mahallelerin en küçük yönetim birimi", "İl yönetimi", "Bakanlık", "Mahkeme"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yönetim",
+      "skills": ["yerel yönetim"],
+      "explanation": "Muhtarlık; Türkiye'de köy ya da mahallelerin en küçük idari yönetim birimidir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi yenilenebilir enerji kaynağıdır?",
+      "options": ["Güneş enerjisi", "Kömür", "Doğalgaz", "Petrol"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Enerji kaynakları",
+      "skills": ["fen bilgisi"],
+      "explanation": "Güneş enerjisi tükenmez ve çevre dostu yenilenebilir bir enerji kaynağıdır."
+    },
+    {
+      "stem": "Türkiye'nin enerji üretiminde hangisi en fazla kapasiteye sahip yenilenebilir kaynak olarak öne çıkar?",
+      "options": ["Hidroelektrik ve rüzgâr enerjisi", "Güneş enerjisi yalnızca", "Nükleer enerji", "Kömür"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "Türkiye güçlü akarsuları sayesinde hidroelektrik ve verimli rüzgâr koridorları sayesinde rüzgâr enerjisinde yüksek kapasiteye sahiptir."
+    },
+    {
+      "stem": "Türkiye'de çocuklar zorunlu eğitim kapsamında kaç yıl okula gitmek zorundadır?",
+      "options": ["12 yıl", "8 yıl", "5 yıl", "15 yıl"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim",
+      "skills": ["bilgi"],
+      "explanation": "Türkiye'de zorunlu eğitim 12 yıldır: İlkokul (4) + Ortaokul (4) + Lise (4)."
+    },
+    {
+      "stem": "Atatürk'ün 'Yurtta sulh, cihanda sulh' ilkesi ne anlama gelir?",
+      "options": ["Hem ülke içinde hem de dünyada barışı esas almak", "Sadece ülke içinde barış", "Yalnızca savaşa hazır olmak", "Çevredeki ülkeleri feth etmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atatürk ilkeleri",
+      "skills": ["analiz"],
+      "explanation": "'Yurtta sulh, cihanda sulh': Türkiye'nin hem iç hem de dış politikada barışçıl bir çizgide olmasını ifade eden temel Atatürk ilkesidir."
+    },
+    {
+      "stem": "Türkiye'de hükümetin görevi aşağıdakilerden hangisidir?",
+      "options": ["Yasaları uygulamak, kamu hizmetlerini yürütmek ve toplumun refahını sağlamak", "Yalnızca yasama", "Yalnızca yargılama", "Yalnızca askerî komuta"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yönetim",
+      "skills": ["vatandaşlık"],
+      "explanation": "Hükümet (yürütme organı): Yasaları uygular, kamu hizmetlerini yönetir ve toplumun refahına katkıda bulunur."
+    },
+    {
+      "stem": "Türkiye'de yasama organı kimdir?",
+      "options": ["Türkiye Büyük Millet Meclisi (TBMM)", "Cumhurbaşkanlığı", "Mahkemeler", "Bakanlar Kurulu"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Yönetim",
+      "skills": ["bilgi"],
+      "explanation": "TBMM, Türkiye'nin yasama organıdır; kanunları yapar ve devlet bütçesini onaylar."
+    },
+    {
+      "stem": "Türkiye'de yargı bağımsızlığı ne anlama gelir?",
+      "options": ["Mahkemelerin kararlarını siyasi baskıdan bağımsız, yalnızca hukuka göre vermesi", "Mahkemelerin hükümete bağlı olması", "Yargının askere bağlı olması", "Her vatandaşın kendi kararını vermesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hukuk",
+      "skills": ["analiz"],
+      "explanation": "Yargı bağımsızlığı: Mahkemelerin siyasi etkiden uzak, yalnızca hukuka ve kanunlara göre karar vermesi demektir."
+    },
+    {
+      "stem": "Türk ekonomisinin temel sektörleri hangileridir?",
+      "options": ["Tarım, sanayi ve hizmet sektörü", "Yalnızca sanayi", "Yalnızca tarım", "Yalnızca hizmet sektörü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "Türk ekonomisi; tarım (buğday, fındık, pamuk), sanayi (tekstil, otomotiv) ve hizmet (turizm, finans) sektörlerinden oluşur."
+    },
+    {
+      "stem": "Türkiye'de katma değer vergisi (KDV) ne tür bir vergidir?",
+      "options": ["Mal ve hizmetlerin alımında ödenen dolaylı vergi", "Yalnızca zenginlerden alınan vergi", "Gelir üzerinden alınan vergi", "Yalnızca ithalattan alınan vergi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "KDV; mal ve hizmet alımlarında ödenen, fiyata dahil dolaylı bir vergi türüdür."
+    },
+    {
+      "stem": "Bir yatırımcı fabrika kurarken devlet nasıl katkı sağlar?",
+      "options": ["Altyapı (yol, enerji) hazırlar, teşvik verir, güvenliği sağlar ve iş ortamını düzenler", "Yalnızca fabrikayı kurar", "Yalnızca işçi atar", "Hiçbir katkısı yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["analiz"],
+      "explanation": "Devlet; altyapı, hukuki çerçeve, teşvikler ve güvenlik sağlayarak yatırım ortamını destekler."
+    },
+    {
+      "stem": "Tarımın sanayiye katkısı nedir?",
+      "options": ["Sanayiye ham madde sağlar; gıda, tekstil ve ilaç sanayisinin temelini oluşturur", "Tarımın sanayiyle ilişkisi yoktur", "Yalnızca işgücü sağlar", "Yalnızca ihracat için uygundur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["sektör ilişkisi"],
+      "explanation": "Tarım; gıda sanayisi, tekstil (pamuk), ilaç (bitkisel ham maddeler) gibi sektörlere ham madde sağlar."
+    },
+    {
+      "stem": "Türkiye'nin ihracat kalemleri arasında hangisi en önemli sanayi ürünleri arasındadır?",
+      "options": ["Otomotiv, tekstil, makine ve demir-çelik ürünleri", "Yalnızca pamuk", "Yalnızca fındık", "Yalnızca balık"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Ekonomi",
+      "skills": ["ekonomi bilgisi"],
+      "explanation": "Otomotiv, tekstil ve makine gibi sanayi ürünleri Türkiye ihracatının büyük bölümünü oluşturur."
+    },
+    {
+      "stem": "Bir çocuk olarak topluma katkıda bulunmanın en kolay yolu nedir?",
+      "options": ["Kurallara uymak, çevreyi korumak ve okuldaki faaliyetlere katılmak", "Yalnızca büyüdükten sonra katkı sağlamak", "Yalnızca para vermek", "Hiçbir şey yapamamayız"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["değer eğitimi"],
+      "explanation": "Çocuklar da sorumluluk alarak, çevreyi koruyarak, okuldaki etkinliklere katılarak topluma değerli katkılar sunabilir."
+    },
+    {
+      "stem": "'Sivil toplum kuruluşları' nedir ve ne işe yarar?",
+      "options": ["Devletten bağımsız gönüllü kuruluşlar; toplumsal sorunlara çözüm üretir", "Devlet kurumlarıdır", "Yalnızca siyasi örgütlerdir", "Yalnızca ticari şirketlerdir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Vatandaşlık",
+      "skills": ["toplum bilgisi"],
+      "explanation": "STK'lar; çevre, eğitim, sağlık gibi alanlarda gönüllülük esasıyla çalışan bağımsız toplum kuruluşlarıdır."
+    },
+    {
+      "stem": "Medyayi eleştirel biçimde takip etmek neden önemlidir?",
+      "options": ["Yanlış bilgilere inanmaktan korunmak ve bilinçli kararlar almak için", "Yalnızca eğlence için", "Yalnızca haber öğrenmek için", "Medyayı takip etmenin gereği yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Medya okuryazarlığı",
+      "skills": ["eleştirel düşünme"],
+      "explanation": "Eleştirel medya okuryazarlığı; dezenformasyonu fark etmeyi, güvenilir kaynakları seçmeyi ve bilinçli kararlar almayı sağlar."
+    }
+  ]
+}

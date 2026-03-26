@@ -1,0 +1,340 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "sosyal",
+  "questions": [
+    {
+      "stem": "Türkiye'de en fazla şeker pancarı hangi bölgede yetiştirilir?",
+      "options": ["İç Anadolu Bölgesi", "Ege Bölgesi", "Karadeniz Bölgesi", "Güneydoğu Anadolu Bölgesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarım ürünleri",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Şeker pancarı, soğuk iklimi seven bir bitkidir; Türkiye'de en fazla İç Anadolu Bölgesi'nde (Konya, Eskişehir, Kayseri) yetiştirilir."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi Türkiye'nin önemli demir-çelik sanayi merkezlerinden biridir?",
+      "options": ["Karabük", "Antalya", "Bodrum", "Marmaris"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sanayi coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Karabük, 1937'de kurulan demir-çelik fabrikasıyla Türkiye'nin ilk ve önemli sanayi merkezlerinden biridir."
+    },
+    {
+      "stem": "Türkiye'de kıyı şeridinin en uzun olduğu bölge hangisidir?",
+      "options": ["Karadeniz Bölgesi", "Ege Bölgesi", "Marmara Bölgesi", "Akdeniz Bölgesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Karadeniz kıyısı yaklaşık 1.695 km ile Türkiye'nin en uzun kıyı şeridine sahip bölgesidir."
+    },
+    {
+      "stem": "Türk bayramlarından 'Kurban Bayramı' kaç gün sürer?",
+      "options": ["4 gün", "3 gün", "5 gün", "7 gün"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Milli ve dini bayramlar",
+      "skills": ["kültürel bilgi"],
+      "explanation": "Kurban Bayramı 4 gün sürer; ilk gün sabah namazının ardından kurban kesilir, akraba ve komşular ziyaret edilir."
+    },
+    {
+      "stem": "Harita üzerinde iki nokta arasındaki uzunluk 5 cm, ölçek 1/100.000 ise gerçek uzaklık kaç km'dir?",
+      "options": ["5 km", "50 km", "500 km", "0,5 km"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita ölçeği",
+      "skills": ["harita becerisi", "matematiksel düşünme"],
+      "explanation": "Gerçek uzaklık = harita uzaklığı × ölçek paydası = 5 cm × 100.000 = 500.000 cm = 5 km."
+    },
+    {
+      "stem": "Osmanlı Devleti'nin başkenti İstanbul olarak belirlendiği yıl hangisidir?",
+      "options": ["1453", "1299", "1071", "1517"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Osmanlı tarihi",
+      "skills": ["tarih bilgisi"],
+      "explanation": "Fatih Sultan Mehmet 1453'te İstanbul'u fethetti; ardından başkent Bursa ve Edirne'den İstanbul'a taşındı."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi yenilenebilir enerji kaynağıdır?",
+      "options": ["Rüzgâr enerjisi", "Kömür", "Doğalgaz", "Petrol"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Enerji kaynakları",
+      "skills": ["çevre bilgisi"],
+      "explanation": "Rüzgâr enerjisi; tükenmeyen, doğaya zarar vermeyen yenilenebilir bir enerji kaynağıdır. Kömür, petrol ve doğalgaz fosil yakıttır."
+    },
+    {
+      "stem": "Bir toplumda farklı kültürlerin, inançların ve görüşlerin bir arada yaşamasına ne denir?",
+      "options": ["Hoşgörü ve çoğulculuk", "Tekçilik", "Ayrımcılık", "İzolasyon"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal değerler",
+      "skills": ["vatandaşlık değerleri"],
+      "explanation": "Hoşgörü ve çoğulculuk; farklılıklara saygı göstererek birlikte huzurlu yaşamayı sağlar, demokratik toplumların temelidir."
+    },
+    {
+      "stem": "Türkiye Büyük Millet Meclisi (TBMM) kaç milletvekilinden oluşur?",
+      "options": ["600", "550", "400", "300"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Devlet yapısı",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "2017 anayasa değişikliğiyle TBMM'nin milletvekili sayısı 550'den 600'e çıkarıldı."
+    },
+    {
+      "stem": "Doğal çevreyi korumak neden önemlidir?",
+      "options": ["Gelecek nesillere yaşanabilir bir dünya bırakmak ve biyoçeşitliliği sürdürmek için", "Yalnızca turistleri çekmek için", "Yalnızca orman işletmeciliği için", "Ekonomik değeri olmadığı için önemli değildir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["çevre bilinci"],
+      "explanation": "Doğal çevreyi korumak; temiz hava, su ve besin kaynaklarını güvence altına alır; türlerin neslini sürdürür."
+    },
+    {
+      "stem": "Türkiye'de yılın en uzun gündüzünün yaşandığı tarih yaklaşık olarak hangisidir?",
+      "options": ["21 Haziran", "21 Aralık", "21 Mart", "21 Eylül"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mevsimler ve astronomik olaylar",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Yaz gündönümü (21 Haziran) Kuzey Yarımküre'de gündüzün en uzun, gecenin en kısa olduğu gündür."
+    },
+    {
+      "stem": "Türkiye'de 'bölgesel kalkınma' projelerinin temel amacı nedir?",
+      "options": ["Az gelişmiş bölgeler ile gelişmiş bölgeler arasındaki ekonomik farkı azaltmak", "Yalnızca büyük şehirleri geliştirmek", "Turizmi artırmak", "Nüfusu azaltmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kalkınma ve ekonomi",
+      "skills": ["sosyal bilgiler anlayışı"],
+      "explanation": "Bölgesel kalkınma; az gelişmiş bölgelere yatırım yaparak eşitsizliği gidermek ve tüm yurttaşlara eşit yaşam standardı sunmayı hedefler."
+    },
+    {
+      "stem": "Bir çocuğun eğitim hakkını kullanması için en temel koşul nedir?",
+      "options": ["Okulların parasız ve ulaşılabilir olması", "Yalnızca özel okullara gidilmesi", "Ailenin zengin olması", "Yalnızca şehirde yaşanması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çocuk hakları",
+      "skills": ["hak ve sorumluluklar"],
+      "explanation": "BM Çocuk Hakları Sözleşmesi'ne göre her çocuk eğitim hakkına sahiptir; bu hakkın kullanılabilmesi için okulların ücretsiz ve erişilebilir olması gerekir."
+    },
+    {
+      "stem": "Türkiye'deki 'belediye başkanı' nasıl belirlenir?",
+      "options": ["Yerel seçimlerle halk tarafından seçilir", "Cumhurbaşkanı tarafından atanır", "TBMM tarafından seçilir", "İl valisi tarafından atanır"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yerel yönetim",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Belediye başkanları, her 5 yılda bir yapılan yerel seçimlerde o ilin/ilçenin seçmenlerince doğrudan seçilir."
+    },
+    {
+      "stem": "Türkiye'nin önemli pamuk üretim bölgesi hangisidir?",
+      "options": ["Çukurova (Adana-Mersin çevresi)", "Doğu Anadolu Bölgesi", "Karadeniz kıyıları", "İç Anadolu platoları"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarım ürünleri",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Çukurova; sıcak ve nemli iklimi, verimli alüvyal topraklarıyla Türkiye'nin en önemli pamuk üretim bölgesidir."
+    },
+    {
+      "stem": "Atatürk'ün 'Yurtta sulh, cihanda sulh' ilkesi neyi ifade eder?",
+      "options": ["Hem ülke içinde hem dünyada barışı hedefleyen dış politika anlayışı", "Yalnızca askeri güç gösterisi", "Savaşa hazır olmak", "Komşularla rekabet etmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atatürk ilkeleri",
+      "skills": ["tarih ve vatandaşlık"],
+      "explanation": "'Yurtta sulh, cihanda sulh': Atatürk'ün barışçıl dış politika anlayışı; hem iç huzur hem uluslararası barışı öncelemesi demektir."
+    },
+    {
+      "stem": "Sosyal bilgiler dersinde 'birincil kaynak' nedir?",
+      "options": ["Olayı yaşayan kişilerce yazılmış günlük, mektup, fotoğraf veya belge gibi doğrudan tanıklıklar", "Ansiklopediler ve ders kitapları", "Yorumlayıcı akademik çalışmalar", "Gazete yorumları"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarih araştırma yöntemleri",
+      "skills": ["araştırma becerisi"],
+      "explanation": "Birincil kaynak: Dönemi yaşayan birinin kaleme aldığı belge, fotoğraf veya nesne; olayın doğrudan kanıtıdır."
+    },
+    {
+      "stem": "Türkiye'de 'Millî Eğitim Bakanlığı'nın temel görevi nedir?",
+      "options": ["Ülkedeki eğitim politikalarını belirlemek, okul programlarını hazırlamak ve eğitimi denetlemek", "Yalnızca üniversiteleri yönetmek", "Yalnızca öğretmen maaşlarını ödemek", "Spor faaliyetlerini organize etmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Devlet kurumları",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "MEB; okul öncesinden liseye kadar tüm eğitim kademelerini planlar, müfredatı belirler, öğretmen yetiştirme politikalarını yürütür."
+    },
+    {
+      "stem": "Bir ülkede nüfus yoğunluğunun fazla olması ne gibi sonuçlar doğurabilir?",
+      "options": ["Konut, ulaşım ve altyapı üzerinde baskı artar; işsizlik ve çevre sorunları artabilir", "Her zaman ekonomik gelişmeye yol açar", "Tarımsal üretimi artırır", "Doğal kaynakları korur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus ve yerleşme",
+      "skills": ["sosyal analiz"],
+      "explanation": "Yoğun nüfus; konut sıkıntısı, trafik, altyapı yetersizliği, çevre kirliliği ve işsizlik gibi sorunları beraberinde getirebilir."
+    },
+    {
+      "stem": "Tarihte 'İpek Yolu'nun önemi neydi?",
+      "options": ["Asya, Orta Doğu ve Avrupa arasında ticaret, kültür ve fikir alışverişini sağlıyordu", "Yalnızca ipek taşımak için kullanılıyordu", "Yalnızca askeri amaçlı kullanılıyordu", "Yalnızca Çin'den Hindistan'a uzanıyordu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dünya tarihi ve ticaret",
+      "skills": ["tarih bilgisi"],
+      "explanation": "İpek Yolu; yüzyıllarca Çin'den Akdeniz'e uzanan ticaret rotasıydı. İpek, baharat, fikir ve teknoloji aktarımını sağladı."
+    },
+    {
+      "stem": "Türkiye'de uluslararası öneme sahip hangi su yolu Marmara Denizi'ni Karadeniz'e bağlar?",
+      "options": ["İstanbul Boğazı (Boğaziçi)", "Çanakkale Boğazı", "Süveyş Kanalı", "Kiel Kanalı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "İstanbul Boğazı, Marmara Denizi ile Karadeniz'i birbirine bağlar; dünya deniz ticaretinde stratejik öneme sahiptir."
+    },
+    {
+      "stem": "Nüfus sayımı neden yapılır?",
+      "options": ["Ülkedeki nüfusu, yerleşim dağılımını ve sosyo-ekonomik yapıyı belirlemek; planlama yapmak için", "Yalnızca seçmen sayısını bulmak için", "Yalnızca okul çağındaki çocukları saymak için", "Turistlerin sayısını tespit etmek için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Nüfus ve demografi",
+      "skills": ["sosyal bilgiler anlayışı"],
+      "explanation": "Nüfus sayımı; eğitim, sağlık, ulaşım ve konut planlaması gibi kamu hizmetlerinin verimli sunulması için temel veri sağlar."
+    },
+    {
+      "stem": "Türkiye'de 'Cumhuriyet Bayramı' hangi tarihi olayı kutlar?",
+      "options": ["29 Ekim 1923'te Türkiye Cumhuriyeti'nin ilan edilmesini", "23 Nisan 1920'de TBMM'nin açılmasını", "30 Ağustos 1922'de Kurtuluş Savaşı'nın zaferle sonuçlanmasını", "19 Mayıs 1919'da Kurtuluş Savaşı'nın başlamasını"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Millî bayramlar",
+      "skills": ["tarih bilgisi"],
+      "explanation": "29 Ekim Cumhuriyet Bayramı; 1923'te Türkiye Büyük Millet Meclisi'nin Cumhuriyet'i ilan ettiği günü kutlar."
+    },
+    {
+      "stem": "Bir toplumda 'sosyal dayanışma' ne anlama gelir?",
+      "options": ["Toplum üyelerinin birbirini desteklemesi, zor günlerde yardımlaşması ve ortak sorumluluk taşıması", "Yalnızca devletin yardım yapması", "Kişilerin kendi başlarına hareket etmesi", "Yalnızca ekonomik çıkar için iş birliği yapılması"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal değerler",
+      "skills": ["vatandaşlık değerleri"],
+      "explanation": "Sosyal dayanışma; toplumun tüm bireylerinin birbirini desteklediği, paylaşım ve yardımlaşmanın ön planda tutulduğu bir değer anlayışıdır."
+    },
+    {
+      "stem": "Türkiye'deki 'GAP (Güneydoğu Anadolu Projesi)' başta hangi amaçla hayata geçirilmiştir?",
+      "options": ["Fırat ve Dicle nehirlerinin sularını sulama ve enerji üretimi için kullanmak", "Karadeniz kıyısını geliştirmek", "Batı Anadolu'nun sanayisini artırmak", "İstanbul'un konut sorununu çözmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bölgesel kalkınma",
+      "skills": ["coğrafya ve ekonomi"],
+      "explanation": "GAP; Fırat ve Dicle üzerindeki baraj ve sulama tesisleriyle Güneydoğu Anadolu'ya tarımsal üretim ve elektrik enerjisi sağlamayı amaçlar."
+    },
+    {
+      "stem": "Haritada kullanılan semboller ve işaretler ile bunların anlamlarını gösteren bölüme ne denir?",
+      "options": ["Lejant (açıklama)", "Koordinat", "Ölçek", "Meridyen"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Harita bilgisi",
+      "skills": ["harita okuryazarlığı"],
+      "explanation": "Lejant: Haritada kullanılan renk, sembol ve işaretlerin ne anlama geldiğini açıklayan tablodur; haritayı doğru okumak için gereklidir."
+    },
+    {
+      "stem": "Türkiye'de orman varlığının azalması hangi sorunlara yol açar?",
+      "options": ["Erozyon, su kaynaklarının azalması, iklim değişikliği ve biyoçeşitlilik kaybı", "Yalnızca turizm gelirinin düşmesi", "Yalnızca odun üretiminin azalması", "Hiçbir olumsuz etkisi yoktur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre koruma",
+      "skills": ["çevre bilinci"],
+      "explanation": "Ormanların yok olması; toprak erozyonunu hızlandırır, su tutma kapasitesini düşürür, iklimi olumsuz etkiler ve pek çok türü tehdit eder."
+    },
+    {
+      "stem": "Türkiye'de 'tapu' belgesi neyi kanıtlar?",
+      "options": ["Bir kişinin bir taşınmazın (arazi veya bina) yasal sahibi olduğunu", "Yalnızca kiracılık durumunu", "İkametgâh adresini", "Vergi ödendiğini"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Mülkiyet ve hukuk",
+      "skills": ["hukuk bilgisi"],
+      "explanation": "Tapu senedi; bir taşınmazın kime ait olduğunu gösteren resmi devlet belgesidir; mülkiyet hakkının kanıtıdır."
+    },
+    {
+      "stem": "İnsanların bir yerden başka bir yere göç etmesinin 'itici nedenleri' nelerdir?",
+      "options": ["İşsizlik, yoksulluk, doğal afetler ve güvenlik sorunları gibi kişiyi yerinden eden koşullar", "Yalnızca merak ve macera isteği", "Yalnızca eğitim amaçlı geçici hareketler", "Sadece tatil amacıyla yapılan yer değiştirmeler"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Göç ve nüfus hareketleri",
+      "skills": ["sosyal analiz"],
+      "explanation": "Göçün itici nedenleri: kişiyi bulunduğu yerden uzaklaştıran yoksulluk, savaş, afet gibi olumsuz koşullardır; çekici nedenlerden ayrılır."
+    },
+    {
+      "stem": "Türkiye'nin en büyük gölü hangisidir?",
+      "options": ["Van Gölü", "Tuz Gölü", "Beyşehir Gölü", "Eğirdir Gölü"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Van Gölü yaklaşık 3.755 km² yüzölçümüyle Türkiye'nin en büyük gölüdür; tuzlu ve sodalı bir göldür."
+    },
+    {
+      "stem": "Atatürk'ün Türk toplumuna kazandırdığı en önemli ekonomik reformlardan biri hangisidir?",
+      "options": ["Tarımı, sanayiyi ve ticareti devlet eliyle destekleyen devletçilik ilkesini benimsemek", "Yalnızca tarım sektörüne yatırım yapmak", "Ekonomiyi yabancılara bırakmak", "Özel girişimciliği tamamen yasaklamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atatürk ilkeleri",
+      "skills": ["tarih ve ekonomi"],
+      "explanation": "Devletçilik ilkesi: Özel sektörün yetersiz kaldığı alanlarda devletin ekonomiye müdahale ederek ulusal sanayiyi desteklemesidir."
+    },
+    {
+      "stem": "Yurttaşların devlet yönetimine katılmasının en temel aracı nedir?",
+      "options": ["Serbest ve adil seçimlerde oy kullanmak", "Yalnızca vergi ödemek", "Yalnızca yasalara uymak", "Gazete okumak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi ve katılım",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Demokratik sistemlerde vatandaşlar; serbest, gizli ve çok partili seçimlerle yöneticilerini belirler; bu en temel siyasi katılım biçimidir."
+    },
+    {
+      "stem": "Türkiye'de en fazla turist çeken illerden biri olan Kapadokya hangi ilde yer alır?",
+      "options": ["Nevşehir", "Ankara", "Konya", "Kayseri"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Turizm coğrafyası",
+      "skills": ["coğrafya bilgisi"],
+      "explanation": "Kapadokya; peri bacaları, yeraltı şehirleri ve tarihi kiliseler ile ünlüdür; büyük bölümü Nevşehir iline bağlıdır."
+    },
+    {
+      "stem": "Türkiye Cumhuriyeti Anayasasına göre en yüksek hukuki belge hangisidir?",
+      "options": ["Anayasa", "Kanun", "Yönetmelik", "Tüzük"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hukuk ve devlet",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Anayasa, hukuk hiyerarşisinin en üstünde yer alır; tüm yasalar ve yönetmelikler Anayasa'ya aykırı olamaz."
+    },
+    {
+      "stem": "Dünyanın en kalabalık ülkesi hangisidir?",
+      "options": ["Hindistan", "Çin", "Amerika Birleşik Devletleri", "Endonezya"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dünya coğrafyası",
+      "skills": ["genel kültür"],
+      "explanation": "2023 itibarıyla Hindistan, 1,4 milyarı aşan nüfusuyla Çin'i geçerek dünyanın en kalabalık ülkesi konumuna geldi."
+    },
+    {
+      "stem": "Türkiye'de 'Kızılay'ın temel görevi nedir?",
+      "options": ["Afetlerde ve kriz durumlarında insani yardım sağlamak, kan bağışı ve sağlık hizmetleri sunmak", "Yalnızca kan bankacılığı yapmak", "Yalnızca yurt dışında yardım faaliyeti yürütmek", "Vergi toplamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sivil toplum kuruluşları",
+      "skills": ["vatandaşlık bilgisi"],
+      "explanation": "Türk Kızılay; deprem, sel gibi afetlerde yardım, kan temini, sağlık ve sosyal hizmet alanlarında faaliyet gösteren gönüllü kuruluştur."
+    },
+    {
+      "stem": "Bir öğrencinin sınıf kurallarını belirlemede söz sahibi olması hangi değeri yansıtır?",
+      "options": ["Demokratik katılım ve öz yönetim", "Yalnızca itaat", "Bencillik", "Rekabet"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokrasi ve katılım",
+      "skills": ["vatandaşlık değerleri"],
+      "explanation": "Sınıf kurallarının öğrencilerle birlikte belirlenmesi; demokratik katılım, sorumluluk alma ve öz yönetim değerlerini pekiştirir."
+    }
+  ]
+}

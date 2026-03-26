@@ -1,0 +1,655 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "hayat",
+  "questions": [
+    {
+      "stem": "Bir çocuk her gün dişlerini fırçalıyor, düzenli uyuyor ve sağlıklı besleniyor. Bu davranışlar genel olarak ne sağlar?",
+      "options": ["Kişisel sağlığı ve hijyeni korur.", "Yalnızca görünümü düzeltir.", "Sadece diş sağlığını geliştirir.", "Yalnızca büyüme için gereklidir."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Kişisel Sağlık ve Hijyen",
+      "skills": ["sağlık alışkanlıkları", "bütünsel sağlık"],
+      "explanation": "Bu alışkanlıkların tamamı sağlığı koruma ve hastalıkları önleme işlevi görür."
+    },
+    {
+      "stem": "Evde yangın çıktığında en doğru davranış nedir?",
+      "options": ["Bağırarak komşuları uyarmak, 112'yi aramak ve binayı terk etmek", "Yangını tek başına söndürmeye çalışmak", "Asansörle inmek", "Eşyaları kurtarmaya çalışmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Doğal Afet ve Acil Durumlar",
+      "skills": ["yangın güvenliği", "tahliye"],
+      "explanation": "Yangında can güvenliği önce gelir. Asansör yerine merdiven kullanılmalı, yetkililere haber verilmeli ve bina derhal terk edilmelidir."
+    },
+    {
+      "stem": "Atatürk'ün Türkiye Cumhuriyeti için yaptığı en temel katkı nedir?",
+      "options": ["Türkiye Cumhuriyeti'ni kurması ve modern Türkiye'nin temellerini atması", "İlk anayasayı yazmak", "Osmanlı İmparatorluğu'nu kurmak", "İstanbul'u fethetmek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Atatürk ve Cumhuriyet",
+      "skills": ["Atatürk", "Cumhuriyetin kuruluşu"],
+      "explanation": "Mustafa Kemal Atatürk Kurtuluş Savaşı'nı yönetmiş ve 29 Ekim 1923'te Türkiye Cumhuriyeti'ni ilan etmiştir."
+    },
+    {
+      "stem": "Türk bayrağı üzerinde hangi simgeler yer alır?",
+      "options": ["Ay ve yıldız", "Güneş ve hilal", "Kartal ve ay", "Yıldız ve güneş"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Milli Semboller",
+      "skills": ["Türk bayrağı"],
+      "explanation": "Türk bayrağı kırmızı zemin üzerine beyaz ay ve beyaz yıldızdan oluşur."
+    },
+    {
+      "stem": "Bir öğrenci okulda sorumsuz davranarak arkadaşlarının haklarını çiğniyor. Bu durum okul ortamında ne yaratır?",
+      "options": ["Huzursuzluk ve öğrenmeyi olumsuz etkileyen bir ortam", "Daha güçlü bir arkadaşlık bağı", "Öğretmenlerin takdirini kazanma", "Yarışmacı bir ruh"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okul Kuralları ve Sorumluluk",
+      "skills": ["sorumluluk", "haklar ve ödevler"],
+      "explanation": "Birinin sorumluluğunu yerine getirmemesi diğerlerinin haklarını ihlal eder ve ortak yaşamı bozar."
+    },
+    {
+      "stem": "Kütüphane ne işe yarar?",
+      "options": ["Kitap ve bilgi kaynaklarına ücretsiz erişim sağlar, araştırmayı destekler.", "Yalnızca okul kitaplarının satıldığı yerdir.", "Çocukların oyun oynadığı bir alandır.", "Yalnızca yetişkinlerin kullanabileceği bir yerdir."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sosyal Kurumlar",
+      "skills": ["kütüphane", "bilgiye erişim"],
+      "explanation": "Kütüphane herkesin kitap, dergi ve bilgi kaynaklarına serbestçe ulaşabildiği, araştırma yapabildiği kamusal bir alandır."
+    },
+    {
+      "stem": "Bir çocuk marketin önünde yaşlı birine kapıyı açıyor. Bu davranış hangi değeri yansıtır?",
+      "options": ["Büyüklere saygı ve yardımseverlik", "Gösteriş", "Zorunlu hizmet", "Kurallara uyma"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Toplumsal Değerler",
+      "skills": ["saygı", "yardımseverlik"],
+      "explanation": "Büyüklere kapı açmak ve onlara yardım etmek saygı ve yardımseverlik değerlerini yansıtır."
+    },
+    {
+      "stem": "Depremde bina içinde yakalandığınızda en güvenli tutum nedir?",
+      "options": ["Çök-Kapan-Tutun hareketi ile sağlam bir nesnenin yanına ya da iç duvara sığınmak", "Pencereden dışarı atlamak", "Merdivenlere koşmak", "Asansörle binmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deprem Güvenliği",
+      "skills": ["deprem anında davranış", "afet eğitimi"],
+      "explanation": "Depremde 'Çök-Kapan-Tutun' hareketi yapılır. Pencere, asansör ve koşmak tehlikelidir."
+    },
+    {
+      "stem": "Ailenin toplumdaki temel işlevi nedir?",
+      "options": ["Bireylere sevgi, güven ve eğitim ortamı sağlamak", "Yalnızca ekonomik destek vermek", "Çocukların okul hayatını yönetmek", "Yalnızca gıda ve barınak sağlamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Aile",
+      "skills": ["ailenin önemi", "sosyal kurum"],
+      "explanation": "Aile bireyin ilk sosyalleştiği ve temel ihtiyaçlarının (sevgi, güvenlik, eğitim) karşılandığı temel kurumdur."
+    },
+    {
+      "stem": "Bir öğrenci çevresindeki çöpleri toplayıp çöp kutusuna atıyor. Bu davranış neyi gösterir?",
+      "options": ["Çevre bilinci ve sorumluluk", "Görünürde iyi olmaya çalışmak", "Sınıf görevidir", "Zorunlu bir aktivitedir"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Çevre Bilinci",
+      "skills": ["çevre temizliği", "sorumluluk"],
+      "explanation": "Çevreyi kirletmemek ve temizlemek çevre bilincinin ve toplumsal sorumluluğun göstergesidir."
+    },
+    {
+      "stem": "Türkiye'nin başkenti neresidir?",
+      "options": ["Ankara", "İstanbul", "İzmir", "Bursa"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye Coğrafyası",
+      "skills": ["başkent", "Türkiye"],
+      "explanation": "Türkiye Cumhuriyeti'nin başkenti Ankara'dır. İstanbul en kalabalık şehir olmakla birlikte başkent değildir."
+    },
+    {
+      "stem": "Cumhuriyet Bayramı hangi tarihte kutlanır?",
+      "options": ["29 Ekim", "23 Nisan", "19 Mayıs", "30 Ağustos"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Milli Bayramlar",
+      "skills": ["bayram tarihleri", "Cumhuriyet"],
+      "explanation": "29 Ekim 1923'te Türkiye Cumhuriyeti ilan edilmiştir. Bu tarih Cumhuriyet Bayramı olarak kutlanır."
+    },
+    {
+      "stem": "Bir çocuk hastalığı nedeniyle okula gidemedi ve derslerini kaçırdı. Arkadaşları ne yapabilir?",
+      "options": ["Notlarını paylaşabilir ve ona yardımcı olabilirler.", "Onu görmezden gelebilirler.", "Konuları anlatmaktan kaçınabilirler.", "Öğretmenden not almasını isteyebilirler."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Arkadaşlık ve Dayanışma",
+      "skills": ["arkadaşa yardım", "dayanışma"],
+      "explanation": "Hasta arkadaşa ders notlarını paylaşmak ve yardımcı olmak arkadaşlık ve dayanışma değerlerini yansıtır."
+    },
+    {
+      "stem": "Gıda ambalajlarındaki 'son kullanma tarihi' neden önemlidir?",
+      "options": ["Gıdanın güvenli tüketilebileceği son tarihi gösterir; bu tarih sonrası tüketim sağlık riski yaratır.", "Yalnızca ürünün ne kadar taze göründüğünü belirtir.", "Ürünün satılma süresini gösterir.", "Ambalajın kullanılabilirlik tarihini gösterir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı Beslenme ve Gıda Güvenliği",
+      "skills": ["son kullanma tarihi", "gıda güvenliği"],
+      "explanation": "Son kullanma tarihi, o tarihe kadar ürünün güvenli ve kaliteli olduğunu garanti eder; geçtikten sonra tüketmek hastalığa yol açabilir."
+    },
+    {
+      "stem": "Telefon görüşmesinde karşı tarafla nasıl başlamak doğrudur?",
+      "options": ["Adınızı söyleyerek ve nazikçe selamlayarak", "Konuya hemen girerek", "Sessizce bekleyerek", "Karşı tarafın konuşmasını bekleyerek"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "İletişim Kuralları",
+      "skills": ["iletişim etiği", "telefon görgüsü"],
+      "explanation": "Telefonu açarken önce selamlama ve kendinizi tanıtma temel iletişim kurallarındandır."
+    },
+    {
+      "stem": "Bir fabrika bacasından çıkan dumanın çevreye etkisi ne olabilir?",
+      "options": ["Hava kirliliğine neden olabilir ve sağlığı olumsuz etkiler.", "Havayı temizler.", "Bölgeye zararsızdır.", "Yalnızca estetik bir sorundur."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Hava Kirliliği",
+      "skills": ["çevre kirliliği", "sağlık etkisi"],
+      "explanation": "Fabrika dumanları zararlı gazlar içerebilir ve solunum yolu hastalıklarına, ekosistem bozulmasına yol açabilir."
+    },
+    {
+      "stem": "İnsanlar neden kurallara uymalıdır?",
+      "options": ["Ortak yaşamı düzenlemek ve herkesin haklarını korumak için", "Yalnızca ceza almamak için", "Yalnızca okul ortamında gereklidir.", "Büyükler öyle istediği için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kurallar ve Toplumsal Düzen",
+      "skills": ["kural kavramı", "toplumsal uyum"],
+      "explanation": "Kurallar birlikte yaşamayı mümkün kılar, çatışmaları azaltır ve herkesin haklarını güvence altına alır."
+    },
+    {
+      "stem": "Yaya geçidinde ışık kırmızıya dönünce yaya ne yapmalıdır?",
+      "options": ["Beklemeli; ışık yeşile dönene kadar geçmemelidir.", "Araçlar geçmiyorsa geçebilir.", "Koşarak geçebilir.", "Işığa bakmadan geçebilir."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Trafik Kuralları",
+      "skills": ["trafik güvenliği", "yaya davranışı"],
+      "explanation": "Kırmızı ışık durmak demektir. Araç olmasa bile kırmızı ışıkta yaya geçidinden geçmek kurallara aykırıdır."
+    },
+    {
+      "stem": "Bir çocuk arkadaşının oyuncağını izinsiz aldı. Bu durum hangi hakkı çiğniyor?",
+      "options": ["Mülkiyet hakkı ve kişisel sınırlara saygı hakkı", "Eğitim hakkı", "Sağlık hakkı", "İfade özgürlüğü hakkı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Haklar ve Sorumluluklar",
+      "skills": ["mülkiyet hakkı", "saygı"],
+      "explanation": "Başkasının eşyasını izinsiz almak o kişinin mülkiyet hakkını ihlal eder."
+    },
+    {
+      "stem": "Türkiye'de sağlık hizmeti almak için hangi kuruma başvurulur?",
+      "options": ["Hastane veya sağlık ocağı (aile hekimliği)", "Okul", "Belediye", "Emniyet müdürlüğü"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sosyal Kurumlar - Sağlık",
+      "skills": ["sağlık kurumları"],
+      "explanation": "Sağlık hizmetleri hastane, poliklinik veya aile hekimliği merkezlerince verilir."
+    },
+    {
+      "stem": "Bir geri dönüşüm kutusuna hangi atıklar atılır?",
+      "options": ["Kağıt, plastik, cam ve metal gibi geri dönüştürülebilir maddeler", "Tüm çöpler", "Yalnızca cam şişeler", "Organik atıklar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geri Dönüşüm",
+      "skills": ["atık ayrıştırma", "çevre"],
+      "explanation": "Geri dönüşüm kutuları kağıt, plastik, cam ve metal gibi yeniden işlenebilecek malzemeler için kullanılır."
+    },
+    {
+      "stem": "Türkiye'nin coğrafi olarak üç büyük denizle çevrili olması hangi fırsatı sağlar?",
+      "options": ["Balıkçılık, turizm ve deniz ticareti gibi çeşitli fırsatlar sağlar.", "Yalnızca siyasi avantaj sağlar.", "Türkiye'yi izole eder.", "Yalnızca iklimi etkiler."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye'nin Coğrafyası",
+      "skills": ["deniz avantajı", "coğrafya-ekonomi ilişkisi"],
+      "explanation": "Kuzey, güney ve batıdan denizle çevrili Türkiye, deniz ürünleri, turizm ve deniz yolu ticaretinden yararlanır."
+    },
+    {
+      "stem": "Bir öğrenci 'Çevreyi korumak için ne yapabilirim?' diye düşünüyor. Aşağıdakilerden hangisi bireysel düzeyde en etkili davranışlardan biridir?",
+      "options": ["Su ve elektriği tasarruflu kullanmak, atıkları ayrıştırmak", "Yalnızca televizyon haberlerini izlemek", "Arkadaşlarına çevre kirliliğini anlatmak (ama kendi bir şey yapmamak)", "Büyük çevre projelerine katılmayı beklemek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çevre Koruma",
+      "skills": ["bireysel çevre davranışı"],
+      "explanation": "Bireysel çevresel eylemler (tasarruf, geri dönüşüm) toplamda büyük fark yaratır. Anlatmak tek başına yeterli değildir."
+    },
+    {
+      "stem": "Besinlerimizi gruplandırırken et, süt ve yumurta hangi besin grubunda yer alır?",
+      "options": ["Protein kaynakları grubu", "Tahıl grubu", "Meyve-sebze grubu", "Yağlar grubu"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Besin Grupları",
+      "skills": ["protein kaynakları", "besin grupları"],
+      "explanation": "Et, süt ve yumurta protein bakımından zengin besinlerdir ve protein/hayvansal kaynaklı besin grubunda yer alır."
+    },
+    {
+      "stem": "Türkiye hangi kıtalar arasında köprü konumundadır?",
+      "options": ["Asya ve Avrupa", "Afrika ve Asya", "Avrupa ve Afrika", "Asya ve Amerika"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye'nin Konumu",
+      "skills": ["coğrafi konum", "kıta bilgisi"],
+      "explanation": "Türkiye toprakları hem Asya hem Avrupa kıtasında yer alır; bu sayede iki kıta arasında köprü konumundadır."
+    },
+    {
+      "stem": "Bir çocuk yolda düşen yaşlı birine yardım ediyor. Bu davranış hangi değeri yansıtır?",
+      "options": ["Yardımseverlik ve merhamet", "Cesaret", "Dürüstlük", "Çalışkanlık"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Değerler - Yardımseverlik",
+      "skills": ["empati", "yardımseverlik"],
+      "explanation": "Düşen birine yardım etmek yardımseverlik ve merhametin pratik bir göstergesidir."
+    },
+    {
+      "stem": "Bir kasabada çöpler toplanmıyorsa ne tür sorunlar ortaya çıkabilir?",
+      "options": ["Hastalık, koku, zararlıların çoğalması ve çevre kirliliği", "Yalnızca estetik sorunlar", "Yalnızca trafik sorunları", "Ekonomik büyüme yavaşlar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Belediye Hizmetleri - Çöp",
+      "skills": ["çöp yönetimi", "sağlık"],
+      "explanation": "Toplanmayan çöpler koku ve pis su yaratır; fare, sinek gibi zararlıları çeker ve halk sağlığını tehdit eder."
+    },
+    {
+      "stem": "İçme suyunun temizliği neden kontrol edilmelidir?",
+      "options": ["Kirli su su kaynaklı hastalıklara yol açabileceğinden", "Yalnızca tatı bozmamak için", "Su her zaman temizdir, kontrol gerekmez.", "Yalnızca estetik nedenlerle"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Su Sağlığı",
+      "skills": ["su temizliği", "hastalık önleme"],
+      "explanation": "Kirli su kolera, tifo gibi ağır hastalıklara neden olabilir; içme suyunun arıtılmış ve denetlenmiş olması yaşamsal önemdedir."
+    },
+    {
+      "stem": "Bir öğrenci ailesiyle birlikte yaşlı bir komşusunu ziyaret ediyor. Bu ziyaret ne sağlar?",
+      "options": ["Toplumsal bağları güçlendirir ve yaşlıların yalnızlığını giderir.", "Yalnızca misafirperver görünme fırsatı sunar.", "Yalnızca ders dışı bir aktivitedir.", "Sağlık açısından önemsiz bir etkinliktir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Toplumsal Dayanışma",
+      "skills": ["yaşlılara saygı", "toplumsal bağlar"],
+      "explanation": "Yaşlı ziyaretleri hem yaşlıların duygusal ihtiyaçlarını karşılar hem de kuşaklar arası bağları güçlendirir."
+    },
+    {
+      "stem": "Bir çocuk okul bahçesinde tanımadığı biri tarafından arabaya çekilmeye çalışılıyor. İlk yapması gereken nedir?",
+      "options": ["Yüksek sesle bağırarak kaçmak ve güvenilir bir yetişkine haber vermek", "Aracın içine girmek", "Sessizce boyun eğmek", "Durumu görmezden gelmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kişisel Güvenlik",
+      "skills": ["yabancı tehlikesi", "güvenlik davranışı"],
+      "explanation": "Yabancıdan gelen tehlikede bağırarak dikkat çekmek, kaçmak ve güvenilir bir yetişkini uyarmak doğru davranışlardır."
+    },
+    {
+      "stem": "Türkiye'nin nüfus bakımından en kalabalık şehri hangisidir?",
+      "options": ["İstanbul", "Ankara", "İzmir", "Bursa"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye'nin Şehirleri",
+      "skills": ["şehir bilgisi", "nüfus"],
+      "explanation": "İstanbul, 15 milyonu aşan nüfusuyla Türkiye'nin en kalabalık şehridir."
+    },
+    {
+      "stem": "Bir çocuk sınıfta arkadaşının kıyafetini alaya alıyor. Bu davranış neden yanlıştır?",
+      "options": ["Başkalarının onurunu zedeler ve saygısızlıktır.", "Arkadaşlığı güçlendirir.", "Komik bir espridir, zararsızdır.", "Yalnızca küçük bir şakadır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Saygı ve Zorbalık",
+      "skills": ["akran zorbalığı", "saygı"],
+      "explanation": "Kıyafet veya görünüşü aşağılamak kişiyi incitir ve saygısızlıktır; bireysel farklılıklara saygı gösterilmelidir."
+    },
+    {
+      "stem": "Bir çocuk bisiklet sürerken kask takıyor. Bu önlem neden önemlidir?",
+      "options": ["Kaza durumunda baş yaralanmalarını önler.", "Bisikletin daha hızlı gitmesini sağlar.", "Yalnızca görünüm içindir.", "Yasa zorunluluğu olduğu için"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Trafik ve Kişisel Güvenlik",
+      "skills": ["kask güvenliği", "bisiklet"],
+      "explanation": "Kask, kaza sırasında kafa travmasını önemli ölçüde azaltır; en kritik koruyucu ekipmandır."
+    },
+    {
+      "stem": "Okul kooperatifi veya kantin neden okullarda bulunur?",
+      "options": ["Öğrencilere uygun fiyatlı sağlıklı besin sağlamak", "Öğrencilerin ticaret öğrenmesi için", "Yalnızca öğretmenler için", "Oyuncak satışı yapmak için"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Okul Ortamı",
+      "skills": ["okul hizmetleri"],
+      "explanation": "Okul kantini öğrencilere güvenli ve uygun fiyatlı besin imkânı sunarak sağlıklı beslenmeyi destekler."
+    },
+    {
+      "stem": "Bir çocuk yabancı bir sitede kişisel bilgilerini paylaşmak üzere. Doğru davranış nedir?",
+      "options": ["Paylaşmamalı; kişisel bilgiler internette korunmalıdır.", "Paylaşabilir; internet güvenlidir.", "Yalnızca ad ve soyadını paylaşabilir.", "Ebeveynlerinin izni olursa her şeyi paylaşabilir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "İnternet Güvenliği",
+      "skills": ["dijital güvenlik", "kişisel veri"],
+      "explanation": "Adres, telefon, okul gibi kişisel bilgiler internette paylaşılmamalıdır; yanlış kişilerin eline geçebilir."
+    },
+    {
+      "stem": "Türkiye'de yaklaşık kaç il bulunmaktadır?",
+      "options": ["81", "67", "100", "73"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye İdari Yapısı",
+      "skills": ["il sayısı", "idari yapı"],
+      "explanation": "Türkiye 81 ilden oluşmaktadır."
+    },
+    {
+      "stem": "Su kaynaklarını kirletmenin uzun vadeli sonuçları neler olabilir?",
+      "options": ["İçme suyu azalır, sucul canlılar zarar görür ve halk sağlığı tehlikeye girer.", "Yalnızca balık popülasyonu azalır.", "Su kaynakları kısa sürede kendini temizler.", "Yalnızca ekolojik bir sorundur, insanı etkilemez."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Su Kirliliği",
+      "skills": ["su kirliliğinin sonuçları", "çevre"],
+      "explanation": "Su kirliliği hem insanları hem de ekosistemleri etkiler; uzun vadede içme suyu kıtlığına ve biyoçeşitlilik kaybına yol açar."
+    },
+    {
+      "stem": "Bir öğrenci sınıfta söz almadan bağırarak konuşuyor. Bu davranış hangi kurala aykırıdır?",
+      "options": ["Söz hakkına saygı ve dersi dinleme kuralına", "Yalnızca gürültü kuralına", "Temizlik kuralına", "Devam kuralına"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Okul Kuralları",
+      "skills": ["sınıf kuralları", "söz hakkı"],
+      "explanation": "Sınıfta parmak kaldırarak söz almak temel bir sosyal beceridir; izinsiz bağırmak hem öğretmeni hem sınıfı rahatsız eder."
+    },
+    {
+      "stem": "Türk kültüründe 'misafirperverlik' neden önemli bir değer sayılır?",
+      "options": ["Toplumsal bağları güçlendirir, paylaşma ve saygı değerlerini yansıtır.", "Yalnızca ekonomik bir gerekliliktir.", "Zorunlu bir sosyal kuraldır.", "Yalnızca köy yaşamında önemi vardır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürel Değerler",
+      "skills": ["misafirperverlik", "kültürel değerler"],
+      "explanation": "Misafirperver olmak Türk kültüründe toplumsal bağları ve kardeşliği pekiştiren önemli bir erdemdir."
+    },
+    {
+      "stem": "Bir çocuk arkadaşının sırrını başkalarına anlatıyor. Bu davranış neden yanlıştır?",
+      "options": ["Güveni kırar ve arkadaşlık ilişkisine zarar verir.", "Yalnızca küçük bir iletişim sorunudur.", "Arkadaşa yardım edebilir.", "Zararsızdır; çünkü yalnızca bilgi paylaşımıdır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Arkadaşlık Değerleri",
+      "skills": ["güven", "sadakat"],
+      "explanation": "Sır tutmak güven ilişkisinin temelidir; sırrı ifşa etmek arkadaşlığı zedeler ve güven kaybına yol açar."
+    },
+    {
+      "stem": "Okul bahçesine çöp atmak yasak olan yerlerden biri. Bunu bilen bir çocuk neden bu kuralı çiğnememelidir?",
+      "options": ["Çünkü ortak alanları temiz tutmak herkesin sorumluluğudur ve sağlıklı ortamı destekler.", "Çünkü öğretmen görür.", "Çünkü ceza alır.", "Çünkü arkadaşları görebilir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sorumluluk",
+      "skills": ["içselleştirilmiş sorumluluk", "kurallar"],
+      "explanation": "Sorumluluk yalnızca yakalanma korkusundan değil, ortak iyiliğe katkı sağlama bilinciyle yerine getirilmelidir."
+    },
+    {
+      "stem": "İstanbul'da bulunan ve Türkiye'nin sembolü sayılan tarihi yapı hangisidir?",
+      "options": ["Ayasofya Camii", "Anitkabir", "Pamukkale", "Efes"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Türkiye'nin Tarihi Yerleri",
+      "skills": ["tarihi mekânlar", "kültürel miras"],
+      "explanation": "Ayasofya İstanbul'daki dünyaca ünlü tarihi yapıdır; Bizans döneminden kalan ve sonradan camiye dönüştürülen bir mimari şaheserdir."
+    },
+    {
+      "stem": "Türkiye'de hangi bayram çocuklara armağan edilmiştir?",
+      "options": ["23 Nisan Ulusal Egemenlik ve Çocuk Bayramı", "29 Ekim Cumhuriyet Bayramı", "19 Mayıs Gençlik ve Spor Bayramı", "30 Ağustos Zafer Bayramı"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Milli Bayramlar",
+      "skills": ["23 Nisan", "bayram bilgisi"],
+      "explanation": "23 Nisan, Atatürk tarafından çocuklara armağan edilen Ulusal Egemenlik ve Çocuk Bayramı'dır."
+    },
+    {
+      "stem": "Bir çocuk elindeki boş pet şişeyi geri dönüşüm kutusuna atıyor. Bunu yaparken hangi amaç ön plandadır?",
+      "options": ["Kaynakları korumak ve çevreyi kirliliğe karşı korumak", "Belirli bir kural olduğu için", "Taşımak istememesi", "Arkadaşları bunu yaptığı için"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Geri Dönüşüm",
+      "skills": ["bilinçli çevre davranışı"],
+      "explanation": "Geri dönüşüm plastik, cam ve metalin yeniden kullanılmasını sağlayarak doğal kaynakların tükenmesini yavaşlatır."
+    },
+    {
+      "stem": "Toplu taşıma araçlarında yaşlı ya da engelli biri duruyorsa ne yapılmalıdır?",
+      "options": ["Kalkıp yer vermelidir.", "Görmezden gelinmelidir.", "Yalnızca şoför yardımcı olur.", "Durumu diğer yolculara bırakılır."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Toplumsal Davranış",
+      "skills": ["saygı", "yardımseverlik"],
+      "explanation": "Yaşlı, engelli veya hamile kişilere yer vermek temel bir toplumsal nezaket kuralıdır."
+    },
+    {
+      "stem": "Bir çocuk her gün en az 60 dakika hareket etmeli diyorlar. Bunun sebebi nedir?",
+      "options": ["Fiziksel gelişimi, kas-iskelet sağlığını ve zihinsel iyiliği destekler.", "Yalnızca kilo vermek içindir.", "Yalnızca sporcular için gereklidir.", "Sadece arkadaşlarla vakit geçirmek içindir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiziksel Aktivite",
+      "skills": ["egzersiz faydaları", "sağlıklı yaşam"],
+      "explanation": "Günlük hareket büyüme, güçlü kemik-kas gelişimi, dikkat ve ruh sağlığı için gereklidir."
+    },
+    {
+      "stem": "Türkiye'nin komşuları arasında hangi ülke yer almaz?",
+      "options": ["Polonya", "Yunanistan", "Suriye", "Gürcistan"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye'nin Komşuları",
+      "skills": ["coğrafya", "komşu ülkeler"],
+      "explanation": "Polonya Türkiye'nin komşusu değildir; Türkiye'nin komşuları arasında Yunanistan, Bulgaristan, Gürcistan, Ermenistan, Azerbaycan (Nahçıvan), İran, Irak ve Suriye yer alır."
+    },
+    {
+      "stem": "Bir öğrenci 'Neden sağlıklı uyku önemlidir?' sorusunu araştırıyor. Doğru yanıt nedir?",
+      "options": ["Beyin dinlenir ve gelişir, büyüme hormonu salgılanır, bağışıklık güçlenir.", "Yalnızca yorgunluğu giderir.", "Uyku yalnızca büyükler için önemlidir.", "8 saatten az uyku öğrenmeyi etkilemez."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Uyku ve Sağlık",
+      "skills": ["uykunun önemi", "sağlıklı yaşam"],
+      "explanation": "Yeterli uyku çocuklarda beyin gelişimi, öğrenme kapasitesi ve bağışıklık sistemi için kritik öneme sahiptir."
+    },
+    {
+      "stem": "Bir sınıfta iki öğrenci arasında tartışma çıktı. Öğretmen hangi yaklaşımı benimsemelidir?",
+      "options": ["İki tarafı da dinleyip ortak bir çözüm bulmalarına rehberlik etmek", "Yalnızca şikayet eden tarafı dinlemek", "İkisini de cezalandırmak", "Durumu görmezden gelmek"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Çatışma Çözümü",
+      "skills": ["arabuluculuk", "adil çözüm"],
+      "explanation": "Adil çözüm için her iki tarafın da dinlenmesi ve ortak zemin bulunması gerekir."
+    },
+    {
+      "stem": "Bir çocuk öğle yemeğinde yalnızca cips ve şekerleme yiyor. Bu beslenme tarzı uzun vadede ne gibi sorunlara yol açabilir?",
+      "options": ["Vitamin ve mineral eksiklikleri, obezite ve diş çürükleri", "Yalnızca kısa süreli enerji düşüklüğü", "Hiçbir sağlık sorunu yaratmaz.", "Yalnızca mide rahatsızlığına yol açar."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sağlıklı Beslenme",
+      "skills": ["dengesiz beslenme sonuçları"],
+      "explanation": "Tek tip fast food beslenmesi uzun vadede büyüme geriliği, obezite, diyabet ve çürük dişlere zemin hazırlar."
+    },
+    {
+      "stem": "İnsanlar çevresindeki canlılara zarar vermemeye neden dikkat etmelidir?",
+      "options": ["Tüm canlılar ekosistemi oluşturur ve birbirine bağımlıdır; bir türün zarar görmesi zinciri etkiler.", "Yalnızca sevimli hayvanları korumak gerekir.", "Çünkü yasalar bunu gerektiriyor.", "Yalnızca nesli tükenmekte olan türler önemlidir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Biyoçeşitlilik",
+      "skills": ["ekosistem dengesi", "canlılara saygı"],
+      "explanation": "Ekosistemde her canlının rolü vardır; bir türün yok olması besin zincirini ve çevre dengesini bozabilir."
+    },
+    {
+      "stem": "Bir postane hangi hizmetleri sunar?",
+      "options": ["Mektup, kargo ve para transferi gibi haberleşme ve taşıma hizmetleri", "Yalnızca pul satışı", "Sağlık hizmetleri", "Yalnızca banka işlemleri"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sosyal Kurumlar - Postane",
+      "skills": ["postane hizmetleri"],
+      "explanation": "Postane mektup, kargo, para havalesi gibi geniş kapsamlı iletişim ve lojistik hizmetleri sunar."
+    },
+    {
+      "stem": "Bir öğrenci sınıfta tüm grubu ilgilendiren bir karar alınırken yalnızca kendi fikrini dayatıyor. Bu tutum hangi değerle çelişir?",
+      "options": ["Demokratik katılım ve uzlaşı", "Liderlik", "Yaratıcılık", "Özgüven"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Demokratik Katılım",
+      "skills": ["ortak karar alma", "demokrasi"],
+      "explanation": "Ortak kararlar demokratik bir süreçle, herkesin fikrini ifade etmesiyle alınmalıdır; tek taraflı dayatma demokratik değerlere aykırıdır."
+    },
+    {
+      "stem": "Türk bayramlarından hangisi bir askeri zafer anısına kutlanır?",
+      "options": ["30 Ağustos Zafer Bayramı", "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı", "19 Mayıs Gençlik ve Spor Bayramı", "29 Ekim Cumhuriyet Bayramı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Milli Bayramlar",
+      "skills": ["bayram bilgisi", "tarih"],
+      "explanation": "30 Ağustos 1922'de gerçekleşen Büyük Taarruz ve Türk ordusunun zaferini simgeler; Türk Silahlı Kuvvetleri Günü olarak da anılır."
+    },
+    {
+      "stem": "Bir çocuk yanlışlıkla arkadaşının kalemini kırdı. Ne yapmalıdır?",
+      "options": ["Özür dilemeli ve zararı telafi etmeye çalışmalıdır.", "Olayı gizlemeli ve susmalıdır.", "Başkasını suçlamalıdır.", "Sormadan başka bir kalem almalıdır."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sorumluluk ve Özür",
+      "skills": ["sorumluluk alma", "dürüstlük"],
+      "explanation": "Kaza ile de olsa zarar vermek hesap verebilirliği gerektirir; özür dilemek ve telafi etmeye çalışmak doğru davranıştır."
+    },
+    {
+      "stem": "Bir öğrenci internette sosyal medyada tanımadığı biriyle arkadaş oldu. Ne yapmalıdır?",
+      "options": ["Ebeveynlerine haber vermeli ve kişisel bilgilerini paylaşmamalıdır.", "Güvenli olduğunu düşünerek her şeyi paylaşabilir.", "Arkadaşlığı kabul edip buluşabilir.", "Durumu tamamen normal karşılamalıdır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Dijital Güvenlik",
+      "skills": ["tanımadık kişiler", "dijital güvenlik"],
+      "explanation": "İnternette tanınmayan kişiler gerçek kim olduklarını gizleyebilir; ebeveyne haber vermek ve kişisel bilgileri korumak kritiktir."
+    },
+    {
+      "stem": "Atatürk, 10 Kasım 1938'de hayatını kaybetmiştir. Bu tarihin önemi nedir?",
+      "options": ["Türkiye'nin kurucusunu kaybettiği ve her yıl saygıyla anıldığı tarihtir.", "Türkiye Cumhuriyeti'nin ilan edildiği tarihtir.", "Kurtuluş Savaşı'nın kazanıldığı tarihtir.", "Türkiye'nin NATO'ya girdiği tarihtir."],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Atatürk",
+      "skills": ["Atatürk'ün vefatı", "tarih"],
+      "explanation": "10 Kasım Türkiye'de Atatürk'ün vefat yıl dönümü olarak her yıl saygı ve özlemle anılmaktadır."
+    },
+    {
+      "stem": "Bir öğrenci matematik sınavında başarısız oldu. En yapıcı tepki nedir?",
+      "options": ["Neyi yanlış yaptığını anlayarak çalışmasını geliştirmek", "Dersi bırakmak", "Öğretmeni suçlamak", "Başkalarını kopya çekmekle suçlamak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Başarısızlıkla Başa Çıkma",
+      "skills": ["öz değerlendirme", "büyüme zihniyeti"],
+      "explanation": "Hatalardan öğrenmek ve çalışmayı iyileştirmek en sağlıklı tepkidir; suçlamak veya pes etmek sorunları çözmez."
+    },
+    {
+      "stem": "Bir köyde yeni bir okul inşa edilmesi hangi alana katkı sağlar?",
+      "options": ["Eğitime erişim ve bölgenin sosyal kalkınmasına", "Yalnızca inşaat sektörüne", "Yalnızca öğretmenlere", "Yalnızca belediye gelirine"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim ve Kalkınma",
+      "skills": ["eğitimin toplumsal katkısı"],
+      "explanation": "Yeni okul çocuklara eğitim imkânı sunar, uzun vadede sosyal ve ekonomik kalkınmayı destekler."
+    },
+    {
+      "stem": "Bir bahçede meyve sebze yetiştiren aile hangi avantajı elde eder?",
+      "options": ["Taze ve doğal besin ile hem ekonomi hem sağlık kazanımı sağlar.", "Yalnızca eğlence için bir aktivitedir.", "Yalnızca çocukların ilgisini çeker.", "Ekonomik açıdan anlamsızdır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tarım ve Beslenme",
+      "skills": ["tarımın faydaları", "sürdürülebilir yaşam"],
+      "explanation": "Ev bahçesinde tarım; ilaçsız, taze ürün sağlar, aile bütçesine katkıda bulunur ve sürdürülebilir yaşamı destekler."
+    },
+    {
+      "stem": "19 Mayıs Atatürk'ü Anma, Gençlik ve Spor Bayramı'nın özel önemi nedir?",
+      "options": ["Atatürk'ün 1919'da Samsun'a çıkarak Kurtuluş Savaşı'nı başlatmasını simgeler.", "Türkiye Cumhuriyeti'nin ilan edilmesini kutlar.", "Türk ordusunun zaferini anmak için kutlanır.", "Büyük Millet Meclisi'nin açılışını anmak için kutlanır."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Milli Bayramlar - 19 Mayıs",
+      "skills": ["Kurtuluş Savaşı", "bayram tarihi"],
+      "explanation": "19 Mayıs 1919'da Atatürk Samsun'a çıkmış ve Millî Mücadele'yi başlatmıştır."
+    },
+    {
+      "stem": "Bir çocuk banka hesabına her ay düzenli para biriktiriyor. Bu davranış hangi değeri gösterir?",
+      "options": ["Tasarruf bilinci ve geleceğe hazırlık", "Cimrilik", "Maddi düşkünlük", "Toplumdan kopukluk"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Tasarruf",
+      "skills": ["tasarruf", "finansal okuryazarlık"],
+      "explanation": "Düzenli birikim tasarruf bilinci ve uzun vadeli düşünme kapasitesini yansıtır; bu sağlıklı bir finansal alışkanlıktır."
+    },
+    {
+      "stem": "Polis ve jandarmanın toplumda temel görevi nedir?",
+      "options": ["Kamu düzenini korumak ve vatandaşların güvenliğini sağlamak", "Yalnızca suçluları yakalamak", "Yalnızca trafik düzenlemesi yapmak", "Yalnızca devlet kurumlarını korumak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Sosyal Kurumlar - Güvenlik",
+      "skills": ["polis görevi", "güvenlik"],
+      "explanation": "Polis ve jandarma kamu düzenini korur, suçları önler ve vatandaşların güvenliğini sağlar."
+    },
+    {
+      "stem": "Bir öğrenci enerji tasarrufu için hangi davranışı benimseyebilir?",
+      "options": ["Kullanılmayan odaların ışıklarını kapatmak", "Tüm gün televizyon açık bırakmak", "Kış aylarında pencereleri açık tutmak", "Cihazları şarjda takılı unutmak"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Enerji Tasarrufu",
+      "skills": ["tasarruf davranışları", "çevre"],
+      "explanation": "Kullanılmayan ışıkları kapatmak en temel enerji tasarrufu davranışlarından biridir."
+    },
+    {
+      "stem": "Bir çocuk arkadaşına ait çikolata görmeden önce izin istedi. Bu davranış hangi değeri yansıtır?",
+      "options": ["Saygı ve başkasının mülkiyetine önem verme", "Açgözlülük", "Kurallara körce uymak", "Alçakgönüllülük"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Haklar ve Saygı",
+      "skills": ["mülkiyet hakkı", "saygı"],
+      "explanation": "Başkasının eşyasını almadan önce izin istemek o kişinin mülkiyet hakkına saygı göstermektir."
+    },
+    {
+      "stem": "Bir ev hanesi ne kadar çöp ürettiğini azaltmak isterse ilk adım ne olabilir?",
+      "options": ["Gereksiz alışverişi azaltmak ve yeniden kullanılabilir ürünleri tercih etmek", "Çöpleri daha büyük torbalara koymak", "Çöp kutularını sık sık boşaltmak", "Daha fazla ürün satın almak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Atık Azaltma",
+      "skills": ["sıfır atık", "çevre"],
+      "explanation": "Atık azaltmanın ilk basamağı 'reddetmek' (reduce) ve gereksiz tüketimi önlemektir."
+    },
+    {
+      "stem": "Bir öğrenci arkadaşının not defterini izinsiz paylaşma platformuna yüklüyor. Bu durum etik açıdan neden sorunludur?",
+      "options": ["Arkadaşının izni olmadan emeklerini paylaşmak fikri mülkiyet hakkını ihlal eder.", "Yalnızca kopyacılık sorunudur.", "Paylaşma iyi bir şeydir, sorun yoktur.", "Yalnızca okul kuralı açısından sorunludur."],
+      "answerIndex": 0,
+      "difficulty": 3,
+      "topic": "Fikri Mülkiyet ve Etik",
+      "skills": ["fikri mülkiyet hakkı", "dijital etik"],
+      "explanation": "Birisinin emeğini izinsiz paylaşmak onun telif ve kişisel haklarını ihlal eder; dijital ortamda da etik kurallar geçerlidir."
+    },
+    {
+      "stem": "Türk kültüründe 'sözde durma' neden önemli bir değerdir?",
+      "options": ["Güveni pekiştirir, kişinin itibarını ve toplumsal ilişkilerini güçlendirir.", "Yalnızca hukuki bir yükümlülüktür.", "Yalnızca büyüklere karşı yerine getirilmesi gerekir.", "Yalnızca ticari anlaşmalarda önemlidir."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Güvenilirlik",
+      "skills": ["söz tutmak", "güven"],
+      "explanation": "Söz tutmak güvenilirliğin ve onurun göstergesidir; hem kişisel hem toplumsal ilişkilerin sağlıklı yürümesini sağlar."
+    },
+    {
+      "stem": "Türkiye'de temel eğitim kaç yıldır?",
+      "options": ["8 yıl (ilkokul 4 + ortaokul 4)", "6 yıl", "10 yıl", "12 yıl"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Eğitim Sistemi",
+      "skills": ["eğitim sistemi", "zorunlu eğitim"],
+      "explanation": "Türkiye'de ilkokul 4 yıl ve ortaokul 4 yıl olmak üzere zorunlu temel eğitim 8 yıldır. (Liseyle birlikte 12 yıl zorunlu eğitim uygulanmaktadır.)"
+    },
+    {
+      "stem": "Bir öğrenci sınıfta arkadaşlarına yardım ederek notlarını yükseltmesine katkı sağlıyor. Bu davranış hangi değeri yansıtır?",
+      "options": ["Dayanışma ve paylaşımcılık", "Rekabet", "Bencillik", "Kibir"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Değerler - Dayanışma",
+      "skills": ["dayanışma", "paylaşım"],
+      "explanation": "Arkadaşının başarısına katkı sağlamak dayanışmayı ve paylaşımcılığı yansıtır."
+    },
+    {
+      "stem": "Türkiye'nin hangi bölgesinde Kapadokya yer alır?",
+      "options": ["İç Anadolu", "Ege", "Akdeniz", "Marmara"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Türkiye Coğrafyası - Bölgeler",
+      "skills": ["bölge bilgisi", "coğrafya"],
+      "explanation": "Kapadokya, İç Anadolu Bölgesi'nde Nevşehir ve çevresinde yer alan doğal ve tarihi bir bölgedir."
+    },
+    {
+      "stem": "Bir çocuk kendi kültürel geleneklerini öğrenirken başka bir kültürün geleneklerine de saygı duyuyor. Bu tutum ne anlama gelir?",
+      "options": ["Kültürel çeşitliliğe saygı", "Kendi kültürünü küçümseme", "Asimilasyon", "Kültürel çatışma"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Kültürlerarası Saygı",
+      "skills": ["kültürel çeşitlilik", "hoşgörü"],
+      "explanation": "Hem kendi kültürünü değerlemek hem de başka kültürlere saygı göstermek kültürel çeşitliliğe saygının en güzel ifadesidir."
+    }
+  ]
+}

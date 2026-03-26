@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "ing",
+  "questions": [
+    {
+      "stem": "İngilizcede 'arm' ne anlama gelir?",
+      "options": ["Bacak", "Kol", "Omuz", "Dirsek"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Vücut bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Arm = kol."
+    },
+    {
+      "stem": "'Leg' ne anlama gelir?",
+      "options": ["Kol", "Ayak", "Bacak", "Diz"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Vücut bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Leg = bacak."
+    },
+    {
+      "stem": "İngilizcede 'shoulder' ne anlama gelir?",
+      "options": ["Dirsek", "Bilek", "Omuz", "Bel"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Vücut bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Shoulder = omuz."
+    },
+    {
+      "stem": "'Knee' ne anlama gelir?",
+      "options": ["Ayak bileği", "Diz", "Baldır", "Kalça"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Vücut bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Knee = diz."
+    },
+    {
+      "stem": "İngilizcede 'back' (vücut) ne anlama gelir?",
+      "options": ["Göğüs", "Karın", "Sırt", "Boyun"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Vücut bölümleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Back = sırt."
+    },
+    {
+      "stem": "'I have a headache.' ne anlama gelir?",
+      "options": ["Midem ağrıyor.", "Başım ağrıyor.", "Kolum kırık.", "Yorgunum."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Hastalıklar",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'Headache' = baş ağrısı. 'I have a headache.' → 'Başım ağrıyor.'"
+    },
+    {
+      "stem": "İngilizcede 'I have a cold.' ne anlama gelir?",
+      "options": ["Soğuk içecek içiyorum.", "Soğuk algınlığım var.", "Üşüyorum.", "Donuyorum."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Hastalıklar",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'I have a cold.' → 'Soğuk algınlığım var / Nezle oldum.'"
+    },
+    {
+      "stem": "'I have a stomachache.' ne anlama gelir?",
+      "options": ["Başım ağrıyor.", "Dişim ağrıyor.", "Midem ağrıyor.", "Boğazım ağrıyor."],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Hastalıklar",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'Stomachache' = mide ağrısı. 'I have a stomachache.' → 'Midem ağrıyor.'"
+    },
+    {
+      "stem": "İngilizcede 'medicine' ne anlama gelir?",
+      "options": ["Doktor", "Hastane", "İlaç", "Eczane"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Sağlık",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Medicine = ilaç."
+    },
+    {
+      "stem": "'You should see a doctor.' ne anlama gelir?",
+      "options": ["Doktora gitme.", "Doktora gitmelisin.", "Doktor gelecek.", "Doktoru seviyorum."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Tavsiye ifadeleri",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'Should' tavsiye bildirir. 'You should see a doctor.' → 'Doktora gitmelisin.'"
+    },
+    {
+      "stem": "İngilizcede 'shopping' ne anlama gelir?",
+      "options": ["Pişirmek", "Alışveriş yapmak", "Koşmak", "Temizlemek"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Alışveriş",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Shopping = alışveriş yapmak."
+    },
+    {
+      "stem": "'How much is it?' ne sormaktadır?",
+      "options": ["Rengi ne?", "Kaç tane var?", "Fiyatı ne kadar?", "Nerede?"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Alışveriş",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'How much is it?' → 'Fiyatı ne kadar? / Kaç para?'"
+    },
+    {
+      "stem": "İngilizcede 'expensive' ne anlama gelir?",
+      "options": ["Ucuz", "Pahalı", "Ücretsiz", "İndirimli"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Alışveriş",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Expensive = pahalı."
+    },
+    {
+      "stem": "'Cheap' ne anlama gelir?",
+      "options": ["Pahalı", "Ücretsiz", "Ucuz", "İndirimli"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Alışveriş",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Cheap = ucuz."
+    },
+    {
+      "stem": "İngilizcede 'free' (fiyat anlamında) ne anlama gelir?",
+      "options": ["Pahalı", "Ucuz", "Ücretsiz", "İndirimli"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Alışveriş",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Free (fiyat) = ücretsiz, bedava."
+    },
+    {
+      "stem": "'I'd like a glass of water, please.' ne anlama gelir?",
+      "options": ["Bir bardak su istiyorum, lütfen.", "Su içebilir miyim?", "Su var mı?", "Suyum bitti."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Restoran/Kafeterya ifadeleri",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'I'd like…' = istiyorum (nazik sipariş). 'I'd like a glass of water.' → 'Bir bardak su istiyorum.'"
+    },
+    {
+      "stem": "İngilizcede 'menu' ne anlama gelir?",
+      "options": ["Servis", "Menü", "Hesap", "Rezervasyon"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Restoran ifadeleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Menu = menü, yemek listesi."
+    },
+    {
+      "stem": "'The bill, please.' ne anlama gelir?",
+      "options": ["Menüyü getirir misiniz?", "Hesabı getirir misiniz, lütfen?", "Sipariş vermek istiyorum.", "Teşekkür ederim."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Restoran ifadeleri",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'The bill, please.' → 'Hesabı getirin / Hesap, lütfen.'"
+    },
+    {
+      "stem": "İngilizcede 'sunny side up' yerine daha sık kullanılan, yumuşak pişirilmiş yumurta anlamına gelen ifade hangisidir?",
+      "options": ["Scrambled eggs", "Fried egg", "Boiled egg", "Poached egg"],
+      "answerIndex": 1,
+      "difficulty": 3,
+      "topic": "Yiyecekler",
+      "skills": ["İleri kelime bilgisi"],
+      "explanation": "Fried egg = sahanda yumurta (kızartılmış). Scrambled = çırpılmış; boiled = haşlanmış; poached = demlenerek pişirilmiş."
+    },
+    {
+      "stem": "İngilizcede 'I am wearing a red shirt.' ne anlama gelir?",
+      "options": ["Kırmızı bir gömleklik aldım.", "Kırmızı bir gömlek giyiyorum.", "Kırmızı gömleği seviyorum.", "Kırmızı gömleğim yok."],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Kıyafetler",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'Wear' = giymek. 'I am wearing a red shirt.' → 'Kırmızı bir gömlek giyiyorum.'"
+    },
+    {
+      "stem": "'T-shirt' ne anlama gelir?",
+      "options": ["Pantolon", "Etek", "Tişört", "Mont"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Kıyafetler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "T-shirt = tişört."
+    },
+    {
+      "stem": "İngilizcede 'trousers / pants' ne anlama gelir?",
+      "options": ["Şort", "Pantolon", "Etek", "Ceket"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Kıyafetler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Trousers (BrE) / pants (AmE) = pantolon."
+    },
+    {
+      "stem": "'Dress' ne anlama gelir?",
+      "options": ["Ceket", "Etek", "Elbise", "Bluz"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Kıyafetler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Dress = elbise."
+    },
+    {
+      "stem": "İngilizcede 'shoes' ne anlama gelir?",
+      "options": ["Çorap", "Bot", "Sandalet", "Ayakkabı"],
+      "answerIndex": 3,
+      "difficulty": 1,
+      "topic": "Kıyafetler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Shoes = ayakkabı."
+    },
+    {
+      "stem": "'Hat' ne anlama gelir?",
+      "options": ["Atkı", "Eldiven", "Şapka", "Bere"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Kıyafetler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Hat = şapka (genellikle kenarlıklı)."
+    },
+    {
+      "stem": "İngilizcede 'scarf' ne anlama gelir?",
+      "options": ["Eldiven", "Şapka", "Atkı/Eşarp", "Bere"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Kıyafetler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Scarf = atkı, eşarp."
+    },
+    {
+      "stem": "'Jacket' ne anlama gelir?",
+      "options": ["Kazak", "Elbise", "Ceket/Mont", "Yelek"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Kıyafetler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Jacket = ceket, kısa mont."
+    },
+    {
+      "stem": "İngilizcede 'watermelon' ne anlama gelir?",
+      "options": ["Kavun", "Karpuz", "Limon", "Erik"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Meyveler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Watermelon = karpuz."
+    },
+    {
+      "stem": "'Melon' ne anlama gelir?",
+      "options": ["Karpuz", "Kavun", "Üzüm", "Şeftali"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Meyveler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Melon = kavun."
+    },
+    {
+      "stem": "İngilizcede 'pear' ne anlama gelir?",
+      "options": ["Elma", "Armut", "Şeftali", "Kiraz"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Meyveler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Pear = armut."
+    },
+    {
+      "stem": "'Cherry' ne anlama gelir?",
+      "options": ["Çilek", "Erik", "Kiraz", "Vişne"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Meyveler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Cherry = kiraz (veya vişne)."
+    },
+    {
+      "stem": "İngilizcede 'cucumber' ne anlama gelir?",
+      "options": ["Domates", "Salatalık", "Biber", "Patlıcan"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Sebzeler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Cucumber = salatalık."
+    },
+    {
+      "stem": "'Pepper' (sebze olarak) ne anlama gelir?",
+      "options": ["Domates", "Patlıcan", "Biber", "Soğan"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Sebzeler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Pepper = biber (sebze); ayrıca karabiber (baharat) anlamına da gelir."
+    },
+    {
+      "stem": "İngilizcede 'onion' ne anlama gelir?",
+      "options": ["Sarımsak", "Pırasa", "Soğan", "Kabak"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Sebzeler",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Onion = soğan."
+    },
+    {
+      "stem": "'Corn' ne anlama gelir?",
+      "options": ["Pirinç", "Buğday", "Mısır", "Arpa"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Sebzeler/Tahıllar",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Corn = mısır."
+    },
+    {
+      "stem": "İngilizcede 'This is my family.' ne anlama gelir?",
+      "options": ["Bu benim arkadaşım.", "Bu benim ailem.", "Bu benim sınıfım.", "Bunlar benim kitaplarım."],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Aile",
+      "skills": ["Temel dil bilgisi"],
+      "explanation": "'This is my family.' → 'Bu benim ailem.'"
+    },
+    {
+      "stem": "'I love my family.' ne anlama gelir?",
+      "options": ["Ailem büyük.", "Ailemi çok seviyorum.", "Ailem evde.", "Ailem mutlu."],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Aile",
+      "skills": ["Günlük ifadeler"],
+      "explanation": "'I love…' = çok seviyorum. 'I love my family.' → 'Ailemi çok seviyorum.'"
+    },
+    {
+      "stem": "İngilizcede 'uncle' ne anlama gelir?",
+      "options": ["Dayı/Amca", "Teyze/Hala", "Kuzen", "Yeğen"],
+      "answerIndex": 0,
+      "difficulty": 1,
+      "topic": "Aile üyeleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Uncle = dayı veya amca (İngilizcede her ikisi için de kullanılır)."
+    },
+    {
+      "stem": "'Aunt' ne anlama gelir?",
+      "options": ["Amca", "Teyze/Hala", "Büyükanne", "Kuzen"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Aile üyeleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Aunt = teyze veya hala."
+    },
+    {
+      "stem": "İngilizcede 'cousin' ne anlama gelir?",
+      "options": ["Yeğen", "Kardeş", "Kuzen", "Torun"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Aile üyeleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Cousin = kuzen (amca/dayı/teyze/hala çocuğu)."
+    },
+    {
+      "stem": "'Grandmother' ne anlama gelir?",
+      "options": ["Büyükbaba", "Büyükanne", "Anne", "Hala"],
+      "answerIndex": 1,
+      "difficulty": 1,
+      "topic": "Aile üyeleri",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "Grandmother = büyükanne."
+    },
+    {
+      "stem": "İngilizcede 'I am from Turkey. I speak Turkish.' cümlesinde 'Turkish' ne anlama gelir?",
+      "options": ["Türkiye", "Türk (kişi)", "Türkçe (dil)", "Türk (sıfat)"],
+      "answerIndex": 2,
+      "difficulty": 2,
+      "topic": "Diller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "'I speak Turkish.' bağlamında Turkish = Türkçe dili anlamına gelir."
+    },
+    {
+      "stem": "'English' (dil olarak) ne anlama gelir?",
+      "options": ["İngiliz (kişi)", "İngilizce (dil)", "İngiltere", "İngiliz (sıfat)"],
+      "answerIndex": 1,
+      "difficulty": 2,
+      "topic": "Diller",
+      "skills": ["Temel kelime bilgisi"],
+      "explanation": "'I speak English.' bağlamında English = İngilizce dili."
+    },
+    {
+      "stem": "İngilizcede 'Good luck!' ne anlama gelir?",
+      "options": ["İyi geceler!", "İyi tatiller!", "Bol şans!", "İyi günler!"],
+      "answerIndex": 2,
+      "difficulty": 1,
+      "topic": "Günlük ifadeler",
+      "skills": ["Nezaket ifadeleri"],
+      "explanation": "'Good luck!' → 'Bol şans! / Başarılar!'"
+    }
+  ]
+}

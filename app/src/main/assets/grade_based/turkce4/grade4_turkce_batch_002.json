@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "mode": "GENERAL",
+  "subject": "turkce",
+  "questions": [
+    {
+      "stem": "Türkçede kişi zamiri 'onlar' cümlede hangi işlevi üstlenir?",
+      "options": ["Üçüncü çoğul kişi zamiri olarak özne görevini yapar", "Belirtisiz nesne olur", "Zarf olur", "Sıfat olur"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zamirler",
+      "skills": ["zamir bilgisi"],
+      "explanation": "'Onlar' üçüncü çoğul kişi zamiridir; cümlede özne görevi üstlenir. Örnek: 'Onlar yarın geliyor.'"
+    },
+    {
+      "stem": "Aşağıdaki cümlelerden hangisinde 'kişileştirme (teşhis)' söz sanatı kullanılmıştır?",
+      "options": ["Rüzgâr hüzünle fısıldıyordu.", "Hava soğuktu.", "Ali koştu.", "Araba hızlandı."],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Söz sanatları",
+      "skills": ["kişileştirme"],
+      "explanation": "Kişileştirme: İnsan dışındaki varlıklara insan özellikleri yüklenmesidir. 'Rüzgâr hüzünle fısıldadı' → rüzgâr kişileştirilmiştir."
+    },
+    {
+      "stem": "Türkçede bir sözcüğün kökü ile eklerinin doğru ayrılması neye yarar?",
+      "options": ["Sözcüğün yapısını ve türünü anlamaya yardımcı olur", "Yalnızca imlâ için önemlidir", "Şiir yazmak için gereklidir", "Hız okuma için gereklidir"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Sözcük yapısı",
+      "skills": ["kök-ek analizi"],
+      "explanation": "Kök-ek analizi; sözcüğün hangi kelimeden türediğini, ne anlam kattığını ve gramer işlevini anlamamızı sağlar."
+    },
+    {
+      "stem": "Aşağıdaki cümlede hangi sözcük 'bağlaç' görevindedir? 'Hem çok çalıştı hem de başardı.'",
+      "options": ["hem...hem de", "çalıştı", "başardı", "çok"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bağlaçlar",
+      "skills": ["bağlaç tanıma"],
+      "explanation": "'Hem...hem de' bağlacı iki eylemi birbirine eşit düzeyde bağlar."
+    },
+    {
+      "stem": "'Yılmaz iş hayatında yenilgiye uğradı ama pes etmedi.' cümlesinde 'ama' bağlacının işlevi nedir?",
+      "options": ["Karşıtlık ilişkisi kurar", "Sebep-sonuç ilişkisi kurar", "Sıralama yapar", "Açıklama yapar"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Bağlaçlar",
+      "skills": ["anlam ilişkisi"],
+      "explanation": "'Ama' zıtlık bildiren bağlaçtır; yenilgi ve pes etmeme arasındaki karşıtlığı gösterir."
+    },
+    {
+      "stem": "Türkçede '-dan beri' ifadesi hangi anlamı taşır?",
+      "options": ["Bir başlangıç noktasından bugüne kadar süren zaman", "Geleceğe yönelik plan", "Geçmişte tamamlanan eylem", "Koşul bildiren yapı"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Zaman ifadeleri",
+      "skills": ["dil bilgisi"],
+      "explanation": "'-dan beri': Belirli bir başlangıç noktasından bu yana geçen süreyi ifade eder. 'Sabahtan beri bekliyorum.'"
+    },
+    {
+      "stem": "'İki gözüm' deyimi aşağıdakilerden hangisi anlamında kullanılır?",
+      "options": ["Çok sevilen, çok değer verilen kişi", "İki ayrı şeye bakan kişi", "Gözleri iki tane olan varlık", "İki göz yapısı olan ev"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Deyimler",
+      "skills": ["deyim anlamı"],
+      "explanation": "'İki gözüm': Çok sevilen, pek değer verilen biri için kullanılan sevgi ifadesidir."
+    },
+    {
+      "stem": "Bir metni okurken 'tahmin yürütme' (kestirim) stratejisi ne demektir?",
+      "options": ["Metni okumadan önce veya okurken içeriğe dair olası gelişmeleri tahmin etmek", "Metnin başlığını okumak", "Son paragrafı okumak", "Yazar adına bakmak"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Okuma stratejileri",
+      "skills": ["tahmin yürütme"],
+      "explanation": "Tahmin yürütme: Başlık, görseller veya okunmuş kısımlardan yola çıkarak metnin devamını tahmin etmektir."
+    },
+    {
+      "stem": "Türkçede zaman bildiren bir cümlede eylem 'gelecektir' ya da 'gelecek' biçimindeyse bu hangi zaman kipidir?",
+      "options": ["Gelecek zaman (-acak/-ecek)", "Geniş zaman", "Şimdiki zaman", "Geçmiş zaman"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Fiil zamanları",
+      "skills": ["kip bilgisi"],
+      "explanation": "'-acak/-ecek' gelecek zaman ekidir. 'Gelecek' → 'gel-ecek' (3. tekil şahıs gelecek zaman)."
+    },
+    {
+      "stem": "Bir anlatı metninde 'çatışma' (çatışma unsuru) nedir?",
+      "options": ["Karakterin karşılaştığı engel ya da çözülmesi gereken problem", "İki karakterin kavgası", "Metnin sonu", "Mekânın değişmesi"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin analizi",
+      "skills": ["hikâye unsurları"],
+      "explanation": "Çatışma: Hikâyede kahramanın hedefine ulaşmasını engelleyen sorun ya da karşıt güçtür; olayları ilerletir."
+    },
+    {
+      "stem": "Türkçede '-ca/-ce' eki nelere geldiğinde karşılaştırma anlamı taşır?",
+      "options": ["İsimlere: 'Türkçe', 'Fransızca', 'bence' gibi dil/görüş bildiren yapılarda", "Yalnızca fiillere", "Yalnızca sıfatlara", "Yalnızca zarflara"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Yapım ekleri",
+      "skills": ["ek işlevi"],
+      "explanation": "'-ca/-ce' eki dil adı, ölçü ve görüş bildirmek için kullanılır. 'Türkçe', 'bence' gibi örneklerde görülür."
+    },
+    {
+      "stem": "Aşağıdakilerden hangisi 'kısa hikâye' (öykü) türünün temel özelliğidir?",
+      "options": ["Tek bir olay ya da kısa bir zaman dilimini kapsayan, az sayıda karakter içeren anlatı", "Uzun zaman dilimini kapsayan, çok sayıda karakter içeren", "Bilimsel verilere dayanan metin", "Şiirsel dil kullanan metin"],
+      "answerIndex": 0,
+      "difficulty": 2,
+      "topic": "Metin türleri",
+      "skills": ["tür özellikleri"],
+      "explanation": "Öykü (kısa hikâye): Dar bir zaman ve mekânda, az sayıda karakterle tek bir olayı yoğun biçimde anlatan anlatı türüdür."
+    }
+  ]
+}
