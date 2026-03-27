@@ -130,6 +130,11 @@
             android:configChanges="orientation|screenSize|screenLayout" />
 
         <activity
+            android:name=".quiz.WrongPoolActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+
+        <activity
             android:name=".quiz.QuizResultActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|screenLayout" />

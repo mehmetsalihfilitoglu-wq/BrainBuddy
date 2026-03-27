@@ -29,6 +29,7 @@ class QuestionRepository(private val context: Context) {
 
     private val roomStore = RoomQuizDataStore(context)
     private val wrongQuestionStore = WrongQuestionStore(context)
+    private val wrongQuestionPoolStore = WrongQuestionPoolStore(context)
 
     /**
      * Debug counters for quiz builders (grade-based picker primarily).
@@ -1116,6 +1117,7 @@ class QuestionRepository(private val context: Context) {
             } else {
                 wrongQuestionStore.recordWrong(a.questionId, q?.subject?.tr ?: "Diğer")
             }
+            wrongQuestionPoolStore.applyAnswer(a)
         }
     }
 

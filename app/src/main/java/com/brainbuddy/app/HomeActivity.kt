@@ -2,6 +2,7 @@ package com.brainbuddy.app
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -13,6 +14,8 @@ import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.league.LeagueStore
+import com.brainbuddy.app.quiz.WrongPoolActivity
+import com.brainbuddy.app.quiz.WrongQuestionPoolStore
 import com.brainbuddy.app.ui.GrowthHubActivity
 import com.brainbuddy.app.ui.StudentProfileActivity
 import com.brainbuddy.app.ui.StudyHubActivity
@@ -23,6 +26,12 @@ import java.util.concurrent.TimeUnit
 class HomeActivity : AppCompatActivity() {
 
     private var contentSet = false
+
+    private fun updateWrongPoolCardVisibility() {
+        val pool = WrongQuestionPoolStore(this)
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool).visibility =
+            if (pool.isNotEmpty()) View.VISIBLE else View.GONE
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,6 +91,11 @@ class HomeActivity : AppCompatActivity() {
         progress.max = 1
         progress.progress = if (sessionsToday >= 1) 1 else 0
 
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool).setOnClickListener {
+            startActivity(Intent(this, WrongPoolActivity::class.java))
+        }
+        updateWrongPoolCardVisibility()
+
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardCalis).setOnClickListener {
             startActivity(Intent(this, StudyHubActivity::class.java))
         }
@@ -121,5 +135,7 @@ class HomeActivity : AppCompatActivity() {
 
         val wiseCoach = WiseCoachGreeting(this, GamificationStore(this), AnalyticsStore(this), LeagueStore(this))
         findViewById<android.widget.TextView>(R.id.greeting)?.text = wiseCoach.getGreeting()
+
+        updateWrongPoolCardVisibility()
     }
 }

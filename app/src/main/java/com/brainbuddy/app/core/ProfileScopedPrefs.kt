@@ -33,6 +33,10 @@ object ProfileScopedPrefs {
     fun wrongQuestion(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_wrong_question_store", migrationKey = "wrong_question_v1")
 
+    /** Dedicated wrong-question pool (Yanlışlarını Çöz) — separate from test generation. */
+    fun wrongQuestionPool(context: Context): SharedPreferences =
+        profilePrefsWithMigration(context, baseName = "bb_wrong_question_pool", migrationKey = "wrong_question_pool_v1")
+
     /** Wrong-question scheduler: spacing by completed tests (wrongPool + completedTests). */
     fun wrongScheduler(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_wrong_scheduler", migrationKey = "wrong_scheduler_v1")
