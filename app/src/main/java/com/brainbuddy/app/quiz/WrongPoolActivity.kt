@@ -15,6 +15,8 @@ import kotlinx.coroutines.withContext
 /**
  * Standalone mode: solve only questions in [WrongQuestionPoolStore] until the pool is empty or the user leaves.
  * Not gated; not normal test generation; no fixed test size.
+ *
+ * [getQuestionById] only returns **active** questions (DB `isActive = 1`); missing/inactive IDs are dropped from pool+queue.
  */
 class WrongPoolActivity : AppCompatActivity() {
 
@@ -78,72 +80,85 @@ class WrongPoolActivity : AppCompatActivity() {
         queue.addAll(missing.shuffled())
     }
 
+    /**
+     * Bounded iteration instead of recursion: stale / inactive / missing question IDs are stripped without stack overflow.
+     */
     private fun showCurrentQuestion() {
-        pruneQueueToPool()
-        if (queue.isEmpty() || poolStore.isEmpty()) {
-            Toast.makeText(this, R.string.wrong_pool_all_done, Toast.LENGTH_LONG).show()
-            finish()
-            return
-        }
+        val maxPasses = (queue.size + poolStore.size()).coerceAtLeast(1) * 4 + 48
+        var passes = 0
+        while (passes < maxPasses) {
+            passes++
+            pruneQueueToPool()
+            if (queue.isEmpty() || poolStore.isEmpty()) {
+                Toast.makeText(this, R.string.wrong_pool_all_done, Toast.LENGTH_LONG).show()
+                finish()
+                return
+            }
 
-        val qid = queue[0]
-        val q = repo.getQuestionById(qid)
-        if (q == null) {
-            poolStore.remove(qid)
-            queue.remove(qid)
-            showCurrentQuestion()
-            return
-        }
-        currentQuestion = q
-        b.subjectChip.text = getString(R.string.wrong_pool_mode_chip)
-        b.progressText.text = getString(R.string.wrong_pool_remaining, poolStore.size())
-        b.questionText.text = q.stem
+            val qid = queue[0]
+            val q = repo.getQuestionById(qid)
+            if (q == null) {
+                poolStore.remove(qid)
+                queue.remove(qid)
+                continue
+            }
 
-        if (!q.imageAsset.isNullOrBlank()) {
-            val path = q.imageAsset!!.trim()
-            try {
-                assets.open(path).use { stream ->
-                    val bitmap = BitmapFactory.decodeStream(stream)
-                    if (bitmap != null) {
-                        b.questionImage.setImageBitmap(bitmap)
-                        b.questionImage.visibility = View.VISIBLE
-                    } else {
-                        b.questionImage.visibility = View.GONE
+            answers.clear()
+            currentQuestion = q
+            b.subjectChip.text = getString(R.string.wrong_pool_mode_chip)
+            b.progressText.text = getString(R.string.wrong_pool_remaining, poolStore.size())
+            b.questionText.text = q.stem
+
+            if (!q.imageAsset.isNullOrBlank()) {
+                val path = q.imageAsset!!.trim()
+                try {
+                    assets.open(path).use { stream ->
+                        val bitmap = BitmapFactory.decodeStream(stream)
+                        if (bitmap != null) {
+                            b.questionImage.setImageBitmap(bitmap)
+                            b.questionImage.visibility = View.VISIBLE
+                        } else {
+                            b.questionImage.visibility = View.GONE
+                        }
                     }
+                } catch (_: Exception) {
+                    b.questionImage.visibility = View.GONE
                 }
-            } catch (_: Exception) {
+            } else {
                 b.questionImage.visibility = View.GONE
             }
-        } else {
-            b.questionImage.visibility = View.GONE
-        }
 
-        b.optA.text = q.choices.getOrNull(0) ?: "-"
-        b.optB.text = q.choices.getOrNull(1) ?: "-"
-        b.optC.text = q.choices.getOrNull(2) ?: "-"
-        b.optD.text = q.choices.getOrNull(3) ?: "-"
+            b.optA.text = q.choices.getOrNull(0) ?: "-"
+            b.optB.text = q.choices.getOrNull(1) ?: "-"
+            b.optC.text = q.choices.getOrNull(2) ?: "-"
+            b.optD.text = q.choices.getOrNull(3) ?: "-"
 
-        b.optionsGroup.clearCheck()
-        b.optionsGroup.setOnCheckedChangeListener { _, checkedId ->
-            val cq = currentQuestion ?: return@setOnCheckedChangeListener
-            val sel = when (checkedId) {
-                b.optA.id -> 0
-                b.optB.id -> 1
-                b.optC.id -> 2
-                b.optD.id -> 3
-                else -> -1
+            b.optionsGroup.clearCheck()
+            b.optionsGroup.setOnCheckedChangeListener { _, checkedId ->
+                val cq = currentQuestion ?: return@setOnCheckedChangeListener
+                val sel = when (checkedId) {
+                    b.optA.id -> 0
+                    b.optB.id -> 1
+                    b.optC.id -> 2
+                    b.optD.id -> 3
+                    else -> -1
+                }
+                if (sel >= 0) answers[cq.id] = sel
             }
-            if (sel >= 0) answers[cq.id] = sel
+
+            b.feedbackText.visibility = View.GONE
+            b.nextBtn.isEnabled = true
+            b.nextBtn.text = getString(R.string.wrong_pool_submit)
+            b.optionsGroup.visibility = View.VISIBLE
+            b.optA.visibility = View.VISIBLE
+            b.optB.visibility = View.VISIBLE
+            b.optC.visibility = View.VISIBLE
+            b.optD.visibility = View.VISIBLE
+            return
         }
 
-        b.feedbackText.visibility = View.GONE
-        b.nextBtn.isEnabled = true
-        b.nextBtn.text = getString(R.string.wrong_pool_submit)
-        b.optionsGroup.visibility = View.VISIBLE
-        b.optA.visibility = View.VISIBLE
-        b.optB.visibility = View.VISIBLE
-        b.optC.visibility = View.VISIBLE
-        b.optD.visibility = View.VISIBLE
+        Toast.makeText(this, R.string.wrong_pool_empty, Toast.LENGTH_SHORT).show()
+        finish()
     }
 
     private fun onSubmitAnswer() {
