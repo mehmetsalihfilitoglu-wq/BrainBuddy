@@ -263,6 +263,9 @@ class QuizActivity : AppCompatActivity() {
             }
             withContext(Dispatchers.Main) {
                 questions = result.questions
+                savedInstanceState?.getInt("quiz_index", -1)?.takeIf { it >= 0 && questions.isNotEmpty() }?.let { saved ->
+                    index = saved.coerceIn(0, questions.lastIndex)
+                }
                 poolDebug = result.poolDebug
                 pickerDebugPath = result.pickerDebugPath
                 debugWrongUsed = result.debugWrongUsed
@@ -875,9 +878,11 @@ class QuizActivity : AppCompatActivity() {
             )
             val protectionPrefs = ProtectionPrefs(this@QuizActivity)
             val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
-            if (passed && (isGateMode || isRetryOfLockedQuiz || isRemedial)) {
+            // Remedial-only pass must NOT unlock blocked apps or clear gate retry state (StudyHub / coach practice).
+            if (passed && (isGateMode || isRetryOfLockedQuiz)) {
                 com.brainbuddy.app.gate.GateManager.onGatePassed(this@QuizActivity, blockedPkg)
                 com.brainbuddy.app.core.QuizRetryPolicy(this@QuizActivity).onPass()
+                protectionPrefs.clearLastFailedGateSession()
             }
             val passedBossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
             if (passed && passedBossLevel > 0) {
