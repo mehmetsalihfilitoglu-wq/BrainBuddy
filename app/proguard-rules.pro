@@ -1,21 +1,17 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# BrainBuddy release — R8 / ProGuard (minify enabled)
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Stack traces: keep line numbers (file name hidden)
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Play Services Ads references API 35+ optional media APIs; not present on older compile SDK / stubs.
+# AGP writes these to build/outputs/mapping/release/missing_rules.txt when R8 fails.
+-dontwarn android.media.LoudnessCodecController
+-dontwarn android.media.LoudnessCodecController$OnLoudnessCodecUpdateListener
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# --- Room: runtime ships consumer rules; keep annotations for Kotlin metadata edge cases ---
+-keepattributes Signature
+-keepattributes *Annotation*
+
+# --- WorkManager: workers are referenced by class; library consumer rules usually suffice ---
+# If a worker fails to instantiate at runtime, add explicit -keep for that Worker subclass.
