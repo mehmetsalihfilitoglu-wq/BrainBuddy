@@ -11,8 +11,11 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.StatsRepository
 import com.brainbuddy.app.core.GamificationStore
+import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
+import com.brainbuddy.app.core.RetryUnlockStore
 import com.brainbuddy.app.core.TestPerformance
 import com.brainbuddy.app.core.TopicCounts
 import com.brainbuddy.app.league.LeagueScoring
@@ -209,7 +212,7 @@ class QuizResultActivity : AppCompatActivity() {
             System.currentTimeMillis(), s.correctCount, s.totalCount, xpEarned
         ))
 
-        if (s.totalCount == com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+        if (s.totalCount >= com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
             val leagueStore = LeagueStore(this)
             val testIndexOfDay = leagueStore.getTestsCompletedToday()
             val isGateFailForLeague = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false) && !s.passed
@@ -276,31 +279,46 @@ class QuizResultActivity : AppCompatActivity() {
         val btnRetryWrong = findViewById<android.widget.Button>(R.id.btnRetryWrong)
         val wrongIds = s.wrongQuestionIds
         val isFailedScreen = isGateMode && !s.passed
-        if (wrongIds.isEmpty() || isFailedScreen) {
-            wrongSection.visibility = View.GONE
-            btnRetryWrong.visibility = View.GONE
-        } else {
-            wrongSection.visibility = View.VISIBLE
-            btnRetryWrong.visibility = View.VISIBLE
-            showWrongAnswers(s, wrongIds)
-        }
-
-        btnRetryWrong.setOnClickListener {
-            startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
-                putStringArrayListExtra(WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
-                putExtra(WrongAnswerReviewActivity.EXTRA_SESSION_JSON, encodeSession(s))
-            })
+        when {
+            wrongIds.isEmpty() -> {
+                wrongSection.visibility = View.GONE
+                btnRetryWrong.visibility = View.GONE
+            }
+            isFailedScreen -> {
+                wrongSection.visibility = View.GONE
+                btnRetryWrong.visibility = View.VISIBLE
+                btnRetryWrong.setText(R.string.wrong_review_btn_show_detail)
+                btnRetryWrong.setOnClickListener {
+                    startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
+                        putStringArrayListExtra(WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
+                        putExtra(WrongAnswerReviewActivity.EXTRA_SESSION_JSON, encodeSession(s))
+                        putExtra(WrongAnswerReviewActivity.EXTRA_GATE_FAIL_REVIEW, true)
+                    })
+                }
+            }
+            else -> {
+                wrongSection.visibility = View.VISIBLE
+                btnRetryWrong.visibility = View.VISIBLE
+                showWrongAnswers(s, wrongIds)
+                btnRetryWrong.setOnClickListener {
+                    startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
+                        putStringArrayListExtra(WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
+                        putExtra(WrongAnswerReviewActivity.EXTRA_SESSION_JSON, encodeSession(s))
+                    })
+                }
+            }
         }
 
         findViewById<android.widget.Button>(R.id.btnRetryTest).setOnClickListener {
             val protectionPrefs = ProtectionPrefs(this)
+            val minQuestions = QuizPrefs(this).questionsPerSession()
             if (protectionPrefs.userLocked() || isGateFail) {
                 val policy = QuizRetryPolicy(this)
                 val qId = protectionPrefs.lastFailedQuizId()
                 val qIds = protectionPrefs.lastFailedQuestionIds()
                 when (policy.getStartMode()) {
                     QuizRetryPolicy.StartMode.REQUIRE_AD -> {
-                        if (qIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+                        if (qIds.size >= minQuestions) {
                             startActivity(Intent(this, QuizRetryAdActivity::class.java).apply {
                                 putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, qId)
                                 putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
@@ -312,7 +330,7 @@ class QuizResultActivity : AppCompatActivity() {
                         }
                     }
                     QuizRetryPolicy.StartMode.WAIT_COOLDOWN -> {
-                        if (qIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+                        if (qIds.size >= minQuestions) {
                             startActivity(Intent(this, QuizCooldownActivity::class.java).apply {
                                 putExtra(QuizCooldownActivity.EXTRA_QUIZ_ID, qId)
                                 putStringArrayListExtra(QuizCooldownActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
@@ -324,15 +342,18 @@ class QuizResultActivity : AppCompatActivity() {
                         }
                     }
                     else -> {
-                        // ALLOW_FREE (premium or cooldown passed) - direct QuizActivity
-                        startActivity(Intent(this, QuizActivity::class.java).apply {
+                        val retryIntent = Intent(this, QuizActivity::class.java).apply {
                             putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                             putExtra(QuizActivity.EXTRA_IS_RETRY, true)
                             putExtra(QuizActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
                             putExtra(QuizActivity.EXTRA_QUIZ_ID, qId)
-                            putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(qIds))
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        })
+                        }
+                        if (!PremiumStore(this).isPremium()) {
+                            val token = RetryUnlockStore(this).createRetryToken(qId, qIds)
+                            retryIntent.putExtra(QuizActivity.EXTRA_RETRY_UNLOCK_TOKEN, token)
+                        }
+                        startActivity(retryIntent)
                     }
                 }
             } else {
