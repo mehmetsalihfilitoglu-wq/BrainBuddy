@@ -4,17 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.brainbuddy.app.LockScreenActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityQuizBinding
 import com.brainbuddy.app.gate.GateManager
-import com.brainbuddy.app.LockScreenActivity
 import ui.MainActivity
 
 /**
- * Single-question retry after watching rewarded ad.
- * If correct: wrongCount-1; if wrongCount < 4, mark PASSED and unlock.
- * Student never sees correct answer.
+ * Legacy single-question screen. Gate unlock cannot be granted from a partial retry; always returns to lock.
  */
 class GateRetrySingleActivity : AppCompatActivity() {
 
@@ -29,19 +27,14 @@ class GateRetrySingleActivity : AppCompatActivity() {
     private lateinit var b: ActivityQuizBinding
     private var question: Question? = null
     private var session: QuizSession? = null
-    private var wrongCount: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(b.root)
 
-        val quizId = intent.getStringExtra(EXTRA_QUIZ_ID) ?: ""
         val questionId = intent.getStringExtra(EXTRA_QUESTION_ID) ?: ""
-        val sessionJson = intent.getStringExtra(EXTRA_SESSION_JSON)
-        session = QuizResultActivity.decodeSession(sessionJson)
-        wrongCount = (session?.wrongCount ?: 4).coerceAtLeast(1)
-
+        session = QuizResultActivity.decodeSession(intent.getStringExtra(EXTRA_SESSION_JSON))
         val questions = QuizResultActivity.decodeQuestions(intent.getStringExtra(EXTRA_QUESTIONS_JSON))
         question = questions.find { it.id == questionId }
 
@@ -57,8 +50,8 @@ class GateRetrySingleActivity : AppCompatActivity() {
             b.nextBtn.setOnClickListener {
                 val i = Intent(this, MainActivity::class.java).apply {
                     flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                            Intent.FLAG_ACTIVITY_NEW_TASK or
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
                 startActivity(i)
                 finish()
@@ -95,40 +88,23 @@ class GateRetrySingleActivity : AppCompatActivity() {
         }
         if (sel < 0) return
 
-        val correct = sel == q.correctIndex
-        val newWrongCount = if (correct) (wrongCount - 1).coerceAtLeast(0) else wrongCount
-
         QuestionRepository(this).recordAnswers(
             listOf(AnswerRecord(q.id, sel, q.correctIndex)),
             mapOf(q.id to q)
         )
 
         val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
-        if (newWrongCount < 4) {
-            GateManager.onGatePassed(this, blockedPkg)
-            val s = session!!
-            val updatedSession = s.copy(
-                correctCount = s.correctCount + if (correct) 1 else 0,
-                wrongCount = newWrongCount,
-                passed = true,
-                wrongQuestionIds = s.wrongQuestionIds - q.id
-            )
-            startActivity(Intent(this, QuizResultActivity::class.java).apply {
-                putExtra(QuizResultActivity.EXTRA_SESSION, QuizResultActivity.encodeSession(updatedSession))
-                putExtra(QuizResultActivity.EXTRA_QUESTIONS_JSON, intent.getStringExtra(EXTRA_QUESTIONS_JSON))
-                putExtra(QuizResultActivity.EXTRA_IS_GATE_MODE, true)
-            })
-        } else {
-            GateManager.onGateFailed(this, blockedPkg)
-            val protectionPrefs = ProtectionPrefs(this)
-            protectionPrefs.setLastFailedWrongIds(session?.wrongQuestionIds ?: emptyList())
-            protectionPrefs.setLastFailedQuizId(session?.quizId ?: "")
-            protectionPrefs.setLastFailedQuestionIds(session?.questionIds ?: emptyList())
-            protectionPrefs.setLastFailedSessionJson(QuizResultActivity.encodeSession(session!!))
-            val qJson = intent.getStringExtra(EXTRA_QUESTIONS_JSON) ?: ""
-            if (qJson.isNotEmpty()) protectionPrefs.setLastFailedQuestionsJson(qJson)
-            startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+        GateManager.onGateFailed(this, blockedPkg)
+        val protectionPrefs = ProtectionPrefs(this)
+        protectionPrefs.setLastFailedWrongIds(session?.wrongQuestionIds ?: emptyList())
+        protectionPrefs.setLastFailedQuizId(session?.quizId ?: "")
+        protectionPrefs.setLastFailedQuestionIds(session?.questionIds ?: emptyList())
+        session?.let {
+            protectionPrefs.setLastFailedSessionJson(QuizResultActivity.encodeSession(it))
         }
+        val qJson = intent.getStringExtra(EXTRA_QUESTIONS_JSON) ?: ""
+        if (qJson.isNotEmpty()) protectionPrefs.setLastFailedQuestionsJson(qJson)
+        startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
         finish()
     }
 }

@@ -1,6 +1,7 @@
 package com.brainbuddy.app.core
 
 import android.content.Context
+import org.json.JSONArray
 
 class ProtectionPrefs(private val context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -174,6 +175,62 @@ class ProtectionPrefs(private val context: Context) {
         prefs.edit().putString(scopedKey, json.take(500000)).apply()
     }
 
+    /**
+     * Ordered wrong-question IDs from the last failed gate quiz (stable order for review).
+     * Ads: up to 3 rewarded unlocks for indices 0..2; remaining indices premium-only.
+     */
+    fun setGateFailReviewState(wrongIdsOrdered: List<String>) {
+        val scopedOrder = profileKey(KEY_GATE_FAIL_REVIEW_WRONG_ORDER_JSON)
+        val scopedAds = profileKey(KEY_GATE_FAIL_REVIEW_ADS_REMAINING)
+        val arr = JSONArray()
+        wrongIdsOrdered.take(500).forEach { arr.put(it) }
+        prefs.edit()
+            .putString(scopedOrder, arr.toString())
+            .putInt(scopedAds, minOf(3, wrongIdsOrdered.size))
+            .apply()
+    }
+
+    fun gateFailReviewWrongIdsOrdered(): List<String> {
+        val scopedOrder = profileKey(KEY_GATE_FAIL_REVIEW_WRONG_ORDER_JSON)
+        val raw = prefs.getString(scopedOrder, null) ?: return emptyList()
+        return try {
+            val arr = JSONArray(raw)
+            (0 until arr.length()).map { arr.getString(it) }
+        } catch (_: Exception) {
+            emptyList()
+        }
+    }
+
+    fun gateFailReviewAdsRemaining(): Int {
+        val scopedAds = profileKey(KEY_GATE_FAIL_REVIEW_ADS_REMAINING)
+        return prefs.getInt(scopedAds, 0).coerceAtLeast(0)
+    }
+
+    /** Returns true if an ad slot was consumed (for first-three wrong review). */
+    fun consumeGateFailReviewAdSlot(): Boolean {
+        val scopedAds = profileKey(KEY_GATE_FAIL_REVIEW_ADS_REMAINING)
+        val cur = prefs.getInt(scopedAds, 0)
+        if (cur <= 0) return false
+        prefs.edit().putInt(scopedAds, cur - 1).apply()
+        return true
+    }
+
+    fun clearGateFailReviewState() {
+        val scopedOrder = profileKey(KEY_GATE_FAIL_REVIEW_WRONG_ORDER_JSON)
+        val scopedAds = profileKey(KEY_GATE_FAIL_REVIEW_ADS_REMAINING)
+        prefs.edit().remove(scopedOrder).remove(scopedAds).apply()
+    }
+
+    /** Clears persisted last-fail metadata and gate review counters (call on gate pass or new gate attempt). */
+    fun clearLastFailedGateSession() {
+        setLastFailedWrongIds(emptyList())
+        setLastFailedQuizId("")
+        setLastFailedQuestionIds(emptyList())
+        setLastFailedSessionJson("")
+        setLastFailedQuestionsJson("")
+        clearGateFailReviewState()
+    }
+
     /** When accessibility is disabled, we lock with this reason. Only Parent PIN can fix. */
     fun permissionDisabledLockReason(): String = prefs.getString(KEY_PERMISSION_LOCK_REASON, "") ?: ""
     fun setPermissionDisabledLockReason(reason: String) = prefs.edit().putString(KEY_PERMISSION_LOCK_REASON, reason).apply()
@@ -192,6 +249,8 @@ class ProtectionPrefs(private val context: Context) {
         private const val KEY_LAST_FAILED_QUESTION_IDS = "last_failed_question_ids"
         private const val KEY_LAST_FAILED_SESSION_JSON = "last_failed_session_json"
         private const val KEY_LAST_FAILED_QUESTIONS_JSON = "last_failed_questions_json"
+        private const val KEY_GATE_FAIL_REVIEW_WRONG_ORDER_JSON = "gate_fail_review_wrong_order_json"
+        private const val KEY_GATE_FAIL_REVIEW_ADS_REMAINING = "gate_fail_review_ads_remaining"
         private const val KEY_QUIZ_INTERVAL = "quiz_interval_minutes"
         private const val KEY_MIN_SUCCESS_RATE = "min_success_rate_percent"
         private const val KEY_PERMISSION_LOCK_REASON = "permission_lock_reason"

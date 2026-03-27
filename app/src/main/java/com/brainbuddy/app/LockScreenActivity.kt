@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
+import com.brainbuddy.app.core.RetryUnlockStore
 import com.brainbuddy.app.databinding.ActivityLockScreenBinding
 import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.quiz.QuizCooldownActivity
@@ -57,7 +59,8 @@ class LockScreenActivity : AppCompatActivity() {
                 policy.getSameTestToken()
             }
             val ids = token?.questionIds ?: questionIds
-            if (ids.size < com.brainbuddy.app.quiz.QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+            val minQ = com.brainbuddy.app.core.QuizPrefs(this).questionsPerSession()
+            if (ids.size < minQ) {
                 startActivity(Intent(this, QuizActivity::class.java).apply {
                     putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                     putExtra(QuizActivity.EXTRA_IS_RETRY, true)
@@ -68,13 +71,17 @@ class LockScreenActivity : AppCompatActivity() {
             }
             when (policy.getStartMode()) {
                 QuizRetryPolicy.StartMode.ALLOW_FREE -> {
-                    startActivity(Intent(this, QuizActivity::class.java).apply {
+                    val retryIntent = Intent(this, QuizActivity::class.java).apply {
                         putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                         putExtra(QuizActivity.EXTRA_IS_RETRY, true)
                         putExtra(QuizActivity.EXTRA_QUIZ_ID, quizId)
-                        putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(ids))
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    })
+                    }
+                    if (!PremiumStore(this).isPremium()) {
+                        val t = RetryUnlockStore(this).createRetryToken(quizId, ids)
+                        retryIntent.putExtra(QuizActivity.EXTRA_RETRY_UNLOCK_TOKEN, t)
+                    }
+                    startActivity(retryIntent)
                     finish()
                 }
                 QuizRetryPolicy.StartMode.REQUIRE_AD -> {

@@ -2207,11 +2207,16 @@ class QuestionRepository(private val context: Context) {
     }
 
     /** Gate questions - sadece grade filtresi ile (grade 1-7). */
-    fun pickGateQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
+    fun pickGateQuestionsByGrade(
+        grade: Int,
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        excludeIds: Set<String> = emptySet()
+    ): List<Question> {
         if (grade !in 1..7) return emptyList()
-        var pool = roomStore.getQuestionsByGrade(grade)
-        if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
-        if (pool.isEmpty()) pool = getFallbackQuestions()
+        fun filterPool(src: List<Question>) = if (excludeIds.isEmpty()) src else src.filter { it.id !in excludeIds }
+        var pool = filterPool(roomStore.getQuestionsByGrade(grade))
+        if (pool.isEmpty()) pool = filterPool(getFallbackQuestions().filter { it.grade == grade })
+        if (pool.isEmpty()) pool = filterPool(getFallbackQuestions())
         val profileId = ProfileStore(context).getCurrentProfileId()
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 50)
         val wrongIds = wrongQuestionStore.getUnfixedWrongIds(14)
@@ -2408,10 +2413,15 @@ class QuestionRepository(private val context: Context) {
     }
 
     /** Gate quiz: new quiz each attempt. Shuffled pool + recent-question blacklist. Same question cannot repeat within test. */
-    fun pickGateQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
+    fun pickGateQuestions(
+        levelGroup: LevelGroup,
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        excludeIds: Set<String> = emptySet()
+    ): List<Question> {
         val profileId = ProfileStore(context).getCurrentProfileId()
         val global = getGlobalPool()
-        val pool = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
+        val base = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
+        val pool = if (excludeIds.isEmpty()) base else base.filter { it.id !in excludeIds }
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 50)
         val wrongIds = wrongQuestionStore.getUnfixedWrongIds(14)
         val preferWrong = pool.filter { it.id in wrongIds }.shuffled()
@@ -2469,12 +2479,14 @@ class QuestionRepository(private val context: Context) {
     fun pickQuizQuestionsRelaxedByGrade(
         grade: Int,
         count: Int = MIN_QUESTIONS_PER_TEST,
-        testId: String? = null
+        testId: String? = null,
+        excludeIds: Set<String> = emptySet()
     ): List<Question> {
         if (grade !in 1..7) return emptyList()
-        var pool = roomStore.getQuestionsByGrade(grade)
-        if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
-        if (pool.isEmpty()) pool = getFallbackQuestions()
+        fun filterPool(src: List<Question>) = if (excludeIds.isEmpty()) src else src.filter { it.id !in excludeIds }
+        var pool = filterPool(roomStore.getQuestionsByGrade(grade))
+        if (pool.isEmpty()) pool = filterPool(getFallbackQuestions().filter { it.grade == grade })
+        if (pool.isEmpty()) pool = filterPool(getFallbackQuestions())
         val result = pool.shuffled().distinctBy { it.id }.take(count)
         val profileId = ProfileStore(context).getCurrentProfileId()
         roomStore.recordSeenIdsForProfile(profileId, result.map { it.id })
@@ -2489,10 +2501,12 @@ class QuestionRepository(private val context: Context) {
         count: Int,
         difficulty: QuizDifficulty,
         categories: Set<String>,
-        testId: String?
+        testId: String?,
+        excludeIds: Set<String> = emptySet()
     ): List<Question> {
         val global = getGlobalPool()
-        val pool = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
+        val base = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
+        val pool = if (excludeIds.isEmpty()) base else base.filter { it.id !in excludeIds }
         val filtered = if (categories.isEmpty()) pool else pool.filter { it.subject.name in categories }
         val result = (if (filtered.isNotEmpty()) filtered else pool).shuffled().distinctBy { it.id }.take(count)
         val profileId = ProfileStore(context).getCurrentProfileId()

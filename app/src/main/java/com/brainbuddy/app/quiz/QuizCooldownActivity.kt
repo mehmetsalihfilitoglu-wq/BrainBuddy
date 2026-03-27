@@ -6,6 +6,7 @@ import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.core.RetryUnlockStore
 
@@ -50,7 +51,8 @@ class QuizCooldownActivity : AppCompatActivity() {
                     setOnClickListener {
                         val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
                         val isGateRetry = blockedPkg.isNotEmpty() || ProtectionPrefs(this@QuizCooldownActivity).userLocked()
-                        if (questionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST && isGateRetry) {
+                        val minQ = QuizPrefs(this@QuizCooldownActivity).questionsPerSession()
+                        if (questionIds.size >= minQ && isGateRetry) {
                             val retryStore = RetryUnlockStore(this@QuizCooldownActivity)
                             val token = retryStore.createRetryToken(quizId, questionIds)
                             startActivity(Intent(this@QuizCooldownActivity, QuizActivity::class.java).apply {

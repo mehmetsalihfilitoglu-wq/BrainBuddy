@@ -3,7 +3,7 @@ package com.brainbuddy.app.core
 import android.content.Context
 
 /**
- * Retry policy after test FAIL (wrongCount >= 4).
+ * Retry policy after gate/test FAIL (stored same-test token).
  * - Premium: unlimited retry, no ad
  * - Non-premium: 3 ad tickets, then 30min cooldown; after cooldown 1 free retry
  */
@@ -23,8 +23,7 @@ class QuizRetryPolicy(context: Context) {
 
     fun getStartMode(): StartMode {
         if (premiumStore.isPremium()) return StartMode.ALLOW_FREE
-        if (!protectionPrefs.userLocked()) return StartMode.ALLOW_FREE
-        if (!hasStoredFail()) return StartMode.ALLOW_FREE
+        if (!hasStoredFail() && !protectionPrefs.userLocked()) return StartMode.ALLOW_FREE
 
         val tickets = prefs.getInt(KEY_AD_TICKETS, MAX_AD_TICKETS)
         if (tickets > 0) return StartMode.REQUIRE_AD

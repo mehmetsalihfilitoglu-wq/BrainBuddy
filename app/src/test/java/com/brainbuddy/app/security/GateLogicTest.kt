@@ -5,40 +5,38 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /**
- * Unit tests for gate pass/fail logic.
- * Gate FAILED when wrongCount >= 4; PASS when wrongCount <= 3.
+ * Unit tests for gate pass/fail logic (percentage vs parent threshold).
  */
 class GateLogicTest {
 
     @Test
-    fun gate_passedWhenWrongCount3OrLess() {
-        assertTrue(passed(0, 10))
-        assertTrue(passed(1, 10))
-        assertTrue(passed(2, 10))
-        assertTrue(passed(3, 10))
+    fun gate_passedWhenMeetsThreshold() {
+        assertTrue(passed(correct = 12, total = 20, thresholdPercent = 60))
+        assertTrue(passed(correct = 18, total = 20, thresholdPercent = 60))
+        assertTrue(passed(correct = 6, total = 10, thresholdPercent = 50))
     }
 
     @Test
-    fun gate_failedWhenWrongCount4OrMore() {
-        assertFalse(passed(4, 10))
-        assertFalse(passed(5, 10))
-        assertFalse(passed(10, 10))
+    fun gate_failedWhenBelowThreshold() {
+        assertFalse(passed(correct = 11, total = 20, thresholdPercent = 60))
+        assertFalse(passed(correct = 4, total = 10, thresholdPercent = 50))
     }
 
     @Test
-    fun rewardedRetry_decrementsWrongCountCorrectly() {
-        // If wrongCount=4 and user answers 1 retry question correctly -> newWrongCount=3 -> pass
-        val wrongCount = 4
-        val newWrongCount = (wrongCount - 1).coerceAtLeast(0)
-        assertTrue(newWrongCount < 4)
+    fun gate_boundaryInclusive() {
+        assertTrue(passed(correct = 12, total = 20, thresholdPercent = 60))
+        assertFalse(passed(correct = 11, total = 20, thresholdPercent = 60))
     }
 
     @Test
-    fun rewardedRetry_wrongAnswerKeepsLocked() {
-        val wrongCount = 4
-        val newWrongCount = wrongCount
-        assertFalse(newWrongCount < 4)
+    fun manyWrongsButHighPercentCanPass() {
+        // Old wrongCount<=3 rule would fail; percentage rule passes 16/20 = 80%.
+        assertTrue(passed(correct = 16, total = 20, thresholdPercent = 60))
     }
 
-    private fun passed(wrongCount: Int, totalCount: Int): Boolean = wrongCount <= 3
+    private fun passed(correct: Int, total: Int, thresholdPercent: Int): Boolean {
+        if (total <= 0) return false
+        val pct = 100f * correct / total
+        return pct >= thresholdPercent
+    }
 }

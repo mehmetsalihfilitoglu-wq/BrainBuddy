@@ -12,6 +12,7 @@ import com.brainbuddy.app.ads.RewardedAdManager
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.PremiumStore
+import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.WrongReviewAnalytics
 import com.brainbuddy.app.core.WrongReviewQuotaStore
 import com.brainbuddy.app.databinding.ActivityWrongAnswerReviewBinding
@@ -33,6 +34,9 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         const val EXTRA_SESSION_JSON = "session_json"
         /** When true (Parent mode), show correct answer and explanation. When false (Student), show only "Wrong". */
         const val EXTRA_IS_PARENT_REVIEW = "is_parent_review"
+        /** Failed gate quiz: first 3 wrongs unlock with rewarded ads; rest premium-only. Does not affect quiz pass state. */
+        const val EXTRA_GATE_FAIL_REVIEW = "extra_gate_fail_review"
+        private const val STATE_REVEALED_GATE = "state_revealed_gate_indices"
     }
 
     private lateinit var b: ActivityWrongAnswerReviewBinding
@@ -46,6 +50,8 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
     private var sessionAnswers: Map<String, Int> = emptyMap()
     private var inRetryMode = false
     private var isParentReview = false
+    private var gateFailReview = false
+    private val revealedGateIndices = mutableSetOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +64,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
             return
         }
         isParentReview = requestedParent
+        gateFailReview = intent.getBooleanExtra(EXTRA_GATE_FAIL_REVIEW, false)
 
         repo = QuestionRepository(this)
         analyticsStore = AnalyticsStore(this)
@@ -71,8 +78,16 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         val session = QuizResultActivity.decodeSession(sessionJson)
         sessionAnswers = session?.answers ?: emptyMap()
 
+        val orderedWrongIds = if (wrongIds.isNotEmpty()) {
+            wrongIds
+        } else if (gateFailReview) {
+            ProtectionPrefs(this).gateFailReviewWrongIdsOrdered()
+        } else {
+            emptyList()
+        }
+
         val allMap = repo.loadAllQuestions().associateBy { it.id }
-        questions = wrongIds.mapNotNull { allMap[it] }
+        questions = orderedWrongIds.mapNotNull { allMap[it] }
 
         b.btnBack.setOnClickListener { finish() }
         b.nextBtn.setOnClickListener { goNext() }
@@ -89,6 +104,11 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
             if (sel >= 0) answers[q.id] = sel
         }
 
+        savedInstanceState?.getIntegerArrayList(STATE_REVEALED_GATE)?.let { arr ->
+            revealedGateIndices.clear()
+            revealedGateIndices.addAll(arr)
+        }
+
         if (questions.isEmpty()) {
             b.questionText.text = "İncelenecek yanlış soru yok."
             b.nextBtn.isEnabled = false
@@ -101,7 +121,26 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (gateFailReview && revealedGateIndices.isNotEmpty()) {
+            outState.putIntegerArrayList(STATE_REVEALED_GATE, ArrayList(revealedGateIndices))
+        }
+    }
+
     private fun updateQuotaUi() {
+        if (gateFailReview) {
+            val pp = ProtectionPrefs(this)
+            b.tvQuotaBadge.visibility = View.VISIBLE
+            if (premiumStore.isPremium()) {
+                b.tvQuotaBadge.text = getString(R.string.wrong_review_unlimited)
+                b.tvHintWatchAd.visibility = View.GONE
+            } else {
+                b.tvQuotaBadge.text = getString(R.string.wrong_review_remaining, pp.gateFailReviewAdsRemaining())
+                b.tvHintWatchAd.visibility = View.GONE
+            }
+            return
+        }
         if (premiumStore.isPremium()) {
             b.tvQuotaBadge.text = getString(R.string.wrong_review_unlimited)
             b.tvQuotaBadge.visibility = View.VISIBLE
@@ -117,6 +156,34 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
     private fun render() {
         updateQuotaUi()
         val q = questions[index]
+
+        if (gateFailReview && !premiumStore.isPremium() && index >= 3) {
+            b.summarySection.visibility = View.VISIBLE
+            b.tvUserChoiceSummary.text = getString(R.string.wrong_review_paywall_message)
+            b.tvCorrectSummary.visibility = View.GONE
+            b.tvHintSummary.visibility = View.GONE
+            b.btnRetryQuestion.visibility = View.GONE
+            b.optionsGroup.visibility = View.GONE
+            b.nextBtn.visibility = View.VISIBLE
+            b.nextBtn.text = if (index < questions.size - 1) "Sonraki" else "Bitir"
+            b.nextBtn.setOnClickListener { advanceToNext() }
+            b.feedbackText.visibility = View.GONE
+            return
+        }
+
+        if (gateFailReview && !premiumStore.isPremium() && index < 3 && index !in revealedGateIndices) {
+            b.summarySection.visibility = View.VISIBLE
+            b.tvUserChoiceSummary.text = getString(R.string.wrong_detail_unlock_ad_message)
+            b.tvCorrectSummary.visibility = View.GONE
+            b.tvHintSummary.visibility = View.GONE
+            b.btnRetryQuestion.visibility = View.GONE
+            b.optionsGroup.visibility = View.GONE
+            b.nextBtn.visibility = View.VISIBLE
+            b.nextBtn.text = getString(R.string.wrong_review_btn_watch_ad)
+            b.nextBtn.setOnClickListener { showGateFailAdForCurrentIndex() }
+            b.feedbackText.visibility = View.GONE
+            return
+        }
         b.progressText.text = "${index + 1}/${questions.size}"
         b.subjectChip.text = "${q.subject.tr} • (İnceleme)"
         b.questionText.text = q.stem
@@ -150,25 +217,25 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         val correctChoice = q.choices.getOrNull(q.correctIndex) ?: "?"
 
         if (sessionAnswers.isNotEmpty() && sessionAnswers.containsKey(q.id) && !inRetryMode) {
-            val shouldReveal = isParentReview
-            val canReveal = premiumStore.isPremium() || quotaStore.getRemaining() > 0
+            val explain = isParentReview || (gateFailReview && (premiumStore.isPremium() || index in revealedGateIndices))
+            val canReveal = premiumStore.isPremium() || gateFailReview || quotaStore.getRemaining() > 0
 
-            if (shouldReveal && !canReveal) {
+            if (explain && !canReveal && !gateFailReview) {
                 showSummaryBlocked(userChoice) { onRevealUnlocked ->
                     if (onRevealUnlocked && quotaStore.consumeOne()) {
                         WrongReviewAnalytics.logItemReveal()
-                        showSummary(q, userChoice, correctChoice)
+                        showSummary(q, userChoice, correctChoice, explain)
                     }
                 }
                 return
             }
 
-            if (shouldReveal && canReveal && !premiumStore.isPremium()) {
+            if (explain && canReveal && !premiumStore.isPremium() && !gateFailReview) {
                 if (quotaStore.consumeOne()) {
                     WrongReviewAnalytics.logItemReveal()
                 }
             }
-            showSummary(q, userChoice, correctChoice)
+            showSummary(q, userChoice, correctChoice, explain)
         } else {
             b.summarySection.visibility = View.GONE
             b.optionsGroup.visibility = View.VISIBLE
@@ -199,14 +266,40 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         }
     }
 
-    private fun showSummary(q: Question, userChoice: String, correctChoice: String) {
+    private fun showGateFailAdForCurrentIndex() {
+        if (RewardedAdManager.isLoaded()) {
+            RewardedAdManager.show(
+                activity = this,
+                onReward = {
+                    WrongReviewAnalytics.logAdShown()
+                    WrongReviewAnalytics.logAdRewarded()
+                    val pp = ProtectionPrefs(this)
+                    if (pp.consumeGateFailReviewAdSlot()) {
+                        revealedGateIndices.add(index)
+                        render()
+                    } else {
+                        Toast.makeText(this, getString(R.string.wrong_review_ad_failed), Toast.LENGTH_SHORT).show()
+                    }
+                },
+                onFail = { msg ->
+                    val err = RewardedAdManager.lastLoadError?.let { "$msg ($it)" } ?: msg
+                    Toast.makeText(this, err, Toast.LENGTH_LONG).show()
+                }
+            )
+        } else {
+            Toast.makeText(this, getString(R.string.wrong_review_ad_loading), Toast.LENGTH_SHORT).show()
+            RewardedAdManager.preload(this)
+        }
+    }
+
+    private fun showSummary(q: Question, userChoice: String, correctChoice: String, showFullExplain: Boolean = isParentReview) {
         b.summarySection.visibility = View.VISIBLE
         b.btnRetryQuestion.visibility = View.VISIBLE
         b.optionsGroup.visibility = View.GONE
         b.nextBtn.visibility = View.GONE
         b.feedbackText.visibility = View.GONE
         b.tvUserChoiceSummary.text = "Senin cevabın: $userChoice"
-        if (isParentReview) {
+        if (showFullExplain) {
             b.tvCorrectSummary.visibility = View.VISIBLE
             b.tvCorrectSummary.text = "✓ Doğru: $correctChoice"
             b.tvHintSummary.apply {

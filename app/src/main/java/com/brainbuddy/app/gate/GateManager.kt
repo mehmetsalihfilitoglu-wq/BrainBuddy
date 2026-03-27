@@ -11,7 +11,7 @@ import java.util.Calendar
  * Single source of truth for gate status.
  * Gate check lives ONLY in Accessibility/blocked-app interceptor flow.
  * - On PASSED: PASSED_UNTIL(now + interval), clear per-package lock for that package
- * - On FAILED (wrongCount >= 4): add package to GateLockedStore (per-package only, NO global userLocked)
+ * - On FAILED (below parent pass threshold): add package to GateLockedStore (per-package only, NO global userLocked)
  * BrainBuddy screens are NEVER gated; gateRequiredNow is only used when user tries a BLOCKED app.
  */
 object GateManager {
@@ -74,7 +74,7 @@ object GateManager {
         GateLockedStore(context).removeGateLocked(blockedPackage)
     }
 
-    /** Call when user FAILS (wrongCount >= 4). Per-package only: that blocked app stays gated. NO global lock. */
+    /** Call when user FAILS the gate quiz (score below threshold). Per-package only: that blocked app stays gated. NO global lock. */
     fun onGateFailed(context: Context, blockedPackage: String) {
         if (blockedPackage.isNotBlank()) {
             GateLockedStore(context).addGateLocked(blockedPackage)

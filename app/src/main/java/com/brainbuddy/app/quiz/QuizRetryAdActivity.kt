@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.ads.RewardAdHelper
+import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.core.RetryUnlockStore
 
@@ -32,8 +33,9 @@ class QuizRetryAdActivity : AppCompatActivity() {
         val adHelper = RewardAdHelper(this)
         adHelper.loadAd(onFailed = { findViewById<android.widget.Button>(R.id.btnWatchAd).isEnabled = false })
 
+        val minQ = QuizPrefs(this).questionsPerSession()
         findViewById<android.widget.Button>(R.id.btnWatchAd).setOnClickListener {
-            if (adHelper.isLoaded() && questionIds.size >= QuestionRepository.MIN_QUESTIONS_PER_TEST) {
+            if (adHelper.isLoaded() && questionIds.size >= minQ) {
                 adHelper.showAd(
                     onRewarded = {
                         policy.consumeAdTicket()
