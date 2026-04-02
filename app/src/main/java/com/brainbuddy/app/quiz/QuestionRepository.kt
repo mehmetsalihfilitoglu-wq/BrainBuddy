@@ -1908,13 +1908,13 @@ class QuestionRepository(private val context: Context) {
 
         ensureHardMediumQuota(selectedCandidateRows, grade)
 
-        // 4) Materialize final questions (decode full Question objects) only for selected IDs.
-        // Over-select to compensate for distractor-rejected questions.
+        // 4) Materialize final questions.
+        // First pass: try all selected candidates.
         val selectedIdsInOrder = selectedCandidateRows.map { it.id }.distinct()
         val entityRows = roomStore.getQuestionEntitiesByIds(selectedIdsInOrder)
         val byIdE = entityRows.associateBy { it.id }
         val materializedInOrder = mutableListOf<Question>()
-        var distractorRejectedCount = 0
+        var eliminatedCount = 0
         for (id in selectedIdsInOrder) {
             if (materializedInOrder.size >= effectiveCount) break
             val entity = byIdE[id] ?: continue
@@ -1922,16 +1922,43 @@ class QuestionRepository(private val context: Context) {
             if (q != null) {
                 materializedInOrder.add(q)
             } else {
-                distractorRejectedCount++
+                eliminatedCount++
             }
         }
-        if (distractorRejectedCount > 0) {
-            Log.w(TAG, "DISTRACTOR_ELIMINATED $distractorRejectedCount questions during materialization")
+
+        // Second pass: if quarantine/distractor eliminated too many, fetch replacements
+        // from the full pool (bypass quarantine — quiz must be 20 questions).
+        if (materializedInOrder.size < effectiveCount) {
+            val need = effectiveCount - materializedInOrder.size
+            Log.w(TAG, "QUIZ_SIZE_FILL need=$need more (eliminated=$eliminatedCount), fetching replacements")
+            val materializedIds = materializedInOrder.map { it.id }.toSet()
+            // Collect all candidates from all subjects, excluding already used
+            val replacementPool = perSubjectAll.values.flatten()
+                .filter { it.id !in usedIds && it.id !in materializedIds }
+                .shuffled()
+            val replacementEntities = roomStore.getQuestionEntitiesByIds(replacementPool.map { it.id }.take(need * 3))
+            val replByIdE = replacementEntities.associateBy { it.id }
+            for (row in replacementPool) {
+                if (materializedInOrder.size >= effectiveCount) break
+                val entity = replByIdE[row.id] ?: continue
+                // Try normal materialization first
+                val q = materializeSingleQuestion(entity, expectLgs = false)
+                if (q != null) {
+                    materializedInOrder.add(q)
+                    usedIds.add(entity.id)
+                } else {
+                    // Quarantine blocked it — force-materialize with quarantine bypass
+                    val base = QuestionMapper.toQuestion(entity)
+                    materializedInOrder.add(base)
+                    usedIds.add(entity.id)
+                    Log.d(TAG, "QUIZ_SIZE_FILL_FORCED id=${entity.id} (quarantine bypassed to maintain quiz size)")
+                }
+            }
         }
 
-        // If still short, fill from in-memory fallback pack (no DB scan).
+        // Third pass: absolute last resort — in-memory fallback
         if (materializedInOrder.size < effectiveCount) {
-            Log.w(TAG, "REPEAT_LAST_RESORT grade materialization: need=${effectiveCount - materializedInOrder.size} more")
+            Log.w(TAG, "QUIZ_SIZE_FILL_FALLBACK need=${effectiveCount - materializedInOrder.size} from hardcoded fallback")
             val fallbackPool = getFallbackQuestions()
                 .filter { it.grade == grade && it.examType != ExamType.LGS }
                 .ifEmpty { getFallbackQuestions().filter { it.examType != ExamType.LGS } }
@@ -1944,6 +1971,9 @@ class QuestionRepository(private val context: Context) {
                 usedStemHashes.add(sh)
                 materializedInOrder.add(q)
             }
+        }
+        if (eliminatedCount > 0) {
+            Log.d(TAG, "QUIZ_SIZE_RESULT picked=${materializedInOrder.size}/$effectiveCount eliminated=$eliminatedCount filled=${materializedInOrder.size - (selectedIdsInOrder.size - eliminatedCount)}")
         }
 
         val finalQuestions = materializedInOrder
@@ -2015,12 +2045,16 @@ class QuestionRepository(private val context: Context) {
         val et = entity.examType ?: "GENERAL"
         val isLgsRow = et == "LGS"
         if (expectLgs != isLgsRow) {
-            Log.e(TAG, "MODE_MISMATCH id=${entity.id} examType=$et expectLgs=$expectLgs")
+            Log.e(TAG, "ELIMINATE_REASON id=${entity.id} reason=MODE_MISMATCH examType=$et expectLgs=$expectLgs")
             QualityAudit.rejectedWrongModeCount++
             return null
         }
-        if (!entity.unservableReason.isNullOrBlank()) return null
+        if (!entity.unservableReason.isNullOrBlank()) {
+            Log.w(TAG, "ELIMINATE_REASON id=${entity.id} reason=UNSERVABLE unservableReason=${entity.unservableReason}")
+            return null
+        }
         if (LowQualityQuarantine.shouldQuarantine(entity)) {
+            Log.w(TAG, "ELIMINATE_REASON id=${entity.id} reason=QUARANTINE tier=${entity.qualityTier} reasoning=${entity.reasoningLevel} distractor=${entity.distractorQualityScore}")
             QualityAudit.quarantinedLowQualityCount++
             try {
                 roomStore.updateQuarantineFlags(
