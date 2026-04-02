@@ -139,7 +139,7 @@ object AdaptiveQuizRuntime {
      */
     private fun isValidDistractor(opt: String): Boolean {
         val t = opt.trim()
-        if (t.length < 2 || t == "-") return false
+        if (t.isEmpty() || t == "-") return false
         // Reject any parenthetical suffix pattern
         if (SUFFIX_PATTERN.containsMatchIn(t)) {
             Log.d(TAG, "DISTRACTOR_SUFFIX_CAUGHT: '$t'")
@@ -197,9 +197,14 @@ object AdaptiveQuizRuntime {
      */
     private fun formatLike(value: Double, template: String): String {
         val suffix = detectSuffix(template)
-        val isInteger = abs(value - value.roundToInt()) < 1e-9 &&
-            !template.contains(",") && !template.contains(".")
-        return if (isInteger) {
+        // Detect if template is integer-style (no decimal separator)
+        val templateWithoutSuffix = template.trim().let { t ->
+            val s = suffix.trim()
+            if (s.isNotEmpty() && t.endsWith(s, ignoreCase = true)) t.dropLast(s.length).trim() else t
+        }
+        val templateIsInteger = !templateWithoutSuffix.contains(",") && !templateWithoutSuffix.contains(".")
+        return if (templateIsInteger) {
+            // Force integer output to match template style
             "${value.roundToInt()}$suffix"
         } else {
             String.format(Locale.US, "%.1f", value).replace(".", ",") + suffix
@@ -229,13 +234,15 @@ object AdaptiveQuizRuntime {
         candidates.add(correct - 2.0)
         candidates.add(correct + 3.0)
 
-        // Percentage/ratio errors
-        candidates.add(correct * 1.1)    // 10% too high
-        candidates.add(correct * 0.9)    // 10% too low
-        candidates.add(correct * 1.25)   // quarter more
-        candidates.add(correct * 0.75)   // quarter less
+        // Percentage/ratio errors (only useful for larger values)
+        if (abs(correct) >= 10) {
+            candidates.add(correct * 1.1)
+            candidates.add(correct * 0.9)
+            candidates.add(correct * 1.25)
+            candidates.add(correct * 0.75)
+        }
         candidates.add(correct * 2.0)    // doubled (forgot to divide)
-        candidates.add(correct * 0.5)    // halved (forgot to multiply)
+        if (correct >= 2) candidates.add(correct * 0.5)    // halved (forgot to multiply)
 
         // Seed-dependent variations
         candidates.add(correct + (s % 7) + 1.0)
