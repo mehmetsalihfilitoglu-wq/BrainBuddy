@@ -81,10 +81,11 @@ class QuizActivityRetryWrong : AppCompatActivity() {
         }
 
         b.optionsGroup.clearCheck()
-        b.optA.text = q.choices.getOrNull(0) ?: "-"
-        b.optB.text = q.choices.getOrNull(1) ?: "-"
-        b.optC.text = q.choices.getOrNull(2) ?: "-"
-        b.optD.text = q.choices.getOrNull(3) ?: "-"
+        val displayChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
+        b.optA.text = displayChoices.getOrNull(0) ?: "-"
+        b.optB.text = displayChoices.getOrNull(1) ?: "-"
+        b.optC.text = displayChoices.getOrNull(2) ?: "-"
+        b.optD.text = displayChoices.getOrNull(3) ?: "-"
 
         b.submitBtn.isEnabled = true
         b.nextBtn.isEnabled = false

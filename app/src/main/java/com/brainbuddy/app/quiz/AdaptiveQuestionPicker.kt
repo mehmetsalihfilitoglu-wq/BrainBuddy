@@ -52,7 +52,7 @@ class AdaptiveQuestionPicker(
              (now - (historyStore.getHistory(q.id)?.lastAnsweredAt ?: 0L) >= longAgoMs))
         }
 
-        val inLast2Tests = historyStore.getQuestionIdsFromLastNTests(profileId, 2)
+        val inLast5Tests = historyStore.getQuestionIdsFromLastNTests(profileId, 5)
 
         // dueWrong sort: wrongTotal desc, lastAnsweredAt asc
         val dueWrongSorted = dueWrongPool.sortedWith(
@@ -69,7 +69,7 @@ class AdaptiveQuestionPicker(
         // fresh sort: neverSeen first, then NOT in last 2 tests, then lastAnsweredAt asc, then seenCount asc
         val freshSorted = freshPool.sortedWith(
             compareBy<Question> { !historyStore.neverSeen(it.id) }  // neverSeen first
-                .thenBy { it.id in inLast2Tests }  // last 2 tests last (deprioritize)
+                .thenBy { it.id in inLast5Tests }  // last 2 tests last (deprioritize)
                 .thenBy { historyStore.getHistory(it.id)?.lastAnsweredAt ?: 0L }
                 .thenBy { historyStore.getHistory(it.id)?.seenCount ?: 0 }
         )
@@ -88,10 +88,21 @@ class AdaptiveQuestionPicker(
         val pickFresh = freshSorted.filter { it.id !in wrongIds }.take(pickFreshCount).toMutableList()
 
         if (pickFresh.size < pickFreshCount) {
-            val fallbackPool = pool.filter { it.id !in wrongIds && it.id !in pickFresh.map { it.id } }
-                .sortedBy { historyStore.getHistory(it.id)?.lastAnsweredAt ?: 0L }
             val need = pickFreshCount - pickFresh.size
-            pickFresh.addAll(fallbackPool.take(need))
+            val alreadyPicked = wrongIds + pickFresh.map { it.id }.toSet()
+            // First pass: exclude questions seen in last 2 tests (anti-repeat enforced).
+            val nonRecentFallback = pool
+                .filter { it.id !in alreadyPicked && it.id !in inLast5Tests }
+                .sortedBy { historyStore.getHistory(it.id)?.lastAnsweredAt ?: 0L }
+            pickFresh.addAll(nonRecentFallback.take(need))
+            // Last resort only: allow recent questions if pool is truly exhausted.
+            if (pickFresh.size < pickFreshCount) {
+                val alreadyPicked2 = wrongIds + pickFresh.map { it.id }.toSet()
+                val recentFallback = pool
+                    .filter { it.id !in alreadyPicked2 }
+                    .sortedBy { historyStore.getHistory(it.id)?.lastAnsweredAt ?: 0L }
+                pickFresh.addAll(recentFallback.take(pickFreshCount - pickFresh.size))
+            }
         }
 
         val finalSet = (pickWrong + pickFresh).distinctBy { it.id }

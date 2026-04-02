@@ -14,7 +14,7 @@ import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.league.LeagueStore
-import com.brainbuddy.app.quiz.WrongPoolActivity
+import com.brainbuddy.app.quiz.WrongPoolLauncher
 import com.brainbuddy.app.quiz.WrongQuestionPoolStore
 import com.brainbuddy.app.ui.GrowthHubActivity
 import com.brainbuddy.app.ui.StudentProfileActivity
@@ -92,7 +92,7 @@ class HomeActivity : AppCompatActivity() {
         progress.progress = if (sessionsToday >= 1) 1 else 0
 
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool).setOnClickListener {
-            startActivity(Intent(this, WrongPoolActivity::class.java))
+            WrongPoolLauncher.launch(this)
         }
         updateWrongPoolCardVisibility()
 

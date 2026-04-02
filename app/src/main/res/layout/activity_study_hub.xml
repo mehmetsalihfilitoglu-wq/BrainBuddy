@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Bugünkü test ve dersler"
+            android:text="Test çöz veya yanlışlarını tekrar et"
             android:textSize="14sp"
             android:textColor="@color/bb_text_muted"/>
 
@@ -92,7 +92,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardCoach"
+            android:id="@+id/cardWrongPool"
             style="@style/BB.HomeCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                 <TextView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:text="💡"
+                    android:text="❌"
                     android:textSize="24sp"
                     android:gravity="center"/>
 
@@ -123,71 +123,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Koç"
+                        android:text="Yanlışlarını Çöz"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/bb_text"/>
 
                     <TextView
+                        android:id="@+id/tvWrongPoolSubtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="İpuçları ve motivasyon"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_text_muted"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardClassroom"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/bb_card">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="20dp"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:text="🏫"
-                    android:textSize="24sp"
-                    android:gravity="center"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sınıf"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Sınıfa katıl"
+                        android:text="Sadece yanlış yaptığın sorular"
                         android:textSize="13sp"
                         android:textColor="@color/bb_text_muted"/>
                 </LinearLayout>

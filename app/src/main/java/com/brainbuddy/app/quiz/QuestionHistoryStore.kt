@@ -269,24 +269,21 @@ class QuestionHistoryStore(context: Context) {
     /** G2: Son N testte çıkan soru ID'leri - öncelik düşürmek için */
     @Suppress("UNUSED_PARAMETER")
     fun recordTestCreated(profileId: String, testId: String, questionIds: List<String>) {
-        val key1 = "recent_test_1_$profileId"
-        val key2 = "recent_test_2_$profileId"
-        val prev1 = prefs.getString(key1, "[]") ?: "[]"
-        prefs.edit()
-            .putString(key2, prev1)
-            .putString(key1, org.json.JSONArray(questionIds).toString())
-            .apply()
+        // Shift older slots down: 4→5, 3→4, 2→3, 1→2
+        val editor = prefs.edit()
+        for (slot in CROSS_QUIZ_WINDOW downTo 2) {
+            val prev = prefs.getString("recent_test_${slot - 1}_$profileId", "[]") ?: "[]"
+            editor.putString("recent_test_${slot}_$profileId", prev)
+        }
+        editor.putString("recent_test_1_$profileId", org.json.JSONArray(questionIds).toString())
+        editor.apply()
     }
 
     fun getQuestionIdsFromLastNTests(profileId: String, n: Int): Set<String> {
         val result = mutableSetOf<String>()
-        if (n >= 1) {
-            (prefs.getString("recent_test_1_$profileId", "[]") ?: "[]").let { json ->
-                try { org.json.JSONArray(json).let { arr -> for (i in 0 until arr.length()) result.add(arr.optString(i, "")) } } catch (_: Exception) { }
-            }
-        }
-        if (n >= 2) {
-            (prefs.getString("recent_test_2_$profileId", "[]") ?: "[]").let { json ->
+        val effectiveN = n.coerceIn(1, CROSS_QUIZ_WINDOW)
+        for (slot in 1..effectiveN) {
+            (prefs.getString("recent_test_${slot}_$profileId", "[]") ?: "[]").let { json ->
                 try { org.json.JSONArray(json).let { arr -> for (i in 0 until arr.length()) result.add(arr.optString(i, "")) } } catch (_: Exception) { }
             }
         }
@@ -298,5 +295,7 @@ class QuestionHistoryStore(context: Context) {
         private const val PREFS = "bb_question_history"
         private const val MAX_COUNT_CAP = 10000
         private const val KEY_GLOBAL_TEST_INDEX = "global_test_index"
+        /** Number of past quizzes to track for cross-quiz repeat blocking. */
+        private const val CROSS_QUIZ_WINDOW = 5
     }
 }

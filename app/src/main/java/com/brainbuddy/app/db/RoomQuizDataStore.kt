@@ -26,6 +26,8 @@ class RoomQuizDataStore(private val context: Context) {
     private val KEY_GLOBAL_TEST_INDEX = "global_test_index"
     private val KEY_DB_SEEDED = "db_seeded"
     private val RECENT_SEEN_LIMIT = 150
+    /** Number of past quizzes to track for cross-quiz repeat blocking. */
+    private val CROSS_QUIZ_WINDOW = 5
 
     fun getActiveQuestions(): List<Question> = runBlocking(Dispatchers.IO) {
         questionDao.getActiveQuestions().map { QuestionMapper.toQuestion(it) }
@@ -152,28 +154,36 @@ class RoomQuizDataStore(private val context: Context) {
         } ?: emptySet()
     }
 
+    /**
+     * Cross-quiz repeat window: returns IDs from the last N tests (up to 5).
+     * Used to BLOCK (not just deprioritize) questions from appearing again.
+     */
     fun getQuestionIdsFromLastNTests(profileId: String, n: Int): Set<String> = runBlocking(Dispatchers.IO) {
         val result = mutableSetOf<String>()
-        if (n >= 1) {
-            appMetaDao.get("recent_test_1_$profileId")?.let { json ->
+        val effectiveN = n.coerceIn(1, CROSS_QUIZ_WINDOW)
+        for (slot in 1..effectiveN) {
+            appMetaDao.get("recent_test_${slot}_$profileId")?.let { json ->
                 try {
-                    JSONArray(json).let { arr -> for (i in 0 until arr.length()) result.add(arr.optString(i, "")) }
-                } catch (_: Exception) { }
-            }
-        }
-        if (n >= 2) {
-            appMetaDao.get("recent_test_2_$profileId")?.let { json ->
-                try {
-                    JSONArray(json).let { arr -> for (i in 0 until arr.length()) result.add(arr.optString(i, "")) }
+                    JSONArray(json).let { arr ->
+                        for (i in 0 until arr.length()) result.add(arr.optString(i, ""))
+                    }
                 } catch (_: Exception) { }
             }
         }
         result.filter { it.isNotBlank() }.toSet()
     }
 
+    /**
+     * Records the current test's question IDs and shifts previous tests down.
+     * Maintains [CROSS_QUIZ_WINDOW] (5) slots: test_1 is newest, test_5 is oldest.
+     */
     fun recordTestCreated(profileId: String, testId: String, questionIds: List<String>) = runBlocking(Dispatchers.IO) {
-        val prev1 = appMetaDao.get("recent_test_1_$profileId") ?: "[]"
-        appMetaDao.set(AppMetaEntity("recent_test_2_$profileId", prev1))
+        // Shift older slots down: 4→5, 3→4, 2→3, 1→2
+        for (slot in CROSS_QUIZ_WINDOW downTo 2) {
+            val prev = appMetaDao.get("recent_test_${slot - 1}_$profileId") ?: "[]"
+            appMetaDao.set(AppMetaEntity("recent_test_${slot}_$profileId", prev))
+        }
+        // Slot 1 = current test
         appMetaDao.set(AppMetaEntity("recent_test_1_$profileId", JSONArray(questionIds).toString()))
     }
 

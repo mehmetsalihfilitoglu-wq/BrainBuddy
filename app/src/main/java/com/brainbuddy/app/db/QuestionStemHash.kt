@@ -98,4 +98,22 @@ object QuestionStemHash {
 
     fun contentDedupKey(entity: QuestionEntity): String =
         contentDedupKey(entity.grade, entity.subject, entity.questionText, entity.optionsJson, entity.answerIndex)
+
+    /**
+     * Lightweight content fingerprint for runtime repeat detection.
+     * Uses stem + choices + correctIndex to catch duplicate content
+     * even when question IDs differ.
+     */
+    fun contentFingerprint(stem: String, choices: List<String>, correctIndex: Int): String {
+        val normalized = normalizeStemExact(stem)
+        val payload = buildString {
+            append(normalized)
+            append('\n')
+            choices.forEach { append(it.trim()); append('|') }
+            append('\n')
+            append(correctIndex)
+        }
+        val digest = MessageDigest.getInstance("SHA-256").digest(payload.toByteArray(StandardCharsets.UTF_8))
+        return digest.joinToString("") { "%02x".format(it) }
+    }
 }

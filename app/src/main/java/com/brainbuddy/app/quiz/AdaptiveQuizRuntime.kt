@@ -1,8 +1,11 @@
 package com.brainbuddy.app.quiz
 
+import android.util.Log
 import com.brainbuddy.app.db.QuestionEntity
 import com.brainbuddy.app.db.QuestionMapper
 import java.util.Locale
+import kotlin.math.abs
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
 /**
@@ -10,6 +13,8 @@ import kotlin.random.Random
  * Does not persist changes to the database.
  */
 object AdaptiveQuizRuntime {
+
+    private const val TAG = "AdaptiveQuizRuntime"
 
     fun normalizeContentTier(raw: String?): String {
         val t = raw?.trim()?.uppercase(Locale.ROOT) ?: return QuizQualityPolicy.TIER_MEDIUM
@@ -114,31 +119,248 @@ object AdaptiveQuizRuntime {
         return upgraded to (upgraded != null)
     }
 
+    // ─── Distractor quality ────────────────────────────────────────────
+
+    /** Regex to catch ANY parenthetical suffix pattern on options — catches all known and future variants. */
+    private val SUFFIX_PATTERN = Regex("""\((?:yanlış|geçersiz|farklı|hatalı|eksik|ters|fazla)[^)]*\)""", RegexOption.IGNORE_CASE)
+
+    /** Regex for options that are just a truncated correct answer + suffix, e.g. "16.6… (yanlış yön)" */
+    private val TRUNCATED_WITH_SUFFIX = Regex("""^.{1,20}…?\s*\(""")
+
+    /** Public check for suffix patterns — used by materializeSingleQuestion as final safety net. */
+    fun containsSuffixPattern(text: String): Boolean {
+        val t = text.trim()
+        return SUFFIX_PATTERN.containsMatchIn(t) || TRUNCATED_WITH_SUFFIX.containsMatchIn(t)
+    }
+
     /**
-     * Normalize option lengths and add plausible distractors when clearly broken.
+     * Returns true when the option looks like a real distractor (not a placeholder).
+     * Catches ALL known suffix-based fake patterns with regex, not just hardcoded strings.
      */
-    fun fixDistractors(options: List<String>, @Suppress("UNUSED_PARAMETER") stem: String, answerIndex: Int): List<String> {
-        if (options.size < 2) return options
-        val o = options.map { it.trim() }.filter { it.isNotBlank() && it != "-" }.toMutableList()
-        while (o.size < 4) o.add("-")
-        val ai = answerIndex.coerceIn(0, o.size - 1)
-        val correct = o[ai]
-        if (correct.length < 2) return options
-        val targetLen = o.maxOf { it.length }.coerceAtLeast(12)
-        for (i in o.indices) {
+    private fun isValidDistractor(opt: String): Boolean {
+        val t = opt.trim()
+        if (t.length < 2 || t == "-") return false
+        // Reject any parenthetical suffix pattern
+        if (SUFFIX_PATTERN.containsMatchIn(t)) {
+            Log.d(TAG, "DISTRACTOR_SUFFIX_CAUGHT: '$t'")
+            return false
+        }
+        // Reject truncated-answer-with-suffix patterns like "16.6… (..."
+        if (TRUNCATED_WITH_SUFFIX.containsMatchIn(t)) {
+            Log.d(TAG, "DISTRACTOR_TRUNCATED_CAUGHT: '$t'")
+            return false
+        }
+        return true
+    }
+
+    /**
+     * Extract the primary numeric value from an option string.
+     * Supports: "18,2", "18.2", "18", "14,2 TL", "3/4", etc.
+     */
+    private fun extractNumber(text: String): Double? {
+        val t = text.trim().replace(" ", "")
+        // Try fraction first: 3/4
+        Regex("(\\d+)/(\\d+)").find(t)?.let { m ->
+            val num = m.groupValues[1].toDoubleOrNull() ?: return@let
+            val den = m.groupValues[2].toDoubleOrNull() ?: return@let
+            if (den != 0.0) return num / den
+        }
+        // Decimal or integer
+        val m = Regex("(-?\\d+[.,]\\d+|-?\\d+)").findAll(t).lastOrNull() ?: return null
+        return m.value.replace(",", ".").toDoubleOrNull()
+    }
+
+    /**
+     * Detect the unit suffix from a numeric option (e.g. " TL", " kg", " cm").
+     */
+    private fun detectSuffix(text: String): String {
+        val t = text.trim()
+        return when {
+            t.endsWith("TL", ignoreCase = true) -> " TL"
+            t.endsWith("kg", ignoreCase = true) -> " kg"
+            t.endsWith("cm²", ignoreCase = true) || t.endsWith("cm2", ignoreCase = true) -> " cm²"
+            t.endsWith("cm", ignoreCase = true) -> " cm"
+            t.endsWith("m²", ignoreCase = true) || t.endsWith("m2", ignoreCase = true) -> " m²"
+            t.endsWith("mm", ignoreCase = true) -> " mm"
+            t.endsWith("km", ignoreCase = true) -> " km"
+            t.endsWith("lt", ignoreCase = true) || t.endsWith("litre", ignoreCase = true) -> " lt"
+            t.endsWith("sayfa", ignoreCase = true) -> " sayfa"
+            t.endsWith("kişi", ignoreCase = true) -> " kişi"
+            t.endsWith("adet", ignoreCase = true) -> " adet"
+            Regex("\\d\\s*m$", RegexOption.IGNORE_CASE).containsMatchIn(t) -> " m"
+            else -> ""
+        }
+    }
+
+    /**
+     * Format a numeric value to match the style of the template option.
+     */
+    private fun formatLike(value: Double, template: String): String {
+        val suffix = detectSuffix(template)
+        val isInteger = abs(value - value.roundToInt()) < 1e-9 &&
+            !template.contains(",") && !template.contains(".")
+        return if (isInteger) {
+            "${value.roundToInt()}$suffix"
+        } else {
+            String.format(Locale.US, "%.1f", value).replace(".", ",") + suffix
+        }
+    }
+
+    /**
+     * Generate realistic numeric distractors based on common student mistakes:
+     * - off-by-one / off-by-two
+     * - wrong operation (add instead of subtract)
+     * - missing a step (half the difference)
+     * - ratio/percentage error
+     *
+     * Returns exactly 3 unique wrong values, all different from [correct].
+     */
+    private fun generateNumericDistractors(correct: Double, seed: Int): List<Double> {
+        val s = abs(seed)
+        val magnitude = abs(correct).coerceAtLeast(1.0)
+
+        // Pool of candidate wrong values — we generate many and pick the best 3
+        val candidates = mutableListOf<Double>()
+
+        // Off-by-small-integer errors
+        candidates.add(correct + 1.0)
+        candidates.add(correct - 1.0)
+        candidates.add(correct + 2.0)
+        candidates.add(correct - 2.0)
+        candidates.add(correct + 3.0)
+
+        // Percentage/ratio errors
+        candidates.add(correct * 1.1)    // 10% too high
+        candidates.add(correct * 0.9)    // 10% too low
+        candidates.add(correct * 1.25)   // quarter more
+        candidates.add(correct * 0.75)   // quarter less
+        candidates.add(correct * 2.0)    // doubled (forgot to divide)
+        candidates.add(correct * 0.5)    // halved (forgot to multiply)
+
+        // Seed-dependent variations
+        candidates.add(correct + (s % 7) + 1.0)
+        candidates.add(correct - (s % 5) - 1.0)
+        candidates.add(correct * (1.0 + 0.02 * (s % 8)))
+
+        // Common student arithmetic mistakes
+        if (correct > 10) {
+            candidates.add(correct + 10)
+            candidates.add(correct - 10)
+        }
+
+        // Filter: remove negatives when correct is positive, remove duplicates of correct
+        val filtered = candidates
+            .filter { abs(it - correct) > 0.01 }
+            .filter { if (correct >= 0) it >= 0 else true }
+            .distinctBy { "%.2f".format(it) }
+            .sortedBy { abs(it - correct) } // prefer values close to correct
+
+        // Pick 3 that are all distinct from each other
+        val result = mutableListOf<Double>()
+        for (c in filtered) {
+            if (result.size >= 3) break
+            if (result.none { abs(it - c) < 0.01 }) {
+                result.add(c)
+            }
+        }
+        // Safety: fill remaining with offset values
+        var offset = 4.0
+        while (result.size < 3) {
+            val v = correct + offset
+            if (result.none { abs(it - v) < 0.01 } && abs(v - correct) > 0.01) {
+                result.add(v)
+            }
+            offset += 3.0
+        }
+        return result.take(3)
+    }
+
+    /**
+     * Validate and repair distractors. Returns null if the question is unrecoverable
+     * (all 4 options would be the same value).
+     *
+     * Rules:
+     * - NO suffix-based fake distractors ("(yanlış yön)" etc.)
+     * - All 4 options must be genuinely different
+     * - For numeric questions: generate plausible arithmetic-error distractors
+     * - For text questions: keep original if valid; reject question otherwise
+     */
+    fun fixDistractors(options: List<String>, stem: String, answerIndex: Int): List<String>? {
+        if (options.size < 2) return null
+
+        val cleaned = options.map { it.trim() }.toMutableList()
+        while (cleaned.size < 4) cleaned.add("")
+        val ai = answerIndex.coerceIn(0, cleaned.size - 1)
+        val correct = cleaned[ai]
+
+        if (correct.isBlank() || correct.length < 2) return null
+
+        Log.d(TAG, "DISTRACTOR_PATH_USED fixDistractors called, correct='${correct.take(30)}', " +
+            "options=[${cleaned.take(4).joinToString("|") { it.take(25) }}]")
+
+        // Count how many distractors are broken
+        val brokenIndices = mutableListOf<Int>()
+        for (i in cleaned.indices) {
             if (i == ai) continue
-            if (o[i].length < 3 || o[i] == "-") {
-                val hint = correct.take(20)
-                o[i] = "${hint.take(8)}… (yanlış yön)" + " ".repeat((targetLen - o[i].length).coerceAtLeast(0) % 4)
+            if (!isValidDistractor(cleaned[i])) {
+                brokenIndices.add(i)
+                Log.d(TAG, "DISTRACTOR_BROKEN idx=$i val='${cleaned[i].take(40)}'")
             }
         }
-        val mean = o.map { it.length }.average()
-        if (o.any { kotlin.math.abs(it.length - mean) > mean * 0.9 && mean > 10 }) {
-            val pad = mean.toInt().coerceIn(12, 48)
-            o.indices.forEach { j ->
-                if (o[j].length < pad / 2) o[j] = o[j] + " ".repeat((pad - o[j].length).coerceIn(0, 8))
+
+        // Check for duplicate values (same text appearing in multiple options)
+        val valueSet = mutableSetOf<String>()
+        valueSet.add(correct.lowercase(Locale("tr")).trim())
+        for (i in cleaned.indices) {
+            if (i == ai) continue
+            val normalized = cleaned[i].lowercase(Locale("tr")).trim()
+            if (normalized in valueSet) {
+                if (i !in brokenIndices) {
+                    brokenIndices.add(i)
+                    Log.d(TAG, "DISTRACTOR_DUPLICATE idx=$i val='${cleaned[i].take(40)}'")
+                }
+            } else {
+                valueSet.add(normalized)
             }
         }
-        return o.take(4)
+
+        // If no broken distractors, return as-is
+        if (brokenIndices.isEmpty()) {
+            Log.d(TAG, "DISTRACTOR_SOURCE=original (all valid)")
+            return cleaned.take(4)
+        }
+
+        Log.d(TAG, "DISTRACTOR_REPAIR needed: ${brokenIndices.size} broken indices=$brokenIndices")
+
+        // Try numeric distractor generation
+        val correctNum = extractNumber(correct)
+        if (correctNum != null) {
+            val seed = stem.hashCode()
+            val wrongValues = generateNumericDistractors(correctNum, seed)
+            var wIdx = 0
+            for (i in brokenIndices) {
+                if (wIdx >= wrongValues.size) break
+                val oldVal = cleaned[i]
+                cleaned[i] = formatLike(wrongValues[wIdx], correct)
+                Log.d(TAG, "DISTRACTOR_REPLACED idx=$i old='${oldVal.take(30)}' new='${cleaned[i]}'")
+                wIdx++
+            }
+
+            // Final validation: ensure all 4 are truly distinct
+            val finalValues = cleaned.take(4).map { extractNumber(it) ?: Double.NaN }
+            val distinctCount = finalValues.map { "%.2f".format(it) }.toSet().size
+            if (distinctCount < 4) {
+                Log.w(TAG, "DISTRACTOR_REJECT: numeric dedup failed for correct=$correct, " +
+                    "values=${cleaned.take(4)}")
+                return null
+            }
+            Log.d(TAG, "DISTRACTOR_SOURCE=generated_numeric final=${cleaned.take(4)}")
+            return cleaned.take(4)
+        }
+
+        // Text-based question: if too many distractors are broken, reject the question
+        Log.w(TAG, "DISTRACTOR_REJECT: ${brokenIndices.size} broken text distractors, " +
+            "stem=${stem.take(60)}, broken=${brokenIndices.map { cleaned[it].take(30) }}")
+        return null
     }
 }

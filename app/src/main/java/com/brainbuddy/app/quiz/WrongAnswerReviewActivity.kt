@@ -207,14 +207,15 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
             b.questionImage.visibility = View.GONE
         }
 
-        b.optA.text = q.choices.getOrNull(0) ?: "-"
-        b.optB.text = q.choices.getOrNull(1) ?: "-"
-        b.optC.text = q.choices.getOrNull(2) ?: "-"
-        b.optD.text = q.choices.getOrNull(3) ?: "-"
+        val displayChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
+        b.optA.text = displayChoices.getOrNull(0) ?: "-"
+        b.optB.text = displayChoices.getOrNull(1) ?: "-"
+        b.optC.text = displayChoices.getOrNull(2) ?: "-"
+        b.optD.text = displayChoices.getOrNull(3) ?: "-"
 
         val userSel = sessionAnswers[q.id] ?: -1
-        val userChoice = if (userSel in 0..3) q.choices.getOrNull(userSel) ?: "?" else "-"
-        val correctChoice = q.choices.getOrNull(q.correctIndex) ?: "?"
+        val userChoice = if (userSel in 0..3) displayChoices.getOrNull(userSel) ?: "?" else "-"
+        val correctChoice = displayChoices.getOrNull(q.correctIndex) ?: "?"
 
         if (sessionAnswers.isNotEmpty() && sessionAnswers.containsKey(q.id) && !inRetryMode) {
             val explain = isParentReview || (gateFailReview && (premiumStore.isPremium() || index in revealedGateIndices))
@@ -386,7 +387,8 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         val correct = sel == q.correctIndex
         b.feedbackText.visibility = View.VISIBLE
         b.feedbackText.setTextColor(getColor(if (correct) R.color.bb_turquoise else R.color.bb_error))
-        b.feedbackText.text = if (correct) "✓ Doğru!" else if (isParentReview) "✗ Yanlış. Doğru: ${q.choices.getOrNull(q.correctIndex) ?: "?"}" else "✗ Yanlış"
+        val fbChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
+        b.feedbackText.text = if (correct) "✓ Doğru!" else if (isParentReview) "✗ Yanlış. Doğru: ${fbChoices.getOrNull(q.correctIndex) ?: "?"}" else "✗ Yanlış"
         if (correct) {
             repo.recordAnswers(
                 listOf(AnswerRecord(q.id, sel, q.correctIndex)),

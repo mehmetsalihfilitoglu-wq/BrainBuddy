@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.LockScreenActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.quiz.BossTestActivity
 import com.brainbuddy.app.quiz.BossTestStore
 import com.brainbuddy.app.quiz.QuizActivity
-import com.brainbuddy.app.coach.CoachScreen
-import com.brainbuddy.app.classroom.ClassroomActivity
-import com.brainbuddy.app.core.GamificationStore
+import com.brainbuddy.app.quiz.WrongPoolLauncher
+import com.brainbuddy.app.quiz.WrongQuestionPoolStore
 
 class StudyHubActivity : AppCompatActivity() {
 
@@ -41,12 +41,27 @@ class StudyHubActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardCoach).setOnClickListener {
-            startActivity(Intent(this, CoachScreen::class.java))
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool).setOnClickListener {
+            WrongPoolLauncher.launch(this)
         }
+    }
 
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardClassroom).setOnClickListener {
-            startActivity(Intent(this, ClassroomActivity::class.java))
+    override fun onResume() {
+        super.onResume()
+        updateWrongPoolCardState()
+    }
+
+    private fun updateWrongPoolCardState() {
+        val card = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool)
+        val subtitle = findViewById<android.widget.TextView>(R.id.tvWrongPoolSubtitle)
+        val hasItems = WrongQuestionPoolStore(this).isNotEmpty()
+
+        card.isEnabled = hasItems
+        card.alpha = if (hasItems) 1f else 0.45f
+        subtitle.text = if (hasItems) {
+            getString(R.string.wrong_pool_home_sub)
+        } else {
+            getString(R.string.wrong_pool_card_empty_sub)
         }
     }
 }

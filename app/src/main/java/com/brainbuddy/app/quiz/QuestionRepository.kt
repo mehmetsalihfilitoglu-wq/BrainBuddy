@@ -1199,8 +1199,13 @@ class QuestionRepository(private val context: Context) {
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
+        // Hard-block: IDs from last 5 quizzes are NEVER re-served
+        val hardBlockIds: Set<String> = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        Log.d(TAG, "REPEAT_GUARD LGS hardBlockIds=${hardBlockIds.size} recentIds=${recentIds.size}")
 
         val usedIds = excludeIds.toMutableSet()
+        usedIds.addAll(hardBlockIds)
+        Log.d(TAG, "REPEAT_BLOCKED LGS count=${hardBlockIds.size} from last 5 quizzes")
         val usedStemHashes = mutableSetOf<String>()
         val selectedRows = mutableListOf<LgsCandidateRow>()
         var recentRelaxedCount = 0
@@ -1296,8 +1301,16 @@ class QuestionRepository(private val context: Context) {
         }
 
         if (orderPreserved.isNotEmpty()) {
-            roomStore.recordTestCreated(profileId, effectiveTestId, orderPreserved.map { it.id })
-            recordSeenForQuiz(profileId, orderPreserved.map { it.id })
+            val lgsIds = orderPreserved.map { it.id }
+            val repeatCheck = lgsIds.filter { it in hardBlockIds }
+            if (repeatCheck.isNotEmpty()) {
+                Log.e(TAG, "REPEAT_MISS LGS: ${repeatCheck.size} questions from blocked set! ids=${repeatCheck.take(5)}")
+            } else {
+                Log.d(TAG, "REPEAT_VERIFIED LGS: 0 repeats in ${lgsIds.size} questions, hardBlockIds=${hardBlockIds.size}")
+            }
+            roomStore.recordTestCreated(profileId, effectiveTestId, lgsIds)
+            Log.d(TAG, "REPEAT_RECORDED LGS: ${lgsIds.size} IDs saved for profile=$profileId")
+            recordSeenForQuiz(profileId, lgsIds)
         }
         return orderPreserved
     }
@@ -1382,6 +1395,9 @@ class QuestionRepository(private val context: Context) {
 
         val dbQueryStartMs = System.currentTimeMillis()
         val recentIds: Set<String> = roomStore.getRecentlySeenIdsForProfile(profileId, 150)
+        // Hard-block: IDs from last 5 quizzes are NEVER re-served (repeat=0 guarantee).
+        val hardBlockIds: Set<String> = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        Log.d(TAG, "REPEAT_GUARD grade=$grade hardBlockIds=${hardBlockIds.size} recentIds=${recentIds.size}")
 
         // 1) Candidate pools: HARD→MEDIUM→BORDERLINE first; EASY held for emergency. No DB deletion.
         val perSubjectPrimary: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
@@ -1437,6 +1453,11 @@ class QuestionRepository(private val context: Context) {
         QualityAudit.currentPoolSourceSummary = "GRADE:${grade} exam!=LGS tiers=all"
 
         val usedIds = excludeIds.toMutableSet()
+        // Hard-block: pre-seed usedIds with last 5 quizzes so they can never be picked
+        var repeatBlockedCount = 0
+        usedIds.addAll(hardBlockIds)
+        repeatBlockedCount = hardBlockIds.size
+        Log.d(TAG, "REPEAT_BLOCKED count=$repeatBlockedCount from last 5 quizzes")
         val usedStemHashes = mutableSetOf<String>()
         val selectedTokenSets = mutableListOf<Set<String>>()
         val selectedPerSubject: MutableMap<Subject, MutableList<QuestionCandidateRow>> = mutableMapOf()
@@ -1888,18 +1909,29 @@ class QuestionRepository(private val context: Context) {
         ensureHardMediumQuota(selectedCandidateRows, grade)
 
         // 4) Materialize final questions (decode full Question objects) only for selected IDs.
-        val selectedIdsInOrder = selectedCandidateRows.map { it.id }.distinct().take(effectiveCount)
+        // Over-select to compensate for distractor-rejected questions.
+        val selectedIdsInOrder = selectedCandidateRows.map { it.id }.distinct()
         val entityRows = roomStore.getQuestionEntitiesByIds(selectedIdsInOrder)
         val byIdE = entityRows.associateBy { it.id }
         val materializedInOrder = mutableListOf<Question>()
+        var distractorRejectedCount = 0
         for (id in selectedIdsInOrder) {
             if (materializedInOrder.size >= effectiveCount) break
             val entity = byIdE[id] ?: continue
-            materializeSingleQuestion(entity, expectLgs = false)?.let { materializedInOrder.add(it) }
+            val q = materializeSingleQuestion(entity, expectLgs = false)
+            if (q != null) {
+                materializedInOrder.add(q)
+            } else {
+                distractorRejectedCount++
+            }
+        }
+        if (distractorRejectedCount > 0) {
+            Log.w(TAG, "DISTRACTOR_ELIMINATED $distractorRejectedCount questions during materialization")
         }
 
         // If still short, fill from in-memory fallback pack (no DB scan).
         if (materializedInOrder.size < effectiveCount) {
+            Log.w(TAG, "REPEAT_LAST_RESORT grade materialization: need=${effectiveCount - materializedInOrder.size} more")
             val fallbackPool = getFallbackQuestions()
                 .filter { it.grade == grade && it.examType != ExamType.LGS }
                 .ifEmpty { getFallbackQuestions().filter { it.examType != ExamType.LGS } }
@@ -1921,7 +1953,15 @@ class QuestionRepository(private val context: Context) {
 
         // Test snapshot + tekrarları engellemek için kayıt.
         val questionIds = finalQuestions.map { it.id }
+        // Verify no repeats slipped through
+        val repeatCheck = questionIds.filter { it in hardBlockIds }
+        if (repeatCheck.isNotEmpty()) {
+            Log.e(TAG, "REPEAT_MISS grade: ${repeatCheck.size} questions from blocked set! ids=${repeatCheck.take(5)}")
+        } else {
+            Log.d(TAG, "REPEAT_VERIFIED grade: 0 repeats in ${questionIds.size} questions, hardBlockIds=${hardBlockIds.size}")
+        }
         roomStore.recordTestCreated(profileId, effectiveTestId, questionIds)
+        Log.d(TAG, "REPEAT_RECORDED grade: ${questionIds.size} IDs saved to test history for profile=$profileId")
         recordSeenForQuiz(profileId, questionIds)
         lastDbQueryMs = System.currentTimeMillis() - dbQueryStartMs
 
@@ -1993,10 +2033,25 @@ class QuestionRepository(private val context: Context) {
             return null
         }
         val base = QuestionMapper.toQuestion(entity)
+        Log.d(TAG, "MATERIALIZE id=${entity.id} dbChoices=${base.choices.joinToString("|") { it.take(25) }}")
         val (upStem, didUp) = AdaptiveQuizRuntime.maybeUpgradeEntity(entity)
         if (didUp) QualityAudit.upgradedQuestionsCount++
         val stemUse = upStem ?: base.stem
         val fixed = AdaptiveQuizRuntime.fixDistractors(base.choices, stemUse, entity.answerIndex)
+        if (fixed == null) {
+            Log.w(TAG, "DISTRACTOR_ELIMINATED id=${entity.id} stem=${entity.questionText.take(50)}")
+            QualityAudit.quarantinedLowQualityCount++
+            return null
+        }
+        // Final safety: verify no suffix pattern leaked through
+        val hasSuffix = fixed.any { AdaptiveQuizRuntime.containsSuffixPattern(it) }
+        if (hasSuffix) {
+            Log.e(TAG, "DISTRACTOR_SUFFIX_LEAK id=${entity.id} choices=${fixed.joinToString("|")}")
+            QualityAudit.quarantinedLowQualityCount++
+            return null
+        }
+        Log.d(TAG, "DISTRACTOR_FINAL id=${entity.id} source=${if (fixed == base.choices) "original" else "generated"} " +
+            "choices=${fixed.joinToString("|") { it.take(25) }}")
         QualityAudit.recordTier(entity.qualityTier)
         return QuestionMapper.toQuestion(
             entity,
@@ -2113,23 +2168,35 @@ class QuestionRepository(private val context: Context) {
 
         val profileId = ProfileStore(context).getCurrentProfileId()
         val effectiveTestId = testId ?: java.util.UUID.randomUUID().toString()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        Log.d(TAG, "REPEAT_BLOCKED adaptive blocked=${hardBlockIds.size}")
 
         val picker = SpacedRepetitionPicker(
             historyDao = com.brainbuddy.app.db.DatabaseProvider.get(context).historyDao(),
             roomStore = roomStore,
             getQuestionIdsFromLastNTests = { pid, n -> roomStore.getQuestionIdsFromLastNTests(pid, n) }
         )
-        var questions = picker.pick(finalPool, count, profileId)
+        var questions = picker.pick(finalPool, count, profileId, excludeIds = hardBlockIds)
 
         if (questions.isEmpty()) {
-            Log.i(TAG, "Adaptive picker returned empty, fallback to shuffled pool")
+            Log.w(TAG, "REPEAT_LAST_RESORT adaptive: picker returned empty, fallback to shuffled pool")
             val unique = mutableListOf<Question>()
-            val used = mutableSetOf<String>()
+            val used = hardBlockIds.toMutableSet()
             for (q in finalPool.shuffled()) {
                 if (unique.size >= count) break
                 if (q.id in used) continue
                 used.add(q.id)
                 unique.add(q)
+            }
+            if (unique.size < count) {
+                Log.w(TAG, "REPEAT_LAST_RESORT adaptive: only ${unique.size} after blocking, allowing blocked")
+                val usedFb = unique.map { it.id }.toMutableSet()
+                for (q in finalPool.shuffled()) {
+                    if (unique.size >= count) break
+                    if (q.id in usedFb) continue
+                    usedFb.add(q.id)
+                    unique.add(q)
+                }
             }
             questions = unique
         }
@@ -2215,11 +2282,22 @@ class QuestionRepository(private val context: Context) {
         excludeIds: Set<String> = emptySet()
     ): List<Question> {
         if (grade !in 1..7) return emptyList()
-        fun filterPool(src: List<Question>) = if (excludeIds.isEmpty()) src else src.filter { it.id !in excludeIds }
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        val allExclude = excludeIds + hardBlockIds
+        Log.d(TAG, "REPEAT_BLOCKED gate grade=$grade blocked=${hardBlockIds.size}")
+        fun filterPool(src: List<Question>) = src.filter { it.id !in allExclude }
         var pool = filterPool(roomStore.getQuestionsByGrade(grade))
         if (pool.isEmpty()) pool = filterPool(getFallbackQuestions().filter { it.grade == grade })
         if (pool.isEmpty()) pool = filterPool(getFallbackQuestions())
-        val profileId = ProfileStore(context).getCurrentProfileId()
+        // If pool is too small after blocking, allow LAST_RESORT from blocked pool
+        val needLastResort = pool.size < count
+        if (needLastResort) {
+            Log.w(TAG, "REPEAT_LAST_RESORT gate: pool=${pool.size} < count=$count, allowing blocked questions")
+            val extraPool = (roomStore.getQuestionsByGrade(grade)
+                .filter { it.id !in excludeIds && it.id !in pool.map { q -> q.id }.toSet() })
+            pool = pool + extraPool
+        }
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 50)
         val wrongIds = wrongQuestionStore.getUnfixedWrongIds(14)
         val preferWrong = pool.filter { it.id in wrongIds }.shuffled()
@@ -2233,11 +2311,11 @@ class QuestionRepository(private val context: Context) {
         }
         var finalList = result.ifEmpty {
             val unique = mutableListOf<Question>()
-            val used = mutableSetOf<String>()
+            val usedFb = mutableSetOf<String>()
             for (q in pool.shuffled()) {
                 if (unique.size >= count) break
-                if (q.id in used) continue
-                used.add(q.id)
+                if (q.id in usedFb) continue
+                usedFb.add(q.id)
                 unique.add(q)
             }
             unique
@@ -2252,16 +2330,27 @@ class QuestionRepository(private val context: Context) {
             }
         }
         val toReturn = finalList.distinctBy { it.id }.take(count).shuffled()
+        // Record to cross-quiz history so next quiz blocks these IDs
+        roomStore.recordTestCreated(profileId, java.util.UUID.randomUUID().toString(), toReturn.map { it.id })
         roomStore.recordSeenIdsForProfile(profileId, toReturn.map { it.id })
+        Log.d(TAG, "REPEAT_RECORDED gate(grade): ${toReturn.size} IDs saved for profile=$profileId")
         return toReturn
     }
 
     /** Boss questions - sadece grade filtresi ile (grade 1-7). */
     fun pickBossQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
         if (grade !in 1..7) return emptyList()
-        var pool = roomStore.getQuestionsByGrade(grade)
-        if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
-        if (pool.isEmpty()) pool = getFallbackQuestions()
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        Log.d(TAG, "REPEAT_BLOCKED boss grade=$grade blocked=${hardBlockIds.size}")
+        var pool = roomStore.getQuestionsByGrade(grade).filter { it.id !in hardBlockIds }
+        if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade && it.id !in hardBlockIds }
+        if (pool.isEmpty()) {
+            Log.w(TAG, "REPEAT_LAST_RESORT boss: no questions after blocking, allowing all")
+            pool = roomStore.getQuestionsByGrade(grade)
+            if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
+            if (pool.isEmpty()) pool = getFallbackQuestions()
+        }
         val hardPool = pool.filter { it.difficulty == QuizDifficulty.HARD }
         val base = if (hardPool.isNotEmpty()) hardPool else pool
         val result = mutableListOf<Question>()
@@ -2280,12 +2369,20 @@ class QuestionRepository(private val context: Context) {
                 result.add(q)
             }
         }
-        return result.distinctBy { it.id }.take(count).shuffled()
+        val bossResult = result.distinctBy { it.id }.take(count).shuffled()
+        // Record to cross-quiz history
+        roomStore.recordTestCreated(profileId, java.util.UUID.randomUUID().toString(), bossResult.map { it.id })
+        roomStore.recordSeenIdsForProfile(profileId, bossResult.map { it.id })
+        Log.d(TAG, "REPEAT_RECORDED boss(grade): ${bossResult.size} IDs saved for profile=$profileId")
+        return bossResult
     }
 
     /** Remedial questions - sadece grade filtresi ile. */
     fun pickRemedialQuestionsByGrade(grade: Int, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
         if (grade !in 1..7) return Pair(emptyList(), true)
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        Log.d(TAG, "REPEAT_BLOCKED remedial grade=$grade blocked=${hardBlockIds.size}")
         val all = roomStore.getQuestionsByGrade(grade).ifEmpty { getFallbackQuestions().filter { it.grade == grade } }
             .ifEmpty { getFallbackQuestions() }
         val allMap = all.associateBy { it.id }
@@ -2295,10 +2392,14 @@ class QuestionRepository(private val context: Context) {
         val byTopic = all.groupBy { it.subject.tr }
         var pool = mutableListOf<Question>()
         for (topic in weakTopics) {
-            byTopic[topic]?.let { pool.addAll(it) }
+            byTopic[topic]?.let { pool.addAll(it.filter { q -> q.id !in hardBlockIds }) }
         }
-        if (pool.isEmpty()) pool = all.toMutableList()
-        val profileId = ProfileStore(context).getCurrentProfileId()
+        if (pool.isEmpty()) pool = all.filter { it.id !in hardBlockIds }.toMutableList()
+        // Last resort: if pool is too small, allow blocked questions
+        if (pool.size < count) {
+            Log.w(TAG, "REPEAT_LAST_RESORT remedial: pool=${pool.size} < count=$count")
+            if (pool.isEmpty()) pool = all.toMutableList()
+        }
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 100)
         val sessionIds = mutableSetOf<String>()
         val result = mutableListOf<Question>()
@@ -2311,6 +2412,12 @@ class QuestionRepository(private val context: Context) {
         }
         val questions = result.ifEmpty { pool.shuffled().take(count) }.ifEmpty { getFallbackQuestions().filter { it.grade == grade }.shuffled().take(count) }
             .ifEmpty { getFallbackQuestions().shuffled().take(count) }
+        // Record to cross-quiz history
+        if (questions.isNotEmpty()) {
+            roomStore.recordTestCreated(profileId, java.util.UUID.randomUUID().toString(), questions.map { it.id })
+            roomStore.recordSeenIdsForProfile(profileId, questions.map { it.id })
+            Log.d(TAG, "REPEAT_RECORDED remedial(grade): ${questions.size} IDs saved for profile=$profileId")
+        }
         return Pair(questions, pool.isEmpty())
     }
 
@@ -2328,27 +2435,45 @@ class QuestionRepository(private val context: Context) {
 
     /** Boss test: harder question pool. */
     fun pickBossQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST): List<Question> {
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        Log.d(TAG, "REPEAT_BLOCKED boss(level) blocked=${hardBlockIds.size}")
         val (all, _) = loadAllQuestionsWithStats()
         val allPool = if (all.isEmpty()) getFallbackQuestions() else all
-        val hardPool = allPool.filter { it.levelGroup == levelGroup && it.difficulty == QuizDifficulty.HARD }
-        val pool = if (hardPool.isNotEmpty()) hardPool else allPool.filter { it.levelGroup == levelGroup }
-        val base = if (pool.isEmpty()) allPool else pool
-        val result = base.shuffled().take(count).toMutableList()
+        val hardPool = allPool.filter { it.levelGroup == levelGroup && it.difficulty == QuizDifficulty.HARD && it.id !in hardBlockIds }
+        val pool = if (hardPool.isNotEmpty()) hardPool else allPool.filter { it.levelGroup == levelGroup && it.id !in hardBlockIds }
+        var base = if (pool.isEmpty()) allPool.filter { it.id !in hardBlockIds } else pool
+        if (base.isEmpty()) {
+            Log.w(TAG, "REPEAT_LAST_RESORT boss(level): allowing blocked questions")
+            base = allPool.filter { it.levelGroup == levelGroup }.ifEmpty { allPool }
+        }
+        val result = base.shuffled().distinctBy { it.id }.take(count).toMutableList()
         if (result.size < count && base.isNotEmpty()) {
-            var idx = 0
-            val shuffled = base.shuffled()
-            while (result.size < count) {
-                result.add(shuffled[idx % shuffled.size])
-                idx++
+            val usedIds = result.map { it.id }.toMutableSet()
+            for (q in base.shuffled()) {
+                if (result.size >= count) break
+                if (q.id in usedIds) continue
+                usedIds.add(q.id)
+                result.add(q)
             }
         }
-        return result.shuffled()
+        val bossLevelResult = result.shuffled()
+        // Record to cross-quiz history
+        if (bossLevelResult.isNotEmpty()) {
+            roomStore.recordTestCreated(profileId, java.util.UUID.randomUUID().toString(), bossLevelResult.map { it.id })
+            roomStore.recordSeenIdsForProfile(profileId, bossLevelResult.map { it.id })
+            Log.d(TAG, "REPEAT_RECORDED boss(level): ${bossLevelResult.size} IDs saved for profile=$profileId")
+        }
+        return bossLevelResult
     }
 
     /** Remedial mini-quiz: focused on weak topics. Prefer lastFailedWrongIds from ProtectionPrefs.
      * weakTopic pool -> if empty -> global pool -> fallback. Never returns empty.
      * @return Pair(questions, usedFallbackDueToEmptyPool) - when true, parent should be warned. */
     fun pickRemedialQuestions(levelGroup: LevelGroup, count: Int = MIN_QUESTIONS_PER_TEST, weakTopicIds: List<String> = emptyList()): Pair<List<Question>, Boolean> {
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        Log.d(TAG, "REPEAT_BLOCKED remedial(level) blocked=${hardBlockIds.size}")
         val global = getGlobalPool()
         val all = global.associateBy { it.id }
         val userId = com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(context)
@@ -2357,15 +2482,18 @@ class QuestionRepository(private val context: Context) {
         val byTopic = all.values.groupBy { it.subject.tr }
         var pool = mutableListOf<Question>()
         for (topic in weakTopics) {
-            byTopic[topic]?.let { pool.addAll(it.filter { it.levelGroup == levelGroup }) }
+            byTopic[topic]?.let { pool.addAll(it.filter { q -> q.levelGroup == levelGroup && q.id !in hardBlockIds }) }
         }
         if (pool.isEmpty()) {
-            pool = all.values.filter { it.levelGroup == levelGroup }.toMutableList()
+            pool = all.values.filter { it.levelGroup == levelGroup && it.id !in hardBlockIds }.toMutableList()
         }
         if (pool.isEmpty()) {
-            pool = global.toMutableList()
+            pool = global.filter { it.id !in hardBlockIds }.toMutableList()
         }
-        val profileId = ProfileStore(context).getCurrentProfileId()
+        if (pool.size < count) {
+            Log.w(TAG, "REPEAT_LAST_RESORT remedial(level): pool=${pool.size} < count=$count")
+            if (pool.isEmpty()) pool = global.toMutableList()
+        }
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 100)
         val sessionIds = mutableSetOf<String>()
         val result = mutableListOf<Question>()
@@ -2389,6 +2517,12 @@ class QuestionRepository(private val context: Context) {
             questions = getFallbackQuestions().shuffled().take(count)
         }
         val usedFallback = pool.isEmpty() || result.isEmpty()
+        // Record to cross-quiz history
+        if (questions.isNotEmpty()) {
+            roomStore.recordTestCreated(profileId, java.util.UUID.randomUUID().toString(), questions.map { it.id })
+            roomStore.recordSeenIdsForProfile(profileId, questions.map { it.id })
+            Log.d(TAG, "REPEAT_RECORDED remedial(level): ${questions.size} IDs saved for profile=$profileId")
+        }
         return Pair(questions, usedFallback)
     }
 
@@ -2414,16 +2548,23 @@ class QuestionRepository(private val context: Context) {
         return result
     }
 
-    /** Gate quiz: new quiz each attempt. Shuffled pool + recent-question blacklist. Same question cannot repeat within test. */
+    /** Gate quiz: new quiz each attempt. Shuffled pool + cross-quiz hard-block. Same question cannot repeat within test. */
     fun pickGateQuestions(
         levelGroup: LevelGroup,
         count: Int = MIN_QUESTIONS_PER_TEST,
         excludeIds: Set<String> = emptySet()
     ): List<Question> {
         val profileId = ProfileStore(context).getCurrentProfileId()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        val allExclude = excludeIds + hardBlockIds
+        Log.d(TAG, "REPEAT_BLOCKED gate(level) blocked=${hardBlockIds.size}")
         val global = getGlobalPool()
         val base = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
-        val pool = if (excludeIds.isEmpty()) base else base.filter { it.id !in excludeIds }
+        var pool = base.filter { it.id !in allExclude }
+        if (pool.size < count) {
+            Log.w(TAG, "REPEAT_LAST_RESORT gate(level): pool=${pool.size} < count=$count")
+            pool = base.filter { it.id !in excludeIds }
+        }
         val recentIds = roomStore.getRecentlySeenIdsForProfile(profileId, 50)
         val wrongIds = wrongQuestionStore.getUnfixedWrongIds(14)
         val preferWrong = pool.filter { it.id in wrongIds }.shuffled()
@@ -2470,13 +2611,16 @@ class QuestionRepository(private val context: Context) {
             }
         }
         val toReturn = finalList.distinctBy { it.id }.take(count).shuffled()
+        roomStore.recordTestCreated(profileId, java.util.UUID.randomUUID().toString(), toReturn.map { it.id })
         roomStore.recordSeenIdsForProfile(profileId, toReturn.map { it.id })
+        Log.d(TAG, "REPEAT_RECORDED gate(level): ${toReturn.size} IDs saved for profile=$profileId")
         return toReturn
     }
 
     /**
      * Fast relaxed picker for timeout fallback. No similarity/type/skill/diversity checks.
      * Fetch pool with LIMIT, randomize in memory. Target: build < 500ms.
+     * Still enforces cross-quiz repeat blocking (5 quiz window).
      */
     fun pickQuizQuestionsRelaxedByGrade(
         grade: Int,
@@ -2485,18 +2629,29 @@ class QuestionRepository(private val context: Context) {
         excludeIds: Set<String> = emptySet()
     ): List<Question> {
         if (grade !in 1..7) return emptyList()
-        fun filterPool(src: List<Question>) = if (excludeIds.isEmpty()) src else src.filter { it.id !in excludeIds }
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        val allExclude = excludeIds + hardBlockIds
+        Log.d(TAG, "REPEAT_BLOCKED relaxed grade=$grade blocked=${hardBlockIds.size}")
+        fun filterPool(src: List<Question>) = src.filter { it.id !in allExclude }
         var pool = filterPool(roomStore.getQuestionsByGrade(grade))
         if (pool.isEmpty()) pool = filterPool(getFallbackQuestions().filter { it.grade == grade })
-        if (pool.isEmpty()) pool = filterPool(getFallbackQuestions())
+        if (pool.isEmpty()) {
+            Log.w(TAG, "REPEAT_LAST_RESORT relaxed: pool empty after blocking, allowing all")
+            pool = roomStore.getQuestionsByGrade(grade).filter { it.id !in excludeIds }
+            if (pool.isEmpty()) pool = getFallbackQuestions().filter { it.grade == grade }
+            if (pool.isEmpty()) pool = getFallbackQuestions()
+        }
         val result = pool.shuffled().distinctBy { it.id }.take(count)
-        val profileId = ProfileStore(context).getCurrentProfileId()
+        roomStore.recordTestCreated(profileId, java.util.UUID.randomUUID().toString(), result.map { it.id })
         roomStore.recordSeenIdsForProfile(profileId, result.map { it.id })
+        Log.d(TAG, "REPEAT_RECORDED relaxed(grade): ${result.size} IDs saved for profile=$profileId")
         return result
     }
 
     /**
      * Fast relaxed picker for level-group mode (timeout fallback).
+     * Still enforces cross-quiz repeat blocking (5 quiz window).
      */
     fun pickQuizQuestionsRelaxed(
         levelGroup: LevelGroup,
@@ -2506,13 +2661,22 @@ class QuestionRepository(private val context: Context) {
         testId: String?,
         excludeIds: Set<String> = emptySet()
     ): List<Question> {
+        val profileId = ProfileStore(context).getCurrentProfileId()
+        val hardBlockIds = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
+        val allExclude = excludeIds + hardBlockIds
+        Log.d(TAG, "REPEAT_BLOCKED relaxed(level) blocked=${hardBlockIds.size}")
         val global = getGlobalPool()
         val base = global.filter { it.levelGroup == levelGroup }.ifEmpty { global }
-        val pool = if (excludeIds.isEmpty()) base else base.filter { it.id !in excludeIds }
+        var pool = base.filter { it.id !in allExclude }
+        if (pool.isEmpty()) {
+            Log.w(TAG, "REPEAT_LAST_RESORT relaxed(level): allowing blocked questions")
+            pool = base.filter { it.id !in excludeIds }
+        }
         val filtered = if (categories.isEmpty()) pool else pool.filter { it.subject.name in categories }
         val result = (if (filtered.isNotEmpty()) filtered else pool).shuffled().distinctBy { it.id }.take(count)
-        val profileId = ProfileStore(context).getCurrentProfileId()
+        roomStore.recordTestCreated(profileId, java.util.UUID.randomUUID().toString(), result.map { it.id })
         roomStore.recordSeenIdsForProfile(profileId, result.map { it.id })
+        Log.d(TAG, "REPEAT_RECORDED relaxed(level): ${result.size} IDs saved for profile=$profileId")
         return result
     }
 

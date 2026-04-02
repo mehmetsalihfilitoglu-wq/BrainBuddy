@@ -1,5 +1,7 @@
 package com.brainbuddy.app.db
 
+import android.util.Log
+import com.brainbuddy.app.quiz.AdaptiveQuizRuntime
 import com.brainbuddy.app.quiz.ExamType
 import com.brainbuddy.app.quiz.LevelGroup
 import com.brainbuddy.app.quiz.Question
@@ -8,9 +10,11 @@ import com.brainbuddy.app.quiz.Subject
 import org.json.JSONArray
 
 object QuestionMapper {
+    private const val TAG = "QuestionMapper"
 
     fun toQuestion(j: HistoryJoinedQuestion): Question {
-        val choices = parseChoices(j.optionsJson)
+        val rawChoices = parseChoices(j.optionsJson)
+        val choices = stripSuffixPatterns(rawChoices)
         val subject = mapSubject(j.subject)
         val levelGroup = j.levelGroup?.let { parseLevelGroup(it) } ?: LevelGroup.GRADE_5_8
         val grade = j.gradeTag?.toIntOrNull()?.coerceIn(1, 7) ?: 6
@@ -44,7 +48,23 @@ object QuestionMapper {
         presentationChoices: List<String>? = null,
         contentQualityTier: String? = null,
     ): Question {
-        val choices = presentationChoices ?: parseChoices(e.optionsJson)
+        val rawChoices = presentationChoices ?: parseChoices(e.optionsJson)
+        val stem = presentationStem ?: e.questionText
+        // ALWAYS sanitize choices — every single Question that reaches UI goes through this.
+        val choices = if (presentationChoices != null) {
+            // Caller already fixed — but still strip any suffix that leaked
+            stripSuffixPatterns(rawChoices)
+        } else {
+            // DB choices — run full fixDistractors pipeline
+            val fixed = AdaptiveQuizRuntime.fixDistractors(rawChoices, stem, e.answerIndex)
+            if (fixed != null) {
+                fixed
+            } else {
+                // fixDistractors couldn't repair → strip suffixes as last resort
+                Log.w(TAG, "DISPLAY_SANITIZE id=${e.id} fixDistractors=null, stripping suffixes")
+                stripSuffixPatterns(rawChoices)
+            }
+        }
         val subject = mapSubject(e.subject)
         val levelGroup = LevelGroup.GRADE_5_8
         val difficulty = when (e.difficulty) {
@@ -62,7 +82,6 @@ object QuestionMapper {
         } else {
             rawGrade.coerceIn(1, 7)
         }
-        val stem = presentationStem ?: e.questionText
         return Question(
             id = e.id,
             levelGroup = levelGroup,
@@ -83,6 +102,25 @@ object QuestionMapper {
             presentationChoices = presentationChoices,
             contentQualityTier = contentQualityTier ?: e.qualityTier,
         )
+    }
+
+    /**
+     * Last-resort sanitizer: strips any parenthetical suffix pattern from choices.
+     * This ensures NO suffix-based fake distractor EVER reaches the UI, regardless of source.
+     * Examples removed: "(yanlış yön)", "(geçersiz değer)", "(farklı durum)", etc.
+     */
+    private val STRIP_SUFFIX_REGEX = Regex("""\s*\((?:yanlış|geçersiz|farklı|hatalı|eksik|ters|fazla)[^)]*\)\s*""", RegexOption.IGNORE_CASE)
+    private val STRIP_ELLIPSIS_SUFFIX = Regex("""…\s*$""")
+
+    private fun stripSuffixPatterns(choices: List<String>): List<String> {
+        return choices.map { opt ->
+            var cleaned = STRIP_SUFFIX_REGEX.replace(opt, "").trim()
+            cleaned = STRIP_ELLIPSIS_SUFFIX.replace(cleaned, "").trim()
+            if (cleaned != opt.trim()) {
+                Log.w(TAG, "SUFFIX_STRIPPED '${opt.take(40)}' -> '${cleaned.take(40)}'")
+            }
+            cleaned.ifBlank { opt.trim() }
+        }
     }
 
     private fun parseChoices(json: String): List<String> {

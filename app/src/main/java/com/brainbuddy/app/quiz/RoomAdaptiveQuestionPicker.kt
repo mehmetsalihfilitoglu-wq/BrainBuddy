@@ -36,7 +36,7 @@ class RoomAdaptiveQuestionPicker(
         fun seenCount(ent: QuestionHistoryEntity?) = (ent?.correctCount ?: 0) + (ent?.wrongCount ?: 0)
         fun wrongTotal(ent: QuestionHistoryEntity?) = ent?.wrongCount ?: 0
 
-        val inLast2Tests = getQuestionIdsFromLastNTests(profileId, 2)
+        val inLast5Tests = getQuestionIdsFromLastNTests(profileId, 5)
 
         val dueWrongPool = pool.filter { q ->
             val ent = h(q.id)
@@ -66,7 +66,7 @@ class RoomAdaptiveQuestionPicker(
         )
         val freshSorted = freshPool.sortedWith(
             compareBy<Question> { seenCount(h(it.id)) > 0 }
-                .thenBy { it.id in inLast2Tests }
+                .thenBy { it.id in inLast5Tests }
                 .thenBy { h(it.id)?.lastAnsweredAt ?: 0L }
                 .thenBy { seenCount(h(it.id)) }
         )
@@ -82,9 +82,21 @@ class RoomAdaptiveQuestionPicker(
         var pickFresh = freshSorted.filter { it.id !in wrongIds }.take(testSize - pickWrongCount).toMutableList()
 
         if (pickFresh.size < testSize - pickWrongCount) {
-            val fallbackPool = pool.filter { it.id !in wrongIds && it.id !in pickFresh.map { it.id } }
+            val need = testSize - pickWrongCount - pickFresh.size
+            val alreadyPicked = wrongIds + pickFresh.map { it.id }.toSet()
+            // First pass: prefer non-recent to avoid repeats in fallback.
+            val nonRecentFallback = pool
+                .filter { it.id !in alreadyPicked && it.id !in inLast5Tests }
                 .sortedBy { h(it.id)?.lastAnsweredAt ?: 0L }
-            pickFresh.addAll(fallbackPool.take(testSize - pickWrongCount - pickFresh.size))
+            pickFresh.addAll(nonRecentFallback.take(need))
+            // Last resort: allow recent only when pool is genuinely exhausted.
+            if (pickFresh.size < testSize - pickWrongCount) {
+                val alreadyPicked2 = wrongIds + pickFresh.map { it.id }.toSet()
+                val recentFallback = pool
+                    .filter { it.id !in alreadyPicked2 }
+                    .sortedBy { h(it.id)?.lastAnsweredAt ?: 0L }
+                pickFresh.addAll(recentFallback.take(testSize - pickWrongCount - pickFresh.size))
+            }
         }
 
         val finalSet = (pickWrong + pickFresh).distinctBy { it.id }
