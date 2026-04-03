@@ -114,10 +114,6 @@ class ReportsActivity : AppCompatActivity() {
             b.chipRange7.setOnClickListener { onRangeChanged(7) }
             b.chipRange30.setOnClickListener { onRangeChanged(30) }
 
-            b.btnEmailSetup.setOnClickListener {
-                startActivity(Intent(this, EmailReportsSetupActivity::class.java))
-            }
-
             b.btnShareReport.setOnClickListener {
                 val model = latestModel
                 if (model != null) {

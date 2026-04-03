@@ -159,21 +159,14 @@
         </FrameLayout>
     </FrameLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollShop"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerItems"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerItems"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:clipToPadding="false"
-            tools:listitem="@layout/item_avatar_shop_card"/>
-    </androidx.core.widget.NestedScrollView>
+        android:padding="16dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_avatar_shop_card"/>
 
     <Button
         android:id="@+id/btnShopBack"
