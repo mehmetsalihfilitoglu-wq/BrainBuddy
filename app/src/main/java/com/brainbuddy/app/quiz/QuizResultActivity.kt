@@ -17,6 +17,7 @@ import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.core.RetryUnlockStore
 import com.brainbuddy.app.core.TestPerformance
+import com.brainbuddy.app.core.WrongReviewQuotaStore
 import com.brainbuddy.app.core.TopicCounts
 import com.brainbuddy.app.league.LeagueScoring
 import com.brainbuddy.app.league.LeagueStore
@@ -276,37 +277,48 @@ class QuizResultActivity : AppCompatActivity() {
             }
         }
 
+        // Wrong answers inline list hidden — review via dedicated gated screen
         val wrongSection = findViewById<View>(R.id.wrongSection)
+        wrongSection.visibility = View.GONE
+
         val btnRetryWrong = findViewById<android.widget.Button>(R.id.btnRetryWrong)
+        val tvReviewInfo = findViewById<android.widget.TextView>(R.id.tvReviewInfo)
         val wrongIds = s.wrongQuestionIds
-        val isFailedScreen = isGateMode && !s.passed
-        when {
-            wrongIds.isEmpty() -> {
-                wrongSection.visibility = View.GONE
-                btnRetryWrong.visibility = View.GONE
-            }
-            isFailedScreen -> {
-                wrongSection.visibility = View.GONE
-                btnRetryWrong.visibility = View.VISIBLE
+
+        if (wrongIds.isEmpty()) {
+            btnRetryWrong.visibility = View.GONE
+            tvReviewInfo.visibility = View.GONE
+        } else {
+            btnRetryWrong.visibility = View.VISIBLE
+            if (isGateMode && !s.passed) {
                 btnRetryWrong.setText(R.string.wrong_review_btn_show_detail)
-                btnRetryWrong.setOnClickListener {
-                    startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
-                        putStringArrayListExtra(WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
-                        putExtra(WrongAnswerReviewActivity.EXTRA_SESSION_JSON, encodeSession(s))
-                        putExtra(WrongAnswerReviewActivity.EXTRA_GATE_FAIL_REVIEW, true)
-                    })
-                }
             }
-            else -> {
-                wrongSection.visibility = View.VISIBLE
-                btnRetryWrong.visibility = View.VISIBLE
-                showWrongAnswers(s, wrongIds)
-                btnRetryWrong.setOnClickListener {
-                    startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
-                        putStringArrayListExtra(WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
-                        putExtra(WrongAnswerReviewActivity.EXTRA_SESSION_JSON, encodeSession(s))
-                    })
+            btnRetryWrong.setOnClickListener {
+                startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
+                    putStringArrayListExtra(WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
+                    putExtra(WrongAnswerReviewActivity.EXTRA_SESSION_JSON, encodeSession(s))
+                    if (isGateMode && !s.passed) {
+                        putExtra(WrongAnswerReviewActivity.EXTRA_GATE_FAIL_REVIEW, true)
+                    }
+                })
+            }
+
+            // Show daily quota info for free users
+            val premStore = PremiumStore(this)
+            if (!premStore.isPremium()) {
+                val qs = WrongReviewQuotaStore(this)
+                qs.ensureDailyReset()
+                val remaining = qs.getRemaining()
+                tvReviewInfo.visibility = View.VISIBLE
+                tvReviewInfo.text = if (remaining > 0) {
+                    getString(R.string.wrong_review_result_info, WrongReviewQuotaStore.FREE_PER_DAY) +
+                        "\n" + getString(R.string.wrong_review_result_remaining, remaining, WrongReviewQuotaStore.FREE_PER_DAY)
+                } else {
+                    getString(R.string.wrong_review_result_limit_done) +
+                        "\n" + getString(R.string.wrong_review_premium_upsell)
                 }
+            } else {
+                tvReviewInfo.visibility = View.GONE
             }
         }
 

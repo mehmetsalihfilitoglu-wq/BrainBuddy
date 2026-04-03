@@ -535,7 +535,22 @@
     <string name="email_invalid">Geçerli e-posta adresi girin</string>
     <string name="email_reports_attach_pdf">Test PDF raporu ekle</string>
 
-    <!-- Wrong review quota chip -->
+    <!-- Wrong review gate (post-test review flow) -->
+    <string name="wrong_review_empty">İncelenecek yanlış soru yok.</string>
+    <string name="wrong_review_gate_your_answer">Senin cevabın: %1$s ❌</string>
+    <string name="wrong_review_gate_ad_prompt">Doğru cevabı görmek için reklam izleyin</string>
+    <string name="wrong_review_gate_quota_info">Bugün kalan hak: %1$d/%2$d</string>
+    <string name="wrong_review_gate_btn_ad">Reklam İzle</string>
+    <string name="wrong_review_gate_limit_title">Günlük inceleme hakkınız doldu</string>
+    <string name="wrong_review_gate_limit_body">Yarın 3 yeni hak kazanacaksınız.\nSınırsız erişim için Premium\'a geçin.</string>
+    <string name="wrong_review_gate_premium_cta">Premium ile Sınırsız Aç</string>
+    <string name="wrong_review_btn_skip">Atla →</string>
+    <string name="wrong_review_btn_finish">Bitir</string>
+    <string name="wrong_review_ad_not_ready">Reklam yükleniyor, lütfen birkaç saniye bekleyin.</string>
+    <string name="wrong_review_ad_fail">Reklam gösterilemedi: %1$s</string>
+    <string name="wrong_review_result_info">Günde %1$d yanlış inceleme hakkı\nHer inceleme için reklam izlenir</string>
+    <string name="wrong_review_result_remaining">Kalan hak: %1$d/%2$d</string>
+    <string name="wrong_review_result_limit_done">Bugünkü inceleme hakkınız doldu</string>
     <string name="wrong_review_quota_chip">Bugünkü kalan hak: %1$d/3</string>
     <string name="wrong_review_premium_upsell">Premium ile sınırsız görüntüleme</string>
 
@@ -546,5 +561,37 @@
     <string name="wrong_report_btn_detail">Detayı Gör</string>
     <string name="wrong_report_btn_watch_unlock">Reklam İzle ve Aç</string>
     <string name="wrong_report_locked_title">Yanlış cevap verilmiş soru</string>
+
+    <!-- League -->
+    <string name="league_tier_progress">Lig ilerlemesi: %1$d/%2$d puan</string>
+    <string name="league_streak_bonus">Seri bonusu: +%1$d puan</string>
+
+    <!-- Performance insights -->
+    <string name="perf_status_weak">Zayıf</string>
+    <string name="perf_status_moderate">Orta</string>
+    <string name="perf_status_good">İyi</string>
+    <string name="perf_insight_declining_weak">Performansın düşüyor. %1$s konusuna odaklan.</string>
+    <string name="perf_insight_declining_no_weak">Performansın düşüyor. Daha fazla pratik yap.</string>
+    <string name="perf_insight_improving_weak">Gelişiyorsun! %1$s konusunu biraz daha çalış.</string>
+    <string name="perf_insight_improving">Harika gidiyorsun, devam et!</string>
+    <string name="perf_insight_stable_weak">İstikrarlısın. %1$s konusunu geliştirmeyi dene.</string>
+    <string name="perf_insight_stable">Performansın istikrarlı. Böyle devam!</string>
+
+    <!-- Legal / onboarding -->
+    <string name="legal_hub_title">Yasal Bilgiler</string>
+    <string name="legal_hub_info">Yasal bilgiler ve kullanım koşullarını buradan inceleyebilirsiniz.</string>
+    <string name="onboarding_consent_short">Devam ederek aşağıdaki koşulları kabul edersiniz:</string>
+    <string name="legal_privacy_policy_title">Gizlilik Politikası</string>
+    <string name="legal_privacy_policy_sub">Verilerinizi nasıl topladığımızı ve kullandığımızı öğrenin.</string>
+    <string name="legal_terms_title">Kullanım Koşulları</string>
+    <string name="legal_terms_sub">Uygulama kullanım kuralları ve şartlar.</string>
+    <string name="legal_data_usage_title">Veri Kullanımı</string>
+    <string name="legal_data_usage_sub">Verileriniz yalnızca uygulama deneyiminizi iyileştirmek için kullanılır.</string>
+    <string name="legal_ad_info_title">Reklam Bilgilendirmesi</string>
+    <string name="legal_ad_info_sub">Uygulama Google AdMob reklamlarını kullanmaktadır.</string>
+    <string name="legal_parent_info_title">Ebeveyn Bilgilendirmesi</string>
+    <string name="legal_parent_info_sub">Çocuğunuzun uygulama kullanımını kontrol edebilirsiniz.</string>
+    <string name="parent_card_legal">Yasal Bilgiler</string>
+    <string name="parent_card_legal_sub">Gizlilik, koşullar ve yasal uyum</string>
 
 </resources>
