@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp">
 
+        <!-- ── Header row ── -->
         <Button
             android:id="@+id/btnBack"
             style="@style/BBButtonAlt"
@@ -49,27 +50,27 @@
                 android:textStyle="bold"
                 android:textColor="@color/bb_turquoise"/>
 
+            <!-- Visual quota dots: ● ● ○ -->
+            <TextView
+                android:id="@+id/tvQuotaDots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:letterSpacing="0.15"
+                tools:text="● ● ○"/>
+
             <TextView
                 android:id="@+id/tvQuotaBadge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:textSize="11sp"
                 android:textColor="@color/bb_text_muted"
                 tools:text="Günlük kalan: 2"/>
-
-            <TextView
-                android:id="@+id/tvHintWatchAd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/wrong_review_hint_watch_ad"
-                android:textSize="11sp"
-                android:textColor="@color/bb_turquoise"
-                android:visibility="gone"
-                tools:visibility="visible"/>
         </LinearLayout>
 
+        <!-- ── Question card ── -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/questionCard"
             android:layout_width="0dp"
@@ -88,6 +89,7 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
+                <!-- Question text: visible when unlocked, hidden when locked -->
                 <TextView
                     android:id="@+id/questionText"
                     android:layout_width="match_parent"
@@ -107,6 +109,7 @@
                     android:visibility="gone"
                     android:contentDescription="@null"/>
 
+                <!-- ── UNLOCKED: summary section ── -->
                 <LinearLayout
                     android:id="@+id/summarySection"
                     android:layout_width="match_parent"
@@ -150,7 +153,7 @@
                         android:textAllCaps="false"/>
                 </LinearLayout>
 
-                <!-- Ad gate section: shown for free users when question details are locked -->
+                <!-- ── LOCKED: gate section ── -->
                 <LinearLayout
                     android:id="@+id/gateSection"
                     android:layout_width="match_parent"
@@ -164,61 +167,57 @@
                         android:id="@+id/tvGateIcon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="36sp"
+                        android:textSize="44sp"
                         android:text="🔒"/>
 
                     <TextView
                         android:id="@+id/tvGateUserAnswer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:textSize="14sp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="15sp"
                         android:textColor="@color/bb_error"
+                        android:textStyle="bold"
                         android:gravity="center"/>
 
                     <TextView
                         android:id="@+id/tvGateMessage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:textSize="15sp"
-                        android:textColor="@color/bb_text_dark"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:id="@+id/tvGateQuota"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textSize="13sp"
+                        android:layout_marginTop="12dp"
+                        android:textSize="14sp"
                         android:textColor="@color/bb_text_muted"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.3"/>
 
                     <Button
                         android:id="@+id/btnGateWatchAd"
                         style="@style/BB.Button"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_marginTop="16dp"
-                        android:textAllCaps="false"/>
+                        android:layout_height="52dp"
+                        android:layout_marginTop="20dp"
+                        android:textAllCaps="false"
+                        android:textSize="15sp"/>
 
                     <Button
                         android:id="@+id/btnGatePremium"
                         style="@style/BBButtonAlt"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="44dp"
                         android:layout_marginTop="8dp"
-                        android:textAllCaps="false"/>
+                        android:textAllCaps="false"
+                        android:textSize="13sp"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- ── Retry options ── -->
         <RadioGroup
             android:id="@+id/optionsGroup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/questionCard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">

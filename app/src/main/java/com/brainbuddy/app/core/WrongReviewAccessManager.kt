@@ -12,69 +12,87 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-private val Context.wrongReviewAccessDataStore by preferencesDataStore(name = "wrong_review_access")
+private val Context.wrongReviewGateDataStore by preferencesDataStore(name = "wrong_review_gate_v2")
 
-private val KEY_OPEN_COUNT = intPreferencesKey("open_count")
-private val KEY_LAST_DATE = stringPreferencesKey("last_date")
+private val KEY_USED_TODAY = intPreferencesKey("used_today")
+private val KEY_LAST_RESET_DATE = stringPreferencesKey("last_reset_date")
 
 /**
- * Tracks daily opens of "Yanlış Cevapları İncele" detail screen.
- * - Free: max 3 opens per day; +1 per rewarded ad (stackable)
- * - Premium: unlimited
+ * Centralized access controller for wrong-answer review.
+ *
+ * Single source of truth for:
+ * - Premium bypass
+ * - Daily quota (3/day for free users)
+ * - Daily reset logic
+ * - Quota consumption (atomic, no double-spend)
+ *
+ * NO UI code should directly mutate quota. All access goes through this manager.
  */
 class WrongReviewAccessManager(private val context: Context) {
 
-    private val dataStore = context.wrongReviewAccessDataStore
+    private val dataStore = context.wrongReviewGateDataStore
     private val premiumStore = PremiumStore(context)
 
-    /** Reset count if a new day. Call before any quota ops. */
-    fun ensureDailyReset() {
+    // ── Premium check ────────────────────────────────────────────
+
+    fun isPremium(): Boolean = premiumStore.isPremium()
+
+    // ── Daily reset ──────────────────────────────────────────────
+
+    fun handleDailyReset() {
         runBlocking {
             dataStore.edit { prefs ->
                 val today = todayKey()
-                val last = prefs[KEY_LAST_DATE] ?: ""
+                val last = prefs[KEY_LAST_RESET_DATE] ?: ""
                 if (last != today) {
-                    prefs[KEY_LAST_DATE] = today
-                    prefs[KEY_OPEN_COUNT] = 0
+                    prefs[KEY_LAST_RESET_DATE] = today
+                    prefs[KEY_USED_TODAY] = 0
                 }
             }
         }
     }
 
-    /** Returns true if user can open wrong-answers detail (remaining > 0 or premium). */
-    fun canOpen(): Boolean {
-        if (premiumStore.isPremium()) return true
-        ensureDailyReset()
+    // ── Quota queries ────────────────────────────────────────────
+
+    /** How many reviews used today. Always 0 for premium. */
+    fun getUsedToday(): Int {
+        if (premiumStore.isPremium()) return 0
+        handleDailyReset()
         return runBlocking {
             dataStore.data.map { prefs ->
-                val used = prefs[KEY_OPEN_COUNT] ?: 0
-                used < MAX_OPENS_PER_DAY
+                (prefs[KEY_USED_TODAY] ?: 0).coerceAtLeast(0)
             }.first()
         }
     }
 
-    /** Remaining opens for today (0..n). Premium returns Int.MAX_VALUE. */
-    fun getRemaining(): Int {
+    /** Remaining daily reviews. Int.MAX_VALUE for premium. */
+    fun getRemainingDaily(): Int {
         if (premiumStore.isPremium()) return Int.MAX_VALUE
-        ensureDailyReset()
-        return runBlocking {
-            dataStore.data.map { prefs ->
-                val used = prefs[KEY_OPEN_COUNT] ?: 0
-                (MAX_OPENS_PER_DAY - used).coerceAtLeast(0)
-            }.first()
-        }
+        return (FREE_PER_DAY - getUsedToday()).coerceAtLeast(0)
     }
 
-    /** Consume one open. Call when user successfully opens the detail screen. Returns true if consumed. */
-    fun consumeOpen(): Boolean {
+    /** True if the user can unlock one more question today. */
+    fun canUnlock(): Boolean {
         if (premiumStore.isPremium()) return true
-        ensureDailyReset()
+        return getRemainingDaily() > 0
+    }
+
+    // ── Quota mutation ───────────────────────────────────────────
+
+    /**
+     * Atomically consume one daily review slot.
+     * Returns true if consumed. Returns false if limit reached.
+     * Premium users always return true (no consumption).
+     */
+    fun consumeUnlock(): Boolean {
+        if (premiumStore.isPremium()) return true
+        handleDailyReset()
         var consumed = false
         runBlocking {
             dataStore.edit { prefs ->
-                val used = prefs[KEY_OPEN_COUNT] ?: 0
-                if (used < MAX_OPENS_PER_DAY) {
-                    prefs[KEY_OPEN_COUNT] = used + 1
+                val used = (prefs[KEY_USED_TODAY] ?: 0).coerceAtLeast(0)
+                if (used < FREE_PER_DAY) {
+                    prefs[KEY_USED_TODAY] = used + 1
                     consumed = true
                 }
             }
@@ -82,21 +100,12 @@ class WrongReviewAccessManager(private val context: Context) {
         return consumed
     }
 
-    /** Add +1 extra open from rewarded ad (stackable). */
-    fun addOneFromReward() {
-        ensureDailyReset()
-        runBlocking {
-            dataStore.edit { prefs ->
-                val used = prefs[KEY_OPEN_COUNT] ?: 0
-                prefs[KEY_OPEN_COUNT] = (used - 1).coerceAtLeast(0)
-            }
-        }
-    }
+    // ── Internals ────────────────────────────────────────────────
 
     private fun todayKey(): String =
         SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
 
     companion object {
-        const val MAX_OPENS_PER_DAY = 3
+        const val FREE_PER_DAY = 3
     }
 }

@@ -537,22 +537,34 @@
 
     <!-- Wrong review gate (post-test review flow) -->
     <string name="wrong_review_empty">İncelenecek yanlış soru yok.</string>
+    <string name="wrong_review_locked_question">Bu sorunun detayları kilitli</string>
     <string name="wrong_review_gate_your_answer">Senin cevabın: %1$s ❌</string>
-    <string name="wrong_review_gate_ad_prompt">Doğru cevabı görmek için reklam izleyin</string>
-    <string name="wrong_review_gate_quota_info">Bugün kalan hak: %1$d/%2$d</string>
-    <string name="wrong_review_gate_btn_ad">Reklam İzle</string>
+    <string name="wrong_review_gate_ad_prompt">Soruyu ve doğru cevabı görmek için\nreklam izleyin</string>
+    <string name="wrong_review_gate_btn_ad">Reklam İzle ve Aç</string>
     <string name="wrong_review_gate_limit_title">Günlük inceleme hakkınız doldu</string>
     <string name="wrong_review_gate_limit_body">Yarın 3 yeni hak kazanacaksınız.\nSınırsız erişim için Premium\'a geçin.</string>
     <string name="wrong_review_gate_premium_cta">Premium ile Sınırsız Aç</string>
     <string name="wrong_review_btn_skip">Atla →</string>
     <string name="wrong_review_btn_finish">Bitir</string>
     <string name="wrong_review_ad_not_ready">Reklam yükleniyor, lütfen birkaç saniye bekleyin.</string>
+    <string name="wrong_review_ad_loading_short">Yükleniyor…</string>
     <string name="wrong_review_ad_fail">Reklam gösterilemedi: %1$s</string>
-    <string name="wrong_review_result_info">Günde %1$d yanlış inceleme hakkı\nHer inceleme için reklam izlenir</string>
-    <string name="wrong_review_result_remaining">Kalan hak: %1$d/%2$d</string>
-    <string name="wrong_review_result_limit_done">Bugünkü inceleme hakkınız doldu</string>
-    <string name="wrong_review_quota_chip">Bugünkü kalan hak: %1$d/3</string>
     <string name="wrong_review_premium_upsell">Premium ile sınırsız görüntüleme</string>
+
+    <!-- Result screen conversion card -->
+    <string name="result_wrong_count">%1$d yanlış soru</string>
+    <string name="result_review_info_free">Günde %1$d/%2$d inceleme hakkı kaldı\nHer inceleme için reklam izlenir</string>
+    <string name="result_review_limit_done">Bugünkü inceleme hakkınız doldu</string>
+    <string name="result_premium_all_unlocked">Tüm yanlışlarını sınırsız incele</string>
+
+    <!-- Premium paywall bottom sheet -->
+    <string name="paywall_title">Tüm yanlışlarını sınırsız incele</string>
+    <string name="paywall_benefit_no_ads">✔  Reklamsız deneyim</string>
+    <string name="paywall_benefit_unlimited">✔  Sınırsız yanlış inceleme</string>
+    <string name="paywall_benefit_solutions">✔  Detaylı çözümler ve ipuçları</string>
+    <string name="paywall_benefit_hints">✔  Tüm açıklamalar açık</string>
+    <string name="paywall_cta">Premium\'a Geç</string>
+    <string name="paywall_dismiss">Şimdilik değil</string>
 
     <!-- Wrong Answers Report (from Reports screen) -->
     <string name="wrong_report_title">Yanlış Cevaplar</string>

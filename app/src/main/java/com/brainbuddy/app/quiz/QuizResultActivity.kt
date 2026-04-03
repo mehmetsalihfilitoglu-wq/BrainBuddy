@@ -17,7 +17,7 @@ import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.core.RetryUnlockStore
 import com.brainbuddy.app.core.TestPerformance
-import com.brainbuddy.app.core.WrongReviewQuotaStore
+import com.brainbuddy.app.core.WrongReviewAccessManager
 import com.brainbuddy.app.core.TopicCounts
 import com.brainbuddy.app.league.LeagueScoring
 import com.brainbuddy.app.league.LeagueStore
@@ -281,18 +281,57 @@ class QuizResultActivity : AppCompatActivity() {
         val wrongSection = findViewById<View>(R.id.wrongSection)
         wrongSection.visibility = View.GONE
 
+        val wrongIds = s.wrongQuestionIds
+        val reviewCard = findViewById<View>(R.id.reviewConversionCard)
         val btnRetryWrong = findViewById<android.widget.Button>(R.id.btnRetryWrong)
         val tvReviewInfo = findViewById<android.widget.TextView>(R.id.tvReviewInfo)
-        val wrongIds = s.wrongQuestionIds
+        val tvLockIcon = findViewById<android.widget.TextView>(R.id.tvReviewLockIcon)
+        val tvWrongCount = findViewById<android.widget.TextView>(R.id.tvReviewWrongCount)
+        val tvQuotaDots = findViewById<android.widget.TextView>(R.id.tvResultQuotaDots)
+        val tvPremiumHint = findViewById<android.widget.TextView>(R.id.tvResultPremiumHint)
 
         if (wrongIds.isEmpty()) {
-            btnRetryWrong.visibility = View.GONE
-            tvReviewInfo.visibility = View.GONE
+            reviewCard.visibility = View.GONE
         } else {
-            btnRetryWrong.visibility = View.VISIBLE
+            reviewCard.visibility = View.VISIBLE
+            val am = WrongReviewAccessManager(this)
+            am.handleDailyReset()
+            val isPrem = am.isPremium()
+
+            // Lock icon + wrong count
+            tvLockIcon.text = if (isPrem) "\u2705" else "\uD83D\uDD12"
+            tvWrongCount.text = getString(R.string.result_wrong_count, wrongIds.size)
+
+            // Quota dots + info
+            if (isPrem) {
+                tvQuotaDots.visibility = View.GONE
+                tvReviewInfo.text = getString(R.string.result_premium_all_unlocked)
+                tvPremiumHint.visibility = View.GONE
+            } else {
+                val used = am.getUsedToday()
+                val max = WrongReviewAccessManager.FREE_PER_DAY
+                val remaining = max - used
+                tvQuotaDots.visibility = View.VISIBLE
+                val dots = StringBuilder()
+                for (i in 0 until max) {
+                    if (i > 0) dots.append("  ")
+                    dots.append(if (i < used) "\u25CF" else "\u25CB")
+                }
+                tvQuotaDots.text = dots
+                tvReviewInfo.text = if (remaining > 0) {
+                    getString(R.string.result_review_info_free, remaining, max)
+                } else {
+                    getString(R.string.result_review_limit_done)
+                }
+                tvPremiumHint.visibility = View.VISIBLE
+                tvPremiumHint.text = getString(R.string.wrong_review_premium_upsell)
+            }
+
+            // Button text
             if (isGateMode && !s.passed) {
                 btnRetryWrong.setText(R.string.wrong_review_btn_show_detail)
             }
+
             btnRetryWrong.setOnClickListener {
                 startActivity(Intent(this, WrongAnswerReviewActivity::class.java).apply {
                     putStringArrayListExtra(WrongAnswerReviewActivity.EXTRA_WRONG_IDS, ArrayList(wrongIds))
@@ -301,24 +340,6 @@ class QuizResultActivity : AppCompatActivity() {
                         putExtra(WrongAnswerReviewActivity.EXTRA_GATE_FAIL_REVIEW, true)
                     }
                 })
-            }
-
-            // Show daily quota info for free users
-            val premStore = PremiumStore(this)
-            if (!premStore.isPremium()) {
-                val qs = WrongReviewQuotaStore(this)
-                qs.ensureDailyReset()
-                val remaining = qs.getRemaining()
-                tvReviewInfo.visibility = View.VISIBLE
-                tvReviewInfo.text = if (remaining > 0) {
-                    getString(R.string.wrong_review_result_info, WrongReviewQuotaStore.FREE_PER_DAY) +
-                        "\n" + getString(R.string.wrong_review_result_remaining, remaining, WrongReviewQuotaStore.FREE_PER_DAY)
-                } else {
-                    getString(R.string.wrong_review_result_limit_done) +
-                        "\n" + getString(R.string.wrong_review_premium_upsell)
-                }
-            } else {
-                tvReviewInfo.visibility = View.GONE
             }
         }
 

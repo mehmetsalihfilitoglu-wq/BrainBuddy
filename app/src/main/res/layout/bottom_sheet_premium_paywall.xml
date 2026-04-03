@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="28dp"
+    android:paddingEnd="28dp"
+    android:paddingTop="24dp"
+    android:paddingBottom="32dp"
+    android:background="@drawable/bg_bottom_sheet_round">
+
+    <!-- Drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_bottom_sheet_handle"/>
+
+    <!-- Icon -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="👑"
+        android:textSize="48sp"/>
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvPaywallTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/paywall_title"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/bb_text_dark"
+        android:gravity="center"/>
+
+    <!-- Benefits list -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:paddingStart="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paywall_benefit_no_ads"
+            android:textSize="15sp"
+            android:textColor="@color/bb_text_dark"
+            android:drawablePadding="12dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paywall_benefit_unlimited"
+            android:textSize="15sp"
+            android:textColor="@color/bb_text_dark"
+            android:drawablePadding="12dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paywall_benefit_solutions"
+            android:textSize="15sp"
+            android:textColor="@color/bb_text_dark"
+            android:drawablePadding="12dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paywall_benefit_hints"
+            android:textSize="15sp"
+            android:textColor="@color/bb_text_dark"
+            android:drawablePadding="12dp"/>
+    </LinearLayout>
+
+    <!-- CTA Button -->
+    <Button
+        android:id="@+id/btnPaywallPremium"
+        style="@style/BB.Button"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/paywall_cta"
+        android:textAllCaps="false"
+        android:textSize="16sp"/>
+
+    <!-- Dismiss -->
+    <TextView
+        android:id="@+id/tvPaywallDismiss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/paywall_dismiss"
+        android:textSize="14sp"
+        android:textColor="@color/bb_text_muted"
+        android:gravity="center"/>
+
+</LinearLayout>

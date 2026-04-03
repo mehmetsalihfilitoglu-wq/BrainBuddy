@@ -1,6 +1,5 @@
 package com.brainbuddy.app.quiz
 
-import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
@@ -10,23 +9,21 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.ads.RewardedAdManager
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.AppModeManager
-import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.core.ProtectionPrefs
+import com.brainbuddy.app.core.WrongReviewAccessManager
 import com.brainbuddy.app.core.WrongReviewAnalytics
-import com.brainbuddy.app.core.WrongReviewQuotaStore
 import com.brainbuddy.app.databinding.ActivityWrongAnswerReviewBinding
-import com.brainbuddy.app.ui.TestSettingsActivity
 
 /**
- * Wrong-answer review screen (post-test "Yanlışları İncele").
+ * Wrong-answer review screen with production-grade gating.
  *
- * Access rules:
- * - Premium / Parent mode → all wrong questions visible, no gates.
- * - Free → each question requires a rewarded ad; max [WrongReviewQuotaStore.FREE_PER_DAY] reviews
- *   per day. After daily limit, premium upsell is shown instead of ad option.
- *
- * Daily quota is tracked by [WrongReviewQuotaStore] and persists across app restarts.
- * Quota resets automatically when the calendar day changes.
+ * Architecture:
+ * - [WrongReviewAccessManager] is the single source of truth for quota.
+ * - NO UI code directly mutates quota — only [WrongReviewAccessManager.consumeUnlock].
+ * - Ad flow uses explicit state machine: IDLE → LOADING → SHOWING → COMPLETED/FAILED.
+ * - Locked state hides question text + options. Only user's wrong answer visible.
+ * - Premium/parent → all content visible, no gates.
+ * - Free → rewarded ad per question, max 3/day, then [PremiumPaywallSheet].
  */
 class WrongAnswerReviewActivity : AppCompatActivity() {
 
@@ -38,23 +35,27 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         private const val STATE_REVEALED = "state_revealed_indices"
     }
 
+    // ── Ad flow state machine ────────────────────────────────────
+    private enum class AdState { IDLE, LOADING, SHOWING }
+
     private lateinit var b: ActivityWrongAnswerReviewBinding
     private lateinit var repo: QuestionRepository
     private lateinit var analyticsStore: AnalyticsStore
-    private lateinit var quotaStore: WrongReviewQuotaStore
-    private lateinit var premiumStore: PremiumStore
+    private lateinit var accessManager: WrongReviewAccessManager
+
     private var questions: List<Question> = emptyList()
     private var index = 0
     private val retryAnswers = mutableMapOf<String, Int>()
     private var sessionAnswers: Map<String, Int> = emptyMap()
     private var inRetryMode = false
     private var isParentReview = false
-    /** Indices of questions revealed via ad in this session. */
     private val revealedIndices = mutableSetOf<Int>()
+    private var adState = AdState.IDLE
 
-    /** Premium or parent → full access, no ad gate. */
     private val hasFullAccess: Boolean
-        get() = premiumStore.isPremium() || isParentReview
+        get() = accessManager.isPremium() || isParentReview
+
+    // ── Lifecycle ────────────────────────────────────────────────
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,9 +73,8 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
 
         repo = QuestionRepository(this)
         analyticsStore = AnalyticsStore(this)
-        quotaStore = WrongReviewQuotaStore(this)
-        premiumStore = PremiumStore(this)
-        quotaStore.ensureDailyReset()
+        accessManager = WrongReviewAccessManager(this)
+        accessManager.handleDailyReset()
         RewardedAdManager.preload(this)
 
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS) ?: arrayListOf()
@@ -109,10 +109,9 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Re-check premium status (user may have upgraded in settings)
-        if (questions.isNotEmpty() && ::premiumStore.isInitialized) {
-            quotaStore.ensureDailyReset()
-            if (!inRetryMode) render()
+        if (questions.isNotEmpty() && ::accessManager.isInitialized) {
+            accessManager.handleDailyReset()
+            if (!inRetryMode && adState == AdState.IDLE) render()
         }
     }
 
@@ -125,51 +124,32 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
 
     private fun showEmpty() {
         b.questionText.text = getString(R.string.wrong_review_empty)
+        b.questionText.visibility = View.VISIBLE
         b.nextBtn.isEnabled = false
         b.summarySection.visibility = View.GONE
         b.gateSection.visibility = View.GONE
         b.tvQuotaBadge.visibility = View.GONE
-        b.tvHintWatchAd.visibility = View.GONE
+        b.tvQuotaDots.visibility = View.GONE
     }
 
-    // ── Main render ────────────────────────────────────────────────
+    // ── Main render (no side effects) ────────────────────────────
 
     private fun render() {
         val q = questions[index]
 
-        // Reset all dynamic sections
+        // Reset all sections
         b.summarySection.visibility = View.GONE
         b.gateSection.visibility = View.GONE
         b.optionsGroup.visibility = View.GONE
         b.feedbackText.visibility = View.GONE
-        b.tvHintWatchAd.visibility = View.GONE
         b.nextBtn.visibility = View.VISIBLE
+        b.questionImage.visibility = View.GONE
 
-        // Always-visible: header + question stem
+        // Header
         b.progressText.text = "${index + 1}/${questions.size}"
         b.subjectChip.text = "${q.subject.tr} \u2022 (\u0130nceleme)"
-        b.questionText.text = q.stem
 
-        // Question image
-        if (!q.imageAsset.isNullOrBlank()) {
-            try {
-                assets.open(q.imageAsset!!.trim()).use { input ->
-                    val bmp = BitmapFactory.decodeStream(input)
-                    if (bmp != null) {
-                        b.questionImage.setImageBitmap(bmp)
-                        b.questionImage.visibility = View.VISIBLE
-                    } else {
-                        b.questionImage.visibility = View.GONE
-                    }
-                }
-            } catch (_: Exception) {
-                b.questionImage.visibility = View.GONE
-            }
-        } else {
-            b.questionImage.visibility = View.GONE
-        }
-
-        updateQuotaBadge()
+        updateQuotaDisplay()
 
         val isRevealed = hasFullAccess || index in revealedIndices
 
@@ -180,79 +160,97 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateQuotaBadge() {
-        b.tvQuotaBadge.visibility = View.VISIBLE
+    private fun updateQuotaDisplay() {
         if (hasFullAccess) {
+            b.tvQuotaDots.visibility = View.GONE
+            b.tvQuotaBadge.visibility = View.VISIBLE
             b.tvQuotaBadge.text = getString(R.string.wrong_review_unlimited)
         } else {
-            b.tvQuotaBadge.text = getString(
-                R.string.wrong_review_remaining, quotaStore.getRemaining()
-            )
+            val used = accessManager.getUsedToday()
+            val max = WrongReviewAccessManager.FREE_PER_DAY
+            b.tvQuotaDots.visibility = View.VISIBLE
+            b.tvQuotaDots.text = buildQuotaDots(used, max)
+            b.tvQuotaBadge.visibility = View.VISIBLE
+            b.tvQuotaBadge.text = getString(R.string.wrong_review_remaining, max - used)
         }
     }
 
-    // ── Locked state: question visible, correct answer behind ad gate ──
+    private fun buildQuotaDots(used: Int, max: Int): CharSequence {
+        val sb = StringBuilder()
+        for (i in 0 until max) {
+            if (i > 0) sb.append(" ")
+            sb.append(if (i < used) "\u25CF" else "\u25CB") // ● vs ○
+        }
+        return sb
+    }
+
+    // ── LOCKED: question hidden, only user's wrong answer shown ──
 
     private fun renderLocked(q: Question) {
-        val displayChoices =
-            QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
+        // Hide question content
+        b.questionText.text = getString(R.string.wrong_review_locked_question)
+        b.questionText.visibility = View.VISIBLE
+
+        val displayChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
         val userSel = sessionAnswers[q.id] ?: -1
-        val userChoice =
-            if (userSel in 0..3) displayChoices.getOrNull(userSel) ?: "?" else "-"
+        val userChoice = if (userSel in 0..3) displayChoices.getOrNull(userSel) ?: "?" else "-"
 
         b.gateSection.visibility = View.VISIBLE
         b.tvGateUserAnswer.visibility = View.VISIBLE
         b.tvGateUserAnswer.text = getString(R.string.wrong_review_gate_your_answer, userChoice)
 
-        val remaining = quotaStore.getRemaining()
-        if (remaining > 0) {
-            // Quota available → offer rewarded ad
+        if (accessManager.canUnlock()) {
             b.tvGateIcon.text = "\uD83D\uDD12"
             b.tvGateMessage.text = getString(R.string.wrong_review_gate_ad_prompt)
-            b.tvGateQuota.visibility = View.VISIBLE
-            b.tvGateQuota.text = getString(
-                R.string.wrong_review_gate_quota_info,
-                remaining,
-                WrongReviewQuotaStore.FREE_PER_DAY
-            )
             b.btnGateWatchAd.visibility = View.VISIBLE
             b.btnGateWatchAd.text = getString(R.string.wrong_review_gate_btn_ad)
-            b.btnGateWatchAd.setOnClickListener { watchAdToReveal() }
+            b.btnGateWatchAd.isEnabled = adState == AdState.IDLE
+            b.btnGateWatchAd.setOnClickListener { onWatchAdClicked() }
             b.btnGatePremium.visibility = View.VISIBLE
             b.btnGatePremium.text = getString(R.string.wrong_review_btn_premium)
-            b.btnGatePremium.setOnClickListener { navigateToPremium() }
+            b.btnGatePremium.setOnClickListener { showPaywall() }
         } else {
-            // Daily limit exhausted → premium upsell only
             WrongReviewAnalytics.logLimitHit()
             b.tvGateIcon.text = "\u23F3"
-            b.tvGateMessage.text = getString(R.string.wrong_review_gate_limit_title)
-            b.tvGateQuota.visibility = View.VISIBLE
-            b.tvGateQuota.text = getString(R.string.wrong_review_gate_limit_body)
+            b.tvGateMessage.text = getString(R.string.wrong_review_gate_limit_title) +
+                "\n" + getString(R.string.wrong_review_gate_limit_body)
             b.btnGateWatchAd.visibility = View.GONE
             b.btnGatePremium.visibility = View.VISIBLE
             b.btnGatePremium.text = getString(R.string.wrong_review_gate_premium_cta)
-            b.btnGatePremium.setOnClickListener { navigateToPremium() }
+            b.btnGatePremium.setOnClickListener { showPaywall() }
         }
 
-        // Allow skipping locked questions
-        b.nextBtn.text =
-            if (index < questions.size - 1) getString(R.string.wrong_review_btn_skip)
-            else getString(R.string.wrong_review_btn_finish)
+        b.nextBtn.text = if (index < questions.size - 1) getString(R.string.wrong_review_btn_skip) else getString(R.string.wrong_review_btn_finish)
         b.nextBtn.setOnClickListener { advanceToNext() }
     }
 
-    // ── Unlocked state: full details + retry ─────────────────────
+    // ── UNLOCKED: full content visible ───────────────────────────
 
     private fun renderUnlocked(q: Question) {
-        val displayChoices =
-            QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
+        // Show full question
+        b.questionText.text = q.stem
+        b.questionText.visibility = View.VISIBLE
+
+        // Show image if available
+        if (!q.imageAsset.isNullOrBlank()) {
+            try {
+                assets.open(q.imageAsset!!.trim()).use { input ->
+                    val bmp = BitmapFactory.decodeStream(input)
+                    if (bmp != null) {
+                        b.questionImage.setImageBitmap(bmp)
+                        b.questionImage.visibility = View.VISIBLE
+                    }
+                }
+            } catch (_: Exception) { /* skip */ }
+        }
+
+        val displayChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
         val userSel = sessionAnswers[q.id] ?: -1
-        val userChoice =
-            if (userSel in 0..3) displayChoices.getOrNull(userSel) ?: "?" else "-"
+        val userChoice = if (userSel in 0..3) displayChoices.getOrNull(userSel) ?: "?" else "-"
         val correctChoice = displayChoices.getOrNull(q.correctIndex) ?: "?"
 
         b.summarySection.visibility = View.VISIBLE
-        b.tvUserChoiceSummary.text = "Senin cevab\u0131n: $userChoice"
+        b.tvUserChoiceSummary.text = getString(R.string.wrong_review_gate_your_answer, userChoice)
         b.tvCorrectSummary.visibility = View.VISIBLE
         b.tvCorrectSummary.text = "\u2713 Do\u011fru: $correctChoice"
         b.tvHintSummary.apply {
@@ -270,11 +268,13 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         b.nextBtn.setOnClickListener { advanceToNext() }
     }
 
-    // ── Retry mode: re-answer the question ───────────────────────
+    // ── RETRY mode ───────────────────────────────────────────────
 
     private fun renderRetry(q: Question) {
-        val displayChoices =
-            QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
+        b.questionText.text = q.stem
+        b.questionText.visibility = View.VISIBLE
+
+        val displayChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
         b.optA.text = displayChoices.getOrNull(0) ?: "-"
         b.optB.text = displayChoices.getOrNull(1) ?: "-"
         b.optC.text = displayChoices.getOrNull(2) ?: "-"
@@ -292,8 +292,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         }
         b.optionsGroup.setOnCheckedChangeListener { _, checkedId ->
             val sel = when (checkedId) {
-                b.optA.id -> 0; b.optB.id -> 1; b.optC.id -> 2; b.optD.id -> 3
-                else -> -1
+                b.optA.id -> 0; b.optB.id -> 1; b.optC.id -> 2; b.optD.id -> 3; else -> -1
             }
             if (sel >= 0) retryAnswers[q.id] = sel
         }
@@ -302,48 +301,63 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         b.nextBtn.setOnClickListener { submitRetry() }
     }
 
-    // ── Rewarded ad flow ─────────────────────────────────────────
+    // ── Rewarded ad state machine ────────────────────────────────
 
-    private fun watchAdToReveal() {
+    private fun onWatchAdClicked() {
+        if (adState != AdState.IDLE) return // debounce
+
         if (!RewardedAdManager.isLoaded()) {
-            Toast.makeText(
-                this,
-                getString(R.string.wrong_review_ad_not_ready),
-                Toast.LENGTH_SHORT
-            ).show()
+            adState = AdState.LOADING
+            b.btnGateWatchAd.isEnabled = false
+            b.btnGateWatchAd.text = getString(R.string.wrong_review_ad_loading_short)
             RewardedAdManager.preload(this)
+            // Poll for load with a delayed check
+            b.btnGateWatchAd.postDelayed({
+                if (adState == AdState.LOADING) {
+                    adState = AdState.IDLE
+                    b.btnGateWatchAd.isEnabled = true
+                    b.btnGateWatchAd.text = getString(R.string.wrong_review_gate_btn_ad)
+                    if (!RewardedAdManager.isLoaded()) {
+                        Toast.makeText(this, getString(R.string.wrong_review_ad_not_ready), Toast.LENGTH_SHORT).show()
+                    } else {
+                        onWatchAdClicked() // retry now that it's loaded
+                    }
+                }
+            }, 5000)
             return
         }
+
+        adState = AdState.SHOWING
+        b.btnGateWatchAd.isEnabled = false
 
         RewardedAdManager.show(
             activity = this,
             onReward = {
                 WrongReviewAnalytics.logAdShown()
                 WrongReviewAnalytics.logAdRewarded()
-                if (quotaStore.consumeOne()) {
+                if (accessManager.consumeUnlock()) {
                     WrongReviewAnalytics.logItemReveal()
                     revealedIndices.add(index)
-                    render()
                 }
+                adState = AdState.IDLE
+                render()
             },
             onFail = { msg ->
-                val detail =
-                    RewardedAdManager.lastLoadError?.let { "$msg ($it)" } ?: msg
-                Toast.makeText(
-                    this,
-                    getString(R.string.wrong_review_ad_fail, detail),
-                    Toast.LENGTH_LONG
-                ).show()
+                adState = AdState.IDLE
+                b.btnGateWatchAd.isEnabled = true
+                val detail = RewardedAdManager.lastLoadError?.let { "$msg ($it)" } ?: msg
+                Toast.makeText(this, getString(R.string.wrong_review_ad_fail, detail), Toast.LENGTH_LONG).show()
             }
         )
     }
 
-    private fun navigateToPremium() {
-        WrongReviewAnalytics.logPremiumClick()
-        startActivity(Intent(this, TestSettingsActivity::class.java))
+    // ── Premium paywall ──────────────────────────────────────────
+
+    private fun showPaywall() {
+        PremiumPaywallSheet().show(supportFragmentManager, PremiumPaywallSheet.TAG)
     }
 
-    // ── User actions ─────────────────────────────────────────────
+    // ── Actions ──────────────────────────────────────────────────
 
     private fun enterRetryMode() {
         inRetryMode = true
@@ -353,19 +367,15 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
     private fun submitRetry() {
         val q = questions.getOrNull(index) ?: return
         val sel = when (b.optionsGroup.checkedRadioButtonId) {
-            b.optA.id -> 0; b.optB.id -> 1; b.optC.id -> 2; b.optD.id -> 3
-            else -> -1
+            b.optA.id -> 0; b.optB.id -> 1; b.optC.id -> 2; b.optD.id -> 3; else -> -1
         }
         if (sel >= 0) retryAnswers[q.id] = sel
 
         val correct = sel == q.correctIndex
-        val fbChoices =
-            QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
+        val fbChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
 
         b.feedbackText.visibility = View.VISIBLE
-        b.feedbackText.setTextColor(
-            getColor(if (correct) R.color.bb_turquoise else R.color.bb_error)
-        )
+        b.feedbackText.setTextColor(getColor(if (correct) R.color.bb_turquoise else R.color.bb_error))
         b.feedbackText.text = if (correct) {
             "\u2713 Do\u011fru!"
         } else {
