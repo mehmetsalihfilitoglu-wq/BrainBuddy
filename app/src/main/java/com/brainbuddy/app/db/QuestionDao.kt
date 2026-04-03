@@ -710,4 +710,45 @@ interface QuestionDao {
 
     @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(unservableReason, '') = 'WEAK_DISTRACTORS'")
     suspend fun countRejectedWeakDistractors(): Int
+
+    // ---- DataIntegrityChecker: bulk SQL-side detection ----
+
+    @Query(
+        """
+        UPDATE questions SET unservableReason = 'DATA_CORRUPT_PLACEHOLDER'
+        WHERE unservableReason IS NULL AND isActive = 1
+        AND (optionsJson LIKE '%Se\u00e7enek A%' OR optionsJson LIKE '%Option A%' OR optionsJson LIKE '%Cevap A%' OR optionsJson LIKE '%\u015e\u0131k A%')
+        """
+    )
+    suspend fun markPlaceholderOptions(): Int
+
+    @Query(
+        """
+        UPDATE questions SET unservableReason = 'DATA_CORRUPT_SHORT_STEM'
+        WHERE unservableReason IS NULL AND isActive = 1
+        AND length(trim(questionText)) < 15
+        """
+    )
+    suspend fun markShortStems(): Int
+
+    @Query(
+        """
+        UPDATE questions SET unservableReason = 'DATA_CORRUPT_TOO_FEW_OPTIONS'
+        WHERE unservableReason IS NULL AND isActive = 1
+        AND (optionsJson = '[]' OR length(trim(optionsJson)) < 10)
+        """
+    )
+    suspend fun markEmptyOptions(): Int
+
+    @Query(
+        """
+        SELECT grade, subject, COUNT(*) AS count FROM questions
+        WHERE isActive = 1 AND (unservableReason IS NULL OR unservableReason = '')
+        GROUP BY grade, subject ORDER BY grade, subject
+        """
+    )
+    suspend fun getServableCountsByGradeSubject(): List<GradeSubjectCount>
+
+    @Query("SELECT COUNT(*) FROM questions WHERE unservableReason LIKE 'DATA_CORRUPT%'")
+    suspend fun countDataCorrupt(): Int
 }
