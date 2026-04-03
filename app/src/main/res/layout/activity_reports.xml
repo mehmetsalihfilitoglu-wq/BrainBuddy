@@ -481,11 +481,26 @@
                         android:orientation="vertical"
                         android:layout_marginTop="@dimen/reports_title_content">
 
-                        <!-- A) Weak Subjects -->
+                        <!-- 1) Status Badge -->
+                        <TextView
+                            android:id="@+id/tvPerformanceStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_status_badge"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                            android:textColor="@color/emerald_dark"
+                            android:textStyle="bold"/>
+
+                        <!-- 2) Problem Areas: Weak Subjects -->
                         <TextView
                             android:id="@+id/tvWeakLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_12"
                             android:text="@string/perf_weak_label"
                             android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
                             android:textColor="?attr/colorOnSurfaceVariant"/>
@@ -495,8 +510,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:paddingTop="4dp"
-                            android:paddingBottom="4dp"/>
+                            android:paddingTop="4dp"/>
 
                         <TextView
                             android:id="@+id/tvWeakNone"
@@ -508,12 +522,12 @@
                             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
                             android:textColor="?attr/colorOnSurfaceVariant"/>
 
-                        <!-- B) Strong Subjects -->
+                        <!-- 3) Strong Subjects (secondary) -->
                         <TextView
                             android:id="@+id/tvStrongLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_12"
+                            android:layout_marginTop="@dimen/space_8"
                             android:text="@string/perf_strong_label"
                             android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
                             android:textColor="?attr/colorOnSurfaceVariant"/>
@@ -523,8 +537,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:paddingTop="4dp"
-                            android:paddingBottom="4dp"/>
+                            android:paddingTop="4dp"/>
 
                         <TextView
                             android:id="@+id/tvStrongNone"
@@ -536,97 +549,68 @@
                             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
                             android:textColor="?attr/colorOnSurfaceVariant"/>
 
-                        <!-- C) Trend -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_12"
-                            android:text="@string/perf_trend_label"
-                            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
-                            android:textColor="?attr/colorOnSurfaceVariant"/>
-
+                        <!-- 4) Trend -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingTop="4dp">
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="@dimen/space_12">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="center_vertical">
-
-                                <ImageView
-                                    android:id="@+id/ivTrendArrow"
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:contentDescription="@null"
-                                    app:tint="@color/emerald_primary"/>
-
-                                <TextView
-                                    android:id="@+id/tvTrendSummary"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="6dp"
-                                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-                                    android:textColor="?attr/colorOnSurface"/>
-
-                            </LinearLayout>
+                            <ImageView
+                                android:id="@+id/ivTrendArrow"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:contentDescription="@null"
+                                app:tint="@color/emerald_primary"/>
 
                             <TextView
-                                android:id="@+id/tvTrendSubtitle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:text="@string/perf_trend_subtitle"
-                                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                                android:textColor="?attr/colorOnSurfaceVariant"/>
-                        </LinearLayout>
-
-                        <!-- D) Smart Recommendation (hidden when no weak subject) -->
-                        <LinearLayout
-                            android:id="@+id/sectionRecommendation"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginTop="@dimen/space_12"
-                            android:visibility="gone">
-
-                            <TextView
+                                android:id="@+id/tvTrendSummary"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/perf_most_wrong_label"
-                                android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
-                                android:textColor="?attr/colorOnSurfaceVariant"/>
+                                android:layout_marginStart="6dp"
+                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                                android:textColor="?attr/colorOnSurface"/>
+                        </LinearLayout>
 
-                            <LinearLayout
-                                android:id="@+id/rowMostWrong"
+                        <!-- 5) Insight + CTA (highlighted box) -->
+                        <LinearLayout
+                            android:id="@+id/sectionInsight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:background="@drawable/bg_insight_box"
+                            android:padding="@dimen/space_12">
+
+                            <TextView
+                                android:id="@+id/tvInsightText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:paddingTop="4dp">
+                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                                android:textColor="@color/emerald_dark"
+                                android:textStyle="bold"/>
 
-                                <TextView
-                                    android:id="@+id/tvMostWrongTopic"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/bg_subject_chip"
-                                    android:padding="@dimen/space_8"
-                                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-                                    android:textColor="@color/emerald_dark"/>
+                            <TextView
+                                android:id="@+id/tvMostWrongTopic"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                                android:textColor="@color/emerald_dark"
+                                android:visibility="gone"/>
 
-                                <com.google.android.material.button.MaterialButton
-                                    android:id="@+id/btnMiniTestSuggest"
-                                    style="@style/BBButton"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/space_8"
-                                    android:minWidth="0dp"
-                                    android:minHeight="36dp"
-                                    android:text="@string/perf_mini_test_start"
-                                    android:textAllCaps="false"/>
-                            </LinearLayout>
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnMiniTestSuggest"
+                                style="@style/BBButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_8"
+                                android:minWidth="0dp"
+                                android:minHeight="40dp"
+                                android:text="@string/perf_mini_test_start"
+                                android:textAllCaps="false"
+                                android:visibility="gone"/>
                         </LinearLayout>
                     </LinearLayout>
 

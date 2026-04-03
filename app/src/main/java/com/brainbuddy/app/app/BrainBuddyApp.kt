@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Process
 import android.util.Log
-import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.CrashActivity
 import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.OnboardingPrefs
@@ -14,7 +13,6 @@ import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.StartupAuditRecorder
 import com.brainbuddy.app.db.StartupRuntimeState
-import com.brainbuddy.app.ui.DebugSeedStatusActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -30,6 +28,7 @@ import com.brainbuddy.app.resilience.AccessibilityMonitorService
 import com.brainbuddy.app.league.LeagueScheduler
 import com.brainbuddy.app.report.ReportScheduler
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import java.io.File
 
 class BrainBuddyApp : Application() {
@@ -37,6 +36,11 @@ class BrainBuddyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         logStartupPersistenceSync(this)
+        val adConfig = RequestConfiguration.Builder()
+            .setTagForChildDirectedTreatment(RequestConfiguration.TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE)
+            .setMaxAdContentRating(RequestConfiguration.MAX_AD_CONTENT_RATING_G)
+            .build()
+        MobileAds.setRequestConfiguration(adConfig)
         MobileAds.initialize(this)
         // Ensure we always have a valid active profile on app start.
         ActiveProfileManager.getActiveProfileId(this)
@@ -67,18 +71,6 @@ class BrainBuddyApp : Application() {
                 p
             }
             StartupRuntimeState.publishReady(payload)
-            if (BuildConfig.DEBUG) {
-                val snap = payload.auditSnapshot
-                DebugSeedStatusActivity.launch(
-                    this@BrainBuddyApp,
-                    total = snap.total,
-                    active = snap.active,
-                    inactive = snap.inactive,
-                    candidateSampleSizeG6Mat = snap.candidateSampleG6Mat,
-                    candidateSampleSizeG4Ing = snap.candidateSampleG4Ing,
-                    candidateSampleSizeLgsMat = snap.candidateSampleLgsMat
-                )
-            }
         }
 
         Thread.setDefaultUncaughtExceptionHandler { _, throwable ->

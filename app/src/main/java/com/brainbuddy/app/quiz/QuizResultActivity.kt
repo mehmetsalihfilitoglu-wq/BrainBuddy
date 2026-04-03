@@ -216,8 +216,9 @@ class QuizResultActivity : AppCompatActivity() {
             val leagueStore = LeagueStore(this)
             val testIndexOfDay = leagueStore.getTestsCompletedToday()
             val isGateFailForLeague = intent.getBooleanExtra(EXTRA_IS_GATE_MODE, false) && !s.passed
+            val streakDays = com.brainbuddy.app.core.GamificationStore(this).streakDays()
             val breakdown = LeagueScoring.computeBreakdown(
-                s.wrongCount, s.blankCount, isGateFailForLeague, testIndexOfDay
+                s.wrongCount, s.blankCount, isGateFailForLeague, testIndexOfDay, streakDays
             )
             leagueStore.addWeeklyScore(breakdown.finalPoints)
             leagueStore.incrementTestsToday()

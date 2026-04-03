@@ -37,16 +37,7 @@ class TestSettingsActivity : AppCompatActivity() {
         setupSuccessRate(protectionPrefs)
         setupQuizInterval(protectionPrefs)
 
-        // BLOK 2: Soru / Sınav Paketleri
-        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnExamPacks).setOnClickListener {
-            startActivity(Intent(this, ExamPackActivity::class.java))
-        }
-
-        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnPoolStatus)?.setOnClickListener {
-            startActivity(Intent(this, PoolStatusActivity::class.java))
-        }
-
-        // BLOK 3: Eğitim Modülleri / İçerik
+        // BLOK 2: Eğitim Modülleri / İçerik
         findViewById<com.google.android.material.button.MaterialButton>(R.id.btnMiniTest).setOnClickListener {
             if (!gradePrefs.hasLevelSelected()) {
                 android.widget.Toast.makeText(this, R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
@@ -74,7 +65,6 @@ class TestSettingsActivity : AppCompatActivity() {
         val tvSelected = findViewById<android.widget.TextView>(R.id.tvSelectedGrade)
         val tvModeSectionTitle = findViewById<android.widget.TextView>(R.id.tvModeSectionTitle)
         val tvModeSectionSub = findViewById<android.widget.TextView>(R.id.tvModeSectionSub)
-        val btnPoolStatus = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnPoolStatus)
 
         // Dinamik liste: Junior, 1, 2, 3, 4, 5, 6, 7 (LGS ayrı mod olarak)
         val gradeOptions = listOf("Junior", "1", "2", "3", "4", "5", "6", "7")
@@ -94,23 +84,6 @@ class TestSettingsActivity : AppCompatActivity() {
                 )
             }
             gradeChipGroup.addView(chip)
-        }
-
-        fun getPoolStatusGradeLabel(): String = when (gradePrefs.getSelectedMode()) {
-            LevelMode.LGS -> "LGS"
-            LevelMode.GRADE -> {
-                val g = gradePrefs.getSelectedGrade()
-                when {
-                    g == GradePrefs.GRADE_JUNIOR -> "Junior"
-                    g in 1..7 -> "$g. Sınıf"
-                    else -> "-"
-                }
-            }
-        }
-
-        fun updatePoolStatusButton() {
-            val label = getPoolStatusGradeLabel()
-            btnPoolStatus?.text = getString(R.string.pool_status_button_format, label)
         }
 
         fun updateLabel() {
@@ -133,7 +106,6 @@ class TestSettingsActivity : AppCompatActivity() {
                     tvModeSectionSub.text = getString(R.string.settings_mode_section_sub_lgs)
                 }
             }
-            updatePoolStatusButton()
         }
 
         fun selectChipForGrade(grade: Int) {

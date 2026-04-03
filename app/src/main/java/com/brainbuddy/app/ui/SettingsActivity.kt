@@ -96,9 +96,6 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardQuizSettings).setOnClickListener {
             startActivity(Intent(this, QuizSettingsActivity::class.java))
         }
-        findViewById<View>(R.id.cardExamPacks)?.setOnClickListener {
-            startActivity(Intent(this, ExamPackActivity::class.java))
-        }
         findViewById<View>(R.id.cardReports)?.setOnClickListener {
             startActivity(Intent(this, ReportsActivity::class.java))
         }

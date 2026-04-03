@@ -17,6 +17,7 @@ android {
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
+        buildConfigField("String", "TERMS_URL", "\"\"")
         // Embed seed version so audit screen can show it without importing DbSeeder
         buildConfigField("int", "DB_SEED_VERSION", "6")
 
@@ -31,9 +32,15 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Production AdMob IDs
+            manifestPlaceholders["ADMOB_APP_ID"] = "ca-app-pub-7924868818421834~7526383830"
+            buildConfigField("String", "ADMOB_REWARDED_ID", "\"ca-app-pub-7924868818421834/6080402817\"")
         }
         debug {
             isMinifyEnabled = false
+            // Google test AdMob IDs
+            manifestPlaceholders["ADMOB_APP_ID"] = "ca-app-pub-3940256099942544~3347511713"
+            buildConfigField("String", "ADMOB_REWARDED_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
         }
     }
 

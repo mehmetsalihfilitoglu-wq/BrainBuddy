@@ -69,6 +69,7 @@ class LeagueStore(context: Context) {
             .put("tsMs", tsMs)
             .put("base", breakdown.base)
             .put("wrongBonus", breakdown.wrongBonus)
+            .put("streakBonus", breakdown.streakBonus)
             .put("blankPenalty", breakdown.blankPenalty)
             .put("failPenalty", breakdown.failPenalty)
             .put("rawTotal", breakdown.rawTotal)
@@ -77,6 +78,7 @@ class LeagueStore(context: Context) {
             .put("blankCount", breakdown.blankCount)
             .put("isGateFail", breakdown.isGateFail)
             .put("testIndexOfDay", breakdown.testIndexOfDay)
+            .put("streakDays", breakdown.streakDays)
         arr.put(o)
         trimAndSaveBreakdown(arr, 100)
     }

@@ -304,23 +304,37 @@ class ReportsActivity : AppCompatActivity() {
             b.advancedStatsContent.visibility = View.VISIBLE
             b.advancedStatsEmpty.visibility = View.GONE
 
-            // A) Weak subjects – chips
             val weakSubjects = adv.weakSubjects.take(3)
-            bindSubjectChips(b.flowWeakChips, weakSubjects, isWeak = true)
+            val strongSubjects = adv.strongSubjects.take(3)
             val hasWeak = weakSubjects.isNotEmpty()
+            val hasStrong = strongSubjects.isNotEmpty()
+            val rec = adv.smartRecommendation
+
+            // 1) Status badge
+            val (statusText, statusBgColor) = when {
+                hasWeak -> Pair(getString(R.string.perf_status_weak), getColor(R.color.danger))
+                hasStrong && adv.trendDirection == StatsRepository.TrendDirection.IMPROVING ->
+                    Pair(getString(R.string.perf_status_good), getColor(R.color.emerald_primary))
+                else -> Pair(getString(R.string.perf_status_moderate), getColor(R.color.bb_gold_text))
+            }
+            b.tvPerformanceStatus.text = statusText
+            val statusBg = b.tvPerformanceStatus.background.mutate()
+            DrawableCompat.setTint(statusBg, statusBgColor)
+            b.tvPerformanceStatus.setTextColor(getColor(R.color.white))
+
+            // 2) Weak subjects – chips
+            bindSubjectChips(b.flowWeakChips, weakSubjects, isWeak = true)
             b.tvWeakLabel.visibility = if (hasWeak) View.VISIBLE else View.GONE
             b.flowWeakChips.visibility = if (hasWeak) View.VISIBLE else View.GONE
             b.tvWeakNone.visibility = View.GONE
 
-            // B) Strong subjects – chips
-            val strongSubjects = adv.strongSubjects.take(3)
+            // 3) Strong subjects – chips
             bindSubjectChips(b.flowStrongChips, strongSubjects, isWeak = false)
-            val hasStrong = strongSubjects.isNotEmpty()
             b.tvStrongLabel.visibility = if (hasStrong) View.VISIBLE else View.GONE
             b.flowStrongChips.visibility = if (hasStrong) View.VISIBLE else View.GONE
             b.tvStrongNone.visibility = View.GONE
 
-            // C) Trend
+            // 4) Trend
             val (trendText, trendDrawable) = when (adv.trendDirection) {
                 StatsRepository.TrendDirection.IMPROVING -> Pair(
                     getString(R.string.perf_trend_improving).let {
@@ -343,16 +357,34 @@ class ReportsActivity : AppCompatActivity() {
             b.ivTrendArrow.setImageResource(trendDrawable)
             b.ivTrendArrow.setColorFilter(getColor(R.color.emerald_primary))
 
-            // D) Smart Recommendation (hidden when no weak subject)
-            val rec = adv.smartRecommendation
+            // 5) Insight + CTA (highlighted box)
+            val weakName = weakSubjects.firstOrNull()?.name ?: ""
+            val insightText = when {
+                adv.trendDirection == StatsRepository.TrendDirection.DECLINING && hasWeak ->
+                    getString(R.string.perf_insight_declining_weak, weakName)
+                adv.trendDirection == StatsRepository.TrendDirection.DECLINING ->
+                    getString(R.string.perf_insight_declining_no_weak)
+                adv.trendDirection == StatsRepository.TrendDirection.IMPROVING && hasWeak ->
+                    getString(R.string.perf_insight_improving_weak, weakName)
+                adv.trendDirection == StatsRepository.TrendDirection.IMPROVING ->
+                    getString(R.string.perf_insight_improving)
+                hasWeak ->
+                    getString(R.string.perf_insight_stable_weak, weakName)
+                else ->
+                    getString(R.string.perf_insight_stable)
+            }
+            b.tvInsightText.text = insightText
+
             if (rec != null) {
-                b.sectionRecommendation.visibility = View.VISIBLE
+                b.tvMostWrongTopic.visibility = View.VISIBLE
                 b.tvMostWrongTopic.text = rec.message
+                b.btnMiniTestSuggest.visibility = View.VISIBLE
                 b.btnMiniTestSuggest.setOnClickListener {
                     startQuizWithSubjectFilter(rec.subjectTr)
                 }
             } else {
-                b.sectionRecommendation.visibility = View.GONE
+                b.tvMostWrongTopic.visibility = View.GONE
+                b.btnMiniTestSuggest.visibility = View.GONE
             }
         } else {
             b.cardAdvancedStats.visibility = View.GONE

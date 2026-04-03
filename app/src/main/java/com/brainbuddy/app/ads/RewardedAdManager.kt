@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import com.brainbuddy.app.BuildConfig
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
@@ -17,8 +18,7 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 object RewardedAdManager {
 
     private const val TAG = "RewardedAdManager"
-    // Test rewarded ad unit - replace with production ID for release
-    private const val AD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917"
+    private val AD_UNIT_ID: String get() = BuildConfig.ADMOB_REWARDED_ID
     private const val RETRY_DELAY_MS = 7000L
 
     @Volatile

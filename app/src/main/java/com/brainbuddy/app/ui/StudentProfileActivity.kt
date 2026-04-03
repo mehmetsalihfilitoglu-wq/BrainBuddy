@@ -1,13 +1,18 @@
 package com.brainbuddy.app.ui
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.LockScreenActivity
@@ -15,6 +20,7 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.avatar.AvatarCatalog
 import com.brainbuddy.app.avatar.AvatarCategory
 import com.brainbuddy.app.avatar.AvatarItem
+import com.brainbuddy.app.avatar.AvatarRarity
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.StudentProfileStore
@@ -26,6 +32,11 @@ import com.google.android.material.card.MaterialCardView
  */
 class StudentProfileActivity : AppCompatActivity() {
 
+    private lateinit var store: StudentProfileStore
+    private lateinit var avatarPreview: ImageView
+    private lateinit var tvAvatarName: TextView
+    private var currentSelectedId: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (ProtectionPrefs(this).userLocked()) {
@@ -36,7 +47,7 @@ class StudentProfileActivity : AppCompatActivity() {
         }
         setContentView(R.layout.activity_student_profile)
 
-        val store = StudentProfileStore(this)
+        store = StudentProfileStore(this)
         val gam = GamificationStore(this)
 
         findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
@@ -52,38 +63,81 @@ class StudentProfileActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tvLevel).text = "Seviye ${gam.level()}"
         findViewById<TextView>(R.id.tvXp).text = "${gam.xp()} XP"
-        findViewById<TextView>(R.id.tvStreak).text = "🔥 ${gam.streakDays()} gün"
+        findViewById<TextView>(R.id.tvStreak).text = "\uD83D\uDD25 ${gam.streakDays()} gün"
 
         val ownedIds = store.getOwnedAvatarIds()
-        val selectedId = store.getSelectedAvatarId()
+        currentSelectedId = store.getSelectedAvatarId()
         val mascots = AvatarCatalog.items().filter { it.category == AvatarCategory.MASCOT }
 
-        val avatarPreview = findViewById<ImageView>(R.id.avatarPreview)
-        val item = AvatarCatalog.items().find { it.id == selectedId }
-        if (item != null && item.previewDrawableRes != 0) {
-            avatarPreview.setImageResource(item.previewDrawableRes)
-        } else {
-            avatarPreview.setImageResource(R.drawable.avatar_mascot_brainy)
-        }
+        avatarPreview = findViewById(R.id.avatarPreview)
+        tvAvatarName = findViewById(R.id.tvAvatarName)
+
+        updatePreview(mascots.find { it.id == currentSelectedId })
+
+        // Show avatar count
+        val ownedCount = mascots.count { it.id in ownedIds }
+        findViewById<TextView>(R.id.tvAvatarCount).text = "$ownedCount/${mascots.size}"
 
         val recycler = findViewById<RecyclerView>(R.id.recyclerAvatars)
         recycler.layoutManager = GridLayoutManager(this, 3)
-        recycler.adapter = AvatarGridAdapter(mascots, ownedIds, selectedId) { avatarItem ->
-            if (avatarItem.id in ownedIds) {
+        recycler.itemAnimator = null
+
+        val adapter = AvatarGridAdapter(mascots, ownedIds, currentSelectedId) { avatarItem ->
+            if (avatarItem.id in ownedIds && avatarItem.id != currentSelectedId) {
+                currentSelectedId = avatarItem.id
                 store.setSelectedAvatarId(avatarItem.id)
-                if (avatarItem.previewDrawableRes != 0) {
-                    avatarPreview.setImageResource(avatarItem.previewDrawableRes)
-                }
+                animatePreviewChange(avatarItem)
                 recycler.adapter?.notifyDataSetChanged()
             }
         }
+        recycler.adapter = adapter
+    }
+
+    private fun updatePreview(item: AvatarItem?) {
+        if (item != null && item.previewDrawableRes != 0) {
+            avatarPreview.setImageResource(item.previewDrawableRes)
+            tvAvatarName.text = item.displayName
+        } else {
+            avatarPreview.setImageResource(R.drawable.avatar_mascot_brainy)
+            tvAvatarName.text = "Brainy"
+        }
+    }
+
+    private fun animatePreviewChange(item: AvatarItem) {
+        val scaleDown = ObjectAnimator.ofFloat(avatarPreview, "scaleX", 1f, 0.7f)
+        val scaleDownY = ObjectAnimator.ofFloat(avatarPreview, "scaleY", 1f, 0.7f)
+        val fadeOut = ObjectAnimator.ofFloat(avatarPreview, "alpha", 1f, 0f)
+
+        val shrink = AnimatorSet().apply {
+            playTogether(scaleDown, scaleDownY, fadeOut)
+            duration = 120
+        }
+
+        shrink.addListener(object : android.animation.AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: android.animation.Animator) {
+                updatePreview(item)
+
+                val scaleUp = ObjectAnimator.ofFloat(avatarPreview, "scaleX", 0.7f, 1f)
+                val scaleUpY = ObjectAnimator.ofFloat(avatarPreview, "scaleY", 0.7f, 1f)
+                val fadeIn = ObjectAnimator.ofFloat(avatarPreview, "alpha", 0f, 1f)
+
+                AnimatorSet().apply {
+                    playTogether(scaleUp, scaleUpY, fadeIn)
+                    duration = 250
+                    interpolator = OvershootInterpolator(1.5f)
+                    start()
+                }
+            }
+        })
+
+        shrink.start()
     }
 }
 
 class AvatarGridAdapter(
     private val items: List<AvatarItem>,
     private val ownedIds: Set<String>,
-    private val selectedId: String,
+    private var selectedId: String,
     private val onSelect: (AvatarItem) -> Unit
 ) : RecyclerView.Adapter<AvatarGridAdapter.VH>() {
 
@@ -97,21 +151,83 @@ class AvatarGridAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val item = items[position]
+        val ctx = holder.view.context
         val card = holder.view.findViewById<MaterialCardView>(R.id.cardAvatar)
         val img = holder.view.findViewById<ImageView>(R.id.imgAvatar)
         val lock = holder.view.findViewById<View>(R.id.lockOverlay)
+        val lockIcon = holder.view.findViewById<ImageView>(R.id.lockIcon)
+        val tvName = holder.view.findViewById<TextView>(R.id.tvAvatarName)
+        val rarityDot = holder.view.findViewById<View>(R.id.rarityDot)
 
         if (item.previewDrawableRes != 0) {
             img.setImageResource(item.previewDrawableRes)
         }
-        val owned = item.id in ownedIds
-        lock.visibility = if (owned) View.GONE else View.VISIBLE
-        val selected = item.id == selectedId
-        card.strokeWidth = if (selected) 4 else 0
-        card.strokeColor = holder.view.context.getColor(R.color.bb_primary)
 
+        tvName.text = item.displayName
+
+        val owned = item.id in ownedIds
+        val selected = item.id == selectedId
+
+        // Lock state
+        lock.visibility = if (owned) View.GONE else View.VISIBLE
+        lockIcon.visibility = if (owned) View.GONE else View.VISIBLE
+        img.alpha = if (owned) 1f else 0.4f
+
+        // Selection state
+        if (selected) {
+            card.strokeWidth = ctx.resources.getDimensionPixelSize(R.dimen.avatar_stroke_selected)
+            card.strokeColor = ContextCompat.getColor(ctx, R.color.bb_primary)
+            card.cardElevation = 6f * ctx.resources.displayMetrics.density
+            card.setCardBackgroundColor(ContextCompat.getColor(ctx, R.color.avatar_selected_bg))
+            tvName.setTextColor(ContextCompat.getColor(ctx, R.color.bb_primary))
+            tvName.setTypeface(null, android.graphics.Typeface.BOLD)
+        } else {
+            card.strokeWidth = if (owned) 0 else ctx.resources.getDimensionPixelSize(R.dimen.avatar_stroke_normal)
+            card.strokeColor = ContextCompat.getColor(ctx, R.color.divider_light)
+            card.cardElevation = 2f * ctx.resources.displayMetrics.density
+            card.setCardBackgroundColor(ContextCompat.getColor(ctx, R.color.bb_card))
+            tvName.setTextColor(ContextCompat.getColor(ctx,
+                if (owned) R.color.bb_text else R.color.bb_text_muted))
+            tvName.setTypeface(null, android.graphics.Typeface.NORMAL)
+        }
+
+        // Rarity dot
+        if (item.rarity != AvatarRarity.COMMON) {
+            rarityDot.visibility = View.VISIBLE
+            val dotBg = GradientDrawable().apply {
+                shape = GradientDrawable.OVAL
+                setColor(ContextCompat.getColor(ctx, when (item.rarity) {
+                    AvatarRarity.RARE -> R.color.rarity_rare
+                    AvatarRarity.EPIC -> R.color.rarity_epic
+                    AvatarRarity.LEGENDARY -> R.color.rarity_legendary
+                    else -> R.color.rarity_common
+                }))
+            }
+            rarityDot.background = dotBg
+        } else {
+            rarityDot.visibility = View.GONE
+        }
+
+        // Click with press animation
         card.isClickable = owned
-        card.setOnClickListener { if (owned) onSelect(item) }
+        card.isFocusable = owned
+
+        if (owned) {
+            card.setOnClickListener { v ->
+                // Press bounce animation
+                val bounceX = ObjectAnimator.ofFloat(v, "scaleX", 1f, 0.92f, 1.05f, 1f)
+                val bounceY = ObjectAnimator.ofFloat(v, "scaleY", 1f, 0.92f, 1.05f, 1f)
+                AnimatorSet().apply {
+                    playTogether(bounceX, bounceY)
+                    duration = 200
+                    start()
+                }
+                selectedId = item.id
+                onSelect(item)
+            }
+        } else {
+            card.setOnClickListener(null)
+        }
     }
 
     override fun getItemCount() = items.size
