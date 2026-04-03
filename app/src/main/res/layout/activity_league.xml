@@ -23,7 +23,7 @@
                 style="@style/BBButtonAlt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="← Geri"
+                android:text="@string/league_back"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:paddingHorizontal="12dp"/>
@@ -32,7 +32,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Lig"
+                android:text="@string/league_title"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:textColor="@color/bb_text"
@@ -44,23 +44,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp">
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:id="@+id/tvLeagueNote"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Bu hafta antrenman ligi"
-                    android:textSize="13sp"
-                    android:textColor="@color/bb_text_muted"
-                    android:layout_marginBottom="8dp"/>
+                android:padding="@dimen/space_16">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -110,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Sıralama"
+            android:text="@string/league_ranking_title"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/bb_text"/>
@@ -129,19 +120,19 @@
             android:layout_marginTop="16dp"
             android:visibility="gone"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp">
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="@dimen/space_16">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lig tablosu için henüz yeterli veri yok."
+                    android:text="@string/league_empty_title"
                     android:textColor="@color/bb_text"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -149,8 +140,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Testleri çözdükçe lig sıralamanız burada görünecek."
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="@string/league_empty_subtitle"
                     android:textColor="@color/bb_text_muted"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -162,44 +153,46 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="24dp"
             app:cardBackgroundColor="@color/bb_turquoise_light"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="@dimen/space_16">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="💡 Puan nasıl kazanılır?"
+                    android:text="@string/league_scoring_title"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
+                    android:textColor="@color/bb_text"
+                    android:drawableStart="@drawable/ic_info_outline"
+                    android:drawablePadding="@dimen/space_8"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="• Az yanlış = daha çok puan"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:text="@string/league_scoring_tip_1"
                     android:textSize="13sp"
                     android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="• Başarısız test puan düşürür"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="@string/league_scoring_tip_2"
                     android:textSize="13sp"
                     android:textColor="@color/bb_text"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="• Günde çok fazla testte puan azalır"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="@string/league_scoring_tip_3"
                     android:textSize="13sp"
                     android:textColor="@color/bb_text"/>
             </LinearLayout>

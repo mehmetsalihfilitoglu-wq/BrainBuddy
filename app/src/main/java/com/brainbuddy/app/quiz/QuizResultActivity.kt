@@ -183,7 +183,7 @@ class QuizResultActivity : AppCompatActivity() {
         }
 
         val s = session ?: run {
-            findViewById<android.widget.TextView>(R.id.tvTitle).text = "Sonuç yüklenemedi"
+            findViewById<android.widget.TextView>(R.id.tvTitle).text = getString(R.string.quiz_result_load_error)
             return
         }
 
@@ -233,9 +233,9 @@ class QuizResultActivity : AppCompatActivity() {
 
         val titleText = when {
             !s.passed -> getString(R.string.lock_failed_message)
-            isGateMode && s.wrongCount <= 3 -> if (accuracy >= 0.4f) "Tebrikler! 🎉" else "Tamamlandı"
-            s.passed -> if (accuracy >= 0.4f) "Tebrikler! 🎉" else "Tamamlandı"
-            else -> "Tamamlandı"
+            isGateMode && s.wrongCount <= 3 -> if (accuracy >= 0.4f) getString(R.string.quiz_result_congrats) else getString(R.string.quiz_result_completed)
+            s.passed -> if (accuracy >= 0.4f) getString(R.string.quiz_result_congrats) else getString(R.string.quiz_result_completed)
+            else -> getString(R.string.quiz_result_completed)
         }
         findViewById<android.widget.TextView>(R.id.tvTitle).text = titleText
         findViewById<android.widget.TextView>(R.id.tvScoreBig).text = "${s.correctCount}/${total}"
@@ -370,9 +370,9 @@ class QuizResultActivity : AppCompatActivity() {
         if (s.passed) {
             newMilestone?.let { msg ->
                 com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
-                    .setTitle("🎉 Kutlama!")
+                    .setTitle(getString(R.string.quiz_result_celebration_title))
                     .setMessage(msg)
-                    .setPositiveButton("Harika!", null)
+                    .setPositiveButton(getString(R.string.quiz_result_great), null)
                     .show()
             }
         }

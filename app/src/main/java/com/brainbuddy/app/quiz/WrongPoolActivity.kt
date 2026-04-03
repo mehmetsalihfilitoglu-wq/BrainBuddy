@@ -37,12 +37,6 @@ class WrongPoolActivity : AppCompatActivity() {
         poolStore = WrongQuestionPoolStore(this)
         repo = QuestionRepository(this)
 
-        b.debugPickerText.visibility = View.GONE
-        b.debugInfoText.visibility = View.GONE
-        b.btnForceActivateAll.visibility = View.GONE
-        b.btnClampDifficulty.visibility = View.GONE
-        b.btnFixInvalidGrades.visibility = View.GONE
-
         if (poolStore.isEmpty()) {
             Toast.makeText(this, R.string.wrong_pool_empty, Toast.LENGTH_SHORT).show()
             finish()

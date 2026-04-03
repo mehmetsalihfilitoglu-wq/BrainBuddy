@@ -57,7 +57,7 @@ object LeagueHelper {
 
         val sorted = entries.filterNotNull().sortedByDescending { it.weeklyScore }
         if (sorted.isEmpty()) {
-            android.util.Log.w("LeagueHelper", "Sanity check failed: empty leaderboard, returning fallback entry.")
+            // Empty leaderboard — return current user as sole entry
             return listOf(
                 LeagueEntry(
                     id = profileId,

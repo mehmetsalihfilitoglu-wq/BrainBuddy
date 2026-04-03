@@ -103,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_12"
-                    android:text="Günlük hedef (1 test)"
+                    android:text="@string/home_daily_goal"
                     android:textColor="@color/white"
                     android:textSize="13sp"/>
 

@@ -42,14 +42,14 @@ class StatsActivity : AppCompatActivity() {
         val gam = GamificationStore(this)
         val analytics = AnalyticsStore(this)
 
-        b.tvLevel.text = "Seviye ${gam.level()}"
-        b.tvXp.text = "${gam.xp()} XP"
-        b.tvStreak.text = "🔥 ${gam.streakDays()} gün seri"
+        b.tvLevel.text = getString(R.string.stats_level, gam.level())
+        b.tvXp.text = getString(R.string.stats_xp, gam.xp())
+        b.tvStreak.text = getString(R.string.stats_streak, gam.streakDays())
         val counts = analytics.getOverallCounts()
         val accuracyPct = if (counts.total > 0) 100.0 * counts.correct / counts.total else 0.0
         b.tvOverallAccuracy.text = if (counts.total > 0) {
-            "${counts.correct}/${counts.total} doğru (${"%.1f".format(accuracyPct)}%)"
-        } else "Henüz veri yok"
+            getString(R.string.stats_accuracy, counts.correct, counts.total, accuracyPct)
+        } else getString(R.string.stats_no_data)
 
         b.progressRing.progress = accuracyPct.toFloat()
 
@@ -83,7 +83,7 @@ class StatsActivity : AppCompatActivity() {
         b.chipGroupStrong.removeAllViews()
         if (strongest.isEmpty()) {
             val chip = Chip(this, null, com.brainbuddy.app.R.style.Widget_BrainBuddy_Chip_Stat).apply {
-                text = "-"
+                text = getString(R.string.stats_no_topic_data)
                 isClickable = false
             }
             b.chipGroupStrong.addView(chip)
@@ -101,7 +101,7 @@ class StatsActivity : AppCompatActivity() {
         b.chipGroupWeak.removeAllViews()
         if (weakest.isEmpty()) {
             val chip = Chip(this, null, com.brainbuddy.app.R.style.Widget_BrainBuddy_Chip_Stat).apply {
-                text = "-"
+                text = getString(R.string.stats_no_topic_data)
                 isClickable = false
             }
             b.chipGroupWeak.addView(chip)
@@ -141,7 +141,7 @@ class RecentTestsAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val p = items[position]
-        holder.view.findViewById<TextView>(R.id.tvTestIndex).text = "Test ${items.size - position}"
+        holder.view.findViewById<TextView>(R.id.tvTestIndex).text = holder.view.context.getString(R.string.stats_test_index, items.size - position)
         holder.view.findViewById<TextView>(R.id.tvTestScore).text = "${p.correctCount}/${p.effectiveTotal}"
         holder.view.setOnClickListener { onItemClick(p) }
     }

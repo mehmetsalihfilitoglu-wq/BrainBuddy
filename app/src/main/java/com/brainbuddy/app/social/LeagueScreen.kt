@@ -1,7 +1,6 @@
 package com.brainbuddy.app.social
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,30 +34,23 @@ class LeagueScreen : AppCompatActivity() {
         val tier = store.getCurrentTier()
         b.tvTierName.text = tier.displayName
         b.tvTierEmoji.text = tier.emoji
-        b.tvWeeklyScore.text = "Haftalık puan: ${store.getWeeklyScore()}"
+        b.tvWeeklyScore.text = getString(R.string.league_weekly_score, store.getWeeklyScore())
 
         val daysLeft = LeagueHelper.getDaysUntilWeekEnd()
-        b.tvCountdown.text = "Haftanın bitmesine: $daysLeft gün"
-
-        val notes = listOf("Bu hafta antrenman ligi", "Bu hafta pratik arena")
-        val noteIdx = (System.currentTimeMillis() % 2).toInt().coerceIn(0, notes.size - 1)
-        b.tvLeagueNote.text = notes[noteIdx]
+        b.tvCountdown.text = getString(R.string.league_days_left, daysLeft)
 
         val rawEntries = try {
             LeagueHelper.getLeaderboardEntries(this)
-        } catch (t: Throwable) {
-            Log.e("LeagueScreen", "Failed to build leaderboard entries", t)
+        } catch (_: Throwable) {
             emptyList()
         }
 
         val entries: List<LeagueEntry> = rawEntries.filterNotNull().sortedByDescending { it.weeklyScore }
 
         if (entries.isEmpty()) {
-            Log.w("LeagueScreen", "Sanity check: leagueEntries is empty, showing empty-state card.")
             b.recyclerLeaderboard.visibility = View.GONE
             b.cardLeagueEmpty.visibility = View.VISIBLE
         } else {
-            Log.d("LeagueScreen", "Sanity check: leagueEntries size=${entries.size}")
             b.cardLeagueEmpty.visibility = View.GONE
             b.recyclerLeaderboard.visibility = View.VISIBLE
             b.recyclerLeaderboard.layoutManager = LinearLayoutManager(this)
@@ -90,7 +82,7 @@ class LeagueAdapter(
         holder.view.findViewById<android.widget.TextView>(R.id.tvRank).text = rank.toString()
         holder.view.findViewById<android.widget.TextView>(R.id.tvAvatar).text = "👤"
         holder.view.findViewById<android.widget.TextView>(R.id.tvName).text = entry.displayName
-        holder.view.findViewById<android.widget.TextView>(R.id.tvScore).text = if (entry.id == currentUserId) "Sen" else ""
+        holder.view.findViewById<android.widget.TextView>(R.id.tvScore).text = if (entry.id == currentUserId) holder.view.context.getString(R.string.league_current_user_label) else ""
         holder.view.findViewById<android.widget.TextView>(R.id.tvPoints).text = "${entry.weeklyScore}"
 
         val chipNpc = holder.view.findViewById<com.google.android.material.chip.Chip>(R.id.chipNpc)

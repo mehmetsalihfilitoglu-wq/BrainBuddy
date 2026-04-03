@@ -78,6 +78,7 @@ class ReportsActivity : AppCompatActivity() {
             RewardedAdManager.preload(this)
             val autoOpenWrongReview = intent.getBooleanExtra(EXTRA_OPEN_WRONG_REVIEW, false)
 
+            @Suppress("BlockingMethodInNonBlockingContext")
             val initialRange = runBlocking {
                 applicationContext.reportsPrefsDataStore.data
                     .map { prefs -> prefs[KEY_REPORT_RANGE_DAYS] ?: 7 }
@@ -188,13 +189,11 @@ class ReportsActivity : AppCompatActivity() {
             b.btnPerformanceInfo.setOnClickListener { showPerformanceInfoBottomSheet() }
 
         } catch (e: Throwable) {
-            var root: Throwable = e
-            while (root.cause != null) root = root.cause!!
-            Log.e("ReportsActivity", "Crash", e)
             val layout = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
                 addView(TextView(this@ReportsActivity).apply {
-                    text = "RAPORLAR CRASH: ${root.message}"
+                    text = getString(R.string.reports_error_generic)
+                    setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 16f)
                     setPadding(48, 48, 48, 48)
                 })
             }
@@ -221,16 +220,16 @@ class ReportsActivity : AppCompatActivity() {
         val range = model.range
         when (range) {
             StatsRepository.ReportRange.TODAY -> {
-                b.tvWeeklySuccessTitle.text = "Günlük Özet"
-                b.chipLast7Days.text = "Bugün"
+                b.tvWeeklySuccessTitle.text = getString(R.string.reports_daily_summary)
+                b.chipLast7Days.text = getString(R.string.reports_today)
             }
             StatsRepository.ReportRange.SEVEN -> {
                 b.tvWeeklySuccessTitle.text = getString(R.string.parent_weekly_success)
-                b.chipLast7Days.text = "Son 7 gün"
+                b.chipLast7Days.text = getString(R.string.reports_last_7_days)
             }
             StatsRepository.ReportRange.THIRTY -> {
-                b.tvWeeklySuccessTitle.text = "Aylık Özet"
-                b.chipLast7Days.text = "Son 30 gün"
+                b.tvWeeklySuccessTitle.text = getString(R.string.reports_monthly_summary)
+                b.chipLast7Days.text = getString(R.string.reports_last_30_days)
             }
         }
 

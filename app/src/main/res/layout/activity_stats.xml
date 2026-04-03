@@ -32,8 +32,8 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="16dp">
 
@@ -100,8 +100,8 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="20dp">
 
@@ -114,7 +114,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Konulara Göre (Doğru/Toplam)"
+                    android:text="@string/stats_topics_breakdown"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/bb_text"/>
@@ -133,8 +133,8 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="16dp">
 
@@ -147,7 +147,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Son 10 Test Başarı Trendi"
+                    android:text="@string/stats_trend_title"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/bb_text"/>
@@ -163,8 +163,8 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="16dp">
 
@@ -177,7 +177,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Konu özeti"
+                    android:text="@string/stats_topic_summary"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/bb_text"/>
@@ -200,7 +200,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Geliştirilecek"
+                    android:text="@string/stats_needs_improvement"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:textColor="@color/bb_error"/>
@@ -223,7 +223,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Son testler"
+                    android:text="@string/stats_recent_tests"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/bb_text"/>

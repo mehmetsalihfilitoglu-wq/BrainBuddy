@@ -7,8 +7,8 @@ import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.brainbuddy.app.R
 import com.brainbuddy.app.BuildConfig
+import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.LastTestUnlockStore
@@ -71,29 +71,12 @@ class QuizActivity : AppCompatActivity() {
         b = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(b.root)
 
-        if (BuildConfig.DEBUG) {
-            val gp = GradePrefs(this)
-            val modeStr = if (gp.getSelectedMode() == LevelMode.LGS) "LGS" else "GRADE"
-            val gradeStr = if (modeStr == "GRADE" && gp.getSelectedGrade() in 1..7) " grade=${gp.getSelectedGrade()}" else ""
-            val debugLine = "DEBUG_PICKER_OK mode=$modeStr$gradeStr"
-            b.debugPickerText.text = debugLine
-            b.debugPickerText.visibility = View.VISIBLE
-
-            val isAttached = b.debugPickerText.parent != null
-            val textOk = b.debugPickerText.text?.toString()?.contains("DEBUG_PICKER_OK") == true
-            if (!isAttached || !textOk) {
-                throw RuntimeException("DEBUG LINE NOT WIRED")
-            }
-        }
-
         try {
             initQuiz(savedInstanceState)
         } catch (e: OutOfMemoryError) {
-            android.util.Log.e("QuizActivity", "OOM", e)
-            android.widget.Toast.makeText(this, "Bellek yetersiz. Uygulamayı yeniden başlatın.", android.widget.Toast.LENGTH_LONG).show()
+            android.widget.Toast.makeText(this, getString(R.string.quiz_oom_error), android.widget.Toast.LENGTH_LONG).show()
             finish()
-        } catch (e: Exception) {
-            android.util.Log.e("QuizActivity", "init error", e)
+        } catch (_: Exception) {
             finish()
         }
     }
@@ -270,22 +253,9 @@ class QuizActivity : AppCompatActivity() {
                 pickerDebugPath = result.pickerDebugPath
                 debugWrongUsed = result.debugWrongUsed
 
-                b.subjectChip.text = "Ders"
+                b.subjectChip.text = getString(R.string.quiz_subject_label)
                 b.nextBtn.isEnabled = true
                 b.nextBtn.setOnClickListener { goNext() }
-
-                // Update DEBUG overlay (grade-based picker) including buildMs, dbQueryMs, capReached.
-                if (BuildConfig.DEBUG && (pickerDebugPath == "GRADE" || pickerDebugPath == "WRONG_ONLY")) {
-                    val sc = repo.lastSubjectCounts.entries.joinToString(",") { "${it.key}=${it.value}" }
-                    b.debugPickerText.text = (
-                        "DEBUG_PICKER_OK mode=$pickerDebugPath " +
-                        "buildMs=${repo.lastBuildMs} dbQueryMs=${repo.lastDbQueryMs} capReached=${if (repo.lastCapReached) 1 else 0} " +
-                        "skippedId=${repo.lastSkippedIdCount} skippedRecent=${repo.lastSkippedRecentCount} " +
-                        "skippedStemHash=${repo.lastSkippedStemHashCount} skippedSimilar=${repo.lastSkippedSimilarCount} " +
-                        "relaxedRecent=${repo.lastRecentRelaxedCount} relaxedSimilar=${repo.lastSimilarRelaxedCount} " +
-                        "subjectCounts=[$sc]"
-                    )
-                }
 
                 b.submitBtn.visibility = View.GONE
                 isLgsModeForDebug = isLgsMode
@@ -528,78 +498,20 @@ class QuizActivity : AppCompatActivity() {
 
     private fun applyQuizResultAndRender(result: QuizBuildResult, effectiveGrade: Int, isLgsMode: Boolean = false, requiredCount: Int = QuestionRepository.MIN_QUESTIONS_PER_TEST) {
         if (questions.isEmpty() || questions.size < requiredCount) {
-            b.subjectChip.text = "Soru havuzu yetersiz"
+            b.subjectChip.text = getString(R.string.quiz_pool_insufficient)
             val msg = if (questions.isEmpty()) {
-                if (retryWrongMode) "Yanlış cevaplanan soru yok. Önce bir test çöz!"
-                else "Soru havuzu yetersiz (en az $requiredCount soru gerekli). Veli: Soru paketi ekleyin veya içe aktarın."
-            } else "Soru havuzu yetersiz (${questions.size} soru mevcut, en az $requiredCount gerekli)."
-            val debugSuffix = poolDebug?.readableText?.let { "\n\n$it" } ?: ""
-            b.questionText.text = msg + debugSuffix
+                if (retryWrongMode) getString(R.string.quiz_no_wrong_answers)
+                else getString(R.string.quiz_pool_insufficient_detail, requiredCount)
+            } else getString(R.string.quiz_pool_limited_detail, questions.size, requiredCount)
+            b.questionText.text = msg
             b.optionsGroup.visibility = View.GONE
             b.feedbackText.visibility = View.GONE
             b.optA.visibility = View.GONE
             b.optB.visibility = View.GONE
             b.optC.visibility = View.GONE
             b.optD.visibility = View.GONE
-            b.btnForceActivateAll.visibility = View.VISIBLE
-            b.btnClampDifficulty.visibility = View.VISIBLE
-            b.btnFixInvalidGrades.visibility = View.VISIBLE
-            val warnings = mutableListOf<String>()
-            if (poolDebug?.hasPassiveOnly == true) {
-                warnings.add("Sebep: sorular pasif. Çözüm: Tüm Soruları Aktif Yap’a basın.")
-            }
-            if (poolDebug?.subjectsWithDifficultyGap.orEmpty().isNotEmpty()) {
-                warnings.add("Sebep: difficulty mapping hatası. Çözüm: Difficulty 3->2 Düzelt’e basın.")
-            }
-            if (warnings.isNotEmpty()) {
-                b.feedbackText.visibility = View.VISIBLE
-                b.feedbackText.setTextColor(android.graphics.Color.RED)
-                b.feedbackText.text = warnings.joinToString("\n")
-            }
-            b.btnForceActivateAll.setOnClickListener {
-                lifecycleScope.launch {
-                    withContext(Dispatchers.IO) {
-                        try {
-                            com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity).questionDao().forceActivateAll()
-                        } catch (_: Exception) {}
-                    }
-                    initQuiz(null)
-                }
-            }
-            b.btnClampDifficulty.setOnClickListener {
-                lifecycleScope.launch {
-                    withContext(Dispatchers.IO) {
-                        try {
-                            com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity).questionDao().clampDifficulty()
-                        } catch (_: Exception) {}
-                    }
-                    val refreshed = try {
-                        if (effectiveGrade in 1..7) repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty()) else null
-                    } catch (_: Exception) { null }
-                    b.questionText.text = msg + (refreshed?.readableText?.let { "\n\n$it" } ?: "")
-                    val wr = mutableListOf<String>()
-                    if (refreshed?.hasPassiveOnly == true) wr.add("Sebep: sorular pasif. Çözüm: Tüm Soruları Aktif Yap’a basın.")
-                    if (refreshed?.subjectsWithDifficultyGap.orEmpty().isNotEmpty()) wr.add("Sebep: difficulty mapping hatası. Çözüm: Difficulty 3->2 Düzelt’e basın.")
-                    if (wr.isNotEmpty()) {
-                        b.feedbackText.visibility = View.VISIBLE
-                        b.feedbackText.setTextColor(android.graphics.Color.RED)
-                        b.feedbackText.text = wr.joinToString("\n")
-                    } else b.feedbackText.visibility = View.GONE
-                }
-            }
-            b.btnFixInvalidGrades.setOnClickListener {
-                if (effectiveGrade !in 1..7) return@setOnClickListener
-                lifecycleScope.launch {
-                    withContext(Dispatchers.IO) {
-                        try {
-                            com.brainbuddy.app.db.DatabaseProvider.get(this@QuizActivity).questionDao().fixInvalidGrades(effectiveGrade)
-                        } catch (_: Exception) {}
-                    }
-                    initQuiz(null)
-                }
-            }
             b.nextBtn.isEnabled = true
-            b.nextBtn.text = "Ana Sayfaya Dön"
+            b.nextBtn.text = getString(R.string.quiz_go_home)
             b.nextBtn.setOnClickListener {
                 startActivity(Intent(this, MainActivity::class.java).apply {
                     flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -607,16 +519,8 @@ class QuizActivity : AppCompatActivity() {
                 finish()
             }
         } else {
-            if (effectiveGrade in 1..7 && questions.size >= 3) {
-                questions.take(3).forEachIndexed { i, q ->
-                    android.util.Log.d("QuizActivity", "[GRADE_DEBUG] Q${i + 1} id=${q.id} grade=${q.grade} expected=$effectiveGrade")
-                    if (q.grade != effectiveGrade) {
-                        android.util.Log.w("QuizActivity", "[GRADE_DEBUG] MISMATCH: Q${i + 1} grade=${q.grade} != selectedGrade=$effectiveGrade - exception")
-                    }
-                }
-            }
             if (result.remedialFallbackWarning) {
-                android.widget.Toast.makeText(this, "Soru havuzu sınırlı. Veli: Daha fazla soru paketi ekleyin.", android.widget.Toast.LENGTH_LONG).show()
+                android.widget.Toast.makeText(this, getString(R.string.quiz_pool_limited_warning), android.widget.Toast.LENGTH_LONG).show()
             }
             b.optionsGroup.visibility = View.VISIBLE
             b.optA.visibility = View.VISIBLE
@@ -644,67 +548,6 @@ class QuizActivity : AppCompatActivity() {
         index = index.coerceIn(0, questions.size - 1)
         val q = questions[index]
 
-        // Debug header: only show in debug builds and when we have pool diagnostics.
-        if (BuildConfig.DEBUG) {
-            val effectiveGrade = q.grade
-            val selectedDifficulty = quizPrefs.difficulty()
-            val debug = poolDebug
-
-            val pickerLabel = pickerDebugPath.ifBlank { if (isLgsModeForDebug) "LGS" else "GRADE" }
-            val sc = repo.lastSubjectCounts.entries.joinToString(",") { "${it.key}=${it.value}" }
-            val traceLine = "picker=$pickerLabel | buildMs=${repo.lastBuildMs} dbQueryMs=${repo.lastDbQueryMs} capReached=${if (repo.lastCapReached) 1 else 0} subjectCounts=[$sc] | skippedId=${repo.lastSkippedIdCount} skippedStemHash=${repo.lastSkippedStemHashCount} skippedSimilar=${repo.lastSkippedSimilarCount} skippedRecent=${repo.lastSkippedRecentCount} relaxed=${repo.lastRecentRelaxedCount}"
-
-            val modePrefix = if (isLgsModeForDebug) "mode=LGS" else "mode=GRADE" + (if (effectiveGrade in 1..7) " grade=$effectiveGrade" else "")
-            if (isLgsModeForDebug) {
-                val blueprintLine = repo.lastBlueprintSummary.ifBlank { "LGS_MINI total=20" }
-                val typeCountsLine = repo.lastTypeCounts.entries.sortedByDescending { it.value }.joinToString(",") { "${it.key}=${it.value}" }.ifEmpty { "-" }
-                val avgQualityLine = String.format("%.1f", repo.lastAvgQualityScore)
-                val recentLine = if (repo.lastRecentRelaxedCount > 0) "\nrecentRelaxed=${repo.lastRecentRelaxedCount}" else ""
-                val lgsDebug = "$modePrefix | $blueprintLine | typeCounts=[$typeCountsLine] avgQuality=$avgQualityLine capReached=${if (repo.lastCapReached) 1 else 0}$recentLine"
-                b.debugInfoText.visibility = View.VISIBLE
-                b.debugInfoText.text = "$traceLine\n$lgsDebug"
-            } else if (debug != null && effectiveGrade in 1..7) {
-                val subjectsOrder = listOf("mat" to "MAT", "turkce" to "TURKCE", "fen" to "FEN", "sosyal" to "SOSYAL", "ing" to "ING")
-                val countsLine = subjectsOrder.joinToString("  ") { (key, label) ->
-                    val c = debug.perSubject[key]
-                    val available = c?.activeDiff ?: 0
-                    "$label=$available"
-                }
-                // Selected type counts per subject (for diversity verification)
-                val bySubject = questions.groupBy { it.subject }
-                val typeSummary = listOf(
-                    Subject.MAT,
-                    Subject.TURKCE,
-                    Subject.FEN,
-                    Subject.SOSYAL,
-                    Subject.ING
-                ).joinToString(" | ") { subj ->
-                    val label = subj.name
-                    val typeCounts = bySubject[subj]
-                        .orEmpty()
-                        .groupBy { it.type }
-                        .mapValues { it.value.size }
-                        .entries
-                        .sortedByDescending { it.value }
-                        .joinToString(",") { "${it.key}=${it.value}" }
-                        .ifEmpty { "-" }
-                    "$label:$typeCounts"
-                }
-                val wrongUsedText = "$debugWrongUsed/${QuestionRepository.MIN_QUESTIONS_PER_TEST}"
-                val headerBase = "$modePrefix • diff=${selectedDifficulty.name} • $countsLine • wrongUsed=$wrongUsedText"
-                val recentLine = if (repo.lastRecentRelaxedCount > 0) "\nrecent relaxed +${repo.lastRecentRelaxedCount}" else ""
-                val headerRest = "$headerBase$recentLine\n$typeSummary"
-                val fullHeader = traceLine + "\n" + headerRest
-                b.debugInfoText.visibility = View.VISIBLE
-                b.debugInfoText.text = fullHeader
-            } else {
-                b.debugInfoText.visibility = View.VISIBLE
-                b.debugInfoText.text = "$modePrefix • $traceLine"
-            }
-        } else {
-            b.debugInfoText.visibility = View.GONE
-        }
-
         b.progressText.text = "${index + 1}/${questions.size}"
         b.subjectChip.text = "${q.subject.tr} • ${q.gradeDisplayLabel}"
         b.questionText.text = q.stem
@@ -714,23 +557,14 @@ class QuizActivity : AppCompatActivity() {
             try {
                 assets.open(path).use { stream ->
                     val bitmap = BitmapFactory.decodeStream(stream)
-                    if (BuildConfig.DEBUG) {
-                        val w = bitmap?.width ?: 0
-                        val h = bitmap?.height ?: 0
-                        android.util.Log.d("QuizActivity", "[VISUAL] imageAsset=$path decodeOk=${bitmap != null} dims=${w}x$h visible=${if (bitmap != null) "VISIBLE" else "GONE"}")
-                    }
                     if (bitmap != null) {
                         b.questionImage.setImageBitmap(bitmap)
                         b.questionImage.visibility = View.VISIBLE
                     } else {
-                        android.util.Log.w("QuizActivity", "[VISUAL] imageAsset=$path decodeStream returned null")
                         b.questionImage.visibility = View.GONE
                     }
                 }
-            } catch (e: Exception) {
-                if (BuildConfig.DEBUG) {
-                    android.util.Log.e("QuizActivity", "[VISUAL] imageAsset=$path open failed", e)
-                }
+            } catch (_: Exception) {
                 b.questionImage.visibility = View.GONE
             }
         } else {
@@ -742,16 +576,6 @@ class QuizActivity : AppCompatActivity() {
         // Layer 2: Use q.choices which was already sanitized by QuestionMapper.toQuestion()
         // (suffix stripping + fixDistractors). Guard adds dedup on top.
         val displayChoices = guarded.presentationChoices ?: q.choices
-        // DISPLAY_TRACE: log every question as it appears on screen
-        android.util.Log.d("DISPLAY_TRACE",
-            "qId=${q.id} picker=${pickerDebugPath ?: "?"} " +
-            "hasPresentationChoices=${q.presentationChoices != null} " +
-            "options=[${displayChoices.joinToString("|") { it.take(30) }}]")
-        // Final safety: check for any suffix pattern that somehow leaked through
-        val hasSuffix = displayChoices.any { AdaptiveQuizRuntime.containsSuffixPattern(it) }
-        if (hasSuffix) {
-            android.util.Log.e("DISPLAY_TRACE", "SUFFIX_LEAK_AT_RENDER qId=${q.id} options=$displayChoices")
-        }
         b.optA.text = displayChoices.getOrNull(0) ?: "-"
         b.optB.text = displayChoices.getOrNull(1) ?: "-"
         b.optC.text = displayChoices.getOrNull(2) ?: "-"

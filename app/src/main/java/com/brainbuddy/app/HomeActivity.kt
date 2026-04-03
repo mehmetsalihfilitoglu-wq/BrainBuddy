@@ -72,9 +72,9 @@ class HomeActivity : AppCompatActivity() {
         val pending = contractStore.getPendingReached()
         if (pending.isNotEmpty()) {
             MaterialAlertDialogBuilder(this)
-                .setTitle("Ödül!")
+                .setTitle(getString(R.string.home_reward_title))
                 .setMessage(pending.joinToString("\n") { "${it.targetXP} XP: ${it.description}" })
-                .setPositiveButton("Tamam", null)
+                .setPositiveButton(getString(R.string.home_reward_ok), null)
                 .show()
         }
 

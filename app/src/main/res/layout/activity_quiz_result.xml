@@ -16,7 +16,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tebrikler! 🎉"
+            android:text="@string/quiz_result_congrats"
             android:textSize="26sp"
             android:textStyle="bold"
             android:textColor="@color/bb_text"
@@ -49,7 +49,7 @@
             android:id="@+id/tvScoreLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Doğru | Yanlış | Boş"
+            android:text="@string/quiz_result_correct_wrong_blank"
             android:textSize="16sp"
             android:textColor="@color/bb_text_muted"
             android:layout_marginTop="4dp"/>
@@ -138,7 +138,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="20dp"
-            android:text="Yanlışları İncele"
+            android:text="@string/quiz_result_review_wrong"
             android:textAllCaps="false"/>
 
         <LinearLayout
@@ -190,7 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="12dp"
-            android:text="Testi Tekrarla"
+            android:text="@string/quiz_result_retry_test"
             android:textAllCaps="false"
             android:visibility="gone"/>
 
@@ -200,7 +200,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="12dp"
-            android:text="Tekrar Oyna"
+            android:text="@string/quiz_result_play_again"
             android:textAllCaps="false"/>
 
         <Button
@@ -209,7 +209,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="12dp"
-            android:text="Ana Sayfa"
+            android:text="@string/quiz_result_home"
             android:textAllCaps="false"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -222,7 +222,7 @@
                 android:id="@+id/tvWrongTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yanlış cevaplar"
+                android:text="@string/quiz_result_wrong_answers"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/bb_text"

@@ -3,6 +3,78 @@
 
     <string name="app_name">BrainBuddy</string>
     <string name="test_preparing">Test hazırlanıyor…</string>
+
+    <!-- Quiz Screen -->
+    <string name="quiz_subject_label">Ders</string>
+    <string name="quiz_question_placeholder">Soru metni</string>
+    <string name="quiz_feedback">Geri bildirim</string>
+    <string name="quiz_check_answer">Cevabı Kontrol Et</string>
+    <string name="quiz_next">Sonraki</string>
+    <string name="quiz_go_home">Ana Sayfaya Dön</string>
+    <string name="quiz_pool_insufficient">Soru havuzu yetersiz</string>
+    <string name="quiz_no_wrong_answers">Yanlış cevaplanan soru yok. Önce bir test çöz!</string>
+    <string name="quiz_pool_insufficient_detail">Soru havuzu yetersiz (en az %1$d soru gerekli). Veli: Soru paketi ekleyin veya içe aktarın.</string>
+    <string name="quiz_pool_limited_detail">Soru havuzu yetersiz (%1$d soru mevcut, en az %2$d gerekli).</string>
+    <string name="quiz_oom_error">Bellek yetersiz. Uygulamayı yeniden başlatın.</string>
+    <string name="quiz_pool_limited_warning">Soru havuzu sınırlı. Veli: Daha fazla soru paketi ekleyin.</string>
+
+    <!-- Quiz Result Screen -->
+    <string name="quiz_result_congrats">Tebrikler!</string>
+    <string name="quiz_result_completed">Tamamlandı</string>
+    <string name="quiz_result_load_error">Sonuç yüklenemedi</string>
+    <string name="quiz_result_celebration_title">Kutlama!</string>
+    <string name="quiz_result_great">Harika!</string>
+    <string name="quiz_result_review_wrong">Yanlışları İncele</string>
+    <string name="quiz_result_correct_wrong_blank">Doğru | Yanlış | Boş</string>
+
+    <!-- League Screen -->
+    <string name="league_weekly_score">Haftalık puan: %1$d</string>
+    <string name="league_days_left">Haftanın bitmesine: %1$d gün</string>
+    <string name="league_current_user_label">Sen</string>
+
+    <!-- Reports Screen -->
+    <string name="reports_daily_summary">Günlük Özet</string>
+    <string name="reports_today">Bugün</string>
+    <string name="reports_last_7_days">Son 7 gün</string>
+    <string name="reports_monthly_summary">Aylık Özet</string>
+    <string name="reports_last_30_days">Son 30 gün</string>
+    <string name="reports_error_generic">Bir hata oluştu. Lütfen tekrar deneyin.</string>
+
+    <!-- League Screen Layout -->
+    <string name="league_title">Lig</string>
+    <string name="league_back">Geri</string>
+    <string name="league_ranking_title">Sıralama</string>
+    <string name="league_empty_title">Lig tablosu için henüz yeterli veri yok.</string>
+    <string name="league_empty_subtitle">Testleri çözdükçe lig sıralamanız burada görünecek.</string>
+    <string name="league_scoring_title">Puan nasıl kazanılır?</string>
+    <string name="league_scoring_tip_1">Az yanlış = daha çok puan</string>
+    <string name="league_scoring_tip_2">Başarısız test puan düşürür</string>
+    <string name="league_scoring_tip_3">Günde çok fazla testte puan azalır</string>
+
+    <!-- Home Screen -->
+    <string name="home_daily_goal">Günlük hedef (1 test)</string>
+    <string name="home_reward_title">Ödül!</string>
+    <string name="home_reward_ok">Tamam</string>
+
+    <!-- Stats Screen -->
+    <string name="stats_level">Seviye %1$d</string>
+    <string name="stats_xp">%1$d XP</string>
+    <string name="stats_streak">%1$d gün seri</string>
+    <string name="stats_accuracy">%1$d/%2$d doğru (%3$.1f%%)</string>
+    <string name="stats_no_data">Henüz veri yok</string>
+    <string name="stats_no_topic_data">Henüz konu verisi yok</string>
+    <string name="stats_test_index">Test %1$d</string>
+    <string name="stats_topics_breakdown">Konulara Göre (Doğru/Toplam)</string>
+    <string name="stats_trend_title">Son 10 Test Başarı Trendi</string>
+    <string name="stats_topic_summary">Konu Özeti</string>
+    <string name="stats_needs_improvement">Geliştirilecek</string>
+    <string name="stats_recent_tests">Son Testler</string>
+
+    <!-- Quiz Result Layout -->
+    <string name="quiz_result_retry_test">Testi Tekrarla</string>
+    <string name="quiz_result_play_again">Tekrar Oyna</string>
+    <string name="quiz_result_home">Ana Sayfa</string>
+    <string name="quiz_result_wrong_answers">Yanlış cevaplar</string>
     <string name="wrong_pool_home_title">Yanlışlarını Çöz</string>
     <string name="wrong_pool_home_sub">Sadece yanlış yaptığın sorular</string>
     <string name="wrong_pool_mode_chip">Yanlışlarını Çöz</string>
@@ -125,11 +197,11 @@
     <string name="pool_status_diff_medium">Orta</string>
     <string name="pool_status_diff_hard">Zor</string>
     <string name="pool_status_header">Grade %1$d için soru havuzu (TOTAL / ACTIVE):</string>
-    <string name="pool_status_force_reseed_button">FORCE RESEED ALL QUESTION BANKS</string>
-    <string name="pool_status_force_reseed_title">Reseed Sonucu</string>
-    <string name="seed_audit_path_unknown">(audit file not written yet)</string>
-    <string name="seed_audit_initializing">Initializing question database, please wait…</string>
-    <string name="pool_status_initializing">Initializing question database, please wait…</string>
+    <string name="pool_status_force_reseed_button">Soru Havuzunu Yenile</string>
+    <string name="pool_status_force_reseed_title">Yenileme Sonucu</string>
+    <string name="seed_audit_path_unknown">(henüz oluşturulmadı)</string>
+    <string name="seed_audit_initializing">Soru veritabanı hazırlanıyor, lütfen bekleyin…</string>
+    <string name="pool_status_initializing">Soru veritabanı hazırlanıyor, lütfen bekleyin…</string>
     <string name="settings_profiles_sub">Birden fazla öğrenci profili yönet</string>
     <string name="settings_reports_sub">Günlük ve haftalık raporlara eriş</string>
     <string name="settings_backup_sub">Verileri dışa aktar (Export)</string>
@@ -456,8 +528,8 @@
     <string name="email_freq_monthly">Aylık</string>
     <string name="email_reports_save">Kaydet</string>
     <string name="email_reports_saved">E-posta ayarları kaydedildi</string>
-    <string name="email_reports_test_mail">Test maili gönder</string>
-    <string name="email_reports_test_mail_sent">Test maili sıraya alındı (gönderim yakında aktif olacak)</string>
+    <string name="email_reports_test_mail">Deneme e-postası gönder</string>
+    <string name="email_reports_test_mail_sent">Deneme e-postası sıraya alındı</string>
     <string name="email_reports_permissions_info">Bildirimler için bildirim izni gereklidir. Raporlar planlanan saatte arka planda gönderilecektir.</string>
     <string name="email_required">E-posta adresi gerekli</string>
     <string name="email_invalid">Geçerli e-posta adresi girin</string>
