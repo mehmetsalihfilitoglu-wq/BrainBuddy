@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
         Log.d("MainActivity", "onboardingDone=$onboardingDone startScreen=${target.simpleName}")
         startActivity(Intent(this, target).addFlags(
-            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NO_HISTORY
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         ))
         finish()
     }
