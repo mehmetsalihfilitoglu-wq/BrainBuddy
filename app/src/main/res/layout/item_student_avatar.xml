@@ -67,11 +67,27 @@
             android:gravity="center"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
-            android:paddingBottom="8dp"
+            android:paddingTop="4dp"
             android:textSize="11sp"
             android:textColor="@color/bb_text"
             android:maxLines="1"
             android:ellipsize="end"/>
+
+        <!-- Unlock requirement label (shown when locked) -->
+        <TextView
+            android:id="@+id/tvUnlockLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="2dp"
+            android:textSize="9sp"
+            android:textColor="@color/bb_text_muted"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:visibility="gone"/>
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

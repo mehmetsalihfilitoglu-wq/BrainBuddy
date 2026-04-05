@@ -48,7 +48,7 @@ class LeagueScreen : AppCompatActivity() {
         // Tier progress
         val nextTier = tier.nextTier()
         if (nextTier != null) {
-            b.tvTierProgress.text = getString(R.string.league_tier_progress, nextTier.minScoreToPromote)
+            b.tvTierProgress.text = getString(R.string.league_tier_progress, store.getWeeklyScore(), nextTier.minScoreToPromote)
             b.tvTierProgress.visibility = View.VISIBLE
         }
 
@@ -114,6 +114,7 @@ class LeagueScreen : AppCompatActivity() {
         // 1st place (center)
         podium.tvPodiumName1.text = first.displayName
         podium.tvPodiumScore1.text = "${first.weeklyScore} puan"
+        bindPodiumAvatar(podium.imgPodiumAvatar1, first)
         if (first.id == profileId) {
             podium.tvPodiumYou1.text = "Sen"
             podium.tvPodiumYou1.visibility = View.VISIBLE
@@ -124,6 +125,7 @@ class LeagueScreen : AppCompatActivity() {
         // 2nd place (left)
         podium.tvPodiumName2.text = second.displayName
         podium.tvPodiumScore2.text = "${second.weeklyScore} puan"
+        bindPodiumAvatar(podium.imgPodiumAvatar2, second)
         if (second.id == profileId) {
             podium.tvPodiumYou2.text = "Sen"
             podium.tvPodiumYou2.visibility = View.VISIBLE
@@ -134,12 +136,28 @@ class LeagueScreen : AppCompatActivity() {
         // 3rd place (right)
         podium.tvPodiumName3.text = third.displayName
         podium.tvPodiumScore3.text = "${third.weeklyScore} puan"
+        bindPodiumAvatar(podium.imgPodiumAvatar3, third)
         if (third.id == profileId) {
             podium.tvPodiumYou3.text = "Sen"
             podium.tvPodiumYou3.visibility = View.VISIBLE
             podium.podium3rdCard.strokeWidth = (2 * resources.displayMetrics.density).toInt()
             podium.podium3rdCard.strokeColor = getColor(R.color.bb_primary)
         }
+    }
+
+    /**
+     * Loads the mascot drawable for a league entry into a podium ImageView.
+     * Uses "MASCOT" key from avatarCosmetics; falls back to the default mascot.
+     */
+    private fun bindPodiumAvatar(imgView: android.widget.ImageView, entry: LeagueEntry) {
+        val mascotId = entry.avatarCosmetics["MASCOT"]
+        val mascotRes = if (!mascotId.isNullOrEmpty()) {
+            com.brainbuddy.app.avatar.AvatarCatalog.items()
+                .find { it.id == mascotId }
+                ?.previewDrawableRes
+                ?.takeIf { it != 0 }
+        } else null
+        imgView.setImageResource(mascotRes ?: R.drawable.avatar_mascot_brainy)
     }
 
     private fun setupMotivation(b: ActivityLeagueBinding, entries: List<LeagueEntry>, profileId: String) {
@@ -206,7 +224,15 @@ class LeagueAdapter(
         val density = holder.view.context.resources.displayMetrics.density
 
         holder.view.findViewById<android.widget.TextView>(R.id.tvRank).text = rank.toString()
-        holder.view.findViewById<android.widget.TextView>(R.id.tvAvatar).text = "👤"
+        val imgAvatar = holder.view.findViewById<android.widget.ImageView>(R.id.imgAvatar)
+        val mascotId = entry.avatarCosmetics["MASCOT"]
+        val mascotItem = if (!mascotId.isNullOrEmpty())
+            com.brainbuddy.app.avatar.AvatarCatalog.items().find { it.id == mascotId }
+        else null
+        val mascotRes = if (mascotItem != null && mascotItem.previewDrawableRes != 0)
+            mascotItem.previewDrawableRes
+        else R.drawable.avatar_mascot_brainy
+        imgAvatar.setImageResource(mascotRes)
         holder.view.findViewById<android.widget.TextView>(R.id.tvName).text = entry.displayName
         holder.view.findViewById<android.widget.TextView>(R.id.tvPoints).text = "${entry.weeklyScore}"
 

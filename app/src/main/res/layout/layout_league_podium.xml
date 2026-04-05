@@ -39,14 +39,14 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp">
 
-                <TextView
-                    android:id="@+id/tvPodiumAvatar2"
+                <ImageView
+                    android:id="@+id/imgPodiumAvatar2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="👤"
-                    android:textSize="24sp"
-                    android:background="@drawable/bg_badge" />
+                    android:scaleType="fitCenter"
+                    android:padding="4dp"
+                    android:src="@drawable/avatar_mascot_brainy"
+                    android:contentDescription="Avatar" />
             </FrameLayout>
 
             <TextView
@@ -113,14 +113,14 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="8dp">
 
-                <TextView
-                    android:id="@+id/tvPodiumAvatar1"
+                <ImageView
+                    android:id="@+id/imgPodiumAvatar1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="👤"
-                    android:textSize="28sp"
-                    android:background="@drawable/bg_badge" />
+                    android:scaleType="fitCenter"
+                    android:padding="4dp"
+                    android:src="@drawable/avatar_mascot_brainy"
+                    android:contentDescription="Avatar" />
             </FrameLayout>
 
             <TextView
@@ -188,14 +188,14 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp">
 
-                <TextView
-                    android:id="@+id/tvPodiumAvatar3"
+                <ImageView
+                    android:id="@+id/imgPodiumAvatar3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="👤"
-                    android:textSize="24sp"
-                    android:background="@drawable/bg_badge" />
+                    android:scaleType="fitCenter"
+                    android:padding="4dp"
+                    android:src="@drawable/avatar_mascot_brainy"
+                    android:contentDescription="Avatar" />
             </FrameLayout>
 
             <TextView

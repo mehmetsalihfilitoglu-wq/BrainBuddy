@@ -14,8 +14,9 @@ object LeagueHelper {
         val store = LeagueStore(context)
         val profileStore = com.brainbuddy.app.core.ProfileStore(context)
         val profileId = profileStore.getCurrentProfileId()
-        val profile = profileStore.getProfile(profileId)
-        val studentName = profile?.name ?: "Öğrenci"
+
+        // Single source of truth: UserProfileProvider aggregates displayName + avatar + stats
+        val userProfile = com.brainbuddy.app.core.UserProfileProvider.get(context)
 
         val weekStart = store.getCurrentWeekStartMs()
         val npcTargets = store.getNpcTargetScores()
@@ -37,9 +38,10 @@ object LeagueHelper {
         entries.add(
             LeagueEntry(
                 id = profileId,
-                displayName = studentName,
+                displayName = userProfile.displayName,
                 weeklyScore = store.getWeeklyScore(),
-                isNpc = false
+                isNpc = false,
+                avatarCosmetics = mapOf("MASCOT" to userProfile.selectedAvatarId)
             )
         )
         npcs.forEach { npc ->
@@ -57,13 +59,13 @@ object LeagueHelper {
 
         val sorted = entries.filterNotNull().sortedByDescending { it.weeklyScore }
         if (sorted.isEmpty()) {
-            // Empty leaderboard — return current user as sole entry
             return listOf(
                 LeagueEntry(
                     id = profileId,
-                    displayName = studentName,
+                    displayName = userProfile.displayName,
                     weeklyScore = store.getWeeklyScore().coerceAtLeast(0),
-                    isNpc = false
+                    isNpc = false,
+                    avatarCosmetics = mapOf("MASCOT" to userProfile.selectedAvatarId)
                 )
             )
         }

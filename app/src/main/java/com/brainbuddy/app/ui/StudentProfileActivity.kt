@@ -82,7 +82,7 @@ class StudentProfileActivity : AppCompatActivity() {
         recycler.layoutManager = GridLayoutManager(this, 3)
         recycler.itemAnimator = null
 
-        val adapter = AvatarGridAdapter(mascots, ownedIds, currentSelectedId) { avatarItem ->
+        val adapter = AvatarGridAdapter(mascots, ownedIds, currentSelectedId, gam.xp(), gam.level()) { avatarItem ->
             if (avatarItem.id in ownedIds && avatarItem.id != currentSelectedId) {
                 currentSelectedId = avatarItem.id
                 store.setSelectedAvatarId(avatarItem.id)
@@ -91,6 +91,27 @@ class StudentProfileActivity : AppCompatActivity() {
             }
         }
         recycler.adapter = adapter
+
+        // Next-unlock progress banner
+        val tvNextUnlock = findViewById<TextView>(R.id.tvNextUnlock)
+        val nextLocked = mascots
+            .filter { it.id !in ownedIds && it.id != "mascot_30d" }
+            .minByOrNull { it.priceXp + it.requiredLevel * 100 }
+        if (tvNextUnlock != null) {
+            if (nextLocked != null) {
+                val xpNeeded = (nextLocked.priceXp - gam.xp()).coerceAtLeast(0)
+                val levelNeeded = (nextLocked.requiredLevel - gam.level()).coerceAtLeast(0)
+                val progressText = when {
+                    levelNeeded > 0 -> "Sonraki avatar için $levelNeeded seviye daha gerekiyor."
+                    xpNeeded > 0 -> "Sonraki avatar için $xpNeeded XP daha gerekiyor."
+                    else -> "Mağazadan yeni avatarların kilidini açabilirsin."
+                }
+                tvNextUnlock.text = progressText
+                tvNextUnlock.visibility = View.VISIBLE
+            } else {
+                tvNextUnlock.visibility = View.GONE
+            }
+        }
     }
 
     private fun updatePreview(item: AvatarItem?) {
@@ -138,6 +159,8 @@ class AvatarGridAdapter(
     private val items: List<AvatarItem>,
     private val ownedIds: Set<String>,
     private var selectedId: String,
+    private val userXp: Int,
+    private val userLevel: Int,
     private val onSelect: (AvatarItem) -> Unit
 ) : RecyclerView.Adapter<AvatarGridAdapter.VH>() {
 
@@ -172,6 +195,15 @@ class AvatarGridAdapter(
         lock.visibility = if (owned) View.GONE else View.VISIBLE
         lockIcon.visibility = if (owned) View.GONE else View.VISIBLE
         img.alpha = if (owned) 1f else 0.4f
+
+        // Unlock label
+        val tvUnlockLabel = holder.view.findViewById<TextView>(R.id.tvUnlockLabel)
+        if (!owned) {
+            tvUnlockLabel.text = buildUnlockLabel(item)
+            tvUnlockLabel.visibility = View.VISIBLE
+        } else {
+            tvUnlockLabel.visibility = View.GONE
+        }
 
         // Selection state
         if (selected) {
@@ -208,13 +240,12 @@ class AvatarGridAdapter(
             rarityDot.visibility = View.GONE
         }
 
-        // Click with press animation
-        card.isClickable = owned
-        card.isFocusable = owned
+        // Click handling — always enabled; locked items show info message
+        card.isClickable = true
+        card.isFocusable = true
 
         if (owned) {
             card.setOnClickListener { v ->
-                // Press bounce animation
                 val bounceX = ObjectAnimator.ofFloat(v, "scaleX", 1f, 0.92f, 1.05f, 1f)
                 val bounceY = ObjectAnimator.ofFloat(v, "scaleY", 1f, 0.92f, 1.05f, 1f)
                 AnimatorSet().apply {
@@ -226,9 +257,35 @@ class AvatarGridAdapter(
                 onSelect(item)
             }
         } else {
-            card.setOnClickListener(null)
+            card.setOnClickListener {
+                android.widget.Toast.makeText(
+                    holder.view.context,
+                    buildLockedMessage(item),
+                    android.widget.Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
     override fun getItemCount() = items.size
+
+    private fun buildUnlockLabel(item: AvatarItem): String = when {
+        item.id == "mascot_30d" -> "30 gün seri ile açılır"
+        item.requiredLevel > 1 && item.priceXp > 0 ->
+            "Seviye ${item.requiredLevel} ve ${item.priceXp} XP ile açılır"
+        item.requiredLevel > 1 -> "Seviye ${item.requiredLevel}'de açılır"
+        item.priceXp > 0 -> "${item.priceXp} XP'de açılır"
+        else -> "Ücretsiz"
+    }
+
+    private fun buildLockedMessage(item: AvatarItem): String = when {
+        item.id == "mascot_30d" ->
+            "Bu avatar 30 günlük seri tamamlandığında açılır."
+        item.requiredLevel > userLevel ->
+            "Bu avatar Seviye ${item.requiredLevel}'de açılır. Şu an Seviye $userLevel'sin."
+        item.priceXp > userXp ->
+            "Bu avatar ${item.priceXp} XP'de açılır. Şu an ${userXp} XP'n var."
+        else ->
+            "Bu avatar için gereken seviye veya XP'ye ulaştın. Avatar Mağazası'ndan kuşanabilirsin."
+    }
 }

@@ -13,13 +13,38 @@ class AvatarStore(private val context: Context) {
 
     fun getCatalog(): List<AvatarItem> = AvatarCatalog.items()
 
+    /**
+     * Returns true when this item is accessible to the user.
+     *
+     * Rules evaluated in order:
+     *  1. Already in the purchased/granted set → open
+     *  2. Free default items (priceXp == 0, level <= 1) → open
+     *  3. Special 30-day streak mascot → open iff milestone earned
+     *  4. Runtime progression threshold: user's current XP >= priceXp
+     *     AND user's level >= requiredLevel → auto-open, no purchase needed
+     *
+     * This means avatars unlock naturally as the user progresses, without
+     * requiring a separate "buy" action for every item.
+     */
     fun isUnlocked(itemId: String): Boolean {
         val unlocked = prefs.getStringSet(KEY_UNLOCKED, emptySet()) ?: emptySet()
         if (itemId in unlocked) return true
+
         val item = getCatalog().find { it.id == itemId } ?: return false
+
+        // Free / default items: always open
         if (item.priceXp == 0 && item.requiredLevel <= 1) return true
-        if (item.id == "mascot_30d" && gamification.milestoneBadges().contains(com.brainbuddy.app.core.GamificationStore.MILESTONE_30)) return true
-        return false
+
+        // Special: 30-day streak mascot
+        if (item.id == "mascot_30d") {
+            return gamification.milestoneBadges()
+                .contains(com.brainbuddy.app.core.GamificationStore.MILESTONE_30)
+        }
+
+        // Runtime progression: auto-unlock when user reaches both thresholds
+        val userXp    = gamification.xp()
+        val userLevel = gamification.level()
+        return userXp >= item.priceXp && userLevel >= item.requiredLevel
     }
 
     init {
