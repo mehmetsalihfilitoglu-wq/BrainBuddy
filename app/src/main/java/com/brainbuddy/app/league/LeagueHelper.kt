@@ -12,11 +12,10 @@ object LeagueHelper {
 
     fun getLeaderboardEntries(context: Context): List<LeagueEntry> {
         val store = LeagueStore(context)
-        val profileStore = com.brainbuddy.app.core.ProfileStore(context)
-        val profileId = profileStore.getCurrentProfileId()
 
-        // Single source of truth: UserProfileProvider aggregates displayName + avatar + stats
+        // Single source of truth: UserProfileProvider aggregates profileId + displayName + avatar + stats
         val userProfile = com.brainbuddy.app.core.UserProfileProvider.get(context)
+        val profileId = userProfile.profileId
 
         val weekStart = store.getCurrentWeekStartMs()
         val npcTargets = store.getNpcTargetScores()

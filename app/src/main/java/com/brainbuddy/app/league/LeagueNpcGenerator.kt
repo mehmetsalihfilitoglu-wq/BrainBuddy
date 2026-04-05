@@ -11,9 +11,11 @@ object LeagueNpcGenerator {
         "Selin", "Kaan", "Deniz", "Alp", "Sude", "Mert", "Ela", "Barış", "Duru", "Cem"
     )
 
+    // Real AvatarCatalog mascot IDs — same key ("MASCOT") as the student entry.
+    // All binding code resolves these through AvatarCatalog; no fallback special-casing needed.
     private val AVATAR_IDS = listOf(
-        "avatar_1", "avatar_2", "avatar_3", "avatar_4", "avatar_5",
-        "avatar_6", "avatar_7", "avatar_8", "avatar_9", "avatar_10"
+        "mascot_default", "mascot_1", "mascot_2", "mascot_3", "mascot_4",
+        "mascot_5", "mascot_6", "mascot_7", "mascot_8", "mascot_30d"
     )
 
     fun generateNpcProfiles(count: Int = 14, seed: Long): List<NpcProfile> {
@@ -26,7 +28,7 @@ object LeagueNpcGenerator {
             NpcProfile(
                 id = "npc_${seed}_$i",
                 displayName = name,
-                avatarCosmetics = mapOf("avatar" to avatar),
+                avatarCosmetics = mapOf("MASCOT" to avatar),
                 isNpc = true
             )
         }

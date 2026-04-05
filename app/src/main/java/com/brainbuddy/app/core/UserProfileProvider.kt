@@ -8,15 +8,17 @@ import com.brainbuddy.app.avatar.AvatarStore
 
 /**
  * Aggregates all user-facing profile data from their respective stores into a single
- * read model. All UI that needs displayName, avatar, XP, level or streak should pull
- * from here so every screen sees the same values.
+ * read model. All UI that needs profileId, displayName, avatar, XP, level or streak
+ * should pull from here so every screen sees the same values.
  *
  * Sources:
+ *   profileId     → ProfileStore  (current active profile)
  *   displayName   → StudentProfileStore (bb_student_profile_<id> → "student_display_name")
  *   avatarId      → AvatarStore equipped MASCOT (bb_avatar_<id> → "equipped_json")
  *   xp / level / streak → GamificationStore (bb_gamification_<id>)
  */
 data class UserProfile(
+    val profileId: String,
     val displayName: String,
     val selectedAvatarId: String,
     val selectedAvatarDrawableRes: Int,
@@ -50,6 +52,7 @@ object UserProfileProvider {
             ?: R.drawable.avatar_mascot_brainy
 
         return UserProfile(
+            profileId            = profileId,
             displayName          = displayName,
             selectedAvatarId     = mascotId,
             selectedAvatarDrawableRes = mascotDrawableRes,

@@ -21,9 +21,9 @@ import com.brainbuddy.app.avatar.AvatarCatalog
 import com.brainbuddy.app.avatar.AvatarCategory
 import com.brainbuddy.app.avatar.AvatarItem
 import com.brainbuddy.app.avatar.AvatarRarity
-import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.StudentProfileStore
+import com.brainbuddy.app.core.UserProfileProvider
 import com.google.android.material.card.MaterialCardView
 
 /**
@@ -48,12 +48,14 @@ class StudentProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_student_profile)
 
         store = StudentProfileStore(this)
-        val gam = GamificationStore(this)
+        // All read-only profile stats (xp, level, streak, displayName, avatar) come from
+        // the unified aggregate; store is kept only for write operations.
+        val userProfile = UserProfileProvider.get(this)
 
         findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
 
         val etName = findViewById<android.widget.EditText>(R.id.etDisplayName)
-        etName.setText(store.getDisplayName())
+        etName.setText(userProfile.displayName)
         etName.hint = getString(R.string.student_profile_name_hint)
 
         findViewById<android.widget.Button>(R.id.btnSaveName).setOnClickListener {
@@ -61,9 +63,9 @@ class StudentProfileActivity : AppCompatActivity() {
             android.widget.Toast.makeText(this, "Kaydedildi", android.widget.Toast.LENGTH_SHORT).show()
         }
 
-        findViewById<TextView>(R.id.tvLevel).text = "Seviye ${gam.level()}"
-        findViewById<TextView>(R.id.tvXp).text = "${gam.xp()} XP"
-        findViewById<TextView>(R.id.tvStreak).text = "\uD83D\uDD25 ${gam.streakDays()} gün"
+        findViewById<TextView>(R.id.tvLevel).text = "Seviye ${userProfile.level}"
+        findViewById<TextView>(R.id.tvXp).text = "${userProfile.xp} XP"
+        findViewById<TextView>(R.id.tvStreak).text = "\uD83D\uDD25 ${userProfile.streakDays} gün"
 
         val ownedIds = store.getOwnedAvatarIds()
         currentSelectedId = store.getSelectedAvatarId()
@@ -82,7 +84,7 @@ class StudentProfileActivity : AppCompatActivity() {
         recycler.layoutManager = GridLayoutManager(this, 3)
         recycler.itemAnimator = null
 
-        val adapter = AvatarGridAdapter(mascots, ownedIds, currentSelectedId, gam.xp(), gam.level()) { avatarItem ->
+        val adapter = AvatarGridAdapter(mascots, ownedIds, currentSelectedId, userProfile.xp, userProfile.level) { avatarItem ->
             if (avatarItem.id in ownedIds && avatarItem.id != currentSelectedId) {
                 currentSelectedId = avatarItem.id
                 store.setSelectedAvatarId(avatarItem.id)
@@ -99,8 +101,8 @@ class StudentProfileActivity : AppCompatActivity() {
             .minByOrNull { it.priceXp + it.requiredLevel * 100 }
         if (tvNextUnlock != null) {
             if (nextLocked != null) {
-                val xpNeeded = (nextLocked.priceXp - gam.xp()).coerceAtLeast(0)
-                val levelNeeded = (nextLocked.requiredLevel - gam.level()).coerceAtLeast(0)
+                val xpNeeded = (nextLocked.priceXp - userProfile.xp).coerceAtLeast(0)
+                val levelNeeded = (nextLocked.requiredLevel - userProfile.level).coerceAtLeast(0)
                 val progressText = when {
                     levelNeeded > 0 -> "Sonraki avatar için $levelNeeded seviye daha gerekiyor."
                     xpNeeded > 0 -> "Sonraki avatar için $xpNeeded XP daha gerekiyor."
