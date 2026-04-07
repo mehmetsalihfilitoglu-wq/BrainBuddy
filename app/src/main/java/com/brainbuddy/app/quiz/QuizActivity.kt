@@ -449,13 +449,69 @@ class QuizActivity : AppCompatActivity() {
             }
         }
         injectedDueId?.let { scheduler.markShown(it) }
+
+        // --- Distribution verification & anti-clustering ---
+        val subjectHistogram = q.groupingBy { it.subject.tr }.eachCount()
+        android.util.Log.d(
+            "TestBuilder",
+            "[GRADE_FINAL_DISTRIBUTION] pickerPath=$pickerPath grade=$effectiveGrade total=${q.size} | " +
+                subjectHistogram.entries.joinToString(" | ") { "${it.key}=${it.value}" }
+        )
+
+        // Anti-clustering: reorder to minimize consecutive same-subject runs.
+        // Only for grade mode (multi-subject tests). Preserves randomness within constraint.
+        val reordered = if (pickerPath == "GRADE" && q.size > 1) {
+            spreadSubjects(q)
+        } else {
+            q
+        }
+
+        val preUiHistogram = reordered.groupingBy { it.subject.tr }.eachCount()
+        android.util.Log.d(
+            "TestBuilder",
+            "[GRADE_PRE_UI_DISTRIBUTION] total=${reordered.size} | " +
+                preUiHistogram.entries.joinToString(" | ") { "${it.key}=${it.value}" } +
+                " | order=" + reordered.take(20).joinToString(",") { it.subject.name.take(3) }
+        )
+
         if (BuildConfig.DEBUG) {
             android.util.Log.d(
                 "TestBuilder",
-                "quizId=$quizId pickerPath=$pickerPath total=${q.size} injectedDueId=$injectedDueId"
+                "quizId=$quizId pickerPath=$pickerPath total=${reordered.size} injectedDueId=$injectedDueId"
             )
         }
-        return QuizBuildResult(q, poolDebug, pickerPath, remedialWarning, wrongUsed)
+        return QuizBuildResult(reordered, poolDebug, pickerPath, remedialWarning, wrongUsed)
+    }
+
+    /**
+     * Reorder questions so that consecutive same-subject runs are minimized.
+     * Uses a greedy interleave: in each slot, pick the question whose subject
+     * differs from the previous one (prefer the subject with the most remaining).
+     * Preserves all questions — no additions or removals.
+     */
+    private fun spreadSubjects(questions: List<Question>): List<Question> {
+        if (questions.size <= 2) return questions.shuffled()
+        // Group by subject, shuffle within each group for internal randomness.
+        val bySubject = questions.groupBy { it.subject }
+            .mapValues { (_, v) -> v.shuffled().toMutableList() }
+            .toMutableMap()
+        val result = mutableListOf<Question>()
+        var prevSubject: Subject? = null
+
+        repeat(questions.size) {
+            // Pick from a subject different from the previous one, preferring the largest bucket.
+            val candidate = bySubject.entries
+                .filter { it.value.isNotEmpty() && it.key != prevSubject }
+                .maxByOrNull { it.value.size }
+            // If all remaining are same subject, allow consecutive.
+            val entry = candidate ?: bySubject.entries.firstOrNull { it.value.isNotEmpty() }
+                ?: return@repeat
+            val q = entry.value.removeFirst()
+            result.add(q)
+            prevSubject = q.subject
+            if (entry.value.isEmpty()) bySubject.remove(entry.key)
+        }
+        return result
     }
 
     /** Fast fallback when build times out (>5s). Uses simpler pool+shuffle logic. */

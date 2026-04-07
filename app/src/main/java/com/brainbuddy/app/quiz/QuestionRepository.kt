@@ -2004,8 +2004,11 @@ class QuestionRepository(private val context: Context) {
         val selectedIdsInOrder = selectedCandidateRows.map { it.id }.distinct()
         val entityRows = roomStore.getQuestionEntitiesByIds(selectedIdsInOrder)
         val byIdE = entityRows.associateBy { it.id }
+        // Track which subject each candidate belongs to for loss analysis.
+        val candidateSubjectMap = selectedCandidateRows.associate { it.id to it.subject }
         val materializedInOrder = mutableListOf<Question>()
         var eliminatedCount = 0
+        val eliminatedPerSubject = mutableMapOf<String, Int>()
         for (id in selectedIdsInOrder) {
             if (materializedInOrder.size >= effectiveCount) break
             val entity = byIdE[id] ?: continue
@@ -2014,7 +2017,12 @@ class QuestionRepository(private val context: Context) {
                 materializedInOrder.add(q)
             } else {
                 eliminatedCount++
+                val subj = candidateSubjectMap[id] ?: entity.subject
+                eliminatedPerSubject[subj] = (eliminatedPerSubject[subj] ?: 0) + 1
             }
+        }
+        if (eliminatedCount > 0) {
+            Log.w(TAG, "[GRADE_MATERIALIZE_LOSS] eliminated=$eliminatedCount perSubject=$eliminatedPerSubject")
         }
 
         // Second pass: if quality gates eliminated candidates, fetch replacements
