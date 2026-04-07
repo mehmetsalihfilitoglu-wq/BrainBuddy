@@ -1628,9 +1628,11 @@ object QuestionPackImporter {
 
         var inserted = 0
         var skippedDuplicate = 0
+        var skippedTemplateDuplicate = 0
         var deactivatedLowQuality = 0
         var parseErrors = 0
         val batchSeenStemKeys = mutableSetOf<String>()
+        val batchSeenTemplateKeys = mutableSetOf<String>()
         val toInsert = mutableListOf<QuestionEntity>()
 
         for (i in 0 until questionsArr.length()) {
@@ -1658,6 +1660,16 @@ object QuestionPackImporter {
             }
             batchSeenStemKeys.add(stemKey)
             existingStemKeys.add(stemKey)
+
+            // Template-level dedup: reject structurally identical questions (same template,
+            // different numbers/cities). Keeps only the first occurrence per template key.
+            val templateKey = TemplateQualityDetector.templateKey(entity)
+            if (templateKey in batchSeenTemplateKeys) {
+                skippedTemplateDuplicate++
+                Log.w(TAG, "[TEMPLATE_DEDUP_REJECTED] q$i subj=$packSubject key=${templateKey.take(70)}")
+                continue
+            }
+            batchSeenTemplateKeys.add(templateKey)
 
             val options = parseOptionsFromEntity(entity)
             val qualityResult = LgsQualityRules.evaluate(
@@ -1689,8 +1701,8 @@ object QuestionPackImporter {
             inserted = toInsert.size
         }
 
-        Log.i(TAG, "LGS import $packSubject: inserted=$inserted, skippedDuplicate=$skippedDuplicate, deactivatedLowQuality=$deactivatedLowQuality, parseErrors=$parseErrors, validationRejected=$validationRejected")
-        ImportResult(inserted, skippedDuplicate, deactivatedLowQuality, parseErrors, validationRejected)
+        Log.i(TAG, "LGS import $packSubject: inserted=$inserted skippedDuplicate=$skippedDuplicate skippedTemplateDup=$skippedTemplateDuplicate deactivatedLowQuality=$deactivatedLowQuality parseErrors=$parseErrors validationRejected=$validationRejected")
+        ImportResult(inserted, skippedDuplicate + skippedTemplateDuplicate, deactivatedLowQuality, parseErrors, validationRejected)
     }
 
     private suspend fun buildLgsQualityDebugSummary(dao: com.brainbuddy.app.db.QuestionDao): LgsQualityDebugSummary {
@@ -1730,11 +1742,46 @@ object QuestionPackImporter {
         val rawOpts = (0 until optionsRaw.length())
             .map { optionsRaw.optString(it, "").ifEmpty { optionsRaw.opt(it)?.toString() ?: "" } }
             .filter { it.isNotBlank() }
-        if (rawOpts.size < 2) return null
-        val options = if (rawOpts.size >= 4) rawOpts.take(4) else rawOpts + List(4 - rawOpts.size) { "-" }
+
+        // Hard gate: require exactly 4 real (non-blank, non-dash) options.
+        val realOpts = rawOpts.filter { it.trim() != "-" }
+        if (realOpts.size < 4) {
+            Log.w(TAG, "[INVALID_OPTIONS_DETECTED] LGS q$index: only ${realOpts.size} real option(s) — rejecting")
+            return null
+        }
+
+        // Hard gate: reject any placeholder option.
+        val phPattern = Regex(
+            "^(Se[çc]enek|Option|Cevap|[Şş][ıi]k)\\s*[A-Ea-e]$",
+            RegexOption.IGNORE_CASE
+        )
+        if (realOpts.take(4).any { phPattern.matches(it.trim()) }) {
+            Log.w(TAG, "[PLACEHOLDER_OPTION_REJECTED] LGS q$index — rejecting")
+            return null
+        }
+
+        // Hard gate: all 4 options must be distinct (case-sensitive trim —
+        //    genetics options AA/Aa/aa are legitimately different).
+        val distinctOpts = realOpts.take(4).map { it.trim() }.distinct()
+        if (distinctOpts.size < 4) {
+            Log.w(TAG, "[DUPLICATE_OPTION_REJECTED] LGS q$index — rejecting")
+            return null
+        }
+
+        val options = realOpts.take(4)
 
         val answerIndex = (o.optInt("answerIndex", 0).takeIf { o.has("answerIndex") }
             ?: o.optInt("correctIndex", 0)).coerceIn(0, options.size - 1)
+
+        // Quality gate: reject telegraphed answers and weak numeric distractors.
+        if (QuizOutputGuard.isHardTelegraphed(options, answerIndex)) {
+            Log.w(TAG, "[TELEGRAPHED_REJECTED] LGS q$index correct='${options[answerIndex].take(40)}'")
+            return null
+        }
+        if (QuizOutputGuard.isWeakNumericDistractors(options, answerIndex)) {
+            Log.w(TAG, "[WEAK_DISTRACTOR_REJECTED] LGS q$index opts=$options")
+            return null
+        }
 
         val subject = o.optString("subject", "").let { s ->
             if (s.isBlank()) defaultSubject else normalizeSubject(s, defaultSubject)
@@ -1777,6 +1824,9 @@ object QuestionPackImporter {
             "din" -> Subject.DIN
             else -> Subject.MAT
         }
+        // Grade-based questions (forceGrade != LGS_GRADE) belong in the GENERAL pool,
+        // not LGS. Only true LGS questions (grade 8) should have examType=LGS.
+        val resolvedExamType = if (defaultGrade != LGS_GRADE) "GENERAL" else "LGS"
         val gate = QuestionQualityGate.evaluate(subjectEnum, defaultGrade, stem, options, difficulty, answerIndex = answerIndex)
         return QuestionEntity(
             id = id,
@@ -1792,7 +1842,7 @@ object QuestionPackImporter {
             skillsJson = gate.skillsJson,
             deactivationReason = null,
             version = 1,
-            examType = "LGS",
+            examType = resolvedExamType,
             imageAsset = imageAsset,
             type = questionType,
             skill = skillsArr?.optString(0, "")?.takeIf { it.isNotBlank() } ?: "UNKNOWN",
@@ -1957,11 +2007,44 @@ object QuestionPackImporter {
         val rawOpts = (0 until optionsRaw.length())
             .map { optionsRaw.optString(it, "").ifEmpty { optionsRaw.opt(it)?.toString() ?: "" } }
             .filter { it.isNotBlank() }
-        if (rawOpts.size < 2) return null
-        val options = if (rawOpts.size >= 4) rawOpts.take(4) else rawOpts + List(4 - rawOpts.size) { "-" }
+
+        // Hard gate: require 4 real options.
+        val realOpts = rawOpts.filter { it.trim() != "-" }
+        if (realOpts.size < 4) {
+            Log.w(TAG, "[INVALID_OPTIONS_DETECTED] q$index: only ${realOpts.size} option(s) — rejecting")
+            return null
+        }
+
+        // Hard gate: reject placeholder options.
+        val phPattern = Regex(
+            "^(Se[çc]enek|Option|Cevap|[Şş][ıi]k)\\s*[A-Ea-e]$",
+            RegexOption.IGNORE_CASE
+        )
+        if (realOpts.take(4).any { phPattern.matches(it.trim()) }) {
+            Log.w(TAG, "[PLACEHOLDER_OPTION_REJECTED] q$index — rejecting")
+            return null
+        }
+
+        // Hard gate: all 4 must be distinct (case-sensitive trim).
+        val distinctOpts = realOpts.take(4).map { it.trim() }.distinct()
+        if (distinctOpts.size < 4) {
+            Log.w(TAG, "[DUPLICATE_OPTION_REJECTED] q$index — rejecting")
+            return null
+        }
+
+        val options = realOpts.take(4)
 
         val answerIndex = (o.optInt("answerIndex", 0).takeIf { o.has("answerIndex") }
             ?: o.optInt("correctIndex", 0)).coerceIn(0, options.size - 1)
+
+        if (QuizOutputGuard.isHardTelegraphed(options, answerIndex)) {
+            Log.w(TAG, "[TELEGRAPHED_REJECTED] q$index correct='${options[answerIndex].take(40)}'")
+            return null
+        }
+        if (QuizOutputGuard.isWeakNumericDistractors(options, answerIndex)) {
+            Log.w(TAG, "[WEAK_DISTRACTOR_REJECTED] q$index opts=$options")
+            return null
+        }
 
         val grade = (o.optInt("grade", 0).takeIf { it in 1..7 } ?: defaultGrade).coerceIn(1, 7)
         val subject = o.optString("subject", "").let { s ->

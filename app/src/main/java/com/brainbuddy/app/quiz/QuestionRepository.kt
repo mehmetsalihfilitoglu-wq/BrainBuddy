@@ -1368,7 +1368,6 @@ class QuestionRepository(private val context: Context) {
             Subject.SOSYAL to "sosyal",
             Subject.ING to "ing"
         )
-        val targetPerSubject = 4
         val effectiveCount = count.coerceAtMost(MIN_QUESTIONS_PER_TEST).coerceAtLeast(MIN_QUESTIONS_PER_TEST)
         val maxWrongCount = if (effectiveCount > 0 && maxWrongFraction > 0.0) {
             kotlin.math.floor(effectiveCount * maxWrongFraction).toInt().coerceAtLeast(0)
@@ -1451,6 +1450,79 @@ class QuestionRepository(private val context: Context) {
         }
         QualityAudit.playablePoolSizeLastQuery = perSubjectAll.values.sumOf { it.size }
         QualityAudit.currentPoolSourceSummary = "GRADE:${grade} exam!=LGS tiers=all"
+
+        // --- Balanced quota computation ---
+        // Compute how many servable (non-hardblocked) questions each subject has.
+        val servablePerSubject: Map<Subject, Int> = subjectOrder.associate { (subjEnum, _) ->
+            val pool = perSubjectAll[subjEnum] ?: emptyList()
+            subjEnum to pool.count { it.id !in excludeIds && it.id !in hardBlockIds }
+        }
+        val eligibleSubjects = subjectOrder.map { it.first }.filter { (servablePerSubject[it] ?: 0) > 0 }
+        val totalServable = eligibleSubjects.sumOf { servablePerSubject[it] ?: 0 }
+
+        // Compute per-subject quotas: each eligible subject gets at least 1 question (min representation),
+        // then remaining slots are distributed proportionally to servable pool sizes.
+        val quotaPerSubject: MutableMap<Subject, Int> = mutableMapOf()
+        if (eligibleSubjects.isNotEmpty() && totalServable > 0) {
+            val minPerSubject = 1
+            val guaranteedSlots = (eligibleSubjects.size * minPerSubject).coerceAtMost(effectiveCount)
+            // Assign guaranteed minimum to each eligible subject (capped by their pool).
+            for (subj in eligibleSubjects) {
+                val avail = servablePerSubject[subj] ?: 0
+                quotaPerSubject[subj] = minOf(minPerSubject, avail)
+            }
+            // Distribute remaining slots proportionally.
+            var remainingQuota = effectiveCount - quotaPerSubject.values.sum()
+            if (remainingQuota > 0) {
+                // Proportional shares based on servable count.
+                val weights = eligibleSubjects.associateWith { (servablePerSubject[it] ?: 0).toDouble() }
+                val totalWeight = weights.values.sum()
+                // Assign proportional quotas, but cap per subject so no single subject > 50% of test
+                // unless only 1-2 subjects exist.
+                val maxPerSubjectCap = if (eligibleSubjects.size <= 2) effectiveCount
+                    else (effectiveCount * 0.35).toInt().coerceAtLeast(4)
+                val proportional = eligibleSubjects.associateWith { subj ->
+                    val share = if (totalWeight > 0) (weights[subj]!! / totalWeight * remainingQuota) else 0.0
+                    val avail = (servablePerSubject[subj] ?: 0) - (quotaPerSubject[subj] ?: 0)
+                    minOf(share.toInt(), avail, maxPerSubjectCap - (quotaPerSubject[subj] ?: 0))
+                        .coerceAtLeast(0)
+                }
+                for (subj in eligibleSubjects) {
+                    quotaPerSubject[subj] = (quotaPerSubject[subj] ?: 0) + proportional[subj]!!
+                }
+                remainingQuota = effectiveCount - quotaPerSubject.values.sum()
+                // Distribute leftover one-by-one to subjects with remaining capacity, round-robin.
+                if (remainingQuota > 0) {
+                    val sortedByCapacity = eligibleSubjects
+                        .filter { (servablePerSubject[it] ?: 0) > (quotaPerSubject[it] ?: 0) }
+                        .sortedByDescending { (servablePerSubject[it] ?: 0) - (quotaPerSubject[it] ?: 0) }
+                    var idx = 0
+                    while (remainingQuota > 0 && sortedByCapacity.isNotEmpty()) {
+                        val subj = sortedByCapacity[idx % sortedByCapacity.size]
+                        val avail = (servablePerSubject[subj] ?: 0) - (quotaPerSubject[subj] ?: 0)
+                        val current = quotaPerSubject[subj] ?: 0
+                        if (avail > 0 && current < maxPerSubjectCap) {
+                            quotaPerSubject[subj] = current + 1
+                            remainingQuota--
+                        }
+                        idx++
+                        if (idx >= sortedByCapacity.size * 2) break // safety: avoid infinite loop
+                    }
+                }
+            }
+        } else {
+            // No eligible subjects at all — fallback to equal split.
+            subjectOrder.forEach { (s, _) -> quotaPerSubject[s] = effectiveCount / subjectOrder.size }
+        }
+        // Subjects not in eligibleSubjects get quota 0.
+        subjectOrder.forEach { (s, _) -> quotaPerSubject.putIfAbsent(s, 0) }
+
+        // Debug: log the computed quotas.
+        val quotaDebug = StringBuilder("[GRADE_BALANCE] grade=$grade eligible=${eligibleSubjects.size}/${subjectOrder.size}")
+        subjectOrder.forEach { (subjEnum, dbKey) ->
+            quotaDebug.append(" | $dbKey: servable=${servablePerSubject[subjEnum] ?: 0} quota=${quotaPerSubject[subjEnum] ?: 0}")
+        }
+        Log.d(TAG, quotaDebug.toString())
 
         val usedIds = excludeIds.toMutableSet()
         // Hard-block: pre-seed usedIds with last 5 quizzes so they can never be picked
@@ -1679,20 +1751,25 @@ class QuestionRepository(private val context: Context) {
             trySelectFromSimilarRelaxed(relaxedRecent, enforceTypeLimit = false, enforceSkillLimit = false)
         }
 
-        // 2) Her ders için önce çeşitlilik kısıtlarıyla 4'e kadar seç.
+        // 2) Her ders için hesaplanan kota kadar seç (balanced distribution).
         subjectOrder.forEach { (subjEnum, _) ->
-            pickForSubject(subjEnum, targetPerSubject)
+            val quota = quotaPerSubject[subjEnum] ?: 0
+            pickForSubject(subjEnum, quota)
         }
 
         val selectedCandidateRows = selectedPerSubject.values.flatten().toMutableList()
 
-        // 3) Eğer toplam < 20 ise, kalan slotları en büyük havuzlu derslerden doldur.
+        // 3) Eğer toplam < effectiveCount ise, kalan slotları ORANTILI olarak dağıt (round-robin).
+        //    Eski davranış: en büyük havuzdan greedy dolduruyordu → tek ders dominasyonu.
+        //    Yeni davranış: her turda en fazla kapasitesi kalan dersten 1 soru al.
         var remainingSlots = effectiveCount - selectedCandidateRows.size
         if (remainingSlots > 0) {
             val remainingPerSubject: Map<Subject, List<QuestionCandidateRow>> = subjectOrder.associate { (subjEnum, _) ->
                 subjEnum to (perSubjectAll[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
             }
+            // Round-robin: cycle through subjects sorted by remaining capacity (descending).
             val subjectsByRemaining = remainingPerSubject.entries
+                .filter { it.value.isNotEmpty() }
                 .sortedByDescending { it.value.size }
                 .map { it.key }
 
@@ -1851,59 +1928,73 @@ class QuestionRepository(private val context: Context) {
                 takeFrom(normalCandidates, isWrong = false)
             }
 
-            // Phase 1: fill from non-recent pools across subjects.
-            for (subj in subjectsByRemaining) {
-                if (remainingSlots <= 0) break
-                val poolAll = remainingPerSubject[subj].orEmpty()
-                if (poolAll.isEmpty()) continue
-                val nonRecent = poolAll.filter { it.id !in recentIds }
-                pickExtraFromPartition(subj, nonRecent, fromRecent = false)
-            }
-
-            // Phase 2: only if hâlâ eksik varsa, recently-seen sorulardan doldur.
-            if (remainingSlots > 0) {
-                for (subj in subjectsByRemaining) {
-                    if (remainingSlots <= 0) break
-                    val poolAll = remainingPerSubject[subj].orEmpty()
-                    if (poolAll.isEmpty()) continue
-                    val recent = poolAll.filter { it.id in recentIds }
-                    pickExtraFromPartition(subj, recent, fromRecent = true)
+            // Phase 1: fill from non-recent pools using ROUND-ROBIN (1 question per subject per round).
+            // This prevents a single large-pool subject from grabbing all remaining slots.
+            val fillSubjectOrder = subjectsByRemaining.toMutableList()
+            var roundRobinSafety = 0
+            while (remainingSlots > 0 && fillSubjectOrder.isNotEmpty() && roundRobinSafety < effectiveCount * 2) {
+                val beforeSize = selectedCandidateRows.size
+                val iter = fillSubjectOrder.iterator()
+                while (iter.hasNext() && remainingSlots > 0) {
+                    val subj = iter.next()
+                    val poolAll = remainingPerSubject[subj].orEmpty().filter { it.id !in usedIds }
+                    if (poolAll.isEmpty()) { iter.remove(); continue }
+                    val nonRecent = poolAll.filter { it.id !in recentIds }
+                    val prevCount = selectedCandidateRows.size
+                    if (nonRecent.isNotEmpty()) {
+                        // Pick at most 1 per round for balance.
+                        val tempRemaining = remainingSlots
+                        remainingSlots = 1.coerceAtMost(tempRemaining) // limit to 1
+                        pickExtraFromPartition(subj, nonRecent, fromRecent = false)
+                        remainingSlots = effectiveCount - selectedCandidateRows.size
+                    }
+                    if (selectedCandidateRows.size == prevCount) {
+                        // Could not pick non-recent; try recent.
+                        val recent = poolAll.filter { it.id in recentIds }
+                        if (recent.isNotEmpty()) {
+                            val tempRemaining = remainingSlots
+                            remainingSlots = 1.coerceAtMost(tempRemaining)
+                            pickExtraFromPartition(subj, recent, fromRecent = true)
+                            remainingSlots = effectiveCount - selectedCandidateRows.size
+                        }
+                    }
+                    if (selectedCandidateRows.size == prevCount) {
+                        iter.remove() // subject exhausted
+                    }
                 }
+                roundRobinSafety++
+                if (selectedCandidateRows.size == beforeSize) break // no progress
             }
 
-            // Phase 3: last resort – relax similarity (usedIds and stemHashUsed NEVER relax).
+            // Phase 2: last resort – relax similarity round-robin.
             if (remainingSlots > 0) {
-                for (subj in subjectsByRemaining) {
-                    if (remainingSlots <= 0) break
-                    val poolAll = remainingPerSubject[subj].orEmpty()
-                    if (poolAll.isEmpty()) continue
-                    pickExtraFromPartitionSimilarRelaxed(subj, poolAll)
+                val similarRelaxSubjects = subjectsByRemaining.filter { subj ->
+                    remainingPerSubject[subj].orEmpty().any { it.id !in usedIds }
+                }.toMutableList()
+                roundRobinSafety = 0
+                while (remainingSlots > 0 && similarRelaxSubjects.isNotEmpty() && roundRobinSafety < effectiveCount * 2) {
+                    val beforeSize = selectedCandidateRows.size
+                    val iter = similarRelaxSubjects.iterator()
+                    while (iter.hasNext() && remainingSlots > 0) {
+                        val subj = iter.next()
+                        val poolAll = remainingPerSubject[subj].orEmpty().filter { it.id !in usedIds }
+                        if (poolAll.isEmpty()) { iter.remove(); continue }
+                        val prevCount = selectedCandidateRows.size
+                        pickExtraFromPartitionSimilarRelaxed(subj, poolAll)
+                        if (selectedCandidateRows.size == prevCount) iter.remove()
+                    }
+                    roundRobinSafety++
+                    if (selectedCandidateRows.size == beforeSize) break
                 }
             }
         }
 
+        // STRICT QUALITY MODE: EASY emergency fallback is permanently disabled.
+        // EMERGENCY_EASY_MAX_FRACTION=0.0 already ensures this, but we skip the
+        // block entirely to make the intent explicit and avoid dead-code confusion.
+        // If the pool is short, the quiz will be shorter — that is acceptable.
         if (selectedCandidateRows.size < effectiveCount) {
-            val maxEasy = (effectiveCount * QuizQualityPolicy.EMERGENCY_EASY_MAX_FRACTION).toInt().coerceAtLeast(0)
-            if (maxEasy > 0) {
-                QualityAudit.emergencyFallbackUsed = true
-                Log.w(TAG, "Emergency EASY tier fallback max=$maxEasy")
-                var easyUsed = 0
-                val easyPool = subjectOrder.flatMap { perSubjectEasy[it.first] ?: emptyList() }
-                    .distinctBy { it.id }
-                    .shuffled()
-                for (q in easyPool) {
-                    if (selectedCandidateRows.size >= effectiveCount) break
-                    if (easyUsed >= maxEasy) break
-                    if (q.id in usedIds) continue
-                    val qStemHash = q.stemHash.substringBefore(":dup:").ifBlank { stemHash(q.stemNormalized) }
-                    if (qStemHash in usedStemHashes) continue
-                    selectedCandidateRows.add(q)
-                    usedIds.add(q.id)
-                    usedStemHashes.add(qStemHash)
-                    easyUsed++
-                    QualityAudit.easyEmergencyUsed++
-                }
-            }
+            Log.w(TAG, "[POOL_SHORTAGE] grade=$grade candidate pool only ${selectedCandidateRows.size}/$effectiveCount after HARD+MEDIUM+BORDERLINE — no EASY injection (strict mode)")
         }
 
         ensureHardMediumQuota(selectedCandidateRows, grade)
@@ -1926,51 +2017,56 @@ class QuestionRepository(private val context: Context) {
             }
         }
 
-        // Second pass: if quarantine/distractor eliminated too many, fetch replacements
-        // from the full pool (bypass quarantine — quiz must be 20 questions).
+        // Second pass: if quality gates eliminated candidates, fetch replacements
+        // using round-robin across subjects for balanced distribution.
         if (materializedInOrder.size < effectiveCount) {
             val need = effectiveCount - materializedInOrder.size
-            Log.w(TAG, "QUIZ_SIZE_FILL need=$need more (eliminated=$eliminatedCount), fetching replacements")
+            Log.w(TAG, "QUIZ_SIZE_FILL need=$need more (eliminated=$eliminatedCount), fetching balanced replacements")
             val materializedIds = materializedInOrder.map { it.id }.toSet()
-            // Collect all candidates from all subjects, excluding already used
-            val replacementPool = perSubjectAll.values.flatten()
-                .filter { it.id !in usedIds && it.id !in materializedIds }
-                .shuffled()
-            val replacementEntities = roomStore.getQuestionEntitiesByIds(replacementPool.map { it.id }.take(need * 3))
+            // Build per-subject replacement pools (shuffled within each subject).
+            val replacementBySubject = subjectOrder.associate { (subjEnum, _) ->
+                subjEnum to (perSubjectAll[subjEnum] ?: emptyList())
+                    .filter { it.id !in usedIds && it.id !in materializedIds }
+                    .shuffled()
+                    .toMutableList()
+            }
+            val allReplacementIds = replacementBySubject.values.flatten().map { it.id }.take(need * 3)
+            val replacementEntities = roomStore.getQuestionEntitiesByIds(allReplacementIds)
             val replByIdE = replacementEntities.associateBy { it.id }
-            for (row in replacementPool) {
-                if (materializedInOrder.size >= effectiveCount) break
-                val entity = replByIdE[row.id] ?: continue
-                // Try normal materialization first
-                val q = materializeSingleQuestion(entity, expectLgs = false)
-                if (q != null) {
-                    materializedInOrder.add(q)
-                    usedIds.add(entity.id)
-                } else {
-                    // Quarantine blocked it — force-materialize with quarantine bypass
-                    val base = QuestionMapper.toQuestion(entity)
-                    materializedInOrder.add(base)
-                    usedIds.add(entity.id)
-                    Log.d(TAG, "QUIZ_SIZE_FILL_FORCED id=${entity.id} (quarantine bypassed to maintain quiz size)")
+            // Round-robin: try one replacement from each subject per round.
+            val activeSubjects = subjectOrder.map { it.first }
+                .filter { replacementBySubject[it]?.isNotEmpty() == true }.toMutableList()
+            var rrSafety = 0
+            while (materializedInOrder.size < effectiveCount && activeSubjects.isNotEmpty() && rrSafety < need * 3) {
+                val iter = activeSubjects.iterator()
+                while (iter.hasNext() && materializedInOrder.size < effectiveCount) {
+                    val subj = iter.next()
+                    val pool = replacementBySubject[subj]
+                    if (pool == null || pool.isEmpty()) { iter.remove(); continue }
+                    var found = false
+                    while (pool.isNotEmpty()) {
+                        val row = pool.removeFirst()
+                        val entity = replByIdE[row.id] ?: continue
+                        val q = materializeSingleQuestion(entity, expectLgs = false)
+                        if (q != null) {
+                            materializedInOrder.add(q)
+                            usedIds.add(entity.id)
+                            found = true
+                            break
+                        } else {
+                            Log.w(TAG, "[POOL_SHORTAGE] quality gate blocked replacement id=${entity.id} — skipping (strict mode)")
+                        }
+                    }
+                    if (!found) iter.remove()
                 }
+                rrSafety++
             }
         }
 
-        // Third pass: absolute last resort — in-memory fallback
+        // If still short after replacement pass: log shortage and accept smaller quiz.
+        // STRICT QUALITY MODE: no hardcoded fallback, no EASY injection.
         if (materializedInOrder.size < effectiveCount) {
-            Log.w(TAG, "QUIZ_SIZE_FILL_FALLBACK need=${effectiveCount - materializedInOrder.size} from hardcoded fallback")
-            val fallbackPool = getFallbackQuestions()
-                .filter { it.grade == grade && it.examType != ExamType.LGS }
-                .ifEmpty { getFallbackQuestions().filter { it.examType != ExamType.LGS } }
-            for (q in fallbackPool.shuffled()) {
-                if (materializedInOrder.size >= effectiveCount) break
-                if (q.id in usedIds) continue
-                val sh = stemHash(q.stem)
-                if (sh in usedStemHashes) continue
-                usedIds.add(q.id)
-                usedStemHashes.add(sh)
-                materializedInOrder.add(q)
-            }
+            Log.w(TAG, "[POOL_SHORTAGE] grade=$grade: could only fill ${materializedInOrder.size}/$effectiveCount questions after strict quality gates. Serving shorter quiz.")
         }
         if (eliminatedCount > 0) {
             Log.d(TAG, "QUIZ_SIZE_RESULT picked=${materializedInOrder.size}/$effectiveCount eliminated=$eliminatedCount filled=${materializedInOrder.size - (selectedIdsInOrder.size - eliminatedCount)}")
@@ -2029,11 +2125,24 @@ class QuestionRepository(private val context: Context) {
         }.toString()
         android.util.Log.d(TAG, selectionDebug)
 
+        // Distribution proof: final picked counts per subject in materialized questions.
+        val finalSubjectCounts = finalQuestions.groupingBy {
+            com.brainbuddy.app.db.QuestionMapper.toDbSubject(it.subject)
+        }.eachCount()
+        val balanceProof = StringBuilder("[GRADE_BALANCE_PROOF] grade=$grade total=${finalQuestions.size}")
+        subjectOrder.forEach { (subjEnum, dbKey) ->
+            val quota = quotaPerSubject[subjEnum] ?: 0
+            val picked = selectedPerSubject[subjEnum]?.size ?: 0
+            val finalCount = finalSubjectCounts[dbKey] ?: 0
+            balanceProof.append(" | $dbKey: quota=$quota picked=$picked final=$finalCount")
+        }
+        Log.d(TAG, balanceProof.toString())
+
         // Performance: candidate-pool strategy targets buildMs < 500ms (no full DB scan).
         lastBuildMs = System.currentTimeMillis() - buildStartMs
         QualityAudit.servedGeneralCount = finalQuestions.size
         lastQualityPickSummary =
-            "adaptive HARD>MEDIUM>BORDERLINE>EASY(emergency≤${(effectiveCount * QuizQualityPolicy.EMERGENCY_EASY_MAX_FRACTION).toInt()}) " +
+            "adaptive HARD>MEDIUM>BORDERLINE [STRICT_QUALITY_MODE no-EASY no-recovery] " +
                 "synTopUp=$lastSyntheticEmergencyTopUpCount synHard=${QualityAudit.syntheticGeneratedCount} " +
                 "audit H/M/B/E=${QualityAudit.hardServed}/${QualityAudit.mediumServed}/${QualityAudit.borderlineServed}/${QualityAudit.easyEmergencyUsed} " +
                 "upgraded=${QualityAudit.upgradedQuestionsCount} emergency=${QualityAudit.emergencyFallbackUsed} " +
@@ -2054,7 +2163,7 @@ class QuestionRepository(private val context: Context) {
             return null
         }
         if (LowQualityQuarantine.shouldQuarantine(entity)) {
-            Log.w(TAG, "ELIMINATE_REASON id=${entity.id} reason=QUARANTINE tier=${entity.qualityTier} reasoning=${entity.reasoningLevel} distractor=${entity.distractorQualityScore}")
+            Log.w(TAG, "[LOW_QUALITY_REJECTED] id=${entity.id} tier=${entity.qualityTier} reasoning=${entity.reasoningLevel} distractor=${entity.distractorQualityScore} stem='${entity.questionText.take(60)}'")
             QualityAudit.quarantinedLowQualityCount++
             try {
                 roomStore.updateQuarantineFlags(
