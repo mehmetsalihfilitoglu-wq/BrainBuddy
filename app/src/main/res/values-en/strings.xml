@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BrainBuddy</string>
-    <string name="parent_title">Parent Panel</string>
+    <string name="app_name">MioAcademy</string>
     <string name="settings_title">Settings</string>
     <string name="gate_title">Quiz Required</string>
-    <string name="gate_quiz_required">You must pass the quiz to use blocked apps.</string>
+    <string name="gate_quiz_required">Complete a quiz to continue practising.</string>
     <string name="btn_start_quiz">Start Quiz</string>
-    <string name="lock_failed_title">Test Failed</string>
-    <string name="lock_failed_message">Minimum success rate not reached. App locked until you pass.</string>
-    <string name="lock_permission_title">Blocking Permission Disabled</string>
-    <string name="lock_permission_message">App blocking permission was disabled. Parent PIN can fix in settings.</string>
-    <string name="btn_parent_unlock">Unlock with Parent PIN</string>
+    <string name="lock_failed_title">Keep Practising</string>
+    <string name="lock_failed_message">Not quite there yet — try another round to improve your score.</string>
+    <string name="lock_permission_title">Permission Required</string>
+    <string name="lock_permission_message">A required permission is missing. Check Settings to continue.</string>
+    <string name="btn_parent_unlock">Open Settings</string>
     <string name="btn_practice">Practice (Mini Test)</string>
     <string name="perm_checklist_title">Permissions</string>
     <string name="perm_status_ok">OK</string>

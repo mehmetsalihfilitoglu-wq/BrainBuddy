@@ -34,7 +34,11 @@
       "Bash(xargs cat)",
       "Bash(xargs grep -l \"com\\\\.brainbuddy\\\\.app\")",
       "Bash(python3 -c ' *)",
-      "Bash(./gradlew clean *)"
+      "Bash(./gradlew clean *)",
+      "Bash(grep -v \"//\\\\|spinner\\\\|spinning\")",
+      "Bash(grep -n \"BrainBuddy\\\\|Barjin\\\\|parental\\\\|Parent PIN\\\\|blocked\" app/src/main/res/values-en/strings.xml)",
+      "Bash(grep -n \"BrainBuddy\\\\|Barjin\\\\|parental\\\\|Parent PIN\\\\|blocked\" app/src/main/res/values-it/strings.xml)",
+      "Bash(grep -n \"BrainBuddy\\\\|Barjin\\\\|parental\\\\|Parent PIN\\\\|blocked\" app/src/main/res/values-tr/strings.xml)"
     ]
   }
 }

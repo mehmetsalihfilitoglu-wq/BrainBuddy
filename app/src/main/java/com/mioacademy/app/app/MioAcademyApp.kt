@@ -1,4 +1,4 @@
-﻿package com.mioacademy.app.app
+package com.mioacademy.app.app
 
 import android.app.Application
 import android.content.Context
@@ -22,7 +22,7 @@ import com.mioacademy.app.league.LeagueScheduler
 import com.google.android.gms.ads.MobileAds
 import java.io.File
 
-class BrainBuddyApp : Application() {
+class MioAcademyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -34,12 +34,12 @@ class BrainBuddyApp : Application() {
 
         CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
             StartupRuntimeState.markInitializing()
-            Log.i(PERSISTENCE_LOG_TAG, "Startup: seed → audit → publish (sequential IO)")
+            Log.i(STARTUP_LOG_TAG, "Startup: seed → audit → publish (sequential IO)")
             val payload = withContext(Dispatchers.IO) {
-                logStartupPersistenceAsync(this@BrainBuddyApp)
-                val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
-                Log.i(PERSISTENCE_LOG_TAG, "Seed finished: didSeed=$didSeed")
-                val p = StartupAuditRecorder.finalizeStartupAudit(this@BrainBuddyApp)
+                logStartupPersistenceAsync(this@MioAcademyApp)
+                val didSeed = DbSeeder.seedIfNeeded(this@MioAcademyApp)
+                Log.i(STARTUP_LOG_TAG, "Seed finished: didSeed=$didSeed")
+                val p = StartupAuditRecorder.finalizeStartupAudit(this@MioAcademyApp)
                 Log.i(
                     "AppStartupAudit",
                     "AppStartupAudit: total=${p.auditSnapshot.total} active=${p.auditSnapshot.active} inactive=${p.auditSnapshot.inactive}"
@@ -69,7 +69,7 @@ class BrainBuddyApp : Application() {
     }
 }
 
-private const val PERSISTENCE_LOG_TAG = "BrainBuddyPersistence"
+private const val STARTUP_LOG_TAG = "MioAcademyStartup"
 
 private fun logStartupPersistenceSync(context: Context) {
     try {
@@ -79,24 +79,25 @@ private fun logStartupPersistenceSync(context: Context) {
         val sharedPrefsDir = File(dataDir, "shared_prefs")
         val prefsExists = sharedPrefsDir.exists() && sharedPrefsDir.isDirectory
         val onboardingPrefsFile = File(sharedPrefsDir, "bb_onboarding_prefs.xml")
-        Log.i(PERSISTENCE_LOG_TAG, "Persistence at startup (sync): onboardingDone=$onboardingDone profileCount=$profileCount dataDir=$dataDir sharedPrefsDirExists=$prefsExists onboardingPrefsFileExists=${onboardingPrefsFile.exists()}")
+        Log.i(STARTUP_LOG_TAG, "Persistence at startup (sync): onboardingDone=$onboardingDone profileCount=$profileCount dataDir=$dataDir sharedPrefsDirExists=$prefsExists onboardingPrefsFileExists=${onboardingPrefsFile.exists()}")
     } catch (e: Exception) {
-        Log.w(PERSISTENCE_LOG_TAG, "logStartupPersistenceSync failed", e)
+        Log.w(STARTUP_LOG_TAG, "logStartupPersistenceSync failed", e)
     }
 }
 
 private suspend fun logStartupPersistenceAsync(context: Context) {
     try {
         val db = DatabaseProvider.get(context)
+        // Note: database file keeps legacy name "brainbuddy.db" for existing install compatibility
         val dbPath = context.getDatabasePath("brainbuddy.db")?.absolutePath ?: "?"
         val dbExists = context.getDatabasePath("brainbuddy.db")?.exists() ?: false
         val meta = db.appMetaDao()
         val dbSeeded = meta.get("db_seeded")
         val dbSeedVersion = meta.get("db_seed_version")
         val questionCount = db.questionDao().countAll()
-        Log.i(PERSISTENCE_LOG_TAG, "Persistence at startup (async): dbPath=$dbPath dbExists=$dbExists db_seeded=$dbSeeded db_seed_version=$dbSeedVersion questionCount=$questionCount")
+        Log.i(STARTUP_LOG_TAG, "Persistence at startup (async): dbPath=$dbPath dbExists=$dbExists db_seeded=$dbSeeded db_seed_version=$dbSeedVersion questionCount=$questionCount")
     } catch (e: Exception) {
-        Log.w(PERSISTENCE_LOG_TAG, "logStartupPersistenceAsync failed", e)
+        Log.w(STARTUP_LOG_TAG, "logStartupPersistenceAsync failed", e)
     }
 }
 
