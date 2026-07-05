@@ -14,10 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
 import com.brainbuddy.app.ads.RewardedAdManager
-import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.databinding.ActivityWrongAnswersReportBinding
-import com.brainbuddy.app.ui.TestSettingsActivity
+import com.brainbuddy.app.ui.SettingsActivity
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -49,8 +48,6 @@ class WrongAnswersReportActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!ParentAccessGuard.checkAndRedirect(this, WrongAnswersReportActivity::class.java)) return
-
         sinceMillis = intent.getLongExtra(EXTRA_SINCE_MILLIS, 0)
         profileId = intent.getStringExtra(EXTRA_PROFILE_ID) ?: com.brainbuddy.app.core.ActiveProfileManager.getActiveProfileId(this)
 
@@ -140,7 +137,7 @@ class WrongAnswersReportActivity : AppCompatActivity() {
             }
             .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
                 pendingUnlockItem = null
-                startActivity(Intent(this, TestSettingsActivity::class.java))
+                startActivity(Intent(this, SettingsActivity::class.java))
             }
 
         if (RewardedAdManager.isLoaded()) {

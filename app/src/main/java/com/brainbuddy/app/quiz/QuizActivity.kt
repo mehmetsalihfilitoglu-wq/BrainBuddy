@@ -13,9 +13,9 @@ import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.LastTestUnlockStore
 import com.brainbuddy.app.core.PremiumStore
+import com.brainbuddy.app.HomeActivity
 import com.brainbuddy.app.core.RetryUnlockStore
 import com.brainbuddy.app.core.QuizRetryPolicy
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuizBinding
 import com.brainbuddy.app.quiz.LevelGroup
@@ -23,7 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
-import ui.MainActivity
+import com.brainbuddy.app.MainActivity
 import java.util.UUID
 
 class QuizActivity : AppCompatActivity() {
@@ -95,7 +95,6 @@ class QuizActivity : AppCompatActivity() {
         b.nextBtn.setOnClickListener { }
 
         lifecycleScope.launch {
-            val protectionPrefs = ProtectionPrefs(this@QuizActivity)
             val targetCount = quizPrefs.questionsPerSession()
             val isReplayFromLastTest = intent.getBooleanExtra(EXTRA_REPLAY_FROM_LAST_TEST, false)
             if (isReplayFromLastTest) {
@@ -125,49 +124,42 @@ class QuizActivity : AppCompatActivity() {
             if (isRetryOfLockedQuiz && !retryAfterAd) {
                 val policy = QuizRetryPolicy(this@QuizActivity)
                 when (policy.getStartMode()) {
-                QuizRetryPolicy.StartMode.REQUIRE_AD -> {
-                    val qId = protectionPrefs.lastFailedQuizId()
-                    val qIds = protectionPrefs.lastFailedQuestionIds()
-                    if (qIds.size >= targetCount) {
-                        startActivity(Intent(this@QuizActivity, QuizRetryAdActivity::class.java).apply {
-                            putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, qId)
-                            putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, java.util.ArrayList(qIds))
-                            putExtra(QuizRetryAdActivity.EXTRA_BLOCKED_PACKAGE, blockedPkgForRetry)
-                        })
+                    QuizRetryPolicy.StartMode.REQUIRE_AD -> {
+                        val token = policy.getSameTestToken()
+                        val qId = token?.quizId ?: ""
+                        val qIds = token?.questionIds ?: emptyList()
+                        if (qIds.size >= targetCount) {
+                            startActivity(Intent(this@QuizActivity, QuizRetryAdActivity::class.java).apply {
+                                putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, qId)
+                                putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, java.util.ArrayList(qIds))
+                                putExtra(QuizRetryAdActivity.EXTRA_BLOCKED_PACKAGE, blockedPkgForRetry)
+                            })
+                        }
+                        finish()
+                        return@launch
                     }
-                    finish()
-                    return@launch
-                }
-                QuizRetryPolicy.StartMode.WAIT_COOLDOWN -> {
-                    val qId = protectionPrefs.lastFailedQuizId()
-                    val qIds = protectionPrefs.lastFailedQuestionIds()
-                    if (qIds.size >= targetCount) {
-                        startActivity(Intent(this@QuizActivity, QuizCooldownActivity::class.java).apply {
-                            putExtra(QuizCooldownActivity.EXTRA_QUIZ_ID, qId)
-                            putStringArrayListExtra(QuizCooldownActivity.EXTRA_QUESTION_IDS, java.util.ArrayList(qIds))
-                            putExtra(QuizCooldownActivity.EXTRA_BLOCKED_PACKAGE, blockedPkgForRetry)
-                        })
+                    QuizRetryPolicy.StartMode.WAIT_COOLDOWN -> {
+                        finish()
+                        return@launch
                     }
-                    finish()
-                    return@launch
+                    else -> { }
                 }
-                else -> { }
             }
-        }
 
-            // Bypass prevention: non-premium gate retry requires valid one-shot token (from ad or cooldown)
+            // Bypass prevention: non-premium retry requires valid one-shot token (from ad)
             if (isRetryOfLockedQuiz && !PremiumStore(this@QuizActivity).isPremium()) {
                 if (retryUnlockToken.isNullOrBlank()) {
-                    startActivity(Intent(this@QuizActivity, com.brainbuddy.app.LockScreenActivity::class.java)
+                    startActivity(Intent(this@QuizActivity, HomeActivity::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
                     finish()
                     return@launch
                 }
+                val failedQuizId = QuizRetryPolicy(this@QuizActivity).getSameTestToken()?.quizId ?: ""
                 val consumed = withContext(Dispatchers.IO) {
-                    RetryUnlockStore(this@QuizActivity).consumeRetryToken(retryUnlockToken, protectionPrefs.lastFailedQuizId())
+                    RetryUnlockStore(this@QuizActivity).consumeRetryToken(retryUnlockToken, failedQuizId)
                 }
                 if (consumed == null || consumed.isEmpty()) {
-                    startActivity(Intent(this@QuizActivity, com.brainbuddy.app.LockScreenActivity::class.java)
+                    startActivity(Intent(this@QuizActivity, HomeActivity::class.java)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
                     finish()
                     return@launch
@@ -193,7 +185,7 @@ class QuizActivity : AppCompatActivity() {
                 android.widget.Toast.makeText(this@QuizActivity, com.brainbuddy.app.R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
                 // Navigate to TestSettings within the existing task so Back returns to the previous screen,
                 // not to the launcher. Do not use NEW_TASK here.
-                startActivity(Intent(this@QuizActivity, com.brainbuddy.app.ui.TestSettingsActivity::class.java))
+                startActivity(Intent(this@QuizActivity, com.brainbuddy.app.ui.SettingsActivity::class.java))
                 finish()
                 return@launch
             }
@@ -206,7 +198,6 @@ class QuizActivity : AppCompatActivity() {
                     context = this@QuizActivity.applicationContext,
                     repo = repo,
                     quizPrefs = quizPrefs,
-                    protectionPrefs = protectionPrefs,
                     isReplayFromLastTest = isReplayFromLastTest,
                     replayQuestionIds = replayQuestionIds,
                     bossLevel = bossLevel,
@@ -227,7 +218,6 @@ class QuizActivity : AppCompatActivity() {
                 buildQuizRelaxed(
                     repo = repo,
                     quizPrefs = quizPrefs,
-                    protectionPrefs = protectionPrefs,
                     isReplayFromLastTest = isReplayFromLastTest,
                     replayQuestionIds = replayQuestionIds,
                     bossLevel = bossLevel,
@@ -276,7 +266,6 @@ class QuizActivity : AppCompatActivity() {
         context: android.content.Context,
         repo: QuestionRepository,
         quizPrefs: QuizPrefs,
-        protectionPrefs: ProtectionPrefs,
         isReplayFromLastTest: Boolean,
         replayQuestionIds: ArrayList<String>?,
         bossLevel: Int,
@@ -333,7 +322,7 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
             isGateMode -> {
-                val excludeFailed = protectionPrefs.lastFailedQuestionIds().toSet()
+                val excludeFailed = emptySet<String>()
                 pickerPath = when {
                     isLgsMode -> "GATE_LGS"
                     effectiveGrade in 1..7 -> "GATE_GRADE"
@@ -352,13 +341,13 @@ class QuizActivity : AppCompatActivity() {
                 }
                 effectiveGrade in 1..7 -> {
                     pickerPath = "REMEDIAL_GRADE"
-                    val (list, usedFallback) = repo.pickRemedialQuestionsByGrade(effectiveGrade, targetCount, protectionPrefs.lastFailedWrongIds())
+                    val (list, usedFallback) = repo.pickRemedialQuestionsByGrade(effectiveGrade, targetCount, emptyList())
                     remedialWarning = usedFallback
                     list
                 }
                 else -> {
                     pickerPath = "REMEDIAL"
-                    val (list, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, protectionPrefs.lastFailedWrongIds())
+                    val (list, usedFallback) = repo.pickRemedialQuestions(levelGroup, targetCount, emptyList())
                     remedialWarning = usedFallback
                     list
                 }
@@ -462,7 +451,6 @@ class QuizActivity : AppCompatActivity() {
     private fun buildQuizRelaxed(
         repo: QuestionRepository,
         quizPrefs: QuizPrefs,
-        protectionPrefs: ProtectionPrefs,
         isReplayFromLastTest: Boolean,
         replayQuestionIds: ArrayList<String>?,
         bossLevel: Int,
@@ -478,7 +466,7 @@ class QuizActivity : AppCompatActivity() {
         targetCount: Int,
         intent: Intent
     ): QuizBuildResult {
-        val excludeFailed = protectionPrefs.lastFailedQuestionIds().toSet()
+        val excludeFailed = emptySet<String>()
         val q = when {
             isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount -> {
                 val all = repo.loadAllQuestions().associateBy { it.id }
@@ -694,8 +682,7 @@ class QuizActivity : AppCompatActivity() {
             val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
             val total = questions.size
             val accuracy = if (total > 0) correctCount.toFloat() / total else 0f
-            val protectionPrefsForThreshold = ProtectionPrefs(this@QuizActivity)
-            val minPct = protectionPrefsForThreshold.minSuccessRatePercent()
+            val minPct = 60
             val pctScore = if (total > 0) (100f * correctCount / total) else 0f
             val passed = when {
                 isGateMode || isRetryOfLockedQuiz || isRemedial ->
@@ -715,28 +702,15 @@ class QuizActivity : AppCompatActivity() {
                 passed = passed,
                 wrongQuestionIds = wrongIds
             )
-            val protectionPrefs = ProtectionPrefs(this@QuizActivity)
             val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
-            // Remedial-only pass must NOT unlock blocked apps or clear gate retry state (StudyHub / coach practice).
             if (passed && (isGateMode || isRetryOfLockedQuiz)) {
-                com.brainbuddy.app.gate.GateManager.onGatePassed(this@QuizActivity, blockedPkg)
                 com.brainbuddy.app.core.QuizRetryPolicy(this@QuizActivity).onPass()
-                protectionPrefs.clearLastFailedGateSession()
-            }
-            val passedBossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
-            if (passed && passedBossLevel > 0) {
-                BossTestStore(this@QuizActivity).markBossPassed(passedBossLevel)
             }
             if (!passed && (isGateMode || isRetryOfLockedQuiz) && !isRemedial) {
-                com.brainbuddy.app.core.ReportStore(this@QuizActivity).recordLockEvent()
-                com.brainbuddy.app.gate.GateManager.onGateFailed(this@QuizActivity, blockedPkg)
-                protectionPrefs.setLastFailedWrongIds(wrongIds)
-                protectionPrefs.setLastFailedQuizId(quizId)
-                protectionPrefs.setLastFailedQuestionIds(questions.map { it.id })
-                protectionPrefs.setLastFailedSessionJson(QuizResultActivity.encodeSession(session))
-                protectionPrefs.setLastFailedQuestionsJson(QuizResultActivity.encodeQuestions(questions))
-                protectionPrefs.setGateFailReviewState(wrongIds)
-                com.brainbuddy.app.core.QuizRetryPolicy(this@QuizActivity).onFail(this@QuizActivity, com.brainbuddy.app.core.QuizRetryPolicy.SameTestToken(quizId, questions.map { it.id }))
+                com.brainbuddy.app.core.QuizRetryPolicy(this@QuizActivity).onFail(
+                    this@QuizActivity,
+                    com.brainbuddy.app.core.QuizRetryPolicy.SameTestToken(quizId, questions.map { it.id })
+                )
             }
             startActivity(Intent(this@QuizActivity, QuizResultActivity::class.java).apply {
                 putExtra(QuizResultActivity.EXTRA_SESSION, QuizResultActivity.encodeSession(session))

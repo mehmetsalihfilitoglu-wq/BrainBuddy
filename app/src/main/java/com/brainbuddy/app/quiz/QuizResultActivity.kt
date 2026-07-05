@@ -6,13 +6,11 @@ import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.HomeActivity
-import com.brainbuddy.app.LockScreenActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.StatsRepository
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.PremiumStore
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.core.QuizRetryPolicy
 import com.brainbuddy.app.core.RetryUnlockStore
@@ -344,12 +342,12 @@ class QuizResultActivity : AppCompatActivity() {
         }
 
         findViewById<android.widget.Button>(R.id.btnRetryTest).setOnClickListener {
-            val protectionPrefs = ProtectionPrefs(this)
             val minQuestions = QuizPrefs(this).questionsPerSession()
-            if (protectionPrefs.userLocked() || isGateFail) {
+            if (isGateFail) {
                 val policy = QuizRetryPolicy(this)
-                val qId = protectionPrefs.lastFailedQuizId()
-                val qIds = protectionPrefs.lastFailedQuestionIds()
+                val token = policy.getSameTestToken()
+                val qId = token?.quizId ?: ""
+                val qIds = token?.questionIds ?: emptyList()
                 when (policy.getStartMode()) {
                     QuizRetryPolicy.StartMode.REQUIRE_AD -> {
                         if (qIds.size >= minQuestions) {
@@ -358,22 +356,10 @@ class QuizResultActivity : AppCompatActivity() {
                                 putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
                                 putExtra(QuizRetryAdActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
                             })
-                        } else {
-                            startActivity(Intent(this, LockScreenActivity::class.java)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
                         }
                     }
                     QuizRetryPolicy.StartMode.WAIT_COOLDOWN -> {
-                        if (qIds.size >= minQuestions) {
-                            startActivity(Intent(this, QuizCooldownActivity::class.java).apply {
-                                putExtra(QuizCooldownActivity.EXTRA_QUIZ_ID, qId)
-                                putStringArrayListExtra(QuizCooldownActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
-                                putExtra(QuizCooldownActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
-                            })
-                        } else {
-                            startActivity(Intent(this, LockScreenActivity::class.java)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-                        }
+                        // Cooldown — let the user wait; no routing to a deleted screen
                     }
                     else -> {
                         val retryIntent = Intent(this, QuizActivity::class.java).apply {
@@ -384,8 +370,8 @@ class QuizResultActivity : AppCompatActivity() {
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         }
                         if (!PremiumStore(this).isPremium()) {
-                            val token = RetryUnlockStore(this).createRetryToken(qId, qIds)
-                            retryIntent.putExtra(QuizActivity.EXTRA_RETRY_UNLOCK_TOKEN, token)
+                            val retryToken = RetryUnlockStore(this).createRetryToken(qId, qIds)
+                            retryIntent.putExtra(QuizActivity.EXTRA_RETRY_UNLOCK_TOKEN, retryToken)
                         }
                         startActivity(retryIntent)
                     }
@@ -412,11 +398,7 @@ class QuizResultActivity : AppCompatActivity() {
         }
 
         fun goHome() {
-            if (ProtectionPrefs(this).userLocked()) {
-                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
-            } else {
-                startActivity(Intent(this, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP))
-            }
+            startActivity(Intent(this, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP))
             finish()
         }
         findViewById<android.widget.Button>(R.id.btnHome).setOnClickListener { goHome() }
@@ -424,8 +406,7 @@ class QuizResultActivity : AppCompatActivity() {
             override fun handleOnBackPressed() { goHome() }
         })
 
-        val locked = ProtectionPrefs(this).userLocked()
-        val showRetry = locked || isGateFail
+        val showRetry = isGateFail
         findViewById<android.widget.Button>(R.id.btnRetryTest).apply {
             visibility = if (showRetry) View.VISIBLE else View.GONE
         }

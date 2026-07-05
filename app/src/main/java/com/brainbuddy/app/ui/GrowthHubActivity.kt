@@ -3,10 +3,8 @@ package com.brainbuddy.app.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.brainbuddy.app.LockScreenActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.StatsActivity
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.WeeklyRewardStore
 import com.brainbuddy.app.social.LeagueScreen
 
@@ -14,12 +12,6 @@ class GrowthHubActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (ProtectionPrefs(this).userLocked()) {
-            startActivity(Intent(this, LockScreenActivity::class.java)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-            finish()
-            return
-        }
         setContentView(R.layout.activity_growth_hub)
 
         findViewById<android.widget.Button>(R.id.btnBack).setOnClickListener { finish() }

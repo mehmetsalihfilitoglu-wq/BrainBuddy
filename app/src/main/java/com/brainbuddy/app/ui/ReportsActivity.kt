@@ -25,8 +25,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.R
-import com.brainbuddy.app.core.InstalledAppsHelper
-import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.StatsRepository
 import com.brainbuddy.app.core.WrongReportUnlockStore
 import com.brainbuddy.app.databinding.ActivityReportsBinding
@@ -65,8 +63,6 @@ class ReportsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!ParentAccessGuard.checkAndRedirect(this)) return
-
         try {
             val b = ActivityReportsBinding.inflate(layoutInflater)
             setContentView(b.root)
@@ -719,7 +715,7 @@ class ReportsActivity : AppCompatActivity() {
             }
             .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
                 pendingWrongReportSinceMillis = 0
-                startActivity(Intent(this, TestSettingsActivity::class.java))
+                startActivity(Intent(this, SettingsActivity::class.java))
             }
         if (RewardedAdManager.isLoaded()) {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
@@ -813,9 +809,9 @@ class ReportsActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: VH, position: Int) {
             val (pkg, count) = items[position]
             val ctx = holder.itemView.context
-            holder.tvAppName.text = AppLabelResolver.getLabel(ctx, pkg)
+            holder.tvAppName.text = pkg
             holder.tvAttemptCount.text = count.toString()
-            holder.ivIcon.setImageDrawable(InstalledAppsHelper.getAppIcon(ctx.packageManager, pkg, ctx))
+            holder.ivIcon.setImageDrawable(null)
             val safeMax = if (maxCount <= 0) 1 else maxCount
             holder.progress.setProgressCompat((count * 100f / safeMax).roundToInt().coerceIn(0, 100), false)
         }

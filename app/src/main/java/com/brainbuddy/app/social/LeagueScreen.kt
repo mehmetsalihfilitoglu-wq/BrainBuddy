@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProfileStore
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityLeagueBinding
 import com.brainbuddy.app.league.LeagueEntry
 import com.brainbuddy.app.league.LeagueHelper
@@ -19,15 +18,6 @@ class LeagueScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (ProtectionPrefs(this).userLocked()) {
-            startActivity(
-                android.content.Intent(this, com.brainbuddy.app.LockScreenActivity::class.java)
-                    .addFlags(android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP or android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
-            )
-            finish()
-            return
-        }
-
         val b = ActivityLeagueBinding.inflate(layoutInflater)
         setContentView(b.root)
 

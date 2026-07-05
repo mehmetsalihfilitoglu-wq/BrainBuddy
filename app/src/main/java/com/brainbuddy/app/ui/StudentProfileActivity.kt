@@ -15,14 +15,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.brainbuddy.app.LockScreenActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.avatar.AvatarCatalog
 import com.brainbuddy.app.avatar.AvatarCategory
 import com.brainbuddy.app.avatar.AvatarItem
 import com.brainbuddy.app.avatar.AvatarRarity
 import com.brainbuddy.app.core.GamificationStore
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.StudentProfileStore
 import com.google.android.material.card.MaterialCardView
 
@@ -39,12 +37,6 @@ class StudentProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (ProtectionPrefs(this).userLocked()) {
-            startActivity(Intent(this, LockScreenActivity::class.java)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-            finish()
-            return
-        }
         setContentView(R.layout.activity_student_profile)
 
         store = StudentProfileStore(this)

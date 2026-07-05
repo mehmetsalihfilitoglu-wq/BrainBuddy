@@ -30,7 +30,6 @@ class StatsRepository(private val context: Context) {
 
     private val analytics = AnalyticsStore(context)
     private val reportStore = ReportStore(context)
-    private val protectionPrefs = ProtectionPrefs(context)
     private val dataStore = RoomQuizDataStore(context)
     private val packageManager get() = context.packageManager
 
@@ -313,12 +312,7 @@ class StatsRepository(private val context: Context) {
             isEmpty = filteredSnapshots.isEmpty()
         )
 
-        val installedPkgs = InstalledAppsHelper.getInstalledApps(packageManager).map { it.packageName }.toSet()
-        val topItems = weeklyAttempts.entries
-            .filter { it.key in installedPkgs }
-            .sortedByDescending { it.value }
-            .take(10)
-            .map { it.key to it.value }
+        val topItems = emptyList<Pair<String, Int>>()
         val topApps = TopAppsSection(
             items = topItems,
             maxCount = topItems.maxOfOrNull { it.second } ?: 1,

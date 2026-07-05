@@ -18,17 +18,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.brainbuddy.app.core.AppModeManager
-import com.brainbuddy.app.core.CrashRecoveryPrefs
-import com.brainbuddy.app.core.KillSwitchPrefs
-import com.brainbuddy.app.core.PermissionMonitorLauncher
-import com.brainbuddy.app.core.ProtectionPrefs
-import com.brainbuddy.app.resilience.AccessibilityCheckWorker
-import com.brainbuddy.app.resilience.AccessibilityMonitorService
 import com.brainbuddy.app.league.LeagueScheduler
-import com.brainbuddy.app.report.ReportScheduler
 import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.RequestConfiguration
 import java.io.File
 
 class BrainBuddyApp : Application() {
@@ -36,33 +27,18 @@ class BrainBuddyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         logStartupPersistenceSync(this)
-        val adConfig = RequestConfiguration.Builder()
-            .setTagForChildDirectedTreatment(RequestConfiguration.TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE)
-            .setMaxAdContentRating(RequestConfiguration.MAX_AD_CONTENT_RATING_G)
-            .build()
-        MobileAds.setRequestConfiguration(adConfig)
         MobileAds.initialize(this)
-        // Ensure we always have a valid active profile on app start.
+        // Ensure a valid profile ID exists on first launch (single-profile mode).
         ActiveProfileManager.getActiveProfileId(this)
-        AppModeManager.registerLifecycle(this)
-        PermissionMonitorLauncher.scheduleCheck(this)
-        if (ProtectionPrefs(this).isProtectionEnabledRaw()) {
-            AccessibilityMonitorService.start(this)
-            AccessibilityCheckWorker.schedulePeriodic(this)
-        }
-        ReportScheduler.schedule(this)
         LeagueScheduler.scheduleNextReset(this)
 
         CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
             StartupRuntimeState.markInitializing()
-            Log.i(PERSISTENCE_LOG_TAG, "Startup: seed → quota → DB recount → publish (sequential IO)")
+            Log.i(PERSISTENCE_LOG_TAG, "Startup: seed → audit → publish (sequential IO)")
             val payload = withContext(Dispatchers.IO) {
                 logStartupPersistenceAsync(this@BrainBuddyApp)
                 val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
                 Log.i(PERSISTENCE_LOG_TAG, "Seed finished: didSeed=$didSeed")
-                // PoolQuotaEnforcer.enforceCoreQuotas() intentionally disabled —
-                // synthetic fill was corrupting the clean asset-only dataset.
-                // quotaAdded will be null in audit snapshots until re-enabled.
                 val p = StartupAuditRecorder.finalizeStartupAudit(this@BrainBuddyApp)
                 Log.i(
                     "AppStartupAudit",
@@ -75,14 +51,7 @@ class BrainBuddyApp : Application() {
 
         Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
             try {
-                CrashRecoveryPrefs.recordCrash(this)
-                if (CrashRecoveryPrefs.shouldDisableProtectionDueToCrashes(this)) {
-                    CrashRecoveryPrefs.setProtectionDisabledByCrash(this, true)
-                    ProtectionPrefs(this).setProtectionEnabled(false)
-                    KillSwitchPrefs(this).deactivateKillSwitch()
-                }
                 val text = buildFullCrashReport(throwable)
-
                 val i = Intent(this, CrashActivity::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     putExtra("crash_text", text)
@@ -90,13 +59,10 @@ class BrainBuddyApp : Application() {
                     putExtra("error_details", text)
                 }
                 startActivity(i)
-
-                // Uygulamayı “temiz” kapatıp CrashActivity’nin görünmesini sağlıyoruz
                 Thread.sleep(400)
             } catch (_: Exception) {
                 // ignore
             }
-
             Process.killProcess(Process.myPid())
             exitProcess(10)
         }
@@ -105,7 +71,6 @@ class BrainBuddyApp : Application() {
 
 private const val PERSISTENCE_LOG_TAG = "BrainBuddyPersistence"
 
-/** Logs persistence values available on main thread (SharedPreferences, file existence). */
 private fun logStartupPersistenceSync(context: Context) {
     try {
         val onboardingDone = OnboardingPrefs.isDone(context)

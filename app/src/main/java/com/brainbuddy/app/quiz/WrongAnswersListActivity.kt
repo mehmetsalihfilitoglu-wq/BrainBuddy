@@ -13,12 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
 import com.brainbuddy.app.ads.RewardedAdManager
-import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.core.WrongReviewAnalytics
 import com.brainbuddy.app.core.WrongReviewQuotaStore
 import com.brainbuddy.app.databinding.ActivityWrongAnswersListBinding
-import com.brainbuddy.app.ui.TestSettingsActivity
+import com.brainbuddy.app.ui.SettingsActivity
 import com.google.android.material.card.MaterialCardView
 
 /**
@@ -47,8 +46,6 @@ class WrongAnswersListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!ParentAccessGuard.checkAndRedirect(this, WrongAnswersListActivity::class.java)) return
-
         b = ActivityWrongAnswersListBinding.inflate(layoutInflater)
         setContentView(b.root)
 
@@ -181,7 +178,7 @@ class WrongAnswersListActivity : AppCompatActivity() {
             .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
                 WrongReviewAnalytics.logPremiumClick()
                 pendingExpandQuestionId = null
-                startActivity(Intent(this, TestSettingsActivity::class.java))
+                startActivity(Intent(this, SettingsActivity::class.java))
             }
 
         if (RewardedAdManager.isLoaded()) {

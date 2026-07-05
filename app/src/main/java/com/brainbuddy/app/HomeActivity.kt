@@ -1,6 +1,5 @@
 package com.brainbuddy.app
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
@@ -9,44 +8,21 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.coach.WiseCoachGreeting
 import com.brainbuddy.app.core.AnalyticsStore
-import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.GamificationStore
-import com.brainbuddy.app.core.KillSwitchPrefs
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.league.LeagueStore
 import com.brainbuddy.app.quiz.WrongPoolLauncher
 import com.brainbuddy.app.quiz.WrongQuestionPoolStore
 import com.brainbuddy.app.ui.GrowthHubActivity
 import com.brainbuddy.app.ui.StudentProfileActivity
 import com.brainbuddy.app.ui.StudyHubActivity
-import com.brainbuddy.app.security.PinManager
-import com.brainbuddy.app.ui.PinLockActivity
+import android.content.Intent
 import java.util.concurrent.TimeUnit
 
 class HomeActivity : AppCompatActivity() {
 
-    private var contentSet = false
-
-    private fun updateWrongPoolCardVisibility() {
-        val pool = WrongQuestionPoolStore(this)
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool).visibility =
-            if (pool.isNotEmpty()) View.VISIBLE else View.GONE
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Gate quiz is NEVER shown when opening BrainBuddy - only when user tries a blocked app (Accessibility flow)
-        val protectionPrefs = ProtectionPrefs(this)
-        if (protectionPrefs.userLocked() || protectionPrefs.isPermissionLocked()) {
-            startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
-            finish()
-            return
-        }
         setContentView(R.layout.activity_home)
-        contentSet = true
-
-        val killSwitchBanner = findViewById<android.widget.TextView>(R.id.tvKillSwitchBanner)
-        killSwitchBanner?.visibility = if (KillSwitchPrefs(this).isKillSwitchActive()) android.view.View.VISIBLE else android.view.View.GONE
 
         var lastBackPressMs = 0L
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
@@ -56,7 +32,11 @@ class HomeActivity : AppCompatActivity() {
                     finishAffinity()
                 } else {
                     lastBackPressMs = now
-                    android.widget.Toast.makeText(this@HomeActivity, getString(R.string.back_exit_hint), android.widget.Toast.LENGTH_SHORT).show()
+                    android.widget.Toast.makeText(
+                        this@HomeActivity,
+                        getString(R.string.back_exit_hint),
+                        android.widget.Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         })
@@ -91,11 +71,10 @@ class HomeActivity : AppCompatActivity() {
         progress.max = 1
         progress.progress = if (sessionsToday >= 1) 1 else 0
 
+        updateWrongPoolCardVisibility()
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool).setOnClickListener {
             WrongPoolLauncher.launch(this)
         }
-        updateWrongPoolCardVisibility()
-
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardCalis).setOnClickListener {
             startActivity(Intent(this, StudyHubActivity::class.java))
         }
@@ -105,37 +84,23 @@ class HomeActivity : AppCompatActivity() {
         findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardProfil).setOnClickListener {
             startActivity(Intent(this, StudentProfileActivity::class.java))
         }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardVeli).setOnClickListener {
-            val pinManager = PinManager(this)
-            startActivity(Intent(this, PinLockActivity::class.java).apply {
-                putExtra(PinLockActivity.EXTRA_TARGET, "ParentHubActivity")
-                putExtra(PinLockActivity.EXTRA_MODE, if (pinManager.isPinSet()) "verify" else "set")
-            })
-        }
     }
 
     override fun onResume() {
         super.onResume()
-        val protectionPrefs = ProtectionPrefs(this)
-        if (!contentSet || protectionPrefs.userLocked() || protectionPrefs.isPermissionLocked()) {
-            if (protectionPrefs.userLocked() || protectionPrefs.isPermissionLocked()) {
-                startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK))
-                finish()
-            }
-            return
-        }
         val gam = GamificationStore(this)
         val freezeTxtResume = if (gam.freezeTokens() > 0) " (${gam.freezeTokens()} 🧊)" else ""
         findViewById<android.widget.TextView>(R.id.streakBadge).text = "🔥 ${gam.streakDays()} gün seri$freezeTxtResume"
         findViewById<android.widget.TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
         findViewById<android.widget.TextView>(R.id.levelBadge).text = "Seviye ${gam.level()}"
-
-        val killBanner = findViewById<android.widget.TextView>(R.id.tvKillSwitchBanner)
-        killBanner?.visibility = if (KillSwitchPrefs(this).isKillSwitchActive()) android.view.View.VISIBLE else android.view.View.GONE
-
         val wiseCoach = WiseCoachGreeting(this, GamificationStore(this), AnalyticsStore(this), LeagueStore(this))
         findViewById<android.widget.TextView>(R.id.greeting)?.text = wiseCoach.getGreeting()
-
         updateWrongPoolCardVisibility()
+    }
+
+    private fun updateWrongPoolCardVisibility() {
+        val pool = WrongQuestionPoolStore(this)
+        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool).visibility =
+            if (pool.isNotEmpty()) View.VISIBLE else View.GONE
     }
 }

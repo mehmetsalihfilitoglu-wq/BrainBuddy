@@ -8,14 +8,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
-import com.brainbuddy.app.core.ParentAccessGuard
-
 class RewardContractActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!ParentAccessGuard.checkAndRedirect(this)) return
-
         setContentView(R.layout.activity_reward_contract)
 
         val store = RewardContractStore(this)

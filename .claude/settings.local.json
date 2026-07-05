@@ -13,7 +13,20 @@
       "Bash(/dev/null -exec grep -l \"yanlış yön\\\\|geçersiz değer\\\\|farklı durum\" {})",
       "Bash(2)",
       "Bash(python3:*)",
-      "Bash(grep -rn \"+\\(.*\\)\\\\|append.*\\(\\\\|suffix.*append\\\\|option.*+.*\\(\" C:Users39351AndroidStudioProjectsBrainBuddy.claudeworktreesfocused-joliotappsrcmainjavacombrainbuddyappquiz --include=*.kt)"
+      "Bash(grep -rn \"+\\(.*\\)\\\\|append.*\\(\\\\|suffix.*append\\\\|option.*+.*\\(\" C:Users39351AndroidStudioProjectsBrainBuddy.claudeworktreesfocused-joliotappsrcmainjavacombrainbuddyappquiz --include=*.kt)",
+      "Bash(grep -n \"%2$d\\\\|%1$d\\\\|%1$s\\\\|%3$\" app/src/main/res/values-en/strings.xml)",
+      "Bash(./gradlew clean:*)",
+      "Bash(./gradlew assembleDebug)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "Bash(ls \"C:/Users/39351/AndroidStudioProjects/BrainBuddy/.claude/worktrees/hopeful-wright/app/src/main/java/com/brainbuddy/app/junior/\" *)",
+      "Bash(grep -v \"/$\")",
+      "Bash(grep \"\\\\.kt$\")",
+      "Bash(./gradlew :app:compileDebugKotlin)",
+      "Bash(cat \"C:/Users/39351/AndroidStudioProjects/BrainBuddy/local.properties\")",
+      "Bash(cp \"C:/Users/39351/AndroidStudioProjects/BrainBuddy/local.properties\" \"C:/Users/39351/AndroidStudioProjects/BrainBuddy/.claude/worktrees/hopeful-wright/local.properties\")",
+      "Bash(./gradlew :app:assembleDebug)",
+      "Bash(git add *)"
     ]
   }
 }

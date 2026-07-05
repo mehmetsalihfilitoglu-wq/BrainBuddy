@@ -3,7 +3,6 @@ package com.brainbuddy.app.report
 import android.content.Context
 import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.AnalyticsStore
-import com.brainbuddy.app.core.InstalledAppsHelper
 import com.brainbuddy.app.core.ProfileStore
 import com.brainbuddy.app.core.ReportStore
 import com.brainbuddy.app.core.TopicCounts
@@ -134,12 +133,7 @@ object ReportStatsCalculator {
         } else 0f
 
         val attempts = reportStore.getBlockedAttemptsSince(sinceMs)
-        val installedPkgs = InstalledAppsHelper.getInstalledApps(packageManager).map { it.packageName }.toSet()
-        val attemptedApps = attempts.entries
-            .filter { it.key in installedPkgs }
-            .sortedByDescending { it.value }
-            .take(10)
-            .map { it.key to it.value }
+        val attemptedApps = emptyList<Pair<String, Int>>()
 
         val topicCounts = mutableMapOf<String, MutableList<TopicCounts>>()
         completePerfs.forEach { p ->

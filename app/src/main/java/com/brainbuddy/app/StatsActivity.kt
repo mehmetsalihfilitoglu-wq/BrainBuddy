@@ -14,7 +14,6 @@ import com.brainbuddy.app.quiz.QuestionRepository
 import com.brainbuddy.app.core.DailyAdQuotaStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.PremiumStore
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.TestPerformance
 import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.ui.AdLimitReachedActivity
@@ -31,11 +30,6 @@ class StatsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (ProtectionPrefs(this).userLocked()) {
-            startActivity(Intent(this, LockScreenActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-            finish()
-            return
-        }
         b = ActivityStatsBinding.inflate(layoutInflater)
         setContentView(b.root)
 

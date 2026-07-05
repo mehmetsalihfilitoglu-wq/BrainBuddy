@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
 import com.brainbuddy.app.ads.RewardedAdManager
-import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.DailyAdQuotaStore
 import com.brainbuddy.app.core.PremiumStore
 import com.brainbuddy.app.db.DatabaseProvider

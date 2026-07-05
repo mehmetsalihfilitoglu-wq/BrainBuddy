@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.LevelMode
-import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.databinding.ActivityQuestionImportBinding
 import com.brainbuddy.app.db.DbSeeder
@@ -34,8 +33,6 @@ class QuestionImportActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!ParentAccessGuard.checkAndRedirect(this)) return
-
         b = ActivityQuestionImportBinding.inflate(layoutInflater)
         setContentView(b.root)
 

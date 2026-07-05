@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GamificationStore
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityAvatarShopBinding
 import com.brainbuddy.app.databinding.BottomSheetAvatarItemBinding
 import com.brainbuddy.app.databinding.ItemAvatarShopCardBinding
@@ -26,12 +25,6 @@ class AvatarShopScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (ProtectionPrefs(this).userLocked()) {
-            startActivity(Intent(this, com.brainbuddy.app.LockScreenActivity::class.java)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-            finish()
-            return
-        }
         b = ActivityAvatarShopBinding.inflate(layoutInflater)
         setContentView(b.root)
 

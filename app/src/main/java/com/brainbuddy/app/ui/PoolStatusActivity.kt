@@ -12,7 +12,6 @@ import com.brainbuddy.app.BuildConfig
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.GradePrefs
 import com.brainbuddy.app.core.LevelMode
-import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
@@ -36,8 +35,6 @@ class PoolStatusActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!ParentAccessGuard.checkAndRedirect(this, PoolStatusActivity::class.java)) return
-
         setContentView(R.layout.activity_pool_status)
 
         val toolbar = findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)

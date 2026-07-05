@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.ProfileStore
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.GradeSubjectDifficultyCount
@@ -2728,12 +2727,5 @@ class QuestionRepository(private val context: Context) {
     fun getLastSnapshots(profileId: String? = null, limit: Int = 20) =
         roomStore.getLastSnapshots(profileId ?: ActiveProfileManager.getActiveProfileId(context), limit)
 
-    fun getLevelGroupFromPrefs(): LevelGroup {
-        return when (ProtectionPrefs(context).studentLevel()) {
-            com.brainbuddy.app.core.StudentLevel.AGE_3_5 -> LevelGroup.AGE_3_5
-            com.brainbuddy.app.core.StudentLevel.GRADES_1_4 -> LevelGroup.GRADE_1_4
-            com.brainbuddy.app.core.StudentLevel.GRADES_5_8 -> LevelGroup.GRADE_5_8
-            com.brainbuddy.app.core.StudentLevel.GRADES_9_12 -> LevelGroup.GRADE_9_12
-        }
-    }
+    fun getLevelGroupFromPrefs(): LevelGroup = LevelGroup.GRADE_9_12
 }

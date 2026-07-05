@@ -6,12 +6,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.BackupManager
-import com.brainbuddy.app.core.ParentAccessGuard
 
 class BackupImportActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (!ParentAccessGuard.checkAndRedirect(this)) return
         setContentView(R.layout.activity_backup_import)
 
         setSupportActionBar(findViewById(R.id.toolbar))

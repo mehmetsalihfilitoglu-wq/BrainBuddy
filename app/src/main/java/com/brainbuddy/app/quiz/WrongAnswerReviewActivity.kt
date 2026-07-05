@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.ads.RewardedAdManager
 import com.brainbuddy.app.core.AnalyticsStore
-import com.brainbuddy.app.core.AppModeManager
-import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.WrongReviewAccessManager
 import com.brainbuddy.app.core.WrongReviewAnalytics
 import com.brainbuddy.app.databinding.ActivityWrongAnswerReviewBinding
@@ -62,14 +60,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         b = ActivityWrongAnswerReviewBinding.inflate(layoutInflater)
         setContentView(b.root)
 
-        val requestedParent = intent.getBooleanExtra(EXTRA_IS_PARENT_REVIEW, false)
-        if (requestedParent && !AppModeManager.isParentMode()) {
-            com.brainbuddy.app.core.ParentAccessGuard.checkAndRedirect(
-                this, WrongAnswerReviewActivity::class.java
-            )
-            return
-        }
-        isParentReview = requestedParent
+        isParentReview = intent.getBooleanExtra(EXTRA_IS_PARENT_REVIEW, false)
 
         repo = QuestionRepository(this)
         analyticsStore = AnalyticsStore(this)
@@ -84,8 +75,6 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
 
         val orderedWrongIds = if (wrongIds.isNotEmpty()) {
             wrongIds
-        } else if (intent.getBooleanExtra(EXTRA_GATE_FAIL_REVIEW, false)) {
-            ProtectionPrefs(this).gateFailReviewWrongIdsOrdered()
         } else {
             emptyList()
         }

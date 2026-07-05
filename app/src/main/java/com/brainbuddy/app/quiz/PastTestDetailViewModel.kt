@@ -3,7 +3,6 @@ package com.brainbuddy.app.quiz
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.brainbuddy.app.core.AppModeManager
 import com.brainbuddy.app.core.PremiumStore
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -27,10 +26,7 @@ class PastTestDetailViewModel(application: Application) : AndroidViewModel(appli
 
     fun load(testId: String) {
         if (testId.isBlank()) return
-        val showCorrect = AppModeManager.isParentMode() && (
-            premiumStore.isPremium() ||
-            com.brainbuddy.app.core.DailyParentViewQuotaStore(getApplication()).canView()
-        )
+        val showCorrect = premiumStore.isPremium()
         _state.update { it.copy(testId = testId, showCorrect = showCorrect) }
         viewModelScope.launch {
             repo.getWrongQuestionItemsFlow(testId, showCorrect).collect { items ->

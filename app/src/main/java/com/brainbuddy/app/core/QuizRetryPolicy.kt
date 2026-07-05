@@ -10,7 +10,6 @@ import android.content.Context
 class QuizRetryPolicy(context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
     private val premiumStore = PremiumStore(context)
-    private val protectionPrefs = ProtectionPrefs(context)
 
     enum class StartMode {
         /** Can start retry immediately (no ad, no cooldown) */
@@ -23,7 +22,7 @@ class QuizRetryPolicy(context: Context) {
 
     fun getStartMode(): StartMode {
         if (premiumStore.isPremium()) return StartMode.ALLOW_FREE
-        if (!hasStoredFail() && !protectionPrefs.userLocked()) return StartMode.ALLOW_FREE
+        if (!hasStoredFail()) return StartMode.ALLOW_FREE
 
         val tickets = prefs.getInt(KEY_AD_TICKETS, MAX_AD_TICKETS)
         if (tickets > 0) return StartMode.REQUIRE_AD

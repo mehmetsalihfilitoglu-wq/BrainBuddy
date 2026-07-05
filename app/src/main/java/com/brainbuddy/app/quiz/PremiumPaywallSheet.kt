@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.WrongReviewAnalytics
-import com.brainbuddy.app.ui.TestSettingsActivity
+import com.brainbuddy.app.ui.SettingsActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 /**
@@ -28,7 +28,7 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
 
         view.findViewById<View>(R.id.btnPaywallPremium).setOnClickListener {
             WrongReviewAnalytics.logPremiumClick()
-            startActivity(Intent(requireContext(), TestSettingsActivity::class.java))
+            startActivity(Intent(requireContext(), SettingsActivity::class.java))
             dismiss()
         }
 

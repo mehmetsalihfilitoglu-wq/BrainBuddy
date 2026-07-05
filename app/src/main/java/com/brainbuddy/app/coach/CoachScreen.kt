@@ -5,18 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.R
 import com.brainbuddy.app.core.AnalyticsStore
-import com.brainbuddy.app.core.ProtectionPrefs
-
 class CoachScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (ProtectionPrefs(this).userLocked()) {
-            startActivity(Intent(this, com.brainbuddy.app.LockScreenActivity::class.java)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-            finish()
-            return
-        }
         setContentView(R.layout.activity_coach)
 
         val analytics = AnalyticsStore(this)
