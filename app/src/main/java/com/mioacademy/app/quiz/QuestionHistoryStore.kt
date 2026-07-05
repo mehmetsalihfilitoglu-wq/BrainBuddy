@@ -224,7 +224,7 @@ class QuestionHistoryStore(context: Context) {
         }.toSet()
     }
 
-    fun getRecentlySeenIds(limit: Int = 150): Set<String> =
+    fun getRecentlySeenIds(limit: Int = 300): Set<String> =
         getRecentlySeenIdsForProfile(DEFAULT_PROFILE, limit)
 
     fun getAllWrongIds(): Set<String> {
@@ -240,7 +240,7 @@ class QuestionHistoryStore(context: Context) {
         recordSeenIdsForProfile(DEFAULT_PROFILE, ids)
     }
 
-    fun getRecentlySeenIdsForProfile(profileId: String, limit: Int = 150): Set<String> {
+    fun getRecentlySeenIdsForProfile(profileId: String, limit: Int = 300): Set<String> {
         val key = "recent_seen_$profileId"
         val json = prefs.getString(key, "[]") ?: "[]"
         return try {
@@ -261,8 +261,9 @@ class QuestionHistoryStore(context: Context) {
                 emptyList()
             }
         }
-        // New IDs are most recent; keep unique order and cap at 150.
-        val combined = (ids + existing).distinct().take(150)
+        // STRICT QUALITY MODE: raised cap from 150 to 300.
+        // New IDs are most recent; keep unique order and cap at 300.
+        val combined = (ids + existing).distinct().take(300)
         prefs.edit().putString("recent_seen_$profileId", org.json.JSONArray(combined).toString()).apply()
     }
 
@@ -295,7 +296,10 @@ class QuestionHistoryStore(context: Context) {
         private const val PREFS = "bb_question_history"
         private const val MAX_COUNT_CAP = 10000
         private const val KEY_GLOBAL_TEST_INDEX = "global_test_index"
-        /** Number of past quizzes to track for cross-quiz repeat blocking. */
-        private const val CROSS_QUIZ_WINDOW = 5
+        /**
+         * STRICT QUALITY MODE: raised from 5 to 10.
+         * Tracks last 10 quizzes (~200 questions) for hard-block repeat prevention.
+         */
+        private const val CROSS_QUIZ_WINDOW = 10
     }
 }

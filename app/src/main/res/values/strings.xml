@@ -17,6 +17,7 @@
     <string name="quiz_pool_limited_detail">Soru havuzu yetersiz (%1$d soru mevcut, en az %2$d gerekli).</string>
     <string name="quiz_oom_error">Bellek yetersiz. Uygulamayı yeniden başlatın.</string>
     <string name="quiz_pool_limited_warning">Soru havuzu sınırlı.</string>
+    <string name="quiz_shorter_test_notice">Soru havuzu sınırlı — %1$d soru ile devam ediliyor.</string>
 
     <!-- Quiz Result Screen -->
     <string name="quiz_result_congrats">Tebrikler!</string>
@@ -219,6 +220,17 @@
     <string name="report_pdf_error_share_file">Hata Dosyasını Paylaş</string>
     <string name="report_create_error">Rapor oluşturulamadı</string>
     <string name="report_no_data">Henüz rapor oluşturacak veri yok</string>
+    <string name="report_share_locked_btn">🔒 Raporu Paylaş (Premium)</string>
+    <string name="report_share_locked_desc_title">Detaylı performans raporunu paylaş:</string>
+    <string name="report_share_locked_bullet_1">✦ Yaptığın tüm yanlış soruları analiz et</string>
+    <string name="report_share_locked_bullet_2">✦ Hangi konularda güçlü olduğunu gör</string>
+    <string name="report_share_locked_bullet_3">✦ Hangi alanlarda desteğe ihtiyacın olduğunu keşfet</string>
+    <string name="report_share_locked_bullet_4">✦ Konu bazlı başarı oranını incele</string>
+    <string name="report_share_locked_bullet_5">✦ Zaman yönetimini değerlendir</string>
+    <string name="report_share_locked_bullet_6">✦ Gelişim grafiğinle ilerlemeni takip et</string>
+    <string name="report_share_locked_bullet_7">✦ Lig ve sıralama performansını karşılaştır</string>
+    <string name="report_share_locked_footer">Premium ile bu raporu danışmanınla veya öğretmeninle kolayca paylaşabilirsin.</string>
+    <string name="report_share_locked_cta">Premium\'a Geç</string>
     <string name="trend_chart_title">Son 10 Test Başarı Oranı</string>
     <string name="trend_chart_caption">Her nokta 1 testtir. Başarı = doğru / (doğru + yanlış). Boşlar başarıya dahil edilmez.</string>
     <string name="trend_empty_test_warning">En az 1 soru cevaplanmalı (tam boş testler grafikte gösterilmez)</string>

@@ -34,7 +34,7 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(Intent(this, com.mioacademy.app.reward.RewardContractActivity::class.java))
         }
         findViewById<android.view.View>(R.id.cardPrivacyPolicy)?.setOnClickListener {
-            startActivity(Intent(this, PrivacyPolicyActivity::class.java))
+            startActivity(Intent(this, com.mioacademy.app.legal.LegalHubActivity::class.java))
         }
     }
 

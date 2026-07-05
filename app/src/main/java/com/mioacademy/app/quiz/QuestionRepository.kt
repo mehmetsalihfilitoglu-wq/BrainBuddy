@@ -111,14 +111,16 @@ class QuestionRepository(private val context: Context) {
         const val MIN_QUESTIONS_PER_TEST = 20
         /** LGS subjects (DB keys). Exactly: mat, turkce, fen, inkilap, din, ing. No sosyal. */
         val LGS_SUBJECTS = listOf("mat", "turkce", "fen", "inkilap", "din", "ing")
-        /** Only reject if similarity > 0.9 (less aggressive than before). */
-        private const val NEAR_DUPLICATE_SIMILARITY_THRESHOLD = 0.9
+        /** Only reject if similarity > 0.85 (tighter than before to catch more near-dupes). */
+        private const val NEAR_DUPLICATE_SIMILARITY_THRESHOLD = 0.85
         /** Max pick attempts per subject to avoid long loops. */
         private const val CAP_ATTEMPTS_PER_SUBJECT = 200
         /** Max total pick attempts across all subjects. */
         private const val CAP_ATTEMPTS_TOTAL = 1000
         /** Only compare similarity against last N selected token sets (cheap O(n)). */
-        private const val SIMILARITY_LOOKBACK = 20
+        private const val SIMILARITY_LOOKBACK = 10
+        /** Cap candidate rows per partition to avoid loading the entire DB into memory. */
+        private const val CANDIDATE_CAP_PER_PARTITION = 200
 
         /** G1: Normalize text for stable ID: trim, lowercase(TR), collapse whitespace. */
         fun normalize(text: String): String = text
@@ -1266,6 +1268,33 @@ class QuestionRepository(private val context: Context) {
             }
         }
 
+        // LGS emergency fallback: if the main pass came up short, re-try ignoring
+        // hardBlockIds (within-quiz dedup still enforced). Repeat is better than a short quiz.
+        if (selectedRows.size < effectiveCount) {
+            val shortfall = effectiveCount - selectedRows.size
+            Log.w(TAG, "[QUIZ_DEBUG] LGS shortfall=$shortfall selectedRows=${selectedRows.size} effectiveCount=$effectiveCount — broad-subject fallback")
+            for ((subjEnum, preferredType) in slots) {
+                if (selectedRows.size >= effectiveCount) break
+                val target = blueprint.subjectTargets[subjEnum] ?: 0
+                val alreadySelected = selectedRows.count { com.mioacademy.app.db.QuestionMapper.mapSubject(it.subject) == subjEnum }
+                if (alreadySelected >= target) continue
+                val dbKey = com.mioacademy.app.db.QuestionMapper.toDbSubject(subjEnum)
+                val broadPool = roomStore.getLgsCandidatePoolWithQuality(dbKey, QuizQualityPolicy.ALL_CONTENT_TIERS)
+                    .distinctBy { it.id }
+                    .filter { it.id !in usedIds }
+                    .let { AdaptiveQuizRuntime.sortByTierPriority(it) { r -> r.qualityTier } }
+                for (row in broadPool) {
+                    if (selectedRows.size >= effectiveCount) break
+                    val sh = row.stemHash.ifEmpty { stemHash(row.stemNormalized.ifEmpty { row.id }) }
+                    if (sh in usedStemHashes) continue
+                    usedIds.add(row.id)
+                    usedStemHashes.add(sh)
+                    selectedRows.add(row)
+                    Log.w(TAG, "[QUIZ_DEBUG] LGS broad-fallback added id=${row.id} subj=${row.subject}")
+                }
+            }
+        }
+
         val balancingPass = balanceToAvoidConsecutiveSameType(selectedRows)
         val selectedIds = balancingPass.map { it.id }.distinct()
         val entityRows = roomStore.getQuestionEntitiesByIds(selectedIds)
@@ -1293,11 +1322,9 @@ class QuestionRepository(private val context: Context) {
         lastQualityPickSummary =
             "LGS adaptive tier-sorted; modeAudit reject=${QualityAudit.rejectedWrongModeCount} quarantine=${QualityAudit.quarantinedLowQualityCount}"
 
-        // Debug: log picked LGS questions with grade and subject to verify mode=LGS uses only grade 8.
-        if (orderPreserved.isNotEmpty()) {
-            val gradeList = orderPreserved.joinToString { "${it.id}:${it.grade}:${it.subject}" }
-            android.util.Log.d("TestBuilder", "LGS_PICK gradeList=$gradeList")
-        }
+        // Structured perf/output logging for observability.
+        Log.w(TAG, "[QUIZ_PERF] LGS buildMs=${System.currentTimeMillis() - buildStartMs} served=${orderPreserved.size} requested=$effectiveCount recentRelaxed=$recentRelaxedCount")
+        Log.w(TAG, "[QUIZ_OUTPUT] LGS subjects=$lastSubjectCounts avgQuality=${"%.1f".format(lastAvgQualityScore)}")
 
         if (orderPreserved.isNotEmpty()) {
             val lgsIds = orderPreserved.map { it.id }
@@ -2037,6 +2064,9 @@ class QuestionRepository(private val context: Context) {
                 "audit H/M/B/E=${QualityAudit.hardServed}/${QualityAudit.mediumServed}/${QualityAudit.borderlineServed}/${QualityAudit.easyEmergencyUsed} " +
                 "upgraded=${QualityAudit.upgradedQuestionsCount} emergency=${QualityAudit.emergencyFallbackUsed} " +
                 "modeReject=${QualityAudit.rejectedWrongModeCount} quarantine=${QualityAudit.quarantinedLowQualityCount} general=${QualityAudit.servedGeneralCount}"
+
+        Log.w(TAG, "[QUIZ_PERF] GRADE=$grade buildMs=$lastBuildMs served=${finalQuestions.size} requested=$effectiveCount recentRelaxed=$recentRelaxedCount similarRelaxed=$similarRelaxedCount")
+        Log.w(TAG, "[QUIZ_OUTPUT] GRADE=$grade subjects=$lastSubjectCounts avgQuality=${"%.1f".format(lastAvgQualityScore)}")
         return finalQuestions
     }
 

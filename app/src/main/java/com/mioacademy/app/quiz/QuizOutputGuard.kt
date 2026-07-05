@@ -36,6 +36,8 @@ object QuizOutputGuard {
         val fixedCount: Int,
         /** Questions whose ID appeared in recentIds (repeat detected). */
         val repeatCount: Int,
+        /** Questions rejected because options could not be made valid. */
+        val rejectedInvalidOptions: Int = 0,
     )
 
     // ── Public API ───────────────────────────────────────────────────────────
@@ -51,21 +53,110 @@ object QuizOutputGuard {
     fun validate(questions: List<Question>, recentIds: Set<String> = emptySet()): Report {
         var fixedCount = 0
         var repeatCount = 0
+        var rejectedInvalidOptions = 0
 
-        val out = questions.map { q ->
+        val out = mutableListOf<Question>()
+        for (q in questions) {
             if (q.id in recentIds) {
                 repeatCount++
                 Log.w(TAG, "REPEAT_DETECTED id=${q.id} sub=${q.subject}")
             }
             val (sanitised, wasFixed) = sanitiseChoices(q)
             if (wasFixed) fixedCount++
-            sanitised
+
+            // Hard gate: reject any question where choices are still invalid after sanitise.
+            val finalChoices = sanitised.presentationChoices ?: sanitised.choices
+            val invalidReason = choicesInvalidReason(finalChoices, sanitised.correctIndex)
+            if (invalidReason != null) {
+                rejectedInvalidOptions++
+                Log.e(
+                    TAG,
+                    "[INVALID_OPTIONS_DETECTED] REJECTED id=${q.id} sub=${q.subject} " +
+                        "reason=$invalidReason choices=${finalChoices.joinToString("|") { it.take(20) }}"
+                )
+                continue
+            }
+
+            out.add(sanitised)
         }
 
         if (repeatCount > 0) Log.w(TAG, "guard_batch: $repeatCount repeat(s) in ${questions.size} questions")
         if (fixedCount  > 0) Log.w(TAG, "guard_batch: $fixedCount choice fix(es) in ${questions.size} questions")
+        if (rejectedInvalidOptions > 0) Log.e(TAG, "guard_batch: $rejectedInvalidOptions question(s) REJECTED due to invalid options")
 
-        return Report(out, fixedCount, repeatCount)
+        return Report(out, fixedCount, repeatCount, rejectedInvalidOptions)
+    }
+
+    /**
+     * Returns a reason string if [choices] are invalid, null if all choices are valid.
+     * Checks: blank/dash, placeholder text, too few choices, duplicates,
+     *         telegraphed answer (when correctIndex >= 0), weak numeric distractors.
+     */
+    fun choicesInvalidReason(choices: List<String>, correctIndex: Int = -1): String? {
+        if (choices.size < 4) return "TOO_FEW_CHOICES(${choices.size})"
+
+        val placeholderPattern = Regex(
+            "^(Se[çc]enek|Option|Cevap|[Şş][ıi]k)\\s*[A-Ea-e]$",
+            RegexOption.IGNORE_CASE
+        )
+
+        for ((i, c) in choices.take(4).withIndex()) {
+            val t = c.trim()
+            if (t.isBlank() || t == "-") return "BLANK_CHOICE(idx=$i)"
+            if (placeholderPattern.matches(t)) {
+                Log.w(TAG, "[PLACEHOLDER_OPTION_REJECTED] idx=$i value='$t'")
+                return "PLACEHOLDER_CHOICE(idx=$i,val=$t)"
+            }
+        }
+
+        val distinctTrimmed = choices.take(4).map { it.trim() }.distinct()
+        if (distinctTrimmed.size < 4) return "DUPLICATE_CHOICES"
+
+        if (correctIndex in 0..3) {
+            if (isHardTelegraphed(choices, correctIndex)) {
+                Log.w(TAG, "[TELEGRAPHED_REJECTED] correctIdx=$correctIndex " +
+                    "correctLen=${choices[correctIndex].trim().length} " +
+                    "choices=${choices.joinToString("|") { it.take(25) }}")
+                return "TELEGRAPHED_ANSWER"
+            }
+            if (isWeakNumericDistractors(choices, correctIndex)) {
+                Log.w(TAG, "[WEAK_DISTRACTOR_REJECTED] correctIdx=$correctIndex " +
+                    "choices=${choices.joinToString("|") { it.take(25) }}")
+                return "WEAK_NUMERIC_DISTRACTOR"
+            }
+        }
+
+        return null
+    }
+
+    /**
+     * Returns true when the correct answer is more than twice the length of the
+     * LONGEST distractor — making it visually obvious without reading content.
+     */
+    fun isHardTelegraphed(options: List<String>, correctIndex: Int): Boolean {
+        if (options.size < 4 || correctIndex !in options.indices) return false
+        val correctLen = options[correctIndex].trim().length
+        val maxDistractorLen = options.indices
+            .filter { it != correctIndex }
+            .maxOfOrNull { options[it].trim().length } ?: return false
+        if (maxDistractorLen < 6) return false
+        return correctLen > maxDistractorLen * 2
+    }
+
+    /**
+     * Returns true when ALL four options are pure numbers and
+     * max/min > 2.5 — indicating distractors are implausibly far from the correct value.
+     */
+    fun isWeakNumericDistractors(options: List<String>, correctIndex: Int = -1): Boolean {
+        if (options.size < 4) return false
+        val nums = options.take(4).mapNotNull { s ->
+            s.trim().replace(',', '.').toDoubleOrNull()
+        }
+        if (nums.size < 4) return false
+        val min = nums.min()
+        val max = nums.max()
+        if (min <= 0) return false
+        return max / min > 2.5
     }
 
     /**

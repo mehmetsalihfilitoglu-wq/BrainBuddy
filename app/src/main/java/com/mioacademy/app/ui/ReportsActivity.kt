@@ -175,6 +175,14 @@ class ReportsActivity : AppCompatActivity() {
                 }
             }
 
+            // Premium gate listeners for "Raporu Paylaş"
+            val goToPremium = View.OnClickListener {
+                com.mioacademy.app.quiz.PremiumPaywallSheet()
+                    .show(supportFragmentManager, com.mioacademy.app.quiz.PremiumPaywallSheet.TAG)
+            }
+            b.cardShareReportLocked?.setOnClickListener(goToPremium)
+            b.btnShareReportLockedCta?.setOnClickListener(goToPremium)
+
             b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
             b.btnPerformanceInfo.setOnClickListener { showPerformanceInfoBottomSheet() }
@@ -580,6 +588,11 @@ class ReportsActivity : AppCompatActivity() {
         }
 
         b.tvWeeklyXp.text = "Toplam XP: ${model.weeklyXp}"
+
+        // Share card premium state — re-evaluated on every applyModel call (refreshes on onResume)
+        val isSharePremium = com.mioacademy.app.core.PremiumStore(this).isPremium()
+        b.cardShareReport?.visibility = if (isSharePremium) View.VISIBLE else View.GONE
+        b.cardShareReportLocked?.visibility = if (isSharePremium) View.GONE else View.VISIBLE
     }
 
     private fun bindSubjectChips(

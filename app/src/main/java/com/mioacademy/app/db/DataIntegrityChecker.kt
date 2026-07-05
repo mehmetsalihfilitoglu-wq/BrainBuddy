@@ -25,6 +25,8 @@ object DataIntegrityChecker {
         val emptyOptions: Int,
         val corruptPayloads: Int,
         val totalMarked: Int,
+        /** Questions hard-deleted because they contained placeholder options. */
+        val hardDeleted: Int = 0,
     )
 
     /**
@@ -34,6 +36,26 @@ object DataIntegrityChecker {
     suspend fun runCleanup(context: Context): CleanupResult {
         val db = DatabaseProvider.get(context)
         val dao = db.questionDao()
+
+        // Phase -1: Repair progressive quarantine damage from previous app versions.
+        val repaired = try {
+            val count = dao.clearProgressiveQuarantineDamage()
+            if (count > 0) Log.w(TAG, "[POOL_REPAIR] Cleared $count questions from progressive quarantine (LOW_QUALITY_QUARANTINED + WEAK_DISTRACTOR)")
+            count
+        } catch (e: Exception) {
+            Log.e(TAG, "[POOL_REPAIR] Failed: ${e.message}")
+            0
+        }
+
+        // Phase 0: Hard delete existing placeholder-option questions.
+        val hardDeleted = try {
+            val deleted = dao.deleteQuestionsWithPlaceholderOptions()
+            if (deleted > 0) Log.w(TAG, "[DB_CLEANUP_HARD_DELETE] Deleted $deleted question(s) with placeholder options")
+            deleted
+        } catch (e: Exception) {
+            Log.e(TAG, "[DB_CLEANUP_HARD_DELETE] Failed: ${e.message}")
+            0
+        }
 
         // Phase 1: SQL-based bulk detection (fast, indexed)
         val ph = dao.markPlaceholderOptions()
@@ -46,12 +68,12 @@ object DataIntegrityChecker {
 
         val total = ph + ss + eo + corruptCount
 
-        Log.w(TAG, "[DB_CLEANUP] placeholderOptions=$ph shortStems=$ss emptyOptions=$eo corruptPayloads=$corruptCount totalMarked=$total")
+        Log.w(TAG, "[DB_CLEANUP] hardDeleted=$hardDeleted placeholderOptions=$ph shortStems=$ss emptyOptions=$eo corruptPayloads=$corruptCount totalMarked=$total")
 
         // Phase 3: Log servable pool health
         logServablePoolHealth(dao)
 
-        return CleanupResult(ph, ss, eo, corruptCount, total)
+        return CleanupResult(ph, ss, eo, corruptCount, total, hardDeleted)
     }
 
     /**
@@ -102,23 +124,43 @@ object DataIntegrityChecker {
             return "DATA_CORRUPT_MALFORMED_JSON"
         }
 
-        // 3. Need at least 2 non-blank options
+        // 3. Need exactly 4 non-blank, non-dash options.
         val meaningful = opts.filter { it.isNotBlank() && it != "-" }
-        if (meaningful.size < 2) return "DATA_CORRUPT_TOO_FEW_OPTIONS"
+        if (meaningful.size < 4) return "DATA_CORRUPT_TOO_FEW_OPTIONS"
 
         // 4. Answer index must point to a valid, non-blank option
         if (q.answerIndex < 0 || q.answerIndex >= opts.size) return "DATA_CORRUPT_INVALID_ANSWER_IDX"
         val correctAnswer = opts.getOrNull(q.answerIndex)?.trim() ?: ""
         if (correctAnswer.isBlank() || correctAnswer == "-") return "DATA_CORRUPT_BLANK_ANSWER"
 
-        // 5. All distinct (case-insensitive) — reject if < 2 distinct
-        val distinctLower = meaningful.map { it.lowercase() }.distinct()
-        if (distinctLower.size < 2) return "DATA_CORRUPT_ALL_SAME_OPTIONS"
+        // 5. All 4 options must be distinct (case-sensitive trim only —
+        //    genetics options AA/Aa/aa and Turkish capitalization questions are legitimately different).
+        val distinctTrimmed = meaningful.take(4).map { it.trim() }.distinct()
+        if (distinctTrimmed.size < 4) return "DATA_CORRUPT_ALL_SAME_OPTIONS"
 
-        // 6. Placeholder options: "Seçenek A/B/C/D", "Option A/B/C/D", "Cevap A/B/C/D"
-        val placeholderRegex = Regex("^(Seçenek|Option|Cevap|Şık)\\s*[A-Ea-e]$", RegexOption.IGNORE_CASE)
+        // 6. Placeholder options: ANY single placeholder makes the question unservable.
+        val placeholderRegex = Regex(
+            "^(Se[çc]enek|Option|Cevap|[Şş][ıi]k)\\s*[A-Ea-e]$",
+            RegexOption.IGNORE_CASE
+        )
         val placeholderCount = opts.count { placeholderRegex.matches(it.trim()) }
-        if (placeholderCount >= 2) return "DATA_CORRUPT_PLACEHOLDER"
+        if (placeholderCount >= 1) return "DATA_CORRUPT_PLACEHOLDER"
+
+        // 7. Telegraphed answer: correct option >3x longer than longest distractor
+        //    AND distractor is short (<15 chars). 3x threshold avoids quarantining
+        //    legitimate questions with explanatory correct answers.
+        val four = meaningful.take(4)
+        val correctLen = four.getOrNull(q.answerIndex)?.trim()?.length ?: 0
+        val maxDistractorLen = four.indices
+            .filter { it != q.answerIndex }
+            .maxOfOrNull { four[it].trim().length } ?: 0
+        if (maxDistractorLen in 6..14 && correctLen > maxDistractorLen * 3) {
+            return "DATA_CORRUPT_TELEGRAPHED"
+        }
+
+        // 8. Weak numeric distractors: disabled — the spread threshold was
+        //    quarantining the majority of math questions. Quality is better
+        //    enforced at the quiz-build layer, not here.
 
         return null
     }
@@ -135,7 +177,6 @@ object DataIntegrityChecker {
 
             Log.w(TAG, "[POOL_HEALTH] totalActive=$totalActive totalServable=$totalServable totalCorrupt=$totalCorrupt")
 
-            // Log per grade, focusing on key grades
             for (grade in 1..7) {
                 val gradeRows = servable.filter { it.grade == grade }
                 if (gradeRows.isEmpty()) continue
@@ -143,8 +184,66 @@ object DataIntegrityChecker {
                 val gradeTotal = gradeRows.sumOf { it.count }
                 Log.w(TAG, "[POOL_HEALTH] grade=$grade total=$gradeTotal $summary")
             }
+
+            runDeepServableScan(dao)
         } catch (e: Exception) {
             Log.e(TAG, "[POOL_HEALTH] failed: ${e.message}")
+        }
+    }
+
+    /**
+     * Deep scan: every active servable question is checked for placeholder/duplicate options.
+     * Logs 50 sample questions as runtime proof.
+     */
+    private suspend fun runDeepServableScan(dao: QuestionDao) {
+        try {
+            val placeholderPattern = Regex(
+                "^(Se[çc]enek|Option|Cevap|[Şş][ıi]k)\\s*[A-Ea-e]$",
+                RegexOption.IGNORE_CASE
+            )
+            val all = dao.getAllQuestions()
+            val servable = all.filter { it.isActive && it.unservableReason.isNullOrBlank() }
+
+            var badPlaceholder = 0
+            var badTooFew = 0
+            var badDuplicate = 0
+            var badAnswerIdx = 0
+
+            for (q in servable) {
+                try {
+                    val arr = JSONArray(q.optionsJson)
+                    val opts = (0 until arr.length()).map { arr.optString(it, "").trim() }
+                    val real = opts.filter { it.isNotBlank() && it != "-" }
+                    if (real.size < 4) { badTooFew++; continue }
+                    if (real.take(4).any { placeholderPattern.matches(it) }) { badPlaceholder++ }
+                    if (real.take(4).map { it.trim() }.distinct().size < 4) { badDuplicate++ }
+                    if (q.answerIndex < 0 || q.answerIndex >= opts.size) { badAnswerIdx++ }
+                } catch (_: Exception) {}
+            }
+
+            Log.w(TAG, "[RUNTIME_PROOF] ===== STARTUP DB SCAN (DataIntegrityChecker) =====")
+            Log.w(TAG, "[RUNTIME_PROOF] servablePool=${servable.size} totalDB=${all.size}")
+            Log.w(TAG, "[RUNTIME_PROOF] badPlaceholder=$badPlaceholder (TARGET: 0)")
+            Log.w(TAG, "[RUNTIME_PROOF] badTooFew=$badTooFew (TARGET: 0)")
+            Log.w(TAG, "[RUNTIME_PROOF] badDuplicate=$badDuplicate (TARGET: 0)")
+            Log.w(TAG, "[RUNTIME_PROOF] badAnswerIdx=$badAnswerIdx (TARGET: 0)")
+
+            val sample = servable.shuffled().take(50)
+            Log.w(TAG, "[RUNTIME_PROOF] ===== 50 SAMPLE SERVED QUESTIONS =====")
+            sample.forEachIndexed { i, q ->
+                try {
+                    val arr = JSONArray(q.optionsJson)
+                    val opts = (0 until arr.length()).map { arr.optString(it, "").trim() }
+                    val correct = opts.getOrNull(q.answerIndex) ?: "?"
+                    Log.w(TAG, "[RUNTIME_PROOF] Q$i sub=${q.subject} gr=${q.grade} " +
+                        "stem='${q.questionText.take(70)}' " +
+                        "opts=[${opts.joinToString(" | ")}] " +
+                        "ansIdx=${q.answerIndex} correct='$correct'")
+                } catch (_: Exception) {}
+            }
+            Log.w(TAG, "[RUNTIME_PROOF] ========================================")
+        } catch (e: Exception) {
+            Log.e(TAG, "[RUNTIME_PROOF] deep scan failed: ${e.message}")
         }
     }
 }

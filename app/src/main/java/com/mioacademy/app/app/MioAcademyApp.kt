@@ -9,6 +9,7 @@ import com.mioacademy.app.CrashActivity
 import com.mioacademy.app.core.ActiveProfileManager
 import com.mioacademy.app.core.OnboardingPrefs
 import com.mioacademy.app.core.ProfileStore
+import com.mioacademy.app.db.DataIntegrityChecker
 import com.mioacademy.app.db.DatabaseProvider
 import com.mioacademy.app.db.DbSeeder
 import com.mioacademy.app.db.StartupAuditRecorder
@@ -39,6 +40,8 @@ class MioAcademyApp : Application() {
                 logStartupPersistenceAsync(this@MioAcademyApp)
                 val didSeed = DbSeeder.seedIfNeeded(this@MioAcademyApp)
                 Log.i(STARTUP_LOG_TAG, "Seed finished: didSeed=$didSeed")
+                val integrityResult = DataIntegrityChecker.runCleanup(this@MioAcademyApp)
+                Log.i(STARTUP_LOG_TAG, "IntegrityCheck: hardDeleted=${integrityResult.hardDeleted} totalMarked=${integrityResult.totalMarked}")
                 val p = StartupAuditRecorder.finalizeStartupAudit(this@MioAcademyApp)
                 Log.i(
                     "AppStartupAudit",

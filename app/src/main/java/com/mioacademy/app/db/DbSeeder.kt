@@ -27,15 +27,15 @@ object DbSeeder {
     private const val TAG = "DbSeeder"
     private const val KEY_DB_SEEDED = "db_seeded"
     private const val KEY_DB_SEED_VERSION = "db_seed_version"
-    // Version 6: force full wipe + reseed on all devices still carrying v5 DB.
-    // v5 had isActive/unservableReason set by QuestionQualityGate at parse time, causing
-    // 71% of asset questions to be inactive. Fixed by:
-    //   - parseQuestionObject(): isActive=true, deactivationReason=null, unservableReason=null
-    //   - buildGrade6MatQuestion(): same
-    //   - loadFromLgsRootSubjectDirsAsLgs(): added unservableReason=null to force-copy
-    //   - TemplateQualityDetector.applyShellClustering(): disabled
-    //   - buildSeedQuestions(): belt-and-suspenders cleanup pass + verification log
-    private const val CURRENT_DB_SEED_VERSION = 6
+    // Version 8: fix duplicate options in synthetic grade-6 mat MEDIUM questions.
+    // When givenAway==2, kept+2==boughtTotal → options[1] and options[2] were identical.
+    // Fixed: use kept+3 when kept+2 would equal boughtTotal.
+    // Also wires DataIntegrityChecker.runCleanup() into startup (MioAcademyApp).
+    // Also fixes runQualityProofScan to use case-sensitive distinct() (not lowercase).
+    // Version 9: add telegraphed-answer and weak-numeric-distractor rejection gates
+    // across importer (parseQuestionObject), DataIntegrityChecker (detectCorruption),
+    // and QuizOutputGuard (choicesInvalidReason).
+    private const val CURRENT_DB_SEED_VERSION = 9
     private const val TARGET_QUESTIONS_PER_SUBJECT = 500
     private const val MIN_REASONABLE_DB_COUNT = 8000
 
@@ -412,6 +412,26 @@ object DbSeeder {
         }
         Log.w(TAG, "SEED_ACTIVE_VERIFY: total=${deduped.size} inactive=${deduped.count { !it.isActive }} unservable=${deduped.count { it.unservableReason != null }} (both must be 0)")
 
+        // Placeholder filter: hard-drop any question whose parsed options still contain
+        // a placeholder (e.g. "Seçenek A") — these survived the per-question gate only if
+        // parsing produced them synthetically. Belt-and-suspenders before DB insert.
+        val placeholderRegexSeed = Regex(
+            "^(Se[çc]enek|Option|Cevap|[Şş][ıi]k)\\s*[A-Ea-e]$",
+            RegexOption.IGNORE_CASE
+        )
+        val beforePlaceholderFilter = deduped.size
+        deduped = deduped.filter { q ->
+            val arr = try { org.json.JSONArray(q.optionsJson) } catch (_: Exception) { return@filter true }
+            val opts = (0 until arr.length()).map { arr.optString(it, "").trim() }
+            val hasPlaceholder = opts.any { placeholderRegexSeed.matches(it) }
+            if (hasPlaceholder) {
+                Log.w(TAG, "[SEED_PLACEHOLDER_FILTER] Dropped id=${q.id} grade=${q.grade} subj=${q.subject} opts=${opts.take(4)}")
+            }
+            !hasPlaceholder
+        }
+        val placeholderDropped = beforePlaceholderFilter - deduped.size
+        if (placeholderDropped > 0) Log.w(TAG, "[SEED_PLACEHOLDER_FILTER] Dropped $placeholderDropped question(s) with placeholder options before insert")
+
         // Store pre-insert diagnostics for in-app debug UI.
         val invalidAfter = normalized.count { it.grade !in 1..7 }
         lastSeedDiagnosticsSnapshot = SeedDiagnosticsSnapshot(
@@ -492,7 +512,68 @@ object DbSeeder {
         } catch (e: Exception) {
             Log.w(TAG, "Pool validation failed: ${e.message}")
         }
+
+        // Quality proof scan: log evidence that no placeholder/duplicate-option
+        // questions made it into the live DB. Runs async-safe after insert.
+        try {
+            runQualityProofScan(questionDao)
+        } catch (e: Exception) {
+            Log.w(TAG, "[QUALITY_PROOF] scan failed: ${e.message}")
+        }
         return true
+    }
+
+    /**
+     * Post-seed proof scan: reads every inserted question and verifies that
+     * no placeholder options, duplicate options, or missing-answer cases survived.
+     * Results are logged at WARN level so they are visible in prod logcat.
+     */
+    private suspend fun runQualityProofScan(dao: QuestionDao) {
+        val placeholderPattern = Regex(
+            "^(Se[çc]enek|Option|Cevap|[Şş][ıi]k)\\s*[A-Ea-e]$",
+            RegexOption.IGNORE_CASE
+        )
+        val all = dao.getAllQuestions()
+        val active = all.filter { it.isActive && it.unservableReason.isNullOrBlank() }
+
+        var badPlaceholder = 0
+        var badDuplicate = 0
+        var badTooFew = 0
+        var badAnswerIdx = 0
+
+        for (q in active) {
+            try {
+                val arr = org.json.JSONArray(q.optionsJson)
+                val opts = (0 until arr.length()).map { arr.optString(it, "").trim() }
+                val real = opts.filter { it.isNotBlank() && it != "-" }
+                if (real.size < 4) { badTooFew++; continue }
+                if (real.take(4).any { placeholderPattern.matches(it) }) badPlaceholder++
+                if (real.take(4).map { it.trim() }.distinct().size < 4) badDuplicate++
+                if (q.answerIndex < 0 || q.answerIndex >= opts.size) badAnswerIdx++
+            } catch (_: Exception) {}
+        }
+
+        Log.w(TAG, "[QUALITY_PROOF] ===== POST-SEED DB QUALITY SCAN =====")
+        Log.w(TAG, "[QUALITY_PROOF] totalDB=${all.size} servable=${active.size}")
+        Log.w(TAG, "[QUALITY_PROOF] badPlaceholder=$badPlaceholder (TARGET: 0)")
+        Log.w(TAG, "[QUALITY_PROOF] badDuplicate=$badDuplicate (TARGET: 0)")
+        Log.w(TAG, "[QUALITY_PROOF] badTooFew=$badTooFew (TARGET: 0)")
+        Log.w(TAG, "[QUALITY_PROOF] badAnswerIdx=$badAnswerIdx (TARGET: 0)")
+
+        val sample = active.shuffled().take(50)
+        Log.w(TAG, "[QUALITY_PROOF] ===== 50 SAMPLE INSERTED QUESTIONS =====")
+        sample.forEachIndexed { i, q ->
+            try {
+                val arr = org.json.JSONArray(q.optionsJson)
+                val opts = (0 until arr.length()).map { arr.optString(it, "").trim() }
+                val correct = opts.getOrNull(q.answerIndex) ?: "?"
+                Log.w(TAG, "[QUALITY_PROOF] Q$i sub=${q.subject} gr=${q.grade} " +
+                    "stem='${q.questionText.take(70)}' " +
+                    "opts=[${opts.take(4).joinToString(" | ")}] " +
+                    "ansIdx=${q.answerIndex} correct='$correct'")
+            } catch (_: Exception) {}
+        }
+        Log.w(TAG, "[QUALITY_PROOF] ========================================")
     }
 
     private fun loadFromAssets(context: Context): List<QuestionEntity> {
@@ -1386,11 +1467,27 @@ object DbSeeder {
         val rawOptions = (0 until optionsArray.length())
             .map { idx -> optionsArray.optString(idx, "").ifEmpty { optionsArray.opt(idx)?.toString() ?: "" } }
             .filter { it.isNotBlank() }
-        if (rawOptions.size < 2) {
-            throw IllegalArgumentException("Not enough options at index=$index")
+
+        // Gate 1: must have exactly 4 options
+        if (rawOptions.size < 4) {
+            throw IllegalArgumentException("Not enough options (${rawOptions.size}/4) at index=$index")
         }
-        val padded = if (rawOptions.size >= 4) rawOptions.take(4) else rawOptions + List(4 - rawOptions.size) { "-" }
-        val optionsJson = JSONArray(padded).toString()
+        val padded = rawOptions.take(4)
+
+        // Gate 2: no placeholder options
+        val placeholderRegexParser = Regex(
+            "^(Se[çc]enek|Option|Cevap|[Şş][ıi]k)\\s*[A-Ea-e]$",
+            RegexOption.IGNORE_CASE
+        )
+        val placeholderOpt = padded.firstOrNull { placeholderRegexParser.matches(it.trim()) }
+        if (placeholderOpt != null) {
+            throw IllegalArgumentException("Placeholder option '$placeholderOpt' at index=$index")
+        }
+
+        // Gate 3: all 4 options must be case-sensitively distinct (after trim)
+        if (padded.map { it.trim() }.distinct().size < 4) {
+            throw IllegalArgumentException("Duplicate options at index=$index: ${padded.joinToString("|")}")
+        }
 
         // answer index: answerIndex (yeni) veya correctIndex (eski)
         val rawAnswerIndex = if (o.has("answerIndex")) {
@@ -1399,6 +1496,18 @@ object DbSeeder {
             o.optInt("correctIndex", 0)
         }
         val answerIndex = rawAnswerIndex.coerceIn(0, padded.size - 1)
+
+        // Gate 4: telegraphed answer or weak numeric distractors
+        val telegraphed = com.mioacademy.app.quiz.QuizOutputGuard.isHardTelegraphed(padded, answerIndex)
+        if (telegraphed) {
+            throw IllegalArgumentException("Telegraphed answer at index=$index answerIdx=$answerIndex opts=${padded.joinToString("|")}")
+        }
+        val weakNumeric = com.mioacademy.app.quiz.QuizOutputGuard.isWeakNumericDistractors(padded, answerIndex)
+        if (weakNumeric) {
+            throw IllegalArgumentException("Weak numeric distractors at index=$index opts=${padded.joinToString("|")}")
+        }
+
+        val optionsJson = JSONArray(padded).toString()
 
         // difficulty: int (0..2) veya eski string enum.
         // Eski verilerdeki 3 (VERY_HARD) değeri HARD (2) olarak normalize edilir.
@@ -1644,12 +1753,13 @@ object DbSeeder {
                         "kalemlerin $givenAway tanesini arkadaşına hediye ediyor. Defne'nin elinde kaç kalem kalır?"
                     val explanation = "Önce toplam kalem sayısını bul: $packCount × $perPack = $boughtTotal. " +
                         "Ardından hediye edilen $givenAway kalemi çıkar: $boughtTotal − $givenAway = $kept."
+                    val distractor2 = if (kept + 2 == boughtTotal) kept + 3 else kept + 2
                     SyntheticQuestionSpec(
                         stem = stem,
                         options = listOf(
                             kept.toString(),
                             boughtTotal.toString(),
-                            (kept + 2).toString(),
+                            distractor2.toString(),
                             (kept - 2).coerceAtLeast(1).toString()
                         ),
                         correctIndex = 0,
