@@ -2,43 +2,198 @@ package com.brainbuddy.app.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.Gravity
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.card.MaterialCardView
 import com.brainbuddy.app.R
+import com.brainbuddy.app.core.AnalyticsStore
+import com.brainbuddy.app.core.CareerPath
+import com.brainbuddy.app.core.UserGoalPrefs
 import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.quiz.WrongPoolLauncher
 import com.brainbuddy.app.quiz.WrongQuestionPoolStore
+import kotlin.math.roundToInt
 
 class StudyHubActivity : AppCompatActivity() {
+
+    private lateinit var analytics: AnalyticsStore
+    private lateinit var goalPrefs: UserGoalPrefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_study_hub)
 
-        findViewById<android.widget.Button>(R.id.btnBack).setOnClickListener { finish() }
+        analytics = AnalyticsStore(this)
+        goalPrefs = UserGoalPrefs(this)
 
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardTest).setOnClickListener {
+        findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
+        findViewById<MaterialButton>(R.id.btnPracticeAll).setOnClickListener {
             startActivity(Intent(this, QuizActivity::class.java))
         }
-        findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool).setOnClickListener {
-            WrongPoolLauncher.launch(this)
-        }
+
+        refreshAll()
     }
 
     override fun onResume() {
         super.onResume()
-        updateWrongPoolCardState()
+        refreshStats()
+        refreshWrongPool()
     }
 
-    private fun updateWrongPoolCardState() {
-        val card = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardWrongPool)
-        val subtitle = findViewById<android.widget.TextView>(R.id.tvWrongPoolSubtitle)
-        val hasItems = WrongQuestionPoolStore(this).isNotEmpty()
-        card.isEnabled = hasItems
-        card.alpha = if (hasItems) 1f else 0.45f
-        subtitle.text = if (hasItems) {
-            getString(R.string.wrong_pool_home_sub)
+    private fun refreshAll() {
+        refreshExamContext()
+        refreshStats()
+        buildSubjectCards()
+        refreshCoachTip()
+        refreshWrongPool()
+    }
+
+    private fun refreshExamContext() {
+        val career = goalPrefs.getGoal().careerPath
+        val exam = career.examType
+        findViewById<TextView>(R.id.tvCareerLabel).text = "${career.emoji} ${career.displayNameTr}"
+        findViewById<TextView>(R.id.tvExamLabel).text = "${exam.code} · ${exam.fullNameIt}"
+    }
+
+    private fun refreshStats() {
+        val counts = analytics.getOverallCounts()
+        val testCount = analytics.getTestPerformances().size
+        val accuracy = analytics.getOverallAccuracy()
+
+        if (counts.total > 0) {
+            findViewById<TextView>(R.id.tvStatsAccuracy).text = "%${accuracy.roundToInt()}"
+            findViewById<TextView>(R.id.tvStatsTests).text = "$testCount"
+            findViewById<TextView>(R.id.tvStatsQuestions).text = "${counts.total}"
         } else {
-            getString(R.string.wrong_pool_card_empty_sub)
+            listOf(R.id.tvStatsAccuracy, R.id.tvStatsTests, R.id.tvStatsQuestions).forEach {
+                findViewById<TextView>(it).text = "—"
+            }
         }
+    }
+
+    private fun buildSubjectCards() {
+        val container = findViewById<LinearLayout>(R.id.subjectCardsContainer)
+        container.removeAllViews()
+        val career = goalPrefs.getGoal().careerPath
+        val subjects = career.subjectSummary.split(" · ")
+        subjects.forEachIndexed { index, subject ->
+            container.addView(buildSubjectCard(subject, addTopMargin = index > 0))
+        }
+    }
+
+    private fun buildSubjectCard(subjectName: String, addTopMargin: Boolean): MaterialCardView {
+        val dp = resources.displayMetrics.density
+        val dp8 = (8 * dp + 0.5f).toInt()
+        val dp12 = (12 * dp + 0.5f).toInt()
+        val dp16 = (16 * dp + 0.5f).toInt()
+
+        val card = MaterialCardView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).also { if (addTopMargin) it.topMargin = dp8 }
+            radius = 12 * dp
+            cardElevation = 2 * dp
+            setCardBackgroundColor(resources.getColor(R.color.white, theme))
+            isClickable = true
+            isFocusable = true
+        }
+
+        val inner = LinearLayout(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(dp16, dp16, dp16, dp16)
+        }
+
+        val textContainer = LinearLayout(this).apply {
+            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+            orientation = LinearLayout.VERTICAL
+        }
+
+        val titleView = TextView(this).apply {
+            text = subjectName
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f)
+            setTextColor(resources.getColor(R.color.textPrimary, theme))
+            setTypeface(null, android.graphics.Typeface.BOLD)
+        }
+
+        val subtitleView = TextView(this).apply {
+            text = getString(R.string.study_hub_subject_action)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 11f)
+            setTextColor(resources.getColor(R.color.textSecondary, theme))
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).also { it.topMargin = (2 * dp + 0.5f).toInt() }
+        }
+
+        val arrow = TextView(this).apply {
+            text = "›"
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f)
+            setTextColor(resources.getColor(R.color.textSecondary, theme))
+        }
+
+        textContainer.addView(titleView)
+        textContainer.addView(subtitleView)
+        inner.addView(textContainer)
+        inner.addView(arrow)
+        card.addView(inner)
+
+        card.setOnClickListener {
+            val filter = subjectFilterFor(subjectName)
+            startActivity(Intent(this, QuizActivity::class.java).also { intent ->
+                filter?.let { intent.putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, it) }
+            })
+        }
+
+        return card
+    }
+
+    private fun refreshCoachTip() {
+        val card = findViewById<MaterialCardView>(R.id.cardCoachTip)
+        val weakest = analytics.getWeakestTopicsWithCounts(1)
+            .firstOrNull { it.second.total >= 5 }
+
+        if (weakest != null) {
+            val topicName = weakest.first
+            val accuracy = weakest.second.accuracy.roundToInt()
+            findViewById<TextView>(R.id.tvCoachMessage).text =
+                getString(R.string.study_hub_coach_tip, topicName, accuracy)
+            card.visibility = View.VISIBLE
+        } else {
+            card.visibility = View.GONE
+        }
+    }
+
+    private fun refreshWrongPool() {
+        val card = findViewById<MaterialCardView>(R.id.cardWrongPool)
+        val pool = WrongQuestionPoolStore(this)
+        card.visibility = if (pool.isNotEmpty()) View.VISIBLE else View.GONE
+        if (pool.isNotEmpty()) {
+            card.setOnClickListener { WrongPoolLauncher.launch(this) }
+        }
+    }
+
+    /**
+     * Maps an Italian/career-path subject display name to the closest Turkish
+     * Subject.tr value accepted by QuizActivity.EXTRA_SUBJECT_FILTER.
+     * Returns null → launch without subject filter (general practice).
+     */
+    private fun subjectFilterFor(subject: String): String? = when {
+        subject == "Matematik" -> "Matematik"
+        subject == "İngilizce" -> "İngilizce"
+        subject in setOf("Biyoloji", "Kimya", "Fizik") -> "Fen Bilimleri"
+        subject == "Mantık" || subject.startsWith("Okudu") -> "Türkçe"
+        subject.contains("Tarih") -> "İnkılap Tarihi"
+        else -> null
     }
 }
