@@ -20,19 +20,25 @@ import com.brainbuddy.app.avatar.AvatarCatalog
 import com.brainbuddy.app.avatar.AvatarCategory
 import com.brainbuddy.app.avatar.AvatarItem
 import com.brainbuddy.app.avatar.AvatarRarity
+import com.brainbuddy.app.avatar.AvatarShopScreen
+import com.brainbuddy.app.core.BadgeDisplayHelper
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.StudentProfileStore
+import com.brainbuddy.app.core.UserGoalPrefs
+import com.brainbuddy.app.quiz.PremiumPaywallSheet
+import com.brainbuddy.app.social.LeagueScreen
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 
-/**
- * Student profile: displayName, avatar selection, level/XP/streak.
- * No parent content - student only.
- */
 class StudentProfileActivity : AppCompatActivity() {
 
     private lateinit var store: StudentProfileStore
+    private lateinit var gam: GamificationStore
+    private lateinit var goalPrefs: UserGoalPrefs
     private lateinit var avatarPreview: ImageView
     private lateinit var tvAvatarName: TextView
+    private lateinit var tvDisplayName: TextView
     private var currentSelectedId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,33 +46,114 @@ class StudentProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_student_profile)
 
         store = StudentProfileStore(this)
-        val gam = GamificationStore(this)
+        gam = GamificationStore(this)
+        goalPrefs = UserGoalPrefs(this)
 
-        findViewById<TextView>(R.id.btnBack).setOnClickListener { finish() }
+        avatarPreview = findViewById(R.id.avatarPreview)
+        tvAvatarName = findViewById(R.id.tvAvatarName)
+        tvDisplayName = findViewById(R.id.tvDisplayName)
 
+        findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
+
+        refreshAll()
+        setupAvatarGrid()
+        setupNavigation()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshIdentityHero()
+    }
+
+    private fun refreshAll() {
+        refreshIdentityHero()
+        refreshNameEdit()
+        refreshGoalCard()
+        refreshAchievements()
+    }
+
+    private fun refreshIdentityHero() {
+        val displayName = store.getDisplayName().ifBlank { goalPrefs.getStudentName() }
+        tvDisplayName.text = displayName.ifBlank { "—" }
+
+        val freezeSuffix = if (gam.freezeTokens() > 0) " 🧊" else ""
+        findViewById<TextView>(R.id.tvStreak).text = "${gam.streakDays()}$freezeSuffix"
+        findViewById<TextView>(R.id.tvXp).text = "${gam.xp()}"
+        findViewById<TextView>(R.id.tvLevel).text = "${gam.level()}"
+    }
+
+    private fun refreshNameEdit() {
         val etName = findViewById<android.widget.EditText>(R.id.etDisplayName)
         etName.setText(store.getDisplayName())
         etName.hint = getString(R.string.student_profile_name_hint)
 
-        findViewById<android.widget.Button>(R.id.btnSaveName).setOnClickListener {
-            store.setDisplayName(etName.text.toString().trim())
-            android.widget.Toast.makeText(this, "Kaydedildi", android.widget.Toast.LENGTH_SHORT).show()
+        findViewById<View>(R.id.btnSaveName).setOnClickListener {
+            val name = etName.text.toString().trim()
+            store.setDisplayName(name)
+            tvDisplayName.text = name.ifBlank { "—" }
+            android.widget.Toast.makeText(this, getString(R.string.profile_name_saved), android.widget.Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun refreshGoalCard() {
+        val goal = goalPrefs.getGoal()
+        val career = goal.careerPath
+        val italianLevel = goal.italianLevel
+
+        // Career identity
+        val personTitle = personTitleFor(career.name)
+        findViewById<TextView>(R.id.tvCareerGoal).text = "${career.emoji} Gelecekteki $personTitle"
+        findViewById<TextView>(R.id.tvGoalDegree).text = career.italianDegreeName
+
+        // Destination cities
+        val citiesView = findViewById<TextView>(R.id.tvGoalCities)
+        if (goal.destinationCities.isNotEmpty()) {
+            citiesView.text = "📍 " + goal.destinationCities.joinToString(", ")
+            citiesView.visibility = View.VISIBLE
+        } else {
+            citiesView.visibility = View.GONE
         }
 
-        findViewById<TextView>(R.id.tvLevel).text = "Seviye ${gam.level()}"
-        findViewById<TextView>(R.id.tvXp).text = "${gam.xp()} XP"
-        findViewById<TextView>(R.id.tvStreak).text = "\uD83D\uDD25 ${gam.streakDays()} gün"
+        // Meta chips: exam type + Italian level
+        val chipGroup = findViewById<ChipGroup>(R.id.chipGroupGoalMeta)
+        chipGroup.removeAllViews()
+        chipGroup.addView(makeReadOnlyChip("${career.examType.code}"))
+        chipGroup.addView(makeReadOnlyChip("${italianLevel.emoji} ${italianLevel.ceferLevel}"))
+    }
 
+    private fun refreshAchievements() {
+        val allBadges = (gam.badges() + gam.milestoneBadges()).distinct()
+        val chipGroup = findViewById<ChipGroup>(R.id.chipGroupBadges)
+        val tvEmpty = findViewById<TextView>(R.id.tvBadgesEmpty)
+
+        chipGroup.removeAllViews()
+        if (allBadges.isEmpty()) {
+            tvEmpty.visibility = View.VISIBLE
+        } else {
+            tvEmpty.visibility = View.GONE
+            allBadges.forEach { badgeId ->
+                val emoji = BadgeDisplayHelper.getBadgeEmoji(badgeId)
+                val name = BadgeDisplayHelper.getDisplayName(badgeId)
+                chipGroup.addView(makeReadOnlyChip("$emoji $name"))
+            }
+        }
+    }
+
+    private fun makeReadOnlyChip(text: String): Chip {
+        return Chip(this, null, R.style.Widget_BrainBuddy_Chip_Stat).apply {
+            this.text = text
+            isClickable = false
+            isCheckable = false
+        }
+    }
+
+    private fun setupAvatarGrid() {
         val ownedIds = store.getOwnedAvatarIds()
         currentSelectedId = store.getSelectedAvatarId()
         val mascots = AvatarCatalog.items().filter { it.category == AvatarCategory.MASCOT }
 
-        avatarPreview = findViewById(R.id.avatarPreview)
-        tvAvatarName = findViewById(R.id.tvAvatarName)
-
         updatePreview(mascots.find { it.id == currentSelectedId })
 
-        // Show avatar count
         val ownedCount = mascots.count { it.id in ownedIds }
         findViewById<TextView>(R.id.tvAvatarCount).text = "$ownedCount/${mascots.size}"
 
@@ -83,6 +170,24 @@ class StudentProfileActivity : AppCompatActivity() {
             }
         }
         recycler.adapter = adapter
+    }
+
+    private fun setupNavigation() {
+        findViewById<View>(R.id.btnAvatarShop).setOnClickListener {
+            startActivity(Intent(this, AvatarShopScreen::class.java))
+        }
+        findViewById<View>(R.id.tvGoalEdit).setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+        findViewById<MaterialCardView>(R.id.cardSettings).setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+        findViewById<MaterialCardView>(R.id.cardLeague).setOnClickListener {
+            startActivity(Intent(this, LeagueScreen::class.java))
+        }
+        findViewById<MaterialCardView>(R.id.cardPremium).setOnClickListener {
+            PremiumPaywallSheet().show(supportFragmentManager, PremiumPaywallSheet.TAG)
+        }
     }
 
     private fun updatePreview(item: AvatarItem?) {
@@ -123,6 +228,23 @@ class StudentProfileActivity : AppCompatActivity() {
         })
 
         shrink.start()
+    }
+
+    private fun personTitleFor(careerName: String): String = when (careerName) {
+        "MEDICINE" -> "Doktor"
+        "DENTISTRY" -> "Diş Hekimi"
+        "ENGINEERING" -> "Mühendis"
+        "COMPUTER_SCIENCE" -> "Yazılımcı"
+        "ARCHITECTURE" -> "Mimar"
+        "ECONOMICS" -> "Ekonomist"
+        "LAW" -> "Avukat"
+        "PHARMACY" -> "Eczacı"
+        "BIOLOGY" -> "Biyolog"
+        "PSYCHOLOGY" -> "Psikolog"
+        "VETERINARY" -> "Veteriner"
+        "MATHEMATICS" -> "Matematikçi"
+        "DESIGN" -> "Tasarımcı"
+        else -> "Öğrenci"
     }
 }
 
