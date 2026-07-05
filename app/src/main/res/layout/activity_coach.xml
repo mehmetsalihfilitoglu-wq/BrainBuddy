@@ -1,68 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:background="@drawable/bg_gradient">
+    android:background="@color/white"
+    android:overScrollMode="never">
 
-    <TextView
-        android:id="@+id/tvCoachTitle"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Koç Önerisi"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/bb_text_dark"/>
+        android:orientation="vertical"
+        android:paddingStart="@dimen/space_24"
+        android:paddingEnd="@dimen/space_24"
+        android:paddingTop="@dimen/space_16"
+        android:paddingBottom="@dimen/space_32">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Günlük Öneri"
-        android:textSize="14sp"
-        android:textStyle="bold"/>
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/tvDailyRec"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:padding="12dp"
-        android:background="@drawable/bg_badge"
-        android:textColor="@color/white"
-        android:textSize="15sp"/>
+            <Button
+                android:id="@+id/btnCoachBack"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/coach_back"
+                android:textColor="@color/textSecondary"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Haftalık Plan"
-        android:textSize="14sp"
-        android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvCoachTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/coach_screen_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary"
+                android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/tvWeeklyPlan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:padding="12dp"
-        android:background="@drawable/bg_badge"
-        android:textColor="@color/white"
-        android:textSize="14sp"/>
+            <!-- Spacer to balance back button -->
+            <View
+                android:layout_width="64dp"
+                android:layout_height="1dp"/>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btnRemedial"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Mini Tekrar Testi"
-        android:visibility="gone"/>
+        <!-- Daily recommendation card -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coach_daily_label"
+            android:textSize="10sp"
+            android:textColor="@color/emerald"
+            android:letterSpacing="0.12"
+            android:layout_marginTop="@dimen/space_24"
+            android:layout_marginBottom="@dimen/space_12"/>
 
-    <Button
-        android:id="@+id/btnCoachBack"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Geri"/>
-</LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/app_card_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16"
+                android:background="@drawable/bg_onboarding_welcome">
+
+                <TextView
+                    android:id="@+id/tvDailyRec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="16sp"
+                    android:lineSpacingMultiplier="1.4"
+                    android:textColor="@color/white"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRemedial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:text="@string/coach_remedial_btn"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    style="@style/Widget.MaterialComponents.Button"
+                    app:backgroundTint="@color/white"
+                    android:textColor="@color/emerald"
+                    app:cornerRadius="10dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Weekly plan card -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coach_weekly_label"
+            android:textSize="10sp"
+            android:textColor="@color/emerald"
+            android:letterSpacing="0.12"
+            android:layout_marginTop="@dimen/space_24"
+            android:layout_marginBottom="@dimen/space_12"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/emeraldSoft">
+
+            <TextView
+                android:id="@+id/tvWeeklyPlan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_16"
+                android:text="—"
+                android:textSize="14sp"
+                android:lineSpacingMultiplier="1.5"
+                android:textColor="@color/textPrimary"/>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

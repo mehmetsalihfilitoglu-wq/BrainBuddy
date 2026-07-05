@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Barjin</string>
-    <string name="parent_title">Pannello Genitori</string>
+    <string name="app_name">MioAcademy</string>
     <string name="settings_title">Impostazioni</string>
     <string name="gate_title">Quiz Richiesto</string>
-    <string name="gate_quiz_required">Devi superare il quiz per usare le app bloccate.</string>
+    <string name="gate_quiz_required">Completa un quiz per continuare a esercitarti.</string>
     <string name="btn_start_quiz">Inizia Quiz</string>
-    <string name="lock_failed_title">Test Fallito</string>
-    <string name="lock_failed_message">Più di 3 risposte sbagliate. App bloccata fino al superamento.</string>
-    <string name="lock_permission_title">Permesso di blocco disabilitato</string>
-    <string name="lock_permission_message">Il permesso di blocco app è stato disabilitato. PIN genitore può correggere.</string>
-    <string name="btn_parent_unlock">Sblocca con PIN genitore</string>
+    <string name="lock_failed_title">Continua a esercitarti</string>
+    <string name="lock_failed_message">Non ancora — prova un altro round per migliorare il punteggio.</string>
+    <string name="lock_permission_title">Autorizzazione richiesta</string>
+    <string name="lock_permission_message">Manca un\'autorizzazione richiesta. Controlla le Impostazioni per continuare.</string>
+    <string name="btn_parent_unlock">Apri Impostazioni</string>
     <string name="btn_practice">Pratica (Mini Test)</string>
     <string name="perm_checklist_title">Permessi</string>
     <string name="perm_status_ok">OK</string>
@@ -24,17 +23,6 @@
     <string name="report_daily">Giornaliero</string>
     <string name="report_weekly">Settimanale</string>
     <string name="report_share">Condividi Report</string>
-    <string name="report_share_locked_btn">🔒 Condividi Report (Premium)</string>
-    <string name="report_share_locked_desc_title">Condividi il tuo rapporto dettagliato sulle prestazioni:</string>
-    <string name="report_share_locked_bullet_1">✦ Analizza tutte le domande sbagliate</string>
-    <string name="report_share_locked_bullet_2">✦ Scopri in quali materie sei bravo</string>
-    <string name="report_share_locked_bullet_3">✦ Identifica le aree in cui hai bisogno di supporto</string>
-    <string name="report_share_locked_bullet_4">✦ Analizza i tassi di successo per argomento</string>
-    <string name="report_share_locked_bullet_5">✦ Valuta la tua gestione del tempo</string>
-    <string name="report_share_locked_bullet_6">✦ Monitora i tuoi progressi con i grafici</string>
-    <string name="report_share_locked_bullet_7">✦ Confronta le prestazioni nella classifica</string>
-    <string name="report_share_locked_footer">Con Premium, puoi condividere facilmente questo rapporto con il tuo genitore o insegnante.</string>
-    <string name="report_share_locked_cta">Vai Premium</string>
     <string name="schedule_title">Programmi</string>
     <string name="profiles_title">Profili</string>
     <string name="profile_select">Seleziona Profilo</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Barjin</string>
+    <string name="app_name">MioAcademy</string>
     <string name="test_preparing">Test hazırlanıyor…</string>
 
     <!-- Quiz Screen -->
@@ -13,11 +13,11 @@
     <string name="quiz_go_home">Ana Sayfaya Dön</string>
     <string name="quiz_pool_insufficient">Soru havuzu yetersiz</string>
     <string name="quiz_no_wrong_answers">Yanlış cevaplanan soru yok. Önce bir test çöz!</string>
-    <string name="quiz_pool_insufficient_detail">Soru havuzu yetersiz (en az %1$d soru gerekli). Veli: Soru paketi ekleyin veya içe aktarın.</string>
+    <string name="quiz_pool_insufficient_detail">Soru havuzu yetersiz (en az %1$d soru gerekli).</string>
     <string name="quiz_pool_limited_detail">Soru havuzu yetersiz (%1$d soru mevcut, en az %2$d gerekli).</string>
     <string name="quiz_oom_error">Bellek yetersiz. Uygulamayı yeniden başlatın.</string>
-    <string name="quiz_pool_limited_warning">Soru havuzu sınırlı. Veli: Daha fazla soru paketi ekleyin.</string>
-    <string name="quiz_shorter_test_notice">Daha kısa bir test hazırlandı (%1$d soru).</string>
+    <string name="quiz_pool_limited_warning">Soru havuzu sınırlı.</string>
+    <string name="quiz_shorter_test_notice">Soru havuzu sınırlı — %1$d soru ile devam ediliyor.</string>
 
     <!-- Quiz Result Screen -->
     <string name="quiz_result_congrats">Tebrikler!</string>
@@ -57,6 +57,43 @@
     <string name="home_reward_title">Ödül!</string>
     <string name="home_reward_ok">Tamam</string>
 
+    <!-- GrowthHub Phase 2E -->
+    <string name="progress_title">İlerleme</string>
+    <string name="progress_hero_title">🇮🇹 İtalya Yolculuğun</string>
+    <string name="progress_hero_subtitle">Hazırlık Seviyesi · Günlük tutarlılık</string>
+    <string name="progress_topic_section">KONU PERFORMANSI</string>
+    <string name="progress_strong_topics">Güçlü Konular</string>
+    <string name="progress_weak_topics">Geliştirilecek Konular</string>
+    <string name="progress_no_data_yet">Henüz yeterli veri yok. Pratik yaptıkça görünecek.</string>
+    <string name="progress_more_section">DAHA FAZLA</string>
+    <string name="progress_detailed_stats">Detaylı İstatistikler</string>
+    <string name="progress_detailed_stats_sub">Grafik ve trend analizi</string>
+    <string name="progress_league">Lig</string>
+    <string name="progress_league_sub">Haftalık sıralama</string>
+    <string name="progress_weekly_chest">Haftalık Sandık</string>
+    <string name="progress_weekly_chest_sub">Donma jetonu kazan</string>
+    <string name="progress_chest_xp_hint">Daha fazla XP kazanın (Silver: 80, Gold: 150)</string>
+
+    <!-- StudyHub Phase 2D -->
+    <string name="study_hub_title">Öğren</string>
+    <string name="study_hub_btn_practice">Tüm Konularda Pratik Yap</string>
+    <string name="study_hub_subjects_header">KONU ALANLARI</string>
+    <string name="study_hub_subject_action">Bu konuda pratik yap</string>
+    <string name="study_hub_stats_accuracy">Doğruluk</string>
+    <string name="study_hub_stats_tests">Test</string>
+    <string name="study_hub_stats_questions">Soru</string>
+    <string name="study_hub_coach_label">Koç Önerisi</string>
+    <string name="study_hub_coach_tip">%1$s konusunda güçlenebilirsin (%2$d%% doğruluk). Bugün bu konuya odaklan.</string>
+
+    <!-- Home Phase 2C: Mission + Nav -->
+    <string name="home_mission_label">BUGÜNKÜ GÖREV</string>
+    <string name="home_mission_btn_start">Göreve Başla →</string>
+    <string name="home_mission_btn_continue">Devam Et →</string>
+    <string name="home_mission_btn_done">Bugün Tamamlandı ✓</string>
+    <string name="home_nav_study">Öğren</string>
+    <string name="home_nav_progress">İlerleme</string>
+    <string name="home_nav_profile">Profil</string>
+
     <!-- Stats Screen -->
     <string name="stats_level">Seviye %1$d</string>
     <string name="stats_xp">%1$d XP</string>
@@ -87,76 +124,17 @@
     <string name="wrong_pool_premium_title">Premium Özellik</string>
     <string name="wrong_pool_premium_message">Yanlışlarını tekrar çözmek için premium üyelik gerekiyor.</string>
     <string name="wrong_pool_card_empty_sub">Henüz yanlışın yok 🎉</string>
-    <string name="wise_coach_default">Her gün biraz daha ileri.</string>
+    <string name="wise_coach_default">Her gün küçük bir adım, seni İtalya\'ya taşır.</string>
 
-    <!-- Parent & Settings -->
-    <string name="parent_title">Ebeveyn Paneli</string>
-    <string name="parent_hub_title">Veli Paneli</string>
-    <string name="parent_summary_screen_time">Bugün ekran süresi</string>
-    <string name="parent_summary_tests">Bugün test</string>
-    <string name="parent_summary_blocked">Engellenen uygulama</string>
-    <string name="parent_summary_due_wrong">Bugün tekrar sorulacak yanlışlar</string>
-    <string name="parent_summary_minutes_value">%1$d dk</string>
-    <string name="parent_card_screen_time">Ekran Süresi</string>
-    <string name="parent_card_screen_time_sub">Limitler ve uyku modu</string>
-    <string name="parent_card_blocked_apps">Engellenen Uygulamalar</string>
-    <string name="parent_card_blocked_apps_sub">Uygulama seç ve engelle</string>
-    <string name="parent_card_tests">Test &amp; Eğitim</string>
-    <string name="parent_card_tests_sub">Ayarlar ve eğitim modülleri</string>
-    <string name="parent_card_reports">Raporlar</string>
-    <string name="parent_card_reports_sub">Grafikler ve analiz</string>
-    <string name="parent_card_security">Güvenlik &amp; PIN</string>
-    <string name="parent_card_security_sub">PIN ve izin kontrolleri</string>
-    <string name="parent_status_screen_time">Bugün engelleme denemeleri: %d</string>
-    <string name="parent_status_gate_pass">Geçiş oranı (7 gün): %s%%</string>
-    <string name="parent_gamification">Oyunlaştırma</string>
-    <string name="parent_weekly_summary">Haftalık Özet (Son 7 Gün)</string>
-    <string name="parent_performance">Performans</string>
-    <string name="parent_controls">Kontroller</string>
-    <string name="parent_review_wrong">Yanlış Cevapları İncele</string>
-    <string name="parent_review_wrong_sub">Doğru cevapları sadece veli görür</string>
-    <string name="parent_blocked_apps">Engellenen Uygulamalar</string>
-    <string name="parent_blocked_apps_sub">Seçili uygulamaları yönet</string>
-    <string name="parent_time_settings">Süre Ayarları</string>
-    <string name="parent_time_settings_sub">30/45/60 dk ve periyot</string>
-    <string name="parent_question_packs">Soru Paketleri</string>
-    <string name="parent_question_packs_sub">LGS / TYT / AYT / 1–7. sınıf</string>
-    <string name="parent_avatar_shop">Avatar Satın Alma</string>
-    <string name="parent_avatar_shop_sub">Avatar mağazası açık/kapalı</string>
-    <string name="parent_permissions">İzinler</string>
-    <string name="parent_permissions_sub">Erişilebilirlik, Kullanım, Pil</string>
-    <string name="parent_change_pin">PIN Değiştir</string>
-    <string name="parent_change_pin_sub">Ebeveyn PIN\'ini güncelle</string>
-    <string name="parent_settings">Ayarlar</string>
-    <string name="parent_settings_sub">Tüm ayarlara erişim</string>
-    <string name="quick_settings_title">Hızlı Ayarlar</string>
-    <string name="quick_settings_blocked_apps">Engellenecek Uygulamalar</string>
-    <string name="quick_settings_profiles">Profiller</string>
-    <string name="parent_quick_test">Test</string>
-    <string name="parent_quick_success">Başarı</string>
-    <string name="parent_quick_deneme">Deneme</string>
-    <string name="parent_weekly_success">Haftalık Başarı</string>
-    <string name="parent_topic_performance">Konulara Göre (Doğru/Toplam)</string>
-    <string name="parent_strong_topics">En güçlü 3 konu</string>
-    <string name="parent_weak_topics">Çalışılması gereken 3 konu</string>
-    <string name="parent_last_update">Son güncelleme: %1$s</string>
-    <string name="parent_no_wrong_yet">Henüz inceleyecek yanlış cevap yok</string>
-    <string name="parent_no_wrong_record">Henüz yanlış cevap kaydı yok.</string>
-    <string name="parent_review_wrong_desc">En çok yanlış yapılan konuları veli olarak inceleyebilirsiniz.</string>
+    <!-- Settings -->
     <string name="btn_detail">Detaya Git</string>
     <string name="close">Kapat</string>
     <string name="settings_title">Ayarlar</string>
-    <string name="parent_permission_required">Ebeveyn izni gerekiyor</string>
 
     <!-- Settings sections (with icons) -->
-    <string name="settings_section_protection">🔐 Koruma Ayarları</string>
-    <string name="settings_section_protection_advanced">Gelişmiş Koruma Ayarları</string>
-    <string name="settings_section_protection_advanced_sub">Veli Paneli\'nde hızlı erişim de mevcut</string>
     <string name="settings_section_education">🎓 Öğrenci &amp; Eğitim</string>
     <string name="settings_section_reports">📊 Raporlar &amp; Veri</string>
     <string name="settings_section_customization">🎨 Özelleştirme</string>
-    <string name="settings_protection_on">Uygulama engelleme açık</string>
-    <string name="settings_protection_sub">Engelleme özelliğini etkinleştir veya kapat</string>
     <string name="settings_quiz_interval">Quiz aralığı</string>
     <string name="settings_quiz_interval_sub">Test aralığını belirle (30/45/60 dk)</string>
     <string name="settings_min_success_rate">Minimum başarı oranı</string>
@@ -165,11 +143,6 @@
     <string name="success_rate_60">%60</string>
     <string name="success_rate_70">%70</string>
     <string name="success_rate_80">%80</string>
-    <string name="settings_permissions_title">Erişilebilirlik / Kullanım izinleri</string>
-    <string name="settings_permissions_sub">Erişilebilirlik ve kullanım izinlerini yönet</string>
-    <string name="settings_system_health_sub">İzinler ve koruma durumunu kontrol et</string>
-    <string name="settings_blocked_apps">Engellenen Uygulamalar</string>
-    <string name="settings_blocked_apps_sub">Engellenecek uygulamaları seç ve yönet</string>
     <string name="settings_time_limits">Zaman Limitleri</string>
     <string name="settings_time_limits_sub">Günlük kullanım limitlerini ayarla</string>
     <string name="settings_schedules_sub">Zaman dilimlerine göre kurallar tanımla</string>
@@ -180,16 +153,7 @@
     <string name="settings_grade_level">Sınıf Seviyesi</string>
     <string name="settings_grade_level_sub">Testte sadece bu sınıfın soruları gelir (zorunlu)</string>
     <string name="grade_selected_label">Seçili Sınıf: %1$d. Sınıf</string>
-    <string name="grade_selected_junior">Seçili Sınıf: Junior</string>
     <string name="grade_selected_none">Seçili Sınıf: -</string>
-    <string name="mode_selected_lgs">Seçili Mod: LGS</string>
-    <string name="settings_mode_section_title">Mod</string>
-    <string name="settings_mode_section_sub_lgs">LGS veya Sınıf modu seçin</string>
-    <string name="grade_required_toast">Test başlatmak için önce sınıf seçimi yapın.</string>
-    <string name="settings_exam_packs">Sınav Paketleri (LGS/TYT/AYT)</string>
-    <string name="settings_exam_packs_sub">LGS, TYT, AYT sınav paketleri</string>
-    <string name="settings_junior_title">Barjin Junior</string>
-    <string name="settings_junior_sub">1. sınıf okuma-yazma modülü</string>
     <string name="pool_status_title_format">Soru Havuzu Durumu (%1$s)</string>
     <string name="pool_status_title_default">Soru Havuzu Durumu</string>
     <string name="pool_status_button_format">Havuz Durumu (%1$s)</string>
@@ -215,7 +179,6 @@
     <string name="settings_theme_sub">Tema seçenekleri (yakında)</string>
     <string name="settings_section_about">Hakkında</string>
     <string name="settings_privacy_sub">Gizlilik politikamızı inceleyin</string>
-    <string name="settings_accessibility_usage_sub">Barjin erişilebilirlik kullanımı hakkında</string>
     <string name="interval_30">30 dk</string>
     <string name="interval_45">45 dk</string>
     <string name="interval_60">60 dk</string>
@@ -226,72 +189,12 @@
     <string name="settings_motivation">Motivasyon bildirimleri</string>
     <string name="settings_motivation_sub">Günlük hatırlatma bildirimleri</string>
 
-    <!-- PIN -->
-    <string name="pin_len_4">4 haneli PIN</string>
-    <string name="pin_len_6">6 haneli PIN</string>
-    <string name="enter_pin">PIN gir</string>
-    <string name="confirm_pin">PIN tekrar</string>
-    <string name="unlock">Kilidi Aç</string>
-    <string name="set_pin">PIN Ayarla</string>
-    <string name="pin_saved">PIN kaydedildi</string>
-
-    <string name="pin_length_error">PIN uzunluğu hatalı</string>
-    <string name="pin_length_error_generic">PIN 4 veya 6 haneli olmalı</string>
-    <string name="pin_mismatch">PINler eslesmiyor</string>
-    <string name="pin_incorrect">PIN yanlış</string>
-
-    <!-- Accessibility -->
-    <string name="protection_inactive_title">Koruma Kapalı</string>
-    <string name="protection_inactive_body">
-        Uygulama engelleme aktif değil. Lütfen Erişilebilirlik iznini aç.
-    </string>
-    <string name="open_accessibility_settings">
-        Erişilebilirlik Ayarlarını Aç
-    </string>
-    <string name="accessibility_service_desc">
-        Uygulama engelleme ve odak modu için gerekli servis
-    </string>
-
     <!-- Quiz -->
     <string name="quiz_title">Test</string>
     <string name="submit_answer">Cevapla</string>
     <string name="next_question">Sonraki</string>
     <string name="btn_start_quiz">Teste Başla</string>
     <string name="btn_practice">Pratik Yap (Mini Test)</string>
-
-    <!-- Gate -->
-    <string name="gate_title">Sınava Gerek Var</string>
-    <string name="gate_quiz_required">Engellenen uygulamayı kullanmak için önce testi geçmelisin.</string>
-
-    <!-- Lock screen -->
-    <string name="lock_failed_title">BAŞARISIZ</string>
-    <string name="lock_failed_message">Sorular zor olabilir. Birlikte güçleneceğiz.</string>
-    <string name="lock_permission_title">Engelleme İzni Kapatıldı</string>
-    <string name="lock_permission_message">Uygulama engelleme izni kapatıldı. Ebeveyn PIN\'i ile ayarlardan yeniden açabilirsiniz.</string>
-    <string name="btn_parent_unlock">Ebeveyn PIN ile Aç</string>
-    <string name="btn_emergency_unlock">Acil Durum Kodu ile Aç</string>
-    <string name="emergency_unlock_title">Acil Durum Kilidi Açma</string>
-    <string name="emergency_unlock_subtitle">Gate veya ekran takılıysa, acil durum kodunuzla veli alanına erişin.</string>
-    <string name="emergency_code_hint">Acil durum kodu (min. 6 karakter)</string>
-    <string name="emergency_unlock_btn">Kilidi Aç</string>
-    <string name="emergency_back">Geri</string>
-    <string name="emergency_code_too_short">Kod en az 6 karakter olmalı</string>
-    <string name="emergency_code_incorrect">Kod yanlış</string>
-
-    <!-- Permissions checklist -->
-    <string name="perm_checklist_title">İzin Kontrolü</string>
-    <string name="perm_accessibility">Erişilebilirlik (Zorunlu)</string>
-    <string name="perm_usage">Kullanım Erişimi (Opsiyonel)</string>
-    <string name="perm_notification">Bildirimler (Opsiyonel)</string>
-    <string name="perm_battery">Pil Optimizasyonu Dışı (Önerilen)</string>
-    <string name="perm_status_ok">Aktif</string>
-    <string name="perm_status_missing">Eksik</string>
-    <string name="perm_status_optional">Opsiyonel</string>
-    <string name="perm_status_recommended">Önerilen</string>
-    <string name="perm_enable">Etkinleştir</string>
-    <string name="perm_recheck">Kontrol Et</string>
-    <string name="perm_open_settings">Ayarları Aç</string>
-    <string name="perm_device_owner_note">Tam kısıtlama için Cihaz Sahibi modu gerekir.</string>
 
     <!-- Results -->
     <string name="results_title">Sonuçlar</string>
@@ -317,6 +220,17 @@
     <string name="report_pdf_error_share_file">Hata Dosyasını Paylaş</string>
     <string name="report_create_error">Rapor oluşturulamadı</string>
     <string name="report_no_data">Henüz rapor oluşturacak veri yok</string>
+    <string name="report_share_locked_btn">🔒 Raporu Paylaş (Premium)</string>
+    <string name="report_share_locked_desc_title">Detaylı performans raporunu paylaş:</string>
+    <string name="report_share_locked_bullet_1">✦ Yaptığın tüm yanlış soruları analiz et</string>
+    <string name="report_share_locked_bullet_2">✦ Hangi konularda güçlü olduğunu gör</string>
+    <string name="report_share_locked_bullet_3">✦ Hangi alanlarda desteğe ihtiyacın olduğunu keşfet</string>
+    <string name="report_share_locked_bullet_4">✦ Konu bazlı başarı oranını incele</string>
+    <string name="report_share_locked_bullet_5">✦ Zaman yönetimini değerlendir</string>
+    <string name="report_share_locked_bullet_6">✦ Gelişim grafiğinle ilerlemeni takip et</string>
+    <string name="report_share_locked_bullet_7">✦ Lig ve sıralama performansını karşılaştır</string>
+    <string name="report_share_locked_footer">Premium ile bu raporu danışmanınla veya öğretmeninle kolayca paylaşabilirsin.</string>
+    <string name="report_share_locked_cta">Premium\'a Geç</string>
     <string name="trend_chart_title">Son 10 Test Başarı Oranı</string>
     <string name="trend_chart_caption">Her nokta 1 testtir. Başarı = doğru / (doğru + yanlış). Boşlar başarıya dahil edilmez.</string>
     <string name="trend_empty_test_warning">En az 1 soru cevaplanmalı (tam boş testler grafikte gösterilmez)</string>
@@ -325,11 +239,8 @@
     <string name="reports_empty_generic">Bu aralıkta veri yok. Test çözünce burada görünecek.</string>
     <string name="topics_caption">Her bar bir konudur. Doğru/toplam oranı.</string>
 
-    <!-- Reports - recent tests & apps -->
+    <!-- Reports - recent tests -->
     <string name="recent_test_title_format">Test %1$d</string>
-    <string name="reports_top_apps_title">En çok denenen uygulamalar</string>
-    <string name="reports_top_apps_empty_title">Henüz uygulama denemesi yok</string>
-    <string name="reports_top_apps_empty_subtitle">Öğrenci engellenen uygulamaları kullanmaya çalıştığında burada görünecek.</string>
 
     <!-- Performance Analysis card -->
     <string name="performance_analysis_title">Performans Analizi</string>
@@ -367,7 +278,7 @@
     <!-- Backup -->
     <string name="backup_export">Yedek Al</string>
     <string name="backup_import">Yedekten Geri Yükle</string>
-    <string name="backup_import_summary">%1$d profil, %2$d engellenen uygulama</string>
+    <string name="backup_import_summary">%1$d profil</string>
 
     <!-- Schedule -->
     <string name="schedule_title">Zaman Çizelgeleri</string>
@@ -377,34 +288,6 @@
 
     <!-- Profile -->
     <string name="profile_add">Profil Ekle</string>
-
-    <!-- Protection notification -->
-    <string name="notif_channel_protection">Barjin Koruma</string>
-    <string name="notif_channel_monitor">Erişilebilirlik İzleme</string>
-    <string name="notif_monitor_title">Barjin koruması aktif</string>
-    <string name="notif_monitor_text">Erişilebilirlik izni izleniyor</string>
-    <string name="notif_protection_off_title">Barjin koruması kapalı!</string>
-    <string name="notif_protection_off_text">Erişilebilirlik izni kapatıldı. Dokunarak ayarlardan yeniden açın.</string>
-
-    <string name="privacy_policy_title">Gizlilik Politikası</string>
-    <string name="privacy_view_on_web">Web\'de görüntüle</string>
-    <string name="accessibility_usage_title">Erişilebilirlik Kullanımı</string>
-    <string name="accessibility_usage_explanation">Barjin, uygulama engelleme özelliği için Android Erişilebilirlik Hizmeti kullanır. Bu izin yalnızca engellenen uygulamaların ekranda açılıp açılmadığını tespit etmek ve test geçmeden kullanılmasını engellemek amacıyla kullanılır. Hiçbir kişisel veri toplanmaz veya üçüncü taraflarla paylaşılmaz. Tüm veriler cihazınızda kalır.</string>
-
-    <!-- App presets -->
-    <string name="preset_all">Tümü</string>
-    <string name="preset_social">Sosyal</string>
-    <string name="preset_games">Oyunlar</string>
-    <string name="preset_browsers">Tarayıcılar</string>
-    <string name="preset_quick_presets">Hızlı Presetler</string>
-    <string name="blocked_apps_search_hint">Uygulama ara…</string>
-    <string name="preset_social_media">Sosyal Medya</string>
-    <string name="preset_social_confirm_title">Sosyal medya uygulamaları engellensin mi?</string>
-    <string name="preset_confirm_block">Engelle</string>
-    <string name="preset_cancel">İptal</string>
-    <string name="preset_none_found">Bu preset için cihazda uygulama bulunamadı.</string>
-    <string name="preset_blocked_success">Uygulamalar engellendi</string>
-    <string name="preset_single_select">Tek tek seç</string>
 
     <!-- Auth -->
     <string name="auth_login_title">Giriş Yap</string>
@@ -421,57 +304,37 @@
     <string name="auth_password_short">Şifre en az 6 karakter olmalı</string>
     <string name="auth_password_mismatch">Şifreler eşleşmiyor</string>
 
-    <!-- Email Reports -->
-    <string name="report_ready_title">Barjin Raporu Hazır</string>
+    <!-- Reports notifications -->
+    <string name="report_ready_title">MioAcademy Raporu Hazır</string>
     <string name="report_ready_text">Dokunarak manuel gönderebilirsiniz</string>
     <string name="report_channel_name">Raporlar</string>
     <string name="report_share_prompt">Raporu Gönder</string>
-    <string name="report_share_locked_btn">🔒 Raporu Paylaş (Premium)</string>
-    <string name="report_share_locked_desc_title">Detaylı performans raporunu paylaş:</string>
-    <string name="report_share_locked_bullet_1">✦ Yaptığın tüm yanlış soruları analiz et</string>
-    <string name="report_share_locked_bullet_2">✦ Hangi konularda güçlü olduğunu gör</string>
-    <string name="report_share_locked_bullet_3">✦ Hangi alanlarda desteğe ihtiyacın olduğunu keşfet</string>
-    <string name="report_share_locked_bullet_4">✦ Konu bazlı başarı oranını incele</string>
-    <string name="report_share_locked_bullet_5">✦ Zaman yönetimini değerlendir</string>
-    <string name="report_share_locked_bullet_6">✦ Gelişim grafiğinle ilerlemeni takip et</string>
-    <string name="report_share_locked_bullet_7">✦ Lig ve sıralama performansını karşılaştır</string>
-    <string name="report_share_locked_footer">Premium ile bu raporu velinle veya öğretmeninle kolayca paylaşabilirsin.</string>
-    <string name="report_share_locked_cta">Premium\'a Geç</string>
 
     <!-- Motivation notifications -->
     <string name="notif_motivation_channel">Motivasyon</string>
-    <string name="notif_daily_reminder_title">Barjin</string>
+    <string name="notif_daily_reminder_title">MioAcademy</string>
     <string name="notif_daily_reminder_text">Bugün test çözmedin</string>
-    <string name="notif_streak_title">Barjin</string>
+    <string name="notif_streak_title">MioAcademy</string>
     <string name="notif_streak_text">Seri bitiyor!</string>
+    <string name="notif_action_dismiss">Yoksay</string>
 
     <!-- System Health -->
     <string name="system_health_title">Sistem Sağlığı</string>
-    <string name="system_health_subtitle">İzinler ve koruma durumu</string>
+    <string name="system_health_subtitle">Bildirim ve erişim izinleri</string>
     <string name="health_last_checked">Son kontrol: %1$s</string>
     <string name="health_accessibility">Erişilebilirlik servisi</string>
     <string name="health_usage_stats">Kullanım istatistikleri izni</string>
     <string name="health_battery">Pil optimizasyonu dışı</string>
-    <string name="health_gate_test">Koruma testi</string>
-    <string name="health_gate_test_btn">Koruma Testi Başlat</string>
-    <string name="health_block_list">Engelleme listesi</string>
     <string name="health_fix">Düzelt</string>
     <string name="health_status_ok">Aktif</string>
     <string name="health_status_missing">Eksik</string>
     <string name="health_settings_fallback">Ayar ekranı açılamadı. Lütfen Ayarlar\'dan manuel kontrol edin.</string>
     <string name="health_all_ok">Tüm kontroller tamam</string>
 
-    <!-- New social app notification -->
-    <string name="notif_channel_social_preset">Yeni Uygulama Önerisi</string>
-    <string name="notif_new_social_title">Yeni uygulama</string>
-    <string name="notif_new_social_text">Yeni uygulama bulundu: %1$s. Engellemek ister misiniz?</string>
-    <string name="notif_action_block">Engelle</string>
-    <string name="notif_action_dismiss">Yoksay</string>
+    <string name="privacy_policy_title">Gizlilik Politikası</string>
+    <string name="privacy_view_on_web">Web\'de görüntüle</string>
+    <string name="accessibility_usage_title">Erişilebilirlik Kullanımı</string>
 
-    <!-- Improvement stats (parent) -->
-    <string name="parent_improvement_title">Gelişim Özeti</string>
-    <string name="parent_improvement_topic">%1$s: %2$d yanlış → %3$d düzeltildi</string>
-    <string name="parent_improvement_total">Toplam: %1$d yanlış → %2$d düzeltildi</string>
     <string name="student_encouragement">Bu konuda gelişiyorsun!</string>
 
     <!-- Navigation -->
@@ -484,6 +347,21 @@
     <string name="student_profile_avatars">Maskotunu Seç</string>
     <string name="btn_save">Kaydet</string>
 
+    <!-- Profile Screen (Phase 2F) -->
+    <string name="profile_screen_title">Profil</string>
+    <string name="profile_goal_section">HEDEFİM</string>
+    <string name="profile_goal_edit">Değiştir</string>
+    <string name="profile_achievements_section">BAŞARILARIM</string>
+    <string name="profile_achievements_empty">Henüz başarı kazanılmadı. Testleri çöz ve rozetler kazan!</string>
+    <string name="profile_avatars_section">MASKOTLARIM</string>
+    <string name="profile_avatar_shop">Mağaza →</string>
+    <string name="profile_more_section">DAHA FAZLA</string>
+    <string name="profile_settings">Ayarlar</string>
+    <string name="profile_league">Lig</string>
+    <string name="profile_premium">Premium</string>
+    <string name="profile_premium_sub">Sınırsız erişim ve özel içerikler</string>
+    <string name="profile_name_saved">Kaydedildi ✓</string>
+
     <!-- Last Test Replay -->
     <string name="btn_replay">Tekrar Çöz</string>
     <string name="replay_with_ad_remaining">Reklam izleyerek tekrar çöz (Kalan: %1$d/3)</string>
@@ -494,7 +372,7 @@
     <string name="wrong_review_unlimited">Sınırsız</string>
     <string name="wrong_review_remaining">Günlük kalan: %1$d</string>
     <string name="wrong_review_hint_watch_ad">Reklam izle → +1</string>
-    <string name="wrong_review_paywall_message">Günlük hakkın bitti. Reklam izleyerek +1 soru açabilir veya Premium ile sınırsız erişebilirsin.</string>
+    <string name="wrong_review_paywall_message">Günlük inceleme hakkın doldu. Reklam izleyerek +1 soru açabilir ya da Premium ile sınırsız çalışabilirsin.</string>
     <string name="wrong_review_btn_watch_ad">Reklam İzle (+1)</string>
     <string name="wrong_review_btn_premium">Premium\'a Geç</string>
     <string name="wrong_review_ad_failed">Reklam yüklenemedi, tekrar dene.</string>
@@ -516,17 +394,6 @@
     <string name="retry_cooldown_title">Bekle</string>
     <string name="retry_cooldown_message">30 dakika dolmadan tekrar deneyemezsin. Kalan süre: %1$s</string>
     <string name="retry_ad_info">Reklam izleyerek hemen tekrar dene (Kalan: %1$d/3)</string>
-
-    <!-- Kill Switch -->
-    <string name="kill_switch_banner_text">Koruma geçici kapalı</string>
-    <string name="kill_switch_toggle">Tüm Engellemeleri Geçici Kapat</string>
-    <string name="kill_switch_expire_15m">15 dakika</string>
-    <string name="kill_switch_expire_1h">1 saat</string>
-    <string name="kill_switch_expire_24h">24 saat</string>
-    <string name="kill_switch_expire_manual">Manuel kapatana kadar</string>
-
-    <!-- Parent hub summary -->
-    <string name="parent_today_screen_time_minutes">Bugün ekran süresi: %1$d dk</string>
 
     <!-- E-posta Raporları kurulum -->
     <string name="email_reports_setup_title">E-posta Raporları</string>
@@ -570,13 +437,21 @@
     <string name="result_premium_all_unlocked">Tüm yanlışlarını sınırsız incele</string>
 
     <!-- Premium paywall bottom sheet -->
-    <string name="paywall_title">Tüm yanlışlarını sınırsız incele</string>
-    <string name="paywall_benefit_no_ads">✔  Reklamsız deneyim</string>
-    <string name="paywall_benefit_unlimited">✔  Sınırsız yanlış inceleme</string>
-    <string name="paywall_benefit_solutions">✔  Detaylı çözümler ve ipuçları</string>
-    <string name="paywall_benefit_hints">✔  Tüm açıklamalar açık</string>
-    <string name="paywall_cta">Premium\'a Geç</string>
-    <string name="paywall_dismiss">Şimdilik değil</string>
+    <string name="paywall_title">İtalya yolculuğunu daha akıllı planla</string>
+    <string name="paywall_benefit_no_ads">✔  Reklamsız, odaklanmış çalışma ortamı</string>
+    <string name="paywall_benefit_unlimited">✔  Sınırsız yanlış soru incelemesi</string>
+    <string name="paywall_benefit_solutions">✔  Kariyer hedefine özel konu önerileri</string>
+    <string name="paywall_benefit_hints">✔  Detaylı açıklamalar ve ilerleme analizi</string>
+    <string name="paywall_benefit_exam">✔  Sınav odaklı kişisel hazırlık deneyimi</string>
+    <string name="paywall_cta">Premium\'a Geç →</string>
+    <string name="paywall_dismiss">Belki sonra</string>
+
+    <!-- Coach Screen (Phase 2G) -->
+    <string name="coach_screen_title">Akademi Koçun</string>
+    <string name="coach_daily_label">BUGÜNKÜ ÖNERİ</string>
+    <string name="coach_weekly_label">HAFTALIK PLAN</string>
+    <string name="coach_remedial_btn">Mini Tekrar Testi Başlat</string>
+    <string name="coach_back">Geri</string>
 
     <!-- Wrong Answers Report (from Reports screen) -->
     <string name="wrong_report_title">Yanlış Cevaplar</string>
@@ -601,6 +476,23 @@
     <string name="perf_insight_stable_weak">İstikrarlısın. %1$s konusunu geliştirmeyi dene.</string>
     <string name="perf_insight_stable">Performansın istikrarlı. Böyle devam!</string>
 
+    <!-- Labels kept for live layout/code references -->
+    <string name="parent_review_wrong">Yanlış Cevapları İncele</string>
+    <string name="grade_required_toast">Devam etmek için önce seviye seçimi yapın.</string>
+    <string name="lock_failed_message">Sorular zor olabilir. Her gün biraz daha ileri!</string>
+
+    <!-- Reports labels (kept for live layout/code references) -->
+    <string name="parent_weekly_success">Haftalık Başarı</string>
+    <string name="parent_topic_performance">Konulara Göre (Doğru/Toplam)</string>
+    <string name="parent_no_wrong_record">Henüz yanlış cevap kaydı yok.</string>
+    <string name="reports_top_apps_title">Konu Analizi</string>
+    <string name="reports_top_apps_empty_title">Henüz veri yok</string>
+    <string name="reports_top_apps_empty_subtitle">Test çözdükçe burada görünecek.</string>
+    <string name="perm_status_ok">Aktif</string>
+    <string name="perm_status_missing">Eksik</string>
+    <string name="perm_status_optional">Opsiyonel</string>
+    <string name="perm_status_recommended">Önerilen</string>
+
     <!-- Legal / onboarding -->
     <string name="legal_hub_title">Yasal Bilgiler</string>
     <string name="legal_hub_info">Yasal bilgiler ve kullanım koşullarını buradan inceleyebilirsiniz.</string>
@@ -613,9 +505,5 @@
     <string name="legal_data_usage_sub">Verileriniz yalnızca uygulama deneyiminizi iyileştirmek için kullanılır.</string>
     <string name="legal_ad_info_title">Reklam Bilgilendirmesi</string>
     <string name="legal_ad_info_sub">Uygulama Google AdMob reklamlarını kullanmaktadır.</string>
-    <string name="legal_parent_info_title">Ebeveyn Bilgilendirmesi</string>
-    <string name="legal_parent_info_sub">Çocuğunuzun uygulama kullanımını kontrol edebilirsiniz.</string>
-    <string name="parent_card_legal">Yasal Bilgiler</string>
-    <string name="parent_card_legal_sub">Gizlilik, koşullar ve yasal uyum</string>
 
 </resources>

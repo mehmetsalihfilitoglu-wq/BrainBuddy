@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nereye gitmek istiyorsun?"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birden fazla şehir seçebilirsin. Sonradan değiştirebilirsin."
+            android:textSize="14sp"
+            android:textColor="@color/textSecondary"
+            android:layout_marginBottom="20dp"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupCities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Le città italiane ti aspettano ✨"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-light-italic"
+            android:textStyle="italic"
+            android:textColor="@color/textSecondary"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

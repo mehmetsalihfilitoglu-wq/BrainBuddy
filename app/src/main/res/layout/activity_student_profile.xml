@@ -1,60 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
-    android:fillViewport="true">
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:overScrollMode="never">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingStart="@dimen/space_24"
+        android:paddingEnd="@dimen/space_24"
+        android:paddingTop="@dimen/space_16"
+        android:paddingBottom="@dimen/space_32">
 
-        <Button
-            android:id="@+id/btnBack"
-            style="@style/BBButtonAlt"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:text="@string/btn_back"/>
+        <!-- ─── HEADER ─── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <!-- Profile Card -->
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_arrow_back"
+                android:padding="6dp"
+                app:tint="@color/textSecondary"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:text="@string/profile_screen_title"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary"/>
+        </LinearLayout>
+
+        <!-- ─── IDENTITY HERO CARD ─── -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="6dp"
-            app:cardBackgroundColor="@color/bb_card">
+            android:layout_marginTop="@dimen/space_24"
+            app:cardCornerRadius="@dimen/app_card_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:strokeWidth="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp"
-                android:gravity="center_horizontal">
+                android:padding="@dimen/space_24"
+                android:gravity="center_horizontal"
+                android:background="@drawable/bg_onboarding_welcome">
 
-                <!-- Avatar Preview with ring -->
+                <!-- Avatar with ring -->
                 <FrameLayout
-                    android:layout_width="132dp"
-                    android:layout_height="132dp">
+                    android:layout_width="120dp"
+                    android:layout_height="120dp">
 
-                    <!-- Ring background -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_avatar_preview_ring"/>
 
-                    <!-- Avatar image -->
                     <ImageView
                         android:id="@+id/avatarPreview"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
+                        android:layout_width="88dp"
+                        android:layout_height="88dp"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
                         android:src="@drawable/avatar_mascot_brainy"
-                        android:contentDescription="Avatar"/>
+                        android:contentDescription="@null"/>
                 </FrameLayout>
 
                 <!-- Avatar name badge -->
@@ -62,95 +85,313 @@
                     android:id="@+id/tvAvatarName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/space_8"
                     android:text="Brainy"
-                    android:textSize="13sp"
-                    android:textColor="@color/bb_primary"
+                    android:textSize="12sp"
+                    android:textColor="@color/textPrimary"
                     android:textStyle="bold"
                     android:background="@drawable/bg_rarity_badge"
-                    android:backgroundTint="@color/emeraldSoft"
+                    android:backgroundTint="@color/white"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"/>
 
-                <EditText
-                    android:id="@+id/etDisplayName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:hint="@string/student_profile_name_hint"
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
-                    android:padding="14dp"
-                    android:background="@drawable/bg_edit"
-                    android:textSize="16sp"/>
-
-                <Button
-                    android:id="@+id/btnSaveName"
-                    style="@style/BBButton"
+                <!-- Student display name -->
+                <TextView
+                    android:id="@+id/tvDisplayName"
                     android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/btn_save"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:text="—"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
 
-                <!-- Stats row -->
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:layout_marginBottom="@dimen/space_16"
+                    android:background="#33FFFFFF"/>
+
+                <!-- Stats row: Streak | XP | Level -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center_vertical">
 
-                    <TextView
-                        android:id="@+id/tvLevel"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Seviye 1"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_primary"/>
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="•"
-                        android:textColor="@color/bb_text_muted"/>
+                        <TextView
+                            android:id="@+id/tvStreak"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
 
-                    <TextView
-                        android:id="@+id/tvXp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="0 XP"
-                        android:textSize="14sp"
-                        android:textColor="@color/bb_text"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔥 Seri"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_on_emerald_muted"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="•"
-                        android:textColor="@color/bb_text_muted"/>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="28dp"
+                        android:background="#33FFFFFF"/>
 
-                    <TextView
-                        android:id="@+id/tvStreak"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:textSize="14sp"
-                        android:textColor="@color/bb_text"/>
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvXp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⭐ XP"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_on_emerald_muted"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="28dp"
+                        android:background="#33FFFFFF"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvLevel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Seviye"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_on_emerald_muted"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Avatar section header -->
+        <!-- ─── NAME EDIT CARD ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/emeraldSoft">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/space_16"
+                android:paddingEnd="@dimen/space_12"
+                android:paddingTop="@dimen/space_8"
+                android:paddingBottom="@dimen/space_8">
+
+                <android.widget.EditText
+                    android:id="@+id/etDisplayName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/student_profile_name_hint"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textSize="15sp"
+                    android:textColor="@color/textPrimary"
+                    android:background="@null"
+                    android:padding="@dimen/space_8"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="@string/btn_save"
+                    android:textSize="13sp"
+                    style="@style/Widget.MaterialComponents.Button"
+                    app:backgroundTint="@color/emerald"
+                    app:cornerRadius="8dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── HEDEFIM CARD ─── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_goal_section"
+            android:textSize="10sp"
+            android:textColor="@color/emerald"
+            android:letterSpacing="0.12"
+            android:layout_marginTop="@dimen/space_24"
+            android:layout_marginBottom="@dimen/space_12"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/emeraldSoft">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
+
+                <!-- Career identity row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvCareerGoal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🎓 Gelecekteki Öğrenci"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/textPrimary"/>
+
+                    <TextView
+                        android:id="@+id/tvGoalEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_goal_edit"
+                        android:textSize="11sp"
+                        android:textColor="@color/emerald"
+                        android:paddingStart="@dimen/space_8"/>
+                </LinearLayout>
+
+                <!-- Italian degree -->
+                <TextView
+                    android:id="@+id/tvGoalDegree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="4dp"/>
+
+                <!-- Destination cities -->
+                <TextView
+                    android:id="@+id/tvGoalCities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+
+                <!-- Exam type + Italian level chips -->
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupGoalMeta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    app:chipSpacingVertical="4dp"
+                    app:singleLine="true"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── ACHIEVEMENTS ─── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_achievements_section"
+            android:textSize="10sp"
+            android:textColor="@color/emerald"
+            android:letterSpacing="0.12"
+            android:layout_marginTop="@dimen/space_24"
+            android:layout_marginBottom="@dimen/space_12"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/emeraldSoft">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupBadges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingVertical="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvBadgesEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_achievements_empty"
+                    android:textSize="12sp"
+                    android:textColor="@color/textSecondary"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── AVATAR SECTION ─── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginTop="@dimen/space_24"
+            android:layout_marginBottom="@dimen/space_8"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
@@ -158,65 +399,198 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/student_profile_avatars"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/bb_text"/>
+                android:text="@string/profile_avatars_section"
+                android:textSize="10sp"
+                android:textColor="@color/emerald"
+                android:letterSpacing="0.12"/>
 
             <TextView
                 android:id="@+id/tvAvatarCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:textColor="@color/bb_text_muted"/>
+                android:textSize="11sp"
+                android:textColor="@color/textSecondary"/>
+
+            <TextView
+                android:id="@+id/btnAvatarShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_12"
+                android:text="@string/profile_avatar_shop"
+                android:textSize="12sp"
+                android:textColor="@color/emerald"
+                android:textStyle="bold"
+                android:padding="4dp"/>
         </LinearLayout>
 
-        <!-- Avatar progression info card -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/divider_light"
-            app:cardBackgroundColor="@color/bb_card">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="XP kazandıkça yeni avatarların kilidi açılır."
-                    android:textSize="12sp"
-                    android:textColor="@color/bb_text_muted"/>
-
-                <TextView
-                    android:id="@+id/tvNextUnlock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/bb_primary"
-                    android:textStyle="bold"
-                    android:visibility="gone"/>
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Avatar grid -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerAvatars"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:clipToPadding="false"
-            android:paddingBottom="16dp"
+            android:paddingBottom="@dimen/space_8"
             android:nestedScrollingEnabled="false"/>
+
+        <!-- ─── QUICK LINKS ─── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_more_section"
+            android:textSize="10sp"
+            android:textColor="@color/emerald"
+            android:letterSpacing="0.12"
+            android:layout_marginTop="@dimen/space_24"
+            android:layout_marginBottom="@dimen/space_12"/>
+
+        <!-- Settings -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/emeraldSoft">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_settings"
+                    app:tint="@color/emerald"
+                    android:contentDescription="@null"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:text="@string/profile_settings"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="@color/textSecondary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- League -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardLeague"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/emeraldSoft">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:text="🏅"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:text="@string/profile_league"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="@color/textSecondary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Premium -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPremium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/emeraldSoft">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_16"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:text="👑"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/space_12"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvPremiumLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_premium"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/textPrimary"/>
+
+                    <TextView
+                        android:id="@+id/tvPremiumSub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_premium_sub"
+                        android:textSize="11sp"
+                        android:textColor="@color/textSecondary"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="@color/textSecondary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</ScrollView>

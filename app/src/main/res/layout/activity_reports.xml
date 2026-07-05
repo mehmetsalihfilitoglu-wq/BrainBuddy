@@ -289,7 +289,7 @@
                                     android:layout_height="wrap_content"
                                     android:maxLines="1"
                                     android:ellipsize="end"
-                                    android:text="Engellenen"
+                                    android:text="Seri"
                                     android:textAppearance="@style/TextAppearance.Material3.BodySmall"
                                     android:textColor="?attr/colorOnSurfaceVariant"/>
                             </LinearLayout>
@@ -389,7 +389,7 @@
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"
                         android:textColor="?attr/colorOnSurfaceVariant" />
 
-                    <com.brainbuddy.app.ui.BarChartView
+                    <com.mioacademy.app.ui.BarChartView
                         android:id="@+id/topicBarChart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -699,7 +699,7 @@
                         android:layout_marginTop="@dimen/reports_title_content"
                         android:visibility="gone">
 
-                        <com.brainbuddy.app.ui.LineChartView
+                        <com.mioacademy.app.ui.LineChartView
                             android:id="@+id/weeklyTrendChart"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1081,7 +1081,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Raporu Paylaş - Premium (premium kullanıcılar için) -->
+            <!-- Raporu Paylaş - Premium kullanıcılar için -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardShareReport"
                 style="@style/Widget.BrainBuddy.Card"
@@ -1126,7 +1126,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Raporu Paylaş - Kilitli (premium olmayan kullanıcılar için) -->
+            <!-- Raporu Paylaş - Kilitli (premium olmayan kullanıcılar) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardShareReportLocked"
                 style="@style/Widget.BrainBuddy.Card.PremiumCTA"
@@ -1143,14 +1143,12 @@
                     android:orientation="vertical"
                     android:padding="@dimen/reports_card_inner">
 
-                    <!-- Başlık: kilit simgeli -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/report_share_locked_btn"
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumTitle"/>
 
-                    <!-- Açıklama başlığı -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1159,7 +1157,6 @@
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"
                         android:textStyle="bold"/>
 
-                    <!-- Maddeler -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1209,7 +1206,6 @@
                         android:text="@string/report_share_locked_bullet_7"
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
 
-                    <!-- Kapanış metni -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1218,7 +1214,6 @@
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"
                         android:textStyle="italic"/>
 
-                    <!-- Premium CTA butonu -->
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnShareReportLockedCta"
                         style="@style/BB.Button"

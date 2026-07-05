@@ -79,6 +79,15 @@
             android:text="@string/paywall_benefit_hints"
             android:textSize="15sp"
             android:textColor="@color/bb_text_dark"
+            android:drawablePadding="12dp"
+            android:paddingBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/paywall_benefit_exam"
+            android:textSize="15sp"
+            android:textColor="@color/bb_text_dark"
             android:drawablePadding="12dp"/>
     </LinearLayout>
 

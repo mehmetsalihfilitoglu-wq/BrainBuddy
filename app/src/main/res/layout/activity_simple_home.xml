@@ -15,7 +15,7 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="BrainBuddy açıldı ✅"
+            android:text="MioAcademy ✅"
             android:textColor="#FFFFFF"
             android:textSize="28sp"
             android:textStyle="bold" />
@@ -42,7 +42,7 @@
                 android:id="@+id/btnOpenAccessibility"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Accessibility Ayarlarını Aç"
+                android:text="Ayarları Aç"
                 android:textAllCaps="false" />
 
             <Button
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Ebeveyn Paneli (Şimdilik Demo)"
+                android:text="Profil"
                 android:textAllCaps="false" />
 
             <Button
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:text="Not: Bir sonraki adımda PIN ekranı + Quiz + App Blocking eklenecek."
+            android:text="MioAcademy — İtalya üniversite hazırlığı."
             android:textColor="#8EA7D6"
             android:textSize="13sp" />
 

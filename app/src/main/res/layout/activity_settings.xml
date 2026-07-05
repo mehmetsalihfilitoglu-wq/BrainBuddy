@@ -121,56 +121,6 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardJuniorModule"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_brain_turquoise"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/settings_junior_title"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_junior_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardProfiles"
             style="@style/BB.HomeCard"
             android:layout_width="match_parent"
@@ -220,27 +170,13 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- ========== A) GELİŞMİŞ KORUMA AYARLARI ========== -->
-        <TextView
-            style="@style/BB.SectionHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="4dp"
-            android:text="@string/settings_section_protection_advanced"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/settings_section_protection_advanced_sub"
-            android:textSize="12sp"
-            android:textColor="@color/bb_text_muted"/>
-
+        <!-- ========== A) TEST AYARLARI ========== -->
         <com.google.android.material.card.MaterialCardView
             style="@style/BB.HomeCard"
             android:id="@+id/cardProtection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             app:cardBackgroundColor="@color/white">
 
             <LinearLayout
@@ -248,32 +184,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/settings_protection_on"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <Switch
-                        android:id="@+id/switchProtection"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/settings_protection_sub"
-                    android:textSize="13sp"
-                    android:textColor="@color/bb_text_muted"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -327,206 +237,6 @@
                     <RadioButton android:id="@+id/successRate70" android:text="@string/success_rate_70" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
                     <RadioButton android:id="@+id/successRate80" android:text="@string/success_rate_80" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
                 </RadioGroup>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardPermissions"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_permission"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/settings_permissions_title"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_permissions_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardAccessibilityUsage"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_permission"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/accessibility_usage_title"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_accessibility_usage_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardSystemHealth"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_permission"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/system_health_title"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_system_health_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardBlockedApps"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_block"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/settings_blocked_apps"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_blocked_apps_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
