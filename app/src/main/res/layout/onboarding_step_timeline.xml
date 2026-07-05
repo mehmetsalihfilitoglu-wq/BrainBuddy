@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ne zaman başvurmayı\ndüşünüyorsun?"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bu seçim günlük çalışma yoğunluğunu belirler."
+            android:textSize="14sp"
+            android:textColor="@color/textSecondary"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Option 1 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTimeline1"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="@color/divider_light"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bu yıl başvuracağım 🔥"
+                    android:textSize="15sp" android:textColor="@color/textPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/tvTimeline1Check"
+                    android:text="" android:textSize="18sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Option 2 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTimeline2"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="@color/divider_light"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Gelecek yıl ⭐"
+                    android:textSize="15sp" android:textColor="@color/textPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/tvTimeline2Check"
+                    android:text="" android:textSize="18sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Option 3 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTimeline3"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="@color/divider_light"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2 yıl veya daha sonra 📅"
+                    android:textSize="15sp" android:textColor="@color/textPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/tvTimeline3Check"
+                    android:text="" android:textSize="18sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Option 4 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTimeline4"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1.5dp"
+            app:strokeColor="@color/divider_light"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sadece araştırıyorum 🔍"
+                    android:textSize="15sp" android:textColor="@color/textPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:id="@+id/tvTimeline4Check"
+                    android:text="" android:textSize="18sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
