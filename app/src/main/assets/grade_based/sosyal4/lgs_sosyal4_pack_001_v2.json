@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "sosyal",
+  "publisher": "brainbuddy_v2",
+  "questions": [
+    {
+      "id": "sosyal4_v2_0001",
+      "stem": "Haritada 1 cm, gerçekte 50 km'yi temsil etmektedir. Ahmet harita üzerinde şehri A ile şehri B arasını 6 cm, şehri B ile şehri C arasını 4 cm olarak ölçmüştür.\n\nŞehir A'dan şehir C'ye şehir B üzerinden gidilirse gerçekte kaç km yol gidilmiş olur?",
+      "options": [
+        "300 km",
+        "400 km",
+        "500 km",
+        "450 km"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "harita_olcegi",
+      "topic": "cografya",
+      "skills": [
+        "harita",
+        "olcek",
+        "hesap"
+      ],
+      "explanation": "A-B: 6 cm × 50 km/cm = 300 km. B-C: 4 cm × 50 km/cm = 200 km. Toplam: 500 km. A(300): yalnızca A-B. B(400): yalnızca B-C×2 hata. D(450): ölçeği 45 km/cm almış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0001",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0002",
+      "stem": "Bir paragrafta şu bilgi yer alıyor:\n\n\"Taner, okuldaki öğrenci temsilcisi olarak hem öğrencilerin sorunlarını yönetime iletmekte hem de okul kurallarına uymakla yükümlüdür. Öte yandan aynı Taner, evde kardeşlerine örnek olmak, mahallesinde toplantılara katılmak gibi sorumluluklar taşımaktadır.\"\n\nBu metne göre Taner'in durumu hakkında en kapsamlı çıkarım hangisidir?",
+      "options": [
+        "Taner çok fazla sorumluluk taşıdığından bunalmaktadır.",
+        "Birey farklı ortamlarda farklı roller ve sorumluluklar üstlenir; bu durum toplumsal düzenin bir parçasıdır.",
+        "Taner yalnızca okuldaki rolüyle tanımlanabilir.",
+        "Sorumluluk sahibi olmak yalnızca yetişkinlere özgüdür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "birey_toplum",
+      "topic": "sosyal_kavramlar",
+      "skills": [
+        "birey_rol",
+        "sorumluluk",
+        "toplum"
+      ],
+      "explanation": "Taner üç farklı ortamda (okul, ev, mahalle) farklı roller üstleniyor. Bu çok-rollülük toplumsal yapının doğal bir parçasıdır. A metin dışı yorum. C ve D yanlış genellemeler.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0002",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0003",
+      "stem": "Türkiye'nin coğrafi konumuyla ilgili şu bilgiler verilmiştir:\n• Üç tarafı denizle çevrili yarımada görünümündedir.\n• Kuzeyinde Karadeniz, güneyinde Akdeniz, batısında Ege Denizi bulunur.\n• Asya ile Avrupa kıtalarına bağlantı noktasında yer almaktadır.\n\nBu bilgilere dayanarak Türkiye'nin konumu için en kapsamlı ve doğru ifade hangisidir?",
+      "options": [
+        "Türkiye tamamen Asya kıtasında yer almaktadır.",
+        "Türkiye yalnızca Avrupa ile bağlantılıdır.",
+        "Türkiye hem deniz hem kıta kavşağında stratejik bir konuma sahiptir.",
+        "Türkiye'nin yalnızca bir kıyısı vardır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "cografi_konum",
+      "topic": "turkiye_cografyasi",
+      "skills": [
+        "cografi_konum",
+        "deniz",
+        "kıta"
+      ],
+      "explanation": "Türkiye'nin üç denizle çevrili olması ve iki kıtayı birleştirmesi onu stratejik kılıyor. A yanlış (Avrupa kısmı var). B yanlış. D yanlış (üç deniz kıyısı var).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0003",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0004",
+      "stem": "Bir köyde yaşayan Hasan, tarla sularını komşularıyla paylaşmak için sırayla sulama düzeni kuruyor. Kuyu komşulardan birinin arsasında olmasına rağmen herkes eşit miktarda su kullanıyor.\n\nBu durumda Hasan ve komşularının davranışı aşağıdaki kavramlardan hangisini en iyi örneklemektedir?",
+      "options": [
+        "Bireysel mülkiyet hakkı kullanımı",
+        "Ortak kaynakların adil paylaşımı ve dayanışma",
+        "Devlet müdahalesiyle kaynak dağıtımı",
+        "Ticari su satışı ve ekonomik rekabet"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "hak_sorumluluk",
+      "topic": "toplumsal_degerler",
+      "skills": [
+        "dayanışma",
+        "ortak_kaynak",
+        "adalet"
+      ],
+      "explanation": "Kuyu birinin arsasında ama herkes eşit kullanıyor. Bu gönüllü paylaşım ve dayanışmayı somutlaştırır. A: bireysel mülkiyet bunun tersidir. C: devlet yok. D: ticaret yok.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0004",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0005",
+      "stem": "Aşağıdaki tablo bir köyün 4 yıldaki nüfus değişimini göstermektedir:\n2020: 1 200 kişi\n2021: 1 050 kişi\n2022:   920 kişi\n2023:   780 kişi\n\nBu veriler doğrultusunda hangi yargı hem doğru hem de nedeni hakkında makul bir açıklama içermektedir?",
+      "options": [
+        "Nüfus artmıştır; tarım gelişmiştir.",
+        "Nüfus azalmıştır; büyük ihtimalle köyden kente göç yaşanmaktadır.",
+        "Nüfus sabit kalmıştır; istatistiksel dalgalanmadır.",
+        "Nüfus azalmıştır; bu durum köyün zenginleştiğini gösterir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "veri_yorumlama",
+      "topic": "nufus_goc",
+      "skills": [
+        "nüfus",
+        "göç",
+        "veri_analiz"
+      ],
+      "explanation": "Nüfus 4 yılda 1200'den 780'e düştü (azalış: 420 kişi). Köyde bu tür sürekli düşüş genellikle köyden kente göçle ilişkilidir. A (artış) yanlış. C (sabit) yanlış. D (zenginleşme) ters mantık.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0005",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0006",
+      "stem": "Bir öğretmen sınıfa şu soruyu soruyor:\n\n\"Bir bölgede ormanlar kesildiğinde toprak erozyonu artıyor, dereler kuruyabilir, hayvanlar habitatını kaybedebilir. Öte yandan ahşap üretimi, tarla açma gibi ekonomik faydalar da sağlanabilir.\"\n\nBu bilgiye göre orman kesiminde karar verirken gözetilmesi gereken en önemli yaklaşım hangisidir?",
+      "options": [
+        "Ekonomik kazanç her zaman önceliklidir.",
+        "Ormanların tamamı koruma altına alınmalı, hiç kesilmemelidir.",
+        "Ekonomik ihtiyaç ile çevresel sürdürülebilirlik dengelenerek karar verilmelidir.",
+        "Devlet izin vermediği sürece hiçbir şey yapılmamalıdır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "cevresel_karar_verme",
+      "topic": "dogal_kaynaklar",
+      "skills": [
+        "çevre",
+        "kaynak",
+        "denge"
+      ],
+      "explanation": "Ormansızlaşmanın hem zararları hem faydaları var. Doğru yaklaşım dengeleme ve sürdürülebilirlik. A tek yönlü. B pratik değil. D sorumluluktan kaçış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0006",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0007",
+      "stem": "Tarihte insanlar önce mağaralarda yaşamış, sonra köyler kurmuş, daha sonra şehirler oluşmuş ve uygarlıklar gelişmiştir.\n\nBu kronolojik sıra, insan yaşamındaki hangi temel değişimi yansıtmaktadır?",
+      "options": [
+        "İnsanlar her dönemde aynı biçimde yaşamıştır.",
+        "İnsanlar giderek daha küçük gruplara bölünmüştür.",
+        "Toplumsal örgütlenme ve yerleşim giderek büyüyüp karmaşıklaşmıştır.",
+        "Şehirleşme insanları doğadan tamamen koparmıştır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "tarihsel_dusunme",
+      "topic": "toplum_tarih",
+      "skills": [
+        "kronoloji",
+        "toplum",
+        "değişim"
+      ],
+      "explanation": "Mağara → köy → şehir → uygarlık çizgisi toplumsal örgütlenmenin büyüdüğünü ve karmaşıklaştığını gösterir. A yanlış (değişim var). B yanlış (büyüme var). D abartılı genelleme.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0007",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0008",
+      "stem": "Türkiye'nin farklı bölgelerinde tarım ürünleri farklılık gösteriyor:\n• Karadeniz: çay, fındık\n• Akdeniz: portakal, limon\n• İç Anadolu: buğday, arpa\n\nBu farklılığın temel nedeni nedir?",
+      "options": [
+        "Her bölge farklı tarım teknolojisi kullanmaktadır.",
+        "Her bölgenin iklim ve toprak özellikleri farklıdır; bitkiler kendi uygun koşullarında yetişmektedir.",
+        "Devlet her bölgeye farklı ürün dikmesini zorunlu kılmaktadır.",
+        "Bölgeler arasındaki nüfus farklılıkları tarım çeşitliliğine yol açmaktadır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "iklim_tarim",
+      "topic": "turkiye_cografyasi",
+      "skills": [
+        "iklim",
+        "tarım",
+        "coğrafi_bölge"
+      ],
+      "explanation": "Bitki çeşitliliği iklim (sıcaklık, yağış) ve toprak özelliklerine bağlıdır. Karadeniz rutubetli, Akdeniz sıcak ve nemli, İç Anadolu kuraktır. A teknoloji farkına bağlıyor ama bu birincil neden değil. C, D doğru değil.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0008",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0009",
+      "stem": "İletişim araçlarının tarihsel gelişimi incelendiğinde şu sıra görülmektedir: Ateş/duman işaretleri → yazı → matbaa → telgraf → telefon → internet.\n\nBu gelişim sürecinde iletişim açısından en köklü dönüşümü gerçekleştiren buluş hangisidir ve neden?",
+      "options": [
+        "Duman işaretleri — çünkü insanlığın ilk iletişim aracıdır.",
+        "Matbaa — çünkü bilgiyi çoğaltarak geniş kitlelere ulaştırmayı ilk kez mümkün kılmıştır.",
+        "Telefon — çünkü insanlar artık uzaktaki kişiyle konuşabilmektedir.",
+        "İnternet — çünkü bilgiye erişimi anlık ve evrensel hâle getirerek matbaadan daha büyük bir dönüşüm yarattığı savunulabilir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "tarihsel_analiz",
+      "topic": "iletisim_tarihi",
+      "skills": [
+        "iletişim",
+        "tarih",
+        "dönüşüm"
+      ],
+      "explanation": "Matbaa öncesi bilgi elle çoğaltılıyordu; matbaayla büyük miktarda eser basılıp dağıtılabildi — bu kitlesel okur-yazarlığı ve bilgiye erişimi kökten değiştirdi. A (ilk ama çok sınırlı). C (önemli ama matbaayla gelen kitlesel değişim kadar köklü değil). D tuzak: internet çok güçlüdür ancak soru hangi buluşun dönemine göre en köklü dönüşümü getirdiğini sorduğundan matbaa daha kritik bir eşiktir.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0009",
+      "imageAsset": null,
+      "subject": "sosyal"
+    },
+    {
+      "id": "sosyal4_v2_0010",
+      "stem": "Aşağıdaki bilgiler bir ülkenin üretimine ilişkindir:\n• Çiftçi buğday yetiştiriyor.\n• Fabrika buğdayı una çeviriyor.\n• Fırıncı undan ekmek yapıyor.\n• Market ekmeği satıyor.\n• Tüketici ekmeği satın alıyor.\n\nBu zincirleme ilişki aşağıdaki kavramlardan hangisini açıklar?",
+      "options": [
+        "Tarihsel süreç",
+        "Üretimden tüketime uzanan tedarik zinciri",
+        "Nüfus dağılımı",
+        "Bireysel çalışma hakkı"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "ekonomi_kavrami",
+      "topic": "uretim_tuketim",
+      "skills": [
+        "üretim",
+        "tüketim",
+        "tedarik_zinciri"
+      ],
+      "explanation": "Hammaddeden (buğday) son ürüne (ekmek) ve tüketiciye uzanan süreç tedarik zincirine (üretim-dağıtım-tüketim) örnektir. A tarihsel değil. C nüfusla ilgisi yok. D bireysel hak değil.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "sosyal4_v2_0010",
+      "imageAsset": null,
+      "subject": "sosyal"
+    }
+  ]
+}

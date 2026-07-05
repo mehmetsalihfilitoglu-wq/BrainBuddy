@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Kullanımı - Barjin</title>
+    <style>
+        body { font-family: sans-serif; padding: 16px; line-height: 1.6; color: #333; background: #fff; }
+        h1 { font-size: 1.3em; margin-top: 1em; color: #0F172A; }
+        h2 { font-size: 1.1em; margin-top: 0.8em; color: #0F172A; }
+        p, li { margin: 0.5em 0; font-size: 0.95em; }
+        ul { padding-left: 1.2em; }
+        .updated { font-size: 0.9em; color: #666; }
+        .highlight { background: #E6F7F5; padding: 12px; border-radius: 8px; margin: 8px 0; }
+    </style>
+</head>
+<body>
+
+<h1>Veri Kullanımı Bilgilendirmesi</h1>
+<p class="updated">Son güncelleme: Nisan 2026</p>
+
+<div class="highlight">
+    <strong>Özet:</strong> Barjin verilerinizi cihazınızda saklar. Sunucuya veri göndermez. İnternet bağlantısı yalnızca reklam servisi için kullanılır.
+</div>
+
+<h2>1. Yerel Olarak Saklanan Veriler</h2>
+<p>Aşağıdaki veriler yalnızca cihazınızda tutulur ve hiçbir sunucuya aktarılmaz:</p>
+<ul>
+    <li><strong>Profil bilgileri:</strong> Öğrenci adı, sınıf seviyesi, avatar seçimi</li>
+    <li><strong>Ebeveyn ayarları:</strong> PIN (şifrelenmiş), acil durum kodu (şifrelenmiş), engellenen uygulama listesi, quiz aralığı, başarı oranı eşikleri</li>
+    <li><strong>Eğitim verileri:</strong> Quiz sonuçları, doğru/yanlış cevap geçmişi, performans istatistikleri, soru havuzu ilerlemesi</li>
+    <li><strong>Uygulama kullanım verileri:</strong> Tahmini ekran süresi, test sayıları, günlük performans özeti</li>
+    <li><strong>Zamanlama verileri:</strong> Ekran süresi limitleri, program ayarları</li>
+</ul>
+
+<h2>2. İnternet Kullanımı</h2>
+<p>Barjin aşağıdaki amaçlarla internet bağlantısı kullanır:</p>
+<ul>
+    <li><strong>Google AdMob:</strong> Ödüllü reklam gösterimi (isteğe bağlı, quiz tekrarı ve sonuç görüntüleme için)</li>
+</ul>
+<p>Bunun dışında uygulama herhangi bir sunucuya bağlanmaz.</p>
+
+<h2>3. Mikrofon Kullanımı (Sesli Okuma)</h2>
+<p>Barjin Junior "Sesli Okuma" özelliği, çocuğun okuduğu kelimeyi tanımak için Android SpeechRecognizer API'sini kullanır. Bu özellik için mikrofon izni (RECORD_AUDIO) gereklidir.</p>
+<ul>
+    <li>Ses verileri yalnızca anlık konuşma tanıma için kullanılır</li>
+    <li>Ses kaydedilmez, saklanmaz ve sunucuya gönderilmez</li>
+    <li>Android'in cihaz üzerindeki konuşma tanıma motoru kullanılır</li>
+</ul>
+
+<h2>4. Üçüncü Taraf SDK'lar</h2>
+<ul>
+    <li><strong>Google AdMob (Google Mobile Ads SDK):</strong> Ödüllü reklam gösterimi için kullanılır. COPPA uyumlu yapılandırılmıştır (çocuklara yönelik içerik derecelendirmesi: G). AdMob, reklam kişiselleştirmesi için cihaz tanımlayıcılarını kullanabilir.</li>
+</ul>
+
+<h2>5. Erişilebilirlik Hizmeti Verileri</h2>
+<p>Uygulama engelleme için kullanılan Erişilebilirlik Hizmeti yalnızca ön plandaki uygulamanın paket adını tespit eder. Ekran içeriği, metin, görüntü veya kişisel veri okunmaz veya kaydedilmez.</p>
+
+<h2>6. Veri Paylaşımı</h2>
+<p>Barjin, kullanıcı verilerini üçüncü taraflarla paylaşmaz. Reklam SDK'sı kendi veri toplama politikasına sahiptir ve bu Google'ın sorumluluğundadır.</p>
+
+<h2>7. Veri Silme</h2>
+<p>Uygulamayı kaldırdığınızda tüm yerel veriler otomatik olarak silinir. Uygulama içinden profil silme seçeneği ile belirli profillere ait verileri temizleyebilirsiniz.</p>
+
+<h2>8. Google Play Data Safety Uyumu</h2>
+<ul>
+    <li>Veri toplamıyor: Kişisel veri sunucuya gönderilmez</li>
+    <li>Veri paylaşılmıyor: Üçüncü taraflarla kullanıcı verisi paylaşılmaz</li>
+    <li>Veri şifrelenmektedir: PIN ve acil durum kodu şifrelenmiş olarak saklanır</li>
+    <li>Veri silinebilir: Uygulama kaldırıldığında tüm veriler silinir</li>
+</ul>
+
+</body>
+</html>

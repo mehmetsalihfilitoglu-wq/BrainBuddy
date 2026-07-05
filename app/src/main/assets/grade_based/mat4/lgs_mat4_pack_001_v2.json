@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy_v2",
+  "questions": [
+    {
+      "id": "mat4_v2_0001",
+      "stem": "Bir okul kütüphanesinin rafları üç bölüme ayrılmıştır. Roman bölümünde 1 200 kitap, bilim bölümünde roman bölümünden 400 fazla, çocuk bölümünde ise bilim bölümünün yarısı kadar kitap bulunmaktadır.\n\nBir bağışçı, kütüphanedeki toplam kitap sayısının onda birini bağışlamak istiyor. Bağışçının bağışlayacağı kitap sayısı kaçtır?",
+      "options": [
+        "320",
+        "360",
+        "400",
+        "380"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "cok_adinli_islem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "dort_islem",
+        "problem_cozme"
+      ],
+      "explanation": "Roman: 1200, Bilim: 1200+400=1600, Çocuk: 1600÷2=800. Toplam: 3600. Bağış: 3600÷10=360. A(320): çocuk bölümünü 800 yerine 640 almış. C(400): bilim bölümünü bağış sayısı zannetmiş. D(380): toplam hatası.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0001",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0002",
+      "stem": "Bir mağazacı depoya 1 500 ürün aldı. Bunların 2/5'ini parça başı 45 TL'ye, kalanını ise parça başı 60 TL'ye sattı.\n\nMağazacının toplam satış geliri kaç TL'dir?",
+      "options": [
+        "67 500",
+        "72 000",
+        "81 000",
+        "90 000"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "kesir_para_problemi",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "kesir",
+        "dort_islem",
+        "para"
+      ],
+      "explanation": "2/5 × 1500 = 600 ürün → 600×45 = 27 000 TL. Kalan 900 → 900×60 = 54 000 TL. Toplam: 81 000. A(67500): tamamı 45 TL'den sattı tuzağı. D(90000): tamamı 60 TL'den sattı tuzağı.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0002",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0003",
+      "stem": "Bir çiftçi her yıl bahçesine belirli bir kurala göre fidan dikiyor. 1. yıl 3 fidan, 2. yıl 5 fidan, 3. yıl 7 fidan dikmiştir ve bu düzen devam etmektedir.\n\nÇiftçi 8 yılın sonunda toplam kaç fidan dikmiş olur?",
+      "options": [
+        "72",
+        "80",
+        "88",
+        "64"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "sayi_dizisi",
+      "topic": "dizi_kural",
+      "skills": [
+        "dizi",
+        "toplam",
+        "kural_bulma"
+      ],
+      "explanation": "Dizi: 3,5,7,9,11,13,15,17 (her terim öncekinden 2 fazla). Toplam: (3+17)×8÷2=80. A(72): +1 kurala uygulamış, yanlış. C(88): 9. yıla kadar eklemiş. D(64): ilk 8 çift sayının toplamı tuzağı.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0003",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0004",
+      "stem": "Bir sınıf 8 m uzunluğunda ve 6 m genişliğindedir. Öğretmen şunları yaptırmak istiyor:\n• Zeminin tamamına halı (25 TL/m²)\n• Dört duvarın çevresine pervaz (12 TL/m)\n\nToplam maliyet kaç TL'dir?",
+      "options": [
+        "1 200",
+        "1 488",
+        "1 536",
+        "1 584"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "alan_cevre_maliyet",
+      "topic": "geometri",
+      "skills": [
+        "alan",
+        "cevre",
+        "maliyet"
+      ],
+      "explanation": "Alan: 8×6=48 m² → halı: 48×25=1200 TL. Çevre: 2×(8+6)=28 m → pervaz: 28×12=336 TL. Toplam: 1536 TL. B(1488): çevreyi 24 m hesaplamış (6 yerine 4 kullanmış). A(1200): pervazı unutmuş. D(1584): çevreyi 32 m almış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0004",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0005",
+      "stem": "Bir fabrikada 5 günlük üretim şöyledir: Pazartesi 1 200, Salı 1 450, Çarşamba 850, Perşembe 1 100, Cuma 1 400.\n\nGünlük ortalama üretim kaçtır ve ortalamanın en fazla üzerinde üretim hangi gün yapılmıştır?",
+      "options": [
+        "Ortalama 1 200; Salı",
+        "Ortalama 1 200; Cuma",
+        "Ortalama 1 100; Salı",
+        "Ortalama 1 100; Cuma"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "veri_analiz",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "veri",
+        "karsilastirma"
+      ],
+      "explanation": "Toplam: 1200+1450+850+1100+1400=6000; Ortalama: 6000÷5=1200. Salı: 1450-1200=+250 (en büyük fark). Cuma: +200. B: Cuma yanlış. C ve D: ortalama 1100 yanlış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0005",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0006",
+      "stem": "Zeynep evden 07:40'ta çıkıyor. Durağa yürüyüşü 18 dakika, otobüs bekleme süresi 7 dakika, otobüs yolculuğu 28 dakika, otobüs durağından okula yürüyüşü 9 dakikadır. Okul 08:45'te başlıyor.\n\nZeynep okula kaç dakika erken ulaşır?",
+      "options": [
+        "3",
+        "10",
+        "12",
+        "19"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "zaman_problemi",
+      "topic": "zaman",
+      "skills": [
+        "zaman",
+        "toplama",
+        "cikarma"
+      ],
+      "explanation": "07:40+18dk=07:58; +7dk=08:05; +28dk=08:33; +9dk=08:42. 08:45−08:42=3 dakika erken. B(10): bekleme süresi unutulmuş. C(12): okula yürüyüş unutulmuş. D(19): her ikisi de unutulmuş.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0006",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0007",
+      "stem": "Ahmet 750 TL'ye sahiptir. Alışveriş listesi:\n• 3 defter → 12 TL/adet\n• 2 kalem → 8 TL/adet\n• 1 sırt çantası → defter ve kalemlerin toplam maliyetinin 3 katı\n• 1 beslenme kutusu → 2 defterin ve 1 kalemin maliyeti kadar\n\nAhmet alışverişten sonra kaç TL'si kalır?",
+      "options": [
+        "510",
+        "526",
+        "542",
+        "666"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "cok_adinli_para",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "para",
+        "dort_islem",
+        "problem_cozme"
+      ],
+      "explanation": "Defter: 3×12=36. Kalem: 2×8=16. Toplam: 52. Çanta: 3×52=156. Beslenme: 2×12+1×8=32. Toplam harcama: 36+16+156+32=240. Kalan: 750-240=510. B(526): kalemi atlamış. C(542): beslenme kutusunu atlamış. D(666): çantayı hesaba katmamış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0007",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0008",
+      "stem": "Bir kasabada 4 mahallenin nüfusu şöyledir: A Mahallesi 45 000, B Mahallesi 30 000, C Mahallesi 90 000, D Mahallesi 60 000. Belediye her 15 000 kişi için 1 park inşa edecektir.\n\nKasabada toplam kaç park yapılmalı ve C Mahallesi'nde yapılacak park sayısı B Mahallesi'ndekinin kaç katıdır?",
+      "options": [
+        "14 park; 2 kat",
+        "15 park; 3 kat",
+        "15 park; 2 kat",
+        "16 park; 3 kat"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "bolme_oran",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "bolme",
+        "oran",
+        "problem_cozme"
+      ],
+      "explanation": "A:45000÷15000=3, B:30000÷15000=2, C:90000÷15000=6, D:60000÷15000=4. Toplam: 3+2+6+4=15. C÷B=6÷2=3. A: toplam 14 yanlış. C: oran 2 yanlış (6÷2=3 değil 2). D: 16 park yanlış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0008",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0009",
+      "stem": "Bir kütüphanecinin 1 380 kitabı vardır. Bunları 9'arlı raflara koyduğunda bir miktar kitap artmakta, 12'şerli raflara koyduğunda ise tam bölünmektedir.\n\n12'şerli raf düzeninde kaç raf kullanılır ve 9'arlı düzende kaç kitap artar?",
+      "options": [
+        "115 raf, 3 kitap artar",
+        "153 raf, 3 kitap artar",
+        "115 raf, 0 kitap artar",
+        "153 raf, 0 kitap artar"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "bolme_kalani",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "bolme",
+        "kalan",
+        "problem_cozme"
+      ],
+      "explanation": "1380÷12=115 tam bölünür (115×12=1380). 1380÷9=153 kalan 3 (153×9=1377, 1380-1377=3). B: 12'şerli rafı 9'arlıyla karıştırmış. C ve D: kalan 0 yanlış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0009",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0010",
+      "stem": "Bir okul 3 sınıftan oluşuyor. 4-A'da 32, 4-B'de 28, 4-C'de 36 öğrenci var. Öğretmen her öğrenciye eşit sayıda boya kalemi dağıtmak istiyor. Toplam 900 boya kalemi satın aldı.\n\nHer öğrenci kaç boya kalemi alır ve dağıtımdan kaç boya kalemi artar?",
+      "options": [
+        "10 kalem, 0 artar",
+        "9 kalem, 36 artar",
+        "9 kalem, 24 artar",
+        "8 kalem, 132 artar"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "bolme_paylastirma",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "bolme",
+        "kalan",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam öğrenci: 32+28+36=96. 900÷96=9 kalan 36 (9×96=864, 900-864=36). A(0 artar): 960 kalem olsaydı doğruydu (tuzak). C(24 artar): öğrenci sayısını 90 hesaplamış. D(8 kalem): yuvarlama hatası.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0010",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

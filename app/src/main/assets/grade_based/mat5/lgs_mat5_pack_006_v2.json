@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy_v2",
+  "questions": [
+    {
+      "id": "mat5_v2_0051",
+      "stem": "Bir bakkal 5 kg elma kilogramını 6,40 TL'den, 2,5 kg armut kilogramını ise 8,80 TL'den sattı.\n\nBakkalın bu iki üründen elde ettiği toplam gelir kaç TL'dir?",
+      "options": [
+        "48,00",
+        "51,50",
+        "54,00",
+        "57,00"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ondalik_carpma_toplama",
+      "topic": "ondalik_kesirler",
+      "skills": [
+        "ondalık",
+        "çarpma",
+        "para"
+      ],
+      "explanation": "Elma: 5×6,40=32,00 TL. Armut: 2,5×8,80=22,00 TL. Toplam: 32+22=54,00 TL. A(48): 5×6,40=32, 2,5×6,40=16 (aynı fiyatı kullanmış). B(51,50): armut için 2,5×7,80=19,50 almış. D(57): 5×7=35, 2,5×8,80=22 hata.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0051",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0052",
+      "stem": "Bir mağaza 800 TL'lik bir ürüne önce %25 indirim uyguladı. Müşteri ayrıca sadakat kartıyla ek %10 indirim kazandı.\n\nMüşterinin ödediği son fiyat kaç TL'dir?",
+      "options": [
+        "480",
+        "500",
+        "520",
+        "540"
+      ],
+      "answerIndex": 3,
+      "difficulty": 9,
+      "questionType": "kademeli_indirim",
+      "topic": "yuzde",
+      "skills": [
+        "yüzde",
+        "kademeli_hesap",
+        "para"
+      ],
+      "explanation": "1. indirim: 800×0,75=600 TL. 2. indirim: 600×0,90=540 TL. A(480): tek seferde %40 indirim uygulamış, 800×0,60=480. B(500): 800−%25−%25=800×0,75×0,75=450 değil, farklı hata. C(520): 800−%25−%10=800−200−80=520, orijinal fiyat üzerinden her ikisini de uygulamış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0052",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0053",
+      "stem": "İkizkenar yamuk biçiminde bir arsa var. Paralel kenarları 22 m ve 14 m, eşit bacakları 10 m ve yüksekliği 8 m.\n\nBu arsanın alanı ve çevresi kaçtır?",
+      "options": [
+        "Alan: 144 m², Çevre: 56 m",
+        "Alan: 144 m², Çevre: 54 m",
+        "Alan: 128 m², Çevre: 56 m",
+        "Alan: 160 m², Çevre: 56 m"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "yamuk_alan_cevre",
+      "topic": "geometri",
+      "skills": [
+        "yamuk",
+        "alan",
+        "cevre"
+      ],
+      "explanation": "Alan: (22+14)/2×8=18×8=144 m². Çevre: 22+14+10+10=56 m. B: çevreyi 54 almış (bacakları 9 saymış). C(128): (22+14)/2×7=126≈128 hata, yüksekliği 7 almış. D(160): (22+14)/2×10=180 yanlış, bacak uzunluğunu yükseklik sanmış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0053",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0054",
+      "stem": "Bir sınıfta 8 öğrencinin sınav ortalaması 73'tür. Sınıfa giren 9. öğrenci 91 puan aldı.\n\n9 öğrencinin yeni ortalaması kaç olur?",
+      "options": [
+        "73",
+        "74",
+        "75",
+        "77"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ortalama_guncelleme",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "toplam",
+        "problem_cozme"
+      ],
+      "explanation": "8 öğrenci toplamı: 8×73=584. 9. öğrenci sonrası: 584+91=675. Yeni ortalama: 675÷9=75. A(73): değişmez sanmış. B(74): (73+91)÷2=82, 82÷9... yanlış yöntem, ya da 584+91=675, 675÷9=74 yuvarlama hatası. D(77): (73+91)÷2=82, 82'yi ortalama zannetmiş.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0054",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0055",
+      "stem": "Bir depoda 720 adet ürün var. Pazartesi depodaki ürünlerin 3/5'i satıldı. Salı günü ise kalan ürünlerin 1/4'ü satıldı.\n\nSalı akşamı depoda kaç ürün kaldı?",
+      "options": [
+        "180",
+        "200",
+        "210",
+        "216"
+      ],
+      "answerIndex": 3,
+      "difficulty": 9,
+      "questionType": "kesir_zincirleme",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "zincirleme",
+        "problem_cozme"
+      ],
+      "explanation": "Pazartesi satış: 3/5×720=432. Kalan: 720−432=288. Salı satış: 1/4×288=72. Kalan: 288−72=216. A(180): Salı'yı orijinalin 1/4'ü sanmış, 720/4=180. B(200): toplam satışı 520 almış. C(210): Salı'yı 78 almış, 288−78=210 hata.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0055",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0056",
+      "stem": "İki şehir 420 km uzaklıktadır. Tren P, A şehrinden 60 km/h, Tren Q ise B şehrinden 80 km/h hızla aynı anda karşılıklı hareket etti.\n\nKaç saat sonra karşılaşırlar ve karşılaşma noktası A şehrine kaç km uzaklıktadır?",
+      "options": [
+        "3 saat; 180 km",
+        "3 saat; 200 km",
+        "2,5 saat; 150 km",
+        "4 saat; 240 km"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "karsilasma_problemi",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "karsilasma",
+        "mesafe"
+      ],
+      "explanation": "Toplam hız: 60+80=140 km/h. Süre: 420÷140=3 saat. A şehrine mesafe: 60×3=180 km. B(200): B şehrine mesafeyi vermiş, 80×3=240, ya da P'nin hızını 80 almış. C(2,5 saat): toplam hızı 168 sanmış. D(4 saat): toplamı 105 km/h almış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0056",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0057",
+      "stem": "Bir matematik öğretmeni 360 sayısını inceletmek için öğrencilerine şunu sordu: '360'ın kaç doğal sayı böleni vardır?'\n\n360 = 2³ × 3² × 5 olduğuna göre bölen sayısı kaçtır?",
+      "options": [
+        "18",
+        "20",
+        "24",
+        "28"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "bolen_sayisi",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "asal_carpan",
+        "bolen",
+        "kural_bulma"
+      ],
+      "explanation": "Bölen sayısı formülü: (3+1)×(2+1)×(1+1)=4×3×2=24. A(18): üsleri toplamış, (3+2+1)×3=18. B(20): (4+1)×(2+1)×(1+1)=30 değil, üsleri yanlış saymış. D(28): (3+1)×(2+1)×(2+1)=36 değil, birini fazla almış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0057",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0058",
+      "stem": "Küp biçiminde bir hediye kutusu hazırlanıyor. Kutunun bir kenarı 7 cm.\n\nKutunun tüm yüzeyini kaplamak için kaç cm² ambalaj kağıdı gerekir?",
+      "options": [
+        "196",
+        "245",
+        "294",
+        "343"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "kup_yuzey_alani",
+      "topic": "geometri",
+      "skills": [
+        "kup",
+        "yuzey_alani",
+        "formul"
+      ],
+      "explanation": "Küp yüzey alanı: 6×kenar²=6×7²=6×49=294 cm². A(196): 4×7²=196, 4 yüz saymış. B(245): 5×7²=245, 5 yüz saymış. D(343): 7³=343, hacim hesaplamış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0058",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0059",
+      "stem": "Bir sayının 2/5'i çıkarıldığında geriye 84 kalıyor.\n\nBaşlangıçtaki sayı kaçtır?",
+      "options": [
+        "120",
+        "126",
+        "134",
+        "140"
+      ],
+      "answerIndex": 3,
+      "difficulty": 8,
+      "questionType": "geri_gitme_kesir",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "ters_islem",
+        "denklem"
+      ],
+      "explanation": "x − 2x/5 = 84 → 3x/5 = 84 → x = 84×5÷3 = 140. Doğrulama: 140−(2/5)×140=140−56=84 ✓. A(120): 120×(3/5)=72≠84. B(126): 126×(3/5)=75,6≠84. C(134): 134×(3/5)=80,4≠84.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0059",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0060",
+      "stem": "Bir spor kulübünün 7 üyesinin yaşları: 65, 78, 82, 90, 55, 78, 67.\n\nBu verilerin modu ve ortancası (medyanı) kaçtır?",
+      "options": [
+        "Mod: 78; Medyan: 67",
+        "Mod: 78; Medyan: 78",
+        "Mod: 82; Medyan: 78",
+        "Mod: 78; Medyan: 82"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "mod_medyan",
+      "topic": "istatistik",
+      "skills": [
+        "mod",
+        "medyan",
+        "veri_analiz"
+      ],
+      "explanation": "Sıralı: 55,65,67,78,78,82,90. Mod: en çok tekrarlanan=78 (iki kez). Medyan: 4. eleman=78. A: medyan 67 yanlış (3. eleman). C: mod 82 yanlış (82 bir kez geçiyor). D: medyan 82 yanlış (5. eleman).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0060",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

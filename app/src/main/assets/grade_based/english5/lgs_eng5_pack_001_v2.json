@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "ing",
+  "publisher": "brainbuddy_v2",
+  "questions": [
+    {
+      "id": "eng5_v2_0001",
+      "stem": "Read the text and answer the question.\n\n\"Scientists say that plastic pollution is one of the biggest threats to ocean life. Every year, millions of tons of plastic end up in the sea, harming fish, turtles and seabirds. Some plastic breaks into tiny pieces called microplastics, which enter the food chain and may eventually affect humans. Many organisations are now working on reducing single-use plastics and cleaning up beaches.\"\n\nWhich statement is NOT supported by the text?",
+      "options": [
+        "Plastic pollution harms sea animals.",
+        "Microplastics can reach humans through the food chain.",
+        "All countries have already banned single-use plastics.",
+        "Organisations are working to reduce plastic pollution."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "metin_anlama",
+      "topic": "reading_inference",
+      "skills": [
+        "reading",
+        "true_false",
+        "environment"
+      ],
+      "explanation": "The text says 'many organisations are working ON reducing' — not 'have already banned.' C states a completed universal ban, which is NOT in the text. A, B, D are directly supported.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0001",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0002",
+      "stem": "Read the email and answer the question.\n\n\"From: Ms. Johnson\nTo: Students\nSubject: Field Trip on Friday\n\nDear Students,\nOur science field trip to the natural history museum is on Friday, 15 March. Please arrive at school by 8:15 a.m. The bus leaves at 8:30 sharp — latecomers will be left behind. Bring a packed lunch and wear comfortable shoes. The trip ends at 4:00 p.m. and the bus returns to school.\n\nBest, Ms. Johnson\"\n\nA student arrives at school at 8:35 a.m. What is most likely to happen?",
+      "options": [
+        "She will get on the bus because 8:35 is close to 8:30.",
+        "She will miss the bus because it already left at 8:30.",
+        "The teacher will wait because she is only 5 minutes late.",
+        "The trip will be rescheduled for a different day."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "metin_anlama",
+      "topic": "email_reading",
+      "skills": [
+        "reading",
+        "inference",
+        "email"
+      ],
+      "explanation": "Email: 'bus leaves at 8:30 sharp — latecomers left behind.' 8:35 > 8:30 → student arrives after departure → misses bus. B is correct. A wrong ('sharp' means no waiting). C contradicts 'sharp'. D not stated.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0002",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0003",
+      "stem": "Read the interview and answer the question.\n\nReporter: What made you want to become a doctor?\nDr. Yılmaz: When I was eight, my sister was very ill. I watched the doctors help her recover and I thought, 'I want to do that one day.'\nReporter: What is the hardest part of your job?\nDr. Yılmaz: Telling families bad news. It never gets easier.\nReporter: Any advice for young people who want to be doctors?\nDr. Yılmaz: Study hard, but also develop empathy. Medical knowledge alone is not enough.\n\nWhat does Dr. Yılmaz say about becoming a good doctor?",
+      "options": [
+        "A doctor only needs excellent grades.",
+        "A doctor needs both medical knowledge and the ability to understand and share the feelings of others.",
+        "The hardest part of medicine is the long study hours.",
+        "Dr. Yılmaz regrets becoming a doctor."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "diyalog_anlama",
+      "topic": "interview",
+      "skills": [
+        "interview",
+        "inference",
+        "main_point"
+      ],
+      "explanation": "Dr. Yılmaz says 'study hard, but also develop empathy. Medical knowledge alone is not enough.' B captures both parts. A too narrow (grades only). C wrong (hardest part = bad news, not hours). D wrong (no regret shown).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0003",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0004",
+      "stem": "Read the two notices and answer the question.\n\nNotice A: \"LIBRARY CLOSED for renovation 10–20 March. E-books available online during this period.\"\n\nNotice B: \"READING CLUB meets every Wednesday at 4 p.m. in the library. Next session: 17 March.\"\n\nA student wants to attend the Reading Club on 17 March. What problem will she face?",
+      "options": [
+        "The Reading Club has been cancelled permanently.",
+        "The library will be closed for renovation on 17 March, so the Reading Club cannot meet there as usual.",
+        "The student cannot read e-books.",
+        "The Reading Club only meets on Fridays."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "cok_metin_yorumlama",
+      "topic": "notice_reading",
+      "skills": [
+        "notice",
+        "inference",
+        "dates"
+      ],
+      "explanation": "17 March falls within the renovation period (10–20 March). The library is closed, so the Reading Club cannot use it that day. B correctly combines both notices. A, C, D are not supported by either notice.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0004",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0005",
+      "stem": "Read the text and answer the question.\n\n\"The Arctic fox changes its coat colour twice a year. In winter, its fur is white — perfect for hiding in the snow. In summer, it turns brown or grey to blend in with rocks and plants. This ability to change colour helps the fox hunt prey without being seen, and also protects it from predators.\"\n\nWhy does the Arctic fox change its coat colour?",
+      "options": [
+        "Because it gets too hot in summer and needs a lighter coat.",
+        "Because it wants to look more attractive to other foxes.",
+        "To blend into its environment for hunting and self-protection in both seasons.",
+        "Because white fur absorbs more heat in winter."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "metin_anlama",
+      "topic": "science_reading",
+      "skills": [
+        "reading",
+        "cause_effect",
+        "science"
+      ],
+      "explanation": "Text says: white in winter to hide in snow; brown in summer to blend. Purpose: hunt without being seen AND protect from predators. C captures both functions. A, B, D misread the text.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0005",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0006",
+      "stem": "Read the train timetable and answer the question.\n\nTrain 1: Departs Ankara 07:00 — Arrives Istanbul 11:30\nTrain 2: Departs Ankara 10:45 — Arrives Istanbul 15:15\nTrain 3: Departs Ankara 14:00 — Arrives Istanbul 18:30\nTrain 4: Departs Ankara 18:20 — Arrives Istanbul 22:50\n\nMehmet needs to be in Istanbul before 16:00. He can leave Ankara no earlier than 10:00. Which train should he take?",
+      "options": [
+        "Train 1",
+        "Train 2",
+        "Train 3",
+        "Train 4"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "takvim_okuma",
+      "topic": "timetable",
+      "skills": [
+        "timetable",
+        "reading",
+        "decision"
+      ],
+      "explanation": "Can't leave before 10:00 → Train 1 (07:00) is out. Train 2: departs 10:45 (after 10:00 ✓), arrives 15:15 (before 16:00 ✓). Train 3: arrives 18:30 (after 16:00 ✗). B (Train 2) is the only option that satisfies both conditions.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0006",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0007",
+      "stem": "Read the letter and answer the question.\n\n\"Dear Manager,\nI am writing to complain about the football boots I bought from your shop on 5 March. After only two weeks of normal use, the sole on the left boot came off completely. This is unacceptable for a product that cost 450 TL. I would like either a full refund or a replacement pair. I look forward to your response.\n\nYours sincerely, Kemal Arslan\"\n\nWhat is the purpose of this letter?",
+      "options": [
+        "To praise the shop for its good service.",
+        "To ask about the price of football boots.",
+        "To complain about a faulty product and request a refund or replacement.",
+        "To ask the manager for a job."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "yazili_metin_analiz",
+      "topic": "letter_reading",
+      "skills": [
+        "letter",
+        "purpose",
+        "complaint"
+      ],
+      "explanation": "Kemal describes a defective product (sole came off in 2 weeks) and requests refund OR replacement. C matches both: complaint + request. A opposite tone. B wrong (no price enquiry). D wrong (no job request).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0007",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0008",
+      "stem": "Read the recipe and answer the question.\n\n\"Simple Tomato Soup (Serves 4)\nIngredients: 6 tomatoes, 1 onion, 2 cloves garlic, 500 ml stock, salt, pepper, olive oil.\nInstructions:\n1. Chop tomatoes, onion and garlic.\n2. Heat oil in a pan and fry onion until soft.\n3. Add garlic and fry for 1 minute.\n4. Add tomatoes and stock. Simmer for 20 minutes.\n5. Blend until smooth. Add salt and pepper to taste.\"\n\nA cook wants to make this soup for 8 people. How many tomatoes will she need?",
+      "options": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
+      "answerIndex": 3,
+      "difficulty": 8,
+      "questionType": "tarif_okuma",
+      "topic": "recipe_maths",
+      "skills": [
+        "recipe",
+        "reading",
+        "proportion"
+      ],
+      "explanation": "Recipe serves 4 with 6 tomatoes. For 8 (double): 6 × 2 = 12 tomatoes. D is correct. A original amount (serves 4). B, C arithmetic errors.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0008",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0009",
+      "stem": "Read the text and answer the question.\n\n\"Thomas Edison made approximately 1,000 unsuccessful attempts before inventing the working light bulb. A reporter asked him, 'How did it feel to fail 1,000 times?' Edison replied, 'I didn't fail 1,000 times. The light bulb was an invention with 1,000 steps.'\"\n\nWhat does Edison's reply reveal about his attitude towards failure?",
+      "options": [
+        "He felt embarrassed about his many failures.",
+        "He believed failing many times meant the project was impossible.",
+        "He viewed each unsuccessful attempt as a step towards success, not as a failure.",
+        "He thought reporters asked unimportant questions."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "metin_anlama",
+      "topic": "attitude_inference",
+      "skills": [
+        "inference",
+        "attitude",
+        "reading"
+      ],
+      "explanation": "Edison reframes 'failures' as 'steps' — each one was progress, not defeat. C captures this growth mindset. A, B opposite of his view. D unrelated to his attitude.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0009",
+      "imageAsset": null,
+      "subject": "ing"
+    },
+    {
+      "id": "eng5_v2_0010",
+      "stem": "Read the two reviews and answer the question.\n\nReview 1: \"The Science Museum is great for all ages. The interactive exhibits really make learning fun. However, it gets very crowded on weekends.\"\n\nReview 2: \"The Science Museum is excellent but expensive. The staff are very helpful and the café has good food. I recommend visiting on a weekday.\"\n\nWhich opinion do BOTH reviewers agree on?",
+      "options": [
+        "The museum is too expensive.",
+        "The museum is worth visiting and has positive qualities.",
+        "The café food is good.",
+        "The museum is only suitable for children."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "cok_metin_yorumlama",
+      "topic": "review_reading",
+      "skills": [
+        "reviews",
+        "comparison",
+        "inference"
+      ],
+      "explanation": "Review 1: 'great for all ages' / 'makes learning fun.' Review 2: 'excellent.' Both express positive overall views. B is the shared opinion. A: only Review 2 mentions cost. C: only Review 2 mentions the café. D: Review 1 says 'all ages' — contradicts.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "eng5_v2_0010",
+      "imageAsset": null,
+      "subject": "ing"
+    }
+  ]
+}

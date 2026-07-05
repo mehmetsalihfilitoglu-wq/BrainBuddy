@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy_v2",
+  "questions": [
+    {
+      "id": "fen5_v2_0001",
+      "stem": "Bir öğrenci Ay'ın evrelerini gözlemlemek için 28 gün boyunca her gece Ay'ı fotoğraflıyor. Şu sonuçları elde ediyor:\n• 1.-7. günler: Ay giderek büyüyor (yeni aydan yarım aya)\n• 8.-14. günler: Yarım Ay'dan dolunaya ulaşıyor\n• 15.-21. günler: Dolunaydan yeniden küçülüyor\n• 22.-28. günler: Hilal görünümüne dönüyor\n\nBu gözlem düzeni için hangi açıklama doğrudur?",
+      "options": [
+        "Ay kendi ekseni etrafında dönerken ışık üretiyor.",
+        "Ay'ın şeklindeki görünür değişim, Güneş'in Ay'ı farklı açılardan aydınlatmasından kaynaklanmaktadır.",
+        "Dünya'nın gölgesi Ay'ı her gece farklı biçimde kapatır.",
+        "Ay her 28 günde bir yeni aya doğru küçülüp sonra büyür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "gozlem_cikarim",
+      "topic": "ay_evreleri",
+      "skills": [
+        "ay_evreleri",
+        "güneş_ışığı",
+        "astronomi"
+      ],
+      "explanation": "Ay'ın evreleri, Güneş'in Ay yüzeyini farklı açılardan aydınlatması ve bizim bu aydınlık kısmı farklı miktarda görmemizden kaynaklanır. A yanlış (Ay ışık üretmez). C ay tutulmasını anlatıyor, evreleri değil. D evreler 28 günlük döngü ama yalnızca küçülüp büyümez, döner.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0001",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0002",
+      "stem": "Öğrenciler iki bitki grubuyla deney yapıyor:\n• Grup A: güneş ışığı + su + CO₂ var (normal)\n• Grup B: güneş ışığı yok, diğerleri var\n\n2 hafta sonra Grup A'nın yaprakları koyu yeşil ve sağlıklı, Grup B'nin yaprakları ise sararıp solgun kalmış.\n\nBu deneyin ortaya koyduğu en doğru çıkarım hangisidir?",
+      "options": [
+        "Bitkiler yalnızca suyla yaşayabilir; güneş ışığı ikinci öncelikte.",
+        "Güneş ışığı fotosentez için zorunludur; ışıksız bırakılan bitkiler klorofil üretemez ve sararır.",
+        "CO₂ olmadan bitkiler büyüyemez; bu deney bunu kanıtlar.",
+        "Grup B'nin sarardığı, başka besin eklenmediğinden kaynaklanıyor."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "deney_cikarim",
+      "topic": "fotosentez",
+      "skills": [
+        "fotosentez",
+        "güneş_ışığı",
+        "bitki"
+      ],
+      "explanation": "Tek değişen güneş ışığı; B grubu ışıksız kaldığında sarardı. Bu, ışığın fotosentez ve klorofil üretimi için zorunlu olduğunu kanıtlar. A, C deney tasarımı bu değişkenleri sınamıyor. D başka nedenler uydurmuş.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0002",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0003",
+      "stem": "Bir hava pompasıyla balonlar şişirilecek. Gözlemler:\n• Küçük balonun şişirilmesi kolay.\n• Büyük balonun şişirilmesi daha zor.\n• Balonun ağzı bırakılınca hava fışkırıyor ve balon ileri gidiyor.\n\nBu gözlemler aşağıdaki kavramları destekler. Hangi açıklama doğru ve tam olarak tüm gözlemleri açıklar?",
+      "options": [
+        "Büyük balon daha hafif olduğundan şişirilmesi daha kolaydır.",
+        "Hava basıncı; büyük balon daha fazla hava gerektirdiğinden daha zordur. Serbest bırakılan balon, yüksek iç basınçtan dışarı hava çıkararak tepki kuvvetiyle ilerler.",
+        "Küçük balon daha az plastik içerdiğinden kolay şişirilir; yönelimi rastgeledir.",
+        "Balon havası soğuduğu için ileri gider."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "basinc_tepki_kuvveti",
+      "topic": "hava_basinci",
+      "skills": [
+        "hava_basıncı",
+        "tepki_kuvveti",
+        "analiz"
+      ],
+      "explanation": "Büyük balon: daha fazla hacim → daha fazla basınç gerekir. Serbest bırakma: hava yüksek basınçtan dışarı fışkırır, Newton 3. yasası gereği balon zıt yönde ilerler. A yanlış (büyük daha ağır). C yetersiz. D soğuma ilgisiz.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0003",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0004",
+      "stem": "Öğrenciler 50 cm³ hacmindeki dört farklı maddeyi tarttı:\n• Madde A: 35 g\n• Madde B: 60 g\n• Madde C: 50 g\n• Madde D: 25 g\n(Su yoğunluğu: 1 g/cm³)\n\nBu maddeler suya bırakıldığında ne yüzeyde kalır ne de dibe çöker; suyun içinde asılı kalan madde hangisidir?",
+      "options": [
+        "Madde A — yoğunluğu 0,70 g/cm³ olduğundan en hafif maddedir ve yüzeyde kalır.",
+        "Madde B — en ağır madde olduğundan su içinde dengede kalır.",
+        "Madde C — yoğunluğu tam olarak su ile aynıdır (1 g/cm³); ne yüzer ne de batar.",
+        "Madde D — en az yoğun madde olduğundan su ortasında asılı kalır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "yogunluk_kaldirma",
+      "topic": "madde_ozellikleri",
+      "skills": [
+        "yoğunluk",
+        "kaldırma kuvveti",
+        "hesaplama"
+      ],
+      "explanation": "Yoğunluk = kütle / hacim. A=35/50=0,70 g/cm³ (yüzer), B=60/50=1,20 g/cm³ (batar), C=50/50=1,00 g/cm³ (su ile eşit → asılı kalır), D=25/50=0,50 g/cm³ (yüzer). Yalnızca su ile aynı yoğunluktaki madde ne yüzer ne batar; su içinde asılı kalır.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0004",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0005",
+      "stem": "Bir deney düzeneğinde eşit uzunlukta bakır, demir ve tahta çubuklar kullanılıyor. Her çubuğun bir ucuna balmumu yapıştırılıyor, diğer ucu ısı kaynağına tutularak balmumunun düşme süreleri ölçülüyor:\n• Bakır: 4 sn\n• Demir: 22 sn\n• Tahta: 180 sn (çok az ısındı)\n\nBu deneyde kontrol edilen değişken nedir ve en önemli sonuç nedir?",
+      "options": [
+        "Kontrol değişkeni: balmumu miktarı. Sonuç: bakır ısıyı yavaş iletir.",
+        "Kontrol değişkeni: çubuk uzunluğu ve balmumu konumu. Sonuç: bakır en iyi ısı iletkeni, tahta en kötü iletkenidir.",
+        "Kontrol değişkeni: çubuğun rengi. Sonuç: renkli çubuklar ısıyı hızlı iletir.",
+        "Kontrol değişkeni: ısı kaynağının sıcaklığı. Sonuç: demir, bakırdan daha iyi ısı iletkenidir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "deney_tasarimi",
+      "topic": "isinma_iletkenlik",
+      "skills": [
+        "kontrol_değişkeni",
+        "ısı_iletkenliği",
+        "deney"
+      ],
+      "explanation": "Kontrol (sabit) değişkenler: uzunluk eşit, balmumu konumu eşit. Bağımsız değişken: malzeme türü. En hızlı düşen: bakır (4 sn) → en iyi iletken. Tahta neredeyse iletmiyor. A yanlış sonuç. C renk alakasız. D demir bakırdan yavaş.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0005",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0006",
+      "stem": "Bir öğrenci terazi ve farklı uzunluklarda kaldıraç kollarıyla deney yapıyor:\n• Deney 1: fulcrum (destek noktası) ortada; 10 N yük sola konulunca dengelenmek için sağa 10 N gerekiyor.\n• Deney 2: fulcrum sola kaydırıldı; artık 10 N yükü dengelemek için sağa yalnızca 5 N yeterli.\n\nBu deneyin sonuçlarına göre hangi çıkarım doğrudur?",
+      "options": [
+        "Fulcrum yeri kaldıraç avantajını etkilemez.",
+        "Destek noktasını yüke yaklaştırınca daha az kuvvetle daha büyük yük kaldırılabilir.",
+        "Kaldıraçta iki taraftaki kuvvetler her zaman eşit olmalıdır.",
+        "Fulcrum ortada olduğunda daha az kuvvet gerekir."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "kaldırac_analiz",
+      "topic": "kuvvet_basinc",
+      "skills": [
+        "kaldıraç",
+        "destek_noktası",
+        "mekanik_avantaj"
+      ],
+      "explanation": "Deney 2'de fulcrum sola kaydı; yük kolunun uzunluğu arttı, kuvvet kolunun uzunluğu arttı → mekanik avantaj kazanıldı. 5 N ile 10 N dengelendi. A yanlış (deney bunu çürütüyor). C yanlış (Deney 2'de 10 N ≠ 5 N). D Deney 1 ortada ama 10=10 eşit.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0006",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0007",
+      "stem": "Bir öğrenci tatlı bir maddeyi iki cam bardak suya karıştırıyor:\n• Bardak 1: soğuk su (5°C)\n• Bardak 2: sıcak su (80°C)\n\nSıcak suda madde çok daha hızlı çözüldü.\n\nBu gözleme dayanarak doğru genelleme hangisidir?",
+      "options": [
+        "Madde miktarı arttıkça çözünme hızlanır.",
+        "Sıcaklık arttıkça katı maddelerin suda çözünme hızı genellikle artar.",
+        "Soğuk su katı maddeleri daha iyi çözer.",
+        "Çözünme yalnızca suyun miktarına bağlıdır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "cozunme_sicaklik",
+      "topic": "madde_ozellikleri",
+      "skills": [
+        "çözünme",
+        "sıcaklık",
+        "madde"
+      ],
+      "explanation": "Deney yalnızca sıcaklığı değiştirdi ve sıcak suda daha hızlı çözündü. B bu genellemeyi doğru yapıyor. A madde miktarı deneyde değişmedi. C yanlış. D yalnızca miktar açıklaması yetersiz.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0007",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0008",
+      "stem": "Bir çevre araştırmacısı bir nehir havzasında şu değişiklikleri belgeliyor:\n• Fabrika atıkları nehre karışıyor.\n• Balık türleri azalmaya başlıyor.\n• Nehirden su içen köylerde hastalık vakaları artıyor.\n• Nehir kenarındaki kuşlar bölgeden göç ediyor.\n\nBu değişiklikler göz önüne alındığında, hangisi en kapsamlı ve nedensel yorumu içermektedir?",
+      "options": [
+        "Kuşlar hava değişimi nedeniyle göç etti.",
+        "Balık türlerindeki azalma tesadüftür.",
+        "Fabrika atıkları nehrin ekolojik dengesini bozdu; bu durum besin zincirini, insan sağlığını ve biyoçeşitliliği zincirleme etkiledi.",
+        "Köylerdeki hastalıklar nehirle ilgisizdir."
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "ekoloji_neden_sonuc",
+      "topic": "insan_cevre",
+      "skills": [
+        "kirlilik",
+        "ekosistem",
+        "besin_zinciri"
+      ],
+      "explanation": "Fabrika atığı → su kirliliği → balık ölümü (besin zinciri bozuldu) → köy hastalıkları (su kullanımı) → kuş göçü (habitatın bozulması). C tüm bağlantıları kapsıyor. A, B, D tek gözlemi açıklamaya çalışıyor ve nedeni görmezden geliyor.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0008",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0009",
+      "stem": "Güneş tutulması sırasında ay, güneş ile dünya arasına girer. Ay'ın Güneş'i tam kapatabilmesi için Ay'ın yeterince büyük görünmesi gerekir. Ancak Ay'ın Dünya'ya uzaklığı değiştiğinden zaman zaman tam kapayamaz; bu durumda güneşin çevresinde bir halka görünür (halka tutulması).\n\nBu bilgilere göre hangi açıklama doğrudur?",
+      "options": [
+        "Güneş tutulması yalnızca dolunayda gerçekleşebilir.",
+        "Ay her zaman Güneş'i tam olarak kapatır.",
+        "Ay'ın Güneş'i tam kapatıp kapatamaması Ay'ın Dünya'ya olan uzaklığına bağlıdır.",
+        "Halka tutulması Dünya'nın Ay'a gölge düşürmesiyle oluşur."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "gozlem_cikarim",
+      "topic": "gunes_tutulmasi",
+      "skills": [
+        "güneş_tutulması",
+        "Ay_uzaklık",
+        "astronomi"
+      ],
+      "explanation": "Metin Ay'ın uzaklığının değiştiğini ve bu durumun tam ya da halka tutulmasına yol açtığını açıklıyor. C bu bilgiyi doğrudan karşılıyor. A yanlış (dolunay değil yeniay). B yanlış (halka tutulması var). D ay tutulmasını açıklıyor, güneş değil.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0009",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen5_v2_0010",
+      "stem": "Bir bilim insanı ormandaki bir besin ağını analiz ediyor:\nOt → Tavşan → Tilki → Kartal\nOt → Geyik → Kartal\nOt → Fare → Kartal\n\nBir hastalık nedeniyle tilki nüfusu ciddi biçimde azaldı.\n\nBu durumun doğrudan ve dolaylı etkileri hakkında en kapsamlı yargı hangisidir?",
+      "options": [
+        "Yalnızca kartal etkilenir çünkü en üstteki av.",
+        "Tilki azalınca tavşan artar, ot azalır; kartal kısmen etkilenir çünkü geyik ve fareden beslenmeye devam eder.",
+        "Tilki azalınca orman tamamen yok olur.",
+        "Besin ağı değişmez çünkü kartal üç farklı kaynaktan besleniyor."
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "besin_agi_analiz",
+      "topic": "ekosistem",
+      "skills": [
+        "besin_ağı",
+        "denge",
+        "ekosistem"
+      ],
+      "explanation": "Tilki → tavşan kontrolü sağlıyor. Tilki azalınca tavşan çoğalır, ot azalır. Kartal ise tilkiden değil geyik ve fareden de beslendiğinden tamamen değil kısmen etkilenir. B bu nüansı doğru kuruyor. A çok dar. C abartılı. D değişme olmaz yanlış (ot ve tavşan etkilenecek).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen5_v2_0010",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}

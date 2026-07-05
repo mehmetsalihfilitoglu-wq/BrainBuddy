@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy_v2",
+  "questions": [
+    {
+      "id": "mat4_v2_0011",
+      "stem": "Bir çiftçi tarlasını 4 eşit parçaya bölmüştür. Her parçadan yılda 1 350 kg domates, 720 kg biber ve 480 kg patlıcan elde ediyor.\n\nÇiftçinin tüm tarladan yılda elde ettiği toplam ürün miktarı kaç kg'dır?",
+      "options": [
+        "9 800",
+        "10 200",
+        "10 020",
+        "9 960"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "cok_adinli_islem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "dogal_sayi",
+        "dort_islem",
+        "problem_cozme"
+      ],
+      "explanation": "Bir parçadan toplam: 1350+720+480=2550 kg. 4 parçadan: 2550×4=10200 kg. A(9800): bir parçayı 2450 almış (biber 700 sanmış). C(10020): toplama hatası 2505×4. D(9960): 2490×4 hata.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0011",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0012",
+      "stem": "Bir atletizm parkurunda 8 tur tam olarak 3 200 m'ye eşittir. Hasan bu parkurda toplam 40 dakikada 8 tur koştu.\n\nHasan'ın dakikada kaç metre koştuğunu ve aynı hızla 7 tur koşması için kaç dakika gerektiğini bulunuz.",
+      "options": [
+        "80 m/dk; 35 dakika",
+        "80 m/dk; 28 dakika",
+        "64 m/dk; 35 dakika",
+        "64 m/dk; 44 dakika"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "hiz_zaman",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "zaman",
+        "mesafe"
+      ],
+      "explanation": "Hız: 3200÷40=80 m/dk. 7 tur = 7×(3200÷8)=7×400=2800 m. Süre: 2800÷80=35 dk. B(28dk): 7×40/8=35 yerine 7×4 hesaplamış. C ve D: hızı 64 almış (3200÷50 tuzağı).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0012",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0013",
+      "stem": "Bir öğrenci 5 sınavdan şu puanları almıştır: 84, 76, 90, 68, 92.\n\nBu öğrencinin 6. sınavda kaç puan alması gerekir ki 6 sınavın ortalaması 82 olsun?",
+      "options": [
+        "76",
+        "80",
+        "82",
+        "84"
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "ortalama_denklem",
+      "topic": "istatistik",
+      "skills": [
+        "ortalama",
+        "toplam",
+        "problem_cozme"
+      ],
+      "explanation": "6 sınavın hedef toplamı: 82×6=492. Mevcut 5 sınavın toplamı: 84+76+90+68+92=410. 6. sınav puanı: 492−410=82. A(76): 490-410=80 olarak hesaplamış. B(80): 82×6=492 yerine 82×5=410+80=490/6 hatası. D(84): 84+76+90+68+92=414 sanmış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0013",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0014",
+      "stem": "Bir inşaatta çalışan 6 işçi, 240 m² alanı boyamak için işe başladı. Her işçi günde 8 m² boyayabiliyor.\n\nBu işçiler 240 m²'yi kaç günde bitirir ve aynı alanı 2 günde bitirmek için kaç işçi gerekirdi?",
+      "options": [
+        "5 gün; 15 işçi",
+        "5 gün; 30 işçi",
+        "6 gün; 20 işçi",
+        "4 gün; 30 işçi"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "ters_orantili_problem",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "carpma",
+        "bolme",
+        "ters_orantili"
+      ],
+      "explanation": "6 işçi günde: 6×8=48 m². 240÷48=5 gün. 2 günde 240 m²: günde 120 m² gerekir. 120÷8=15 işçi. B(30): 2 günü yanlış yorumlamış, 1 günlük hesap yapmış. C: 240÷40=6 gün tuzağı (5 işçi sanmış). D: 4 gün tuzağı (toplam iş hacmini yanlış hesaplamış).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0014",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0015",
+      "stem": "Bir bahçenin çevresi 96 m'dir ve bahçe dikdörtgen şeklindedir. Uzun kenar kısa kenarın 3 katıdır.\n\nBahçenin alanı kaç m²'dir?",
+      "options": [
+        "384",
+        "432",
+        "486",
+        "576"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "alan_cevre",
+      "topic": "geometri",
+      "skills": [
+        "cevre",
+        "alan",
+        "denklem"
+      ],
+      "explanation": "Kısa kenar = a, uzun kenar = 3a. Çevre: 2(a+3a)=8a=96 → a=12 m. Uzun kenar: 3×12=36 m. Alan: 12×36=432 m². A(384): 12×32=384 (uzun kenarı 32 almış). C(486): a=13 kullanmış, 13×37.5. D(576): a=16 kullanmış, çevre=2(16+48)=128≠96.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0015",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0016",
+      "stem": "Bir otobüs, sabah 06:15'te hareket etti ve öğleden sonra 14:45'te vardı. Yolculuk boyunca iki mola verdi: biri 25 dakika, diğeri 40 dakika.\n\nOtobüsün fiili sürüş süresi kaç saat kaç dakikadır?",
+      "options": [
+        "7 saat 25 dakika",
+        "7 saat 45 dakika",
+        "8 saat 30 dakika",
+        "8 saat 00 dakika"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "zaman_problemi",
+      "topic": "zaman",
+      "skills": [
+        "zaman",
+        "cikarma",
+        "problem_cozme"
+      ],
+      "explanation": "06:15 → 14:45 = 8 saat 30 dakika toplam. Molalar: 25+40=65 dakika = 1 saat 5 dakika. Sürüş: 8s30dk − 1s5dk = 7 saat 25 dakika. B(7s45dk): 25+40=55 dk çıkarmış (65 yerine). C(8s30dk): molaları unutmuş, toplam süreyi vermiş. D(8s00dk): yalnızca 25 dk molayı çıkarmış, 40 dk'yı unutmuş.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0016",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0017",
+      "stem": "Bir sınıfta 5 gruba 420 kart eşit dağıtıldı. Her grubun aldığı kartların 3/7'si kırmızı, kalanı mavi.\n\nSınıftaki toplam mavi kart sayısı kaçtır?",
+      "options": [
+        "180",
+        "240",
+        "200",
+        "210"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "kesir_paylastirma",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "dort_islem",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam kartta mavi oranı 4/7 → 4/7×420=240. Veya: her grup 84 kart, kırmızı 3/7×84=36, mavi 48; toplam mavi 5×48=240. A(180): 3/7×420=180 kırmızı sayısını mavi sanmış. C(200): farklı kesir uygulamış. D(210): yarısını almış (420÷2).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0017",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0018",
+      "stem": "Bir fabrikada 3 makinenin saatlik üretimi şöyledir: A makinesi 120 parça, B makinesi 90 parça, C makinesi 150 parça üretir. Bu makineler toplam 5 040 parça üretecek.\n\n3 makine birlikte kaç saatte 5 040 parçayı üretir? 5 040 parçanın üretiminden sonra 3 saat daha çalışırlarsa toplam kaç parça üretilir?",
+      "options": [
+        "14 saat; 6 120 parça",
+        "12 saat; 6 120 parça",
+        "14 saat; 6 210 parça",
+        "14 saat; 6 048 parça"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "hiz_doluluuk",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "toplam",
+        "problem_cozme"
+      ],
+      "explanation": "Toplam üretim hızı: 120+90+150=360 parça/saat. 5040÷360=14 saat. Sonraki 3 saatte: 3×360=1080 parça. Toplam: 5040+1080=6120 parça. B(12 saat): 5040÷420=12 (hızı 420 almış). C(6210): 3 saatte 1170 hesaplamış. D(6048): 3×336=1008 hata.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0018",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0019",
+      "stem": "Bir mağazada 3 ürün çeşidi satılmaktadır: kalem 4 TL, silgi 3 TL, cetvel 7 TL. Selin bir kalem, bir silgi ve iki cetvel aldı ve 50 TL verdi.\n\nSelin'e kaç TL para üstü verilmelidir? Aynı mağazadan 3 kalem, 2 silgi, 1 cetvel alınsaydı toplam tutar ne olurdu?",
+      "options": [
+        "Para üstü: 29 TL; Diğer alışveriş: 25 TL",
+        "Para üstü: 29 TL; Diğer alışveriş: 31 TL",
+        "Para üstü: 25 TL; Diğer alışveriş: 25 TL",
+        "Para üstü: 29 TL; Diğer alışveriş: 19 TL"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "cok_adinli_para",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "para",
+        "dort_islem",
+        "problem_cozme"
+      ],
+      "explanation": "1 kalem+1 silgi+2 cetvel: 4+3+14=21 TL. Para üstü: 50−21=29 TL. 3 kalem+2 silgi+1 cetvel: 12+6+7=25 TL. A doğru. B(31): 3 kalem 3×4=12, 2 silgi 2×3=6, 1 cetvel 7 → 12+6+7=25, B 31 yanlış. C: para üstü 50−25=25 → kalem fiyatını 7, cetvel 4 karıştırmış. D: 3 kalem için 3×3=9 silgi fiyatı kullanmış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0019",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat4_v2_0020",
+      "stem": "Ayşe her ay bir öncekinden 20 TL fazla para biriktiriyor. 1. ay 60 TL, 2. ay 80 TL, 3. ay 100 TL biriktirdi ve bu kural devam ediyor.\n\nAyşe kaçıncı ayın sonunda toplam 840 TL biriktirmiş olur?",
+      "options": [
+        "5. ay",
+        "6. ay",
+        "7. ay",
+        "8. ay"
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "sayi_dizisi_toplam",
+      "topic": "dizi_kural",
+      "skills": [
+        "dizi",
+        "toplam",
+        "kural_bulma"
+      ],
+      "explanation": "Dizi: 60, 80, 100, 120, 140, 160, 180... Kümülatif toplamlar: Ay1=60, Ay2=140, Ay3=240, Ay4=360, Ay5=500, Ay6=660, Ay7=840. 7. ay sonunda tam 840 TL. A(5.ay): 500 TL, eksik. B(6.ay): 660 TL, eksik. D(8.ay): 1040 TL, fazla geçmiş.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat4_v2_0020",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

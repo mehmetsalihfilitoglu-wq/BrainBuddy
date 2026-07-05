@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "mat",
+  "publisher": "brainbuddy_v2",
+  "questions": [
+    {
+      "id": "mat5_v2_0021",
+      "stem": "Bir bisküvi fabrikası bir günde 3 3/4 ton un kullandı. Ertesi gün ise 1 1/2 ton un kullandı.\n\nBirinci günde kullanılan un miktarı, ikinci günün kaç katıdır?",
+      "options": [
+        "2",
+        "2½",
+        "3",
+        "1½"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "kesir_bolme",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "bolme",
+        "karisik_sayi"
+      ],
+      "explanation": "3 3/4 ÷ 1 1/2 = 15/4 ÷ 3/2 = 15/4 × 2/3 = 30/12 = 5/2 = 2½. A(2): 15/4 ÷ 2=15/8≠2. C(3): 15/4 ÷ 5/4=3, 1 1/2 yerine 1 1/4 kullanmış. D(1½): bölme yerine çarpma yapmış, 15/4×3/2=45/8≠1½.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0021",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0022",
+      "stem": "Bir kasaptan 4 1/3 kg et alındı. Bunun 1 5/6 kg'ı köfte için kullanıldı.\n\nGeriye kaç kg et kaldı?",
+      "options": [
+        "2",
+        "2½",
+        "3",
+        "2¼"
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "karisik_sayi_cikarma",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "cikarma",
+        "karisik_sayi"
+      ],
+      "explanation": "4 1/3 − 1 5/6 = 13/3 − 11/6 = 26/6 − 11/6 = 15/6 = 5/2 = 2½ kg. A(2): 26/6−12/6=14/6=7/3≠2 hata. C(3): 4−1=3, kesirleri görmezden gelmiş. D(2¼): 4 1/4−1 5/6 yanlış baz almış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0022",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0023",
+      "stem": "Bir mağazada bir ürünün fiyatı Ocak ayında 240 TL'ydi. Şubat'ta fiyat %25 arttı, Mart'ta ise %20 azaldı.\n\nÜrünün Mart sonu fiyatı kaç TL'dir?",
+      "options": [
+        "240",
+        "248",
+        "252",
+        "264"
+      ],
+      "answerIndex": 0,
+      "difficulty": 9,
+      "questionType": "yuzde_artis_azalis",
+      "topic": "yuzde",
+      "skills": [
+        "yüzde",
+        "oran",
+        "problem_cozme"
+      ],
+      "explanation": "Şubat: 240×1,25=300 TL. Mart: 300×0,80=240 TL. Sürpriz: başlangıç fiyatına döndü! B(248): 240×(1+0,25−0,20)=240×1,05=252 değil 248. C(252): +25% −25% değil +25% −20%. 240+25%=300, 300−20%=240. D(264): 240+%25+%10 hata.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0023",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0024",
+      "stem": "Bir yamuk şeklindeki tarlada iki paralel kenar 15 m ve 9 m, tarlanın yüksekliği 8 m'dir. Tarlanın bir m²'sine 12 TL maliyet hesaplanıyor.\n\nTarlanın alanı kaç m²'dir ve toplam maliyet kaç TL'dir?",
+      "options": [
+        "Alan: 96 m², Maliyet: 1 152 TL",
+        "Alan: 108 m², Maliyet: 1 296 TL",
+        "Alan: 96 m², Maliyet: 1 296 TL",
+        "Alan: 120 m², Maliyet: 1 440 TL"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "yamuk_alan_maliyet",
+      "topic": "geometri",
+      "skills": [
+        "yamuk",
+        "alan",
+        "maliyet"
+      ],
+      "explanation": "Yamuk alanı: (15+9)/2×8=24/2×8=12×8=96 m². Maliyet: 96×12=1152 TL. B(108): (15+9)/2×9=108, yüksekliği 9 almış. C: alan doğru ama maliyet 96×13,5=1296 hata. D(120): (15+9+6)×4=120 yanlış formül.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0024",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0025",
+      "stem": "İki şehir arasındaki mesafe 360 km'dir. Tren A şehirden saatte 80 km, Tren B ise B şehirden saatte 100 km karşılıklı hareket ediyor. Her ikisi aynı anda hareket etmeye başladı.\n\nKaç saat sonra karşılaşırlar ve karşılaşma noktası A şehrine kaç km uzaklıktadır?",
+      "options": [
+        "2 saat; 160 km",
+        "2 saat; 200 km",
+        "3 saat; 240 km",
+        "2,5 saat; 200 km"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "karsilasma_problemi",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "hiz",
+        "karsilasma",
+        "mesafe"
+      ],
+      "explanation": "Toplam hız: 80+100=180 km/saat. Karşılaşma süresi: 360÷180=2 saat. A şehrine mesafe: 80×2=160 km. B(200): B şehrine mesafeyi vermiş (100×2=200). C(3 saat): 360÷120=3, hızları yanlış toplamış. D(2,5): 360÷144=2,5 tuzağı.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0025",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0026",
+      "stem": "Dikdörtgen prizma biçiminde bir akvaryumun boyutları: uzunluk 8 dm, genişlik 5 dm, yükseklik 4 dm.\n\nAkvaryumun hacmi kaç dm³'tür ve 1 dm³ = 1 litre olduğuna göre kaç litre su alır?",
+      "options": [
+        "160 dm³; 160 litre",
+        "168 dm³; 168 litre",
+        "180 dm³; 180 litre",
+        "152 dm³; 152 litre"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "hacim_hesap",
+      "topic": "geometri",
+      "skills": [
+        "hacim",
+        "dikdortgen_prizma",
+        "problem_cozme"
+      ],
+      "explanation": "Hacim: 8×5×4=160 dm³ = 160 litre. B(168): 8×5×4+8=168 hata. C(180): 9×5×4=180, uzunluğu 9 almış. D(152): 8×4×4+8=152 hata.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0026",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0027",
+      "stem": "Bir sınıftaki 7 öğrencinin haftalık kitap okuma süreleri (saat): 15, 22, 8, 31, 19, 27, 12.\n\nBu verilerin ortanca (medyan) değeri kaçtır ve en fazla ile en az okuyan arasındaki fark kaç saattir?",
+      "options": [
+        "Medyan: 19; Fark: 23",
+        "Medyan: 19; Fark: 19",
+        "Medyan: 22; Fark: 23",
+        "Medyan: 19; Fark: 16"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "istatistik_medyan",
+      "topic": "istatistik",
+      "skills": [
+        "medyan",
+        "aralik",
+        "veri_analiz"
+      ],
+      "explanation": "Sıralama: 8, 12, 15, 19, 22, 27, 31. Ortadaki değer (4. eleman) = 19. En fazla−en az: 31−8=23. B(Fark 19): 31-12=19 hata, en küçüğü 12 almış. C(Medyan 22): sıralamayı yanlış yapmış. D(Fark 16): 27-12=15 veya 31-15=16 tuzağı.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0027",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0028",
+      "stem": "Bir su tankının 5/8'i dolu ve içinde 350 litre su var.\n\nTankın tüm kapasitesi kaç litredir? Tankın 3/4'ü dolduğunda içinde kaç litre su olur?",
+      "options": [
+        "560 litre; 420 litre",
+        "480 litre; 360 litre",
+        "560 litre; 360 litre",
+        "640 litre; 480 litre"
+      ],
+      "answerIndex": 0,
+      "difficulty": 8,
+      "questionType": "kesir_tam_bulma",
+      "topic": "kesirler",
+      "skills": [
+        "kesir",
+        "bolme",
+        "problem_cozme"
+      ],
+      "explanation": "5/8×kapasite=350 → kapasite=350÷(5/8)=350×(8/5)=560 litre. 3/4×560=420 litre. B(480): 350×(8/5) yerine 350÷(5/6)=420 diye yanlış, kapasite 480 hata. C: kapasite doğru ama 3/4×480=360 hata. D(640): 350÷(5/8) yerine 350×(8/4)=700÷... hata.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0028",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0029",
+      "stem": "Bir okulda 400 öğrenci var. Bir gün öğrencilerin %25'i devamsız. Devamsız olmayan öğrencilerin 2/5'i erkek.\n\nO gün okulda bulunan erkek öğrenci sayısı kaçtır?",
+      "options": [
+        "100",
+        "120",
+        "150",
+        "160"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "yuzde_kesir_zincirleme",
+      "topic": "yuzde",
+      "skills": [
+        "yüzde",
+        "kesir",
+        "zincirleme"
+      ],
+      "explanation": "%25 devamsız: 400×0,25=100 devamsız. Okulda: 400−100=300 öğrenci. Erkek: 2/5×300=120. A(100): devamsız sayısını erkek sanmış. C(150): 3/5×... ya da 300÷2=150 hata. D(160): 400×2/5=160, devamsızlığı dikkate almamış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0029",
+      "imageAsset": null,
+      "subject": "mat"
+    },
+    {
+      "id": "mat5_v2_0030",
+      "stem": "İki sayının EBOB'u 36, EKOK'u 216'dır. Bir sayı 72 olduğuna göre diğer sayı nedir?\n\n(EBOB × EKOK = A × B formülünü kullanınız.)",
+      "options": [
+        "96",
+        "108",
+        "120",
+        "144"
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "ebob_ekok",
+      "topic": "dogal_sayilar",
+      "skills": [
+        "ebob",
+        "ekok",
+        "asal_carpan"
+      ],
+      "explanation": "EBOB×EKOK=A×B → 36×216=A×B. 36×216=7776. B=7776÷72=108. Doğrulama: EBOB(72,108)=36 ✓, EKOK(72,108)=216 ✓. A(96): 7776÷96=81, EBOB(72,81)=9≠36. C(120): 7776÷120=64,8 tam değil. D(144): EBOB(72,144)=72≠36.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "mat5_v2_0030",
+      "imageAsset": null,
+      "subject": "mat"
+    }
+  ]
+}

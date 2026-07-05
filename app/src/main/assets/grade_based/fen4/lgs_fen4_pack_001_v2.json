@@ -1,0 +1,248 @@
+{
+  "version": 2,
+  "mode": "LGS",
+  "subject": "fen",
+  "publisher": "brainbuddy_v2",
+  "questions": [
+    {
+      "id": "fen4_v2_0001",
+      "stem": "Bir bilim fuarında öğrenciler aynı yüzeyden üç farklı tekerlekli arabayı eşit kuvvetle iterek bırakıyor. Ölçülen mesafeler:\n• Metal tekerlekli: 85 cm\n• Plastik tekerlekli: 63 cm\n• Lastik tekerlekli: 42 cm\n\nBu sonuçlara göre sürtünme kuvveti ile ilgili hangi yargı doğrudur?",
+      "options": [
+        "Metal araba en az mesafe gittiğinden en çok sürtünme yaşamıştır.",
+        "Lastik araba en az mesafe gittiğinden en çok sürtünme kuvvetiyle karşılaşmıştır.",
+        "Plastik araba metalden kısa gittiğinden metallerin sürtünmesi sıfırdır.",
+        "Mesafe ne kadar uzunsa sürtünme kuvveti o kadar büyüktür."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "deney_yorumlama",
+      "topic": "kuvvet_surunme",
+      "skills": [
+        "surunme",
+        "kuvvet",
+        "deney_analiz"
+      ],
+      "explanation": "Sürtünme harekete karşı çalışır; daha kısa mesafe = daha fazla enerji kaybı = daha fazla sürtünme. Lastik (42 cm) en kısa gitti → en fazla sürtünme. A yanlış (metal en uzun gitti). C, D yanlış mantık.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0001",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0002",
+      "stem": "Bir öğrenci aynı sıcaklıktaki su dolu kaplara üç farklı nesne bırakıyor:\n• Nesne A: dibe çöküyor\n• Nesne B: yüzeyde kalıyor\n• Nesne C: orta derinlikte asılı kalıyor\nDeney eşit hacimdeki maddelerle tekrarlanmış, sonuçlar değişmemiştir.\n\nMaddelerin yoğunluk sıralaması küçükten büyüğe doğru hangisidir?",
+      "options": [
+        "A < C < B",
+        "C < B < A",
+        "B < A < C",
+        "B < C < A"
+      ],
+      "answerIndex": 3,
+      "difficulty": 8,
+      "questionType": "veri_yorumlama",
+      "topic": "madde_yogunluk",
+      "skills": [
+        "yogunluk",
+        "madde",
+        "sicaklik"
+      ],
+      "explanation": "B yüzer → yoğunluk < su; C asılı → yoğunluk ≈ su; A batar → yoğunluk > su. Küçükten büyüğe: B < C < A. Diğer seçenekler bu mantığı bozuyor.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0002",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0003",
+      "stem": "Zeynep deney masasında üç madde ısıtıyor:\n• Madde X: katıdan sıvıya geçiyor; soğuyunca katı hâline dönmüyor.\n• Madde Y: sıvıdan gaz hâline geçiyor; soğuyunca sıvıya dönüyor.\n• Madde Z: önce sıvıya, devam edince gaz hâline geçiyor.\n\nÖğretmeni soruyor: 'Bu maddelerden hangisi hem erime hem de buharlaşma göstermiştir?'",
+      "options": [
+        "Yalnızca Madde X — katıdan sıvıya geçiş erimedir.",
+        "Yalnızca Madde Y — sıvıdan gaz hâline geçiş göstermiştir.",
+        "Madde Z — hem erime (katı→sıvı) hem buharlaşma (sıvı→gaz) geçirmiştir.",
+        "Madde X ve Madde Y birlikte — ikisi de farklı hal değişimi yaşamıştır."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "hal_degisimi",
+      "topic": "madde_ozellikleri",
+      "skills": [
+        "hal_degisimi",
+        "erime",
+        "buharlaşma"
+      ],
+      "explanation": "Z katı→sıvı (erime) ve sıvı→gaz (buharlaşma) olmak üzere iki hal değişimi yaşadı. X sadece eridi ama geri dönüşümsüz (bu maddenin özel özelliği). Y sadece buharlaştı ve yoğuştu. D yanlış çünkü X+Y'nin değişimleri farklı.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0003",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0004",
+      "stem": "Bir bilim öğretmeni şu deneyi anlatıyor: Tahta bir çubukla demir bir çubuğun eşit uçlarına hafifçe vurulduğunda, sesin karşı uca ulaşma süreleri ölçülüyor. Tahta çubukta ses 45 ms'de, demir çubukta ise 3 ms'de karşı uca ulaşıyor.\n\nBu farkın en doğru açıklaması aşağıdakilerden hangisidir?",
+      "options": [
+        "Demir çubuk daha uzun olduğu için sesi hızlı taşır.",
+        "Ses yalnızca hava ortamında yayılır; çubuklar etkisizdir.",
+        "Demir, tahtaya kıyasla daha rijit ve yoğun bir katı olduğundan ses titreşimlerini çok daha hızlı iletir.",
+        "Tahta çubuk hafif olduğu için sesi daha yavaş iletir."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "neden_sonuc",
+      "topic": "ses_yayilimi",
+      "skills": [
+        "ses",
+        "katı_ortam",
+        "ileti_hizi"
+      ],
+      "explanation": "Ses katı ortamlarda gazdan çok daha hızlı yayılır. Demir atomik yapısı bakımından daha rijit ve sıkı dizilimli olduğundan titreşimi verimli aktarır. A (uzunluk) alakasız. B yanlış (ses katı/sıvıda da yayılır). D (hafiflik-hız) yanlış.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0004",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0005",
+      "stem": "Öğrenciler aynı tür bitkiyi dört farklı koşulda yetiştiriyor:\n• Grup 1: toprak + su + güneş → 4 haftada en sağlıklı büyüme\n• Grup 2: toprak + su (karanlık) → sarardı, soldu\n• Grup 3: toprak + güneş (susuz) → kuruyup öldü\n• Grup 4: pamuk + su + güneş (topraksız) → cılız ama yeşil kaldı\n\nBu gözlemlerden hangisi kesin olarak kanıtlanmıştır?",
+      "options": [
+        "Bitkiler güneş ışığı olmadan yaşayamaz; Grup 2 öldü.",
+        "Toprak bitki büyümesi için su ve güneşten daha önemlidir.",
+        "Su bitki yaşamı için zorunludur; yalnızca su eksikliğiyle bırakılan grup öldü.",
+        "Bitkiler yalnızca su ve güneşle sağlıklı büyüyebilir."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "deney_cikarim",
+      "topic": "bitki_yasam_kosullari",
+      "skills": [
+        "bitki",
+        "su",
+        "deney_cikarim"
+      ],
+      "explanation": "Grup 3 sadece susuz bırakılınca öldü — su zorunlu, bu kesin kanıt. A yanlış: Grup 2 ölmedi, sardı. B yanlış: Grup 4 topraksız yaşadı. D yanlış: Grup 4 cılız kaldı, sağlıklı değildi.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0005",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0006",
+      "stem": "Bir orman ekosisteminde belgelenmiş besin zinciri:\nOt → Çekirge → Kurbağa → Yılan → Şahin\n\nHastalık nedeniyle kurbağa nüfusu büyük ölçüde azaldı.\n\nBu değişimin uzun vadeli ekosistem etkilerini en kapsamlı biçimde açıklayan seçenek hangisidir?",
+      "options": [
+        "Yalnızca çekirge sayısı artar; diğer canlılar etkilenmez.",
+        "Yılan ve şahin nüfusu azalır; çekirge artar, ot miktarı azalır.",
+        "Şahin nüfusu artar çünkü daha fazla yılan bulur.",
+        "Ot miktarı azalır çünkü çekirge sayısı azalır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 9,
+      "questionType": "ekoloji_analiz",
+      "topic": "besin_zinciri",
+      "skills": [
+        "besin_zinciri",
+        "ekosistem",
+        "denge"
+      ],
+      "explanation": "Kurbağa azalınca: (1) Çekirge (avlandığı azaldı) artar. (2) Ot (çekirge arttı) azalır. (3) Yılan (av azaldı) azalır. (4) Şahin (av azaldı) azalır. A dar bakış. C tersine mantık (yılan azalır). D ters mantık (ot azalır çünkü çekirge ARTAR).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0006",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0007",
+      "stem": "Bir fabrikada üç farklı metal çubuk ısıtılıyor. Isı kaynağına eşit uzaklıkta başlanarak diğer uca ısının ulaşma süreleri:\n• Bakır çubuk: 3 saniye\n• Çelik çubuk: 18 saniye\n• Plastik çubuk: 90 saniye (ısı neredeyse ulaşmadı)\n\nBu sonuçlar ışığında günlük yaşamda hangi uygulama en doğru gerekçeyle açıklanmıştır?",
+      "options": [
+        "Plastik, ısıyı hızlı ilettiğinden tencere tabanlarında kullanılır.",
+        "Bakır iyi iletken olduğundan elektrik kablosu ve tencere tabanı olarak tercih edilir.",
+        "Çelik en iyi ısı iletken olduğundan tencere saplarında kullanılır.",
+        "Plastik iletken olmadığından elektrik kablolarında kullanılır."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "veri_uygulama",
+      "topic": "isinma_iletkenlik",
+      "skills": [
+        "iletkenlik",
+        "ısı",
+        "günlük_hayat"
+      ],
+      "explanation": "Bakır (3 sn) en iyi iletken → tencere tabanı ve elektrik kablosu. Plastik (90 sn, neredeyse iletmiyor) yalıtkan → tencere SAPI için idealdir. A yanlış (plastik iletken değil). C yanlış (çelik saplar için değil tabanlar). D yanlış (plastik yalıtkan; metal kablo üzerine kılıf olarak kullanılır).",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0007",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0008",
+      "stem": "Bir öğretmen sınıfa üç kayaç türü gösteriyor:\n• Granit: sert, kristalli, magmanın soğumasıyla oluşmuş\n• Kireçtaşı: tortul, içinde deniz kabuğu kalıntıları var\n• Mermer: yüksek ısı ve basınçla dönüşmüş kireçtaşı\n\n'Canlı kalıntılarından oluşabilecek kayaç hangi/hangileridir?' sorusunun doğru yanıtı aşağıdakilerden hangisidir?",
+      "options": [
+        "Yalnızca granit — en sert kayaçtır.",
+        "Yalnızca mermer — en eski kayaç türüdür.",
+        "Kireçtaşı; deniz canlılarının tortullaşmasıyla doğrudan oluşabilir.",
+        "Hiçbiri — fosiller yalnızca kumtaşında bulunur."
+      ],
+      "answerIndex": 2,
+      "difficulty": 8,
+      "questionType": "bilgi_uygulama",
+      "topic": "kayac_turleri",
+      "skills": [
+        "kayac",
+        "fosil",
+        "tortul"
+      ],
+      "explanation": "Fosiller tortul kayaçlarda bulunur. Kireçtaşı tortul; deniz canlısı kalıntılarından doğrudan oluşur. Mermer kireçtaşından dönüşür, ancak bu süreçte fosil yapısı genellikle bozulur. A (granit magmatik). D yanlış — birçok tortul kayaçta fosil olabilir.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0008",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0009",
+      "stem": "Bir çocuk beş sabah boyunca gökyüzünü gözlemliyor ve not alıyor:\n• Pazartesi: koyu gri, alçak bulutlar → öğleden sonra yağmur\n• Salı: beyaz, ince, yüksek bulutlar → gün boyu açık\n• Çarşamba: bulut yok → sıcak, güneşli\n• Perşembe: koyu gri, alçak bulutlar → sabah kar\n• Cuma: beyaz, orta yükseklikte bulutlar → bulutlu ama yağışsız\n\nBu gözlemlerden hangi kural çıkarılabilir?",
+      "options": [
+        "Yüksek beyaz bulutlar her zaman yağış getirir.",
+        "Koyu gri alçak bulutlar yağış habercisidir; yüksek beyaz bulutlar açık havanın işaretidir.",
+        "Kar ve yağmur yalnızca bulut olmadığında gerçekleşir.",
+        "Bulut varsa mutlaka yağış düşer."
+      ],
+      "answerIndex": 1,
+      "difficulty": 8,
+      "questionType": "gozlem_cikarim",
+      "topic": "hava_durumu",
+      "skills": [
+        "hava",
+        "bulut",
+        "gözlem"
+      ],
+      "explanation": "Pzt ve Prş: koyu gri alçak → yağış. Sal: yüksek beyaz → açık. Cum: beyaz orta → bulutlu ama yağışsız (kural istisnasız değil). A yanlış (Salı yüksek beyaz ama yağmursuzdu). C, D açıkça çürütülüyor.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0009",
+      "imageAsset": null,
+      "subject": "fen"
+    },
+    {
+      "id": "fen4_v2_0010",
+      "stem": "Bir araştırmacı dört farklı karışımı ayırmaya çalışıyor:\n• Karışım 1: demir tozu + kum → mıknatısla demir çekiliyor\n• Karışım 2: şeker + su → ısıtılarak su buharlaştırılıyor\n• Karışım 3: zeytinyağı + su → karıştırıp bekleyince katmanlar ayrışıyor\n• Karışım 4: tuz + kum → suya çözüp süzgeçten geçirip buharlaştırıyor\n\nHangi karışımın ayrılma yöntemi birden fazla fiziksel özelliği kullanır?",
+      "options": [
+        "Karışım 1 — yalnızca mıknatıslık kullanılıyor.",
+        "Karışım 3 — yalnızca yoğunluk farkı kullanılıyor.",
+        "Karışım 4 — çözünürlük, yoğunluk (süzme) ve buharlaşma birlikte kullanılıyor.",
+        "Karışım 2 — yalnızca kaynama noktası kullanılıyor."
+      ],
+      "answerIndex": 2,
+      "difficulty": 9,
+      "questionType": "analiz_sentez",
+      "topic": "karışım_ayirma",
+      "skills": [
+        "karışım",
+        "ayirma",
+        "fiziksel_özellik"
+      ],
+      "explanation": "Karışım 4: (1) tuz suda çözünür (çözünürlük), (2) kum çözünmez ve süzgeçte tutulur (boyut/süzme), (3) su buharlaştırılarak tuz elde edilir (buharlaşma). Üç farklı özellik. Diğer karışımlar tek özellik kullanıyor.",
+      "source": "brainbuddy_v2",
+      "sourceRef": "fen4_v2_0010",
+      "imageAsset": null,
+      "subject": "fen"
+    }
+  ]
+}
