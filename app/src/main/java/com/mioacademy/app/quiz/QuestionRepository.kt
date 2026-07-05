@@ -1347,7 +1347,7 @@ class QuestionRepository(private val context: Context) {
                 // Collect extra candidates per subject, respecting each subject's blueprint target
                 val broadCandidateIds = mutableListOf<String>()
                 for (sk in LGS_SUBJECTS) {
-                    val subj = com.brainbuddy.app.db.QuestionMapper.mapSubject(sk)
+                    val subj = com.mioacademy.app.db.QuestionMapper.mapSubject(sk)
                     val subjectTarget = blueprint.subjectTargets[subj] ?: 0
                     val alreadyMaterialized = orderPreservedMutable.count { it.subject == subj }
                     val subjNeed = (subjectTarget - alreadyMaterialized).coerceAtLeast(0)
@@ -1366,11 +1366,11 @@ class QuestionRepository(private val context: Context) {
                     else emptyMap()
                     for (sk in LGS_SUBJECTS) {
                         if (orderPreservedMutable.size >= effectiveCount) break
-                        val subj = com.brainbuddy.app.db.QuestionMapper.mapSubject(sk)
+                        val subj = com.mioacademy.app.db.QuestionMapper.mapSubject(sk)
                         val subjectTarget = blueprint.subjectTargets[subj] ?: 0
                         val subjIds = broadCandidateIds.filter { id ->
                             (byIdE[id] ?: fetchedBroad[id])?.let {
-                                com.brainbuddy.app.db.QuestionMapper.mapSubject(it.subject ?: "") == subj
+                                com.mioacademy.app.db.QuestionMapper.mapSubject(it.subject ?: "") == subj
                             } == true
                         }
                         for (id in subjIds) {
@@ -1405,7 +1405,7 @@ class QuestionRepository(private val context: Context) {
         Log.w(TAG, "[QUIZ_PERF] lgs_total_build_ms=$lastBuildMs")
         // [QUIZ_OUTPUT] Structured output for logcat inspection
         Log.w(TAG, "[QUIZ_OUTPUT] mode=LGS total=${orderPreserved.size}/$effectiveCount")
-        Log.w(TAG, "[QUIZ_OUTPUT] final_subjects=${orderPreserved.groupingBy { com.brainbuddy.app.db.QuestionMapper.toDbSubject(it.subject) }.eachCount()}")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_subjects=${orderPreserved.groupingBy { com.mioacademy.app.db.QuestionMapper.toDbSubject(it.subject) }.eachCount()}")
         Log.w(TAG, "[QUIZ_OUTPUT] final_topics=${orderPreserved.groupingBy { it.topic?.take(30) ?: "?" }.eachCount()}")
         Log.w(TAG, "[QUIZ_OUTPUT] final_question_types=${orderPreserved.groupingBy { it.type }.eachCount()}")
         Log.w(TAG, "[QUIZ_OUTPUT] final_ids=${orderPreserved.map { it.id }}")
@@ -2337,15 +2337,7 @@ class QuestionRepository(private val context: Context) {
         if (eliminatedCount > 0) {
             Log.d(TAG, "QUIZ_SIZE_RESULT picked=${materializedInOrder.size}/$effectiveCount eliminated=$eliminatedCount filled=${materializedInOrder.size - (selectedIdsInOrder.size - eliminatedCount)}")
         }
-        PoolHealthLogger.logMaterializationResult(
-            mode = "GRADE",
-            grade = grade,
-            candidateCount = selectedIdsInOrder.size,
-            materializedCount = materializedInOrder.size,
-            eliminatedCount = eliminatedCount,
-            targetCount = effectiveCount,
-            eliminatedPerSubject = eliminatedPerSubject,
-        )
+        Log.d(TAG, "[QUIZ_DEBUG] GRADE materializationResult mode=GRADE grade=$grade candidateCount=${selectedIdsInOrder.size} materializedCount=${materializedInOrder.size} eliminatedCount=$eliminatedCount targetCount=$effectiveCount")
 
         val finalQuestions = materializedInOrder
             .distinctBy { it.id }
@@ -2402,7 +2394,7 @@ class QuestionRepository(private val context: Context) {
 
         // Distribution proof: final picked counts per subject in materialized questions.
         val finalSubjectCounts = finalQuestions.groupingBy {
-            com.brainbuddy.app.db.QuestionMapper.toDbSubject(it.subject)
+            com.mioacademy.app.db.QuestionMapper.toDbSubject(it.subject)
         }.eachCount()
         val balanceProof = StringBuilder("[GRADE_BALANCE_PROOF] grade=$grade total=${finalQuestions.size}")
         subjectOrder.forEach { (subjEnum, dbKey) ->
@@ -2419,7 +2411,7 @@ class QuestionRepository(private val context: Context) {
         Log.w(TAG, "[QUIZ_PERF] grade_total_build_ms=$lastBuildMs quarantine=${QualityAudit.quarantinedLowQualityCount} modeReject=${QualityAudit.rejectedWrongModeCount}")
         // [QUIZ_OUTPUT] Structured output for logcat inspection
         Log.w(TAG, "[QUIZ_OUTPUT] mode=GRADE grade=$grade total=${finalQuestions.size}/$effectiveCount emergency_used=$emergencyUsed")
-        Log.w(TAG, "[QUIZ_OUTPUT] final_subjects=${finalQuestions.groupingBy { com.brainbuddy.app.db.QuestionMapper.toDbSubject(it.subject) }.eachCount()}")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_subjects=${finalQuestions.groupingBy { com.mioacademy.app.db.QuestionMapper.toDbSubject(it.subject) }.eachCount()}")
         Log.w(TAG, "[QUIZ_OUTPUT] final_topics=${finalQuestions.groupingBy { it.topic?.take(30) ?: "?" }.eachCount()}")
         Log.w(TAG, "[QUIZ_OUTPUT] final_question_types=${finalQuestions.groupingBy { it.type }.eachCount()}")
         Log.w(TAG, "[QUIZ_OUTPUT] final_ids=${finalQuestions.map { it.id }}")

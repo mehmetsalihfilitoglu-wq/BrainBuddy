@@ -86,7 +86,6 @@ object PdfReportGenerator {
                 PdfReportBuilder.WrongAnswerRecord(
                     subject = wr.subject,
                     stem = wr.stem,
-                    choices = wr.choices,
                     userAnswer = wr.userAnswer,
                     correctAnswer = wr.correctAnswer,
                     category = wr.category,

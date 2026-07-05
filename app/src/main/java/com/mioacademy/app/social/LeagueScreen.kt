@@ -142,7 +142,7 @@ class LeagueScreen : AppCompatActivity() {
     private fun bindPodiumAvatar(imgView: android.widget.ImageView, entry: LeagueEntry) {
         val mascotId = entry.avatarCosmetics["MASCOT"]
         val mascotRes = if (!mascotId.isNullOrEmpty()) {
-            com.brainbuddy.app.avatar.AvatarCatalog.items()
+            com.mioacademy.app.avatar.AvatarCatalog.items()
                 .find { it.id == mascotId }
                 ?.previewDrawableRes
                 ?.takeIf { it != 0 }
@@ -217,7 +217,7 @@ class LeagueAdapter(
         val imgAvatar = holder.view.findViewById<android.widget.ImageView>(R.id.imgAvatar)
         val mascotId = entry.avatarCosmetics["MASCOT"]
         val mascotItem = if (!mascotId.isNullOrEmpty())
-            com.brainbuddy.app.avatar.AvatarCatalog.items().find { it.id == mascotId }
+            com.mioacademy.app.avatar.AvatarCatalog.items().find { it.id == mascotId }
         else null
         val mascotRes = if (mascotItem != null && mascotItem.previewDrawableRes != 0)
             mascotItem.previewDrawableRes
