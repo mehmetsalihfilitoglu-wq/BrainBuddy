@@ -123,7 +123,7 @@
     <string name="wrong_pool_premium_title">Premium Özellik</string>
     <string name="wrong_pool_premium_message">Yanlışlarını tekrar çözmek için premium üyelik gerekiyor.</string>
     <string name="wrong_pool_card_empty_sub">Henüz yanlışın yok 🎉</string>
-    <string name="wise_coach_default">Her gün biraz daha ileri.</string>
+    <string name="wise_coach_default">Her gün küçük bir adım, seni İtalya\'ya taşır.</string>
 
     <!-- Settings -->
     <string name="btn_detail">Detaya Git</string>
@@ -360,7 +360,7 @@
     <string name="wrong_review_unlimited">Sınırsız</string>
     <string name="wrong_review_remaining">Günlük kalan: %1$d</string>
     <string name="wrong_review_hint_watch_ad">Reklam izle → +1</string>
-    <string name="wrong_review_paywall_message">Günlük hakkın bitti. Reklam izleyerek +1 soru açabilir veya Premium ile sınırsız erişebilirsin.</string>
+    <string name="wrong_review_paywall_message">Günlük inceleme hakkın doldu. Reklam izleyerek +1 soru açabilir ya da Premium ile sınırsız çalışabilirsin.</string>
     <string name="wrong_review_btn_watch_ad">Reklam İzle (+1)</string>
     <string name="wrong_review_btn_premium">Premium\'a Geç</string>
     <string name="wrong_review_ad_failed">Reklam yüklenemedi, tekrar dene.</string>
@@ -425,13 +425,21 @@
     <string name="result_premium_all_unlocked">Tüm yanlışlarını sınırsız incele</string>
 
     <!-- Premium paywall bottom sheet -->
-    <string name="paywall_title">Tüm yanlışlarını sınırsız incele</string>
-    <string name="paywall_benefit_no_ads">✔  Reklamsız deneyim</string>
-    <string name="paywall_benefit_unlimited">✔  Sınırsız yanlış inceleme</string>
-    <string name="paywall_benefit_solutions">✔  Detaylı çözümler ve ipuçları</string>
-    <string name="paywall_benefit_hints">✔  Tüm açıklamalar açık</string>
-    <string name="paywall_cta">Premium\'a Geç</string>
-    <string name="paywall_dismiss">Şimdilik değil</string>
+    <string name="paywall_title">İtalya yolculuğunu daha akıllı planla</string>
+    <string name="paywall_benefit_no_ads">✔  Reklamsız, odaklanmış çalışma ortamı</string>
+    <string name="paywall_benefit_unlimited">✔  Sınırsız yanlış soru incelemesi</string>
+    <string name="paywall_benefit_solutions">✔  Kariyer hedefine özel konu önerileri</string>
+    <string name="paywall_benefit_hints">✔  Detaylı açıklamalar ve ilerleme analizi</string>
+    <string name="paywall_benefit_exam">✔  Sınav odaklı kişisel hazırlık deneyimi</string>
+    <string name="paywall_cta">Premium\'a Geç →</string>
+    <string name="paywall_dismiss">Belki sonra</string>
+
+    <!-- Coach Screen (Phase 2G) -->
+    <string name="coach_screen_title">Akademi Koçun</string>
+    <string name="coach_daily_label">BUGÜNKÜ ÖNERİ</string>
+    <string name="coach_weekly_label">HAFTALIK PLAN</string>
+    <string name="coach_remedial_btn">Mini Tekrar Testi Başlat</string>
+    <string name="coach_back">Geri</string>
 
     <!-- Wrong Answers Report (from Reports screen) -->
     <string name="wrong_report_title">Yanlış Cevaplar</string>
