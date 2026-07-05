@@ -15,7 +15,7 @@ class ReportShareActivity : AppCompatActivity() {
         val to = EmailReportPrefs(this).reportEmail().ifBlank { null }
             ?: com.brainbuddy.app.auth.AuthProvider.get(this).currentEmail()
             ?: ""
-        val subject = subjFile.takeIf { it.exists() }?.readText() ?: "BrainBuddy Rapor"
+        val subject = subjFile.takeIf { it.exists() }?.readText() ?: "MioAcademy Rapor"
         val body = file.takeIf { it.exists() }?.readText() ?: ""
         file.delete()
         subjFile.delete()

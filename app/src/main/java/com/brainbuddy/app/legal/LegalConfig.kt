@@ -52,12 +52,6 @@ object LegalConfig {
             R.string.legal_ad_info_sub,
             R.drawable.ic_review,
             ASSET_AD_INFO
-        ),
-        LegalDoc(
-            R.string.legal_parent_info_title,
-            R.string.legal_parent_info_sub,
-            R.drawable.ic_permission,
-            ASSET_PARENT_INFO
         )
     )
 }

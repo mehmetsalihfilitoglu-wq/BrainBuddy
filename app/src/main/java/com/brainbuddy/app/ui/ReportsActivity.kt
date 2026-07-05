@@ -158,8 +158,7 @@ class ReportsActivity : AppCompatActivity() {
                 } else {
                     val accuracyStr = if (shareData.noGradedAnswers) "—" else "%.0f%%".format(shareData.accuracy)
                     val text = buildString {
-                        append("BrainBuddy Rapor\n")
-                        append("Engellenen: ${shareData.blocked}\n")
+                        append("MioAcademy Rapor\n")
                         append("Testler (${shareData.rangeDays} gün): ${shareData.tests}\n")
                         append("Doğruluk: $accuracyStr\n")
                         append("Geçme oranı: %.0f%%".format(shareData.passRate))

@@ -4,7 +4,6 @@ import android.content.Context
 import com.brainbuddy.app.core.AnalyticsStore
 import com.brainbuddy.app.core.GamificationStore
 import com.brainbuddy.app.core.ProfileStore
-import com.brainbuddy.app.core.ReportStore
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -16,9 +15,6 @@ data class ReportData(
     val totalWrong: Int,
     val totalBlank: Int,
     val accuracyPercent: Int,
-    val blockedAttemptsToday: Int,
-    val topBlockedApp: String?,
-    val topBlockedCount: Int,
     val weakTopics: List<String>,
     val streakDays: Int,
     val xp: Int,
@@ -40,7 +36,6 @@ object ReportGenerator {
     private fun collectReportData(context: Context, daily: Boolean): ReportData {
         val analytics = AnalyticsStore(context)
         val gam = GamificationStore(context)
-        val report = ReportStore(context)
         val profile = ProfileStore(context)
         val profileName = profile.getProfile(profile.getCurrentProfileId())?.name ?: "Öğrenci"
 
@@ -63,10 +58,6 @@ object ReportGenerator {
         val total = totalCorrect + totalWrong + totalBlank
         val accuracyPercent = if (total > 0) (100 * totalCorrect / total) else 0
 
-        val blocked = report.getBlockedAttemptsSince(start)
-        val totalBlocked = blocked.values.sum()
-        val top = blocked.entries.maxByOrNull { it.value }
-
         val weakest = analytics.getWeakestTopicsWithCounts(3).map { it.first }
         return ReportData(
             profileName = profileName,
@@ -75,9 +66,6 @@ object ReportGenerator {
             totalWrong = totalWrong,
             totalBlank = totalBlank,
             accuracyPercent = accuracyPercent,
-            blockedAttemptsToday = totalBlocked,
-            topBlockedApp = top?.key,
-            topBlockedCount = top?.value ?: 0,
             weakTopics = weakest,
             streakDays = gam.streakDays(),
             xp = gam.xp(),
@@ -92,7 +80,7 @@ object ReportGenerator {
         return """
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>$title</title></head><body style="font-family:sans-serif;padding:20px">
-<h1>BrainBuddy - $title</h1>
+<h1>MioAcademy - $title</h1>
 <p>$date | Profil: ${d.profileName}</p>
 <hr>
 <h2>Test Özeti</h2>
@@ -101,15 +89,12 @@ object ReportGenerator {
 <li>Doğru: ${d.totalCorrect} | Yanlış: ${d.totalWrong} | Boş: ${d.totalBlank}</li>
 <li>Başarı: %${d.accuracyPercent}</li>
 </ul>
-<h2>Engelleme Denemeleri</h2>
-<p>Toplam: ${d.blockedAttemptsToday}</p>
-${if (d.topBlockedApp != null) "<p>En çok denenen: ${d.topBlockedApp} (${d.topBlockedCount} kez)</p>" else ""}
 <h2>Geliştirilmesi Gereken Konular</h2>
 <ul>$weakList</ul>
-<h2>Oyunlaştırma</h2>
+<h2>İlerleme</h2>
 <p>Seri: ${d.streakDays} gün | XP: ${d.xp} | Seviye: ${d.level}</p>
 <hr>
-<p style="font-size:11px;color:#888">Bu rapor BrainBuddy tarafından oluşturuldu. Gizlilik ayarlarından e-posta raporlarını kapatabilirsiniz.</p>
+<p style="font-size:11px;color:#888">Bu rapor MioAcademy tarafından oluşturuldu. Gizlilik ayarlarından e-posta raporlarını kapatabilirsiniz.</p>
 </body></html>
         """.trimIndent()
     }
@@ -119,16 +104,13 @@ ${if (d.topBlockedApp != null) "<p>En çok denenen: ${d.topBlockedApp} (${d.topB
         val date = SimpleDateFormat("d MMMM yyyy", Locale("tr")).format(Calendar.getInstance().time)
         val weak = if (d.weakTopics.isEmpty()) "-" else d.weakTopics.joinToString(", ")
         return """
-BrainBuddy - $title
+MioAcademy - $title
 $date | Profil: ${d.profileName}
 
 Test Özeti:
 - Tamamlanan: ${d.testsCompleted}
 - Doğru: ${d.totalCorrect} | Yanlış: ${d.totalWrong} | Boş: ${d.totalBlank}
 - Başarı: %${d.accuracyPercent}
-
-Engelleme: ${d.blockedAttemptsToday} deneme
-${if (d.topBlockedApp != null) "En çok: ${d.topBlockedApp} (${d.topBlockedCount})\n" else ""}
 
 Geliştirilmesi gereken: $weak
 Seri: ${d.streakDays} gün | XP: ${d.xp} | Seviye: ${d.level}

@@ -17,19 +17,6 @@
         android:paddingTop="@dimen/space_16"
         android:paddingBottom="@dimen/space_24">
 
-        <!-- Kill Switch Chip -->
-        <TextView
-            android:id="@+id/tvKillSwitchBanner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/bb_error"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="6dp"
-            android:text="@string/kill_switch_banner_text"
-            android:textColor="@color/white"
-            android:textSize="12sp"
-            android:visibility="gone"/>
-
         <!-- Özet Kartı (Hero Banner) - Softer emerald gradient -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"

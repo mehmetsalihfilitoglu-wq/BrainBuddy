@@ -26,7 +26,11 @@
       "Bash(cat \"C:/Users/39351/AndroidStudioProjects/BrainBuddy/local.properties\")",
       "Bash(cp \"C:/Users/39351/AndroidStudioProjects/BrainBuddy/local.properties\" \"C:/Users/39351/AndroidStudioProjects/BrainBuddy/.claude/worktrees/hopeful-wright/local.properties\")",
       "Bash(./gradlew :app:assembleDebug)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(grep -v \"package\\\\|import\\\\|//\")",
+      "Bash(xmllint --noout app/src/main/res/layout/activity_settings.xml)",
+      "Bash(git checkout *)"
     ]
   }
 }
