@@ -30,7 +30,11 @@
       "Bash(git commit -m ' *)",
       "Bash(grep -v \"package\\\\|import\\\\|//\")",
       "Bash(xmllint --noout app/src/main/res/layout/activity_settings.xml)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(xargs cat)",
+      "Bash(xargs grep -l \"com\\\\.brainbuddy\\\\.app\")",
+      "Bash(python3 -c ' *)",
+      "Bash(./gradlew clean *)"
     ]
   }
 }

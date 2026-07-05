@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.brainbuddy.app"
+    namespace = "com.mioacademy.app"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.brainbuddy.app"
+        applicationId = "com.mioacademy.app"
         minSdk = 24
         targetSdk = 34
         versionCode = 3

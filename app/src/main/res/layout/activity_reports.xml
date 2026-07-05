@@ -389,7 +389,7 @@
                         android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"
                         android:textColor="?attr/colorOnSurfaceVariant" />
 
-                    <com.brainbuddy.app.ui.BarChartView
+                    <com.mioacademy.app.ui.BarChartView
                         android:id="@+id/topicBarChart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -699,7 +699,7 @@
                         android:layout_marginTop="@dimen/reports_title_content"
                         android:visibility="gone">
 
-                        <com.brainbuddy.app.ui.LineChartView
+                        <com.mioacademy.app.ui.LineChartView
                             android:id="@+id/weeklyTrendChart"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
