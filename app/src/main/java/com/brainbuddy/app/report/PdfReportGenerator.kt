@@ -32,7 +32,7 @@ object PdfReportGenerator {
             StatsRepository.ReportRange.SEVEN -> "7gun"
             StatsRepository.ReportRange.THIRTY -> "30gun"
         }
-        val outFile = File(reportsDir, "brainbuddy_rapor_${rangeSlug}_$timestamp.pdf")
+        val outFile = File(reportsDir, "barjin_rapor_${rangeSlug}_$timestamp.pdf")
 
         return try {
             // A1: Data load on IO (no UI)
@@ -86,6 +86,7 @@ object PdfReportGenerator {
                 PdfReportBuilder.WrongAnswerRecord(
                     subject = wr.subject,
                     stem = wr.stem,
+                    choices = wr.choices,
                     userAnswer = wr.userAnswer,
                     correctAnswer = wr.correctAnswer,
                     category = wr.category,

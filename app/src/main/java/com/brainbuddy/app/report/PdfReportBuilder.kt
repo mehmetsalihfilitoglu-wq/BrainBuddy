@@ -14,6 +14,9 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.text.Layout
+import android.text.StaticLayout
+import android.text.TextPaint
 
 /**
  * Builds a professional multi-page PDF performance report using Android PdfDocument.
@@ -31,6 +34,7 @@ class PdfReportBuilder(
     data class WrongAnswerRecord(
         val subject: String,
         val stem: String,
+        val choices: List<String>,
         val userAnswer: String,
         val correctAnswer: String,
         val category: String?,
@@ -50,7 +54,6 @@ class PdfReportBuilder(
         private val TEXT_PRIMARY = Color.parseColor("#1F2A30")
         private val TEXT_SECONDARY = Color.parseColor("#5F6B73")
         private val WEAK_TINT = Color.parseColor("#FCEAEA")
-        private const val MAX_STEM_LENGTH = 120
         private val CATEGORIES = listOf("Matematik", "Türkçe", "İngilizce", "Sosyal Bilgiler", "Fen Bilimleri")
     }
 
@@ -79,8 +82,8 @@ class PdfReportBuilder(
     private fun computeTotalPages(): Int {
         var n = 5 // Cover + Dashboard + Subject Analysis + Wrong (min 1) + Distraction
         if (wrongAnswerRecords.isNotEmpty()) {
-            val approxQuestionsPerPage = 8
-            n = 4 + ((wrongAnswerRecords.size * 3 + approxQuestionsPerPage - 1) / approxQuestionsPerPage)
+            val approxQuestionsPerPage = 3
+            n = 4 + ((wrongAnswerRecords.size + approxQuestionsPerPage - 1) / approxQuestionsPerPage)
         }
         return n.coerceAtLeast(5)
     }
@@ -93,7 +96,7 @@ class PdfReportBuilder(
             isAntiAlias = true
         }
         val footerY = PAGE_HEIGHT - 20f
-        canvas.drawText("Bu rapor BrainBuddy tarafından otomatik oluşturulmuştur.", MARGIN, footerY, footerPaint)
+        canvas.drawText("Bu rapor Barjin tarafından otomatik oluşturulmuştur.", MARGIN, footerY, footerPaint)
         val pageStr = "Sayfa $pageNum / $totalPages"
         canvas.drawText(pageStr, PAGE_WIDTH - MARGIN - footerPaint.measureText(pageStr), footerY, footerPaint)
     }
@@ -133,7 +136,7 @@ class PdfReportBuilder(
             typeface = Typeface.DEFAULT_BOLD
             isAntiAlias = true
         }
-        canvas.drawText("BrainBuddy Performans Raporu", MARGIN, headerH - 18f, headerTextPaint)
+        canvas.drawText("Barjin Performans Raporu", MARGIN, headerH - 18f, headerTextPaint)
         drawLogoPlaceholder(canvas, PAGE_WIDTH - MARGIN - 52, 6f)
 
         var y = headerH + 28f
@@ -500,15 +503,11 @@ class PdfReportBuilder(
             val canvas = page.canvas
             canvas.drawColor(Color.WHITE)
             val paintBold = Paint().apply {
-                color = TEXT_PRIMARY
-                typeface = Typeface.DEFAULT_BOLD
-                isAntiAlias = true
+                color = TEXT_PRIMARY; typeface = Typeface.DEFAULT_BOLD; isAntiAlias = true
             }
-            drawSectionTitle(canvas, "Yanlış Yapılan Sorular", MARGIN + 32f, paintBold)
+            drawSectionTitle(canvas, "Yanlış Yapılan Sorular", MARGIN + 28f, paintBold)
             val paintReg = Paint().apply {
-                color = TEXT_SECONDARY
-                textSize = 11f
-                isAntiAlias = true
+                color = TEXT_SECONDARY; textSize = 11f; isAntiAlias = true
             }
             canvas.drawText("Bu dönemde yanlış cevap kaydı yok.", MARGIN + 18f, MARGIN + 72f, paintReg)
             drawFooter(canvas, startPageNum, totalPages)
@@ -528,66 +527,154 @@ class PdfReportBuilder(
         var currentPage: PdfDocument.Page? = null
         var canvas: Canvas? = null
         var y = 0f
-        val contentBottom = PAGE_HEIGHT - 55f
+        val contentBottom = PAGE_HEIGHT - 60f
+        // Inner text widths (PDF points = pixels here)
+        val CARD_TEXT_W = (PAGE_WIDTH - MARGIN * 2 - 48).toInt()   // stem / answer rows
+        val CHOICE_TEXT_W = (PAGE_WIDTH - MARGIN * 2 - 66).toInt() // choice body (after letter prefix)
+        val CARD_GAP = 10f
+        val answerLabels = listOf("A", "B", "C", "D")
 
-        fun ensurePage() {
-            if (currentPage == null || y > contentBottom) {
-                currentPage?.let { document.finishPage(it) }
-                val pageInfo = PdfDocument.PageInfo.Builder(PAGE_WIDTH, PAGE_HEIGHT, pageNum).create()
-                currentPage = document.startPage(pageInfo)
-                canvas = currentPage!!.canvas
-                canvas!!.drawColor(Color.WHITE)
-                if (pageNum == startPageNum) {
-                    val titlePaint = Paint().apply {
-                        color = TEXT_PRIMARY
-                        typeface = Typeface.DEFAULT_BOLD
-                        isAntiAlias = true
-                    }
-                    drawSectionTitle(canvas!!, "Yanlış Yapılan Sorular", MARGIN + 32f, titlePaint)
-                    y = MARGIN + 52f
-                } else {
-                    y = MARGIN + 24f
-                }
-                pageNum++
+        // Reusable paints
+        val paintSubject = Paint().apply {
+            color = EMERALD_DARK; textSize = 11f; typeface = Typeface.DEFAULT_BOLD; isAntiAlias = true
+        }
+        val paintStemLabel = Paint().apply {
+            color = EMERALD_DARK; textSize = 9f; typeface = Typeface.DEFAULT_BOLD; isAntiAlias = true
+        }
+        val paintStem = Paint().apply {
+            color = TEXT_PRIMARY; textSize = 10f; typeface = Typeface.DEFAULT; isAntiAlias = true
+        }
+        val paintChoice = Paint().apply {
+            color = TEXT_SECONDARY; textSize = 9f; typeface = Typeface.DEFAULT; isAntiAlias = true
+        }
+        val paintCorrectChoice = Paint().apply {
+            color = Color.parseColor("#0B7A52"); textSize = 9f; typeface = Typeface.DEFAULT_BOLD; isAntiAlias = true
+        }
+        val paintWrongChoice = Paint().apply {
+            color = Color.parseColor("#B83232"); textSize = 9f; typeface = Typeface.DEFAULT; isAntiAlias = true
+        }
+        val paintCorrectAnswer = Paint().apply {
+            color = Color.parseColor("#0B7A52"); textSize = 9f; typeface = Typeface.DEFAULT_BOLD; isAntiAlias = true
+        }
+        val paintUserAnswer = Paint().apply {
+            color = Color.parseColor("#B83232"); textSize = 9f; typeface = Typeface.DEFAULT; isAntiAlias = true
+        }
+        val paintDate = Paint().apply {
+            color = TEXT_SECONDARY; textSize = 8f; typeface = Typeface.DEFAULT; isAntiAlias = true
+        }
+        val paintDivLine = Paint().apply {
+            color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 0.5f; isAntiAlias = true
+        }
+        val paintCardFill = Paint().apply { color = Color.WHITE; style = Paint.Style.FILL; isAntiAlias = true }
+        val paintCardBorder = Paint().apply {
+            color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true
+        }
+
+        fun startNewPage() {
+            currentPage?.let {
+                drawFooter(it.canvas, pageNum - 1, totalPages)
+                document.finishPage(it)
             }
+            val pi = PdfDocument.PageInfo.Builder(PAGE_WIDTH, PAGE_HEIGHT, pageNum).create()
+            currentPage = document.startPage(pi)
+            canvas = currentPage!!.canvas
+            canvas!!.drawColor(Color.WHITE)
+            val tp = Paint().apply { color = TEXT_PRIMARY; typeface = Typeface.DEFAULT_BOLD; isAntiAlias = true }
+            val label = if (pageNum == startPageNum) "Yanlış Yapılan Sorular" else "Yanlış Yapılan Sorular (devam)"
+            drawSectionTitle(canvas!!, label, MARGIN + 28f, tp)
+            y = MARGIN + 60f
+            pageNum++
         }
 
-        val paintBold = Paint().apply {
-            color = TEXT_PRIMARY
-            textSize = 12f
-            typeface = Typeface.DEFAULT_BOLD
-            isAntiAlias = true
-        }
-        val paintReg = Paint().apply {
-            color = TEXT_PRIMARY
-            textSize = 10f
-            typeface = Typeface.DEFAULT
-            isAntiAlias = true
-        }
-        val paintSec = Paint().apply {
-            color = TEXT_SECONDARY
-            textSize = 9f
-            typeface = Typeface.DEFAULT
-            isAntiAlias = true
-        }
-        val cardBg = Paint().apply { color = Color.WHITE; style = Paint.Style.FILL; isAntiAlias = true }
-        for ((subject, records) in byCategory.entries.sortedByDescending { it.value.size }) {
+        startNewPage()
+
+        for ((_, records) in byCategory.entries.sortedByDescending { it.value.size }) {
             for (r in records) {
-                ensurePage()
-                val c = canvas!!
-                val stemShort = if (r.stem.length > MAX_STEM_LENGTH) r.stem.take(MAX_STEM_LENGTH) + "…" else r.stem
-                val cardH = 72f
-                val qCard = RectF(MARGIN + 8f, y, PAGE_WIDTH - MARGIN - 8f, y + cardH)
-                drawRoundedCard(c, qCard, cardBg, shadow = false)
-                c.drawRoundRect(qCard, 10f, 10f, Paint().apply { color = DIVIDER; style = Paint.Style.STROKE; strokeWidth = 1f; isAntiAlias = true })
+                // --- Pre-measure all text heights for dynamic card sizing ---
+                val stemH = measureWrappedTextHeight(r.stem, paintStem, CARD_TEXT_W)
 
-                paintBold.textSize = 11f
-                c.drawText(subject, MARGIN + 20f, y + 16f, paintBold)
-                paintReg.textSize = 9f
-                c.drawText("Soru: $stemShort", MARGIN + 20f, y + 32f, paintReg)
-                c.drawText("Öğrenci cevabı: ${r.userAnswer}  |  Doğru cevap: ${r.correctAnswer}", MARGIN + 20f, y + 46f, paintSec)
-                c.drawText("Kategori: ${r.category ?: subject}  |  Test tarihi: ${dateFormatShort.format(Date(r.dateMs))}", MARGIN + 20f, y + 60f, paintSec)
-                y += cardH + 8f
+                var totalChoiceH = 0f
+                val perChoiceH = r.choices.take(4).mapIndexed { i, choice ->
+                    val label = "${answerLabels.getOrElse(i) { "$i" }}) $choice"
+                    val h = measureWrappedTextHeight(label, paintChoice, CHOICE_TEXT_W)
+                    totalChoiceH += h + 4f
+                    h
+                }
+
+                val correctH = measureWrappedTextHeight(
+                    "✓  Doğru cevap: ${r.correctAnswer}", paintCorrectAnswer, CARD_TEXT_W
+                )
+                val userAnswerText = if (r.userAnswer == "—" || r.userAnswer.isBlank())
+                    "✗  Senin cevabın: boş bırakıldı"
+                else
+                    "✗  Senin cevabın: ${r.userAnswer}"
+                val userH = measureWrappedTextHeight(userAnswerText, paintUserAnswer, CARD_TEXT_W)
+
+                // cardH = top_pad + subject_row + divider_gap + soru_label + stem + gap
+                //       + choices + extra_gap + divider_gap + correct + gap + user + bottom_pad
+                val cardH = (14f + 14f + 8f + 14f + stemH + 10f
+                        + totalChoiceH + 6f + 8f
+                        + correctH + 4f + userH + 14f)
+
+                // Start new page if card doesn't fit (guard against infinite loop if card > page)
+                if (y + cardH + CARD_GAP > contentBottom && y > MARGIN + 70f) {
+                    startNewPage()
+                }
+
+                val c = canvas!!
+
+                // --- Draw card frame ---
+                val qCard = RectF(MARGIN + 4f, y, PAGE_WIDTH - MARGIN - 4f, y + cardH)
+                drawRoundedCard(c, qCard, paintCardFill, shadow = false)
+                c.drawRoundRect(qCard, 10f, 10f, paintCardBorder)
+
+                var cy = y + 14f
+
+                // Subject + date header
+                c.drawText(r.subject, MARGIN + 16f, cy, paintSubject)
+                val dateStr = dateFormatShort.format(Date(r.dateMs))
+                c.drawText(dateStr, PAGE_WIDTH - MARGIN - 16f - paintDate.measureText(dateStr), cy, paintDate)
+                cy += 12f
+
+                // Divider
+                c.drawLine(MARGIN + 12f, cy, PAGE_WIDTH - MARGIN - 12f, cy, paintDivLine)
+                cy += 8f
+
+                // "Soru:" bold label
+                c.drawText("Soru:", MARGIN + 16f, cy + 9f, paintStemLabel)
+                cy += 14f
+
+                // Full stem text — wrapped, no truncation
+                drawWrappedText(c, r.stem, paintStem, MARGIN + 16f, cy, CARD_TEXT_W)
+                cy += stemH + 10f
+
+                // Choices A/B/C/D — each wrapped, color-coded
+                r.choices.take(4).forEachIndexed { i, choice ->
+                    val label = "${answerLabels.getOrElse(i) { "$i" }}) $choice"
+                    val isCorrect = choice == r.correctAnswer
+                    val isUserWrong = choice == r.userAnswer && !isCorrect
+                    val chPaint = when {
+                        isCorrect -> paintCorrectChoice
+                        isUserWrong -> paintWrongChoice
+                        else -> paintChoice
+                    }
+                    drawWrappedText(c, label, chPaint, MARGIN + 16f, cy, CHOICE_TEXT_W)
+                    cy += (perChoiceH.getOrElse(i) { 11f }) + 4f
+                }
+                cy += 6f
+
+                // Divider before answer summary
+                c.drawLine(MARGIN + 12f, cy, PAGE_WIDTH - MARGIN - 12f, cy, paintDivLine)
+                cy += 8f
+
+                // Correct answer row
+                drawWrappedText(c, "✓  Doğru cevap: ${r.correctAnswer}", paintCorrectAnswer, MARGIN + 16f, cy, CARD_TEXT_W)
+                cy += correctH + 4f
+
+                // User answer row
+                drawWrappedText(c, userAnswerText, paintUserAnswer, MARGIN + 16f, cy, CARD_TEXT_W)
+
+                y += cardH + CARD_GAP
             }
         }
 
@@ -658,6 +745,44 @@ class PdfReportBuilder(
 
         drawFooter(canvas, pageNum, totalPages)
         document.finishPage(page)
+    }
+
+    /**
+     * Draws [text] wrapped to [maxWidth] using StaticLayout, starting at (x, y).
+     * Returns the rendered height so the caller can advance y correctly.
+     */
+    private fun drawWrappedText(
+        canvas: Canvas,
+        text: String,
+        paint: Paint,
+        x: Float,
+        y: Float,
+        maxWidth: Int
+    ): Float {
+        val tp = TextPaint(paint)
+        val layout = StaticLayout.Builder
+            .obtain(text, 0, text.length, tp, maxWidth.coerceAtLeast(50))
+            .setAlignment(Layout.Alignment.ALIGN_NORMAL)
+            .setLineSpacing(0f, 1.1f)
+            .setIncludePad(false)
+            .build()
+        canvas.save()
+        canvas.translate(x, y)
+        layout.draw(canvas)
+        canvas.restore()
+        return layout.height.toFloat()
+    }
+
+    /** Returns the height that [drawWrappedText] would occupy for the same arguments. */
+    private fun measureWrappedTextHeight(text: String, paint: Paint, maxWidth: Int): Float {
+        val tp = TextPaint(paint)
+        return StaticLayout.Builder
+            .obtain(text, 0, text.length, tp, maxWidth.coerceAtLeast(50))
+            .setAlignment(Layout.Alignment.ALIGN_NORMAL)
+            .setLineSpacing(0f, 1.1f)
+            .setIncludePad(false)
+            .build()
+            .height.toFloat()
     }
 
     private fun drawSectionTitle(canvas: Canvas, title: String, y: Float, titlePaint: Paint) {

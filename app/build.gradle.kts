@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.brainbuddy.app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.brainbuddy.app"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 3
         versionName = "1.2"
 
@@ -19,7 +19,7 @@ android {
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
         buildConfigField("String", "TERMS_URL", "\"\"")
         // Embed seed version so audit screen can show it without importing DbSeeder
-        buildConfigField("int", "DB_SEED_VERSION", "6")
+        buildConfigField("int", "DB_SEED_VERSION", "9")
 
         // 🔥 adaptive icon hatasını engelle
         vectorDrawables.useSupportLibrary = true

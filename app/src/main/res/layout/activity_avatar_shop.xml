@@ -164,15 +164,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="80dp"
         android:clipToPadding="false"
         tools:listitem="@layout/item_avatar_shop_card"/>
-
-    <Button
-        android:id="@+id/btnShopBack"
-        style="@style/BBButtonAlt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Geri"/>
 </LinearLayout>

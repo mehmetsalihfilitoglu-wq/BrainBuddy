@@ -1,6 +1,5 @@
 package com.brainbuddy.app.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +10,6 @@ import com.brainbuddy.app.core.LevelMode
 import com.brainbuddy.app.core.ParentAccessGuard
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.core.QuizPrefs
-import com.brainbuddy.app.quiz.QuizActivity
 import com.brainbuddy.app.quiz.QuizDifficulty
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -36,24 +34,6 @@ class TestSettingsActivity : AppCompatActivity() {
         setupDifficulty(quizPrefs)
         setupSuccessRate(protectionPrefs)
         setupQuizInterval(protectionPrefs)
-
-        // BLOK 2: Eğitim Modülleri / İçerik
-        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnMiniTest).setOnClickListener {
-            if (!gradePrefs.hasLevelSelected()) {
-                android.widget.Toast.makeText(this, R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
-                findViewById<android.widget.RadioGroup>(R.id.testModeGroup)?.requestFocus()
-                return@setOnClickListener
-            }
-            startActivity(Intent(this, QuizActivity::class.java).apply {
-                putExtra(QuizActivity.EXTRA_REMEDIAL, true)
-            })
-        }
-
-        findViewById<com.google.android.material.button.MaterialButton>(R.id.btnWorkOnWrongs).setOnClickListener {
-            startActivity(Intent(this, ReportsActivity::class.java).apply {
-                putExtra(ReportsActivity.EXTRA_OPEN_WRONG_REVIEW, true)
-            })
-        }
 
         findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.toolbar)
             .setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }

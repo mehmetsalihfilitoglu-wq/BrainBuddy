@@ -16,6 +16,7 @@ import com.brainbuddy.app.core.ProtectionMonitorScheduler
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityParentBinding
 import com.brainbuddy.app.db.RoomQuizDataStore
+import com.brainbuddy.app.legal.LegalHubActivity
 import java.util.Calendar
 
 class ParentHubActivity : ComponentActivity() {
@@ -54,7 +55,12 @@ class ParentHubActivity : ComponentActivity() {
                 R.string.parent_card_security,
                 R.string.parent_card_security_sub,
                 R.drawable.ic_lock
-            ) { startActivity(Intent(this, SecurityActivity::class.java)) }
+            ) { startActivity(Intent(this, SecurityActivity::class.java)) },
+            ParentCategoryItem(
+                R.string.parent_card_legal,
+                R.string.parent_card_legal_sub,
+                R.drawable.ic_info_outline
+            ) { startActivity(Intent(this, LegalHubActivity::class.java)) }
         )
 
         b.gridParentCategories.layoutManager = GridLayoutManager(this, 2)

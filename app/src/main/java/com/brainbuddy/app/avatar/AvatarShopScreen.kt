@@ -70,8 +70,6 @@ class AvatarShopScreen : AppCompatActivity() {
 
         b.recyclerItems.layoutManager = GridLayoutManager(this, 2)
         refreshList()
-
-        b.btnShopBack.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
     }
 
     override fun onResume() {

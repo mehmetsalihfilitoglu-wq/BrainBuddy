@@ -352,6 +352,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".legal.LegalHubActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".legal.LegalDocActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".reward.RewardContractActivity"
             android:exported="false" />
 

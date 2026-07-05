@@ -1081,13 +1081,16 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Raporu Paylaş -->
+            <!-- Raporu Paylaş - Premium (premium kullanıcılar için) -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardShareReport"
                 style="@style/Widget.BrainBuddy.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap"
-                android:layout_marginBottom="@dimen/space_24">
+                android:layout_marginBottom="@dimen/space_24"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1116,10 +1119,115 @@
                         style="@style/BBButtonAlt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Raporu Paylaş"
+                        android:text="@string/report_share"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
                         android:paddingHorizontal="16dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Raporu Paylaş - Kilitli (premium olmayan kullanıcılar için) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardShareReportLocked"
+                style="@style/Widget.BrainBuddy.Card.PremiumCTA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/reports_card_gap"
+                android:layout_marginBottom="@dimen/space_24"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/reports_card_inner">
+
+                    <!-- Başlık: kilit simgeli -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/report_share_locked_btn"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumTitle"/>
+
+                    <!-- Açıklama başlığı -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/report_share_locked_desc_title"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"
+                        android:textStyle="bold"/>
+
+                    <!-- Maddeler -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/report_share_locked_bullet_1"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/report_share_locked_bullet_2"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/report_share_locked_bullet_3"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/report_share_locked_bullet_4"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/report_share_locked_bullet_5"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/report_share_locked_bullet_6"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/report_share_locked_bullet_7"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+
+                    <!-- Kapanış metni -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/report_share_locked_footer"
+                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"
+                        android:textStyle="italic"/>
+
+                    <!-- Premium CTA butonu -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnShareReportLockedCta"
+                        style="@style/BB.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/report_share_locked_cta"
+                        android:textAllCaps="false"/>
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

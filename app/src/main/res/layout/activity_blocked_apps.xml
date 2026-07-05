@@ -13,86 +13,12 @@
         android:background="@color/bb_turquoise_dark"
         app:titleTextColor="@color/white"/>
 
-    <!-- Hızlı Presetler (Parent-only) -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardQuickPresets"
-        style="@style/BB.HomeCard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardBackgroundColor="@color/bb_card">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/preset_quick_presets"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/bb_text"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPresetSocialMedia"
-                style="@style/BB.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/preset_social_media"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="8dp">
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipAll"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tümü"
-                android:checked="true"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipSocial"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sosyal"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipGames"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Oyunlar"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipBrowsers"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tarayıcılar"/>
-        </com.google.android.material.chip.ChipGroup>
-    </HorizontalScrollView>
-
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:hint="@string/blocked_apps_search_hint"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
 
@@ -104,11 +30,22 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/textLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Uygulamalar yükleniyor, lütfen bekleyin…"
+        android:textSize="16sp"
+        android:textColor="@color/bb_text"
+        android:visibility="visible"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
-        android:clipToPadding="false"/>
+        android:clipToPadding="false"
+        android:visibility="gone"/>
 
 </LinearLayout>

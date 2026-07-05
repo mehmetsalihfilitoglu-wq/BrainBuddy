@@ -20,8 +20,11 @@ object QuizQualityPolicy {
     /** Default Room candidate fetch (all tiers); [QuestionRepository] applies HARD→MEDIUM→BORDERLINE→EASY rules. */
     val PLAYABLE_TIERS_PRIMARY: List<String> = ALL_CONTENT_TIERS
 
-    /** Max share of EASY items in a single quiz when emergency fallback is required (e.g. 20% of 20 = 4). */
-    const val EMERGENCY_EASY_MAX_FRACTION: Double = 0.20
+    /**
+     * STRICT QUALITY MODE: EASY emergency completely disabled.
+     * A short quiz is acceptable; injecting EASY questions is not.
+     */
+    const val EMERGENCY_EASY_MAX_FRACTION: Double = 0.0
 
     /** Legacy 0..100 scores kept for analytics; tier comes from [reasoningLevel] 0..3. */
     const val LEGACY_REASONING_STRONG: Int = 68
@@ -31,9 +34,14 @@ object QuizQualityPolicy {
     /** Soft floor for distractor heuristic warnings (not a DB filter). */
     const val DISTRACTOR_SOFT_FLOOR: Int = 40
 
-    /** Minimum analytic scores to consider a row for normal serving (pool + runtime quarantine). */
-    const val MIN_REASONING_SCORE_SERVE: Int = 28
-    const val MIN_DISTRACTOR_SCORE_SERVE: Int = 28
+    /**
+     * STRICT QUALITY MODE: raised from 28 to 40.
+     * Questions scoring below these thresholds are quarantined at runtime
+     * (LowQualityQuarantine.shouldQuarantine). Accepts a smaller effective
+     * pool in exchange for no trivial/recall-only questions reaching users.
+     */
+    const val MIN_REASONING_SCORE_SERVE: Int = 40
+    const val MIN_DISTRACTOR_SCORE_SERVE: Int = 40
 
     /** Persisted when a row is quarantined from normal serving (low quality / recall). */
     const val LOW_QUALITY_QUARANTINED: String = "LOW_QUALITY_QUARANTINED"

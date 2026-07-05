@@ -109,7 +109,7 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(Intent(this, com.brainbuddy.app.junior.JuniorSettingsActivity::class.java))
         }
         findViewById<View>(R.id.cardPrivacyPolicy)?.setOnClickListener {
-            startActivity(Intent(this, PrivacyPolicyActivity::class.java))
+            startActivity(Intent(this, com.brainbuddy.app.legal.LegalHubActivity::class.java))
         }
         findViewById<View>(R.id.cardAccessibilityUsage).setOnClickListener {
             startActivity(Intent(this, AccessibilityUsageActivity::class.java))

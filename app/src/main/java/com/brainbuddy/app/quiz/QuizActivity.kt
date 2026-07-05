@@ -23,7 +23,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
-import ui.MainActivity
+import com.brainbuddy.app.MainActivity
+import com.brainbuddy.app.db.StartupRuntimeState
+import kotlinx.coroutines.flow.first
 import java.util.UUID
 
 class QuizActivity : AppCompatActivity() {
@@ -44,6 +46,8 @@ class QuizActivity : AppCompatActivity() {
         const val EXTRA_RETRY_AFTER_AD = "retry_after_ad"
         const val EXTRA_RETRY_UNLOCK_TOKEN = "retry_unlock_token"
         const val EXTRA_SUBJECT_FILTER = "subject_filter"
+        /** Soft-fail minimum: serve shorter quiz down to this count instead of hard-failing. */
+        private const val ABSOLUTE_MIN_QUESTIONS = 5
     }
 
     private lateinit var b: ActivityQuizBinding
@@ -95,6 +99,22 @@ class QuizActivity : AppCompatActivity() {
         b.nextBtn.setOnClickListener { }
 
         lifecycleScope.launch {
+            // Wait for DB seed+integrity to complete before building quiz.
+            // Without this gate, the quiz can run against an empty/partial DB
+            // on first launch and show "Soru havuzu yetersiz".
+            if (!StartupRuntimeState.startupInitializationComplete) {
+                b.questionText.text = getString(R.string.test_preparing)
+                // Observe the startup flow — proceed as soon as Ready fires.
+                // Timeout is generous (15s) to handle slow first-install seeding
+                // of 20k+ questions. If it expires we proceed anyway and let the
+                // quiz builder handle whatever state the DB is in.
+                val ready = withTimeoutOrNull(15_000L) {
+                    StartupRuntimeState.phase.first { it is StartupRuntimeState.StartupPhase.Ready }
+                }
+                if (ready == null) {
+                    android.util.Log.w("QuizActivity", "Startup gate timed out after 15s — proceeding with current DB state")
+                }
+            }
             val protectionPrefs = ProtectionPrefs(this@QuizActivity)
             val targetCount = quizPrefs.questionsPerSession()
             val isReplayFromLastTest = intent.getBooleanExtra(EXTRA_REPLAY_FROM_LAST_TEST, false)
@@ -200,6 +220,8 @@ class QuizActivity : AppCompatActivity() {
             val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
             val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
 
+            val tapToRepoStart = System.currentTimeMillis()
+            android.util.Log.d("QUIZ_PERF", "[QUIZ_PERF] tap_to_repo_start=${tapToRepoStart}ms (since epoch)")
             val result = withTimeoutOrNull(5000L) {
                 withContext(Dispatchers.IO) {
                 buildQuizOnBackground(
@@ -244,6 +266,8 @@ class QuizActivity : AppCompatActivity() {
                     intent = intent
                 )
             }
+            val buildDoneMs = System.currentTimeMillis()
+            android.util.Log.d("QUIZ_PERF", "[QUIZ_PERF] total_build_ms=${buildDoneMs - tapToRepoStart} picker=${result.pickerDebugPath} questions=${result.questions.size}")
             withContext(Dispatchers.Main) {
                 questions = result.questions
                 savedInstanceState?.getInt("quiz_index", -1)?.takeIf { it >= 0 && questions.isNotEmpty() }?.let { saved ->
@@ -260,6 +284,20 @@ class QuizActivity : AppCompatActivity() {
                 b.submitBtn.visibility = View.GONE
                 isLgsModeForDebug = isLgsMode
                 applyQuizResultAndRender(result, effectiveGrade, isLgsMode, targetCount)
+
+                val firstQuestionMs = System.currentTimeMillis()
+                android.util.Log.d("QUIZ_PERF", "[QUIZ_PERF] total_start_to_first_question=${firstQuestionMs - tapToRepoStart}ms questions=${questions.size}")
+
+                // [PERF FIX] Deferred: compute pool debug stats AFTER first question renders.
+                // Removes ~10 extra DB queries from the 5s build window.
+                if (!isLgsMode && effectiveGrade in 1..7) {
+                    lifecycleScope.launch(Dispatchers.IO) {
+                        try {
+                            val stats = repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
+                            withContext(Dispatchers.Main) { poolDebug = stats }
+                        } catch (_: Exception) { }
+                    }
+                }
             }
         }
     }
@@ -293,13 +331,9 @@ class QuizActivity : AppCompatActivity() {
         intent: Intent
     ): QuizBuildResult {
         val scheduler = WrongQuestionScheduler(context)
-        val poolDebug = if (!isLgsMode && effectiveGrade in 1..7) {
-            try {
-                repo.buildPoolDebugStatsForGrade(effectiveGrade, quizPrefs.difficulty())
-            } catch (_: Exception) {
-                null
-            }
-        } else null
+        // [PERF FIX] buildPoolDebugStatsForGrade runs ~10 extra DB queries.
+        // Removed from the 5-second build window — deferred to after first question renders.
+        val poolDebug: QuestionRepository.PoolDebugForGrade? = null
 
         var pickerPath = ""
         var remedialWarning = false
@@ -553,7 +587,13 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun applyQuizResultAndRender(result: QuizBuildResult, effectiveGrade: Int, isLgsMode: Boolean = false, requiredCount: Int = QuestionRepository.MIN_QUESTIONS_PER_TEST) {
-        if (questions.isEmpty() || questions.size < requiredCount) {
+        val available = questions.size
+        val hardFail = available < ABSOLUTE_MIN_QUESTIONS
+
+        android.util.Log.w("QuizActivity", "[QUIZ_RENDER] available=$available required=$requiredCount hardFail=$hardFail mode=${result.pickerDebugPath}")
+
+        if (hardFail) {
+            // Truly insufficient — cannot build any meaningful quiz.
             b.subjectChip.text = getString(R.string.quiz_pool_insufficient)
             val msg = if (questions.isEmpty()) {
                 if (retryWrongMode) getString(R.string.quiz_no_wrong_answers)
@@ -575,6 +615,15 @@ class QuizActivity : AppCompatActivity() {
                 finish()
             }
         } else {
+            // Serve whatever we have — notify user if it's a shorter quiz.
+            if (available < requiredCount) {
+                android.widget.Toast.makeText(
+                    this,
+                    getString(R.string.quiz_shorter_test_notice, available),
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+                android.util.Log.w("QuizActivity", "[QUIZ_DEGRADED] Serving $available/$requiredCount questions (soft fallback)")
+            }
             if (result.remedialFallbackWarning) {
                 android.widget.Toast.makeText(this, getString(R.string.quiz_pool_limited_warning), android.widget.Toast.LENGTH_LONG).show()
             }

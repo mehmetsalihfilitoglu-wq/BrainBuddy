@@ -162,7 +162,7 @@ class ReportsActivity : AppCompatActivity() {
                 } else {
                     val accuracyStr = if (shareData.noGradedAnswers) "—" else "%.0f%%".format(shareData.accuracy)
                     val text = buildString {
-                        append("BrainBuddy Rapor\n")
+                        append("Barjin Rapor\n")
                         append("Engellenen: ${shareData.blocked}\n")
                         append("Testler (${shareData.rangeDays} gün): ${shareData.tests}\n")
                         append("Doğruluk: $accuracyStr\n")
@@ -179,6 +179,15 @@ class ReportsActivity : AppCompatActivity() {
                     )
                 }
             }
+
+            // Premium gate listeners for "Raporu Paylaş"
+            // Visibility is set in applyModel() so it refreshes on every onResume
+            val goToPremium = View.OnClickListener {
+                com.brainbuddy.app.quiz.PremiumPaywallSheet()
+                    .show(supportFragmentManager, com.brainbuddy.app.quiz.PremiumPaywallSheet.TAG)
+            }
+            b.cardShareReportLocked?.setOnClickListener(goToPremium)
+            b.btnShareReportLockedCta?.setOnClickListener(goToPremium)
 
             b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
@@ -585,6 +594,11 @@ class ReportsActivity : AppCompatActivity() {
         }
 
         b.tvWeeklyXp.text = "Toplam XP: ${model.weeklyXp}"
+
+        // Share card premium state (re-evaluated on every applyModel call → refreshes on onResume)
+        val isSharePremium = com.brainbuddy.app.core.PremiumStore(this).isPremium()
+        b.cardShareReport?.visibility = if (isSharePremium) View.VISIBLE else View.GONE
+        b.cardShareReportLocked?.visibility = if (isSharePremium) View.GONE else View.VISIBLE
     }
 
     private fun bindSubjectChips(

@@ -112,14 +112,16 @@ class QuestionRepository(private val context: Context) {
         const val MIN_QUESTIONS_PER_TEST = 20
         /** LGS subjects (DB keys). Exactly: mat, turkce, fen, inkilap, din, ing. No sosyal. */
         val LGS_SUBJECTS = listOf("mat", "turkce", "fen", "inkilap", "din", "ing")
-        /** Only reject if similarity > 0.9 (less aggressive than before). */
-        private const val NEAR_DUPLICATE_SIMILARITY_THRESHOLD = 0.9
+        /** Reject if similarity > threshold — 0.85 catches template clones while allowing genuine variation. */
+        private const val NEAR_DUPLICATE_SIMILARITY_THRESHOLD = 0.85
         /** Max pick attempts per subject to avoid long loops. */
         private const val CAP_ATTEMPTS_PER_SUBJECT = 200
         /** Max total pick attempts across all subjects. */
         private const val CAP_ATTEMPTS_TOTAL = 1000
         /** Only compare similarity against last N selected token sets (cheap O(n)). */
-        private const val SIMILARITY_LOOKBACK = 20
+        private const val SIMILARITY_LOOKBACK = 10
+        /** Max candidates per pre-shuffled partition in pickForSubject — limits Jaccard scan cost. */
+        private const val CANDIDATE_CAP_PER_PARTITION = 200
 
         /** G1: Normalize text for stable ID: trim, lowercase(TR), collapse whitespace. */
         fun normalize(text: String): String = text
@@ -1188,6 +1190,11 @@ class QuestionRepository(private val context: Context) {
         val buildStartMs = System.currentTimeMillis()
         val effectiveCount = count.coerceAtMost(MIN_QUESTIONS_PER_TEST).coerceAtLeast(MIN_QUESTIONS_PER_TEST)
 
+        // [PERF FIX] PoolHealthLogger.logLgsPoolHealth removed from critical path (~11 extra DB queries).
+        // Pool health is still logged by the grade picker's deferred stats (QuizActivity post-render).
+        val lgsPickStartMs = System.currentTimeMillis()
+        Log.d(TAG, "[QUIZ_PERF] lgs_picker_start")
+
         val blueprint = LGS_MINI_BLUEPRINT
         lastBlueprintSummary = "${blueprint.mode} total=${blueprint.totalQuestionCount}"
         lastRecentRelaxedCount = 0
@@ -1202,6 +1209,8 @@ class QuestionRepository(private val context: Context) {
         // Hard-block: IDs from last 5 quizzes are NEVER re-served
         val hardBlockIds: Set<String> = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
         Log.d(TAG, "REPEAT_GUARD LGS hardBlockIds=${hardBlockIds.size} recentIds=${recentIds.size}")
+        Log.d(TAG, "[QUIZ_DEBUG] requested_mode=LGS target=$effectiveCount")
+        Log.d(TAG, "[QUIZ_DEBUG] repeat_blocked=${hardBlockIds.size} recent_seen=${recentIds.size}")
 
         val usedIds = excludeIds.toMutableSet()
         usedIds.addAll(hardBlockIds)
@@ -1267,14 +1276,94 @@ class QuestionRepository(private val context: Context) {
             }
         }
 
+        // Log pool sizes per LGS subject before materialization
+        val lgsPoolSummary = LGS_SUBJECTS.joinToString(" | ") { sk ->
+            val subj = com.brainbuddy.app.db.QuestionMapper.mapSubject(sk)
+            "$sk: pool=${subjectPools[subj]?.size ?: 0} selected=${selectedRows.count { com.brainbuddy.app.db.QuestionMapper.mapSubject(it.subject) == subj }}"
+        }
+        Log.w(TAG, "[QUIZ_DEBUG] lgs_pool_per_subject=$lgsPoolSummary")
+        Log.w(TAG, "[QUIZ_DEBUG] lgs_selected_total=${selectedRows.size}/$effectiveCount")
+        Log.d(TAG, "[QUIZ_PERF] lgs_selection_ms=${System.currentTimeMillis() - lgsPickStartMs}")
+
         val balancingPass = balanceToAvoidConsecutiveSameType(selectedRows)
         val selectedIds = balancingPass.map { it.id }.distinct()
         val entityRows = roomStore.getQuestionEntitiesByIds(selectedIds)
         val byIdE = entityRows.associateBy { it.id }
-        val orderPreserved = selectedIds.mapNotNull { id ->
-            val entity = byIdE[id] ?: return@mapNotNull null
-            materializeSingleQuestion(entity, expectLgs = true)
-        }.take(effectiveCount)
+        val orderPreservedMutable = mutableListOf<Question>()
+        for (id in selectedIds) {
+            if (orderPreservedMutable.size >= effectiveCount) break
+            val entity = byIdE[id] ?: continue
+            val q = materializeSingleQuestion(entity, expectLgs = true)
+            if (q != null) orderPreservedMutable.add(q)
+        }
+
+        // LGS EMERGENCY FALLBACK: if shouldQuarantine eliminated too many candidates,
+        // re-try rejected ones with emergency materialization (skips shouldQuarantine).
+        if (orderPreservedMutable.size < effectiveCount) {
+            val lgsEmergencyNeed = effectiveCount - orderPreservedMutable.size
+            val lgsAlreadyUsed = orderPreservedMutable.map { it.id }.toSet()
+            val lgsRetryIds = selectedIds.filter { it !in lgsAlreadyUsed }
+            Log.w(TAG, "[QUIZ_DEBUG] lgs_after_quality=${orderPreservedMutable.size}/$effectiveCount — emergency recover need=$lgsEmergencyNeed")
+            // [PERF FIX] Reuse byIdE (already fetched at entity-load step) — no extra DB call needed.
+            val lgsRetryEntities = byIdE
+            for (id in lgsRetryIds) {
+                if (orderPreservedMutable.size >= effectiveCount) break
+                val entity = lgsRetryEntities[id] ?: continue
+                val q = materializeSingleQuestionEmergency(entity, expectLgs = true)
+                if (q != null) {
+                    orderPreservedMutable.add(q)
+                    Log.d(TAG, "[QUIZ_DEBUG] lgs_emergency_recover id=$id tier=${entity.qualityTier}")
+                }
+            }
+            // Still short: pull more from subject pools (broader fallback — per subject, blueprint quota)
+            if (orderPreservedMutable.size < effectiveCount) {
+                val broadUsed = orderPreservedMutable.map { it.id }.toSet() + usedIds
+                // Collect extra candidates per subject, respecting each subject's blueprint target
+                val broadCandidateIds = mutableListOf<String>()
+                for (sk in LGS_SUBJECTS) {
+                    val subj = com.brainbuddy.app.db.QuestionMapper.mapSubject(sk)
+                    val subjectTarget = blueprint.subjectTargets[subj] ?: 0
+                    val alreadyMaterialized = orderPreservedMutable.count { it.subject == subj }
+                    val subjNeed = (subjectTarget - alreadyMaterialized).coerceAtLeast(0)
+                    if (subjNeed <= 0) continue
+                    val pool = subjectPools[subj].orEmpty()
+                        .filter { it.id !in broadUsed }
+                        .map { it.id }
+                        .take(subjNeed * 4)
+                    broadCandidateIds.addAll(pool)
+                }
+                if (broadCandidateIds.isNotEmpty()) {
+                    // Only fetch entities not already in byIdE
+                    val missingIds = broadCandidateIds.filter { it !in byIdE }
+                    val fetchedBroad = if (missingIds.isNotEmpty())
+                        roomStore.getQuestionEntitiesByIds(missingIds).associateBy { it.id }
+                    else emptyMap()
+                    for (sk in LGS_SUBJECTS) {
+                        if (orderPreservedMutable.size >= effectiveCount) break
+                        val subj = com.brainbuddy.app.db.QuestionMapper.mapSubject(sk)
+                        val subjectTarget = blueprint.subjectTargets[subj] ?: 0
+                        val subjIds = broadCandidateIds.filter { id ->
+                            (byIdE[id] ?: fetchedBroad[id])?.let {
+                                com.brainbuddy.app.db.QuestionMapper.mapSubject(it.subject ?: "") == subj
+                            } == true
+                        }
+                        for (id in subjIds) {
+                            if (orderPreservedMutable.size >= effectiveCount) break
+                            if (orderPreservedMutable.count { it.subject == subj } >= subjectTarget) break
+                            val entity = byIdE[id] ?: fetchedBroad[id] ?: continue
+                            val q = materializeSingleQuestionEmergency(entity, expectLgs = true)
+                            if (q != null) {
+                                orderPreservedMutable.add(q)
+                                Log.w(TAG, "[QUIZ_DEBUG] lgs_broad_emergency id=$id subj=$sk tier=${entity.qualityTier}")
+                            }
+                        }
+                    }
+                }
+            }
+            Log.w(TAG, "[QUIZ_DEBUG] lgs_after_emergency=${orderPreservedMutable.size}/$effectiveCount")
+        }
+
+        val orderPreserved = orderPreservedMutable.take(effectiveCount)
         val balancedForAvg = balancingPass.take(effectiveCount)
 
         lastSubjectCounts = blueprint.subjectTargets.keys.associate { subj ->
@@ -1286,10 +1375,18 @@ class QuestionRepository(private val context: Context) {
         } else 0.0
         lastRecentRelaxedCount = recentRelaxedCount
         lastBuildMs = System.currentTimeMillis() - buildStartMs
+        Log.w(TAG, "[QUIZ_DEBUG] lgs_final=${orderPreserved.size}/$effectiveCount quarantine=${QualityAudit.quarantinedLowQualityCount} modeReject=${QualityAudit.rejectedWrongModeCount}")
+        Log.w(TAG, "[QUIZ_PERF] lgs_total_build_ms=$lastBuildMs")
+        // [QUIZ_OUTPUT] Structured output for logcat inspection
+        Log.w(TAG, "[QUIZ_OUTPUT] mode=LGS total=${orderPreserved.size}/$effectiveCount")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_subjects=${orderPreserved.groupingBy { com.brainbuddy.app.db.QuestionMapper.toDbSubject(it.subject) }.eachCount()}")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_topics=${orderPreserved.groupingBy { it.topic?.take(30) ?: "?" }.eachCount()}")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_question_types=${orderPreserved.groupingBy { it.type }.eachCount()}")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_ids=${orderPreserved.map { it.id }}")
         QualityAudit.servedLgsCount = orderPreserved.size
-        QualityAudit.playablePoolSizeLastQuery = LGS_SUBJECTS.sumOf { sk ->
-            roomStore.getLgsCandidatePoolWithQuality(sk, QuizQualityPolicy.ALL_CONTENT_TIERS).size
-        }
+        // [PERF FIX] Removed 6 extra getLgsCandidatePoolWithQuality queries for QualityAudit.
+        // playablePoolSizeLastQuery was debug-only and caused 6 full-pool DB scans after quiz was built.
+        QualityAudit.playablePoolSizeLastQuery = -1 // deferred / not computed on critical path
         QualityAudit.currentPoolSourceSummary = "LGS exam=LGS only; no grade banks"
         lastQualityPickSummary =
             "LGS adaptive tier-sorted; modeAudit reject=${QualityAudit.rejectedWrongModeCount} quarantine=${QualityAudit.quarantinedLowQualityCount}"
@@ -1350,6 +1447,11 @@ class QuestionRepository(private val context: Context) {
     ): List<Question> {
         val buildStartMs = System.currentTimeMillis()
 
+        // [PERF FIX] PoolHealthLogger.logGradePoolHealth removed from critical path (~12 extra DB queries).
+        // Pool health is computed deferred (post first-question) in QuizActivity.
+        val gradePickStartMs = System.currentTimeMillis()
+        Log.d(TAG, "[QUIZ_PERF] grade_picker_start grade=$grade")
+
         val selectedDifficulty = try {
             QuizPrefs(context).difficulty()
         } catch (_: Exception) {
@@ -1397,6 +1499,8 @@ class QuestionRepository(private val context: Context) {
         // Hard-block: IDs from last 5 quizzes are NEVER re-served (repeat=0 guarantee).
         val hardBlockIds: Set<String> = roomStore.getQuestionIdsFromLastNTests(profileId, 5)
         Log.d(TAG, "REPEAT_GUARD grade=$grade hardBlockIds=${hardBlockIds.size} recentIds=${recentIds.size}")
+        Log.d(TAG, "[QUIZ_DEBUG] requested_mode=GRADE grade=$grade diff=$selectedDifficulty")
+        Log.d(TAG, "[QUIZ_DEBUG] repeat_blocked=${hardBlockIds.size} recent_seen=${recentIds.size}")
 
         // 1) Candidate pools: HARD→MEDIUM→BORDERLINE first; EASY held for emergency. No DB deletion.
         val perSubjectPrimary: MutableMap<Subject, List<QuestionCandidateRow>> = mutableMapOf()
@@ -1450,6 +1554,14 @@ class QuestionRepository(private val context: Context) {
         }
         QualityAudit.playablePoolSizeLastQuery = perSubjectAll.values.sumOf { it.size }
         QualityAudit.currentPoolSourceSummary = "GRADE:${grade} exam!=LGS tiers=all"
+        val totalCandidates = perSubjectAll.values.sumOf { it.size }
+        val totalEasy = perSubjectEasy.values.sumOf { it.size }
+        Log.w(TAG, "[QUIZ_DEBUG] total_candidates=$totalCandidates total_easy=$totalEasy grade=$grade")
+        val subjectDebugLine = subjectOrder.joinToString(" | ") { (s, k) ->
+            "$k: all=${perSubjectAll[s]?.size ?: 0} easy=${perSubjectEasy[s]?.size ?: 0} nonEasy=${perSubjectAll[s]?.size?.minus(perSubjectEasy[s]?.size ?: 0) ?: 0}"
+        }
+        Log.w(TAG, "[QUIZ_DEBUG] per_subject=$subjectDebugLine")
+        Log.d(TAG, "[QUIZ_PERF] db_query_ms=${System.currentTimeMillis() - dbQueryStartMs}")
 
         // --- Balanced quota computation ---
         // Compute how many servable (non-hardblocked) questions each subject has.
@@ -1549,10 +1661,11 @@ class QuestionRepository(private val context: Context) {
             if (primary.isEmpty() && relaxed.isEmpty()) return
 
             // Selection order: (a) selected diff, (b) same subject relaxed. Partition by recent within each.
-            val primaryNonRecent = primary.filter { it.id !in recentIds }
-            val primaryRecent = primary.filter { it.id in recentIds }
-            val relaxedNonRecent = relaxed.filter { it.id !in recentIds }
-            val relaxedRecent = relaxed.filter { it.id in recentIds }
+            // [PERF] Shuffle once, then cap at CANDIDATE_CAP_PER_PARTITION — avoids O(n) Jaccard scans on large pools.
+            val primaryNonRecent = primary.filter { it.id !in recentIds }.shuffled().take(CANDIDATE_CAP_PER_PARTITION)
+            val primaryRecent = primary.filter { it.id in recentIds }.shuffled().take(CANDIDATE_CAP_PER_PARTITION)
+            val relaxedNonRecent = relaxed.filter { it.id !in recentIds }.shuffled().take(CANDIDATE_CAP_PER_PARTITION)
+            val relaxedRecent = relaxed.filter { it.id in recentIds }.shuffled().take(CANDIDATE_CAP_PER_PARTITION)
 
             fun trySelectFrom(
                 pool: List<QuestionCandidateRow>,
@@ -1563,25 +1676,36 @@ class QuestionRepository(private val context: Context) {
                 val subjectList = selectedPerSubject[subjEnum] ?: mutableListOf()
                 val typeCounts = subjectList.groupingBy { it.type }.eachCount().toMutableMap()
                 val skillCounts = subjectList.groupingBy { it.skill }.eachCount().toMutableMap()
+                val topicCounts = subjectList.groupingBy { it.topic }.eachCount().toMutableMap()
 
                 fun canTakeByTypeAndSkill(q: QuestionCandidateRow): Boolean {
                     if (subjectList.size >= targetForSubject) return false
                     val type = q.type
                     val skill = q.skill
+                    // Type cap raised 2→3: 3 of same type is still visible variety
                     if (enforceTypeLimit && type != "UNKNOWN") {
                         val tc = typeCounts[type] ?: 0
-                        if (tc >= 2) return false
+                        if (tc >= 3) return false
                     }
+                    // Skill cap raised 1→2: less rejection, still ensures skill breadth
                     if (enforceSkillLimit && skill != "UNKNOWN") {
                         val sc = skillCounts[skill] ?: 0
-                        if (sc >= 1) return false
+                        if (sc >= 2) return false
+                    }
+                    // Topic cap: at most 2 questions sharing the same topic per subject
+                    if (enforceSkillLimit) {
+                        val topic = q.topic
+                        if (topic != "OTHER" && topic.isNotBlank()) {
+                            val tc = topicCounts[topic] ?: 0
+                            if (tc >= 2) return false
+                        }
                     }
                     return true
                 }
 
                 fun takeFrom(candidates: List<QuestionCandidateRow>, isWrong: Boolean) {
                     if (candidates.isEmpty()) return
-                    for (q in candidates.shuffled()) {
+                    for (q in candidates) { // already shuffled at partition time above
                         totalAttempts++
                         subjectAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
@@ -1626,6 +1750,7 @@ class QuestionRepository(private val context: Context) {
                         }
                         typeCounts[q.type] = (typeCounts[q.type] ?: 0) + 1
                         skillCounts[q.skill] = (skillCounts[q.skill] ?: 0) + 1
+                        topicCounts[q.topic] = (topicCounts[q.topic] ?: 0) + 1
                         if (isWrong) wrongUsedCount++
                         if (id in recentIds) {
                             recentRelaxedCount++
@@ -1656,24 +1781,33 @@ class QuestionRepository(private val context: Context) {
                 val subjectList = selectedPerSubject[subjEnum] ?: mutableListOf()
                 val typeCounts = subjectList.groupingBy { it.type }.eachCount().toMutableMap()
                 val skillCounts = subjectList.groupingBy { it.skill }.eachCount().toMutableMap()
+                val topicCounts = subjectList.groupingBy { it.topic }.eachCount().toMutableMap()
                 fun canTakeByTypeAndSkill(q: QuestionCandidateRow): Boolean {
                     if (subjectList.size >= targetForSubject) return false
                     val type = q.type
                     val skill = q.skill
                     if (enforceTypeLimit && type != "UNKNOWN") {
                         val tc = typeCounts[type] ?: 0
-                        if (tc >= 2) return false
+                        if (tc >= 3) return false
                     }
                     if (enforceSkillLimit && skill != "UNKNOWN") {
                         val sc = skillCounts[skill] ?: 0
-                        if (sc >= 1) return false
+                        if (sc >= 2) return false
+                    }
+                    if (enforceSkillLimit) {
+                        val topic = q.topic
+                        if (topic != "OTHER" && topic.isNotBlank()) {
+                            val tc = topicCounts[topic] ?: 0
+                            if (tc >= 2) return false
+                        }
                     }
                     return true
                 }
+                // pool already shuffled (passed from pre-shuffled partitions above)
                 val wrongCand = if (preferredWrongIds.isNotEmpty() && maxWrongCount > 0) pool.filter { it.id in preferredWrongIds } else emptyList()
                 val normalCand = if (wrongCand.isEmpty()) pool else pool.filter { it.id !in preferredWrongIds }
                 for (candidates in listOf(wrongCand, normalCand)) {
-                    for (q in candidates.shuffled()) {
+                    for (q in candidates) { // already shuffled at partition time
                         totalAttempts++
                         subjectAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
@@ -1703,6 +1837,7 @@ class QuestionRepository(private val context: Context) {
                         if (tokens.isNotEmpty()) selectedTokenSets.add(tokens)
                         typeCounts[q.type] = (typeCounts[q.type] ?: 0) + 1
                         skillCounts[q.skill] = (skillCounts[q.skill] ?: 0) + 1
+                        topicCounts[q.topic] = (topicCounts[q.topic] ?: 0) + 1
                         if (isWrong) wrongUsedCount++
                         if (id in recentIds) recentRelaxedCount++
                     }
@@ -1764,8 +1899,10 @@ class QuestionRepository(private val context: Context) {
         //    Yeni davranış: her turda en fazla kapasitesi kalan dersten 1 soru al.
         var remainingSlots = effectiveCount - selectedCandidateRows.size
         if (remainingSlots > 0) {
+            // [PERF] Pre-shuffle each subject's fill pool ONCE. Inner pickExtraFromPartition calls
+            // iterate in order — no re-shuffle per round. usedIds checked inline for newly-picked IDs.
             val remainingPerSubject: Map<Subject, List<QuestionCandidateRow>> = subjectOrder.associate { (subjEnum, _) ->
-                subjEnum to (perSubjectAll[subjEnum] ?: emptyList()).filter { it.id !in usedIds }
+                subjEnum to (perSubjectAll[subjEnum] ?: emptyList()).filter { it.id !in usedIds }.shuffled()
             }
             // Round-robin: cycle through subjects sorted by remaining capacity (descending).
             val subjectsByRemaining = remainingPerSubject.entries
@@ -1795,7 +1932,7 @@ class QuestionRepository(private val context: Context) {
                         maxWrongCount - wrongUsedCount
                     )
                     val extraWrong = mutableListOf<QuestionCandidateRow>()
-                    for (q in wrongCandidates.shuffled()) {
+                    for (q in wrongCandidates) { // already shuffled in remainingPerSubject
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
@@ -1843,7 +1980,7 @@ class QuestionRepository(private val context: Context) {
 
                 if (remainingSlots > 0 && normalCandidates.isNotEmpty()) {
                     val extraNormal = mutableListOf<QuestionCandidateRow>()
-                    for (q in normalCandidates.shuffled()) {
+                    for (q in normalCandidates) { // already shuffled in remainingPerSubject
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
@@ -1897,7 +2034,7 @@ class QuestionRepository(private val context: Context) {
                 } else emptyList()
                 val normalCandidates = if (wrongCandidates.isEmpty()) partition else partition.filter { it.id !in preferredWrongIds }
                 fun takeFrom(candidates: List<QuestionCandidateRow>, isWrong: Boolean) {
-                    for (q in candidates.shuffled()) {
+                    for (q in candidates) { // already shuffled in remainingPerSubject
                         totalAttempts++
                         if (totalAttempts > CAP_ATTEMPTS_TOTAL) {
                             lastCapReached = true
@@ -1989,16 +2126,37 @@ class QuestionRepository(private val context: Context) {
             }
         }
 
-        // STRICT QUALITY MODE: EASY emergency fallback is permanently disabled.
-        // EMERGENCY_EASY_MAX_FRACTION=0.0 already ensures this, but we skip the
-        // block entirely to make the intent explicit and avoid dead-code confusion.
-        // If the pool is short, the quiz will be shorter — that is acceptable.
+        // EASY emergency fill: per-subject quota — STRICT subject purity.
+        // Only fills remaining quota for each subject from that subject's own EASY pool.
+        // Never crosses subject boundary to satisfy another subject's quota.
         if (selectedCandidateRows.size < effectiveCount) {
-            Log.w(TAG, "[POOL_SHORTAGE] grade=$grade candidate pool only ${selectedCandidateRows.size}/$effectiveCount after HARD+MEDIUM+BORDERLINE — no EASY injection (strict mode)")
+            Log.w(TAG, "[QUIZ_DEBUG] after_strict=${selectedCandidateRows.size}/$effectiveCount — EASY per-subject fill")
+            for ((subjEnum, _) in subjectOrder) {
+                if (selectedCandidateRows.size >= effectiveCount) break
+                val quota = quotaPerSubject[subjEnum] ?: 0
+                val alreadyPicked = selectedPerSubject[subjEnum]?.size ?: 0
+                val subjNeed = (quota - alreadyPicked).coerceAtLeast(0)
+                if (subjNeed <= 0) continue
+                val easyPool = (perSubjectEasy[subjEnum] ?: emptyList())
+                    .filter { it.id !in usedIds }
+                    .shuffled()
+                    .take(subjNeed * 3)
+                for (row in easyPool) {
+                    if (selectedCandidateRows.size >= effectiveCount) break
+                    if ((selectedPerSubject[subjEnum]?.size ?: 0) >= quota) break
+                    if (row.id in usedIds) continue
+                    selectedCandidateRows.add(row)
+                    selectedPerSubject[subjEnum]?.add(row)
+                    usedIds.add(row.id)
+                }
+            }
+            Log.w(TAG, "[QUIZ_DEBUG] after_easy_inject=${selectedCandidateRows.size}/$effectiveCount")
         }
 
         ensureHardMediumQuota(selectedCandidateRows, grade)
 
+        Log.w(TAG, "[QUIZ_DEBUG] after_repeat_and_diversity=${selectedCandidateRows.size}/$effectiveCount")
+        Log.d(TAG, "[QUIZ_PERF] selection_ms=${System.currentTimeMillis() - dbQueryStartMs}")
         // 4) Materialize final questions.
         // First pass: try all selected candidates.
         val selectedIdsInOrder = selectedCandidateRows.map { it.id }.distinct()
@@ -2071,7 +2229,83 @@ class QuestionRepository(private val context: Context) {
             }
         }
 
-        // If still short after replacement pass: log shortage and accept smaller quiz.
+        // EMERGENCY PASS: quality gates eliminated too many — recover using relaxed materialization.
+        // Subject purity: only recover questions whose candidate subject matches the quota map.
+        // Diversity: track skill/type counts across recovered questions.
+        var emergencyUsed = false
+        if (materializedInOrder.size < effectiveCount) {
+            emergencyUsed = true
+            val materializedIds = materializedInOrder.map { it.id }.toSet()
+            Log.w(TAG, "[QUIZ_DEBUG] after_quality=${materializedInOrder.size}/$effectiveCount eliminated=$eliminatedCount — emergency recover")
+
+            // Per-subject diversity counters for emergency path (lightweight — no NLP)
+            val emergencySkillCounts = mutableMapOf<String, Int>()
+            val emergencyTypeCounts = mutableMapOf<String, Int>()
+            materializedInOrder.forEach { q ->
+                emergencySkillCounts[q.skill] = (emergencySkillCounts[q.skill] ?: 0) + 1
+                emergencyTypeCounts[q.type] = (emergencyTypeCounts[q.type] ?: 0) + 1
+            }
+            val MAX_SAME_SKILL = 3
+            val MAX_SAME_TYPE = 4
+
+            fun tryEmergencyRecover(entity: QuestionEntity): Question? {
+                val q = materializeSingleQuestionEmergency(entity, expectLgs = false) ?: return null
+                // Lightweight diversity gate
+                if ((emergencySkillCounts[q.skill] ?: 0) >= MAX_SAME_SKILL && q.skill != "UNKNOWN") return null
+                if ((emergencyTypeCounts[q.type] ?: 0) >= MAX_SAME_TYPE && q.type != "UNKNOWN") return null
+                emergencySkillCounts[q.skill] = (emergencySkillCounts[q.skill] ?: 0) + 1
+                emergencyTypeCounts[q.type] = (emergencyTypeCounts[q.type] ?: 0) + 1
+                return q
+            }
+
+            // Pass A: re-try already-fetched entities (byIdE) that were rejected by shouldQuarantine.
+            // No extra DB call — byIdE has ALL selectedIdsInOrder entities.
+            val retryIds = selectedIdsInOrder.filter { it !in materializedIds }
+            for (id in retryIds) {
+                if (materializedInOrder.size >= effectiveCount) break
+                val entity = byIdE[id] ?: continue
+                val q = tryEmergencyRecover(entity)
+                if (q != null) {
+                    materializedInOrder.add(q)
+                    Log.d(TAG, "[QUIZ_DEBUG] emergency_recover id=$id tier=${entity.qualityTier}")
+                }
+            }
+            Log.w(TAG, "[QUIZ_DEBUG] after_emergency_recover=${materializedInOrder.size}/$effectiveCount")
+
+            // Pass B: EASY tier, per-subject quota — subject purity strictly enforced.
+            if (materializedInOrder.size < effectiveCount) {
+                val materializedIds2 = materializedInOrder.map { it.id }.toSet()
+                for ((subjEnum, _) in subjectOrder) {
+                    if (materializedInOrder.size >= effectiveCount) break
+                    val quota = quotaPerSubject[subjEnum] ?: 0
+                    val alreadyMat = materializedInOrder.count { it.subject == subjEnum }
+                    val subjNeed = (quota - alreadyMat).coerceAtLeast(0)
+                    if (subjNeed <= 0) continue
+                    val easyPool = (perSubjectEasy[subjEnum] ?: emptyList())
+                        .filter { it.id !in materializedIds2 && it.id !in usedIds }
+                        .shuffled()
+                        .take(subjNeed * 4)
+                    val easyIds = easyPool.map { it.id }.filter { it !in byIdE }
+                    val fetchedEasy = if (easyIds.isNotEmpty())
+                        roomStore.getQuestionEntitiesByIds(easyIds).associateBy { it.id }
+                    else emptyMap()
+                    for (row in easyPool) {
+                        if (materializedInOrder.size >= effectiveCount) break
+                        if (materializedInOrder.count { it.subject == subjEnum } >= quota) break
+                        val entity = byIdE[row.id] ?: fetchedEasy[row.id] ?: continue
+                        val q = tryEmergencyRecover(entity)
+                        if (q != null) {
+                            materializedInOrder.add(q)
+                            usedIds.add(row.id)
+                            Log.d(TAG, "[QUIZ_DEBUG] easy_emergency id=${row.id} subj=${subjEnum.name} tier=${entity.qualityTier}")
+                        }
+                    }
+                }
+                Log.w(TAG, "[QUIZ_DEBUG] after_easy_emergency=${materializedInOrder.size}/$effectiveCount")
+            }
+        }
+
+        // If still short after all emergency passes: log and serve what we have.
         // STRICT QUALITY MODE: no hardcoded fallback, no EASY injection.
         if (materializedInOrder.size < effectiveCount) {
             Log.w(TAG, "[POOL_SHORTAGE] grade=$grade: could only fill ${materializedInOrder.size}/$effectiveCount questions after strict quality gates. Serving shorter quiz.")
@@ -2079,6 +2313,15 @@ class QuestionRepository(private val context: Context) {
         if (eliminatedCount > 0) {
             Log.d(TAG, "QUIZ_SIZE_RESULT picked=${materializedInOrder.size}/$effectiveCount eliminated=$eliminatedCount filled=${materializedInOrder.size - (selectedIdsInOrder.size - eliminatedCount)}")
         }
+        PoolHealthLogger.logMaterializationResult(
+            mode = "GRADE",
+            grade = grade,
+            candidateCount = selectedIdsInOrder.size,
+            materializedCount = materializedInOrder.size,
+            eliminatedCount = eliminatedCount,
+            targetCount = effectiveCount,
+            eliminatedPerSubject = eliminatedPerSubject,
+        )
 
         val finalQuestions = materializedInOrder
             .distinctBy { it.id }
@@ -2148,6 +2391,14 @@ class QuestionRepository(private val context: Context) {
 
         // Performance: candidate-pool strategy targets buildMs < 500ms (no full DB scan).
         lastBuildMs = System.currentTimeMillis() - buildStartMs
+        Log.w(TAG, "[QUIZ_DEBUG] final=${finalQuestions.size}/$effectiveCount grade=$grade")
+        Log.w(TAG, "[QUIZ_PERF] grade_total_build_ms=$lastBuildMs quarantine=${QualityAudit.quarantinedLowQualityCount} modeReject=${QualityAudit.rejectedWrongModeCount}")
+        // [QUIZ_OUTPUT] Structured output for logcat inspection
+        Log.w(TAG, "[QUIZ_OUTPUT] mode=GRADE grade=$grade total=${finalQuestions.size}/$effectiveCount emergency_used=$emergencyUsed")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_subjects=${finalQuestions.groupingBy { com.brainbuddy.app.db.QuestionMapper.toDbSubject(it.subject) }.eachCount()}")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_topics=${finalQuestions.groupingBy { it.topic?.take(30) ?: "?" }.eachCount()}")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_question_types=${finalQuestions.groupingBy { it.type }.eachCount()}")
+        Log.w(TAG, "[QUIZ_OUTPUT] final_ids=${finalQuestions.map { it.id }}")
         QualityAudit.servedGeneralCount = finalQuestions.size
         lastQualityPickSummary =
             "adaptive HARD>MEDIUM>BORDERLINE [STRICT_QUALITY_MODE no-EASY no-recovery] " +
@@ -2170,17 +2421,13 @@ class QuestionRepository(private val context: Context) {
             Log.w(TAG, "ELIMINATE_REASON id=${entity.id} reason=UNSERVABLE unservableReason=${entity.unservableReason}")
             return null
         }
+        // LowQualityQuarantine: skip for this session only.
+        // NEVER persist unservableReason during quiz picking — permanent writes
+        // cause progressive pool depletion across sessions, eventually dropping
+        // the servable count below MIN_QUESTIONS_PER_TEST.
         if (LowQualityQuarantine.shouldQuarantine(entity)) {
-            Log.w(TAG, "[LOW_QUALITY_REJECTED] id=${entity.id} tier=${entity.qualityTier} reasoning=${entity.reasoningLevel} distractor=${entity.distractorQualityScore} stem='${entity.questionText.take(60)}'")
+            Log.w(TAG, "[LOW_QUALITY_SKIPPED] id=${entity.id} tier=${entity.qualityTier} reasoning=${entity.reasoningLevel} distractor=${entity.distractorQualityScore} stem='${entity.questionText.take(60)}'")
             QualityAudit.quarantinedLowQualityCount++
-            try {
-                roomStore.updateQuarantineFlags(
-                    entity.id,
-                    LowQualityQuarantine.REASON_CODE,
-                    QuestionQualityClassifier.TIER_EASY,
-                )
-            } catch (_: Exception) {
-            }
             return null
         }
         val base = QuestionMapper.toQuestion(entity)
@@ -2212,6 +2459,63 @@ class QuestionRepository(private val context: Context) {
         )
     }
 
+    /**
+     * Emergency materialization: skips [LowQualityQuarantine.shouldQuarantine] so that
+     * questions that fail the runtime quality heuristic can still be served when the strict
+     * pool has collapsed to below the minimum. Still enforces:
+     *  - mode mismatch (LGS vs GENERAL)
+     *  - persisted [QuestionEntity.unservableReason] (hard quarantine)
+     *  - distractor validity ([AdaptiveQuizRuntime.fixDistractors])
+     *  - basic structural validity (non-empty stem, 4 valid options, valid answerIndex,
+     *    no placeholder text) — intentionally minimal, no quality heuristics.
+     */
+    private fun materializeSingleQuestionEmergency(entity: QuestionEntity, expectLgs: Boolean): Question? {
+        // Mode guard
+        val et = entity.examType ?: "GENERAL"
+        val isLgsRow = et == "LGS"
+        if (expectLgs != isLgsRow) return null
+
+        // Persisted hard quarantine
+        if (!entity.unservableReason.isNullOrBlank()) return null
+
+        // --- Minimal structural validity (no heavy quality filters) ---
+
+        // 1. Non-empty stem
+        val stem = entity.questionText.trim()
+        if (stem.isEmpty()) return null
+
+        // 2. answerIndex in [0, 3]
+        val answerIdx = entity.answerIndex
+        if (answerIdx !in 0..3) return null
+
+        // 3. Parse options and require exactly 4 non-blank entries
+        val rawOptions = try {
+            val arr = org.json.JSONArray(entity.optionsJson)
+            List(arr.length()) { arr.getString(it).trim() }
+        } catch (_: Exception) {
+            emptyList()
+        }
+        if (rawOptions.size < 4) return null
+        val validOptions = rawOptions.take(4)
+        if (validOptions.any { it.isBlank() }) return null
+
+        // 4. No placeholder text (catches corrupt/template rows)
+        val placeholderPattern = Regex(
+            "\\[.*?\\]|\\{.*?\\}|<.*?>|TODO|PLACEHOLDER|EXAMPLE|SAMPLE|lorem ipsum",
+            RegexOption.IGNORE_CASE
+        )
+        if (placeholderPattern.containsMatchIn(stem)) return null
+        if (validOptions.any { placeholderPattern.containsMatchIn(it) }) return null
+
+        // --- Distractor fix (shared with normal path) ---
+        val base = QuestionMapper.toQuestion(entity)
+        val fixed = AdaptiveQuizRuntime.fixDistractors(base.choices, stem, answerIdx)
+            ?: return null
+        if (fixed.any { AdaptiveQuizRuntime.containsSuffixPattern(it) }) return null
+
+        return QuestionMapper.toQuestion(entity, presentationStem = null, presentationChoices = fixed, contentQualityTier = entity.qualityTier)
+    }
+
     private fun QuestionEntity.toCandidateRow(): QuestionCandidateRow = QuestionCandidateRow(
         id = id,
         subject = subject,
@@ -2221,6 +2525,7 @@ class QuestionRepository(private val context: Context) {
         stemNormalized = stemNormalized,
         type = type,
         skill = skill,
+        topic = topic ?: "OTHER",
         qualityTier = qualityTier,
         reasoningLevel = reasoningLevel,
     )

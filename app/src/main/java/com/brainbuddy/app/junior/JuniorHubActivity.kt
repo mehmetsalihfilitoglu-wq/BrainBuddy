@@ -33,7 +33,7 @@ class JuniorHubActivity : AppCompatActivity() {
 
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "BrainBuddy Junior"
+        supportActionBar?.title = "Barjin Junior"
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.bg_header_turquoise, null))
 
         val tvStars = findViewById<android.widget.TextView>(R.id.tvJuniorStars)
@@ -71,7 +71,7 @@ class JuniorHubActivity : AppCompatActivity() {
             override fun handleOnBackPressed() {
                 AlertDialog.Builder(this@JuniorHubActivity)
                     .setTitle("Çıkış")
-                    .setMessage("BrainBuddy Junior'dan çıkmak istiyor musun?")
+                    .setMessage("Barjin Junior'dan çıkmak istiyor musun?")
                     .setPositiveButton("Evet") { _, _ -> isEnabled = false; finish() }
                     .setNegativeButton("Hayır", null)
                     .show()

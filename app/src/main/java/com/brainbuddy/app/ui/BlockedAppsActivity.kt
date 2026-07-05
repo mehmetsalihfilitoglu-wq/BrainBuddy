@@ -1,7 +1,10 @@
 package com.brainbuddy.app.ui
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.SystemClock
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,31 +14,45 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.brainbuddy.app.R
-import com.brainbuddy.app.core.AppGroupPresets
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.InstalledAppsHelper
 import com.brainbuddy.app.core.ParentAccessGuard
-import com.brainbuddy.app.core.SocialPresetPackages
 import com.brainbuddy.app.receiver.PackageChangeReceiver
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
 
 class BlockedAppsActivity : AppCompatActivity() {
 
     companion object {
+        private const val TAG = "BlockedApps"
         const val EXTRA_HIGHLIGHT_PACKAGE = "highlight_package"
         const val EXTRA_QUICK_BLOCK_PACKAGE = "quick_block_package"
         const val EXTRA_OPEN_SOCIAL_PRESET = "open_social_preset"
+
+        // Process-level in-memory cache — survives config changes and re-opens
+        // within the same process. Invalidated only on package install/remove.
+        private var cachedApps: List<AppInfo>? = null
+        private var cachedAppsWithIcons: List<AppInfo>? = null
+        private var cacheTimestamp: Long = 0L
+
+        fun invalidateCache() {
+            cachedApps = null
+            cachedAppsWithIcons = null
+            cacheTimestamp = 0L
+        }
     }
 
     private lateinit var blockedStore: BlockedAppsStore
     private lateinit var adapter: AppListAdapter
+    private lateinit var textLoading: TextView
+    private lateinit var recycler: RecyclerView
     private var allApps: List<AppInfo> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,73 +66,130 @@ class BlockedAppsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.parent_blocked_apps)
 
-        val recycler = findViewById<RecyclerView>(R.id.recycler)
-        val searchBox = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.searchBox)
-        adapter = AppListAdapter(emptyList(), blockedStore) { pkg, blocked ->
-            val set = blockedStore.getBlockedPackages().toMutableSet()
+        textLoading = findViewById(R.id.textLoading)
+        recycler = findViewById(R.id.recycler)
+
+        // Read blocked set ONCE, keep in memory
+        val blockedSet = blockedStore.getBlockedPackages()
+        adapter = AppListAdapter(blockedSet) { pkg, blocked ->
+            val set = adapter.blockedSet.toMutableSet()
             if (blocked) set.add(pkg) else set.remove(pkg)
             blockedStore.setBlockedPackages(set)
+            adapter.blockedSet = set
         }
         recycler.layoutManager = LinearLayoutManager(this)
+        recycler.setHasFixedSize(true)
+        recycler.setItemViewCacheSize(20)
         recycler.adapter = adapter
 
-        lifecycleScope.launch {
-            val loaded = withContext(Dispatchers.IO) {
-                val pm = packageManager
-                val apps = InstalledAppsHelper.getInstalledApps(pm)
-                    .filter { it.packageName != packageName }
-                apps.mapNotNull { app ->
-                    try {
-                        val label = InstalledAppsHelper.getAppLabel(pm, app)
-                        val icon = InstalledAppsHelper.getAppIcon(pm, app, this@BlockedAppsActivity)
-                        if (icon != null) AppInfo(app.packageName, label, icon) else null
-                    } catch (_: Exception) { null }
-                }.sortedBy { it.label.lowercase() }
-            }
-            allApps = loaded
-            adapter.updateList(loaded)
-            adapter.notifyDataSetChanged()
+        loadApps()
 
-            val openPreset = intent?.getBooleanExtra(EXTRA_OPEN_SOCIAL_PRESET, false) == true
-            if (openPreset) {
-                intent?.removeExtra(EXTRA_OPEN_SOCIAL_PRESET)
-                showSocialPresetSheet()
-            }
-        }
-
-        val chipAll = findViewById<com.google.android.material.chip.Chip>(R.id.chipAll)
-        val chipSocial = findViewById<com.google.android.material.chip.Chip>(R.id.chipSocial)
-        val chipGames = findViewById<com.google.android.material.chip.Chip>(R.id.chipGames)
-        val chipBrowsers = findViewById<com.google.android.material.chip.Chip>(R.id.chipBrowsers)
-
-        chipAll?.setOnClickListener {
-            adapter.updateList(allApps)
-        }
-        chipSocial?.setOnClickListener {
-            val socialPkgs = AppGroupPresets.getInstalledFromGroup(this, "social")
-            adapter.updateList(if (socialPkgs.isEmpty()) allApps else allApps.filter { it.packageName in socialPkgs })
-        }
-        chipGames?.setOnClickListener {
-            val gamePkgs = AppGroupPresets.getInstalledFromGroup(this, "games")
-            adapter.updateList(if (gamePkgs.isEmpty()) allApps else allApps.filter { it.packageName in gamePkgs })
-        }
-        chipBrowsers?.setOnClickListener {
-            val browserPkgs = AppGroupPresets.getInstalledFromGroup(this, "browsers")
-            adapter.updateList(if (browserPkgs.isEmpty()) allApps else allApps.filter { it.packageName in browserPkgs })
-        }
-
+        val searchBox = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.searchBox)
         searchBox.addTextChangedListener(object : android.text.TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: android.text.Editable?) {
                 val q = s?.toString()?.lowercase() ?: ""
-                adapter.updateList(allApps.filter { it.label.lowercase().contains(q) || it.packageName.lowercase().contains(q) })
+                if (q.isEmpty()) {
+                    adapter.submitList(allApps)
+                } else {
+                    adapter.submitList(allApps.filter {
+                        it.labelLower.contains(q) || it.packageName.contains(q)
+                    })
+                }
             }
         })
 
-        findViewById<View>(R.id.btnPresetSocialMedia)?.setOnClickListener { showSocialPresetSheet() }
-
         handleQuickBlockIntent()
+    }
+
+    private fun loadApps() {
+        val t0 = SystemClock.elapsedRealtime()
+
+        // Fast path: use process cache if available
+        val cached = cachedAppsWithIcons ?: cachedApps
+        if (cached != null) {
+            Log.d(TAG, "Cache hit: ${cached.size} apps in ${SystemClock.elapsedRealtime() - t0}ms")
+            allApps = cached
+            adapter.submitList(cached)
+            showList()
+            if (cachedAppsWithIcons == null) {
+                loadIconsAsync(cached)
+            }
+            return
+        }
+
+        lifecycleScope.launch {
+            val loaded = withContext(Dispatchers.IO) {
+                val pm = packageManager
+                val myPkg = packageName
+
+                // Use queryIntentActivities with LAUNCHER — only gets apps visible
+                // in the launcher. Much smaller set than getInstalledApplications.
+                // Also resolves labels via ResolveInfo.loadLabel which is faster.
+                val tQuery = SystemClock.elapsedRealtime()
+                val launchable = InstalledAppsHelper.getLaunchablePackages(pm)
+                Log.d(TAG, "queryIntentActivities: ${launchable.size} apps in ${SystemClock.elapsedRealtime() - tQuery}ms")
+
+                val tLabel = SystemClock.elapsedRealtime()
+                val result = launchable.mapNotNull { ri ->
+                    val pkg = ri.activityInfo?.packageName ?: return@mapNotNull null
+                    if (pkg == myPkg) return@mapNotNull null
+                    val label = InstalledAppsHelper.getAppLabel(pm, ri)
+                    if (label.isBlank()) return@mapNotNull null
+                    AppInfo(pkg, label, label.lowercase(), icon = null)
+                }
+                Log.d(TAG, "Label resolve: ${result.size} apps in ${SystemClock.elapsedRealtime() - tLabel}ms")
+
+                // Deduplicate by package name (some apps register multiple launcher activities)
+                val tSort = SystemClock.elapsedRealtime()
+                val deduped = result
+                    .distinctBy { it.packageName }
+                    .sortedBy { it.labelLower }
+                Log.d(TAG, "Dedup+sort in ${SystemClock.elapsedRealtime() - tSort}ms")
+
+                deduped
+            }
+
+            val submitTime = SystemClock.elapsedRealtime()
+            allApps = loaded
+            cachedApps = loaded
+            cacheTimestamp = SystemClock.elapsedRealtime()
+            adapter.submitList(loaded)
+            showList()
+            Log.d(TAG, "First list visible: ${loaded.size} apps in ${submitTime - t0}ms total")
+
+            // Icons loaded async, won't block list display
+            loadIconsAsync(loaded)
+        }
+    }
+
+    private fun showList() {
+        textLoading.visibility = View.GONE
+        recycler.visibility = View.VISIBLE
+    }
+
+    private fun loadIconsAsync(apps: List<AppInfo>) {
+        lifecycleScope.launch {
+            val tIcon = SystemClock.elapsedRealtime()
+            val pm = packageManager
+            val ctx = this@BlockedAppsActivity
+
+            // Load icons in batches on IO thread
+            val updated = withContext(Dispatchers.IO) {
+                apps.map { app ->
+                    val icon = try {
+                        InstalledAppsHelper.getAppIcon(pm, app.packageName, ctx)
+                    } catch (_: Exception) { null }
+                    app.copy(icon = icon)
+                }
+            }
+
+            Log.d(TAG, "Icons loaded: ${apps.size} apps in ${SystemClock.elapsedRealtime() - tIcon}ms")
+            allApps = updated
+            cachedAppsWithIcons = updated
+            adapter.submitList(updated)
+        }
     }
 
     private fun handleQuickBlockIntent() {
@@ -126,67 +200,36 @@ class BlockedAppsActivity : AppCompatActivity() {
         intent?.removeExtra(EXTRA_HIGHLIGHT_PACKAGE)
         if (blockedStore.isBlocked(trimmed)) return
 
-        val appName = SocialPresetPackages.getAppLabel(this, trimmed)
+        val appName = try {
+            val ai = packageManager.getApplicationInfo(trimmed, 0)
+            packageManager.getApplicationLabel(ai).toString()
+        } catch (_: Exception) { trimmed }
+
         val root = findViewById<View>(android.R.id.content)
         Snackbar.make(root, getString(R.string.notif_new_social_text, appName), Snackbar.LENGTH_LONG)
             .setAction(getString(R.string.preset_confirm_block)) {
-                val set = blockedStore.getBlockedPackages().toMutableSet()
+                val set = adapter.blockedSet.toMutableSet()
                 set.add(trimmed)
                 blockedStore.setBlockedPackages(set)
-                adapter.updateList(allApps)
-                adapter.notifyDataSetChanged()
+                adapter.blockedSet = set
+                adapter.notifyItemRangeChanged(0, adapter.itemCount)
                 Toast.makeText(this, getString(R.string.preset_blocked_success), Toast.LENGTH_SHORT).show()
             }
             .setActionTextColor(getColor(R.color.bb_primary))
             .show()
     }
 
-    private fun showSocialPresetSheet() {
-        val installed = SocialPresetPackages.getInstalledSocialPackages(this)
-        if (installed.isEmpty()) {
-            Toast.makeText(this, getString(R.string.preset_none_found), Toast.LENGTH_LONG).show()
-            return
-        }
-        val sheet = BottomSheetDialog(this, R.style.Theme_BrainBuddy)
-        val root = layoutInflater.inflate(R.layout.bottom_sheet_social_preset, null)
-        sheet.setContentView(root)
-        val labels = installed.map { SocialPresetPackages.getAppLabel(this, it) }
-        root.findViewById<TextView>(R.id.presetAppList).text = labels.joinToString(", ")
-        root.findViewById<View>(R.id.btnPresetCancel).setOnClickListener { sheet.dismiss() }
-        root.findViewById<View>(R.id.btnPresetConfirm).setOnClickListener {
-            val set = blockedStore.getBlockedPackages().toMutableSet()
-            set.addAll(installed)
-            blockedStore.setBlockedPackages(set)
-            adapter.updateList(allApps)
-            adapter.notifyDataSetChanged()
-            sheet.dismiss()
-            Toast.makeText(this, getString(R.string.preset_blocked_success), Toast.LENGTH_SHORT).show()
-        }
-        root.findViewById<View>(R.id.btnPresetSingleSelect)?.setOnClickListener {
-            sheet.dismiss()
-            val socialPkgs = AppGroupPresets.getInstalledFromGroup(this, "social")
-            adapter.updateList(if (socialPkgs.isEmpty()) allApps else allApps.filter { it.packageName in socialPkgs })
-            findViewById<com.google.android.material.chip.ChipGroup>(R.id.chipGroup)?.check(R.id.chipSocial)
-        }
-        sheet.show()
-    }
-
     override fun onResume() {
         super.onResume()
+        // Only reload if a package was actually installed/removed
         if (PackageChangeReceiver.isDirty(this)) {
             PackageChangeReceiver.clearDirtyFlag(this)
-            val pm = packageManager
-            allApps = InstalledAppsHelper.getInstalledApps(pm)
-                .filter { it.packageName != packageName }
-                .mapNotNull { app ->
-                    try {
-                        val label = InstalledAppsHelper.getAppLabel(pm, app)
-                        val icon = InstalledAppsHelper.getAppIcon(pm, app, this)
-                        if (icon != null) AppInfo(app.packageName, label, icon) else null
-                    } catch (_: Exception) { null }
-                }
-                .sortedBy { it.label.lowercase() }
-            adapter.updateList(allApps)
+            invalidateCache()
+            loadApps()
+        } else {
+            // Refresh blocked state without reloading app list
+            adapter.blockedSet = blockedStore.getBlockedPackages()
+            adapter.notifyItemRangeChanged(0, adapter.itemCount)
         }
     }
 
@@ -195,13 +238,34 @@ class BlockedAppsActivity : AppCompatActivity() {
         return true
     }
 
-    data class AppInfo(val packageName: String, val label: String, val icon: android.graphics.drawable.Drawable)
+    data class AppInfo(
+        val packageName: String,
+        val label: String,
+        val labelLower: String,
+        val icon: Drawable?
+    )
+
+    class AppDiffCallback : DiffUtil.ItemCallback<AppInfo>() {
+        override fun areItemsTheSame(old: AppInfo, new: AppInfo) =
+            old.packageName == new.packageName
+
+        override fun areContentsTheSame(old: AppInfo, new: AppInfo) =
+            old.packageName == new.packageName &&
+            old.label == new.label &&
+            old.icon === new.icon
+    }
 
     class AppListAdapter(
-        private var apps: List<AppInfo>,
-        private val blockedStore: BlockedAppsStore,
+        var blockedSet: Set<String>,
         private val onToggle: (String, Boolean) -> Unit
-    ) : RecyclerView.Adapter<AppListAdapter.VH>() {
+    ) : ListAdapter<AppInfo, AppListAdapter.VH>(AppDiffCallback()) {
+
+        init {
+            setHasStableIds(true)
+        }
+
+        override fun getItemId(position: Int): Long =
+            getItem(position).packageName.hashCode().toLong()
 
         class VH(v: View) : RecyclerView.ViewHolder(v) {
             val icon: ImageView = v.findViewById(R.id.appIcon)
@@ -216,22 +280,20 @@ class BlockedAppsActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: VH, position: Int) {
-            val app = apps[position]
-            holder.icon.setImageDrawable(app.icon)
+            val app = getItem(position)
+            if (app.icon != null) {
+                holder.icon.setImageDrawable(app.icon)
+            } else {
+                holder.icon.setImageResource(R.drawable.ic_default_app)
+            }
             holder.label.text = app.label
             holder.pkg.text = app.packageName
+            // Use cached blockedSet — no SharedPreferences read per bind
             holder.check.setOnCheckedChangeListener(null)
-            holder.check.isChecked = blockedStore.getBlockedPackages().contains(app.packageName)
+            holder.check.isChecked = app.packageName in blockedSet
             holder.check.setOnCheckedChangeListener { _, isChecked ->
                 onToggle(app.packageName, isChecked)
             }
-        }
-
-        override fun getItemCount() = apps.size
-
-        fun updateList(newList: List<AppInfo>) {
-            apps = newList
-            notifyDataSetChanged()
         }
     }
 }

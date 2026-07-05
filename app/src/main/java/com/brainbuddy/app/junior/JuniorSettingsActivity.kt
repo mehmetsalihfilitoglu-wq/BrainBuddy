@@ -35,7 +35,7 @@ class JuniorSettingsActivity : AppCompatActivity() {
 
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "BrainBuddy Junior"
+        supportActionBar?.title = "Barjin Junior"
 
         val profiles = profileStore.getProfiles()
         val spinner = findViewById<Spinner>(R.id.spinnerProfile)

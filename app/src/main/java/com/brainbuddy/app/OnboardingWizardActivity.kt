@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.brainbuddy.app.accessibility.AccessibilityUtils
 import com.brainbuddy.app.accessibility.ForegroundAppBlockerService
-import com.brainbuddy.app.core.AppGroupPresets
 import com.brainbuddy.app.core.BlockedAppsStore
 import com.brainbuddy.app.core.KillSwitchPrefs
 import com.brainbuddy.app.core.OnboardingPrefs
@@ -29,15 +28,41 @@ class OnboardingWizardActivity : AppCompatActivity() {
     private val pinManager by lazy { PinManager(this) }
     private val emergencyManager by lazy { EmergencyCodeManager(this) }
 
+    // SharedPreferences key for surviving full task restarts (singleTask MainActivity)
+    private fun saveWizardStep(s: Int) {
+        getSharedPreferences("bb_onboarding_prefs", MODE_PRIVATE)
+            .edit().putInt("wizard_step_saved", s).apply()
+    }
+
+    private fun loadWizardStep(): Int =
+        getSharedPreferences("bb_onboarding_prefs", MODE_PRIVATE)
+            .getInt("wizard_step_saved", 0)
+
+    private fun clearWizardStep() {
+        getSharedPreferences("bb_onboarding_prefs", MODE_PRIVATE)
+            .edit().remove("wizard_step_saved").apply()
+    }
+
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding_wizard)
 
-        showStep(0)
+        // Use savedInstanceState first (config change / process death), then SharedPrefs
+        // (MainActivity singleTask relaunch clears instance state but not SharedPrefs)
+        val startStep = savedInstanceState?.getInt("wizard_step", -1)
+            .takeIf { it != null && it >= 0 }
+            ?: loadWizardStep()
+        showStep(startStep)
+    }
+
+    override fun onSaveInstanceState(outState: android.os.Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("wizard_step", step)
     }
 
     private fun showStep(s: Int) {
         step = s
+        saveWizardStep(s)
         val container = findViewById<ViewGroup>(R.id.wizardContainer)
         container.removeAllViews()
         when (s) {
@@ -118,7 +143,7 @@ class OnboardingWizardActivity : AppCompatActivity() {
             if (AccessibilityUtils.isServiceEnabled(this, ForegroundAppBlockerService::class.java)) {
                 showStep(4)
             } else {
-                Toast.makeText(this, "Lütfen önce BrainBuddy erişilebilirlik iznini açın", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Lütfen önce Barjin erişilebilirlik iznini açın", Toast.LENGTH_LONG).show()
             }
         }
         container.addView(v)
@@ -131,9 +156,7 @@ class OnboardingWizardActivity : AppCompatActivity() {
             startActivity(Intent(this, BlockedAppsActivity::class.java))
         }
         v.findViewById<Button>(R.id.btnPresetSocial).setOnClickListener {
-            startActivity(Intent(this, BlockedAppsActivity::class.java).apply {
-                putExtra(BlockedAppsActivity.EXTRA_OPEN_SOCIAL_PRESET, true)
-            })
+            startActivity(Intent(this, BlockedAppsActivity::class.java))
         }
         v.findViewById<Button>(R.id.btnNext).setOnClickListener { showStep(5) }
         container.addView(v)
@@ -162,6 +185,7 @@ class OnboardingWizardActivity : AppCompatActivity() {
         val container = findViewById<ViewGroup>(R.id.wizardContainer)
         val v = layoutInflater.inflate(R.layout.wizard_step_finish, container, false)
         v.findViewById<Button>(R.id.btnFinish).setOnClickListener {
+            clearWizardStep()
             OnboardingPrefs.setDone(this, true)
             startActivity(Intent(this, HomeActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
             finish()

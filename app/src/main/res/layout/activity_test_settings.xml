@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="20dp">
 
         <!-- Toolbar -->
         <com.google.android.material.appbar.MaterialToolbar
@@ -28,7 +30,8 @@
             style="@style/Widget.BrainBuddy.AppCardWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -312,54 +315,5 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- BLOK 2: Eğitim Modülleri / İçerik -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardEducation"
-            style="@style/Widget.BrainBuddy.AppCardWhite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="24dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings_section_education"
-                    android:textAppearance="@style/TextAppearance.BrainBuddy.AppTitle" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Test dışı modüller ve pratik kısayollar"
-                    android:textAppearance="@style/TextAppearance.BrainBuddy.AppSubtitle" />
-
-                <!-- Mini Test (Pratik) -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMiniTest"
-                    style="@style/BBButtonAlt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/btn_practice"
-                    android:textAllCaps="false" />
-
-                <!-- Yanlışlardan Çalış -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnWorkOnWrongs"
-                    style="@style/BBButtonAlt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/parent_review_wrong"
-                    android:textAllCaps="false" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>

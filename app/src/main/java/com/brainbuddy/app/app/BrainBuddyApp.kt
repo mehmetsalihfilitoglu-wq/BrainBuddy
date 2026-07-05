@@ -9,6 +9,7 @@ import com.brainbuddy.app.CrashActivity
 import com.brainbuddy.app.core.ActiveProfileManager
 import com.brainbuddy.app.core.OnboardingPrefs
 import com.brainbuddy.app.core.ProfileStore
+import com.brainbuddy.app.db.DataIntegrityChecker
 import com.brainbuddy.app.db.DatabaseProvider
 import com.brainbuddy.app.db.DbSeeder
 import com.brainbuddy.app.db.StartupAuditRecorder
@@ -60,6 +61,8 @@ class BrainBuddyApp : Application() {
                 logStartupPersistenceAsync(this@BrainBuddyApp)
                 val didSeed = DbSeeder.seedIfNeeded(this@BrainBuddyApp)
                 Log.i(PERSISTENCE_LOG_TAG, "Seed finished: didSeed=$didSeed")
+                val integrityResult = DataIntegrityChecker.runCleanup(this@BrainBuddyApp)
+                Log.i(PERSISTENCE_LOG_TAG, "IntegrityCheck: hardDeleted=${integrityResult.hardDeleted} totalMarked=${integrityResult.totalMarked}")
                 // PoolQuotaEnforcer.enforceCoreQuotas() intentionally disabled —
                 // synthetic fill was corrupting the clean asset-only dataset.
                 // quotaAdded will be null in audit snapshots until re-enabled.

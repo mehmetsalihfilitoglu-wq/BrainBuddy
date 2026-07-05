@@ -9,7 +9,7 @@ import com.brainbuddy.app.R
 import com.brainbuddy.app.core.ProtectionPrefs
 import com.brainbuddy.app.databinding.ActivityQuizBinding
 import com.brainbuddy.app.gate.GateManager
-import ui.MainActivity
+import com.brainbuddy.app.MainActivity
 
 /**
  * Legacy single-question screen. Gate unlock cannot be granted from a partial retry; always returns to lock.

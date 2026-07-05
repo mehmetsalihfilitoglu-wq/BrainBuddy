@@ -19,7 +19,7 @@ class SimpleHomeActivity : ComponentActivity() {
         val btnParent = findViewById<Button>(R.id.btnParent)
         val btnQuiz = findViewById<Button>(R.id.btnQuiz)
 
-        status.text = "BrainBuddy hazır ✅"
+        status.text = "Barjin hazır ✅"
 
         btnOpenAcc.setOnClickListener {
             startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))

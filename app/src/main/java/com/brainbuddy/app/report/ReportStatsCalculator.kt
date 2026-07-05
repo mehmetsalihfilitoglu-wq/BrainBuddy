@@ -61,6 +61,7 @@ object ReportStatsCalculator {
     data class WrongAnswerRecord(
         val subject: String,
         val stem: String,
+        val choices: List<String>,
         val userAnswer: String,
         val correctAnswer: String,
         val category: String?,
@@ -259,6 +260,7 @@ object ReportStatsCalculator {
                 result.add(WrongAnswerRecord(
                     subject = q.subject.tr,
                     stem = q.stem,
+                    choices = q.choices.toList(),
                     userAnswer = userAnswer,
                     correctAnswer = correctAnswer,
                     category = q.topic ?: q.subject.tr,

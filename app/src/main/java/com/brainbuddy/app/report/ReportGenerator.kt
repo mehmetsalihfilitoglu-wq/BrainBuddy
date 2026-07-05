@@ -93,7 +93,7 @@ object ReportGenerator {
         return """
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>$title</title></head><body style="font-family:sans-serif;padding:20px">
-<h1>BrainBuddy - $title</h1>
+<h1>Barjin - $title</h1>
 <p>$date | Profil: ${d.profileName}</p>
 <hr>
 <h2>Test Özeti</h2>
@@ -110,7 +110,7 @@ ${if (d.topBlockedApp != null) "<p>En çok denenen: ${d.topBlockedApp} (${d.topB
 <h2>Oyunlaştırma</h2>
 <p>Seri: ${d.streakDays} gün | XP: ${d.xp} | Seviye: ${d.level}</p>
 <hr>
-<p style="font-size:11px;color:#888">Bu rapor BrainBuddy tarafından oluşturuldu. Gizlilik ayarlarından e-posta raporlarını kapatabilirsiniz.</p>
+<p style="font-size:11px;color:#888">Bu rapor Barjin tarafından oluşturuldu. Gizlilik ayarlarından e-posta raporlarını kapatabilirsiniz.</p>
 </body></html>
         """.trimIndent()
     }
@@ -120,7 +120,7 @@ ${if (d.topBlockedApp != null) "<p>En çok denenen: ${d.topBlockedApp} (${d.topB
         val date = SimpleDateFormat("d MMMM yyyy", Locale("tr")).format(Calendar.getInstance().time)
         val weak = if (d.weakTopics.isEmpty()) "-" else d.weakTopics.joinToString(", ")
         return """
-BrainBuddy - $title
+Barjin - $title
 $date | Profil: ${d.profileName}
 
 Test Özeti:

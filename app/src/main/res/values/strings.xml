@@ -17,6 +17,7 @@
     <string name="quiz_pool_limited_detail">Soru havuzu yetersiz (%1$d soru mevcut, en az %2$d gerekli).</string>
     <string name="quiz_oom_error">Bellek yetersiz. Uygulamayı yeniden başlatın.</string>
     <string name="quiz_pool_limited_warning">Soru havuzu sınırlı. Veli: Daha fazla soru paketi ekleyin.</string>
+    <string name="quiz_shorter_test_notice">Daha kısa bir test hazırlandı (%1$d soru).</string>
 
     <!-- Quiz Result Screen -->
     <string name="quiz_result_congrats">Tebrikler!</string>
@@ -187,7 +188,7 @@
     <string name="grade_required_toast">Test başlatmak için önce sınıf seçimi yapın.</string>
     <string name="settings_exam_packs">Sınav Paketleri (LGS/TYT/AYT)</string>
     <string name="settings_exam_packs_sub">LGS, TYT, AYT sınav paketleri</string>
-    <string name="settings_junior_title">BrainBuddy Junior</string>
+    <string name="settings_junior_title">Barjin Junior</string>
     <string name="settings_junior_sub">1. sınıf okuma-yazma modülü</string>
     <string name="pool_status_title_format">Soru Havuzu Durumu (%1$s)</string>
     <string name="pool_status_title_default">Soru Havuzu Durumu</string>
@@ -214,7 +215,7 @@
     <string name="settings_theme_sub">Tema seçenekleri (yakında)</string>
     <string name="settings_section_about">Hakkında</string>
     <string name="settings_privacy_sub">Gizlilik politikamızı inceleyin</string>
-    <string name="settings_accessibility_usage_sub">BrainBuddy erişilebilirlik kullanımı hakkında</string>
+    <string name="settings_accessibility_usage_sub">Barjin erişilebilirlik kullanımı hakkında</string>
     <string name="interval_30">30 dk</string>
     <string name="interval_45">45 dk</string>
     <string name="interval_60">60 dk</string>
@@ -378,17 +379,17 @@
     <string name="profile_add">Profil Ekle</string>
 
     <!-- Protection notification -->
-    <string name="notif_channel_protection">BrainBuddy Koruma</string>
+    <string name="notif_channel_protection">Barjin Koruma</string>
     <string name="notif_channel_monitor">Erişilebilirlik İzleme</string>
-    <string name="notif_monitor_title">BrainBuddy koruması aktif</string>
+    <string name="notif_monitor_title">Barjin koruması aktif</string>
     <string name="notif_monitor_text">Erişilebilirlik izni izleniyor</string>
-    <string name="notif_protection_off_title">BrainBuddy koruması kapalı!</string>
+    <string name="notif_protection_off_title">Barjin koruması kapalı!</string>
     <string name="notif_protection_off_text">Erişilebilirlik izni kapatıldı. Dokunarak ayarlardan yeniden açın.</string>
 
     <string name="privacy_policy_title">Gizlilik Politikası</string>
     <string name="privacy_view_on_web">Web\'de görüntüle</string>
     <string name="accessibility_usage_title">Erişilebilirlik Kullanımı</string>
-    <string name="accessibility_usage_explanation">BrainBuddy, uygulama engelleme özelliği için Android Erişilebilirlik Hizmeti kullanır. Bu izin yalnızca engellenen uygulamaların ekranda açılıp açılmadığını tespit etmek ve test geçmeden kullanılmasını engellemek amacıyla kullanılır. Hiçbir kişisel veri toplanmaz veya üçüncü taraflarla paylaşılmaz. Tüm veriler cihazınızda kalır.</string>
+    <string name="accessibility_usage_explanation">Barjin, uygulama engelleme özelliği için Android Erişilebilirlik Hizmeti kullanır. Bu izin yalnızca engellenen uygulamaların ekranda açılıp açılmadığını tespit etmek ve test geçmeden kullanılmasını engellemek amacıyla kullanılır. Hiçbir kişisel veri toplanmaz veya üçüncü taraflarla paylaşılmaz. Tüm veriler cihazınızda kalır.</string>
 
     <!-- App presets -->
     <string name="preset_all">Tümü</string>
@@ -421,16 +422,27 @@
     <string name="auth_password_mismatch">Şifreler eşleşmiyor</string>
 
     <!-- Email Reports -->
-    <string name="report_ready_title">BrainBuddy Raporu Hazır</string>
+    <string name="report_ready_title">Barjin Raporu Hazır</string>
     <string name="report_ready_text">Dokunarak manuel gönderebilirsiniz</string>
     <string name="report_channel_name">Raporlar</string>
     <string name="report_share_prompt">Raporu Gönder</string>
+    <string name="report_share_locked_btn">🔒 Raporu Paylaş (Premium)</string>
+    <string name="report_share_locked_desc_title">Detaylı performans raporunu paylaş:</string>
+    <string name="report_share_locked_bullet_1">✦ Yaptığın tüm yanlış soruları analiz et</string>
+    <string name="report_share_locked_bullet_2">✦ Hangi konularda güçlü olduğunu gör</string>
+    <string name="report_share_locked_bullet_3">✦ Hangi alanlarda desteğe ihtiyacın olduğunu keşfet</string>
+    <string name="report_share_locked_bullet_4">✦ Konu bazlı başarı oranını incele</string>
+    <string name="report_share_locked_bullet_5">✦ Zaman yönetimini değerlendir</string>
+    <string name="report_share_locked_bullet_6">✦ Gelişim grafiğinle ilerlemeni takip et</string>
+    <string name="report_share_locked_bullet_7">✦ Lig ve sıralama performansını karşılaştır</string>
+    <string name="report_share_locked_footer">Premium ile bu raporu velinle veya öğretmeninle kolayca paylaşabilirsin.</string>
+    <string name="report_share_locked_cta">Premium\'a Geç</string>
 
     <!-- Motivation notifications -->
     <string name="notif_motivation_channel">Motivasyon</string>
-    <string name="notif_daily_reminder_title">BrainBuddy</string>
+    <string name="notif_daily_reminder_title">Barjin</string>
     <string name="notif_daily_reminder_text">Bugün test çözmedin</string>
-    <string name="notif_streak_title">BrainBuddy</string>
+    <string name="notif_streak_title">Barjin</string>
     <string name="notif_streak_text">Seri bitiyor!</string>
 
     <!-- System Health -->

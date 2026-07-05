@@ -1,16 +1,114 @@
 package com.brainbuddy.app.quiz
 
+import android.util.Log
 import com.brainbuddy.app.db.QuestionEntity
 import org.json.JSONArray
 
 /**
  * Detects repeated weak template shells in a batch (e.g. seed run) and suppresses excess low-quality clones.
  * Does not delete rows — only adjusts [QuestionEntity.isActive] / flags / tier.
+ *
+ * Also provides [normalizeStemForTemplateDedup] for template-level duplicate detection
+ * that goes beyond exact-text matching: removes numbers, city names, common units and
+ * boilerplate Turkish phrasing so structurally identical questions (differing only in
+ * numbers/cities) are detected as clones.
  */
 object TemplateQualityDetector {
 
+    private const val TAG = "TemplateQualityDetector"
     private const val MIN_CLUSTER = 6
     private const val WEAK_RATIO = 0.55
+
+    // City names appearing in Turkish math / social-studies word problems.
+    private val CITY_NAMES = setOf(
+        "izmir", "ankara", "konya", "istanbul", "bursa", "antalya", "adana",
+        "eskişehir", "eskisehir", "kayseri", "trabzon", "samsun", "gaziantep",
+        "mersin", "diyarbakır", "diyarbakir", "hatay", "kocaeli", "manisa",
+        "erzurum", "malatya", "balıkesir", "balikesir", "elazığ", "elazig",
+        "sivas", "van", "kahramanmaraş", "kahramanmaras", "mardin"
+    )
+    private val CITY_PATTERN = Regex(
+        "\\b(${CITY_NAMES.joinToString("|") { Regex.escape(it) }})\\b",
+        setOf(RegexOption.IGNORE_CASE)
+    )
+
+    private val UNIT_PATTERN = Regex(
+        "\\b(km|kilometre|kilometredir|saatte|kmh|km/s|km/saat|kilom[eé]tre|" +
+            "litre|litredir|kg|kilogram|kilogramdır|gram|gramdır|" +
+            "metre|metredir|santimetre|cm|mm|tl|lira)\\b",
+        setOf(RegexOption.IGNORE_CASE)
+    )
+
+    // Boilerplate distance/time/speed problem phrases common in sosyal + mat.
+    private val BOILERPLATE_PATTERN = Regex(
+        "\\b(arasındaki|uzaklık|uzaklığı|hızla|hızıyla|kaç saatte|kaç saat|sürüyor|" +
+            "yol alır|gidecek|km ile|km hızla|saatte giden|saat giden)\\b",
+        setOf(RegexOption.IGNORE_CASE)
+    )
+
+    /**
+     * Normalize a question stem for template-level duplicate detection.
+     * Removes numbers, city names, measurement units and boilerplate phrasing
+     * so that structurally identical questions are mapped to the same key.
+     *
+     * Example:
+     *   "İzmir–Konya arası 355 km'dir. Saatte 60 km hızla giden araç kaç saatte gider?"
+     *   "Ankara–Konya arası 310 km'dir. Saatte 65 km hızla giden araç kaç saatte gider?"
+     * Both → "CITY–CITY arası # #'dir. Saatte # UNIT UNIT giden araç kaç saatte gider?"
+     */
+    fun normalizeStemForTemplateDedup(stem: String): String {
+        return stem
+            .lowercase(java.util.Locale("tr"))
+            .let { CITY_PATTERN.replace(it, "CITY") }
+            .let { UNIT_PATTERN.replace(it, "UNIT") }
+            .let { BOILERPLATE_PATTERN.replace(it, "OP") }
+            .replace(Regex("\\d+([.,]\\d+)?"), "#")
+            .replace(Regex("\\s+"), " ")
+            .trim()
+    }
+
+    /**
+     * Returns a template key for an entity: same key → same structural template.
+     * Takes grade + subject + normalized stem prefix into account.
+     */
+    fun templateKey(e: QuestionEntity): String {
+        val stem = e.stemNormalized.ifBlank { e.questionText }
+        val normalized = normalizeStemForTemplateDedup(stem).take(60)
+        return "${e.grade}|${e.subject}|$normalized"
+    }
+
+    /**
+     * Reject template-duplicate clones from a batch.
+     * Keeps the FIRST occurrence of each template key; logs and drops the rest.
+     *
+     * @param entities      Incoming batch (e.g. all questions in one import run).
+     * @param existingKeys  Template keys already known in DB (from prior inserts).
+     * @return Pair(kept, droppedCount)
+     */
+    fun deduplicateByTemplate(
+        entities: List<QuestionEntity>,
+        existingKeys: Set<String> = emptySet(),
+    ): Pair<List<QuestionEntity>, Int> {
+        val seen = existingKeys.toMutableSet()
+        var dropped = 0
+        val kept = entities.filter { e ->
+            val key = templateKey(e)
+            if (key in seen) {
+                dropped++
+                Log.w(
+                    TAG,
+                    "[TEMPLATE_DEDUP_REJECTED] grade=${e.grade} subj=${e.subject} " +
+                        "key=${key.take(80)} stem=${e.questionText.take(60)}"
+                )
+                false
+            } else {
+                seen.add(key)
+                true
+            }
+        }
+        if (dropped > 0) Log.w(TAG, "[TEMPLATE_DEDUP] batch dropped $dropped template-duplicate(s)")
+        return kept to dropped
+    }
 
     fun applyShellClustering(entities: List<QuestionEntity>): List<QuestionEntity> {
         if (entities.size < MIN_CLUSTER) return entities
@@ -37,10 +135,7 @@ object TemplateQualityDetector {
 
     private fun shellKey(e: QuestionEntity): String {
         val stem = e.stemNormalized.ifBlank { e.questionText }
-        val shell = stem
-            .lowercase(java.util.Locale("tr"))
-            .replace(Regex("\\d+"), "#")
-            .take(44)
+        val shell = normalizeStemForTemplateDedup(stem).take(44)
         val optCount = try {
             JSONArray(e.optionsJson).length()
         } catch (_: Exception) {

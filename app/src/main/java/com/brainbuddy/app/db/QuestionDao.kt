@@ -56,6 +56,7 @@ data class QuestionCandidateRow(
     val stemNormalized: String,
     val type: String,
     val skill: String,
+    val topic: String,        // for within-quiz topic diversity
     val qualityTier: String,
     val reasoningLevel: Int,
 )
@@ -134,6 +135,7 @@ interface QuestionDao {
     @Query(
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        , COALESCE(topic, 'OTHER') AS topic
         , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
         , COALESCE(reasoningLevel, 2) AS reasoningLevel
         FROM questions
@@ -161,6 +163,7 @@ interface QuestionDao {
     @Query(
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        , COALESCE(topic, 'OTHER') AS topic
         , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
         , COALESCE(reasoningLevel, 2) AS reasoningLevel
         FROM questions
@@ -186,6 +189,7 @@ interface QuestionDao {
     @Query(
         """
         SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        , COALESCE(topic, 'OTHER') AS topic
         , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
         , COALESCE(reasoningLevel, 2) AS reasoningLevel
         FROM questions
@@ -717,10 +721,46 @@ interface QuestionDao {
         """
         UPDATE questions SET unservableReason = 'DATA_CORRUPT_PLACEHOLDER'
         WHERE unservableReason IS NULL AND isActive = 1
-        AND (optionsJson LIKE '%Se\u00e7enek A%' OR optionsJson LIKE '%Option A%' OR optionsJson LIKE '%Cevap A%' OR optionsJson LIKE '%\u015e\u0131k A%')
+        AND (
+          optionsJson LIKE '%Se\u00e7enek A%' OR optionsJson LIKE '%Se\u00e7enek B%'
+          OR optionsJson LIKE '%Se\u00e7enek C%' OR optionsJson LIKE '%Se\u00e7enek D%'
+          OR optionsJson LIKE '%Option A%' OR optionsJson LIKE '%Option B%'
+          OR optionsJson LIKE '%Option C%' OR optionsJson LIKE '%Option D%'
+          OR optionsJson LIKE '%Cevap A%' OR optionsJson LIKE '%Cevap B%'
+          OR optionsJson LIKE '%Cevap C%' OR optionsJson LIKE '%Cevap D%'
+          OR optionsJson LIKE '%\u015e\u0131k A%' OR optionsJson LIKE '%\u015e\u0131k B%'
+          OR optionsJson LIKE '%\u015e\u0131k C%' OR optionsJson LIKE '%\u015e\u0131k D%'
+        )
         """
     )
     suspend fun markPlaceholderOptions(): Int
+
+    /** Hard delete questions whose options contain any placeholder pattern. */
+    @Query(
+        """
+        DELETE FROM questions
+        WHERE (
+          optionsJson LIKE '%Se\u00e7enek A%' OR optionsJson LIKE '%Se\u00e7enek B%'
+          OR optionsJson LIKE '%Se\u00e7enek C%' OR optionsJson LIKE '%Se\u00e7enek D%'
+          OR optionsJson LIKE '%Option A%' OR optionsJson LIKE '%Option B%'
+          OR optionsJson LIKE '%Option C%' OR optionsJson LIKE '%Option D%'
+          OR optionsJson LIKE '%Cevap A%' OR optionsJson LIKE '%Cevap B%'
+          OR optionsJson LIKE '%Cevap C%' OR optionsJson LIKE '%Cevap D%'
+          OR optionsJson LIKE '%\u015e\u0131k A%' OR optionsJson LIKE '%\u015e\u0131k B%'
+          OR optionsJson LIKE '%\u015e\u0131k C%' OR optionsJson LIKE '%\u015e\u0131k D%'
+        )
+        """
+    )
+    suspend fun deleteQuestionsWithPlaceholderOptions(): Int
+
+    /** Hard delete questions whose optionsJson has fewer than 4 meaningful entries (too few options). */
+    @Query(
+        """
+        DELETE FROM questions
+        WHERE (optionsJson = '[]' OR length(trim(optionsJson)) < 10)
+        """
+    )
+    suspend fun deleteQuestionsWithTooFewOptions(): Int
 
     @Query(
         """
@@ -751,4 +791,47 @@ interface QuestionDao {
 
     @Query("SELECT COUNT(*) FROM questions WHERE unservableReason LIKE 'DATA_CORRUPT%'")
     suspend fun countDataCorrupt(): Int
+
+    /** Servable count for a specific grade (all subjects). */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE isActive = 1 AND grade = :grade
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND COALESCE(examType, 'GENERAL') != 'LGS'
+        """
+    )
+    suspend fun countServableByGrade(grade: Int): Int
+
+    /** Servable LGS count (all subjects). */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE isActive = 1
+        AND COALESCE(examType, 'GENERAL') = 'LGS'
+        AND (unservableReason IS NULL OR unservableReason = '')
+        """
+    )
+    suspend fun countServableLgs(): Int
+
+    /** Count questions with a specific unservableReason (for diagnostics). */
+    @Query("SELECT COUNT(*) FROM questions WHERE unservableReason = :reason")
+    suspend fun countByUnservableReason(reason: String): Int
+
+    /** Count by examType (for diagnostics). */
+    @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(examType, 'GENERAL') = :examType")
+    suspend fun countByExamType(examType: String): Int
+
+    /**
+     * Repair pool damage from progressive runtime quarantine:
+     * clear LOW_QUALITY_QUARANTINED and DATA_CORRUPT_WEAK_DISTRACTOR marks
+     * so these questions return to the servable pool.
+     */
+    @Query(
+        """
+        UPDATE questions SET unservableReason = NULL
+        WHERE unservableReason IN ('LOW_QUALITY_QUARANTINED', 'DATA_CORRUPT_WEAK_DISTRACTOR')
+        """
+    )
+    suspend fun clearProgressiveQuarantineDamage(): Int
 }

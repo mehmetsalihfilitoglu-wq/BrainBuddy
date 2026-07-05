@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BrainBuddy</string>
+    <string name="app_name">Barjin</string>
     <string name="parent_title">Parent Panel</string>
     <string name="settings_title">Settings</string>
     <string name="gate_title">Quiz Required</string>
@@ -24,6 +24,17 @@
     <string name="report_daily">Daily</string>
     <string name="report_weekly">Weekly</string>
     <string name="report_share">Share Report</string>
+    <string name="report_share_locked_btn">🔒 Share Report (Premium)</string>
+    <string name="report_share_locked_desc_title">Share your detailed performance report:</string>
+    <string name="report_share_locked_bullet_1">✦ Review all your wrong answers</string>
+    <string name="report_share_locked_bullet_2">✦ See which subjects you excel in</string>
+    <string name="report_share_locked_bullet_3">✦ Discover areas where you need support</string>
+    <string name="report_share_locked_bullet_4">✦ Analyze success rates by topic</string>
+    <string name="report_share_locked_bullet_5">✦ Evaluate your time management</string>
+    <string name="report_share_locked_bullet_6">✦ Track your progress with growth charts</string>
+    <string name="report_share_locked_bullet_7">✦ Compare league and ranking performance</string>
+    <string name="report_share_locked_footer">With Premium, you can easily share this report with your parent or teacher.</string>
+    <string name="report_share_locked_cta">Go Premium</string>
     <string name="report_pdf_error_title">PDF Error</string>
     <string name="report_pdf_error_copy">Copy</string>
     <string name="report_pdf_error_share_file">Share Error File</string>
