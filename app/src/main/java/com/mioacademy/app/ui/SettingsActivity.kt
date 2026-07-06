@@ -39,6 +39,9 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<android.view.View>(R.id.cardDataRights)?.setOnClickListener {
             startActivity(Intent(this, DataRightsActivity::class.java))
         }
+        findViewById<android.view.View>(R.id.cardAccountSync)?.setOnClickListener {
+            startActivity(Intent(this, AccountSyncActivity::class.java))
+        }
     }
 
 }

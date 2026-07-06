@@ -13,6 +13,13 @@ import android.app.Activity
  * and the Google button can surface an honest "coming soon" state.
  */
 interface CredentialProvider {
+    /**
+     * Which federated providers this build can actually complete a sign-in with.
+     * The UI renders a provider button only when its type is in this set, so no
+     * broken/fake buttons ever appear. Empty until a real SDK is wired in.
+     */
+    fun supportedProviders(): Set<AuthProviderType> = emptySet()
+
     /** Launches the provider's account-picker/consent UI and returns a token. */
     suspend fun requestToken(activity: Activity, provider: AuthProviderType): TokenResult
 }

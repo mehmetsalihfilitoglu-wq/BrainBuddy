@@ -61,6 +61,19 @@ object AnalyticsEvents {
     const val ACCOUNT_DELETED = "account_deleted"
     const val GDPR_EXPORT_REQUESTED = "gdpr_export_requested"
 
+    // Account & Sync UX
+    const val ACCOUNT_SCREEN_VIEWED = "account_screen_viewed"
+    const val SIGN_UP_STARTED = "sign_up_started"
+    const val SIGN_UP_COMPLETED = "sign_up_completed"
+    const val SIGN_IN_STARTED = "sign_in_started"
+    const val SIGN_IN_COMPLETED = "sign_in_completed"
+    const val PASSWORD_RESET_REQUESTED = "password_reset_requested"
+    const val MANUAL_SYNC_STARTED = "manual_sync_started"
+    const val MANUAL_SYNC_COMPLETED = "manual_sync_completed"
+    const val MANUAL_SYNC_FAILED = "manual_sync_failed"
+    const val ACCOUNT_DELETE_STARTED = "account_delete_started"
+    const val ACCOUNT_DELETE_COMPLETED = "account_delete_completed"
+
     // Common parameter keys
     const val PARAM_STUDY_AREA = "study_area"
     const val PARAM_SOURCE = "source"

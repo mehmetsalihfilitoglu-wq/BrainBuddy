@@ -257,6 +257,52 @@
     <string name="data_rights_deleted">Verilerin silindi.</string>
     <string name="data_rights_delete_error">Silme sırasında bir sorun oluştu.</string>
     <string name="data_rights_cloud_note">Bulut senkronu aktif olduğunda dışa aktarma ve silme, hesabının tüm cihazlarını ve sunucudaki verini de kapsayacak.</string>
+
+    <!-- Account & Sync -->
+    <string name="settings_section_account">Hesap</string>
+    <string name="settings_account_sub">Hesabını ve senkronizasyonu yönet</string>
+    <string name="account_title">Hesap ve Senkronizasyon</string>
+    <string name="account_why_title">Neden hesap oluşturmalısın?</string>
+    <string name="account_why_1">İlerlemen güvende kalır ve kaybolmaz.</string>
+    <string name="account_why_2">Yeni bir cihaza geçtiğinde çalışman seninle gelir.</string>
+    <string name="account_why_3">Bulut senkronu bağlandığında her şey otomatik eşitlenir.</string>
+    <string name="account_create">Hesap Oluştur</string>
+    <string name="account_signin">Giriş Yap</string>
+    <string name="account_signin_sub">E-posta ve şifrenle giriş yap</string>
+    <string name="account_local_only_note">Verilerin şu anda yalnızca bu cihazda güvenle saklanıyor. Bulut senkronu hazırlanıyor.</string>
+    <string name="account_signed_in_as">Giriş yapıldı</string>
+    <string name="account_verified">E-posta doğrulandı.</string>
+    <string name="account_verify_pending">E-posta doğrulama, bulut hesapları bağlandığında sunulacak.</string>
+    <string name="account_sync_section">SENKRONİZASYON</string>
+    <string name="account_sync_ready">Yerelde hazır</string>
+    <string name="account_sync_last">Son senkron: %1$s</string>
+    <string name="account_sync_running">Senkronize ediliyor…</string>
+    <string name="account_sync_running_btn">Senkronize ediliyor…</string>
+    <string name="account_sync_failed">Senkronizasyon başarısız. Tekrar dene.</string>
+    <string name="account_sync_cloud_note">Bulut senkronu bağlandığında verilerin tüm cihazlarına taşınacak. Şu anda bu cihazda güvende.</string>
+    <string name="account_sync_now">Şimdi Senkronize Et</string>
+    <string name="account_sync_done">Verilerin bu cihazda senkronize edildi.</string>
+    <string name="account_data_section">VERİLERİM</string>
+    <string name="account_signout">Çıkış Yap</string>
+    <string name="account_provider_email">E-posta</string>
+
+    <!-- Auth (sign in / sign up) — auth_email/auth_password/auth_fill_all reuse existing keys -->
+    <string name="auth_signin_title">Giriş Yap</string>
+    <string name="auth_signin_sub">Hesabına giriş yaparak devam et.</string>
+    <string name="auth_signup_title">Hesap Oluştur</string>
+    <string name="auth_signup_sub">İlerlemeni güvende tutmak için bir hesap oluştur.</string>
+    <string name="auth_signin_cta">Giriş Yap</string>
+    <string name="auth_signup_cta">Hesap Oluştur</string>
+    <string name="auth_switch_to_signin">Zaten hesabın var mı? Giriş yap</string>
+    <string name="auth_switch_to_signup">Hesabın yok mu? Oluştur</string>
+    <string name="auth_forgot">Şifreni mi unuttun?</string>
+    <string name="auth_google">Google ile devam et</string>
+    <string name="auth_please_wait">Lütfen bekle…</string>
+    <string name="auth_reset_title">Şifre sıfırlama</string>
+    <string name="auth_reset_message">E-posta adresini gir. Gerçek e-posta gönderimi, bulut hesapları bağlandığında etkinleşecek.</string>
+    <string name="auth_reset_cta">Gönder</string>
+    <string name="auth_cancel">Vazgeç</string>
+    <string name="auth_reset_sent">Eğer bu e-posta ile bir hesap varsa, sıfırlama hazırlandı. E-posta gönderimi bulut hesapları bağlandığında etkinleşecek.</string>
     <string name="settings_motivation">Motivasyon bildirimleri</string>
     <string name="settings_motivation_sub">Günlük hatırlatma bildirimleri</string>
 
