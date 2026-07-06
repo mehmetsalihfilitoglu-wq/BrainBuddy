@@ -45,6 +45,9 @@ class StudyHubActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardCoachTip).setOnClickListener {
             startActivity(Intent(this, com.mioacademy.app.coach.CoachScreen::class.java))
         }
+        findViewById<MaterialCardView>(R.id.cardDiscover).setOnClickListener {
+            startActivity(Intent(this, com.mioacademy.app.discover.DiscoverActivity::class.java))
+        }
 
         val content = findViewById<View>(R.id.scrollContent)
         val origBottom = content.paddingBottom

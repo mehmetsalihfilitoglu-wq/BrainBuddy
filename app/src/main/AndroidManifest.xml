@@ -104,6 +104,15 @@
             android:name=".ui.StudyAreasActivity"
             android:exported="false" />
 
+        <!-- ── University & program discovery ── -->
+        <activity
+            android:name=".discover.DiscoverActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".discover.UniversityDetailActivity"
+            android:exported="false" />
+
         <activity
             android:name=".StatsActivity"
             android:exported="false" />
