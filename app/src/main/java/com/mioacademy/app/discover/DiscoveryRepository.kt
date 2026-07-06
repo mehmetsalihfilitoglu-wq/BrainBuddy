@@ -12,6 +12,8 @@ import com.mioacademy.app.core.ExamType
 interface DiscoveryRepository {
     fun getGuide(examType: ExamType): ExamGuide?
     fun getUniversities(examType: ExamType): List<University>
+    fun getBachelorPrograms(examType: ExamType): List<BachelorProgram>
+    fun getBachelorProgram(id: String): BachelorProgram?
     fun hasContent(examType: ExamType): Boolean
     fun getUniversity(id: String): University?
 }
@@ -37,8 +39,16 @@ object LocalDiscoveryRepository : DiscoveryRepository {
     override fun getUniversities(examType: ExamType): List<University> =
         universities.filter { it.examType == examType }
 
+    override fun getBachelorPrograms(examType: ExamType): List<BachelorProgram> =
+        BachelorDataset.programs.filter { it.primaryStudyArea == examType }
+
+    override fun getBachelorProgram(id: String): BachelorProgram? =
+        BachelorDataset.programs.firstOrNull { it.id == id }
+
     override fun hasContent(examType: ExamType): Boolean =
-        guides.containsKey(examType) || universities.any { it.examType == examType }
+        guides.containsKey(examType) ||
+            universities.any { it.examType == examType } ||
+            BachelorDataset.programs.any { it.primaryStudyArea == examType }
 
     override fun getUniversity(id: String): University? = universities.firstOrNull { it.id == id }
 

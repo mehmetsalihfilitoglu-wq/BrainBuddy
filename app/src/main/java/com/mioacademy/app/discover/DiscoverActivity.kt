@@ -48,6 +48,7 @@ class DiscoverActivity : AppCompatActivity() {
         val repo = Discovery.repository
         val guide = repo.getGuide(examType)
         val universities = repo.getUniversities(examType)
+        val programs = repo.getBachelorPrograms(examType)
 
         // Title reflects the active exam, e.g. "IMAT · Keşfet"; generic otherwise.
         findViewById<TextView>(R.id.tvDiscoverTitle).text =
@@ -56,14 +57,66 @@ class DiscoverActivity : AppCompatActivity() {
 
         val container = findViewById<LinearLayout>(R.id.contentContainer)
 
-        if (guide == null && universities.isEmpty()) {
+        if (guide == null && universities.isEmpty() && programs.isEmpty()) {
             container.addView(emptyState())
             return
         }
 
         guide?.let { renderGuide(container, it) }
         renderUniversities(container, universities)
+        renderBachelorPrograms(container, programs)
         guide?.faq?.takeIf { it.isNotEmpty() }?.let { renderFaq(container, it) }
+    }
+
+    private fun renderBachelorPrograms(container: LinearLayout, programs: List<BachelorProgram>) {
+        if (programs.isEmpty()) return
+        container.addView(sectionLabel(getString(R.string.discover_section_programs, programs.size)))
+        // Group by field so the list reads as coherent sub-sections.
+        programs.groupBy { it.fieldCategory }
+            .toList()
+            .sortedByDescending { it.second.size }
+            .forEach { (field, list) ->
+                container.addView(body(field.displayTr, 13f, R.color.textPrimary,
+                    bold = true, topMargin = dpi(12f)))
+                list.forEach { container.addView(programCard(it)) }
+            }
+    }
+
+    private fun programCard(p: BachelorProgram): MaterialCardView {
+        val card = MaterialCardView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+            ).also { it.topMargin = dpi(8f) }
+            radius = 16 * dp
+            cardElevation = 0f
+            strokeWidth = dpi(1f)
+            setStrokeColor(resources.getColor(R.color.border, theme))
+            setCardBackgroundColor(resources.getColor(R.color.white, theme))
+            isClickable = true
+            isFocusable = true
+            setOnClickListener {
+                startActivity(Intent(this@DiscoverActivity, BachelorDetailActivity::class.java)
+                    .putExtra(BachelorDetailActivity.EXTRA_ID, p.id))
+            }
+        }
+        val col = verticalPadded(dpi(16f))
+        col.addView(body(p.programName, 15f, R.color.textPrimary, bold = true, lineMultiplier = 1.25f))
+        col.addView(body("${p.universityName} · ${p.city}", 12f, R.color.textSecondary, topMargin = dpi(2f)))
+
+        val badges = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            ).also { it.topMargin = dpi(8f) }
+        }
+        badges.addView(pill(if (p.isPublic) getString(R.string.discover_public) else getString(R.string.discover_private)))
+        badges.addView(pill(p.admissionExam, marginStart = dpi(6f)))
+        col.addView(badges)
+
+        col.addView(body(getString(R.string.discover_view_details) + "  ›", 13f, R.color.emeraldDark,
+            topMargin = dpi(10f), bold = true))
+        card.addView(col)
+        return card
     }
 
     // ── Section renderers ─────────────────────────────────────────────────────

@@ -114,6 +114,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".discover.BachelorDetailActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".StatsActivity"
             android:exported="false" />
 

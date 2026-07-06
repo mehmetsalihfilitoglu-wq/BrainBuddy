@@ -50,6 +50,57 @@ data class University(
     val isPublic: Boolean get() = institutionType == InstitutionType.PUBLIC
 }
 
+/** Broad field a bachelor program belongs to (for grouping in Keşfet). */
+enum class FieldCategory(val displayTr: String) {
+    ENGINEERING("Mühendislik & Bilişim"),
+    ARCHITECTURE_DESIGN("Mimarlık & Tasarım"),
+    BUSINESS_ECONOMICS("İşletme & Ekonomi"),
+    SCIENCE_BIOTECH("Bilim & Biyoteknoloji"),
+    LAW_INTERNATIONAL("Hukuk & Uluslararası İlişkiler"),
+    COMMUNICATION_MEDIA("İletişim & Medya"),
+    HEALTH_SCIENCES("Sağlık Bilimleri"),
+    PSYCHOLOGY_SOCIAL("Psikoloji & Sosyal Bilimler"),
+    HUMANITIES("Beşeri Bilimler"),
+    FOUNDATION("Hazırlık Programları"),
+    OTHER("Diğer")
+}
+
+/**
+ * A bachelor (undergraduate) program. Kept separate from [University] (which
+ * currently seeds the IMAT single-cycle medicine schools) but shown together in
+ * the same Keşfet experience.
+ *
+ * [primaryStudyArea] is the reachable study-area exam the program surfaces under
+ * (so filtering matches the student's active area), while [admissionExam] /
+ * [admissionRoute] preserve the program's real admission path (TIL-I,
+ * TEST-ARCHED, CEnT-S, SAT, TOLC-SU, university exam, …).
+ */
+data class BachelorProgram(
+    val id: String,
+    val universityId: String,
+    val universityName: String,
+    val city: String,
+    val region: String,
+    val programName: String,
+    val fieldCategory: FieldCategory,
+    val relatedCareers: List<CareerPath>,
+    val primaryStudyArea: ExamType,
+    val admissionExam: String,
+    val admissionRoute: String,
+    val languageRequirement: String,
+    val tuitionNote: String,
+    val openingDate: String,
+    val deadlineNote: String,
+    val admissionNotes: String,
+    val extraNotes: String = "",
+    val tags: List<String> = emptyList(),
+    val sourceNote: String = "",
+    val isPublic: Boolean = true,
+    val hasEnglishProgram: Boolean = true,
+    val country: String = "İtalya",
+    val infoUrl: String = ""
+)
+
 /** A per-exam study/admissions guide. */
 data class ExamGuide(
     val examType: ExamType,
