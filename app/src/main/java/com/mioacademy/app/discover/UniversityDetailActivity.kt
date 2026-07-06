@@ -1,8 +1,6 @@
 package com.mioacademy.app.discover
 
-import android.content.Intent
 import android.graphics.Typeface
-import android.net.Uri
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
@@ -10,12 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.mioacademy.app.R
 
@@ -93,33 +89,9 @@ class UniversityDetailActivity : AppCompatActivity() {
             addView(body(uni.scholarshipNote.ifBlank { "—" }, 14f, R.color.textPrimary, topMargin = dpi(2f), lineMultiplier = 1.45f))
         })
 
-        // Official website
-        if (uni.websiteUrl.isNotBlank()) {
-            container.addView(MaterialButton(this).apply {
-                layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, dpi(52f)
-                ).also { it.topMargin = dpi(16f) }
-                text = getString(R.string.discover_detail_website)
-                textSize = 15f
-                setTextColor(resources.getColor(R.color.white, theme))
-                cornerRadius = dpi(16f)
-                backgroundTintList = android.content.res.ColorStateList.valueOf(
-                    resources.getColor(R.color.emerald, theme))
-                setOnClickListener { openUrl(uni.websiteUrl) }
-            })
-        }
-
-        // Official-notice caveat
+        // Neutral caveat — we intentionally do NOT link out to the school site.
         container.addView(body(getString(R.string.discover_detail_notice), 12f, R.color.textSecondary,
             topMargin = dpi(16f), lineMultiplier = 1.45f))
-    }
-
-    private fun openUrl(url: String) {
-        try {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
-        } catch (_: Exception) {
-            Toast.makeText(this, getString(R.string.discover_no_browser), Toast.LENGTH_SHORT).show()
-        }
     }
 
     // ── builders ──
