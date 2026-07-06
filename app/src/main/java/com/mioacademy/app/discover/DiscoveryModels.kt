@@ -98,6 +98,55 @@ data class BachelorProgram(
     val country: String = "İtalya"
 )
 
+/**
+ * One program inside a [FeaturedUniversity] page. Richer than [BachelorProgram]
+ * because featured pages are curated (campus, seats, admission are stable,
+ * hand-checked values for that specific school).
+ */
+data class UniversityProgram(
+    val programId: String,
+    val programName: String,
+    val degreeType: String,
+    val language: String,
+    val campus: String,
+    val availableSeats: Int?,      // null = not published
+    val admissionInfo: String,     // e.g. "TIL-I or SAT"
+    val shortDescription: String = "",
+    val tags: List<String> = emptyList()
+)
+
+/**
+ * A curated, multi-program university page (e.g. Politecnico di Torino). Kept
+ * separate from the flat [BachelorProgram] list so a flagship school can be
+ * presented as its own page with hand-checked programs, without touching the
+ * broad dataset or the global study-area architecture.
+ *
+ * [studyArea] is the reachable area this page surfaces under (TIL_I for Polito
+ * engineering). Optional [coordinates] / [heroImage] / [gallery] are reserved
+ * for future map/photo/experience blocks.
+ */
+data class FeaturedUniversity(
+    val universityId: String,
+    val universityName: String,
+    val city: String,
+    val region: String,
+    val country: String,
+    val institutionType: InstitutionType,
+    val studyArea: ExamType,
+    val shortDescription: String,
+    val highlights: List<String> = emptyList(),
+    val tuitionNote: String = "",
+    val scholarshipNote: String = "",
+    val websiteUrl: String = "",
+    val tags: List<String> = emptyList(),
+    val coordinates: GeoPoint? = null,
+    val heroImage: String? = null,
+    val gallery: List<String> = emptyList(),
+    val programs: List<UniversityProgram> = emptyList()
+) {
+    val isPublic: Boolean get() = institutionType == InstitutionType.PUBLIC
+}
+
 /** A per-exam study/admissions guide. */
 data class ExamGuide(
     val examType: ExamType,

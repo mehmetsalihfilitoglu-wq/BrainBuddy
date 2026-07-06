@@ -14,6 +14,8 @@ interface DiscoveryRepository {
     fun getUniversities(examType: ExamType): List<University>
     fun getBachelorPrograms(examType: ExamType): List<BachelorProgram>
     fun getBachelorProgram(id: String): BachelorProgram?
+    fun getFeaturedUniversities(examType: ExamType): List<FeaturedUniversity>
+    fun getFeaturedUniversity(id: String): FeaturedUniversity?
     fun hasContent(examType: ExamType): Boolean
     fun getUniversity(id: String): University?
 }
@@ -39,15 +41,28 @@ object LocalDiscoveryRepository : DiscoveryRepository {
     override fun getUniversities(examType: ExamType): List<University> =
         universities.filter { it.examType == examType }
 
-    override fun getBachelorPrograms(examType: ExamType): List<BachelorProgram> =
-        BachelorDataset.programs.filter { it.primaryStudyArea == examType }
+    override fun getBachelorPrograms(examType: ExamType): List<BachelorProgram> {
+        // Exclude schools that have their own curated featured page for this area,
+        // so a flagship university (e.g. Politecnico di Torino) is not also listed
+        // as plain rows — its programs live on the featured page instead.
+        val featuredIds = featured.filter { it.studyArea == examType }.map { it.universityId }.toSet()
+        return BachelorDataset.programs
+            .filter { it.primaryStudyArea == examType && it.universityId !in featuredIds }
+    }
 
     override fun getBachelorProgram(id: String): BachelorProgram? =
         BachelorDataset.programs.firstOrNull { it.id == id }
 
+    override fun getFeaturedUniversities(examType: ExamType): List<FeaturedUniversity> =
+        featured.filter { it.studyArea == examType }
+
+    override fun getFeaturedUniversity(id: String): FeaturedUniversity? =
+        featured.firstOrNull { it.universityId == id }
+
     override fun hasContent(examType: ExamType): Boolean =
         guides.containsKey(examType) ||
             universities.any { it.examType == examType } ||
+            featured.any { it.studyArea == examType } ||
             BachelorDataset.programs.any { it.primaryStudyArea == examType }
 
     override fun getUniversity(id: String): University? = universities.firstOrNull { it.id == id }
@@ -220,5 +235,79 @@ object LocalDiscoveryRepository : DiscoveryRepository {
         privateMed("campus_biomedico", "Campus Bio-Medico University", "Roma", "Lazio", "https://www.unicampus.it/en",
             admission = "Kendi giriş sınavı",
             desc = "Roma'da sağlık bilimlerine odaklanmış, kendi hastanesi olan bir özel üniversite.")
+    )
+
+    // ── Featured universities (curated multi-program pages) ───────────────────
+    // Politecnico di Torino is a flagship engineering target. Only its English
+    // (or Italian+English) engineering bachelor programs are listed here.
+    // Architecture and Italian-only programs are intentionally excluded and the
+    // global engineering / TIL-I / SAT / CEnT-S architecture is left untouched.
+
+    private val featured: List<FeaturedUniversity> = listOf(
+        FeaturedUniversity(
+            universityId = "polito_torino",
+            universityName = "Politecnico di Torino",
+            city = "Torino", region = "Piemonte", country = "İtalya",
+            institutionType = InstitutionType.PUBLIC,
+            studyArea = ExamType.TIL_I,
+            shortDescription = "İtalya'nın önde gelen teknik üniversitelerinden biri. İngilizce " +
+                "mühendislik lisans programlarıyla uluslararası öğrenciler için önemli bir hedef.",
+            highlights = listOf(
+                "Devlet üniversitesi",
+                "İngilizce mühendislik programları",
+                "Torino'da köklü teknik eğitim"
+            ),
+            tuitionNote = "Devlet üniversitesi; harç gelire dayalı (ISEE) hesaplanır. Güncel tutar için resmi duyuru kontrol edilmeli.",
+            scholarshipNote = "EDISU Piemonte bölgesel burs ve harç muafiyeti imkanları olabilir; koşullar her yıl değişir.",
+            websiteUrl = "https://www.polito.it/en",
+            tags = listOf("Mühendislik", "TIL-I", "SAT"),
+            programs = listOf(
+                UniversityProgram(
+                    programId = "polito_computer_eng",
+                    programName = "Computer Engineering",
+                    degreeType = "Lisans (L-8)",
+                    language = "İtalyanca + İngilizce",
+                    campus = "Engineering Campus",
+                    availableSeats = 659,
+                    admissionInfo = "TIL-I or SAT"
+                ),
+                UniversityProgram(
+                    programId = "polito_mechanical_eng",
+                    programName = "Mechanical Engineering",
+                    degreeType = "Lisans (L-9)",
+                    language = "İtalyanca + İngilizce",
+                    campus = "Engineering Campus",
+                    availableSeats = 710,
+                    admissionInfo = "TIL-I or SAT"
+                ),
+                UniversityProgram(
+                    programId = "polito_automotive_eng",
+                    programName = "Automotive Engineering",
+                    degreeType = "Lisans (L-9)",
+                    language = "İtalyanca + İngilizce",
+                    campus = "Engineering Campus",
+                    availableSeats = 214,
+                    admissionInfo = "TIL-I or SAT"
+                ),
+                UniversityProgram(
+                    programId = "polito_electronic_eng",
+                    programName = "Electronic and Communications Engineering",
+                    degreeType = "Lisans (L-8)",
+                    language = "İngilizce",
+                    campus = "Engineering Campus",
+                    availableSeats = 120,
+                    admissionInfo = "TIL-I or SAT"
+                ),
+                UniversityProgram(
+                    programId = "polito_civil_env_eng",
+                    programName = "Civil and Environmental Engineering",
+                    degreeType = "Lisans (L-7)",
+                    language = "İngilizce",
+                    campus = "Engineering Campus",
+                    availableSeats = 100,
+                    admissionInfo = "TIL-I or SAT"
+                )
+            )
+        )
     )
 }

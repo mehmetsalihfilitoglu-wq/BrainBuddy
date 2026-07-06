@@ -118,6 +118,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".discover.FeaturedUniversityActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".discover.FeaturedProgramDetailActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".StatsActivity"
             android:exported="false" />
 

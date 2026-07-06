@@ -48,6 +48,7 @@ class DiscoverActivity : AppCompatActivity() {
         val repo = Discovery.repository
         val guide = repo.getGuide(examType)
         val universities = repo.getUniversities(examType)
+        val featured = repo.getFeaturedUniversities(examType)
         val programs = repo.getBachelorPrograms(examType)
 
         // Title reflects the active exam, e.g. "IMAT · Keşfet"; generic otherwise.
@@ -57,15 +58,52 @@ class DiscoverActivity : AppCompatActivity() {
 
         val container = findViewById<LinearLayout>(R.id.contentContainer)
 
-        if (guide == null && universities.isEmpty() && programs.isEmpty()) {
+        if (guide == null && universities.isEmpty() && programs.isEmpty() && featured.isEmpty()) {
             container.addView(emptyState())
             return
         }
 
         guide?.let { renderGuide(container, it) }
+        renderFeaturedUniversities(container, featured)
         renderUniversities(container, universities)
         renderBachelorPrograms(container, programs)
         guide?.faq?.takeIf { it.isNotEmpty() }?.let { renderFaq(container, it) }
+    }
+
+    private fun renderFeaturedUniversities(container: LinearLayout, featured: List<FeaturedUniversity>) {
+        if (featured.isEmpty()) return
+        container.addView(sectionLabel(getString(R.string.discover_section_featured)))
+        featured.forEach { container.addView(featuredCard(it)) }
+    }
+
+    private fun featuredCard(u: FeaturedUniversity): MaterialCardView {
+        val card = MaterialCardView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+            ).also { it.topMargin = dpi(8f) }
+            radius = 16 * dp
+            cardElevation = 0f
+            strokeWidth = dpi(1.5f)
+            setStrokeColor(resources.getColor(R.color.emerald, theme))
+            setCardBackgroundColor(resources.getColor(R.color.emeraldSoft, theme))
+            isClickable = true
+            isFocusable = true
+            setOnClickListener {
+                startActivity(Intent(this@DiscoverActivity, FeaturedUniversityActivity::class.java)
+                    .putExtra(FeaturedUniversityActivity.EXTRA_ID, u.universityId))
+            }
+        }
+        val col = verticalPadded(dpi(16f))
+        col.addView(body("⭐ ${getString(R.string.discover_featured_badge)}", 11f, R.color.emeraldDark, bold = true))
+        col.addView(body(u.universityName, 17f, R.color.textPrimary, bold = true, topMargin = dpi(4f), lineMultiplier = 1.2f))
+        col.addView(body("📍 ${u.city}, ${u.country}", 12f, R.color.textSecondary, topMargin = dpi(2f)))
+        col.addView(body(
+            getString(R.string.discover_featured_programs_count, u.programs.size), 13f,
+            R.color.textPrimary, topMargin = dpi(8f), bold = true))
+        col.addView(body(getString(R.string.discover_view_details) + "  ›", 13f, R.color.emeraldDark,
+            topMargin = dpi(10f), bold = true))
+        card.addView(col)
+        return card
     }
 
     private fun renderBachelorPrograms(container: LinearLayout, programs: List<BachelorProgram>) {
