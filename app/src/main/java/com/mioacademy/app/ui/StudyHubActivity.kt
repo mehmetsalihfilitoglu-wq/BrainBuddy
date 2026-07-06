@@ -14,6 +14,7 @@ import com.mioacademy.app.R
 import com.mioacademy.app.core.AnalyticsStore
 import com.mioacademy.app.core.CareerPath
 import com.mioacademy.app.core.UserGoalPrefs
+import com.mioacademy.app.core.exam.AdmissionExamRegistry
 import com.mioacademy.app.quiz.QuizActivity
 import com.mioacademy.app.quiz.WrongPoolLauncher
 import com.mioacademy.app.quiz.WrongQuestionPoolStore
@@ -80,9 +81,9 @@ class StudyHubActivity : AppCompatActivity() {
         val container = findViewById<LinearLayout>(R.id.subjectCardsContainer)
         container.removeAllViews()
         val career = goalPrefs.getGoal().careerPath
-        val subjects = career.subjectSummary.split(" · ")
-        subjects.forEachIndexed { index, subject ->
-            container.addView(buildSubjectCard(subject, addTopMargin = index > 0))
+        val exam = AdmissionExamRegistry.get(career.examType)
+        exam.subjects.forEachIndexed { index, subject ->
+            container.addView(buildSubjectCard(subject.displayNameTr, addTopMargin = index > 0))
         }
     }
 
@@ -184,15 +185,18 @@ class StudyHubActivity : AppCompatActivity() {
     }
 
     /**
-     * Maps an Italian/career-path subject display name to the closest Turkish
-     * Subject.tr value accepted by QuizActivity.EXTRA_SUBJECT_FILTER.
-     * Returns null → launch without subject filter (general practice).
+     * Maps an exam subject display name to the closest QuizActivity.EXTRA_SUBJECT_FILTER value.
+     * Returns null → launch without filter (general practice).
      */
     private fun subjectFilterFor(subject: String): String? = when {
-        subject == "Matematik" -> "Matematik"
+        subject == "Matematik" || subject.startsWith("Matematik") -> "Matematik"
+        subject.contains("Matematik") -> "Matematik"
         subject == "İngilizce" -> "İngilizce"
-        subject in setOf("Biyoloji", "Kimya", "Fizik") -> "Fen Bilimleri"
-        subject == "Mantık" || subject.startsWith("Okudu") -> "Türkçe"
+        subject == "Biyoloji" -> "Biyoloji"
+        subject == "Kimya" -> "Kimya"
+        subject == "Fizik" || subject.startsWith("Fizik") -> "Fizik"
+        subject.startsWith("Okuma") || subject.startsWith("Okudu") ||
+            subject == "Mantık" || subject.startsWith("Mantık") -> "Türkçe"
         subject.contains("Tarih") -> "İnkılap Tarihi"
         else -> null
     }

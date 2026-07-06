@@ -12,6 +12,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mioacademy.app.core.CareerPath
 import com.mioacademy.app.core.DailyMissionManager
+import com.mioacademy.app.core.exam.AdmissionExamRegistry
 import com.mioacademy.app.core.GamificationStore
 import com.mioacademy.app.core.ItalianMomentProvider
 import com.mioacademy.app.core.UserGoalPrefs
@@ -109,7 +110,8 @@ class HomeActivity : AppCompatActivity() {
         val isCompleted = done >= target
 
         val career = goal.careerPath
-        findViewById<TextView>(R.id.tvMissionSubject).text = career.subjectSummary
+        findViewById<TextView>(R.id.tvMissionSubject).text =
+            AdmissionExamRegistry.get(career.examType).subjectDisplaySummary
         findViewById<TextView>(R.id.tvMissionMeta).text =
             "$target test · ~${target * 10} dakika"
 

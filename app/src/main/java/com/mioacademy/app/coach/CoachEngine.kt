@@ -1,14 +1,17 @@
-﻿package com.mioacademy.app.coach
+package com.mioacademy.app.coach
 
 import com.mioacademy.app.core.AnalyticsStore
 import com.mioacademy.app.core.CareerPath
 import com.mioacademy.app.core.TopicCounts
 import com.mioacademy.app.core.UserGoalPrefs
 import com.mioacademy.app.core.UserStats
+import com.mioacademy.app.core.exam.AdmissionExamRegistry
 
 /**
  * Rule-based learning coach personalised to the student's career goal.
  * No AI API — deterministic recommendations from local analytics.
+ * Topic priority = (1 − accuracy) × examSubjectWeight so the coach
+ * focuses on both weak areas AND high-stakes exam sections.
  */
 class CoachEngine(
     private val analytics: AnalyticsStore,
@@ -30,19 +33,24 @@ class CoachEngine(
 
     fun getDailyRecommendation(): DailyRecommendation {
         val career = goalPrefs.getCareerPath()
+        val exam = AdmissionExamRegistry.get(career.examType)
         val personTitle = personTitleFor(career)
         val stats = analytics.getUserStats()
         val lastTests = analytics.getLastTests(5)
         val weakest = analytics.getWeakestTopicsWithCounts(5)
 
-        // Repeated failures in same topic → remedial mini-test
+        // Repeated failures in same topic → pick highest-weight remedial candidate
         val failByTopic = mutableMapOf<String, Int>()
         lastTests.forEach { p ->
             p.byTopicCounts.forEach { (topic, tc) ->
                 if (tc.wrong >= 2) failByTopic[topic] = (failByTopic[topic] ?: 0) + 1
             }
         }
-        val remedialTopic = failByTopic.entries.firstOrNull { it.value >= 2 }?.key
+        val remedialTopic = failByTopic.entries
+            .filter { it.value >= 2 }
+            .maxByOrNull { (topic, count) ->
+                count.toFloat() * exam.weightForTopicName(topic).coerceAtLeast(0.1f)
+            }?.key
         if (remedialTopic != null) {
             return DailyRecommendation(
                 text = "${career.emoji} $personTitle yolculuğunda $remedialTopic konusunda " +
@@ -53,15 +61,22 @@ class CoachEngine(
             )
         }
 
-        // Mastery below 50% → priority topic
-        val weakTopic = stats.topicMasteryCounts.entries
-            .filter { it.value.total >= 3 && it.value.accuracy < 50f }
-            .minByOrNull { it.value.accuracy }
-        if (weakTopic != null) {
+        // Score topics: weakness × exam weight — surface the most exam-critical weak areas
+        val scoredTopics = stats.topicMasteryCounts.entries
+            .filter { it.value.total >= 3 }
+            .map { (topic, tc) ->
+                val weakness = (1f - tc.accuracy / 100f).coerceIn(0f, 1f)
+                val examWeight = exam.weightForTopicName(topic).coerceAtLeast(0.1f)
+                Triple(topic, tc, weakness * examWeight)
+            }
+            .sortedByDescending { it.third }
+
+        val priorityTopic = scoredTopics.firstOrNull()
+        if (priorityTopic != null && priorityTopic.second.accuracy < 60f) {
             return DailyRecommendation(
-                text = "${career.emoji} $personTitle olmak için ${weakTopic.key} konusunu " +
-                    "güçlendirmek seni ilerletir. Bugün bu konudan 10 soru çöz.",
-                topic = weakTopic.key,
+                text = "${career.emoji} ${priorityTopic.first} pratiği seni $personTitle olma " +
+                    "yolunda ilerletir. Bugün bu konudan 10 soru çöz.",
+                topic = priorityTopic.first,
                 suggestedCount = 10
             )
         }
@@ -80,8 +95,11 @@ class CoachEngine(
             }
         }
 
-        // Default: weakest topic with career context
-        val topic = weakest.firstOrNull()?.first ?: "Matematik"
+        // Default: highest-priority scored topic, or highest-weight exam subject
+        val topic = scoredTopics.firstOrNull()?.first
+            ?: weakest.firstOrNull()?.first
+            ?: exam.subjects.firstOrNull()?.displayNameTr
+            ?: "Matematik"
         return DailyRecommendation(
             text = "Bugün $topic konusuna odaklanmak, ${career.emoji} $personTitle " +
                 "hedefine seni bir adım yaklaştırır. 10 soru çözmek için hazır mısın?",
@@ -93,14 +111,21 @@ class CoachEngine(
     fun getWeeklyPlan(): WeeklyPlan {
         val stats = analytics.getUserStats()
         val career = goalPrefs.getCareerPath()
+        val exam = AdmissionExamRegistry.get(career.examType)
         val personTitle = personTitleFor(career)
 
-        val topics = stats.topicMasteryCounts.entries
+        // Score topics by weakness × exam weight, take top 5
+        val scored = stats.topicMasteryCounts.entries
             .filter { it.value.total >= 2 }
-            .sortedBy { it.value.accuracy }
+            .map { (topic, tc) ->
+                val weakness = (1f - tc.accuracy / 100f).coerceIn(0f, 1f)
+                val examWeight = exam.weightForTopicName(topic).coerceAtLeast(0.1f)
+                Triple(topic, tc, weakness * examWeight)
+            }
+            .sortedByDescending { it.third }
             .take(5)
 
-        val plan = topics.take(3).mapIndexed { i, (topic, tc) ->
+        val plan = scored.take(3).map { (topic, tc, _) ->
             val count = when {
                 tc.accuracy < 50f -> 15
                 tc.accuracy < 75f -> 10
@@ -111,7 +136,8 @@ class CoachEngine(
         }
 
         val summary = if (plan.isEmpty()) {
-            "${career.emoji} $personTitle yolculuğuna başlamak için bugün ilk testini çöz!"
+            val subjectList = exam.subjects.take(3).joinToString("\n") { "• ${it.displayNameTr}" }
+            "${career.emoji} $personTitle yolculuğunda bu hafta odaklan:\n$subjectList"
         } else {
             plan.joinToString("\n") { "• ${it.first}: ${it.second} soru  (${it.third})" }
         }
@@ -133,6 +159,6 @@ class CoachEngine(
         CareerPath.VETERINARY -> "Veteriner"
         CareerPath.MATHEMATICS -> "Matematikçi"
         CareerPath.DESIGN -> "Tasarımcı"
-        else -> "Öğrenci"
+        CareerPath.OTHER -> "Öğrenci"
     }
 }
