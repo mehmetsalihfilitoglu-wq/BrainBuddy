@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- ISEEmio onboarding welcome gradient: primary → dark -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <gradient
         android:angle="160"
-        android:startColor="#16B3A6"
-        android:centerColor="#0E9E93"
-        android:endColor="#0A7068"/>
+        android:startColor="@color/brand_primary"
+        android:centerColor="@color/brand_primary_dark"
+        android:endColor="@color/brand_primary_dark"/>
 </shape>

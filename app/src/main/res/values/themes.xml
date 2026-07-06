@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Material3 colorScheme: turquoise primary, light surfaces, premium look.
-         Single source of truth - no hardcoded colors in layouts. -->
+    <!--
+        ISEEmio / Mioitalia Design System — Material3 theme.
+        Primary: #10B981 (ISEEmio green)
+        Secondary: #14B8A6 (teal accent)
+        Surfaces: clean white + #F8FAFC variant
+        Single source of truth — no hardcoded colors in layouts.
+    -->
     <style name="Theme.BrainBuddy" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/bb_primary</item>
+        <!-- Brand -->
+        <item name="colorPrimary">@color/brand_primary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/bb_secondary</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/brand_primary_dark</item>
+
+        <item name="colorSecondary">@color/brand_secondary</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="colorTertiary">@color/bb_accent</item>
-        <item name="colorOnTertiary">@color/black</item>
-        <item name="colorError">@color/bb_error</item>
-        <item name="colorSurface">@color/bb_bg</item>
-        <item name="colorOnSurface">@color/bb_text</item>
-        <item name="colorSurfaceContainer">@color/bb_surface_container</item>
-        <item name="colorOutlineVariant">@color/bb_outline_variant</item>
-        <item name="colorOnSurfaceVariant">@color/bb_text_muted</item>
-        <item name="colorPrimaryContainer">@color/emerald_light</item>
-        <item name="colorOnPrimaryContainer">@color/emerald_dark</item>
-        <item name="colorSurfaceVariant">@color/emerald_light</item>
+
+        <item name="colorTertiary">@color/brand_secondary</item>
+        <item name="colorOnTertiary">@color/white</item>
+
+        <item name="colorError">@color/color_error</item>
+        <item name="colorOnError">@color/white</item>
+
+        <!-- Surfaces -->
+        <item name="colorSurface">@color/surface_bg</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceContainer">@color/surface_variant</item>
+        <item name="colorSurfaceVariant">@color/brand_primary_light</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+
+        <!-- Outline -->
+        <item name="colorOutlineVariant">@color/border</item>
+
+        <!-- Window -->
         <item name="android:windowBackground">@drawable/bg_gradient</item>
-        <item name="android:textColorPrimary">@color/bb_text</item>
-        <item name="android:textColorSecondary">@color/bb_text_muted</item>
-        <item name="materialButtonStyle">@style/BBButton</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+        <!-- Typography -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
         <item name="android:fontFamily">sans-serif-medium</item>
+
+        <!-- Default button style -->
+        <item name="materialButtonStyle">@style/BBButton</item>
     </style>
 
 </resources>

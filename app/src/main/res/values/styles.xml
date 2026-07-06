@@ -46,7 +46,7 @@
         <item name="cardCornerRadius">@dimen/app_card_radius</item>
         <item name="cardElevation">@dimen/app_card_elevation</item>
         <item name="cardBackgroundColor">@color/white</item>
-        <item name="strokeColor">@color/emerald_primary</item>
+        <item name="strokeColor">?attr/colorOutlineVariant</item>
         <item name="strokeWidth">@dimen/app_card_stroke_width</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>

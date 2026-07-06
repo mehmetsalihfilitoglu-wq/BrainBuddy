@@ -3,75 +3,97 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
-    <!-- Emerald / turquoise theme (Reports and app-wide) -->
-    <!-- Core tokens (requested palette) -->
-    <color name="emerald">#16B3A6</color>
-    <color name="emeraldDark">#0E7E76</color>
-    <color name="emeraldSoft">#E6FAF7</color>
-    <color name="textPrimary">#0F172A</color>
-    <color name="textSecondary">#64748B</color>
-    <color name="danger">#EF4444</color>
+    <!-- ── ISEEmio Brand Palette ────────────────────────────────────────────── -->
+    <color name="brand_primary">#10B981</color>
+    <color name="brand_primary_dark">#059669</color>
+    <color name="brand_primary_light">#ECFDF5</color>
+    <color name="brand_secondary">#14B8A6</color>
+    <color name="brand_success">#10B981</color>
+    <color name="brand_success_light">#D1FAE5</color>
 
-    <!-- Legacy aliases mapped to new tokens -->
-    <color name="emerald_primary">@color/emerald</color>
-    <color name="emerald_dark">@color/emeraldDark</color>
-    <color name="emerald_light">@color/emeraldSoft</color>
-    <color name="emerald_surface">#F5FFFD</color>
+    <!-- ── Semantic ─────────────────────────────────────────────────────────── -->
+    <color name="color_error">#EF4444</color>
+    <color name="color_warning">#F59E0B</color>
+    <color name="color_info">#3B82F6</color>
+
+    <!-- ── Typography ───────────────────────────────────────────────────────── -->
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_tertiary">#9CA3AF</color>
+
+    <!-- ── Surfaces & Structure ─────────────────────────────────────────────── -->
+    <color name="surface_bg">#FFFFFF</color>
+    <color name="surface_variant">#F8FAFC</color>
+    <color name="border">#E5E7EB</color>
+    <color name="divider">#F3F4F6</color>
+
+    <!-- ── Backward-compat aliases ──────────────────────────────────────────── -->
+    <!-- Core emerald tokens → new brand primary (green) -->
+    <color name="emerald">@color/brand_primary</color>
+    <color name="emeraldDark">@color/brand_primary_dark</color>
+    <color name="emeraldSoft">@color/brand_primary_light</color>
+    <color name="emerald_primary">@color/brand_primary</color>
+    <color name="emerald_dark">@color/brand_primary_dark</color>
+    <color name="emerald_light">@color/brand_primary_light</color>
+    <color name="emerald_surface">@color/surface_variant</color>
+
+    <!-- Legacy text aliases -->
+    <color name="textPrimary">@color/text_primary</color>
+    <color name="textSecondary">@color/text_secondary</color>
+    <color name="danger">@color/color_error</color>
     <color name="text_on_emerald">#FFFFFF</color>
-    <!-- White ~80% opacity for subtitles on emerald cards -->
     <color name="text_on_emerald_muted">#CCFFFFFF</color>
 
-    <!-- Material3 / BrainBuddy primary palette (emerald-based) -->
-    <color name="bb_primary">@color/emerald</color>
-    <color name="bb_secondary">@color/emeraldDark</color>
-    <color name="bb_accent">@color/emerald</color>
-    <color name="bb_error">@color/danger</color>
-    <color name="bb_text">@color/textPrimary</color>
-    <color name="bb_text_muted">@color/textSecondary</color>
+    <!-- ── Material3 semantic tokens ────────────────────────────────────────── -->
+    <color name="bb_primary">@color/brand_primary</color>
+    <color name="bb_secondary">@color/brand_secondary</color>
+    <color name="bb_accent">@color/brand_primary</color>
+    <color name="bb_tertiary">@color/brand_secondary</color>
+    <color name="bb_error">@color/color_error</color>
+    <color name="bb_text">@color/text_primary</color>
+    <color name="bb_text_muted">@color/text_secondary</color>
+    <color name="bb_text_dark">@color/text_primary</color>
+    <color name="bb_text_dark_muted">@color/text_secondary</color>
 
-    <!-- Surface & background (Material3 semantic, emerald-based) -->
-    <color name="bb_bg">@color/emeraldSoft</color>
-    <color name="bb_bg_end">@color/emerald_surface</color>
-    <color name="bb_card">#FFFFFF</color>
-    <color name="bb_surface_container">@color/emerald_surface</color>
-    <color name="bb_outline_variant">@color/emerald_primary</color>
+    <!-- Surface tokens -->
+    <color name="bb_bg">@color/surface_bg</color>
+    <color name="bb_bg_end">@color/surface_variant</color>
+    <color name="bb_card">@color/surface_bg</color>
+    <color name="bb_surface_container">@color/surface_variant</color>
+    <color name="bb_outline_variant">@color/border</color>
 
-    <!-- Legacy compatibility (emerald) -->
-    <color name="bb_turquoise">@color/emerald</color>
-    <color name="bb_turquoise_dark">@color/emeraldDark</color>
-    <color name="bb_turquoise_light">@color/emeraldSoft</color>
-    <color name="bb_tertiary">@color/emerald</color>
+    <!-- Turquoise legacy → brand primary -->
+    <color name="bb_turquoise">@color/brand_primary</color>
+    <color name="bb_turquoise_dark">@color/brand_primary_dark</color>
+    <color name="bb_turquoise_light">@color/brand_primary_light</color>
 
-    <color name="bb_text_dark">@color/textPrimary</color>
-    <color name="bb_text_dark_muted">@color/textSecondary</color>
-
-    <!-- Global UI consistency (title/subtitle) -->
-    <color name="app_title">@color/textPrimary</color>
-    <color name="app_subtitle">@color/textSecondary</color>
-    <!-- Hero banner chips: white 15% alpha -->
+    <!-- Global UI tokens -->
+    <color name="app_title">@color/text_primary</color>
+    <color name="app_subtitle">@color/text_secondary</color>
+    <!-- Hero chip: white 15% alpha on gradient banners -->
     <color name="chip_hero_bg">#26FFFFFF</color>
-    <!-- Softer hero gradient (lower saturation) -->
-    <color name="emerald_hero_start">#14B5A5</color>
-    <color name="emerald_hero_end">#0D8A7D</color>
+    <!-- Divider (legacy alias) -->
+    <color name="divider_light">@color/divider</color>
 
-    <!-- League zones (emerald-toned) -->
-    <color name="bb_promotion_zone">@color/emerald_light</color>
+    <!-- Hero gradient tokens (primary → dark) -->
+    <color name="emerald_hero_start">@color/brand_primary</color>
+    <color name="emerald_hero_end">@color/brand_primary_dark</color>
+
+    <!-- League zones -->
+    <color name="bb_promotion_zone">@color/brand_primary_light</color>
     <color name="bb_demotion_zone">#FFEBEE</color>
 
-    <!-- Subtle divider (light gray) -->
-    <color name="divider_light">#E0E0E0</color>
-
-    <!-- Avatar rarity colors -->
+    <!-- Avatar rarity (unchanged — semantic, not brand) -->
     <color name="rarity_common">#90A4AE</color>
     <color name="rarity_rare">#42A5F5</color>
     <color name="rarity_epic">#AB47BC</color>
     <color name="rarity_legendary">#FFB300</color>
 
-    <!-- Avatar selection -->
-    <color name="avatar_selected_bg">#0D1BC5B0</color>
+    <!-- Avatar selection: brand_primary @ ~5% alpha (#0DAABBCC format) -->
+    <color name="avatar_selected_bg">#0D10B981</color>
     <color name="avatar_locked_tint">#55FFFFFF</color>
 
-    <!-- League podium -->
+    <!-- League podium (unchanged) -->
     <color name="bb_gold_bg">#FFF8E1</color>
     <color name="bb_gold_text">#F9A825</color>
     <color name="bb_silver_bg">#F5F5F5</color>

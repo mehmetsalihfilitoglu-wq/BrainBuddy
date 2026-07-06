@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Outer glow / shadow -->
+    <!-- Outer glow: brand_primary @ ~13% alpha -->
     <item>
         <shape android:shape="oval">
-            <solid android:color="#221BC5B0"/>
+            <solid android:color="#2210B981"/>
             <size android:width="132dp" android:height="132dp"/>
         </shape>
     </item>
@@ -14,7 +14,7 @@
         android:left="4dp"
         android:right="4dp">
         <shape android:shape="oval">
-            <stroke android:width="3dp" android:color="#1BC5B0"/>
+            <stroke android:width="3dp" android:color="@color/brand_primary"/>
             <solid android:color="@android:color/transparent"/>
         </shape>
     </item>
