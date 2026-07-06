@@ -82,6 +82,13 @@ class GrowthHubActivity : AppCompatActivity() {
         // Fresh engines each build → active-area scoped, picks up the current area.
         val insights = ProgressInsights(this)
 
+        // Warm, long-horizon lead — "how far you've come" — before anything else.
+        if (insights.hasAnyData()) {
+            com.mioacademy.app.core.ProgressAffirmations(this).headline()?.let {
+                container.addView(headlineCard("✨  $it"))
+            }
+        }
+
         container.addView(sectionLabel(getString(R.string.progress_week_section)))
         if (!insights.hasAnyData()) {
             container.addView(infoCard(getString(R.string.progress_week_empty)))
@@ -365,6 +372,14 @@ class GrowthHubActivity : AppCompatActivity() {
         })
         col.addView(scoreRow)
         col.addView(text(r.headline, 13f, R.color.textPrimary, topMargin = dpi(4f), lineMultiplier = 1.4f))
+        // Weekly change teaches the score: is readiness rising?
+        val weekAgo = com.mioacademy.app.core.ReadinessSnapshotStore(this)
+            .scoreOnOrBefore(System.currentTimeMillis() - java.util.concurrent.TimeUnit.DAYS.toMillis(6))
+        if (weekAgo != null && weekAgo != r.score) {
+            val delta = r.score - weekAgo
+            col.addView(text(getString(R.string.readiness_week_change, (if (delta > 0) "+" else "") + delta),
+                12f, if (delta > 0) R.color.emeraldDark else R.color.textSecondary, bold = true, topMargin = dpi(6f)))
+        }
         // Factor rows
         r.factors.forEach { f ->
             val row = LinearLayout(this).apply {

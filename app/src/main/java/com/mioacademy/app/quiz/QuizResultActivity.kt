@@ -249,9 +249,16 @@ class QuizResultActivity : AppCompatActivity() {
         }
         findViewById<android.widget.TextView>(R.id.tvPassFail).apply {
             visibility = View.VISIBLE
-            text = if (s.passed) "✅ GEÇTİ" else "❌ BAŞARISIZ"
-            setTextColor(if (s.passed) getColor(R.color.bb_turquoise) else getColor(R.color.bb_error))
-            if (!s.passed) textSize = 24f
+            if (isGateMode) {
+                // Legacy gate mode keeps an explicit pass/fail.
+                text = if (s.passed) "✅ GEÇTİ" else "❌ BAŞARISIZ"
+                setTextColor(if (s.passed) getColor(R.color.bb_turquoise) else getColor(R.color.bb_error))
+                if (!s.passed) textSize = 24f
+            } else {
+                // Practice is never a "failure" — it's a completed step. No anxiety.
+                text = getString(R.string.quiz_result_step_done)
+                setTextColor(getColor(R.color.bb_turquoise))
+            }
         }
 
         findViewById<android.widget.ProgressBar>(R.id.progressCircle).apply {
@@ -270,11 +277,15 @@ class QuizResultActivity : AppCompatActivity() {
         val (strongest, weakest, suggested) = computeAnalyticsSummaryWithCounts(perf)
         findViewById<android.widget.TextView>(R.id.tvAnalytics).apply {
             visibility = View.VISIBLE
-            text = if (suggested.isNotBlank() && suggested != "-") {
-                getString(R.string.student_encouragement) + "\n$suggested konusunda pratik yap."
-            } else {
-                getString(R.string.student_encouragement)
+            // Specific learning feedback, not generic praise.
+            val parts = ArrayList<String>()
+            if (s.reviewCorrectedCount > 0) {
+                parts.add(getString(R.string.result_review_corrected, s.reviewCorrectedCount))
             }
+            if (suggested.isNotBlank() && suggested != "-") {
+                parts.add(getString(R.string.result_next_focus, suggested))
+            }
+            text = if (parts.isEmpty()) getString(R.string.student_encouragement) else parts.joinToString("\n")
         }
 
         // Wrong answers inline list hidden — review via dedicated gated screen
@@ -442,7 +453,20 @@ class QuizResultActivity : AppCompatActivity() {
             lines.add(getString(R.string.result_achievement_unlocked))
             lines.add(newly.joinToString("   ") { "${it.icon} ${it.title}" })
         }
-        lines.add(getString(R.string.result_one_step_closer))
+
+        // Frame the result as a completed step toward Italy — real data, calm.
+        val mission = com.mioacademy.app.core.DailyMissionManager(this).getTodayMission()
+        if (mission.testsDone >= mission.testsTarget) {
+            lines.add(getString(R.string.result_mission_done))
+        } else {
+            lines.add(getString(R.string.result_one_step_closer))
+        }
+        val pending = com.mioacademy.app.quiz.WrongQuestionScheduler(this).reviewQueueSize()
+        if (pending in 1..99) {
+            lines.add(getString(R.string.result_review_queue, pending))
+        }
+        com.mioacademy.app.core.ProgressAffirmations(this).headline()?.let { lines.add("✨ $it") }
+
         tv.text = lines.joinToString("\n")
 
         // Gentle reveal — earned, not flashy.

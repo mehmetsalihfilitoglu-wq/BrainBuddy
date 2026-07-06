@@ -29,6 +29,11 @@
     <string name="quiz_result_load_error">Sonuç yüklenemedi</string>
     <string name="quiz_result_celebration_title">Tebrikler</string>
     <string name="quiz_result_great">Çok iyi</string>
+    <string name="quiz_result_step_done">✓ Bugünün adımı tamam</string>
+    <string name="result_mission_done">Bugünkü görevin tamamlandı — hedefine bir adım daha yakınsın.</string>
+    <string name="result_review_queue">Tekrar kuyruğunda %1$d soru, pekiştirmeni bekliyor.</string>
+    <string name="result_review_corrected">Daha önce yanlış yaptığın %1$d soruyu bu testte düzelttin.</string>
+    <string name="result_next_focus">Yarın %1$s üzerine kısa bir tekrar, en çok fark yaratacak adım.</string>
     <string name="quiz_result_review_wrong">Yanlışları İncele</string>
     <string name="quiz_result_correct_wrong_blank">Doğru | Yanlış | Boş</string>
 
@@ -81,6 +86,7 @@
     <string name="readiness_title">SINAV HAZIRLIK SKORU</string>
     <string name="readiness_not_enough">Sınav hazırlık skorun için biraz daha veri gerekli. Birkaç test daha çözünce burada görünecek.</string>
     <string name="readiness_opportunity">En çok gelişim fırsatı: %1$s</string>
+    <string name="readiness_week_change">Bu hafta hazırlık skorun: %1$s puan</string>
     <string name="plan_today_section">BUGÜNÜN PLANI</string>
     <string name="learning_states_section">ÖĞRENME DURUMU</string>
     <string name="learning_state_wrong">Yanlış</string>
@@ -178,6 +184,7 @@
     <string name="home_next_step_label">BUGÜNKÜ ADIM</string>
     <string name="home_step_start">Başla →</string>
     <string name="home_mission_progress">%1$d / %2$d tamamlandı</string>
+    <string name="home_streak_start">Bugün başla</string>
     <string name="home_nav_study">Öğren</string>
     <string name="home_nav_progress">İlerleme</string>
     <string name="home_nav_profile">Profil</string>
@@ -465,7 +472,7 @@
     <string name="privacy_view_on_web">Web\'de görüntüle</string>
     <string name="accessibility_usage_title">Erişilebilirlik Kullanımı</string>
 
-    <string name="student_encouragement">Bu konuda gelişiyorsun!</string>
+    <string name="student_encouragement">Bir test daha tamamladın. Düzenli pratik, en çok fark yaratan şey.</string>
 
     <!-- Navigation -->
     <string name="btn_back">← Geri</string>

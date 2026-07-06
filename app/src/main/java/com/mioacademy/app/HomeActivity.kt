@@ -93,7 +93,12 @@ class HomeActivity : AppCompatActivity() {
             "${career.emoji} ${journeyTitleFor(career)}"
         findViewById<TextView>(R.id.tvItalianDegree).text = career.italianDegreeName
 
-        val streakLabel = if (streakDays == 1) "1 gün$freeze" else "$streakDays gün$freeze"
+        // Never punish a zero/broken streak — invite instead of shaming.
+        val streakLabel = when {
+            streakDays <= 0 -> getString(R.string.home_streak_start)
+            streakDays == 1 -> "1 gün$freeze"
+            else -> "$streakDays gün$freeze"
+        }
         findViewById<TextView>(R.id.streakBadge).text = "🔥 $streakLabel"
         findViewById<TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
         findViewById<TextView>(R.id.levelBadge).text = "Lv. ${gam.level()}"

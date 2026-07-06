@@ -115,9 +115,10 @@ class CoachEngine(
         if (lastTests.size >= 3) {
             val recent = lastTests.takeLast(3).map { it.accuracy }
             if (recent.last() > recent.first() && recent.last() >= 70f) {
+                val gain = (recent.last() - recent.first()).toInt()
                 return DailyRecommendation(
-                    text = "Harika! ${career.emoji} $personTitle olma yolunda doğruluk " +
-                        "oranın yükseliyor. Bu ivmeyi koru, devam et!",
+                    text = "Son testlerinde doğruluğun %$gain arttı. İvmen iyi — bugün kısa bir " +
+                        "pratikle bu yükselişi pekiştir.",
                     topic = null,
                     suggestedCount = 5,
                     isEncouragement = true
