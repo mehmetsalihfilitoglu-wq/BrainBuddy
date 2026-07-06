@@ -1,8 +1,6 @@
 package com.mioacademy.app.discover
 
-import android.content.Intent
 import android.graphics.Typeface
-import android.net.Uri
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.Gravity
@@ -10,12 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.mioacademy.app.R
 
@@ -54,61 +50,24 @@ class BachelorDetailActivity : AppCompatActivity() {
         container.addView(body(p.programName, 22f, R.color.textPrimary, bold = true, lineMultiplier = 1.2f))
         container.addView(body("${p.universityName} · ${p.city}, ${p.country}", 13f, R.color.textSecondary, topMargin = dpi(6f)))
 
+        // Only the stable essentials: field, admission exam, public/private.
         container.addView(card(topMargin = dpi(16f)) {
             addView(factRow(getString(R.string.discover_detail_field), p.fieldCategory.displayTr))
             addView(factRow(getString(R.string.discover_detail_exam), p.admissionExam.ifBlank { "—" }))
-            if (p.admissionRoute.isNotBlank() && p.admissionRoute != p.admissionExam) {
-                addView(factRow(getString(R.string.discover_detail_route), p.admissionRoute))
-            }
             addView(factRow(getString(R.string.discover_detail_type),
                 if (p.isPublic) getString(R.string.discover_public) else getString(R.string.discover_private)))
         })
 
-        container.addView(card(topMargin = dpi(12f)) {
-            addView(blockTitle(getString(R.string.discover_detail_language)))
-            addView(body(p.languageRequirement, 14f, R.color.textPrimary, lineMultiplier = 1.45f))
-        })
-
-        container.addView(card(topMargin = dpi(12f)) {
-            addView(blockTitle(getString(R.string.discover_detail_cost)))
-            addView(body(p.tuitionNote, 14f, R.color.textPrimary, lineMultiplier = 1.45f))
-            addView(body(getString(R.string.discover_detail_opening), 12f, R.color.textSecondary, bold = true, topMargin = dpi(10f)))
-            addView(body(p.openingDate.ifBlank { "—" }, 14f, R.color.textPrimary, topMargin = dpi(2f)))
-            addView(body(getString(R.string.discover_detail_deadline), 12f, R.color.textSecondary, bold = true, topMargin = dpi(10f)))
-            addView(body(p.deadlineNote, 14f, R.color.textPrimary, topMargin = dpi(2f), lineMultiplier = 1.45f))
-        })
-
-        if (p.admissionNotes.isNotBlank() || p.extraNotes.isNotBlank()) {
+        // Short, stable note (e.g. TOLC-SU English-section rule), if any.
+        if (p.note.isNotBlank()) {
             container.addView(card(topMargin = dpi(12f)) {
-                addView(blockTitle(getString(R.string.discover_detail_notes)))
-                if (p.admissionNotes.isNotBlank())
-                    addView(body(p.admissionNotes, 13f, R.color.textPrimary, lineMultiplier = 1.5f))
-                if (p.extraNotes.isNotBlank())
-                    addView(body(p.extraNotes, 12f, R.color.textSecondary, topMargin = dpi(8f), lineMultiplier = 1.5f))
+                addView(body(p.note, 13f, R.color.textPrimary, lineMultiplier = 1.45f))
             })
         }
 
-        if (p.infoUrl.isNotBlank()) {
-            container.addView(MaterialButton(this).apply {
-                layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, dpi(52f)
-                ).also { it.topMargin = dpi(16f) }
-                text = getString(R.string.discover_detail_moreinfo)
-                textSize = 15f
-                setTextColor(resources.getColor(R.color.white, theme))
-                cornerRadius = dpi(16f)
-                backgroundTintList = android.content.res.ColorStateList.valueOf(resources.getColor(R.color.emerald, theme))
-                setOnClickListener { openUrl(p.infoUrl) }
-            })
-        }
-
+        // Single general caveat — details change every cycle.
         container.addView(body(getString(R.string.discover_detail_notice), 12f, R.color.textSecondary,
             topMargin = dpi(16f), lineMultiplier = 1.45f))
-    }
-
-    private fun openUrl(url: String) {
-        try { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url))) }
-        catch (_: Exception) { Toast.makeText(this, getString(R.string.discover_no_browser), Toast.LENGTH_SHORT).show() }
     }
 
     // ── builders (self-contained) ──

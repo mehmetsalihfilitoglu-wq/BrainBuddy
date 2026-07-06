@@ -70,10 +70,14 @@ enum class FieldCategory(val displayTr: String) {
  * currently seeds the IMAT single-cycle medicine schools) but shown together in
  * the same Keşfet experience.
  *
- * [primaryStudyArea] is the reachable study-area exam the program surfaces under
- * (so filtering matches the student's active area), while [admissionExam] /
- * [admissionRoute] preserve the program's real admission path (TIL-I,
- * TEST-ARCHED, CEnT-S, SAT, TOLC-SU, university exam, …).
+ * Intentionally lean: this phase is a fast "which programs, where, which exam"
+ * browser — not a full advisory sheet. Volatile fields (fees, language certs,
+ * opening/deadline dates, long notes, links) are deliberately NOT modelled, so
+ * nothing here needs constant maintenance. [admissionExam] preserves the real
+ * admission path (TIL-I, TEST-ARCHED, CEnT-S, SAT, TOLC-SU, university exam, …),
+ * while [primaryStudyArea] is the reachable study area the program surfaces
+ * under so filtering matches the student's active area. [note] is reserved for
+ * short, stable notes only (e.g. TOLC-SU's English-section rule).
  */
 data class BachelorProgram(
     val id: String,
@@ -86,19 +90,12 @@ data class BachelorProgram(
     val relatedCareers: List<CareerPath>,
     val primaryStudyArea: ExamType,
     val admissionExam: String,
-    val admissionRoute: String,
-    val languageRequirement: String,
-    val tuitionNote: String,
-    val openingDate: String,
-    val deadlineNote: String,
-    val admissionNotes: String,
-    val extraNotes: String = "",
+    val admissionRoute: String = "",
+    val note: String = "",
     val tags: List<String> = emptyList(),
-    val sourceNote: String = "",
     val isPublic: Boolean = true,
     val hasEnglishProgram: Boolean = true,
-    val country: String = "İtalya",
-    val infoUrl: String = ""
+    val country: String = "İtalya"
 )
 
 /** A per-exam study/admissions guide. */
