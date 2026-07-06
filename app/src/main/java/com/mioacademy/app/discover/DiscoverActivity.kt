@@ -168,41 +168,97 @@ class DiscoverActivity : AppCompatActivity() {
             addView(body(g.overview, 14f, R.color.textPrimary, topMargin = dpi(8f), lineMultiplier = 1.4f))
         })
 
-        // Exam structure
-        container.addView(card(topMargin = dpi(12f)) {
-            addView(blockTitle(getString(R.string.discover_exam_structure)))
-            g.examStructure.forEach { addView(factRow(it.label, it.value)) }
-            if (g.subjects.isNotEmpty()) {
-                addView(body(getString(R.string.discover_subjects), 12f, R.color.textSecondary,
-                    topMargin = dpi(12f), bold = true))
-                addView(body("• " + g.subjects.joinToString("\n• "), 14f, R.color.textPrimary,
-                    topMargin = dpi(4f), lineMultiplier = 1.5f))
-            }
-        })
+        // At-a-glance exam summary (icon cards)
+        g.summary?.let { renderSummary(container, it) }
+
+        // Exam structure (only when the guide has structured content)
+        if (g.examStructure.isNotEmpty() || g.subjects.isNotEmpty()) {
+            container.addView(card(topMargin = dpi(12f)) {
+                addView(blockTitle(getString(R.string.discover_exam_structure)))
+                g.examStructure.forEach { addView(factRow(it.label, it.value)) }
+                if (g.subjects.isNotEmpty()) {
+                    addView(body(getString(R.string.discover_subjects), 12f, R.color.textSecondary,
+                        topMargin = dpi(12f), bold = true))
+                    addView(body("• " + g.subjects.joinToString("\n• "), 14f, R.color.textPrimary,
+                        topMargin = dpi(4f), lineMultiplier = 1.5f))
+                }
+            })
+        }
 
         // Scoring
-        container.addView(card(topMargin = dpi(12f)) {
-            addView(blockTitle(getString(R.string.discover_scoring)))
-            g.scoring.forEach { addView(factRow(it.label, it.value)) }
-        })
+        if (g.scoring.isNotEmpty()) {
+            container.addView(card(topMargin = dpi(12f)) {
+                addView(blockTitle(getString(R.string.discover_scoring)))
+                g.scoring.forEach { addView(factRow(it.label, it.value)) }
+            })
+        }
 
         // Timeline + application
-        container.addView(card(topMargin = dpi(12f)) {
-            addView(blockTitle(getString(R.string.discover_timeline)))
-            addView(body(g.timeline, 14f, R.color.textPrimary, lineMultiplier = 1.4f))
-            addView(body(getString(R.string.discover_application), 12f, R.color.textSecondary,
-                topMargin = dpi(12f), bold = true))
-            addView(body(g.applicationNotes, 14f, R.color.textPrimary, topMargin = dpi(4f), lineMultiplier = 1.4f))
-            if (g.requiredDocuments.isNotEmpty()) {
-                addView(body(getString(R.string.discover_documents), 12f, R.color.textSecondary,
-                    topMargin = dpi(12f), bold = true))
-                addView(body("• " + g.requiredDocuments.joinToString("\n• "), 14f, R.color.textPrimary,
-                    topMargin = dpi(4f), lineMultiplier = 1.5f))
-            }
-        })
+        if (g.timeline.isNotBlank() || g.applicationNotes.isNotBlank() || g.requiredDocuments.isNotEmpty()) {
+            container.addView(card(topMargin = dpi(12f)) {
+                addView(blockTitle(getString(R.string.discover_timeline)))
+                if (g.timeline.isNotBlank())
+                    addView(body(g.timeline, 14f, R.color.textPrimary, lineMultiplier = 1.4f))
+                if (g.applicationNotes.isNotBlank()) {
+                    addView(body(getString(R.string.discover_application), 12f, R.color.textSecondary,
+                        topMargin = dpi(12f), bold = true))
+                    addView(body(g.applicationNotes, 14f, R.color.textPrimary, topMargin = dpi(4f), lineMultiplier = 1.4f))
+                }
+                if (g.requiredDocuments.isNotEmpty()) {
+                    addView(body(getString(R.string.discover_documents), 12f, R.color.textSecondary,
+                        topMargin = dpi(12f), bold = true))
+                    addView(body("• " + g.requiredDocuments.joinToString("\n• "), 14f, R.color.textPrimary,
+                        topMargin = dpi(4f), lineMultiplier = 1.5f))
+                }
+            })
+        }
 
         // Official notice (accented)
         container.addView(noticeCard(g.officialNoticeNote))
+    }
+
+    /** The standard "Sınav Özeti" — one icon card per set field. */
+    private fun renderSummary(container: LinearLayout, s: ExamSummary) {
+        container.addView(sectionLabel(getString(R.string.discover_summary_section)))
+        if (s.whenHeld.isNotBlank())
+            container.addView(summaryCard("📅", getString(R.string.discover_summary_when), s.whenHeld))
+        if (s.attempts.isNotBlank())
+            container.addView(summaryCard("🔁", getString(R.string.discover_summary_attempts), s.attempts))
+        if (s.resultValidity.isNotBlank())
+            container.addView(summaryCard("📊", getString(R.string.discover_summary_validity), s.resultValidity))
+        if (s.importantNote.isNotBlank())
+            container.addView(summaryCard("ℹ️", getString(R.string.discover_summary_important), s.importantNote))
+    }
+
+    private fun summaryCard(emoji: String, title: String, text: String): MaterialCardView {
+        val c = MaterialCardView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+            ).also { it.topMargin = dpi(8f) }
+            radius = 16 * dp
+            cardElevation = 0f
+            strokeWidth = dpi(1f)
+            setStrokeColor(resources.getColor(R.color.border, theme))
+            setCardBackgroundColor(resources.getColor(R.color.white, theme))
+        }
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            setPadding(dpi(16f), dpi(16f), dpi(16f), dpi(16f))
+        }
+        row.addView(TextView(this).apply {
+            this.text = emoji
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
+        })
+        val col = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+                .also { it.marginStart = dpi(12f) }
+        }
+        col.addView(body(title, 12f, R.color.emeraldDark, bold = true))
+        col.addView(body(text, 14f, R.color.textPrimary, topMargin = dpi(2f), lineMultiplier = 1.4f))
+        row.addView(col)
+        c.addView(row)
+        return c
     }
 
     private fun renderUniversities(container: LinearLayout, unis: List<University>) {

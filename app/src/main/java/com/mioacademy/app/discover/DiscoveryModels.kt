@@ -147,17 +147,30 @@ data class FeaturedUniversity(
     val isPublic: Boolean get() = institutionType == InstitutionType.PUBLIC
 }
 
+/**
+ * Standard at-a-glance exam summary, shown as icon cards near the top of a
+ * guide. Every field is optional — the UI renders a card only for the ones that
+ * are set, so the same structure works for any exam.
+ */
+data class ExamSummary(
+    val whenHeld: String = "",        // 📅 Ne zaman yapılır?
+    val attempts: String = "",        // 🔁 Kaç kez girilebilir?
+    val resultValidity: String = "",  // 📊 Sonuç geçerliliği
+    val importantNote: String = ""    // ℹ️ Önemli bilgiler
+)
+
 /** A per-exam study/admissions guide. */
 data class ExamGuide(
     val examType: ExamType,
     val title: String,
     val subtitle: String,
     val overview: String,
-    val examStructure: List<GuideFact>,
-    val scoring: List<GuideFact>,
-    val subjects: List<String>,
-    val timeline: String,
-    val applicationNotes: String,
+    val summary: ExamSummary? = null,
+    val examStructure: List<GuideFact> = emptyList(),
+    val scoring: List<GuideFact> = emptyList(),
+    val subjects: List<String> = emptyList(),
+    val timeline: String = "",
+    val applicationNotes: String = "",
     val requiredDocuments: List<String> = emptyList(),
     val faq: List<FaqItem> = emptyList(),
     val officialNoticeNote: String

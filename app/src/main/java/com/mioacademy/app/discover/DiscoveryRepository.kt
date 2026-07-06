@@ -69,6 +69,11 @@ object LocalDiscoveryRepository : DiscoveryRepository {
 
     // ── Guides ──────────────────────────────────────────────────────────────
 
+    // Standard disclaimer shown at the end of every guide.
+    private const val STANDARD_NOTICE = "Takvimler, başvuru kuralları ve sınav politikaları her " +
+        "akademik yılda değişebilir. Başvuru yapmadan önce ilgili kurumun güncel resmî " +
+        "duyurularını kontrol etmeniz önerilir."
+
     private val guides: Map<ExamType, ExamGuide> = mapOf(
         ExamType.IMAT to ExamGuide(
             examType = ExamType.IMAT,
@@ -78,6 +83,12 @@ object LocalDiscoveryRepository : DiscoveryRepository {
                 "bazı diş hekimliği programlarına giriş için kullanılan sınavdır. Sınav tamamen " +
                 "İngilizcedir ve devlet üniversitelerindeki İngilizce tıp kontenjanları büyük ölçüde " +
                 "bu sınav sonucuna göre dağıtılır.",
+            summary = ExamSummary(
+                whenHeld = "Yılda yaklaşık 1 kez, genellikle Eylül ayında.",
+                attempts = "Aynı yıl yalnızca 1 kez (tek oturum yapılır).",
+                resultValidity = "Sonuçlar yalnızca ilgili başvuru dönemi için geçerlidir.",
+                importantNote = "Tarihler her yıl değişebilir."
+            ),
             examStructure = listOf(
                 GuideFact("Soru sayısı", "60"),
                 GuideFact("Süre", "100 dakika"),
@@ -135,9 +146,70 @@ object LocalDiscoveryRepository : DiscoveryRepository {
                         "risk ve puan dengesini düşünmelisin."
                 )
             ),
-            officialNoticeNote = "Tarih, ücret, sınav merkezi, minimum puan ve kontenjanlar her yıl " +
-                "değişebilir. Kesin bilgi için her zaman resmi duyuruyu (Universitaly / MUR / üniversite " +
-                "siteleri) kontrol et."
+            officialNoticeNote = STANDARD_NOTICE
+        ),
+
+        ExamType.TIL_I to ExamGuide(
+            examType = ExamType.TIL_I,
+            title = "TIL-I — Politecnico di Torino Mühendislik Sınavı",
+            subtitle = "Politecnico di Torino İngilizce mühendislik lisans programları için giriş sınavı",
+            overview = "TIL-I, Politecnico di Torino'nun mühendislik lisans programlarına giriş için " +
+                "kullandığı kendi sınavıdır. Belirli başvuru dönemlerinde SAT alternatif bir kabul " +
+                "yöntemi olarak değerlendirilebilir.",
+            summary = ExamSummary(
+                whenHeld = "Genellikle Şubat–Temmuz arasında birden fazla oturum.",
+                attempts = "Aday en fazla 3 kez girebilir; aynı oturum içinde yalnızca 1 kez.",
+                resultValidity = "En yüksek puan değerlendirmeye alınır.",
+                importantNote = "SAT belirli başvuru dönemlerinde alternatif kabul yöntemi olabilir."
+            ),
+            officialNoticeNote = STANDARD_NOTICE
+        ),
+
+        ExamType.TIL_A to ExamGuide(
+            examType = ExamType.TIL_A,
+            title = "TIL-A — Politecnico di Torino Mimarlık Sınavı",
+            subtitle = "Politecnico di Torino mimarlık lisans programı için giriş sınavı",
+            overview = "TIL-A, Politecnico di Torino'nun mimarlık lisans programına giriş için kullandığı " +
+                "sınavdır.",
+            summary = ExamSummary(
+                whenHeld = "Genellikle Temmuz ayında; yılda tek sınav dönemi (birkaç test günü olabilir).",
+                attempts = "Yılda tek sınav dönemi bulunur.",
+                importantNote = "Mimarlık programları için kullanılır. Tarihler her yıl değişebilir."
+            ),
+            officialNoticeNote = STANDARD_NOTICE
+        ),
+
+        ExamType.CENT_S to ExamGuide(
+            examType = ExamType.CENT_S,
+            title = "CEnT-S — Bilim ve Ekonomi Giriş Testi",
+            subtitle = "Mühendislik, bilim, ekonomi ve birçok genel lisans programı için kabul testi",
+            overview = "CEnT-S, İtalya'da çok sayıda İngilizce lisans programının (mühendislik, bilgisayar " +
+                "bilimi, veri bilimi, biyoloji, ekonomi, işletme, sosyal bilimler vb.) kabul sürecinde " +
+                "kullanılan bir testtir. Önceki TOLC-I / TOLC-E / TOLC-F kabul yolları bu çatı altında " +
+                "değerlendirilir.",
+            summary = ExamSummary(
+                whenHeld = "Genellikle Kasım'da başlar; akademik yıl boyunca çok sayıda test günü " +
+                    "(2025/26 örneğinde 11 test günü).",
+                attempts = "Aday en fazla 4 kez girebilir; aynı macro-period içinde yalnızca 1 kez.",
+                importantNote = "Güncel takvim her yıl değişebilir."
+            ),
+            officialNoticeNote = STANDARD_NOTICE
+        ),
+
+        ExamType.SAT to ExamGuide(
+            examType = ExamType.SAT,
+            title = "SAT — Uluslararası Kabul Sınavı",
+            subtitle = "Bazı İtalyan üniversitelerinde alternatif kabul yöntemi olan uluslararası sınav",
+            overview = "SAT (College Board), bazı İtalyan üniversitelerinin İngilizce lisans " +
+                "programlarında TIL/TOL gibi sınavlara alternatif kabul yöntemi olarak kabul ettiği " +
+                "uluslararası bir sınavdır.",
+            summary = ExamSummary(
+                whenHeld = "Yıl boyunca birden fazla uluslararası sınav tarihi (College Board takvimi).",
+                attempts = "Resmî yıllık maksimum belirtilmez; açık sınav tarihlerine kayıt olunabilir.",
+                importantNote = "Bazı İtalyan üniversitelerinde TIL/TOL yerine alternatif kabul yöntemi " +
+                    "olarak kullanılabilir."
+            ),
+            officialNoticeNote = STANDARD_NOTICE
         )
     )
 
