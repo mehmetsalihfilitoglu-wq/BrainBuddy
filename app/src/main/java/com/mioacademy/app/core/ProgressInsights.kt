@@ -214,6 +214,50 @@ class ProgressInsights(private val context: Context) {
         return rest[((day % rest.size) + rest.size) % rest.size]
     }
 
+    /**
+     * Premium deep analysis over long windows (30 / 90 days). Interpretive
+     * sentences from real data — the "why" behind the numbers. Free users only
+     * ever see the short-window weekly insights above; this is the paid layer.
+     * Returns an empty list when there isn't enough history to say anything true.
+     */
+    fun premiumAnalysis(): List<Insight> {
+        val out = ArrayList<Insight>()
+        val monthMs = TimeUnit.DAYS.toMillis(30)
+        val thisMonth = sessions.filter { it.tsMs >= nowMs - monthMs }
+        val lastMonth = sessions.filter { it.tsMs in (nowMs - 2 * monthMs) until (nowMs - monthMs) }
+        val qThis = thisMonth.sumOf { it.total }
+        val qLast = lastMonth.sumOf { it.total }
+        if (qThis > 0 && qLast > 0 && qThis > qLast) {
+            out.add(Insight("Bu ay geçen aya göre daha çok soru çözdün ($qThis / $qLast).", Tone.POSITIVE))
+        }
+
+        // Long-range per-topic improvement (recent 45d vs previous 45d).
+        val half = TimeUnit.DAYS.toMillis(45)
+        val recent = aggregateTopics(performances.filter { it.tsMs >= nowMs - half })
+        val older = aggregateTopics(performances.filter { it.tsMs in (nowMs - 2 * half) until (nowMs - half) })
+        var bestTopic: String? = null; var bestFrom = 0; var bestTo = 0
+        recent.forEach { (topic, tc) ->
+            val o = older[topic]
+            if (o != null && tc.total >= MIN_TOPIC_QUESTIONS && o.total >= MIN_TOPIC_QUESTIONS) {
+                val from = o.accuracy.roundToInt(); val to = tc.accuracy.roundToInt()
+                if (to - from > bestTo - bestFrom) { bestTopic = topic; bestFrom = from; bestTo = to }
+            }
+        }
+        if (bestTopic != null && bestTo > bestFrom) {
+            out.add(Insight("$bestTopic doğruluğun son dönemde %$bestFrom'ten %$bestTo'e yükseldi.", Tone.POSITIVE))
+        }
+
+        val strongest = analytics.getStrongestTopicsWithCounts(1)
+            .firstOrNull { it.second.total >= MIN_TOPIC_QUESTIONS }?.first
+        val weakest = analytics.getWeakestTopicsWithCounts(1)
+            .firstOrNull { it.second.total >= MIN_TOPIC_QUESTIONS }?.first
+        if (strongest != null) out.add(Insight("En güçlü alanın $strongest — bu seviyeyi koru.", Tone.POSITIVE))
+        if (weakest != null && weakest != strongest) {
+            out.add(Insight("En çok gelişebileceğin alan $weakest. Sıradaki hedefin burası.", Tone.NEUTRAL))
+        }
+        return out
+    }
+
     /** One prominent, human sentence summarizing the week for the Progress top. */
     fun weeklyHeadline(): String? {
         val w = weekly()

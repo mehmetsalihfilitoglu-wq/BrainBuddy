@@ -92,6 +92,8 @@ class GrowthHubActivity : AppCompatActivity() {
         insights.weeklyHeadline()?.let { container.addView(headlineCard(it)) }
         container.addView(weeklyStatsCard(insights.weekly()))
 
+        buildPremiumSection(container, insights)
+
         val ach = AchievementEngine(this)
         val unlocked = ach.unlocked()
         val next = ach.nextMilestone()
@@ -138,6 +140,93 @@ class GrowthHubActivity : AppCompatActivity() {
             col.addView(text(delta.toString(), 10f, R.color.emeraldDark, topMargin = dpi(2f), gravity = Gravity.CENTER))
         }
         return col
+    }
+
+    /**
+     * Premium intelligence: Exam Readiness + long-window interpretive analysis.
+     * Free users see a value-focused (not pushy) upsell; premium sees the real,
+     * data-computed insights. Everything active-area scoped.
+     */
+    private fun buildPremiumSection(container: LinearLayout, insights: ProgressInsights) {
+        container.addView(sectionLabel(getString(R.string.premium_analysis_section)))
+        if (!com.mioacademy.app.core.PremiumStore(this).isPremium()) {
+            container.addView(upsellCard())
+            return
+        }
+        val r = com.mioacademy.app.core.ExamReadinessEngine(this).compute()
+        if (r.hasEnoughData) container.addView(readinessCard(r))
+        else container.addView(infoCard(getString(R.string.readiness_not_enough)))
+        insights.premiumAnalysis().take(3).forEach { i ->
+            container.addView(headlineToneCard(i))
+        }
+    }
+
+    private fun upsellCard(): MaterialCardView {
+        val col = paddedCol()
+        col.addView(text("✦ ${getString(R.string.premium_upsell_title)}", 15f, R.color.emeraldDark, bold = true))
+        col.addView(text(getString(R.string.premium_upsell_body), 13f, R.color.textPrimary,
+            topMargin = dpi(6f), lineMultiplier = 1.5f))
+        val card = MaterialCardView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+            ).also { it.topMargin = dpi(8f) }
+            radius = 16 * dp
+            cardElevation = 0f
+            strokeWidth = dpi(1f)
+            setStrokeColor(resources.getColor(R.color.emerald, theme))
+            setCardBackgroundColor(resources.getColor(R.color.emeraldSoft, theme))
+            isClickable = true; isFocusable = true
+            setOnClickListener {
+                com.mioacademy.app.quiz.PremiumPaywallSheet().show(supportFragmentManager, com.mioacademy.app.quiz.PremiumPaywallSheet.TAG)
+            }
+            addView(col)
+        }
+        return card
+    }
+
+    private fun readinessCard(r: com.mioacademy.app.core.ExamReadinessEngine.Readiness): MaterialCardView {
+        val col = paddedCol()
+        col.addView(text(getString(R.string.readiness_title), 10f, R.color.emeraldDark, bold = true, letterSpacing = 0.12f))
+        // Big score
+        val scoreRow = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.BOTTOM
+            layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            ).also { it.topMargin = dpi(4f) }
+        }
+        scoreRow.addView(text("${r.score}", 40f, R.color.emeraldDark, bold = true))
+        scoreRow.addView(text(" / 100", 16f, R.color.textSecondary).apply {
+            (layoutParams as LinearLayout.LayoutParams).bottomMargin = dpi(6f)
+        })
+        col.addView(scoreRow)
+        col.addView(text(r.headline, 13f, R.color.textPrimary, topMargin = dpi(4f), lineMultiplier = 1.4f))
+        // Factor rows
+        r.factors.forEach { f ->
+            val row = LinearLayout(this).apply {
+                orientation = LinearLayout.HORIZONTAL
+                layoutParams = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+                ).also { it.topMargin = dpi(6f) }
+            }
+            row.addView(text(f.label, 12f, R.color.textSecondary).apply {
+                layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+            })
+            row.addView(text("%${f.percent}", 12f, R.color.textPrimary, bold = true))
+            col.addView(row)
+        }
+        r.biggestOpportunity?.let {
+            col.addView(text(getString(R.string.readiness_opportunity, it), 12f, R.color.emeraldDark,
+                bold = true, topMargin = dpi(10f)))
+        }
+        return cardWrap(col)
+    }
+
+    private fun headlineToneCard(i: ProgressInsights.Insight): MaterialCardView {
+        val fg = if (i.tone == ProgressInsights.Tone.WARNING) R.color.warning_text else R.color.textPrimary
+        return cardWrap(text(i.text, 13f, fg, lineMultiplier = 1.45f).apply {
+            setPadding(dpi(16f), dpi(14f), dpi(16f), dpi(14f))
+        })
     }
 
     /** Prominent, human weekly summary sentence — the "felt growth" lead. */

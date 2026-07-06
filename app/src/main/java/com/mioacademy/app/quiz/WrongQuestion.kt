@@ -1,18 +1,25 @@
 ﻿package com.mioacademy.app.quiz
 
 /**
- * Represents a question that was answered wrong and is scheduled to reappear
- * after a number of completed tests (spacing by tests, not time).
+ * A question in the spaced-repetition review ladder (Leitner-style).
+ *
+ * A wrong answer does not vanish after one correct answer: it climbs a mastery
+ * ladder ([box]) with growing intervals, and is only considered mastered — and
+ * removed — after several correct answers spread across tests. Answering it
+ * wrong again drops it back to box 0.
  *
  * @param questionId Question ID
- * @param wrongCount How many times this question was answered wrong (1st, 2nd, 3rd...)
- * @param dueAfterTest Global test index after which this question becomes due for reappearance
- * @param lastShownAtCompletedTest Last completedTests value when this question was injected into a test (-1 if never)
+ * @param wrongCount Total times answered wrong (used for review priority)
+ * @param dueAfterTest Global test index after which this question becomes due
+ * @param lastShownAtCompletedTest Last completedTests when injected (-1 if never)
+ * @param box Mastery level: 0 = just wrong; each spaced correct answer → +1;
+ *            at [WrongQuestionScheduler.MASTERED_BOX] the question is mastered.
  */
 data class WrongQuestion(
     val questionId: String,
     var wrongCount: Int,
     var dueAfterTest: Int,
-    var lastShownAtCompletedTest: Int = -1
+    var lastShownAtCompletedTest: Int = -1,
+    var box: Int = 0
 )
 

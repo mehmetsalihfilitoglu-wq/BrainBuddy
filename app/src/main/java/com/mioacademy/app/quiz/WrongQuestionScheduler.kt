@@ -34,15 +34,18 @@ class WrongQuestionScheduler(context: Context) {
     fun registerWrong(questionId: String) {
         val existing = wrongPool.find { it.questionId == questionId }
         if (existing != null) {
+            // Wrong again → back to the bottom of the ladder, short interval.
             existing.wrongCount++
-            existing.dueAfterTest = nextDueAfterTest(existing.wrongCount)
-            Log.d(TAG, "Wrong registered (again): $questionId wrongCount=${existing.wrongCount}")
+            existing.box = 0
+            existing.dueAfterTest = nextDueAfterTest(0)
+            Log.d(TAG, "Wrong registered (again): $questionId wrongCount=${existing.wrongCount} box=0")
         } else {
             wrongPool.add(
                 WrongQuestion(
                     questionId = questionId,
                     wrongCount = 1,
-                    dueAfterTest = nextDueAfterTest(1)
+                    dueAfterTest = nextDueAfterTest(0),
+                    box = 0
                 )
             )
             Log.d(TAG, "Wrong registered: $questionId")
@@ -51,15 +54,33 @@ class WrongQuestionScheduler(context: Context) {
     }
 
     /**
-     * When a repeated question is answered correctly, remove it from the pool.
+     * A correct answer advances the question one step up the mastery ladder with
+     * a longer interval. It is only removed once it clears [MASTERED_BOX] — i.e.
+     * answered correctly several times across spaced tests. One correct answer no
+     * longer "cleans" the question; the goal is durable learning.
      */
     fun markCorrect(questionId: String) {
-        val removed = wrongPool.removeAll { it.questionId == questionId }
-        if (removed) {
-            Log.d(TAG, "Question mastered: $questionId")
-            saveSchedulerState()
+        val q = wrongPool.find { it.questionId == questionId } ?: return
+        q.box++
+        if (q.box >= MASTERED_BOX) {
+            wrongPool.removeAll { it.questionId == questionId }
+            masteredTotal++
+            Log.d(TAG, "Question mastered (box=${q.box}): $questionId")
+        } else {
+            q.dueAfterTest = nextDueAfterTest(q.box)
+            Log.d(TAG, "Question advanced to box ${q.box}: $questionId")
         }
+        saveSchedulerState()
     }
+
+    /** Count of questions that reached mastery in this area (for journey/readiness). */
+    var masteredTotal: Int = 0
+        private set
+
+    /** Questions still on the review ladder, most valuable first (repeated mistakes + earlier due). */
+    fun reviewQueueSize(): Int = wrongPool.size
+
+    fun dueCount(): Int = wrongPool.count { completedTests >= it.dueAfterTest }
 
     /**
      * Call when a test is finished. Increments the global test counter.
@@ -84,21 +105,24 @@ class WrongQuestionScheduler(context: Context) {
      * Only one question per call; does not remove from pool (removal happens on markCorrect).
      */
     fun getDueWrongQuestion(): String? {
+        // Intelligent priority: among due questions, prefer repeated mistakes,
+        // then the one that has waited longest (earliest due).
         val due = wrongPool
             .filter { completedTests >= it.dueAfterTest }
             .filter { it.lastShownAtCompletedTest < completedTests - 1 }
-            .minByOrNull { it.dueAfterTest }
+            .sortedWith(compareByDescending<WrongQuestion> { it.wrongCount }.thenBy { it.dueAfterTest })
+            .firstOrNull()
             ?: return null
-        Log.d(TAG, "Due wrong injected: ${due.questionId}")
+        Log.d(TAG, "Due wrong injected: ${due.questionId} box=${due.box} wrongCount=${due.wrongCount}")
         return due.questionId
     }
 
-    private fun nextDueAfterTest(wrongCount: Int): Int {
-        val offset = when (wrongCount) {
-            1 -> 3
-            2 -> 5
-            3 -> 8
-            else -> 12
+    /** Interval grows as the question climbs the ladder (spacing effect). */
+    private fun nextDueAfterTest(box: Int): Int {
+        val offset = when (box) {
+            0 -> 2   // just wrong → soon
+            1 -> 4   // one spaced correct
+            else -> 8 // deeper — long interval before the mastering review
         }
         return completedTests + offset
     }
@@ -106,12 +130,14 @@ class WrongQuestionScheduler(context: Context) {
     fun saveSchedulerState() {
         prefs.edit()
             .putInt(KEY_COMPLETED_TESTS, completedTests)
+            .putInt(KEY_MASTERED_TOTAL, masteredTotal)
             .putString(KEY_POOL_JSON, poolToJson())
             .apply()
     }
 
     fun loadSchedulerState() {
         completedTests = prefs.getInt(KEY_COMPLETED_TESTS, 0)
+        masteredTotal = prefs.getInt(KEY_MASTERED_TOTAL, 0)
         wrongPool.clear()
         val json = prefs.getString(KEY_POOL_JSON, null) ?: return
         try {
@@ -122,8 +148,9 @@ class WrongQuestionScheduler(context: Context) {
                     WrongQuestion(
                         questionId = o.optString(KEY_QID, ""),
                         wrongCount = o.optInt(KEY_WRONG_COUNT, 1),
-                        dueAfterTest = o.optInt(KEY_DUE_AFTER_TEST, completedTests + 3),
-                        lastShownAtCompletedTest = o.optInt(KEY_LAST_SHOWN_AT, -1)
+                        dueAfterTest = o.optInt(KEY_DUE_AFTER_TEST, completedTests + 2),
+                        lastShownAtCompletedTest = o.optInt(KEY_LAST_SHOWN_AT, -1),
+                        box = o.optInt(KEY_BOX, 0)
                     )
                 )
             }
@@ -140,6 +167,7 @@ class WrongQuestionScheduler(context: Context) {
                     put(KEY_WRONG_COUNT, w.wrongCount)
                     put(KEY_DUE_AFTER_TEST, w.dueAfterTest)
                     put(KEY_LAST_SHOWN_AT, w.lastShownAtCompletedTest)
+                    put(KEY_BOX, w.box)
                 }
             )
         }
@@ -148,12 +176,16 @@ class WrongQuestionScheduler(context: Context) {
 
     companion object {
         private const val TAG = "WrongScheduler"
+        /** Correct answers (across spaced tests) needed to master a question. */
+        const val MASTERED_BOX = 3
         private const val KEY_COMPLETED_TESTS = "scheduler_completed_tests"
+        private const val KEY_MASTERED_TOTAL = "scheduler_mastered_total"
         private const val KEY_POOL_JSON = "scheduler_pool_json"
         private const val KEY_QID = "questionId"
         private const val KEY_WRONG_COUNT = "wrongCount"
         private const val KEY_DUE_AFTER_TEST = "dueAfterTest"
         private const val KEY_LAST_SHOWN_AT = "lastShownAtCompletedTest"
+        private const val KEY_BOX = "box"
     }
 }
 
