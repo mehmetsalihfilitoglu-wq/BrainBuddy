@@ -32,8 +32,11 @@
                 android:layout_height="@dimen/touch_target"
                 android:src="@drawable/ic_arrow_back"
                 android:padding="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
                 app:tint="@color/textSecondary"
-                android:contentDescription="@string/settings_title"/>
+                android:contentDescription="@string/cd_back"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -98,6 +101,67 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="@color/textSecondary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ── Premium ── -->
+        <TextView
+            style="@style/BB.SectionHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/section_gap"
+            android:layout_marginBottom="@dimen/space_8"
+            android:text="@string/settings_section_premium"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPremium"
+            style="@style/BB.HomeCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/space_16">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
+                    android:text="👑"
+                    android:textSize="20sp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="@dimen/space_16">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_premium_title"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/bb_text"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/settings_premium_sub"
+                        android:textSize="13sp"
+                        android:textColor="@color/bb_text_muted"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
                     android:text="›"
                     android:textSize="22sp"
                     android:textColor="@color/textSecondary"/>

@@ -42,6 +42,10 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<android.view.View>(R.id.cardAccountSync)?.setOnClickListener {
             startActivity(Intent(this, AccountSyncActivity::class.java))
         }
+        findViewById<android.view.View>(R.id.cardPremium)?.setOnClickListener {
+            com.mioacademy.app.quiz.PremiumPaywallSheet()
+                .show(supportFragmentManager, com.mioacademy.app.quiz.PremiumPaywallSheet.TAG)
+        }
     }
 
 }

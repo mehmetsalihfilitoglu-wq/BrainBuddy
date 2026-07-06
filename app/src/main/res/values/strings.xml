@@ -221,7 +221,11 @@
 
     <!-- Settings sections (with icons) -->
     <string name="settings_section_reports">📊 Raporlar &amp; Veri</string>
-    <string name="settings_section_customization">🎨 Özelleştirme</string>
+    <string name="settings_section_customization">🔔 Bildirimler</string>
+    <string name="settings_section_premium">⭐ Premium</string>
+    <string name="settings_premium_title">Premium\'u Keşfet</string>
+    <string name="settings_premium_sub">Daha akıllı hazırlan — neyin işe yaradığını gör</string>
+    <string name="cd_back">Geri</string>
     <string name="pool_status_title_format">Soru Havuzu Durumu (%1$s)</string>
     <string name="pool_status_title_default">Soru Havuzu Durumu</string>
     <string name="pool_status_button_format">Havuz Durumu (%1$s)</string>
@@ -238,7 +242,7 @@
     <string name="settings_reports_sub">Günlük ve haftalık raporlara eriş</string>
     <string name="settings_backup_sub">Verileri dışa aktar (Export)</string>
     <string name="settings_restore_sub">Yedekten geri yükle (Import)</string>
-    <string name="settings_section_about">Hakkında</string>
+    <string name="settings_section_about">🔒 Gizlilik ve Yasal</string>
     <string name="settings_privacy_sub">Gizlilik politikamızı inceleyin</string>
     <!-- Privacy & data rights (GDPR) -->
     <string name="settings_data_rights_sub">Verilerini dışa aktar veya hesabını sil</string>
@@ -559,14 +563,27 @@
     <string name="result_premium_all_unlocked">Tüm yanlışlarını sınırsız incele</string>
 
     <!-- Premium paywall bottom sheet -->
-    <string name="paywall_title">İtalya yolculuğunu daha akıllı planla</string>
-    <string name="paywall_benefit_no_ads">✔  Reklamsız, odaklanmış çalışma ortamı</string>
-    <string name="paywall_benefit_unlimited">✔  Sınırsız yanlış soru incelemesi</string>
-    <string name="paywall_benefit_solutions">✔  Kariyer hedefine özel konu önerileri</string>
-    <string name="paywall_benefit_hints">✔  Detaylı açıklamalar ve ilerleme analizi</string>
-    <string name="paywall_benefit_exam">✔  Sınav odaklı kişisel hazırlık deneyimi</string>
-    <string name="paywall_cta">Premium\'a Geç →</string>
-    <string name="paywall_dismiss">Belki sonra</string>
+    <string name="paywall_title">Premium: kişisel sınav koçun</string>
+    <string name="paywall_subtitle">Ücretsiz sürüm pratik yapmanı sağlar. Premium daha akıllı hazırlanmanı sağlar.</string>
+    <string name="paywall_f1_title">Uyarlanabilir Günlük Görev</string>
+    <string name="paywall_f1_sub">Her gün, en çok ihtiyacın olan konulara odaklanan bir mini sınav.</string>
+    <string name="paywall_f2_title">Akıllı Yanlış Tekrarı</string>
+    <string name="paywall_f2_sub">Hatalarını, gerçekten öğrenene kadar doğru aralıklarla tekrar et.</string>
+    <string name="paywall_f3_title">Sınav Hazırlık Skoru</string>
+    <string name="paywall_f3_sub">Sınava ne kadar hazır olduğunu tek bir net skorla gör.</string>
+    <string name="paywall_f4_title">Çalışma Planı</string>
+    <string name="paywall_f4_sub">Bugün ne yapman gerektiğini düşünmene gerek kalmasın.</string>
+    <string name="paywall_f5_title">Derin Analiz</string>
+    <string name="paywall_f5_sub">Sadece sayıları değil, performansının neden değiştiğini de gör.</string>
+    <string name="paywall_f6_title">Öğrenme Yolculuğu ve Çalışma Haritası</string>
+    <string name="paywall_f6_sub">İlerlemeni ve istikrarını zaman içinde hisset.</string>
+    <string name="paywall_f7_title">Haftalık ve Aylık Raporlar</string>
+    <string name="paywall_f7_sub">Gerçek çalışma verinle hazırlanan sade, profesyonel özetler.</string>
+    <string name="paywall_f8_title">Akıllı Bildirimler</string>
+    <string name="paywall_f8_sub">Doğru anda, gerçek verine dayalı küçük hatırlatmalar.</string>
+    <string name="paywall_availability">Premium satın alma, hesabın ve mağaza bağlantısı hazır olduğunda etkinleşecek. O zamana kadar temel özellikler senin.</string>
+    <string name="paywall_cta">Hesabımı Hazırla</string>
+    <string name="paywall_dismiss">Şimdilik ücretsiz devam et</string>
 
     <!-- Coach Screen (Phase 2G) -->
     <string name="coach_screen_title">Çalışma Koçu</string>
