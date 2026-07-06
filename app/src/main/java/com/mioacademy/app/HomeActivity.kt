@@ -9,7 +9,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mioacademy.app.core.CareerPath
 import com.mioacademy.app.core.DailyMissionManager
 import com.mioacademy.app.core.exam.AdmissionExamRegistry
@@ -18,7 +17,6 @@ import com.mioacademy.app.core.ItalianMomentProvider
 import com.mioacademy.app.core.UserGoalPrefs
 import com.mioacademy.app.quiz.WrongPoolLauncher
 import com.mioacademy.app.quiz.WrongQuestionPoolStore
-import com.mioacademy.app.reward.RewardContractStore
 import com.mioacademy.app.ui.GrowthHubActivity
 import com.mioacademy.app.ui.StudentProfileActivity
 import com.mioacademy.app.ui.StudyHubActivity
@@ -26,7 +24,6 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
-import java.util.concurrent.TimeUnit
 
 class HomeActivity : AppCompatActivity() {
 
@@ -45,15 +42,6 @@ class HomeActivity : AppCompatActivity() {
         setupBackPress()
         setupNavigation()
 
-        val contractStore = RewardContractStore(this)
-        val pending = contractStore.getPendingReached()
-        if (pending.isNotEmpty()) {
-            MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.home_reward_title))
-                .setMessage(pending.joinToString("\n") { "${it.targetXP} XP: ${it.description}" })
-                .setPositiveButton(getString(R.string.home_reward_ok), null)
-                .show()
-        }
     }
 
     override fun onResume() {

@@ -1,4 +1,4 @@
-﻿package com.mioacademy.app.ui
+package com.mioacademy.app.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -24,14 +24,14 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
+        findViewById<android.view.View>(R.id.cardReports)?.setOnClickListener {
+            startActivity(Intent(this, ReportsActivity::class.java))
+        }
         findViewById<android.view.View>(R.id.cardBackup)?.setOnClickListener {
             BackupManager.exportBackup(this)
         }
         findViewById<android.view.View>(R.id.cardRestore)?.setOnClickListener {
             startActivity(Intent(this, BackupImportActivity::class.java))
-        }
-        findViewById<android.view.View>(R.id.cardRewardContracts)?.setOnClickListener {
-            startActivity(Intent(this, com.mioacademy.app.reward.RewardContractActivity::class.java))
         }
         findViewById<android.view.View>(R.id.cardPrivacyPolicy)?.setOnClickListener {
             startActivity(Intent(this, com.mioacademy.app.legal.LegalHubActivity::class.java))

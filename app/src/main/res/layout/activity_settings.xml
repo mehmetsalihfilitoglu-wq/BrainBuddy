@@ -20,18 +20,18 @@
             app:titleTextColor="@color/white"
             app:title="@string/settings_title"/>
 
-        <!-- ========== B) OGRENCI & EGITIM (moved UP for visibility) ========== -->
+        <!-- ── Bildirimler ── -->
         <TextView
             style="@style/BB.SectionHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/settings_section_education"/>
+            android:text="@string/settings_section_customization"/>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardMotivationNotifications"
             style="@style/BB.HomeCard"
-            android:id="@+id/cardStudentLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/white">
@@ -42,305 +42,40 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/settings_student_level"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/settings_student_level_sub"
-                    android:textSize="13sp"
-                    android:textColor="@color/bb_text_muted"/>
-                <RadioGroup
-                    android:id="@+id/levelGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="8dp">
-                    <RadioButton android:id="@+id/levelAges3to5" android:text="@string/level_ages_3_5" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-                    <RadioButton android:id="@+id/levelGrades1to4" android:text="@string/level_grades_1_4" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-                    <RadioButton android:id="@+id/levelGrades5to8" android:text="@string/level_grades_5_8" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-                    <RadioButton android:id="@+id/levelGrades9to12" android:text="@string/level_grades_9_12" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-                </RadioGroup>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardQuizSettings"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_quiz"
-                    app:tint="@color/bb_primary"/>
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/settings_test_settings"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_test_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardProfiles"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_avatar"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/profiles_title"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_profiles_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ========== A) TEST AYARLARI ========== -->
-        <com.google.android.material.card.MaterialCardView
-            style="@style/BB.HomeCard"
-            android:id="@+id/cardProtection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/settings_quiz_interval"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/settings_quiz_interval_sub"
-                    android:textSize="13sp"
-                    android:textColor="@color/bb_text_muted"/>
-                <RadioGroup
-                    android:id="@+id/intervalGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-                    <RadioButton android:id="@+id/interval30" android:text="@string/interval_30" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <RadioButton android:id="@+id/interval45" android:text="@string/interval_45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
-                    <RadioButton android:id="@+id/interval60" android:text="@string/interval_60" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
-                </RadioGroup>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/settings_min_success_rate"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="@string/settings_min_success_rate_sub"
-                    android:textSize="13sp"
-                    android:textColor="@color/bb_text_muted"/>
-                <RadioGroup
-                    android:id="@+id/successRateGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-                    <RadioButton android:id="@+id/successRate50" android:text="@string/success_rate_50" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                    <RadioButton android:id="@+id/successRate60" android:text="@string/success_rate_60" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
-                    <RadioButton android:id="@+id/successRate70" android:text="@string/success_rate_70" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
-                    <RadioButton android:id="@+id/successRate80" android:text="@string/success_rate_80" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp"/>
-                </RadioGroup>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardTimeLimits"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_timer"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
+                    android:gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/settings_time_limits"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_time_limits_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_motivation"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/bb_text"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/settings_motivation_sub"
+                            android:textSize="13sp"
+                            android:textColor="@color/bb_text_muted"/>
+                    </LinearLayout>
+                    <Switch
+                        android:id="@+id/switchMotivationNotifications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardSchedules"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_schedule"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/schedule_title"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_schedules_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ========== C) RAPORLAR & VERI ========== -->
+        <!-- ── Veriler & Raporlar ── -->
         <TextView
             style="@style/BB.SectionHeader"
             android:layout_width="match_parent"
@@ -498,202 +233,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardRewardContracts"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_avatar"
-                    app:tint="@color/bb_primary"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/settings_reward_contracts"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_reward_contracts_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="24sp"
-                    android:textColor="@color/bb_primary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ========== D) OZELLESTIRME ========== -->
-        <TextView
-            style="@style/BB.SectionHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/settings_section_customization"/>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardShopDisable"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/settings_shop_disable"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_text"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="@string/settings_shop_disable_sub"
-                            android:textSize="13sp"
-                            android:textColor="@color/bb_text_muted"/>
-                    </LinearLayout>
-                    <Switch
-                        android:id="@+id/switchShopDisabled"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardTheme"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_settings"
-                    app:tint="@color/bb_text_muted"/>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/settings_theme"
-                        android:textSize="16sp"
-                        android:textColor="@color/bb_text_muted"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/settings_theme_sub"
-                        android:textSize="13sp"
-                        android:textColor="@color/bb_text_muted"/>
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardMotivationNotifications"
-            style="@style/BB.HomeCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/white">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/settings_motivation"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/bb_text"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="@string/settings_motivation_sub"
-                            android:textSize="13sp"
-                            android:textColor="@color/bb_text_muted"/>
-                    </LinearLayout>
-                    <Switch
-                        android:id="@+id/switchMotivationNotifications"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Footer: Yasal & Bilgi -->
+        <!-- ── Hakkında ── -->
         <TextView
             style="@style/BB.SectionHeader"
             android:layout_width="match_parent"

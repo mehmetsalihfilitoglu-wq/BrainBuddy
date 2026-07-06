@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.mioacademy.app.BuildConfig
 import com.mioacademy.app.R
-import com.mioacademy.app.core.GradePrefs
-import com.mioacademy.app.core.LevelMode
 import com.mioacademy.app.core.LastTestUnlockStore
 import com.mioacademy.app.core.PremiumStore
 import com.mioacademy.app.HomeActivity
@@ -191,24 +189,10 @@ class QuizActivity : AppCompatActivity() {
             val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS)
             val replayQuestionIds = intent.getStringArrayListExtra(EXTRA_QUESTION_IDS_FOR_REPLAY)
 
-            val (levelGroup, effectiveGrade, isLgsMode) = withContext(Dispatchers.IO) {
-                val gp = GradePrefs(this@QuizActivity)
-                val lg = repo.getLevelGroupFromPrefs()
-                val mode = gp.getSelectedMode()
-                val lgs = mode == LevelMode.LGS
-                val eff = if (!lgs && gp.hasGradeSelected()) gp.getEffectiveGradeForQuiz() else 0
-                Triple(lg, eff, lgs)
-            }
-            val gradePrefs = GradePrefs(this@QuizActivity)
-            val needsLevel = !(isReplayFromLastTest && replayQuestionIds != null && replayQuestionIds.size >= targetCount)
-            if (needsLevel && !gradePrefs.hasLevelSelected()) {
-                android.widget.Toast.makeText(this@QuizActivity, com.mioacademy.app.R.string.grade_required_toast, android.widget.Toast.LENGTH_LONG).show()
-                // Navigate to TestSettings within the existing task so Back returns to the previous screen,
-                // not to the launcher. Do not use NEW_TASK here.
-                startActivity(Intent(this@QuizActivity, com.mioacademy.app.ui.SettingsActivity::class.java))
-                finish()
-                return@launch
-            }
+            // Mioitalia: quiz access is open — no grade gate
+            val levelGroup = LevelGroup.GRADE_5_8
+            val effectiveGrade = 0
+            val isLgsMode = false
             val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
             val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
 
