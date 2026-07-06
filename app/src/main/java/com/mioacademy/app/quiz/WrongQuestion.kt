@@ -20,6 +20,20 @@ data class WrongQuestion(
     var wrongCount: Int,
     var dueAfterTest: Int,
     var lastShownAtCompletedTest: Int = -1,
-    var box: Int = 0
-)
+    var box: Int = 0,
+    /** Total correct answers on this question (across reviews) — history. */
+    var correctCount: Int = 0,
+    /** When the question first entered the review ladder (epoch ms). */
+    var firstSeenMs: Long = 0L
+) {
+    /** Where the question is on its learning path. */
+    val state: LearningState
+        get() = when {
+            box >= WrongQuestionScheduler.MASTERED_BOX -> LearningState.MASTERED
+            box >= 1 -> LearningState.REVIEWING
+            else -> LearningState.WRONG
+        }
+}
+
+enum class LearningState { WRONG, REVIEWING, MASTERED }
 

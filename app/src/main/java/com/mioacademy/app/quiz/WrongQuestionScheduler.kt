@@ -45,7 +45,8 @@ class WrongQuestionScheduler(context: Context) {
                     questionId = questionId,
                     wrongCount = 1,
                     dueAfterTest = nextDueAfterTest(0),
-                    box = 0
+                    box = 0,
+                    firstSeenMs = System.currentTimeMillis()
                 )
             )
             Log.d(TAG, "Wrong registered: $questionId")
@@ -61,6 +62,7 @@ class WrongQuestionScheduler(context: Context) {
      */
     fun markCorrect(questionId: String) {
         val q = wrongPool.find { it.questionId == questionId } ?: return
+        q.correctCount++
         q.box++
         if (q.box >= MASTERED_BOX) {
             wrongPool.removeAll { it.questionId == questionId }
@@ -81,6 +83,17 @@ class WrongQuestionScheduler(context: Context) {
     fun reviewQueueSize(): Int = wrongPool.size
 
     fun dueCount(): Int = wrongPool.count { completedTests >= it.dueAfterTest }
+
+    data class LearningStates(val wrong: Int, val reviewing: Int, val mastered: Int) {
+        val total: Int get() = wrong + reviewing + mastered
+    }
+
+    /** How the student's questions are distributed across the learning path (real). */
+    fun learningStates(): LearningStates = LearningStates(
+        wrong = wrongPool.count { it.box == 0 },
+        reviewing = wrongPool.count { it.box >= 1 },
+        mastered = masteredTotal
+    )
 
     /**
      * Call when a test is finished. Increments the global test counter.
@@ -150,7 +163,9 @@ class WrongQuestionScheduler(context: Context) {
                         wrongCount = o.optInt(KEY_WRONG_COUNT, 1),
                         dueAfterTest = o.optInt(KEY_DUE_AFTER_TEST, completedTests + 2),
                         lastShownAtCompletedTest = o.optInt(KEY_LAST_SHOWN_AT, -1),
-                        box = o.optInt(KEY_BOX, 0)
+                        box = o.optInt(KEY_BOX, 0),
+                        correctCount = o.optInt(KEY_CORRECT_COUNT, 0),
+                        firstSeenMs = o.optLong(KEY_FIRST_SEEN, 0L)
                     )
                 )
             }
@@ -168,6 +183,8 @@ class WrongQuestionScheduler(context: Context) {
                     put(KEY_DUE_AFTER_TEST, w.dueAfterTest)
                     put(KEY_LAST_SHOWN_AT, w.lastShownAtCompletedTest)
                     put(KEY_BOX, w.box)
+                    put(KEY_CORRECT_COUNT, w.correctCount)
+                    put(KEY_FIRST_SEEN, w.firstSeenMs)
                 }
             )
         }
@@ -186,6 +203,8 @@ class WrongQuestionScheduler(context: Context) {
         private const val KEY_DUE_AFTER_TEST = "dueAfterTest"
         private const val KEY_LAST_SHOWN_AT = "lastShownAtCompletedTest"
         private const val KEY_BOX = "box"
+        private const val KEY_CORRECT_COUNT = "correctCount"
+        private const val KEY_FIRST_SEEN = "firstSeenMs"
     }
 }
 

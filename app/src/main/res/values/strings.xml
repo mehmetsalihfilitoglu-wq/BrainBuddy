@@ -77,10 +77,20 @@
     <string name="progress_next_milestone">SIRADAKİ HEDEF</string>
     <string name="premium_analysis_section">PREMIUM ANALİZ</string>
     <string name="premium_upsell_title">Premium ile daha akıllı hazırlan</string>
-    <string name="premium_upsell_body">Sınav Hazırlık Skoru, 30 ve 90 günlük derin gelişim analizi, akıllı tekrar kuyruğu ve performansına göre kişiselleştirilmiş görevler.</string>
+    <string name="premium_upsell_body">Sınav Hazırlık Skoru, 30 ve 90 günlük derin gelişim analizi, akıllı tekrar kuyruğu, günlük çalışma planın, çalışma haritan ve öğrenme yolculuğun — kişisel bir sınav koçu gibi.</string>
     <string name="readiness_title">SINAV HAZIRLIK SKORU</string>
     <string name="readiness_not_enough">Sınav hazırlık skorun için biraz daha veri gerekli. Birkaç test daha çözünce burada görünecek.</string>
     <string name="readiness_opportunity">En çok gelişim fırsatı: %1$s</string>
+    <string name="plan_today_section">BUGÜNÜN PLANI</string>
+    <string name="learning_states_section">ÖĞRENME DURUMU</string>
+    <string name="learning_state_wrong">Yanlış</string>
+    <string name="learning_state_reviewing">Tekrarda</string>
+    <string name="learning_state_mastered">Ustalaşıldı</string>
+    <string name="heatmap_section">ÇALIŞMA HARİTASI</string>
+    <string name="heatmap_summary">En uzun seri: %1$d gün · Bu ay %2$d aktif gün</string>
+    <string name="heatmap_less">Az</string>
+    <string name="heatmap_more">Çok</string>
+    <string name="journey_section">ÖĞRENME YOLCULUĞU</string>
     <string name="result_one_step_closer">İtalya yolculuğun için bir çalışma günü daha tamamlandı.</string>
     <string name="result_achievement_unlocked">Yeni başarım açıldı 🏆</string>
     <string name="progress_more_section">DAHA FAZLA</string>
@@ -361,6 +371,13 @@
     <string name="notif_streak_title">Serin riskte</string>
     <string name="notif_streak_text">Kısa bir testle ritmini koru. Bugün birkaç soru yeterli.</string>
     <string name="notif_action_dismiss">Yoksay</string>
+    <!-- Smart, real-data notifications -->
+    <string name="notif_smart_review_title">Tekrar zamanı</string>
+    <string name="notif_smart_review_text">%1$d soru tekrara hazır. Birkaç dakikada tazele, kalıcı hale getir.</string>
+    <string name="notif_smart_streak_title">Serine bir adım</string>
+    <string name="notif_smart_streak_text">%1$d günlük seriye ulaşmana bir çalışma kaldı. Bugün bir test çöz.</string>
+    <string name="notif_smart_weak_title">Bugünün odağı</string>
+    <string name="notif_smart_weak_text">%1$s konusunda kısa bir pratik bugün iyi gelir.</string>
 
     <!-- System Health -->
     <string name="system_health_title">Sistem Sağlığı</string>

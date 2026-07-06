@@ -29,7 +29,8 @@ class MotivationNotificationWorker(
                 val today = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis())
                 val hasTestToday = analytics.getSessions().any { TimeUnit.MILLISECONDS.toDays(it.tsMs) == today }
                 if (!hasTestToday) {
-                    showNotification(appContext.getString(R.string.notif_daily_reminder_title), appContext.getString(R.string.notif_daily_reminder_text))
+                    val msg = com.mioacademy.app.core.SmartNotifications.dailyReminder(appContext)
+                    showNotification(msg.title, msg.text)
                 }
             }
             TYPE_STREAK_WARNING -> {
