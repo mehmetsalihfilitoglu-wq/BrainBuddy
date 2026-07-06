@@ -1,10 +1,7 @@
 package com.mioacademy.app.core
 
 import android.content.Context
-import com.mioacademy.app.core.exam.AdmissionExamRegistry
-import com.mioacademy.app.quiz.SubjectFilter
 import com.mioacademy.app.quiz.WrongQuestionPoolStore
-import kotlin.math.roundToInt
 
 /**
  * Decides the ONE meaningful next action for the student, so Home never has to
@@ -29,41 +26,33 @@ class NextStepEngine(private val context: Context) {
         val meta: String,
         val actionLabel: String,
         val kind: Kind,
-        val subjectFilter: String?,   // for a subject-targeted quiz; null = mixed
+        val subjectFilter: String?,          // for a subject-targeted quiz; null = mixed
+        val missionCategories: Set<String>?, // curated mission category set (premium bias)
         val missionDone: Int,
         val missionTarget: Int
     )
 
     fun compute(): NextStep {
-        val analytics = AnalyticsStore(context)
         val pending = WrongQuestionPoolStore(context).size()
         val mission = DailyMissionManager(context).getTodayMission()
         val missionComplete = mission.testsDone >= mission.testsTarget
-        val perTest = QuizPrefs(context).questionsPerSession().coerceAtLeast(1)
-        val exam = AdmissionExamRegistry.get(UserGoalPrefs(context).getCareerPath().examType)
-        val minutes = (perTest * 0.8).roundToInt().coerceAtLeast(1)
 
+        // While the mission is unfinished, the next step IS today's mini exam —
+        // a balanced slice of the real entrance-exam blueprint (premium: quietly
+        // weighted toward weaker areas). See DailyMissionEngine.
         if (!missionComplete) {
-            val weakest = analytics.getWeakestTopicsWithCounts(1)
-                .firstOrNull { it.second.total >= ProgressInsights.MIN_TOPIC_QUESTIONS }
-            if (weakest != null) {
-                return NextStep(
-                    title = "$perTest ${weakest.first} sorusu",
-                    meta = "~$minutes dakika · Bugünün görevini ilerletir",
-                    actionLabel = "Başla",
-                    kind = Kind.PRACTICE,
-                    subjectFilter = SubjectFilter.forName(weakest.first),
-                    missionDone = mission.testsDone, missionTarget = mission.testsTarget
-                )
-            }
-            // No performance data yet → decided, safe starter from the active exam.
-            val subject = exam.subjects.firstOrNull()?.displayNameTr
+            val plan = DailyMissionEngine(context).plan()
+            val meta = if (plan.isPersonalized)
+                "${plan.examCode} formatı · ${plan.total} soru · son performansına göre kişiselleştirildi"
+            else
+                "${plan.examCode} formatı · ${plan.total} soru"
             return NextStep(
-                title = if (subject != null) "$perTest $subject sorusu" else "$perTest soruluk kısa test",
-                meta = "~$minutes dakika · Bugünün ilk adımı",
-                actionLabel = "Başla",
+                title = "Bugünkü Mini Sınav",
+                meta = meta,
+                actionLabel = "Sınava Başla",
                 kind = Kind.PRACTICE,
-                subjectFilter = subject?.let { SubjectFilter.forName(it) },
+                subjectFilter = null,
+                missionCategories = plan.executionCategories,
                 missionDone = mission.testsDone, missionTarget = mission.testsTarget
             )
         }
@@ -75,6 +64,7 @@ class NextStepEngine(private val context: Context) {
                 actionLabel = "Tekrara Başla",
                 kind = Kind.REVIEW,
                 subjectFilter = null,
+                missionCategories = null,
                 missionDone = mission.testsDone, missionTarget = mission.testsTarget
             )
         }
@@ -84,6 +74,7 @@ class NextStepEngine(private val context: Context) {
             actionLabel = "Ekstra Pratik",
             kind = Kind.DONE,
             subjectFilter = null,
+            missionCategories = null,
             missionDone = mission.testsDone, missionTarget = mission.testsTarget
         )
     }

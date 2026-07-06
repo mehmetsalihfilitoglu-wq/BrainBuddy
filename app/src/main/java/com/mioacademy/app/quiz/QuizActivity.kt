@@ -43,6 +43,8 @@ class QuizActivity : AppCompatActivity() {
         const val EXTRA_RETRY_AFTER_AD = "retry_after_ad"
         const val EXTRA_RETRY_UNLOCK_TOKEN = "retry_unlock_token"
         const val EXTRA_SUBJECT_FILTER = "subject_filter"
+        /** Daily-mission category set (DB Subject enum names, comma-separated) to draw from. */
+        const val EXTRA_MISSION_CATEGORIES = "mission_categories"
         /** Soft-fail minimum: serve shorter quiz down to this count instead of hard-failing. */
         private const val ABSOLUTE_MIN_QUESTIONS = 5
     }
@@ -444,9 +446,13 @@ class QuizActivity : AppCompatActivity() {
                     else -> {
                         pickerPath = "SUBJECT_ONLY"
                         val subjectFilter = intent.getStringExtra(EXTRA_SUBJECT_FILTER)?.trim()?.takeIf { it.isNotEmpty() }
+                        // Daily-mission may pass a curated category set (e.g. premium weak-biased).
+                        val missionCategories = intent.getStringExtra(EXTRA_MISSION_CATEGORIES)
+                            ?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() }?.toSet()
+                            ?.takeIf { it.isNotEmpty() }
                         val categories = subjectFilter?.let { tr ->
                             Subject.entries.find { it.tr == tr }?.let { setOf(it.name) }
-                        } ?: quizPrefs.selectedCategories()
+                        } ?: missionCategories ?: quizPrefs.selectedCategories()
                         val base = repo.pickQuizQuestions(levelGroup, targetCount, quizPrefs.difficulty(), categories, quizId)
                         if (dueQ != null && dueId != null && dueId !in base.map { it.id }) {
                             injectedDueId = dueId

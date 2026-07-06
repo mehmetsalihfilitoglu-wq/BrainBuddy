@@ -125,6 +125,9 @@ class HomeActivity : AppCompatActivity() {
                 com.mioacademy.app.core.NextStepEngine.Kind.REVIEW -> WrongPoolLauncher.launch(this)
                 else -> startActivity(Intent(this, QuizActivity::class.java).also { i ->
                     step.subjectFilter?.let { i.putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, it) }
+                    step.missionCategories?.takeIf { it.isNotEmpty() }?.let {
+                        i.putExtra(QuizActivity.EXTRA_MISSION_CATEGORIES, it.joinToString(","))
+                    }
                 })
             }
         }
