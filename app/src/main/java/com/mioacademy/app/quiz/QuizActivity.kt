@@ -673,6 +673,7 @@ class QuizActivity : AppCompatActivity() {
                 else -> -1
             }
             if (sel >= 0) {
+                com.mioacademy.app.ui.Interactions.lightTick(b.optionsGroup)
                 answers[q.id] = sel
                 if (index == questions.size - 1) {
                     // Auto-submit on last question - no Finish Test button

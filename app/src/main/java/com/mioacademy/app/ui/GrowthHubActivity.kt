@@ -320,13 +320,13 @@ class GrowthHubActivity : AppCompatActivity() {
     private fun setupNavigation() {
         val weeklyReward = WeeklyRewardStore(this)
 
-        findViewById<MaterialCardView>(R.id.cardDetailedStats).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardDetailedStats).onTap {
             startActivity(Intent(this, StatsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
         }
-        findViewById<MaterialCardView>(R.id.cardLeague).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardLeague).onTap {
             startActivity(Intent(this, LeagueScreen::class.java))
         }
-        findViewById<MaterialCardView>(R.id.cardWeeklyChest).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardWeeklyChest).onTap {
             val tokens = weeklyReward.claimWeeklyChest()
             if (tokens > 0) {
                 android.widget.Toast.makeText(this, "+$tokens donma jetonu!", android.widget.Toast.LENGTH_SHORT).show()

@@ -444,7 +444,15 @@ class QuizResultActivity : AppCompatActivity() {
         }
         lines.add(getString(R.string.result_one_step_closer))
         tv.text = lines.joinToString("\n")
+
+        // Gentle reveal — earned, not flashy.
         card.visibility = View.VISIBLE
+        card.alpha = 0f
+        card.translationY = 24f
+        card.animate().alpha(1f).translationY(0f).setStartDelay(220).setDuration(320).start()
+        if (newly.isNotEmpty()) {
+            card.postDelayed({ com.mioacademy.app.ui.Interactions.success(card) }, 260)
+        }
     }
 
     private fun buildTestPerformance(s: com.mioacademy.app.quiz.QuizSession): TestPerformance {

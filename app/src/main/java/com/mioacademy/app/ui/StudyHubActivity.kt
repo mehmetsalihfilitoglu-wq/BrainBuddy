@@ -39,13 +39,13 @@ class StudyHubActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() { finish() }
         })
-        findViewById<MaterialButton>(R.id.btnPracticeAll).setOnClickListener {
+        findViewById<MaterialButton>(R.id.btnPracticeAll).onTap {
             startActivity(Intent(this, QuizActivity::class.java))
         }
-        findViewById<MaterialCardView>(R.id.cardCoachTip).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardCoachTip).onTap {
             startActivity(Intent(this, com.mioacademy.app.coach.CoachScreen::class.java))
         }
-        findViewById<MaterialCardView>(R.id.cardDiscover).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardDiscover).onTap {
             startActivity(Intent(this, com.mioacademy.app.discover.DiscoverActivity::class.java))
         }
 
@@ -169,7 +169,7 @@ class StudyHubActivity : AppCompatActivity() {
         inner.addView(arrow)
         card.addView(inner)
 
-        card.setOnClickListener {
+        card.onTap {
             val filter = subjectFilterFor(subjectName)
             startActivity(Intent(this, QuizActivity::class.java).also { intent ->
                 filter?.let { intent.putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, it) }

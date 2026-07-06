@@ -197,4 +197,12 @@
         <item name="android:minHeight">56dp</item>
     </style>
 
+    <!-- Subtle, cohesive screen transitions (200ms slide+fade). -->
+    <style name="Animation.Mio" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/mio_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/mio_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/mio_close_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/mio_close_exit</item>
+    </style>
+
 </resources>

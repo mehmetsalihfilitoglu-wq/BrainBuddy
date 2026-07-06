@@ -13,6 +13,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.mioacademy.app.core.CareerPath
 import com.mioacademy.app.quiz.QuizActivity
+import com.mioacademy.app.ui.onTap
 import com.mioacademy.app.core.DailyMissionManager
 import com.mioacademy.app.core.exam.AdmissionExamRegistry
 import com.mioacademy.app.core.GamificationStore
@@ -175,25 +176,25 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        findViewById<MaterialCardView>(R.id.cardIdentityHero).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardIdentityHero).onTap {
             com.mioacademy.app.ui.AreaSwitcher.show(this) { refreshAll() }
         }
-        findViewById<MaterialCardView>(R.id.cardWrongPool).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardWrongPool).onTap {
             WrongPoolLauncher.launch(this)
         }
-        findViewById<MaterialButton>(R.id.btnStartMission).setOnClickListener {
+        findViewById<MaterialButton>(R.id.btnStartMission).onTap {
             startActivity(Intent(this, QuizActivity::class.java))
         }
-        findViewById<View>(R.id.btnSettings).setOnClickListener {
+        findViewById<View>(R.id.btnSettings).onTap {
             startActivity(Intent(this, com.mioacademy.app.ui.SettingsActivity::class.java))
         }
-        findViewById<MaterialCardView>(R.id.cardStudy).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardStudy).onTap {
             startActivity(Intent(this, StudyHubActivity::class.java))
         }
-        findViewById<MaterialCardView>(R.id.cardProgress).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardProgress).onTap {
             startActivity(Intent(this, GrowthHubActivity::class.java))
         }
-        findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener {
+        findViewById<MaterialCardView>(R.id.cardProfile).onTap {
             startActivity(Intent(this, StudentProfileActivity::class.java))
         }
     }

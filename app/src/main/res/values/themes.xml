@@ -52,6 +52,9 @@
 
         <!-- Default button style -->
         <item name="materialButtonStyle">@style/BBButton</item>
+
+        <!-- Cohesive, subtle screen transitions across the whole app -->
+        <item name="android:windowAnimationStyle">@style/Animation.Mio</item>
     </style>
 
 </resources>

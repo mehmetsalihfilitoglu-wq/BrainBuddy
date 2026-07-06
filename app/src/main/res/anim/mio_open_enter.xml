@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Incoming screen: slide in a touch from the right + fade. Subtle, 200ms. -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/decelerate_quint">
+    <translate android:fromXDelta="3%p" android:toXDelta="0" android:duration="200"/>
+    <alpha android:fromAlpha="0.85" android:toAlpha="1.0" android:duration="200"/>
+</set>
