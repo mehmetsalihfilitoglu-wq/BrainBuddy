@@ -17,7 +17,6 @@ import com.mioacademy.app.ui.onTap
 import com.mioacademy.app.core.DailyMissionManager
 import com.mioacademy.app.core.exam.AdmissionExamRegistry
 import com.mioacademy.app.core.GamificationStore
-import com.mioacademy.app.core.ItalianMomentProvider
 import com.mioacademy.app.core.UserGoalPrefs
 import com.mioacademy.app.quiz.WrongPoolLauncher
 import com.mioacademy.app.quiz.WrongQuestionPoolStore
@@ -70,7 +69,6 @@ class HomeActivity : AppCompatActivity() {
         refreshIdentityHero()
         refreshInsight()
         refreshDailyMission()
-        refreshItalianMoment()
         refreshWrongPool()
     }
 
@@ -161,12 +159,6 @@ class HomeActivity : AppCompatActivity() {
             androidx.core.content.ContextCompat.getColor(this, if (warning) R.color.warning_soft else R.color.emeraldSoft))
         tv.setTextColor(
             androidx.core.content.ContextCompat.getColor(this, if (warning) R.color.warning_text else R.color.emeraldDark))
-    }
-
-    private fun refreshItalianMoment() {
-        val moment = ItalianMomentProvider.next(this)
-        findViewById<TextView>(R.id.tvItalianPhrase).text = "🇮🇹  « ${moment.italian} »"
-        findViewById<TextView>(R.id.tvItalianTranslation).text = moment.turkish
     }
 
     private fun refreshWrongPool() {

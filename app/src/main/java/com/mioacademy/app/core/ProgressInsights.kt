@@ -183,7 +183,7 @@ class ProgressInsights(private val context: Context) {
             out.add(Insight("Son 7 günde ${w.questions} soru çözdün.", Tone.NEUTRAL))
         }
         if (s.days > 0 && s.completedToday) {
-            out.add(Insight("Bu hafta streak'ini koruyorsun. Bugünkü çalışman tamam.", Tone.POSITIVE))
+            out.add(Insight("Bugünkü çalışman tamam. Bu düzen uzun vadede fark yaratır.", Tone.POSITIVE))
         }
         if (w.activeDays >= 3) {
             out.add(Insight(
@@ -199,8 +199,33 @@ class ProgressInsights(private val context: Context) {
         return out
     }
 
-    /** The single most relevant insight for the compact Home slot (null if none). */
-    fun homeInsight(): Insight? = allInsights().firstOrNull()
+    /**
+     * The single insight for the compact Home slot. A risk/warning always wins
+     * (relevance over novelty); otherwise it rotates through the day among the
+     * positive/neutral insights, so a returning user sees something fresh each
+     * day — still 100% real data, never fabricated.
+     */
+    fun homeInsight(): Insight? {
+        val all = allInsights()
+        all.firstOrNull { it.tone == Tone.WARNING }?.let { return it }
+        val rest = all.filter { it.tone != Tone.WARNING }
+        if (rest.isEmpty()) return null
+        val day = TimeUnit.MILLISECONDS.toDays(nowMs).toInt()
+        return rest[((day % rest.size) + rest.size) % rest.size]
+    }
+
+    /** One prominent, human sentence summarizing the week for the Progress top. */
+    fun weeklyHeadline(): String? {
+        val w = weekly()
+        if (!w.hasData) return null
+        val d = w.accuracyDelta
+        return when {
+            d != null && d > 0 -> "Bu hafta doğruluğun geçen haftaya göre %$d arttı — istikrarın yükseliyor."
+            w.questionsPrev > 0 && w.questions >= w.questionsPrev ->
+                "Bu hafta geçen haftaya göre daha istikrarlısın: ${w.questions} soru çözdün."
+            else -> "Bu hafta ${w.questions} soru çözdün. Düzenli çalışman birikiyor."
+        }
+    }
 
     companion object {
         const val MIN_QUESTIONS_FOR_ACCURACY = 5

@@ -88,8 +88,9 @@ class GrowthHubActivity : AppCompatActivity() {
             return
         }
 
+        // Felt growth first — a human sentence — then the numbers as support.
+        insights.weeklyHeadline()?.let { container.addView(headlineCard(it)) }
         container.addView(weeklyStatsCard(insights.weekly()))
-        insights.allInsights().take(3).forEach { container.addView(insightCard(it)) }
 
         val ach = AchievementEngine(this)
         val unlocked = ach.unlocked()
@@ -139,20 +140,19 @@ class GrowthHubActivity : AppCompatActivity() {
         return col
     }
 
-    private fun insightCard(i: ProgressInsights.Insight): MaterialCardView {
-        val bg = if (i.tone == ProgressInsights.Tone.WARNING) R.color.warning_soft else R.color.emeraldSoft
-        val fg = if (i.tone == ProgressInsights.Tone.WARNING) R.color.warning_text else R.color.emeraldDark
+    /** Prominent, human weekly summary sentence — the "felt growth" lead. */
+    private fun headlineCard(sentence: String): MaterialCardView {
         val card = MaterialCardView(this).apply {
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
-            ).also { it.topMargin = dpi(8f) }
+            )
             radius = 16 * dp
             cardElevation = 0f
             strokeWidth = 0
-            setCardBackgroundColor(resources.getColor(bg, theme))
+            setCardBackgroundColor(resources.getColor(R.color.emeraldSoft, theme))
         }
-        val tv = text(i.text, 13f, fg, lineMultiplier = 1.4f).apply {
-            setPadding(dpi(14f), dpi(12f), dpi(14f), dpi(12f))
+        val tv = text(sentence, 15f, R.color.emeraldDark, bold = true, lineMultiplier = 1.4f).apply {
+            setPadding(dpi(16f), dpi(16f), dpi(16f), dpi(16f))
         }
         card.addView(tv)
         return card
