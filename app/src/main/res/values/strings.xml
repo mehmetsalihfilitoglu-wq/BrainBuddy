@@ -43,7 +43,7 @@
     <string name="reports_last_7_days">Son 7 gün</string>
     <string name="reports_monthly_summary">Aylık Özet</string>
     <string name="reports_last_30_days">Son 30 gün</string>
-    <string name="reports_error_generic">Bir hata oluştu. Lütfen tekrar deneyin.</string>
+    <string name="reports_error_generic">Rapor yüklenirken bir sorun oluştu. Tekrar deneyebilirsin.</string>
 
     <!-- League Screen Layout -->
     <string name="league_title">Lig</string>
@@ -66,7 +66,7 @@
     <string name="progress_topic_section">KONU PERFORMANSI</string>
     <string name="progress_strong_topics">Güçlü Konular</string>
     <string name="progress_weak_topics">Geliştirilecek Konular</string>
-    <string name="progress_no_data_yet">Henüz yeterli veri yok. Pratik yaptıkça görünecek.</string>
+    <string name="progress_no_data_yet">Birkaç test çözdükten sonra gelişim analizlerin burada görünmeye başlayacak.</string>
     <string name="progress_week_section">BU HAFTA</string>
     <string name="progress_week_empty">Henüz yeterli veri yok. Birkaç test çözdükten sonra haftalık gelişim analizlerin burada görünecek.</string>
     <string name="progress_week_questions">Soru</string>
@@ -205,13 +205,13 @@
     <string name="wrong_pool_home_sub">Sadece yanlış yaptığın sorular</string>
     <string name="wrong_pool_mode_chip">Yanlışlarını Çöz</string>
     <string name="wrong_pool_remaining">Kalan: %1$d</string>
-    <string name="wrong_pool_empty">Henüz havuzda yanlış soru yok.</string>
+    <string name="wrong_pool_empty">Henüz tekrar bekleyen soru yok. Yanlış yaptığın sorular burada akıllı tekrar planına alınacak.</string>
     <string name="wrong_pool_all_done">Tüm yanlışlarını temizledin.</string>
     <string name="wrong_pool_submit">Gönder</string>
     <string name="wrong_pool_pick_option">Bir seçenek işaretle.</string>
     <string name="wrong_pool_premium_title">Premium Özellik</string>
     <string name="wrong_pool_premium_message">Yanlışlarını tekrar çözmek için premium üyelik gerekiyor.</string>
-    <string name="wrong_pool_card_empty_sub">Henüz yanlış yok. Böyle devam.</string>
+    <string name="wrong_pool_card_empty_sub">Yanlışların burada akıllı tekrar planına alınır. Şimdilik temizsin.</string>
     <string name="wise_coach_default">Her gün küçük bir adım, seni İtalya\'ya taşır.</string>
 
     <!-- Settings -->
@@ -282,7 +282,7 @@
     <string name="account_sync_last">Son senkron: %1$s</string>
     <string name="account_sync_running">Senkronize ediliyor…</string>
     <string name="account_sync_running_btn">Senkronize ediliyor…</string>
-    <string name="account_sync_failed">Senkronizasyon başarısız. Tekrar dene.</string>
+    <string name="account_sync_failed">Senkronizasyon tamamlanamadı. Verilerin bu cihazda güvende — birazdan tekrar deneyebilirsin.</string>
     <string name="account_sync_cloud_note">Bulut senkronu bağlandığında verilerin tüm cihazlarına taşınacak. Şu anda bu cihazda güvende.</string>
     <string name="account_sync_now">Şimdi Senkronize Et</string>
     <string name="account_sync_done">Verilerin bu cihazda senkronize edildi.</string>
@@ -302,6 +302,8 @@
     <string name="auth_forgot">Şifreni mi unuttun?</string>
     <string name="auth_google">Google ile devam et</string>
     <string name="auth_please_wait">Lütfen bekle…</string>
+    <string name="auth_creating">Hesabın oluşturuluyor…</string>
+    <string name="auth_checking">Hesabın kontrol ediliyor…</string>
     <string name="auth_reset_title">Şifre sıfırlama</string>
     <string name="auth_reset_message">E-posta adresini gir. Gerçek e-posta gönderimi, bulut hesapları bağlandığında etkinleşecek.</string>
     <string name="auth_reset_cta">Gönder</string>
@@ -340,7 +342,7 @@
     <string name="report_pdf_error_copy">Kopyala</string>
     <string name="report_pdf_error_share_file">Hata Dosyasını Paylaş</string>
     <string name="report_create_error">Rapor oluşturulamadı</string>
-    <string name="report_no_data">Henüz rapor oluşturacak veri yok</string>
+    <string name="report_no_data">Haftalık raporların, yeterli çalışma verisi oluştuğunda hazırlanacak.</string>
     <string name="report_share_locked_btn">🔒 Raporu Paylaş (Premium)</string>
     <string name="report_share_locked_desc_title">Detaylı performans raporunu paylaş:</string>
     <string name="report_share_locked_bullet_1">✦ Yaptığın tüm yanlış soruları analiz et</string>
@@ -541,7 +543,7 @@
     <string name="email_reports_attach_pdf">Test PDF raporu ekle</string>
 
     <!-- Wrong review gate (post-test review flow) -->
-    <string name="wrong_review_empty">İncelenecek yanlış soru yok.</string>
+    <string name="wrong_review_empty">Şu an tekrar edilecek yanlış soru yok. Yeni testler çözdükçe tekrar kuyruğun güncellenecek.</string>
     <string name="wrong_review_locked_question">Bu sorunun detayları kilitli</string>
     <string name="wrong_review_gate_your_answer">Senin cevabın: %1$s ❌</string>
     <string name="wrong_review_gate_ad_prompt">Soruyu ve doğru cevabı görmek için\nreklam izleyin</string>

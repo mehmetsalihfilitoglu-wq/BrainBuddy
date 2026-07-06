@@ -61,7 +61,10 @@ class AccountSyncActivity : AppCompatActivity() {
     private fun render() {
         container.removeAllViews()
         container.addView(text("‹", 26f, R.color.textSecondary, bold = true).apply {
-            setPadding(0, 0, dpi(12f), dpi(8f)); isClickable = true; setOnClickListener { finish() }
+            setPadding(dpi(4f), dpi(4f), dpi(16f), dpi(8f)); minWidth = dpi(48f); minHeight = dpi(48f)
+            isClickable = true; isFocusable = true
+            contentDescription = getString(R.string.cd_back)
+            setOnClickListener { finish() }
         })
         container.addView(text(getString(R.string.account_title), 24f, R.color.textPrimary, bold = true))
 

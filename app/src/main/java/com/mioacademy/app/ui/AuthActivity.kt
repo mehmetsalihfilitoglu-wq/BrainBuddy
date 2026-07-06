@@ -58,7 +58,10 @@ class AuthActivity : AppCompatActivity() {
         scroll.addView(col); setContentView(scroll)
 
         col.addView(text("‹", 26f, R.color.textSecondary, bold = true).apply {
-            setPadding(0, 0, dpi(12f), dpi(8f)); isClickable = true; setOnClickListener { finish() }
+            setPadding(dpi(4f), dpi(4f), dpi(16f), dpi(8f)); minWidth = dpi(48f); minHeight = dpi(48f)
+            isClickable = true; isFocusable = true
+            contentDescription = getString(R.string.cd_back)
+            setOnClickListener { finish() }
         })
 
         titleView = text("", 24f, R.color.textPrimary, bold = true)
@@ -181,8 +184,12 @@ class AuthActivity : AppCompatActivity() {
     private fun setLoading(loading: Boolean) {
         primaryButton.isEnabled = !loading
         primaryButton.text = getString(
-            if (loading) R.string.auth_please_wait
-            else if (signUpMode) R.string.auth_signup_cta else R.string.auth_signin_cta
+            when {
+                loading && signUpMode -> R.string.auth_creating
+                loading -> R.string.auth_checking
+                signUpMode -> R.string.auth_signup_cta
+                else -> R.string.auth_signin_cta
+            }
         )
     }
 
