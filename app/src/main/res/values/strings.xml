@@ -240,6 +240,23 @@
     <string name="settings_restore_sub">Yedekten geri yükle (Import)</string>
     <string name="settings_section_about">Hakkında</string>
     <string name="settings_privacy_sub">Gizlilik politikamızı inceleyin</string>
+    <!-- Privacy & data rights (GDPR) -->
+    <string name="settings_data_rights_sub">Verilerini dışa aktar veya hesabını sil</string>
+    <string name="data_rights_title">Gizlilik ve Verilerim</string>
+    <string name="data_rights_intro">Verilerin senindir. Buradan tüm çalışma verini dışa aktarabilir ya da hesabını ve verilerini silebilirsin.</string>
+    <string name="data_rights_export">Verilerimi Dışa Aktar</string>
+    <string name="data_rights_export_sub">Tüm ilerlemeni ve ayarlarını bir JSON dosyası olarak indir ve paylaş.</string>
+    <string name="data_rights_export_error">Dışa aktarma sırasında bir sorun oluştu. Tekrar dene.</string>
+    <string name="data_rights_privacy">Gizlilik Politikası ve Şartlar</string>
+    <string name="data_rights_privacy_sub">Verilerini nasıl koruduğumuzu oku.</string>
+    <string name="data_rights_delete">Hesabımı ve Verilerimi Sil</string>
+    <string name="data_rights_delete_sub">Cihazındaki tüm çalışma verini kalıcı olarak siler.</string>
+    <string name="data_rights_delete_confirm">Tüm çalışma verin, ilerlemen ve ayarların bu cihazdan kalıcı olarak silinecek. Bu işlem geri alınamaz.</string>
+    <string name="data_rights_delete_confirm_yes">Sil</string>
+    <string name="data_rights_cancel">Vazgeç</string>
+    <string name="data_rights_deleted">Verilerin silindi.</string>
+    <string name="data_rights_delete_error">Silme sırasında bir sorun oluştu.</string>
+    <string name="data_rights_cloud_note">Bulut senkronu aktif olduğunda dışa aktarma ve silme, hesabının tüm cihazlarını ve sunucudaki verini de kapsayacak.</string>
     <string name="settings_motivation">Motivasyon bildirimleri</string>
     <string name="settings_motivation_sub">Günlük hatırlatma bildirimleri</string>
 

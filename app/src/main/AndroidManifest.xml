@@ -148,6 +148,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.DataRightsActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.PrivacyPolicyActivity"
             android:exported="false" />
 

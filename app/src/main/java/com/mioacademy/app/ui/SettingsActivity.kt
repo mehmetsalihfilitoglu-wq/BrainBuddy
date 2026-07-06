@@ -36,6 +36,9 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<android.view.View>(R.id.cardPrivacyPolicy)?.setOnClickListener {
             startActivity(Intent(this, com.mioacademy.app.legal.LegalHubActivity::class.java))
         }
+        findViewById<android.view.View>(R.id.cardDataRights)?.setOnClickListener {
+            startActivity(Intent(this, DataRightsActivity::class.java))
+        }
     }
 
 }
