@@ -42,6 +42,9 @@ class StudyHubActivity : AppCompatActivity() {
         findViewById<MaterialButton>(R.id.btnPracticeAll).setOnClickListener {
             startActivity(Intent(this, QuizActivity::class.java))
         }
+        findViewById<MaterialCardView>(R.id.cardCoachTip).setOnClickListener {
+            startActivity(Intent(this, com.mioacademy.app.coach.CoachScreen::class.java))
+        }
 
         val content = findViewById<View>(R.id.scrollContent)
         val origBottom = content.paddingBottom
@@ -174,18 +177,15 @@ class StudyHubActivity : AppCompatActivity() {
     }
 
     private fun refreshCoachTip() {
-        val card = findViewById<MaterialCardView>(R.id.cardCoachTip)
+        // The card is always visible as the single entry to the study coach.
+        // When there is enough data, preview the weakest-topic tip; otherwise
+        // show a neutral description of what the coach offers.
         val weakest = analytics.getWeakestTopicsWithCounts(1)
             .firstOrNull { it.second.total >= 5 }
-
-        if (weakest != null) {
-            val topicName = weakest.first
-            val accuracy = weakest.second.accuracy.roundToInt()
-            findViewById<TextView>(R.id.tvCoachMessage).text =
-                getString(R.string.study_hub_coach_tip, topicName, accuracy)
-            card.visibility = View.VISIBLE
+        findViewById<TextView>(R.id.tvCoachMessage).text = if (weakest != null) {
+            getString(R.string.study_hub_coach_tip, weakest.first, weakest.second.accuracy.roundToInt())
         } else {
-            card.visibility = View.GONE
+            getString(R.string.study_hub_coach_generic)
         }
     }
 

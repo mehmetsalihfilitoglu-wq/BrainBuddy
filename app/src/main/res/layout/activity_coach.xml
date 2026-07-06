@@ -22,29 +22,25 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <Button
+            <ImageView
                 android:id="@+id/btnCoachBack"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/coach_back"
-                android:textColor="@color/textSecondary"/>
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:src="@drawable/ic_arrow_back"
+                android:padding="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/textSecondary"
+                android:contentDescription="@string/coach_back"/>
 
             <TextView
                 android:id="@+id/tvCoachTitle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="@dimen/space_8"
                 android:text="@string/coach_screen_title"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/textPrimary"
-                android:gravity="center"/>
-
-            <!-- Spacer to balance back button -->
-            <View
-                android:layout_width="64dp"
-                android:layout_height="1dp"/>
+                android:textColor="@color/textPrimary"/>
         </LinearLayout>
 
         <!-- Daily recommendation card -->
