@@ -5,7 +5,9 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.lifecycle.lifecycleScope
 import com.mioacademy.app.BuildConfig
 import com.mioacademy.app.R
@@ -78,6 +80,18 @@ class QuizActivity : AppCompatActivity() {
         } catch (_: Exception) {
             finish()
         }
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (isFinishing) return
+                MaterialAlertDialogBuilder(this@QuizActivity)
+                    .setTitle(getString(R.string.quiz_abandon_title))
+                    .setMessage(getString(R.string.quiz_abandon_message))
+                    .setPositiveButton(getString(R.string.quiz_abandon_confirm)) { _, _ -> finish() }
+                    .setNegativeButton(getString(R.string.quiz_abandon_cancel), null)
+                    .show()
+            }
+        })
     }
 
 

@@ -51,6 +51,7 @@
 
     <!-- Footer: navigation buttons -->
     <LinearLayout
+        android:id="@+id/wizardFooter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

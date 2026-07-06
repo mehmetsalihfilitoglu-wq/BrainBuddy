@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -31,6 +34,17 @@ class GrowthHubActivity : AppCompatActivity() {
         analytics = AnalyticsStore(this)
 
         findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() { finish() }
+        })
+
+        val content = findViewById<View>(R.id.scrollContent)
+        val origBottom = content.paddingBottom
+        ViewCompat.setOnApplyWindowInsetsListener(content) { v, insets ->
+            val navBottom = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, origBottom + navBottom)
+            insets
+        }
 
         setupNavigation()
         refreshAll()

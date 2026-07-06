@@ -13,8 +13,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ViewFlipper
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -92,6 +95,20 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
         btnNext.setOnClickListener { onNextClicked() }
         btnBack.setOnClickListener { onBackClicked() }
+
+        // Apply safe bottom padding to the footer so the CTA is never hidden
+        // behind the gesture navigation bar on real devices.
+        val footer = findViewById<LinearLayout>(R.id.wizardFooter)
+        val origFooterBottom = footer.paddingBottom
+        ViewCompat.setOnApplyWindowInsetsListener(footer) { v, insets ->
+            val navBottom = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, origFooterBottom + navBottom)
+            insets
+        }
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() { onBackClicked() }
+        })
     }
 
     // ─── step navigation ─────────────────────────────────────────────────────

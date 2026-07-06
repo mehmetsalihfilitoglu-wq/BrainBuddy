@@ -11,8 +11,11 @@ import android.view.ViewGroup
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mioacademy.app.R
@@ -54,6 +57,17 @@ class StudentProfileActivity : AppCompatActivity() {
         tvDisplayName = findViewById(R.id.tvDisplayName)
 
         findViewById<View>(R.id.btnBack).setOnClickListener { finish() }
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() { finish() }
+        })
+
+        val content = findViewById<android.view.View>(R.id.scrollContent)
+        val origBottom = content.paddingBottom
+        ViewCompat.setOnApplyWindowInsetsListener(content) { v, insets ->
+            val navBottom = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, origBottom + navBottom)
+            insets
+        }
 
         refreshAll()
         setupAvatarGrid()
@@ -101,8 +115,7 @@ class StudentProfileActivity : AppCompatActivity() {
         val italianLevel = goal.italianLevel
 
         // Career identity
-        val personTitle = personTitleFor(career.name)
-        findViewById<TextView>(R.id.tvCareerGoal).text = "${career.emoji} Gelecekteki $personTitle"
+        findViewById<TextView>(R.id.tvCareerGoal).text = "${career.emoji} ${journeyTitleFor(career)}"
         findViewById<TextView>(R.id.tvGoalDegree).text = career.italianDegreeName
 
         // Destination cities
@@ -230,21 +243,21 @@ class StudentProfileActivity : AppCompatActivity() {
         shrink.start()
     }
 
-    private fun personTitleFor(careerName: String): String = when (careerName) {
-        "MEDICINE" -> "Doktor"
-        "DENTISTRY" -> "Diş Hekimi"
-        "ENGINEERING" -> "Mühendis"
-        "COMPUTER_SCIENCE" -> "Yazılımcı"
-        "ARCHITECTURE" -> "Mimar"
-        "ECONOMICS" -> "Ekonomist"
-        "LAW" -> "Avukat"
-        "PHARMACY" -> "Eczacı"
-        "BIOLOGY" -> "Biyolog"
-        "PSYCHOLOGY" -> "Psikolog"
-        "VETERINARY" -> "Veteriner"
-        "MATHEMATICS" -> "Matematikçi"
-        "DESIGN" -> "Tasarımcı"
-        else -> "Öğrenci"
+    private fun journeyTitleFor(career: com.mioacademy.app.core.CareerPath): String = when (career) {
+        com.mioacademy.app.core.CareerPath.MEDICINE -> "Tıp Yolculuğu"
+        com.mioacademy.app.core.CareerPath.DENTISTRY -> "Diş Hekimliği Yolculuğu"
+        com.mioacademy.app.core.CareerPath.ENGINEERING -> "Mühendislik Yolculuğu"
+        com.mioacademy.app.core.CareerPath.COMPUTER_SCIENCE -> "Bilgisayar Bilimi Yolculuğu"
+        com.mioacademy.app.core.CareerPath.ARCHITECTURE -> "Mimarlık Yolculuğu"
+        com.mioacademy.app.core.CareerPath.ECONOMICS -> "Ekonomi Yolculuğu"
+        com.mioacademy.app.core.CareerPath.LAW -> "Hukuk Yolculuğu"
+        com.mioacademy.app.core.CareerPath.PHARMACY -> "Eczacılık Yolculuğu"
+        com.mioacademy.app.core.CareerPath.BIOLOGY -> "Biyoloji Yolculuğu"
+        com.mioacademy.app.core.CareerPath.PSYCHOLOGY -> "Psikoloji Yolculuğu"
+        com.mioacademy.app.core.CareerPath.VETERINARY -> "Veteriner Yolculuğu"
+        com.mioacademy.app.core.CareerPath.MATHEMATICS -> "Matematik Yolculuğu"
+        com.mioacademy.app.core.CareerPath.DESIGN -> "Tasarım Yolculuğu"
+        com.mioacademy.app.core.CareerPath.OTHER -> "İtalya Yolculuğu"
     }
 }
 

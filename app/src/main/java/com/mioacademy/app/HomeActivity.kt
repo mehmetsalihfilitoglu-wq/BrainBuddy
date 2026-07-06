@@ -7,9 +7,12 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.mioacademy.app.core.CareerPath
+import com.mioacademy.app.quiz.QuizActivity
 import com.mioacademy.app.core.DailyMissionManager
 import com.mioacademy.app.core.exam.AdmissionExamRegistry
 import com.mioacademy.app.core.GamificationStore
@@ -42,6 +45,13 @@ class HomeActivity : AppCompatActivity() {
         setupBackPress()
         setupNavigation()
 
+        val content = findViewById<android.view.View>(R.id.scrollContent)
+        val origBottom = content.paddingBottom
+        ViewCompat.setOnApplyWindowInsetsListener(content) { v, insets ->
+            val navBottom = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, origBottom + navBottom)
+            insets
+        }
     }
 
     override fun onResume() {
@@ -76,12 +86,11 @@ class HomeActivity : AppCompatActivity() {
         val goal = goalPrefs.getGoal()
         val career = goal.careerPath
 
-        val personTitle = personTitleFor(career)
         val freeze = if (gam.freezeTokens() > 0) " 🧊" else ""
         val streakDays = gam.streakDays()
 
         findViewById<TextView>(R.id.tvCareerIdentity).text =
-            "${career.emoji} Gelecekteki $personTitle"
+            "${career.emoji} ${journeyTitleFor(career)}"
         findViewById<TextView>(R.id.tvItalianDegree).text = career.italianDegreeName
 
         val streakLabel = if (streakDays == 1) "1 gün$freeze" else "$streakDays gün$freeze"
@@ -146,7 +155,7 @@ class HomeActivity : AppCompatActivity() {
             WrongPoolLauncher.launch(this)
         }
         findViewById<MaterialButton>(R.id.btnStartMission).setOnClickListener {
-            startActivity(Intent(this, StudyHubActivity::class.java))
+            startActivity(Intent(this, QuizActivity::class.java))
         }
         findViewById<View>(R.id.btnSettings).setOnClickListener {
             startActivity(Intent(this, com.mioacademy.app.ui.SettingsActivity::class.java))
@@ -181,20 +190,20 @@ class HomeActivity : AppCompatActivity() {
         })
     }
 
-    private fun personTitleFor(career: CareerPath): String = when (career) {
-        CareerPath.MEDICINE -> "Doktor"
-        CareerPath.DENTISTRY -> "Diş Hekimi"
-        CareerPath.ENGINEERING -> "Mühendis"
-        CareerPath.COMPUTER_SCIENCE -> "Yazılımcı"
-        CareerPath.ARCHITECTURE -> "Mimar"
-        CareerPath.ECONOMICS -> "Ekonomist"
-        CareerPath.LAW -> "Avukat"
-        CareerPath.PHARMACY -> "Eczacı"
-        CareerPath.BIOLOGY -> "Biyolog"
-        CareerPath.PSYCHOLOGY -> "Psikolog"
-        CareerPath.VETERINARY -> "Veteriner"
-        CareerPath.MATHEMATICS -> "Matematikçi"
-        CareerPath.DESIGN -> "Tasarımcı"
-        CareerPath.OTHER -> "Öğrenci"
+    private fun journeyTitleFor(career: CareerPath): String = when (career) {
+        CareerPath.MEDICINE -> "Tıp Yolculuğu"
+        CareerPath.DENTISTRY -> "Diş Hekimliği Yolculuğu"
+        CareerPath.ENGINEERING -> "Mühendislik Yolculuğu"
+        CareerPath.COMPUTER_SCIENCE -> "Bilgisayar Bilimi Yolculuğu"
+        CareerPath.ARCHITECTURE -> "Mimarlık Yolculuğu"
+        CareerPath.ECONOMICS -> "Ekonomi Yolculuğu"
+        CareerPath.LAW -> "Hukuk Yolculuğu"
+        CareerPath.PHARMACY -> "Eczacılık Yolculuğu"
+        CareerPath.BIOLOGY -> "Biyoloji Yolculuğu"
+        CareerPath.PSYCHOLOGY -> "Psikoloji Yolculuğu"
+        CareerPath.VETERINARY -> "Veteriner Yolculuğu"
+        CareerPath.MATHEMATICS -> "Matematik Yolculuğu"
+        CareerPath.DESIGN -> "Tasarım Yolculuğu"
+        CareerPath.OTHER -> "İtalya Yolculuğu"
     }
 }
