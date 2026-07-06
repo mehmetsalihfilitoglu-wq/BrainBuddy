@@ -15,7 +15,7 @@ class ReportShareActivity : AppCompatActivity() {
         val to = EmailReportPrefs(this).reportEmail().ifBlank { null }
             ?: com.mioacademy.app.auth.AuthProvider.get(this).currentEmail()
             ?: ""
-        val subject = subjFile.takeIf { it.exists() }?.readText() ?: "MioAcademy Rapor"
+        val subject = subjFile.takeIf { it.exists() }?.readText() ?: "Mioitalia Rapor"
         val body = file.takeIf { it.exists() }?.readText() ?: ""
         file.delete()
         subjFile.delete()

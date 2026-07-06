@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MioAcademy</string>
+    <string name="app_name">Mioitalia</string>
     <string name="test_preparing">Test hazırlanıyor…</string>
 
     <!-- Quiz Screen -->
@@ -82,8 +82,8 @@
     <string name="study_hub_stats_accuracy">Doğruluk</string>
     <string name="study_hub_stats_tests">Test</string>
     <string name="study_hub_stats_questions">Soru</string>
-    <string name="study_hub_coach_label">Koç Önerisi</string>
-    <string name="study_hub_coach_tip">%1$s konusunda güçlenebilirsin (%2$d%% doğruluk). Bugün bu konuya odaklan.</string>
+    <string name="study_hub_coach_label">Mentor Önerisi</string>
+    <string name="study_hub_coach_tip">%1$s pratiği seni İtalya\'daki hedefe taşır (%2$d%% doğruluk). Bugün buraya odaklan.</string>
 
     <!-- Home Phase 2C: Mission + Nav -->
     <string name="home_mission_label">BUGÜNKÜ GÖREV</string>
@@ -305,16 +305,16 @@
     <string name="auth_password_mismatch">Şifreler eşleşmiyor</string>
 
     <!-- Reports notifications -->
-    <string name="report_ready_title">MioAcademy Raporu Hazır</string>
+    <string name="report_ready_title">Mioitalia Raporu Hazır</string>
     <string name="report_ready_text">Dokunarak manuel gönderebilirsiniz</string>
     <string name="report_channel_name">Raporlar</string>
     <string name="report_share_prompt">Raporu Gönder</string>
 
     <!-- Motivation notifications -->
     <string name="notif_motivation_channel">Motivasyon</string>
-    <string name="notif_daily_reminder_title">MioAcademy</string>
+    <string name="notif_daily_reminder_title">Mioitalia</string>
     <string name="notif_daily_reminder_text">Bugün test çözmedin</string>
-    <string name="notif_streak_title">MioAcademy</string>
+    <string name="notif_streak_title">Mioitalia</string>
     <string name="notif_streak_text">Seri bitiyor!</string>
     <string name="notif_action_dismiss">Yoksay</string>
 
@@ -359,7 +359,7 @@
     <string name="profile_settings">Ayarlar</string>
     <string name="profile_league">Lig</string>
     <string name="profile_premium">Premium</string>
-    <string name="profile_premium_sub">Sınırsız erişim ve özel içerikler</string>
+    <string name="profile_premium_sub">Eksiksiz İtalya yolculuğu deneyimi</string>
     <string name="profile_name_saved">Kaydedildi ✓</string>
 
     <!-- Last Test Replay -->
@@ -447,7 +447,7 @@
     <string name="paywall_dismiss">Belki sonra</string>
 
     <!-- Coach Screen (Phase 2G) -->
-    <string name="coach_screen_title">Akademi Koçun</string>
+    <string name="coach_screen_title">İtalya Mentorün</string>
     <string name="coach_daily_label">BUGÜNKÜ ÖNERİ</string>
     <string name="coach_weekly_label">HAFTALIK PLAN</string>
     <string name="coach_remedial_btn">Mini Tekrar Testi Başlat</string>

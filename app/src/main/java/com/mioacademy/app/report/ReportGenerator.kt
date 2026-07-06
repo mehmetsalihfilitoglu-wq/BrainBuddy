@@ -80,7 +80,7 @@ object ReportGenerator {
         return """
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>$title</title></head><body style="font-family:sans-serif;padding:20px">
-<h1>MioAcademy - $title</h1>
+<h1>Mioitalia - $title</h1>
 <p>$date | Profil: ${d.profileName}</p>
 <hr>
 <h2>Test Özeti</h2>
@@ -94,7 +94,7 @@ object ReportGenerator {
 <h2>İlerleme</h2>
 <p>Seri: ${d.streakDays} gün | XP: ${d.xp} | Seviye: ${d.level}</p>
 <hr>
-<p style="font-size:11px;color:#888">Bu rapor MioAcademy tarafından oluşturuldu. Gizlilik ayarlarından e-posta raporlarını kapatabilirsiniz.</p>
+<p style="font-size:11px;color:#888">Bu rapor Mioitalia tarafından oluşturuldu. Gizlilik ayarlarından e-posta raporlarını kapatabilirsiniz.</p>
 </body></html>
         """.trimIndent()
     }
@@ -104,7 +104,7 @@ object ReportGenerator {
         val date = SimpleDateFormat("d MMMM yyyy", Locale("tr")).format(Calendar.getInstance().time)
         val weak = if (d.weakTopics.isEmpty()) "-" else d.weakTopics.joinToString(", ")
         return """
-MioAcademy - $title
+Mioitalia - $title
 $date | Profil: ${d.profileName}
 
 Test Özeti:
