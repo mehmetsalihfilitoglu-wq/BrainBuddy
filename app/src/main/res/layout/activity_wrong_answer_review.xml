@@ -75,7 +75,7 @@
             android:id="@+id/questionCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="@dimen/radius_md"
             app:cardElevation="4dp"
             app:cardBackgroundColor="@color/white"
             android:layout_marginTop="16dp"

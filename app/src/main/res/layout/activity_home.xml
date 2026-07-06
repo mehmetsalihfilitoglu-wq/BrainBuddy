@@ -53,10 +53,10 @@
 
             <ImageView
                 android:id="@+id/btnSettings"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:src="@drawable/ic_settings"
-                android:padding="8dp"
+                android:padding="12dp"
                 app:tint="@color/textSecondary"
                 android:contentDescription="@null"/>
         </LinearLayout>
@@ -103,7 +103,7 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="@dimen/space_16"
                     android:layout_marginBottom="@dimen/space_16"
-                    android:background="#33FFFFFF"/>
+                    android:background="@color/divider_on_brand"/>
 
                 <!-- Stats row: Streak | XP | Level -->
                 <LinearLayout
@@ -125,7 +125,7 @@
                     <View
                         android:layout_width="1dp"
                         android:layout_height="14dp"
-                        android:background="#33FFFFFF"/>
+                        android:background="@color/divider_on_brand"/>
 
                     <TextView
                         android:id="@+id/pointsBadge"
@@ -140,7 +140,7 @@
                     <View
                         android:layout_width="1dp"
                         android:layout_height="14dp"
-                        android:background="#33FFFFFF"/>
+                        android:background="@color/divider_on_brand"/>
 
                     <TextView
                         android:id="@+id/levelBadge"
@@ -162,7 +162,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_16"
             app:cardCornerRadius="@dimen/app_card_radius"
-            app:cardElevation="@dimen/space_4"
+            app:cardElevation="@dimen/elevation_raised"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="0dp">
 
@@ -307,7 +307,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_12"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="@dimen/radius_md"
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/emeraldSoft"
             app:strokeWidth="0dp">
@@ -355,7 +355,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="@dimen/space_4"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="@dimen/radius_md"
                 app:cardElevation="0dp"
                 app:cardBackgroundColor="@color/white"
                 app:strokeWidth="1dp"
@@ -393,7 +393,7 @@
                 android:layout_weight="1"
                 android:layout_marginStart="@dimen/space_4"
                 android:layout_marginEnd="@dimen/space_4"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="@dimen/radius_md"
                 app:cardElevation="0dp"
                 app:cardBackgroundColor="@color/white"
                 app:strokeWidth="1dp"
@@ -430,7 +430,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="@dimen/space_4"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="@dimen/radius_md"
                 app:cardElevation="0dp"
                 app:cardBackgroundColor="@color/white"
                 app:strokeWidth="1dp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="@dimen/radius_md"
     app:cardElevation="2dp"
     app:cardBackgroundColor="@color/bb_card"
     app:strokeWidth="0dp">
@@ -83,7 +83,7 @@
             android:paddingEnd="4dp"
             android:paddingBottom="6dp"
             android:paddingTop="2dp"
-            android:textSize="9sp"
+            android:textSize="10sp"
             android:textColor="@color/bb_text_muted"
             android:maxLines="1"
             android:ellipsize="end"

@@ -44,6 +44,10 @@
     <color name="text_on_emerald">#FFFFFF</color>
     <!-- White 90% — subtitles on green hero cards must stay clearly readable -->
     <color name="text_on_emerald_muted">#E6FFFFFF</color>
+    <!-- White 70% — tertiary hints on green hero cards -->
+    <color name="text_on_brand_tertiary">#B3FFFFFF</color>
+    <!-- White 20% — hairline dividers inside green hero cards -->
+    <color name="divider_on_brand">#33FFFFFF</color>
 
     <!-- ── Material3 semantic tokens ────────────────────────────────────────── -->
     <color name="bb_primary">@color/brand_primary</color>

@@ -28,10 +28,10 @@
 
             <ImageView
                 android:id="@+id/btnBack"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:src="@drawable/ic_arrow_back"
-                android:padding="6dp"
+                android:padding="12dp"
                 app:tint="@color/textSecondary"
                 android:contentDescription="@null"/>
 
@@ -87,7 +87,7 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="@dimen/space_16"
                     android:layout_marginBottom="@dimen/space_16"
-                    android:background="#33FFFFFF"/>
+                    android:background="@color/divider_on_brand"/>
 
                 <!-- Stats row -->
                 <LinearLayout
@@ -124,7 +124,7 @@
                     <View
                         android:layout_width="1dp"
                         android:layout_height="28dp"
-                        android:background="#33FFFFFF"/>
+                        android:background="@color/divider_on_brand"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -154,7 +154,7 @@
                     <View
                         android:layout_width="1dp"
                         android:layout_height="28dp"
-                        android:background="#33FFFFFF"/>
+                        android:background="@color/divider_on_brand"/>
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -222,7 +222,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_12"
             android:visibility="gone"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="@dimen/radius_md"
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/emeraldSoft"
             app:strokeWidth="0dp">

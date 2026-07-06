@@ -13,8 +13,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        findViewById<android.view.View>(R.id.btnBack).setOnClickListener { finish() }
 
         val notifPrefs = NotificationPrefs(this)
         findViewById<android.widget.Switch>(R.id.switchMotivationNotifications)?.apply {
@@ -38,8 +37,4 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressedDispatcher.onBackPressed()
-        return true
-    }
 }

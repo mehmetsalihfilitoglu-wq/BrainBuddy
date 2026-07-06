@@ -466,8 +466,8 @@
                         <ImageButton
                             android:id="@+id/btnPerformanceInfo"
                             style="@style/Widget.Material3.Button.IconButton"
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:contentDescription="@string/performance_info_title"
                             android:src="@drawable/ic_info_outline"
