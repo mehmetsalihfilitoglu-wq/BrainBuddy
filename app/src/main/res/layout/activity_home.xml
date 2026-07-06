@@ -245,108 +245,12 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- ─── WRONG POOL CARD (conditional) ─── -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardWrongPool"
-            style="@style/Widget.BrainBuddy.AppCardWhite"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/app_accent_bar_height"
-                    android:background="@color/bb_error"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/space_16"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_quiz"
-                        app:tint="@color/bb_error"
-                        android:contentDescription="@null"/>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="@dimen/space_12"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/wrong_pool_home_title"
-                            style="@style/TextAppearance.BrainBuddy.AppTitle"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/space_4"
-                            android:text="@string/wrong_pool_home_sub"
-                            style="@style/TextAppearance.BrainBuddy.AppSubtitle"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ─── ITALIAN MOMENT STRIP ─── -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            app:cardCornerRadius="@dimen/radius_md"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/emeraldSoft"
-            app:strokeWidth="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/space_24"
-                android:paddingEnd="@dimen/space_24"
-                android:paddingTop="@dimen/space_16"
-                android:paddingBottom="@dimen/space_16">
-
-                <TextView
-                    android:id="@+id/tvItalianPhrase"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🇮🇹 « Ce la farai! »"
-                    android:textSize="15sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/emeraldDark"/>
-
-                <TextView
-                    android:id="@+id/tvItalianTranslation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(Başarabilirsin!)"
-                    android:textSize="12sp"
-                    android:textColor="@color/textSecondary"
-                    android:layout_marginTop="@dimen/space_4"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ─── SECONDARY NAV ROW ─── -->
+        <!-- ─── SECONDARY NAV ROW (Study | Progress | Profile) ─── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/space_24"
+            android:layout_marginTop="@dimen/space_16"
             android:baselineAligned="false">
 
             <com.google.android.material.card.MaterialCardView
@@ -461,6 +365,102 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
+
+        <!-- ─── WRONG POOL CARD (conditional) ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardWrongPool"
+            style="@style/Widget.BrainBuddy.AppCardWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/app_accent_bar_height"
+                    android:background="@color/bb_error"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_16"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_quiz"
+                        app:tint="@color/bb_error"
+                        android:contentDescription="@null"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/space_12"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/wrong_pool_home_title"
+                            style="@style/TextAppearance.BrainBuddy.AppTitle"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:text="@string/wrong_pool_home_sub"
+                            style="@style/TextAppearance.BrainBuddy.AppSubtitle"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── ITALIAN MOMENT STRIP ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            app:cardCornerRadius="@dimen/radius_md"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/emeraldSoft"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/space_24"
+                android:paddingEnd="@dimen/space_24"
+                android:paddingTop="@dimen/space_16"
+                android:paddingBottom="@dimen/space_16">
+
+                <TextView
+                    android:id="@+id/tvItalianPhrase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🇮🇹 « Ce la farai! »"
+                    android:textSize="15sp"
+                    android:textStyle="italic"
+                    android:textColor="@color/emeraldDark"/>
+
+                <TextView
+                    android:id="@+id/tvItalianTranslation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(Başarabilirsin!)"
+                    android:textSize="12sp"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="@dimen/space_4"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

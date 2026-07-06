@@ -288,31 +288,14 @@
                 android:padding="@dimen/space_16">
 
                 <!-- Career identity row -->
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvCareerGoal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tvCareerGoal"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="🎓 Gelecekteki Öğrenci"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/textPrimary"/>
-
-                    <TextView
-                        android:id="@+id/tvGoalEdit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/profile_goal_edit"
-                        android:textSize="11sp"
-                        android:textColor="@color/emeraldDark"
-                        android:paddingStart="@dimen/space_8"/>
-                </LinearLayout>
+                    android:text="🎓 Gelecekteki Öğrenci"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"/>
 
                 <!-- Italian degree -->
                 <TextView
@@ -476,51 +459,6 @@
                     android:layout_weight="1"
                     android:layout_marginStart="@dimen/space_12"
                     android:text="@string/profile_settings"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/textPrimary"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="22sp"
-                    android:textColor="@color/textSecondary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- League -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardLeague"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_8"
-            app:cardCornerRadius="@dimen/radius_md"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/white"
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/border">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="@dimen/space_16"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:text="🏅"
-                    android:textSize="16sp"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/space_12"
-                    android:text="@string/profile_league"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/textPrimary"/>

@@ -139,9 +139,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun refreshItalianMoment() {
-        val moment = ItalianMomentProvider.today()
+        val moment = ItalianMomentProvider.next(this)
         findViewById<TextView>(R.id.tvItalianPhrase).text = "🇮🇹  « ${moment.italian} »"
-        findViewById<TextView>(R.id.tvItalianTranslation).text = "(${moment.turkish})"
+        findViewById<TextView>(R.id.tvItalianTranslation).text = moment.turkish
     }
 
     private fun refreshWrongPool() {

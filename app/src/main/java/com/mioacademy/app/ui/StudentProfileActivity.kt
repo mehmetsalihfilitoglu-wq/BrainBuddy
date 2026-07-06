@@ -29,7 +29,6 @@ import com.mioacademy.app.core.GamificationStore
 import com.mioacademy.app.core.StudentProfileStore
 import com.mioacademy.app.core.UserGoalPrefs
 import com.mioacademy.app.quiz.PremiumPaywallSheet
-import com.mioacademy.app.social.LeagueScreen
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -189,14 +188,8 @@ class StudentProfileActivity : AppCompatActivity() {
         findViewById<View>(R.id.btnAvatarShop).setOnClickListener {
             startActivity(Intent(this, AvatarShopScreen::class.java))
         }
-        findViewById<View>(R.id.tvGoalEdit).setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
         findViewById<MaterialCardView>(R.id.cardSettings).setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
-        }
-        findViewById<MaterialCardView>(R.id.cardLeague).setOnClickListener {
-            startActivity(Intent(this, LeagueScreen::class.java))
         }
         findViewById<MaterialCardView>(R.id.cardPremium).setOnClickListener {
             PremiumPaywallSheet().show(supportFragmentManager, PremiumPaywallSheet.TAG)

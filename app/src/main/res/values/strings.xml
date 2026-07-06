@@ -27,8 +27,8 @@
     <string name="quiz_result_congrats">Tebrikler!</string>
     <string name="quiz_result_completed">Tamamlandı</string>
     <string name="quiz_result_load_error">Sonuç yüklenemedi</string>
-    <string name="quiz_result_celebration_title">Kutlama!</string>
-    <string name="quiz_result_great">Harika!</string>
+    <string name="quiz_result_celebration_title">Tebrikler</string>
+    <string name="quiz_result_great">Çok iyi</string>
     <string name="quiz_result_review_wrong">Yanlışları İncele</string>
     <string name="quiz_result_correct_wrong_blank">Doğru | Yanlış | Boş</string>
 
@@ -125,7 +125,7 @@
     <string name="wrong_pool_pick_option">Bir seçenek işaretle.</string>
     <string name="wrong_pool_premium_title">Premium Özellik</string>
     <string name="wrong_pool_premium_message">Yanlışlarını tekrar çözmek için premium üyelik gerekiyor.</string>
-    <string name="wrong_pool_card_empty_sub">Henüz yanlışın yok 🎉</string>
+    <string name="wrong_pool_card_empty_sub">Henüz yanlış yok. Böyle devam.</string>
     <string name="wise_coach_default">Her gün küçük bir adım, seni İtalya\'ya taşır.</string>
 
     <!-- Settings -->
@@ -318,14 +318,12 @@
     <!-- Profile Screen (Phase 2F) -->
     <string name="profile_screen_title">Profil</string>
     <string name="profile_goal_section">HEDEFİM</string>
-    <string name="profile_goal_edit">Değiştir</string>
     <string name="profile_achievements_section">BAŞARILARIM</string>
     <string name="profile_achievements_empty">Henüz başarı kazanılmadı. Testleri çöz ve rozetler kazan!</string>
     <string name="profile_avatars_section">MASKOTLARIM</string>
     <string name="profile_avatar_shop">Mağaza →</string>
     <string name="profile_more_section">DAHA FAZLA</string>
     <string name="profile_settings">Ayarlar</string>
-    <string name="profile_league">Lig</string>
     <string name="profile_premium">Premium</string>
     <string name="profile_premium_sub">Eksiksiz İtalya yolculuğu deneyimi</string>
     <string name="profile_name_saved">Kaydedildi ✓</string>
@@ -440,7 +438,7 @@
     <string name="perf_insight_declining_weak">Performansın düşüyor. %1$s konusuna odaklan.</string>
     <string name="perf_insight_declining_no_weak">Performansın düşüyor. Daha fazla pratik yap.</string>
     <string name="perf_insight_improving_weak">Gelişiyorsun! %1$s konusunu biraz daha çalış.</string>
-    <string name="perf_insight_improving">Harika gidiyorsun, devam et!</string>
+    <string name="perf_insight_improving">İyi gidiyorsun, aynı tempoda devam et.</string>
     <string name="perf_insight_stable_weak">İstikrarlısın. %1$s konusunu geliştirmeyi dene.</string>
     <string name="perf_insight_stable">Performansın istikrarlı. Böyle devam!</string>
 

@@ -19,25 +19,24 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
-            <Button
+            <ImageView
                 android:id="@+id/btnLeagueBack"
-                style="@style/BBButtonAlt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="← Geri"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:paddingHorizontal="12dp"/>
+                android:layout_width="@dimen/touch_target"
+                android:layout_height="@dimen/touch_target"
+                android:src="@drawable/ic_arrow_back"
+                android:padding="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/textSecondary"
+                android:contentDescription="@string/btn_back"/>
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Lig"
-                android:textSize="24sp"
+                android:layout_marginStart="@dimen/space_8"
+                android:text="@string/league_title"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_text"
-                android:gravity="center"/>
+                android:textColor="@color/bb_text"/>
         </LinearLayout>
 
         <!-- Tier Info Card -->
