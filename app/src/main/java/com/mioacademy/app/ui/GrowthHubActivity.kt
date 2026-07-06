@@ -154,8 +154,11 @@ class GrowthHubActivity : AppCompatActivity() {
             return
         }
         val r = com.mioacademy.app.core.ExamReadinessEngine(this).compute()
-        if (r.hasEnoughData) container.addView(readinessCard(r))
-        else container.addView(infoCard(getString(R.string.readiness_not_enough)))
+        if (r.hasEnoughData) {
+            // Record today's readiness so reports/coach can show honest change over time.
+            com.mioacademy.app.core.ReadinessSnapshotStore(this).captureIfNewDay(r.score)
+            container.addView(readinessCard(r))
+        } else container.addView(infoCard(getString(R.string.readiness_not_enough)))
         insights.premiumAnalysis().take(3).forEach { i ->
             container.addView(headlineToneCard(i))
         }

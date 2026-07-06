@@ -23,6 +23,16 @@ data class SyncRecord(
     /** Stable composite id — the remote document key. Study-area id is embedded, never mixed. */
     val documentId: String
         get() = if (scope == SyncScope.GLOBAL) "global__$storeKey" else "area__${areaId}__$storeKey"
+
+    /**
+     * The intended Firestore path for this record (see docs/BACKEND_ARCHITECTURE.md).
+     * GLOBAL → users/{uid}/<remotePath>; STUDY_AREA → users/{uid}/areas/{areaId}/<remotePath>.
+     */
+    fun firestorePath(uid: String): String {
+        val segment = SyncRegistry.specFor(storeKey)?.remotePath ?: storeKey
+        return if (scope == SyncScope.GLOBAL) "users/$uid/$segment"
+        else "users/$uid/areas/$areaId/$segment"
+    }
 }
 
 sealed class SyncResult {

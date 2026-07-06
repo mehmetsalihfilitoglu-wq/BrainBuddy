@@ -47,6 +47,10 @@ object ProfileScopedPrefs {
     fun reports(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_reports", migrationKey = "reports_v1")
 
+    /** Exam-readiness snapshots over time (for readiness-change trends + reports). */
+    fun readinessSnapshots(context: Context): SharedPreferences =
+        profilePrefsWithMigration(context, baseName = "bb_readiness_snapshots", migrationKey = "readiness_snapshots_v1")
+
     fun blockedApps(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "bb_blocked_apps", migrationKey = "blocked_apps_v1")
 
