@@ -13,7 +13,7 @@ class ReportShareActivity : AppCompatActivity() {
         val file = File(filesDir, "pending_report.txt")
         val subjFile = File(filesDir, "pending_report_subject.txt")
         val to = EmailReportPrefs(this).reportEmail().ifBlank { null }
-            ?: com.mioacademy.app.auth.AuthProvider.get(this).currentEmail()
+            ?: com.mioacademy.app.auth.AuthProvider.currentUser(this)?.email
             ?: ""
         val subject = subjFile.takeIf { it.exists() }?.readText() ?: "Mioitalia Rapor"
         val body = file.takeIf { it.exists() }?.readText() ?: ""

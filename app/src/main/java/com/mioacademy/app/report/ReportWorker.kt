@@ -25,7 +25,7 @@ class ReportWorker(
     override suspend fun doWork(): ListenableWorker.Result = withContext(Dispatchers.IO) {
         val prefs = EmailReportPrefs(appContext)
         val email = prefs.reportEmail().ifBlank { null }
-            ?: com.mioacademy.app.auth.AuthProvider.get(appContext).currentEmail()
+            ?: com.mioacademy.app.auth.AuthProvider.currentUser(appContext)?.email
         if (email.isNullOrBlank()) return@withContext ListenableWorker.Result.success()
 
         val isDaily = inputData.getBoolean(KEY_IS_DAILY, true)
