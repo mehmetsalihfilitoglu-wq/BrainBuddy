@@ -19,6 +19,7 @@ object BackupManager {
                 put("id", it.id)
                 put("name", it.name)
                 put("sharedBlockedApps", it.sharedBlockedApps)
+                put("careerPath", it.careerPath)
             } }))
             put("xp", gam.xp())
             put("streakDays", gam.streakDays())
@@ -56,7 +57,8 @@ object BackupManager {
                     ProfileStore.Profile(
                         o.optString("id", "default"),
                         o.optString("name", "Öğrenci"),
-                        o.optBoolean("sharedBlockedApps", true)
+                        o.optBoolean("sharedBlockedApps", true),
+                        o.optString("careerPath", CareerPath.OTHER.name)
                     )
                 }
                 if (profiles.isNotEmpty()) ProfileStore(context).setProfiles(profiles)

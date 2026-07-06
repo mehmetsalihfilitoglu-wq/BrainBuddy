@@ -25,6 +25,7 @@ import com.mioacademy.app.core.CareerPath
 import com.mioacademy.app.core.ItalianLevel
 import com.mioacademy.app.core.OnboardingPrefs
 import com.mioacademy.app.core.ProfileStore
+import com.mioacademy.app.core.StudyAreaManager
 import com.mioacademy.app.core.UserGoal
 import com.mioacademy.app.core.UserGoalPrefs
 import com.google.android.material.button.MaterialButton
@@ -39,7 +40,8 @@ class OnboardingWizardActivity : AppCompatActivity() {
     private var currentStep = 0
     private val totalSteps = 6  // steps 0..5
 
-    private var selectedCareer: CareerPath? = null
+    // Ordered set of chosen study areas; the first one becomes the active area.
+    private val selectedCareers = LinkedHashSet<CareerPath>()
     private val selectedCities = mutableSetOf<String>()
     private var applicationYear = 2026
     private var italianLevel: ItalianLevel = ItalianLevel.A0
@@ -172,7 +174,7 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
     private fun updateNextEnabled() {
         btnNext.isEnabled = when (currentStep) {
-            1 -> selectedCareer != null
+            1 -> selectedCareers.isNotEmpty()
             else -> true
         }
         btnNext.alpha = if (btnNext.isEnabled) 1f else 0.5f
@@ -183,8 +185,9 @@ class OnboardingWizardActivity : AppCompatActivity() {
     private fun setupCareerStep() {
         val step = viewFlipper.getChildAt(1)
         val rv = step.findViewById<RecyclerView>(R.id.rvCareers)
-        careerAdapter = CareerAdapter(CareerPath.values().toList()) { career ->
-            selectedCareer = career
+        // Multi-select: tapping toggles a career in/out of the chosen set.
+        careerAdapter = CareerAdapter(CareerPath.values().toList()) { career, selected ->
+            if (selected) selectedCareers.add(career) else selectedCareers.remove(career)
             updateNextEnabled()
         }
         rv.layoutManager = GridLayoutManager(this, 2)
@@ -310,8 +313,8 @@ class OnboardingWizardActivity : AppCompatActivity() {
     private fun validateStep(): Boolean {
         return when (currentStep) {
             1 -> {
-                if (selectedCareer == null) {
-                    Toast.makeText(this, "Lütfen bir bölüm seç", Toast.LENGTH_SHORT).show()
+                if (selectedCareers.isEmpty()) {
+                    Toast.makeText(this, "Lütfen en az bir alan seç", Toast.LENGTH_SHORT).show()
                     false
                 } else true
             }
@@ -342,11 +345,12 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
     private fun finishOnboarding() {
         val name = studentName.ifBlank { "Öğrenci" }
-        val career = selectedCareer ?: CareerPath.OTHER
+        val careers = selectedCareers.toList().ifEmpty { listOf(CareerPath.OTHER) }
+        val primaryCareer = careers.first() // first chosen area becomes the active one
         val cities = selectedCities.toList().ifEmpty { emptyList() }
 
         val goal = UserGoal(
-            careerPath = career,
+            careerPath = primaryCareer,
             destinationCities = cities,
             applicationYear = applicationYear,
             italianLevel = italianLevel,
@@ -354,19 +358,22 @@ class OnboardingWizardActivity : AppCompatActivity() {
             studentName = name
         )
 
-        // Save goal
+        // Save goal (career mirrors the active study area)
         UserGoalPrefs(this).saveGoal(goal)
 
-        // Update default profile name in ProfileStore
+        // Set up study-area profiles: the "default" profile is the primary area;
+        // each additional chosen career becomes its own area with isolated stats.
         val profileStore = ProfileStore(this)
         val profiles = profileStore.getProfiles().toMutableList()
         val defaultIdx = profiles.indexOfFirst { it.id == "default" }
         if (defaultIdx >= 0) {
-            profiles[defaultIdx] = profiles[defaultIdx].copy(name = name)
+            profiles[defaultIdx] = profiles[defaultIdx].copy(name = name, careerPath = primaryCareer.name)
             profileStore.setProfiles(profiles)
         } else {
-            profileStore.addProfile(ProfileStore.Profile(id = "default", name = name))
+            profileStore.addProfile(ProfileStore.Profile(id = "default", name = name, careerPath = primaryCareer.name))
         }
+        profileStore.setCurrentProfileId("default")
+        careers.drop(1).forEach { StudyAreaManager.addArea(this, it) }
 
         OnboardingPrefs.setDone(this, true)
         startActivity(
@@ -437,10 +444,11 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
     private inner class CareerAdapter(
         private val items: List<CareerPath>,
-        private val onSelected: (CareerPath) -> Unit
+        private val onToggled: (CareerPath, Boolean) -> Unit
     ) : RecyclerView.Adapter<CareerAdapter.VH>() {
 
-        private var selectedIndex = -1
+        // Multi-select: positions the user has toggled on.
+        private val selectedPositions = mutableSetOf<Int>()
 
         inner class VH(val card: MaterialCardView) : RecyclerView.ViewHolder(card) {
             val tvEmoji: TextView = card.findViewById(R.id.tvEmoji)
@@ -460,7 +468,7 @@ class OnboardingWizardActivity : AppCompatActivity() {
             holder.tvName.text = career.displayNameTr
             holder.tvItalian.text = career.italianDegreeName
 
-            val isSelected = position == selectedIndex
+            val isSelected = position in selectedPositions
             val emerald = ContextCompat.getColor(holder.card.context, R.color.emerald)
             val emeraldSoft = ContextCompat.getColor(holder.card.context, R.color.emeraldSoft)
             val outline = ContextCompat.getColor(holder.card.context, R.color.divider_light)
@@ -471,11 +479,15 @@ class OnboardingWizardActivity : AppCompatActivity() {
             holder.card.strokeWidth = if (isSelected) (2 * density).toInt() else (1.5f * density).toInt()
 
             holder.card.setOnClickListener {
-                val prev = selectedIndex
-                selectedIndex = holder.bindingAdapterPosition
-                if (prev >= 0) notifyItemChanged(prev)
-                notifyItemChanged(selectedIndex)
-                onSelected(career)
+                val pos = holder.bindingAdapterPosition
+                if (pos == RecyclerView.NO_POSITION) return@setOnClickListener
+                val nowSelected = if (pos in selectedPositions) {
+                    selectedPositions.remove(pos); false
+                } else {
+                    selectedPositions.add(pos); true
+                }
+                notifyItemChanged(pos)
+                onToggled(items[pos], nowSelected)
             }
         }
 

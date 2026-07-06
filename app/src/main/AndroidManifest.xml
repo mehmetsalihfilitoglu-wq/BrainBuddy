@@ -101,6 +101,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.StudyAreasActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".StatsActivity"
             android:exported="false" />
 

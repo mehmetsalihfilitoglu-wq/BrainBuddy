@@ -61,11 +61,14 @@
                 android:contentDescription="@null"/>
         </LinearLayout>
 
-        <!-- ─── IDENTITY HERO CARD ─── -->
+        <!-- ─── IDENTITY HERO CARD (tap → active-area switcher) ─── -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardIdentityHero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_24"
+            android:clickable="true"
+            android:focusable="true"
             app:cardCornerRadius="@dimen/app_card_radius"
             app:cardElevation="0dp"
             app:cardBackgroundColor="@android:color/transparent"
@@ -78,14 +81,35 @@
                 android:padding="@dimen/space_24"
                 android:background="@drawable/bg_onboarding_welcome">
 
-                <TextView
-                    android:id="@+id/tvCareerIdentity"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="🎓 Gelecekteki Öğrenci"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvCareerIdentity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🎓 Gelecekteki Öğrenci"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:id="@+id/tvSwitchAreaHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_active_area_hint"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:drawableEnd="@drawable/ic_chevron_right"
+                        android:drawableTint="@color/white"
+                        android:drawablePadding="2dp"
+                        android:paddingStart="@dimen/space_8"/>
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/tvItalianDegree"

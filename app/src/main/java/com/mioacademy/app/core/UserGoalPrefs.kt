@@ -45,6 +45,14 @@ class UserGoalPrefs(context: Context) {
 
     fun getCareerPath(): CareerPath = safeCareer(prefs.getString(KEY_CAREER, null))
 
+    /**
+     * Sets the active career/study area. Kept in sync with the active study-area
+     * profile so every existing consumer (Home, StudyHub, GrowthHub, Coach,
+     * daily mission subjects) automatically follows the active area.
+     */
+    fun setCareerPath(career: CareerPath) =
+        prefs.edit().putString(KEY_CAREER, career.name).apply()
+
     fun setExamDate(epochMs: Long) = prefs.edit().putLong(KEY_EXAM_DATE, epochMs).apply()
 
     fun setDailyGoal(questions: Int) = prefs.edit().putInt(KEY_DAILY_GOAL, questions).apply()

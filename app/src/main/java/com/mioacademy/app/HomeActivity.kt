@@ -60,6 +60,10 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun refreshAll() {
+        // Rebind profile-scoped stores: after an in-place area switch the active
+        // profile changed, so these must point at the new area's namespace.
+        gam = GamificationStore(this)
+        missionManager = DailyMissionManager(this)
         refreshHeader()
         refreshIdentityHero()
         refreshDailyMission()
@@ -151,6 +155,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
+        findViewById<MaterialCardView>(R.id.cardIdentityHero).setOnClickListener {
+            com.mioacademy.app.ui.AreaSwitcher.show(this) { refreshAll() }
+        }
         findViewById<MaterialCardView>(R.id.cardWrongPool).setOnClickListener {
             WrongPoolLauncher.launch(this)
         }

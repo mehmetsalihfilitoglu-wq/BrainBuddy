@@ -5,7 +5,14 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * Multi-child profiles: name, separate stats/levels/mastery per profile.
+ * Per-profile isolation of all stats/levels/mastery. Originally "multi-child",
+ * now the storage backbone for **study areas**: each Profile is one study area
+ * (exam/career), so switching the active profile switches every scoped store
+ * (XP, streak, analytics, wrong pool, past tests, …) to that area's namespace.
+ *
+ * - `name` stays the student's display name (shared across areas; used by
+ *   League/Reports), so it is intentionally the same on every area-profile.
+ * - `careerPath` identifies the area (drives exam type, subjects, display).
  * Default profile "default" for backward compatibility.
  */
 class ProfileStore(context: Context) {
@@ -14,7 +21,8 @@ class ProfileStore(context: Context) {
     data class Profile(
         val id: String,
         val name: String,
-        val sharedBlockedApps: Boolean = true
+        val sharedBlockedApps: Boolean = true,
+        val careerPath: String = CareerPath.OTHER.name
     )
 
     fun getCurrentProfileId(): String = prefs.getString(KEY_CURRENT, DEFAULT_ID) ?: DEFAULT_ID
@@ -33,7 +41,8 @@ class ProfileStore(context: Context) {
             Profile(
                 id = o.optString("id", DEFAULT_ID),
                 name = o.optString("name", "Öğrenci"),
-                sharedBlockedApps = o.optBoolean("sharedBlockedApps", true)
+                sharedBlockedApps = o.optBoolean("sharedBlockedApps", true),
+                careerPath = o.optString("careerPath", CareerPath.OTHER.name)
             )
         }
     }
@@ -45,9 +54,16 @@ class ProfileStore(context: Context) {
                 put("id", p.id)
                 put("name", p.name)
                 put("sharedBlockedApps", p.sharedBlockedApps)
+                put("careerPath", p.careerPath)
             })
         }
         prefs.edit().putString(KEY_PROFILES, arr.toString()).apply()
+    }
+
+    /** Update just the careerPath (study area) of a profile, preserving name/flags. */
+    fun setProfileCareer(id: String, careerPath: String) {
+        val updated = getProfiles().map { if (it.id == id) it.copy(careerPath = careerPath) else it }
+        setProfiles(updated)
     }
 
     fun addProfile(profile: Profile) {

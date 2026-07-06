@@ -188,6 +188,9 @@ class StudentProfileActivity : AppCompatActivity() {
         findViewById<View>(R.id.btnAvatarShop).setOnClickListener {
             startActivity(Intent(this, AvatarShopScreen::class.java))
         }
+        findViewById<MaterialCardView>(R.id.cardStudyAreas).setOnClickListener {
+            startActivity(Intent(this, StudyAreasActivity::class.java))
+        }
         findViewById<MaterialCardView>(R.id.cardSettings).setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
