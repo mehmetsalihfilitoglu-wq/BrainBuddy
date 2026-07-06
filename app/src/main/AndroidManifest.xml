@@ -45,15 +45,6 @@
             android:name=".CrashActivity"
             android:exported="false" />
 
-        <!-- ── Auth ── -->
-        <activity
-            android:name=".ui.LoginActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.RegisterActivity"
-            android:exported="false" />
-
         <!-- ── Quiz engine ── -->
         <activity
             android:name=".quiz.QuizActivity"
@@ -153,18 +144,10 @@
             android:exported="false" />
 
         <activity
-            android:name=".reward.RewardContractActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".coach.CoachScreen"
             android:exported="false" />
 
         <!-- ── Ads ── -->
-        <activity
-            android:name=".ui.WatchAdToUnlockLastTestActivity"
-            android:exported="false" />
-
         <activity
             android:name=".ui.AdLimitReachedActivity"
             android:exported="false" />

@@ -47,7 +47,7 @@ class SeedAuditActivity : AppCompatActivity() {
             val text = (buildIdentityLine() + "\n\n" + StartupAuditRecorder.lastAuditText)
                 .ifEmpty { tvBody.text?.toString().orEmpty() }
             val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            cm.setPrimaryClip(ClipData.newPlainText("BrainBuddy audit", text))
+            cm.setPrimaryClip(ClipData.newPlainText("Mioitalia audit", text))
             Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show()
         }
 

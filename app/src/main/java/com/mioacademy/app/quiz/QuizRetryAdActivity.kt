@@ -41,12 +41,9 @@ class QuizRetryAdActivity : AppCompatActivity() {
                         policy.consumeAdTicket()
                         val retryStore = RetryUnlockStore(this)
                         val token = retryStore.createRetryToken(quizId, questionIds)
-                        val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
                         startActivity(Intent(this, QuizActivity::class.java).apply {
-                            putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                             putExtra(QuizActivity.EXTRA_IS_RETRY, true)
                             putExtra(QuizActivity.EXTRA_RETRY_AFTER_AD, true)
-                            putExtra(QuizActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
                             putExtra(QuizActivity.EXTRA_QUIZ_ID, quizId)
                             putExtra(QuizActivity.EXTRA_RETRY_UNLOCK_TOKEN, token)
                             putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, ArrayList(questionIds))

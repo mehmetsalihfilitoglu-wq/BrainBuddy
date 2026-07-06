@@ -34,10 +34,7 @@ class QuizActivity : AppCompatActivity() {
         const val EXTRA_QUIZ_ID = "quiz_id"
         const val EXTRA_IS_RETRY = "is_retry"
         const val EXTRA_QUESTIONS_JSON = "questions_json"
-        const val EXTRA_GATE_MODE = "gate_mode"
-        const val EXTRA_BLOCKED_PACKAGE = "blocked_package"
         const val EXTRA_REMEDIAL = "remedial"
-        const val EXTRA_BOSS_LEVEL = "boss_level"
         const val EXTRA_REPLAY_FROM_LAST_TEST = "replay_from_last_test"
         const val EXTRA_UNLOCK_TOKEN = "unlock_token"
         const val EXTRA_QUESTION_IDS_FOR_REPLAY = "question_ids_for_replay"
@@ -138,7 +135,7 @@ class QuizActivity : AppCompatActivity() {
         val retryAfterAd = intent.getBooleanExtra(EXTRA_RETRY_AFTER_AD, false)
         val retryUnlockToken = intent.getStringExtra(EXTRA_RETRY_UNLOCK_TOKEN)
 
-            val blockedPkgForRetry = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
+            val blockedPkgForRetry = ""
             if (isRetryOfLockedQuiz && !retryAfterAd) {
                 val policy = QuizRetryPolicy(this@QuizActivity)
                 when (policy.getStartMode()) {
@@ -193,8 +190,8 @@ class QuizActivity : AppCompatActivity() {
             val levelGroup = LevelGroup.GRADE_5_8
             val effectiveGrade = 0
             val isLgsMode = false
-            val bossLevel = intent.getIntExtra(EXTRA_BOSS_LEVEL, -1)
-            val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
+            val bossLevel = 0
+            val isGateMode = false
 
             val tapToRepoStart = System.currentTimeMillis()
             android.util.Log.d("QUIZ_PERF", "[QUIZ_PERF] tap_to_repo_start=${tapToRepoStart}ms (since epoch)")
@@ -208,7 +205,6 @@ class QuizActivity : AppCompatActivity() {
                     replayQuestionIds = replayQuestionIds,
                     bossLevel = bossLevel,
                     isGateMode = isGateMode,
-                    isRetryOfLockedQuiz = isRetryOfLockedQuiz,
                     isRemedial = isRemedial,
                     wrongIds = wrongIds,
                     retryWrongMode = retryWrongMode,
@@ -226,18 +222,12 @@ class QuizActivity : AppCompatActivity() {
                     quizPrefs = quizPrefs,
                     isReplayFromLastTest = isReplayFromLastTest,
                     replayQuestionIds = replayQuestionIds,
-                    bossLevel = bossLevel,
                     isGateMode = isGateMode,
-                    isRetryOfLockedQuiz = isRetryOfLockedQuiz,
-                    isRemedial = isRemedial,
-                    wrongIds = wrongIds,
-                    retryWrongMode = retryWrongMode,
                     effectiveGrade = effectiveGrade,
                     levelGroup = levelGroup,
                     isLgsMode = isLgsMode,
                     quizId = quizId,
-                    targetCount = targetCount,
-                    intent = intent
+                    targetCount = targetCount
                 )
             }
             val buildDoneMs = System.currentTimeMillis()
@@ -292,7 +282,6 @@ class QuizActivity : AppCompatActivity() {
         replayQuestionIds: ArrayList<String>?,
         bossLevel: Int,
         isGateMode: Boolean,
-        isRetryOfLockedQuiz: Boolean,
         isRemedial: Boolean,
         wrongIds: ArrayList<String>?,
         retryWrongMode: Boolean,
@@ -527,18 +516,12 @@ class QuizActivity : AppCompatActivity() {
         quizPrefs: QuizPrefs,
         isReplayFromLastTest: Boolean,
         replayQuestionIds: ArrayList<String>?,
-        bossLevel: Int,
         isGateMode: Boolean,
-        isRetryOfLockedQuiz: Boolean,
-        isRemedial: Boolean,
-        wrongIds: ArrayList<String>?,
-        retryWrongMode: Boolean,
         effectiveGrade: Int,
         levelGroup: LevelGroup,
         isLgsMode: Boolean,
         quizId: String,
-        targetCount: Int,
-        intent: Intent
+        targetCount: Int
     ): QuizBuildResult {
         val excludeFailed = emptySet<String>()
         val q = when {
@@ -767,7 +750,7 @@ class QuizActivity : AppCompatActivity() {
                     }
                 }
             }
-            val isGateMode = intent.getBooleanExtra(EXTRA_GATE_MODE, false)
+            val isGateMode = false
             val isRemedial = intent.getBooleanExtra(EXTRA_REMEDIAL, false)
             val total = questions.size
             val accuracy = if (total > 0) correctCount.toFloat() / total else 0f
@@ -791,7 +774,7 @@ class QuizActivity : AppCompatActivity() {
                 passed = passed,
                 wrongQuestionIds = wrongIds
             )
-            val blockedPkg = intent.getStringExtra(EXTRA_BLOCKED_PACKAGE)?.trim().orEmpty()
+            val blockedPkg = ""
             if (passed && (isGateMode || isRetryOfLockedQuiz)) {
                 com.mioacademy.app.core.QuizRetryPolicy(this@QuizActivity).onPass()
             }

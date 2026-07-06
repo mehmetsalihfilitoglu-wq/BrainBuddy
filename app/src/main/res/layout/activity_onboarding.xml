@@ -11,7 +11,7 @@
         android:id="@+id/icon"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/ic_brain_turquoise"
+        android:src="@mipmap/ic_launcher"
         android:contentDescription="@null"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

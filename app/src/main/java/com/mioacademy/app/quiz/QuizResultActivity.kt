@@ -363,9 +363,7 @@ class QuizResultActivity : AppCompatActivity() {
                     }
                     else -> {
                         val retryIntent = Intent(this, QuizActivity::class.java).apply {
-                            putExtra(QuizActivity.EXTRA_GATE_MODE, true)
                             putExtra(QuizActivity.EXTRA_IS_RETRY, true)
-                            putExtra(QuizActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
                             putExtra(QuizActivity.EXTRA_QUIZ_ID, qId)
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
                         }
