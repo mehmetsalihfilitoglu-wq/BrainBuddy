@@ -132,6 +132,29 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- ── Real-data progress / milestone message (hidden when nothing to say) ── -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardResultProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/radius_md"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/emeraldSoft"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/tvResultProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="14sp"
+                android:textColor="@color/emeraldDark"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"/>
+        </com.google.android.material.card.MaterialCardView>
+
         <!-- ── Wrong review conversion card ── -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/reviewConversionCard"

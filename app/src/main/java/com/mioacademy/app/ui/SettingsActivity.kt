@@ -20,6 +20,7 @@ class SettingsActivity : AppCompatActivity() {
             isChecked = notifPrefs.areMotivationNotificationsEnabled()
             setOnCheckedChangeListener { _, isChecked ->
                 notifPrefs.setMotivationNotificationsEnabled(isChecked)
+                com.mioacademy.app.notification.NotificationScheduler.reschedule(this@SettingsActivity)
             }
         }
 

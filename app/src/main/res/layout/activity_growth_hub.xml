@@ -217,6 +217,13 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- ─── REAL-DATA WEEKLY PANEL + INSIGHTS + ACHIEVEMENTS (built in code) ─── -->
+        <LinearLayout
+            android:id="@+id/weeklyPanelContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
         <!-- ─── TOPIC PERFORMANCE SECTION ─── -->
         <TextView
             android:layout_width="wrap_content"

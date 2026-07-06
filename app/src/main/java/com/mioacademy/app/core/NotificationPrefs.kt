@@ -22,11 +22,16 @@ class NotificationPrefs(context: Context) {
     fun setLastDailyReminderSentMs(ms: Long) =
         prefs.edit().putLong(KEY_LAST_DAILY_REMINDER_MS, ms).apply()
 
+    /** Whether we've already shown the OS notification-permission prompt once. */
+    fun wasPermissionRequested(): Boolean = prefs.getBoolean(KEY_PERMISSION_REQUESTED, false)
+    fun setPermissionRequested() = prefs.edit().putBoolean(KEY_PERMISSION_REQUESTED, true).apply()
+
     companion object {
         private const val PREFS = "bb_notification_prefs"
         private const val KEY_MOTIVATION_ENABLED = "motivation_enabled"
         private const val KEY_DAILY_REMINDER = "daily_reminder"
         private const val KEY_STREAK_WARNING = "streak_warning"
         private const val KEY_LAST_DAILY_REMINDER_MS = "last_daily_reminder_ms"
+        private const val KEY_PERMISSION_REQUESTED = "permission_requested"
     }
 }

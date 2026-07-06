@@ -269,6 +269,28 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- ─── DAILY INSIGHT (real-data; hidden when no data) ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardHomeInsight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/radius_md"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/emeraldSoft"
+            app:strokeWidth="0dp">
+
+            <TextView
+                android:id="@+id/tvHomeInsight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_16"
+                android:textSize="13sp"
+                android:textColor="@color/emeraldDark"
+                android:lineSpacingMultiplier="1.35"/>
+        </com.google.android.material.card.MaterialCardView>
+
         <!-- ─── SECONDARY NAV ROW (Study | Progress | Profile) ─── -->
         <LinearLayout
             android:layout_width="match_parent"

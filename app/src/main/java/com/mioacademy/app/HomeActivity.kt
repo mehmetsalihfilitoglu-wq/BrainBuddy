@@ -44,6 +44,7 @@ class HomeActivity : AppCompatActivity() {
 
         setupBackPress()
         setupNavigation()
+        maybeRequestNotificationPermission()
 
         val content = findViewById<android.view.View>(R.id.scrollContent)
         val origBottom = content.paddingBottom
@@ -66,6 +67,7 @@ class HomeActivity : AppCompatActivity() {
         missionManager = DailyMissionManager(this)
         refreshHeader()
         refreshIdentityHero()
+        refreshInsight()
         refreshDailyMission()
         refreshItalianMoment()
         refreshWrongPool()
@@ -142,6 +144,24 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    /** One compact, real-data insight; the card is hidden when there is no data. */
+    private fun refreshInsight() {
+        val card = findViewById<MaterialCardView>(R.id.cardHomeInsight)
+        val tv = findViewById<TextView>(R.id.tvHomeInsight)
+        val insight = com.mioacademy.app.core.ProgressInsights(this).homeInsight()
+        if (insight == null) {
+            card.visibility = View.GONE
+            return
+        }
+        card.visibility = View.VISIBLE
+        tv.text = insight.text
+        val warning = insight.tone == com.mioacademy.app.core.ProgressInsights.Tone.WARNING
+        card.setCardBackgroundColor(
+            androidx.core.content.ContextCompat.getColor(this, if (warning) R.color.warning_soft else R.color.emeraldSoft))
+        tv.setTextColor(
+            androidx.core.content.ContextCompat.getColor(this, if (warning) R.color.warning_text else R.color.emeraldDark))
+    }
+
     private fun refreshItalianMoment() {
         val moment = ItalianMomentProvider.next(this)
         findViewById<TextView>(R.id.tvItalianPhrase).text = "🇮🇹  « ${moment.italian} »"
@@ -175,6 +195,21 @@ class HomeActivity : AppCompatActivity() {
         }
         findViewById<MaterialCardView>(R.id.cardProfile).setOnClickListener {
             startActivity(Intent(this, StudentProfileActivity::class.java))
+        }
+    }
+
+    /** Ask for POST_NOTIFICATIONS once (Android 13+), so reminders can be shown. */
+    private fun maybeRequestNotificationPermission() {
+        if (android.os.Build.VERSION.SDK_INT < 33) return
+        val prefs = com.mioacademy.app.core.NotificationPrefs(this)
+        if (prefs.wasPermissionRequested()) return
+        val granted = androidx.core.content.ContextCompat.checkSelfPermission(
+            this, android.Manifest.permission.POST_NOTIFICATIONS
+        ) == android.content.pm.PackageManager.PERMISSION_GRANTED
+        if (!granted) {
+            prefs.setPermissionRequested()
+            androidx.core.app.ActivityCompat.requestPermissions(
+                this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 4001)
         }
     }
 

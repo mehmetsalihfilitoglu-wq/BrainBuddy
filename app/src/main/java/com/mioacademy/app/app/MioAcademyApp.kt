@@ -32,6 +32,8 @@ class MioAcademyApp : Application() {
         // Ensure a valid profile ID exists on first launch (single-profile mode).
         ActiveProfileManager.getActiveProfileId(this)
         LeagueScheduler.scheduleNextReset(this)
+        // Safe local study reminders (real-data gated inside the worker).
+        com.mioacademy.app.notification.NotificationScheduler.schedule(this)
 
         CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
             StartupRuntimeState.markInitializing()

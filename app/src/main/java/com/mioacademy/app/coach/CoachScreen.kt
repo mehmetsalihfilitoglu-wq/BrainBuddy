@@ -17,7 +17,12 @@ class CoachScreen : AppCompatActivity() {
 
         val analytics = AnalyticsStore(this)
         val goalPrefs = UserGoalPrefs(this)
-        val engine = CoachEngine(analytics, goalPrefs)
+        val insights = com.mioacademy.app.core.ProgressInsights(this)
+        val engine = CoachEngine(
+            analytics, goalPrefs,
+            daysSinceLastStudy = insights.streak().daysSinceLastStudy,
+            wrongPoolCount = insights.wrongPoolCount()
+        )
 
         val daily = engine.getDailyRecommendation()
         val weekly = engine.getWeeklyPlan()

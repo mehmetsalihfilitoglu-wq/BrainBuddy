@@ -67,6 +67,16 @@
     <string name="progress_strong_topics">Güçlü Konular</string>
     <string name="progress_weak_topics">Geliştirilecek Konular</string>
     <string name="progress_no_data_yet">Henüz yeterli veri yok. Pratik yaptıkça görünecek.</string>
+    <string name="progress_week_section">BU HAFTA</string>
+    <string name="progress_week_empty">Henüz yeterli veri yok. Birkaç test çözdükten sonra haftalık gelişim analizlerin burada görünecek.</string>
+    <string name="progress_week_questions">Soru</string>
+    <string name="progress_week_xp">XP</string>
+    <string name="progress_week_accuracy">Doğruluk</string>
+    <string name="progress_vs_last_week">geçen haftaya göre %1$s</string>
+    <string name="progress_achievements_section">BAŞARIMLAR</string>
+    <string name="progress_next_milestone">SIRADAKİ HEDEF</string>
+    <string name="result_one_step_closer">İtalya yolculuğun için bir çalışma günü daha tamamlandı.</string>
+    <string name="result_achievement_unlocked">Yeni başarım açıldı 🏆</string>
     <string name="progress_more_section">DAHA FAZLA</string>
     <string name="progress_detailed_stats">Detaylı İstatistikler</string>
     <string name="progress_detailed_stats_sub">Grafik ve trend analizi</string>
@@ -340,11 +350,11 @@
     <string name="report_share_prompt">Raporu Gönder</string>
 
     <!-- Motivation notifications -->
-    <string name="notif_motivation_channel">Motivasyon</string>
-    <string name="notif_daily_reminder_title">Mioitalia</string>
-    <string name="notif_daily_reminder_text">Bugün test çözmedin</string>
-    <string name="notif_streak_title">Mioitalia</string>
-    <string name="notif_streak_text">Seri bitiyor!</string>
+    <string name="notif_motivation_channel">Çalışma Hatırlatıcıları</string>
+    <string name="notif_daily_reminder_title">Bugünkü görevin hazır</string>
+    <string name="notif_daily_reminder_text">10 dakikalık kısa bir test bugünü tamamlar. Küçük bir adım, sınav gününde fark yaratır.</string>
+    <string name="notif_streak_title">Serin riskte</string>
+    <string name="notif_streak_text">Kısa bir testle ritmini koru. Bugün birkaç soru yeterli.</string>
     <string name="notif_action_dismiss">Yoksay</string>
 
     <!-- System Health -->

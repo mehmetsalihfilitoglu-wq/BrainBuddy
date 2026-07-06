@@ -224,6 +224,8 @@ class QuizResultActivity : AppCompatActivity() {
             leagueStore.recordPointsBreakdown(breakdown, s.quizId, s.completedAt ?: System.currentTimeMillis())
         }
 
+        renderResultProgress()
+
         val total = s.totalCount
         val pct = if (total > 0) (100f * s.correctCount / total) else 0f
         val accuracy = if (total > 0) s.correctCount.toFloat() / total else 0f
@@ -425,6 +427,24 @@ class QuizResultActivity : AppCompatActivity() {
         } else {
             remedialSection.visibility = View.GONE
         }
+    }
+
+    /**
+     * Shows a small, measured "one step closer" line, plus any milestone that
+     * the just-recorded result actually unlocked (real-data, celebrated once).
+     */
+    private fun renderResultProgress() {
+        val card = findViewById<com.google.android.material.card.MaterialCardView>(R.id.cardResultProgress)
+        val tv = findViewById<android.widget.TextView>(R.id.tvResultProgress)
+        val newly = com.mioacademy.app.core.AchievementEngine(this).consumeNewlyUnlocked()
+        val lines = ArrayList<String>()
+        if (newly.isNotEmpty()) {
+            lines.add(getString(R.string.result_achievement_unlocked))
+            lines.add(newly.joinToString("   ") { "${it.icon} ${it.title}" })
+        }
+        lines.add(getString(R.string.result_one_step_closer))
+        tv.text = lines.joinToString("\n")
+        card.visibility = View.VISIBLE
     }
 
     private fun buildTestPerformance(s: com.mioacademy.app.quiz.QuizSession): TestPerformance {

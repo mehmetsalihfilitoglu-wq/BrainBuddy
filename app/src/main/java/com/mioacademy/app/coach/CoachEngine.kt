@@ -15,7 +15,11 @@ import com.mioacademy.app.core.exam.AdmissionExamRegistry
  */
 class CoachEngine(
     private val analytics: AnalyticsStore,
-    private val goalPrefs: UserGoalPrefs
+    private val goalPrefs: UserGoalPrefs,
+    // Real-data engagement signals (computed by the caller from ProgressInsights).
+    // Defaults keep the engine pure and backward-compatible.
+    private val daysSinceLastStudy: Int = -1,
+    private val wrongPoolCount: Int = 0
 ) {
 
     data class DailyRecommendation(
@@ -38,6 +42,32 @@ class CoachEngine(
         val stats = analytics.getUserStats()
         val lastTests = analytics.getLastTests(5)
         val weakest = analytics.getWeakestTopicsWithCounts(5)
+
+        // Highest priority: bring a lapsed student back gently (real streak data).
+        if (daysSinceLastStudy >= 3) {
+            return DailyRecommendation(
+                text = "Son $daysSinceLastStudy gündür çalışmadın. Bugün aktif alanındaki temel " +
+                    "konulardan kısa bir testle yeniden başlayabilirsin.",
+                topic = null, suggestedCount = 5, isEncouragement = true
+            )
+        }
+        // Wrong-pool review waiting (real pending count).
+        if (wrongPoolCount >= 5) {
+            return DailyRecommendation(
+                text = "Yanlış havuzunda tekrar bekleyen $wrongPoolCount soru var. Bugün önce onları " +
+                    "çözerek bilgini kalıcı hale getir.",
+                topic = null, suggestedCount = wrongPoolCount.coerceAtMost(10)
+            )
+        }
+        // No recorded activity yet → safe starter suggestion.
+        if (stats.overallTotal == 0 && lastTests.isEmpty()) {
+            val subject = exam.subjects.firstOrNull()?.displayNameTr ?: "temel konular"
+            return DailyRecommendation(
+                text = "Bugün aktif alanındaki $subject gibi temel konulardan kısa bir test çözerek " +
+                    "başlayabilirsin. Birkaç test sonra kişisel önerilerin burada belirginleşecek.",
+                topic = null, suggestedCount = 10
+            )
+        }
 
         // Repeated failures in same topic → pick highest-weight remedial candidate
         val failByTopic = mutableMapOf<String, Int>()
