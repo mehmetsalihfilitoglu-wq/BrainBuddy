@@ -223,7 +223,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -266,7 +266,7 @@
             android:layout_height="wrap_content"
             android:text="@string/profile_goal_section"
             android:textSize="10sp"
-            android:textColor="@color/emerald"
+            android:textColor="@color/emeraldDark"
             android:letterSpacing="0.12"
             android:layout_marginTop="@dimen/space_24"
             android:layout_marginBottom="@dimen/space_12"/>
@@ -279,7 +279,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -310,7 +310,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/profile_goal_edit"
                         android:textSize="11sp"
-                        android:textColor="@color/emerald"
+                        android:textColor="@color/emeraldDark"
                         android:paddingStart="@dimen/space_8"/>
                 </LinearLayout>
 
@@ -352,7 +352,7 @@
             android:layout_height="wrap_content"
             android:text="@string/profile_achievements_section"
             android:textSize="10sp"
-            android:textColor="@color/emerald"
+            android:textColor="@color/emeraldDark"
             android:letterSpacing="0.12"
             android:layout_marginTop="@dimen/space_24"
             android:layout_marginBottom="@dimen/space_12"/>
@@ -364,7 +364,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -404,7 +404,7 @@
                 android:layout_weight="1"
                 android:text="@string/profile_avatars_section"
                 android:textSize="10sp"
-                android:textColor="@color/emerald"
+                android:textColor="@color/emeraldDark"
                 android:letterSpacing="0.12"/>
 
             <TextView
@@ -421,7 +421,7 @@
                 android:layout_marginStart="@dimen/space_12"
                 android:text="@string/profile_avatar_shop"
                 android:textSize="12sp"
-                android:textColor="@color/emerald"
+                android:textColor="@color/emeraldDark"
                 android:textStyle="bold"
                 android:padding="4dp"/>
         </LinearLayout>
@@ -440,7 +440,7 @@
             android:layout_height="wrap_content"
             android:text="@string/profile_more_section"
             android:textSize="10sp"
-            android:textColor="@color/emerald"
+            android:textColor="@color/emeraldDark"
             android:letterSpacing="0.12"
             android:layout_marginTop="@dimen/space_24"
             android:layout_marginBottom="@dimen/space_12"/>
@@ -454,7 +454,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -499,7 +499,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -544,7 +544,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -42,7 +42,8 @@
     <color name="textSecondary">@color/text_secondary</color>
     <color name="danger">@color/color_error</color>
     <color name="text_on_emerald">#FFFFFF</color>
-    <color name="text_on_emerald_muted">#CCFFFFFF</color>
+    <!-- White 90% — subtitles on green hero cards must stay clearly readable -->
+    <color name="text_on_emerald_muted">#E6FFFFFF</color>
 
     <!-- ── Material3 semantic tokens ────────────────────────────────────────── -->
     <color name="bb_primary">@color/brand_primary</color>

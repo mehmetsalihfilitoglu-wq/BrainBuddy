@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/coach_daily_label"
             android:textSize="10sp"
-            android:textColor="@color/emerald"
+            android:textColor="@color/emeraldDark"
             android:letterSpacing="0.12"
             android:layout_marginTop="@dimen/space_24"
             android:layout_marginBottom="@dimen/space_12"/>
@@ -92,7 +92,7 @@
                     android:visibility="gone"
                     style="@style/Widget.MaterialComponents.Button"
                     app:backgroundTint="@color/white"
-                    android:textColor="@color/emerald"
+                    android:textColor="@color/emeraldDark"
                     app:cornerRadius="10dp"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:text="@string/coach_weekly_label"
             android:textSize="10sp"
-            android:textColor="@color/emerald"
+            android:textColor="@color/emeraldDark"
             android:letterSpacing="0.12"
             android:layout_marginTop="@dimen/space_24"
             android:layout_marginBottom="@dimen/space_12"/>
@@ -115,7 +115,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <TextView
                 android:id="@+id/tvWeeklyPlan"

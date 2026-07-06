@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--
-        Dark theme surface & typography overrides.
-        Primary/secondary brand colors are unchanged (green works on dark).
-        Layout-level android:background="@color/white" stays white by design
-        (app is light-mode-first; full dark-mode layouts are a future iteration).
+        The app is light-mode-first: every layout hardcodes white/light backgrounds.
+        Night mode must therefore keep the SAME light tokens — overriding text or
+        surface colors here produces light text on white backgrounds (invisible).
+        A true dark theme requires layout-level work and is a future iteration.
     -->
-    <color name="surface_bg">#111827</color>
-    <color name="surface_variant">#1F2937</color>
-    <color name="border">#374151</color>
-    <color name="divider">#1F2937</color>
-    <color name="text_primary">#F9FAFB</color>
-    <color name="text_secondary">#9CA3AF</color>
-    <color name="text_tertiary">#6B7280</color>
-    <color name="bb_card">#1F2937</color>
-    <color name="bb_surface_container">@color/surface_variant</color>
-    <color name="bb_outline_variant">@color/border</color>
 </resources>

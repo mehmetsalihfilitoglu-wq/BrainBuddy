@@ -223,7 +223,7 @@
             android:layout_height="wrap_content"
             android:text="@string/progress_topic_section"
             android:textSize="10sp"
-            android:textColor="@color/emerald"
+            android:textColor="@color/emeraldDark"
             android:letterSpacing="0.12"
             android:layout_marginTop="@dimen/space_24"
             android:layout_marginBottom="@dimen/space_12"/>
@@ -236,7 +236,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -250,7 +250,7 @@
                     android:text="@string/progress_strong_topics"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    android:textColor="@color/emerald"/>
+                    android:textColor="@color/emeraldDark"/>
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chipGroupStrong"
@@ -280,7 +280,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -378,7 +378,7 @@
             android:layout_height="wrap_content"
             android:text="@string/progress_more_section"
             android:textSize="10sp"
-            android:textColor="@color/emerald"
+            android:textColor="@color/emeraldDark"
             android:letterSpacing="0.12"
             android:layout_marginTop="@dimen/space_24"
             android:layout_marginBottom="@dimen/space_12"/>
@@ -392,7 +392,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -451,7 +451,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -510,7 +510,7 @@
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
             app:strokeWidth="1dp"
-            app:strokeColor="@color/emeraldSoft">
+            app:strokeColor="@color/border">
 
             <LinearLayout
                 android:layout_width="match_parent"

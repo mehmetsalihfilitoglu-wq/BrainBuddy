@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Dark theme: flat dark window background; color tokens override via colors-night.xml -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        Night theme intentionally mirrors the light theme — the app is
+        light-mode-first (layouts hardcode white surfaces). See values-night/colors.xml.
+    -->
     <style name="Theme.BrainBuddy" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/brand_primary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryContainer">@color/brand_primary_dark</item>
-        <item name="colorOnPrimaryContainer">@color/brand_primary_light</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/brand_primary_dark</item>
 
         <item name="colorSecondary">@color/brand_secondary</item>
         <item name="colorOnSecondary">@color/white</item>
@@ -19,14 +22,17 @@
         <item name="colorSurface">@color/surface_bg</item>
         <item name="colorOnSurface">@color/text_primary</item>
         <item name="colorSurfaceContainer">@color/surface_variant</item>
-        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorSurfaceVariant">@color/brand_primary_light</item>
         <item name="colorOnSurfaceVariant">@color/text_secondary</item>
 
         <item name="colorOutlineVariant">@color/border</item>
 
-        <item name="android:windowBackground">@color/surface_bg</item>
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/surface_bg</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
 
         <item name="android:textColorPrimary">@color/text_primary</item>
         <item name="android:textColorSecondary">@color/text_secondary</item>
