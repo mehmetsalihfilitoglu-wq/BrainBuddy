@@ -149,6 +149,10 @@
 
         <!-- ── Ads ── -->
         <activity
+            android:name=".ui.WatchAdToUnlockLastTestActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.AdLimitReachedActivity"
             android:exported="false" />
 
