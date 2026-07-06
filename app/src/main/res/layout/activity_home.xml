@@ -61,14 +61,11 @@
                 android:contentDescription="@null"/>
         </LinearLayout>
 
-        <!-- ─── IDENTITY HERO CARD (tap → active-area switcher) ─── -->
+        <!-- ─── TODAY'S NEXT STEP — the one decided action ─── -->
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardIdentityHero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_24"
-            android:clickable="true"
-            android:focusable="true"
             app:cardCornerRadius="@dimen/app_card_radius"
             app:cardElevation="0dp"
             app:cardBackgroundColor="@android:color/transparent"
@@ -80,6 +77,88 @@
                 android:orientation="vertical"
                 android:padding="@dimen/space_24"
                 android:background="@drawable/bg_onboarding_welcome">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_next_step_label"
+                    android:textSize="10sp"
+                    android:textColor="@color/text_on_emerald_muted"
+                    android:letterSpacing="0.12"
+                    android:layout_marginBottom="@dimen/space_8"/>
+
+                <TextView
+                    android:id="@+id/tvStepTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:lineSpacingMultiplier="1.15"/>
+
+                <TextView
+                    android:id="@+id/tvStepMeta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_on_emerald_muted"
+                    android:layout_marginTop="@dimen/space_8"/>
+
+                <ProgressBar
+                    android:id="@+id/missionProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:max="2"
+                    android:progress="0"
+                    android:progressTint="@color/white"
+                    android:progressBackgroundTint="@color/divider_on_brand"/>
+
+                <TextView
+                    android:id="@+id/tvMissionProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="11sp"
+                    android:textColor="@color/text_on_emerald_muted"
+                    android:layout_marginTop="@dimen/space_4"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStepStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:text="@string/home_step_start"
+                    android:textSize="16sp"
+                    android:textColor="@color/emeraldDark"
+                    style="@style/Widget.MaterialComponents.Button"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="12dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ─── COMPACT STATUS — how am I doing (tap → active-area switcher) ─── -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardIdentityHero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/radius_md"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/white"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/border">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_16">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -93,9 +172,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="🎓 Gelecekteki Öğrenci"
-                        android:textSize="22sp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/textPrimary"/>
 
                     <TextView
                         android:id="@+id/tvSwitchAreaHint"
@@ -104,37 +183,30 @@
                         android:text="@string/home_active_area_hint"
                         android:textSize="12sp"
                         android:textStyle="bold"
-                        android:textColor="@color/white"
+                        android:textColor="@color/emeraldDark"
                         android:drawableEnd="@drawable/ic_chevron_right"
-                        android:drawableTint="@color/white"
+                        android:drawableTint="@color/emeraldDark"
                         android:drawablePadding="2dp"
                         android:paddingStart="@dimen/space_8"/>
                 </LinearLayout>
 
+                <!-- Degree line (kept, small) -->
                 <TextView
                     android:id="@+id/tvItalianDegree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Italia · Üniversite Hazırlık"
-                    android:textSize="13sp"
-                    android:textStyle="italic"
-                    android:textColor="@color/text_on_emerald_muted"
-                    android:layout_marginTop="4dp"/>
-
-                <!-- Divider -->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/space_16"
-                    android:layout_marginBottom="@dimen/space_16"
-                    android:background="@color/divider_on_brand"/>
+                    android:text="—"
+                    android:textSize="12sp"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="2dp"/>
 
                 <!-- Stats row: Streak | XP | Level -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/space_12">
 
                     <TextView
                         android:id="@+id/streakBadge"
@@ -143,13 +215,13 @@
                         android:layout_weight="1"
                         android:text="🔥 0 gün"
                         android:textSize="12sp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/textPrimary"
                         android:gravity="center"/>
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="14dp"
-                        android:background="@color/divider_on_brand"/>
+                        android:background="@color/border"/>
 
                     <TextView
                         android:id="@+id/pointsBadge"
@@ -158,13 +230,13 @@
                         android:layout_weight="1"
                         android:text="⭐ 0 XP"
                         android:textSize="12sp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/textPrimary"
                         android:gravity="center"/>
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="14dp"
-                        android:background="@color/divider_on_brand"/>
+                        android:background="@color/border"/>
 
                     <TextView
                         android:id="@+id/levelBadge"
@@ -173,98 +245,8 @@
                         android:layout_weight="1"
                         android:text="Lv. 1"
                         android:textSize="12sp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/textPrimary"
                         android:gravity="center"/>
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ─── TODAY'S MISSION CARD (THE HERO) ─── -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardDailyMission"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_16"
-            app:cardCornerRadius="@dimen/app_card_radius"
-            app:cardElevation="@dimen/elevation_raised"
-            app:cardBackgroundColor="@color/white"
-            app:strokeWidth="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Emerald accent bar -->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/app_accent_bar_height"
-                    android:background="@color/emerald"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/space_24">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/home_mission_label"
-                        android:textSize="10sp"
-                        android:textColor="@color/emeraldDark"
-                        android:letterSpacing="0.12"
-                        android:layout_marginBottom="@dimen/space_8"/>
-
-                    <TextView
-                        android:id="@+id/tvMissionSubject"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="—"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/textPrimary"/>
-
-                    <TextView
-                        android:id="@+id/tvMissionMeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="—"
-                        android:textSize="13sp"
-                        android:textColor="@color/textSecondary"
-                        android:layout_marginTop="@dimen/space_4"
-                        android:layout_marginBottom="@dimen/space_16"/>
-
-                    <ProgressBar
-                        android:id="@+id/missionProgressBar"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="8dp"
-                        android:max="2"
-                        android:progress="0"
-                        android:progressTint="@color/emerald"
-                        android:progressBackgroundTint="@color/emeraldSoft"/>
-
-                    <TextView
-                        android:id="@+id/tvMissionProgress"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 / 2 tamamlandı"
-                        android:textSize="11sp"
-                        android:textColor="@color/textSecondary"
-                        android:layout_marginTop="@dimen/space_4"
-                        android:layout_marginBottom="@dimen/space_16"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnStartMission"
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:text="@string/home_mission_btn_start"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        style="@style/Widget.MaterialComponents.Button"
-                        app:backgroundTint="@color/emerald"
-                        app:cornerRadius="12dp"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

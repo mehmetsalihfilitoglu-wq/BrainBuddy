@@ -14,8 +14,6 @@ import com.google.android.material.card.MaterialCardView
 import com.mioacademy.app.core.CareerPath
 import com.mioacademy.app.quiz.QuizActivity
 import com.mioacademy.app.ui.onTap
-import com.mioacademy.app.core.DailyMissionManager
-import com.mioacademy.app.core.exam.AdmissionExamRegistry
 import com.mioacademy.app.core.GamificationStore
 import com.mioacademy.app.core.UserGoalPrefs
 import com.mioacademy.app.quiz.WrongPoolLauncher
@@ -32,7 +30,6 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var goalPrefs: UserGoalPrefs
     private lateinit var gam: GamificationStore
-    private lateinit var missionManager: DailyMissionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +37,6 @@ class HomeActivity : AppCompatActivity() {
 
         goalPrefs = UserGoalPrefs(this)
         gam = GamificationStore(this)
-        missionManager = DailyMissionManager(this)
 
         setupBackPress()
         setupNavigation()
@@ -62,13 +58,12 @@ class HomeActivity : AppCompatActivity() {
 
     private fun refreshAll() {
         // Rebind profile-scoped stores: after an in-place area switch the active
-        // profile changed, so these must point at the new area's namespace.
+        // profile changed, so this must point at the new area's namespace.
         gam = GamificationStore(this)
-        missionManager = DailyMissionManager(this)
         refreshHeader()
+        refreshNextStep()
         refreshIdentityHero()
         refreshInsight()
-        refreshDailyMission()
         refreshWrongPool()
     }
 
@@ -104,41 +99,33 @@ class HomeActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.levelBadge).text = "Lv. ${gam.level()}"
     }
 
-    private fun refreshDailyMission() {
-        val goal = goalPrefs.getGoal()
-        val mission = missionManager.getTodayMission()
-        val target = mission.testsTarget
-        val done = mission.testsDone
-        val isCompleted = done >= target
+    /**
+     * The decided next action — the app already knows what to study. Computed
+     * from real, area-scoped data (weakest topic / pending reviews / mission).
+     */
+    private fun refreshNextStep() {
+        val step = com.mioacademy.app.core.NextStepEngine(this).compute()
 
-        val career = goal.careerPath
-        findViewById<TextView>(R.id.tvMissionSubject).text =
-            AdmissionExamRegistry.get(career.examType).subjectDisplaySummary
-        findViewById<TextView>(R.id.tvMissionMeta).text =
-            "$target test · ~${target * 10} dakika"
+        findViewById<TextView>(R.id.tvStepTitle).text = step.title
+        findViewById<TextView>(R.id.tvStepMeta).text = step.meta
 
-        val bar = findViewById<ProgressBar>(R.id.missionProgressBar)
-        bar.max = target
-        bar.progress = done
+        val target = step.missionTarget.coerceAtLeast(1)
+        val done = step.missionDone.coerceIn(0, target)
+        findViewById<ProgressBar>(R.id.missionProgressBar).apply {
+            max = target
+            progress = done
+        }
+        findViewById<TextView>(R.id.tvMissionProgress).text =
+            getString(R.string.home_mission_progress, done, target)
 
-        findViewById<TextView>(R.id.tvMissionProgress).text = "$done / $target tamamlandı"
-
-        val btn = findViewById<MaterialButton>(R.id.btnStartMission)
-        when {
-            isCompleted -> {
-                btn.text = getString(R.string.home_mission_btn_done)
-                btn.alpha = 0.6f
-                btn.isEnabled = false
-            }
-            done > 0 -> {
-                btn.text = getString(R.string.home_mission_btn_continue)
-                btn.alpha = 1f
-                btn.isEnabled = true
-            }
-            else -> {
-                btn.text = getString(R.string.home_mission_btn_start)
-                btn.alpha = 1f
-                btn.isEnabled = true
+        val btn = findViewById<MaterialButton>(R.id.btnStepStart)
+        btn.text = step.actionLabel
+        btn.onTap {
+            when (step.kind) {
+                com.mioacademy.app.core.NextStepEngine.Kind.REVIEW -> WrongPoolLauncher.launch(this)
+                else -> startActivity(Intent(this, QuizActivity::class.java).also { i ->
+                    step.subjectFilter?.let { i.putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, it) }
+                })
             }
         }
     }
@@ -173,9 +160,6 @@ class HomeActivity : AppCompatActivity() {
         }
         findViewById<MaterialCardView>(R.id.cardWrongPool).onTap {
             WrongPoolLauncher.launch(this)
-        }
-        findViewById<MaterialButton>(R.id.btnStartMission).onTap {
-            startActivity(Intent(this, QuizActivity::class.java))
         }
         findViewById<View>(R.id.btnSettings).onTap {
             startActivity(Intent(this, com.mioacademy.app.ui.SettingsActivity::class.java))

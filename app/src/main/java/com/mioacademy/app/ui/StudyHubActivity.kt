@@ -170,7 +170,7 @@ class StudyHubActivity : AppCompatActivity() {
         card.addView(inner)
 
         card.onTap {
-            val filter = subjectFilterFor(subjectName)
+            val filter = com.mioacademy.app.quiz.SubjectFilter.forName(subjectName)
             startActivity(Intent(this, QuizActivity::class.java).also { intent ->
                 filter?.let { intent.putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, it) }
             })
@@ -201,20 +201,4 @@ class StudyHubActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Maps an exam subject display name to the closest QuizActivity.EXTRA_SUBJECT_FILTER value.
-     * Returns null → launch without filter (general practice).
-     */
-    private fun subjectFilterFor(subject: String): String? = when {
-        subject == "Matematik" || subject.startsWith("Matematik") -> "Matematik"
-        subject.contains("Matematik") -> "Matematik"
-        subject == "İngilizce" -> "İngilizce"
-        subject == "Biyoloji" -> "Biyoloji"
-        subject == "Kimya" -> "Kimya"
-        subject == "Fizik" || subject.startsWith("Fizik") -> "Fizik"
-        subject.startsWith("Okuma") || subject.startsWith("Okudu") ||
-            subject == "Mantık" || subject.startsWith("Mantık") -> "Türkçe"
-        subject.contains("Tarih") -> "İnkılap Tarihi"
-        else -> null
-    }
 }
