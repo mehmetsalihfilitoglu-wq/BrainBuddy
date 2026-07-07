@@ -32,15 +32,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            // Production AdMob IDs
-            manifestPlaceholders["ADMOB_APP_ID"] = "ca-app-pub-7924868818421834~7526383830"
-            buildConfigField("String", "ADMOB_REWARDED_ID", "\"ca-app-pub-7924868818421834/6080402817\"")
         }
         debug {
             isMinifyEnabled = false
-            // Google test AdMob IDs
-            manifestPlaceholders["ADMOB_APP_ID"] = "ca-app-pub-3940256099942544~3347511713"
-            buildConfigField("String", "ADMOB_REWARDED_ID", "\"ca-app-pub-3940256099942544/5224354917\"")
         }
     }
 
@@ -85,5 +79,4 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("androidx.datastore:datastore-preferences:1.2.0")
-    implementation("com.google.android.gms:play-services-ads:23.6.0")
 }

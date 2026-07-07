@@ -20,7 +20,6 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.mioacademy.app.league.LeagueScheduler
-import com.google.android.gms.ads.MobileAds
 import java.io.File
 
 class MioAcademyApp : Application() {
@@ -28,7 +27,6 @@ class MioAcademyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         logStartupPersistenceSync(this)
-        MobileAds.initialize(this)
         // Ensure a valid profile ID exists on first launch (single-profile mode).
         ActiveProfileManager.getActiveProfileId(this)
         LeagueScheduler.scheduleNextReset(this)

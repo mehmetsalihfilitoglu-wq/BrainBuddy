@@ -15,10 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BrainBuddy">
 
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="${ADMOB_APP_ID}"/>
-
         <!-- ── Core routing ── -->
         <activity
             android:name=".MainActivity"
@@ -55,10 +51,6 @@
             android:name=".quiz.QuizResultActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|screenLayout" />
-
-        <activity
-            android:name=".quiz.QuizRetryAdActivity"
-            android:exported="false" />
 
         <activity
             android:name=".quiz.WrongPoolActivity"
@@ -183,15 +175,6 @@
 
         <activity
             android:name=".coach.CoachScreen"
-            android:exported="false" />
-
-        <!-- ── Ads ── -->
-        <activity
-            android:name=".ui.WatchAdToUnlockLastTestActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".ui.AdLimitReachedActivity"
             android:exported="false" />
 
         <!-- ── Developer / debug tools ── -->

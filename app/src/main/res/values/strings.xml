@@ -488,7 +488,7 @@
 
     <!-- Last Test Replay -->
     <string name="btn_replay">Tekrar Çöz</string>
-    <string name="replay_with_ad_remaining">Reklam izleyerek tekrar çöz (Kalan: %1$d/3)</string>
+    <string name="replay_premium_hint">Bir testi birebir yeniden çözmek Premium bir özelliktir. Premium ile geçmiş testlerini istediğin kadar tekrar çöz.</string>
     <string name="ad_unlock_last_test_info">Reklam izleyerek 1 giriş aç (Kalan: %1$d/3)</string>
     <string name="ad_unlock_premium_unlimited">Premium ile sınırsız</string>
 
@@ -543,7 +543,7 @@
     <string name="wrong_review_locked_question">Bu sorunun detayları kilitli</string>
     <string name="wrong_review_gate_your_answer">Senin cevabın: %1$s ❌</string>
     <string name="wrong_review_gate_ad_prompt">Soruyu ve doğru cevabı görmek için\nreklam izleyin</string>
-    <string name="wrong_review_gate_btn_ad">Reklam İzle ve Aç</string>
+    <string name="wrong_review_gate_btn_ad">Cevabı Göster</string>
     <string name="wrong_review_gate_limit_title">Günlük inceleme hakkınız doldu</string>
     <string name="wrong_review_gate_limit_body">Yarın 3 yeni hak kazanacaksınız.\nSınırsız erişim için Premium\'a geçin.</string>
     <string name="wrong_review_gate_premium_cta">Premium ile Sınırsız Aç</string>

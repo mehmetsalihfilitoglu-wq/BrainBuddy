@@ -136,11 +136,8 @@ class QuizActivity : AppCompatActivity() {
                         LastTestUnlockStore(this@QuizActivity).consumeUnlock(token, replayQuizId)
                     }
                     if (ids == null || ids.isEmpty()) {
-                        startActivity(Intent(this@QuizActivity, com.mioacademy.app.ui.AdLimitReachedActivity::class.java).apply {
-                            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                            putExtra(com.mioacademy.app.ui.AdLimitReachedActivity.EXTRA_TITLE, getString(com.mioacademy.app.R.string.ad_limit_reached_bypass_title))
-                            putExtra(com.mioacademy.app.ui.AdLimitReachedActivity.EXTRA_MESSAGE, getString(com.mioacademy.app.R.string.ad_limit_reached_bypass_message))
-                        })
+                        startActivity(Intent(this@QuizActivity, HomeActivity::class.java)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
                         finish()
                         return@launch
                     }
@@ -155,20 +152,6 @@ class QuizActivity : AppCompatActivity() {
             if (isRetryOfLockedQuiz && !retryAfterAd) {
                 val policy = QuizRetryPolicy(this@QuizActivity)
                 when (policy.getStartMode()) {
-                    QuizRetryPolicy.StartMode.REQUIRE_AD -> {
-                        val token = policy.getSameTestToken()
-                        val qId = token?.quizId ?: ""
-                        val qIds = token?.questionIds ?: emptyList()
-                        if (qIds.size >= targetCount) {
-                            startActivity(Intent(this@QuizActivity, QuizRetryAdActivity::class.java).apply {
-                                putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, qId)
-                                putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, java.util.ArrayList(qIds))
-                                putExtra(QuizRetryAdActivity.EXTRA_BLOCKED_PACKAGE, blockedPkgForRetry)
-                            })
-                        }
-                        finish()
-                        return@launch
-                    }
                     QuizRetryPolicy.StartMode.WAIT_COOLDOWN -> {
                         finish()
                         return@launch

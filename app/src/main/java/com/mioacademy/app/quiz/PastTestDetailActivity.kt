@@ -13,11 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mioacademy.app.R
 import com.mioacademy.app.ads.RewardedAdManager
-import com.mioacademy.app.core.DailyAdQuotaStore
 import com.mioacademy.app.core.PremiumStore
 import com.mioacademy.app.db.DatabaseProvider
-import com.mioacademy.app.ui.AdLimitReachedActivity
-import com.mioacademy.app.ui.WatchAdToUnlockLastTestActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -141,49 +138,32 @@ class PastTestDetailActivity : AppCompatActivity() {
 
     private fun setupReplayButton(total: Int) {
         val premium = PremiumStore(this).isPremium()
-        val quotaStore = DailyAdQuotaStore(this)
-        quotaStore.resetIfNewDay()
-        val remaining = quotaStore.getRemainingToday()
-
         val btnReplay = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnReplay)
         val layoutLimitReached = findViewById<View>(R.id.layoutLimitReached)
         val btnPremiumCta = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnPremiumCta)
 
         if (premium) {
+            // Premium: replay the exact test freely.
             btnReplay.visibility = View.VISIBLE
             btnReplay.text = getString(R.string.btn_replay)
             layoutLimitReached.visibility = View.GONE
-        } else if (remaining > 0) {
-            btnReplay.visibility = View.VISIBLE
-            btnReplay.text = getString(R.string.replay_with_ad_remaining, remaining)
-            layoutLimitReached.visibility = View.GONE
-        } else {
-            btnReplay.visibility = View.GONE
-            layoutLimitReached.visibility = View.VISIBLE
-            findViewById<android.widget.TextView>(R.id.tvLimitReached).text = getString(R.string.ad_limit_reached_message)
-            btnPremiumCta.setOnClickListener {
-                Toast.makeText(this, "Premium yakında", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        btnReplay.setOnClickListener {
-            if (premium) {
+            btnReplay.setOnClickListener {
                 startActivity(Intent(this, QuizActivity::class.java).apply {
                     putExtra(QuizActivity.EXTRA_REPLAY_FROM_LAST_TEST, true)
                     putExtra(QuizActivity.EXTRA_QUIZ_ID, testId)
                     putStringArrayListExtra(QuizActivity.EXTRA_QUESTION_IDS_FOR_REPLAY, questionIds)
                 })
-            } else {
-                if (remaining > 0) {
-                    startActivity(Intent(this, WatchAdToUnlockLastTestActivity::class.java).apply {
-                        putExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUIZ_ID, testId)
-                        putStringArrayListExtra(WatchAdToUnlockLastTestActivity.EXTRA_QUESTION_IDS, questionIds)
-                    })
-                } else {
-                    startActivity(Intent(this, AdLimitReachedActivity::class.java))
-                }
+                finish()
             }
-            finish()
+        } else {
+            // Free: replaying an exact past test is a Premium feature (no ads).
+            btnReplay.visibility = View.GONE
+            layoutLimitReached.visibility = View.VISIBLE
+            findViewById<android.widget.TextView>(R.id.tvLimitReached).text =
+                getString(R.string.replay_premium_hint)
+            btnPremiumCta.setOnClickListener {
+                PremiumPaywallSheet().show(supportFragmentManager, PremiumPaywallSheet.TAG)
+            }
         }
     }
 }

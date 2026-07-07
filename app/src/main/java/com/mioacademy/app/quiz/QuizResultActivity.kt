@@ -362,15 +362,6 @@ class QuizResultActivity : AppCompatActivity() {
                 val qId = token?.quizId ?: ""
                 val qIds = token?.questionIds ?: emptyList()
                 when (policy.getStartMode()) {
-                    QuizRetryPolicy.StartMode.REQUIRE_AD -> {
-                        if (qIds.size >= minQuestions) {
-                            startActivity(Intent(this, QuizRetryAdActivity::class.java).apply {
-                                putExtra(QuizRetryAdActivity.EXTRA_QUIZ_ID, qId)
-                                putStringArrayListExtra(QuizRetryAdActivity.EXTRA_QUESTION_IDS, ArrayList(qIds))
-                                putExtra(QuizRetryAdActivity.EXTRA_BLOCKED_PACKAGE, blockedPkg)
-                            })
-                        }
-                    }
                     QuizRetryPolicy.StartMode.WAIT_COOLDOWN -> {
                         // Cooldown — let the user wait; no routing to a deleted screen
                     }

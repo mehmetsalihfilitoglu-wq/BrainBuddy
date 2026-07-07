@@ -11,13 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mioacademy.app.core.AnalyticsStore
 import com.mioacademy.app.quiz.QuestionRepository
-import com.mioacademy.app.core.DailyAdQuotaStore
 import com.mioacademy.app.core.GamificationStore
 import com.mioacademy.app.core.PremiumStore
 import com.mioacademy.app.core.TestPerformance
 import com.mioacademy.app.quiz.QuizActivity
-import com.mioacademy.app.ui.AdLimitReachedActivity
-import com.mioacademy.app.ui.WatchAdToUnlockLastTestActivity
 import com.mioacademy.app.databinding.ActivityStatsBinding
 import com.mioacademy.app.ui.BarChartView
 import com.mioacademy.app.ui.LineChartView

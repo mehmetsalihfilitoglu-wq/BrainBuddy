@@ -1,46 +1,38 @@
-﻿package com.mioacademy.app.core
+package com.mioacademy.app.core
 
 import android.content.Context
 
 /**
- * Retry policy after gate/test FAIL (stored same-test token).
- * - Premium: unlimited retry, no ad
- * - Non-premium: 3 ad tickets, then 30min cooldown; after cooldown 1 free retry
+ * Retry policy after a gate/test FAIL (stored same-test token).
+ * Ad-free business model:
+ * - Premium: unlimited immediate retry.
+ * - Free: one retry after a short cooldown (no ads, no "watch to unlock").
  */
 class QuizRetryPolicy(context: Context) {
     private val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
     private val premiumStore = PremiumStore(context)
 
     enum class StartMode {
-        /** Can start retry immediately (no ad, no cooldown) */
+        /** Can start retry immediately (premium, or cooldown elapsed). */
         ALLOW_FREE,
-        /** Must watch ad first */
-        REQUIRE_AD,
-        /** Must wait cooldown */
+        /** Must wait out the cooldown. */
         WAIT_COOLDOWN
     }
 
     fun getStartMode(): StartMode {
         if (premiumStore.isPremium()) return StartMode.ALLOW_FREE
         if (!hasStoredFail()) return StartMode.ALLOW_FREE
-
-        val tickets = prefs.getInt(KEY_AD_TICKETS, MAX_AD_TICKETS)
-        if (tickets > 0) return StartMode.REQUIRE_AD
-
         val cooldownEnd = prefs.getLong(KEY_COOLDOWN_END_MS, 0L)
-        if (System.currentTimeMillis() >= cooldownEnd) return StartMode.ALLOW_FREE
-        return StartMode.WAIT_COOLDOWN
+        return if (System.currentTimeMillis() >= cooldownEnd) StartMode.ALLOW_FREE else StartMode.WAIT_COOLDOWN
     }
 
-    fun getRemainingTickets(): Int = prefs.getInt(KEY_AD_TICKETS, MAX_AD_TICKETS).coerceIn(0, MAX_AD_TICKETS)
     fun getCooldownEndMs(): Long = prefs.getLong(KEY_COOLDOWN_END_MS, 0L)
 
-    /** Call when user fails (wrongCount >= 4). Stores sameTestToken for replay. */
+    /** Call when user fails (wrongCount >= 4). Stores the same-test token + starts cooldown. */
     fun onFail(ctx: Context, sameTestToken: SameTestToken) {
-        val tokenJson = sameTestToken.toJson()
         prefs.edit()
-            .putString(KEY_SAME_TEST_TOKEN, tokenJson)
-            .putInt(KEY_AD_TICKETS, MAX_AD_TICKETS)
+            .putString(KEY_SAME_TEST_TOKEN, sameTestToken.toJson())
+            .putLong(KEY_COOLDOWN_END_MS, System.currentTimeMillis() + COOLDOWN_MS)
             .apply()
     }
 
@@ -49,25 +41,10 @@ class QuizRetryPolicy(context: Context) {
         return SameTestToken.fromJson(json)
     }
 
-    /** Call after rewarded ad. Returns true if ticket consumed. */
-    fun consumeAdTicket(): Boolean {
-        if (premiumStore.isPremium()) return true
-        val tickets = prefs.getInt(KEY_AD_TICKETS, MAX_AD_TICKETS)
-        if (tickets <= 0) return false
-        val newTickets = tickets - 1
-        val cooldownEnd = if (newTickets == 0) System.currentTimeMillis() + COOLDOWN_MS else 0L
-        prefs.edit()
-            .putInt(KEY_AD_TICKETS, newTickets)
-            .putLong(KEY_COOLDOWN_END_MS, cooldownEnd)
-            .apply()
-        return true
-    }
-
     /** Call when user passes. Reset all. */
     fun onPass() {
         prefs.edit()
             .remove(KEY_SAME_TEST_TOKEN)
-            .putInt(KEY_AD_TICKETS, MAX_AD_TICKETS)
             .putLong(KEY_COOLDOWN_END_MS, 0L)
             .apply()
     }
@@ -99,9 +76,7 @@ class QuizRetryPolicy(context: Context) {
     companion object {
         private const val PREFS = "bb_quiz_retry_policy"
         private const val KEY_SAME_TEST_TOKEN = "same_test_token"
-        private const val KEY_AD_TICKETS = "ad_tickets"
         private const val KEY_COOLDOWN_END_MS = "cooldown_end_ms"
-        const val MAX_AD_TICKETS = 3
         const val COOLDOWN_MS = 30 * 60 * 1000L
     }
 }
