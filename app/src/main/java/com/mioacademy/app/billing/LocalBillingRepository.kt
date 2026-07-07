@@ -22,23 +22,7 @@ class LocalBillingRepository(context: Context) : BillingRepository {
     private val store = SubscriptionStore(appContext)
     private val premium = PremiumStore(appContext)
 
-    override suspend fun offers(): List<PlanOffer> {
-        val config = RemoteConfigProvider.get()
-        return listOf(
-            PlanOffer(
-                SubscriptionPlan.MONTHLY,
-                BillingProducts.PREMIUM_MONTHLY,
-                config.getString(RemoteConfigKeys.PREMIUM_MONTHLY_PRICE, "€4,99"),
-                "aylık"
-            ),
-            PlanOffer(
-                SubscriptionPlan.YEARLY,
-                BillingProducts.PREMIUM_YEARLY,
-                config.getString(RemoteConfigKeys.PREMIUM_YEARLY_PRICE, "€39,99"),
-                "yıllık"
-            )
-        )
-    }
+    override suspend fun offers(): List<PlanOffer> = BillingOffers.fromRemoteConfig()
 
     override fun status(): SubscriptionStatus = store.get()
 
@@ -102,11 +86,48 @@ class SubscriptionStore(context: Context) {
     }
 }
 
-/** Composition root for billing — returns the Play Billing adapter once connected. */
+/**
+ * Remote-Config-priced offers — the single source of the plan list, used directly by
+ * [LocalBillingRepository] and as the fallback when Play Billing can't return products.
+ */
+object BillingOffers {
+    fun fromRemoteConfig(): List<PlanOffer> {
+        val config = RemoteConfigProvider.get()
+        return listOf(
+            PlanOffer(
+                plan = SubscriptionPlan.MONTHLY,
+                productId = BillingProducts.PREMIUM_MONTHLY,
+                priceLabel = config.getString(RemoteConfigKeys.PREMIUM_MONTHLY_PRICE, "₺199"),
+                periodLabel = "aylık"
+            ),
+            PlanOffer(
+                plan = SubscriptionPlan.YEARLY,
+                productId = BillingProducts.PREMIUM_YEARLY,
+                priceLabel = config.getString(RemoteConfigKeys.PREMIUM_YEARLY_PRICE, "₺1.699"),
+                periodLabel = "yıllık",
+                badgeLabel = config.getString(RemoteConfigKeys.PREMIUM_YEARLY_BADGE, "En Avantajlı"),
+                savingLabel = config.getString(RemoteConfigKeys.PREMIUM_YEARLY_SAVING,
+                    "Aylık ödemeye göre yaklaşık %29 tasarruf")
+            )
+        )
+    }
+}
+
+/**
+ * Composition root for billing. Prefers the real Play Billing adapter (which gracefully
+ * falls back to Remote-Config offers + honest errors when the store isn't available yet);
+ * set [forceLocal] true for tests/dev to use the on-device stub.
+ */
 object BillingProvider {
     @Volatile private var cached: BillingRepository? = null
+    @Volatile var forceLocal: Boolean = false
+
     fun repository(context: Context): BillingRepository =
         cached ?: synchronized(this) {
-            cached ?: LocalBillingRepository(context.applicationContext).also { cached = it }
+            cached ?: build(context.applicationContext).also { cached = it }
         }
+
+    private fun build(appContext: Context): BillingRepository =
+        if (forceLocal) LocalBillingRepository(appContext)
+        else PlayBillingRepository(appContext)
 }

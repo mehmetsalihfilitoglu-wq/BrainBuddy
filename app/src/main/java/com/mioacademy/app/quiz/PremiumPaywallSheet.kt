@@ -102,8 +102,8 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
             orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
         }
         titleRow.addView(makeText(planLabel(offer.plan), 16f, R.color.bb_text_dark, bold = true))
-        if (offer.plan == SubscriptionPlan.YEARLY) {
-            titleRow.addView(makeText(getString(R.string.paywall_best_value), 10f, R.color.emeraldDark, bold = true).apply {
+        offer.badgeLabel?.let { badge ->
+            titleRow.addView(makeText(badge, 10f, R.color.emeraldDark, bold = true).apply {
                 setPadding(dp(8f), 0, 0, 0)
             })
         }
@@ -111,6 +111,9 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
         texts.addView(makeText(
             getString(R.string.paywall_price_period, offer.priceLabel, offer.periodLabel),
             13f, R.color.bb_text_muted).apply { setPadding(0, dp(2f), 0, 0) })
+        offer.savingLabel?.let { saving ->
+            texts.addView(makeText(saving, 12f, R.color.emeraldDark, bold = true).apply { setPadding(0, dp(2f), 0, 0) })
+        }
         row.addView(texts)
 
         return com.google.android.material.card.MaterialCardView(requireContext()).apply {

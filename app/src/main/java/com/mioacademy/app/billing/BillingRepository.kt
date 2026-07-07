@@ -37,9 +37,11 @@ enum class SubscriptionState { NONE, ACTIVE, IN_GRACE_PERIOD, CANCELLED, EXPIRED
 
 data class PlanOffer(
     val plan: SubscriptionPlan,
-    val productId: String,     // Play base-plan / product id
-    val priceLabel: String,    // e.g. "€4,99"
-    val periodLabel: String    // e.g. "aylık" / "yıllık"
+    val productId: String,        // Play base-plan / product id
+    val priceLabel: String,       // Play localized price when live, else Remote Config copy
+    val periodLabel: String,      // e.g. "aylık" / "yıllık"
+    val badgeLabel: String? = null,   // e.g. "En Avantajlı" (yearly)
+    val savingLabel: String? = null   // e.g. "Aylık ödemeye göre yaklaşık %29 tasarruf"
 )
 
 data class SubscriptionStatus(

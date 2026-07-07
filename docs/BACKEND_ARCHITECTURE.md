@@ -20,7 +20,7 @@ Apple Sign-In + App Store are a later iOS phase (auth is already provider-agnost
 | Cloud sync | `sync.SyncRepository` | `LocalMirrorSyncRepository` | `FirestoreSyncRepository` |
 | Remote config | `remote.RemoteConfig` | `LocalRemoteConfig` | `FirebaseRemoteConfigAdapter` |
 | Premium entitlement | `billing.EntitlementRepository` | `LocalEntitlementRepository` | `PlayBillingEntitlementRepository` |
-| Subscriptions/billing | `billing.BillingRepository` | `LocalBillingRepository` | `PlayBillingRepository` |
+| Subscriptions/billing | `billing.BillingRepository` | `PlayBillingRepository` (real, default) · `LocalBillingRepository` (dev) | server receipt validation via `verifyPurchase` Fn |
 | Report delivery | `report.ReportDeliveryService` | `LocalReportDeliveryService` | `CloudReportDeliveryService` |
 | CMS content | `content.ContentGateway` | `LocalContentGateway` | `RemoteContentGateway` |
 | Product analytics | `analytics.AnalyticsTracker` | `LogcatAnalyticsTracker` | `FirebaseAnalyticsTracker` |
@@ -162,21 +162,57 @@ The Admin Panel is a separate web app writing these collections (Firebase Auth a
 Premium, sold as **monthly** and **yearly** subscriptions. Premium sells intelligence
 and coaching, never XP / "more questions" / dopamine.
 
-- `billing.BillingRepository` is the subscription boundary (offers, purchase, restore,
-  status). `LocalBillingRepository` surfaces real Remote-Config-priced offers and tracks
-  status deterministically, but never fakes a charge (`purchase()` →
-  `PurchaseResult.Unavailable` until Play Billing is connected).
-- `SubscriptionStatus` models the full lifecycle — `ACTIVE`, `IN_GRACE_PERIOD`,
-  `CANCELLED` (still entitled until period end), `EXPIRED`, `NONE` — computed
-  deterministically from `expiresAtMs`.
-- Products: `BillingProducts.PREMIUM_MONTHLY` / `PREMIUM_YEARLY`.
-- Flow when live: `PlayBillingRepository` launches the Play purchase flow → sends the
-  purchase token to a `verifyPurchase` Cloud Function → validated against the Google
-  Play Developer API → verified status written to `users/{uid}/purchases` and the
-  `SubscriptionStore` + `PremiumStore` cache. `EntitlementRepository.refresh()` reads it.
-- **Cross-device:** the subscription store (`bb_subscription`, sync path
-  `users/{uid}/purchases`) syncs, so Premium follows the account. Server-gated features
-  never trust client-only premium state.
+**Products & pricing** (Play Console product ids; prices/copy defaulted in Remote Config, overridable):
+
+| Plan | Product id | Price (default) | Notes |
+|---|---|---|---|
+| Monthly | `mioitalia_premium_monthly` | **₺199 / ay** | |
+| Yearly | `mioitalia_premium_yearly` | **₺1.699 / yıl** | badge **"En Avantajlı"**, default-selected, saving copy **"Aylık ödemeye göre yaklaşık %29 tasarruf"** |
+
+Remote Config keys: `premium_monthly_price`, `premium_yearly_price`, `premium_yearly_badge`,
+`premium_yearly_saving`. Play returns the localized `formattedPrice` at runtime; the Remote
+Config values are the fallback shown when Play products aren't available yet.
+
+**Client layers:**
+- `billing.BillingRepository` is the subscription boundary (offers/purchase/restore/status/refresh).
+  The UI (`PremiumPaywallSheet`) talks only to this — never to `BillingClient`.
+- `PlayBillingRepository` is the **real Google Play Billing adapter** (v7, `billing-ktx`) and is
+  the default via `BillingProvider`. It queries `SUBS` product details, launches the billing
+  flow, handles `onPurchasesUpdated`, acknowledges purchases, and restores via
+  `queryPurchasesAsync`. It degrades gracefully: no Play / unconfigured products / emulator →
+  `offers()` falls back to Remote-Config prices (paywall still shows plans) and `purchase()`
+  returns `PurchaseResult.Unavailable`. `BillingProvider.forceLocal = true` selects
+  `LocalBillingRepository` for tests/dev.
+- `SubscriptionStatus` lifecycle — `ACTIVE`, `IN_GRACE_PERIOD`, `CANCELLED` (entitled until
+  period end), `EXPIRED`, `NONE`.
+
+**Entitlement behaviour (no fake Premium):**
+- Premium is granted **only** after a real `PURCHASED` purchase is acknowledged (or a restore
+  that finds one). **Pending** purchases return `PurchaseResult.Pending` and grant nothing.
+  `USER_CANCELED` → `Cancelled`; any other failure → `Error`; store unavailable → `Unavailable`.
+- On grant, the adapter writes `SubscriptionStore` (`bb_subscription`) + the `PremiumStore` cache.
+- **Restore** (`restore()`): `queryPurchasesAsync(SUBS)` → if an active purchase exists, grant;
+  otherwise status `NONE` and Premium cleared.
+
+**Play Console setup requirements (before it transacts):**
+1. Create the app; add two **auto-renewing subscription** products with the ids above + base plans/offers.
+2. Set prices per market (₺199 / ₺1.699 for TR).
+3. Upload a signed build to at least an **internal/closed testing** track and add **license testers**.
+4. Configure the real-money account; enable the Play Developer API for server validation.
+
+**Testing requirements:** test on a device with Play Store signed in as a **license tester**
+(billing is unavailable on emulators without Play) via internal/closed testing; exercise
+purchase, cancel, restore, and a pending purchase (slow-test card).
+
+**Server-side receipt validation (source of truth, when backend is live):**
+`PlayBillingRepository` sends the purchase token to a `verifyPurchase` Cloud Function →
+validated against the Google Play Developer API → the **verified** `SubscriptionStatus`
+(incl. real `expiresAtMs`, grace/cancel state) written to `users/{uid}/purchases` and back into
+the client cache. Until then the client grants a client-side `ACTIVE` (expiry unknown), replaced
+by the verified value. Server-gated features never trust client-only premium state.
+
+**Cross-device:** the subscription store (`bb_subscription`, sync path `users/{uid}/purchases`)
+syncs, so Premium follows the account.
 
 ## 11. Product analytics (`analytics.AnalyticsTracker`)
 

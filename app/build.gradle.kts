@@ -79,4 +79,5 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("androidx.datastore:datastore-preferences:1.2.0")
+    implementation("com.android.billingclient:billing-ktx:7.1.1")
 }
