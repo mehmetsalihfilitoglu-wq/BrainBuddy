@@ -1,8 +1,25 @@
-# Mioitalia editorial style guide (IMAT-level originals)
+# Mioitalia editorial style guide (IMAT-level originals) — FROZEN TEMPLATE v1
 
-Distilled from studying the official IMAT papers, weighting **2021–2025** most heavily. The gate for
+Distilled from studying the official IMAT papers, weighting **2023–2025** most heavily. The gate for
 every question: *"Would an experienced IMAT candidate believe this came from a real future IMAT paper?"*
 If not, rewrite it.
+
+> **This template is frozen (v1, approved 2026-07-08).** Use it unchanged for every batch. Changing
+> the difficulty targets, schema, or style below requires an explicit new approved version.
+
+## 0. Non-negotiable editorial mandates
+
+1. **Harder than recent official.** The average item must sit ~15–20% above the difficulty of recent
+   official IMAT papers. See the difficulty targets in §2 (deliberately shifted up).
+2. **2023–2025 first.** Prioritise the concepts, wording, and reasoning patterns of 2023–2025 papers.
+   Treat 2011–2016 styles as historical; do not imitate their occasional simple-recall items.
+3. **No isolated recall.** Avoid single-fact definition questions. Every item should require multi-step
+   reasoning, data/scenario interpretation, or integration of ≥2 concepts. A pure "what is X?" is only
+   acceptable if reframed into an applied/inferential context.
+4. **Distractors are misconceptions.** Every wrong option must be scientifically plausible and encode a
+   specific, common candidate error — never filler.
+5. **Original but indistinguishable.** Each question must be completely original yet feel like it could
+   appear verbatim on a real future IMAT paper.
 
 ## 1. Target composition (~1000 questions)
 
@@ -16,15 +33,16 @@ If not, rewrite it.
 
 Adjust ±small amounts if a clear recent trend justifies it.
 
-## 2. Difficulty (target mix, average slightly ABOVE recent official papers)
+## 2. Difficulty (target mix — shifted UP; average clearly above recent official papers)
 
-- **Medium ~25%** — single concept, one or two reasoning steps, still non-trivial. Never trivially easy.
-- **Hard ~55%** — multi-step, integrates 2 concepts, or a calculation with a trap. The backbone.
-- **Very hard ~20%** — deep integration, multi-step quantitative reasoning, subtle distractors that
-  encode real misconceptions.
+- **Medium ~15%** — one core concept but still applied (a reasoning step or a small calculation),
+  never a bare definition. This is the floor, not the norm.
+- **Hard ~50%** — multi-step, integrates 2 concepts, or a calculation with a genuine trap. The backbone.
+- **Very hard ~35%** — deep integration, multi-step quantitative reasoning, or subtle data interpretation
+  with distractors that encode real misconceptions. A substantial minority of every batch.
 
-Do **not** author "easy" questions. Recent IMAT skews harder and more application-based than 2011–2016;
-mirror that.
+Do **not** author easy or pure-recall questions. Per §0, average difficulty is deliberately ~15–20%
+above recent official IMAT. When unsure between two tiers, choose the harder framing.
 
 ## 3. Topic emphasis (recent-trend weighted)
 

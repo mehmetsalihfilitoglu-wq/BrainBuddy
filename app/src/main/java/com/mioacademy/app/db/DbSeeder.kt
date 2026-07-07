@@ -130,8 +130,19 @@ object DbSeeder {
     private const val CURRENT_IMAT_SEED_VERSION = 17
     private const val IMAT_ASSET = "imat/imat_questions.json"
 
+    // ── Mioitalia ORIGINAL question bank ────────────────────────────────────────
+    // Fully isolated pool (examType='MIOITALIA'), own asset + own version key + own reseed, kept
+    // separate from the official IMAT bank so users never confuse original with official content.
+    private const val KEY_MIOITALIA_SEED_VERSION = "mioitalia_seed_version"
+    private const val CURRENT_MIOITALIA_SEED_VERSION = 1
+    private const val MIOITALIA_ASSET = "mioitalia/questions.json"
+
     @Volatile
     var lastImatSeeded: Int = 0
+        internal set
+
+    @Volatile
+    var lastMioitaliaSeeded: Int = 0
         internal set
 
     /**
@@ -223,6 +234,94 @@ object DbSeeder {
     private fun imatSha256(s: String): String = try {
         MessageDigest.getInstance("SHA-256").digest(s.toByteArray()).joinToString("") { "%02x".format(it) }
     } catch (_: Exception) { "" }
+
+    /**
+     * Seeds Mioitalia ORIGINAL questions from [MIOITALIA_ASSET] into Room (examType='MIOITALIA'),
+     * idempotent and versioned via [KEY_MIOITALIA_SEED_VERSION]. Fully isolated from the official IMAT
+     * pool and the K-12/LGS flow. On version bump it deletes existing Mioitalia rows and re-inserts.
+     */
+    suspend fun seedMioitaliaIfNeeded(context: Context): Int = withContext(Dispatchers.IO) {
+        try {
+            val db = DatabaseProvider.get(context)
+            val meta = db.appMetaDao()
+            val dao = db.questionDao()
+            val stored = meta.get(KEY_MIOITALIA_SEED_VERSION)?.toIntOrNull() ?: 0
+            val already = try { dao.countActiveMioitaliaQuestions() } catch (_: Exception) { 0 }
+            if (stored >= CURRENT_MIOITALIA_SEED_VERSION && already > 0) {
+                Log.i(TAG, "seedMioitalia skip (version=$stored, count=$already)")
+                lastMioitaliaSeeded = 0
+                return@withContext 0
+            }
+            val entities = parseMioitaliaAsset(context)
+            if (entities.isEmpty()) {
+                Log.w(TAG, "seedMioitalia: asset produced 0 entities — skipping")
+                lastMioitaliaSeeded = 0
+                return@withContext 0
+            }
+            db.withTransaction {
+                dao.deleteMioitaliaQuestions()
+                dao.insertAllIgnore(entities)
+            }
+            meta.set(AppMetaEntity(KEY_MIOITALIA_SEED_VERSION, CURRENT_MIOITALIA_SEED_VERSION.toString()))
+            Log.i(TAG, "seedMioitalia inserted ${entities.size} original questions (version=$CURRENT_MIOITALIA_SEED_VERSION)")
+            lastMioitaliaSeeded = entities.size
+            entities.size
+        } catch (e: Exception) {
+            Log.e(TAG, "seedMioitalia failed: ${e.message}", e)
+            lastMioitaliaSeeded = 0
+            0
+        }
+    }
+
+    private fun parseMioitaliaAsset(context: Context): List<QuestionEntity> {
+        val json = try {
+            context.assets.open(MIOITALIA_ASSET).use { it.readBytes().toString(Charsets.UTF_8) }
+        } catch (_: Exception) { return emptyList() } // asset optional until the bank ships
+        val arr = JSONArray(json)
+        val now = System.currentTimeMillis()
+        val out = ArrayList<QuestionEntity>(arr.length())
+        for (i in 0 until arr.length()) {
+            val o = arr.optJSONObject(i) ?: continue
+            val id = o.optString("id").takeIf { it.isNotBlank() } ?: continue
+            val examSubject = o.optString("examSubject", "logic")
+            val stem = o.optString("stem").takeIf { it.isNotBlank() } ?: continue
+            val choicesArr = o.optJSONArray("choices") ?: continue
+            if (choicesArr.length() < 2) continue
+            val answerIndex = o.optInt("answerIndex", -1)
+            if (answerIndex < 0 || answerIndex >= choicesArr.length()) continue
+            val image = o.optString("image").takeIf { it.isNotBlank() && it != "null" }
+            val explanation = o.optString("explanation").takeIf { it.isNotBlank() && it != "null" }
+            val topic = o.optString("topic").takeIf { it.isNotBlank() && it != "null" }
+            val stemNorm = stem.trim().replace(Regex("\\s+"), " ").lowercase()
+            out.add(
+                QuestionEntity(
+                    id = id,
+                    grade = 0,
+                    subject = examSubject,
+                    difficulty = o.optInt("difficulty", 2),
+                    questionText = stem,
+                    optionsJson = choicesArr.toString(),
+                    answerIndex = answerIndex,
+                    explanation = explanation,
+                    isActive = true,
+                    examType = "MIOITALIA",
+                    imageAsset = image,
+                    topic = topic,
+                    stemNormalized = stemNorm,
+                    stemHash = imatSha256(stemNorm),
+                    createdAt = now,
+                    sourcePack = "mioitalia_${o.optString("contentSubject", examSubject)}",
+                    source = "original",
+                    year = null,
+                    qualityTier = "HIGH",
+                    reasoningLevel = 3,
+                    qualityScore = 90,
+                    unservableReason = null,
+                )
+            )
+        }
+        return out
+    }
 
     fun debugMat6PipelineDiagnostics(): Mat6PipelineDiagnostics? = lastMat6PipelineDiagnostics
 

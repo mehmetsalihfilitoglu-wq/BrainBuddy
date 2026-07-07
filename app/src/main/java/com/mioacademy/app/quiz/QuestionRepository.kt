@@ -1167,22 +1167,55 @@ class QuestionRepository(private val context: Context) {
     }
 
     /**
-     * IMAT quiz picker. Serves ONLY official IMAT questions (examType='IMAT'), fully isolated
-     * from LGS / grade-based legacy content. [examSubject] null = mixed across all IMAT subjects.
-     * Blocks questions seen in the last few tests when a profileId is given, then shuffles.
+     * IMAT-format practice pools. Selecting a mode is a query-level choice (no schema migration is ever
+     * needed to switch): OFFICIAL_IMAT = frozen official bank only; MIOITALIA_ORIGINAL = original bank
+     * only; MIXED = both together. Official and original items never blend unless MIXED is chosen.
      */
-    fun pickQuizQuestionsForImat(
+    enum class PracticePool { OFFICIAL_IMAT, MIOITALIA_ORIGINAL, MIXED }
+
+    /**
+     * Unified IMAT-format quiz picker. Serves questions from the requested [pool], fully isolated from
+     * LGS / grade-based legacy content. [examSubject] null = mixed across all subjects. Blocks questions
+     * seen in the last few tests when a profileId is given, then shuffles.
+     */
+    fun pickQuizQuestionsForPool(
+        pool: PracticePool,
         count: Int = MIN_QUESTIONS_PER_TEST,
         examSubject: String? = null,
         profileId: String? = null,
     ): List<Question> {
-        val pool = roomStore.getImatQuestions(examSubject)
-        if (pool.isEmpty()) return emptyList()
+        val source = when (pool) {
+            PracticePool.OFFICIAL_IMAT -> roomStore.getImatQuestions(examSubject)
+            PracticePool.MIOITALIA_ORIGINAL -> roomStore.getMioitaliaQuestions(examSubject)
+            PracticePool.MIXED -> roomStore.getMixedImatQuestions(examSubject)
+        }
+        if (source.isEmpty()) return emptyList()
         val blocked = if (profileId != null) roomStore.getQuestionIdsFromLastNTests(profileId, 3) else emptySet()
-        val fresh = pool.filter { it.id !in blocked }
-        val source = if (fresh.size >= count) fresh else pool
-        return source.shuffled().distinctBy { it.id }.take(count.coerceAtLeast(1))
+        val fresh = source.filter { it.id !in blocked }
+        val pick = if (fresh.size >= count) fresh else source
+        return pick.shuffled().distinctBy { it.id }.take(count.coerceAtLeast(1))
     }
+
+    /** Official IMAT only (examType='IMAT'). Back-compat entry point used by the current quiz flow. */
+    fun pickQuizQuestionsForImat(
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        examSubject: String? = null,
+        profileId: String? = null,
+    ): List<Question> = pickQuizQuestionsForPool(PracticePool.OFFICIAL_IMAT, count, examSubject, profileId)
+
+    /** Mioitalia originals only (examType='MIOITALIA'). */
+    fun pickQuizQuestionsForMioitalia(
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        examSubject: String? = null,
+        profileId: String? = null,
+    ): List<Question> = pickQuizQuestionsForPool(PracticePool.MIOITALIA_ORIGINAL, count, examSubject, profileId)
+
+    /** Mixed practice: official IMAT + Mioitalia originals. */
+    fun pickQuizQuestionsForMixed(
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        examSubject: String? = null,
+        profileId: String? = null,
+    ): List<Question> = pickQuizQuestionsForPool(PracticePool.MIXED, count, examSubject, profileId)
 
     /**
      * LGS mode: uses only LGS question pool (examType=LGS).

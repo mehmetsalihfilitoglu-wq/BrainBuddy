@@ -54,9 +54,9 @@ object QuestionMapper {
         val choices = if (presentationChoices != null) {
             // Caller already fixed — but still strip any suffix that leaked
             stripSuffixPatterns(rawChoices)
-        } else if (e.examType == "IMAT") {
-            // Official IMAT items are verbatim A–E (up to 5 options). Never run the K-12
-            // distractor pipeline — it caps to 4 options and would drop option E.
+        } else if (e.examType == "IMAT" || e.examType == "MIOITALIA") {
+            // IMAT-format items (official IMAT + Mioitalia originals) are verbatim A–E (up to 5
+            // options). Never run the K-12 distractor pipeline — it caps to 4 options and drops E.
             rawChoices
         } else {
             // DB choices — run full fixDistractors pipeline

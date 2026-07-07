@@ -248,6 +248,47 @@ interface QuestionDao {
     @Query("DELETE FROM questions WHERE COALESCE(examType,'GENERAL') = 'IMAT'")
     suspend fun deleteImatQuestions()
 
+    // ── Mioitalia ORIGINAL pool (examType='MIOITALIA') — isolated from official IMAT and LGS ──────
+    /**
+     * Mioitalia original questions. [examSubject] null = all subjects; otherwise one of
+     * biology/chemistry/physics_math/logic. Never mixes with official IMAT unless explicitly requested
+     * via [getMixedImatPool].
+     */
+    @Query(
+        """
+        SELECT * FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = 'MIOITALIA'
+        AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND (:examSubject IS NULL OR subject = :examSubject)
+        LIMIT 5000
+        """
+    )
+    suspend fun getMioitaliaPool(examSubject: String?): List<QuestionEntity>
+
+    @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(examType,'GENERAL') = 'MIOITALIA' AND isActive = 1")
+    suspend fun countActiveMioitaliaQuestions(): Int
+
+    /** Delete all Mioitalia questions (for idempotent reseed on version bump). */
+    @Query("DELETE FROM questions WHERE COALESCE(examType,'GENERAL') = 'MIOITALIA'")
+    suspend fun deleteMioitaliaQuestions()
+
+    /**
+     * Mixed practice pool: official IMAT + Mioitalia originals together. Used only when the user
+     * explicitly chooses Mixed mode; Official-only and Originals-only use the pools above.
+     */
+    @Query(
+        """
+        SELECT * FROM questions
+        WHERE COALESCE(examType, 'GENERAL') IN ('IMAT', 'MIOITALIA')
+        AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND (:examSubject IS NULL OR subject = :examSubject)
+        LIMIT 8000
+        """
+    )
+    suspend fun getMixedImatPool(examSubject: String?): List<QuestionEntity>
+
     /** Tüm sınıf havuzu (grade 1-7 için test oluşturma). */
     @Query(
         """

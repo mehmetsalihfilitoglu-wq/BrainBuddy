@@ -661,7 +661,7 @@ class QuizActivity : AppCompatActivity() {
         optionOrders[q.id]?.let { if (it.size == n) return it }
         val identity = IntArray(n) { it }
         val isLetterOptions = (0 until n).all { q.choices.getOrNull(it)?.trim() == ('A' + it).toString() }
-        val doShuffle = SHUFFLE_OPTIONS_AT_RUNTIME && q.examType == ExamType.IMAT && n >= 2 && !isLetterOptions
+        val doShuffle = SHUFFLE_OPTIONS_AT_RUNTIME && q.examType.isImatFormat() && n >= 2 && !isLetterOptions
         val order = if (doShuffle) identity.toMutableList().apply { shuffle() }.toIntArray() else identity
         optionOrders[q.id] = order
         return order
@@ -673,9 +673,9 @@ class QuizActivity : AppCompatActivity() {
         val q = questions[index]
 
         b.progressText.text = "${index + 1}/${questions.size}"
-        // IMAT questions show their exam subject label (carried in topic); no Turkish grade chip.
-        b.subjectChip.text = if (q.examType == ExamType.IMAT) {
-            q.topic?.takeIf { it.isNotBlank() } ?: "IMAT"
+        // IMAT-format questions show their exam subject label (carried in topic); no Turkish grade chip.
+        b.subjectChip.text = if (q.examType.isImatFormat()) {
+            q.topic?.takeIf { it.isNotBlank() } ?: q.examType.displayName
         } else {
             "${q.subject.tr} • ${q.gradeDisplayLabel}"
         }
@@ -700,9 +700,9 @@ class QuizActivity : AppCompatActivity() {
             b.questionImage.visibility = View.GONE
         }
 
-        // IMAT: official A–E choices are used verbatim — skip the K-12 output guard, which is
+        // IMAT-format: official A–E choices are used verbatim — skip the K-12 output guard, which is
         // tuned for 4-option content and can drop option E. Other exams keep the full pipeline.
-        val displayChoices = if (q.examType == ExamType.IMAT) {
+        val displayChoices = if (q.examType.isImatFormat()) {
             q.choices
         } else {
             // Layer 1: QuizOutputGuard sanitizes presentationChoices (dedup, blank fill)
@@ -824,7 +824,7 @@ class QuizActivity : AppCompatActivity() {
 
         val questionsMap = questions.associateBy { it.id }
         val bySubject = questions.groupBy {
-            if (it.examType == ExamType.IMAT) (it.topic?.takeIf { t -> t.isNotBlank() } ?: "IMAT") else it.subject.tr
+            if (it.examType.isImatFormat()) (it.topic?.takeIf { t -> t.isNotBlank() } ?: it.examType.displayName) else it.subject.tr
         }.mapValues { (_, qs) -> qs.size }
         val breakdown = bySubject.entries.joinToString(", ") { "${it.key}: ${it.value}" }.takeIf { it.isNotBlank() }
 

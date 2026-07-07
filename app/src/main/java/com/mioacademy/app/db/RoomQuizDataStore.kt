@@ -115,6 +115,20 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.countActiveImatQuestions()
     }
 
+    /** Mioitalia ORIGINAL pool (examType='MIOITALIA'), isolated from official IMAT. */
+    fun getMioitaliaQuestions(examSubject: String? = null): List<Question> = runBlocking(Dispatchers.IO) {
+        questionDao.getMioitaliaPool(examSubject).map { QuestionMapper.toQuestion(it) }
+    }
+
+    fun countActiveMioitaliaQuestions(): Int = runBlocking(Dispatchers.IO) {
+        questionDao.countActiveMioitaliaQuestions()
+    }
+
+    /** Mixed practice pool: official IMAT + Mioitalia originals together (explicit opt-in only). */
+    fun getMixedImatQuestions(examSubject: String? = null): List<Question> = runBlocking(Dispatchers.IO) {
+        questionDao.getMixedImatPool(examSubject).map { QuestionMapper.toQuestion(it) }
+    }
+
     fun updateQuarantineFlags(id: String, reason: String, tier: String) = runBlocking(Dispatchers.IO) {
         questionDao.updateQuarantineFlags(id, reason, tier)
     }

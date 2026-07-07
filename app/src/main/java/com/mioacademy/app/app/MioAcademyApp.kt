@@ -46,6 +46,9 @@ class MioAcademyApp : Application() {
                 // official items are never touched by the K-12/LGS-tuned cleanup pass.
                 val imatSeeded = DbSeeder.seedImatIfNeeded(this@MioAcademyApp)
                 Log.i(STARTUP_LOG_TAG, "IMAT seed: inserted=$imatSeeded")
+                // Seed the isolated Mioitalia ORIGINAL bank the same way (own pool, own version).
+                val mioitaliaSeeded = DbSeeder.seedMioitaliaIfNeeded(this@MioAcademyApp)
+                Log.i(STARTUP_LOG_TAG, "Mioitalia seed: inserted=$mioitaliaSeeded")
                 val p = StartupAuditRecorder.finalizeStartupAudit(this@MioAcademyApp)
                 Log.i(
                     "AppStartupAudit",
