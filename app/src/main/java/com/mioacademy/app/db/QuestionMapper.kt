@@ -54,6 +54,10 @@ object QuestionMapper {
         val choices = if (presentationChoices != null) {
             // Caller already fixed — but still strip any suffix that leaked
             stripSuffixPatterns(rawChoices)
+        } else if (e.examType == "IMAT") {
+            // Official IMAT items are verbatim A–E (up to 5 options). Never run the K-12
+            // distractor pipeline — it caps to 4 options and would drop option E.
+            rawChoices
         } else {
             // DB choices — run full fixDistractors pipeline
             val fixed = AdaptiveQuizRuntime.fixDistractors(rawChoices, stem, e.answerIndex)

@@ -194,7 +194,23 @@ class QuizActivity : AppCompatActivity() {
 
             val tapToRepoStart = System.currentTimeMillis()
             android.util.Log.d("QUIZ_PERF", "[QUIZ_PERF] tap_to_repo_start=${tapToRepoStart}ms (since epoch)")
-            val result = withTimeoutOrNull(5000L) {
+            // IMAT profiles ALWAYS serve the isolated official IMAT pool. Resolved up-front — before
+            // the 5s legacy-build timeout — so a slow legacy build can NEVER fall back to legacy
+            // (LGS/grade) content for an IMAT profile. The IMAT picker is a single fast query.
+            val imatResult: QuizBuildResult? =
+                if (!isReplayFromLastTest && !retryWrongMode && (wrongIds == null || wrongIds.isEmpty())) {
+                    withContext(Dispatchers.IO) {
+                        val imatMode = try {
+                            com.mioacademy.app.core.UserGoalPrefs(this@QuizActivity.applicationContext)
+                                .getGoal().careerPath.examType == com.mioacademy.app.core.ExamType.IMAT
+                        } catch (_: Exception) { false }
+                        if (imatMode) {
+                            val qs = repo.pickQuizQuestionsForImat(count = targetCount)
+                            if (qs.isNotEmpty()) QuizBuildResult(qs, null, "imat", false, 0) else null
+                        } else null
+                    }
+                } else null
+            val result = imatResult ?: withTimeoutOrNull(5000L) {
                 withContext(Dispatchers.IO) {
                 buildQuizOnBackground(
                     context = this@QuizActivity.applicationContext,
@@ -658,11 +674,15 @@ class QuizActivity : AppCompatActivity() {
             b.questionImage.visibility = View.GONE
         }
 
-        // Layer 1: QuizOutputGuard sanitizes presentationChoices (dedup, blank fill)
-        val guarded = QuizOutputGuard.sanitizeQuestion(q)
-        // Layer 2: Use q.choices which was already sanitized by QuestionMapper.toQuestion()
-        // (suffix stripping + fixDistractors). Guard adds dedup on top.
-        val displayChoices = guarded.presentationChoices ?: q.choices
+        // IMAT: official A–E choices are used verbatim — skip the K-12 output guard, which is
+        // tuned for 4-option content and can drop option E. Other exams keep the full pipeline.
+        val displayChoices = if (q.examType == ExamType.IMAT) {
+            q.choices
+        } else {
+            // Layer 1: QuizOutputGuard sanitizes presentationChoices (dedup, blank fill)
+            // Layer 2: q.choices was already sanitized by QuestionMapper.toQuestion().
+            QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
+        }
         b.optA.text = displayChoices.getOrNull(0) ?: "-"
         b.optB.text = displayChoices.getOrNull(1) ?: "-"
         b.optC.text = displayChoices.getOrNull(2) ?: "-"
