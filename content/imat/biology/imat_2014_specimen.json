@@ -54,6 +54,34 @@
     "extraction_confidence": "high"
   },
   {
+    "id": "imat_2014_specimen_biology_030",
+    "exam": "IMAT",
+    "subject": "biology",
+    "section": "Biology",
+    "topic": "genetics / sex-linked inheritance",
+    "difficulty": null,
+    "source_file": "234518-imat-specimen-paper-2014.pdf",
+    "source_exam": "IMAT",
+    "source_year": 2014,
+    "source_type": "specimen",
+    "original_number": 30,
+    "question": "The diagram below shows the inheritance of a nonlethal recessive sexlinked condition.\nWhich row in the table below does not correctly state the probability for each person possessing one copy of the allele for the condition?\nPerson | Maximum probability (%)\n1 | 50\n2 | 0\n3 | 50\n4 | 0\n5 | 100",
+    "choices": {
+      "A": "Person 2",
+      "B": "Person 5",
+      "C": "Person 4",
+      "D": "Person 1",
+      "E": "Person 3"
+    },
+    "correct_answer": "D",
+    "explanation": null,
+    "explanation_status": "missing",
+    "has_figure": true,
+    "duplicate_source": null,
+    "extraction_confidence": "high",
+    "image": "imat/figures/imat_2014_specimen_q030.png"
+  },
+  {
     "id": "imat_2014_specimen_biology_031",
     "exam": "IMAT",
     "subject": "biology",
@@ -216,6 +244,34 @@
     "extraction_confidence": "high"
   },
   {
+    "id": "imat_2014_specimen_biology_037",
+    "exam": "IMAT",
+    "subject": "biology",
+    "section": "Biology",
+    "topic": "meiosis / crossing over",
+    "difficulty": null,
+    "source_file": "234518-imat-specimen-paper-2014.pdf",
+    "source_exam": "IMAT",
+    "source_year": 2014,
+    "source_type": "specimen",
+    "original_number": 37,
+    "question": "The diagram below shows a pair of homologous chromosomes and the site of crossing over.\nWhich answer in the table is correct when meiosis is complete?\nThe table has columns: Number of recombinant daughter chromosomes produced | Number of daughter chromosomes that are genetically distinct from each other, with rows giving pairs of values (1|2, 2|1, 4|2, 2|4, 4|4).",
+    "choices": {
+      "A": "Row 2",
+      "B": "Row 3",
+      "C": "Row 5",
+      "D": "Row 1",
+      "E": "Row 4"
+    },
+    "correct_answer": "E",
+    "explanation": null,
+    "explanation_status": "missing",
+    "has_figure": true,
+    "duplicate_source": null,
+    "extraction_confidence": "high",
+    "image": "imat/figures/imat_2014_specimen_q037.png"
+  },
+  {
     "id": "imat_2014_specimen_biology_038",
     "exam": "IMAT",
     "subject": "biology",
@@ -243,6 +299,34 @@
     "extraction_confidence": "high"
   },
   {
+    "id": "imat_2014_specimen_biology_039",
+    "exam": "IMAT",
+    "subject": "biology",
+    "section": "Biology",
+    "topic": "protein synthesis / RER",
+    "difficulty": null,
+    "source_file": "234518-imat-specimen-paper-2014.pdf",
+    "source_exam": "IMAT",
+    "source_year": 2014,
+    "source_type": "specimen",
+    "original_number": 39,
+    "question": "The diagram shows a section of rough endoplasmic reticulum (RER).\nWhich answer correctly identifies the substances associated with structures 1 and 2?",
+    "choices": {
+      "A": "1: amino acids 2: tRNA",
+      "B": "1: tRNA 2: polypeptide",
+      "C": "1: proteins 2: DNA",
+      "D": "1: DNA 2: carbohydrate",
+      "E": "1: phospholipids 2: mRNA"
+    },
+    "correct_answer": "B",
+    "explanation": null,
+    "explanation_status": "missing",
+    "has_figure": true,
+    "duplicate_source": null,
+    "extraction_confidence": "high",
+    "image": "imat/figures/imat_2014_specimen_q039.png"
+  },
+  {
     "id": "imat_2014_specimen_biology_040",
     "exam": "IMAT",
     "subject": "biology",
@@ -268,5 +352,61 @@
     "has_figure": false,
     "duplicate_source": null,
     "extraction_confidence": "high"
+  },
+  {
+    "id": "imat_2014_specimen_biology_041",
+    "exam": "IMAT",
+    "subject": "biology",
+    "section": "Biology",
+    "topic": "enzyme kinetics",
+    "difficulty": null,
+    "source_file": "234518-imat-specimen-paper-2014.pdf",
+    "source_exam": "IMAT",
+    "source_year": 2014,
+    "source_type": "specimen",
+    "original_number": 41,
+    "question": "Which curves show the results of calculating the initial rate of reaction of an enzyme:\n1. when the substrate concentration is varied, under optimal conditions and without an inhibitor\n2. when the substrate concentration is varied, under optimal conditions and fixed, low concentration of a competitive inhibitor?",
+    "choices": {
+      "A": "(1) curve P (2) curve S",
+      "B": "(1) curve R (2) curve P",
+      "C": "(1) curve Q (2) curve R",
+      "D": "(1) curve P (2) curve Q",
+      "E": "(1) curve R (2) curve S"
+    },
+    "correct_answer": "D",
+    "explanation": null,
+    "explanation_status": "missing",
+    "has_figure": true,
+    "duplicate_source": null,
+    "extraction_confidence": "high",
+    "image": "imat/figures/imat_2014_specimen_q041.png"
+  },
+  {
+    "id": "imat_2014_specimen_biology_042",
+    "exam": "IMAT",
+    "subject": "biology",
+    "section": "Biology",
+    "topic": "anaerobic respiration",
+    "difficulty": null,
+    "source_file": "234518-imat-specimen-paper-2014.pdf",
+    "source_exam": "IMAT",
+    "source_year": 2014,
+    "source_type": "specimen",
+    "original_number": 42,
+    "question": "The diagram shows the respiration process in the cytoplasm of a yeast cell or an animal cell when O2 is limiting:\nWhich option correctly identifies substances X, Y and Z?",
+    "choices": {
+      "A": "X = pyruvate Y = ethanol Z = lactate",
+      "B": "X = pyruvate Y = lactate Z = ethanol",
+      "C": "X = lactate Y = ethanol Z = pyruvate",
+      "D": "X = ethanol Y = pyruvate Z = lactate",
+      "E": "X = lactate Y = pyruvate Z = ethanol"
+    },
+    "correct_answer": "E",
+    "explanation": null,
+    "explanation_status": "missing",
+    "has_figure": true,
+    "duplicate_source": null,
+    "extraction_confidence": "high",
+    "image": "imat/figures/imat_2014_specimen_q042.png"
   }
 ]
