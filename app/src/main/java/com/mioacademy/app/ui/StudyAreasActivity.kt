@@ -173,7 +173,7 @@ class StudyAreasActivity : AppCompatActivity() {
 
     private fun showAddDialog() {
         val existing = StudyAreaManager.getAreas(this).map { it.career }.toSet()
-        val available = CareerPath.values().filter { it !in existing }
+        val available = com.mioacademy.app.core.ExamFocus.selectableCareers().filter { it !in existing }
         if (available.isEmpty()) {
             toast(getString(R.string.areas_all_added))
             return

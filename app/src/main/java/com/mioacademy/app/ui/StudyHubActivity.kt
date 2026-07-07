@@ -48,6 +48,9 @@ class StudyHubActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardDiscover).onTap {
             startActivity(Intent(this, com.mioacademy.app.discover.DiscoverActivity::class.java))
         }
+        findViewById<MaterialCardView>(R.id.cardTools).onTap {
+            startActivity(Intent(this, ToolsActivity::class.java))
+        }
 
         val content = findViewById<View>(R.id.scrollContent)
         val origBottom = content.paddingBottom

@@ -186,7 +186,7 @@ class OnboardingWizardActivity : AppCompatActivity() {
         val step = viewFlipper.getChildAt(1)
         val rv = step.findViewById<RecyclerView>(R.id.rvCareers)
         // Multi-select: tapping toggles a career in/out of the chosen set.
-        careerAdapter = CareerAdapter(CareerPath.values().toList()) { career, selected ->
+        careerAdapter = CareerAdapter(com.mioacademy.app.core.ExamFocus.selectableCareers()) { career, selected ->
             if (selected) selectedCareers.add(career) else selectedCareers.remove(career)
             updateNextEnabled()
         }

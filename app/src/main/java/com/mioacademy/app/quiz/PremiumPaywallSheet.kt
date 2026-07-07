@@ -81,7 +81,24 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
     private fun renderPlans(offers: List<PlanOffer>) {
         val container = view?.findViewById<LinearLayout>(R.id.plansContainer) ?: return
         container.removeAllViews()
-        offers.forEach { offer -> container.addView(planCard(offer)) }
+        val config = com.mioacademy.app.remote.RemoteConfigProvider.get()
+        val d = resources.displayMetrics.density
+
+        // Annual-anchored value line above the plans.
+        val anchor = config.getString(com.mioacademy.app.remote.RemoteConfigKeys.PREMIUM_VALUE_ANCHOR, "")
+        if (anchor.isNotBlank()) {
+            container.addView(makeText(anchor, 13f, R.color.emeraldDark, bold = true).apply {
+                setLineSpacing(0f, 1.3f); setPadding(0, 0, 0, (10 * d + 0.5f).toInt())
+            })
+        }
+
+        // Annual first; monthly hidden by default (annual-anchored headline).
+        val showMonthly = config.getBoolean(com.mioacademy.app.remote.RemoteConfigKeys.PAYWALL_SHOW_MONTHLY, false)
+        val shown = offers
+            .filter { showMonthly || it.plan == SubscriptionPlan.YEARLY }
+            .sortedByDescending { it.plan == SubscriptionPlan.YEARLY }
+        if (shown.none { it.plan == selectedPlan }) selectedPlan = SubscriptionPlan.YEARLY
+        shown.forEach { offer -> container.addView(planCard(offer)) }
         highlightSelection()
     }
 
