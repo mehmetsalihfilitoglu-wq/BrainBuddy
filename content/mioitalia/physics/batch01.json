@@ -1,0 +1,269 @@
+[
+  {
+    "id": "mio_phys_0003",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "circular motion and dynamics",
+    "subtopic": "banked curve with friction, maximum speed",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "circular motion",
+      "banked curve",
+      "friction",
+      "centripetal force"
+    ],
+    "learning_objective": "Combine banking angle and friction to find the maximum safe speed on a curved road, integrating Newton's second law in two directions.",
+    "question": "A curved road of radius 50 m is banked at an angle such that tan(theta) = 0.75. The coefficient of static friction between the tyres and the road is 0.25. Take g = 10 m/s^2. What is the maximum speed at which a car can round the curve without sliding outward?",
+    "choices": {
+      "A": "22 m/s",
+      "B": "15 m/s",
+      "C": "19 m/s",
+      "D": "30 m/s",
+      "E": "25 m/s"
+    },
+    "correct_answer": "E",
+    "explanation": "For the maximum speed, friction acts down the slope (preventing outward slide). Resolving along horizontal and vertical: v_max^2 = rg(tan theta + mu)/(1 - mu tan theta) = 50*10*(0.75 + 0.25)/(1 - 0.25*0.75) = 500*(1.00)/(1 - 0.1875) = 500/0.8125 = 615.4, so v_max = 24.8 m/s ≈ 25 m/s. The key traps are the sign of mu (down-slope at maximum speed) and the denominator term (1 - mu tan theta).",
+    "option_analysis": {
+      "A": "22 m/s ignores the denominator correction, using v^2 = rg(tan theta + mu) = 500 → 22.4 m/s.",
+      "B": "15 m/s comes from subtracting mu from tan theta (friction up-slope, the minimum-speed case) instead of adding.",
+      "C": "19 m/s uses the frictionless banking speed v^2 = rg tan theta = 375 → 19.4 m/s, ignoring friction.",
+      "D": "30 m/s reverses the friction sign, using (tan theta + mu)/(1 + ... ) errors or adding rather than the correct combination, overestimating.",
+      "E": "CORRECT: v_max^2 = rg(tan theta + mu)/(1 - mu tan theta) = 500(1.00)/(0.8125) ≈ 615, v ≈ 25 m/s."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0004",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "momentum and impulse",
+    "subtopic": "two-dimensional collision and kinetic-energy loss",
+    "difficulty": "hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "momentum conservation",
+      "inelastic collision",
+      "kinetic energy",
+      "vectors"
+    ],
+    "learning_objective": "Apply conservation of momentum to a perpendicular collision and compute the fraction of kinetic energy lost.",
+    "question": "On a frictionless horizontal surface, a 3.0 kg puck moving east at 4.0 m/s strikes a 1.0 kg puck moving north at 6.0 m/s. The two pucks stick together after impact. What fraction of the total initial kinetic energy is lost in the collision?",
+    "choices": {
+      "A": "0.33",
+      "B": "0.45",
+      "C": "0.55",
+      "D": "0.25",
+      "E": "0.70"
+    },
+    "correct_answer": "B",
+    "explanation": "Momentum is conserved in the collision. Before impact: p_x = (3.0)(4.0) = 12 kg·m/s (east), p_y = (1.0)(6.0) = 6.0 kg·m/s (north). The 4.0 kg combined mass moves with momentum p = √(12² + 6²) = √180 ≈ 13.4 kg·m/s, so v = 13.4/4.0 ≈ 3.35 m/s. Initial KE = ½(3.0)(4.0²) + ½(1.0)(6.0²) = 24 + 18 = 42 J. Final KE = ½(4.0)(3.35²) ≈ 22.5 J. Fraction of KE lost = (42 − 22.5)/42 ≈ 0.46, i.e. about 0.45.",
+    "option_analysis": {
+      "A": "Wrong: 0.33 does not follow from a correct momentum-and-energy calculation.",
+      "B": "CORRECT: KE lost = (42 − 22.5)/42 ≈ 0.46 ≈ 0.45.",
+      "C": "Wrong: 0.55 is close to the fraction of KE RETAINED (22.5/42 ≈ 0.54), i.e. the complement of the answer — a classic retained-vs-lost slip.",
+      "D": "Wrong: 0.25 typically comes from adding the momentum components as scalars (12 + 6 = 18) instead of using the Pythagorean resultant.",
+      "E": "Wrong: 0.70 overestimates the loss, e.g. by assuming one puck is brought to rest."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0005",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "fluids and thermodynamics",
+    "subtopic": "buoyancy combined with gas law under submersion",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 190,
+    "tags": [
+      "buoyancy",
+      "Archimedes",
+      "pressure",
+      "gas law",
+      "integration"
+    ],
+    "learning_objective": "Integrate hydrostatic pressure, the ideal gas law and Archimedes' principle to determine the buoyant force on a compressible bubble at depth.",
+    "question": "A small air bubble is released at the bottom of a fresh-water lake where the absolute pressure is 3.0 atm and rises to a depth where the absolute pressure is 1.5 atm. Temperature is constant. If the buoyant force on the bubble at the deeper point is F, what is the buoyant force at the shallower point? (The bubble remains fully submerged and behaves as an ideal gas.)",
+    "choices": {
+      "A": "2F",
+      "B": "4F",
+      "C": "F/2",
+      "D": "3F/2",
+      "E": "F"
+    },
+    "correct_answer": "A",
+    "explanation": "Buoyant force equals the weight of water displaced, F_b = rho_water * g * V_bubble, so F_b is proportional to the bubble volume V. At constant temperature Boyle's law gives P*V = constant, so V is inversely proportional to absolute pressure. Going from 3.0 atm to 1.5 atm halves the pressure, doubling the volume, hence doubling the buoyant force. F_shallow = 2F. The water density is essentially constant, so the entire change comes from the gas expansion.",
+    "option_analysis": {
+      "A": "CORRECT: V ∝ 1/P (Boyle), pressure halves so V doubles, and F_b ∝ V, giving 2F.",
+      "B": "4F squares the pressure ratio, treating volume as inversely proportional to P^2.",
+      "C": "F/2 applies the pressure ratio directly to force (F ∝ P), the inverse of the correct relation.",
+      "D": "3F/2 uses the pressure ratio 3.0/2.0 incorrectly or averages pressures instead of applying Boyle's law.",
+      "E": "F assumes the bubble volume is unchanged, ignoring gas expansion as pressure drops."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0006",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "electric circuits",
+    "subtopic": "capacitor charging energy and steady-state current in RC network",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 200,
+    "tags": [
+      "capacitor",
+      "steady state",
+      "energy storage",
+      "series-parallel resistors"
+    ],
+    "learning_objective": "Analyse a mixed resistor-capacitor circuit at steady state, finding the voltage across a capacitor and the energy it stores.",
+    "question": "A 12 V ideal battery is connected in series with a 2.0 ohm resistor R1, which then connects to a parallel combination of a 4.0 ohm resistor R2 and a branch containing a 6.0 ohm resistor R3 in series with a 5.0 microfarad capacitor C. After a long time (steady state), what energy is stored in the capacitor?",
+    "choices": {
+      "A": "40 microjoules",
+      "B": "90 microjoules",
+      "C": "250 microjoules",
+      "D": "160 microjoules",
+      "E": "360 microjoules"
+    },
+    "correct_answer": "D",
+    "explanation": "At steady state no current flows through the capacitor branch, so no current flows through R3 and there is no voltage drop across R3. The capacitor therefore charges to the full voltage across R2. With the R3-C branch carrying no current, the circuit reduces to R1 (2.0 ohm) in series with R2 (4.0 ohm) across 12 V. Current I = 12/(2.0+4.0) = 2.0 A. Voltage across R2 = I*R2 = 2.0*4.0 = 8.0 V. Since no current flows in R3, the capacitor voltage equals the voltage across R2 = 8.0 V. Energy = (1/2)C V^2 = 0.5 * 5.0e-6 * 8.0^2 = 0.5*5.0e-6*64 = 160e-6 J = 160 microjoules.",
+    "option_analysis": {
+      "A": "40 uJ uses V_C = 4.0 V, treating the R2 value directly as a voltage.",
+      "B": "90 uJ places a fictitious voltage drop across R3 (using 6 V), forgetting that no current flows there at steady state.",
+      "C": "250 uJ uses V_C = 10 V, obtained by dropping only R1 (12 - 2 = 10) instead of solving the divider.",
+      "D": "CORRECT: steady-state V_C = 8.0 V across R2; U = (1/2)(5.0 uF)(8.0)^2 = 160 uJ.",
+      "E": "360 uJ uses the full 12 V across the capacitor, ignoring the drop across R1."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0007",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "electromagnetism and waves",
+    "subtopic": "motional EMF and induced power with wave-speed check",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 200,
+    "tags": [
+      "electromagnetic induction",
+      "motional EMF",
+      "Lenz's law",
+      "power dissipation"
+    ],
+    "learning_objective": "Compute motional EMF, induced current and dissipated power for a conducting rod on rails in a magnetic field, and identify the force needed to maintain constant speed.",
+    "question": "A conducting rod of length 0.50 m slides at a constant speed of 4.0 m/s along frictionless horizontal rails connected by a 2.0 ohm resistor. A uniform magnetic field of 0.80 T is directed vertically, perpendicular to the plane of the rails. The rod and rails have negligible resistance. What external force must be applied to the rod to keep its speed constant?",
+    "choices": {
+      "A": "0.64 N",
+      "B": "0.16 N",
+      "C": "0.32 N",
+      "D": "2.56 N",
+      "E": "1.28 N"
+    },
+    "correct_answer": "C",
+    "explanation": "The motional EMF is ε = BLv = (0.80)(0.50)(4.0) = 1.6 V. The induced current is I = ε/R = 1.6/2.0 = 0.80 A. The magnetic force on the current-carrying rod is F = BIL = (0.80)(0.80)(0.50) = 0.32 N, directed opposite to the motion. To keep the rod moving at constant speed, the applied force must exactly balance this retarding force: 0.32 N. (Equivalently F = B²L²v/R = 0.32 N.)",
+    "option_analysis": {
+      "A": "Wrong: 0.64 N is exactly double the correct value — a common error from double-counting a factor (e.g. F = 2BIL).",
+      "B": "Wrong: 0.16 N is half the correct value, e.g. from omitting a factor.",
+      "C": "CORRECT: F = BIL = B²L²v/R = 0.32 N balances the induced retarding force.",
+      "D": "Wrong: 2.56 N is a gross overestimate (factor of 8).",
+      "E": "Wrong: 1.28 N is four times too large."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0008",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Electricity",
+    "subtopic": "Energy dissipated when capacitors are connected (charge sharing)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "capacitor",
+      "charge conservation",
+      "energy dissipation",
+      "parallel connection"
+    ],
+    "learning_objective": "Use charge conservation to find the final voltage of two connected capacitors and the energy dissipated in the process.",
+    "question": "A 2.0 μF capacitor is charged to 100 V and then disconnected from the battery. Its two terminals are then connected, in parallel, to an initially uncharged 3.0 μF capacitor. Once the system reaches equilibrium, how much energy has been dissipated?",
+    "choices": {
+      "A": "10 mJ",
+      "B": "0 mJ",
+      "C": "4 mJ",
+      "D": "6 mJ",
+      "E": "2 mJ"
+    },
+    "correct_answer": "D",
+    "explanation": "Charge is conserved (no battery): Q = C₁V₁ = (2.0 μF)(100 V) = 200 μC. After connection the capacitors share this charge across a total capacitance of 2.0 + 3.0 = 5.0 μF, giving a common voltage V′ = 200 μC / 5.0 μF = 40 V. Initial energy = ½C₁V₁² = ½(2.0 μF)(100²) = 10 mJ. Final energy = ½(5.0 μF)(40²) = 4 mJ. Energy dissipated = 10 − 4 = 6 mJ. Energy is always lost this way (as heat/radiation), regardless of connecting-wire resistance.",
+    "option_analysis": {
+      "A": "Wrong: 10 mJ is the INITIAL stored energy, not the amount dissipated.",
+      "B": "Wrong: energy is not conserved here — connecting charged to uncharged capacitors always dissipates energy.",
+      "C": "Wrong: 4 mJ is the FINAL stored energy, not the energy dissipated.",
+      "D": "CORRECT: 10 mJ initial − 4 mJ final = 6 mJ dissipated.",
+      "E": "Wrong: 2 mJ underestimates the loss (e.g. from a wrong final voltage)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0009",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Mechanics",
+    "subtopic": "Motion on a rough incline (energy/kinematics)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "incline",
+      "kinetic friction",
+      "kinematics",
+      "acceleration"
+    ],
+    "learning_objective": "Combine the gravitational and frictional force components on an incline to find the speed after a given displacement.",
+    "question": "A 1.0 kg block is released from rest and slides down a rough incline that makes an angle of 37° with the horizontal. The coefficient of kinetic friction between block and incline is 0.25. What is the block's speed after it has slid 2.0 m along the incline? (Take g = 10 m/s², sin 37° = 0.60, cos 37° = 0.80.)",
+    "choices": {
+      "A": "2.8 m/s",
+      "B": "3.2 m/s",
+      "C": "5.7 m/s",
+      "D": "4.0 m/s",
+      "E": "4.9 m/s"
+    },
+    "correct_answer": "D",
+    "explanation": "The acceleration down the incline is a = g(sin θ − μ cos θ) = 10(0.60 − 0.25 × 0.80) = 10(0.60 − 0.20) = 4.0 m/s². Starting from rest over a distance s = 2.0 m, v² = 2as = 2(4.0)(2.0) = 16, so v = 4.0 m/s.",
+    "option_analysis": {
+      "A": "Wrong: 2.8 m/s corresponds to an acceleration of ~2 m/s², e.g. from doubling the friction term.",
+      "B": "Wrong: 3.2 m/s uses too small a net acceleration.",
+      "C": "Wrong: 5.7 m/s uses no friction AND double the distance, or otherwise inflates the acceleration.",
+      "D": "CORRECT: a = g(sin θ − μ cos θ) = 4.0 m/s², so v = √(2·4·2) = 4.0 m/s.",
+      "E": "Wrong: 4.9 m/s is the frictionless result (a = g sin θ = 6.0 m/s², v = √24), ignoring friction."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  }
+]

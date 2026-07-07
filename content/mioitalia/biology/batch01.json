@@ -1,0 +1,788 @@
+[
+  {
+    "id": "mio_bio_0004",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "biochemistry & metabolism",
+    "subtopic": "glycolysis: substrate-level phosphorylation and ATP accounting",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "glycolysis",
+      "substrate-level phosphorylation",
+      "ATP",
+      "NADH",
+      "metabolism"
+    ],
+    "learning_objective": "Track the ATP investment and payoff phases of glycolysis and distinguish gross from net yield when reasoning about substrate-level phosphorylation.",
+    "question": "In the payoff phase of glycolysis, a single molecule of glucose is processed as two three-carbon units, and two reactions per unit generate ATP by substrate-level phosphorylation. A biochemist studies a mutant cell in which one of these two ATP-generating steps (the one catalysed by pyruvate kinase) is completely blocked, while the investment phase and all NAD+-reducing steps remain fully active. Assuming the pathway still processes one glucose to the point of that block, what is the NET change in ATP and the number of NADH produced per glucose, compared with normal glycolysis?",
+    "choices": {
+      "A": "Net ATP remains +2, and 2 NADH are still produced",
+      "B": "Net ATP falls from +4 to +2, and 2 NADH are still produced",
+      "C": "Net ATP falls from +2 to 0, and 0 NADH are produced",
+      "D": "Net ATP falls from +2 to 0, and 2 NADH are still produced",
+      "E": "Net ATP falls from +2 to −2, and 0 NADH are produced"
+    },
+    "correct_answer": "D",
+    "explanation": "Normal glycolysis invests 2 ATP (hexokinase, phosphofructokinase) and produces 4 ATP in the payoff phase (2 by phosphoglycerate kinase, 2 by pyruvate kinase), giving a gross yield of 4 and a net of +2, plus 2 NADH from the glyceraldehyde-3-phosphate dehydrogenase step. Blocking only pyruvate kinase removes 2 of the 4 payoff ATP, so the payoff drops to 2 while the investment of 2 remains, giving a net of 0. The NADH-producing step (glyceraldehyde-3-phosphate dehydrogenase) lies BEFORE pyruvate kinase and is unaffected, so 2 NADH are still made. The pathway must reach 1,3-bisphosphoglycerate and beyond to reach the pyruvate kinase step, so both NADH and the phosphoglycerate kinase ATP are produced.",
+    "option_analysis": {
+      "A": "Wrong: assumes the block has no effect on yield, overlooking that pyruvate kinase normally supplies half the payoff ATP.",
+      "B": "Wrong: confuses gross yield (4→2) with net yield and forgets to subtract the 2-ATP investment.",
+      "C": "Wrong: correctly identifies net 0 ATP but wrongly claims 0 NADH; the NADH-producing step precedes the block and still runs.",
+      "D": "CORRECT: losing the 2 pyruvate kinase ATP drops net yield from +2 to 0 (payoff 2 − investment 2); the earlier NADH step is untouched, so 2 NADH remain.",
+      "E": "Wrong: −2 assumes both payoff steps are lost, but only pyruvate kinase (2 ATP) is blocked; it also wrongly claims no NADH, ignoring the upstream dehydrogenase step."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0005",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "biochemistry & metabolism",
+    "subtopic": "oxidative phosphorylation: chemiosmosis and uncouplers",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "oxidative phosphorylation",
+      "chemiosmosis",
+      "uncoupler",
+      "proton gradient",
+      "ATP synthase",
+      "electron transport chain"
+    ],
+    "learning_objective": "Predict the coupled consequences of dissipating the mitochondrial proton-motive force on electron transport, oxygen consumption, ATP synthesis and heat production.",
+    "question": "A lipophilic weak acid is added to actively respiring, isolated mitochondria. It shuttles protons freely across the inner mitochondrial membrane, collapsing the electrochemical gradient without directly binding any electron-transport complex or ATP synthase. Which single combination correctly describes the effect on the rate of oxygen consumption, the rate of ATP synthesis, and heat release, relative to the untreated mitochondria?",
+    "choices": {
+      "A": "Oxygen consumption increases, ATP synthesis decreases, heat release increases",
+      "B": "Oxygen consumption decreases, ATP synthesis increases, heat release increases",
+      "C": "Oxygen consumption decreases, ATP synthesis decreases, heat release decreases",
+      "D": "Oxygen consumption increases, ATP synthesis increases, heat release decreases",
+      "E": "Oxygen consumption is unchanged, ATP synthesis decreases, heat release is unchanged"
+    },
+    "correct_answer": "A",
+    "explanation": "By carrying protons back across the inner membrane, the uncoupler dissipates the proton-motive force. Because the electron-transport chain is no longer held back by a high gradient (loss of respiratory control), electrons flow more freely to O2, so oxygen consumption rises. ATP synthase, however, depends on protons flowing through it; with the gradient short-circuited, proton flux bypasses the synthase and ATP synthesis falls. The redox energy that would have been captured as ATP is instead released as heat, so heat production increases. This is exactly how uncouplers such as 2,4-dinitrophenol and thermogenin (UCP1) act.",
+    "option_analysis": {
+      "A": "CORRECT: loss of respiratory control speeds electron transport (more O2 used), the short-circuited gradient starves ATP synthase (less ATP), and the freed energy dissipates as heat.",
+      "B": "Wrong: an uncoupler cannot raise ATP synthesis while destroying the gradient that drives ATP synthase.",
+      "C": "Wrong: assumes uncoupling slows the chain, but removing the back-pressure of the gradient accelerates, not slows, electron flow.",
+      "D": "Wrong: correctly predicts faster respiration but forgets that without a gradient ATP synthase cannot work, so ATP must fall, not rise.",
+      "E": "Wrong: treats the chain and synthase as independent; collapsing the gradient releases respiratory control, so O2 use and heat both rise."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0006",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "biochemistry & metabolism",
+    "subtopic": "oxidative phosphorylation: ATP yield and NADH shuttles",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "ATP yield",
+      "electron transport chain",
+      "glycerol-3-phosphate shuttle",
+      "malate-aspartate shuttle",
+      "P/O ratio",
+      "glucose oxidation"
+    ],
+    "learning_objective": "Integrate substrate-level and oxidative phosphorylation yields and account for the difference between the two cytosolic NADH shuttle systems.",
+    "question": "A cell completely oxidises one molecule of glucose to CO2 and water. Assume each mitochondrial NADH yields 2.5 ATP and each FADH2 yields 1.5 ATP through oxidative phosphorylation. In this cell type, the two cytosolic NADH molecules generated in glycolysis are re-oxidised exclusively via the glycerol-3-phosphate shuttle, which delivers their electrons to the chain at the level of FADH2. Counting substrate-level phosphorylation as well, what is the total ATP yield per glucose, and how does it compare with a cell that instead uses the malate-aspartate shuttle?",
+    "choices": {
+      "A": "36 ATP; 2 fewer than the malate-aspartate cell, which yields 38",
+      "B": "30 ATP; 2 fewer than the malate-aspartate cell, which yields 32",
+      "C": "38 ATP; 2 more than the malate-aspartate cell, which yields 36",
+      "D": "30 ATP; 4 fewer than the malate-aspartate cell, which yields 34",
+      "E": "32 ATP; identical to the malate-aspartate cell"
+    },
+    "correct_answer": "B",
+    "explanation": "Per glucose the cell generates: 4 ATP by substrate-level phosphorylation (2 net in glycolysis + 2 GTP in the Krebs cycle across two turns); 8 mitochondrial NADH (2 from pyruvate dehydrogenase + 6 from the Krebs cycle) worth 8 × 2.5 = 20 ATP; and 2 FADH2 from the Krebs cycle worth 2 × 1.5 = 3 ATP. The 2 cytosolic NADH from glycolysis are handled by the glycerol-3-phosphate shuttle, entering as FADH2-equivalents at 1.5 each = 3 ATP. Total = 4 + 20 + 3 + 3 = 30 ATP. With the malate-aspartate shuttle those 2 cytosolic NADH would enter as NADH (2.5 each = 5 ATP), adding 2 more for a total of 32 ATP.",
+    "option_analysis": {
+      "A": "Wrong: counts the cytosolic NADH as mitochondrial NADH (2.5) even though the G3P shuttle is specified, and mislabels the totals.",
+      "B": "CORRECT: 4 (substrate-level) + 20 (8 NADH) + 3 (2 Krebs FADH2) + 3 (2 cytosolic NADH via G3P shuttle at 1.5) = 30; the malate-aspartate route adds 2 (2×1.0 gain) for 32.",
+      "C": "Wrong: uses the older 3-ATP-per-NADH / 2-ATP-per-FADH2 convention, giving inflated 38/36 figures instead of the 2.5/1.5 values stated.",
+      "D": "Wrong: correctly gets 30 but overestimates the shuttle penalty as 4 rather than 2 (each cytosolic NADH differs by only 1.0 ATP, ×2 = 2).",
+      "E": "Wrong: ignores that the two shuttles differ; G3P delivers cytosolic NADH as FADH2 (1.5), giving 2 fewer ATP than malate-aspartate."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0007",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "biochemistry & metabolism",
+    "subtopic": "enzyme inhibition: identifying inhibitor type from kinetic parameters",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "enzyme kinetics",
+      "competitive inhibition",
+      "Michaelis-Menten",
+      "Km",
+      "Vmax",
+      "inhibition"
+    ],
+    "learning_objective": "Diagnose the type of reversible enzyme inhibition from measured changes in apparent Km and Vmax.",
+    "question": "An enzyme is assayed alone and then in the presence of a fixed concentration of a reversible inhibitor. Without inhibitor the apparent Km is 2 mM and Vmax is 100 units. With the inhibitor present, Vmax is still measured as 100 units, but a substrate concentration of 6 mM (which alone gives 75 units) now gives only 60 units, and the apparent Km is found to be 4 mM. Which type of inhibition is present, and by what mechanism can the original Vmax still be reached?",
+    "choices": {
+      "A": "Competitive inhibition; saturating substrate outcompetes the inhibitor for the active site, restoring Vmax",
+      "B": "Non-competitive inhibition; the inhibitor lowers Vmax and no amount of substrate restores it",
+      "C": "Competitive inhibition; the inhibitor lowers Vmax while leaving Km unchanged",
+      "D": "Mixed inhibition; both Km and Vmax rise, so higher substrate worsens the effect",
+      "E": "Uncompetitive inhibition; the inhibitor binds only the enzyme-substrate complex, lowering both Km and Vmax"
+    },
+    "correct_answer": "A",
+    "explanation": "The diagnostic signatures are the parameter changes: Vmax is unchanged (100 units) while apparent Km rises (2 → 4 mM). An unchanged Vmax with an increased Km is the hallmark of competitive inhibition, in which inhibitor and substrate compete for the same active site. Because the binding is mutually exclusive, raising the substrate concentration to saturation displaces the inhibitor and the enzyme still reaches its original Vmax; the inhibitor only makes the enzyme behave as though it has a lower affinity (higher Km). The lower velocity at 6 mM (60 versus 75 units) reflects the raised Km: v = Vmax[S]/(Km+[S]) = 100 × 6/(4 + 6) = 60.",
+    "option_analysis": {
+      "A": "CORRECT: unchanged Vmax with increased apparent Km is competitive inhibition; saturating substrate outcompetes the inhibitor at the shared active site and Vmax is regained.",
+      "B": "Wrong: non-competitive inhibition lowers Vmax and leaves Km unchanged, the opposite of the data (Vmax constant, Km up).",
+      "C": "Wrong: correctly names competitive inhibition but states its effects backwards (competitive raises Km and leaves Vmax unchanged).",
+      "D": "Wrong: mixed inhibition typically lowers Vmax; the data show Vmax unchanged, ruling it out.",
+      "E": "Wrong: uncompetitive inhibition lowers BOTH Km and Vmax; here Vmax is constant and Km rises."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0008",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "biochemistry & metabolism",
+    "subtopic": "enzyme kinetics: Michaelis-Menten quantitative reasoning",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 180,
+    "tags": [
+      "enzyme kinetics",
+      "Michaelis-Menten",
+      "Km",
+      "Vmax",
+      "competitive inhibition",
+      "calculation"
+    ],
+    "learning_objective": "Apply the Michaelis-Menten equation quantitatively and predict how a competitive inhibitor changes the substrate concentration required to reach a given fraction of Vmax.",
+    "question": "An enzyme obeys Michaelis-Menten kinetics with Km = 2 mM and Vmax = 100 units. A competitive inhibitor is added at a concentration that doubles the apparent Km without changing Vmax. In the ABSENCE of the inhibitor, let S90 be the substrate concentration needed to reach 90% of Vmax. In the PRESENCE of the inhibitor, what is the reaction velocity at that same concentration S90, and what substrate concentration would now be required to again reach 90% of Vmax?",
+    "choices": {
+      "A": "Velocity is 90 units at S90; 18 mM is still required to reach 90% of Vmax",
+      "B": "Velocity is 75 units at S90; 72 mM is now required to reach 90% of Vmax",
+      "C": "Velocity is 81.8 units at S90; 36 mM is now required to reach 90% of Vmax",
+      "D": "Velocity is 81.8 units at S90; 18 mM is still required to reach 90% of Vmax",
+      "E": "Velocity is 45 units at S90; 9 mM is now required to reach 90% of Vmax"
+    },
+    "correct_answer": "C",
+    "explanation": "Without inhibitor, v = Vmax[S]/(Km+[S]). Setting v = 0.9 Vmax gives [S] = 9 Km = 9 × 2 = 18 mM, so S90 = 18 mM. Adding the competitive inhibitor doubles the apparent Km to 4 mM (Vmax unchanged). At the same [S] = 18 mM, v = 100 × 18/(4 + 18) = 1800/22 = 81.8 units, i.e. about 81.8% of Vmax — reduced from 90%. To reach 90% of Vmax again, [S] must equal 9 × (new Km) = 9 × 4 = 36 mM. Thus the same absolute concentration now falls short, and twice as much substrate (36 mM) is needed to restore the 90% level.",
+    "option_analysis": {
+      "A": "Wrong: assumes the inhibitor does not change the velocity at S90, ignoring that doubling apparent Km lowers v below 90%.",
+      "B": "Wrong: uses S90 = 6 mM (confusing it with an earlier example) and then miscalculates the required concentration.",
+      "C": "CORRECT: S90 = 9Km = 18 mM; with Km doubled to 4 mM, v = 100×18/22 = 81.8 units, and reaching 90% again needs 9×4 = 36 mM.",
+      "D": "Wrong: gets the velocity right (81.8) but forgets that regaining 90% now requires 9 × new Km = 36 mM, not the original 18 mM.",
+      "E": "Wrong: incorrectly halves the velocity as if Vmax were reduced (non-competitive behaviour) and mis-derives the new S90."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0009",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "biochemistry & metabolism",
+    "subtopic": "fermentation: redox balance and NAD+ regeneration",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 170,
+    "tags": [
+      "fermentation",
+      "glycolysis",
+      "NAD+ regeneration",
+      "redox balance",
+      "lactate",
+      "anaerobic metabolism"
+    ],
+    "learning_objective": "Explain why fermentation is essential for sustained glycolysis under anaerobic conditions by tracing the redox balance of NAD+/NADH, and quantify the ATP consequences.",
+    "question": "A muscle cell is switched to strictly anaerobic conditions. Glycolysis continues, converting glucose to pyruvate, and the pyruvate is reduced to lactate. Consider a researcher who selectively blocks lactate dehydrogenase so that pyruvate can no longer be reduced, while leaving glycolytic enzymes and the cell's small NAD+ pool intact. Which statement best explains the immediate metabolic consequence and its cause?",
+    "choices": {
+      "A": "Glycolysis continues indefinitely, because substrate-level phosphorylation does not depend on NAD+ availability",
+      "B": "Glycolysis halts once the NAD+ pool is consumed, because the cell can no longer regenerate the NAD+ that glyceraldehyde-3-phosphate dehydrogenase requires",
+      "C": "Glycolysis halts, because lactate is the direct substrate that glyceraldehyde-3-phosphate dehydrogenase oxidises",
+      "D": "Glycolysis continues at a normal rate, because oxygen is not required to reoxidise NADH in the cytosol",
+      "E": "ATP output per glucose rises, because blocking lactate production diverts pyruvate toward additional ATP synthesis"
+    },
+    "correct_answer": "B",
+    "explanation": "Glycolysis includes an oxidation step, catalysed by glyceraldehyde-3-phosphate dehydrogenase, that reduces NAD+ to NADH. The cell holds only a small pool of NAD+, so this pool must be continuously regenerated for glycolysis to keep running. Under aerobic conditions the electron-transport chain re-oxidises NADH; under anaerobic conditions fermentation does the job — in muscle, lactate dehydrogenase reduces pyruvate to lactate, re-oxidising NADH back to NAD+. If lactate dehydrogenase is blocked with no oxygen available, NADH accumulates and NAD+ is exhausted; glyceraldehyde-3-phosphate dehydrogenase then stalls for lack of its NAD+ cofactor, and glycolysis (and thus all ATP production) halts. This is precisely why fermentation, though it yields no ATP itself, is indispensable for sustained anaerobic glycolysis.",
+    "option_analysis": {
+      "A": "Wrong: glycolysis absolutely depends on NAD+ at the GAPDH step; without regeneration it cannot continue once NAD+ is used up.",
+      "B": "CORRECT: fermentation's essential role is NAD+ regeneration; blocking lactate dehydrogenase anaerobically exhausts NAD+, stalling the GAPDH step and halting glycolysis.",
+      "C": "Wrong: GAPDH oxidises glyceraldehyde-3-phosphate, not lactate; the halt is due to NAD+ depletion, not loss of a lactate substrate.",
+      "D": "Wrong: without oxygen AND without fermentation there is no way to reoxidise NADH, so NAD+ cannot be replenished and glycolysis stops.",
+      "E": "Wrong: pyruvate cannot yield extra ATP anaerobically; blocking its reduction removes the NAD+-regenerating step and stops ATP production."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0010",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology & genetics",
+    "subtopic": "Point mutation effects on protein and regulation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "point mutation",
+      "nonsense",
+      "operon",
+      "gene regulation",
+      "lac repressor"
+    ],
+    "learning_objective": "Predict the phenotypic consequence of a nonsense mutation in a regulatory gene by integrating translation and negative gene regulation.",
+    "question": "In a bacterium, a structural operon is switched off by a repressor protein that binds the operator only when the repressor is intact. A single base substitution changes a codon in the middle of the repressor gene from CAG (Gln) to TAG. Assuming this is the only change and the inducer is absent, what is the most likely effect on expression of the operon's structural genes?",
+    "choices": {
+      "A": "The repressor binds the operator more tightly, so the structural genes become permanently silenced.",
+      "B": "The structural genes are transcribed constitutively, because the truncated repressor cannot bind the operator.",
+      "C": "The structural genes are transcribed only when the inducer is present, exactly as in the wild type.",
+      "D": "The structural genes remain fully repressed, because a single base change cannot alter repressor function.",
+      "E": "Transcription of the operon is unaffected but translation of the structural genes is blocked."
+    },
+    "correct_answer": "B",
+    "explanation": "CAG→TAG converts a glutamine codon into a stop codon (a nonsense mutation), truncating the repressor in the middle of its sequence. A truncated repressor almost always loses its operator-binding (DNA-binding) domain or its ability to fold, so it cannot bind the operator. In a negatively controlled operon, loss of functional repressor removes the block on RNA polymerase, and the structural genes are transcribed constitutively — even without inducer. The mutation is in the regulatory gene, not the structural genes, so their own coding sequences and translation are intact.",
+    "option_analysis": {
+      "A": "Wrong: a truncated protein cannot bind more tightly; this inverts the effect, confusing loss-of-function with gain-of-function.",
+      "B": "Correct: the nonsense mutation truncates and inactivates the repressor; with no functional repressor, a negatively regulated operon is expressed constitutively.",
+      "C": "Wrong: describes wild-type inducible behaviour; it ignores that the repressor itself is now nonfunctional, so inducer is irrelevant.",
+      "D": "Wrong: assumes single-base changes are inconsequential — a nonsense mutation is one of the most disruptive point mutations.",
+      "E": "Wrong: the mutation is in the repressor gene, not the structural genes, so structural-gene translation is not the step affected."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0011",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology & genetics",
+    "subtopic": "Inheritance probability with conditional information",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "autosomal recessive",
+      "conditional probability",
+      "carrier",
+      "Bayesian",
+      "pedigree"
+    ],
+    "learning_objective": "Combine a monohybrid cross ratio with conditional (Bayesian) reasoning to find the probability a phenotypically normal child is a carrier.",
+    "question": "Cystic fibrosis is autosomal recessive. Two unaffected parents, each a known heterozygous carrier, have a child who does not have cystic fibrosis. What is the probability that this unaffected child is a carrier of the recessive allele?",
+    "choices": {
+      "A": "3/4",
+      "B": "1/4",
+      "C": "1/2",
+      "D": "1/3",
+      "E": "2/3"
+    },
+    "correct_answer": "E",
+    "explanation": "A cross between two carriers (Aa × Aa) gives offspring genotypes 1 AA : 2 Aa : 1 aa. The child is stated to be unaffected, so the affected class (aa) is excluded. Among the remaining, equally likely unaffected genotypes there are 1 AA and 2 Aa, i.e. 3 possibilities. The probability of being a carrier (Aa) given unaffected is therefore 2/3. The classic error is to quote the unconditional carrier probability 1/2, forgetting to remove the excluded affected class from the sample space.",
+    "option_analysis": {
+      "A": "Wrong: 3/4 is the probability of being unaffected at all, not the conditional carrier probability among the unaffected.",
+      "B": "Wrong: 1/4 is the probability of being affected (aa), not of being an unaffected carrier.",
+      "C": "Wrong: this is the unconditional probability of Aa (2 of 4); it ignores the given information that the child is unaffected.",
+      "D": "Wrong: 1/3 is the probability of being homozygous normal (AA) given unaffected — the complement of the correct answer.",
+      "E": "Correct: conditioning on 'unaffected' removes the aa class, leaving 1 AA : 2 Aa, so P(carrier) = 2/3."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0012",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology & genetics",
+    "subtopic": "Frameshift mutation and reading-frame consequences",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "frameshift",
+      "insertion",
+      "reading frame",
+      "premature stop",
+      "translation"
+    ],
+    "learning_objective": "Trace how a single-nucleotide insertion shifts the reading frame and generates a premature stop codon downstream.",
+    "question": "The start of an mRNA reads 5'-AUG ACA GGU UGC AAA-3' (spaces mark the reading frame from the start codon). A single guanine is inserted immediately after the initial AUG, giving 5'-AUG GAC AGG UUG CAA A...-3'. Using the genetic code (UGA, UAA, UAG = stop; UUG = Leu, CAA = Gln, GAC = Asp, AGG = Arg), what is the most accurate description of the effect on the encoded protein?",
+    "choices": {
+      "A": "Every codon after the start codon is changed and the encoded amino-acid sequence downstream bears no relation to the original.",
+      "B": "The reading frame is unchanged, but one extra amino acid is inserted after methionine.",
+      "C": "Only the second amino acid is changed; all later codons and amino acids are unaffected.",
+      "D": "Translation stops immediately after the start codon, so a single-residue peptide is made.",
+      "E": "The extra base is silently removed during translation, so the original protein is produced unchanged."
+    },
+    "correct_answer": "A",
+    "explanation": "Inserting one nucleotide (not a multiple of three) after the start codon shifts the reading frame for everything downstream. The original codons ACA-GGU-UGC-AAA become GAC-AGG-UUG-CAA... — a completely different set of triplets coding Asp-Arg-Leu-Gln instead of the original residues. A frameshift therefore alters every codon after the insertion point, not just one, and typically leads to a premature stop somewhere downstream. It does not simply change one residue, nor is the base 'silently removed'; ribosomes read whatever frame the sequence dictates.",
+    "option_analysis": {
+      "A": "Correct: a +1 insertion shifts the frame, so all downstream codons and their amino acids change relative to the original.",
+      "B": "Wrong: an insertion of one base changes the frame; it does not preserve the frame while adding a single extra codon.",
+      "C": "Wrong: this describes a missense (single-codon) change; the candidate treated the insertion as a substitution affecting only one codon.",
+      "D": "Wrong: none of the shifted codons shown (GAC, AGG, UUG, CAA) is a stop, so translation continues past the start — no immediate termination here.",
+      "E": "Wrong: ribosomes do not excise inserted bases; there is no proofreading that restores the original frame during translation."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0013",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology & genetics",
+    "subtopic": "Three-point cross, gene order and interference",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 210,
+    "tags": [
+      "linkage",
+      "three-point cross",
+      "map distance",
+      "interference",
+      "double crossover"
+    ],
+    "learning_objective": "Apply map distances and the coefficient of coincidence to predict the expected number of double-crossover progeny.",
+    "question": "In a three-point testcross, three linked genes lie in the order A - B - C. The map distances are A-B = 10 map units and B-C = 20 map units, and the interference in this region is 0.30. Of 1000 testcross progeny, how many are expected to be double-crossover recombinants?",
+    "choices": {
+      "A": "6",
+      "B": "42",
+      "C": "14",
+      "D": "20",
+      "E": "60"
+    },
+    "correct_answer": "C",
+    "explanation": "Map distance equals recombination frequency, so A-B = 0.10 and B-C = 0.20. If crossovers in the two intervals were independent, the expected double-crossover (DCO) frequency would be 0.10 × 0.20 = 0.02. Interference (I) reduces this: the coefficient of coincidence C = 1 − I = 1 − 0.30 = 0.70. Observed DCO frequency = C × (expected) = 0.70 × 0.02 = 0.014. In 1000 progeny that is 0.014 × 1000 = 14 double-crossover individuals.",
+    "option_analysis": {
+      "A": "Wrong: 6 comes from multiplying by the interference value 0.30 instead of the coefficient of coincidence 0.70.",
+      "B": "Wrong: 42 arises from using 0.30 × 0.20 × 1000 style errors, mixing up which factor is the coincidence coefficient.",
+      "C": "Correct: expected DCO = 0.10 × 0.20 = 0.02; with C = 0.70, observed = 0.014 → 14 in 1000.",
+      "D": "Wrong: 20 assumes no interference (C = 1), applying only the product 0.02 × 1000 and ignoring the given interference.",
+      "E": "Wrong: 60 confuses map distances with counts or adds/mishandles the interval frequencies rather than multiplying them."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0014",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology & genetics",
+    "subtopic": "Semiconservative replication and isotope density labelling",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 210,
+    "tags": [
+      "DNA replication",
+      "semiconservative",
+      "Meselson-Stahl",
+      "nitrogen isotopes",
+      "density gradient"
+    ],
+    "learning_objective": "Predict density-gradient band composition after successive replication rounds when cells are shifted between heavy and light nitrogen.",
+    "question": "Bacteria are grown for many generations in medium containing only heavy nitrogen (15N), so all DNA is fully heavy. They are then transferred to medium with only light nitrogen (14N) and allowed to complete exactly two rounds of replication. Immediately after the second round, the cells are returned to 15N medium and complete exactly one further round of replication. Assuming semiconservative replication and equilibrium density-gradient centrifugation, what fraction of the final double-stranded molecules is fully heavy (both strands 15N)?",
+    "choices": {
+      "A": "1/8",
+      "B": "1/2",
+      "C": "0",
+      "D": "1/4",
+      "E": "3/4"
+    },
+    "correct_answer": "D",
+    "explanation": "Track single strands. Start: all strands are heavy (H). After two rounds in 14N (light, L): the original 2 H strands are conserved and diluted among many molecules. After two light rounds there are 4 molecules containing 8 strands: 2 H strands and 6 L strands. Each of these 8 strands now templates one new strand made from 15N (heavy) in the final round. So every existing strand pairs with a newly made H strand. The 2 old H strands each pair with a new H strand → 2 fully-heavy (H/H) molecules. The 6 old L strands each pair with a new H strand → 6 hybrid (L/H) molecules. Total molecules after the final round = 8 + 8 = 16, of which 2×? Recount: 8 templating strands each give one daughter duplex, so 8 duplexes form. Of these 8 duplexes, the 2 built on old-H templates are H/H (fully heavy) and the other 6 are L/H (hybrid). Fully heavy fraction = 2/8 = 1/4.",
+    "option_analysis": {
+      "A": "Wrong: 1/8 counts only one conserved heavy strand rather than the two original heavy strands that survive.",
+      "B": "Wrong: 1/2 is the fully-heavy fraction after a single heavy round following one light round, not after two light rounds.",
+      "C": "Wrong: 0 assumes no molecule can be fully heavy, forgetting that the two conserved original heavy strands re-pair with new heavy strands in the last round.",
+      "D": "Correct: after two light rounds, 2 of 8 strands remain heavy; the final heavy round pairs each with a new heavy strand, giving 2/8 = 1/4 fully-heavy duplexes.",
+      "E": "Wrong: 3/4 is the hybrid fraction (6/8), not the fully-heavy fraction; the candidate reported the complementary class."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0015",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology & genetics",
+    "subtopic": "Recombination frequency from testcross data and independent assortment test",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 210,
+    "tags": [
+      "recombination frequency",
+      "testcross",
+      "linkage",
+      "parental types",
+      "map distance"
+    ],
+    "learning_objective": "Compute recombination frequency from testcross counts and correctly infer linkage versus independent assortment.",
+    "question": "A dihybrid individual (genotype PpQq, with alleles in the arrangement PQ / pq) is testcrossed. Among 800 offspring the phenotypes are: P Q = 336, p q = 344, P q = 56, p Q = 64. What is the recombination frequency between the two loci, and what does it indicate?",
+    "choices": {
+      "A": "30%, indicating the loci are linked about 30 map units apart.",
+      "B": "15%, indicating the loci are linked about 15 map units apart.",
+      "C": "50%, indicating the loci assort independently.",
+      "D": "7.5%, indicating the loci are linked about 7.5 map units apart.",
+      "E": "85%, indicating very tight linkage between the loci."
+    },
+    "correct_answer": "B",
+    "explanation": "In a testcross, offspring phenotypes reveal the gametes from the dihybrid parent. The parental (non-recombinant) arrangement is PQ and pq, matching the given coupling PQ / pq; the recombinant classes are Pq and pQ. Recombinants = 56 + 64 = 120. Recombination frequency = recombinants / total = 120 / 800 = 0.15 = 15%. A value clearly below 50% indicates linkage, and 15% corresponds to about 15 map units. Independent assortment would produce roughly equal (about 200 each) numbers in all four classes.",
+    "option_analysis": {
+      "A": "Wrong: 30% doubles the recombinant frequency, e.g. by counting one parental class as recombinant or mis-summing.",
+      "B": "Correct: recombinants (Pq + pQ) = 120 of 800 = 15%, well below 50%, so the loci are linked ~15 map units apart.",
+      "C": "Wrong: 50% would require the four classes to be roughly equal; here parentals greatly outnumber recombinants, so this misreads the data.",
+      "D": "Wrong: 7.5% halves the recombination frequency, e.g. by using only one recombinant class (56 or 64) rather than both.",
+      "E": "Wrong: 85% is 1 minus the correct value — the candidate divided the parental count by the total instead of the recombinant count."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0016",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "cell biology, membranes & human physiology",
+    "subtopic": "membrane transport",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "membrane transport",
+      "Nernst equation",
+      "Na+/K+-ATPase",
+      "resting potential",
+      "electrochemical gradient"
+    ],
+    "learning_objective": "Integrate the stoichiometry of active transport with equilibrium-potential reasoning to explain the ionic basis of the resting membrane potential.",
+    "question": "In a resting neurone the Na+/K+-ATPase moves 3 Na+ out and 2 K+ in per ATP hydrolysed, while the membrane at rest is far more permeable to K+ than to Na+. Using the approximation that the equilibrium (Nernst) potential is 61 mV per tenfold concentration difference at body temperature, and given intracellular/extracellular concentrations of K+ = 140 / 4 mmol L-1 and Na+ = 12 / 145 mmol L-1, which single statement correctly explains why the measured resting potential (about -70 mV) is close to, but slightly less negative than, the K+ equilibrium potential?",
+    "choices": {
+      "A": "The K+ equilibrium potential is about -70 mV, so the resting potential equals it exactly and neither leak currents nor the pump contribute.",
+      "B": "The Na+ equilibrium potential is about -67 mV, so the membrane simply sits at the Na+ equilibrium potential because Na+ dominates permeability.",
+      "C": "The K+ equilibrium potential is about +95 mV; the resting potential is less negative because the pump exports net positive charge each cycle.",
+      "D": "The K+ equilibrium potential is about -95 mV; the resting potential is less negative because a small residual Na+ permeability lets some Na+ leak in, and the pump itself is electrogenic.",
+      "E": "The K+ equilibrium potential is about -61 mV; the resting potential is more negative because Cl- is actively pumped inward."
+    },
+    "correct_answer": "D",
+    "explanation": "The Nernst potential for K+ is E = 61 x log10(4/140) = 61 x log10(0.0286) ≈ -95 mV. Because the resting membrane is dominated by K+ permeability, the resting potential lies close to E(K+). It is not exactly at E(K+) for two reasons: (i) the membrane has a small but non-zero Na+ permeability, so a steady inward Na+ leak (E(Na+) ≈ +67 mV) pulls the potential slightly positive of E(K+); and (ii) the Na+/K+-ATPase is electrogenic, exporting 3 positive charges for every 2 imported, which adds a small hyperpolarising contribution but does not set the potential alone. The combined leak-and-pump picture (formalised by the Goldman equation) is why -70 mV sits between E(K+) and E(Na+), closer to E(K+).",
+    "option_analysis": {
+      "A": "Wrong: this asserts E(K+) equals the resting potential exactly and denies any leak or pump contribution, ignoring the calculated -95 mV and the electrogenic pump.",
+      "B": "Wrong: the membrane is only weakly permeable to Na+ at rest, so it does not sit at E(Na+); also E(Na+) = 61 x log10(145/12) ≈ +67 mV, not -67 mV.",
+      "C": "Wrong: sign error in the Nernst log (log10(4/140) is negative, so E(K+) is about -95 mV, not +95 mV); an inside-negative K+ gradient cannot give a positive equilibrium potential.",
+      "D": "Correct: E(K+) ≈ -95 mV, and the offset toward less-negative values arises from finite Na+ permeability plus the electrogenic pump.",
+      "E": "Wrong: it uses a single-decade value (61 mV) as if the K+ ratio were tenfold, and invents inward active Cl- transport that does not set the resting potential."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0017",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "cell biology, membranes & human physiology",
+    "subtopic": "renal system",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 180,
+    "tags": [
+      "renal clearance",
+      "GFR",
+      "inulin",
+      "tubular reabsorption",
+      "renal physiology"
+    ],
+    "learning_objective": "Use inulin clearance to determine GFR and then compute the fractional tubular reabsorption of a second solute from its clearance.",
+    "question": "Inulin is freely filtered and neither reabsorbed nor secreted. In a patient the urine inulin concentration is 30 mg mL-1, urine flow is 2 mL min-1, and plasma inulin is 0.5 mg mL-1. A freely filtered solute X has a plasma concentration of 1.0 mg mL-1 and a renal clearance of 30 mL min-1. Assuming X is neither secreted nor metabolised in the tubule, what fraction of the filtered load of X is reabsorbed?",
+    "choices": {
+      "A": "X is net secreted, so no reabsorption occurs",
+      "B": "25%",
+      "C": "60%",
+      "D": "50%",
+      "E": "75%"
+    },
+    "correct_answer": "E",
+    "explanation": "GFR equals inulin clearance = (U x V)/P = (30 x 2)/0.5 = 120 mL min-1. The filtered load of X is GFR x plasma[X] = 120 x 1.0 = 120 mg min-1. The amount of X excreted equals clearance of X x plasma[X] = 30 x 1.0 = 30 mg min-1. Reabsorbed = filtered - excreted = 120 - 30 = 90 mg min-1, i.e. 90/120 = 75% of the filtered load. Equivalently, because clearance of X (30) is much less than GFR (120), X must be substantially reabsorbed; the fraction reabsorbed is 1 - (clearance X / GFR) = 1 - 30/120 = 0.75.",
+    "option_analysis": {
+      "A": "Wrong: secretion would make clearance exceed GFR; here clearance (30) is far below GFR (120), indicating net reabsorption, not secretion.",
+      "B": "Wrong: this is 1 - (excreted/GFR read as 90/120 inverted) or a miscalculation taking clearance ratio as reabsorbed fraction (30/120) instead of 1 minus that.",
+      "C": "Wrong: arises from an arithmetic slip such as using plasma inulin 0.6 or mis-multiplying U x V.",
+      "D": "Wrong: this assumes half is reabsorbed, e.g. by using GFR = 60 mL min-1 (dropping the urine flow of 2) rather than 120.",
+      "E": "Correct: GFR = 120 mL min-1, filtered load 120 mg min-1, excreted 30 mg min-1, so 75% is reabsorbed."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0018",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "cell biology, membranes & human physiology",
+    "subtopic": "cardiovascular system",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "Fick principle",
+      "cardiac output",
+      "stroke volume",
+      "ejection fraction",
+      "cardiovascular physiology"
+    ],
+    "learning_objective": "Apply the Fick principle to derive cardiac output, then chain to stroke volume and ejection fraction across successive physiological quantities.",
+    "question": "Using the Fick principle, a subject consumes 300 mL of O2 per minute. Arterial blood carries 200 mL O2 per litre and mixed venous blood carries 150 mL O2 per litre. The heart rate is 75 beats min-1 and the left-ventricular end-diastolic volume is 125 mL. What are the cardiac output and the ejection fraction, respectively?",
+    "choices": {
+      "A": "6 L min-1 and 80%",
+      "B": "6 L min-1 and 64%",
+      "C": "0.6 L min-1 and 64%",
+      "D": "6 L min-1 and 47%",
+      "E": "1.5 L min-1 and 43%"
+    },
+    "correct_answer": "B",
+    "explanation": "By the Fick principle, cardiac output = O2 consumption / (arterial - venous O2 content) = 300 mL min-1 / (200 - 150) mL L-1 = 300/50 = 6 L min-1. Stroke volume = cardiac output / heart rate = 6000 mL min-1 / 75 = 80 mL. Ejection fraction = stroke volume / end-diastolic volume = 80/125 = 0.64 = 64%.",
+    "option_analysis": {
+      "A": "Wrong: computes ejection fraction as stroke volume divided by stroke volume, or mistakes end-systolic for end-diastolic, giving 80% instead of 64%.",
+      "B": "Correct: CO = 300/50 = 6 L min-1; SV = 6000/75 = 80 mL; EF = 80/125 = 64%.",
+      "C": "Wrong: an order-of-magnitude slip, treating the arterio-venous difference as 500 mL L-1 or failing to convert mL to L, giving 0.6 L min-1.",
+      "D": "Wrong: correct cardiac output but computes ejection fraction using stroke volume over cardiac output scaling, giving a spurious 47%.",
+      "E": "Wrong: divides O2 consumption by the full arterial content (200) rather than the arterio-venous difference (50), collapsing both derived quantities."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0019",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "cell biology, membranes & human physiology",
+    "subtopic": "cell cycle, mitosis and meiosis",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "meiosis",
+      "chromosomes",
+      "chromatids",
+      "DNA content",
+      "cell cycle"
+    ],
+    "learning_objective": "Track chromosome number, chromatid number and relative DNA content through the successive stages of meiosis in a defined diploid cell.",
+    "question": "A diploid spermatogonium of an animal has 2n = 6. It replicates its DNA and then completes meiosis. Consider three cells: (P) the primary spermatocyte at metaphase I, (S) a secondary spermatocyte at metaphase II, and (D) a mature spermatid. What are the number of chromosomes and the number of chromatids, respectively, in each of P, S and D?",
+    "choices": {
+      "A": "P: 3 chromosomes, 6 chromatids; S: 3 chromosomes, 3 chromatids; D: 3 chromosomes, 3 chromatids",
+      "B": "P: 6 chromosomes, 12 chromatids; S: 6 chromosomes, 12 chromatids; D: 3 chromosomes, 6 chromatids",
+      "C": "P: 12 chromosomes, 12 chromatids; S: 6 chromosomes, 6 chromatids; D: 3 chromosomes, 3 chromatids",
+      "D": "P: 6 chromosomes, 6 chromatids; S: 6 chromosomes, 6 chromatids; D: 3 chromosomes, 3 chromatids",
+      "E": "P: 6 chromosomes, 12 chromatids; S: 3 chromosomes, 6 chromatids; D: 3 chromosomes, 3 chromatids"
+    },
+    "correct_answer": "E",
+    "explanation": "After S phase each of the 6 chromosomes consists of two sister chromatids. At metaphase I (P) the cell is still diploid: 6 chromosomes but 12 chromatids. Meiosis I separates homologues (reductional division), so a secondary spermatocyte (S) at metaphase II has 3 chromosomes, each still made of two sister chromatids, i.e. 6 chromatids. Meiosis II separates sister chromatids (equational), so a spermatid (D) has 3 chromosomes, each now a single chromatid: 3 chromatids. Chromosome number is counted by centromeres, which is why P retains 6 chromosomes despite having 12 chromatids.",
+    "option_analysis": {
+      "A": "Wrong: reduces the chromosome number one division too early, giving the primary spermatocyte only 3 chromosomes.",
+      "B": "Wrong: omits the reduction at meiosis I, keeping 6 chromosomes in the secondary spermatocyte.",
+      "C": "Wrong: counts each chromatid as a separate chromosome in P (12 chromosomes), the classic centromere-versus-chromatid confusion.",
+      "D": "Wrong: ignores DNA replication, treating the primary spermatocyte as having only 6 chromatids and failing to reduce the chromosome number at meiosis I.",
+      "E": "Correct: P has 6 chromosomes/12 chromatids, S has 3/6 after the reductional division, and D has 3/3 after the equational division."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0020",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "cell biology, membranes & human physiology",
+    "subtopic": "endocrine system",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "endocrine",
+      "blood glucose",
+      "insulin",
+      "glucagon",
+      "cortisol",
+      "counter-regulation"
+    ],
+    "learning_objective": "Integrate the actions of multiple counter-regulatory hormones to predict the coordinated response to prolonged fasting.",
+    "question": "A healthy person fasts for 24 hours. Which combination of hormonal changes and their integrated effects best maintains blood glucose during this period?",
+    "choices": {
+      "A": "Insulin falls while glucagon and cortisol rise; the liver increases glycogenolysis and gluconeogenesis while peripheral tissues shift toward fatty-acid oxidation, sparing glucose for the brain.",
+      "B": "Glucagon and insulin both fall while cortisol rises; muscle takes up more glucose to build glycogen reserves for later use.",
+      "C": "Insulin and glucagon both rise; the liver simultaneously stores and releases glucose, keeping the blood level constant by futile cycling.",
+      "D": "Only adrenaline changes; it inhibits gluconeogenesis so that ketone bodies replace glucose entirely within the first hour.",
+      "E": "Insulin rises while glucagon falls; hepatic glucose output increases to meet the brain's demand during the fast."
+    },
+    "correct_answer": "A",
+    "explanation": "During fasting, a falling blood glucose reduces insulin secretion and increases glucagon; sustained fasting also raises cortisol. Low insulin plus high glucagon drives hepatic glycogenolysis and then gluconeogenesis, raising glucose output. Cortisol reinforces gluconeogenesis and promotes lipolysis. Low insulin also allows peripheral tissues (especially muscle) to switch to fatty-acid oxidation, sparing glucose for the obligately glucose-dependent brain (which later supplements with ketones). This coordinated counter-regulation, not any single hormone, defends blood glucose.",
+    "option_analysis": {
+      "A": "Correct: the reciprocal insulin fall/glucagon rise plus cortisol drives hepatic glucose output and a peripheral fuel switch that spares glucose for the brain.",
+      "B": "Wrong: falling insulin reduces insulin-dependent muscle glucose uptake; muscle does not build glycogen from blood glucose during a fast.",
+      "C": "Wrong: insulin and glucagon act reciprocally on the liver, not simultaneously in the same direction; sustained futile cycling would not defend glucose.",
+      "D": "Wrong: adrenaline stimulates (not inhibits) glycogenolysis/gluconeogenesis, and ketones cannot fully replace glucose within an hour.",
+      "E": "Wrong: reverses the physiology; insulin falls and glucagon rises during fasting, and rising insulin would lower, not raise, hepatic glucose output."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0021",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "cell biology, membranes & human physiology",
+    "subtopic": "immunology basics",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "immunology",
+      "clonal selection",
+      "memory cells",
+      "primary and secondary response",
+      "antibody"
+    ],
+    "learning_objective": "Explain the faster, larger secondary antibody response in terms of clonal selection and memory-cell biology rather than antibody persistence.",
+    "question": "A person is vaccinated against a pathogen, and the same antigen is encountered again months later. The second exposure produces antibody far faster and to a much higher titre than the first, and the antibody has higher average affinity. Which explanation best accounts for all three features?",
+    "choices": {
+      "A": "The first exposure clonally expanded antigen-specific lymphocytes and generated affinity-matured memory B cells; on re-exposure these memory cells proliferate and differentiate rapidly into plasma cells, giving a faster, larger, higher-affinity response.",
+      "B": "The second exposure activates the innate complement system alone, which directly synthesises high-affinity antibody more quickly than lymphocytes can.",
+      "C": "Memory T cells replace B cells as the source of circulating antibody on the second exposure, accounting for the higher titre.",
+      "D": "Re-exposure induces new random somatic recombination from naive precursors, which by chance produces higher-affinity receptors faster than the first time.",
+      "E": "Antibody produced during the first exposure persists unchanged in the blood, and the second exposure merely adds to this pre-existing pool without new lymphocyte activation."
+    },
+    "correct_answer": "A",
+    "explanation": "The secondary response reflects immunological memory. During the primary response, clonal selection expands the rare lymphocytes whose receptors fit the antigen, and germinal-centre affinity maturation (somatic hypermutation plus selection) yields memory B cells bearing higher-affinity receptors. On re-exposure, these more numerous, pre-selected, affinity-matured memory cells are activated and differentiate into plasma cells much faster than naive cells did, explaining the shorter lag, higher titre and higher affinity simultaneously. Persisting antibody alone cannot explain the faster de novo response or the affinity increase.",
+    "option_analysis": {
+      "A": "Correct: clonal expansion plus affinity-matured memory cells jointly explain the faster kinetics, greater magnitude and higher affinity.",
+      "B": "Wrong: complement is an innate effector cascade that does not synthesise antibody; only plasma cells secrete antibody.",
+      "C": "Wrong: antibody is secreted by plasma cells derived from B cells; T cells do not secrete antibody, though helper T cells assist B-cell responses.",
+      "D": "Wrong: the secondary response relies on pre-existing memory clones, not on a fresh round of random recombination from naive cells.",
+      "E": "Wrong: persisting antibody does not explain the faster new synthesis or the rise in affinity, and re-exposure does activate memory lymphocytes."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0022",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics",
+    "subtopic": "Hardy-Weinberg carrier frequency for a rare recessive allele",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "Hardy-Weinberg",
+      "carrier frequency",
+      "recessive allele",
+      "population genetics",
+      "approximation"
+    ],
+    "learning_objective": "Apply the Hardy-Weinberg principle to estimate carrier frequency for a rare recessive allele and recognise the 2q approximation.",
+    "question": "In a large, randomly mating human population at Hardy-Weinberg equilibrium, a certain autosomal recessive metabolic disorder affects 1 individual in every 10 000. Assuming no selection, mutation or migration, approximately what fraction of the whole population are unaffected heterozygous carriers of the disease allele?",
+    "choices": {
+      "A": "about 1 in 10 000",
+      "B": "about 1 in 50",
+      "C": "about 1 in 5 000",
+      "D": "about 1 in 200",
+      "E": "about 1 in 100"
+    },
+    "correct_answer": "B",
+    "explanation": "The frequency of affected homozygotes is q² = 1/10 000, so the recessive allele frequency is q = 1/100 = 0.01, and p ≈ 0.99. Carrier (heterozygote) frequency is 2pq = 2(0.99)(0.01) ≈ 0.0198 ≈ 0.02, i.e. about 1 in 50. For a rare allele, 2pq ≈ 2q, which is far larger than q² — carriers vastly outnumber affected individuals.",
+    "option_analysis": {
+      "A": "Wrong: 1 in 10 000 is q² (the frequency of AFFECTED individuals), not the carrier frequency.",
+      "B": "CORRECT: 2pq = 2(0.99)(0.01) ≈ 0.02 = 1 in 50.",
+      "C": "Wrong: 1 in 5 000 does not correspond to any Hardy-Weinberg term for these values.",
+      "D": "Wrong: 1 in 200 halves the carrier frequency, e.g. by using pq instead of 2pq.",
+      "E": "Wrong: 1 in 100 is q itself (the allele frequency), not the heterozygote frequency 2pq."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0023",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology",
+    "subtopic": "Ionic basis of the action potential (potassium-channel block)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "action potential",
+      "voltage-gated channels",
+      "repolarisation",
+      "neuron",
+      "toxin"
+    ],
+    "learning_objective": "Predict how selectively blocking voltage-gated potassium channels alters the shape of a neuronal action potential.",
+    "question": "A toxin selectively and completely blocks the voltage-gated potassium channels of a neuron, while leaving its voltage-gated sodium channels and Na⁺/K⁺-ATPase functioning normally. When the neuron is stimulated above threshold, what is the most likely effect on the resulting action potential?",
+    "choices": {
+      "A": "The resting membrane potential becomes much more negative.",
+      "B": "The depolarisation (rising) phase becomes markedly faster.",
+      "C": "The action potential is unaffected because the sodium channels dominate.",
+      "D": "The repolarisation phase is slowed, prolonging the action potential.",
+      "E": "The action potential fails to reach threshold and does not fire."
+    },
+    "correct_answer": "D",
+    "explanation": "Repolarisation of the action potential is driven mainly by the efflux of K⁺ through voltage-gated potassium channels that open after the peak. Blocking these channels removes the fast route for K⁺ to leave, so the membrane repolarises slowly (relying on leak channels and the pump), which broadens and prolongs the action potential. Depolarisation, which depends on Na⁺ channels, is unchanged, and the neuron still reaches threshold and fires.",
+    "option_analysis": {
+      "A": "Wrong: blocking voltage-gated (not leak) K⁺ channels does not hyperpolarise the resting potential; if anything the cell is less able to repolarise.",
+      "B": "Wrong: the rising phase depends on Na⁺ influx, which is unaffected by a K⁺-channel block.",
+      "C": "Wrong: K⁺ channels are essential for repolarisation, so blocking them clearly changes the AP shape.",
+      "D": "CORRECT: without voltage-gated K⁺ efflux, repolarisation is slow, prolonging the action potential.",
+      "E": "Wrong: threshold and firing depend on Na⁺ channels, which are intact, so the AP still initiates."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  }
+]
