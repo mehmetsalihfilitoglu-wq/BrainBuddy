@@ -34,6 +34,7 @@ object RemoteConfigKeys {
     const val PAYWALL_HEADLINE = "paywall_headline"
     const val PAYWALL_SUBTEXT = "paywall_subtext"
     const val PREMIUM_MONTHLY_PRICE = "premium_monthly_price"
+    const val PREMIUM_YEARLY_PRICE = "premium_yearly_price"
 
     // Campaigns / banners
     const val CAMPAIGN_BANNER_ENABLED = "campaign_banner_enabled"
@@ -78,6 +79,7 @@ object RemoteConfigKeys {
         PAYWALL_HEADLINE to "Premium: senin kişisel sınav koçun",
         PAYWALL_SUBTEXT to "Daha akıllı hazırlan — daha fazlası değil, daha iyisi.",
         PREMIUM_MONTHLY_PRICE to "€4,99",
+        PREMIUM_YEARLY_PRICE to "€39,99",
         CAMPAIGN_BANNER_ENABLED to false,
         CAMPAIGN_BANNER_TEXT to "",
         DISCOVERY_BANNER_ENABLED to false,

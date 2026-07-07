@@ -20,6 +20,7 @@ Apple Sign-In + App Store are a later iOS phase (auth is already provider-agnost
 | Cloud sync | `sync.SyncRepository` | `LocalMirrorSyncRepository` | `FirestoreSyncRepository` |
 | Remote config | `remote.RemoteConfig` | `LocalRemoteConfig` | `FirebaseRemoteConfigAdapter` |
 | Premium entitlement | `billing.EntitlementRepository` | `LocalEntitlementRepository` | `PlayBillingEntitlementRepository` |
+| Subscriptions/billing | `billing.BillingRepository` | `LocalBillingRepository` | `PlayBillingRepository` |
 | Report delivery | `report.ReportDeliveryService` | `LocalReportDeliveryService` | `CloudReportDeliveryService` |
 | CMS content | `content.ContentGateway` | `LocalContentGateway` | `RemoteContentGateway` |
 | Product analytics | `analytics.AnalyticsTracker` | `LogcatAnalyticsTracker` | `FirebaseAnalyticsTracker` |
@@ -155,12 +156,27 @@ The Admin Panel is a separate web app writing these collections (Firebase Auth a
   `LocalDoneCloudPending` — honest, never faked.
 - Privacy Policy / Terms are linked from the same screen (`LegalHubActivity`).
 
-## 10. Premium entitlement (`billing.EntitlementRepository`)
+## 10. Premium billing & entitlement (`billing.*`)
 
-Play Billing purchase → client sends token to a `verifyPurchase` Function → validated
-against the Google Play Developer API → entitlement written to `users/{uid}/premium`.
-`EntitlementRepository.refresh()` reads it; `PremiumStore` stays the fast local cache.
-Server-gated features never trust client-only premium state.
+**Business model: ad-free.** No advertisements of any kind. Revenue is Free vs
+Premium, sold as **monthly** and **yearly** subscriptions. Premium sells intelligence
+and coaching, never XP / "more questions" / dopamine.
+
+- `billing.BillingRepository` is the subscription boundary (offers, purchase, restore,
+  status). `LocalBillingRepository` surfaces real Remote-Config-priced offers and tracks
+  status deterministically, but never fakes a charge (`purchase()` →
+  `PurchaseResult.Unavailable` until Play Billing is connected).
+- `SubscriptionStatus` models the full lifecycle — `ACTIVE`, `IN_GRACE_PERIOD`,
+  `CANCELLED` (still entitled until period end), `EXPIRED`, `NONE` — computed
+  deterministically from `expiresAtMs`.
+- Products: `BillingProducts.PREMIUM_MONTHLY` / `PREMIUM_YEARLY`.
+- Flow when live: `PlayBillingRepository` launches the Play purchase flow → sends the
+  purchase token to a `verifyPurchase` Cloud Function → validated against the Google
+  Play Developer API → verified status written to `users/{uid}/purchases` and the
+  `SubscriptionStore` + `PremiumStore` cache. `EntitlementRepository.refresh()` reads it.
+- **Cross-device:** the subscription store (`bb_subscription`, sync path
+  `users/{uid}/purchases`) syncs, so Premium follows the account. Server-gated features
+  never trust client-only premium state.
 
 ## 11. Product analytics (`analytics.AnalyticsTracker`)
 

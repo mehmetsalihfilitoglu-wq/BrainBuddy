@@ -42,6 +42,7 @@ object SyncRegistry {
         StoreSpec("notifications", "bb_notification_prefs", "notificationPreferences"),
         StoreSpec("report_prefs", "bb_email_report_prefs", "reportPreferences"),
         StoreSpec("premium", "bb_premium", "premium"),                       // entitlement cache (server-authoritative)
+        StoreSpec("subscription", "bb_subscription", "purchases"),           // subscription status (server-verified)
         StoreSpec("question_history", "bb_question_history", "questionHistory"),
         StoreSpec("favorites", "bb_favorites", "favorites"),
         StoreSpec("discovery_progress", "bb_discovery_progress", "discoveryProgress")
