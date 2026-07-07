@@ -37,8 +37,8 @@ object RemoteConfigKeys {
     const val PREMIUM_YEARLY_PRICE = "premium_yearly_price"
     const val PREMIUM_YEARLY_BADGE = "premium_yearly_badge"
     const val PREMIUM_YEARLY_SAVING = "premium_yearly_saving"
-    const val PREMIUM_VALUE_ANCHOR = "premium_value_anchor"      // annual-anchor value line on the paywall
-    const val PAYWALL_SHOW_MONTHLY = "paywall_show_monthly"      // false = annual-only headline
+    const val PREMIUM_VALUE_ANCHOR = "premium_value_anchor"      // value line, only shown when yearly is offered
+    const val PAYWALL_SHOW_YEARLY = "paywall_show_yearly"        // false = monthly-only (V1); flip to re-introduce yearly
 
     // Exam focus — which exams are offered in onboarding / add-area (comma-separated ExamType names).
     // Phase 1 = IMAT only; widen (e.g. "IMAT,CENT_S") as real content ships per exam.
@@ -91,7 +91,7 @@ object RemoteConfigKeys {
         PREMIUM_YEARLY_BADGE to "En Avantajlı",
         PREMIUM_YEARLY_SAVING to "Aylık ödemeye göre yaklaşık %29 tasarruf",
         PREMIUM_VALUE_ANCHOR to "Yıllık plan, klasik hazırlık kurslarının çok altında — bir sınav döngüsü için tek seferlik bütçe.",
-        PAYWALL_SHOW_MONTHLY to false,
+        PAYWALL_SHOW_YEARLY to false,
         ACTIVE_EXAM_TYPES to "IMAT",
         CAMPAIGN_BANNER_ENABLED to false,
         CAMPAIGN_BANNER_TEXT to "",

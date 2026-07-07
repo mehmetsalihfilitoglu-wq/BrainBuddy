@@ -33,7 +33,7 @@ import kotlinx.coroutines.launch
 class PremiumPaywallSheet : BottomSheetDialogFragment() {
 
     private val billing by lazy { BillingProvider.repository(requireContext()) }
-    private var selectedPlan: SubscriptionPlan = SubscriptionPlan.YEARLY
+    private var selectedPlan: SubscriptionPlan = SubscriptionPlan.MONTHLY
     private var purchasing = false
 
     override fun onCreateView(
@@ -83,21 +83,26 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
         container.removeAllViews()
         val config = com.mioacademy.app.remote.RemoteConfigProvider.get()
         val d = resources.displayMetrics.density
+        val showYearly = config.getBoolean(com.mioacademy.app.remote.RemoteConfigKeys.PAYWALL_SHOW_YEARLY, false)
 
-        // Annual-anchored value line above the plans.
-        val anchor = config.getString(com.mioacademy.app.remote.RemoteConfigKeys.PREMIUM_VALUE_ANCHOR, "")
-        if (anchor.isNotBlank()) {
-            container.addView(makeText(anchor, 13f, R.color.emeraldDark, bold = true).apply {
-                setLineSpacing(0f, 1.3f); setPadding(0, 0, 0, (10 * d + 0.5f).toInt())
-            })
+        // The value anchor is yearly-specific; only show it when yearly is actually offered.
+        if (showYearly) {
+            val anchor = config.getString(com.mioacademy.app.remote.RemoteConfigKeys.PREMIUM_VALUE_ANCHOR, "")
+            if (anchor.isNotBlank()) {
+                container.addView(makeText(anchor, 13f, R.color.emeraldDark, bold = true).apply {
+                    setLineSpacing(0f, 1.3f); setPadding(0, 0, 0, (10 * d + 0.5f).toInt())
+                })
+            }
         }
 
-        // Annual first; monthly hidden by default (annual-anchored headline).
-        val showMonthly = config.getBoolean(com.mioacademy.app.remote.RemoteConfigKeys.PAYWALL_SHOW_MONTHLY, false)
+        // V1 = monthly-only. Yearly appears only if re-enabled via Remote Config —
+        // the billing layer still supports yearly, so this is a display switch, not a refactor.
         val shown = offers
-            .filter { showMonthly || it.plan == SubscriptionPlan.YEARLY }
+            .filter { it.plan == SubscriptionPlan.MONTHLY || (it.plan == SubscriptionPlan.YEARLY && showYearly) }
             .sortedByDescending { it.plan == SubscriptionPlan.YEARLY }
-        if (shown.none { it.plan == selectedPlan }) selectedPlan = SubscriptionPlan.YEARLY
+        if (shown.none { it.plan == selectedPlan }) {
+            selectedPlan = shown.firstOrNull()?.plan ?: SubscriptionPlan.MONTHLY
+        }
         shown.forEach { offer -> container.addView(planCard(offer)) }
         highlightSelection()
     }

@@ -45,12 +45,9 @@ class StudyHubActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardCoachTip).onTap {
             startActivity(Intent(this, com.mioacademy.app.coach.CoachScreen::class.java))
         }
-        findViewById<MaterialCardView>(R.id.cardDiscover).onTap {
-            startActivity(Intent(this, com.mioacademy.app.discover.DiscoverActivity::class.java))
-        }
-        findViewById<MaterialCardView>(R.id.cardTools).onTap {
-            startActivity(Intent(this, ToolsActivity::class.java))
-        }
+        // V1 focus: university discovery + info/tools live on web (Instagram/blog/ISEEmio),
+        // not in the exam-prep app. DiscoverActivity / ToolsActivity are kept in the codebase
+        // for a future major version; only their in-app entry points are removed.
 
         val content = findViewById<View>(R.id.scrollContent)
         val origBottom = content.paddingBottom
