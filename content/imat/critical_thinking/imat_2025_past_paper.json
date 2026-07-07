@@ -13,13 +13,13 @@
     "original_number": 5,
     "question": "Consider this statement:\nThe number two is a prime number.\nWhich of the following statements is deducible from the given statement?",
     "choices": {
-      "A": "No prime numbers exist.",
-      "B": "All numbers are prime numbers.",
-      "C": "No number is a prime number.",
-      "D": "At least one number is not a prime number.",
-      "E": "At least one prime number exists."
+      "A": "At least one prime number exists.",
+      "B": "No prime numbers exist.",
+      "C": "At least one number is not a prime number.",
+      "D": "No number is a prime number.",
+      "E": "All numbers are prime numbers."
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -40,13 +40,13 @@
     "original_number": 6,
     "question": "From the given statements\nIf today is Saturday, then I am a philosopher\nI am not a philosopher\nWhich conclusion can be deduced?",
     "choices": {
-      "A": "Today is Friday.",
-      "B": "Today is not Saturday.",
-      "C": "None of the other choices is correct.",
+      "A": "Today is not Saturday.",
+      "B": "Today is Saturday.",
+      "C": "Today is Friday.",
       "D": "I am a philosopher.",
-      "E": "Today is Saturday."
+      "E": "None of the other choices is correct."
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -67,13 +67,13 @@
     "original_number": 7,
     "question": "Alberto, Beatrice, Carlo, and Daniela are dining at the same square table, each seated on one side of the table. Alberto is seated to the left of Beatrice but not to the right of Carlo. Which of the following statements can be deduced?",
     "choices": {
-      "A": "Carlo is seated across from Beatrice.",
-      "B": "Daniela is seated to the right of Carlo.",
-      "C": "Alberto is seated to the left of Carlo.",
-      "D": "Daniela is seated to the left of Beatrice.",
+      "A": "Daniela is seated to the right of Carlo.",
+      "B": "Carlo is seated across from Beatrice.",
+      "C": "Daniela is seated to the left of Beatrice.",
+      "D": "Alberto is seated to the left of Carlo.",
       "E": "Beatrice is seated across from Alberto."
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -121,13 +121,13 @@
     "original_number": 9,
     "question": "At this moment, an analogue clock is showing exactly 3:00 PM. After the minute hand has completed 1.75 full rotations from its current position, what time will the clock indicate?",
     "choices": {
-      "A": "5:00 PM",
+      "A": "4:45 PM",
       "B": "1:25 PM",
-      "C": "4:30 PM",
-      "D": "4:45 PM",
-      "E": "3:35 PM"
+      "C": "3:35 PM",
+      "D": "4:30 PM",
+      "E": "5:00 PM"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,

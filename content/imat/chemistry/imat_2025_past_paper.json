@@ -13,13 +13,13 @@
     "original_number": 33,
     "question": "The equation of state for ideal gases is:",
     "choices": {
-      "A": "Pn = VRT",
+      "A": "PV = nRT",
       "B": "nV = PRT",
-      "C": "PV = nRT",
+      "C": "V = RT/(Pn)",
       "D": "V = Pn/(RT)",
-      "E": "V = RT/(Pn)"
+      "E": "Pn = VRT"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -40,13 +40,13 @@
     "original_number": 34,
     "question": "In which of these compounds does Cl have an oxidation number of +3:",
     "choices": {
-      "A": "HCl",
-      "B": "HClO₂",
-      "C": "Cl₂",
-      "D": "HClO₃",
-      "E": "HClO"
+      "A": "HClO₂",
+      "B": "Cl₂",
+      "C": "HCl",
+      "D": "HClO",
+      "E": "HClO₃"
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -67,13 +67,13 @@
     "original_number": 35,
     "question": "An oxidation number cannot be:",
     "choices": {
-      "A": "zero",
+      "A": "an irrational number",
       "B": "a negative number",
-      "C": "an irrational number",
-      "D": "a positive number",
-      "E": "a number with a decimal point"
+      "C": "a positive number",
+      "D": "a number with a decimal point",
+      "E": "zero"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -94,13 +94,13 @@
     "original_number": 36,
     "question": "What kind of solid is NaCl?",
     "choices": {
-      "A": "Amorphous",
-      "B": "Metallic",
-      "C": "Molecular",
+      "A": "Ionic",
+      "B": "Molecular",
+      "C": "Metallic",
       "D": "Covalent network",
-      "E": "Ionic"
+      "E": "Amorphous"
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -123,9 +123,9 @@
     "choices": {
       "A": "from right to left and from top to bottom",
       "B": "from left to right and from top to bottom",
-      "C": "from top to bottom but horizontally in a very irregularly way",
-      "D": "from right to left and from bottom to top",
-      "E": "from left to right and from bottom to top"
+      "C": "from right to left and from bottom to top",
+      "D": "from left to right and from bottom to top",
+      "E": "from top to bottom but horizontally in a very irregularly way"
     },
     "correct_answer": "A",
     "explanation": null,
@@ -148,13 +148,13 @@
     "original_number": 38,
     "question": "A pure covalent bond is a bond that forms between:",
     "choices": {
-      "A": "two atoms with quite similar electronegativity",
-      "B": "two atoms with no electronegativity",
+      "A": "two atoms of the same element",
+      "B": "two atoms with quite similar electronegativity",
       "C": "two atoms with very different electronegativity",
-      "D": "two identical ions",
-      "E": "two atoms of the same element"
+      "D": "two atoms with no electronegativity",
+      "E": "two identical ions"
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -175,13 +175,13 @@
     "original_number": 39,
     "question": "The pH of an aqueous solution of a monoprotic weak acid with the constant Kₐ = 1.0 × 10⁻⁵ and concentration 0.001 M is:",
     "choices": {
-      "A": "3",
-      "B": "5.5",
-      "C": "8",
-      "D": "4",
-      "E": "10⁻⁸"
+      "A": "4",
+      "B": "3",
+      "C": "10⁻⁸",
+      "D": "8",
+      "E": "5.5"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -203,10 +203,10 @@
     "question": "What is the pH of a 0.7 M aqueous solution of KBr?",
     "choices": {
       "A": "7",
-      "B": "10⁻⁰·⁷",
+      "B": "0.7",
       "C": "13.3",
       "D": "10⁻⁷",
-      "E": "0.7"
+      "E": "10⁻⁰·⁷"
     },
     "correct_answer": "A",
     "explanation": null,
@@ -229,13 +229,13 @@
     "original_number": 41,
     "question": "Given the equilibrium   Heat + 2FeCl₃ (s) ⇆ 2FeCl₂ (s) + Cl₂ (g)\nWhich of the following options is correct:",
     "choices": {
-      "A": "to shift the equilibrium to the left, it is necessary to increase the concentration of FeCl₂ (s).",
-      "B": "to shift the equilibrium to the right, it is necessary to increase the concentration of FeCl₃ (s).",
+      "A": "to shift the equilibrium to the left, it is necessary to increase the concentration of Cl₂.",
+      "B": "to shift the equilibrium to the left, it is necessary to increase the concentration of FeCl₂ (s).",
       "C": "to shift the equilibrium to the left, it is necessary to remove FeCl₃ (s).",
       "D": "to shift the equilibrium to the right, it is necessary to cool the reaction.",
-      "E": "to shift the equilibrium to the left, it is necessary to increase the concentration of Cl₂."
+      "E": "to shift the equilibrium to the right, it is necessary to increase the concentration of FeCl₃ (s)."
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -256,13 +256,13 @@
     "original_number": 42,
     "question": "The activation energy of a reaction represents:",
     "choices": {
-      "A": "the energy that is released only in the initial phase of any reaction in solution",
-      "B": "the energy released during the progress of a reaction",
+      "A": "the energy barrier that the reactants must overcome to transform into products",
+      "B": "the difference between the energy of the products and that of the reactants",
       "C": "the difference between the kinetic energy and the potential energy of the reactants",
-      "D": "the difference between the energy of the products and that of the reactants",
-      "E": "the energy barrier that the reactants must overcome to transform into products"
+      "D": "the energy released during the progress of a reaction",
+      "E": "the energy that is released only in the initial phase of any reaction in solution"
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -283,13 +283,13 @@
     "original_number": 43,
     "question": "In benzene:",
     "choices": {
-      "A": "all the carbon atoms are sp hybridized",
-      "B": "all the carbon atoms are sp² hybridized and the molecule has a planar structure",
+      "A": "all the carbon atoms are sp² hybridized and the molecule has a planar structure",
+      "B": "all the carbon atoms are sp³ hybridized and the molecule has a planar structure",
       "C": "all the carbon atoms are sp² hybridized and the molecule has a chair or boat structure",
-      "D": "three carbon atoms are sp³ hybridized and three atoms are sp² hybridized",
-      "E": "all the carbon atoms are sp³ hybridized and the molecule has a planar structure"
+      "D": "all the carbon atoms are sp hybridized",
+      "E": "three carbon atoms are sp³ hybridized and three atoms are sp² hybridized"
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -310,13 +310,13 @@
     "original_number": 44,
     "question": "Glycogen:",
     "choices": {
-      "A": "is a polypeptide",
-      "B": "is a disaccharide",
-      "C": "is a homopolysaccharide",
-      "D": "is a heteropolysaccharide",
-      "E": "is a storage molecule present in both animal and plant cells"
+      "A": "is a homopolysaccharide",
+      "B": "is a heteropolysaccharide",
+      "C": "is a disaccharide",
+      "D": "is a storage molecule present in both animal and plant cells",
+      "E": "is a polypeptide"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -339,9 +339,9 @@
     "choices": {
       "A": "ferrous carbonate",
       "B": "ferric carbonate",
-      "C": "none of the other answers is correct",
+      "C": "iron oxide",
       "D": "iron pentacarbonyl",
-      "E": "iron oxide"
+      "E": "none of the other answers is correct"
     },
     "correct_answer": "A",
     "explanation": null,
@@ -365,10 +365,10 @@
     "question": "How many electrons can occupy an orbital?",
     "choices": {
       "A": "Two with antiparallel spins",
-      "B": "Just one",
+      "B": "Two with parallel spins",
       "C": "Three",
-      "D": "Four",
-      "E": "Two with parallel spins"
+      "D": "Just one",
+      "E": "Four"
     },
     "correct_answer": "A",
     "explanation": null,
@@ -391,13 +391,13 @@
     "original_number": 47,
     "question": "Which of the following statements about amino acids is true?",
     "choices": {
-      "A": "They dissolve well in hexane",
-      "B": "They are one of the main constituents of carbohydrates",
-      "C": "They have no acid/base activity",
-      "D": "They contain an amine group and a carboxyl group",
-      "E": "They are normally poorly soluble in water"
+      "A": "They contain an amine group and a carboxyl group",
+      "B": "They are normally poorly soluble in water",
+      "C": "They dissolve well in hexane",
+      "D": "They are one of the main constituents of carbohydrates",
+      "E": "They have no acid/base activity"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,

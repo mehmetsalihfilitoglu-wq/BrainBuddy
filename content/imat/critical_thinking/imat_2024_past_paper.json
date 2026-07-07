@@ -13,13 +13,13 @@
     "original_number": 5,
     "question": "The following table shows the results of a test:\nmark: 0 1 2 3 4 5 6 7 8 9 10\nfrequency: 1 4 4 6 2 1 1 2 2 1 0\nTo pass the test, a mark of higher than 5 is needed. What percentage of the candidates passed the test?",
     "choices": {
-      "A": "50%",
+      "A": "25%",
       "B": "24%",
-      "C": "30%",
-      "D": "25%",
-      "E": "20%"
+      "C": "20%",
+      "D": "30%",
+      "E": "50%"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -42,9 +42,9 @@
     "choices": {
       "A": "4 %",
       "B": "33 %",
-      "C": "6 %",
-      "D": "8 %",
-      "E": "67 %"
+      "C": "8 %",
+      "D": "67 %",
+      "E": "6 %"
     },
     "correct_answer": "A",
     "explanation": null,
@@ -67,13 +67,13 @@
     "original_number": 7,
     "question": "Two consecutive discounts of 10% and 20% are equal to a single discount of:",
     "choices": {
-      "A": "15%",
+      "A": "28%",
       "B": "25%",
-      "C": "28%",
-      "D": "30%",
-      "E": "18%"
+      "C": "30%",
+      "D": "18%",
+      "E": "15%"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -94,13 +94,13 @@
     "original_number": 8,
     "question": "Stacie builds a cube using 343 blocks of wood. She decides to paint the cube green. How many of the wooden blocks will have at least one side painted green?",
     "choices": {
-      "A": "238",
-      "B": "245",
-      "C": "105",
-      "D": "218",
-      "E": "125"
+      "A": "218",
+      "B": "125",
+      "C": "245",
+      "D": "238",
+      "E": "105"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -122,10 +122,10 @@
     "question": "“When he takes the train, Marco always arrives at work on time.”\nWhich of the following statements can be deduced from the preceding proposition?",
     "choices": {
       "A": "Marco arrived late; therefore he did not take the train.",
-      "B": "Marco did not take the train; therefore he arrived late.",
+      "B": "Marco arrived late; therefore he took the train.",
       "C": "Marco arrived on time; therefore he missed the train.",
-      "D": "Marco took his car; therefore he arrived on time.",
-      "E": "Marco arrived late; therefore he took the train."
+      "D": "Marco did not take the train; therefore he arrived late.",
+      "E": "Marco took his car; therefore he arrived on time."
     },
     "correct_answer": "A",
     "explanation": null,

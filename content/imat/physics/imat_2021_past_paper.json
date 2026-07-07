@@ -13,13 +13,13 @@
     "original_number": 57,
     "question": "At an athletics competition, a hammer thrower swings a hammer in a horizontal circle.\n\nImmediately before releasing the hammer, the ball at the end of the hammer is moving at a constant angular velocity of 10 rad/s in a horizontal circular path of radius 2.5 m.\n\nWhich row in the table gives the speed and the magnitude of the acceleration of the ball just before release?",
     "choices": {
-      "A": "row 4",
-      "B": "row 5",
+      "A": "row 1",
+      "B": "row 2",
       "C": "row 3",
-      "D": "row 2",
-      "E": "row 1"
+      "D": "row 4",
+      "E": "row 5"
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": true,
@@ -41,13 +41,13 @@
     "original_number": 58,
     "question": "A hydraulic jack consists of a piston with a small cross-sectional area connected by a tube to a piston with a larger cross-sectional area. The cylinders of the pistons and the tube contain oil.\n\nA downward force F1 is applied to the smaller piston, which results in an upwards resultant force F2 being exerted on the larger piston. Points X and Y are in the oil, immediately underneath the pistons, which are at the same height.\n\nWhich of the following statements about the pressure and forces in the hydraulic jack is/are correct?\n\n1 The pressure at Y is less than the pressure at X.\n2 The pressure at Y is equal to the pressure at X.\n3 F2 is greater than F1.\n4 F2 is less than F1.",
     "choices": {
-      "A": "2 and 4 only",
-      "B": "2 and 3 only",
-      "C": "1 and 4 only",
-      "D": "1 only",
-      "E": "3 only"
+      "A": "2 and 3 only",
+      "B": "3 only",
+      "C": "1 only",
+      "D": "2 and 4 only",
+      "E": "1 and 4 only"
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": true,
@@ -69,13 +69,13 @@
     "original_number": 59,
     "question": "A metal has a specific heat capacity of 500 J / (kg °C). A block of this metal has a mass of 1.20 kg and is provided with thermal energy by a heater for 5.00 minutes. The temperature of the block increases from 40.0 °C to 90.0 °C without a phase change.\n\nWhat is the power of the heater?\n\n[Assume that no thermal energy is lost to or gained from the surroundings and that the metal is at a uniform temperature at all times.]",
     "choices": {
-      "A": "80 W",
-      "B": "180 W",
-      "C": "10 800 W",
-      "D": "100 W",
-      "E": "6000 W"
+      "A": "100 W",
+      "B": "6000 W",
+      "C": "180 W",
+      "D": "10 800 W",
+      "E": "80 W"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -96,13 +96,13 @@
     "original_number": 60,
     "question": "Which of the following expressions gives a quantity that can be measured in joules (J)?\n\n[Assume that all quantities are magnitudes.]",
     "choices": {
-      "A": "(mass)^2 × velocity",
-      "B": "voltage / (current × time)",
-      "C": "momentum × velocity",
+      "A": "momentum × velocity",
+      "B": "(charge)^2 × resistance",
+      "C": "(mass)^2 × velocity",
       "D": "specific heat capacity / (mass × temperature change)",
-      "E": "(charge)^2 × resistance"
+      "E": "voltage / (current × time)"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,

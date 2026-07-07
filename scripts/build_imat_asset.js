@@ -34,6 +34,23 @@ const SUBJECT_MAP = {
 };
 const LETTER = { A: 0, B: 1, C: 2, D: 3, E: 4 };
 
+// ── Auxiliary metadata (kept SEPARATE from the frozen official content) ──────────
+// The official question files (content/imat/<subject>/*.json) are read-only and must match the
+// source PDFs verbatim. Enrichment — difficulty, tags, Turkish/AI explanations, notes — lives in
+// content/imat/metadata/*.json, keyed by question id, and is merged into the app asset here.
+const META_DIR = path.join(SRC, 'metadata');
+function loadMeta(name) {
+  const f = path.join(META_DIR, name);
+  if (!fs.existsSync(f)) return {};
+  try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return {}; }
+}
+const META = {
+  difficulty: loadMeta('difficulty.json'),      // { id: 1|2|3 }
+  tags: loadMeta('tags.json'),                  // { id: ["..."] }
+  explanationTr: loadMeta('explanations_tr.json'), // { id: "..." }
+  notes: loadMeta('notes.json'),                // { id: "..." }
+};
+
 const out = [];
 const seenIds = new Set();
 const skipped = [];
@@ -64,7 +81,11 @@ for (const subjectDir of Object.keys(SUBJECT_MAP)) {
         choices: choices,
         answerIndex: LETTER[q.correct_answer],
         image: q.image || null,                 // reserved for figure-completed questions
-        difficulty: 1,                          // MEDIUM default (no per-item difficulty in source)
+        // ── merged from content/imat/metadata/ (empty today; official files stay frozen) ──
+        difficulty: META.difficulty[q.id] || 1, // MEDIUM default until an editor sets one
+        ...(META.tags[q.id] ? { tags: META.tags[q.id] } : {}),
+        ...(META.explanationTr[q.id] ? { explanation: META.explanationTr[q.id] } : {}),
+        ...(META.notes[q.id] ? { editorNote: META.notes[q.id] } : {}),
       });
     }
   }

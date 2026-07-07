@@ -13,13 +13,13 @@
     "original_number": 10,
     "question": "During lactic fermentation, pyruvic acid is:",
     "choices": {
-      "A": "decarboxylated",
-      "B": "dephosphorylated",
-      "C": "reduced",
+      "A": "reduced",
+      "B": "oxidised",
+      "C": "decarboxylated",
       "D": "phosphorylated",
-      "E": "oxidised"
+      "E": "dephosphorylated"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -40,13 +40,13 @@
     "original_number": 11,
     "question": "Which of the following statements about glycolysis is correct?",
     "choices": {
-      "A": "Triose phosphate isomerase catalyses the conversion of dihydroxyacetone phosphate to 1,3-bisphosphoglycerate.",
-      "B": "Phosphofructokinase catalyses the conversion of fructose 1,6-bisphosphate to dihydroxyacetone phosphate.",
-      "C": "In the first part, FADH2 is formed.",
+      "A": "When a molecule of glucose is converted to pyruvate in glycolysis, 2 NAD+ are reduced.",
+      "B": "Triose phosphate isomerase catalyses the conversion of dihydroxyacetone phosphate to 1,3-bisphosphoglycerate.",
+      "C": "Phosphofructokinase catalyses the conversion of fructose 1,6-bisphosphate to dihydroxyacetone phosphate.",
       "D": "When a molecule of glucose is converted to pyruvate in glycolysis, CO2 is produced.",
-      "E": "When a molecule of glucose is converted to pyruvate in glycolysis, 2 NAD+ are reduced."
+      "E": "In the first part, FADH2 is formed."
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -67,13 +67,13 @@
     "original_number": 12,
     "question": "Each acetyl-CoA molecule that enters the Krebs cycle produces:",
     "choices": {
-      "A": "2 NADH, 2 FADH2, 2 GTP and 2 molecules of CO2",
-      "B": "3 NADH, 1 FADH2, 1 GTP and 3 molecules of CO2",
-      "C": "3 NADH, 1 FADH2, 2 GTP and 3 molecules of CO2",
-      "D": "3 NADH, 1 FADH2, 1 GTP and 2 molecules of CO2",
-      "E": "1 NADH, 3 FADH2, 1 GTP and 2 molecules of CO2"
+      "A": "3 NADH, 1 FADH2, 1 GTP and 2 molecules of CO2",
+      "B": "1 NADH, 3 FADH2, 1 GTP and 2 molecules of CO2",
+      "C": "3 NADH, 1 FADH2, 1 GTP and 3 molecules of CO2",
+      "D": "3 NADH, 1 FADH2, 2 GTP and 3 molecules of CO2",
+      "E": "2 NADH, 2 FADH2, 2 GTP and 2 molecules of CO2"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -94,13 +94,13 @@
     "original_number": 13,
     "question": "Oxidative phosphorylation is a metabolic pathway:",
     "choices": {
-      "A": "through which the amino group resulting from the degradation of amino acids is eliminated",
-      "B": "through which the energy stored in reduced coenzymes is used for the synthesis of ATP",
-      "C": "which represents the final stage of the anabolism of amino acids, carbohydrates, and fatty acids",
-      "D": "through which fatty acid synthesis occurs",
-      "E": "through which fatty acids are broken down by removing two carbon atoms at a time"
+      "A": "through which the energy stored in reduced coenzymes is used for the synthesis of ATP",
+      "B": "through which the amino group resulting from the degradation of amino acids is eliminated",
+      "C": "through which fatty acids are broken down by removing two carbon atoms at a time",
+      "D": "which represents the final stage of the anabolism of amino acids, carbohydrates, and fatty acids",
+      "E": "through which fatty acid synthesis occurs"
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -121,13 +121,13 @@
     "original_number": 14,
     "question": "Cytochromes are:",
     "choices": {
-      "A": "cofactors of glycolysis",
-      "B": "present in the respiratory chain",
-      "C": "inhibitors of oxidative phosphorylation",
-      "D": "enzymes that synthesize ATP",
-      "E": "transporters of hydrogen atoms in the respiratory chain"
+      "A": "present in the respiratory chain",
+      "B": "transporters of hydrogen atoms in the respiratory chain",
+      "C": "enzymes that synthesize ATP",
+      "D": "inhibitors of oxidative phosphorylation",
+      "E": "cofactors of glycolysis"
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -149,10 +149,10 @@
     "question": "Collagen is a protein that is:",
     "choices": {
       "A": "extracellular",
-      "B": "nuclear",
+      "B": "membranous",
       "C": "intracellular",
-      "D": "membranous",
-      "E": "abundant in the thick filament"
+      "D": "abundant in the thick filament",
+      "E": "nuclear"
     },
     "correct_answer": "A",
     "explanation": null,
@@ -175,13 +175,13 @@
     "original_number": 16,
     "question": "Muscle contraction is triggered by an increase in the concentration of calcium ions that bind to:",
     "choices": {
-      "A": "actin",
-      "B": "vimentin",
+      "A": "troponin",
+      "B": "myosin",
       "C": "tropomyosin",
-      "D": "troponin",
-      "E": "myosin"
+      "D": "actin",
+      "E": "vimentin"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -202,13 +202,13 @@
     "original_number": 17,
     "question": "Which of the following statements about myosin and actin is CORRECT?",
     "choices": {
-      "A": "The binding of ATP to the actin-myosin complex promotes the formation of the complex.",
-      "B": "Tropomyosin has ATPase activity.",
-      "C": "The binding of ATP to the actin-myosin complex promotes the dissociation of the complex.",
+      "A": "The binding of ATP to the actin-myosin complex promotes the dissociation of the complex.",
+      "B": "The binding of ATP to the actin-myosin complex promotes the formation of the complex.",
+      "C": "The binding of calcium to troponin is necessary for the dissociation of the actin-myosin complex.",
       "D": "Actin has ATPase activity.",
-      "E": "The binding of calcium to troponin is necessary for the dissociation of the actin-myosin complex."
+      "E": "Tropomyosin has ATPase activity."
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -229,13 +229,13 @@
     "original_number": 18,
     "question": "The Bohr effect is observed in tissues that are oxidizing large amounts of nutrients, generating hydrogen ions, and releasing CO2 into the blood. This results in:",
     "choices": {
-      "A": "an increase in the total number of red blood cells",
-      "B": "an increase in protein synthesis",
-      "C": "a decrease in oxygenated haemoglobin molecules",
+      "A": "a decrease in oxygenated haemoglobin molecules",
+      "B": "an increase in oxygenated haemoglobin molecules",
+      "C": "an increase in the total number of red blood cells",
       "D": "the denaturation of haemoglobin",
-      "E": "an increase in oxygenated haemoglobin molecules"
+      "E": "an increase in protein synthesis"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -256,13 +256,13 @@
     "original_number": 19,
     "question": "Which of the following compounds corresponds to the statement \"a substance that increases the speed of a reaction and is found unchanged at the end of it\"?",
     "choices": {
-      "A": "Effector",
-      "B": "Cholesterol",
-      "C": "Catalyst",
-      "D": "Cofactor",
-      "E": "Modulator"
+      "A": "Catalyst",
+      "B": "Effector",
+      "C": "Cofactor",
+      "D": "Modulator",
+      "E": "Cholesterol"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -283,13 +283,13 @@
     "original_number": 20,
     "question": "In competitive inhibition:",
     "choices": {
-      "A": "the inhibitor prevents the release of products from the active site",
-      "B": "the inhibitor and the substrate compete for the active site of the enzyme",
-      "C": "the inhibitor binds to the enzyme-cholesterol complex",
-      "D": "the inhibitor binds to the allosteric site and prevents the substrate from binding to the enzyme",
-      "E": "the inhibitor binds to the substrate, preventing a reaction with the enzyme"
+      "A": "the inhibitor and the substrate compete for the active site of the enzyme",
+      "B": "the inhibitor binds to the substrate, preventing a reaction with the enzyme",
+      "C": "the inhibitor binds to the allosteric site and prevents the substrate from binding to the enzyme",
+      "D": "the inhibitor prevents the release of products from the active site",
+      "E": "the inhibitor binds to the enzyme-cholesterol complex"
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -311,10 +311,10 @@
     "question": "Which of the following classes of digestive enzymes is involved in the digestion of proteins?",
     "choices": {
       "A": "Peptidase",
-      "B": "Transaminase",
+      "B": "Amylase",
       "C": "Lipase",
-      "D": "Amylase",
-      "E": "Isomerase"
+      "D": "Isomerase",
+      "E": "Transaminase"
     },
     "correct_answer": "A",
     "explanation": null,
@@ -337,13 +337,13 @@
     "original_number": 22,
     "question": "Oxidative phosphorylation involves:",
     "choices": {
-      "A": "exclusively peripheral proteins",
+      "A": "both membrane proteins and mobile molecules",
       "B": "exclusively mitochondrial matrix proteins",
       "C": "exclusively integral membrane proteins",
-      "D": "both membrane proteins and mobile molecules",
+      "D": "exclusively peripheral proteins",
       "E": "only nuclear proteins"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -364,13 +364,13 @@
     "original_number": 23,
     "question": "How are the reduced coenzymes that are formed during biological oxidation reoxidized?",
     "choices": {
-      "A": "By direct action of oxygen",
-      "B": "Through the respiratory chain",
-      "C": "Through the passage of electrons in ATP synthase",
-      "D": "With the synthesis of hormones",
-      "E": "Through the process of beta oxidation"
+      "A": "Through the respiratory chain",
+      "B": "Through the process of beta oxidation",
+      "C": "By direct action of oxygen",
+      "D": "Through the passage of electrons in ATP synthase",
+      "E": "With the synthesis of hormones"
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -391,13 +391,13 @@
     "original_number": 24,
     "question": "Which high-energy reserve compound contains phosphate groups and is present in muscles?",
     "choices": {
-      "A": "Phosphofructokinase",
-      "B": "Glucose 1-phosphate",
-      "C": "Carnitine phosphate",
-      "D": "Creatinine phosphate",
-      "E": "Creatine phosphate"
+      "A": "Creatine phosphate",
+      "B": "Carnitine phosphate",
+      "C": "Creatinine phosphate",
+      "D": "Glucose 1-phosphate",
+      "E": "Phosphofructokinase"
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -418,13 +418,13 @@
     "original_number": 25,
     "question": "Which of the following metabolic processes occurs mainly in the liver?",
     "choices": {
-      "A": "β-oxidation of fatty acids",
-      "B": "Transamination",
-      "C": "Glycolysis",
-      "D": "Urea cycle",
-      "E": "The Krebs Cycle"
+      "A": "Urea cycle",
+      "B": "Glycolysis",
+      "C": "β-oxidation of fatty acids",
+      "D": "The Krebs Cycle",
+      "E": "Transamination"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -445,13 +445,13 @@
     "original_number": 26,
     "question": "It is more advantageous for humans to store energy as triglycerides in adipose tissue rather than as proteins in muscles because triglycerides in adipose tissue contain:",
     "choices": {
-      "A": "fewer calories and more water",
+      "A": "more calories and less water",
       "B": "fewer calories and less water",
-      "C": "more oxygen and less nitrogen",
-      "D": "more calories and less water",
-      "E": "more calories and more water"
+      "C": "fewer calories and more water",
+      "D": "more calories and more water",
+      "E": "more oxygen and less nitrogen"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -472,13 +472,13 @@
     "original_number": 27,
     "question": "Lysosomes are organelles:",
     "choices": {
-      "A": "equipped with enzymes that function optimally at a pH above 7",
-      "B": "that form by budding from the Golgi apparatus",
-      "C": "whose malfunction is currently not believed to be associated with diseases",
-      "D": "that form by budding from the smooth endoplasmic reticulum",
+      "A": "that form by budding from the Golgi apparatus",
+      "B": "equipped with enzymes that function optimally at a pH above 7",
+      "C": "that form by budding from the smooth endoplasmic reticulum",
+      "D": "whose malfunction is currently not believed to be associated with diseases",
       "E": "responsible for the synthesis of proteins destined for secretion"
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -499,13 +499,13 @@
     "original_number": 28,
     "question": "Which of the following statements is correct?",
     "choices": {
-      "A": "All cellular organelles possess a small amount of DNA.",
-      "B": "The nucleus, mitochondria and chloroplasts all contain DNA.",
-      "C": "The rough endoplasmic reticulum contains the DNA necessary for protein synthesis.",
-      "D": "Prokaryotes have a well-defined nucleus containing DNA.",
-      "E": "Only the nucleus contains DNA while mitochondria and chloroplasts contain RNA."
+      "A": "The nucleus, mitochondria and chloroplasts all contain DNA.",
+      "B": "Only the nucleus contains DNA while mitochondria and chloroplasts contain RNA.",
+      "C": "All cellular organelles possess a small amount of DNA.",
+      "D": "The rough endoplasmic reticulum contains the DNA necessary for protein synthesis.",
+      "E": "Prokaryotes have a well-defined nucleus containing DNA."
     },
-    "correct_answer": "B",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -526,13 +526,13 @@
     "original_number": 29,
     "question": "What is the main function of the plasma membrane in cells?",
     "choices": {
-      "A": "Containing the cell's genetic material",
-      "B": "Facilitating cell movement",
+      "A": "Regulating exchanges between the inside and outside of the cell",
+      "B": "Providing energy to the cell",
       "C": "Synthesizing proteins",
-      "D": "Regulating exchanges between the inside and outside of the cell",
-      "E": "Providing energy to the cell"
+      "D": "Containing the cell's genetic material",
+      "E": "Facilitating cell movement"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -553,13 +553,13 @@
     "original_number": 30,
     "question": "Which reactions are defined as exergonic?",
     "choices": {
-      "A": "Reactions that produce chemical energy without the consumption of reactants",
-      "B": "Reactions that always involve the synthesis of new compounds",
+      "A": "Reactions that release energy and occur spontaneously",
+      "B": "Reactions that require heat to proceed",
       "C": "Reactions that occur only in the presence of light",
-      "D": "Reactions that require heat to proceed",
-      "E": "Reactions that release energy and occur spontaneously"
+      "D": "Reactions that produce chemical energy without the consumption of reactants",
+      "E": "Reactions that always involve the synthesis of new compounds"
     },
-    "correct_answer": "E",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -580,13 +580,13 @@
     "original_number": 31,
     "question": "What is the main role of osteoblasts?",
     "choices": {
-      "A": "Resorbing minerals from the bone",
-      "B": "Transporting nutrients in the bone marrow",
+      "A": "Producing collagen and minerals for the bone matrix",
+      "B": "Resorbing minerals from the bone",
       "C": "Regulating blood pH",
-      "D": "Producing collagen and minerals for the bone matrix",
-      "E": "Breaking down damaged bone tissue"
+      "D": "Breaking down damaged bone tissue",
+      "E": "Transporting nutrients in the bone marrow"
     },
-    "correct_answer": "D",
+    "correct_answer": "A",
     "explanation": null,
     "explanation_status": "missing",
     "has_figure": false,
@@ -608,9 +608,9 @@
     "question": "Insulin:",
     "choices": {
       "A": "stimulates glucose uptake in muscle",
-      "B": "inhibits fatty acid synthesis",
+      "B": "stimulates the breakdown of glycogen",
       "C": "is a steroid hormone",
-      "D": "stimulates the breakdown of glycogen",
+      "D": "inhibits fatty acid synthesis",
       "E": "is secreted by the adrenal gland"
     },
     "correct_answer": "A",

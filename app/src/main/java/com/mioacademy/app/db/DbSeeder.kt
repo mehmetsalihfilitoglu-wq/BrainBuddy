@@ -127,7 +127,7 @@ object DbSeeder {
     // Fully isolated from the legacy K-12 / LGS seed pipeline: own asset, own meta
     // version key, own quality-gate-free ingestion (these are official verbatim items).
     private const val KEY_IMAT_SEED_VERSION = "imat_seed_version"
-    private const val CURRENT_IMAT_SEED_VERSION = 16
+    private const val CURRENT_IMAT_SEED_VERSION = 17
     private const val IMAT_ASSET = "imat/imat_questions.json"
 
     @Volatile

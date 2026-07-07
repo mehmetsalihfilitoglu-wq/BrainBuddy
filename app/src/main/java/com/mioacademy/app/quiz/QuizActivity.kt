@@ -47,6 +47,14 @@ class QuizActivity : AppCompatActivity() {
         const val EXTRA_MISSION_CATEGORIES = "mission_categories"
         /** Soft-fail minimum: serve shorter quiz down to this count instead of hard-failing. */
         private const val ABSOLUTE_MIN_QUESTIONS = 5
+
+        /**
+         * Runtime option randomization. The official IMAT bank in the DB matches the source PDFs
+         * verbatim (Form-A papers keep the correct answer at option A). To keep the quiz from being
+         * positionally gameable, the DISPLAY order of A–E options is randomized here at runtime —
+         * never persisted to the database. Set false to show options in official PDF order.
+         */
+        const val SHUFFLE_OPTIONS_AT_RUNTIME = true
     }
 
     private lateinit var b: ActivityQuizBinding
@@ -60,7 +68,10 @@ class QuizActivity : AppCompatActivity() {
     private var quizId: String = ""
     private var startedAt: Long = 0L
 
+    /** answers[questionId] = the ORIGINAL (official, PDF) option index the user selected. */
     private val answers = mutableMapOf<String, Int>()
+    /** Stable per-question display permutation: optionOrders[id][displayPos] = originalIndex. */
+    private val optionOrders = mutableMapOf<String, IntArray>()
     private var isFinishing = false
 
     // Debug-only diagnostics (grade mode)
@@ -641,6 +652,21 @@ class QuizActivity : AppCompatActivity() {
         return super.onKeyDown(keyCode, event)
     }
 
+    /**
+     * Stable per-question display permutation. order[displayPos] = originalIndex.
+     * Identity (no shuffle) when runtime shuffle is off, the question is not IMAT, or the options
+     * are the literal letters A–E (image-option questions whose letters index into one figure).
+     */
+    private fun orderFor(q: Question, n: Int): IntArray {
+        optionOrders[q.id]?.let { if (it.size == n) return it }
+        val identity = IntArray(n) { it }
+        val isLetterOptions = (0 until n).all { q.choices.getOrNull(it)?.trim() == ('A' + it).toString() }
+        val doShuffle = SHUFFLE_OPTIONS_AT_RUNTIME && q.examType == ExamType.IMAT && n >= 2 && !isLetterOptions
+        val order = if (doShuffle) identity.toMutableList().apply { shuffle() }.toIntArray() else identity
+        optionOrders[q.id] = order
+        return order
+    }
+
     private fun render() {
         if (questions.isEmpty()) return
         index = index.coerceIn(0, questions.size - 1)
@@ -683,18 +709,28 @@ class QuizActivity : AppCompatActivity() {
             // Layer 2: q.choices was already sanitized by QuestionMapper.toQuestion().
             QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
         }
-        b.optA.text = displayChoices.getOrNull(0) ?: "-"
-        b.optB.text = displayChoices.getOrNull(1) ?: "-"
-        b.optC.text = displayChoices.getOrNull(2) ?: "-"
-        b.optD.text = displayChoices.getOrNull(3) ?: "-"
+        // Apply the runtime display permutation (see orderFor). Non-blank options are reordered;
+        // any trailing blank stays put. Everything stored/scored still uses the ORIGINAL index.
+        val nOpts = displayChoices.count { !it.isNullOrBlank() }.coerceAtLeast(1)
+        val order = orderFor(q, nOpts)
+        val shown = ArrayList<String>(displayChoices.size)
+        for (i in 0 until nOpts) shown.add(displayChoices.getOrNull(order[i]) ?: "-")
+        for (i in nOpts until displayChoices.size) shown.add(displayChoices.getOrNull(i) ?: "-")
+
+        b.optA.text = shown.getOrNull(0) ?: "-"
+        b.optB.text = shown.getOrNull(1) ?: "-"
+        b.optC.text = shown.getOrNull(2) ?: "-"
+        b.optD.text = shown.getOrNull(3) ?: "-"
         // 5th option (A–E exams like IMAT). Hidden when the question has only 4 choices.
-        val hasFifth = displayChoices.size >= 5 && !displayChoices[4].isNullOrBlank()
+        val hasFifth = shown.size >= 5 && !shown[4].isNullOrBlank()
         b.optE.visibility = if (hasFifth) View.VISIBLE else View.GONE
-        if (hasFifth) b.optE.text = displayChoices[4]
+        if (hasFifth) b.optE.text = shown[4]
 
         b.optionsGroup.setOnCheckedChangeListener(null)
         val saved = answers[q.id] ?: -1
-        when (saved) {
+        // `saved` is the ORIGINAL option index; map it to its current display position.
+        val savedDisplay = if (saved in 0 until nOpts) order.indexOf(saved) else -1
+        when (savedDisplay) {
             0 -> b.optA.isChecked = true
             1 -> b.optB.isChecked = true
             2 -> b.optC.isChecked = true
@@ -703,7 +739,7 @@ class QuizActivity : AppCompatActivity() {
             else -> b.optionsGroup.clearCheck()
         }
         b.optionsGroup.setOnCheckedChangeListener { _, checkedId ->
-            val sel = when (checkedId) {
+            val displayPos = when (checkedId) {
                 b.optA.id -> 0
                 b.optB.id -> 1
                 b.optC.id -> 2
@@ -711,9 +747,10 @@ class QuizActivity : AppCompatActivity() {
                 b.optE.id -> 4
                 else -> -1
             }
-            if (sel >= 0) {
+            if (displayPos >= 0) {
                 com.mioacademy.app.ui.Interactions.lightTick(b.optionsGroup)
-                answers[q.id] = sel
+                // Store the ORIGINAL (official) option index, not the shuffled display position.
+                answers[q.id] = if (displayPos < nOpts) order[displayPos] else displayPos
                 if (index == questions.size - 1) {
                     // Auto-submit on last question - no Finish Test button
                     b.nextBtn.postDelayed({ if (!isFinishing) finishTest() }, 600)
@@ -744,7 +781,7 @@ class QuizActivity : AppCompatActivity() {
 
     private fun saveCurrentSelection() {
         val q = questions.getOrNull(index) ?: return
-        val sel = when (b.optionsGroup.checkedRadioButtonId) {
+        val displayPos = when (b.optionsGroup.checkedRadioButtonId) {
             b.optA.id -> 0
             b.optB.id -> 1
             b.optC.id -> 2
@@ -752,7 +789,10 @@ class QuizActivity : AppCompatActivity() {
             b.optE.id -> 4
             else -> -1
         }
-        if (sel >= 0) answers[q.id] = sel
+        if (displayPos < 0) return
+        // Map the shuffled display position back to the ORIGINAL (official) option index.
+        val order = optionOrders[q.id]
+        answers[q.id] = if (order != null && displayPos < order.size) order[displayPos] else displayPos
     }
 
     private fun finishTest() {
