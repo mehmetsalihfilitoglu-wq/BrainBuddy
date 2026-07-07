@@ -95,7 +95,9 @@ object QuestionMapper {
             imageAsset = e.imageAsset?.takeIf { it.isNotBlank() },
             difficulty = difficulty,
             examType = examType,
-            topic = null,
+            // For IMAT, carry the exam-subject label in topic so the quiz chip can show it
+            // (the K-12 Subject enum has no IMAT subjects). Preserve null for other exams.
+            topic = if (examType == ExamType.IMAT) imatSubjectLabel(e.subject) else null,
             type = e.type,
             skill = e.skill,
             presentationStem = presentationStem,
@@ -130,6 +132,15 @@ object QuestionMapper {
         } catch (_: Exception) {
             listOf("A", "B", "C", "D")
         }
+    }
+
+    /** Turkish label for an IMAT exam-subject code (matches AdmissionExamRegistry.IMAT). */
+    fun imatSubjectLabel(code: String): String = when (code.lowercase()) {
+        "biology" -> "Biyoloji"
+        "chemistry" -> "Kimya"
+        "physics_math" -> "Fizik & Matematik"
+        "logic" -> "Mantık & Okuma"
+        else -> "IMAT"
     }
 
     fun mapSubject(s: String): Subject = when (s.lowercase()) {

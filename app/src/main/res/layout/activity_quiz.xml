@@ -121,6 +121,19 @@
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
                 android:padding="16dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_choice_button"
+                android:textSize="16sp"
+                android:textColor="@color/bb_text_dark"/>
+
+            <!-- 5th option: used by exams with A–E choices (e.g. IMAT). Hidden for 4-choice questions. -->
+            <RadioButton
+                android:id="@+id/optE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="56dp"
+                android:padding="16dp"
+                android:visibility="gone"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
                 android:textColor="@color/bb_text_dark"/>

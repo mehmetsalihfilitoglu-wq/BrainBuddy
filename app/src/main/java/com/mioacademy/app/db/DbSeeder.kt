@@ -123,6 +123,107 @@ object DbSeeder {
     fun getDatabasePath(context: Context): String =
         context.getDatabasePath("brainbuddy.db").absolutePath
 
+    // ── Official IMAT question bank ─────────────────────────────────────────────
+    // Fully isolated from the legacy K-12 / LGS seed pipeline: own asset, own meta
+    // version key, own quality-gate-free ingestion (these are official verbatim items).
+    private const val KEY_IMAT_SEED_VERSION = "imat_seed_version"
+    private const val CURRENT_IMAT_SEED_VERSION = 1
+    private const val IMAT_ASSET = "imat/imat_questions.json"
+
+    @Volatile
+    var lastImatSeeded: Int = 0
+        internal set
+
+    /**
+     * Seeds official IMAT questions from [IMAT_ASSET] into Room (examType='IMAT'), idempotent and
+     * versioned via [KEY_IMAT_SEED_VERSION] — independent of the K-12 seed flow. On version bump it
+     * deletes existing IMAT rows and re-inserts. Bypasses the LGS-tuned quality gate on purpose
+     * (these are official, verbatim, key-verified questions).
+     */
+    suspend fun seedImatIfNeeded(context: Context): Int = withContext(Dispatchers.IO) {
+        try {
+            val db = DatabaseProvider.get(context)
+            val meta = db.appMetaDao()
+            val dao = db.questionDao()
+            val stored = meta.get(KEY_IMAT_SEED_VERSION)?.toIntOrNull() ?: 0
+            val already = try { dao.countActiveImatQuestions() } catch (_: Exception) { 0 }
+            if (stored >= CURRENT_IMAT_SEED_VERSION && already > 0) {
+                Log.i(TAG, "seedImat skip (version=$stored, imatCount=$already)")
+                lastImatSeeded = 0
+                return@withContext 0
+            }
+            val entities = parseImatAsset(context)
+            if (entities.isEmpty()) {
+                Log.w(TAG, "seedImat: asset produced 0 entities — skipping")
+                lastImatSeeded = 0
+                return@withContext 0
+            }
+            db.withTransaction {
+                dao.deleteImatQuestions()
+                dao.insertAllIgnore(entities)
+            }
+            meta.set(AppMetaEntity(KEY_IMAT_SEED_VERSION, CURRENT_IMAT_SEED_VERSION.toString()))
+            Log.i(TAG, "seedImat inserted ${entities.size} IMAT questions (version=$CURRENT_IMAT_SEED_VERSION)")
+            lastImatSeeded = entities.size
+            entities.size
+        } catch (e: Exception) {
+            Log.e(TAG, "seedImat failed: ${e.message}", e)
+            lastImatSeeded = 0
+            0
+        }
+    }
+
+    private fun parseImatAsset(context: Context): List<QuestionEntity> {
+        val json = context.assets.open(IMAT_ASSET).use { it.readBytes().toString(Charsets.UTF_8) }
+        val arr = JSONArray(json)
+        val now = System.currentTimeMillis()
+        val out = ArrayList<QuestionEntity>(arr.length())
+        for (i in 0 until arr.length()) {
+            val o = arr.optJSONObject(i) ?: continue
+            val id = o.optString("id").takeIf { it.isNotBlank() } ?: continue
+            val examSubject = o.optString("examSubject", "logic")
+            val stem = o.optString("stem").takeIf { it.isNotBlank() } ?: continue
+            val choicesArr = o.optJSONArray("choices") ?: continue
+            if (choicesArr.length() < 2) continue
+            val answerIndex = o.optInt("answerIndex", -1)
+            if (answerIndex < 0 || answerIndex >= choicesArr.length()) continue
+            val image = o.optString("image").takeIf { it.isNotBlank() && it != "null" }
+            val year = o.optInt("year", 0).takeIf { it > 0 }
+            val stemNorm = stem.trim().replace(Regex("\\s+"), " ").lowercase()
+            out.add(
+                QuestionEntity(
+                    id = id,
+                    grade = 0,
+                    subject = examSubject,
+                    difficulty = o.optInt("difficulty", 1),
+                    questionText = stem,
+                    optionsJson = choicesArr.toString(),
+                    answerIndex = answerIndex,
+                    explanation = null,
+                    isActive = true,
+                    examType = "IMAT",
+                    imageAsset = image,
+                    topic = o.optString("topic").takeIf { it.isNotBlank() },
+                    stemNormalized = stemNorm,
+                    stemHash = imatSha256(stemNorm),
+                    createdAt = now,
+                    sourcePack = "imat_${year ?: 0}_$examSubject",
+                    source = "pdf",
+                    year = year,
+                    qualityTier = "MEDIUM",
+                    reasoningLevel = 2,
+                    qualityScore = 80,
+                    unservableReason = null,
+                )
+            )
+        }
+        return out
+    }
+
+    private fun imatSha256(s: String): String = try {
+        MessageDigest.getInstance("SHA-256").digest(s.toByteArray()).joinToString("") { "%02x".format(it) }
+    } catch (_: Exception) { "" }
+
     fun debugMat6PipelineDiagnostics(): Mat6PipelineDiagnostics? = lastMat6PipelineDiagnostics
 
     fun debugGrade6MatFileIngest(): Grade6MatFileIngestDiagnostics? = lastGrade6MatFileIngest

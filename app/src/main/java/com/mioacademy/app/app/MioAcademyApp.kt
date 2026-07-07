@@ -42,6 +42,10 @@ class MioAcademyApp : Application() {
                 Log.i(STARTUP_LOG_TAG, "Seed finished: didSeed=$didSeed")
                 val integrityResult = DataIntegrityChecker.runCleanup(this@MioAcademyApp)
                 Log.i(STARTUP_LOG_TAG, "IntegrityCheck: hardDeleted=${integrityResult.hardDeleted} totalMarked=${integrityResult.totalMarked}")
+                // Seed the isolated official IMAT bank AFTER integrity cleanup so those
+                // official items are never touched by the K-12/LGS-tuned cleanup pass.
+                val imatSeeded = DbSeeder.seedImatIfNeeded(this@MioAcademyApp)
+                Log.i(STARTUP_LOG_TAG, "IMAT seed: inserted=$imatSeeded")
                 val p = StartupAuditRecorder.finalizeStartupAudit(this@MioAcademyApp)
                 Log.i(
                     "AppStartupAudit",

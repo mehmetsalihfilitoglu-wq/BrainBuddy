@@ -106,6 +106,15 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.insertAll(entities)
     }
 
+    /** IMAT pool (examType='IMAT'), mapped to domain Questions. [examSubject] null = all IMAT. */
+    fun getImatQuestions(examSubject: String? = null): List<Question> = runBlocking(Dispatchers.IO) {
+        questionDao.getImatPool(examSubject).map { QuestionMapper.toQuestion(it) }
+    }
+
+    fun countActiveImatQuestions(): Int = runBlocking(Dispatchers.IO) {
+        questionDao.countActiveImatQuestions()
+    }
+
     fun updateQuarantineFlags(id: String, reason: String, tier: String) = runBlocking(Dispatchers.IO) {
         questionDao.updateQuarantineFlags(id, reason, tier)
     }

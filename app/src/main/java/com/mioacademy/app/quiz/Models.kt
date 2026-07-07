@@ -20,11 +20,12 @@ enum class Subject(val tr: String) {
     DIN("Din Kültürü")
 }
 
-/** Exam pack types for Turkish education system. */
+/** Exam pack types. Turkish K-12 exams + Italian admission exams (IMAT). */
 enum class ExamType(val displayName: String) {
     LGS("LGS"),
     TYT("TYT"),
     AYT("AYT"),
+    IMAT("IMAT"),
     GENERAL("Genel")
 }
 
@@ -54,8 +55,12 @@ data class Question(
     /** Content tier at serve time (HARD/MEDIUM/BORDERLINE/EASY). */
     val contentQualityTier: String? = null,
 ) {
-    /** For header/subtitle: LGS mode shows "LGS", normal mode shows numeric grade (gradeTag). */
-    val gradeDisplayLabel: String get() = if (examType == ExamType.LGS) "LGS" else gradeTag
+    /** For header/subtitle: LGS shows "LGS", IMAT shows no grade, normal mode shows numeric grade (gradeTag). */
+    val gradeDisplayLabel: String get() = when (examType) {
+        ExamType.LGS -> "LGS"
+        ExamType.IMAT -> ""
+        else -> gradeTag
+    }
 }
 
 enum class QuizDifficulty(val tr: String) {

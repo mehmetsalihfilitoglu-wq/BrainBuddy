@@ -225,6 +225,29 @@ interface QuestionDao {
     )
     suspend fun getLgsCandidatePoolWithQuality(subject: String, allowedTiers: List<String>): List<LgsCandidateRow>
 
+    /**
+     * IMAT pool: official IMAT questions (examType='IMAT'). Fully isolated from LGS/grade content.
+     * [examSubject] null = all IMAT subjects; otherwise one of biology/chemistry/physics_math/logic.
+     */
+    @Query(
+        """
+        SELECT * FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = 'IMAT'
+        AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND (:examSubject IS NULL OR subject = :examSubject)
+        LIMIT 3000
+        """
+    )
+    suspend fun getImatPool(examSubject: String?): List<QuestionEntity>
+
+    @Query("SELECT COUNT(*) FROM questions WHERE COALESCE(examType,'GENERAL') = 'IMAT' AND isActive = 1")
+    suspend fun countActiveImatQuestions(): Int
+
+    /** Delete all IMAT questions (for idempotent IMAT reseed on version bump). */
+    @Query("DELETE FROM questions WHERE COALESCE(examType,'GENERAL') = 'IMAT'")
+    suspend fun deleteImatQuestions()
+
     /** Tüm sınıf havuzu (grade 1-7 için test oluşturma). */
     @Query(
         """

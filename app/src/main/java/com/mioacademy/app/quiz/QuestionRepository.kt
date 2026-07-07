@@ -1167,6 +1167,24 @@ class QuestionRepository(private val context: Context) {
     }
 
     /**
+     * IMAT quiz picker. Serves ONLY official IMAT questions (examType='IMAT'), fully isolated
+     * from LGS / grade-based legacy content. [examSubject] null = mixed across all IMAT subjects.
+     * Blocks questions seen in the last few tests when a profileId is given, then shuffles.
+     */
+    fun pickQuizQuestionsForImat(
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        examSubject: String? = null,
+        profileId: String? = null,
+    ): List<Question> {
+        val pool = roomStore.getImatQuestions(examSubject)
+        if (pool.isEmpty()) return emptyList()
+        val blocked = if (profileId != null) roomStore.getQuestionIdsFromLastNTests(profileId, 3) else emptySet()
+        val fresh = pool.filter { it.id !in blocked }
+        val source = if (fresh.size >= count) fresh else pool
+        return source.shuffled().distinctBy { it.id }.take(count.coerceAtLeast(1))
+    }
+
+    /**
      * LGS mode: uses only LGS question pool (examType=LGS).
      * Subject distribution: MAT=4, TURKCE=4, FEN=4, INKILAP=3, DIN=3, ING=2 (total 20).
      * Does NOT use selectedGrade. Does NOT fallback to grade 6. Never mixes grade-mode questions.

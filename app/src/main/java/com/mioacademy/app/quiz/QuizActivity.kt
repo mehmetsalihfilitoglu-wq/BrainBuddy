@@ -291,6 +291,24 @@ class QuizActivity : AppCompatActivity() {
         targetCount: Int,
         intent: Intent
     ): QuizBuildResult {
+        // IMAT mode: when the active study area is an IMAT career, serve ONLY the isolated
+        // official IMAT pool. Replay / retry-wrong keep their existing ID-based paths so the
+        // wrong-answer review still works across exams.
+        val imatMode = try {
+            com.mioacademy.app.core.UserGoalPrefs(context).getGoal().careerPath.examType == com.mioacademy.app.core.ExamType.IMAT
+        } catch (_: Exception) { false }
+        if (imatMode && !isReplayFromLastTest && !retryWrongMode && (wrongIds == null || wrongIds.isEmpty())) {
+            val imat = repo.pickQuizQuestionsForImat(count = targetCount)
+            if (imat.isNotEmpty()) {
+                return QuizBuildResult(
+                    questions = imat,
+                    poolDebug = null,
+                    pickerDebugPath = "imat",
+                    remedialFallbackWarning = false,
+                    debugWrongUsed = 0
+                )
+            }
+        }
         val scheduler = WrongQuestionScheduler(context)
         // [PERF FIX] buildPoolDebugStatsForGrade runs ~10 extra DB queries.
         // Removed from the 5-second build window — deferred to after first question renders.
@@ -564,6 +582,7 @@ class QuizActivity : AppCompatActivity() {
             b.optB.visibility = View.GONE
             b.optC.visibility = View.GONE
             b.optD.visibility = View.GONE
+            b.optE.visibility = View.GONE
             b.nextBtn.isEnabled = true
             b.nextBtn.text = getString(R.string.quiz_go_home)
             b.nextBtn.setOnClickListener {
@@ -612,7 +631,12 @@ class QuizActivity : AppCompatActivity() {
         val q = questions[index]
 
         b.progressText.text = "${index + 1}/${questions.size}"
-        b.subjectChip.text = "${q.subject.tr} • ${q.gradeDisplayLabel}"
+        // IMAT questions show their exam subject label (carried in topic); no Turkish grade chip.
+        b.subjectChip.text = if (q.examType == ExamType.IMAT) {
+            q.topic?.takeIf { it.isNotBlank() } ?: "IMAT"
+        } else {
+            "${q.subject.tr} • ${q.gradeDisplayLabel}"
+        }
         b.questionText.text = q.stem
 
         if (!q.imageAsset.isNullOrBlank()) {
@@ -643,6 +667,10 @@ class QuizActivity : AppCompatActivity() {
         b.optB.text = displayChoices.getOrNull(1) ?: "-"
         b.optC.text = displayChoices.getOrNull(2) ?: "-"
         b.optD.text = displayChoices.getOrNull(3) ?: "-"
+        // 5th option (A–E exams like IMAT). Hidden when the question has only 4 choices.
+        val hasFifth = displayChoices.size >= 5 && !displayChoices[4].isNullOrBlank()
+        b.optE.visibility = if (hasFifth) View.VISIBLE else View.GONE
+        if (hasFifth) b.optE.text = displayChoices[4]
 
         b.optionsGroup.setOnCheckedChangeListener(null)
         val saved = answers[q.id] ?: -1
@@ -651,6 +679,7 @@ class QuizActivity : AppCompatActivity() {
             1 -> b.optB.isChecked = true
             2 -> b.optC.isChecked = true
             3 -> b.optD.isChecked = true
+            4 -> b.optE.isChecked = true
             else -> b.optionsGroup.clearCheck()
         }
         b.optionsGroup.setOnCheckedChangeListener { _, checkedId ->
@@ -659,6 +688,7 @@ class QuizActivity : AppCompatActivity() {
                 b.optB.id -> 1
                 b.optC.id -> 2
                 b.optD.id -> 3
+                b.optE.id -> 4
                 else -> -1
             }
             if (sel >= 0) {
@@ -672,7 +702,7 @@ class QuizActivity : AppCompatActivity() {
         }
 
         b.feedbackText.visibility = View.GONE
-        listOf(b.optA, b.optB, b.optC, b.optD).forEach {
+        listOf(b.optA, b.optB, b.optC, b.optD, b.optE).forEach {
             it.alpha = 1f
             it.setBackgroundColor(android.graphics.Color.TRANSPARENT)
         }
@@ -699,6 +729,7 @@ class QuizActivity : AppCompatActivity() {
             b.optB.id -> 1
             b.optC.id -> 2
             b.optD.id -> 3
+            b.optE.id -> 4
             else -> -1
         }
         if (sel >= 0) answers[q.id] = sel
@@ -732,7 +763,9 @@ class QuizActivity : AppCompatActivity() {
         val blankCount = questions.size - correctCount - wrongCount
 
         val questionsMap = questions.associateBy { it.id }
-        val bySubject = questions.groupBy { it.subject.tr }.mapValues { (_, qs) -> qs.size }
+        val bySubject = questions.groupBy {
+            if (it.examType == ExamType.IMAT) (it.topic?.takeIf { t -> t.isNotBlank() } ?: "IMAT") else it.subject.tr
+        }.mapValues { (_, qs) -> qs.size }
         val breakdown = bySubject.entries.joinToString(", ") { "${it.key}: ${it.value}" }.takeIf { it.isNotBlank() }
 
         lifecycleScope.launch {
