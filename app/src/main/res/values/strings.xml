@@ -308,7 +308,6 @@
     <string name="auth_switch_to_signup">Hesabın yok mu? Oluştur</string>
     <string name="auth_forgot">Şifreni mi unuttun?</string>
     <string name="auth_google">Google ile devam et</string>
-    <string name="auth_please_wait">Lütfen bekle…</string>
     <string name="auth_creating">Hesabın oluşturuluyor…</string>
     <string name="auth_checking">Hesabın kontrol ediliyor…</string>
     <string name="auth_reset_title">Şifre sıfırlama</string>
@@ -419,20 +418,10 @@
     <!-- Profile -->
     <string name="profile_add">Profil Ekle</string>
 
-    <!-- Auth -->
-    <string name="auth_login_title">Giriş Yap</string>
-    <string name="auth_register_title">Kayıt Ol</string>
+    <!-- Auth (email/password + fill-all reused by AuthActivity) -->
     <string name="auth_email">E-posta</string>
     <string name="auth_password">Şifre</string>
-    <string name="auth_confirm_password">Şifre Tekrar</string>
-    <string name="auth_login">Giriş</string>
-    <string name="auth_register">Kayıt Ol</string>
-    <string name="auth_forgot_password">Şifremi unuttum</string>
-    <string name="auth_no_account_register">Hesabım yok, kayıt ol</string>
-    <string name="auth_has_account_login">Zaten hesabım var, giriş yap</string>
     <string name="auth_fill_all">Tüm alanları doldurun</string>
-    <string name="auth_password_short">Şifre en az 6 karakter olmalı</string>
-    <string name="auth_password_mismatch">Şifreler eşleşmiyor</string>
 
     <!-- Reports notifications -->
     <string name="report_ready_title">Mioitalia Raporu Hazır</string>
