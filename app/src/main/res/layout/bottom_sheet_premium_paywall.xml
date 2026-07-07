@@ -60,10 +60,29 @@
             android:orientation="vertical"
             android:layout_marginTop="20dp"/>
 
+        <!-- Current subscription status -->
         <TextView
+            android:id="@+id/tvSubscriptionStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/bb_text_muted"/>
+
+        <!-- Subscription offers (populated programmatically) -->
+        <LinearLayout
+            android:id="@+id/plansContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/paywall_availability"
             android:textSize="12sp"
             android:lineSpacingMultiplier="1.4"
@@ -75,16 +94,29 @@
             style="@style/BB.Button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             android:text="@string/paywall_cta"
             android:textAllCaps="false"
             android:textSize="16sp"/>
 
         <TextView
+            android:id="@+id/tvRestore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:minHeight="48dp"
+            android:gravity="center"
+            android:text="@string/paywall_restore"
+            android:textSize="13sp"
+            android:textColor="@color/emeraldDark"/>
+
+        <TextView
             android:id="@+id/tvPaywallDismiss"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="4dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:minHeight="48dp"
