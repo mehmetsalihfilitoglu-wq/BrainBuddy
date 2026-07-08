@@ -1,0 +1,241 @@
+[
+  {
+    "id": "mio_math_0057",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Mensuration and solid geometry",
+    "subtopic": "Arc length and sector area: area of an annular sector (the region swept between two radii)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "mensuration",
+      "sector area",
+      "annular sector",
+      "arc",
+      "in terms of pi"
+    ],
+    "learning_objective": "Compute the area of an annular sector by combining the sector-fraction (theta/360) with the difference of the squares of the two radii.",
+    "question": "A car's rear windscreen wiper turns about a fixed pivot. In one sweep the rubber blade cleans the part of the glass lying between 10 cm and 40 cm from the pivot, and the wiper turns through an angle of 120 degrees. Treating the glass as flat, what area does one sweep clean? Give your answer in terms of pi.",
+    "choices": {
+      "A": "300π cm²",
+      "B": "250π cm²",
+      "C": "1000π cm²",
+      "D": "1500π cm²",
+      "E": "500π cm²"
+    },
+    "correct_answer": "E",
+    "explanation": "The cleaned region is an annular sector: a fraction (theta/360) of the ring lying between radii 40 cm and 10 cm. Its area is (theta/360)·π(R² − r²) = (120/360)·π(40² − 10²) = (1/3)·π(1600 − 100) = (1/3)(1500π) = 500π cm².",
+    "option_analysis": {
+      "A": "Wrong: 300π = (1/3)π(40 − 10)² squares the difference of the radii — in effect treating the 30 cm blade length as a radius — instead of taking the difference of the squares, R² − r².",
+      "B": "Wrong: 250π = (60/360)π(R² − r²) halves the swept angle (uses 60 degrees), a misreading of the 120 degrees given.",
+      "C": "Wrong: 1000π = (240/360)π(R² − r²) uses the reflex angle (360 − 120 = 240 degrees) rather than the 120 degrees actually swept.",
+      "D": "Wrong: 1500π = π(40² − 10²) is the area of the entire ring (full annulus); it omits the factor 120/360 = 1/3, i.e. it ignores that the wiper turns through only 120 degrees rather than a full circle.",
+      "E": "Correct: an annular sector of angle 120 degrees between radii 40 cm and 10 cm has area (120/360)·π(40² − 10²) = (1/3)(1500π) = 500π cm²."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0058",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Mensuration and solid geometry",
+    "subtopic": "Area of a composite plane figure: a stadium (rectangle with two semicircular ends) recovered from its perimeter",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "mensuration",
+      "composite figures",
+      "stadium",
+      "perimeter to area",
+      "circle",
+      "rectangle"
+    ],
+    "learning_objective": "Recover an unknown radius from the perimeter of a composite figure, then find its area by decomposing it into a rectangle and a circle.",
+    "question": "An athletics track encloses a region shaped like a rectangle with a semicircular region attached to each of its two shorter sides. The two straight sides of the rectangle are each 100 m long, and the total distance once around the inside edge is 400 m. What is the area of the region enclosed by the inside edge? Give your answer in terms of pi.",
+    "choices": {
+      "A": "30000/π m²",
+      "B": "40000/π m²",
+      "C": "25000/π m²",
+      "D": "10000/π m²",
+      "E": "20000/π m²"
+    },
+    "correct_answer": "A",
+    "explanation": "The inside edge is two straights plus two semicircular arcs: 2(100) + 2(πr) = 400, so 2πr = 200 and r = 100/π. The rectangle's width is the diameter 2r = 200/π, and the two semicircular ends together form one full circle. Area = rectangle + circle = 100·(200/π) + π(100/π)² = 20000/π + 10000/π = 30000/π m².",
+    "option_analysis": {
+      "A": "Correct: r = 100/π from the perimeter, so area = 100·(200/π) + π(100/π)² = 20000/π + 10000/π = 30000/π m².",
+      "B": "Wrong: 40000/π adds the rectangle to TWO full circles (2πr² = 20000/π). The two ends are semicircles and together make only one circle (πr² = 10000/π), so the curved area has been double-counted.",
+      "C": "Wrong: 25000/π includes the rectangle plus only one semicircular end (½πr² = 5000/π); the second, identical end has been forgotten.",
+      "D": "Wrong: 10000/π is the area of the two semicircular ends alone (one circle); the rectangular middle section has been left out.",
+      "E": "Wrong: 20000/π is only the rectangle, 100 × 200/π; it omits the two semicircular ends entirely."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0059",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Mensuration and solid geometry",
+    "subtopic": "Surface area of a composite solid: a cone joined to a hemisphere, excluding the internal join and using the slant height",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "mensuration",
+      "surface area",
+      "cone",
+      "hemisphere",
+      "slant height",
+      "composite solid"
+    ],
+    "learning_objective": "Find the exposed surface area of a composite solid, correctly excluding internal joined faces and using the slant height for a cone's curved surface.",
+    "question": "A solid ornament is made by joining the flat circular base of a right circular cone to the flat face of a hemisphere of the same radius, so that the two pieces share that circular face. The common radius is 6 cm and the perpendicular height of the cone is 8 cm. What is the total exposed surface area of the ornament? Give your answer in terms of pi.",
+    "choices": {
+      "A": "120π cm²",
+      "B": "168π cm²",
+      "C": "96π cm²",
+      "D": "204π cm²",
+      "E": "132π cm²"
+    },
+    "correct_answer": "E",
+    "explanation": "The shared circular face is internal, so it is not part of the exposed surface. The exposed surface is the curved surface of the cone (πrl) plus the curved surface of the hemisphere (2πr²). The slant height is l = √(6² + 8²) = 10 cm. Total = π(6)(10) + 2π(6²) = 60π + 72π = 132π cm².",
+    "option_analysis": {
+      "A": "Wrong: 120π uses the cone's perpendicular height (8 cm) in the curved-surface formula (πr·8 = 48π). A cone's curved surface requires the slant height l = 10, not the vertical height h.",
+      "B": "Wrong: 168π adds the shared circular disc (πr² = 36π) to the correct 132π, but that disc is exactly where the two solids are joined — it is internal and not exposed.",
+      "C": "Wrong: 96π uses πr² = 36π (the flat circular area) for the hemisphere instead of its curved surface 2πr² = 72π.",
+      "D": "Wrong: 204π uses the surface of a whole sphere (4πr² = 144π) for the hemisphere; only its curved half (2πr² = 72π) is present.",
+      "E": "Correct: exposed area = πrl + 2πr² with l = √(6² + 8²) = 10, giving 60π + 72π = 132π cm²."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0060",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Mensuration and solid geometry",
+    "subtopic": "Scaling of similar solids: deducing the volume ratio (k³) from the surface-area ratio (k²)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "similar solids",
+      "scaling",
+      "area ratio",
+      "volume ratio",
+      "k^2 k^3"
+    ],
+    "learning_objective": "Apply the k, k², k³ scaling laws for similar solids to convert a surface-area ratio into a volume ratio.",
+    "question": "Two solid pyramids are geometrically similar (one is an exact scale copy of the other). The total surface area of the larger pyramid is exactly four times the total surface area of the smaller one. The smaller pyramid has a volume of 40 cm³. What is the volume of the larger pyramid?",
+    "choices": {
+      "A": "80 cm³",
+      "B": "2560 cm³",
+      "C": "320 cm³",
+      "D": "640 cm³",
+      "E": "160 cm³"
+    },
+    "correct_answer": "C",
+    "explanation": "For similar solids with linear scale factor k, corresponding areas scale as k² and corresponding volumes as k³. Here the area ratio is 4 = k², so k = 2, and the volume ratio is k³ = 8. The larger volume is 40 × 8 = 320 cm³.",
+    "option_analysis": {
+      "A": "Wrong: 80 = 40 × 2 uses the linear scale factor k = 2 as the volume ratio, forgetting that volume scales as k³, not k.",
+      "B": "Wrong: 2560 = 40 × 64 mistakes the area ratio 4 for the linear scale factor and cubes it (4³ = 64).",
+      "C": "Correct: k² = 4 gives k = 2, so the volume ratio is k³ = 8 and the larger volume is 40 × 8 = 320 cm³.",
+      "D": "Wrong: 640 = 40 × 16 takes the volume ratio to be (area ratio)² = 4² = 16, squaring the area ratio instead of using k³.",
+      "E": "Wrong: 160 = 40 × 4 applies the surface-area ratio (4) directly to the volume; volumes scale as k³ = 8, not as the area ratio."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0061",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Mensuration and solid geometry",
+    "subtopic": "Net of a cone: rolling a sector into a cone, using arc length to get the base radius and Pythagoras for the height",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "cone",
+      "net",
+      "sector",
+      "arc length",
+      "pythagoras",
+      "volume",
+      "in terms of pi"
+    ],
+    "learning_objective": "Model the net of a cone: convert a sector's arc length into the base radius and use Pythagoras to obtain the height before computing the volume.",
+    "question": "A flat sector of a circle has radius 10 cm and a central angle of 216 degrees. Its two straight edges are brought together and joined edge to edge, with no overlap, to form the curved surface of a right circular cone (the sector's arc becomes the rim of the cone's circular base). What is the volume of this cone? Give your answer in terms of pi.",
+    "choices": {
+      "A": "128π cm³",
+      "B": "288π cm³",
+      "C": "96π cm³",
+      "D": "120π cm³",
+      "E": "60π cm³"
+    },
+    "correct_answer": "C",
+    "explanation": "The sector's radius becomes the cone's slant height, l = 10 cm. The sector's arc length becomes the base circumference: (216/360)(2π·10) = 12π = 2πr, so r = 6 cm. The vertical height is h = √(l² − r²) = √(100 − 36) = 8 cm. Volume = (1/3)πr²h = (1/3)π(36)(8) = 96π cm³.",
+    "option_analysis": {
+      "A": "Wrong: 128π = (1/3)π(8²)(6) interchanges the roles of r and h, using radius 8 and height 6 instead of radius 6 and height 8.",
+      "B": "Wrong: 288π = π(36)(8) omits the factor 1/3, computing the volume of a cylinder with the same base and height rather than of a cone.",
+      "C": "Correct: arc length gives r = 6, then h = √(10² − 6²) = 8, so V = (1/3)π(36)(8) = 96π cm³.",
+      "D": "Wrong: 120π = (1/3)π(36)(10) uses the slant height (10 cm) as the cone's vertical height, skipping the Pythagoras step h = √(l² − r²) = 8.",
+      "E": "Wrong: 60π = (216/360)π(10²) is the area of the original sector — that is, the curved surface area of the cone — not its volume."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0062",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Mensuration and solid geometry",
+    "subtopic": "Pythagoras in three dimensions: a corner sphere in a cube tangent to the inscribed sphere, via the space diagonal",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 200,
+    "tags": [
+      "3D pythagoras",
+      "space diagonal",
+      "inscribed sphere",
+      "cube",
+      "tangent spheres",
+      "surds"
+    ],
+    "learning_objective": "Use Pythagoras in three dimensions along the space diagonal of a cube to locate a corner sphere tangent to the inscribed sphere.",
+    "question": "A sphere of radius R is inscribed in a cube, touching all six faces. A second, smaller sphere is placed in one corner of the cube so that it touches the three faces meeting at that corner and also touches the large sphere externally. What is the radius of the smaller sphere?",
+    "choices": {
+      "A": "½R(√3 − 1)",
+      "B": "(R/3)(3 − √3)",
+      "C": "R(2 − √3)",
+      "D": "R(√3 − 1)",
+      "E": "R(3 − 2√2)"
+    },
+    "correct_answer": "C",
+    "explanation": "Since the inscribed sphere touches all faces, the cube has edge 2R and its centre (the large sphere's centre) sits at (R, R, R) taking the chosen corner as the origin. A corner sphere of radius r has its centre at (r, r, r). The two centres lie on the cube's space diagonal, so the centre-to-centre distance is √[3(R − r)²] = (R − r)√3. External tangency requires this to equal R + r: (R − r)√3 = R + r. Rearranging, R(√3 − 1) = r(√3 + 1), so r = R(√3 − 1)/(√3 + 1) = R(√3 − 1)²/2 = R(4 − 2√3)/2 = R(2 − √3).",
+    "option_analysis": {
+      "A": "Wrong: ½R(√3 − 1) mis-rationalises the fraction, replacing the denominator (√3 + 1) by 2 rather than multiplying numerator and denominator by (√3 − 1).",
+      "B": "Wrong: (R/3)(3 − √3) = R(1 − 1/√3) comes from setting r√3 = R(√3 − 1), i.e. placing the small sphere's centre exactly where the large sphere meets the diagonal and forgetting to add the small sphere's own radius on the far side (the correct relation is r√3 + r = R√3 − R).",
+      "C": "Correct: (R − r)√3 = R + r gives r = R(√3 − 1)/(√3 + 1) = R(2 − √3).",
+      "D": "Wrong: R(√3 − 1) is R(√3 − 1)/(√3 + 1) with the denominator (√3 + 1) simply dropped; the factor (√3 + 1) multiplying r must be divided out.",
+      "E": "Wrong: R(3 − 2√2) uses the FACE diagonal (2-D Pythagoras, factor √2) for the centre-to-centre distance: √2(R − r) = R + r gives r = R(√2 − 1)/(√2 + 1) = R(3 − 2√2). The centres are separated along the SPACE diagonal, which needs the 3-D factor √3."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  }
+]

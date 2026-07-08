@@ -1,0 +1,475 @@
+[
+  {
+    "id": "mio_chem_0111",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Solutions and concentration",
+    "subtopic": "Dilution (c1V1 = c2V2): volume of water to add to reach a target concentration (final volume minus stock volume)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "dilution",
+      "molarity",
+      "c1V1=c2V2",
+      "solution preparation",
+      "volumes additive"
+    ],
+    "learning_objective": "Apply the dilution relationship c1V1 = c2V2 and distinguish the final total volume of a diluted solution from the volume of solvent that must be added to the stock.",
+    "question": "A technician has 50.0 mL of 1.20 M hydrochloric acid stock and needs to prepare a solution of 0.200 M hydrochloric acid by adding water to the whole 50.0 mL portion. Assuming the volumes are additive, what volume of water must be added?",
+    "choices": {
+      "A": "8.3 mL",
+      "B": "300 mL",
+      "C": "60 mL",
+      "D": "250 mL",
+      "E": "350 mL"
+    },
+    "correct_answer": "D",
+    "explanation": "Use c1V1 = c2V2 to find the required FINAL volume, then subtract the stock volume to get the water added. V2 = c1V1/c2 = (1.20 M x 50.0 mL)/(0.200 M) = 300 mL. This 300 mL already contains the original 50.0 mL of stock, so the volume of water to add is V2 - V1 = 300 - 50.0 = 250 mL.",
+    "option_analysis": {
+      "A": "Wrong: 8.3 mL comes from inverting the concentration ratio, V = V1 x (c2/c1) = 50.0 x (0.200/1.20) = 8.3 mL, i.e. dividing by the larger concentration instead of the smaller one.",
+      "B": "Wrong: 300 mL is the final total volume V2 of the diluted solution. Reporting it as the volume of water to add ignores that the 50.0 mL of stock already occupies part of the final volume (final-volume-as-added-volume error).",
+      "C": "Wrong: 60 comes from evaluating c1V1 = 1.20 x 50.0 = 60 (millimoles of HCl) and then treating this amount of substance as if it were a volume in millilitres — a dimensional error.",
+      "D": "Correct: V2 = c1V1/c2 = (1.20)(50.0)/0.200 = 300 mL is the final volume; the water that must be added is V2 - V1 = 300 - 50.0 = 250 mL.",
+      "E": "Wrong: 350 mL arises from correctly finding V2 = 300 mL but then ADDING the 50.0 mL of stock again (300 + 50), double-counting the stock volume."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0112",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acid-base titration",
+    "subtopic": "Titration of a diprotic acid: unknown H2SO4 concentration from an NaOH titre (1:2 stoichiometry)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "titration",
+      "diprotic acid",
+      "stoichiometry",
+      "molarity",
+      "neutralisation",
+      "sulfuric acid"
+    ],
+    "learning_objective": "Determine the concentration of a diprotic acid from a titration by combining the mole triangle in solution (n = cV) with the correct 1:2 acid-to-base stoichiometric ratio.",
+    "question": "A 25.0 mL sample of sulfuric acid of unknown concentration is titrated to the equivalence point with 30.0 mL of 0.200 M sodium hydroxide, according to H2SO4 + 2 NaOH -> Na2SO4 + 2 H2O. What is the concentration of the sulfuric acid?",
+    "choices": {
+      "A": "0.480 M",
+      "B": "0.240 M",
+      "C": "0.120 M",
+      "D": "0.0600 M",
+      "E": "0.100 M"
+    },
+    "correct_answer": "C",
+    "explanation": "Moles of NaOH = 0.200 M x 0.0300 L = 6.00 x 10^-3 mol. From the 1:2 ratio, one mole of H2SO4 reacts with two moles of NaOH, so moles of H2SO4 = 6.00 x 10^-3 / 2 = 3.00 x 10^-3 mol. Concentration = 3.00 x 10^-3 mol / 0.0250 L = 0.120 M.",
+    "option_analysis": {
+      "A": "Wrong: 0.480 M comes from multiplying the base moles by two instead of dividing (inverting the 1:2 mole ratio).",
+      "B": "Wrong: 0.240 M treats the reaction as 1:1 (0.200 x 30.0/25.0), ignoring that sulfuric acid is diprotic and consumes two moles of hydroxide per mole of acid.",
+      "C": "Correct: n(NaOH) = 6.00 x 10^-3 mol; n(H2SO4) = half of this = 3.00 x 10^-3 mol; c = 3.00 x 10^-3 / 0.0250 = 0.120 M.",
+      "D": "Wrong: 0.0600 M results from dividing by two once too often (halving the already-halved amount), i.e. applying the stoichiometric factor twice.",
+      "E": "Wrong: 0.100 M is obtained by simply halving the NaOH concentration (0.200/2), ignoring the unequal aliquot and titre volumes entirely."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0113",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Limiting reagent and percentage yield",
+    "subtopic": "Precipitation from two mixed solutions: limiting reagent from solution moles, then percentage yield of the precipitate",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "limiting reagent",
+      "percentage yield",
+      "precipitation",
+      "molarity",
+      "stoichiometry",
+      "barium sulfate"
+    ],
+    "learning_objective": "Identify the limiting reagent from the moles supplied by two solutions, calculate the theoretical mass of precipitate, and convert an experimental mass into a percentage yield.",
+    "question": "50.0 mL of 0.100 M barium chloride is mixed with 50.0 mL of 0.0800 M sodium sulfate, giving the precipitate barium sulfate (BaCl2 + Na2SO4 -> BaSO4 + 2 NaCl). If 0.700 g of dried precipitate is collected, the percentage yield is closest to: (Molar masses: Ba = 137, S = 32, O = 16 g/mol.)",
+    "choices": {
+      "A": "75%",
+      "B": "60%",
+      "C": "133%",
+      "D": "25%",
+      "E": "33%"
+    },
+    "correct_answer": "A",
+    "explanation": "Moles Ba2+ = 0.100 x 0.0500 = 5.00 x 10^-3 mol; moles SO4^2- = 0.0800 x 0.0500 = 4.00 x 10^-3 mol. The reaction is 1:1, so sulfate is limiting and the theoretical amount of BaSO4 is 4.00 x 10^-3 mol. M(BaSO4) = 137 + 32 + 64 = 233 g/mol, so theoretical mass = 4.00 x 10^-3 x 233 = 0.932 g. Percentage yield = 0.700/0.932 x 100 = 75%.",
+    "option_analysis": {
+      "A": "Correct: sulfate (4.00 x 10^-3 mol) is limiting; theoretical mass of BaSO4 = 0.932 g; percentage yield = 0.700/0.932 x 100 = 75%.",
+      "B": "Wrong: 60% takes barium (5.00 x 10^-3 mol, the reagent in excess) as limiting, giving a theoretical mass of 1.165 g and 0.700/1.165 = 60% — the limiting reagent was chosen incorrectly.",
+      "C": "Wrong: 133% comes from inverting the yield ratio (theoretical/actual = 0.932/0.700), which can never exceed the maximum obtainable and misrepresents the definition of percentage yield.",
+      "D": "Wrong: 25% is the fraction of product NOT obtained (100% - 75%); the question asks for the yield achieved, not the loss.",
+      "E": "Wrong: 33% adds the moles of both reactants (5.00 + 4.00 = 9.00 x 10^-3 mol) as the theoretical product amount (2.10 g), ignoring the limiting-reagent concept altogether."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0114",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "The mole triangle in solution",
+    "subtopic": "Number of a specified ion from concentration, volume, dissociation stoichiometry and Avogadro's constant",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "mole triangle",
+      "molarity",
+      "Avogadro constant",
+      "dissociation",
+      "ion count",
+      "aluminium sulfate"
+    ],
+    "learning_objective": "Combine n = cV with the dissociation stoichiometry of a salt and Avogadro's constant to count the number of a particular ion present in a solution.",
+    "question": "A 250 mL solution contains aluminium sulfate, Al2(SO4)3, at a concentration of 0.020 M. Assuming complete dissociation, how many sulfate ions does the solution contain? (Avogadro's constant = 6.0 x 10^23 mol^-1.)",
+    "choices": {
+      "A": "3.0 x 10^21",
+      "B": "1.5 x 10^22",
+      "C": "6.0 x 10^21",
+      "D": "9.0 x 10^21",
+      "E": "3.6 x 10^22"
+    },
+    "correct_answer": "D",
+    "explanation": "Moles of Al2(SO4)3 = 0.020 mol/L x 0.250 L = 5.0 x 10^-3 mol. Each formula unit releases 3 sulfate ions, so moles of SO4^2- = 3 x 5.0 x 10^-3 = 1.5 x 10^-2 mol. Number of sulfate ions = 1.5 x 10^-2 x 6.0 x 10^23 = 9.0 x 10^21.",
+    "option_analysis": {
+      "A": "Wrong: 3.0 x 10^21 counts only one sulfate ion per formula unit (5.0 x 10^-3 x NA), overlooking the subscript 3 in Al2(SO4)3.",
+      "B": "Wrong: 1.5 x 10^22 counts ALL ions (2 Al3+ plus 3 SO4^2- = 5 per formula unit), rather than the sulfate ions only.",
+      "C": "Wrong: 6.0 x 10^21 uses two sulfate ions per formula unit, confusing the sulfate count with the aluminium subscript (2).",
+      "D": "Correct: n(Al2(SO4)3) = 5.0 x 10^-3 mol; n(SO4^2-) = 3 x 5.0 x 10^-3 = 1.5 x 10^-2 mol; number of ions = 1.5 x 10^-2 x 6.0 x 10^23 = 9.0 x 10^21.",
+      "E": "Wrong: 3.6 x 10^22 forgets to convert the volume, using 0.020 mol directly (0.020 x 3 x NA) instead of the moles present in 250 mL."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0115",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Solutions and titration",
+    "subtopic": "Aliquot titration: back-calculating the original concentration after quantitative dilution and titration of a portion",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "titration",
+      "dilution factor",
+      "aliquot",
+      "c1V1=c2V2",
+      "molarity",
+      "back-calculation"
+    ],
+    "learning_objective": "Integrate titration stoichiometry with a quantitative dilution to recover the concentration of an original solution from the titre of a diluted aliquot.",
+    "question": "A 25.0 mL portion of a concentrated hydrochloric acid solution is transferred to a 250.0 mL volumetric flask and made up to the mark with water. A 20.0 mL aliquot of this diluted solution is then titrated with 0.150 M sodium hydroxide, requiring 24.0 mL to reach the endpoint (HCl + NaOH -> NaCl + H2O). What was the concentration of the original concentrated acid?",
+    "choices": {
+      "A": "1.44 M",
+      "B": "0.180 M",
+      "C": "0.0180 M",
+      "D": "2.25 M",
+      "E": "1.80 M"
+    },
+    "correct_answer": "E",
+    "explanation": "Moles NaOH = 0.150 x 0.0240 = 3.60 x 10^-3 mol; with 1:1 stoichiometry this equals the moles of HCl in the 20.0 mL aliquot. Concentration of the diluted acid = 3.60 x 10^-3 / 0.0200 = 0.180 M. The dilution factor is 250.0/25.0 = 10, so the original concentration = 0.180 x 10 = 1.80 M.",
+    "option_analysis": {
+      "A": "Wrong: 1.44 M uses 25.0 mL (the volume pipetted for dilution) in place of the 20.0 mL aliquot when finding the diluted concentration (3.60 x 10^-3/0.0250 = 0.144 M, then x10).",
+      "B": "Wrong: 0.180 M is the concentration of the DILUTED solution; the candidate stopped there and forgot to multiply by the dilution factor to recover the original concentration.",
+      "C": "Wrong: 0.0180 M divides by the dilution factor (0.180/10) instead of multiplying — the original solution is more concentrated than the diluted one, not less.",
+      "D": "Wrong: 2.25 M uses the aliquot volume (20.0 mL) as the volume that was diluted, giving a factor of 250.0/20.0 = 12.5 instead of the correct 250.0/25.0 = 10.",
+      "E": "Correct: c(diluted) = 3.60 x 10^-3 mol / 0.0200 L = 0.180 M; applying the 10-fold dilution factor (250.0/25.0) gives c(original) = 0.180 x 10 = 1.80 M."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0116",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Acid-base titration",
+    "subtopic": "Determining the molar mass of an unknown monoprotic acid from a neutralisation titre",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "titration",
+      "molar mass determination",
+      "monoprotic acid",
+      "stoichiometry",
+      "neutralisation",
+      "mole triangle"
+    ],
+    "learning_objective": "Determine the molar mass of an unknown monoprotic acid by combining titration data (n = cV, 1:1 stoichiometry) with M = m/n, while guarding against protic-number and unit errors.",
+    "question": "A 0.732 g sample of a pure, solid, monoprotic acid is dissolved in water and completely neutralised by 15.0 mL of 0.400 M sodium hydroxide. What is the molar mass of the acid?",
+    "choices": {
+      "A": "48.8 g/mol",
+      "B": "244 g/mol",
+      "C": "0.122 g/mol",
+      "D": "122 g/mol",
+      "E": "61 g/mol"
+    },
+    "correct_answer": "D",
+    "explanation": "Moles NaOH = 0.400 x 0.0150 = 6.00 x 10^-3 mol. As the acid is monoprotic the ratio is 1:1, so moles of acid = 6.00 x 10^-3 mol. Molar mass = mass/moles = 0.732 g / 6.00 x 10^-3 mol = 122 g/mol (consistent with benzoic acid, C6H5COOH).",
+    "option_analysis": {
+      "A": "Wrong: 48.8 g/mol divides the mass by the titre volume in litres (0.732/0.0150), omitting the sodium hydroxide concentration from the mole calculation.",
+      "B": "Wrong: 244 g/mol treats the acid as diprotic, halving the moles of acid to 3.00 x 10^-3 mol and thereby doubling the calculated molar mass.",
+      "C": "Wrong: 0.122 g/mol uses the titre volume in millilitres rather than litres (moles = 0.400 x 15.0 = 6.00), a factor-of-1000 unit error.",
+      "D": "Correct: n(NaOH) = 6.00 x 10^-3 mol = n(acid) (1:1); M = 0.732 / 6.00 x 10^-3 = 122 g/mol.",
+      "E": "Wrong: 61 g/mol comes from taking moles of acid as twice the moles of base (0.0120 mol), inverting the 1:1 relationship for a monoprotic acid."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0117",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "The periodic table and periodicity",
+    "subtopic": "Comparing the radius of an atom with its own cation and anion (loss of a shell versus increased electron-electron repulsion)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "periodicity",
+      "atomic radius",
+      "ionic radius",
+      "cations and anions",
+      "shielding"
+    ],
+    "learning_objective": "Explain, in terms of the number of occupied shells, nuclear charge and electron-electron repulsion, why a cation is markedly smaller than its parent atom while an anion is markedly larger.",
+    "question": "The following radii (in pm) belong to a sodium atom, a sodium ion (Na+), a chlorine atom and a chloride ion (Cl-): 186, 102, 99 and 181. It is found that Na+ (102 pm) is much smaller than the Na atom (186 pm), whereas Cl- (181 pm) is much larger than the Cl atom (99 pm). Which statement best accounts for BOTH observations?",
+    "choices": {
+      "A": "Both species are contracted relative to their atoms because any charged ion is drawn into a more compact arrangement than the corresponding neutral atom.",
+      "B": "The differences arise only because Na+ has a higher charge density than Cl-; the number of occupied shells is identical in all four species here.",
+      "C": "Losing the single 3s electron empties the outermost (n = 3) shell of sodium, so Na+ has one fewer occupied shell than Na; gaining an electron adds to the n = 3 shell of chlorine, raising electron-electron repulsion at unchanged nuclear charge, so the Cl- cloud expands.",
+      "D": "When sodium loses its electron the nucleus gains a proton, so Na+ contracts; when chlorine gains an electron the nucleus loses a proton, so Cl- expands.",
+      "E": "In Na+ the remaining electrons are pulled down into the n = 2 shell, while in Cl- the extra electron is forced to start a new n = 4 shell, which enlarges the ion."
+    },
+    "correct_answer": "C",
+    "explanation": "Ionisation and electron gain do not change the number of protons. Removing sodium's lone 3s electron leaves the electron configuration of neon: the entire third shell is now empty, so the outermost occupied shell drops from n = 3 to n = 2 and the ion shrinks dramatically. Adding an electron to chlorine keeps it in the same third shell (3p5 becomes 3p6); the nuclear charge is unchanged but the mutual repulsion between the electrons increases, so the electron cloud swells and the anion is larger than the atom. The two opposite size changes therefore have different physical origins: shell loss for the cation, increased repulsion within the same shell for the anion.",
+    "option_analysis": {
+      "A": "Wrong: anions are LARGER than their parent atoms, so it is untrue that every ion is more compact than the neutral atom. This over-generalises the cation case to all ions.",
+      "B": "Wrong: the number of occupied shells is NOT the same for all four species (Na has three, Na+ has two, Cl and Cl- have three), so a pure charge-density argument that ignores the shell loss in Na+ fails.",
+      "C": "Correct: Na+ loses a whole occupied shell (n = 3 emptied, leaving the Ne configuration) so it shrinks sharply, whereas Cl- gains an electron into the same n = 3 shell, raising electron-electron repulsion at constant nuclear charge and expanding the cloud.",
+      "D": "Wrong: proton (nuclear) charge is fixed; ionisation and electron gain change only the electron count, never the number of protons. This misconception confuses gaining/losing electrons with gaining/losing protons.",
+      "E": "Wrong: no electron is 'pulled into' n = 2 in Na+ (the n = 2 shell was already full), and the added electron in Cl- enters the existing 3p subshell, not a new n = 4 shell. This misconception invents shell changes on the wrong side."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0118",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "The periodic table and periodicity",
+    "subtopic": "Group 1 metals: decreasing melting point down the group and the weakening of metallic bonding",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "periodicity",
+      "Group 1",
+      "alkali metals",
+      "metallic bonding",
+      "melting point"
+    ],
+    "learning_objective": "Explain the fall in melting point down Group 1 in terms of the size of the metal cations and the strength of the electrostatic attraction between the cation lattice and the delocalised electron sea.",
+    "question": "The melting points of the Group 1 metals fall steadily down the group: Li 181 C, Na 98 C, K 63 C, Rb 39 C, Cs 28 C. Which statement gives the correct explanation for this trend?",
+    "choices": {
+      "A": "First ionisation energy decreases down the group, so fewer atoms manage to ionise and release electrons into the sea, leaving weaker metallic bonding.",
+      "B": "The atoms become larger down the group, so the London dispersion forces holding the atoms together become weaker and the metals melt at lower temperatures.",
+      "C": "The metals become more reactive down the group and react more readily with air and moisture, which lowers their measured melting points.",
+      "D": "Down the group each atom contributes an increasing number of delocalised electrons to the electron sea, and the extra repulsion between these electrons lowers the melting point.",
+      "E": "Each metal contributes one delocalised electron, but the cations become larger down the group, so the electrostatic attraction between the fixed cations and the delocalised electron sea weakens and less energy is needed to melt the lattice."
+    },
+    "correct_answer": "E",
+    "explanation": "In a Group 1 metal the lattice consists of singly charged cations (each atom having released its single valence electron) immersed in a sea of delocalised electrons. The strength of the metallic bond is the electrostatic attraction between these cations and the electron sea. Every alkali metal supplies exactly one delocalised electron per atom, so the number of electrons per atom is constant down the group. What changes is the size of the cation: it grows from Li+ to Cs+. The delocalised electrons are therefore held further from, and screened more strongly from, the nuclei, and the charge density of the cation falls. The metallic bonding weakens, so progressively less energy is needed to break the lattice and the melting point falls.",
+    "option_analysis": {
+      "A": "Wrong: in the solid metal the atoms are already 'ionised' into the cation lattice; the gaseous first ionisation energy does not govern how many electrons enter the sea. This confuses ionisation energy with the number of delocalised electrons.",
+      "B": "Wrong: metals are held by metallic bonding, not London dispersion forces, and in any case dispersion forces INCREASE with atomic size, which would predict the opposite trend. This mistakenly applies an intermolecular-force argument to a metallic lattice.",
+      "C": "Wrong: reactivity with air is an experimental precaution, not the cause of the intrinsic melting-point trend; a clean metal under inert conditions shows the same falling melting points. This confuses chemical reactivity with a physical property.",
+      "D": "Wrong: every Group 1 atom has only one valence electron and donates exactly one to the electron sea; the number does not increase down the group. This misconception invents extra delocalised electrons.",
+      "E": "Correct: with one delocalised electron per atom throughout, the increasing cation size down the group weakens the cation-to-electron-sea attraction, lowering the melting point."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0119",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "The periodic table and periodicity",
+    "subtopic": "Noble gases: reactivity and the formation of xenon compounds explained by the fall in ionisation energy down the group",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "periodicity",
+      "noble gases",
+      "Group 18",
+      "ionisation energy",
+      "reactivity"
+    ],
+    "learning_objective": "Explain why the heavier noble gases (e.g. xenon) form compounds with highly electronegative elements while the lighter ones do not, using the decrease in ionisation energy and increase in atomic radius down Group 18.",
+    "question": "The noble gases are characteristically very unreactive, yet compounds such as XeF2, XeF4 and XeF6 are well established, whereas no stable neutral compound of helium or neon has ever been isolated. Which statement best explains why xenon forms fluorides but helium and neon do not?",
+    "choices": {
+      "A": "Xenon behaves as a metal at the foot of the group while helium and neon are non-metals, and metals form compounds far more readily.",
+      "B": "Down the group the atomic radius increases and the first ionisation energy falls, so xenon holds its outer electrons weakly enough to share them with very electronegative fluorine, whereas the small He and Ne atoms have much higher ionisation energies and retain their electrons.",
+      "C": "Fluorine atoms are small enough to pack around a large xenon atom but too large to fit around the much smaller helium and neon atoms, so the difference is purely a matter of steric fit.",
+      "D": "Xenon has empty 3d orbitals available for bonding whereas helium and neon do not, allowing xenon to expand its octet.",
+      "E": "Xenon has an incomplete outer shell that must be filled by bonding, whereas helium and neon already have complete outer shells and so cannot react."
+    },
+    "correct_answer": "B",
+    "explanation": "All the noble gases have full outer shells, so the difference between them is not whether the shell is complete but how tightly the outer electrons are held. Down Group 18 the atoms get larger and the outer electrons are further from the nucleus and better shielded, so the first ionisation energy falls steeply from He and Ne to Xe. Xenon's outer electrons are therefore held loosely enough to be drawn into bonds with an element of very high electronegativity such as fluorine (or oxygen), giving compounds like XeF2/XeF4/XeF6. Helium and neon have among the highest ionisation energies of all elements, so their electrons cannot be prised into bonding, and no stable neutral compounds form.",
+    "option_analysis": {
+      "A": "Wrong: xenon is a non-metal (a monatomic gas); it does not become metallic. Attributing its reactivity to 'metallic character' misreads the trend in metallic character.",
+      "B": "Correct: the increase in atomic radius and the fall in first ionisation energy down the group make xenon's outer electrons available for bonding with electronegative fluorine, while the very high ionisation energies of the small He and Ne atoms prevent compound formation.",
+      "C": "Wrong: the reason is electronic, not steric; small, highly electronegative fluorine could in principle approach He or Ne, but their electrons are held far too tightly. This substitutes a size-packing argument for the real ionisation-energy argument.",
+      "D": "Wrong: xenon's valence shell is the fifth (n = 5), not 3d, and octet expansion via low-lying empty d orbitals is now regarded as an oversimplified/discredited rationale; the accepted explanation rests on low ionisation energy. This misconception invokes the wrong orbitals and the wrong mechanism.",
+      "E": "Wrong: xenon, like all noble gases, already has a full outer shell (a complete octet); it does not have an incomplete shell. This misconception misstates the electron configuration of the noble gases."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0120",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "The periodic table and periodicity",
+    "subtopic": "Metallic versus non-metallic character across a period: acid-base behaviour of the period-3 oxides (amphoterism)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "periodicity",
+      "metallic character",
+      "oxides",
+      "amphoteric",
+      "period 3"
+    ],
+    "learning_objective": "Relate the change from metallic to non-metallic character across a period to the change in the acid-base behaviour of the elements' highest oxides, including the amphoteric borderline case.",
+    "question": "The highest oxides of four period-3 elements - MgO, Al2O3, SiO2 and SO3 - are tested for their behaviour with water, with dilute acid and with aqueous alkali. Which statement correctly describes all four?",
+    "choices": {
+      "A": "The acidity increases along the list only because the elements become heavier; Mg, Al, Si and S all form basic oxides typical of metals.",
+      "B": "All four are acidic oxides, because oxygen is highly electronegative and every element-oxygen bond releases H+ ions in water.",
+      "C": "MgO is basic and gives an alkaline suspension; Al2O3 is amphoteric and dissolves in both acid and alkali; SiO2 is a weakly acidic covalent-network oxide that is almost insoluble in water but dissolves in hot concentrated alkali; SO3 is strongly acidic and dissolves in water to give sulfuric acid.",
+      "D": "SO3 is the most basic of the four because sulfur is in its highest oxidation state (+6), and elements in high oxidation states form the most basic oxides.",
+      "E": "Al2O3 is basic like MgO because aluminium is a metal, while SiO2 and SO3 are basic because silicon and sulfur are metalloids."
+    },
+    "correct_answer": "C",
+    "explanation": "Across period 3 the character of the elements changes from metallic (left) to non-metallic (right), and the acid-base nature of their highest oxides tracks this change. Metallic elements give basic (ionic) oxides: MgO reacts with acids and gives an alkaline suspension in water. At the metal/non-metal borderline aluminium gives Al2O3, which is amphoteric - it reacts both with acids (as a base) and with alkalis (as an acid). SiO2 is a giant covalent (network) oxide of a metalloid: it is essentially insoluble in water and unreactive to acid, but being weakly acidic it dissolves slowly in hot concentrated alkali to give a silicate. SO3, the oxide of a strongly non-metallic element in a high oxidation state, is strongly acidic and reacts vigorously with water to give sulfuric acid. Thus basic to amphoteric to acidic mirrors the fall in metallic character across the period.",
+    "option_analysis": {
+      "A": "Wrong: Si and S are not metals and do not form basic oxides; the acidity trend arises from decreasing metallic character across the period, not from increasing atomic mass. This misconception treats all period-3 elements as metals.",
+      "B": "Wrong: basic oxides such as MgO are not acidic; the presence of oxygen alone does not make an oxide acidic. This misconception assumes 'oxide of an electronegative element' equals 'acid'.",
+      "C": "Correct: this correctly places MgO (basic), Al2O3 (amphoteric), SiO2 (weakly acidic network oxide, insoluble in water but attacked by hot alkali) and SO3 (strongly acidic), matching the decline in metallic character across period 3.",
+      "D": "Wrong: a high oxidation state gives a more ACIDIC oxide, not a more basic one; SO3 is in fact the most acidic of the four. This misconception reverses the link between oxidation state and oxide acidity.",
+      "E": "Wrong: Al2O3 is amphoteric, not simply basic, and SiO2/SO3 are acidic, not basic; metalloid or non-metal character gives acidic (or amphoteric) oxides. This misconception inverts the acid-base assignments."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0121",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "The periodic table and periodicity",
+    "subtopic": "Electron configuration and periodic position: deducing an element from its unpaired-electron count, subshell and compound stoichiometry",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "periodicity",
+      "electron configuration",
+      "Hund's rule",
+      "unpaired electrons",
+      "periodic position"
+    ],
+    "learning_objective": "Integrate Hund's rule (unpaired-electron count), the identity of the highest-energy subshell and simple compound stoichiometry to deduce an element and its ground-state electron configuration.",
+    "question": "A neutral atom of element Z, in its ground state, has exactly ONE unpaired electron, and its highest-energy electrons occupy the 3p subshell. Z combines with sodium to form an ionic compound of formula NaZ (a 1:1 ratio). Which option correctly identifies Z together with its ground-state electron configuration?",
+    "choices": {
+      "A": "Phosphorus, 1s2 2s2 2p6 3s2 3p3",
+      "B": "Fluorine, 1s2 2s2 2p5",
+      "C": "Chlorine, 1s2 2s2 2p6 3s2 3p5",
+      "D": "Aluminium, 1s2 2s2 2p6 3s2 3p1",
+      "E": "Sodium, 1s2 2s2 2p6 3s1"
+    },
+    "correct_answer": "C",
+    "explanation": "Applying Hund's rule to the 3p subshell: 3p1 (Al) has one unpaired electron, 3p2 (Si) two, 3p3 (P) three, 3p4 (S) two, 3p5 (Cl) one, 3p6 (Ar) none. So 'highest electrons in 3p with exactly one unpaired electron' allows only Al (3p1) or Cl (3p5). The second clue decides between them: NaZ is a 1:1 ionic compound, which requires Z to accept one electron and form Z- (as in Na+ Z-). Aluminium forms Al3+, not Al-, so it cannot give NaAl; chlorine forms Cl- and gives NaCl. Therefore Z is chlorine, [Ne]3s2 3p5 = 1s2 2s2 2p6 3s2 3p5.",
+    "option_analysis": {
+      "A": "Wrong: phosphorus has 3p3, which by Hund's rule gives THREE unpaired electrons, not one, and P would not form NaP. This misconception miscounts the unpaired electrons in a half-filled subshell.",
+      "B": "Wrong: fluorine is a halogen that also has one unpaired electron and forms a 1:1 compound (NaF), but its highest-energy electrons are in 2p, not 3p, so it fails the subshell clue. This misconception ignores the stated 3p requirement.",
+      "C": "Correct: chlorine's 3p5 configuration has exactly one unpaired electron, its highest electrons are in 3p, and it gains one electron to form Cl-, giving the 1:1 ionic compound NaCl.",
+      "D": "Wrong: aluminium (3p1) does have one unpaired electron and its highest electrons are in 3p, but Al forms Al3+, so it cannot give a 1:1 compound 'NaAl'. This misconception uses only the unpaired-electron clue and ignores the NaZ stoichiometry.",
+      "E": "Wrong: sodium's highest-energy electron is in 3s, not 3p, and sodium is the metal that DONATES the electron in NaCl rather than being Z. This misconception is triggered by the 'Na' in the formula and by the single unpaired 3s electron."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0122",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "The periodic table and periodicity",
+    "subtopic": "The two dips in first ionisation energy across period 3 (Mg to Al, and P to S)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "ionisation energy",
+      "periodic trends",
+      "period 3",
+      "subshells",
+      "electron configuration"
+    ],
+    "learning_objective": "Explain the two anomalous dips in first ionisation energy across period 3 in terms of the subshell from which the electron is removed and inter-electron (pairing) repulsion.",
+    "question": "Across period 3 the first ionisation energy rises overall from sodium to argon, but there are two dips: aluminium is lower than magnesium, and sulfur is lower than phosphorus. Which explanation accounts for BOTH dips?",
+    "choices": {
+      "A": "In both cases the nuclear charge decreases, so the outer electron is held less tightly.",
+      "B": "In both cases the atomic radius suddenly decreases, pulling the outer electron closer to the nucleus.",
+      "C": "For Al the electron removed comes from a higher-energy, better-shielded 3p orbital rather than the 3s (as in Mg); for S the electron removed is one of a pair sharing a 3p orbital, and their mutual repulsion makes it easier to remove than removing an electron from the half-filled 3p subshell of P.",
+      "D": "In both cases the electron is removed from a lower-energy inner shell, which requires less energy than removing an outer electron.",
+      "E": "Aluminium and sulfur both have completely full outer subshells, which are especially stable and lower the ionisation energy."
+    },
+    "correct_answer": "C",
+    "explanation": "The Mg→Al dip arises because magnesium's outer electron is removed from a 3s orbital, whereas aluminium's is removed from a 3p orbital that is higher in energy and shielded by the 3s pair; the 3p electron is therefore easier to remove. The P→S dip arises because phosphorus has a half-filled 3p subshell (3p³, all three electrons unpaired), whereas sulfur has 3p⁴, so one 3p orbital holds a pair. The mutual repulsion between the paired electrons makes one of them easier to remove, so sulfur's first ionisation energy is lower than phosphorus's. Both dips are consequences of subshell structure, not of nuclear charge or radius.",
+    "option_analysis": {
+      "A": "Wrong: nuclear charge INCREASES from Mg to Al and from P to S (one more proton each time); it does not decrease.",
+      "B": "Wrong: atomic radius decreases only gradually across the period; there is no sudden radius drop at Al or S that could cause these specific dips.",
+      "C": "Correct: the Mg→Al dip is due to removing a higher-energy, shielded 3p electron instead of a 3s electron, and the P→S dip is due to pairing repulsion in a doubly-occupied 3p orbital of sulfur versus the half-filled 3p³ of phosphorus.",
+      "D": "Wrong: in every case the electron removed is the outermost (highest-energy) electron, not an inner-shell electron.",
+      "E": "Wrong: aluminium (3s²3p¹) and sulfur (3s²3p⁴) do NOT have full outer subshells; this misstates their electron configurations."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch10",
+    "review_status": "accepted"
+  }
+]
