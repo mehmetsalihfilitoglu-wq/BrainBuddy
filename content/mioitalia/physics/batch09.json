@@ -1,0 +1,275 @@
+[
+  {
+    "id": "mio_phys_0059",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Modern physics — the photoelectric effect",
+    "subtopic": "Photoelectric effect: maximum photoelectron energy and stopping potential from photon energy and work function",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "photoelectric effect",
+      "photon energy",
+      "stopping potential",
+      "work function",
+      "E=hf"
+    ],
+    "learning_objective": "Apply the photoelectric equation KE_max = hf − φ to find the stopping potential from the incident photon energy and the metal's work function.",
+    "question": "Monochromatic light of wavelength 248 nm is incident on a clean metal surface whose work function is 2.0 eV. Photoelectrons are emitted. Using hc = 1240 eV·nm, what stopping potential is just sufficient to prevent any of these photoelectrons from reaching the collector?",
+    "choices": {
+      "A": "2.0 V",
+      "B": "5.0 V",
+      "C": "7.0 V",
+      "D": "3.0 V",
+      "E": "2.5 V"
+    },
+    "correct_answer": "D",
+    "explanation": "Each photon delivers energy E = hc/λ = 1240/248 = 5.0 eV. The photoelectric equation gives the maximum kinetic energy of an ejected electron as KE_max = E − φ = 5.0 − 2.0 = 3.0 eV. The stopping potential V_s is the p.d. that just removes this kinetic energy (eV_s = KE_max), so V_s = 3.0 V, numerically equal to KE_max expressed in eV.",
+    "option_analysis": {
+      "A": "Wrong: sets the stopping potential equal to the work function. The stopping potential measures the maximum kinetic energy the electrons leave with, not the energy needed to liberate them.",
+      "B": "Wrong: uses the entire photon energy as the stopping potential, forgetting that the work function φ must first be paid to release the electron from the surface.",
+      "C": "Wrong: adds the work function to the photon energy (5.0 + 2.0) instead of subtracting it, reversing the sign of φ in the photoelectric equation.",
+      "D": "Correct: KE_max = hc/λ − φ = 5.0 − 2.0 = 3.0 eV, so V_s = KE_max/e = 3.0 V.",
+      "E": "Wrong: divides the photon energy by the work function (5.0/2.0) rather than subtracting, treating the energy balance as multiplicative."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0060",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Modern physics — atomic spectra",
+    "subtopic": "Line spectra: stepwise (cascade) emission and conservation of photon energy — finding the second emitted wavelength",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "line spectra",
+      "energy levels",
+      "photon energy",
+      "conservation of energy",
+      "E=hf"
+    ],
+    "learning_objective": "Use conservation of photon energy (energies, not wavelengths, add) to relate the wavelengths of photons absorbed and emitted in a two-step atomic transition.",
+    "question": "An isolated atom is excited by absorbing a single ultraviolet photon of wavelength 120 nm. The atom then returns to its ground state in exactly two steps, first emitting a photon of wavelength 200 nm and then a second photon. Assuming all of the absorbed energy is re-emitted as these two photons, what is the wavelength of the second emitted photon? (Use hc = 1240 eV·nm.)",
+    "choices": {
+      "A": "160 nm",
+      "B": "80 nm",
+      "C": "75 nm",
+      "D": "300 nm",
+      "E": "320 nm"
+    },
+    "correct_answer": "D",
+    "explanation": "Photon energies, not wavelengths, are conserved. The absorbed energy E_abs = 1240/120 = 10.33 eV is shared between the two emitted photons: E_abs = E1 + E2. Thus E2 = 10.33 − 1240/200 = 10.33 − 6.2 = 4.13 eV, giving λ2 = 1240/4.13 = 300 nm. Equivalently, since E ∝ 1/λ, 1/λ2 = 1/120 − 1/200 = (5 − 3)/600 = 1/300, so λ2 = 300 nm.",
+    "option_analysis": {
+      "A": "Wrong: takes the arithmetic mean of the two wavelengths, which has no basis in energy conservation.",
+      "B": "Wrong: subtracts the wavelengths directly (200 − 120). It is energy that is conserved, and energy is inversely proportional to wavelength, so wavelengths cannot simply be subtracted.",
+      "C": "Wrong: adds the reciprocals (1/120 + 1/200 = 1/75), i.e. adds the two given photon energies, as if the second emitted photon carried the sum of the absorbed and first-emitted energies rather than the remainder.",
+      "D": "Correct: 1/λ2 = 1/120 − 1/200 = 1/300, hence λ2 = 300 nm.",
+      "E": "Wrong: adds the two wavelengths (120 + 200), treating wavelength rather than energy as the conserved additive quantity."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0061",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Modern physics — radioactivity",
+    "subtopic": "Nature of ionising radiation: deflection of alpha, beta and gamma in a magnetic field and relative penetrating power",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "radioactivity",
+      "alpha beta gamma",
+      "magnetic deflection",
+      "charge-to-mass",
+      "circular motion"
+    ],
+    "learning_objective": "Predict the relative magnitude and direction of magnetic deflection of alpha, beta and gamma radiation using the radius relation r = mv/(qB) together with the charge and mass of each emission.",
+    "question": "A narrow beam containing alpha particles, beta-minus particles and gamma rays, all travelling horizontally at comparable speeds, passes through a uniform magnetic field directed into the page and perpendicular to the beam. Which statement correctly describes what happens to the three components?",
+    "choices": {
+      "A": "The gamma rays are deflected the most because they travel the fastest of the three.",
+      "B": "All three are deflected by the same amount because they enter the field with the same speed.",
+      "C": "The alpha and beta particles are deflected in the same direction, while the gamma rays curve in the opposite direction.",
+      "D": "The beta particles are deflected the most and in the opposite direction to the alpha particles, while the gamma rays are undeflected.",
+      "E": "The alpha particles are deflected the most because they carry the greatest charge, while the gamma rays are undeflected."
+    },
+    "correct_answer": "D",
+    "explanation": "A charged particle in a magnetic field follows a circular arc of radius r = mv/(qB); a smaller radius means a sharper, more visible deflection. For comparable speeds the radius scales as m/q. A beta-minus particle is an electron (charge −e, mass roughly 1/7000 that of an alpha), so its m/q is thousands of times smaller than that of an alpha particle (charge +2e, mass ≈ 4 u). The beta therefore curves on a very tight arc (deflected most) and, having opposite charge, curves opposite to the alpha. Gamma rays are uncharged photons, so the magnetic force qvB is zero and they pass straight through.",
+    "option_analysis": {
+      "A": "Wrong: gamma rays are uncharged, so they experience no magnetic force and are undeflected regardless of speed; speed alone does not produce magnetic deflection.",
+      "B": "Wrong: equal speed does not give equal deflection, because the radius depends on m/q, which differs enormously between an alpha and a beta particle; it also wrongly implies gamma rays are deflected.",
+      "C": "Wrong: alpha and beta carry opposite charges and so are deflected in opposite directions, and the neutral gamma rays are not deflected at all.",
+      "D": "Correct: the light, singly-charged beta particle has the smallest radius and is deflected most, oppositely to the positive alpha, while the neutral gamma rays travel straight through.",
+      "E": "Wrong: considers charge alone. Although the alpha has twice the charge, its mass is thousands of times larger, so its radius mv/(qB) is very large and it is in fact deflected the least of the charged particles."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0062",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Modern physics — nuclear decay",
+    "subtopic": "Radioactive decay series: counting alpha and beta-minus emissions from the net change in mass and atomic number",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "nuclear decay",
+      "decay series",
+      "alpha decay",
+      "beta-minus decay",
+      "balancing equations"
+    ],
+    "learning_objective": "Determine the number of alpha and beta-minus decays in a decay chain by conserving nucleon number and charge between the parent and stable daughter nuclide.",
+    "question": "The nuclide thorium-232 (Z = 90, A = 232) decays through a series of alpha and beta-minus emissions and finally becomes the stable nuclide lead-208 (Z = 82, A = 208). How many alpha particles and how many beta-minus particles are emitted in the complete series?",
+    "choices": {
+      "A": "8 alpha and 4 beta",
+      "B": "4 alpha and 6 beta",
+      "C": "6 alpha and 2 beta",
+      "D": "6 alpha and 8 beta",
+      "E": "6 alpha and 4 beta"
+    },
+    "correct_answer": "E",
+    "explanation": "Only alpha emission changes the mass number, by −4 each. The mass number falls by 232 − 208 = 24, so there are 24/4 = 6 alpha decays. Those 6 alphas lower the atomic number by 6 × 2 = 12, taking Z from 90 down to 78. The stable product has Z = 82, which is 4 higher than 78; only beta-minus decay raises Z (by +1 each, leaving A unchanged), so there are 82 − 78 = 4 beta-minus decays. The series therefore emits 6 alpha and 4 beta particles.",
+    "option_analysis": {
+      "A": "Wrong: divides the mass-number change by 3 instead of 4, as though an alpha particle changed the mass number by 3.",
+      "B": "Wrong: interchanges the two counts.",
+      "C": "Wrong: halves the required atomic-number correction, taking the beta count as (12 − 8)/2 = 2 rather than 82 − 78 = 4.",
+      "D": "Wrong: takes the beta count as the initial minus final atomic number (90 − 82 = 8), ignoring that the alpha decays already lowered Z and mis-signing beta-minus, which raises rather than lowers Z.",
+      "E": "Correct: 6 alpha decays (ΔA = 24) lower Z from 90 to 78, and 4 beta-minus decays then raise Z from 78 to 82."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0063",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Modern physics — radioactivity and half-life",
+    "subtopic": "Half-life: determining the half-life from an activity ratio and projecting the activity forward",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "half-life",
+      "activity",
+      "exponential decay",
+      "radioactivity",
+      "becquerel"
+    ],
+    "learning_objective": "Deduce the half-life from the ratio of two activity readings and use it to predict the activity after a further whole number of half-lives.",
+    "question": "The activity of a radioactive source is measured as 800 Bq and is found to have fallen to 100 Bq exactly 30 minutes later. What is the activity of the source 20 minutes after this 100 Bq reading (that is, 50 minutes after the first reading)?",
+    "choices": {
+      "A": "25 Bq",
+      "B": "6.25 Bq",
+      "C": "50 Bq",
+      "D": "100 Bq",
+      "E": "12.5 Bq"
+    },
+    "correct_answer": "A",
+    "explanation": "The activity falls by a factor of 800/100 = 8 = 2^3 in 30 minutes, so 3 half-lives fit into 30 minutes and the half-life is 10 minutes. A further 20 minutes is therefore 2 more half-lives, so 100 Bq halves twice: 100 → 50 → 25 Bq.",
+    "option_analysis": {
+      "A": "Correct: the half-life is 10 minutes, so 20 further minutes is 2 half-lives; 100 Bq → 50 Bq → 25 Bq.",
+      "B": "Wrong: takes the half-life as 5 minutes, giving four halvings of 100 Bq (100/16).",
+      "C": "Wrong: counts only one half-life in the further 20 minutes, effectively taking the half-life as 20 minutes.",
+      "D": "Wrong: reports the activity at the 30-minute reading, forgetting that a further 20 minutes of decay takes place.",
+      "E": "Wrong: counts three half-lives (100/8) in the further 20 minutes — an off-by-one error in the number of halvings."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0064",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Modern physics — nuclear binding energy and fusion",
+    "subtopic": "Nuclear fusion: energy released from binding energy per nucleon",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 135,
+    "tags": [
+      "binding energy",
+      "binding energy per nucleon",
+      "nuclear fusion",
+      "mass-energy",
+      "MeV"
+    ],
+    "learning_objective": "Compute the energy released in a fusion reaction as the increase in total binding energy, obtained from binding energy per nucleon multiplied by nucleon number.",
+    "question": "Two deuterium nuclei (deuteron, 2 nucleons each) fuse to form a single helium-4 nucleus (4 nucleons). The binding energy per nucleon is 1.1 MeV for a deuteron and 7.1 MeV for a helium-4 nucleus. Approximately how much energy is released in this fusion reaction?",
+    "choices": {
+      "A": "6.0 MeV",
+      "B": "28.4 MeV",
+      "C": "12.0 MeV",
+      "D": "32.8 MeV",
+      "E": "24.0 MeV"
+    },
+    "correct_answer": "E",
+    "explanation": "The total binding energy of a nucleus equals its binding energy per nucleon times its number of nucleons. Before fusion there are two deuterons, each 2 × 1.1 = 2.2 MeV, a total of 4.4 MeV. After fusion there is one helium-4 nucleus, 4 × 7.1 = 28.4 MeV. Because the product is more tightly bound, the energy released equals the increase in total binding energy: 28.4 − 4.4 = 24 MeV.",
+    "option_analysis": {
+      "A": "Wrong: uses only the difference in binding energy per nucleon (7.1 − 1.1 = 6.0 MeV) and forgets to multiply by the number of nucleons involved.",
+      "B": "Wrong: gives only the helium-4 total binding energy, forgetting that the reactant deuterons were already partly bound so their binding energy must be subtracted.",
+      "C": "Wrong: multiplies the per-nucleon difference (6.0 MeV) by the number of nuclei (2) instead of by the 4 nucleons that make up the helium nucleus.",
+      "D": "Wrong: adds the reactant and product total binding energies (28.4 + 4.4) instead of taking their difference.",
+      "E": "Correct: increase in total binding energy = 4 × 7.1 − 2 × (2 × 1.1) = 28.4 − 4.4 = 24 MeV."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0065",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Modern physics — mass–energy equivalence",
+    "subtopic": "Mass–energy equivalence: rate of mass loss of the Sun from its radiated power",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "mass-energy equivalence",
+      "E=mc^2",
+      "power",
+      "rate of mass loss",
+      "orders of magnitude"
+    ],
+    "learning_objective": "Apply E = mc² to relate a continuous radiated power to a rate of rest-mass loss, handling the c² factor and powers of ten correctly.",
+    "question": "The Sun radiates energy at a total power of 3.6 × 10^26 W, drawn from the conversion of rest mass into energy in its core. Taking c = 3.0 × 10^8 m/s, at approximately what rate is the Sun losing mass?",
+    "choices": {
+      "A": "3.2 × 10^43 kg/s",
+      "B": "4.0 × 10^8 kg/s",
+      "C": "1.2 × 10^18 kg/s",
+      "D": "4.0 × 10^9 kg/s",
+      "E": "1.1 × 10^35 kg/s"
+    },
+    "correct_answer": "D",
+    "explanation": "By mass–energy equivalence the radiated energy corresponds to a loss of rest mass through E = mc². Rearranging for the rate: dm/dt = P/c². With P = 3.6 × 10^26 W and c² = 9 × 10^16 m²/s², dm/dt = 3.6 × 10^26 / (9 × 10^16) = 0.4 × 10^10 = 4.0 × 10^9 kg/s.",
+    "option_analysis": {
+      "A": "Wrong: multiplies the power by c² instead of dividing, rearranging E = mc² incorrectly to m = Ec².",
+      "B": "Wrong: correct method but uses c² = 9 × 10^17 instead of 9 × 10^16 — a power-of-ten slip in squaring 3 × 10^8.",
+      "C": "Wrong: divides the power by c rather than c², i.e. uses E = mc instead of E = mc².",
+      "D": "Correct: dm/dt = P/c² = 3.6 × 10^26 / (9 × 10^16) = 4.0 × 10^9 kg/s.",
+      "E": "Wrong: multiplies the power by c (m = Ec), both a rearrangement error and a dimensional one."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  }
+]
