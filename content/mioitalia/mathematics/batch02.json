@@ -1,0 +1,235 @@
+[
+  {
+    "id": "mio_math_0009",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Sequences and series",
+    "subtopic": "Sum of an infinite geometric series (repeated-dose steady state)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "geometric series",
+      "steady state",
+      "applied modelling",
+      "recurrence",
+      "convergence"
+    ],
+    "learning_objective": "Model a repeated-dose accumulation process as an infinite geometric series and evaluate its steady-state sum.",
+    "question": "A patient is treated with a drug taken as a single 60 mg dose at the same time every day. Over each 24-hour interval the body eliminates 75% of the drug present, so that just before the next dose only 25% of the previous amount remains in the body. Assuming this pattern continues indefinitely, what amount of drug is present in the body immediately after a dose is taken in the long-term (steady) state?",
+    "choices": {
+      "A": "60 mg",
+      "B": "20 mg",
+      "C": "80 mg",
+      "D": "240 mg",
+      "E": "75 mg"
+    },
+    "correct_answer": "C",
+    "explanation": "Let L be the amount present immediately after a dose in the steady state. Each day the previous amount decays to 25% of itself, then a fresh 60 mg is added, so at equilibrium L = 60 + 0.25 L. Hence 0.75 L = 60 and L = 80 mg. Equivalently, the doses form an infinite geometric series 60 + 60(0.25) + 60(0.25)^2 + ... with first term 60 and ratio r = 0.25, summing to 60/(1 − 0.25) = 80 mg.",
+    "option_analysis": {
+      "A": "Wrong: takes the steady-state level to equal a single dose (60 mg), ignoring the drug carried over from previous doses — i.e. omitting the accumulation entirely.",
+      "B": "Wrong: reports the trough level just before the next dose (0.25 × 80 = 20 mg), misreading 'immediately after' as 'immediately before'.",
+      "C": "Correct: at equilibrium L = 60 + 0.25L gives L = 60/(1 − 0.25) = 80 mg, the sum of the infinite geometric series with a = 60, r = 0.25.",
+      "D": "Wrong: uses the eliminated fraction r = 0.75 instead of the retained fraction 0.25 in the sum, giving 60/(1 − 0.75) = 240 mg.",
+      "E": "Wrong: adds only the first two doses (60 + 0.25×60 = 75 mg), truncating the geometric series after two terms instead of summing it to its limit."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0010",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Higher-degree equations",
+    "subtopic": "Vieta's formulas: sum of squares of the roots of a cubic",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "Vieta's formulas",
+      "cubic equation",
+      "symmetric functions",
+      "roots",
+      "algebraic manipulation"
+    ],
+    "learning_objective": "Apply Vieta's formulas to evaluate a symmetric function (the sum of the squares) of the roots of a cubic without solving it.",
+    "question": "Let p, q and r be the three roots (real or complex) of the cubic equation 2x^3 − 3x^2 + 4x − 5 = 0. What is the value of p^2 + q^2 + r^2?",
+    "choices": {
+      "A": "9/4",
+      "B": "−23/4",
+      "C": "−7/4",
+      "D": "1",
+      "E": "25/4"
+    },
+    "correct_answer": "C",
+    "explanation": "For 2x^3 − 3x^2 + 4x − 5 = 0, Vieta's formulas give p + q + r = 3/2, pq + pr + qr = 4/2 = 2, and pqr = 5/2. Using the identity p^2 + q^2 + r^2 = (p + q + r)^2 − 2(pq + pr + qr) = (3/2)^2 − 2(2) = 9/4 − 4 = −7/4. (The value is negative because two of the roots are complex conjugates; the symmetric function is nonetheless real.)",
+    "option_analysis": {
+      "A": "Wrong: computes only (p + q + r)^2 = (3/2)^2 = 9/4, forgetting to subtract the 2(pq + pr + qr) term.",
+      "B": "Wrong: divides only the sum of roots by the leading coefficient but forgets to divide the pairwise sum, giving (3/2)^2 − 2(4) = −23/4.",
+      "C": "Correct: p^2 + q^2 + r^2 = (3/2)^2 − 2(2) = 9/4 − 4 = −7/4, applying Vieta's formulas with the leading coefficient 2.",
+      "D": "Wrong: reads the coefficients directly as the symmetric sums (sum = 3, pairwise sum = 4), ignoring the leading coefficient 2, giving 3^2 − 2×4 = 1.",
+      "E": "Wrong: uses the wrong sign, (p + q + r)^2 + 2(pq + pr + qr) = 9/4 + 4 = 25/4, adding rather than subtracting the pairwise term."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0011",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Inequalities",
+    "subtopic": "Rational inequality solved by sign analysis",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "rational inequality",
+      "sign chart",
+      "domain restriction",
+      "solution set",
+      "interval notation"
+    ],
+    "learning_objective": "Solve a rational inequality by collecting terms on one side and analysing the sign of the resulting quotient, respecting domain restrictions.",
+    "question": "Determine the complete solution set of the inequality (2x − 1)/(x + 3) ≥ 1.",
+    "choices": {
+      "A": "[4, +∞)",
+      "B": "(−∞, −3] ∪ [4, +∞)",
+      "C": "(−∞, −3) ∪ [4, +∞)",
+      "D": "(−∞, −3) ∪ (4, +∞)",
+      "E": "(−3, 4]"
+    },
+    "correct_answer": "C",
+    "explanation": "Move everything to one side: (2x − 1)/(x + 3) − 1 ≥ 0, i.e. (2x − 1 − (x + 3))/(x + 3) ≥ 0, which simplifies to (x − 4)/(x + 3) ≥ 0. The critical values are x = 4 (numerator zero, included) and x = −3 (denominator zero, excluded). A sign chart shows the quotient is positive for x < −3 and for x > 4, and equals 0 at x = 4. Hence the solution set is (−∞, −3) ∪ [4, +∞).",
+    "option_analysis": {
+      "A": "Wrong: multiplies both sides by (x + 3) as if it were always positive, obtaining 2x − 1 ≥ x + 3 → x ≥ 4, and loses the branch where the denominator is negative.",
+      "B": "Wrong: includes x = −3, but there the denominator is zero and the expression is undefined, so −3 must be excluded.",
+      "C": "Correct: rearranging gives (x − 4)/(x + 3) ≥ 0; the quotient is non-negative for x < −3 or x ≥ 4, so the solution is (−∞, −3) ∪ [4, +∞).",
+      "D": "Wrong: excludes x = 4, but the inequality is non-strict (≥) and the numerator (x − 4) is zero there, so x = 4 must be included.",
+      "E": "Wrong: selects the interval between the critical values, where the quotient is actually negative — the sign of the quotient has been reversed."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0012",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Exponential and logarithmic equations",
+    "subtopic": "System of exponential equations via common-base exponents",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "exponential equations",
+      "system of equations",
+      "common base",
+      "exponent laws",
+      "simultaneous equations"
+    ],
+    "learning_objective": "Solve a system of exponential equations by rewriting each term to a common base and equating exponents to form and solve a linear system.",
+    "question": "Real numbers x and y satisfy the system: 2^x · 8^y = 2^11 and 9^x / 3^y = 3. What is the value of x + y?",
+    "choices": {
+      "A": "11",
+      "B": "5",
+      "C": "2",
+      "D": "12",
+      "E": "6"
+    },
+    "correct_answer": "B",
+    "explanation": "Rewrite with common bases. First equation: 2^x · 2^(3y) = 2^(x + 3y) = 2^11, so x + 3y = 11. Second equation: 3^(2x) / 3^y = 3^(2x − y) = 3^1, so 2x − y = 1. From the second, y = 2x − 1; substituting: x + 3(2x − 1) = 11 → 7x − 3 = 11 → x = 2, and then y = 3. Therefore x + y = 5.",
+    "option_analysis": {
+      "A": "Wrong: treats 8^y as 2^y (dropping the exponent 3 in 8 = 2^3), so the first equation reads x + y = 11 directly.",
+      "B": "Correct: rewriting to bases 2 and 3 gives x + 3y = 11 and 2x − y = 1, whose solution is x = 2, y = 3, so x + y = 5.",
+      "C": "Wrong: solves the system correctly to x = 2, y = 3 but reports x alone instead of the requested sum x + y.",
+      "D": "Wrong: simply adds the two right-hand exponents (11 from 2^11 and 1 from 3^1) to get 12, without solving the system.",
+      "E": "Wrong: treats 9^x as 3^x (dropping the exponent 2 in 9 = 3^2), giving the second equation as x − y = 1 and hence x + y = 6."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0013",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Sequences and series",
+    "subtopic": "Interplay of arithmetic and geometric progressions",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "arithmetic progression",
+      "geometric progression",
+      "common ratio",
+      "simultaneous condition",
+      "problem solving"
+    ],
+    "learning_objective": "Combine the defining conditions of arithmetic and geometric progressions to determine an unknown common ratio.",
+    "question": "In an arithmetic progression with non-zero common difference, the first term is 3, and the first, second and fifth terms are (in that order) three consecutive terms of a geometric progression. What is the common ratio of that geometric progression?",
+    "choices": {
+      "A": "2",
+      "B": "3",
+      "C": "1/3",
+      "D": "9",
+      "E": "6"
+    },
+    "correct_answer": "B",
+    "explanation": "Let the arithmetic progression have first term a = 3 and common difference d. The first, second and fifth terms are a, a + d and a + 4d. For these to be consecutive terms of a geometric progression, (a + d)^2 = a(a + 4d). Expanding: a^2 + 2ad + d^2 = a^2 + 4ad, so d^2 − 2ad = 0, i.e. d(d − 2a) = 0. Since d ≠ 0, d = 2a = 6. The three geometric terms are 3, 9, 27, so the common ratio is 27/9 = 9/3 = 3.",
+    "option_analysis": {
+      "A": "Wrong: computes d/a = 6/3 = 2, confusing the relationship between the common difference and the first term with the geometric common ratio.",
+      "B": "Correct: the geometric condition gives d = 6, producing terms 3, 9, 27 with common ratio 9/3 = 3.",
+      "C": "Wrong: inverts the ratio, dividing an earlier term by a later one (3/9) instead of a later term by an earlier one.",
+      "D": "Wrong: reports the second geometric term (a + d = 9) itself rather than the ratio between successive terms.",
+      "E": "Wrong: reports the common difference d = 6 of the arithmetic progression instead of the common ratio of the geometric progression."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0014",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Sequences and series",
+    "subtopic": "Infinite geometric series: sum and sum of squares",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "geometric series",
+      "infinite sum",
+      "sum of squares",
+      "common ratio"
+    ],
+    "learning_objective": "Set up and solve simultaneous equations from the sum and the sum of squares of an infinite geometric series.",
+    "question": "An infinite geometric series has first term a and common ratio r with |r| < 1. The sum of the series is 9, and the sum of the squares of its terms is 40.5. What is the value of the common ratio r?",
+    "choices": {
+      "A": "1/9",
+      "B": "1/3",
+      "C": "1/4",
+      "D": "2/3",
+      "E": "1/2"
+    },
+    "correct_answer": "B",
+    "explanation": "The sum of the series is a/(1 − r) = 9. The squares of the terms form a geometric series with first term a² and ratio r², so their sum is a²/(1 − r²) = 40.5. Substituting a = 9(1 − r) into the second equation: [9(1 − r)]²/(1 − r²) = 81(1 − r)²/[(1 − r)(1 + r)] = 81(1 − r)/(1 + r) = 40.5. Hence (1 − r)/(1 + r) = 0.5, giving 1 − r = 0.5 + 0.5r, so 1.5r = 0.5 and r = 1/3. (Check: a = 6, sum = 6/(2/3) = 9; sum of squares = 36/(8/9) = 40.5.)",
+    "option_analysis": {
+      "A": "Wrong: 1/9 confuses r with r² or misreads the ratio of the two sums.",
+      "B": "Correct: 81(1 − r)/(1 + r) = 40.5 ⇒ (1 − r)/(1 + r) = 1/2 ⇒ r = 1/3.",
+      "C": "Wrong: r = 1/4 comes from mishandling the 1 − r² factorisation (e.g. treating it as (1 − r)²).",
+      "D": "Wrong: r = 2/3 makes the terms fall off too slowly; the sum of squares would exceed 40.5.",
+      "E": "Wrong: r = 1/2 gives (1 − r)/(1 + r) = (1/2)/(3/2) = 1/3, not 0.5, so the sum of squares would not be 40.5."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  }
+]
