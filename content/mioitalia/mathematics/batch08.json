@@ -1,0 +1,231 @@
+[
+  {
+    "id": "mio_math_0045",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Probability",
+    "subtopic": "Addition rule for non-mutually-exclusive events (inclusion-exclusion in a single draw)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "probability",
+      "addition rule",
+      "inclusion-exclusion",
+      "playing cards"
+    ],
+    "learning_objective": "Apply the general addition rule P(A or B) = P(A) + P(B) - P(A and B) to overlapping events, correctly handling the shared outcomes.",
+    "question": "A single card is drawn at random from a standard, well-shuffled deck of 52 playing cards. What is the probability that the card drawn is either red or a king?",
+    "choices": {
+      "A": "15/26",
+      "B": "11/26",
+      "C": "8/13",
+      "D": "7/13",
+      "E": "1/2"
+    },
+    "correct_answer": "D",
+    "explanation": "The event 'red or king' is a union of two overlapping events, so use the general addition rule P(A or B) = P(A) + P(B) - P(A and B). Here P(red) = 26/52 and P(king) = 4/52, while the overlap P(red and king) = 2/52 because exactly two kings (hearts and diamonds) are red. Therefore P = (26 + 4 - 2)/52 = 28/52 = 7/13. The essential step is recognising that the two events are not mutually exclusive, so the shared outcomes must be subtracted exactly once.",
+    "option_analysis": {
+      "A": "Wrong: 15/26 = 30/52 comes from adding 26/52 + 4/52 without subtracting the overlap, treating 'red' and 'king' as mutually exclusive even though the two red kings belong to both events.",
+      "B": "Wrong: 11/26 = 22/52 subtracts all four kings from the 26 red cards, as if 'red or king' meant 'red but not king' and as if every king were red.",
+      "C": "Wrong: 8/13 = 32/52 adds the intersection (26 + 4 + 2) instead of subtracting it, double-counting the two red kings.",
+      "D": "Correct: There are 26 red cards and 4 kings, but the 2 red kings lie in both sets, so P = (26 + 4 - 2)/52 = 28/52 = 7/13.",
+      "E": "Wrong: 1/2 = 26/52 counts only the red cards and ignores the two black kings, which also satisfy 'or a king'."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0046",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Combinatorics",
+    "subtopic": "Circular permutations with an adjacency (togetherness) restriction, solved by the complement",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "combinatorics",
+      "circular permutations",
+      "complement counting",
+      "block method"
+    ],
+    "learning_objective": "Count circular arrangements using (n-1)! and apply the block method plus complement to impose a non-adjacency restriction.",
+    "question": "Six friends - including Anna and Marco - are to be seated around a circular table with six identical chairs. Two seatings are regarded as the same if one can be obtained from the other by rotation. In how many of the possible seating arrangements do Anna and Marco NOT sit next to each other?",
+    "choices": {
+      "A": "24",
+      "B": "48",
+      "C": "96",
+      "D": "480",
+      "E": "72"
+    },
+    "correct_answer": "E",
+    "explanation": "Around a circular table where rotations are identified, n distinct people can be seated in (n-1)! ways, so six friends give 5! = 120 arrangements. To count the seatings in which Anna and Marco are adjacent, glue them into a single block: this leaves 5 units, arranged in (5-1)! = 24 circular ways, and the block can be ordered internally in 2 ways, giving 24 x 2 = 48 adjacent arrangements. The required non-adjacent count is the complement: 120 - 48 = 72.",
+    "option_analysis": {
+      "A": "Wrong: 24 = (5-1)! is merely the number of ways to arrange the five units (block plus four others) around the table; it is neither the adjacent count nor the required non-adjacent count.",
+      "B": "Wrong: 48 is the number of arrangements in which Anna and Marco DO sit together (block method: (5-1)! x 2 = 48), i.e. the complement of what the question asks.",
+      "C": "Wrong: 96 = 120 - 24 forgets to multiply the Anna-Marco block by 2 for its internal order, undercounting the adjacent cases as 24.",
+      "D": "Wrong: 480 = 6! - 2 x 5! treats the seats as a straight row (linear permutations n!) instead of a circle, where rotations must be identified using (n-1)!.",
+      "E": "Correct: Total circular arrangements = (6-1)! = 120; adjacent arrangements = 2 x (5-1)! = 48; non-adjacent = 120 - 48 = 72."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0047",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Probability",
+    "subtopic": "Conditional probability with an 'at least one' condition (the two-children problem)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "probability",
+      "conditional probability",
+      "sample space",
+      "at least one"
+    ],
+    "learning_objective": "Compute a conditional probability by restricting an equally likely sample space, distinguishing 'at least one is a boy' from 'a specified child is a boy'.",
+    "question": "In a large population, boys and girls are equally likely at each birth and the sexes of successive children are independent. A family is known to have exactly two children, and it is known that at least one of them is a boy. Given this information, what is the probability that both children are boys?",
+    "choices": {
+      "A": "1/2",
+      "B": "2/3",
+      "C": "1/3",
+      "D": "1/4",
+      "E": "3/4"
+    },
+    "correct_answer": "C",
+    "explanation": "For two children the equally likely ordered outcomes are BB, BG, GB, GG, each with probability 1/4. The condition 'at least one is a boy' removes only GG, leaving the three equally likely outcomes BB, BG, GB. Of these, exactly one (BB) has two boys, so the conditional probability is 1/3. Formally, P(BB | at least one boy) = P(BB) / P(at least one boy) = (1/4)/(3/4) = 1/3. The usual error is to answer 1/2 by imagining one particular child known to be a boy - but 'at least one' does not identify which child, so the ordering information must be kept.",
+    "option_analysis": {
+      "A": "Wrong: 1/2 treats the situation as 'one particular child is a boy, what is the other?'; 'at least one is a boy' does not single out a specific child, so it wrongly discards the ordering information.",
+      "B": "Wrong: 2/3 is the probability of exactly one boy given at least one boy (the complementary conditional event), not the probability of two boys.",
+      "C": "Correct: Conditioning the equally likely outcomes {BB, BG, GB, GG} on 'at least one boy' removes GG, leaving three cases of which one is BB, so P = (1/4)/(3/4) = 1/3.",
+      "D": "Wrong: 1/4 is the unconditional probability of two boys; it ignores the given information that at least one child is a boy.",
+      "E": "Wrong: 3/4 is P(at least one boy), the probability of the conditioning event itself, not the required conditional probability."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0048",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Probability",
+    "subtopic": "Independent versus mutually exclusive events; union probability under independence",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "probability",
+      "independence",
+      "mutually exclusive",
+      "addition rule"
+    ],
+    "learning_objective": "Distinguish independence from mutual exclusivity and combine the multiplication rule with inclusion-exclusion to find a union probability.",
+    "question": "For two events A and B it is given that P(A) = 0.3 and P(B) = 0.5. Suppose that A and B are independent. What is the probability that at least one of A and B occurs, that is, P(A or B)?",
+    "choices": {
+      "A": "0.65",
+      "B": "0.95",
+      "C": "0.80",
+      "D": "0.50",
+      "E": "0.15"
+    },
+    "correct_answer": "A",
+    "explanation": "Independence is not the same as mutual exclusivity. Because A and B are independent, P(A and B) = P(A) x P(B) = 0.3 x 0.5 = 0.15, which is non-zero. The union then follows from the inclusion-exclusion (general addition) rule: P(A or B) = P(A) + P(B) - P(A and B) = 0.3 + 0.5 - 0.15 = 0.65. Note that mutually exclusive events would instead give P(A and B) = 0 and P(A or B) = 0.8, describing a different situation entirely.",
+    "option_analysis": {
+      "A": "Correct: For independent events P(A and B) = 0.3 x 0.5 = 0.15, so P(A or B) = 0.3 + 0.5 - 0.15 = 0.65.",
+      "B": "Wrong: 0.95 = 0.3 + 0.5 + 0.15 adds the intersection instead of subtracting it, violating the inclusion-exclusion rule.",
+      "C": "Wrong: 0.80 = 0.3 + 0.5 assumes A and B are mutually exclusive (P(A and B) = 0); independent events with positive probabilities do overlap, so this over-counts.",
+      "D": "Wrong: 0.50 merely reports P(B), the larger probability, as if A were contained in B; independence does not make A a subset of B.",
+      "E": "Wrong: 0.15 is P(A and B) = P(A) x P(B) for independent events - the intersection, not the union."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0049",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Probability",
+    "subtopic": "Expected value with negative marking and conditional probability after option elimination",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "expected value",
+      "negative marking",
+      "conditional probability",
+      "decision"
+    ],
+    "learning_objective": "Compute the expected value of a discrete outcome under a penalty scheme, updating the probabilities after some options are eliminated, and use it to compare strategies.",
+    "question": "In a multiple-choice test each question has 5 options with exactly one correct. A correct answer scores +3 marks, a wrong answer scores -1 mark, and a blank scores 0. On one question a candidate can confidently rule out 2 of the 5 options as impossible but cannot distinguish among the remaining 3, so she would guess uniformly at random among those 3. What is the expected mark obtained from guessing on this question?",
+    "choices": {
+      "A": "+1/3",
+      "B": "+2/3",
+      "C": "-1/5",
+      "D": "+1",
+      "E": "0"
+    },
+    "correct_answer": "A",
+    "explanation": "Expected value weights each outcome by its probability. After 2 of the 5 options are eliminated, 3 remain - one correct and two wrong - so a uniform guess has P(correct) = 1/3 and P(wrong) = 2/3. The expected mark is EV = (1/3)(+3) + (2/3)(-1) = 1 - 2/3 = +1/3. Because +1/3 exceeds the 0 marks earned by leaving the question blank, guessing among the three remaining options is worthwhile. The two traps are using the pre-elimination probabilities (1/5 and 4/5) and forgetting the -1 penalty for a wrong answer.",
+    "option_analysis": {
+      "A": "Correct: With 3 options left, P(correct) = 1/3 and P(wrong) = 2/3, so EV = (1/3)(3) + (2/3)(-1) = 1 - 2/3 = +1/3, which beats the 0 from leaving it blank.",
+      "B": "Wrong: +2/3 uses P(wrong) = 1/3, as if only one wrong option remained; after removing 2 of the 5 options, three remain (1 correct, 2 wrong), so P(wrong) = 2/3.",
+      "C": "Wrong: -1/5 uses the original five options, taking P(correct) = 1/5 and P(wrong) = 4/5 to get (1/5)(3) + (4/5)(-1) = -1/5; it ignores that eliminating two options changes the conditional probabilities.",
+      "D": "Wrong: +1 counts only the gain (1/3)(3) = 1 and omits the -1 penalty term for a wrong answer.",
+      "E": "Wrong: 0 assumes random guessing is always 'neutral'; with these particular scores after elimination the expected value is positive, so guessing is favourable here."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0050",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Probability",
+    "subtopic": "Combining 'all outcomes different' with an 'at least one' condition by counting ordered outcomes",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "probability",
+      "counting",
+      "at least one",
+      "complement",
+      "dice"
+    ],
+    "learning_objective": "Compute a probability that combines two conditions ('all three results different' AND 'at least one six') by counting favourable ordered outcomes, using a complement within the restricted set.",
+    "question": "A fair ordinary six-sided die is rolled three times and the three scores are recorded in order. What is the probability that the three scores are all different AND at least one of them is a six?",
+    "choices": {
+      "A": "25/216",
+      "B": "5/9",
+      "C": "5/18",
+      "D": "1/2",
+      "E": "5/36"
+    },
+    "correct_answer": "C",
+    "explanation": "There are 6 × 6 × 6 = 216 equally likely ordered outcomes. The number of outcomes in which all three scores are different is 6 × 5 × 4 = 120. Among these, the ones that contain NO six are the all-different outcomes drawn from {1,2,3,4,5}: 5 × 4 × 3 = 60. So the all-different outcomes that DO contain at least one six number 120 − 60 = 60. The required probability is 60/216 = 5/18.",
+    "option_analysis": {
+      "A": "Wrong: 25/216 corresponds to a different, incorrect scenario (for example exactly one six with the others unrestricted) and does not enforce 'all different'.",
+      "B": "Wrong: 5/9 = 120/216 is the probability that the three scores are merely all different, ignoring the extra requirement of at least one six.",
+      "C": "Correct: all-different outcomes = 120; those with at least one six = 120 − 60 = 60; probability = 60/216 = 5/18.",
+      "D": "Wrong: 1/2 does not correspond to any correct count; it overstates the favourable outcomes.",
+      "E": "Wrong: 5/36 = 30/216 halves the correct favourable count, e.g. by counting only some orderings."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  }
+]

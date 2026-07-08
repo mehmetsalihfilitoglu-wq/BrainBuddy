@@ -1,0 +1,275 @@
+[
+  {
+    "id": "mio_phys_0052",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Waves and the electromagnetic spectrum",
+    "subtopic": "Wave equation v = fλ applied to two waves of different type and speed (radio vs ultrasound)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "waves",
+      "wave equation",
+      "electromagnetic spectrum",
+      "sound",
+      "wave speed"
+    ],
+    "learning_objective": "Apply v = fλ correctly to waves that travel at very different speeds, recognising that wavelength depends on both frequency and the wave speed in the medium.",
+    "question": "A VHF radio transmitter emits electromagnetic waves of frequency 100 MHz through the air. A medical scanner emits ultrasound of frequency 1.5 MHz, which travels through soft tissue at 1500 m s⁻¹. Taking the speed of the radio waves in air to be 3.0 × 10⁸ m s⁻¹, which row correctly gives the two wavelengths (radio wave; ultrasound)?",
+    "choices": {
+      "A": "radio 3.0 m ; ultrasound 0.23 mm",
+      "B": "radio 1.0 mm ; ultrasound 3.0 m",
+      "C": "radio 3.0 m ; ultrasound 1.0 mm",
+      "D": "radio 3.0 m ; ultrasound 200 m",
+      "E": "radio 1.5 × 10⁻⁵ m ; ultrasound 1.0 mm"
+    },
+    "correct_answer": "C",
+    "explanation": "Each wavelength is found from λ = v/f using the correct speed for that wave. The radio (electromagnetic) wave travels at c = 3.0 × 10⁸ m s⁻¹, so λ = (3.0 × 10⁸)/(1.0 × 10⁸) = 3.0 m. The ultrasound is a mechanical (longitudinal) wave travelling at 1500 m s⁻¹ in tissue, so λ = 1500/(1.5 × 10⁶) = 1.0 × 10⁻³ m = 1.0 mm. Note that the radio wave has both the higher frequency and the longer wavelength — because its speed is enormously greater — so frequency alone does not rank wavelengths across different media.",
+    "option_analysis": {
+      "A": "Wrong: uses the speed of sound in air (340 m s⁻¹) for the ultrasound rather than the given tissue speed (340/1.5 × 10⁶ ≈ 0.23 mm). Misconception: sound/ultrasound always travels at about 340 m s⁻¹ regardless of medium.",
+      "B": "Wrong: assumes the higher-frequency wave must have the shorter wavelength, assigning 1.0 mm to the 100 MHz radio wave and 3.0 m to the 1.5 MHz ultrasound. Misconception: wavelength is set by frequency alone, ignoring the very different wave speeds.",
+      "C": "Correct: λ_radio = c/f = (3.0 × 10⁸)/(1.0 × 10⁸) = 3.0 m and λ_ultrasound = v/f = 1500/(1.5 × 10⁶) = 1.0 mm, each computed with the appropriate wave speed.",
+      "D": "Wrong: uses c for the ultrasound (3.0 × 10⁸/1.5 × 10⁶ = 200 m). Misconception: all waves, including sound and ultrasound, travel at the speed of light.",
+      "E": "Wrong: applies the tissue speed 1500 m s⁻¹ to the radio wave (1500/1.0 × 10⁸ = 1.5 × 10⁻⁵ m). Misconception: a single wave speed applies to both waves, using the mechanical medium's value for the electromagnetic wave."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0053",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Wave properties",
+    "subtopic": "Transverse vs longitudinal waves: polarisation as the single decisive test",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "waves",
+      "transverse",
+      "longitudinal",
+      "polarisation",
+      "wave behaviour"
+    ],
+    "learning_objective": "Distinguish behaviours common to all waves from polarisation, the one phenomenon exhibited only by transverse waves, and use it to classify an unknown wave.",
+    "question": "A student is given an unknown progressive wave and makes the following observations: it transfers energy without any net transfer of matter; it can be reflected, refracted, diffracted and made to interfere; its speed depends on the medium through which it travels; and, when it is passed through a suitable filter, its intensity falls to zero as the filter is slowly rotated. Which single observation, on its own, establishes that the wave is transverse rather than longitudinal?",
+    "choices": {
+      "A": "That it can be reflected and refracted.",
+      "B": "That it transfers energy without a net transfer of matter.",
+      "C": "That its intensity falls to zero when a filter is rotated (it can be polarised).",
+      "D": "That it can be diffracted around obstacles.",
+      "E": "That its speed depends on the medium."
+    },
+    "correct_answer": "C",
+    "explanation": "Reflection, refraction, diffraction, interference, energy-without-matter transport and medium-dependent speed are shown by every progressive wave, transverse or longitudinal, so none of them can distinguish the two. Only polarisation is unique to transverse waves: their oscillations are perpendicular to the direction of travel and can be confined to a single plane, so a rotating polariser can extinguish the wave. A longitudinal wave oscillates along the direction of travel and cannot be polarised. Extinction on rotating a filter is therefore the decisive evidence.",
+    "option_analysis": {
+      "A": "Wrong: reflection and refraction occur for all waves. Misconception: these behaviours are signatures of transverse waves only.",
+      "B": "Wrong: every progressive wave transfers energy without a net transfer of matter. Misconception: treating this general property as unique to transverse waves.",
+      "C": "Correct: only transverse waves can be polarised, because their oscillations are perpendicular to the propagation direction and can be restricted to one plane; a longitudinal wave cannot be polarised, so extinction through a rotating polariser is a definitive signature of a transverse wave.",
+      "D": "Wrong: both wave types diffract — sound (longitudinal) diffracts around obstacles just as light does. Misconception: diffraction is exclusive to transverse waves.",
+      "E": "Wrong: the speed of both transverse and longitudinal waves depends on the medium. Misconception: medium-dependent speed distinguishes the two."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0054",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Standing waves on strings",
+    "subtopic": "String fixed at both ends: fundamental and length from two successive harmonic frequencies",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "standing waves",
+      "harmonics",
+      "string",
+      "resonance",
+      "fundamental frequency"
+    ],
+    "learning_objective": "Use the fact that successive resonances of a string fixed at both ends differ by the fundamental to find the fundamental frequency, then relate it to the string length through λ₁ = 2L.",
+    "question": "A taut wire is fixed rigidly at both ends. As the driving frequency is slowly increased, two adjacent resonances are found at 420 Hz and 490 Hz, with no resonance between them. The speed of transverse waves along the wire is 140 m s⁻¹. What is the length of the wire?",
+    "choices": {
+      "A": "1.0 m",
+      "B": "2.0 m",
+      "C": "0.50 m",
+      "D": "0.17 m",
+      "E": "0.33 m"
+    },
+    "correct_answer": "A",
+    "explanation": "A string fixed at both ends resonates at all integer multiples of the fundamental, so successive resonances differ by the fundamental frequency: f₁ = 490 − 420 = 70 Hz (the two given resonances are the 6th and 7th harmonics). For a string, the fundamental fits half a wavelength between the ends, λ₁ = 2L, so f₁ = v/(2L). Hence L = v/(2f₁) = 140/(2 × 70) = 1.0 m.",
+    "option_analysis": {
+      "A": "Correct: successive resonances differ by f₁, so f₁ = 490 − 420 = 70 Hz; with λ₁ = 2L, L = v/(2f₁) = 140/140 = 1.0 m.",
+      "B": "Wrong: correct f₁ = 70 Hz but uses λ₁ = L instead of λ₁ = 2L, giving L = v/f₁ = 2.0 m. Misconception: the fundamental fits a whole wavelength between the fixed ends.",
+      "C": "Wrong: uses λ₁ = 4L (the fixed-free, stopped-pipe pattern), giving L = v/(4f₁) = 0.50 m. Misconception: applying quarter-wavelength boundary conditions to a string fixed at both ends.",
+      "D": "Wrong: assumes 420 Hz is itself the fundamental, giving L = v/(2 × 420) = 0.17 m. Misconception: the lowest observed resonance must be the first harmonic.",
+      "E": "Wrong: sets the wire length equal to one full wavelength of the 420 Hz mode (λ = 140/420 = 0.33 m). Misconception: confusing a single wavelength with the length of the vibrating string."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0055",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Geometrical optics: refraction",
+    "subtopic": "Snell's law then total internal reflection at a perpendicular second face (light-pipe geometry) with the critical angle",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "refraction",
+      "Snells law",
+      "total internal reflection",
+      "critical angle",
+      "geometry"
+    ],
+    "learning_objective": "Refract a ray into a block with Snell's law, use the perpendicularity of adjacent faces to find the incidence angle at the second face, and compare it with the glass–air critical angle to decide whether total internal reflection occurs.",
+    "question": "A ray of light in air strikes the flat, horizontal top face of a rectangular glass block (refractive index 1.50) at an angle of incidence of 40°. After refracting into the block, the ray travels to a vertical side face. Does the ray undergo total internal reflection at that side face? (Take sin 40° = 0.64.)",
+    "choices": {
+      "A": "Yes; the ray meets the side face at about 65°, which exceeds the critical angle of about 62°.",
+      "B": "Yes; the ray meets the side face at about 65°, which exceeds the critical angle of about 42°.",
+      "C": "No; total internal reflection cannot occur when light passes from glass into air.",
+      "D": "No; the ray meets the side face at about 25°, which is less than the critical angle of about 42°.",
+      "E": "No; the ray meets the side face at about 40°, which is less than the critical angle of about 42°."
+    },
+    "correct_answer": "B",
+    "explanation": "At the top face, Snell's law gives sin 40° = 1.50 sin r, so sin r = 0.64/1.50 = 0.4285 and r ≈ 25.4°. The refracted ray makes 25.4° with the vertical (the normal to the top face). The vertical side face has a horizontal normal, perpendicular to the top-face normal, so the angle of incidence at the side is the complement: 90° − 25.4° = 64.6° ≈ 65°. The glass–air critical angle is arcsin(1/1.50) = 41.8° ≈ 42°. Because 64.6° > 41.8°, the ray is totally internally reflected at the side face.",
+    "option_analysis": {
+      "A": "Wrong: correct side angle (≈65°) but computes the critical angle from a glass–water ratio (sin θc = 1.33/1.50 → ≈62°) instead of glass–air. Misconception: using the wrong pair of media for the critical angle.",
+      "B": "Correct: sin r = 0.64/1.50 = 0.4285 → r ≈ 25.4°; the side-face angle is 90° − 25.4° = 64.6°; the critical angle is arcsin(1/1.50) ≈ 41.8°; since 64.6° > 41.8°, total internal reflection occurs.",
+      "C": "Wrong: total internal reflection occurs precisely when light goes from the denser medium (glass) toward the less dense (air) beyond the critical angle — exactly this case. Misconception: reversing the condition, thinking TIR requires travel from low to high refractive index.",
+      "D": "Wrong: uses the refraction angle (≈25°) directly as the incidence angle at the side face. Misconception: overlooking that the side-face normal is perpendicular to the top-face normal, so the correct side angle is the complement (≈65°).",
+      "E": "Wrong: carries the external angle of incidence (40°) into the glass and applies it at the side face. Misconception: the ray keeps its original angle inside the block, ignoring refraction and the geometry."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0056",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Geometrical optics: mirrors",
+    "subtopic": "Concave mirror with the object inside the focal length: virtual magnified image and its magnification",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "mirrors",
+      "mirror equation",
+      "magnification",
+      "virtual image",
+      "sign convention"
+    ],
+    "learning_objective": "Apply the mirror equation and magnification formula, with correct sign handling, to an object placed inside the focal length of a concave mirror and identify the nature of the image.",
+    "question": "An object is placed 10 cm in front of a concave (converging) mirror of focal length 15 cm. Using the mirror equation 1/f = 1/v + 1/u with the real-is-positive convention, determine the position, nature and magnification of the image.",
+    "choices": {
+      "A": "No image is formed, because the object lies inside the focal length.",
+      "B": "Virtual and upright, 30 cm behind the mirror, magnification 0.33.",
+      "C": "Virtual and upright, 30 cm behind the mirror, magnification 3.",
+      "D": "Real and inverted, 30 cm in front of the mirror, magnification 3.",
+      "E": "Real and inverted, 6 cm in front of the mirror, magnification 0.6."
+    },
+    "correct_answer": "C",
+    "explanation": "With the real-is-positive convention, f = +15 cm (concave) and u = +10 cm. Then 1/v = 1/f − 1/u = 1/15 − 1/10 = (2 − 3)/30 = −1/30, so v = −30 cm. The negative sign means the image lies 30 cm behind the mirror: it is virtual and upright. The magnification is |v/u| = 30/10 = 3, so the image is three times the object's size. This is the familiar enlarged, upright image seen in a shaving or make-up mirror when the face is closer than the focal point.",
+    "option_analysis": {
+      "A": "Wrong: an object inside the focal length of a concave mirror does form an image — an enlarged virtual one behind the mirror. Misconception: assuming no image forms when the object is nearer than the focal point.",
+      "B": "Wrong: correct image position but computes magnification as u/v = 10/30 = 0.33. Misconception: inverting the magnification ratio, which should be v/u.",
+      "C": "Correct: 1/v = 1/15 − 1/10 = −1/30, so v = −30 cm (image 30 cm behind the mirror — virtual and upright); magnification = |v/u| = 30/10 = 3.",
+      "D": "Wrong: takes v = +30 cm and calls the image real and inverted. Misconception: dropping the negative sign from 1/v = −1/30, mistaking a virtual image behind the mirror for a real one in front.",
+      "E": "Wrong: writes 1/v = 1/f + 1/u (adding rather than subtracting the object term), giving 1/v = 1/6, v = 6 cm, m = 0.6, and calls it real. Misconception: mis-rearranging the mirror equation."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0057",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Superposition and interference",
+    "subtopic": "Young's double slit: smallest position where maxima of two wavelengths coincide",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 165,
+    "tags": [
+      "interference",
+      "double slit",
+      "two wavelengths",
+      "coincidence of maxima",
+      "fringe spacing"
+    ],
+    "learning_objective": "Combine the double-slit maximum condition for two wavelengths, find the smallest integer orders that make m₁λ₁ = m₂λ₂, and compute the position of the first coincident bright fringe.",
+    "question": "In a Young's double-slit experiment the slits are 0.50 mm apart and the screen is 1.5 m away. The slits are illuminated simultaneously by two wavelengths, 480 nm and 600 nm. Measured from the central bright fringe (where both wavelengths give a maximum), what is the smallest distance at which a bright fringe of the 480 nm light coincides with a bright fringe of the 600 nm light?",
+    "choices": {
+      "A": "0.36 mm",
+      "B": "1.44 mm",
+      "C": "1.80 mm",
+      "D": "5.76 mm",
+      "E": "7.2 mm"
+    },
+    "correct_answer": "E",
+    "explanation": "Bright fringes lie at y = mλD/d, so two maxima coincide when m₁λ₁ = m₂λ₂, i.e. m₁(480) = m₂(600), giving m₁ : m₂ = 600 : 480 = 5 : 4. The smallest integers are m₁ = 5 (480 nm) and m₂ = 4 (600 nm). The coincidence position is y = m₁λ₁D/d = 5 × (480 × 10⁻⁹) × 1.5 / (0.50 × 10⁻³) = 7.2 × 10⁻³ m = 7.2 mm. (Equivalently, it is the lowest common multiple of the two fringe spacings, 1.44 mm and 1.80 mm.)",
+    "option_analysis": {
+      "A": "Wrong: 0.36 mm is the difference between the two fringe spacings (1.80 − 1.44). Misconception: treating the coincidence spacing like a 'beat' spacing equal to the difference of fringe widths.",
+      "B": "Wrong: 1.44 mm is merely the fringe spacing of the 480 nm light (λ₁D/d). Misconception: the first coincidence occurs after one fringe of the shorter-wavelength pattern.",
+      "C": "Wrong: 1.80 mm is merely the fringe spacing of the 600 nm light (λ₂D/d). Misconception: the first coincidence occurs after just one fringe of the longer-wavelength pattern.",
+      "D": "Wrong: assigns the orders the wrong way round (4th order of the 480 nm light), giving 4 × 480 × 10⁻⁹ × 1.5/(0.50 × 10⁻³) = 5.76 mm — but a 4th-order 480 nm fringe coincides with no 600 nm maximum. Misconception: matching the larger order to the longer wavelength.",
+      "E": "Correct: maxima coincide when m₁(480) = m₂(600) → m₁ : m₂ = 5 : 4; the smallest orders are 5 and 4, giving y = 5 × 480 × 10⁻⁹ × 1.5 / (0.50 × 10⁻³) = 7.2 mm."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0058",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Standing waves in air columns",
+    "subtopic": "Open vs stopped pipe of equal length: odd-harmonic series and highest resonance below a bound",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "standing waves",
+      "air columns",
+      "open pipe",
+      "closed pipe",
+      "harmonics"
+    ],
+    "learning_objective": "Relate the fundamentals of an open and a stopped pipe of equal length, apply the odd-harmonic rule for a stopped pipe, and select the highest resonance below a stated frequency.",
+    "question": "An organ pipe open at both ends and a second pipe closed at one end have the same length and contain the same air. The third harmonic of the open pipe has a frequency of 900 Hz. What is the highest resonant frequency of the closed pipe that does not exceed 1000 Hz?",
+    "choices": {
+      "A": "750 Hz",
+      "B": "900 Hz",
+      "C": "1050 Hz",
+      "D": "150 Hz",
+      "E": "600 Hz"
+    },
+    "correct_answer": "A",
+    "explanation": "The open pipe supports all harmonics n·f₁. Its third harmonic is 3f₁ = 900 Hz, so its fundamental is f₁ = 300 Hz = v/(2L). A pipe closed at one end of the same length has fundamental v/(4L) = 150 Hz and, being stopped, resonates only at odd multiples: 150, 450, 750, 1050 Hz, … The highest of these not exceeding 1000 Hz is 750 Hz (its 5th harmonic).",
+    "option_analysis": {
+      "A": "Correct: open-pipe fundamental = 900/3 = 300 Hz = v/(2L); the equal-length stopped pipe has fundamental v/(4L) = 150 Hz and only odd harmonics 150, 450, 750, 1050 Hz, so the highest below 1000 Hz is 750 Hz.",
+      "B": "Wrong: treats the stopped pipe as supporting all harmonics of its 150 Hz fundamental (150, 300, …, 900), giving 900 Hz. Misconception: a pipe closed at one end contains even harmonics as well as odd.",
+      "C": "Wrong: uses the correct odd-harmonic series but reports the next value, 1050 Hz, ignoring the 1000 Hz limit. Misconception: overlooking the stated ceiling.",
+      "D": "Wrong: gives the closed pipe's fundamental (150 Hz) rather than its highest harmonic below 1000 Hz. Misconception: confusing the fundamental with the required highest resonance.",
+      "E": "Wrong: assumes closing one end raises the fundamental (to 600 Hz) rather than lowering it to 150 Hz, so the odd series 600, 1800 gives 600 Hz. Misconception: closing an end increases the fundamental frequency."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  }
+]

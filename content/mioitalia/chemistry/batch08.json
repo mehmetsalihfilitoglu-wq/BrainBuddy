@@ -1,0 +1,471 @@
+[
+  {
+    "id": "mio_chem_0087",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical bonding and intermolecular forces",
+    "subtopic": "Boiling-point ordering of near-isobaric compounds by dominant intermolecular force (dispersion vs dipole–dipole vs hydrogen bonding)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "intermolecular forces",
+      "hydrogen bonding",
+      "dipole-dipole",
+      "dispersion forces",
+      "boiling point"
+    ],
+    "learning_objective": "Rank the boiling points of compounds of essentially equal molar mass by identifying the strongest intermolecular force each can form.",
+    "question": "Three liquids have almost the same molar mass: butane (CH3CH2CH2CH3, M = 58 g mol⁻¹), propanal (CH3CH2CHO, M = 58 g mol⁻¹) and propan-1-ol (CH3CH2CH2OH, M = 60 g mol⁻¹). Because their molar masses are so similar, their London dispersion forces are comparable. Which sequence correctly lists them in order of INCREASING normal boiling point?",
+    "choices": {
+      "A": "propanal < butane < propan-1-ol",
+      "B": "propan-1-ol < propanal < butane",
+      "C": "propanal < propan-1-ol < butane",
+      "D": "butane < propanal < propan-1-ol",
+      "E": "butane < propan-1-ol < propanal"
+    },
+    "correct_answer": "D",
+    "explanation": "With molar masses matched, dispersion forces are roughly equal for all three, so the ranking is decided by the additional intermolecular forces each can form. Butane is a non-polar alkane: it has only London dispersion forces, so it boils lowest. Propanal has a polar C=O group but no O–H or N–H bond, so it experiences permanent dipole–dipole attractions in addition to dispersion, but it cannot hydrogen-bond to itself; it boils in the middle. Propan-1-ol has an –OH group and can act as both hydrogen-bond donor and acceptor, giving the strongest intermolecular attraction and the highest boiling point. Hence the increasing order is butane < propanal < propan-1-ol (measured values −1 °C, 48 °C, 97 °C).",
+    "option_analysis": {
+      "A": "Wrong: places butane above propanal. This assumes that the alkane's slightly greater carbon count gives it dispersion forces strong enough to beat the polar aldehyde, ignoring that dispersion is comparable and propanal has additional dipole–dipole attraction.",
+      "B": "Wrong: this is the exact reverse of the correct order, produced by the misconception that stronger intermolecular forces mean a LOWER boiling point (confusing the direction of the volatility relationship).",
+      "C": "Wrong: places the non-polar alkane highest. This reflects the misconception that an 'oily' hydrocarbon must be the least volatile, ignoring that non-polar butane has only the weakest (dispersion) forces.",
+      "D": "Correct: butane (dispersion only) < propanal (dispersion + dipole–dipole) < propan-1-ol (dispersion + hydrogen bonding), the ranking dictated by the strongest intermolecular force each can form at matched molar mass.",
+      "E": "Wrong: places the hydrogen-bonding alcohol below the merely dipolar aldehyde. This reflects the misconception that a permanent dipole (C=O) produces stronger attraction than hydrogen bonding, whereas hydrogen bonding is the stronger interaction here."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0088",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical bonding",
+    "subtopic": "Lattice energy and ionic melting-point ranking from ionic charge and interionic distance (Coulomb's law)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "ionic bonding",
+      "lattice energy",
+      "melting point",
+      "Coulomb's law",
+      "ionic radius"
+    ],
+    "learning_objective": "Predict relative lattice energies and melting points of ionic solids using the dependence on the product of ionic charges and the interionic distance.",
+    "question": "The strength of an ionic lattice, and hence the melting point of the solid, is governed principally by the electrostatic attraction between neighbouring ions. This attraction is proportional to the product of the ionic charges divided by the distance between the ion centres. Ionic radii (in pm) are: Na⁺ 102, K⁺ 138, Mg²⁺ 72, Ca²⁺ 100, F⁻ 133, Cl⁻ 181, O²⁻ 140. On this basis, which compound is expected to have the HIGHEST melting point?",
+    "choices": {
+      "A": "MgO",
+      "B": "NaF",
+      "C": "KCl",
+      "D": "CaO",
+      "E": "NaCl"
+    },
+    "correct_answer": "A",
+    "explanation": "The electrostatic attraction rises with the product of the charges and falls with increasing separation. NaF, NaCl and KCl are all built from singly-charged ions (charge product = 1), so their lattice energies are relatively small. MgO and CaO are both built from doubly-charged ions (charge product = 2 × 2 = 4), so they far exceed the 1:1 salts. Choosing between them, the interionic distance for MgO (72 + 140 = 212 pm) is smaller than for CaO (100 + 140 = 240 pm); since Ca²⁺ is larger than Mg²⁺, CaO has a slightly weaker lattice. Therefore MgO, with the highest charge product AND the shortest interionic distance, has the strongest lattice and the highest melting point (MgO 2852 °C, CaO 2572 °C, NaF 993 °C, NaCl 801 °C, KCl 770 °C).",
+    "option_analysis": {
+      "A": "Correct: MgO combines the maximum charge product (2 × 2 = 4) with the shortest interionic distance (212 pm), giving the strongest lattice and highest melting point.",
+      "B": "Wrong: NaF has the smallest ions among the singly-charged set, but its charge product is only 1. This choice reflects the misconception that small ionic size alone determines the melting point, overlooking the dominant effect of the higher ionic charges in MgO.",
+      "C": "Wrong: KCl is built from large, singly-charged ions (charge product 1, distance 319 pm), giving one of the weakest lattices. Selecting it may come from confusing a large ion count or formula mass with lattice strength.",
+      "D": "Wrong: CaO has the same charge product as MgO but a larger interionic distance (Ca²⁺ > Mg²⁺). This is the strongest distractor — it correctly spots the 2+/2− charges but misses that the larger Ca²⁺ weakens the attraction relative to MgO.",
+      "E": "Wrong: NaCl is a 1:1 salt with only unit charges. Choosing it treats a familiar high-melting salt as the extreme case, ignoring that doubly-charged MgO has roughly four times the charge product."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0089",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical bonding and structure",
+    "subtopic": "Classifying bonding type (ionic, metallic, covalent-network, molecular) from physical-property data",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "metallic bonding",
+      "ionic bonding",
+      "electrical conductivity",
+      "bonding classification",
+      "structure and properties"
+    ],
+    "learning_objective": "Deduce the type of bonding present in a solid from its melting point, electrical conductivity in solid and molten states, and water solubility.",
+    "question": "The table lists four properties of five solids. For each substance: 'solid?' and 'molten?' state whether it conducts electricity in that state, and 'soluble?' states whether it dissolves appreciably in water.\n\nSubstance A: melting point 800 °C; conducts as solid? No; conducts when molten? Yes; soluble in water? Yes\nSubstance B: melting point 3550 °C; conducts as solid? No; conducts when molten? No; soluble in water? No\nSubstance C: melting point 115 °C; conducts as solid? No; conducts when molten? No; soluble in water? No\nSubstance D: melting point −7 °C; conducts as solid? No; conducts when molten? No; soluble in water? No\nSubstance E: melting point 1495 °C; conducts as solid? Yes; conducts when molten? Yes; soluble in water? No\n\nWhich substance is held together by metallic bonding?",
+    "choices": {
+      "A": "Substance A",
+      "B": "Substance D",
+      "C": "Substance E",
+      "D": "Substance C",
+      "E": "Substance B"
+    },
+    "correct_answer": "C",
+    "explanation": "The decisive property for a metal is electrical conduction in the SOLID state: only metals possess a sea of delocalised electrons that are mobile even in the solid, so they conduct in both solid and molten states. Substance E conducts as a solid and when molten, is insoluble in water, and has a high melting point — all consistent with metallic bonding. Substance A (high melting point, conducts only when molten, water-soluble) is a classic ionic solid: its ions are locked in place in the solid but become mobile in the melt. Substance B (extremely high melting point, never conducts, insoluble) is a covalent (giant/network) solid. Substances C and D (low melting points, never conduct, insoluble) are molecular solids/liquids. Therefore the metal is E.",
+    "option_analysis": {
+      "A": "Wrong: Substance A conducts only when molten and is water-soluble — the signature of an IONIC solid. Choosing it reflects the misconception that any substance that conducts a current when melted must be a metal, ignoring that it fails to conduct as a solid.",
+      "B": "Wrong: Substance D is a low-melting, non-conducting liquid — a molecular substance. It has no delocalised electrons and cannot be metallic.",
+      "C": "Correct: Substance E conducts electricity as a solid AND when molten, is insoluble in water, and melts at a high temperature — the diagnostic profile of a metal with delocalised bonding electrons.",
+      "D": "Wrong: Substance C has a low melting point and does not conduct in either state — a molecular solid. It shows none of the properties of metallic bonding.",
+      "E": "Wrong: Substance B has the highest melting point but never conducts and is insoluble — a giant covalent (network) solid such as diamond or silica. Selecting it equates 'very high melting point' with 'metal', which is not reliable."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0090",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Molecular shape (VSEPR)",
+    "subtopic": "Identifying a T-shaped AX3E2 geometry in an expanded-octet interhalogen",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "VSEPR",
+      "molecular geometry",
+      "lone pairs",
+      "expanded octet",
+      "interhalogen"
+    ],
+    "learning_objective": "Determine the number of bonding pairs and lone pairs on a central atom and assign the correct VSEPR molecular geometry, including expanded-octet species.",
+    "question": "For each species below, count the bonding pairs and lone pairs on the CENTRAL atom and assign the molecular geometry. In which species does the central atom have exactly three bonding pairs and two lone pairs, giving a T-shaped molecule? (Atomic numbers: N 7, B 5, F 9, Cl 17, P 15, Xe 54.)",
+    "choices": {
+      "A": "BF3",
+      "B": "NH3",
+      "C": "ClF3",
+      "D": "PF5",
+      "E": "XeF2"
+    },
+    "correct_answer": "C",
+    "explanation": "T-shaped geometry arises from the AX3E2 arrangement: five electron domains in a trigonal-bipyramidal arrangement, of which three are bonding pairs and two are lone pairs (the lone pairs occupy equatorial positions, leaving a T-shape). In ClF3 the chlorine has 7 valence electrons; three form bonds to F, leaving 4 electrons = 2 lone pairs, so it is AX3E2 and T-shaped. NH3 is AX3E1 (trigonal pyramidal), BF3 is AX3 (trigonal planar), PF5 is AX5 (trigonal bipyramidal), and XeF2 is AX2E3 (linear). Only ClF3 fits the description.",
+    "option_analysis": {
+      "A": "Wrong: BF3 has three bonding pairs and NO lone pairs on boron (AX3), so it is trigonal planar. This distractor tempts those who assume every AX3 species must have lone pairs.",
+      "B": "Wrong: NH3 has three bonding pairs but only ONE lone pair (AX3E1), making it trigonal pyramidal, not T-shaped. Confusing one lone pair with two gives the wrong geometry.",
+      "C": "Correct: chlorine in ClF3 has three bonding pairs and two lone pairs (AX3E2); the lone pairs take equatorial sites of a trigonal bipyramid, producing the T-shaped geometry.",
+      "D": "Wrong: PF5 has five bonding pairs and no lone pairs (AX5), giving a trigonal bipyramid. It is selected by those who count five domains but forget that all five are bonding, so there are no lone pairs.",
+      "E": "Wrong: XeF2 has two bonding pairs and three lone pairs (AX2E3), which is linear, not T-shaped. Miscounting the lone pairs on xenon leads to this error."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0091",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Molecular polarity and intermolecular forces",
+    "subtopic": "Net dipole in cis/trans geometric isomers and its effect on boiling point at equal molar mass",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "molecular polarity",
+      "dipole moment",
+      "geometric isomerism",
+      "boiling point",
+      "symmetry"
+    ],
+    "learning_objective": "Use molecular symmetry to decide whether bond dipoles cancel, and relate the resulting polarity to boiling point in isomers of identical molar mass.",
+    "question": "1,2-dichloroethene (C2H2Cl2) exists as two geometric isomers of identical molar mass. In the cis isomer the two C–Cl bonds lie on the SAME side of the C=C double bond; in the trans isomer they lie on OPPOSITE sides. Considering the vector sum of the bond dipoles and the resulting intermolecular forces, which statement about their NORMAL BOILING POINTS is correct?",
+    "choices": {
+      "A": "The trans isomer is polar and has the higher boiling point, because its C–Cl bonds are held further apart across the double bond.",
+      "B": "The cis isomer is non-polar because it is the more symmetrical arrangement, so the trans isomer has the higher boiling point.",
+      "C": "The trans isomer has the higher boiling point because its more symmetrical shape lets the molecules pack closer together, giving stronger dispersion forces.",
+      "D": "Both isomers are non-polar because the C=C bond itself is non-polar, so the two isomers have identical boiling points.",
+      "E": "The cis isomer is polar and has the higher boiling point, because its two C–Cl bond dipoles do not cancel, giving dipole–dipole attractions in addition to dispersion forces."
+    },
+    "correct_answer": "E",
+    "explanation": "Each C–Cl bond is polar (Cl more electronegative). In the trans isomer the molecule is centrosymmetric: the two equal C–Cl bond dipoles point in opposite directions and cancel, so the molecule is non-polar and has only London dispersion forces. In the cis isomer the two C–Cl dipoles point to the same side and add to give a net molecular dipole, so the molecule is polar and experiences dipole–dipole attraction on top of dispersion. Because the two isomers have identical molar mass (so comparable dispersion forces), the extra dipole–dipole attraction makes the cis isomer boil higher (cis 60 °C, trans 48 °C). (Note the trans isomer's greater symmetry does raise its MELTING point through better crystal packing, but that does not affect the boiling-point comparison.)",
+    "option_analysis": {
+      "A": "Wrong: this reverses the polarity assignment. The trans isomer's opposed C–Cl dipoles cancel, so it is the NON-polar isomer; the reasoning about bonds being 'further apart' does not create a net dipole.",
+      "B": "Wrong: it assigns the non-polar character to the wrong isomer. The cis form is the LESS symmetrical, polar isomer; the trans form is the symmetrical, non-polar one, so the boiling-point conclusion is inverted.",
+      "C": "Wrong: this correctly notes the trans isomer's higher symmetry but misapplies it. Better packing raises the MELTING point, not the boiling point; in the liquid the decisive factor is the cis isomer's dipole–dipole attraction.",
+      "D": "Wrong: it treats the molecule as non-polar because the C=C bond is non-polar, ignoring the two polar C–Cl bonds. Whether their dipoles cancel depends on geometry, which differs between the isomers.",
+      "E": "Correct: in cis-1,2-dichloroethene the C–Cl bond dipoles reinforce to give a net dipole, so it is polar and has dipole–dipole forces additional to dispersion, raising its boiling point above the non-polar trans isomer of equal molar mass."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0092",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Intermolecular forces",
+    "subtopic": "Boiling-point anomaly of Group 16 hydrides — hydrogen bonding versus the dispersion trend down a group",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "hydrogen bonding",
+      "dispersion forces",
+      "boiling point",
+      "periodic trend",
+      "group 16 hydrides"
+    ],
+    "learning_objective": "Reconcile the anomalously high boiling point of a hydrogen-bonded hydride with the increasing dispersion trend among the heavier hydrides of the same group to rank boiling points.",
+    "question": "The boiling points of the Group 16 hydrides H2O, H2S, H2Se and H2Te do NOT increase smoothly with molar mass. Only H2O forms an extensive hydrogen-bonded network; among the other three, hydrogen bonding is negligible. Taking both hydrogen bonding and London dispersion into account, which hydride has the LOWEST normal boiling point?",
+    "choices": {
+      "A": "All four have essentially the same boiling point.",
+      "B": "H2Se",
+      "C": "H2O",
+      "D": "H2Te",
+      "E": "H2S"
+    },
+    "correct_answer": "E",
+    "explanation": "Two effects compete. Down the group the molar mass and polarizability rise, so London dispersion forces strengthen from H2S to H2Se to H2Te, pushing their boiling points up in that order. H2O, despite having the smallest molar mass, is lifted far above this trend by strong, extensive hydrogen bonding, so it is actually the HIGHEST-boiling of the four. That leaves the three non-hydrogen-bonded hydrides, whose boiling points follow dispersion: H2S (lightest, least polarizable) is lowest, then H2Se, then H2Te. Therefore H2S has the lowest boiling point of all four (measured: H2O +100 °C, H2Te −2 °C, H2Se −41 °C, H2S −60 °C).",
+    "option_analysis": {
+      "A": "Wrong: the boiling points differ by well over 100 °C. Assuming they are equal ignores both the hydrogen-bonding anomaly of H2O and the systematic rise in dispersion forces down the group.",
+      "B": "Wrong: H2Se lies in the middle of the dispersion trend for the heavy hydrides (above H2S, below H2Te), so it is not the lowest.",
+      "C": "Wrong: H2O has the smallest molar mass, which tempts the choice of 'lowest boiling point', but its strong hydrogen bonding makes it the HIGHEST-boiling of the group. This is the key anomaly the question tests.",
+      "D": "Wrong: H2Te is the heaviest and most polarizable of the non-hydrogen-bonding hydrides, so it has the strongest dispersion forces and the HIGHEST boiling point of those three — the opposite of what is asked.",
+      "E": "Correct: among the hydrides with negligible hydrogen bonding, dispersion increases with molar mass, so the lightest, H2S, has the weakest forces and the lowest boiling point of all four."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0093",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Thermochemistry and energetics",
+    "subtopic": "Calorimetry: molar enthalpy of solution from q = mcΔT for an endothermic dissolution",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "thermochemistry",
+      "calorimetry",
+      "enthalpy of solution",
+      "endothermic",
+      "q=mcDeltaT"
+    ],
+    "learning_objective": "Determine a molar enthalpy change from calorimetric data, correctly converting the measured heat to a per-mole quantity and assigning the sign that matches an observed temperature fall.",
+    "question": "A student dissolves 8.0 g of ammonium nitrate, NH4NO3 (molar mass = 80 g mol⁻¹), in 192 g of water in an insulated polystyrene cup. On stirring, the temperature of the solution falls from 21.0 °C to 15.0 °C. The specific heat capacity of the solution is 4.2 J g⁻¹ °C⁻¹, the mass of the solution is taken as 200 g, and the heat capacity of the cup is negligible. What is the molar enthalpy of solution of ammonium nitrate?",
+    "choices": {
+      "A": "+48.4 kJ mol⁻¹",
+      "B": "−50.4 kJ mol⁻¹",
+      "C": "−5.0 kJ mol⁻¹",
+      "D": "+5.0 kJ mol⁻¹",
+      "E": "+50.4 kJ mol⁻¹"
+    },
+    "correct_answer": "E",
+    "explanation": "The heat exchanged is q = mcΔT = 200 g × 4.2 J g⁻¹ °C⁻¹ × 6.0 °C = 5040 J = 5.04 kJ. The solution cooled, so this energy was absorbed by the dissolving process: the change is endothermic and ΔH is positive. The amount of solute is n = 8.0 g ÷ 80 g mol⁻¹ = 0.10 mol. Therefore ΔH_solution = +5.04 kJ ÷ 0.10 mol = +50.4 kJ mol⁻¹.",
+    "option_analysis": {
+      "A": "Wrong: used the mass of water alone (192 g) rather than the total solution mass (200 g) in q = mcΔT.",
+      "B": "Wrong: sign error — a falling temperature signals an endothermic process, so ΔH must be positive; assigning a negative value treats the heat lost by the solution as if it were the enthalpy of the reaction.",
+      "C": "Wrong: combined two errors — omitted the division by the amount in moles and assigned a negative sign to an endothermic change.",
+      "D": "Wrong: quoted the total heat q (≈ 5.04 kJ) as the molar enthalpy, failing to divide by the 0.10 mol of solute.",
+      "E": "Correct: q = 200 × 4.2 × 6.0 = 5040 J = 5.04 kJ absorbed (endothermic, so +), divided by 0.10 mol gives +50.4 kJ mol⁻¹."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0094",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Thermochemistry and energetics",
+    "subtopic": "Hess's law: reaction enthalpy from standard enthalpies of formation with a water-phase trap",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "thermochemistry",
+      "Hess's law",
+      "enthalpy of formation",
+      "standard enthalpy",
+      "stoichiometry"
+    ],
+    "learning_objective": "Apply ΔH°rxn = ΣΔHf°(products) − ΣΔHf°(reactants) with correct stoichiometric weighting and correct selection of the physical state of each species.",
+    "question": "The catalytic oxidation of ammonia is represented by:\n\n4 NH3(g) + 5 O2(g) → 4 NO(g) + 6 H2O(g)\n\nUse the following standard enthalpies of formation (ΔHf° / kJ mol⁻¹): NH3(g) = −46; NO(g) = +90; H2O(g) = −242; H2O(l) = −286; O2(g) = 0. What is the standard enthalpy change of the reaction as written?",
+    "choices": {
+      "A": "+908 kJ",
+      "B": "−1172 kJ",
+      "C": "−106 kJ",
+      "D": "−908 kJ",
+      "E": "−1092 kJ"
+    },
+    "correct_answer": "D",
+    "explanation": "ΔH°rxn = ΣΔHf°(products) − ΣΔHf°(reactants). Products: 4(+90) + 6(−242) = 360 − 1452 = −1092 kJ. Reactants: 4(−46) + 5(0) = −184 kJ. ΔH° = −1092 − (−184) = −1092 + 184 = −908 kJ. The equation produces gaseous water, so the ΔHf°(H2O, g) = −242 value must be used.",
+    "option_analysis": {
+      "A": "Wrong: subtracted products from reactants (Σreactants − Σproducts), reversing the Hess's-law expression and inverting the sign.",
+      "B": "Wrong: used the enthalpy of formation of liquid water (−286) even though the balanced equation forms gaseous water (−242).",
+      "C": "Wrong: ignored the stoichiometric coefficients, treating every species as one mole: (90 − 242) − (−46) = −106.",
+      "D": "Correct: (360 − 1452) − (−184) = −1092 + 184 = −908 kJ, using gaseous water throughout.",
+      "E": "Wrong: took only the sum of the products' enthalpies of formation and forgot to subtract the reactants' contribution (the −184 kJ from ammonia)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0095",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Thermochemistry and energetics",
+    "subtopic": "Hess's law: building a target reaction by reversing and adding thermochemical equations (enthalpy of formation of N2O4)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "thermochemistry",
+      "Hess's law",
+      "enthalpy cycle",
+      "reversing equations",
+      "nitrogen oxides"
+    ],
+    "learning_objective": "Combine several thermochemical equations, reversing and adding them with correct sign changes, to obtain the enthalpy change of a target reaction.",
+    "question": "Consider the following thermochemical equations:\n\n(1) N2(g) + O2(g) → 2 NO(g)      ΔH₁ = +181 kJ\n(2) 2 NO2(g) → 2 NO(g) + O2(g)    ΔH₂ = +114 kJ\n(3) N2O4(g) → 2 NO2(g)           ΔH₃ = +57 kJ\n\nWhat is the standard enthalpy of formation of dinitrogen tetroxide, corresponding to the reaction N2(g) + 2 O2(g) → N2O4(g)?",
+    "choices": {
+      "A": "+124 kJ",
+      "B": "+352 kJ",
+      "C": "−10 kJ",
+      "D": "+238 kJ",
+      "E": "+10 kJ"
+    },
+    "correct_answer": "E",
+    "explanation": "Target: N2 + 2 O2 → N2O4. Use equation (1) as written (+181), the reverse of (2): 2 NO + O2 → 2 NO2 (−114), and the reverse of (3): 2 NO2 → N2O4 (−57). Adding these, the NO and NO2 species cancel, leaving N2 + 2 O2 → N2O4. ΔH = 181 − 114 − 57 = +10 kJ.",
+    "option_analysis": {
+      "A": "Wrong: reversed equation (2) but left equation (3) as written: 181 − 114 + 57 = +124 kJ.",
+      "B": "Wrong: added all three enthalpies as written (181 + 114 + 57) without reversing equations (2) and (3), so their signs were not flipped.",
+      "C": "Wrong: computed the enthalpy of the reverse target (N2O4 → N2 + 2 O2) and reported it with the wrong sign.",
+      "D": "Wrong: reversed equation (3) but left equation (2) as written: 181 + 114 − 57 = +238 kJ.",
+      "E": "Correct: (1) + reverse(2) + reverse(3) gives 181 − 114 − 57 = +10 kJ, with NO and NO2 cancelling."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0096",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Thermochemistry and energetics",
+    "subtopic": "Reaction energy profile: enthalpy change from forward and reverse activation energies and the catalyst-invariance of ΔH",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "thermochemistry",
+      "energy profile",
+      "activation energy",
+      "catalyst",
+      "exothermic vs endothermic"
+    ],
+    "learning_objective": "Relate the reaction enthalpy to the difference between forward and reverse activation energies, and recognise that a catalyst leaves ΔH unchanged.",
+    "question": "For a certain gas-phase reaction the activation energy of the forward reaction is 80 kJ mol⁻¹ and the activation energy of the reverse reaction is 200 kJ mol⁻¹. A catalyst is then introduced that lowers the forward activation energy to 50 kJ mol⁻¹. What is the enthalpy change of the catalysed reaction, and is the reaction exothermic or endothermic?",
+    "choices": {
+      "A": "−120 kJ mol⁻¹, exothermic",
+      "B": "−120 kJ mol⁻¹, endothermic",
+      "C": "+120 kJ mol⁻¹, endothermic",
+      "D": "−150 kJ mol⁻¹, exothermic",
+      "E": "−280 kJ mol⁻¹, exothermic"
+    },
+    "correct_answer": "A",
+    "explanation": "On a reaction profile, ΔH = Ea(forward) − Ea(reverse) = 80 − 200 = −120 kJ mol⁻¹, so the reaction is exothermic. A catalyst provides an alternative pathway with a lower activation energy but does not alter the enthalpies of the reactants or products; ΔH is therefore unchanged at −120 kJ mol⁻¹.",
+    "option_analysis": {
+      "A": "Correct: ΔH = 80 − 200 = −120 kJ mol⁻¹ (exothermic), and the catalyst leaves ΔH unchanged.",
+      "B": "Wrong: obtained the correct magnitude but labelled a negative ΔH as endothermic, misapplying the sign convention.",
+      "C": "Wrong: computed Ea(reverse) − Ea(forward) instead of Ea(forward) − Ea(reverse), inverting the sign of ΔH and mislabelling the reaction.",
+      "D": "Wrong: substituted the catalysed forward activation energy (50) into ΔH = Ea(f) − Ea(r), wrongly assuming a catalyst changes the enthalpy of reaction.",
+      "E": "Wrong: added the two activation energies (−(80 + 200)) instead of subtracting them."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0097",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Thermochemistry and energetics",
+    "subtopic": "Enthalpy of formation via a Hess cycle through gaseous atoms (atomisation enthalpies plus average bond enthalpies)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 175,
+    "tags": [
+      "thermochemistry",
+      "Hess cycle",
+      "atomisation enthalpy",
+      "bond enthalpy",
+      "enthalpy of formation",
+      "methane"
+    ],
+    "learning_objective": "Construct a Hess cycle that passes through gaseous atoms to obtain a standard enthalpy of formation, combining atomisation enthalpies of the elements with the bond enthalpies of the product molecule.",
+    "question": "The standard enthalpy of formation of methane corresponds to:\n\nC(graphite) + 2 H2(g) → CH4(g)\n\nUse a Hess cycle through gaseous atoms with the following data: enthalpy of atomisation of carbon, C(graphite) → C(g), = +720 kJ mol⁻¹; H–H bond enthalpy = 436 kJ mol⁻¹; C–H bond enthalpy = 418 kJ mol⁻¹. What is the standard enthalpy of formation of methane?",
+    "choices": {
+      "A": "−516 kJ mol⁻¹",
+      "B": "+338 kJ mol⁻¹",
+      "C": "−800 kJ mol⁻¹",
+      "D": "+80 kJ mol⁻¹",
+      "E": "−80 kJ mol⁻¹"
+    },
+    "correct_answer": "E",
+    "explanation": "Build the molecule from gaseous atoms. Energy in: atomise carbon (+720) and break 2 H–H bonds (2 × 436 = +872), giving one C(g) and four H(g). Energy out: form four C–H bonds (−4 × 418 = −1648). ΔHf = 720 + 872 − 1648 = −80 kJ mol⁻¹.",
+    "option_analysis": {
+      "A": "Wrong: atomised only one mole of H2 (used +436 instead of +872), forgetting the factor of 2 needed to supply four hydrogen atoms: 720 + 436 − 1648 pathway ≈ −516.",
+      "B": "Wrong: formed only three C–H bonds (−3 × 418 = −1254) instead of four, miscounting the bonds in methane: 720 + 872 − 1254 = +338.",
+      "C": "Wrong: omitted the atomisation enthalpy of carbon, treating solid graphite as if it were already gaseous carbon atoms: 872 − 1648 = −776... i.e. left out +720 (872 − 1672 pathway giving ≈ −800).",
+      "D": "Wrong: reversed the overall sign of the cycle, treating bond formation as endothermic and atomisation as energy-releasing.",
+      "E": "Correct: 720 + 872 − 1648 = −80 kJ mol⁻¹."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0098",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical bonding and molecular shape",
+    "subtopic": "Net dipole moment across several species: identifying the symmetric non-polar molecule among molecules with polar bonds",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "molecular polarity",
+      "VSEPR",
+      "dipole moment",
+      "molecular geometry",
+      "lone pairs"
+    ],
+    "learning_objective": "Deduce the shape of several molecules using VSEPR and determine, from the symmetry of the bond dipoles, which molecule has polar bonds but no overall dipole moment.",
+    "question": "Each of the following molecules contains polar covalent bonds. Using VSEPR theory to determine their shapes, which ONE of them is non-polar overall (has no net dipole moment)?",
+    "choices": {
+      "A": "NF3",
+      "B": "ClF3",
+      "C": "H2S",
+      "D": "BF3",
+      "E": "PCl3"
+    },
+    "correct_answer": "D",
+    "explanation": "A molecule is non-polar overall only if its individual bond dipoles cancel by symmetry. In BF3 the central boron atom has three bonding pairs and no lone pair, giving a trigonal-planar shape (bond angles 120°); the three equal B–F bond dipoles are arranged symmetrically at 120° and cancel exactly, so BF3 has no net dipole despite its polar bonds. Each of the other molecules has one or more lone pairs on the central atom, making the shape asymmetric so the bond dipoles do not cancel: NF3 and PCl3 are trigonal pyramidal, ClF3 is T-shaped, and H2S is bent — all are polar.",
+    "option_analysis": {
+      "A": "Wrong: NF3 has a lone pair on nitrogen, making it trigonal pyramidal; the bond dipoles and lone-pair contribution do not cancel, so it is polar.",
+      "B": "Wrong: ClF3 has two lone pairs on chlorine and is T-shaped; this asymmetric shape leaves a net dipole, so it is polar.",
+      "C": "Wrong: H2S is bent (two lone pairs on sulfur), so the two S–H bond dipoles add to give a net dipole; it is polar.",
+      "D": "Correct: BF3 is trigonal planar (three bonding pairs, no lone pair); the three symmetric bond dipoles cancel, giving zero net dipole.",
+      "E": "Wrong: PCl3, like NF3, is trigonal pyramidal (lone pair on P), so its bond dipoles do not cancel and it is polar."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  }
+]
