@@ -1,0 +1,272 @@
+[
+  {
+    "id": "mio_phys_0038",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Thermal physics",
+    "subtopic": "Temperature scales: linear conversion between two scales and finding a common numerical reading",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "thermal physics",
+      "temperature scales",
+      "linear interpolation",
+      "unit conversion"
+    ],
+    "learning_objective": "Construct the linear relationship between two temperature scales from two fixed points and locate the temperature at which they give the same numerical reading.",
+    "question": "A physicist defines a new temperature scale, the °X scale, from two fixed points of water at standard pressure: water freezes at 20 °X and boils at 220 °X. At what temperature do the Celsius scale and the °X scale give the same numerical reading?",
+    "choices": {
+      "A": "+20°",
+      "B": "−40°",
+      "C": "−20°",
+      "D": "The two scales never give the same numerical reading.",
+      "E": "0°"
+    },
+    "correct_answer": "C",
+    "explanation": "The freezing point (0 °C, 20 °X) and boiling point (100 °C, 220 °X) fix a linear relation X = 20 + [(220 − 20)/(100 − 0)]·C = 20 + 2C. Requiring equal numerical readings, set X = C: C = 20 + 2C, giving C = −20. Check: X = 20 + 2(−20) = −20. Both scales read −20°.",
+    "option_analysis": {
+      "A": "Wrong: 20 is the intercept (the °X value when C = 0), mistaken here for the point of coincidence.",
+      "B": "Wrong: −40 is the value at which the Fahrenheit and Celsius scales coincide, recalled by rote and wrongly transferred to this scale.",
+      "C": "Correct: X = 2C + 20; setting X = C gives C = −20, and X = 2(−20) + 20 = −20 confirms the common reading.",
+      "D": "Wrong: two straight-line scales with different gradients are non-parallel, so they intersect exactly once; assuming they never coincide ignores that any two non-parallel lines cross.",
+      "E": "Wrong: assumes the scales agree at the ice point, but there C = 0 while X = 20, so they do not coincide there."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0039",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Thermal physics — calorimetry",
+    "subtopic": "Calorimetry with a phase change: final equilibrium state when ice is added to water, testing whether all the ice melts",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "thermal physics",
+      "calorimetry",
+      "latent heat",
+      "phase change",
+      "thermal equilibrium"
+    ],
+    "learning_objective": "Determine the final equilibrium state of an ice–water mixture by first comparing the heat available with the latent heat required, then applying energy conservation.",
+    "question": "A 50 g block of ice at 0 °C is dropped into 200 g of water at 25 °C in an insulated container of negligible heat capacity. Take the specific heat capacity of water as 4.2 J g⁻¹ K⁻¹ and the specific latent heat of fusion of ice as 336 J g⁻¹. What is the final state of the system at thermal equilibrium?",
+    "choices": {
+      "A": "0 °C, with some ice remaining unmelted",
+      "B": "5.0 °C, with all the ice having melted",
+      "C": "20 °C, with all the ice having melted",
+      "D": "4.0 °C, with all the ice having melted",
+      "E": "The final temperature cannot be determined without knowing the container's heat capacity"
+    },
+    "correct_answer": "D",
+    "explanation": "Heat released if the water cools all the way to 0 °C is 200 × 4.2 × 25 = 21 000 J. Heat needed to melt all the ice is 50 × 336 = 16 800 J. Since 21 000 J > 16 800 J, all the ice melts and 4 200 J of surplus warms the whole 250 g of water. Energy balance: 200 × 4.2 × (25 − T) = 50 × 336 + 50 × 4.2 × T, i.e. 21 000 − 840T = 16 800 + 210T, giving 4 200 = 1 050T, so T = 4.0 °C.",
+    "option_analysis": {
+      "A": "Wrong: stops at the melting point assuming not all the ice can melt, without checking that the 21 000 J available exceeds the 16 800 J needed to melt the ice.",
+      "B": "Wrong: divides the 4 200 J surplus by only the original 200 g of water (4 200/840 = 5.0 °C), forgetting that the 50 g of melt-water must also be warmed to T.",
+      "C": "Wrong: treats the ice as merely cold water at 0 °C, ignoring the 16 800 J latent heat of fusion; then 21 000 = 1 050T gives 20 °C.",
+      "D": "Correct: all the ice melts and the 4 200 J surplus warms the full 250 g of water, giving T = 4.0 °C.",
+      "E": "Wrong: the container's heat capacity is stated to be negligible, so the final temperature is fully determined by the water and ice alone."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0040",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Thermal physics — thermal expansion",
+    "subtopic": "Apparent (differential) expansion: volume of liquid overflowing a heated container",
+    "difficulty": "hard",
+    "estimated_time_seconds": 125,
+    "tags": [
+      "thermal physics",
+      "thermal expansion",
+      "apparent expansion",
+      "coefficient of volume expansion"
+    ],
+    "learning_objective": "Relate the linear and volume expansion coefficients and compute the overflow arising from the differential (apparent) expansion of a liquid relative to its container.",
+    "question": "A rigid glass vessel of internal volume 1000 cm³ is filled exactly to the brim with a liquid, both initially at 20 °C. The system is heated uniformly to 70 °C. The coefficient of volume expansion of the liquid is 4.3 × 10⁻⁴ K⁻¹ and the coefficient of linear expansion of the glass is 1.0 × 10⁻⁵ K⁻¹. What volume of liquid overflows?",
+    "choices": {
+      "A": "20.0 cm³",
+      "B": "21.0 cm³",
+      "C": "20.5 cm³",
+      "D": "23.0 cm³",
+      "E": "21.5 cm³"
+    },
+    "correct_answer": "A",
+    "explanation": "The liquid expands by ΔV_L = V₀·β_L·ΔT, while the vessel's cavity expands by ΔV_g = V₀·(3α)·ΔT, because the volume expansion coefficient of a solid is three times its linear coefficient. Overflow = V₀·ΔT·(β_L − 3α) = 1000 × 50 × (4.3 × 10⁻⁴ − 3.0 × 10⁻⁵) = 1000 × 50 × 4.0 × 10⁻⁴ = 20.0 cm³.",
+    "option_analysis": {
+      "A": "Correct: the apparent expansion uses β_liquid − 3α_glass = 4.0 × 10⁻⁴ K⁻¹, giving 20.0 cm³.",
+      "B": "Wrong: uses the linear coefficient α for the glass instead of the volume coefficient 3α, β_L − α = 4.2 × 10⁻⁴ K⁻¹, giving 21.0 cm³.",
+      "C": "Wrong: uses 2α (an area coefficient) for the glass, β_L − 2α = 4.1 × 10⁻⁴ K⁻¹, giving 20.5 cm³.",
+      "D": "Wrong: adds the two expansions (β_L + 3α) instead of subtracting them, giving 23.0 cm³.",
+      "E": "Wrong: neglects the expansion of the vessel entirely, using β_L alone (4.3 × 10⁻⁴ K⁻¹), giving 21.5 cm³."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0041",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Thermal physics — heat transfer",
+    "subtopic": "Steady-state conduction through two rods in series: interface (junction) temperature",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "thermal physics",
+      "heat transfer",
+      "thermal conduction",
+      "series thermal resistance"
+    ],
+    "learning_objective": "Apply Fourier's law and the series thermal-resistance rule to find the interface temperature between two conductors carrying the same heat current.",
+    "question": "Two solid rods A and B of equal length and equal cross-sectional area are joined end to end, with their lateral surfaces perfectly insulated. Their thermal conductivities are k_A = 300 W m⁻¹ K⁻¹ and k_B = 100 W m⁻¹ K⁻¹. The free end of rod A is held at 100 °C and the free end of rod B at 20 °C. In the steady state, what is the temperature of the junction between the rods?",
+    "choices": {
+      "A": "95 °C",
+      "B": "40 °C",
+      "C": "60 °C",
+      "D": "20 °C",
+      "E": "80 °C"
+    },
+    "correct_answer": "E",
+    "explanation": "In series the same heat current flows through both rods, so the temperature drop across each rod is proportional to its thermal resistance R = L/(kA). With equal length and area, R ∝ 1/k, so R_A : R_B = 1/300 : 1/100 = 1 : 3. The total 80 °C drop therefore splits as 20 °C across A and 60 °C across B (the larger drop across the poorer conductor). Junction temperature = 100 − 20 = 80 °C. Equivalently T_j = (R_B·100 + R_A·20)/(R_A + R_B) = (3·100 + 1·20)/4 = 80 °C.",
+    "option_analysis": {
+      "A": "Wrong: over-applies the fact that rod B dominates the resistance, pushing the junction almost to the hot face instead of to the correct 80 °C.",
+      "B": "Wrong: makes the drop proportional to conductivity (ΔT ∝ k) rather than to resistance, giving a 60 °C drop across A and a junction at 40 °C.",
+      "C": "Wrong: takes the arithmetic mean of the two end temperatures, ignoring that the rods have unequal thermal resistances.",
+      "D": "Wrong: assumes the whole 80 °C drop occurs across rod A, mis-associating the larger temperature drop with the better conductor.",
+      "E": "Correct: ΔT ∝ R ∝ 1/k, so the drops are 20 °C (rod A) and 60 °C (rod B); the junction sits at 80 °C."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0042",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Thermal physics — first law of thermodynamics",
+    "subtopic": "Path dependence of heat and work between two states via the path-independent internal energy",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "thermal physics",
+      "first law of thermodynamics",
+      "internal energy",
+      "path dependence",
+      "heat and work"
+    ],
+    "learning_objective": "Use the path-independence of internal energy change to relate the heat and work exchanged along different thermodynamic paths between the same two states.",
+    "question": "A fixed sample of an ideal gas is taken from state A to state B. Along path I it absorbs 200 J of heat and does 140 J of work on its surroundings. Along a different path II from A to B the gas does 90 J of work on its surroundings. How much heat is exchanged along path II?",
+    "choices": {
+      "A": "200 J absorbed",
+      "B": "150 J released",
+      "C": "60 J absorbed",
+      "D": "90 J absorbed",
+      "E": "150 J absorbed"
+    },
+    "correct_answer": "E",
+    "explanation": "The change in internal energy depends only on the endpoints A and B, not on the path. Along path I, ΔU = Q − W = 200 − 140 = 60 J. Along path II the gas does 90 J of work, so Q = ΔU + W = 60 + 90 = 150 J, absorbed by the gas.",
+    "option_analysis": {
+      "A": "Wrong: assumes the heat equals the path-I value (200 J), treating Q as a state function; only ΔU is path-independent.",
+      "B": "Wrong: right magnitude but wrong sign, from using Q = ΔU − W and misapplying the first-law sign convention.",
+      "C": "Wrong: sets Q = ΔU = 60 J, forgetting the gas also does 90 J of work along path II (as if path II were at constant volume).",
+      "D": "Wrong: sets Q = W = 90 J, assuming ΔU = 0 (an isothermal process), but the fixed endpoints require ΔU = 60 J.",
+      "E": "Correct: Q = ΔU + W = 60 + 90 = 150 J absorbed."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0043",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Thermal physics — ideal-gas law",
+    "subtopic": "Two connected vessels held at different temperatures: final common pressure from conservation of moles",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 180,
+    "tags": [
+      "thermal physics",
+      "ideal gas law",
+      "conservation of moles",
+      "connected vessels"
+    ],
+    "learning_objective": "Apply conservation of the amount of gas to two connected vessels maintained at different temperatures to determine the equilibrium common pressure.",
+    "question": "Two rigid vessels of equal volume are connected by a thin tube of negligible volume fitted with an open valve. The apparatus contains an ideal gas in equilibrium at pressure 1.00 × 10⁵ Pa and temperature 300 K. One vessel is then held at 300 K while the other is heated to and maintained at 500 K, the valve remaining open. What is the final common pressure of the gas?",
+    "choices": {
+      "A": "0.75 × 10⁵ Pa",
+      "B": "1.67 × 10⁵ Pa",
+      "C": "1.00 × 10⁵ Pa",
+      "D": "1.33 × 10⁵ Pa",
+      "E": "1.25 × 10⁵ Pa"
+    },
+    "correct_answer": "E",
+    "explanation": "The total amount of gas is conserved. Initially n_tot = 2P₀V/(RT₀) with each vessel of volume V. Finally both vessels share pressure P, one at T₀ = 300 K and the other at T₁ = 500 K: n_tot = PV/(RT₀) + PV/(RT₁). Equating gives P(1/T₀ + 1/T₁) = 2P₀/T₀, so P = 2P₀T₁/(T₀ + T₁) = 2(1.00 × 10⁵)(500)/(800) = 1.25 × 10⁵ Pa.",
+    "option_analysis": {
+      "A": "Wrong: swaps the two temperatures, using P = 2P₀T₀/(T₀ + T₁), giving 0.75 × 10⁵ Pa — a pressure fall, which is unphysical when a vessel is heated.",
+      "B": "Wrong: applies Gay-Lussac's law to the whole gas as though all of it were heated to 500 K, giving P = P₀(500/300) = 1.67 × 10⁵ Pa.",
+      "C": "Wrong: assumes the pressure is unchanged because the gas can flow, ignoring that heating one vessel raises the common pressure.",
+      "D": "Wrong: treats all the gas as being at the mean temperature 400 K, giving P = P₀(400/300) = 1.33 × 10⁵ Pa.",
+      "E": "Correct: conserving moles across the two temperatures, P = 2P₀T₁/(T₀ + T₁) = 1.25 × 10⁵ Pa."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0044",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Thermal physics — kinetic theory and the first law",
+    "subtopic": "Energy partition in isobaric heating of a diatomic gas: fraction of heat appearing as translational kinetic energy",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 165,
+    "tags": [
+      "thermal physics",
+      "kinetic theory",
+      "equipartition",
+      "first law",
+      "isobaric process",
+      "molar heat capacity"
+    ],
+    "learning_objective": "Partition the heat supplied in a constant-pressure process of a diatomic gas among translational kinetic energy, rotational energy and external work.",
+    "question": "A fixed quantity of an ideal diatomic gas (3 translational and 2 rotational degrees of freedom per molecule, vibrational modes negligible) is heated at constant pressure. What fraction of the heat supplied to the gas appears as translational kinetic energy of its molecules?",
+    "choices": {
+      "A": "1 (all of it)",
+      "B": "2/7 (≈ 0.29)",
+      "C": "5/7 (≈ 0.71)",
+      "D": "3/7 (≈ 0.43)",
+      "E": "3/5 (= 0.60)"
+    },
+    "correct_answer": "D",
+    "explanation": "At constant pressure Q = nC_pΔT with C_p = (7/2)R for a diatomic gas. This 7/2 R splits per mole into: work W = RΔT (from PΔV = nRΔT), rotational energy (2/2)RΔT = RΔT, and translational kinetic energy (3/2)RΔT. The translational fraction is therefore (3/2)/(7/2) = 3/7 ≈ 0.43.",
+    "option_analysis": {
+      "A": "Wrong: assumes all the heat becomes translational kinetic energy, ignoring both the work done by the gas and the rotational modes.",
+      "B": "Wrong: 2/7 = R/C_p is the fraction of the heat that does external work, not the translational share.",
+      "C": "Wrong: 5/7 = C_v/C_p is the fraction going into total internal energy; it wrongly counts the rotational energy as translational.",
+      "D": "Correct: the translational kinetic energy gain is (3/2)nRΔT out of Q = (7/2)nRΔT, i.e. 3/7.",
+      "E": "Wrong: 3/5 is translational energy divided by internal energy alone, obtained by dropping the work term (treating the heating as constant volume)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  }
+]
