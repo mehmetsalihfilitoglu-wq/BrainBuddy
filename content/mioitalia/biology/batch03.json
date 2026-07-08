@@ -1,0 +1,811 @@
+[
+  {
+    "id": "mio_bio_0044",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — nervous system",
+    "subtopic": "Reflex arcs: monosynaptic stretch reflex and reciprocal innervation",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "reflex arc",
+      "stretch reflex",
+      "muscle spindle",
+      "reciprocal inhibition",
+      "spinal cord",
+      "interneuron"
+    ],
+    "learning_objective": "Analyse the circuitry of the monosynaptic stretch reflex, distinguishing the direct excitatory arc to the agonist from the interneuron-mediated inhibition of the antagonist, and recognise the reflex as a spinal (not cortical) integration.",
+    "question": "A neurologist elicits the knee-jerk (patellar) reflex by tapping the patellar tendon and observes contraction of the quadriceps together with simultaneous relaxation of the hamstrings. Which of the following statements correctly describes the underlying reflex circuitry?",
+    "choices": {
+      "A": "The afferent (sensory) neuron synapses directly onto the quadriceps alpha-motor neuron, so the excitatory arc to the agonist is monosynaptic.",
+      "B": "The reflex is entirely polysynaptic, with at least one interneuron interposed between the afferent neuron and every motor neuron involved.",
+      "C": "Relaxation of the hamstrings occurs because the same afferent neuron forms an inhibitory synapse directly onto the hamstring motor neurons.",
+      "D": "The receptor is the Golgi tendon organ, which senses the change in muscle length and directly triggers quadriceps contraction.",
+      "E": "Quadriceps contraction depends on descending commands from the motor cortex reaching the spinal cord during the tap."
+    },
+    "correct_answer": "A",
+    "explanation": "Tapping the tendon stretches the quadriceps and its muscle spindles (the true receptor). The Ia afferent projects into the spinal cord and makes a direct excitatory synapse onto the alpha-motor neuron of the same (agonist) muscle: this agonist arc is the classic monosynaptic reflex. Relaxation of the antagonist (hamstrings) is not direct — the Ia afferent excites an inhibitory interneuron, which in turn hyperpolarises the antagonist motor neuron (reciprocal innervation), so that part of the circuit is polysynaptic. The whole loop is integrated within the spinal cord and does not require the cerebral cortex, which is why the reflex persists even when descending control is impaired.",
+    "option_analysis": {
+      "A": "Correct: the Ia sensory afferent synapses directly onto the agonist (quadriceps) alpha-motor neuron, making the excitatory arc to the agonist monosynaptic — the defining feature of the stretch reflex.",
+      "B": "Wrong: the agonist arc is monosynaptic (no interneuron), so the reflex is not entirely polysynaptic. Only the antagonist-inhibition limb involves an interneuron. Misconception: assuming all reflex arcs contain interneurons.",
+      "C": "Wrong: the afferent neuron is excitatory (glutamatergic); it cannot itself inhibit the antagonist. Antagonist relaxation requires an interposed inhibitory interneuron. Misconception: believing a single sensory neuron can be both excitatory and directly inhibitory.",
+      "D": "Wrong: the receptor of the stretch reflex is the muscle spindle (detecting length/stretch), not the Golgi tendon organ. The Golgi tendon organ senses tension and produces inhibition (autogenic inhibition), the opposite effect. Misconception: conflating the two proprioceptors and their roles.",
+      "E": "Wrong: the knee-jerk is a spinal reflex integrated at the level of the spinal cord and is independent of the motor cortex. Misconception: thinking a voluntary/cortical command is needed for a reflex response."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0045",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — nervous system",
+    "subtopic": "Resting potential: Nernst equilibrium potential and electrochemical driving force (Na+)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "resting potential",
+      "Nernst equation",
+      "equilibrium potential",
+      "electrochemical driving force",
+      "sodium",
+      "membrane physiology"
+    ],
+    "learning_objective": "Compute an ion's equilibrium potential from the Nernst equation and combine it with the resting membrane potential to determine the magnitude and direction of the net electrochemical driving force on that ion.",
+    "question": "At 37 degrees C a neuron has an intracellular Na+ concentration of 15 mM and an extracellular Na+ concentration of 150 mM. Using the Nernst equation E = (61 mV / z) x log10([ion]outside / [ion]inside) and taking the resting membrane potential to be -70 mV, what is the equilibrium potential for Na+ and the net electrochemical driving force acting on Na+ at rest?",
+    "choices": {
+      "A": "E(Na) = +70 mV; net electrochemical driving force = 0, because Na+ is at equilibrium at the resting potential.",
+      "B": "E(Na) = +61 mV; net electrochemical driving force approximately 131 mV, directed inward.",
+      "C": "E(Na) = +61 mV; net electrochemical driving force approximately 131 mV, directed outward.",
+      "D": "E(Na) = -61 mV; net electrochemical driving force approximately 9 mV, directed outward.",
+      "E": "E(Na) = +61 mV; net electrochemical driving force approximately 9 mV, directed inward."
+    },
+    "correct_answer": "B",
+    "explanation": "For Na+, z = +1 and the concentration ratio outside/inside = 150/15 = 10, so E(Na) = 61 x log10(10) = 61 x 1 = +61 mV. The net electrochemical driving force on an ion is the difference between the membrane potential and that ion's equilibrium potential: driving force = Vm - E(Na) = -70 - (+61) = -131 mV. For a cation, a negative value means the electrochemical gradient drives the ion into the cell, so there is a large (about 131 mV) inward driving force on Na+ at rest. This is why opening Na+ channels produces a strong inward Na+ current and rapid depolarisation.",
+    "option_analysis": {
+      "A": "Wrong: this assumes the resting potential equals E(Na), i.e. that Na+ is at equilibrium at rest. In fact the resting potential (-70 mV) sits close to E(K), far from E(Na) (+61 mV), so Na+ is far from equilibrium. Misconception: believing every ion is at its equilibrium potential at rest.",
+      "B": "Correct: E(Na) = 61 x log10(150/15) = +61 mV; driving force = Vm - E(Na) = -70 - 61 = -131 mV, i.e. about 131 mV directed inward for the cation.",
+      "C": "Wrong: the magnitude (131 mV) is right but the direction is not — a negative driving force on a cation drives it inward, not outward. Misconception: mis-assigning the direction of the force for a positively charged ion.",
+      "D": "Wrong: -61 mV results from inverting the Nernst ratio to log10(15/150); the correct ratio is outside/inside. This then gives a spurious small outward force. Misconception: reversing the concentration ratio in the Nernst equation.",
+      "E": "Wrong: 9 mV comes from subtracting the magnitudes (70 - 61) rather than the signed values (-70 - 61 = -131). Misconception: computing the driving force from absolute values instead of signed potentials."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0046",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — nervous system",
+    "subtopic": "Synaptic integration: spatial summation of EPSPs and IPSPs relative to threshold",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "synaptic transmission",
+      "EPSP",
+      "IPSP",
+      "spatial summation",
+      "threshold",
+      "axon hillock",
+      "integration"
+    ],
+    "learning_objective": "Algebraically sum simultaneous excitatory and inhibitory postsynaptic potentials at the trigger zone and compare the resulting membrane potential with threshold, respecting the sign convention of membrane voltages.",
+    "question": "A postsynaptic neuron has a resting potential of -70 mV and an action-potential threshold of -55 mV at the axon hillock. At the hillock a single excitatory input produces a unitary EPSP of +2 mV and a single inhibitory input produces a unitary IPSP of -4 mV. In a brief interval during which decay is negligible, the neuron simultaneously receives 12 excitatory inputs and 3 inhibitory inputs. What is the resulting membrane potential, and does the neuron fire?",
+    "choices": {
+      "A": "The membrane reaches -58 mV and no action potential fires, because -58 mV is more negative than the -55 mV threshold.",
+      "B": "No action potential fires because a single neuron cannot integrate inputs from more than one synapse at the same time.",
+      "C": "The membrane reaches -52 mV and an action potential fires, because each inhibitory input simply cancels one excitatory input (12 - 3 = 9 net excitatory inputs).",
+      "D": "The membrane reaches -46 mV and an action potential fires, because inhibitory inputs are too weak to affect a neuron receiving many excitatory inputs.",
+      "E": "The membrane reaches -58 mV and, because 58 is numerically greater than 55, threshold is exceeded and an action potential fires."
+    },
+    "correct_answer": "A",
+    "explanation": "Postsynaptic potentials sum algebraically at the trigger zone. Total change = 12 x (+2 mV) + 3 x (-4 mV) = +24 - 12 = +12 mV. Starting from -70 mV, the membrane reaches -70 + 12 = -58 mV. Threshold is -55 mV; because -58 mV is more negative (below) -55 mV, the trigger zone does not reach threshold and no action potential is generated. The key is to weight each input by its own amplitude (not simply count inputs) and to respect the sign convention: a membrane potential closer to zero (less negative) is more depolarised, so -55 mV is more depolarised than -58 mV.",
+    "option_analysis": {
+      "A": "Correct: summed change = 12(+2) + 3(-4) = +12 mV, giving -58 mV, which is more negative than the -55 mV threshold, so the neuron does not fire.",
+      "B": "Wrong: neurons routinely integrate thousands of synaptic inputs simultaneously (spatial summation); the reason for not firing is that summed depolarisation is insufficient, not that summation is impossible. Misconception: denying spatial summation.",
+      "C": "Wrong: this cancels inputs one-for-one (12 - 3 = 9) instead of weighting by amplitude. Because the IPSP (-4 mV) is larger than the EPSP (+2 mV), one IPSP more than cancels one EPSP. Misconception: assuming each inhibitory input neutralises exactly one excitatory input regardless of amplitude.",
+      "D": "Wrong: this ignores the IPSPs entirely (only +24 mV counted, giving -46 mV). The three IPSPs contribute -12 mV and cannot be dismissed. Misconception: treating inhibitory inputs as negligible when excitatory inputs are numerous.",
+      "E": "Wrong: the arithmetic (-58 mV) is right but the comparison is not — -58 mV is more negative than -55 mV, so threshold is NOT reached. Misconception: comparing the magnitudes (58 > 55) instead of the signed voltages."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0047",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — endocrine system",
+    "subtopic": "Hypothalamic-pituitary-thyroid axis: inappropriate TSH secretion (feedback failure)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "endocrine",
+      "negative feedback",
+      "thyroid axis",
+      "TSH",
+      "thyroxine",
+      "hormone resistance",
+      "pituitary"
+    ],
+    "learning_objective": "Interpret a set of thyroid-axis hormone measurements against the expected direction of negative feedback and identify when TSH secretion is inappropriate, distinguishing primary gland disorders from central/feedback-level pathology.",
+    "question": "A patient has elevated free thyroxine (T4) and elevated free triiodothyronine (T3), yet serum thyroid-stimulating hormone (TSH) is not suppressed and is in fact mildly raised. Assuming the normal hypothalamic-pituitary-thyroid feedback axis, which single interpretation is most consistent with these findings?",
+    "choices": {
+      "A": "A normal physiological response to increased metabolic demand, since TSH and thyroid hormones always rise and fall together.",
+      "B": "Primary hyperthyroidism such as Graves disease, in which autonomous thyroid over-secretion is expected to drive TSH upward.",
+      "C": "Hypothalamic overproduction of somatostatin, which stimulates TSH release and thereby raises thyroid hormones.",
+      "D": "Inappropriate TSH secretion — an autonomously TSH-secreting pituitary adenoma or resistance to thyroid-hormone feedback — because high T4/T3 should normally suppress TSH.",
+      "E": "Primary hypothyroidism, in which failure of the thyroid gland explains the raised TSH."
+    },
+    "correct_answer": "D",
+    "explanation": "Under normal negative feedback, a rise in free T4/T3 suppresses TSH secretion by the anterior pituitary, so high thyroid hormones should be accompanied by a LOW TSH. Here TSH is inappropriately non-suppressed (indeed raised) despite high T4/T3, meaning the feedback loop is not operating as expected at the pituitary level. The two classic explanations are an autonomously TSH-secreting pituitary adenoma (secreting TSH independent of feedback) or resistance to thyroid hormone (target receptors fail to sense the high hormone levels). Recognising 'inappropriate TSH secretion' requires knowing both the direction of the feedback and the fact that hormone measurements must be interpreted relative to each other, not in isolation.",
+    "option_analysis": {
+      "A": "Wrong: under feedback, TSH and thyroid hormones move in opposite directions at steady state, not together. Misconception: treating the axis as a positive (co-directional) coupling.",
+      "B": "Wrong: in primary hyperthyroidism (e.g. Graves) the excess thyroid hormone suppresses TSH, so TSH is LOW, not raised. Misconception: assuming high thyroid activity drives TSH up rather than down.",
+      "C": "Wrong: somatostatin inhibits TSH release, so it cannot explain a raised TSH, and it would not raise thyroid hormones. Misconception: reversing the action of somatostatin on the pituitary.",
+      "D": "Correct: high T4/T3 should suppress TSH; a non-suppressed/raised TSH is therefore 'inappropriate' and points to autonomous pituitary TSH secretion or thyroid-hormone resistance (a defect in the negative-feedback response).",
+      "E": "Wrong: primary hypothyroidism raises TSH but does so because thyroid hormones are LOW; here T4/T3 are elevated, which is incompatible with gland failure. Misconception: focusing on the raised TSH while ignoring the high thyroid hormones."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0048",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — endocrine system",
+    "subtopic": "Blood glucose homeostasis: insulin vs C-peptide to distinguish exogenous insulin from insulinoma/sulfonylurea",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "endocrine",
+      "blood glucose",
+      "insulin",
+      "C-peptide",
+      "hypoglycaemia",
+      "homeostasis",
+      "beta cell"
+    ],
+    "learning_objective": "Use the equimolar co-secretion of insulin and C-peptide from proinsulin to distinguish endogenous from exogenous causes of hyperinsulinaemic hypoglycaemia, integrating negative feedback on beta-cell secretion.",
+    "question": "A patient is admitted with severe fasting hypoglycaemia. During a documented hypoglycaemic episode, serum insulin is markedly elevated but serum C-peptide is very low (suppressed). Processing of proinsulin normally releases insulin and C-peptide into the blood in equimolar amounts. Which interpretation is most consistent with these findings?",
+    "choices": {
+      "A": "Sulfonylurea ingestion, which delivers insulin molecules to the blood without any accompanying C-peptide.",
+      "B": "A glucagon-secreting tumour, which accounts for both the hypoglycaemia and the high insulin.",
+      "C": "An insulin-secreting tumour of pancreatic beta cells (insulinoma), because beta-cell tumours over-secrete insulin.",
+      "D": "Administration of exogenous (injected) insulin, which raises measured insulin but contributes no C-peptide and suppresses endogenous beta-cell secretion.",
+      "E": "Excessive hepatic clearance of C-peptide, indicating that endogenous insulin secretion is entirely normal."
+    },
+    "correct_answer": "D",
+    "explanation": "Endogenous insulin is made from proinsulin, which is cleaved into insulin AND C-peptide in equimolar amounts, so any cause of endogenous hyperinsulinaemia (insulinoma, sulfonylurea-driven secretion) shows HIGH insulin together with HIGH C-peptide. Injected (exogenous) insulin contains no C-peptide, so it raises measured insulin while C-peptide stays low; moreover, the resulting high insulin and low glucose suppress the patient's own beta cells through negative feedback, driving C-peptide even lower. High insulin with LOW C-peptide during hypoglycaemia therefore points specifically to exogenous insulin administration. C-peptide is the discriminating variable because it separates injected insulin from all endogenous causes.",
+    "option_analysis": {
+      "A": "Wrong: sulfonylureas stimulate the patient's own beta cells to release insulin, so C-peptide would be HIGH; they do not provide insulin molecules directly. Misconception: treating a secretagogue as if it were injected insulin.",
+      "B": "Wrong: glucagon raises blood glucose, so a glucagonoma would cause hyperglycaemia, not hypoglycaemia, and would not explain high insulin. Misconception: reversing glucagon's effect on blood glucose.",
+      "C": "Wrong: an insulinoma secretes endogenous insulin, so C-peptide would be HIGH (co-secreted with insulin), not low. Misconception: ignoring C-peptide and assuming any high insulin implies a beta-cell tumour.",
+      "D": "Correct: exogenous insulin raises serum insulin but carries no C-peptide, and the induced hypoglycaemia/hyperinsulinaemia suppresses endogenous beta-cell output, giving the characteristic high-insulin/low-C-peptide pattern.",
+      "E": "Wrong: C-peptide is cleared mainly by the kidney (not the liver) and is used as a stable marker precisely because its levels track endogenous secretion; invoking 'hepatic C-peptide clearance' neither fits its physiology nor explains the severe hypoglycaemia. Misconception: confusing the clearance routes of insulin (hepatic) and C-peptide (renal) and dismissing the abnormal result."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0049",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — renal",
+    "subtopic": "Renal clearance: distinguishing net tubular secretion from reabsorption by comparing a substance's clearance with the GFR",
+    "difficulty": "medium",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "renal physiology",
+      "clearance",
+      "GFR",
+      "inulin",
+      "tubular secretion",
+      "quantitative"
+    ],
+    "learning_objective": "Calculate renal clearance from urine and plasma concentrations, use inulin clearance as a measure of GFR, and infer whether a substance is net secreted or net reabsorbed by comparing its clearance with the GFR.",
+    "question": "In a healthy adult, the renal handling of a substance can be assessed from its clearance, C = (U × V) / P, where U and P are the urine and plasma concentrations of the substance and V is the urine flow rate. Inulin is freely filtered at the glomerulus but is neither reabsorbed nor secreted, so its clearance equals the glomerular filtration rate (GFR). The following steady-state data are obtained:\n\n• Urine flow rate V = 2 mL min⁻¹\n• Inulin: plasma = 0.5 mg mL⁻¹, urine = 30 mg mL⁻¹\n• Substance X: plasma = 0.2 mg mL⁻¹, urine = 15 mg mL⁻¹\n\nWhat can be concluded about the renal handling of substance X?",
+    "choices": {
+      "A": "X is filtered and, in addition, net secreted by the tubules, giving a clearance greater than the GFR.",
+      "B": "X is neither filtered nor secreted, so essentially none of it appears in the urine.",
+      "C": "X is handled exactly like inulin — filtered only — so its clearance equals the GFR.",
+      "D": "X is filtered and then net reabsorbed by the tubules, giving a clearance lower than the GFR.",
+      "E": "X is filtered at the glomerulus and then almost completely reabsorbed, so its clearance is close to zero."
+    },
+    "correct_answer": "A",
+    "explanation": "First find the GFR from inulin: GFR = (U × V)/P = (30 mg mL⁻¹ × 2 mL min⁻¹)/0.5 mg mL⁻¹ = 120 mL min⁻¹. Then find the clearance of X: C_X = (15 × 2)/0.2 = 150 mL min⁻¹. Because clearance is the volume of plasma completely cleared of a substance per minute, a clearance that exceeds the GFR means the kidney removes X from more plasma than is filtered — the extra amount must be added to the tubular fluid by net secretion. Since 150 mL min⁻¹ > 120 mL min⁻¹, X is filtered AND net secreted.",
+    "option_analysis": {
+      "A": "Correct: GFR = 120 mL min⁻¹ (from inulin) and C_X = 150 mL min⁻¹; because C_X > GFR, the tubules must add X to the filtrate, i.e. net tubular secretion.",
+      "B": "Wrong: if X were neither filtered nor secreted its clearance would be zero and none would appear in urine, but urine contains 15 mg mL⁻¹. Misconception: ignoring that any measurable urinary excretion of a filterable solute means it is at least filtered.",
+      "C": "Wrong: inulin-like handling would give C_X = GFR = 120 mL min⁻¹, but C_X = 150 mL min⁻¹. Misconception: treating all freely filtered solutes as clearance markers and failing to notice the excess clearance caused by secretion.",
+      "D": "Wrong: net reabsorption would give a clearance below the GFR (<120 mL min⁻¹). Misconception: assuming most solutes are reabsorbed and that clearance must therefore be less than GFR, rather than comparing the two numbers.",
+      "E": "Wrong: complete reabsorption (e.g. glucose in health) gives a clearance approaching zero, not the calculated 150 mL min⁻¹. Misconception: assuming a high urine concentration automatically implies reabsorption, without computing clearance."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0050",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — renal / osmoregulation",
+    "subtopic": "Integrated ADH and aldosterone response to dehydration and their distinct actions on the collecting duct",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "osmoregulation",
+      "ADH",
+      "aldosterone",
+      "aquaporin-2",
+      "collecting duct",
+      "RAAS",
+      "dehydration"
+    ],
+    "learning_objective": "Distinguish the separate roles of ADH (water permeability via aquaporin-2) and aldosterone (Na⁺ reabsorption) and predict their coordinated response to water deprivation.",
+    "question": "A laboratory rat is deprived of drinking water for 24 hours; over this period it loses body water and its plasma osmolarity rises while its blood volume falls. Which of the following correctly describes the hormonal response and the behaviour of the collecting duct?",
+    "choices": {
+      "A": "ADH secretion rises and inserts aquaporin-2 channels into the collecting-duct apical membrane, producing a small volume of concentrated urine, while aldosterone secretion also rises.",
+      "B": "Aldosterone secretion falls because blood volume is low; the reduced Na⁺ reabsorption then draws water out of the body and concentrates the urine.",
+      "C": "ADH secretion falls, aquaporin-2 channels are withdrawn from the collecting-duct apical membrane, and a large volume of dilute urine is produced.",
+      "D": "ADH secretion rises and acts directly on the distal tubule to increase Na⁺ reabsorption, sharply raising the plasma Na⁺ concentration.",
+      "E": "Only aldosterone changes; it raises the water permeability of the collecting duct so that water is reabsorbed and the urine becomes concentrated."
+    },
+    "correct_answer": "A",
+    "explanation": "Two stimuli operate together in dehydration. The rise in plasma osmolarity is sensed by hypothalamic osmoreceptors and drives ADH release; ADH inserts aquaporin-2 water channels into the apical membrane of collecting-duct cells, increasing water reabsorption so that a small volume of concentrated (hyperosmotic) urine is formed. Separately, the fall in blood volume/pressure activates the renin–angiotensin–aldosterone system, so aldosterone rises and stimulates Na⁺ reabsorption (with K⁺ secretion) in the distal nephron and collecting duct. The key discriminations are that ADH controls water permeability (not Na⁺ transport) and aldosterone controls Na⁺ handling (not water-channel insertion); both increase in dehydration.",
+    "option_analysis": {
+      "A": "Correct: rising osmolarity increases ADH → aquaporin-2 insertion → concentrated, low-volume urine, while falling blood volume increases aldosterone via the RAAS; the two hormones act on water and Na⁺ respectively.",
+      "B": "Wrong: low blood volume activates (not suppresses) the RAAS, so aldosterone rises; also, reducing Na⁺ reabsorption would promote water loss, not conservation. Misconception: reversing RAAS regulation and mis-linking Na⁺ loss to water retention.",
+      "C": "Wrong: this is the response to over-hydration, not dehydration. Misconception: reversing the direction of the ADH response — a rise in plasma osmolarity increases, not decreases, ADH.",
+      "D": "Wrong: ADH acts on water permeability via aquaporin-2, not on Na⁺ transport. Misconception: attributing aldosterone's Na⁺-reabsorbing action to ADH.",
+      "E": "Wrong: aldosterone regulates Na⁺ reabsorption, not the water permeability of the collecting duct, and ADH clearly also changes. Misconception: assigning ADH's aquaporin-mediated water action to aldosterone."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0051",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — digestion & absorption",
+    "subtopic": "Lipid absorption: chylomicron formation and lymphatic (lacteal) transport bypassing the hepatic portal vein",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "digestion",
+      "lipid absorption",
+      "chylomicron",
+      "lacteal",
+      "lymphatic",
+      "bile salts",
+      "hepatic portal vein"
+    ],
+    "learning_objective": "Trace the route of long-chain fat-digestion products from the enterocyte to the systemic circulation and contrast it with the portal route used by sugars and amino acids, including the fate of bile salts.",
+    "question": "After a meal rich in long-chain triglycerides, the products of fat digestion are taken up by enterocytes of the small intestine and eventually reach the systemic circulation. Which statement correctly describes their processing and route of transport?",
+    "choices": {
+      "A": "Inside the enterocyte the fatty acids and monoglycerides are re-esterified into triglycerides and packaged into chylomicrons, which enter the lacteals and travel in the lymph, bypassing the liver on the first pass.",
+      "B": "The fatty acids are taken up across the apical membrane by Na⁺-coupled cotransporters, in the same way that glucose is absorbed via SGLT1.",
+      "C": "Bile salts are absorbed together with the fatty acids into the enterocytes and are carried within the chylomicrons to the peripheral tissues.",
+      "D": "They are packaged into chylomicrons that enter the hepatic portal vein, so that, like glucose, they pass through the liver before reaching the rest of the body.",
+      "E": "Long-chain fatty acids diffuse directly from the gut lumen into the villus capillaries, bind to plasma albumin, and enter the hepatic portal vein."
+    },
+    "correct_answer": "A",
+    "explanation": "Bile salts emulsify dietary fat and form micelles that ferry monoglycerides and long-chain fatty acids to the enterocyte brush border, where these lipids are absorbed (largely by diffusion). Inside the enterocyte they are re-esterified in the smooth ER into triglycerides and, with cholesterol and apolipoproteins, assembled into chylomicrons. Chylomicrons are too large for blood capillaries and instead enter the lacteals (lymphatic capillaries of the villi); the lymph drains via the thoracic duct into the venous blood, so dietary long-chain fat bypasses the hepatic portal vein and the liver's first pass. The bile salts themselves are not carried away with the fat — they are released from the micelles and reabsorbed in the terminal ileum, returning to the liver in the enterohepatic circulation. (Short- and medium-chain fatty acids, being more water-soluble, do enter the portal blood directly.)",
+    "option_analysis": {
+      "A": "Correct: long-chain fat products are re-esterified to triglycerides, packaged into chylomicrons, and exported into the lacteals (lymph), so they reach the blood via the thoracic duct and bypass the liver on first pass.",
+      "B": "Wrong: fatty acids are not absorbed by Na⁺-coupled secondary active transport; that mechanism (SGLT1) is for glucose/galactose. Misconception: extending the sodium-cotransport model of sugar uptake to lipids.",
+      "C": "Wrong: bile salts are not absorbed with the fat into chylomicrons; they are reclaimed in the ileum and recycled to the liver (enterohepatic circulation). Misconception: treating bile salts as being consumed and transported with the dietary lipid.",
+      "D": "Wrong: chylomicrons enter the lymphatic lacteals, not the hepatic portal vein. Misconception: assuming all absorbed nutrients, including fats, take the portal route to the liver as sugars and amino acids do.",
+      "E": "Wrong: this describes the more water-soluble short-/medium-chain fatty acids; long-chain products are re-esterified and exported as chylomicrons via lymph, not as albumin-bound acids into the portal vein. Misconception: applying the short-chain fatty-acid route to long-chain lipids."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0052",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Immunology — adaptive immunity",
+    "subtopic": "Clonal selection and immunological memory: why the secondary antibody response differs from the primary",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "adaptive immunity",
+      "clonal selection",
+      "memory B cells",
+      "secondary response",
+      "class switching",
+      "affinity maturation",
+      "vaccination"
+    ],
+    "learning_objective": "Explain, from clonal selection theory, the features of the secondary antibody response (speed, magnitude, isotype switch, higher affinity) and distinguish memory-cell mechanisms from irrelevant or confused alternatives.",
+    "question": "A healthy person is given a vaccine containing protein antigen X at week 0 and an identical booster dose at week 8. The antibody response to the first dose is slow to appear, of low titre, dominated by low-affinity IgM. The response to the booster is much faster, of far higher titre, dominated by high-affinity IgG. Which single explanation best accounts for ALL of these differences between the second and first responses?",
+    "choices": {
+      "A": "Somatic V(D)J recombination occurred a second time in the responding lymphocytes, raising the affinity of the antibody produced.",
+      "B": "Memory B cells generated by clonal selection during the first response — already class-switched and affinity-matured — were present in greater numbers and proliferated rapidly on re-exposure.",
+      "C": "Long-lived plasma cells generated by the first dose simply secreted more antibody when the antigen was encountered again.",
+      "D": "The booster dose delivered a larger quantity of antigen, which on its own stimulated a greater number of naïve B cells.",
+      "E": "The second exposure triggered a stronger innate immune response, and it was the innate system that produced the antibodies more rapidly."
+    },
+    "correct_answer": "B",
+    "explanation": "During the primary response, antigen X selects the few naïve B cells whose receptors bind it (clonal selection); these proliferate and, with T-helper cell signals, undergo class switching (IgM→IgG) and affinity maturation by somatic hypermutation. Some progeny differentiate not into short-lived plasma cells but into long-lived memory B cells that persist in large numbers and are already class-switched and high-affinity. On the booster, these memory cells are far more numerous than the original naïve precursors and respond faster, so the secondary response is quicker, larger, predominantly high-affinity IgG. Only the memory-cell explanation simultaneously accounts for the greater speed, the greater magnitude, the isotype switch, and the higher affinity — a single mechanism covering every observed difference.",
+    "option_analysis": {
+      "A": "Wrong: V(D)J recombination occurs once, during B-cell development, to build the initial receptor repertoire; increased affinity on re-exposure results from somatic hypermutation plus selection of pre-existing high-affinity memory clones. Misconception: confusing one-time V(D)J recombination with affinity maturation.",
+      "B": "Correct: clonal selection during the primary response produces numerous long-lived, already class-switched, affinity-matured memory B cells; their rapid proliferation on re-exposure accounts simultaneously for the faster, larger, high-affinity, IgG-dominated secondary response.",
+      "C": "Wrong: pre-existing plasma cells do not proliferate and cannot generate the rapid new expansion, and this does not explain why the isotype shifts or affinity increases. Misconception: conflating persistent antibody secretion with the proliferative, qualitatively improved memory response.",
+      "D": "Wrong: the doses were identical, and antigen quantity alone does not explain the isotype switch to IgG or the rise in affinity. Misconception: attributing memory purely to a bigger antigenic stimulus rather than to a changed, expanded cell population.",
+      "E": "Wrong: antibodies are produced by B-lineage (adaptive) cells, not by the innate system; the innate response also lacks antigen-specific memory. Misconception: believing the innate immune system manufactures antibodies or provides immunological memory."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0053",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Immunology — innate vs adaptive",
+    "subtopic": "MHC class I down-regulation: cytotoxic T-cell evasion and NK-cell 'missing-self' recognition",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "innate immunity",
+      "adaptive immunity",
+      "MHC class I",
+      "cytotoxic T cells",
+      "natural killer cells",
+      "missing self",
+      "viral immune evasion"
+    ],
+    "learning_objective": "Integrate MHC-restricted cytotoxic T-cell recognition with NK-cell 'missing-self' surveillance to predict the outcome when a virus removes MHC class I from infected cells.",
+    "question": "Some viruses encode a protein that removes essentially all MHC class I molecules from the surface of the cells they infect. Considering how the immune system recognises such cells, what is the most likely immunological outcome of this evasion strategy?",
+    "choices": {
+      "A": "Cytotoxic T-cell recognition is unaffected, because CD8⁺ T cells detect viral peptides presented on MHC class II rather than class I.",
+      "B": "Helper (CD4⁺) T cells take over and directly lyse the infected cells once cytotoxic T-cell recognition has failed.",
+      "C": "Cytotoxic (CD8⁺) T cells can no longer recognise the infected cells, but natural killer (NK) cells are activated by the absence of MHC class I ('missing self') and kill them.",
+      "D": "Antibody production against the virus is enhanced, because B cells now present the viral antigen on MHC class I to CD8⁺ T cells.",
+      "E": "Natural killer cells are switched off, because they require MHC class I on a target cell in order to trigger killing."
+    },
+    "correct_answer": "C",
+    "explanation": "Cytotoxic CD8⁺ T cells are MHC-class-I-restricted: they recognise viral peptides only when displayed on MHC class I. By stripping MHC class I from the cell surface, the virus hides infected cells from CD8⁺ T cells — an effective evasion of the adaptive response. However, NK cells (innate) use the opposite logic: MHC class I delivers an inhibitory signal to NK cells, so healthy cells displaying normal MHC class I are spared. When MHC class I is lost, that inhibitory brake is removed and, in the presence of activating ligands, the NK cell kills the target — the 'missing-self' hypothesis. Thus the same feature that lets the virus escape T cells makes the cell a target for NK cells; innate and adaptive surveillance are complementary.",
+    "option_analysis": {
+      "A": "Wrong: CD8⁺ cytotoxic T cells are restricted to MHC class I (CD4⁺ helper cells use class II); removing class I therefore does impair their recognition. Misconception: swapping the MHC-class restrictions of CD8⁺ and CD4⁺ T cells.",
+      "B": "Wrong: CD4⁺ helper T cells coordinate responses via cytokines and help, but they are not the direct cytotoxic effectors against MHC-I-bearing target cells. Misconception: assuming helper T cells can substitute as killers.",
+      "C": "Correct: loss of MHC class I blinds MHC-I-restricted CD8⁺ T cells but removes the inhibitory signal on NK cells, so NK 'missing-self' recognition triggers killing of the infected cell.",
+      "D": "Wrong: antibody production depends on B cells and T-helper (MHC class II) cooperation, not on B cells presenting antigen on MHC class I to CD8⁺ cells; loss of class I on infected cells does not enhance antibody output by this route. Misconception: confusing the pathways of humoral help with MHC-class-I presentation.",
+      "E": "Wrong: MHC class I is an inhibitory signal for NK cells, so its loss activates rather than switches off NK killing. Misconception: reversing NK-cell logic by treating MHC class I as an activating requirement."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0054",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell division and chromosomes",
+    "subtopic": "Non-disjunction: distinguishing a meiosis I from a meiosis II origin using a centromeric marker",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "non-disjunction",
+      "trisomy 21",
+      "meiosis I vs meiosis II",
+      "centromeric marker",
+      "aneuploidy"
+    ],
+    "learning_objective": "Deduce whether an aneuploidy arose from a meiosis I (homologue) or meiosis II (sister-chromatid) segregation error by interpreting heterozygosity at a centromere-linked marker.",
+    "question": "In a child born with trisomy 21 (three copies of chromosome 21), DNA markers spanning the chromosome establish that the additional copy is of maternal origin — that is, the child received two chromosome 21 homologues from the mother and one from the father. At a highly polymorphic locus lying immediately next to the centromere, so close that recombination between the locus and the centromere is negligible, the mother's genotype is M1/M2, the father's genotype is M2/M2, and the child carries three alleles at this locus: M1, M2 and M2. Which event most probably produced this trisomy?",
+    "choices": {
+      "A": "A crossover between the locus and the centromere during maternal meiosis II",
+      "B": "Non-disjunction during maternal meiosis II",
+      "C": "Fertilisation of a normal egg by a diploid M2/M2 sperm",
+      "D": "Non-disjunction during paternal meiosis I",
+      "E": "Non-disjunction during maternal meiosis I"
+    },
+    "correct_answer": "E",
+    "explanation": "Because the father is M2/M2 he can only contribute an M2 allele, so of the child's three alleles (M1, M2, M2) the maternal contribution is M1 and M2 — the mother passed on BOTH of her different homologues. At meiosis I homologous chromosomes separate; failure to do so sends both maternal homologues (which carry the two different alleles M1 and M2) into the same egg, giving a heterozygous maternal contribution. A meiosis II error, by contrast, sends two copies of a single already-replicated chromosome (two identical sister chromatids) into the egg, which near the centromere would yield two IDENTICAL maternal alleles (M1/M1 or M2/M2). Observing two different maternal alleles therefore points to a meiosis I non-disjunction.",
+    "option_analysis": {
+      "A": "Wrong: the locus is immediately adjacent to the centromere with negligible recombination, so a crossover cannot convert the two identical sister-chromatid alleles of a meiosis II product into a heterozygous pair. Misconception: overestimating how often recombination occurs in centromeric (pericentromeric) regions.",
+      "B": "Wrong: a meiosis II error separates sister chromatids, so — with no recombination near the centromere — the two maternal copies would be identical (M1/M1 or M2/M2). The observed heterozygous maternal contribution (M1 and M2) excludes this. Misconception: treating meiosis I and meiosis II errors as indistinguishable, or believing a meiosis II error can deliver two different homologous alleles.",
+      "C": "Wrong: this would make two of the three copies paternal, contradicting the marker evidence that the extra chromosome is maternal in origin, and a diploid M2/M2 sperm could not supply the M1 allele that must come from the mother. Misconception: ignoring the stated parental-origin data.",
+      "D": "Wrong: the marker data establish a maternal origin, and a homozygous M2/M2 father could contribute only M2 alleles, never the M1 present in the child's maternal set. Misconception: misassigning the parental origin of the extra chromosome.",
+      "E": "Correct: at meiosis I the homologues fail to disjoin, so both maternal homologues — carrying the two different alleles M1 and M2 — enter the egg. With a centromere-adjacent locus and negligible recombination, this produces the observed heterozygous (M1 + M2) maternal contribution."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0055",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell division and chromosomes",
+    "subtopic": "DNA content (C-value) and chromosome number of a secondary spermatocyte at metaphase II",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "C-value",
+      "DNA content",
+      "meiosis",
+      "secondary spermatocyte",
+      "chromosome number"
+    ],
+    "learning_objective": "Track nuclear DNA content and chromosome number through the meiotic divisions, distinguishing the reduction in chromosome number (anaphase I) from the halving of DNA content (anaphase II).",
+    "question": "In a mammalian species with a diploid chromosome number of 2n = 46, a mature sperm cell contains 3.2 pg of nuclear DNA. During spermatogenesis, DNA is replicated once and is then followed by the two meiotic divisions with no further replication. Which values correctly give the chromosome number and the nuclear DNA content of a secondary spermatocyte arrested at metaphase II?",
+    "choices": {
+      "A": "46 chromosomes and 6.4 pg of DNA",
+      "B": "23 chromosomes and 3.2 pg of DNA",
+      "C": "23 chromosomes and 1.6 pg of DNA",
+      "D": "23 chromosomes and 6.4 pg of DNA",
+      "E": "46 chromosomes and 12.8 pg of DNA"
+    },
+    "correct_answer": "D",
+    "explanation": "A mature sperm is haploid and unreplicated: 1C = 3.2 pg, n = 23 chromosomes. Spermatogenesis replicates the DNA once in the primary spermatocyte (to 4C = 12.8 pg, 2n = 46 two-chromatid chromosomes). Meiosis I separates the homologues, so the resulting secondary spermatocyte has the reduced chromosome number n = 23 — BUT each of those chromosomes still consists of two sister chromatids, so the DNA content is 2C = 2 x 3.2 = 6.4 pg. At metaphase II these 23 two-chromatid chromosomes align on the plate; sisters do not separate until anaphase II. Hence 23 chromosomes and 6.4 pg.",
+    "option_analysis": {
+      "A": "Wrong: after meiosis I the homologues have already separated, so the chromosome number is n = 23, not 46; only the DNA figure is correct. Misconception: assuming the cell remains diploid until meiosis II is complete (confusing chromosome-number reduction, which occurs at anaphase I, with the timing of the divisions).",
+      "B": "Wrong: this halves the DNA in step with the chromosome number, ignoring that each of the 23 chromosomes still carries two sister chromatids (2C, not 1C) until anaphase II. Misconception: believing DNA content and chromosome number fall together at every meiotic step.",
+      "C": "Wrong: 1.6 pg is half of a gamete's DNA content (below 1C), which no viable meiotic product ever contains. Misconception: over-halving the DNA, treating each division as halving DNA per cell without limit.",
+      "D": "Correct: meiosis I reduces the chromosome number to n = 23, but each chromosome retains its two sister chromatids, giving a 2C DNA content of 6.4 pg at metaphase II.",
+      "E": "Wrong: 46 chromosomes and 12.8 pg (2n, 4C) describes the primary spermatocyte after S phase but before meiosis I, not the secondary spermatocyte. Misconception: mis-identifying the meiotic stage."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0056",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell division and chromosomes",
+    "subtopic": "Crossing over and the 50% upper limit of recombination frequency",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "crossing over",
+      "recombination frequency",
+      "linkage",
+      "chromatids",
+      "50% maximum"
+    ],
+    "learning_objective": "Explain why the recombination frequency between two loci cannot exceed 50% by relating a single crossover to the four chromatids of a bivalent, and interpret why distant loci assort as though unlinked.",
+    "question": "In a certain plant, two loci — G/g and H/h — lie on the same chromosome and the plant is heterozygous in the coupling (cis) arrangement: G H on one homologue and g h on the other. Cytological observation shows that exactly one chiasma forms between these two loci in every meiotic cell, so a single crossover occurs between them in 100% of meioses. Recall that any single crossover involves only two of the four chromatids of a bivalent. What percentage of the gametes will be recombinant (G h or g H), and what does this reveal about two loci lying far apart on one chromosome?",
+    "choices": {
+      "A": "0% recombinant; a single crossover cannot actually separate alleles that begin on the same chromatid",
+      "B": "50% recombinant, but this demonstrates that the two loci are tightly (completely) linked",
+      "C": "50% recombinant; loci this far apart assort essentially as if they were on different chromosomes, the recombination frequency approaching its 50% ceiling",
+      "D": "25% recombinant; the two recombinant chromatids are diluted among all the gametes of successive divisions",
+      "E": "100% recombinant; because a crossover occurs in every cell, every gamete must carry a recombinant chromosome"
+    },
+    "correct_answer": "C",
+    "explanation": "A bivalent contains four chromatids. A single crossover exchanges segments between only ONE chromatid of each homologue — two chromatids in total. The remaining two chromatids stay parental. After both meiotic divisions the four chromatids become four gametes: two parental (G H and g h) and two recombinant (G h and g H). So even if a crossover occurs between the loci in 100% of meioses, only 50% of gametes are recombinant. This is why the recombination frequency has a maximum of 50%: two loci far enough apart to have a crossover essentially every meiosis behave, in a cross, exactly like loci on separate chromosomes (independent assortment).",
+    "option_analysis": {
+      "A": "Wrong: crossing over physically exchanges segments between chromatids, genuinely producing recombinant (G h and g H) chromosomes. Misconception: believing crossing over does not actually recombine linked alleles.",
+      "B": "Wrong: the 50% figure is correct, but the interpretation is inverted — 50% is the hallmark of loci so far apart they appear unlinked, whereas tight linkage gives a recombination frequency near 0%. Misconception: confusing the maximum recombination frequency with tight linkage.",
+      "C": "Correct: two of four chromatids are recombinant per crossover, so a single crossover in every meiosis gives 50% recombinant gametes — the maximum value, at which linked loci are statistically indistinguishable from independently assorting ones.",
+      "D": "Wrong: 25% comes from mis-counting the gametes or dividing the two recombinant chromatids by an inflated denominator; the four chromatids give exactly four gametes, two of them recombinant. Misconception: erroneous chromatid/gamete bookkeeping.",
+      "E": "Wrong: a crossover in every meiosis does not make every gamete recombinant, because a single crossover involves only 2 of the 4 chromatids; the other 2 remain parental. Misconception: equating 'a crossover occurs in every cell' with 'every gamete is recombinant.'"
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0057",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell division and chromosomes",
+    "subtopic": "Cell-cycle control failure in cancer: spindle assembly checkpoint loss and aneuploidy",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "spindle assembly checkpoint",
+      "aneuploidy",
+      "tumour suppressor",
+      "cell cycle control",
+      "cancer"
+    ],
+    "learning_objective": "Predict the consequence of losing the spindle assembly (mitotic) checkpoint and classify the affected gene as tumour-suppressor-like (loss of function) rather than an oncogene (gain of function).",
+    "question": "The spindle assembly checkpoint (SAC) delays the metaphase-to-anaphase transition until every kinetochore is correctly attached to spindle microtubules emanating from opposite poles. A tumour cell line carries a loss-of-function mutation in a core SAC component, so this delay can no longer be imposed. Which outcome is most directly expected, and how does the mutated gene behave at the cellular level?",
+    "choices": {
+      "A": "The cell cannot exit mitosis and is eliminated by apoptosis, so the mutation protects against cancer",
+      "B": "The cells arrest permanently in metaphase; the mutation behaves as an oncogene through a gain of function",
+      "C": "Sister chromatids separate prematurely but each daughter still inherits a balanced chromosome set; the mutation is a gain-of-function oncogene",
+      "D": "Chromosome replication fails, yielding haploid daughter cells; the gene behaves as a tumour suppressor",
+      "E": "Daughter cells frequently receive an abnormal number of chromosomes (aneuploidy); the gene behaves as a tumour suppressor, its loss of function promoting transformation"
+    },
+    "correct_answer": "E",
+    "explanation": "The SAC holds cells at metaphase until all chromosomes are correctly bi-oriented. Removing the checkpoint lets cells proceed into anaphase while some chromosomes are still unattached or mis-attached, so those chromosomes segregate unequally and daughter cells inherit abnormal chromosome numbers — aneuploidy / chromosomal instability, a recognised route to cancer. Because it is the LOSS of function of the gene that promotes malignancy, the gene behaves like a tumour suppressor (recessive at the cellular level), not an oncogene (which is a dominant, gain-of-function driver).",
+    "option_analysis": {
+      "A": "Wrong: this describes a protective, pro-apoptotic effect, the opposite of what happens; SAC loss lets defective divisions proceed and promotes, rather than prevents, tumour formation. Misconception: inverting the direction of the checkpoint's role.",
+      "B": "Wrong: losing the checkpoint removes the delay, so cells proceed into anaphase prematurely rather than arresting; and a loss-of-function change is the opposite of a gain-of-function oncogene. Misconception: assuming checkpoint loss causes arrest, and mislabelling loss of function as oncogenic.",
+      "C": "Wrong: without the checkpoint, mis-attached chromosomes segregate unequally, so daughters do NOT receive balanced sets, and loss of function is not a gain-of-function oncogene. Misconception: assuming segregation stays accurate without the checkpoint and mislabelling the mutation type.",
+      "D": "Wrong: the SAC governs chromosome segregation, not DNA replication, so its loss does not block S phase or generate haploid cells. Misconception: confusing the mitotic (spindle) checkpoint with the replication/G1-S machinery.",
+      "E": "Correct: bypassing the SAC allows anaphase before all kinetochores are attached, causing chromosome mis-segregation and aneuploidy; since loss of the gene's function drives this, the gene acts as a tumour suppressor."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0058",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell division and chromosomes",
+    "subtopic": "Meiotic cohesion: shugoshin protection of centromeric cohesin and its failure",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "cohesin",
+      "shugoshin",
+      "meiosis I",
+      "sister chromatid cohesion",
+      "aneuploidy"
+    ],
+    "learning_objective": "Explain the two-step loss of cohesin in meiosis (arm cohesin at anaphase I, centromeric cohesin at anaphase II) and predict the effect of losing shugoshin-mediated protection of centromeric cohesin.",
+    "question": "During meiosis I, the enzyme separase cleaves cohesin along the chromosome arms, releasing the chiasmata so that homologous chromosomes can separate, while cohesin at the centromeres is shielded from cleavage by the protein shugoshin and is retained until anaphase II, when it too is cleaved and sister chromatids finally separate. In the oocytes of a mutant, shugoshin is non-functional, so centromeric cohesin is no longer protected during meiosis I. What is the most likely consequence for the resulting gametes?",
+    "choices": {
+      "A": "Crossing over between homologues is blocked, so no recombinant gametes are produced",
+      "B": "Homologous chromosomes fail to separate at anaphase I, producing gametes with the diploid chromosome number",
+      "C": "Sister chromatids remain joined throughout both divisions, giving gametes whose chromosomes each contain two chromatids",
+      "D": "Sister chromatids separate prematurely during anaphase I, leading to chromosome mis-segregation and aneuploid gametes",
+      "E": "Meiosis II fails to occur, so only two gametes are formed from each meiosis"
+    },
+    "correct_answer": "D",
+    "explanation": "Shugoshin normally protects centromeric cohesin during meiosis I so that sister chromatids stay together through the first division and separate only at anaphase II. If shugoshin is absent, the centromeric cohesin is exposed to separase already at anaphase I, so sister chromatids can be pulled apart one division too early. This equational separation at the wrong time randomises chromatid distribution, producing gametes with missing or extra chromatids — aneuploid gametes. (Age-related decline of this protection is a leading explanation for the rise in maternal meiotic aneuploidy.)",
+    "option_analysis": {
+      "A": "Wrong: shugoshin protects centromeric cohesion; it does not create the crossovers, which are established earlier in prophase I, so recombination is not abolished. Misconception: attributing crossing over to the cohesin-protection machinery.",
+      "B": "Wrong: failure of homologues to separate (producing diploid gametes) results from a problem with homologue disjunction or arm-cohesin cleavage, not from loss of centromeric-cohesin protection, which if anything makes chromatids separate too readily. Misconception: conflating any cohesion defect with meiosis I non-disjunction of whole homologues.",
+      "C": "Wrong: loss of shugoshin removes cohesion protection, so sisters separate too early rather than staying joined through both divisions. Misconception: reversing the effect of losing a cohesion-protecting factor.",
+      "D": "Correct: without shugoshin, centromeric cohesin is unprotected at anaphase I, so sister chromatids separate prematurely, mis-segregate, and generate aneuploid gametes.",
+      "E": "Wrong: shugoshin governs when centromeric cohesin is cleaved, not whether meiosis II occurs; the second division still proceeds. Misconception: assuming a cohesion defect abolishes an entire meiotic division."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0059",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Microbiology",
+    "subtopic": "Bacterial growth: viable count from dilution plating combined with exponential-phase projection",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "microbiology",
+      "bacterial growth",
+      "viable count",
+      "serial dilution",
+      "exponential growth",
+      "generation time",
+      "CFU"
+    ],
+    "learning_objective": "Integrate viable-count (dilution-plating) calculation with exponential growth kinetics to project bacterial cell density forward in time.",
+    "question": "In a bacterial enumeration experiment, a 0.1 mL sample of a growing culture is spread onto an agar plate after the culture has been serially diluted 10^4-fold. After incubation, 250 colonies are counted. The organism grows exponentially with a doubling (generation) time of 30 minutes and remains in exponential phase throughout. Assuming each viable cell gives rise to one colony, what will the viable cell density of the original culture be 2 hours after the sample was taken?",
+    "choices": {
+      "A": "4.0 × 10^7 cells/mL",
+      "B": "4.0 × 10^9 cells/mL",
+      "C": "4.0 × 10^8 cells/mL",
+      "D": "2.5 × 10^7 cells/mL",
+      "E": "1.0 × 10^8 cells/mL"
+    },
+    "correct_answer": "C",
+    "explanation": "First back-calculate the cell density at the moment of sampling. The number of colonies equals (density) × (volume plated) × (dilution fraction): 250 = density × 0.1 mL × 10^-4, so density = 250 / (0.1 × 10^-4) = 250 / 10^-5 = 2.5 × 10^7 cells/mL. Then project 2 hours of exponential growth: at one doubling per 30 minutes there are 4 doublings in 2 hours, a factor of 2^4 = 16. Final density = 2.5 × 10^7 × 16 = 4.0 × 10^8 cells/mL.",
+    "option_analysis": {
+      "A": "Wrong: this uses 2.5 × 10^6 cells/mL as the starting density (×16 = 4.0 × 10^7), which comes from omitting the 0.1 mL plating volume and treating 1 mL as plated. The volume spread on the plate must be included in the viable-count formula.",
+      "B": "Wrong: this over-corrects the dilution by an extra factor of 10 (starting density taken as 2.5 × 10^8, ×16 = 4.0 × 10^9), for example by double-counting the volume-to-mL conversion within the dilution factor.",
+      "C": "Correct: density at sampling = 250/(0.1 mL × 10^-4) = 2.5 × 10^7 cells/mL; four doublings in 2 h give ×2^4 = 16; 2.5 × 10^7 × 16 = 4.0 × 10^8 cells/mL.",
+      "D": "Wrong: 2.5 × 10^7 is the density at the moment of sampling. This ignores the 2 hours of subsequent growth — a failure to project the exponential increase forward in time.",
+      "E": "Wrong: this multiplies the starting density by the number of doublings (×4) instead of by 2^4. It treats growth as linear rather than exponential (using ×n rather than ×2^n)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0060",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biotechnology",
+    "subtopic": "Real-time PCR: relating threshold cycle (Ct) to starting template copy number",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "biotechnology",
+      "PCR",
+      "qPCR",
+      "real-time PCR",
+      "threshold cycle",
+      "exponential amplification",
+      "template quantification"
+    ],
+    "learning_objective": "Use the exponential (2-fold-per-cycle) nature of PCR to convert a fold-difference in starting template into a difference in threshold cycle at a fixed detection threshold.",
+    "question": "Two samples containing the same target gene are quantified by real-time PCR under identical conditions, with an amplification efficiency of exactly 100% (the amount of target doubles every cycle). Sample A initially contains 64 times as many target molecules as Sample B. Fluorescence crosses the detection threshold in Sample A at cycle 18. Assuming both reactions cross the threshold at the same absolute number of target molecules, at which cycle is the threshold expected to be crossed in Sample B?",
+    "choices": {
+      "A": "Cycle 20",
+      "B": "Cycle 1152",
+      "C": "Cycle 12",
+      "D": "Cycle 18",
+      "E": "Cycle 24"
+    },
+    "correct_answer": "E",
+    "explanation": "With 100% efficiency each cycle doubles the target, so a fixed detection threshold is reached after a number of cycles set by log2 of the starting amount. Sample B starts with 1/64 = 2^-6 as much target as A, so it needs 6 additional doublings (6 extra cycles) to reach the same absolute copy number. Ct(B) = 18 + 6 = cycle 24. (Equivalently, ΔCt = log2(64) = 6.)",
+    "option_analysis": {
+      "A": "Wrong: cycle 20 = 18 + 2 uses log10(64) ≈ 1.8 → +2, i.e. it treats each cycle as a tenfold (10×) increase rather than a twofold (2×) increase.",
+      "B": "Wrong: 1152 = 18 × 64 multiplies the threshold cycle by the fold-difference, confusing a difference in copy number (which shifts Ct additively via log2) with a multiplicative change in the cycle number itself.",
+      "C": "Wrong: cycle 12 = 18 − 6, a sign error. Sample B has fewer starting molecules, so it must cross the threshold later, not earlier; the student inverted the relationship between template amount and Ct.",
+      "D": "Wrong: this assumes the starting copy number does not affect Ct. In qPCR the threshold cycle depends directly on the initial template amount, which is the entire basis of quantification.",
+      "E": "Correct: B has 2^-6 the starting template, requiring 6 more doublings; 18 + 6 = cycle 24."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0061",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Virology",
+    "subtopic": "Temperate phage lysis–lysogeny decision governed by CII stability and host protease activity",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "virology",
+      "bacteriophage lambda",
+      "lytic cycle",
+      "lysogeny",
+      "CII",
+      "FtsH protease",
+      "gene regulation",
+      "host physiology"
+    ],
+    "learning_objective": "Predict the lytic/lysogenic outcome of a temperate phage infection by integrating the regulatory logic of CII (activator of the repressor gene) with its degradation by a host protease whose activity tracks growth rate.",
+    "question": "In bacteriophage λ, the choice between the lytic and lysogenic pathways depends on the intracellular level of the regulatory protein CII. CII activates transcription of cI, the gene encoding the λ repressor that establishes and maintains lysogeny; CII is also rapidly degraded by the host protease FtsH (HflB), whose activity is higher in rapidly growing cells. Two E. coli cultures are infected at the same low multiplicity of infection: culture 1 is starved on a poor carbon source (slow growth), and culture 2 is in rich medium (rapid growth). In a separate experiment, an FtsH-deficient host is infected in rich medium. Which set of outcomes is expected?",
+    "choices": {
+      "A": "Growth rate is irrelevant; because the multiplicity of infection is identical, both cultures give the same outcome.",
+      "B": "Starved culture 1 follows the lytic pathway, whereas rich culture 2 becomes lysogenic, because rapid growth stabilises CII.",
+      "C": "Both cultures follow the lytic pathway irrespective of growth rate, and the FtsH-deficient host is also lytic because loss of the protease prevents cI expression.",
+      "D": "Starved culture 1 becomes lysogenic and rich culture 2 follows the lytic pathway, while the FtsH-deficient host becomes lysogenic even in rich medium.",
+      "E": "The FtsH-deficient host follows the lytic pathway, because without the protease CII cannot activate transcription of cI."
+    },
+    "correct_answer": "D",
+    "explanation": "High CII favours lysogeny because CII switches on cI (the λ repressor). CII level is set by the balance between its synthesis and its degradation by FtsH, whose activity rises with growth rate. In starved, slow-growing cells FtsH activity is low, so CII accumulates, cI is transcribed, and lysogeny is established. In rapidly growing cells FtsH is highly active, CII is destroyed, cI is not switched on, and the lytic pathway proceeds. Removing FtsH stabilises CII regardless of medium, so an FtsH-deficient host in rich medium becomes lysogenic.",
+    "option_analysis": {
+      "A": "Wrong: at fixed multiplicity of infection the host physiological state (via FtsH/CII) is the decisive variable, so growth rate is not irrelevant.",
+      "B": "Wrong: this reverses the physiology. Rapid growth raises FtsH activity, which destabilises (not stabilises) CII, favouring lysis, not lysogeny.",
+      "C": "Wrong: it ignores the growth-rate dependence and misstates FtsH's role — the protease degrades CII, so its loss increases CII and cI expression rather than preventing it.",
+      "D": "Correct: low FtsH in starvation stabilises CII → lysogeny; high FtsH in rich medium degrades CII → lysis; loss of FtsH stabilises CII → lysogeny even in rich medium.",
+      "E": "Wrong: this misreads the causal chain. FtsH degrades CII; removing FtsH raises CII, which activates cI and promotes lysogeny — the opposite of the lytic prediction given."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0062",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biotechnology",
+    "subtopic": "Restriction mapping of a linear fragment from single and double digests",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "biotechnology",
+      "restriction enzymes",
+      "restriction mapping",
+      "gel electrophoresis",
+      "double digest",
+      "EcoRI",
+      "BamHI"
+    ],
+    "learning_objective": "Deduce the relative positions of restriction sites on a linear DNA molecule by reconciling single-enzyme and double-enzyme digest fragment sizes.",
+    "question": "A linear double-stranded DNA molecule 9 kb long is analysed by restriction digestion and agarose gel electrophoresis. Digestion with EcoRI alone yields fragments of 2, 3 and 4 kb. Digestion with BamHI alone yields fragments of 4 and 5 kb. Digestion with both enzymes together yields fragments of 2, 2, 2 and 3 kb. Which statement about the arrangement of the restriction sites is correct?",
+    "choices": {
+      "A": "The single BamHI site lies outside the segment flanked by the two EcoRI sites.",
+      "B": "There are two BamHI sites, one on each side of a single EcoRI site.",
+      "C": "The two EcoRI sites lie 4 kb apart, and the single BamHI site lies midway between them.",
+      "D": "All cut sites coincide, so every enzyme cleaves at the same position 4 kb from one end.",
+      "E": "The two EcoRI sites lie 2 kb apart, with the BamHI site between them."
+    },
+    "correct_answer": "C",
+    "explanation": "For a linear molecule the number of fragments equals the number of sites plus one. EcoRI gives 3 fragments → 2 EcoRI sites; BamHI gives 2 fragments → 1 BamHI site. In the double digest (2, 2, 2, 3 kb): the 3 kb and 2 kb EcoRI fragments survive intact, so they are BamHI-free terminal fragments, while the 4 kb EcoRI fragment is cut into 2 + 2 kb, placing the BamHI site inside it, 2 kb from each EcoRI site. Hence the order is [2 kb]–EcoRI–[2 kb–BamHI–2 kb]–EcoRI–[3 kb]. The two EcoRI sites are 4 kb apart with BamHI midway. This is confirmed by the BamHI-alone pattern: 2 + 2 = 4 kb on one side and 2 + 3 = 5 kb on the other, exactly the observed 4 and 5 kb fragments.",
+    "option_analysis": {
+      "A": "Wrong: if BamHI lay outside the EcoRI-flanked region it would cut a terminal (2 or 3 kb) EcoRI fragment; instead those survive intact and the internal 4 kb fragment is split, so BamHI is between the EcoRI sites.",
+      "B": "Wrong: BamHI alone gives 2 fragments, which for a linear molecule means 1 site (fragments = sites + 1). Counting 2 sites forgets the '+1' rule for linear DNA.",
+      "C": "Correct: 2 EcoRI sites (3 fragments) 4 kb apart; the single BamHI site splits the central 4 kb fragment into 2 + 2 kb, placing it midway; the BamHI-alone 4/5 kb pattern confirms this.",
+      "D": "Wrong: coincident sites would give identical single-enzyme patterns, but EcoRI (2/3/4) and BamHI (4/5) differ, so the sites cannot all be at one position. This ignores the distinct single-digest data.",
+      "E": "Wrong: the 2 kb pieces in the double digest are the two halves of the central 4 kb EcoRI fragment, not the EcoRI spacing. This confuses double-digest sub-fragments with the distance between EcoRI sites."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0063",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biotechnology",
+    "subtopic": "CRISPR-Cas9 knock-in: preventing re-cutting of correctly edited alleles via the PAM",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "biotechnology",
+      "CRISPR",
+      "Cas9",
+      "gene editing",
+      "PAM",
+      "homology-directed repair",
+      "NHEJ",
+      "knock-in"
+    ],
+    "learning_objective": "Explain why a correctly edited allele can be re-cut by Cas9 and design the donor template (PAM/seed disruption) needed to preserve a precise HDR-mediated edit.",
+    "question": "A researcher uses Cas9 and a single guide RNA to introduce a specific single-nucleotide change into a gene by homology-directed repair, supplying a donor DNA template that carries the desired change. Editing is inefficient: most correctly edited alleles are subsequently re-cut and then repaired by non-homologous end joining (NHEJ), destroying the intended edit. The desired point mutation lies neither within the PAM nor within the seed region of the target. Which modification to the experiment is most likely to preserve the intended edit?",
+    "choices": {
+      "A": "Increase the concentration of the Cas9–sgRNA complex to raise the cutting efficiency at the target site.",
+      "B": "Omit the donor template so that repair proceeds only by homology-directed repair.",
+      "C": "Use a guide RNA that is fully complementary to the PAM sequence to improve targeting specificity.",
+      "D": "Include a synonymous (silent) mutation in the donor template that alters the PAM sequence, so the repaired allele is no longer a substrate for Cas9.",
+      "E": "Convert the point mutation into a large insertion so that NHEJ can religate the ends precisely."
+    },
+    "correct_answer": "D",
+    "explanation": "Cas9 cleaves wherever the guide matches a protospacer adjacent to an intact PAM. If the desired edit leaves the PAM and the seed match intact, the correctly repaired allele is still a valid target, so Cas9 re-cuts it and error-prone NHEJ then destroys the precise change. The standard solution is to build a 'blocking' mutation into the donor that disrupts the PAM (or a seed-region base) while leaving the encoded protein unchanged (a synonymous codon change), so the edited allele can no longer be recognised or cut.",
+    "option_analysis": {
+      "A": "Wrong: more Cas9–sgRNA increases cutting, including re-cutting of the already-correct alleles, worsening the problem. This assumes 'more enzyme always improves the edit', ignoring that cleaving a correct allele destroys it.",
+      "B": "Wrong: homology-directed repair requires a donor template. Removing it leaves only NHEJ, which cannot install the precise point change and causes indels.",
+      "C": "Wrong: the guide does not base-pair with the PAM; the PAM is read directly by the Cas9 protein, while the spacer pairs with the protospacer. Making the guide complementary to the PAM abolishes targeting.",
+      "D": "Correct: disrupting the PAM with a synonymous change removes the Cas9 recognition requirement without altering the protein, so the edited allele survives instead of being re-cut and scrambled by NHEJ.",
+      "E": "Wrong: NHEJ is error-prone and typically generates insertions/deletions rather than precise joins; it cannot faithfully reconstruct a defined sequence, so enlarging the edit does not help."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  }
+]

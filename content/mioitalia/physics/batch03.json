@@ -1,0 +1,274 @@
+[
+  {
+    "id": "mio_phys_0017",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "DC circuits",
+    "subtopic": "EMF, internal resistance and power: recomputing load current",
+    "difficulty": "medium",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "internal resistance",
+      "EMF",
+      "terminal voltage",
+      "power dissipation",
+      "DC circuits"
+    ],
+    "learning_objective": "Determine a battery's internal resistance from a loaded terminal-voltage reading and use it to compute the internal power dissipation at a different load, recognising that the current must be recomputed.",
+    "question": "A battery of constant EMF 12 V is connected to an external resistor of 5.0 Ω, and a voltmeter across its terminals reads 10 V. The same battery is then connected instead to an external resistor of 2.0 Ω. Assuming the internal resistance is unchanged, what is the power dissipated inside the battery (in its internal resistance) in this second arrangement?",
+    "choices": {
+      "A": "36 W",
+      "B": "32 W",
+      "C": "4 W",
+      "D": "16 W",
+      "E": "48 W"
+    },
+    "correct_answer": "D",
+    "explanation": "First find the internal resistance from the loaded reading: the current is I₁ = V/R = 10/5 = 2.0 A, and the 'lost volts' ε − V = 2 V appear across r, so r = 2/2 = 1.0 Ω. Internal resistance is a property of the battery, so it is unchanged when the load is swapped. With the 2.0 Ω load the current becomes I₂ = ε/(R + r) = 12/3 = 4.0 A, so the internal power is P = I₂²r = 4² × 1 = 16 W. The trap is that the current must be recomputed for the new load, and the internal power is I²r — not I²R (external) nor εI (total).",
+    "option_analysis": {
+      "A": "Wrong: finds the current as ε/R = 12/2 = 6 A, ignoring the internal resistance when computing the current, then multiplies by r (6² × 1 = 36 W).",
+      "B": "Wrong: computes I₂²R = 4² × 2 = 32 W, the power dissipated in the external resistor, and mislabels it as the internal power.",
+      "C": "Wrong: uses the first-arrangement current (2.0 A) in P = I²r instead of recomputing the current for the 2.0 Ω load, forgetting that changing the external resistance changes the current.",
+      "D": "Correct: r = (ε − V)/I₁ = (12 − 10)/(10/5) = 2/2 = 1.0 Ω; with the 2.0 Ω load, I₂ = 12/(2+1) = 4.0 A, so P_internal = I₂²r = 16 × 1 = 16 W.",
+      "E": "Wrong: computes the total power delivered by the EMF, εI₂ = 12 × 4 = 48 W, rather than only the part dissipated internally."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0018",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "DC circuits",
+    "subtopic": "Kirchhoff's laws: two parallel EMF sources driving a common load",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "Kirchhoff's laws",
+      "two-source circuit",
+      "internal resistance",
+      "node voltage",
+      "Millman"
+    ],
+    "learning_objective": "Apply Kirchhoff's laws (or Millman's theorem) to find the load current when two batteries of unequal EMF and internal resistance are connected in parallel to a single load.",
+    "question": "Two batteries are connected in parallel to supply a single load resistor. The first battery has EMF 6.0 V and internal resistance 3.0 Ω; the second has EMF 12.0 V and internal resistance 6.0 Ω. Their positive terminals are joined at one node and their negative terminals at another, and a 2.0 Ω load resistor is connected between these two nodes. What is the current through the load resistor?",
+    "choices": {
+      "A": "4.5 A",
+      "B": "1.5 A",
+      "C": "1.6 A",
+      "D": "0.7 A",
+      "E": "2.0 A"
+    },
+    "correct_answer": "E",
+    "explanation": "With two EMF sources feeding a common pair of nodes, the quickest route is Millman's theorem (equivalent to Kirchhoff's node rule): V_node = (ε₁/r₁ + ε₂/r₂)/(1/r₁ + 1/r₂ + 1/R) = (6/3 + 12/6)/(1/3 + 1/6 + 1/2) = (2 + 2)/1 = 4.0 V. The load current is I = V/R = 4.0/2.0 = 2.0 A. Checking with branch currents: the 6 V branch delivers (6 − 4)/3 = 0.67 A and the 12 V branch (12 − 4)/6 = 1.33 A, summing to 2.0 A. Parallel sources cannot be collapsed by simply adding EMFs or resistances.",
+    "option_analysis": {
+      "A": "Wrong: uses the mean EMF (9 V) across only the load resistor, 9/2 = 4.5 A, ignoring both internal resistances.",
+      "B": "Wrong: considers only the 12 V battery, 12/(6 + 2) = 1.5 A, ignoring the 6 V battery's contribution to the node voltage.",
+      "C": "Wrong: adds the two EMFs and places all three resistances in series, (6 + 12)/(3 + 6 + 2) = 1.6 A, treating parallel batteries as one series loop.",
+      "D": "Wrong: treats the two EMFs as opposing in a single series loop, computing (12 − 6)/(3 + 6) = 0.67 A and ignoring the load resistor entirely.",
+      "E": "Correct: node analysis gives V = (6/3 + 12/6)/(1/3 + 1/6 + 1/2) = 4.0 V, so I_load = V/R = 4.0/2.0 = 2.0 A."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0019",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Capacitors",
+    "subtopic": "Series–parallel capacitor network: charge on an individual capacitor",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "capacitors",
+      "series and parallel",
+      "charge distribution",
+      "equivalent capacitance"
+    ],
+    "learning_objective": "Reduce a mixed series–parallel capacitor network and back-calculate the charge on a specified capacitor using the shared series charge and the branch voltage.",
+    "question": "A 12 V battery is connected across a capacitor network. A 9.0 μF capacitor is connected in series with a parallel combination of a 3.0 μF capacitor and a 6.0 μF capacitor. Once the network is fully charged, what is the magnitude of the charge stored on the 6.0 μF capacitor?",
+    "choices": {
+      "A": "18 μC",
+      "B": "36 μC",
+      "C": "54 μC",
+      "D": "72 μC",
+      "E": "27 μC"
+    },
+    "correct_answer": "B",
+    "explanation": "Reduce the network from the inside out. The 3 μF and 6 μF in parallel give 9 μF, which is in series with the 9 μF capacitor, so C_eq = (9 × 9)/(9 + 9) = 4.5 μF. Series elements carry the same charge, Q = C_eq V = 4.5 × 12 = 54 μC; this is the charge on the lone 9 μF capacitor and on the parallel block as a whole. The voltage across the parallel block is 54 μC / 9 μF = 6.0 V, so the 6 μF capacitor holds Q = 6 μF × 6 V = 36 μC. The 12 V splits evenly, 6 V across the series capacitor and 6 V across the parallel block.",
+    "option_analysis": {
+      "A": "Wrong: gives the charge on the 3.0 μF capacitor (the other branch of the parallel pair), 3.0 × 6.0 = 18 μC, instead of the 6.0 μF one.",
+      "B": "Correct: C_parallel = 9 μF, series with 9 μF gives 4.5 μF; Q_total = 4.5 × 12 = 54 μC across the series branch; V across the parallel block = 54/9 = 6.0 V; so Q(6 μF) = 6 × 6 = 36 μC.",
+      "C": "Wrong: assigns the whole series charge (54 μC that flows onto the 9 μF capacitor) to the 6.0 μF capacitor, ignoring that it shares its branch voltage with the 3.0 μF.",
+      "D": "Wrong: applies the full 12 V across the 6.0 μF capacitor (6 × 12 = 72 μC), ignoring the voltage dropped across the series 9.0 μF capacitor.",
+      "E": "Wrong: splits the total series charge (54 μC) equally between the two parallel capacitors, wrongly assuming charge divides evenly rather than in proportion to capacitance."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0020",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Magnetic forces on currents",
+    "subtopic": "Force between parallel currents: net force on the middle of three wires",
+    "difficulty": "hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "parallel wires",
+      "magnetic force",
+      "superposition",
+      "current direction",
+      "force per unit length"
+    ],
+    "learning_objective": "Use superposition of the forces between parallel conductors, accounting for current directions (attraction vs repulsion), to find the net force per unit length on a central wire.",
+    "question": "Three long, straight, parallel wires lie in the same plane with equal spacing of 0.10 m between neighbouring wires. Reading across the plane they are labelled A, B (middle) and C. Wires A and B each carry 10 A in the same direction; wire C carries 20 A in the opposite direction. What is the magnitude of the net magnetic force per unit length on the middle wire B? (μ₀ = 4π × 10⁻⁷ T·m·A⁻¹)",
+    "choices": {
+      "A": "6 × 10⁻⁴ N/m",
+      "B": "8 × 10⁻⁴ N/m",
+      "C": "2 × 10⁻⁴ N/m",
+      "D": "4 × 10⁻⁴ N/m",
+      "E": "1.2 × 10⁻³ N/m"
+    },
+    "correct_answer": "A",
+    "explanation": "Treat the force on the middle wire as the vector sum of the forces from each neighbour, using f = μ₀I₁I₂/(2πd) per unit length. Wires A and B carry parallel currents and attract, so f_AB = (4π×10⁻⁷)(10)(10)/(2π×0.10) = 2×10⁻⁴ N/m directed toward A. Wires B and C carry antiparallel currents and repel; since C sits on the opposite side of B, this force also points toward A: f_BC = (4π×10⁻⁷)(10)(20)/(2π×0.10) = 4×10⁻⁴ N/m. Both contributions point the same way, so they add to 6×10⁻⁴ N/m. The essential steps are getting the directions right and recognising they reinforce.",
+    "option_analysis": {
+      "A": "Correct: f_AB = 2×10⁻⁴ N/m (attraction toward A) and f_BC = 4×10⁻⁴ N/m (repulsion, also toward A); both act in the same direction, so the net force per unit length is 6×10⁻⁴ N/m.",
+      "B": "Wrong: uses 20 A for both neighbours, f = 2 × μ₀(10)(20)/(2πd) = 8×10⁻⁴ N/m, overstating wire A's current.",
+      "C": "Wrong: subtracts the two contributions (4 − 2)×10⁻⁴, mistaking the attractive and repulsive forces as pointing in opposite directions; in fact both push B toward A.",
+      "D": "Wrong: includes only the force from wire C (the larger current), ignoring the force contributed by wire A.",
+      "E": "Wrong: drops the factor of 2 in the force law (uses μ₀I₁I₂/(πd)), doubling each force to give 1.2×10⁻³ N/m."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0021",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Electromagnetic induction",
+    "subtopic": "Charge through a coil from a flux reversal (q = NΔΦ/R), independent of rate",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "Faraday's law",
+      "induced charge",
+      "flux linkage",
+      "field reversal",
+      "Lenz's law"
+    ],
+    "learning_objective": "Show that the total charge circulated by a changing flux equals NΔΦ/R, independent of the time taken, and apply it correctly to a full field reversal.",
+    "question": "A flat circular coil of 200 turns, each of area 5.0 × 10⁻³ m², lies with its plane perpendicular to a uniform magnetic field. The coil forms part of a closed circuit of total resistance 8.0 Ω. The magnetic field is slowly reversed from 0.40 T in one direction to 0.40 T in the opposite direction. What total electric charge circulates through the coil during this reversal?",
+    "choices": {
+      "A": "0.050 C",
+      "B": "5 × 10⁻⁴ C",
+      "C": "0.10 C",
+      "D": "0.20 C",
+      "E": "0.80 C"
+    },
+    "correct_answer": "C",
+    "explanation": "Integrating Faraday's law over the whole change gives q = ∫I dt = ∫(N/R)(dΦ/dt) dt = NΔΦ/R, which depends only on the net change in flux linkage, not on how fast the field changes. Reversing the field means ΔB = 0.40 − (−0.40) = 0.80 T, so ΔΦ per turn = AΔB = 5.0×10⁻³ × 0.80 = 4.0×10⁻³ Wb. Hence q = NΔΦ/R = 200 × 4.0×10⁻³/8.0 = 0.10 C. The most tempting mistakes are using ΔB = 0.40 T (missing the reversal) and believing the time interval is required.",
+    "option_analysis": {
+      "A": "Wrong: takes ΔB = 0.40 T (the magnitude of the final field) instead of the full change 0.80 T produced by the reversal.",
+      "B": "Wrong: omits the number of turns, using single-turn flux q = AΔB/R instead of NAΔB/R.",
+      "C": "Correct: q = NΔΦ/R = N·A·ΔB/R with ΔB = 0.40 − (−0.40) = 0.80 T gives 200 × 5.0×10⁻³ × 0.80/8.0 = 0.10 C, independent of how quickly the field is reversed.",
+      "D": "Wrong: applies an extra factor of 2 for the reversal on top of the already-doubled ΔB = 0.80 T.",
+      "E": "Wrong: computes NAΔB (the change in flux linkage) but forgets to divide by the circuit resistance."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0022",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Capacitors",
+    "subtopic": "Dielectric inserted with the battery connected: work done by the battery",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 190,
+    "tags": [
+      "dielectric",
+      "capacitor energy",
+      "constant voltage",
+      "work done by battery",
+      "energy accounting"
+    ],
+    "learning_objective": "Carry out the full energy accounting when a dielectric is inserted into a capacitor held at constant voltage, distinguishing battery work, change in stored energy and mechanical work.",
+    "question": "A parallel-plate capacitor of capacitance 4.0 μF is charged by, and remains connected to, a 100 V battery. A slab of dielectric constant 3.0 is then slowly inserted so that it completely fills the space between the plates, the battery staying connected throughout. How much work is done by the battery during the insertion of the slab?",
+    "choices": {
+      "A": "120 mJ",
+      "B": "20 mJ",
+      "C": "80 mJ",
+      "D": "40 mJ",
+      "E": "60 mJ"
+    },
+    "correct_answer": "C",
+    "explanation": "Because the battery stays connected, the voltage is fixed at 100 V while the capacitance rises from C₀ = 4.0 μF to κC₀ = 12 μF. The stored charge therefore increases from Q₀ = C₀V = 400 μC to Q = κC₀V = 1200 μC. The battery must move the extra ΔQ = 800 μC through its full 100 V, doing work W = ΔQ·V = 8.0×10⁻⁴ × 100 = 80 mJ. For completeness, the stored energy rises only by ½ΔQ·V = 40 mJ, so the other 40 mJ is the mechanical work done as the slab is drawn in — the battery supplies both. Confusing the battery's work with the change in stored energy is the classic pitfall.",
+    "option_analysis": {
+      "A": "Wrong: uses the full final charge, Q·V = 1200 μC × 100 V = 120 mJ, instead of the extra charge ΔQ actually delivered.",
+      "B": "Wrong: reports the initial stored energy ½C₀V² = 20 mJ instead of the work done by the battery.",
+      "C": "Correct: at constant voltage the charge rises from 400 μC to 1200 μC, so the battery moves ΔQ = 800 μC through 100 V, doing W = ΔQ·V = 8.0×10⁻⁴ × 100 = 80 mJ.",
+      "D": "Wrong: reports the increase in stored energy ΔU = ½(κ − 1)C₀V² = 40 mJ; the battery actually does more than this because it also supplies the mechanical work as the slab is drawn in.",
+      "E": "Wrong: reports the final stored energy ½κC₀V² = 60 mJ, not the work done by the battery."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0023",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Electricity",
+    "subtopic": "DC network: power dissipated in a resistor of a series–parallel circuit",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "DC circuit",
+      "series",
+      "parallel",
+      "power",
+      "resistor network"
+    ],
+    "learning_objective": "Reduce a series–parallel resistor network to find the current through a specific resistor and the power it dissipates.",
+    "question": "A 12 V battery of negligible internal resistance is connected to a resistor R1 = 4.0 Ω, which is in series with a parallel combination of R2 = 6.0 Ω and R3 = 3.0 Ω. What is the power dissipated in R1?",
+    "choices": {
+      "A": "4.0 W",
+      "B": "24 W",
+      "C": "8.0 W",
+      "D": "12 W",
+      "E": "16 W"
+    },
+    "correct_answer": "E",
+    "explanation": "The parallel combination R2 ∥ R3 = (6.0 × 3.0)/(6.0 + 3.0) = 18/9 = 2.0 Ω. The total resistance is R1 + 2.0 = 4.0 + 2.0 = 6.0 Ω, so the current from the battery (which all flows through R1) is I = 12/6.0 = 2.0 A. The power dissipated in R1 is P = I²R1 = (2.0)²(4.0) = 16 W.",
+    "option_analysis": {
+      "A": "Wrong: 4.0 W would require I = 1.0 A, e.g. from adding all three resistors in series (4+6+3 = 13 Ω is not even used correctly).",
+      "B": "Wrong: 24 W is the TOTAL power delivered by the battery (P = IV = 2.0 × 12), not the power in R1 alone.",
+      "C": "Wrong: 8.0 W = I²(2.0 Ω) uses the parallel combination's resistance instead of R1, or halves the correct value.",
+      "D": "Wrong: 12 W does not correspond to any correct current-and-resistance combination for R1.",
+      "E": "Correct: R_total = 6.0 Ω ⇒ I = 2.0 A through R1 ⇒ P = I²R1 = 16 W."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  }
+]
