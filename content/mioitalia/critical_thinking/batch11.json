@@ -1,0 +1,197 @@
+[
+  {
+    "id": "mio_ct_0052",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Identifying a necessary assumption: the target group must respond to the proposed incentive",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "critical thinking",
+      "unstated assumption",
+      "negation test",
+      "policy reasoning",
+      "necessary condition"
+    ],
+    "learning_objective": "Identify an unstated assumption on which an argument depends by recognising the behavioural response that must hold for the stated plan to produce the stated outcome, and confirm it with the negation test.",
+    "question": "A city council argues: 'To reduce the number of cars entering the downtown area, we will raise the price of downtown parking. At present, most people who drive into downtown do so alone in their cars. Raising parking charges will therefore cut the number of cars entering downtown.' Which one of the following is an assumption on which the council's argument depends?",
+    "choices": {
+      "A": "Raising parking charges is the most effective of all available measures for reducing downtown congestion.",
+      "B": "Most downtown congestion is caused by commuters rather than by delivery and service vehicles.",
+      "C": "The additional revenue raised from higher parking charges will be spent on improving public transport.",
+      "D": "Downtown parking currently costs less than parking in comparably sized cities elsewhere.",
+      "E": "At least some of the people who currently drive alone into downtown would respond to higher parking charges by not driving in."
+    },
+    "correct_answer": "E",
+    "explanation": "The conclusion (fewer cars will enter downtown) follows from the plan (higher charges) only if drivers actually change their behaviour in response. Apply the negation test: if no current solo driver would change behaviour when charges rise, then the number of cars entering is unchanged and the inference collapses. Hence some responsiveness among current drivers is a necessary assumption. The other options are either far stronger than the conclusion requires or logically irrelevant to the stated cause-and-effect claim.",
+    "option_analysis": {
+      "A": "Wrong: the argument claims only that the measure will reduce cars, not that it is the best or most effective option; requiring it to be 'most effective' confuses a cause that is sufficient to produce an effect with one that is optimal.",
+      "B": "Wrong: the conclusion concerns the number of cars entering, not the ultimate source of congestion; even if delivery vehicles caused most congestion, fewer commuter cars could still enter, so this attacks a different conclusion.",
+      "C": "Wrong: how the revenue is spent has no bearing on whether higher charges themselves reduce the number of cars entering; this imports a plausible-sounding but logically unnecessary premise.",
+      "D": "Wrong: a comparison with other cities is not needed for the local claim that raising charges reduces cars entering; it is an irrelevant benchmark.",
+      "E": "Correct: negating it ('no current solo driver would change behaviour when charges rise') leaves car numbers unchanged and destroys the inference, so at least some behavioural response is a necessary assumption."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0053",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Detecting the flaw: slippery slope (unsupported chain of escalating consequences)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "critical thinking",
+      "logical flaw",
+      "slippery slope",
+      "fallacy identification",
+      "chain of consequences"
+    ],
+    "learning_objective": "Diagnose the principal flaw in an argument that presents an extreme outcome as the inevitable result of a modest first step through a series of unestablished intermediate links (the slippery-slope fallacy), and distinguish it from other named flaws.",
+    "question": "Consider the following argument: 'If we permit first-year students to use calculators in the statistics course, they will stop practising mental arithmetic. Once they stop practising mental arithmetic, they will lose the ability to estimate answers. Without estimation skills they will be unable to notice gross errors, and before long the whole profession will be filled with statisticians who cannot tell whether a result is even remotely plausible. Calculators must therefore be banned from the course.' Which one of the following best identifies the principal flaw in this argument?",
+    "choices": {
+      "A": "It treats a condition that is merely necessary as though it were also sufficient.",
+      "B": "It infers a property of a whole group from a property attributed to each of its individual members.",
+      "C": "It generalises from an unrepresentative sample of students to the whole student body.",
+      "D": "It attacks the people who favour calculators instead of engaging with their reasons.",
+      "E": "It assumes, without justification, that a single modest first step will set off an inevitable chain of progressively more serious consequences."
+    },
+    "correct_answer": "E",
+    "explanation": "The argument chains together a sequence of steps (calculators lead to no mental arithmetic, which leads to no estimation, which leads to undetected errors, which leads to an incompetent profession) and treats each transition as certain, although none of the intermediate links is supported. Presenting an extreme final outcome as the inevitable consequence of a small initial step, without justifying the connecting steps, is the slippery-slope fallacy.",
+    "option_analysis": {
+      "A": "Wrong: the argument does not hinge on mistaking a necessary condition for a sufficient one; that diagnosis does not fit the chain-of-consequences structure being used.",
+      "B": "Wrong: there is no part-to-whole inference from members to a group, so this is not a fallacy of composition.",
+      "C": "Wrong: no sample of students is cited or reasoned from at all, so this mislabels the flaw as a hasty generalisation.",
+      "D": "Wrong: nothing is said about the character or motives of those who favour calculators, so the argument is not an ad hominem.",
+      "E": "Correct: the defect is precisely the unsupported claim that the first step must cascade through ever-worse outcomes to an extreme conclusion, which is the slippery-slope pattern."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0054",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Logic puzzles",
+    "subtopic": "Two-attribute grid deduction (drink and floor) yielding a forced comparative conclusion",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "critical thinking",
+      "logic grid",
+      "deductive puzzle",
+      "matching",
+      "constraint satisfaction"
+    ],
+    "learning_objective": "Solve a small two-category assignment puzzle by chaining constraints to a unique configuration, then identify the statement that must be true across that unique solution.",
+    "question": "Four colleagues - Ada, Ben, Cara and Dan - each ordered a different drink (espresso, latte, tea or water) and each works on a different floor (1, 2, 3 or 4) of the same building. It is known that: (1) the person who ordered tea works on a higher floor than Ben; (2) Ada works on floor 2 and did not order water; (3) the espresso drinker works on floor 1; (4) Cara ordered the latte; (5) Dan works on a higher floor than Cara. Which one of the following statements must be true?",
+    "choices": {
+      "A": "Ben works on floor 3.",
+      "B": "The espresso drinker works on a lower floor than the tea drinker.",
+      "C": "Dan ordered the tea.",
+      "D": "The person who ordered water works on floor 2.",
+      "E": "Cara works on a lower floor than Ada."
+    },
+    "correct_answer": "B",
+    "explanation": "Ada is on floor 2 (clue 2). The espresso drinker is on floor 1 (clue 3), but Cara drinks latte (clue 4), so Cara is not on floor 1; since Dan is above Cara (clue 5), Cara cannot be on floor 4, so Cara is on floor 3 and Dan on floor 4. The only remaining floor, 1, goes to Ben, who therefore drinks the espresso. Ada (floor 2) did not order water (clue 2), so Ada drinks tea and Dan drinks water. The unique solution is Ben-floor 1-espresso, Ada-floor 2-tea, Cara-floor 3-latte, Dan-floor 4-water. The espresso drinker (floor 1) is therefore below the tea drinker (floor 2), so E must be true.",
+    "option_analysis": {
+      "A": "Wrong: Ben is forced onto floor 1 by clues 3-5, not floor 3; this results from failing to pin Ben down after fixing Cara and Dan.",
+      "B": "Correct: espresso is fixed to floor 1 and tea (Ada) to floor 2, so the espresso drinker is necessarily on a lower floor than the tea drinker.",
+      "C": "Wrong: Dan drinks water, not tea; this error comes from assuming the highest floor must take the tea instead of applying clue 2 to place the tea with Ada.",
+      "D": "Wrong: the water drinker is Dan on floor 4; this misreads clue 2 as placing water near Ada rather than merely excluding it from her.",
+      "E": "Wrong: Cara is on floor 3, which is above Ada on floor 2; this reverses the consequence of clue 5."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0055",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Probability and quantitative reasoning",
+    "subtopic": "Conditional probability on a restricted sample space (dice sum given unequal faces)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "critical thinking",
+      "conditional probability",
+      "sample space",
+      "counting",
+      "quantitative reasoning"
+    ],
+    "learning_objective": "Compute a conditional probability by correctly restricting the equally likely sample space to the outcomes consistent with the given information before counting the favourable outcomes.",
+    "question": "Two ordinary fair six-sided dice are rolled together. You are told only that the two numbers showing are different from each other. Given this information, what is the probability that the two numbers add up to 7?",
+    "choices": {
+      "A": "1/3",
+      "B": "7/36",
+      "C": "1/6",
+      "D": "1/5",
+      "E": "6/35"
+    },
+    "correct_answer": "D",
+    "explanation": "Being told the two numbers are different restricts the sample space to the ordered outcomes that are not doubles: 36 total minus the 6 doubles leaves 30 equally likely outcomes. Every outcome summing to 7 - (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) - already has two different numbers, so 6 of the 30 remaining outcomes are favourable. The conditional probability is 6/30 = 1/5.",
+    "option_analysis": {
+      "A": "Wrong: 1/3 (6 out of 18) arises from wrongly taking half of the 36 outcomes to be the different-number cases and keeping 6 favourable, understating the restricted space of 30.",
+      "B": "Wrong: 7/36 misuses the target sum 7 as the count of favourable outcomes over the full 36-outcome space.",
+      "C": "Wrong: 1/6 comes from 6/36 over the full, unrestricted sample space, ignoring the information that the two numbers are different.",
+      "D": "Correct: with the six doubles excluded there are 30 equally likely outcomes, of which 6 sum to 7, giving 6/30 = 1/5.",
+      "E": "Wrong: 6/35 removes only one outcome from the sample space, as if a single 'same-number' case existed, instead of excluding all six doubles."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0056",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Parallel reasoning",
+    "subtopic": "Matching the form of a valid categorical syllogism (universal affirmative plus universal negative)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "critical thinking",
+      "parallel reasoning",
+      "categorical syllogism",
+      "logical form",
+      "match the structure"
+    ],
+    "learning_objective": "Abstract the logical form of a valid categorical syllogism (All A are B; No B are C; therefore No A are C) and select the argument that reproduces that exact form, discriminating it from arguments that differ in quantity, term arrangement or validity.",
+    "question": "Consider the argument: 'Every member of the college choir can read music. No one who can read music is a complete beginner at music. Therefore, no member of the college choir is a complete beginner at music.' Which one of the following arguments has a logical structure most similar to that of the argument above?",
+    "choices": {
+      "A": "All copper wires conduct electricity. Nothing that conducts electricity is a perfect insulator. So no copper wire is a perfect insulator.",
+      "B": "All oak trees are plants. All plants need water. So all oak trees need water.",
+      "C": "All dolphins are mammals. No dolphin is a fish. So no mammal is a fish.",
+      "D": "Some athletes are vegetarians. No vegetarian eats beef. So some athletes do not eat beef.",
+      "E": "No metals are gases. No gas is a liquid. So no metal is a liquid."
+    },
+    "correct_answer": "A",
+    "explanation": "The reference argument has the form: All A are B; No B are C; therefore No A are C, a valid categorical syllogism in which the middle term B is the predicate of the first premise and the subject of the second. Option A reproduces this exactly, with A = copper wires, B = things that conduct electricity and C = perfect insulators. The parallel is about logical form, not subject matter, so the correct match is the one whose premises and conclusion share this structure.",
+    "option_analysis": {
+      "A": "Correct: it has the form All A are B; No B are C; therefore No A are C, with the middle term linking the two premises in the same way, making it a valid parallel of the reference.",
+      "B": "Wrong: it is an all-affirmative chain (All A are B; All B are C; therefore All A are C) with no negative premise, a different valid form.",
+      "C": "Wrong: its form is All A are B; No A are C; therefore No B are C - the negative premise involves the wrong pair of terms and the inference is invalid; it matches only the surface wording, not the structure.",
+      "D": "Wrong: it uses a particular premise and a particular conclusion ('Some...'), so its universal-versus-particular structure differs from the all-universal reference even though it too contains a negative premise.",
+      "E": "Wrong: it has two negative premises (No...; No...), a structure that is actually invalid and does not parallel the reference's one-affirmative-one-negative form."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  }
+]

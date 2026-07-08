@@ -1,0 +1,803 @@
+[
+  {
+    "id": "mio_bio_0204",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biological molecules — carbohydrates",
+    "subtopic": "Polysaccharide structure–function: beta-1,4 cellulose versus alpha-1,4 starch and enzyme specificity",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "carbohydrates",
+      "cellulose",
+      "starch",
+      "glycosidic bond",
+      "structure-function",
+      "enzyme specificity"
+    ],
+    "learning_objective": "Reason from glycosidic-bond geometry and chain shape to both the mechanical role of cellulose and its resistance to human amylase, distinguishing it from storage polysaccharides.",
+    "question": "A student compares two glucose polymers isolated from a single plant. Polymer X, taken from the cell wall, exists as long, straight, unbranched chains that lie side by side and are held in bundles (microfibrils) by extensive hydrogen bonding; it cannot be hydrolysed by human salivary amylase. Polymer Y, taken from a starch grain, is readily hydrolysed by the same amylase to maltose and glucose. Which single structural difference best accounts for BOTH the mechanical strength of Polymer X and its resistance to amylase?",
+    "choices": {
+      "A": "Polymer X is wound into a compact helix stabilised by hydrogen bonds, and this coiling hides its alpha-1,4 glycosidic bonds so that amylase cannot bind to them.",
+      "B": "Polymer X is a polymer of fructose rather than glucose, and human amylase is specific only for polymers built from glucose.",
+      "C": "Polymer X's monomers are joined by beta-1,4 glycosidic bonds with alternate residues rotated 180 degrees, giving straight chains that hydrogen-bond into microfibrils, whereas amylase can hydrolyse only the alpha-1,4 bonds found in Polymer Y.",
+      "D": "Polymer X contains no glycosidic bonds and its chains are joined only by hydrogen bonds between glucose molecules, so there is no covalent linkage for amylase to hydrolyse.",
+      "E": "Polymer X is heavily branched through alpha-1,6 glycosidic bonds and the interlocking branches give strength, while amylase cannot reach the alpha-1,4 bonds buried at the branch points."
+    },
+    "correct_answer": "C",
+    "explanation": "Cellulose (Polymer X) is built from beta-glucose. To form a beta-1,4 glycosidic bond each successive monomer must be flipped 180 degrees relative to its neighbour; this alternating inversion produces perfectly straight, unbranched chains. Many parallel chains then form numerous hydrogen bonds between their -OH groups, bundling them into microfibrils of high tensile strength — ideal for a cell wall. Human amylases are stereospecific for the alpha-1,4 bonds of starch (Polymer Y) and physically cannot fit or cleave the beta-1,4 linkage, so cellulose passes through undigested. Thus one difference — the beta versus alpha configuration of the glycosidic bond and the straight chain it generates — explains both properties simultaneously.",
+    "option_analysis": {
+      "A": "Wrong: it is starch (amylose), not cellulose, that coils into a helix; and helical coiling of Polymer Y does not stop amylase working on it. Misconception: attributing the starch helix to cellulose and reversing the two polymers.",
+      "B": "Wrong: both polymers are glucose based. Amylase's inability to digest cellulose is due to bond configuration, not a change of monomer to fructose. Misconception: assuming indigestibility must mean a different sugar unit.",
+      "C": "Correct: the beta-1,4 bond with alternate-monomer inversion gives straight, hydrogen-bonded chains (strength) and a linkage geometry that amylase, being specific for alpha-1,4 bonds, cannot hydrolyse (resistance).",
+      "D": "Wrong: cellulose chains are true covalent polymers held together WITHIN each chain by beta-1,4 glycosidic bonds; hydrogen bonds act only BETWEEN chains. Misconception: believing the inter-chain hydrogen bonds replace the covalent backbone.",
+      "E": "Wrong: this describes glycogen/amylopectin. Cellulose is unbranched; extensive alpha-1,6 branching is a feature of storage polysaccharides, not the structural cell-wall polymer. Misconception: confusing cellulose with branched storage polymers."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0205",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biological molecules — proteins",
+    "subtopic": "Tertiary structure: a buried hydrophobic-to-charged substitution destabilising a folded globular protein",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "proteins",
+      "amino acids",
+      "tertiary structure",
+      "hydrophobic core",
+      "R-group interactions",
+      "denaturation"
+    ],
+    "learning_objective": "Reason from the polarity of a single R-group and the role of the hydrophobic core in stabilising tertiary structure to the folding consequence of a buried non-polar to charged substitution.",
+    "question": "A water-soluble globular enzyme folds so that its non-polar amino-acid side chains are packed into the interior of the molecule, away from water, while its polar and charged side chains face the surrounding aqueous cytoplasm. A single point mutation replaces one interior leucine residue (non-polar side chain) with glutamate (a negatively charged side chain); every other residue is unchanged and the polypeptide is still synthesised at its normal length. Which outcome is the MOST likely direct consequence of this substitution, and why?",
+    "choices": {
+      "A": "The folded (tertiary) structure is destabilised and the protein tends to misfold or lose its compact globular shape, because burying a charged side chain in the non-polar core is energetically unfavourable.",
+      "B": "All of the enzyme's secondary structure (alpha-helices and beta-sheets) is abolished, because glutamate cannot take part in the hydrogen bonding that forms these regular structures.",
+      "C": "The tertiary structure and catalytic activity are guaranteed to be unchanged, because the mutation alters only the primary structure and the peptide bonds themselves are unaffected.",
+      "D": "The protein becomes more stable and more rigid, because the extra negatively charged side chain forms additional disulfide bridges within the hydrophobic core.",
+      "E": "The change must be effectively silent at the protein level, because a single residue out of hundreds is too small a fraction to affect how the protein folds."
+    },
+    "correct_answer": "A",
+    "explanation": "The hydrophobic core is a major stabiliser of a globular protein's tertiary structure: clustering non-polar side chains away from water is entropically and energetically favourable. Placing a charged glutamate side chain into that core forces an unsatisfied charge (and its need for hydration) into a water-excluding environment, which is highly unfavourable. The protein therefore loses folding stability and tends to misfold or unfold, typically abolishing the precise active-site geometry and hence function. This is the general principle that also underlies why buried-residue substitutions (such as in sickle-cell haemoglobin) can be so damaging.",
+    "option_analysis": {
+      "A": "Correct: a buried charged side chain is energetically unfavourable in the non-polar core, so the hydrophobic driving force for the native fold is disrupted, destabilising the tertiary structure and promoting misfolding or loss of the globular shape.",
+      "B": "Wrong: the hydrogen bonds that form alpha-helices and beta-sheets are between backbone C=O and N-H groups, which are present in every residue regardless of side chain, so one R-group swap does not abolish secondary structure globally. Misconception: thinking side chains, rather than the backbone, form secondary-structure hydrogen bonds.",
+      "C": "Wrong: a change in primary structure can and often does propagate to tertiary structure, because it is the sequence of R-groups that dictates folding. Peptide bonds being intact does not protect the fold. Misconception: treating primary-structure changes as harmless to higher levels of structure.",
+      "D": "Wrong: disulfide bridges form only between the -SH groups of two cysteine residues; a carboxylate side chain cannot form them, and burying a charge does not add stability. Misconception: assuming any reactive/charged side chain can create disulfide bonds.",
+      "E": "Wrong: interior core residues are structurally critical; a single unfavourable buried substitution can destabilise the whole fold, so it cannot be assumed negligible. Misconception: equating a small fraction of the sequence with a small functional effect."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0206",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biological molecules — lipids",
+    "subtopic": "Fatty-acid melting point: chain length and cis-unsaturation acting through London dispersion forces",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "lipids",
+      "fatty acids",
+      "saturated vs unsaturated",
+      "melting point",
+      "intermolecular forces",
+      "structure-function"
+    ],
+    "learning_objective": "Reason from chain length and the kinks introduced by cis double bonds to the relative strength of London dispersion forces and hence the ranking of fatty-acid melting points.",
+    "question": "Four straight-chain fatty acids are compared as pure substances: W has 16 carbons and no carbon-carbon double bonds; X has 18 carbons and no double bonds; Y has 18 carbons and one cis double bond; Z has 18 carbons and two cis double bonds. All are unbranched. On the basis of how molecular shape and chain length affect the packing of the molecules and therefore the intermolecular (London dispersion) forces between them, which ranking of melting points from HIGHEST to LOWEST is correct?",
+    "choices": {
+      "A": "Z > Y > X > W",
+      "B": "Y > X > W > Z",
+      "C": "X > W > Z > Y",
+      "D": "X > W > Y > Z",
+      "E": "W > X > Y > Z"
+    },
+    "correct_answer": "D",
+    "explanation": "Melting point tracks the strength of the London dispersion forces between molecules, which in turn depends on how closely the molecules can pack. Two effects operate here. (1) Chain length: among the saturated acids, the longer 18-carbon X packs with greater surface contact than the 16-carbon W, giving stronger dispersion forces, so X melts higher than W. (2) cis-unsaturation: each cis double bond puts a rigid kink in the chain, preventing the straight, close packing that saturated chains achieve, so dispersion forces are weakened and melting point falls; two kinks (Z) lower it more than one (Y). Both 18-carbon unsaturated acids therefore melt below the saturated acids, with Z lowest. Hence X > W > Y > Z (real values: stearic approx 69 C, palmitic approx 63 C, oleic approx 13 C, linoleic approx -5 C).",
+    "option_analysis": {
+      "A": "Wrong: this ranking is fully inverted, placing the doubly unsaturated Z highest. Misconception: believing cis double bonds increase intermolecular attraction and therefore raise the melting point.",
+      "B": "Wrong: placing the unsaturated Y above the saturated X and W treats unsaturation as raising the melting point. Misconception: thinking a double bond strengthens rather than weakens packing between chains.",
+      "C": "Wrong: this correctly ranks saturated above unsaturated and X above W, but reverses Y and Z. Misconception: believing a second cis double bond raises the melting point, i.e. that more unsaturation strengthens packing rather than disrupting it.",
+      "D": "Correct: longer saturated chain packs best (X highest), then the shorter saturated W, then the singly kinked Y, then the doubly kinked Z (lowest), matching the effects of chain length and cis-unsaturation on dispersion forces.",
+      "E": "Wrong: this reverses the chain-length effect among the saturated acids, ranking the shorter W above the longer X. Misconception: assuming a shorter chain gives a higher melting point (confusing melting point with volatility)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0207",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biological molecules — biochemical food tests",
+    "subtopic": "Reducing versus non-reducing sugars: acid hydrolysis before Benedict's and the need for neutralisation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "food tests",
+      "Benedict's test",
+      "reducing sugar",
+      "non-reducing sugar",
+      "sucrose",
+      "hydrolysis"
+    ],
+    "learning_objective": "Reason from a sequence of qualitative food-test results to the identity of a non-reducing sugar, and explain why hydrolysis and subsequent neutralisation are required for the Benedict's test to succeed.",
+    "question": "A colourless solution stays blue when heated with Benedict's reagent (a negative result). Both the biuret and the iodine tests on the original solution are also negative. A fresh portion of the same solution is then heated with dilute hydrochloric acid, cooled, and neutralised with sodium hydrogencarbonate before Benedict's reagent is added and the mixture is reheated; this time a brick-red precipitate forms. Which conclusion is best supported by these results, and what is the correct role of the neutralisation step?",
+    "choices": {
+      "A": "The solution contained a non-reducing sugar, and the brick-red colour comes from the hydrogen ions of the acid themselves being reduced to copper; neutralisation is not chemically necessary.",
+      "B": "The solution contained a protein whose peptide bonds the acid hydrolysed to amino acids that reduce Benedict's reagent; neutralisation is needed to stop further denaturation of the protein.",
+      "C": "The solution contained a reducing sugar that was merely too dilute to react at first; the acid concentrated it, and neutralisation simply removes the surplus acid afterwards.",
+      "D": "The solution contained starch, which the acid hydrolysed to maltose; neutralisation is needed because the acid alone would otherwise turn Benedict's reagent brick-red.",
+      "E": "The solution contained a non-reducing sugar such as sucrose; acid hydrolysis cleaves its glycosidic bond into reducing monosaccharides, and the mixture must be neutralised because Benedict's reagent works only in alkaline conditions."
+    },
+    "correct_answer": "E",
+    "explanation": "A negative Benedict's result that becomes positive only after acid hydrolysis is the classic signature of a non-reducing sugar such as sucrose. Sucrose has no free anomeric (reducing) group, so it cannot reduce Benedict's reagent; heating with dilute acid hydrolyses the glycosidic bond into glucose and fructose, which are reducing monosaccharides and give the brick-red copper(I) oxide precipitate. Benedict's reagent is alkaline, so the hydrolysed mixture must first be neutralised (here with sodium hydrogencarbonate) or the residual acid would neutralise the reagent's alkalinity and the test would not work. The negative iodine and biuret results rule out starch and protein respectively.",
+    "option_analysis": {
+      "A": "Wrong: the sugar is correctly identified as non-reducing, but the chemistry is wrong — the reducing agents are the sugar monomers, not the acid's hydrogen ions, and neutralisation IS necessary for the alkaline Benedict's test. Misconception: thinking the acid, rather than the released monosaccharides, reduces the copper.",
+      "B": "Wrong: the biuret test was negative, so protein is absent, and the brick-red colour is diagnostic of reducing sugars, not amino acids. Misconception: ignoring the negative biuret result and attributing the reduction to protein breakdown.",
+      "C": "Wrong: a genuinely dilute reducing sugar would still give at least a faint positive initially, and acid does not concentrate a solution. The pattern points to a non-reducing sugar, not a dilution artefact. Misconception: reading any negative Benedict's result as merely 'too dilute'.",
+      "D": "Wrong: the iodine test was negative, so starch is absent; and neutralisation is required because Benedict's is alkaline, not because acid mimics a positive result. Misconception: forgetting that a negative iodine test excludes starch, plus a wrong reason for neutralising.",
+      "E": "Correct: a non-reducing sugar (sucrose) gives no reaction until acid hydrolysis releases reducing monosaccharides, and neutralisation is essential because Benedict's reagent requires alkaline conditions to function."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0208",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biological molecules — biochemical food tests",
+    "subtopic": "Integrating Benedict's, iodine, biuret and emulsion tests to identify a mixture (starch plus a reducing sugar)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "food tests",
+      "Benedict's test",
+      "iodine test",
+      "biuret test",
+      "emulsion test",
+      "mixtures",
+      "non-reducing polysaccharide"
+    ],
+    "learning_objective": "Integrate the results of four biochemical food tests across several samples, using the fact that starch is non-reducing, to identify a sample that must contain more than one class of biological molecule.",
+    "question": "Five samples are each tested with Benedict's reagent (heated), iodine solution, biuret reagent, and the ethanol emulsion test. The results are: Sample 1 - Benedict's brick-red, iodine stays orange, biuret stays blue, emulsion stays clear. Sample 2 - Benedict's stays blue, iodine blue-black, biuret stays blue, emulsion stays clear. Sample 3 - Benedict's stays blue, iodine stays orange, biuret turns purple, emulsion stays clear. Sample 4 - Benedict's stays blue, iodine stays orange, biuret stays blue, emulsion forms a white cloud. Sample 5 - Benedict's brick-red, iodine blue-black, biuret stays blue, emulsion stays clear. Which single statement is fully supported by these results?",
+    "choices": {
+      "A": "Sample 3 contains a lipid, because the biuret reagent detects the ester bonds that join fatty acids to glycerol.",
+      "B": "Sample 5 must contain at least two different biological molecules: a polysaccharide (starch) and a separate reducing sugar.",
+      "C": "Samples 1 and 5 both give a positive Benedict's test, so both of them contain sucrose.",
+      "D": "Sample 4 contains a protein, because only proteins can produce a white emulsion when shaken with ethanol and then water.",
+      "E": "Sample 2 must also contain a reducing sugar, because any polysaccharide such as starch gives a positive Benedict's test on heating."
+    },
+    "correct_answer": "B",
+    "explanation": "Read each test against what it detects: Benedict's = reducing sugar, iodine = starch, biuret = protein (peptide bonds), emulsion = lipid. Sample 1 = reducing sugar only; Sample 2 = starch only; Sample 3 = protein only; Sample 4 = lipid only. Sample 5 is the key: it is positive for iodine (starch present) AND positive for Benedict's (a reducing sugar present). Because starch is itself a NON-reducing polysaccharide and does not give a positive Benedict's result, the brick-red colour cannot come from the starch — a separate reducing sugar must also be present. Therefore Sample 5 necessarily contains at least two different molecules. This is exactly the reasoning needed for extracts such as germinating seeds, where starch is being broken down into reducing sugars.",
+    "option_analysis": {
+      "A": "Wrong: the biuret test detects peptide bonds (protein), not ester bonds; a purple biuret result identifies Sample 3 as a protein, not a lipid. Misconception: confusing which bond/molecule the biuret test reveals.",
+      "B": "Correct: Sample 5 is positive for both starch (iodine) and a reducing sugar (Benedict's); since starch itself is non-reducing, the positive Benedict's result requires a second, distinct reducing sugar, so at least two molecules are present.",
+      "C": "Wrong: a positive Benedict's result indicates a reducing sugar, whereas sucrose is a NON-reducing sugar that gives a negative result unless first hydrolysed. Misconception: equating any positive Benedict's result with the presence of sucrose.",
+      "D": "Wrong: the emulsion test detects lipids, so Sample 4's white cloud identifies a lipid, not a protein. Misconception: misattributing the emulsion test to proteins.",
+      "E": "Wrong: starch is a non-reducing polysaccharide and gives a NEGATIVE Benedict's test, consistent with Sample 2's blue result. Misconception: assuming all carbohydrates, including polysaccharides, are reducing sugars."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0209",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Transport in plants",
+    "subtopic": "Translocation in the phloem: a bark-ringing (girdling) experiment revealing source-to-sink sugar transport",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "transport in plants",
+      "phloem",
+      "translocation",
+      "girdling",
+      "source-sink",
+      "xylem vs phloem"
+    ],
+    "learning_objective": "Interpret a classic ringing experiment to distinguish the tissues and directions of long-distance transport, deducing that sugars are carried in the phloem from leaf sources towards root sinks.",
+    "question": "In mid-summer a student removes a complete ring of bark from around the trunk of a healthy young woody tree, taking away all the tissues external to the wood but leaving the wood (the xylem) fully intact. Several weeks later the tree is still in full leaf and the foliage looks healthy, but a distinct swelling has developed in the bark immediately ABOVE the ring (on the side nearer the leaves), while the bark below the ring shows no swelling. Which of the following BEST explains this observation?",
+    "choices": {
+      "A": "Water accumulates above the ring because removing the bark stops the leaves from transpiring, so water is no longer lost.",
+      "B": "Water rising in the phloem accumulates above the ring because cutting the bark has severed the xylem.",
+      "C": "Removing the bark triggers extra cell division in the xylem below the leaves, and this new tissue forms the swelling above the ring.",
+      "D": "The xylem carries sugars downwards from the leaves, and removing the bark blocks their return, so they build up above the ring.",
+      "E": "Sugars translocated in the phloem from the leaves towards the roots accumulate above the ring because the phloem has been severed."
+    },
+    "correct_answer": "E",
+    "explanation": "The bark of a woody stem contains the phloem, whereas the wood inside is the xylem. Removing a complete ring of bark cuts every phloem pathway but leaves the xylem intact, so water and minerals can still be pulled up to the leaves (the tree stays in leaf and looks healthy for weeks). In summer the mature leaves are sugar sources and the roots are sinks, so sucrose is translocated downwards in the phloem. With the phloem severed, sucrose arriving from the leaves cannot pass the gap and accumulates in the living tissue just above the ring, drawing in water and producing the swelling. The roots, cut off from their sugar supply, eventually starve — which is why complete ringing kills a tree only slowly. The observation therefore locates sugar transport in the phloem and shows its direction is from leaf source to root sink.",
+    "option_analysis": {
+      "A": "Wrong: this assumes transpiration has stopped. The xylem is intact and the leaves are still present and healthy, so transpiration continues; the swelling is due to accumulated sugars (and the water they osmotically attract), not to trapped water from halted transpiration.",
+      "B": "Wrong: it swaps the roles and identities of the tissues. Water is transported in the xylem, not the phloem, and it is the phloem (bark) that was removed; the xylem was deliberately left intact, so water transport continues.",
+      "C": "Wrong: an invented mechanism. The localised swelling is explained by solute (sugar) accumulation where the phloem is cut, not by a stimulus to xylem cell division; there is no reason bark removal would specifically drive xylem proliferation above the ring.",
+      "D": "Wrong: this reflects the very common misconception that the xylem transports sugars. The xylem carries water and dissolved minerals; sugars are carried in the phloem. Ringing also removes the phloem (bark), not the xylem, which was left intact.",
+      "E": "Correct: the bark contains the phloem, which normally translocates sucrose from the leaf sources down to the root sinks; severing it traps sugars above the ring, and the accumulated solute draws in water to produce the swelling, while the intact xylem keeps the leaves supplied with water."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0210",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Transport in plants",
+    "subtopic": "Cohesion–tension theory: the negative pressure needed to raise water up a tall tree and why atmospheric push and root pressure are insufficient",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "transport in plants",
+      "cohesion-tension",
+      "xylem",
+      "transpiration pull",
+      "water potential",
+      "hydrostatics"
+    ],
+    "learning_objective": "Combine simple hydrostatics with the cohesion–tension theory to show that water at the top of a tall xylem column must be under tension, and explain why atmospheric pressure and root pressure cannot account for the ascent of sap.",
+    "question": "In a tall tree, continuous columns of water in the xylem reach leaves about 90 m above the soil surface. Recall that a suction (vacuum) pump can raise a water column by only about 10 m, because atmospheric pressure at the base can 'push' water no higher than this. Take the density of water as 1.0 x 10^3 kg m^-3 and g = 10 m s^-2, and assume the water at the soil surface is effectively at atmospheric pressure. Which statement correctly gives the approximate pressure difference that must be sustained along the 90 m column AND identifies the mechanism responsible?",
+    "choices": {
+      "A": "About 9 x 10^5 Pa; because atmospheric pressure can raise water only ~10 m, most of the column must be held under tension by cohesion between the water molecules.",
+      "B": "About 9 x 10^6 Pa; the whole column is held up by the surface tension of water at the menisci in the leaves.",
+      "C": "About 9 x 10^4 Pa; atmospheric pressure at the base is by itself sufficient to push the water all the way to the top.",
+      "D": "About 1 x 10^5 Pa; a liquid column cannot exceed ~10 m, so water must instead travel up the xylem as vapour.",
+      "E": "About 9 x 10^5 Pa; the column is pushed up entirely by root pressure generated osmotically in the roots."
+    },
+    "correct_answer": "A",
+    "explanation": "The pressure difference needed to support a static column of height h is P = rho x g x h = (1.0 x 10^3)(10)(90) = 9.0 x 10^5 Pa (about 0.9 MPa). Atmospheric pressure is only about 1 x 10^5 Pa, which is why a perfect vacuum at the top can lift water just P_atm/(rho g) = (1 x 10^5)/(1 x 10^4) = 10 m. To reach 90 m the water near the top must therefore be at a pressure well below zero — i.e. under tension (negative pressure of roughly -8 x 10^5 Pa relative to a vacuum). Liquid water can withstand such tension only because hydrogen bonding gives strong cohesion between molecules (and adhesion to the narrow xylem walls), so an unbroken column can be pulled up by transpiration from above. This is the cohesion–tension theory. Root pressure (typically well under 0.2 MPa) is far too weak, and water moves as liquid, not vapour, in the xylem.",
+    "option_analysis": {
+      "A": "Correct: rho g h gives 9 x 10^5 Pa; since atmospheric push accounts for only ~10 m, the remaining height must be sustained by negative pressure (tension), which is possible only because cohesion (hydrogen bonding) between water molecules gives the column tensile strength.",
+      "B": "Wrong: the pressure is overestimated tenfold (should be 9 x 10^5 Pa) and the description is muddled. Surface tension at the leaf menisci helps generate the tension, but the column is sustained by cohesion within the water, not simply 'held up by surface tension'.",
+      "C": "Wrong: it underestimates the pressure by a factor of ten and misapplies the mechanism. rho g h = 9 x 10^5 Pa, not 9 x 10^4 Pa; and atmospheric pressure can support only ~10 m of water, so it cannot on its own raise water 90 m.",
+      "D": "Wrong: this rests on the misconception that water ascends the xylem as vapour. Water moves through the xylem as a continuous liquid column under tension; only at the leaf surface does it evaporate. The magnitude given is also far too small.",
+      "E": "Wrong: the magnitude (9 x 10^5 Pa) is right but the mechanism is the classic root-pressure misconception. Root pressure is only a fraction of an MPa and disappears in rapidly transpiring trees; it cannot generate the ~0.9 MPa needed or raise water tens of metres."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0211",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Transport in plants",
+    "subtopic": "Transpiration and leaf structure: a potometer experiment with differential surface coating to locate stomata",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "transport in plants",
+      "transpiration",
+      "potometer",
+      "stomata",
+      "leaf structure",
+      "data interpretation"
+    ],
+    "learning_objective": "Interpret quantitative potometer data from an experiment in which leaf surfaces are selectively coated, deducing the distribution of stomata and the origin of the residual water uptake.",
+    "question": "Three identical leafy shoots are set up in separate potometers under the same still, well-lit conditions. The rate of water UPTAKE is recorded for each. Shoot C is left untreated. In shoot A the upper (adaxial) surfaces of all leaves are thinly coated with petroleum jelly; in shoot B the lower (abaxial) surfaces are coated. The results are: C (untreated) 3.0 arbitrary units per minute; A (upper coated) 2.7 units per minute; B (lower coated) 0.8 units per minute. Which conclusion is BEST supported by these data?",
+    "choices": {
+      "A": "The upper surface bears more stomata than the lower surface, because coating a surface with stomata should cause the larger fall in uptake.",
+      "B": "Water uptake is independent of stomatal distribution, because water enters the shoot through the xylem and not through the stomata.",
+      "C": "Petroleum jelly increases transpiration by trapping heat at the surface, so the coated shoots should lose water faster than the control.",
+      "D": "Transpiration occurs equally from the two surfaces, because coating either surface produced a reduction in the uptake rate.",
+      "E": "Most of the stomata are on the lower surface, so coating it causes the greater fall; the small residual uptake in shoot B is due mainly to the remaining upper-surface stomata and to cuticular transpiration."
+    },
+    "correct_answer": "E",
+    "explanation": "Petroleum jelly is an impermeable barrier, so coating a surface blocks water loss (and gas exchange) through the stomata on that surface. Coating the upper surface lowered uptake only slightly (3.0 to 2.7, a fall of 0.3), whereas coating the lower surface lowered it dramatically (3.0 to 0.8, a fall of 2.2). Because most transpirational loss came through the lower surface, that surface must carry most of the stomata — the typical pattern for a dicotyledonous leaf, keeping the stomata away from direct heating on the upper surface. Water uptake by a potometer closely tracks transpiration in the short term, so the surviving uptake in shoot B (0.8 units) is accounted for by the few upper-surface stomata (about 0.3) plus a small cuticular loss. The magnitude of each change, not merely the fact that a change occurred, is what identifies the stomata-rich surface.",
+    "option_analysis": {
+      "A": "Wrong: it reverses the logic of the experiment. The larger fall in uptake occurred when the LOWER surface was coated, so it is the lower surface (not the upper) that carries most of the stomata; the small fall from coating the upper surface shows it has few stomata.",
+      "B": "Wrong: this rests on the misconception that stomatal loss is irrelevant to uptake. In a transpiring shoot, uptake is driven by evaporative loss through the stomata; reducing that loss reduces the tension pulling water in, which is exactly why blocking the stomata cut the uptake rate.",
+      "C": "Wrong: this misunderstands what the jelly does. Petroleum jelly is a physical barrier that reduces water loss and gas exchange; both coated shoots transpired LESS than the control, exactly the opposite of the claim.",
+      "D": "Wrong: it ignores the magnitudes. Although coating either surface reduced the rate, coating the lower surface reduced it about seven times as much, showing the surfaces are very unequal, not equal, in stomatal density.",
+      "E": "Correct: the far larger reduction on coating the lower surface shows most stomata are abaxial; the residual 0.8 units in shoot B corresponds to the small upper-surface contribution seen in shoot A (~0.3) together with cuticular transpiration."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0212",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Transport in plants",
+    "subtopic": "Water potential along the soil–plant–air continuum: direction of passive flow and the location of the steepest gradient",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "transport in plants",
+      "water potential",
+      "soil-plant-air continuum",
+      "transpiration",
+      "passive transport",
+      "data interpretation"
+    ],
+    "learning_objective": "Use water-potential values along the soil–plant–air pathway to determine the direction of water movement and to identify where the largest potential drop, and hence the main driving force, occurs.",
+    "question": "A well-watered plant is transpiring in a steady state. The water potentials measured at successive points along the transport pathway are: soil water -0.2 MPa; root xylem -0.6 MPa; leaf xylem -1.2 MPa; leaf mesophyll air spaces -2.0 MPa; the atmosphere just outside the leaf -40 MPa. Which of the following statements is correct?",
+    "choices": {
+      "A": "The steepest water-potential gradient, and therefore the main driving force for the whole pathway, lies between the soil and the root xylem.",
+      "B": "Water moves from the atmosphere into the leaf, because the atmosphere has the most negative water potential.",
+      "C": "Because every value is negative, water must be moved across each membrane by active transport requiring ATP.",
+      "D": "Water flows passively down the water-potential gradient at every step, and by far the largest drop — which drives the whole flow — occurs between the leaf and the atmosphere.",
+      "E": "Water cannot move from the soil into the root, because the root xylem has a more negative water potential than the soil."
+    },
+    "correct_answer": "D",
+    "explanation": "Water always moves from a region of higher (less negative) water potential to one of lower (more negative) water potential. Along the pathway the values become progressively more negative (-0.2 to -0.6 to -1.2 to -2.0 to -40 MPa), so at every step water moves passively 'downhill', i.e. from soil to root to leaf to atmosphere — the direction of transpiration. Comparing the drops: soil to root xylem is 0.4 MPa, root to leaf xylem 0.6 MPa, leaf xylem to air spaces 0.8 MPa, but the leaf-to-atmosphere step is about 38 MPa — overwhelmingly the largest. This huge gradient at the leaf–air interface is what pulls the whole column upward; no active pumping of water is involved because bulk water movement is passive down the potential gradient.",
+    "option_analysis": {
+      "A": "Wrong: it identifies the wrong location. The soil-to-root drop is only 0.4 MPa; the far larger drop (about 38 MPa) is between the leaf and the atmosphere, so that interface, not the soil–root step, provides the dominant driving force.",
+      "B": "Wrong: it inverts the direction rule. Water moves TOWARDS more negative potential, so the very negative atmosphere draws water OUT of the leaf; it does not push water in. This is the classic sign-direction error.",
+      "C": "Wrong: a negative water potential does not imply active transport. Bulk water movement along the whole pathway is passive, occurring by osmosis and mass flow down the potential gradient; ATP is not expended to move the water itself.",
+      "D": "Correct: the potential falls at every step, so water moves passively soil to root to leaf to air throughout, and the leaf-to-atmosphere step (about 38 MPa) is by far the largest drop, providing the driving force that pulls water up the plant.",
+      "E": "Wrong: it also reverses the rule. The root xylem being more negative than the soil is precisely the condition that makes water flow INTO the root from the soil, down the potential gradient."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0213",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Transport in plants",
+    "subtopic": "Münch pressure-flow (mass flow) of phloem sap: interpreting sieve-tube pressure data and the dependence of translocation on the xylem water supply",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "transport in plants",
+      "phloem",
+      "translocation",
+      "mass flow",
+      "Munch pressure-flow",
+      "water potential",
+      "data interpretation"
+    ],
+    "learning_objective": "Integrate phloem loading/unloading, water-potential changes, and hydrostatic pressure to explain the Münch pressure-flow model from sieve-tube pressure data and to predict the effect of interrupting the xylem water supply.",
+    "question": "According to the pressure-flow (Münch) model, sucrose is actively loaded into the sieve tubes at a source leaf and unloaded at a root sink. Using fine micro-manometers inserted into single sieve tubes, a researcher records a hydrostatic (turgor) pressure of 1.4 MPa at the source end and 0.6 MPa at the sink end of the same phloem pathway, while the neighbouring xylem sits at a water potential of about -0.8 MPa along its whole length. Which single statement correctly accounts for these observations and predicts the effect of an intervention?",
+    "choices": {
+      "A": "The pressure is higher at the source because sucrose is actively pumped along the whole length of the sieve tube, using ATP at every point on the way; stopping respiration only at the sink would therefore halt the flow.",
+      "B": "Water and sucrose move independently in the phloem — sucrose simply diffuses from source to sink down its own concentration gradient while water rises separately — so the difference in hydrostatic pressure has no bearing on the rate of transport.",
+      "C": "The pressure difference exists only because the source leaf is physically higher than the root sink, so gravity alone generates the flow; loading and unloading of sucrose contribute nothing.",
+      "D": "Because water always moves towards the more negative water potential, the flow of sap runs from the sink to the source, towards the region where sucrose is most concentrated.",
+      "E": "Active loading of sucrose at the source lowers the sieve-tube water potential there, so water enters osmotically from the adjacent xylem and raises the pressure to 1.4 MPa; unloading at the sink raises the water potential, water returns to the xylem and the pressure falls to 0.6 MPa; the pressure difference drives the bulk flow, so blocking the xylem water supply would reduce translocation."
+    },
+    "correct_answer": "E",
+    "explanation": "In the Münch model the pressure difference along the phloem is created osmotically at the two ends. At the source, sucrose is actively loaded into the sieve tubes; this lowers their water potential, so water is drawn in from the adjacent xylem, and because the sieve tubes have rigid walls the turgor (hydrostatic) pressure rises — here to 1.4 MPa. At the sink, sucrose is unloaded, the water potential rises again, water leaves back into the xylem, and the pressure falls — here to 0.6 MPa. The resulting 0.8 MPa pressure gradient drives a bulk (mass) flow of the whole solution from source to sink, carrying sucrose passively along with the water; active transport is expended only at the loading and unloading steps, not all along the tube. Because the high source pressure depends on water entering from the xylem, interrupting that xylem water supply would flatten the pressure gradient and slow or stop translocation.",
+    "option_analysis": {
+      "A": "Wrong: this is the misconception that sucrose is pumped along the entire sieve tube. Active transport occurs only at loading (source) and unloading (sink); transport along the tube is passive bulk flow driven by the pressure difference, so ATP is not used at every point along the path.",
+      "B": "Wrong: it denies mass flow. Sucrose does not travel by simple diffusion (far too slow over metres) independently of the water; water and solutes move together as a bulk flow, and that flow is generated precisely by the hydrostatic pressure difference the statement dismisses.",
+      "C": "Wrong: this is the gravity misconception. Phloem transport occurs in any direction, including upwards to growing shoots and fruits, and the pressure difference is generated osmotically by sucrose loading and unloading, not by the height difference between source and sink.",
+      "D": "Wrong: it confuses osmotic water movement with the direction of phloem bulk flow and reverses it. Bulk flow runs down the pressure gradient, from the high-pressure source (1.4 MPa) to the low-pressure sink (0.6 MPa) — from source to sink, not sink to source.",
+      "E": "Correct: loading lowers source water potential (water enters from xylem, raising pressure to 1.4 MPa) and unloading raises sink water potential (water leaves, pressure falls to 0.6 MPa); the pressure gradient drives mass flow, so cutting the xylem water supply would reduce it."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0214",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology — control of gene expression",
+    "subtopic": "The lac operon: catabolite repression and positive control by cAMP–CAP (adenylate cyclase mutant)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "lac operon",
+      "catabolite repression",
+      "cAMP",
+      "CAP",
+      "positive control",
+      "prokaryotic gene regulation"
+    ],
+    "learning_objective": "Distinguish the negative control (repressor–operator) and positive control (cAMP–CAP–promoter) layers of the lac operon and predict expression when the positive-control pathway is disabled.",
+    "question": "A strain of Escherichia coli carries a null mutation in the gene encoding adenylyl cyclase, so the cell can no longer synthesise cyclic AMP. All other components of the lac regulatory system are wild type. The cells are grown in a medium that contains lactose but no glucose. Compared with a wild-type strain grown in the same medium, what is the expected level of transcription of the lac structural genes, and why?",
+    "choices": {
+      "A": "Transcription is high, because lactose still inactivates the repressor and frees the operator.",
+      "B": "Transcription is very low, because without cyclic AMP the CAP activator cannot stimulate the promoter, even though the repressor has been inactivated.",
+      "C": "Transcription is unchanged, because cyclic AMP acts on catabolite repression of other operons but not on the lac operon.",
+      "D": "Transcription is high, because the absence of glucose is by itself sufficient to leave the operator unoccupied.",
+      "E": "Transcription is very low, because the absence of cyclic AMP keeps the repressor bound to the operator."
+    },
+    "correct_answer": "B",
+    "explanation": "The lac operon is transcribed strongly only when two conditions coincide: the repressor is inactivated (lactose present, converted to allolactose, which frees the operator — negative control) AND the cAMP–CAP complex occupies the promoter (glucose absent, so cAMP is high — positive control). Removing adenylyl cyclase abolishes cAMP, so CAP cannot bind and cannot recruit RNA polymerase efficiently. Even though lactose leaves the operator free, initiation is only basal, so transcription is very low.",
+    "option_analysis": {
+      "A": "Wrong: the repressor is indeed inactivated by allolactose, but efficient initiation additionally requires cAMP–CAP, which is absent, so transcription stays low. Misconception: positive control is dispensable and only negative control matters.",
+      "B": "Correct: with no adenylyl cyclase there is no cAMP, so CAP cannot bind and activate the promoter; although lactose frees the operator, RNA polymerase initiates only weakly and transcription is very low.",
+      "C": "Wrong: the lac operon is a principal target of cAMP–CAP positive control, so cAMP is highly relevant here. Misconception: catabolite repression bypasses the lac operon.",
+      "D": "Wrong: absence of glucose is necessary but not sufficient; strong transcription also needs the cAMP–CAP activator on the promoter, which is missing here. Misconception: the operator/repressor is the only determinant of lac expression.",
+      "E": "Wrong: cAMP plays no part in repressor–operator binding; allolactose still inactivates the repressor irrespective of cAMP. Misconception: cAMP controls the repressor rather than the CAP activator."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0215",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology — control of gene expression",
+    "subtopic": "The trp operon: aporepressor and tryptophan corepressor; a constitutively binding (super-repressor) trpR mutant",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "trp operon",
+      "repressible operon",
+      "corepressor",
+      "aporepressor",
+      "regulator gene",
+      "prokaryotic gene regulation"
+    ],
+    "learning_objective": "Apply repressible-operon logic (aporepressor activated by a corepressor) and predict the phenotype of a regulator-gene mutant whose repressor binds the operator independently of the corepressor.",
+    "question": "In wild-type E. coli the product of the trpR gene must bind tryptophan before it can attach to the trp operator. A mutant is isolated whose trpR product binds the trp operator equally well whether or not tryptophan is present. This mutant is then grown in a medium that contains no tryptophan. What is the expected outcome?",
+    "choices": {
+      "A": "The trp operon is switched on, because without tryptophan there is no corepressor to activate the repressor.",
+      "B": "The trp operon is transcribed only if lactose is also absent from the medium.",
+      "C": "The trp operon remains switched off, so the cell cannot synthesise tryptophan and fails to grow.",
+      "D": "The trp operon is transcribed at its maximum rate, because tryptophan is absent from the medium.",
+      "E": "The trp operon is transcribed normally, because an operator mutation now prevents the repressor from binding."
+    },
+    "correct_answer": "C",
+    "explanation": "In the wild type, tryptophan is the corepressor: it converts the inactive aporepressor into an active repressor that binds the operator and switches the operon OFF. When tryptophan is scarce the repressor is inactive and the biosynthetic operon is ON. The mutant repressor binds the operator constitutively, i.e. even without tryptophan, so the operon is permanently OFF. In a tryptophan-free medium the cell therefore cannot make the biosynthetic enzymes, cannot synthesise tryptophan, and cannot grow.",
+    "option_analysis": {
+      "A": "Wrong: for a wild-type repressor, no tryptophan means no corepressor and the operon is on, but this mutant no longer needs the corepressor to bind DNA. Misconception: assuming the corepressor requirement still holds for the mutant.",
+      "B": "Wrong: the lac operon and lactose are unrelated to trp regulation. Misconception: cross-wiring two independent operons.",
+      "C": "Correct: the mutant repressor occupies the operator constitutively, keeping the trp operon permanently off, so the cell cannot make the biosynthetic enzymes and, lacking tryptophan in the medium, cannot grow.",
+      "D": "Wrong: this is the wild-type response, but the mutant repressor binds the operator even without tryptophan, so the operon stays off. Misconception: applying wild-type induction logic while ignoring the altered repressor.",
+      "E": "Wrong: the defect is in the regulatory (trpR) gene product, not in the operator; the operator is intact and is occupied by the constitutive repressor. Misconception: confusing a regulator-gene mutation with an operator mutation."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0216",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology — control of gene expression",
+    "subtopic": "Eukaryotic transcriptional activators: modular DNA-binding and activation domains (chimeric activator/domain swap)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "eukaryotic gene regulation",
+      "transcription factor",
+      "DNA-binding domain",
+      "activation domain",
+      "domain modularity",
+      "reporter gene"
+    ],
+    "learning_objective": "Reason about the functional independence (modularity) of the DNA-binding and activation domains of eukaryotic activators to predict the behaviour of an engineered chimeric transcription factor.",
+    "question": "Many eukaryotic transcriptional activators contain two separable modules: a DNA-binding domain that recognises a specific DNA sequence and an activation domain that recruits the transcription machinery. Activator P binds DNA sequence alpha through its DNA-binding domain, and Activator Q binds DNA sequence beta. A fusion protein is engineered from the DNA-binding domain of Q joined to the activation domain of P, and is expressed in cells carrying a reporter gene placed downstream of sequence beta (with no sequence alpha anywhere). What is the expected result?",
+    "choices": {
+      "A": "The reporter is expressed only if intact Activator P is also present to bind sequence alpha.",
+      "B": "The reporter is not expressed, because a functional activator must have both its domains derived from the same protein.",
+      "C": "The reporter is expressed, because the fusion binds sequence beta and its activation domain recruits the transcription machinery.",
+      "D": "The reporter is not expressed, because the DNA-binding domain of Q loses its recognition of sequence beta once fused to a foreign activation domain.",
+      "E": "The reporter is not expressed, because the activation domain of P can only function when positioned next to sequence alpha."
+    },
+    "correct_answer": "C",
+    "explanation": "The two domains of a eukaryotic activator are functionally independent. The DNA-binding domain determines WHERE the protein sits; the activation domain determines WHAT it does once tethered (recruit the general machinery/RNA polymerase II). In the chimera, the Q DNA-binding domain still recognises sequence beta and positions the P activation domain over the reporter, which is therefore transcribed. This modularity is the basis of two-hybrid systems and engineered activators.",
+    "option_analysis": {
+      "A": "Wrong: there is no alpha site in the reporter and the fusion binds beta on its own, so native Activator P is unnecessary. Misconception: the intact natural activator is still required.",
+      "B": "Wrong: modularity is precisely why domains taken from different activators function together in a chimera. Misconception: domains cannot be mixed between proteins.",
+      "C": "Correct: the domains act independently, so the Q DNA-binding domain still binds beta and tethers the P activation domain, which recruits the transcription machinery and switches on the reporter.",
+      "D": "Wrong: a DNA-binding domain keeps its sequence specificity when fused to a foreign activation domain. Misconception: making a fusion abolishes DNA-binding specificity.",
+      "E": "Wrong: an activation domain is not sequence-specific; it works wherever it is tethered, not only beside sequence alpha. Misconception: activation-domain function depends on the underlying DNA sequence."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0217",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology — control of gene expression",
+    "subtopic": "Eukaryotic chromatin: promoter CpG-island DNA methylation and gene silencing; reactivation by a DNA-methyltransferase inhibitor",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "eukaryotic gene regulation",
+      "DNA methylation",
+      "CpG island",
+      "chromatin",
+      "gene silencing",
+      "epigenetics"
+    ],
+    "learning_objective": "Explain how promoter DNA methylation and histone deacetylation cooperate to silence eukaryotic genes, and predict the effect of a maintenance-methyltransferase inhibitor acting over successive cell divisions.",
+    "question": "A tumour-suppressor gene in a cancer cell line is transcriptionally silent. Its promoter CpG island is found to be heavily methylated and the surrounding histones are deacetylated, giving tightly condensed chromatin. The cells are treated with a drug that blocks the enzyme responsible for maintaining cytosine methylation during DNA replication. Assuming the drug acts over several cell divisions, what is the most likely consequence for this gene?",
+    "choices": {
+      "A": "The gene is re-expressed, because progressive loss of promoter methylation favours an open chromatin state that permits transcription.",
+      "B": "The gene is re-expressed, because DNA methylation normally blocks replication of the promoter region.",
+      "C": "The gene is permanently deleted, because unmethylated CpG sites are excised by repair enzymes.",
+      "D": "The gene stays silent, because histone deacetylation on its own keeps the chromatin condensed.",
+      "E": "The gene stays silent, because removing the methyl groups increases the positive charge on the histones."
+    },
+    "correct_answer": "A",
+    "explanation": "Silencing here rests on two cooperating epigenetic marks: heavy CpG-island methylation and histone deacetylation, together producing condensed chromatin. A drug that blocks maintenance methylation (a DNA-methyltransferase inhibitor) prevents re-methylation of the newly synthesised strand at each round of replication, so methylation is progressively diluted out over successive divisions. Loss of the methylation mark allows the promoter to revert to an open, acetylated chromatin state that RNA polymerase and transcription factors can access, and the tumour-suppressor gene is re-expressed.",
+    "option_analysis": {
+      "A": "Correct: blocking maintenance methylation causes methylation to be diluted out over successive divisions, favouring an open, acetylated chromatin state that permits transcription, so the silenced gene is re-expressed.",
+      "B": "Wrong: DNA methylation does not block replication; the drug in fact acts during replication by preventing methylation of the newly made strands. Misconception: methylation prevents DNA replication of the promoter.",
+      "C": "Wrong: there is no mechanism that excises unmethylated CpG sites; the gene is reactivated, not deleted. Misconception: inventing a repair pathway that removes unmethylated CpGs.",
+      "D": "Wrong: methylation and histone deacetylation act together; once methylation is lost the histones tend to be re-acetylated and the chromatin reopens, so deacetylation does not lock the gene off by itself. Misconception: the histone state is fixed independently of DNA methylation.",
+      "E": "Wrong: DNA methylation is a mark on cytosine bases, not on histones, and does not change histone charge; charge neutralisation is produced by histone acetylation, a different modification. Misconception: conflating DNA methylation with a histone modification."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0218",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology — control of gene expression",
+    "subtopic": "Deducing operon logic from mutant data: negative control with induction (inducible) versus repression",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "operon",
+      "negative control",
+      "positive control",
+      "inducible",
+      "repressible",
+      "regulatory logic",
+      "loss-of-function"
+    ],
+    "learning_objective": "Integrate loss-of-function and operator-mutant data to classify an operon's regulatory logic (positive vs negative control; inducible vs repressible) and assign roles to the regulatory protein and the small-molecule effector.",
+    "question": "An operon encodes enzymes that break down a nutrient X. Three experiments give the following results: (i) in wild-type cells the operon is transcribed only when X is present in the medium; (ii) cells with a complete loss-of-function mutation in the regulatory gene R transcribe the operon at a high rate whether or not X is present; (iii) cells with a mutation that abolishes protein binding at the operator also transcribe the operon whether or not X is present. Which interpretation is consistent with ALL of these results?",
+    "choices": {
+      "A": "R encodes a repressor that binds the operator, and X acts as an inducer by inactivating this repressor.",
+      "B": "X is a corepressor and R is an activator that requires X in order to bind DNA.",
+      "C": "R encodes a repressor that binds the operator only when combined with X as a corepressor, so the system is repressible.",
+      "D": "R encodes an activator that binds the operator only when X is present, so the system is under positive control.",
+      "E": "R encodes an activator whose DNA binding is blocked by X, so the system is repressible."
+    },
+    "correct_answer": "A",
+    "explanation": "Work through the mutants. Results (ii) and (iii) show that removing R, OR removing the operator's ability to bind protein, both give constitutive (always-on) expression. That is the signature of negative control: R normally makes a product that binds the operator to keep the operon OFF. If R were an activator (positive control), losing it would give NO expression, contradicting (ii). Now result (i): the operon is ON only when X is present. Since R is a repressor, X must inactivate that repressor — X is an inducer, and the system is inducible (the lac-type logic). A repressible/corepressor arrangement would predict the opposite (OFF when X is present), contradicting (i).",
+    "option_analysis": {
+      "A": "Correct: loss of R and loss of operator binding both give constitutive expression, so R is a repressor acting at the operator (negative control); transcription only when X is present means X inactivates the repressor, i.e. X is an inducer and the operon is inducible.",
+      "B": "Wrong: if R were an activator that needs X to bind DNA, then loss of R would switch the operon off, contradicting the constitutive expression seen in result (ii). Misconception: forcing a positive-control reading despite the loss-of-function phenotype.",
+      "C": "Wrong: a corepressor (repressible) system is OFF when X is present and ON when X is absent — the opposite of result (i). Misconception: confusing inducible logic with repressible logic.",
+      "D": "Wrong: under positive control, loss of the activator (R) would abolish transcription, contradicting result (ii), in which loss of R gives constitutive expression. Misconception: reading 'on when X is present' as activation without testing the loss-of-function result.",
+      "E": "Wrong: an activator model contradicts result (ii), and the 'repressible' label is inconsistent with result (i). Misconception: mixing positive control with repressible regulation."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0219",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell structure and microscopy",
+    "subtopic": "Magnification and actual-size calculation from a scale bar with unit conversion (mm/µm/nm)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "microscopy",
+      "magnification",
+      "scale bar",
+      "unit conversion",
+      "actual size"
+    ],
+    "learning_objective": "Calculate the actual size of a structure from an electron-micrograph scale bar, converting correctly between mm, µm and nm.",
+    "question": "A transmission electron micrograph carries a scale bar that is 40 mm long and is labelled 0.8 µm. On the same micrograph, the diameter of a spherical virus particle is measured as 6.0 mm. What is the actual diameter of the virus particle?",
+    "choices": {
+      "A": "1.2 µm",
+      "B": "120 nm",
+      "C": "120 µm",
+      "D": "300 µm",
+      "E": "12 nm"
+    },
+    "correct_answer": "B",
+    "explanation": "The scale bar gives the linear magnification directly: a printed length of 40 mm represents an actual length of 0.8 µm, so magnification = 40 mm ÷ 0.8 µm = 40 000 µm ÷ 0.8 µm = 50 000×. The virus is printed 6.0 mm across, so its actual diameter = image size ÷ magnification = 6.0 mm ÷ 50 000 = 6000 µm ÷ 50 000 = 0.12 µm. Converting, 0.12 µm = 120 nm. Equivalently, actual size = measured size × (scale-bar value ÷ scale-bar length) = 6.0 × (0.8/40) µm = 0.12 µm = 120 nm. Careful tracking of the mm→µm→nm conversions is the crux.",
+    "option_analysis": {
+      "A": "Wrong: 0.12 µm has been misread as 1.2 µm, a decimal-place error that inflates the answer tenfold.",
+      "B": "Correct: Magnification = 40 mm/0.8 µm = 50 000×; actual diameter = 6.0 mm/50 000 = 0.12 µm = 120 nm.",
+      "C": "Wrong: This comes from treating the scale-bar label as 0.8 mm instead of 0.8 µm, giving magnification 40/0.8 = 50× and actual size 6.0 mm/50 = 0.12 mm = 120 µm. The misconception is failing to convert the scale-bar units before dividing.",
+      "D": "Wrong: This inverts the scale ratio (multiplying by 40/0.8 instead of dividing), i.e. treating the image size as if it were smaller than the object. It reflects confusing the direction of the magnification calculation.",
+      "E": "Wrong: 0.12 µm equals 120 nm, not 12 nm. This is a factor-of-ten slip (mishandling the decimal when converting 0.12 µm to nm), a common arithmetic error in unit conversion."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0220",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell structure and microscopy",
+    "subtopic": "Distinction between magnification and resolution and the wavelength dependence of resolving power",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "resolution",
+      "magnification",
+      "resolving power",
+      "wavelength",
+      "electron microscope"
+    ],
+    "learning_objective": "Distinguish magnification from resolution and relate the resolving power of a microscope to the wavelength of the illuminating probe.",
+    "question": "Two adjacent cellular structures lie 150 nm apart. A light microscope that uses visible light of wavelength about 500 nm has a resolving power (smallest resolvable separation) of roughly 200 nm. A student increases the total magnification from ×400 to ×1500 but the two structures still appear as a single point. Which statement is correct?",
+    "choices": {
+      "A": "Resolution would improve if a longer wavelength, such as infrared light, were used, which would separate the two structures.",
+      "B": "The two structures will now be resolved as two separate points at ×1500, because higher magnification always reveals finer detail.",
+      "C": "The structures are unresolved only because the magnification is too low; raising it beyond ×2000 would separate them.",
+      "D": "The microscope cannot resolve them because their 150 nm separation is below its ~200 nm resolving power; a shorter-wavelength probe such as an electron beam is required.",
+      "E": "Adding a stain to increase contrast will allow the two structures to be resolved regardless of their separation."
+    },
+    "correct_answer": "D",
+    "explanation": "Magnification enlarges the image; resolution (resolving power) is the smallest separation at which two points remain distinguishable, and it is set chiefly by the wavelength of the probe (approximately half the wavelength). Two points only 150 nm apart fall below the ~200 nm limit of a visible-light instrument, so no amount of extra magnification can separate them — beyond the resolution limit further enlargement is 'empty magnification'. Because electrons have a far shorter effective wavelength than visible light, an electron microscope has a much smaller resolvable separation and can distinguish the two structures.",
+    "option_analysis": {
+      "A": "Wrong: This inverts the wavelength–resolution relationship. Resolving power improves with SHORTER wavelengths; longer-wavelength (infrared) light would give a larger, i.e. worse, resolvable separation.",
+      "B": "Wrong: This is the classic conflation of magnification with resolution ('empty magnification'). Enlarging an unresolved blur just produces a bigger blur; detail below the resolution limit cannot be recovered by magnification.",
+      "C": "Wrong: It again assumes resolution is limited by magnification. The limit is set by the wavelength of the probe, not by how large the image is made; ×2000 would not help.",
+      "D": "Correct: The 150 nm separation is below the ~200 nm resolving power set by the ~500 nm visible-light wavelength, so a shorter-wavelength probe (an electron beam) is needed to resolve them.",
+      "E": "Wrong: Staining improves contrast (visibility of a resolvable feature), but it cannot make two points closer than the resolution limit appear as two — contrast and resolution are different properties."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0221",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell structure and microscopy",
+    "subtopic": "Cell fractionation by differential centrifugation: sedimentation order and marker enzymes",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "cell fractionation",
+      "differential centrifugation",
+      "marker enzyme",
+      "organelle isolation",
+      "cytochrome c oxidase"
+    ],
+    "learning_objective": "Predict the distribution of organelles and marker molecules across differential-centrifugation fractions using organelle size and biochemical function.",
+    "question": "Liver cells are homogenised in an ice-cold, isotonic, buffered solution and subjected to differential centrifugation, giving three pellets formed at successively higher centrifugal forces — P1 (lowest force), P2 (intermediate force) and P3 (highest force) — and a final supernatant S. Analysis shows that cytochrome c oxidase, an enzyme of the inner mitochondrial membrane, is concentrated in P2, and that the enzymes of glycolysis are found in S. Which additional result is expected?",
+    "choices": {
+      "A": "P3, obtained at the highest force, should contain most of the cytochrome c oxidase, because the densest components need the greatest force to sediment.",
+      "B": "Ribosomes remain permanently in supernatant S and cannot be sedimented by centrifugation at any force.",
+      "C": "Most of the cell's DNA is recovered in the supernatant S, because DNA is dissolved freely in the cytosol.",
+      "D": "The presence of glycolytic enzymes in S shows that glycolysis occurs in mitochondria, so these enzymes should also appear in P2.",
+      "E": "Most of the cell's DNA is recovered in P1, the pellet formed at the lowest centrifugal force."
+    },
+    "correct_answer": "E",
+    "explanation": "In differential centrifugation, the largest and densest components sediment first, at the lowest force, and progressively smaller ones require higher forces. The order is therefore nuclei (lowest force) → mitochondria (intermediate force) → ribosomes/ER fragments (highest force), with soluble cytosolic components left in the final supernatant. Since mitochondria (marked by cytochrome c oxidase) pellet in P2 at intermediate force, the larger nuclei must have already pelleted in P1 at the lower force, and nuclei hold essentially all the cell's chromosomal DNA. The isotonic (prevents osmotic damage), cold (limits enzyme/protease activity) and buffered (holds pH) conditions preserve organelle integrity.",
+    "option_analysis": {
+      "A": "Wrong: This contradicts the given data (cytochrome c oxidase is in P2) and rests on a reversed rule. The densest/largest particles sediment at the LOWEST force, not the highest; mitochondria pellet at intermediate force.",
+      "B": "Wrong: Ribosomes are small and need a very high centrifugal force, but they can be sedimented (in the highest-force pellet); the misconception is that being small means they can never be pelleted.",
+      "C": "Wrong: This treats DNA as freely dissolved in the cytosol. In a eukaryote the chromosomal DNA is enclosed in the nucleus, which sediments as an organelle, so DNA is in a pellet, not the supernatant.",
+      "D": "Wrong: Glycolysis occurs in the cytosol, which is why its enzymes stay in the soluble supernatant S. The misconception places glycolysis inside mitochondria (only the link reaction, Krebs cycle and oxidative phosphorylation are mitochondrial).",
+      "E": "Correct: Nuclei are the largest, densest components and pellet first at the lowest force (P1); since they contain essentially all the chromosomal DNA, DNA is concentrated in P1 — consistent with mitochondria appearing later in P2."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0222",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell structure and microscopy",
+    "subtopic": "Prokaryotic vs eukaryotic ribosomes (70S vs 80S) and the 70S ribosomes of mitochondria (endosymbiotic origin)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "prokaryotic vs eukaryotic",
+      "ribosomes",
+      "70S",
+      "80S",
+      "mitochondria",
+      "antibiotics",
+      "endosymbiosis"
+    ],
+    "learning_objective": "Use the 70S/80S ribosome distinction and the bacterial ancestry of mitochondria to predict the selective action and side effects of a ribosome-targeting antibiotic.",
+    "question": "An antibiotic binds selectively to the small (30S) subunit of 70S ribosomes and blocks bacterial protein synthesis, yet it does not bind the 80S ribosomes found free in the cytosol and on the rough endoplasmic reticulum of human cells. Despite this selectivity, prolonged high-dose treatment causes toxicity that is most severe in metabolically active human tissues. Which statement best explains this observation?",
+    "choices": {
+      "A": "The drug is expected to inhibit the 70S-type ribosomes inside human mitochondria — a legacy of the mitochondrion's bacterial ancestor — impairing tissues with high oxidative energy demand.",
+      "B": "Human cells contain no ribosomes inside their mitochondria, so the toxicity must arise from inhibition of their nuclear-encoded 80S ribosomes.",
+      "C": "The toxicity results from the drug being metabolised into a form that inhibits ribosomes attached to the lysosomal membrane.",
+      "D": "At high concentration the antibiotic must also bind the 80S ribosomes, because all ribosomes are structurally identical.",
+      "E": "Human cytosolic ribosomes are in fact also 70S, so a drug that binds 70S ribosomes cannot really be selective for bacteria."
+    },
+    "correct_answer": "A",
+    "explanation": "Eukaryotic cytosolic ribosomes are 80S (60S + 40S subunits), whereas bacterial ribosomes are 70S (50S + 30S); this size/structure difference is what allows a 70S-selective antibiotic to spare the host cytosol. However, mitochondria are semi-autonomous organelles descended, by endosymbiosis, from an ancestral bacterium, and they retain their own bacteria-like 70S (70S-type) ribosomes for synthesising a handful of inner-membrane respiratory proteins. A drug that inhibits 70S ribosomes therefore also inhibits mitochondrial translation, impairing oxidative phosphorylation. Tissues with the highest energy demand (and greatest mitochondrial dependence) are hit hardest, which is exactly the toxicity pattern described.",
+    "option_analysis": {
+      "A": "Correct: Mitochondria retain bacteria-like 70S ribosomes from their endosymbiotic bacterial ancestor, so a 70S-targeting antibiotic inhibits mitochondrial protein synthesis and thus oxidative phosphorylation, harming the most energy-demanding tissues.",
+      "B": "Wrong: Mitochondria DO contain their own ribosomes (70S-type). Denying this misses the semi-autonomous nature of the organelle and forces an incorrect appeal to the 80S ribosomes the drug does not bind.",
+      "C": "Wrong: Lysosomes are membrane-bound digestive organelles with no ribosomes; they are not sites of protein synthesis. This invents a target that does not exist.",
+      "D": "Wrong: Ribosomes are not all identical — 70S and 80S ribosomes differ in subunit sizes, rRNA and proteins, which is precisely why selective drugs exist. This option denies the structural basis of the selectivity.",
+      "E": "Wrong: Eukaryotic cytosolic ribosomes are 80S, not 70S. Confusing the host's cytosolic ribosome type removes the very difference that makes the antibiotic selective."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0223",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell structure and microscopy",
+    "subtopic": "Nucleus ultrastructure: nucleolar ribosome-subunit assembly and selective nuclear-pore export",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "nucleus",
+      "nucleolus",
+      "nuclear pore",
+      "ribosome biogenesis",
+      "rRNA",
+      "organelle function"
+    ],
+    "learning_objective": "Integrate nucleolar function, nuclear-pore transport and ribosome biogenesis to predict the consequence of blocking nuclear export of ribonucleoprotein particles.",
+    "question": "The nucleolus is a dense, non-membrane-bound region within the nucleus. An experimental drug specifically blocks the export of large ribonucleoprotein (RNP) particles through the nuclear pore complexes, while the import of small proteins into the nucleus continues normally. Which outcome is expected shortly after the drug is applied?",
+    "choices": {
+      "A": "Plasma-membrane proteins are unaffected, because they are made on free cytosolic ribosomes that do not depend on nuclear export.",
+      "B": "Mitochondrial protein synthesis halts, because mitochondria obtain their ribosomal subunits from the nucleolus by import through nuclear pores.",
+      "C": "Messenger RNA can no longer be transcribed, because the nucleolus is the site of all cellular transcription.",
+      "D": "Synthesis of ribosomal RNA stops immediately, because rRNA is transcribed in the cytoplasm and can no longer reach the nucleus.",
+      "E": "Pre-ribosomal subunits continue to be assembled in the nucleolus but accumulate inside the nucleus, and cytoplasmic protein synthesis falls because functional ribosomes are no longer supplied to the cytoplasm."
+    },
+    "correct_answer": "E",
+    "explanation": "The nucleolus is where rRNA is transcribed and processed and where ribosomal proteins (imported from the cytoplasm) combine with rRNA to form the large and small pre-ribosomal subunits. These subunits are exported as large RNP particles through the nuclear pore complexes to the cytoplasm, where they mature and function in translation. Blocking export of large RNPs does not stop nucleolar assembly (rRNA transcription and subunit building continue, since small-protein import is unaffected), but the finished subunits are trapped in the nucleus. With no fresh subunits reaching the cytoplasm, the supply of functional ribosomes dwindles and cytoplasmic protein synthesis declines. This ties together nucleolar function, selective nuclear-pore transport and ribosome biogenesis.",
+    "option_analysis": {
+      "A": "Wrong: Membrane proteins are synthesised on ribosomes bound to the rough ER, not on export-independent 'free' ribosomes, and all cytoplasmic ribosomes ultimately derive from nucleus-exported subunits — so membrane-protein synthesis is affected, not spared.",
+      "B": "Wrong: Mitochondria have their own DNA, rRNA and 70S ribosomes and do not import assembled ribosomal subunits through nuclear pores, so mitochondrial translation is not directly halted by this block.",
+      "C": "Wrong: The nucleolus makes rRNA only; messenger RNA is transcribed by RNA polymerase II throughout the nucleoplasm. Blocking RNP export does not stop mRNA transcription.",
+      "D": "Wrong: rRNA is transcribed in the nucleolus (inside the nucleus), not in the cytoplasm. The option misplaces the site of rRNA synthesis and confuses transcription with transport.",
+      "E": "Correct: rRNA transcription and subunit assembly in the nucleolus continue, but the export-blocked subunits build up in the nucleus, starving the cytoplasm of functional ribosomes and reducing protein synthesis."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  }
+]
