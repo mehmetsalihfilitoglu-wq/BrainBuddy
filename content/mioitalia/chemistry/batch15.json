@@ -1,0 +1,480 @@
+[
+  {
+    "id": "mio_chem_0171",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic synthesis and reaction pathways",
+    "subtopic": "Nitrile chain-extension route: halogenoalkane to nitrile to carboxylic acid; selecting reagents and recognising the carbon-count change",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "organic synthesis",
+      "functional group interconversion",
+      "nitrile",
+      "cyanide substitution",
+      "carboxylic acid",
+      "reagents"
+    ],
+    "learning_objective": "Select the correct reagents/conditions for a nitrile chain-extension synthesis and recognise that cyanide substitution adds one carbon which becomes the carboxyl carbon on hydrolysis.",
+    "question": "A chemist prepares butanoic acid (CH3CH2CH2COOH) from 1-bromopropane (CH3CH2CH2Br) in two steps:\n\nCH3CH2CH2Br  --(step 1)-->  a nitrile  --(step 2)-->  CH3CH2CH2COOH\n\nWhich combination of reagents and conditions is correct for step 1 and step 2 respectively?",
+    "choices": {
+      "A": "Step 1: HCN with a trace of NaOH; Step 2: hot concentrated NaOH",
+      "B": "Step 1: aqueous NaOH, reflux; Step 2: acidified K2Cr2O7, reflux",
+      "C": "Step 1: excess NH3 in ethanol, heat; Step 2: dilute H2SO4, reflux",
+      "D": "Step 1: KCN in ethanol, reflux; Step 2: LiAlH4 in dry ether",
+      "E": "Step 1: KCN in ethanol, reflux; Step 2: dilute H2SO4, heat under reflux"
+    },
+    "correct_answer": "E",
+    "explanation": "Cyanide ion (from KCN in ethanol) is the nucleophile that displaces bromide, installing a nitrile group and lengthening the carbon chain by one: 1-bromopropane (3 C) becomes butanenitrile (4 C), with the CN carbon destined to become the carboxyl carbon. Acidic hydrolysis of the nitrile (dilute H2SO4, reflux) then converts C≡N into COOH, giving butanoic acid. The route works precisely because cyanide adds a carbon, so a 3-carbon halide gives a 4-carbon acid.",
+    "option_analysis": {
+      "A": "Wrong: HCN with a trace of base is used for cyanohydrin formation from carbonyl compounds, not for substitution on a halogenoalkane, and hot concentrated NaOH would not cleanly deliver the acid. Encodes the misconception of applying cyanohydrin chemistry to a halogenoalkane.",
+      "B": "Wrong: aqueous NaOH gives propan-1-ol (substitution to an alcohol), and dichromate oxidation of that primary alcohol gives propanoic acid (only 3 carbons), not butanoic acid. Encodes the misconception that an OH-substitution/oxidation route preserves the carbon count and reaches the same target as the cyanide route.",
+      "C": "Wrong: ammonia substitution gives propan-1-amine (an amine), and acidic hydrolysis will not convert an amine to a carboxylic acid. Encodes the misconception of confusing the amine product (NH3) with the nitrile product (CN).",
+      "D": "Wrong: step 1 is right, but LiAlH4 reduces the nitrile to an amine (butan-1-amine) rather than hydrolysing it to the acid. Encodes the misconception of confusing reduction with hydrolysis of a nitrile.",
+      "E": "Correct: KCN/ethanol substitutes Br by CN to give butanenitrile (chain extended by one carbon), and dilute acid reflux hydrolyses the nitrile to butanoic acid."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0172",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic synthesis and reaction pathways",
+    "subtopic": "Oxidation products of primary, secondary and tertiary alcohols under reflux with excess acidified dichromate",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "organic synthesis",
+      "alcohol oxidation",
+      "dichromate",
+      "primary secondary tertiary",
+      "reaction conditions",
+      "carboxylic acid",
+      "ketone"
+    ],
+    "learning_objective": "Predict the oxidation product of each alcohol class under specified conditions (reflux with excess oxidant), recognising that primary gives a carboxylic acid, secondary a ketone, and tertiary no reaction.",
+    "question": "Three alcohols - butan-1-ol, butan-2-ol and 2-methylpropan-2-ol - are each heated under reflux with an EXCESS of acidified potassium dichromate(VI). What are the respective organic products?",
+    "choices": {
+      "A": "butanoic acid; butan-2-one; no reaction",
+      "B": "butanoic acid; butan-2-one; 2-methylpropanoic acid",
+      "C": "butanal; butan-2-ol (unchanged); 2-methylpropanoic acid",
+      "D": "butanoic acid; butan-2-ol (unchanged); no reaction",
+      "E": "butanal; butan-2-one; no reaction"
+    },
+    "correct_answer": "A",
+    "explanation": "A primary alcohol (butan-1-ol) heated under reflux with excess oxidant is oxidised all the way to the carboxylic acid, butanoic acid (the intermediate aldehyde is kept in the flask and oxidised further). A secondary alcohol (butan-2-ol) is oxidised to a ketone, butan-2-one, which resists further oxidation. A tertiary alcohol (2-methylpropan-2-ol) has no hydrogen on the carbon bearing the OH group, so it cannot be oxidised without breaking a C-C bond, and gives no reaction. The choice of reflux with excess oxidant (rather than distillation with limited oxidant) is what sends the primary alcohol to the acid.",
+    "option_analysis": {
+      "A": "Correct: primary -> carboxylic acid (reflux, excess oxidant); secondary -> ketone; tertiary -> no reaction (no H on the carbinol carbon).",
+      "B": "Wrong: the tertiary alcohol cannot be oxidised to a carboxylic acid without cleaving a C-C bond, which acidified dichromate does not do. Encodes the misconception that all alcohols, including tertiary, are oxidised to acids.",
+      "C": "Wrong: combines several errors - primary stopping at the aldehyde, secondary left unreacted, and tertiary oxidised to an acid - all inconsistent with the reflux/excess conditions and with alcohol-class behaviour.",
+      "D": "Wrong: a secondary alcohol IS oxidised by acidified dichromate to a ketone; it is not left unchanged. Encodes the misconception that only primary alcohols are oxidised.",
+      "E": "Wrong: butanal would only be obtained by distilling the aldehyde off with a limited amount of oxidant; under reflux with excess oxidant the primary alcohol is oxidised on to butanoic acid. Encodes the misconception of ignoring the reflux/excess conditions that determine aldehyde vs acid."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0173",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic synthesis and reaction pathways",
+    "subtopic": "Matching alkene reagents/conditions to product type: Br2 addition (dihalide), cold dilute KMnO4 (diol) and HBr (halogenoalkane)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "organic synthesis",
+      "alkene reactions",
+      "dihalide",
+      "diol",
+      "Markovnikov",
+      "reagents and conditions"
+    ],
+    "learning_objective": "Match each alkene reagent/condition to the correct functional-group interconversion product (vicinal dihalide, diol, or halogenoalkane) and apply Markovnikov addition of HBr.",
+    "question": "Propene is treated separately with three reagents:\n\nReaction 1: bromine dissolved in an inert organic solvent (CCl4), in the dark;\nReaction 2: cold, dilute potassium manganate(VII), KMnO4;\nReaction 3: hydrogen bromide gas.\n\nAssuming the major product forms in each case, which row gives the products of Reactions 1, 2 and 3 respectively?",
+    "choices": {
+      "A": "1,2-dibromopropane; propan-1-ol; 1-bromopropane",
+      "B": "1,2-dibromopropane; propane-1,2-diol; 2-bromopropane",
+      "C": "1,2-dibromopropane; propan-2-ol; 1-bromopropane",
+      "D": "1-bromopropane; propane-1,2-diol; 2-bromopropane",
+      "E": "2-bromopropane; propane-1,2-diol; 1,2-dibromopropane"
+    },
+    "correct_answer": "B",
+    "explanation": "Bromine adds across the C=C double bond (electrophilic addition) to give the vicinal dihalide 1,2-dibromopropane. Cold, dilute KMnO4 (Baeyer's reagent) hydroxylates the double bond, adding two OH groups to give propane-1,2-diol. Hydrogen bromide adds by Markovnikov's rule, placing Br on the more substituted (central) carbon to give 2-bromopropane. Each reagent therefore performs a distinct interconversion: dihalide, diol, and halogenoalkane.",
+    "option_analysis": {
+      "A": "Wrong: identifies the dihalide correctly but gives KMnO4 a single primary alcohol and HBr the anti-Markovnikov halide. Encodes the misconceptions of diol-as-mono-alcohol and incorrect HBr regiochemistry.",
+      "B": "Correct: Br2 -> 1,2-dibromopropane (addition to a vicinal dihalide); cold dilute KMnO4 -> propane-1,2-diol; HBr -> 2-bromopropane (Markovnikov).",
+      "C": "Wrong: cold dilute KMnO4 gives a diol, not a single -OH (that is not simple hydration), and HBr adds by Markovnikov to give 2-bromopropane, not the anti-Markovnikov 1-bromopropane. Encodes the misconceptions that KMnO4 hydrates and that HBr adds anti-Markovnikov.",
+      "D": "Wrong: treats Br2 as substituting a single hydrogen (as it would with a saturated alkane under UV) to give a mono-bromo product. Encodes the misconception that Br2 substitutes rather than adds to an alkene.",
+      "E": "Wrong: swaps the two halogen products, giving Br2 a single-substitution product and HBr the dihalide. Encodes the misconception of confusing addition of a halogen (Br2) with addition of a hydrogen halide (HBr)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0174",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic synthesis and reaction pathways",
+    "subtopic": "Critiquing a multi-step amine synthesis: carbon-count change from cyanide substitution vs ammonia substitution",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "organic synthesis",
+      "amine synthesis",
+      "carbon count",
+      "cyanide vs ammonia",
+      "PCl5",
+      "reaction pathway evaluation"
+    ],
+    "learning_objective": "Evaluate a proposed multi-step synthesis by tracking carbon count and reagent outcomes, distinguishing the nitrile route (chain extension) from direct ammonia substitution.",
+    "question": "A student proposes this three-step synthesis of propan-1-amine (CH3CH2CH2NH2) starting from propan-1-ol:\n\nStep 1: propan-1-ol + PCl5 -> 1-chloropropane\nStep 2: 1-chloropropane + KCN in ethanol, reflux -> a nitrile\nStep 3: the nitrile + H2/Ni (reduction) -> an amine\n\nWhich statement correctly evaluates the proposed route?",
+    "choices": {
+      "A": "Step 1 is inappropriate: the substitution occurs with rearrangement, giving 2-chloropropane instead.",
+      "B": "Step 1 is inappropriate: PCl5 does not react with alcohols, so no 1-chloropropane is formed.",
+      "C": "Step 3 is inappropriate: nitriles cannot be reduced to amines under any conditions.",
+      "D": "Step 2 is inappropriate: cyanide substitution adds a carbon atom, so the route actually yields butan-1-amine; reaction of 1-chloropropane with excess ammonia should be used instead.",
+      "E": "The route is sound and delivers propan-1-amine as intended."
+    },
+    "correct_answer": "D",
+    "explanation": "The individual reactions are all real (PCl5 converts an alcohol to a chloroalkane; cyanide substitutes to a nitrile; H2/Ni reduces a nitrile to a primary amine), but the cyanide step lengthens the chain by one carbon. Starting from a 3-carbon chain, the nitrile is butanenitrile (4 C) and reduction gives butan-1-amine (4 C), not propan-1-amine. To make the 3-carbon amine directly, 1-chloropropane should be heated with excess ammonia, which substitutes Cl by NH2 without changing the carbon count.",
+    "option_analysis": {
+      "A": "Wrong: PCl5 substitutes the OH at the carbon that bears it, with no carbocation rearrangement, so a primary alcohol gives 1-chloropropane. Encodes the misconception of importing Markovnikov/rearrangement ideas into a straightforward substitution.",
+      "B": "Wrong: PCl5 does react with alcohols, giving the chloroalkane together with POCl3 and HCl. Encodes the misconception that PCl5 is unreactive toward alcohols.",
+      "C": "Wrong: nitriles are readily reduced to primary amines by H2/Ni or LiAlH4. Encodes the misconception that the nitrile-to-amine reduction is not possible.",
+      "D": "Correct: the nitrile route extends the chain by one carbon, giving a four-carbon amine; excess ammonia on the halogenoalkane is the carbon-conserving route to propan-1-amine.",
+      "E": "Wrong: it overlooks that cyanide substitution adds a carbon, so the product is butan-1-amine, not propan-1-amine. Encodes the misconception that KCN substitution preserves the carbon skeleton."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0175",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic synthesis and reaction pathways",
+    "subtopic": "Combining Markovnikov hydration (alkene to alcohol) with alcohol to halogenoalkane substitution by HBr, tracking the functional-group position",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "organic synthesis",
+      "hydration",
+      "Markovnikov",
+      "alcohol to halogenoalkane",
+      "HBr substitution",
+      "multi-step"
+    ],
+    "learning_objective": "Chain Markovnikov hydration and alcohol-to-halogenoalkane substitution, recognising that the functional group stays on the same carbon through the route.",
+    "question": "But-1-ene is reacted with steam in the presence of a concentrated phosphoric acid catalyst, giving alcohol J as the major product. J is then heated with concentrated hydrobromic acid (HBr). What is the final organic product?",
+    "choices": {
+      "A": "2,3-dibromobutane",
+      "B": "butan-2-ol (no further reaction occurs with HBr)",
+      "C": "but-2-ene",
+      "D": "2-bromobutane",
+      "E": "1-bromobutane"
+    },
+    "correct_answer": "D",
+    "explanation": "Acid-catalysed hydration of but-1-ene follows Markovnikov's rule, so water adds with -OH on the more substituted carbon (C2), giving butan-2-ol as alcohol J. Heating an alcohol with concentrated HBr substitutes the -OH by -Br at the same carbon, giving 2-bromobutane. The functional group therefore remains on carbon 2 throughout: alkene -> secondary alcohol -> secondary bromoalkane.",
+    "option_analysis": {
+      "A": "Wrong: assumes two bromine atoms add across a double bond, as in the bromination of an alkene. Encodes the misconception of treating the alcohol + HBr step as electrophilic addition of Br2.",
+      "B": "Wrong: alcohols do react with HBr, undergoing nucleophilic substitution to give halogenoalkanes. Encodes the misconception that an alcohol is inert toward HBr.",
+      "C": "Wrong: assumes HBr eliminates/dehydrates the alcohol to an alkene. Encodes the misconception of confusing HBr substitution of an alcohol with acid-catalysed dehydration.",
+      "D": "Correct: Markovnikov hydration gives butan-2-ol, and HBr substitutes the OH on C2 to give 2-bromobutane.",
+      "E": "Wrong: assumes anti-Markovnikov hydration to butan-1-ol, which would give 1-bromobutane. Encodes the misconception about the regiochemistry of acid-catalysed hydration."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0176",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Organic synthesis and reaction pathways",
+    "subtopic": "Two-stage synthesis of an ester from an alcohol: full oxidation to the carboxylic acid then acid-catalysed esterification",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "organic synthesis",
+      "oxidation",
+      "esterification",
+      "reaction conditions",
+      "ester",
+      "multi-step route"
+    ],
+    "learning_objective": "Design a two-stage route that oxidises an alcohol fully to its carboxylic acid and then esterifies it with more of the alcohol, selecting reflux/excess oxidant and an acid catalyst.",
+    "question": "Using ethanol as the only organic starting material, which sequence of reagents and conditions converts it into ethyl ethanoate (CH3COOCH2CH3)?",
+    "choices": {
+      "A": "(1) warm with acidified K2Cr2O7, distilling off the product as it forms; (2) warm this product with a further portion of ethanol and concentrated H2SO4",
+      "B": "(1) heat one portion under reflux with excess acidified K2Cr2O7 to give ethanoic acid; (2) warm this acid with a further portion of ethanol and a few drops of concentrated H2SO4",
+      "C": "(1) heat under reflux with excess acidified K2Cr2O7 to give ethanoic acid; (2) add aqueous sodium hydroxide",
+      "D": "(1) react with PCl5 to give chloroethane; (2) warm the chloroethane with sodium ethoxide",
+      "E": "(1) heat under reflux with excess acidified K2Cr2O7 to give ethanoic acid; (2) reflux the acid with LiAlH4 in dry ether"
+    },
+    "correct_answer": "B",
+    "explanation": "An ester is made from a carboxylic acid and an alcohol. So one portion of ethanol is first oxidised fully to ethanoic acid, which requires reflux with excess acidified dichromate (distillation with limited oxidant would stop at the aldehyde). The ethanoic acid is then esterified with a second portion of ethanol, using concentrated sulfuric acid as the acid catalyst/dehydrating agent, to give ethyl ethanoate and water.",
+    "option_analysis": {
+      "A": "Wrong: distilling as the product forms gives ethanal (an aldehyde); warming an aldehyde with an alcohol and acid gives a hemiacetal/acetal, not an ester. Encodes the misconception that an aldehyde plus an alcohol yields an ester.",
+      "B": "Correct: reflux with excess oxidant gives the carboxylic acid, and acid-catalysed esterification with more ethanol gives ethyl ethanoate.",
+      "C": "Wrong: adding aqueous NaOH to the acid gives sodium ethanoate, a salt, not the ester. Encodes the misconception that an acid plus a base forms an ester.",
+      "D": "Wrong: reacting chloroethane with sodium ethoxide is a Williamson synthesis, producing an ether (ethoxyethane), not an ester. Encodes the misconception of confusing an ether linkage with an ester linkage.",
+      "E": "Wrong: LiAlH4 reduces the carboxylic acid back to ethanol; it does not esterify. Encodes the misconception about which reagent brings about esterification."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0177",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Structure and bonding",
+    "subtopic": "Electrical conductivity of a giant ionic compound in the solid, molten and aqueous states: ions as the mobile charge carriers",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "giant ionic",
+      "electrical conductivity",
+      "charge carriers",
+      "states of matter",
+      "structure-property"
+    ],
+    "learning_objective": "Explain, in terms of the availability of mobile ions, why a giant ionic solid conducts electricity only when molten or dissolved and not in the solid state, and distinguish this from metallic conduction.",
+    "question": "A white crystalline solid Q has a high melting point and shatters into fragments when struck sharply. It does not conduct electricity in the solid state, but it conducts well both when melted and when dissolved in water. Which statement gives the best explanation of this behaviour?",
+    "choices": {
+      "A": "Q is a metal; its delocalised electrons are locked in place in the solid lattice and become free to move only once the solid has melted or dissolved.",
+      "B": "Q is ionic, but conduction is due to electrons released from the anions, and these electrons can move only in the molten or aqueous state.",
+      "C": "In the solid the covalent bonds are intact, but melting or dissolving breaks these bonds, and the electrons released in doing so carry the current.",
+      "D": "Q is ionic; its oppositely charged ions are the charge carriers, held in fixed positions in the solid lattice but free to move once the lattice is melted or the solid is dissolved.",
+      "E": "Q conducts only when its molecules gain enough energy to move about; in the solid the molecules are fixed and so cannot transport charge."
+    },
+    "correct_answer": "D",
+    "explanation": "The high melting point and brittleness (like-charged ions are brought adjacent when a layer is displaced, causing repulsion and cleavage) point to a giant ionic lattice. Electrical conduction requires mobile charge carriers. In an ionic compound the carriers are the ions themselves: in the rigid solid they are locked in their lattice sites and cannot migrate, so the solid is an insulator; on melting or dissolving, the lattice is disrupted and the ions become free to move towards the electrodes, so both the molten and aqueous forms conduct. This diagnostic pattern (non-conducting solid, conducting melt and solution) is characteristic of ionic bonding and differs from metallic conduction, where delocalised electrons allow the solid metal itself to conduct.",
+    "option_analysis": {
+      "A": "Wrong: a metal conducts in the solid state because its delocalised electrons are already mobile, and metals are malleable, not brittle - this misconception wrongly claims metallic electrons are immobilised until melting.",
+      "B": "Wrong: it correctly identifies the compound as ionic but misplaces the carrier - conduction is due to the migration of the whole ions, not electrons detached from the anions.",
+      "C": "Wrong: this is the common error that melting or dissolving breaks covalent bonds to liberate electrons; the compound is ionic, no bonds are broken to release electrons, and the carriers are pre-existing ions, not freed electrons.",
+      "D": "Correct: the carriers are the ions, immobile in the solid lattice but free to migrate once the lattice is destroyed by melting or dissolving, exactly matching the observed conductivity pattern and the brittleness of an ionic solid.",
+      "E": "Wrong: it treats the solid as simple molecular and imagines neutral 'molecules' carrying charge; conduction needs charged carriers (ions), and movement of neutral molecules would carry no net charge."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0178",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Structure and bonding",
+    "subtopic": "Giant covalent versus simple molecular: why silica melts far above carbon dioxide (breaking a covalent network versus overcoming dispersion forces)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "giant covalent",
+      "simple molecular",
+      "melting point",
+      "silicon dioxide",
+      "intermolecular forces"
+    ],
+    "learning_objective": "Contrast a giant covalent (macromolecular) solid with a simple molecular solid by identifying which forces must be overcome on melting/subliming, and use this to explain a large melting-point difference.",
+    "question": "Silicon(IV) oxide (silica, SiO2) melts at about 1610 degrees C, whereas carbon dioxide (CO2) sublimes at about -78 degrees C, even though both are oxides of a Group 14 element in the +4 oxidation state. Which statement correctly accounts for this very large difference?",
+    "choices": {
+      "A": "In carbon dioxide the C=O bonds are far weaker than the Si-O bonds, so much less energy is needed to break them when the solid is warmed.",
+      "B": "Silica is a giant covalent (macromolecular) solid, so melting requires breaking a continuous network of strong Si-O covalent bonds, whereas subliming carbon dioxide only overcomes the weak dispersion forces between discrete O=C=O molecules.",
+      "C": "Hydrogen bonding between carbon dioxide molecules is absent, whereas silica molecules hydrogen bond strongly to one another, and this raises the melting point of silica.",
+      "D": "Silica is ionic, being built from Si(4+) and O(2-) ions with a very high lattice energy, whereas carbon dioxide is only a small covalent molecule, so only silica has strong electrostatic forces to overcome.",
+      "E": "Carbon dioxide is a gas because its formula unit is lighter, so its dispersion forces are negligible; the difference in relative formula mass alone explains the different melting points."
+    },
+    "correct_answer": "B",
+    "explanation": "The key is to identify what is physically pulled apart when each solid changes state. Silica is macromolecular: every silicon is covalently bonded to four oxygens and every oxygen bridges two silicons, giving one continuous three-dimensional covalent network. To melt it, many strong Si-O covalent bonds must be broken, which demands a very high temperature. Carbon dioxide is simple molecular: discrete O=C=O molecules are held to one another only by weak London dispersion forces. Subliming CO2 separates whole molecules by overcoming these weak intermolecular forces; the strong C=O covalent bonds inside each molecule stay intact. Because breaking a covalent network costs far more energy than overcoming dispersion forces, silica melts more than 1600 degrees higher.",
+    "option_analysis": {
+      "A": "Wrong: this assumes that subliming CO2 breaks the intramolecular C=O bonds; sublimation only separates molecules by overcoming intermolecular forces, so the strength of the C=O bond is irrelevant to the process.",
+      "B": "Correct: it correctly distinguishes breaking a giant covalent network (silica) from overcoming weak dispersion forces between discrete molecules (carbon dioxide), which is exactly why the melting points differ so greatly.",
+      "C": "Wrong: neither substance can hydrogen bond (there are no O-H, N-H or F-H bonds), and 'silica molecules' is a misnomer because silica is a continuous network, not discrete molecules.",
+      "D": "Wrong: silica is not ionic but giant covalent; treating Si-O as fully ionic (Si(4+), O(2-)) is a common misclassification, and it also mis-locates the reason for the high melting point.",
+      "E": "Wrong: it attributes everything to relative formula mass; the formula masses (SiO2 = 60, CO2 = 44) are similar, and mass cannot explain a 1700-degree difference - the structure type does."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0179",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Structure and bonding",
+    "subtopic": "Carbon allotropes: reasoning from diamond's rigid 3-D network and graphite's delocalised interlayer electrons to hardness and electrical conductivity",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "carbon allotropes",
+      "diamond",
+      "graphite",
+      "delocalised electrons",
+      "hardness",
+      "conductivity"
+    ],
+    "learning_objective": "Relate the different bonding arrangements of diamond and graphite to their contrasting hardness, lubricating behaviour and electrical conductivity.",
+    "question": "Diamond and graphite are both pure carbon, yet diamond is one of the hardest substances known and does not conduct electricity, while graphite is soft enough to leave marks on paper and is a good electrical conductor. Which explanation is correct?",
+    "choices": {
+      "A": "In diamond each carbon forms four covalent bonds in a rigid three-dimensional network with no delocalised electrons, making it hard and non-conducting; in graphite each carbon bonds to only three others, leaving one outer electron delocalised between layers that are held together by weak forces, which allows conduction and lets the layers slide.",
+      "B": "In graphite the layers of carbon atoms are held together by weak covalent bonds that break easily, and it is the electrons from these weak bonds that carry the current.",
+      "C": "Diamond is harder because its carbon atoms are larger and more tightly packed than the smaller, more loosely packed carbon atoms in graphite.",
+      "D": "Graphite conducts because mobile ions are present between its layers, whereas diamond contains no such ions and therefore cannot conduct.",
+      "E": "Diamond conducts poorly because its covalent bonds are weaker than those in graphite, so there is not enough energy left over to allow its electrons to move."
+    },
+    "correct_answer": "A",
+    "explanation": "Both allotropes are giant covalent, but the bonding geometry differs. In diamond every carbon is covalently bonded to four others in a rigid, isotropic three-dimensional lattice; all four outer electrons are used in localised bonds, so there are no free charge carriers (electrical insulator) and the interlocking network resists deformation (extreme hardness). In graphite every carbon is covalently bonded to only three neighbours within flat hexagonal layers; the fourth outer electron per atom is delocalised over the layer, providing mobile charge carriers so graphite conducts. The layers are held to one another only by weak dispersion forces, so they slip over each other easily, making graphite soft and a good lubricant. The contrast in properties therefore follows directly from the difference in bonding arrangement, not from any difference in the carbon atoms themselves.",
+    "option_analysis": {
+      "A": "Correct: it correctly links diamond's four-bond 3-D network (no delocalised electrons) to hardness and insulation, and graphite's three-bond layers with one delocalised electron and weak interlayer forces to conduction and softness.",
+      "B": "Wrong: the layers in graphite are held together by weak dispersion (van der Waals) forces, not weak covalent bonds; conduction is due to delocalised electrons within the layers, not electrons from bonds between layers.",
+      "C": "Wrong: the carbon atoms in the two allotropes are identical; the difference in hardness comes from bonding arrangement, not from any imagined difference in atomic size or packing.",
+      "D": "Wrong: graphite contains no ions - it is an element - so mobile ions cannot be the carriers; conduction is by delocalised electrons.",
+      "E": "Wrong: diamond's C-C bonds are not weaker than graphite's, and its lack of conduction is due to all electrons being localised in bonds, not to any shortage of energy."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0180",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Structure and bonding",
+    "subtopic": "Giant metallic bonding across Period 3: increasing delocalised-electron count and cation charge raise the melting point (Na < Mg < Al)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "giant metallic",
+      "metallic bonding",
+      "melting point",
+      "period 3",
+      "delocalised electrons"
+    ],
+    "learning_objective": "Use the electron-sea model of metallic bonding to explain the rise in melting point across the Period 3 metals from sodium to aluminium.",
+    "question": "The melting points of the Period 3 metals rise in the order sodium < magnesium < aluminium. Using the model of metallic bonding, which statement best explains this trend?",
+    "choices": {
+      "A": "Aluminium has the most protons of the three, so the covalent bonds it forms to its neighbouring atoms are the strongest, giving the highest melting point.",
+      "B": "Aluminium consists of larger molecules than sodium, so it experiences stronger dispersion forces between its molecules and therefore melts at a higher temperature.",
+      "C": "From sodium to aluminium each atom contributes more electrons to the delocalised 'sea' (one, then two, then three) and the resulting cations become smaller and more highly charged, so the attraction between the cations and the delocalised electrons strengthens.",
+      "D": "Across this part of the table the atoms become larger, so the delocalised electrons are held less tightly, and this is what pushes the melting point up.",
+      "E": "All three metals release the same number of delocalised electrons per atom, so the rising melting point must be due to their increasing nuclear (atomic) mass."
+    },
+    "correct_answer": "C",
+    "explanation": "In the electron-sea model, a metal is a lattice of positive ions immersed in a sea of delocalised electrons; the strength of metallic bonding depends on the charge on each cation, the number of delocalised electrons contributed per atom, and the cation size. Going Na to Mg to Al, each atom donates one, then two, then three outer electrons, so the electron sea becomes denser and the cations carry charges of +1, +2 and +3. At the same time the ionic radius decreases across the period, bringing the electrons closer to the more highly charged cores. All three effects strengthen the electrostatic attraction between the cations and the delocalised electrons, so more energy is needed to break the metallic bonding and the melting point rises.",
+    "option_analysis": {
+      "A": "Wrong: metals are not held by covalent bonds between neighbouring atoms; the bonding is metallic (cations plus a delocalised electron sea), and proton count alone is not the operative factor.",
+      "B": "Wrong: metals are giant metallic structures, not simple molecular ones, so there are no discrete molecules and dispersion forces are not the relevant bonding.",
+      "C": "Correct: increasing delocalised-electron count together with smaller, more highly charged cations strengthens the cation-electron attraction, which is exactly why the melting point rises from sodium to aluminium.",
+      "D": "Wrong: atoms get smaller, not larger, across a period, and a weaker hold on the electrons would lower the melting point - the reasoning is both factually and directionally incorrect.",
+      "E": "Wrong: the three metals do not contribute the same number of delocalised electrons (they give 1, 2 and 3), and atomic mass does not determine metallic bond strength."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0181",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Structure and bonding",
+    "subtopic": "Fullerene C60 as a simple molecular allotrope: softness, low sublimation temperature and non-polar solubility versus giant covalent diamond and graphite",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "carbon allotropes",
+      "fullerene",
+      "C60",
+      "simple molecular",
+      "solubility",
+      "dispersion forces"
+    ],
+    "learning_objective": "Explain why buckminsterfullerene, a discrete-molecule allotrope of carbon, is soft, low-melting and soluble in non-polar solvents, in contrast to the giant covalent allotropes diamond and graphite.",
+    "question": "Buckminsterfullerene (C60) is a black solid that dissolves in non-polar solvents such as benzene, sublimes below 800 K and is soft, whereas both diamond and graphite are insoluble in all common solvents and remain solid above 3800 K. C60 is a third allotrope of carbon in which the atoms are arranged as discrete, cage-like molecules of 60 atoms. Which statement best explains why C60 behaves so differently from the other two allotropes?",
+    "choices": {
+      "A": "The covalent bonds inside a C60 cage are much weaker than those in diamond or graphite, so they break readily when C60 dissolves or sublimes.",
+      "B": "C60 exists as separate covalently bonded cage molecules that attract one another only through weak dispersion forces; these forces are easily overcome by gentle warming or by a non-polar solvent, whereas diamond and graphite are continuous covalent networks with no discrete molecules to separate.",
+      "C": "C60 is an ionic solid, which is why it has a low sublimation temperature and dissolves so readily in solvents, unlike the two covalent allotropes.",
+      "D": "Because C60 molecules are curved they cannot pack into any ordered lattice, so the solid is effectively a loosely held liquid, which is why it dissolves and melts so easily.",
+      "E": "C60 is held together by metallic bonding, and it is the resulting delocalised electrons that make it both soft and soluble, unlike the covalently bonded diamond and graphite."
+    },
+    "correct_answer": "B",
+    "explanation": "Fullerene C60 is a simple molecular allotrope: within each cage the 60 carbons are strongly covalently bonded, but the cages themselves are discrete molecules held to one another in the solid only by weak London dispersion forces. Consequently only these weak intermolecular forces need to be overcome to separate the molecules, so C60 is soft, sublimes at a relatively low temperature, and can be solvated by non-polar solvents such as benzene (like dissolves like). Diamond and graphite, by contrast, are giant covalent (macromolecular) solids: there are no discrete molecules, so melting or dissolving would require breaking an effectively endless network of strong covalent bonds - impossible for a solvent and requiring extreme temperatures. The decisive difference is therefore the presence of discrete molecules with weak forces between them, not any difference in the strength of the carbon-carbon covalent bonds.",
+    "option_analysis": {
+      "A": "Wrong: dissolving or subliming C60 does not break the intramolecular C-C bonds, and those bonds are comparable in strength to those in diamond and graphite; only the weak forces between whole molecules are overcome.",
+      "B": "Correct: it identifies C60 as discrete molecules held by weak dispersion forces (easily overcome on warming or by a non-polar solvent) and contrasts this with the continuous covalent networks of diamond and graphite that have no molecules to separate.",
+      "C": "Wrong: C60 is not ionic (it is an element and contains no ions), and ionic solids dissolve in polar solvents such as water, not in non-polar benzene.",
+      "D": "Wrong: C60 in fact packs into an ordered molecular crystal (a face-centred cubic lattice of cages); describing the solid as 'effectively a liquid' is incorrect, and it misidentifies the real reason (weak intermolecular forces) for the low melting point and solubility.",
+      "E": "Wrong: C60 is molecular, not metallic; it has no metallic electron sea, and metallic solids are not generally soluble in non-polar solvents such as benzene."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0182",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Structure and bonding",
+    "subtopic": "Electrical anisotropy of graphite: in-plane delocalised electrons versus weak interlayer dispersion forces",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "graphite",
+      "anisotropy",
+      "delocalised electrons",
+      "conductivity",
+      "dispersion forces",
+      "carbon allotropes"
+    ],
+    "learning_objective": "Explain the direction-dependence (anisotropy) of graphite's electrical conductivity in terms of in-plane delocalised electrons and the absence of a conducting pathway between weakly bonded layers.",
+    "question": "Graphite conducts electricity roughly 10^4 times better in directions parallel to its layers than in the direction perpendicular to them. Which explanation of this anisotropy is correct?",
+    "choices": {
+      "A": "The layers are themselves positively charged and so repel the electrons, meaning current can only flow sideways along the negatively charged sheets.",
+      "B": "Heat, rather than charge, is what moves between the layers, so a measurement in the perpendicular direction is really recording thermal conductivity rather than electrical conductivity.",
+      "C": "Within each layer one outer electron per carbon is delocalised over the whole sheet and moves freely to carry charge, but between the layers there are only weak dispersion forces and no delocalised pathway, so charge cannot pass easily from one layer to the next.",
+      "D": "Parallel to the layers the bonds are metallic and free to vibrate, whereas perpendicular to the layers the bonds are ordinary covalent bonds that trap the electrons in place.",
+      "E": "Perpendicular to the layers the carbon atoms are further apart than they are within a layer, and since conduction depends only on how close the atoms are, the perpendicular direction conducts less well regardless of bonding."
+    },
+    "correct_answer": "C",
+    "explanation": "Graphite's conductivity is anisotropic because its bonding is very different within a layer and between layers. Inside each flat hexagonal layer every carbon is covalently bonded to three neighbours and contributes one further outer electron to a delocalised system that extends over the whole sheet; these mobile electrons make each layer an excellent conductor in the in-plane directions. Between the layers, however, there is no covalent bonding and no continuous delocalised system - only weak dispersion (van der Waals) forces separated by a comparatively large gap. There is therefore no easy pathway for charge carriers to hop from one layer to the next, so the perpendicular conductivity is far smaller. The anisotropy thus reflects the presence of a delocalised electron pathway within the layers and its absence between them.",
+    "option_analysis": {
+      "A": "Wrong: the layers are not net positively or negatively charged (graphite is a neutral element); the anisotropy is not caused by any charge on the sheets.",
+      "B": "Wrong: the measurement concerns electrical conductivity in both directions; conflating charge flow with heat flow is a category error and does not explain the anisotropy.",
+      "C": "Correct: it correctly attributes high in-plane conductivity to the delocalised electron per carbon spread over each sheet, and low perpendicular conductivity to the absence of any delocalised pathway across the weak dispersion forces between layers.",
+      "D": "Wrong: the description of 'metallic bonds free to vibrate' is garbled; in-plane conduction is due to delocalised electrons within a covalently bonded sheet, and there are no covalent bonds between the layers to 'trap' electrons.",
+      "E": "Wrong: it reduces conduction to interatomic distance alone; the real cause is that a delocalised conducting pathway exists within a layer but not between layers, which is a difference in bonding, not merely in spacing."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  }
+]

@@ -1,0 +1,197 @@
+[
+  {
+    "id": "mio_ct_0072",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Principle application",
+    "subtopic": "Principle support: selecting the principle that, together with the stated facts, justifies a professional's refusal to act (permissibility)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "critical_thinking",
+      "principle_support",
+      "argument_analysis",
+      "applied_ethics",
+      "permissibility"
+    ],
+    "learning_objective": "Select the general principle which, when combined with the facts of a case, most strongly justifies the specific conclusion drawn, while rejecting principles that are irrelevant, over-broad, or that support the opposite conclusion.",
+    "question": "A pharmacist noticed that a prescription written by a qualified doctor specified a dose ten times higher than the normal dose for that medicine. She refused to hand over the medicine until she had spoken to the doctor to confirm the amount. The doctor could not be reached that day, so the patient went home without the medicine and, as it turned out, came to no lasting harm. It is concluded that the pharmacist's refusal to hand over the medicine was the right decision.\n\nWhich one of the following principles, if valid, most strongly supports the conclusion drawn above?",
+    "choices": {
+      "A": "When a professional has good reason to believe that following an instruction could seriously harm someone, the professional should not follow it until the doubt has been resolved.",
+      "B": "A pharmacist should always hand over exactly what a qualified doctor has prescribed.",
+      "C": "Professionals should be judged only by the outcomes of their actions, never by their intentions.",
+      "D": "A pharmacist should hand over a medicine only after personally explaining its risks to the patient.",
+      "E": "A patient should never be made to wait for a medicine that a doctor has already prescribed."
+    },
+    "correct_answer": "A",
+    "explanation": "A principle-support question asks which general rule, if added to the stated facts, would license the specific conclusion. The salient facts are (i) the pharmacist had good reason to believe the dose was dangerously wrong (ten times normal) and (ii) she suspended action to resolve that doubt. The conclusion is that suspending action was the right decision. The credited principle must have an antecedent matching those facts and a consequent matching the conclusion. Only option B does this: 'good reason to believe serious harm' fits the ten-fold dose, and 'should not follow it until the doubt is resolved' exactly endorses her refusal. The other options either concern a feature not at issue, support the opposite conclusion, or judge the act by a criterion (its outcome) that was unknown at the moment of decision.",
+    "option_analysis": {
+      "A": "Correct: The antecedent ('good reason to believe following an instruction could seriously harm someone') is satisfied by the ten-fold dose, and the consequent ('should not follow it until the doubt is resolved') is exactly the action the conclusion praises, so this principle plus the facts entails that the refusal was right.",
+      "B": "Wrong: This principle would require her to hand over precisely what was prescribed, so it supports the opposite conclusion (that she should NOT have refused). Misconception: selecting a principle that undermines rather than justifies the stated conclusion.",
+      "C": "Wrong: This principle tells us how to evaluate a professional (by outcomes) but does not establish that this refusal was right; moreover the outcome ('no lasting harm') was known only afterwards and cannot justify a decision at the moment it was taken. Misconception: outcome-only reasoning, treating a fortunate result as proof that the choice was correct.",
+      "D": "Wrong: This principle concerns explaining risks to the patient, a feature entirely absent from the case; the refusal turned on doubt about the dose, not on any failure to explain. Misconception: choosing a principle about a plausible-sounding but irrelevant detail rather than one whose antecedent matches the actual facts.",
+      "E": "Wrong: This principle forbids making the patient wait and therefore also supports the opposite conclusion. Misconception: mistaking a principle that favours the patient's convenience for one that justifies the pharmacist's caution."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0073",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Data sufficiency",
+    "subtopic": "Judging whether each statement alone suffices to decide divisibility by 15 (an each-alone-sufficient case) using digit-sum and factor divisibility rules",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "critical_thinking",
+      "data_sufficiency",
+      "divisibility",
+      "number_theory",
+      "logical_reasoning"
+    ],
+    "learning_objective": "Evaluate whether each piece of information is on its own sufficient to answer a yes/no question, correctly recognising that two logically independent statements can each be individually conclusive.",
+    "question": "Consider the question below, followed by two statements labelled (1) and (2). You must decide whether the statements provide enough information to answer the question.\n\nQuestion: Is the positive integer N a multiple of 15?\n\nStatement (1): The sum of the digits of N is a multiple of 3, and N ends in the digit 5.\nStatement (2): N is a multiple of 45.\n\nWhich one of the following is correct?",
+    "choices": {
+      "A": "Each statement alone is sufficient to answer the question.",
+      "B": "Statement (2) alone is sufficient to answer the question, but statement (1) alone is not.",
+      "C": "The two statements taken together are still not sufficient to answer the question.",
+      "D": "Both statements together are sufficient, but neither statement alone is sufficient.",
+      "E": "Statement (1) alone is sufficient to answer the question, but statement (2) alone is not."
+    },
+    "correct_answer": "A",
+    "explanation": "To be a multiple of 15, N must be divisible by both 3 and 5 (since 15 = 3 x 5, and 3 and 5 share no common factor). Statement (1): a digit sum that is a multiple of 3 guarantees 3 | N, and ending in 5 guarantees 5 | N; together these give 15 | N with certainty, so statement (1) alone answers 'yes'. Statement (2): 45 = 3 x 15, so every multiple of 45 is automatically a multiple of 15; statement (2) alone also answers 'yes'. Because each statement independently settles the question, the answer is that each alone is sufficient (D). The key insight is that sufficiency does not require the statements to be needed together — here they are two separate, independently conclusive routes to the same yes.",
+    "option_analysis": {
+      "A": "Correct: Statement (1) forces divisibility by 3 and by 5, hence by 15; statement (2) forces divisibility by 45, hence by 15. Each statement alone yields a definite 'yes', so each is separately sufficient.",
+      "B": "Wrong: Statement (2) is sufficient, but statement (1) is dismissed here. Misconception: doubting that the two divisibility rules (digit-sum test for 3, last-digit test for 5) together force divisibility by 15.",
+      "C": "Wrong: The information is more than enough. Misconception: over-scepticism, assuming a yes/no question cannot be decided from divisibility rules or from a single multiple relationship.",
+      "D": "Wrong: This treats the two statements as sufficient only in combination. Misconception: the common 'you need both clues' bias, overlooking that each statement is independently conclusive.",
+      "E": "Wrong: Statement (1) is indeed sufficient, but this option denies that statement (2) is also sufficient. Misconception: failing to see that a multiple of 45 must be a multiple of 15 (45 = 3 x 15), and so wrongly rejecting statement (2)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0074",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Detecting the flaw: straw man — rebutting a position more extreme than the one actually advanced",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "critical_thinking",
+      "detect_the_flaw",
+      "straw_man",
+      "argument_analysis",
+      "fallacy"
+    ],
+    "learning_objective": "Identify the straw man fallacy by recognising that a rebuttal succeeds only against a distorted, more extreme version of an opponent's actual claim, and distinguish it from adjacent errors such as false dilemma and appeal to tradition.",
+    "question": "Ana: 'I think the university should reduce the number of written examinations in the first year and rely a little more on marked coursework.'\n\nBruno: 'Ana's proposal is misguided. If we abolished all examinations, it would be impossible to check that students had learned anything, and employers would stop trusting our degrees. We must therefore keep the present system exactly as it is.'\n\nBruno's reply is most vulnerable to the criticism that it",
+    "choices": {
+      "A": "directs its attack against a position more extreme than the one Ana actually put forward.",
+      "B": "treats keeping the present system and abolishing all examinations as the only two available options.",
+      "C": "appeals to the reactions of employers, whose views on academic standards are irrelevant.",
+      "D": "takes for granted, without support, that coursework can never be marked as reliably as examinations.",
+      "E": "concludes that the present system is acceptable merely because it has been in place for a long time."
+    },
+    "correct_answer": "A",
+    "explanation": "Ana proposes to REDUCE the number of examinations and use somewhat more coursework. Bruno responds as though she had proposed ABOLISHING ALL examinations, and then refutes that far stronger claim. Defeating a position the opponent never held is the straw man fallacy: the rebuttal is aimed at a distorted, more extreme target. Option A names exactly this. The other options describe errors that are either not present or only secondary consequences of the misrepresentation itself; once Ana's real (moderate) proposal is restored, they do not arise as the central defect.",
+    "option_analysis": {
+      "A": "Correct: Ana argued for reducing examinations, whereas Bruno argues against abolishing them all — he rebuts a more extreme position than the one advanced, which is the defining move of a straw man.",
+      "B": "Wrong: Although Bruno's phrasing hints at only two options, this apparent dilemma is a by-product of his having misdescribed Ana's proposal; the primary and most accurate criticism is the misrepresentation itself, without which the false choice disappears. Misconception: selecting false dilemma when the underlying fault is the distortion of the opponent's claim.",
+      "C": "Wrong: Bruno does mention employers, but the loss of employer trust is offered as a consequence of abolishing exams, not as an illegitimate appeal to authority; this is not the central error. Misconception: mislabelling a supporting detail as an irrelevant appeal.",
+      "D": "Wrong: Bruno never claims anything about the reliability of marking coursework, so this is not the flaw in his reasoning. Misconception: inventing an unstated assumption and treating it as the argument's main weakness.",
+      "E": "Wrong: Bruno defends the present system by appealing to the supposed consequences of abolition, not to its long standing, so this is not an appeal to tradition. Misconception: reading any defence of the status quo as an appeal to tradition."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0075",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Number and pattern reasoning",
+    "subtopic": "Sequence continuation: geometric (doubling) differences, equivalently a(n) = 2*a(n-1) - 1 and 2^n + 1; rejecting constant-difference and additive-recurrence traps",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "critical_thinking",
+      "number_pattern",
+      "sequence",
+      "recurrence",
+      "pattern_continuation"
+    ],
+    "learning_objective": "Discover the generating rule of a numerical sequence whose successive differences double (equivalently a term-doubling-minus-one rule), and reject constant-difference, additive-recurrence and 'powers-of-two only' misreadings.",
+    "question": "Consider the sequence:\n\n2, 3, 5, 9, 17, 33, ?\n\nWhich number should replace the question mark?",
+    "choices": {
+      "A": "66",
+      "B": "65",
+      "C": "64",
+      "D": "50",
+      "E": "49"
+    },
+    "correct_answer": "B",
+    "explanation": "The differences between successive terms are 1, 2, 4, 8, 16 — each difference is double the previous one, so the next difference is 32 and the next term is 33 + 32 = 65. Equivalently, each term satisfies a(n) = 2*a(n-1) - 1 (2*33 - 1 = 65), and equivalently again the terms are 2^n + 1 (2^1+1=3, 2^2+1=5, 2^3+1=9, 2^4+1=17, 2^5+1=33, so next is 2^6+1 = 65). All three descriptions agree on 65, making it the single defensible answer.",
+    "option_analysis": {
+      "A": "Wrong: 66 = 2 x 33, applying the multiply-by-two step but dropping the '-1'. Misconception: using a(n) = 2*a(n-1) and omitting the constant term of the correct recurrence a(n) = 2*a(n-1) - 1.",
+      "B": "Correct: The differences double (1, 2, 4, 8, 16, 32), giving 33 + 32 = 65; this matches both a(n) = 2*a(n-1) - 1 and the closed form 2^n + 1, so 65 is the unique continuation.",
+      "C": "Wrong: 64 = 2^6, obtained by spotting that 3, 5, 9, 17, 33 are 2^k + 1 but then giving the pure power of two and forgetting the '+1'. Misconception: recognising the powers-of-two structure yet dropping the additive correction.",
+      "D": "Wrong: 50 = 17 + 33, the sum of the two previous terms. Misconception: mistaking the sequence for an additive (Fibonacci-type) recurrence.",
+      "E": "Wrong: 49 = 33 + 16, obtained by repeating the last difference (16) instead of doubling it to 32. Misconception: treating the differences as eventually constant rather than continuing to double."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0076",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Logical deduction",
+    "subtopic": "Constraint-satisfaction ordering puzzle: identifying what must be true across all valid arrangements",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "logic puzzle",
+      "constraint satisfaction",
+      "deduction",
+      "must-be-true",
+      "arrangement"
+    ],
+    "learning_objective": "Enumerate the arrangements consistent with a set of positional constraints and identify the single statement that holds in every valid arrangement.",
+    "question": "Four houses stand in a row, numbered 1 to 4 from left to right. Each is painted a different colour: red, blue, green or yellow. The following are known: (1) the red house is immediately to the left of the green house; (2) the blue house is at one of the two ends of the row; (3) the yellow house is not immediately next to the blue house. Which one of the following statements MUST be true?",
+    "choices": {
+      "A": "The blue house and the yellow house are immediately next to each other.",
+      "B": "The yellow house is house number 4.",
+      "C": "The green house is house number 3.",
+      "D": "The blue house is house number 1.",
+      "E": "The red house is at one of the two ends of the row."
+    },
+    "correct_answer": "C",
+    "explanation": "The red–green pair must occupy adjacent positions (1,2), (2,3) or (3,4). If it is at (1,2), the ends 3 and 4 hold blue and yellow; blue must be at an end so blue is 4 and yellow is 3, but then yellow is next to blue — forbidden. If it is at (3,4), positions 1 and 2 hold blue and yellow; blue at an end forces blue = 1 and yellow = 2, again next to blue — forbidden. So red–green must be at (2,3), leaving positions 1 and 4 for blue and yellow. Both blue = 1, yellow = 4 and blue = 4, yellow = 1 satisfy every clue (the ends are not adjacent). In both surviving arrangements the red house is house 2 and the green house is house 3, so 'the green house is house 3' must be true.",
+    "option_analysis": {
+      "A": "Wrong: blue and yellow occupy the two ends (houses 1 and 4), which are never adjacent, so this is never true.",
+      "B": "Wrong: yellow is house 4 in only one of the two valid arrangements (it is house 1 in the other), so this need not be true.",
+      "C": "Correct: in every arrangement that satisfies all three clues the red–green pair sits at positions 2 and 3, so the green house is always house 3.",
+      "D": "Wrong: blue is house 1 in only one of the two valid arrangements (it is house 4 in the other), so this need not be true.",
+      "E": "Wrong: the red house is always house 2, which is not an end, so this is in fact never true."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  }
+]

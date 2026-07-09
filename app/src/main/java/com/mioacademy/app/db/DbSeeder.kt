@@ -134,7 +134,7 @@ object DbSeeder {
     // Fully isolated pool (examType='MIOITALIA'), own asset + own version key + own reseed, kept
     // separate from the official IMAT bank so users never confuse original with official content.
     private const val KEY_MIOITALIA_SEED_VERSION = "mioitalia_seed_version"
-    private const val CURRENT_MIOITALIA_SEED_VERSION = 15
+    private const val CURRENT_MIOITALIA_SEED_VERSION = 16
     private const val MIOITALIA_ASSET = "mioitalia/questions.json"
 
     @Volatile

@@ -1,0 +1,230 @@
+[
+  {
+    "id": "mio_math_0087",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Numbers and divisibility",
+    "subtopic": "Lowest common multiple via prime factorisation (periodic-event scheduling)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "LCM",
+      "prime factorisation",
+      "number theory",
+      "word problem"
+    ],
+    "learning_objective": "Use prime factorisation to compute the lowest common multiple of three quantities and apply it to a real periodic-scheduling problem, including the time arithmetic.",
+    "question": "Three ferry services depart together from a harbour at 08:00. Service A departs every 24 minutes, Service B every 36 minutes and Service C every 40 minutes, each running continuously throughout the day. At what clock time do all three services next depart together?",
+    "choices": {
+      "A": "10:00",
+      "B": "11:00",
+      "C": "14:00",
+      "D": "09:40",
+      "E": "08:04"
+    },
+    "correct_answer": "C",
+    "explanation": "They coincide again after a number of minutes equal to LCM(24, 36, 40). Prime factorise: 24 = 2^3·3, 36 = 2^2·3^2, 40 = 2^3·5. Take the highest power of each prime present: 2^3·3^2·5 = 8·9·5 = 360 minutes = 6 hours. Adding 6 hours to 08:00 gives 14:00.",
+    "option_analysis": {
+      "A": "Wrong: 10:00 corresponds to 120 minutes = 2^3·3·5, which takes only one factor of 3; it overlooks that 36 = 2^2·3^2 requires 3^2 in the LCM.",
+      "B": "Wrong: 11:00 corresponds to 180 minutes = 2^2·3^2·5, which takes only two factors of 2; it overlooks that both 24 and 40 contain 2^3.",
+      "C": "Correct: LCM(24, 36, 40) = 2^3·3^2·5 = 360 minutes = 6 hours, so the next simultaneous departure is at 08:00 + 6 h = 14:00.",
+      "D": "Wrong: 09:40 corresponds to 24 + 36 + 40 = 100 minutes. The intervals must be combined by taking a common multiple, not by adding them.",
+      "E": "Wrong: 08:04 corresponds to 4 minutes, which is the highest common factor HCF(24, 36, 40) = 2^2 = 4. Simultaneous departures need the lowest common multiple, not the HCF."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0088",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Numbers and divisibility",
+    "subtopic": "Relationship between the HCF and LCM of two integers (product identity)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "HCF",
+      "LCM",
+      "number theory",
+      "product identity"
+    ],
+    "learning_objective": "Apply the identity HCF(a,b) × LCM(a,b) = a × b to recover an unknown integer, and verify it by prime factorisation.",
+    "question": "Two positive integers have a highest common factor (HCF) of 12 and a lowest common multiple (LCM) of 240. One of the integers is 48. What is the other integer?",
+    "choices": {
+      "A": "204",
+      "B": "60",
+      "C": "252",
+      "D": "20",
+      "E": "5"
+    },
+    "correct_answer": "B",
+    "explanation": "For any two positive integers a and b, HCF(a,b) × LCM(a,b) = a × b. Hence the other integer = (12 × 240) ÷ 48 = 2880 ÷ 48 = 60. Check: 48 = 2^4·3 and 60 = 2^2·3·5, so HCF = 2^2·3 = 12 and LCM = 2^4·3·5 = 240, as required.",
+    "option_analysis": {
+      "A": "Wrong: 204 = 12 + 240 − 48 uses an additive relation, wrongly assuming the two numbers sum to HCF + LCM.",
+      "B": "Correct: HCF × LCM = a × b gives the other integer as 12 × 240 ÷ 48 = 60, which indeed satisfies HCF(48, 60) = 12 and LCM(48, 60) = 240.",
+      "C": "Wrong: 252 = 12 + 240 reports the (incorrectly assumed) sum of the two integers rather than the second integer itself.",
+      "D": "Wrong: 20 = 240 ÷ 12 divides the LCM by the HCF. LCM/HCF is not, in general, either of the two integers.",
+      "E": "Wrong: 5 = 240 ÷ 48 divides the LCM by the known number. This ignores that the product of the two numbers equals HCF × LCM, not just the LCM."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0089",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Numbers and divisibility",
+    "subtopic": "Divisibility rules for a composite modulus (36 = 4 × 9) with unknown digits",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 175,
+    "tags": [
+      "divisibility rules",
+      "digit problem",
+      "counting",
+      "number theory"
+    ],
+    "learning_objective": "Combine the divisibility tests for 4 and 9 (with coprime factors of 36) to count multi-digit numbers containing unknown digits, keeping digits within range.",
+    "question": "Consider five-digit numbers whose digits, from left to right, are 5, A, 4, 3, B, where A and B are single digits (0 to 9). How many such numbers are divisible by 36?",
+    "choices": {
+      "A": "3",
+      "B": "1",
+      "C": "2",
+      "D": "0",
+      "E": "4"
+    },
+    "correct_answer": "A",
+    "explanation": "Since 36 = 4 × 9 and HCF(4, 9) = 1, the number must be divisible by both 4 and 9. Divisibility by 4 depends on the last two digits '3B': 32 and 36 are the multiples of 4, so B = 2 or B = 6. Divisibility by 9 needs the digit sum 5 + A + 4 + 3 + B = 12 + A + B to be a multiple of 9, so A + B = 6 or A + B = 15. Combining: B = 2 forces A = 4 (from A + B = 6; A + B = 15 would need A = 13, impossible); B = 6 gives A = 0 or A = 9. The valid numbers are 54432, 50436 and 59436 — three in total.",
+    "option_analysis": {
+      "A": "Correct: the number must be divisible by 4 (B = 2 or 6) and by 9 (A + B = 6 or 15); the only valid combinations give 54432, 50436 and 59436, so there are 3.",
+      "B": "Wrong: 1 finds a single valid number (such as 54432) and stops, overlooking that other admissible digit choices also satisfy both tests.",
+      "C": "Wrong: 2 applies only the divisibility-by-4 test (B = 2 or 6) and counts one number per value of B, ignoring the divisibility-by-9 condition that fixes A.",
+      "D": "Wrong: 0 assumes divisibility by 36 requires the digit sum itself to be a multiple of 36; the correct approach is to test divisibility by 4 and by 9 separately.",
+      "E": "Wrong: 4 multiplies the 2 admissible values of B by the 2 target digit-sums (6 or 15) without discarding the impossible case A = 13 (which arises from B = 2 with A + B = 15)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0090",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Real numbers",
+    "subtopic": "Rational versus irrational numbers: closure and surd simplification",
+    "difficulty": "hard",
+    "estimated_time_seconds": 125,
+    "tags": [
+      "irrational numbers",
+      "surds",
+      "rational numbers",
+      "closure"
+    ],
+    "learning_objective": "Decide whether a surd expression is rational or irrational by simplifying it and applying the closure properties of rational and irrational numbers.",
+    "question": "Which one of the following numbers is irrational?",
+    "choices": {
+      "A": "(2√3)²",
+      "B": "√72 − √18",
+      "C": "(1 + √2)² − 2√2",
+      "D": "√6 × √24",
+      "E": "(√5 + √2)(√5 − √2)"
+    },
+    "correct_answer": "B",
+    "explanation": "Simplify each expression. A: √6 × √24 = √144 = 12. C: (√5 + √2)(√5 − √2) = 5 − 2 = 3 (difference of two squares). D: (2√3)² = 4 × 3 = 12. E: (1 + √2)² − 2√2 = (1 + 2√2 + 2) − 2√2 = 3. Each of A, C, D, E is rational. B: √72 − √18 = 6√2 − 3√2 = 3√2, a non-zero rational multiple of √2, which is irrational.",
+    "option_analysis": {
+      "A": "Wrong: (2√3)² = 4 × 3 = 12, a rational number; squaring the surd eliminates the irrational part.",
+      "B": "Correct: √72 − √18 = 6√2 − 3√2 = 3√2; a non-zero rational multiple of the irrational number √2 is itself irrational.",
+      "C": "Wrong: (1 + √2)² − 2√2 = 3 + 2√2 − 2√2 = 3, rational; after expanding, the irrational terms cancel.",
+      "D": "Wrong: √6 × √24 = √144 = 12, a rational number. The product of two irrational surds is rational whenever the combined radicand is a perfect square.",
+      "E": "Wrong: (√5 + √2)(√5 − √2) = 5 − 2 = 3, a rational number; the conjugate product (difference of two squares) removes the surds."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0091",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Sets and counting",
+    "subtopic": "Inclusion–exclusion for three overlapping sets: the exactly-one region",
+    "difficulty": "hard",
+    "estimated_time_seconds": 145,
+    "tags": [
+      "inclusion-exclusion",
+      "sets",
+      "Venn diagram",
+      "counting"
+    ],
+    "learning_objective": "Decompose three overlapping sets into disjoint Venn regions using the inclusion–exclusion principle to count the elements belonging to exactly one set.",
+    "question": "In a group of 120 students, each was asked which of the languages French, German and Spanish they study. The results were: French 60, German 50, Spanish 45; French and German 20, German and Spanish 15, French and Spanish 18; all three languages 8. How many students study exactly one of the three languages?",
+    "choices": {
+      "A": "57",
+      "B": "29",
+      "C": "110",
+      "D": "10",
+      "E": "73"
+    },
+    "correct_answer": "E",
+    "explanation": "Build the disjoint regions from the triple overlap of 8. Exactly-two regions: French & German only = 20 − 8 = 12, German & Spanish only = 15 − 8 = 7, French & Spanish only = 18 − 8 = 10. Exactly-one regions: French only = 60 − 12 − 10 − 8 = 30; German only = 50 − 12 − 7 − 8 = 23; Spanish only = 45 − 10 − 7 − 8 = 20. Students studying exactly one language = 30 + 23 + 20 = 73.",
+    "option_analysis": {
+      "A": "Wrong: 57 = 155 − 2×53 + 8 uses the exactly-one formula but adds the triple overlap only once instead of three times; the correct count is 155 − 2×53 + 3×8 = 73.",
+      "B": "Wrong: 29 = 12 + 7 + 10 is the number studying exactly two languages.",
+      "C": "Wrong: 110 = 60 + 50 + 45 − 20 − 15 − 18 + 8 is the number studying at least one language (the union), not those studying exactly one.",
+      "D": "Wrong: 10 = 120 − 110 is the number studying none of the three languages, not exactly one.",
+      "E": "Correct: removing the pairwise and triple overlaps region by region gives French only 30, German only 23 and Spanish only 20, so exactly one = 73."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0092",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Numbers and divisibility",
+    "subtopic": "Modular reasoning: remainder of a sum of factorials",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 155,
+    "tags": [
+      "modular arithmetic",
+      "factorials",
+      "remainders",
+      "divisibility"
+    ],
+    "learning_objective": "Exploit the divisibility of factorials by a composite modulus to reduce a long sum modulo that number and determine the remainder.",
+    "question": "Let S = 1! + 2! + 3! + … + 100! (the sum of the factorials of the integers from 1 to 100). What is the remainder when S is divided by 15?",
+    "choices": {
+      "A": "9",
+      "B": "0",
+      "C": "1",
+      "D": "3",
+      "E": "33"
+    },
+    "correct_answer": "D",
+    "explanation": "For every n ≥ 5, the product n! contains both a factor 3 and a factor 5, so 15 divides n!; each such term leaves remainder 0. The remainder of S therefore depends only on 1! + 2! + 3! + 4! = 1 + 2 + 6 + 24 = 33. Since 33 = 2 × 15 + 3, the remainder is 3.",
+    "option_analysis": {
+      "A": "Wrong: 9 comes from summing only 1! + 2! + 3! = 9, wrongly treating 4! = 24 as already divisible by 15 (it is not; 24 = 15 + 9).",
+      "B": "Wrong: 0 assumes every term of the sum is divisible by 15; the terms 1! to 4! are not, and together they leave a non-zero remainder.",
+      "C": "Wrong: 1 assumes only 1! survives the reduction; in fact 2!, 3! and 4! also contribute before the terms become multiples of 15.",
+      "D": "Correct: n! is divisible by 15 for all n ≥ 5, so S ≡ 1! + 2! + 3! + 4! = 33 ≡ 3 (mod 15).",
+      "E": "Wrong: 33 is the un-reduced sum 1! + 2! + 3! + 4!; the remainder on division by 15 must still be taken, giving 33 ≡ 3."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch15",
+    "review_status": "accepted"
+  }
+]
