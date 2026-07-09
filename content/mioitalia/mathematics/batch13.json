@@ -1,0 +1,241 @@
+[
+  {
+    "id": "mio_math_0075",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Functions and graphs",
+    "subtopic": "Domain and range: range of a decreasing rational function on a restricted domain, with the horizontal asymptote not attained",
+    "difficulty": "medium",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "functions",
+      "domain and range",
+      "rational function",
+      "horizontal asymptote",
+      "applied model"
+    ],
+    "learning_objective": "Determine the range of a monotonic rational model on a restricted domain, distinguishing an attained endpoint value from a limiting asymptotic value that is never reached.",
+    "question": "The strength of a wireless signal, S (in arbitrary units), at a distance of x metres from a router is modelled by S(x) = 40/(x + 2), valid for x >= 0. Which of the following correctly gives the range of signal-strength values produced by this model?",
+    "choices": {
+      "A": "0 <= S <= 20",
+      "B": "0 < S < 20",
+      "C": "0 < S <= 20",
+      "D": "S >= 20",
+      "E": "0 < S <= 40"
+    },
+    "correct_answer": "C",
+    "explanation": "The domain is x >= 0. At the nearest point, x = 0, S(0) = 40/(0 + 2) = 20, which is the largest value the model gives. As x increases the denominator grows without bound, so S decreases towards 0 but never reaches it (y = 0 is a horizontal asymptote). Hence S takes every value greater than 0 up to and including 20: the range is 0 < S <= 20 — the maximum 20 is attained (closed) while 0 is only a limit (open).",
+    "option_analysis": {
+      "A": "Wrong: includes S = 0. This treats the horizontal asymptote as attained; 40/(x + 2) tends to 0 as x -> infinity but never equals 0 for any finite x.",
+      "B": "Wrong: excludes S = 20. This wrongly leaves the upper end open; S = 20 is actually reached at the endpoint x = 0, which belongs to the domain.",
+      "C": "Correct: S(0) = 20 is the attained maximum and S decreases towards but never reaches 0, giving 0 < S <= 20.",
+      "D": "Wrong: describes an increasing function. It reverses the behaviour of the model (which falls with distance) and claims S grows beyond 20, whereas 20 is the maximum.",
+      "E": "Wrong: uses S = 40 as the maximum by reading 40/x at x = 0 and ignoring the '+ 2' in the denominator; the true value at x = 0 is 40/2 = 20."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0076",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Functions and graphs",
+    "subtopic": "Composition of functions: domain of a self-composition, retaining exclusions hidden by algebraic simplification",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "functions",
+      "composition",
+      "domain",
+      "self-composition",
+      "rational function"
+    ],
+    "learning_objective": "Find the domain of a composite function from the domains of its parts before simplifying, recognising restrictions that are lost when a common factor is cancelled.",
+    "question": "A function is defined by f(x) = x/(x + 1). The composite function f(f(x)) simplifies algebraically to x/(2x + 1). Which value(s) of x must be excluded from the domain of f(f(x))?",
+    "choices": {
+      "A": "x = 1 and x = -1/2",
+      "B": "x = 0 and x = -1",
+      "C": "x = -1 and x = -1/2",
+      "D": "x = -1 only",
+      "E": "x = -1/2 only"
+    },
+    "correct_answer": "C",
+    "explanation": "The domain of a composite must be found before simplifying. Two conditions apply. First, the inner function f(x) must be defined, so x + 1 != 0, giving x != -1. Second, the inner output must lie in the domain of the outer f, so f(x) != -1; solving x/(x + 1) = -1 gives x = -(x + 1), i.e. 2x = -1, so x = -1/2. Both x = -1 and x = -1/2 must be excluded. The simplified form x/(2x + 1) only reveals x != -1/2 — the restriction x != -1 disappears when the common factor is cancelled, which is the trap.",
+    "option_analysis": {
+      "A": "Wrong: takes x = -1/2 from the simplified form but solves f(x) = -1 incorrectly to get x = 1, and drops the genuine exclusion x = -1.",
+      "B": "Wrong: excludes x = 0 because the numerator is zero there, but a zero numerator gives f = 0 (a perfectly valid value), not an undefined point; and it misses x = -1/2.",
+      "C": "Correct: x = -1 makes the inner function undefined, and x = -1/2 makes f(x) = -1, which the outer function cannot accept; both are removed.",
+      "D": "Wrong: keeps only the inner restriction x != -1 and forgets that the inner output must also avoid -1, so it misses x = -1/2.",
+      "E": "Wrong: reads the exclusion only from the simplified expression x/(2x + 1); cancelling to that form hides the original restriction x != -1."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0077",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Functions and graphs",
+    "subtopic": "Transformations of y = f(x): combined horizontal translation, reflection in the x-axis, vertical stretch and vertical translation applied to a turning point",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "functions",
+      "graph transformations",
+      "translation",
+      "reflection",
+      "stretch",
+      "turning point"
+    ],
+    "learning_objective": "Apply an ordered sequence of transformations (horizontal shift, reflection in the x-axis, vertical stretch, vertical shift) to a turning point and determine both its new coordinates and whether it becomes a maximum or minimum.",
+    "question": "The graph of y = f(x) has a single turning point, a minimum, at (-3, 4). The graph is transformed to give y = -2 f(x - 1) + 5. What are the coordinates and nature of the corresponding turning point on the new graph?",
+    "choices": {
+      "A": "Minimum at (-2, -3)",
+      "B": "Maximum at (-2, -3)",
+      "C": "Maximum at (-2, -8)",
+      "D": "Maximum at (-4, -3)",
+      "E": "Minimum at (-2, 13)"
+    },
+    "correct_answer": "B",
+    "explanation": "Apply the transformations to (-3, 4) in turn. Replacing x by x - 1 translates the graph 1 unit right, so the x-coordinate becomes -3 + 1 = -2. Multiplying f by -2 is a vertical stretch of factor 2 together with a reflection in the x-axis: the y-coordinate 4 becomes -2 x 4 = -8, and the reflection turns a minimum into a maximum. Finally + 5 translates up 5 units, giving y = -8 + 5 = -3. The new turning point is a maximum at (-2, -3).",
+    "option_analysis": {
+      "A": "Wrong: correct coordinates but keeps a minimum. The factor -2 reflects the graph in the x-axis, which converts a minimum into a maximum.",
+      "B": "Correct: x: -3 -> -2 (shift right 1); y: 4 -> -8 (x(-2), min becomes max) -> -3 (+5); a maximum at (-2, -3).",
+      "C": "Wrong: applies the stretch, reflection and change of nature (y = -8) but omits the final vertical translation of + 5.",
+      "D": "Wrong: translates left instead of right. The replacement x -> x - 1 shifts the graph in the positive x-direction, giving x = -2, not x = -4.",
+      "E": "Wrong: ignores the negative sign, computing 2 x 4 + 5 = 13 and keeping a minimum; the coefficient is -2, which both reflects and scales."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0078",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Functions and graphs",
+    "subtopic": "The modulus graph: constructing y = f(|x|) from a described piecewise graph (even symmetry; the original left half is discarded)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "functions",
+      "modulus",
+      "absolute value",
+      "f(|x|)",
+      "even symmetry",
+      "piecewise",
+      "graph transformation"
+    ],
+    "learning_objective": "Construct the graph of y = f(|x|) from a described graph of y = f(x), recognising that it keeps the x >= 0 part and reflects it in the y-axis to produce an even function, discarding the original x < 0 part.",
+    "question": "The graph of y = f(x) is made up of two straight-line segments meeting at (0, -2): for x >= 0 the graph is the line f(x) = 2x - 2, and for x < 0 it is the line f(x) = -x - 2. Which of the following best describes the graph of y = f(|x|)?",
+    "choices": {
+      "A": "A graph identical to y = f(x): two segments meeting at (0, -2), with right-arm gradient +2 and left-arm gradient -1.",
+      "B": "A single straight line y = 2x - 2 for all real x.",
+      "C": "A V-shape with vertex (0, 2) and arms of gradient +2 and -2.",
+      "D": "A V-shape with vertex (0, -2), the right arm having gradient +2 and the left arm gradient -2.",
+      "E": "The graph of y = f(x) with every part lying below the x-axis reflected upward in the x-axis."
+    },
+    "correct_answer": "D",
+    "explanation": "For y = f(|x|): when x >= 0, |x| = x, so the graph is unchanged, y = 2x - 2. When x < 0, |x| = -x (a positive number), so y = f(-x) = 2(-x) - 2 = -2x - 2, which is the mirror image in the y-axis of the x >= 0 branch. The whole graph is therefore built from the original right-hand half: it is the V-shape y = 2|x| - 2, with vertex (0, -2), right arm gradient +2 and left arm gradient -2. The original left-hand piece (gradient -1) is discarded, and f(|x|) is always even (symmetric about the y-axis).",
+    "option_analysis": {
+      "A": "Wrong: assumes f(|x|) leaves the graph unchanged. Replacing x by |x| rebuilds the x < 0 side from the right-hand formula, so the original left arm (gradient -1) does not survive.",
+      "B": "Wrong: assumes the modulus simply removes the piecewise definition and extends 2x - 2 everywhere; instead |x| forces even symmetry, changing the formula for x < 0.",
+      "C": "Wrong: reflects in the x-axis, moving the vertex to (0, 2). That is -f(x) or |f(x)|-type behaviour, not the y-axis reflection produced by f(|x|).",
+      "D": "Correct: the x >= 0 part is kept and reflected in the y-axis to form the x < 0 part, giving y = 2|x| - 2 — a V with vertex (0, -2) and arms of gradient +/-2.",
+      "E": "Wrong: this describes y = |f(x)| (reflecting negative outputs upward), a different transformation from y = f(|x|), which reflects the input in the y-axis."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0079",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Functions and graphs",
+    "subtopic": "Odd and even symmetry: parity of products and compositions of odd and even functions",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "functions",
+      "odd and even",
+      "symmetry",
+      "product of functions",
+      "composition",
+      "parity"
+    ],
+    "learning_objective": "Determine the parity (odd, even, or neither) of products and compositions formed from an odd function and an even function using the defining relations f(-x) = -f(x) and g(-x) = g(x).",
+    "question": "The function f is odd and the function g is even, both defined for all real x. Which one of the following combined functions is necessarily odd?",
+    "choices": {
+      "A": "[g(x)]^2",
+      "B": "g(f(x))",
+      "C": "f(x) + g(x)",
+      "D": "f(x) . g(x)",
+      "E": "f(g(x))"
+    },
+    "correct_answer": "D",
+    "explanation": "Use f(-x) = -f(x) (odd) and g(-x) = g(x) (even). For the product, (f.g)(-x) = f(-x)g(-x) = (-f(x))(g(x)) = -(f.g)(x), so f.g is odd. Checking the rest: (f+g)(-x) = -f(x) + g(x), which is in general neither the function nor its negative (neither); g(f(-x)) = g(-f(x)) = g(f(x)) since g is even, so g of f is even; f(g(-x)) = f(g(x)) since g(-x) = g(x), so f of g is even; [g(-x)]^2 = [g(x)]^2, so it is even. Only the product f.g is odd.",
+    "option_analysis": {
+      "A": "Wrong: squaring an even function gives an even function, since [g(-x)]^2 = [g(x)]^2.",
+      "B": "Wrong: g of f is even. g(f(-x)) = g(-f(x)) = g(f(x)) because g is even, so replacing x by -x leaves the value unchanged.",
+      "C": "Wrong: a sum of an odd and an even function is in general neither odd nor even, because -f(x) + g(x) equals neither f(x) + g(x) nor its negative.",
+      "D": "Correct: odd times even is odd, because (f.g)(-x) = (-f(x))(g(x)) = -(f.g)(x).",
+      "E": "Wrong: f of g is even. Since g(-x) = g(x), f(g(-x)) = f(g(x)); the odd outer function cannot make it odd when its input is unchanged."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0080",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Functions and graphs",
+    "subtopic": "Reading key features of a rational-function graph: vertical/horizontal asymptotes and a removable discontinuity (hole) after cancelling a common factor",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 135,
+    "tags": [
+      "functions",
+      "rational function",
+      "asymptotes",
+      "removable discontinuity",
+      "hole",
+      "graph features"
+    ],
+    "learning_objective": "Identify vertical and horizontal asymptotes, removable discontinuities (holes) and intercepts of a rational function by factorising and cancelling common factors and comparing numerator and denominator degrees.",
+    "question": "A function is defined by f(x) = (x^2 - x - 6)/(x^2 - 9). Which of the following correctly describes the key features of its graph?",
+    "choices": {
+      "A": "Vertical asymptotes at x = 3 and x = -3, and a horizontal asymptote y = 1.",
+      "B": "A vertical asymptote at x = -3, an oblique (slant) asymptote, and a hole at (3, 5/6).",
+      "C": "A vertical asymptote at x = -3, a horizontal asymptote y = 1, and x-intercepts at x = -2 and x = 3.",
+      "D": "A vertical asymptote at x = -3, a horizontal asymptote y = 0, and a hole at (3, 5/6).",
+      "E": "A vertical asymptote at x = -3, a horizontal asymptote y = 1, and a hole (removable discontinuity) at (3, 5/6)."
+    },
+    "correct_answer": "E",
+    "explanation": "Factorise: numerator x^2 - x - 6 = (x - 3)(x + 2); denominator x^2 - 9 = (x - 3)(x + 3). The common factor (x - 3) cancels, so f(x) = (x + 2)/(x + 3) for x != 3. Because (x - 3) cancels, x = 3 is a removable discontinuity (hole), not an asymptote; its height is (3 + 2)/(3 + 3) = 5/6, so the hole is at (3, 5/6). The remaining denominator factor gives a vertical asymptote at x = -3. The original numerator and denominator have equal degree (2), so the horizontal asymptote is the ratio of leading coefficients, y = 1/1 = 1. The single x-intercept is at x = -2.",
+    "option_analysis": {
+      "A": "Wrong: fails to cancel the common factor (x - 3) and so labels x = 3 as a vertical asymptote. Because the factor cancels, x = 3 is a hole, not an asymptote.",
+      "B": "Wrong: an oblique asymptote occurs only when the numerator degree is exactly one more than the denominator degree. Here the degrees are equal, giving a horizontal asymptote, not a slant one.",
+      "C": "Wrong: treats both numerator roots (x = -2 and x = 3) as x-intercepts. At x = 3 the function is undefined (a hole), so the only x-intercept is x = -2.",
+      "D": "Wrong: takes the horizontal asymptote as y = 0, which applies only when the numerator degree is less than the denominator degree. Here the degrees are equal, so the asymptote is y = 1.",
+      "E": "Correct: after cancelling (x - 3) the vertical asymptote is x = -3, equal degrees give the horizontal asymptote y = 1, and x = 3 becomes a hole at height 5/6."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  }
+]
