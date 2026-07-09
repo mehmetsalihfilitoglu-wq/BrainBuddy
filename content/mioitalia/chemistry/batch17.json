@@ -1,0 +1,477 @@
+[
+  {
+    "id": "mio_chem_0195",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Extraction and reactions of metals",
+    "subtopic": "Choosing the extraction method from the reactivity series: carbon reduction versus electrolysis",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "reactivity series",
+      "metal extraction",
+      "carbon reduction",
+      "electrolysis",
+      "reduction"
+    ],
+    "learning_objective": "Decide whether a metal is extracted by carbon reduction or by electrolysis on the basis of its position relative to carbon in the reactivity series.",
+    "question": "Carbon can reduce a metal oxide to the metal only if the metal is LESS reactive than carbon, which lies between aluminium and zinc in the reactivity series. Five metal oxides are each heated strongly with an excess of coke (carbon). Which oxide will NOT be reduced to the metal, so that this metal must instead be obtained industrially by electrolysis of its molten compound?",
+    "choices": {
+      "A": "Iron(III) oxide, Fe2O3",
+      "B": "Copper(II) oxide, CuO",
+      "C": "Lead(II) oxide, PbO",
+      "D": "Zinc oxide, ZnO",
+      "E": "Aluminium oxide, Al2O3"
+    },
+    "correct_answer": "E",
+    "explanation": "Carbon acts as the reducing agent only for metals below it in the reactivity series (those whose oxides are less thermodynamically stable, so carbon can strip their oxygen). Zinc, iron, lead and copper all lie below carbon, so ZnO, Fe2O3, PbO and CuO are reduced on heating with coke (this underlies the industrial smelting of zinc, the blast-furnace extraction of iron, and the ready reduction of lead and copper oxides). Aluminium lies ABOVE carbon: its oxide is too stable for carbon to reduce, so aluminium is manufactured by electrolysis of molten Al2O3 (dissolved in cryolite). Hence Al2O3 is the odd one out.",
+    "option_analysis": {
+      "A": "Wrong: iron is below carbon and is reduced by carbon/carbon monoxide in the blast furnace. Misconception that iron ore requires electrolysis.",
+      "B": "Wrong: copper is far below carbon, so CuO is easily reduced by carbon on heating. Misconception that a coloured/transition-metal oxide behaves like the very reactive metals.",
+      "C": "Wrong: lead is well below carbon and is readily reduced by heating its oxide with carbon. Misconception ignoring lead's low reactivity.",
+      "D": "Wrong: zinc lies just below carbon, so carbon does reduce ZnO (this is exactly how zinc is smelted). Misconception that any fairly reactive metal automatically needs electrolysis.",
+      "E": "Correct: aluminium is above carbon in the reactivity series, so carbon cannot reduce Al2O3; aluminium is extracted by electrolysis of the molten oxide."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0196",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Extraction and reactions of metals",
+    "subtopic": "Blast-furnace extraction of iron: identifying carbon monoxide as the principal reducing agent",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "blast furnace",
+      "iron extraction",
+      "carbon monoxide",
+      "reduction",
+      "redox equations"
+    ],
+    "learning_objective": "Identify the reaction by which most of the iron is produced in the blast furnace and distinguish the true reducing agent from combustion and decomposition side-processes.",
+    "question": "In the blast-furnace extraction of iron, coke burns in the hot air blast and limestone is added. Most of the iron(III) oxide is nevertheless reduced by a gaseous reducing agent generated inside the furnace, not by direct contact with solid coke. Which equation represents the reaction responsible for producing MOST of the iron?",
+    "choices": {
+      "A": "Fe2O3 + 3CaO -> 2Fe + 3CaO... (reduction by calcium oxide from limestone)",
+      "B": "Fe2O3 + 3C -> 2Fe + 3CO (reduction by solid coke)",
+      "C": "2Fe2O3 -> 4Fe + 3O2 (thermal decomposition of the ore)",
+      "D": "C + O2 -> CO2 (combustion of coke in the air blast)",
+      "E": "Fe2O3 + 3CO -> 2Fe + 3CO2 (reduction by carbon monoxide)"
+    },
+    "correct_answer": "E",
+    "explanation": "Coke first burns to CO2 (C + O2 -> CO2), releasing heat; the CO2 then reacts with more hot coke to form carbon monoxide (CO2 + C -> 2CO). This carbon monoxide gas is the principal reducing agent and diffuses through the ore, reducing iron(III) oxide: Fe2O3 + 3CO -> 2Fe + 3CO2. Direct reduction by solid coke occurs only to a minor extent because gas-solid contact is far more extensive than solid-solid contact. Limestone's role is to remove acidic silica impurity as molten slag (CaCO3 -> CaO + CO2; CaO + SiO2 -> CaSiO3), not to reduce the ore, and iron(III) oxide is far too stable to decompose to the element on heating.",
+    "option_analysis": {
+      "A": "Wrong: calcium oxide (from limestone) reacts with silica to form slag; calcium is not the reducing agent for the ore. Misconception assigning the reduction to limestone.",
+      "B": "Wrong: solid carbon does reduce a little of the ore, but this is a minor route; the dominant, extensive reduction is by the gas CO. Common misconception that coke is the main reducing agent.",
+      "C": "Wrong: iron(III) oxide is thermally stable and does not simply decompose to iron and oxygen on heating; a reducing agent is required. Misconception confusing reduction with thermal decomposition.",
+      "D": "Wrong: this combustion supplies heat and generates CO2 (the precursor of CO) but does not itself reduce the ore. Misconception that burning the coke is what removes oxygen from the iron oxide.",
+      "E": "Correct: carbon monoxide is the principal reducing agent and reduces Fe2O3 to iron throughout the furnace, itself being oxidised to CO2."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0197",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Extraction and reactions of metals",
+    "subtopic": "Quantitative metal-displacement reaction: net mass change of the solid",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "displacement reaction",
+      "reactivity series",
+      "stoichiometry",
+      "mass change",
+      "limiting reagent"
+    ],
+    "learning_objective": "Predict the final mass of the solid after a displacement reaction by combining reaction stoichiometry with the different molar masses of the dissolving and depositing metals.",
+    "question": "An iron nail of mass 5.60 g is placed in 50.0 cm3 of 0.500 mol/dm3 copper(II) sulfate solution, which is the limiting reagent, until the reaction stops. Iron displaces copper according to Fe + CuSO4 -> FeSO4 + Cu. Taking the molar mass of iron as 56 g/mol and of copper as 63.5 g/mol, what is the final mass of the solid recovered?",
+    "choices": {
+      "A": "1.59 g",
+      "B": "5.60 g",
+      "C": "5.41 g",
+      "D": "5.79 g",
+      "E": "7.19 g"
+    },
+    "correct_answer": "D",
+    "explanation": "Moles of CuSO4 = 0.0500 dm3 x 0.500 mol/dm3 = 0.0250 mol; this is limiting, so 0.0250 mol Fe dissolves and 0.0250 mol Cu deposits (1:1). Mass of iron lost = 0.0250 x 56 = 1.40 g. Mass of copper gained = 0.0250 x 63.5 = 1.5875 g. The nail keeps its unreacted iron, so final solid = 5.60 - 1.40 + 1.5875 = 5.79 g. Because copper is heavier per mole than iron, the solid gains mass overall (by 0.19 g).",
+    "option_analysis": {
+      "A": "Wrong: 1.59 g is only the copper deposited, ignoring the large amount of unreacted iron still in the nail. Misconception that the whole nail dissolves.",
+      "B": "Wrong: assumes no net change because the mole ratio is 1:1. Misconception that equal moles means equal mass, ignoring the different molar masses of Fe and Cu.",
+      "C": "Wrong: 5.60 - (63.5-56) x 0.0250 = 5.41 g treats the reaction as making the solid LIGHTER. Misconception about the sign of the change (assuming the metal always loses mass as it 'corrodes').",
+      "D": "Correct: 5.60 - 1.40 + 1.5875 = 5.79 g; the solid gains mass because copper is denser in molar-mass terms than the iron it replaces.",
+      "E": "Wrong: 5.60 + 1.5875 = 7.19 g adds the deposited copper but forgets to subtract the iron that dissolved. Misconception of counting only the mass gained."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0198",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Extraction and reactions of metals",
+    "subtopic": "Corrosion prevention: sacrificial (galvanising) versus barrier (tin-plating) coatings when scratched",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "rusting",
+      "corrosion",
+      "sacrificial protection",
+      "galvanising",
+      "tin plating",
+      "reactivity series"
+    ],
+    "learning_objective": "Reason from the relative reactivities of the coating and iron to predict corrosion at a break in a galvanised versus a tin-plated coating.",
+    "question": "A galvanised (zinc-coated) iron sheet and a tin-plated iron sheet are each scratched deeply enough to expose bare iron, then left in damp, salty air. Using the reactivity series (zinc more reactive than iron; tin less reactive than iron), which statement correctly describes what happens at the exposed iron?",
+    "choices": {
+      "A": "Neither sheet rusts, because both zinc and tin form protective oxide layers that reseal the scratch.",
+      "B": "On both sheets the exposed iron rusts at the same rate as unprotected bare iron, because the coating no longer physically covers that spot.",
+      "C": "On the galvanised sheet the exposed iron rusts faster, while on the tin-plated sheet it is protected because tin is the nobler, more protective metal.",
+      "D": "Both sheets protect the exposed iron, because in each case the coating metal is more reactive than iron and corrodes first.",
+      "E": "On the galvanised sheet the exposed iron does not rust because zinc corrodes preferentially; on the tin-plated sheet the exposed iron rusts faster than bare iron would."
+    },
+    "correct_answer": "E",
+    "explanation": "Corrosion at a break in a coating is electrochemical. Zinc is above iron in the reactivity series, so where zinc and iron are both exposed and connected, zinc is the anode and is oxidised in preference to the iron: the iron is cathodically (sacrificially) protected and does not rust even at the scratch. Tin is below iron, so at a scratch the iron becomes the anode of an iron-tin cell; the large surrounding tin cathode drives rapid oxidation of the small exposed iron area, so a scratched tin can rusts FASTER than bare iron. The behaviour therefore differs between the two coatings.",
+    "option_analysis": {
+      "A": "Wrong: an oxide layer does not reseal a mechanical scratch, and the electrochemical cell still operates. Misconception invoking self-healing passivation for both metals.",
+      "B": "Wrong: this ignores the electrochemical coupling between the coating and iron; the coatings do not behave identically. Misconception treating coatings as purely physical barriers.",
+      "C": "Wrong: this reverses the roles; zinc protects (not accelerates) and tin accelerates (not protects) corrosion at a break. Misconception that a 'nobler' metal always protects the iron it covers.",
+      "D": "Wrong: tin is LESS reactive than iron, so it does not corrode in preference to iron. Misconception that any metal coating is automatically sacrificial.",
+      "E": "Correct: zinc (more reactive) is sacrificed and protects the iron; tin (less reactive) makes the exposed iron the anode, accelerating its corrosion."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0199",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Extraction and reactions of metals",
+    "subtopic": "Quantitative sacrificial protection: mass of a magnesium anode consumed (Faraday's law)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "sacrificial protection",
+      "corrosion",
+      "Faraday's law",
+      "magnesium anode",
+      "oxidation state",
+      "reactivity series"
+    ],
+    "learning_objective": "Combine reactivity-series reasoning with Faraday's law to calculate the mass of a sacrificial anode consumed in delivering a protective current.",
+    "question": "A steel pipeline is protected against rusting by a magnesium sacrificial anode, chosen because magnesium is more reactive than iron and so is oxidised in preference to it (Mg -> Mg2+ + 2e-). The anode delivers a steady protective current of 0.20 A. Taking the Faraday constant F = 96500 C/mol, the molar mass of magnesium as 24 g/mol, and one year as 3.15 x 10^7 s, what mass of magnesium is consumed in one year?",
+    "choices": {
+      "A": "3.13 kg",
+      "B": "1.83 kg",
+      "C": "1.57 kg",
+      "D": "0.39 kg",
+      "E": "0.78 kg"
+    },
+    "correct_answer": "E",
+    "explanation": "Charge passed in one year: Q = I x t = 0.20 A x 3.15 x 10^7 s = 6.30 x 10^6 C. Moles of electrons = Q / F = 6.30 x 10^6 / 96500 = 65.3 mol. Because each magnesium atom releases 2 electrons (Mg -> Mg2+ + 2e-), moles of Mg = 65.3 / 2 = 32.6 mol. Mass = 32.6 x 24 = 783 g approximately 0.78 kg. Magnesium is used rather than iron precisely because it is higher in the reactivity series, so it becomes the anode and is consumed while the iron is protected.",
+    "option_analysis": {
+      "A": "Wrong: 3.13 kg multiplies the moles of electrons by 2 instead of dividing, over-counting the metal. Misconception reversing the electron-to-atom ratio.",
+      "B": "Wrong: 1.83 kg uses the molar mass of iron (56) instead of magnesium, i.e. assumes the iron is consumed. Misconception about which metal is oxidised in sacrificial protection.",
+      "C": "Wrong: 1.57 kg treats magnesium as forming a +1 ion (n = 1), so it omits the division by 2. Misconception about the charge on the magnesium ion.",
+      "D": "Wrong: 0.39 kg comes from dividing by the electron number twice (or assuming a +4 ion), halving the true amount. Misconception in applying the electron stoichiometry.",
+      "E": "Correct: Q/F = 65.3 mol electrons, divided by 2 gives 32.6 mol Mg, times 24 = 783 g approximately 0.78 kg."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0200",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Extraction and reactions of metals",
+    "subtopic": "Alloy analysis by selective reactivity: composition of brass from the hydrogen evolved with acid",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 165,
+    "tags": [
+      "alloys",
+      "brass",
+      "reactivity series",
+      "reaction with acid",
+      "gas stoichiometry",
+      "percentage composition"
+    ],
+    "learning_objective": "Determine the composition of a two-metal alloy by exploiting that only the metal above hydrogen in the reactivity series reacts with acid, then applying gas-volume stoichiometry.",
+    "question": "Brass is an alloy of copper and zinc. A 5.00 g sample of brass is added to an excess of dilute hydrochloric acid. Only one of the two metals reacts, releasing 560 cm3 of hydrogen measured at STP (molar gas volume 22 400 cm3/mol). Taking the molar mass of zinc as 65.4 g/mol, what is the percentage by mass of COPPER in the brass?",
+    "choices": {
+      "A": "32.7 %",
+      "B": "34.6 %",
+      "C": "67.3 %",
+      "D": "50.0 %",
+      "E": "65.4 %"
+    },
+    "correct_answer": "C",
+    "explanation": "Copper lies below hydrogen in the reactivity series, so it does not react with dilute hydrochloric acid; only the zinc reacts: Zn + 2HCl -> ZnCl2 + H2. Moles of H2 = 560 / 22 400 = 0.0250 mol, and since the ratio Zn:H2 is 1:1, moles of Zn = 0.0250 mol. Mass of zinc = 0.0250 x 65.4 = 1.635 g, so mass of copper = 5.00 - 1.635 = 3.365 g. Percentage of copper = 3.365 / 5.00 x 100 = 67.3 %.",
+    "option_analysis": {
+      "A": "Wrong: 32.7 % is the percentage of ZINC, not copper; the value has been assigned to the wrong metal. Misconception about which mass the calculation yields.",
+      "B": "Wrong: 34.6 % comes from taking moles of Zn as 2 x moles of H2 (mis-reading the 1:2 Zn:HCl ratio as Zn:H2), giving 3.27 g Zn and 1.73 g Cu. Misconception in the gas stoichiometry.",
+      "C": "Correct: only zinc reacts (copper is below hydrogen); 0.0250 mol Zn = 1.635 g, so copper = 3.365 g, giving 67.3 % copper.",
+      "D": "Wrong: 50.0 % assumes the two metals are present in equal masses without using the hydrogen data. Misconception of guessing an even split.",
+      "E": "Wrong: 65.4 % combines the 2:1 stoichiometry error (3.27 g of the reacting metal) with reporting it as the copper percentage. Misconception stacking a ratio error with a mislabel."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0201",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Solutions, solubility and concentration",
+    "subtopic": "Interpreting a solubility–temperature curve: mass of solute crystallising when a saturated solution is cooled",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "solubility",
+      "solubility curve",
+      "crystallisation",
+      "saturated solution",
+      "potassium nitrate"
+    ],
+    "learning_objective": "Use solubility values (g per 100 g water) at two temperatures to calculate the mass of solute that crystallises when a saturated solution is cooled, scaling correctly to the mass of water present.",
+    "question": "The solubility of potassium nitrate (KNO3) is 110 g per 100 g of water at 60 °C and 32 g per 100 g of water at 20 °C. A saturated solution of KNO3 is prepared at 60 °C using 200 g of water. The solution is then cooled to 20 °C. Assuming that no water evaporates, what mass of KNO3 crystallises out?",
+    "choices": {
+      "A": "156 g",
+      "B": "220 g",
+      "C": "64 g",
+      "D": "78 g",
+      "E": "110 g"
+    },
+    "correct_answer": "A",
+    "explanation": "Solubility is defined per 100 g of water, so it must be scaled to the 200 g of water present. At 60 °C the water can dissolve 2 × 110 = 220 g of KNO3, which is what is in the saturated solution. On cooling to 20 °C the same 200 g of water can retain only 2 × 32 = 64 g. The excess, 220 − 64 = 156 g, exceeds the solubility limit and crystallises out.",
+    "option_analysis": {
+      "A": "Correct: 200 g of water holds 220 g at 60 °C but only 64 g at 20 °C, so 220 − 64 = 156 g crystallises.",
+      "B": "Wrong: this assumes all the dissolved KNO3 comes out of solution, ignoring that the solution is still saturated (retains 64 g) at 20 °C.",
+      "C": "Wrong: 64 g is the mass of KNO3 that remains dissolved at 20 °C (32 g × 2) — the quantity still in solution, not the quantity that crystallises.",
+      "D": "Wrong: this takes the solubility difference on a 100 g water basis (110 − 32 = 78) and forgets to scale it to the 200 g of water actually used.",
+      "E": "Wrong: 110 g is simply the 60 °C solubility figure per 100 g of water, not the mass that crystallises for 200 g of water on cooling."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0202",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Solutions, solubility and concentration",
+    "subtopic": "Concentration conversion: percentage by mass and density to molar concentration (concentrated acid)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "concentration",
+      "percentage by mass",
+      "density",
+      "molarity",
+      "unit conversion",
+      "hydrochloric acid"
+    ],
+    "learning_objective": "Convert a percentage-by-mass concentration to a molar concentration (mol dm⁻³) using the solution density, correctly handling the 1 dm³ = 1000 cm³ volume basis and the mass fraction.",
+    "question": "Concentrated hydrochloric acid is 36.5% HCl by mass and has a density of 1.18 g cm⁻³. Taking the molar mass of HCl as 36.5 g mol⁻¹, what is the molar concentration of HCl in this acid?",
+    "choices": {
+      "A": "8.47 mol dm⁻³",
+      "B": "11.8 mol dm⁻³",
+      "C": "1.18 mol dm⁻³",
+      "D": "10.0 mol dm⁻³",
+      "E": "32.3 mol dm⁻³"
+    },
+    "correct_answer": "B",
+    "explanation": "Work with 1 dm³ (1000 cm³) of solution. Its mass is 1000 × 1.18 = 1180 g. Of this, 36.5% is HCl: 0.365 × 1180 = 430.7 g. Converting to moles: 430.7 / 36.5 = 11.8 mol. Since this is contained in 1 dm³, the concentration is 11.8 mol dm⁻³. The key steps are applying the density to obtain the solution mass and the mass fraction to obtain the solute mass.",
+    "option_analysis": {
+      "A": "Wrong: this divides by the density (1000 ÷ 1.18) instead of multiplying, using the density the wrong way round.",
+      "B": "Correct: 1 dm³ = 1180 g; HCl mass = 0.365 × 1180 = 430.7 g; 430.7 / 36.5 = 11.8 mol dm⁻³.",
+      "C": "Wrong: this evaluates the amount of HCl in 100 cm³ (about 1.18 mol) and fails to scale up to a full 1 dm³.",
+      "D": "Wrong: this ignores the density and assumes 1 dm³ of the acid weighs 1000 g, i.e. treats the solution as if it had the density of water.",
+      "E": "Wrong: this divides the whole solution mass (1180 g) by the molar mass, ignoring the 36.5% mass fraction and treating the entire solution as pure HCl."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0203",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Solutions, solubility and concentration",
+    "subtopic": "Concentration conversion: parts per million (ppm) to molar concentration for a trace ion",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "ppm",
+      "parts per million",
+      "molarity",
+      "trace concentration",
+      "unit conversion",
+      "lead"
+    ],
+    "learning_objective": "Convert a mass-based ppm concentration in water (mg per litre) to a molar concentration, correctly handling the mg→g and g→mol steps.",
+    "question": "The maximum permitted concentration of lead(II) ions, Pb²⁺, in drinking water is 0.010 ppm by mass. For dilute aqueous solutions, 1 ppm corresponds to 1 mg of solute per litre of solution (density 1.00 g cm⁻³). Taking the molar mass of lead as 207 g mol⁻¹, what is this concentration expressed in mol dm⁻³?",
+    "choices": {
+      "A": "1.0 × 10⁻⁵ mol dm⁻³",
+      "B": "2.1 × 10⁷ mol dm⁻³",
+      "C": "4.8 × 10⁻⁸ mol dm⁻³",
+      "D": "4.8 × 10⁻⁵ mol dm⁻³",
+      "E": "2.1 × 10⁻³ mol dm⁻³"
+    },
+    "correct_answer": "C",
+    "explanation": "0.010 ppm means 0.010 mg of Pb²⁺ per litre. Convert to grams: 0.010 mg = 1.0 × 10⁻⁵ g, so the mass concentration is 1.0 × 10⁻⁵ g dm⁻³. Dividing by the molar mass gives the molar concentration: (1.0 × 10⁻⁵ g dm⁻³) / (207 g mol⁻¹) = 4.8 × 10⁻⁸ mol dm⁻³.",
+    "option_analysis": {
+      "A": "Wrong: this leaves the answer as the mass concentration in g dm⁻³, forgetting to divide by the molar mass to obtain moles.",
+      "B": "Wrong: this inverts the division, dividing the molar mass by the mass concentration (207 / 1.0 × 10⁻⁵).",
+      "C": "Correct: 0.010 ppm = 0.010 mg L⁻¹ = 1.0 × 10⁻⁵ g dm⁻³; dividing by 207 g mol⁻¹ gives 4.8 × 10⁻⁸ mol dm⁻³.",
+      "D": "Wrong: this omits the mg→g conversion, using 0.010 g dm⁻³ (a factor of 1000 too large) before dividing by 207.",
+      "E": "Wrong: this multiplies the mass concentration by the molar mass (1.0 × 10⁻⁵ × 207) instead of dividing by it."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0204",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Solutions, solubility and concentration",
+    "subtopic": "Fractional crystallisation: purifying the less-soluble salt on cooling a two-salt solution",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "fractional crystallisation",
+      "solubility curve",
+      "purification",
+      "recrystallisation",
+      "potassium nitrate",
+      "sodium chloride"
+    ],
+    "learning_objective": "Apply solubility data for two salts to decide which salt crystallises on cooling and calculate the mass of pure crystals obtained, distinguishing solubility from the amount actually present.",
+    "question": "A mixture of 100 g of potassium nitrate (KNO3) and 10 g of sodium chloride (NaCl) is dissolved in 100 g of water at 80 °C. The solubilities per 100 g of water are: KNO3, 169 g at 80 °C and 32 g at 20 °C; NaCl, 38 g at 80 °C and 36 g at 20 °C. The solution is cooled to 20 °C. What mass of pure crystals is obtained, and of which salt?",
+    "choices": {
+      "A": "2 g of pure NaCl",
+      "B": "32 g of pure KNO3",
+      "C": "68 g of pure KNO3",
+      "D": "68 g of a mixture of KNO3 and NaCl",
+      "E": "137 g of pure KNO3"
+    },
+    "correct_answer": "C",
+    "explanation": "At 20 °C, 100 g of water can dissolve only 32 g of KNO3, so of the 100 g present, 100 − 32 = 68 g crystallises. For NaCl, 100 g of water can dissolve 36 g at 20 °C, but only 10 g is present; since 10 g is well below the solubility limit, all the NaCl stays in solution. The crystals are therefore 68 g of pure KNO3 — the basis of purification by fractional crystallisation.",
+    "option_analysis": {
+      "A": "Wrong: this blindly applies the solubility difference (38 − 36 = 2 g) to NaCl, ignoring that only 10 g is present and all of it stays in solution.",
+      "B": "Wrong: 32 g is the mass of KNO3 that remains dissolved at 20 °C, not the mass that crystallises.",
+      "C": "Correct: 100 g of water holds only 32 g KNO3 at 20 °C, so 100 − 32 = 68 g crystallises; the 10 g of NaCl is below its 36 g solubility and stays dissolved, giving pure KNO3.",
+      "D": "Wrong: this assumes both salts crystallise; NaCl remains fully dissolved because the 10 g present is below its solubility at 20 °C.",
+      "E": "Wrong: this uses the 80 °C solubility (169 g) as the mass dissolved, doing 169 − 32, but only 100 g of KNO3 is actually present, so it overstates the yield."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0205",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Solutions, solubility and concentration",
+    "subtopic": "Combined evaporation and cooling of a saturated solution: total mass crystallising over two steps",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "solubility curve",
+      "crystallisation",
+      "evaporation",
+      "saturated solution",
+      "multi-step calculation"
+    ],
+    "learning_objective": "Track the mass of solute crystallising when a saturated solution is first concentrated by evaporation at constant temperature and then cooled, updating the mass of water at each stage.",
+    "question": "A salt X has a solubility of 100 g per 100 g of water at 80 °C and 15 g per 100 g of water at 20 °C. A saturated solution of X is prepared at 80 °C using 200 g of water. First, 100 g of water is evaporated while the temperature is held at 80 °C; the remaining solution is then cooled to 20 °C. What is the total mass of X that crystallises across the two steps?",
+    "choices": {
+      "A": "170 g",
+      "B": "270 g",
+      "C": "185 g",
+      "D": "100 g",
+      "E": "85 g"
+    },
+    "correct_answer": "C",
+    "explanation": "At 80 °C, 200 g of water holds 2 × 100 = 200 g of X (the saturated amount). Evaporation step: removing 100 g of water leaves 100 g of water, which at 80 °C can hold only 100 g of X, so 200 − 100 = 100 g crystallises. Cooling step: the remaining 100 g of water at 20 °C holds only 15 g of X, so a further 100 − 15 = 85 g crystallises. Total = 100 + 85 = 185 g. (Equivalently, 200 g total minus the 15 g finally left dissolved.)",
+    "option_analysis": {
+      "A": "Wrong: this ignores the water removed and simply cools the original 200 g of water (200 − 2 × 15 = 170).",
+      "B": "Wrong: this double-counts, adding the 100 g from evaporation to a cooling result (170 g) that already assumed the water had never been removed.",
+      "C": "Correct: 100 g crystallises during evaporation (200 − 100) and a further 85 g on cooling (100 − 15), giving 185 g in total.",
+      "D": "Wrong: this stops after the evaporation step (200 − 100) and ignores the further crystallisation on cooling.",
+      "E": "Wrong: this counts only the crystals formed on cooling the final 100 g of water (100 − 15) and ignores the crystals produced during evaporation."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0206",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Solutions, solubility and concentration",
+    "subtopic": "From solubility to molar concentration of a saturated solution via percentage by mass and density",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "solubility",
+      "saturated solution",
+      "percentage by mass",
+      "density",
+      "molarity",
+      "unit conversion"
+    ],
+    "learning_objective": "Convert a solubility (g per 100 g water) into the percentage by mass of the saturated solution and then, using the solution density, into a molar concentration.",
+    "question": "The solubility of sodium chloride (NaCl) at 20 °C is 36 g per 100 g of water. The saturated solution has a density of 1.20 g cm⁻³. Taking the molar mass of NaCl as 58.5 g mol⁻¹, what is the molar concentration of NaCl in the saturated solution?",
+    "choices": {
+      "A": "4.52 mol dm⁻³",
+      "B": "6.15 mol dm⁻³",
+      "C": "5.43 mol dm⁻³",
+      "D": "7.38 mol dm⁻³",
+      "E": "3.77 mol dm⁻³"
+    },
+    "correct_answer": "C",
+    "explanation": "The saturated solution contains 36 g of NaCl in (36 + 100) = 136 g of solution, so the mass fraction is 36/136 = 0.2647 (26.5% by mass). Using the density, 1 dm³ (1000 cm³) of solution has a mass of 1000 × 1.20 = 1200 g. The NaCl it contains is 0.2647 × 1200 = 317.6 g, which is 317.6 / 58.5 = 5.43 mol. Hence the concentration is 5.43 mol dm⁻³.",
+    "option_analysis": {
+      "A": "Wrong: this ignores the density and assumes 1 dm³ of the saturated solution weighs 1000 g.",
+      "B": "Wrong: this treats the solubility as 360 g dm⁻³ directly (taking 100 g of water as 1 dm³), ignoring both the mass fraction and the density.",
+      "C": "Correct: mass fraction = 36/136 = 0.2647; 1 dm³ = 1200 g, so NaCl = 0.2647 × 1200 = 317.6 g; 317.6 / 58.5 = 5.43 mol dm⁻³.",
+      "D": "Wrong: this takes the mass fraction as 36/100, dividing the salt mass by the mass of water rather than by the total mass of solution.",
+      "E": "Wrong: this uses the density the wrong way round, dividing 1000 g by 1.20 to get the solution mass instead of multiplying."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  }
+]

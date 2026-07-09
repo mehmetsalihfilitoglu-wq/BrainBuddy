@@ -1,0 +1,201 @@
+[
+  {
+    "id": "mio_ct_0082",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Identifying a necessary unstated assumption: ruling out a self-defeating side-effect (induced demand) — the added capacity must not itself generate the extra use that offsets the gain",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "critical thinking",
+      "argument analysis",
+      "unstated assumption",
+      "necessary assumption",
+      "negation test",
+      "induced demand"
+    ],
+    "learning_objective": "Identify a necessary unstated assumption that rules out a self-defeating side-effect (induced demand) by applying the negation test.",
+    "question": "A transport planner argues:\n\n'Peak-time congestion on the ring road happens simply because, at those times, the number of vehicles wanting to use the road is greater than the road's capacity. At present the peak-time demand is only about 30% above capacity. If we add a third lane, the road's capacity will increase by 50%. The new capacity will therefore comfortably exceed the peak-time demand, and so peak-time congestion on the ring road will disappear.'\n\nThe planner's conclusion depends on which of the following assumptions?",
+    "choices": {
+      "A": "The benefit of reduced congestion will be large enough to justify the cost of building the third lane.",
+      "B": "The ring road carries more peak-time traffic than any other road in the city.",
+      "C": "Most vehicles now using the ring road at peak times could reach their destinations by an alternative route.",
+      "D": "The number of vehicles seeking to use the ring road at peak times will not rise substantially once the extra lane is available.",
+      "E": "Adding the third lane will not require any reduction in the width of the two existing lanes."
+    },
+    "correct_answer": "D",
+    "explanation": "The argument moves from 'new capacity will exceed current peak demand' to 'congestion will disappear.' That step holds only if peak demand stays roughly where it is. If the wider road draws in drivers who previously avoided it (induced demand), demand can climb back up to meet or exceed the enlarged capacity, and congestion returns. Apply the negation test: suppose peak demand DOES rise substantially once the lane opens — the conclusion no longer follows, so the assumption is genuinely necessary. The other options concern engineering feasibility, an irrelevant comparison, alternative routes, or whether the scheme is worth its cost, none of which the causal conclusion logically requires.",
+    "option_analysis": {
+      "A": "Wrong: Whether the benefit justifies the cost is a value judgement about desirability; the factual claim that congestion will disappear does not depend on it. This confuses the worth of a recommendation with a premise the reasoning needs.",
+      "B": "Wrong: How the ring road compares with other roads has no bearing on whether congestion on this particular road will clear. This imports an irrelevant superlative comparison.",
+      "C": "Wrong: The availability of alternative routes is not required by the argument; the conclusion concerns this road's demand-versus-capacity balance, not the diversion of traffic elsewhere. This is an irrelevant substitution consideration.",
+      "D": "Correct: The inference from 'capacity will exceed present demand' to 'congestion will disappear' collapses if the new lane attracts additional peak-time traffic; negating the assumption (demand rises substantially) defeats the conclusion, which is exactly what makes it a necessary assumption.",
+      "E": "Wrong: Whether the existing lanes must be narrowed is an engineering detail; the argument stipulates that capacity will rise by 50% and reasons from that figure. Treating a construction precondition as a logical assumption confuses feasibility with the inference actually made."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0083",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Detecting the flaw: equivocation on 'significant' — a statistical sense (unlikely to be chance) silently swapped for the everyday sense (important)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "critical thinking",
+      "argument analysis",
+      "logical fallacy",
+      "equivocation",
+      "ambiguity",
+      "statistical significance"
+    ],
+    "learning_objective": "Detect equivocation by recognising when a single key term ('significant') is used in two different senses across the premises and the conclusion.",
+    "question": "Consider the following argument put forward by a company spokesperson:\n\n'In our clinical trial the new drug lowered patients' average blood pressure by an amount that was statistically significant. But a result that is significant is, by definition, a result that matters. So our trial has shown that the drug lowers blood pressure by an amount that genuinely matters for patients' health.'\n\nWhich of the following best identifies the principal flaw in this argument?",
+    "choices": {
+      "A": "It treats what is true of the patients on average as though it were true of every individual patient.",
+      "B": "It relies on the authority of the spokesperson instead of on the trial evidence itself.",
+      "C": "It draws a sweeping conclusion from a trial sample that may be unrepresentative of patients in general.",
+      "D": "It shifts between two different meanings of the word 'significant,' treating a statistically significant result as though it were automatically an important one.",
+      "E": "It confuses the fall in blood pressure with an improvement in health, reversing the direction of cause and effect."
+    },
+    "correct_answer": "D",
+    "explanation": "'Statistically significant' is a technical claim that an observed effect is unlikely to be due to chance; it says nothing about how large or clinically important the effect is. The everyday sense of 'significant' means 'important' or 'sizeable.' The second sentence quietly replaces the technical sense with the everyday sense, so that the conclusion ('an amount that genuinely matters') appears to follow. This trading on two senses of one word is the fallacy of equivocation. The other options describe real fallacies — division, appeal to authority, unrepresentative sampling, reversed causation — that this passage does not actually commit.",
+    "option_analysis": {
+      "A": "Wrong: This describes the fallacy of division (reasoning from a group average to each individual). The argument never moves from the average to particular patients; its error lies in the word 'significant,' not in any average-to-individual step.",
+      "B": "Wrong: An appeal to authority would ask us to accept the claim because of who asserts it. Here a (defective) chain of reasoning is offered, so authority is not what carries the conclusion.",
+      "C": "Wrong: An unrepresentative-sample objection concerns generalising from an atypical group. The defect here is verbal, not statistical sampling; the conclusion still fails even if the trial sample is perfectly representative.",
+      "D": "Correct: 'Significant' is used first in its statistical sense (unlikely to be due to chance) and then in its ordinary sense (important); the conclusion follows only if the two senses are treated as one, which is precisely equivocation.",
+      "E": "Wrong: There is no reversal of cause and effect; the argument does not claim that better health produced the blood-pressure change. This mislabels the flaw as reverse causation."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0084",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Reading and inference (categorical deduction)",
+    "subtopic": "Chaining a universal-affirmative and a universal-negative premise with an existential premise to derive a valid particular conclusion (must-be-true), rejecting illicit conversion, over-generalisation and an impossible statement",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "critical thinking",
+      "categorical logic",
+      "quantifiers",
+      "must be true",
+      "valid inference",
+      "syllogism"
+    ],
+    "learning_objective": "Chain universal and existential categorical premises to derive a valid particular conclusion and distinguish it from illicit conversion, over-generalisation and impossibility.",
+    "question": "At a certain research institute, all three of the following statements are true:\n\n- Every biologist at the institute also holds a degree in statistics.\n- No one who holds a degree in statistics works the night shift.\n- Some of the people who work the night shift are managers.\n\nOn the basis of these statements alone, which of the following must be true?",
+    "choices": {
+      "A": "Every night-shift worker at the institute is a manager.",
+      "B": "Every manager at the institute works the night shift.",
+      "C": "Some biologists at the institute work the night shift.",
+      "D": "At least one manager at the institute does not hold a degree in statistics.",
+      "E": "No biologist at the institute is a manager."
+    },
+    "correct_answer": "D",
+    "explanation": "From the second statement, anyone who works the night shift holds no statistics degree. The third statement guarantees at least one night-shift worker who is a manager; that person therefore holds no statistics degree. Hence at least one manager lacks a statistics degree — statement E follows necessarily. The distractors each fail: A and D convert or inflate a 'some' claim into an 'all' claim; B over-reaches, since a biologist could still be a day-shift manager; C is actually impossible (biologists all hold statistics degrees, so none can work nights), and an impossible statement cannot be a 'must be true.'",
+    "option_analysis": {
+      "A": "Wrong: Only some night-shift workers are stated to be managers; inferring that every night-shift worker is a manager over-generalises a particular premise into a universal one.",
+      "B": "Wrong: 'Some night-shift workers are managers' does not yield 'all managers work nights'; this illicitly converts a particular statement into a universal one about managers.",
+      "C": "Wrong: Every biologist holds a statistics degree, and no statistics-degree holder works nights, so no biologist can work the night shift; this statement cannot be true, let alone must be true.",
+      "D": "Correct: The night-shift managers guaranteed by the third statement cannot hold a statistics degree (by the second statement), so at least one manager lacks that degree — a conclusion that follows with necessity.",
+      "E": "Wrong: The premises exclude biologists only from the night shift; a biologist (who holds a statistics degree) could still be a manager on another shift. Concluding that no biologist is a manager over-reaches the evidence."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0085",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative and data interpretation",
+    "subtopic": "Interpreting a described defect table: normalising counts to rates and separating output volume, absolute defect count and defect rate, where the smallest producer is not the smallest defect contributor",
+    "difficulty": "medium",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "critical thinking",
+      "data interpretation",
+      "rates vs counts",
+      "defect rate",
+      "normalisation",
+      "table reading"
+    ],
+    "learning_objective": "Interpret a described data table by normalising raw counts to rates and keeping output volume, defect count and defect rate distinct.",
+    "question": "A quality report describes three factories that make the same component. For one week the table records, for each factory, the number of units produced and the number of those units found to be defective:\n\n- Factory X: 2,000 units produced; 40 defective.\n- Factory Y: 3,000 units produced; 150 defective.\n- Factory Z: 800 units produced; 48 defective.\n\nWhich one of the following conclusions is best supported by the table?",
+    "choices": {
+      "A": "The factory that produced the most units also had the highest defect rate.",
+      "B": "Factory Z had the highest proportion of defective units, even though it produced the fewest units of the three.",
+      "C": "Factory Y was the least reliable of the three, because it produced the greatest number of defective units.",
+      "D": "Factories X and Z were of similar quality, because their numbers of defective units (40 and 48) are close.",
+      "E": "Because Factory Z produced the fewest units, it made the smallest contribution to the total number of defective units."
+    },
+    "correct_answer": "B",
+    "explanation": "Divide defective units by units produced: X = 40/2,000 = 2%, Y = 150/3,000 = 5%, Z = 48/800 = 6%. Factory Z therefore has the highest defect rate, while its 800 units are the fewest produced — so both halves of statement A hold. The distractors all confuse absolute counts with rates, or output volume with defect contribution: Y has the most defects in absolute terms but not the highest rate; similar defect counts hide very different rates because the outputs differ; the biggest producer is not the one with the worst rate; and Z, despite the smallest output, produced more defects (48) than X (40).",
+    "option_analysis": {
+      "A": "Wrong: The largest producer is Y (3,000 units) at a 5% rate, whereas the highest rate belongs to Z (6%); this wrongly assumes that greater output drives a higher defect rate.",
+      "B": "Correct: The rates are 2% (X), 5% (Y) and 6% (Z), so Z has the highest defect rate, and its 800 units are the fewest produced — both parts of the statement are true.",
+      "C": "Wrong: This judges reliability by the raw number of defects (150) rather than the rate; Y's defect rate is 5%, below Z's 6%, so having the most defects in absolute terms does not make Y the least reliable.",
+      "D": "Wrong: The similar defect counts (40 vs 48) arise from very different outputs (2,000 vs 800), giving rates of 2% and 6%; comparing counts while ignoring the denominators misjudges quality.",
+      "E": "Wrong: Despite the smallest output, Z had 48 defective units — more than X's 40 — so Z is not the smallest contributor to the total; this conflates output volume with defect count."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0086",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Deductive reasoning",
+    "subtopic": "Multi-rule conditional deduction: applying contrapositives and a disjunction to determine what must follow",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "conditional reasoning",
+      "contrapositive",
+      "deduction",
+      "must-be-true",
+      "logic"
+    ],
+    "learning_objective": "Combine several conditional rules and a disjunction, using contrapositive reasoning, to determine which conclusion necessarily follows from a given fact.",
+    "question": "A university admissions office applies exactly these three rules to every applicant: (1) any applicant who has a distinction in Mathematics is offered a place; (2) no applicant who failed the entrance interview is offered a place; (3) every applicant either has a distinction in Mathematics, or has relevant work experience, or both. Applicant K was NOT offered a place. On the basis of the rules alone, which one of the following MUST be true of applicant K?",
+    "choices": {
+      "A": "K has a distinction in Mathematics.",
+      "B": "K passed the entrance interview.",
+      "C": "K failed the entrance interview.",
+      "D": "K has neither a distinction in Mathematics nor relevant work experience.",
+      "E": "K has relevant work experience."
+    },
+    "correct_answer": "E",
+    "explanation": "By rule (1), having a distinction in Mathematics guarantees an offer. K was not offered a place, so by the contrapositive K does NOT have a distinction in Mathematics. Rule (3) says every applicant has a distinction OR relevant work experience (or both); since K lacks the distinction, K must have relevant work experience. That conclusion is forced. Nothing forces the interview outcome: rule (2) says failing the interview guarantees no offer, but not being offered a place can happen for other reasons too, so we cannot conclude that K failed (or passed) the interview.",
+    "option_analysis": {
+      "A": "Wrong: if K had a distinction in Mathematics, rule (1) would guarantee an offer, contradicting that K was not offered a place.",
+      "B": "Wrong: the rules do not determine the interview result; K might have passed or failed, so 'passed' is not forced.",
+      "C": "Wrong: rule (2) tells us that failing the interview leads to no offer, but the converse does not hold — being denied a place does not prove the interview was failed, so this need not be true.",
+      "D": "Wrong: this contradicts rule (3) together with the deduction above — K must have relevant work experience, so K does not have neither.",
+      "E": "Correct: K cannot have the Maths distinction (or K would have been offered a place), so by rule (3) K must have relevant work experience."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  }
+]
