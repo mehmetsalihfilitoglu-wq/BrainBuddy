@@ -1,0 +1,814 @@
+[
+  {
+    "id": "mio_bio_0224",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Pathogens and antimicrobial drugs",
+    "subtopic": "Selective toxicity: why antibacterial antibiotics cannot act on viruses (viruses lack bacterial targets and replicate using host-cell machinery)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 65,
+    "tags": [
+      "pathogens",
+      "viruses",
+      "antibiotics",
+      "selective toxicity",
+      "bacterial cell wall",
+      "70S ribosome"
+    ],
+    "learning_objective": "Explain, at the molecular level, why antibacterial antibiotics are ineffective against viral infections by reasoning about the targets these drugs act on and how viruses replicate.",
+    "question": "A general practitioner sees a patient with a sore throat, a runny nose and a mild fever. A rapid test confirms that the illness is caused by a virus, not by bacteria. The patient asks for antibiotics, but the doctor explains that they would not help. Which single statement best explains, at the molecular level, why a typical antibacterial antibiotic cannot act against this viral infection?",
+    "choices": {
+      "A": "Antibiotic molecules are broken down by enzymes released from virus-infected cells, so the drug is destroyed before it can reach any of the viral particles.",
+      "B": "Antibiotics can only penetrate cells surrounded by a cell wall, and because human cells have no wall the drug cannot reach a virus hidden inside them.",
+      "C": "Viruses multiply far faster than bacteria, so new viral particles are always produced more quickly than the antibiotic is able to remove them.",
+      "D": "A patient's immune system automatically inactivates any antibiotic that is taken during a viral infection, reserving the drug's activity for bacterial disease.",
+      "E": "Antibiotics act on bacterial structures and processes such as the peptidoglycan cell wall and the 70S ribosome, which viruses do not possess, since viruses replicate using the host cell's own machinery."
+    },
+    "correct_answer": "E",
+    "explanation": "Antibacterial antibiotics achieve selective toxicity by attacking features unique to bacteria: peptidoglycan cell-wall synthesis, the bacterial (70S) ribosome, bacterial DNA gyrase, or bacterial folate metabolism. Viruses have none of these structures. A virus is essentially nucleic acid in a protein coat and carries out no metabolism of its own; it replicates by hijacking the host cell's ribosomes, enzymes and nucleotides. Because the drug's targets simply are not present in the virus, an antibiotic has nothing to act upon, so the infection is unaffected. The correct reasoning links the mode of action of antibiotics to the biology of viral replication.",
+    "option_analysis": {
+      "A": "Wrong: this invents a non-existent inactivation mechanism; misconception that antibiotics fail because they are chemically destroyed rather than because their molecular targets are absent in viruses.",
+      "B": "Wrong: conflates 'having a cell wall' with drug entry. Many antibiotics readily enter human cells; the reason for failure is the lack of viral targets, not an inability of the drug to reach an intracellular virus.",
+      "C": "Wrong: reflects the misconception that antibiotic failure is a matter of replication speed. Antibiotics also fail against slowly replicating viruses; the issue is the absence of a druggable target, not a race against particle numbers.",
+      "D": "Wrong: fabricates a selective inactivation by the immune system; misconception that the body 'switches off' antibiotics during viral illness rather than the drug simply lacking a target.",
+      "E": "Correct: antibiotics target bacteria-specific structures (peptidoglycan wall, 70S ribosome) that viruses lack, and viruses use host machinery to replicate, so the drug has nothing to act on."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0225",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Antibiotics and antibiotic resistance",
+    "subtopic": "Origin of resistance by natural selection of pre-existing random mutants rather than antibiotic-induced (Lamarckian) resistance — reasoning from between-culture variation (fluctuation test)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "antibiotic resistance",
+      "natural selection",
+      "random mutation",
+      "Lamarckism",
+      "fluctuation test",
+      "evolution"
+    ],
+    "learning_objective": "Interpret between-culture variation in the number of resistant colonies to distinguish resistance arising by random pre-existing mutation from resistance supposedly induced by the antibiotic.",
+    "question": "A bacterial strain that has never encountered streptomycin is used to start many separate, independent cultures, each grown from only a few cells. After every culture has grown to the same large population size, the whole of each culture is spread onto agar containing streptomycin, and the number of resistant colonies on each plate is counted. If resistance were caused (induced) by contact with the antibiotic, the number of resistant colonies should be similar from plate to plate; if resistance instead arose by random mutation during growth, before any contact with the drug, the counts should differ enormously between plates depending on how early or late a resistant mutant first appeared. The experimenter finds that the number of resistant colonies varies enormously between the independent cultures. Which conclusion is best supported?",
+    "choices": {
+      "A": "Contact with the antibiotic induces resistance in a fixed proportion of cells, so every population responds in essentially the same way.",
+      "B": "Resistance arises by random mutation during growth, before exposure; the large variation between cultures reflects whether a resistant mutant arose early (giving many descendants) or late (giving few).",
+      "C": "Resistance can be acquired only by those cells that happen to be actively dividing at the exact moment the antibiotic is added to the plate.",
+      "D": "The antibiotic acts as a mutagen that raises the mutation rate, generating resistant cells at a steady rate once it has been added to the plate.",
+      "E": "Each individual bacterium chooses whether or not to become resistant by directly sensing the presence of the antibiotic around it."
+    },
+    "correct_answer": "B",
+    "explanation": "This is the logic of the fluctuation test. If the antibiotic simply converted a constant fraction of cells to the resistant state on contact, each large culture would yield a similar count and the variation between plates would be small (Poisson-like). Instead, the counts vary enormously ('jackpots'). This is the signature of random mutations occurring at different times during growth: a mutation that happens early is inherited by a huge clone of descendants (a large count), whereas one that happens late leaves only a few resistant cells (a small count). Therefore resistance pre-exists the drug and arises by random mutation; the antibiotic merely selects the already-resistant cells rather than creating them. This overturns the Lamarckian idea that the environment directs the adaptive change.",
+    "option_analysis": {
+      "A": "Wrong: predicts low, uniform counts across cultures, the opposite of the observed huge variation; embodies the Lamarckian 'induced resistance' misconception.",
+      "B": "Correct: random mutation before exposure, with early mutations producing large resistant clones and late mutations small ones, is exactly what produces enormous between-culture variation.",
+      "C": "Wrong: timing of division at the moment of exposure would still give roughly comparable counts between equally sized cultures and cannot explain 'jackpot' cultures; a distractor that ignores inheritance of an early mutation.",
+      "D": "Wrong: if the drug raised the mutation rate only after being added, mutations would accumulate at a steady rate on each plate and give similar, not hugely variable, counts; the misconception that antibiotics act as mutagens generating resistance.",
+      "E": "Wrong: the notion of cells individually 'sensing and deciding' is directed (Lamarckian) adaptation, again predicting uniform rather than wildly variable counts."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0226",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Non-specific (innate) defences and their link to adaptive immunity",
+    "subtopic": "Opsonisation: the antibody Fc region (and complement) bridges pathogen to phagocyte Fc/complement receptors to enhance phagocytosis; loss of Fc abolishes the enhancement",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "phagocytosis",
+      "opsonisation",
+      "antibody structure",
+      "Fc region",
+      "Fab",
+      "innate immunity",
+      "macrophage"
+    ],
+    "learning_objective": "Interpret an experiment on opsonisation to deduce that antibody-enhanced phagocytosis depends on the Fc region acting as a bridge between the coated pathogen and the phagocyte's Fc receptor.",
+    "question": "Neutrophils and macrophages engulf bacteria much more efficiently once the bacteria have been coated with specific antibody, a process called opsonisation. Phagocytes carry surface receptors for the constant (Fc) region of antibodies. A researcher measures engulfment of one bacterial species under three conditions: (i) untreated bacteria; (ii) bacteria coated with an antibody preparation from which the Fc region has been removed enzymatically, leaving only the antigen-binding (Fab) fragments still attached to the bacterial surface; (iii) bacteria coated with intact antibody. Engulfment is greatly enhanced only in condition (iii); condition (ii) is no better than the untreated control. Which statement best explains this pattern?",
+    "choices": {
+      "A": "Intact antibody directly kills the bacterium, and phagocytes engulf only bacteria that have already been killed, so no enhancement is seen until whole antibody is present.",
+      "B": "Phagocytes recognise only complement proteins, not antibody, so the enhancement in condition (iii) must be caused entirely by complement and has nothing to do with the antibody.",
+      "C": "Removing the Fc region stops the antibody from attaching to the bacterium at all, so in condition (ii) the bacterium is effectively left uncoated.",
+      "D": "The Fc region contains the antigen-binding sites, so only intact antibody is able to recognise and bind the bacterial surface in the first place.",
+      "E": "Enhancement requires the antibody to act as a physical bridge: its antigen-binding region attaches to the bacterium while its Fc region binds the phagocyte's Fc receptor, and this bridge is lost once the Fc region is removed."
+    },
+    "correct_answer": "E",
+    "explanation": "Opsonisation increases phagocytosis because the antibody physically links the pathogen to the phagocyte. The two Fab arms bind antigen on the bacterial surface, while the Fc stem is recognised by Fc receptors on the phagocyte membrane, tethering the coated bacterium to the cell and triggering engulfment. Condition (ii) is the decisive control: the Fab fragments still bind the bacterium (so it is genuinely coated), yet there is no Fc to engage the phagocyte receptor, and enhancement disappears. This shows the effect is specifically due to the Fc-mediated bridge, and it illustrates how the adaptive response (antibody) recruits and amplifies an innate mechanism (phagocytosis).",
+    "option_analysis": {
+      "A": "Wrong: antibodies do not, in general, directly kill bacteria, and phagocytes readily engulf live pathogens; the misconception that opsonins act by killing rather than by tagging for uptake.",
+      "B": "Wrong: phagocytes have receptors for both antibody Fc and complement; here Fc-antibody binding is clearly responsible, since removing only the Fc abolishes the effect. Misconception that antibody plays no direct role in opsonic uptake.",
+      "C": "Wrong: the stem states the Fab fragments remain attached, so the bacterium is still coated; this option ignores the given information and misattributes the loss of effect to loss of binding.",
+      "D": "Wrong: the antigen-binding sites are in the Fab arms, not the Fc region; a structural misconception about where an antibody binds its antigen.",
+      "E": "Correct: the antigen-binding region holds the bacterium while the Fc region binds the phagocyte Fc receptor, forming a bridge that is destroyed when the Fc is removed, explaining why only condition (iii) is enhanced."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0227",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "The specific (adaptive) immune response",
+    "subtopic": "Matching effector arm to pathogen niche: humoral (antibody) defence clears extracellular pathogens and toxins, whereas cytotoxic-T-cell (cell-mediated) defence clears intracellular viruses",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "adaptive immunity",
+      "humoral response",
+      "cell-mediated immunity",
+      "cytotoxic T cells",
+      "antibodies",
+      "intracellular pathogen",
+      "toxin"
+    ],
+    "learning_objective": "Predict the pattern of susceptibility in patients lacking one arm of adaptive immunity by matching antibody-mediated and cytotoxic-T-cell-mediated defences to extracellular versus intracellular pathogens.",
+    "question": "Two patients have inherited immune deficiencies. Patient 1 cannot produce any antibodies but has fully functional cytotoxic (killer) T cells. Patient 2 has a severe deficiency of cytotoxic T cells but produces antibodies normally. Each is exposed to two pathogens: pathogen X is a bacterium that multiplies in the blood and tissue fluid outside cells and causes harm mainly through a secreted toxin; pathogen Y is a virus that replicates only inside the patient's own body cells. Assuming no other differences, which prediction about their susceptibility is best supported?",
+    "choices": {
+      "A": "Patient 2 will struggle with both pathogens whereas Patient 1 will cope with both, because cytotoxic T cells are required for every kind of immune response.",
+      "B": "Patient 1 will struggle particularly with the extracellular bacterium X and its secreted toxin, while Patient 2 will struggle particularly with the intracellular virus Y.",
+      "C": "Patient 1 will struggle particularly with the intracellular virus Y, while Patient 2 will struggle particularly with the extracellular bacterium X and its toxin.",
+      "D": "Both patients will be equally vulnerable to both pathogens, because the two arms of adaptive immunity fully compensate for one another.",
+      "E": "Patient 1 will struggle with both pathogens whereas Patient 2 will cope with both, because antibodies are the only genuinely effective defence against any pathogen."
+    },
+    "correct_answer": "B",
+    "explanation": "The two arms of the adaptive response are specialised for different pathogen locations. Antibodies (the humoral response) circulate in blood and tissue fluid, where they neutralise extracellular pathogens and their toxins and mark them for destruction; they cannot reach a pathogen that is hidden inside a host cell. Cytotoxic T cells (the cell-mediated response) recognise fragments of intracellular pathogens displayed on the surface of infected cells and kill those cells, which is essential for clearing viruses that replicate inside cells. Therefore Patient 1 (no antibodies) is most vulnerable to the extracellular, toxin-producing bacterium X, while Patient 2 (no cytotoxic T cells) is most vulnerable to the intracellular virus Y. This requires integrating the location of each pathogen with the reach of each effector mechanism.",
+    "option_analysis": {
+      "A": "Wrong: overstates the role of cytotoxic T cells; they cannot neutralise a secreted toxin or extracellular bacteria, so a T-cell-only view fails for pathogen X.",
+      "B": "Correct: antibodies are needed for the extracellular bacterium X and its toxin (so Patient 1 is vulnerable), while cytotoxic T cells are needed for the intracellular virus Y (so Patient 2 is vulnerable).",
+      "C": "Wrong: this reverses the correct pairing (a very common confusion), assigning intracellular defence to antibodies and extracellular defence to cytotoxic T cells.",
+      "D": "Wrong: the arms are complementary, not interchangeable; loss of one leaves a specific gap, so 'full compensation' is a misconception.",
+      "E": "Wrong: overstates the role of antibodies; they cannot clear an established intracellular virus, so an antibody-only view fails for pathogen Y."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0228",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Vaccination and immunological memory",
+    "subtopic": "Antigenic variation (antigenic drift) defeats epitope-specific memory: reformulating the vaccine to match the current surface antigen, and why a conserved but internal antigen is not a good neutralising-antibody target",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "vaccination",
+      "immunological memory",
+      "antigenic variation",
+      "antigenic drift",
+      "antibody specificity",
+      "influenza",
+      "natural selection",
+      "epitope"
+    ],
+    "learning_objective": "Integrate antibody specificity, immunological memory, natural selection and antibody accessibility to explain reinfection by an antigenically drifted virus and to identify the appropriate vaccination strategy.",
+    "question": "A person recovers from influenza and develops a strong memory response, including antibodies directed against the virus's surface protein (haemagglutinin). Two years later they catch influenza again and become ill, even though their memory cells and antibodies from the first infection are still present and functional. Laboratory analysis shows that the new strain's surface protein differs at several key amino-acid positions within the exact region that the earlier antibodies recognised, whereas a protein located inside the virus particle (the nucleoprotein) is unchanged between the two strains. Which statement best explains the recurrence and its implication for vaccination?",
+    "choices": {
+      "A": "Because the internal nucleoprotein is unchanged, the existing antibodies should still neutralise the intact virus, so the recurrence must be due to a generally weakened immune system rather than to anything about the virus.",
+      "B": "The virus has become resistant to the antibodies in the same way that bacteria become resistant to antibiotics, by acquiring a resistance plasmid, and no vaccine can work against a strain that has done this.",
+      "C": "The memory response must have been lost over the two years, so the second infection acted like a first exposure; simply repeating the original vaccine unchanged would restore full protection.",
+      "D": "The surface protein has changed at the sites recognised by the existing antibodies, so those memory antibodies can no longer bind and neutralise the new strain; effective protection therefore requires a vaccine updated to match the current surface protein, or one aimed at a conserved region.",
+      "E": "The mutations have simply made the new strain more virulent; antibody specificity is irrelevant because antibodies bind all influenza strains equally well, so vaccination cannot influence the outcome."
+    },
+    "correct_answer": "D",
+    "explanation": "Immunological memory is specific to particular epitopes: the antibodies raised in the first infection fit the shape of the original haemagglutinin. Random mutation constantly generates surface-protein variants, and any variant whose changed epitope is no longer recognised by prevalent antibodies has a selective advantage and spreads (antigenic drift). The new strain differs precisely at the recognised region, so the memory antibodies bind poorly, neutralisation fails, and infection re-establishes despite intact memory. The conserved internal nucleoprotein cannot rescue the situation for antibody-mediated protection because it is hidden inside the virion and is not exposed to neutralising antibody on the intact particle. The logical implication is to reformulate the vaccine to match the current surface antigen (as is done annually for influenza), or to attempt to direct immunity against a conserved, accessible target. This integrates antibody specificity, memory, selection and antigen accessibility.",
+    "option_analysis": {
+      "A": "Wrong: an unchanged internal nucleoprotein is inaccessible to antibodies on the intact virus, so it cannot confer neutralisation; the misconception that any conserved protein automatically provides antibody protection.",
+      "B": "Wrong: conflates viral antigenic variation with bacterial antibiotic resistance and horizontal plasmid transfer; viruses escape antibodies by mutating their own antigens, not by acquiring resistance plasmids, and vaccines can be updated to keep pace.",
+      "C": "Wrong: the stem states memory and antibodies are still present and functional, so waning memory cannot be the cause; the misconception that reinfection always means immunity was simply lost.",
+      "D": "Correct: mutation of the recognised surface epitope means memory antibodies no longer bind and neutralise, so the vaccine must be updated to the current surface antigen (or target a conserved region).",
+      "E": "Wrong: antibodies are highly specific and do not bind all strains equally; the recurrence is explained by escape from specific antibodies, not by a blanket increase in virulence, and vaccination clearly can influence the outcome."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0229",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Homeostasis and thermoregulation",
+    "subtopic": "Negative-feedback loop components: distinguishing receptor, control centre, effector and set point (identifying the effector in the response to a rise in core temperature)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "homeostasis",
+      "thermoregulation",
+      "negative feedback",
+      "effector",
+      "hypothalamus",
+      "control loop"
+    ],
+    "learning_objective": "Identify the effector in a homeostatic negative-feedback loop and distinguish it from the set point, the receptor and the efferent pathway.",
+    "question": "In the negative-feedback control of mammalian body temperature, the hypothalamus compares information about the body's temperature with a set point and coordinates corrective responses. A student lists five items involved when the core temperature rises above the set point. Which item is acting as the EFFECTOR in the corrective response?",
+    "choices": {
+      "A": "The set point value of approximately 37 °C",
+      "B": "Sympathetic motor neurones carrying impulses away from the hypothalamus",
+      "C": "Thermoreceptors in the hypothalamus that monitor the temperature of the blood",
+      "D": "Vasoconstriction of the arterioles supplying the skin capillaries",
+      "E": "Sweat glands secreting sweat onto the skin surface"
+    },
+    "correct_answer": "E",
+    "explanation": "In a negative-feedback loop the receptor detects the stimulus, the control centre (hypothalamus) compares it with the set point, and the effector carries out the corrective response. When core temperature rises, the appropriate corrective effector is the sweat gland: sweat is secreted and its evaporation removes latent heat, lowering temperature back towards the set point. The set point is only the reference value; the hypothalamic thermoreceptors are receptors; the sympathetic neurones are the efferent signalling pathway; and vasoconstriction is a heat-conserving response that belongs to the reaction to a fall, not a rise, in temperature.",
+    "option_analysis": {
+      "A": "Wrong: the set point is the reference value the system regulates around, not a structure that carries out a response. Misconception: treating the reference value as an active component (effector) of the loop.",
+      "B": "Wrong: these neurones form the efferent (motor) pathway that carries the command from the control centre to the effector; the pathway itself is not the effector. Misconception: mistaking the signalling pathway for the structure that produces the response.",
+      "C": "Wrong: hypothalamic thermoreceptors are receptors — they detect the stimulus and feed information to the control centre; they do not carry out the corrective response. Misconception: confusing the receptor with the effector.",
+      "D": "Wrong: vasoconstriction is a heat-conserving response that would be triggered by a FALL in temperature, not a rise, and it is a process rather than an effector structure. Misconception: selecting a cold-response effector and confusing the direction of the correction.",
+      "E": "Correct: an effector is the structure that carries out the corrective response. When core temperature rises, sweat glands (effectors) secrete sweat, whose evaporation removes heat and returns temperature towards the set point."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0230",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Homeostasis and thermoregulation",
+    "subtopic": "Positive versus negative feedback: oxytocin and cervical stretch in childbirth — reinforcement of the stimulus and external termination of the loop",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "positive feedback",
+      "negative feedback",
+      "oxytocin",
+      "childbirth",
+      "Ferguson reflex",
+      "feedback loops"
+    ],
+    "learning_objective": "Distinguish positive from negative feedback by recognising that positive feedback amplifies the initiating stimulus and requires an external event, not a set point, to terminate the loop.",
+    "question": "In the later stages of labour, stretching of the cervix stimulates secretion of the hormone oxytocin from the posterior pituitary gland. Oxytocin increases the force of uterine contractions, which pushes the baby's head more firmly against the cervix and stretches it further. Which statement best explains why this is an example of positive feedback and correctly identifies how the loop is normally brought to an end?",
+    "choices": {
+      "A": "The response reinforces the original stimulus, and the loop is self-terminating because oxytocin secretion automatically stops once a set point for cervical stretch is reached.",
+      "B": "Oxytocin acts by negative feedback on the cervix but by positive feedback on the uterus, so the two effects cancel and contractions stay constant.",
+      "C": "The response opposes the original stimulus and returns cervical stretch to its set point; the loop stops once the oxytocin has been metabolised.",
+      "D": "The response amplifies the stimulus, and the loop ends when the high oxytocin concentration directly inhibits its own release from the posterior pituitary.",
+      "E": "The response reinforces the original stimulus, so contractions become progressively stronger; the loop is ended by an external event — the birth of the baby, which removes the cervical stretch."
+    },
+    "correct_answer": "E",
+    "explanation": "Positive feedback is defined by the response reinforcing (amplifying) the initiating stimulus, driving the system progressively further from its starting state rather than back to a set point. In the Ferguson reflex, more stretch causes more oxytocin, which causes stronger contractions and yet more stretch. Because there is no set point pulling the system back, the escalation is halted by an external event: delivery of the baby removes the cervical stretch and so removes the stimulus for oxytocin secretion.",
+    "option_analysis": {
+      "A": "Wrong: positive-feedback loops do not regulate around a set point and are not self-terminating in that way; they escalate until an external interruption occurs. Misconception: importing the set-point / self-correction logic of negative feedback into a positive-feedback loop.",
+      "B": "Wrong: oxytocin's actions on the uterus and cervix act in the same, amplifying direction; they do not cancel to hold contractions constant. Misconception: inventing opposing actions to make the outcome look like homeostatic constancy.",
+      "C": "Wrong: opposing the stimulus and returning a variable to a set point describes negative feedback, not positive feedback. Misconception: conflating the correcting action of negative feedback with the amplifying action of positive feedback.",
+      "D": "Wrong: direct self-inhibition of oxytocin release would itself be negative feedback and is not what ends labour; the loop is broken by delivery removing the physical stimulus. Misconception: assuming every loop must be closed by hormonal auto-inhibition rather than by removal of the stimulus.",
+      "E": "Correct: in positive feedback the response reinforces the original stimulus, driving the system further from its starting state; because it does not restore a set point it must be stopped by an outside event — here delivery of the baby, which ends the cervical stretch and hence oxytocin secretion."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0231",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Homeostasis and thermoregulation",
+    "subtopic": "Thermoregulation by evaporative cooling: sweat-evaporation rate from a heat-balance calculation using the latent heat of vaporisation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "thermoregulation",
+      "sweating",
+      "evaporative cooling",
+      "latent heat of vaporisation",
+      "heat balance",
+      "quantitative"
+    ],
+    "learning_objective": "Apply a steady-state heat balance and the latent heat of vaporisation to calculate the rate of sweat evaporation needed to keep body temperature constant.",
+    "question": "During vigorous exercise a person's body generates heat at a rate of 600 W. Assume that ALL of this heat is lost by the evaporation of sweat from the skin. Taking the latent heat of vaporisation of water as 2.4 × 10^6 J kg⁻¹, what mass of sweat must evaporate in one hour to keep the body temperature constant?",
+    "choices": {
+      "A": "0.00025 kg",
+      "B": "0.45 kg",
+      "C": "0.90 kg",
+      "D": "0.015 kg",
+      "E": "6.5 kg"
+    },
+    "correct_answer": "C",
+    "explanation": "To keep temperature constant the heat lost must equal the heat produced. Heat produced in 1 hour = power × time = 600 W × 3600 s = 2.16 × 10^6 J. Each kilogram of sweat that evaporates removes 2.4 × 10^6 J. Mass of sweat = energy ÷ latent heat = 2.16 × 10^6 ÷ 2.4 × 10^6 = 0.90 kg (about 0.9 litre per hour).",
+    "option_analysis": {
+      "A": "Wrong: 0.00025 kg is the mass evaporated per SECOND (600 ÷ 2.4 × 10^6); it omits the conversion to one hour altogether. Misconception: forgetting to multiply the per-second rate by the number of seconds in an hour.",
+      "B": "Wrong: 0.45 kg is half the correct value, obtained by assuming only about 50% of the heat is lost by evaporation. Misconception: applying a remembered 'evaporation removes roughly half the heat' figure instead of following the stated condition that all the heat is lost this way.",
+      "C": "Correct: heat to be removed in 1 h = 600 W × 3600 s = 2.16 × 10^6 J; mass of sweat = energy ÷ latent heat = 2.16 × 10^6 ÷ 2.4 × 10^6 = 0.90 kg.",
+      "D": "Wrong: 0.015 kg comes from treating one hour as only 60 seconds (600 × 60 ÷ 2.4 × 10^6). Misconception: an incomplete time conversion (using minutes, or a single factor of 60 instead of 3600 s in an hour).",
+      "E": "Wrong: 6.5 kg results from dividing by the latent heat of FUSION of water (≈3.34 × 10^5 J kg⁻¹) instead of the latent heat of vaporisation. Misconception: confusing melting with evaporation — sweat cools the body by evaporating, not by melting."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0232",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Homeostasis and thermoregulation",
+    "subtopic": "Negative-feedback reasoning: effect of blocking an effector (sweat glands) on the regulated variable and on the error-driven output of the control centre",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "negative feedback",
+      "error signal",
+      "effector failure",
+      "hypothalamus",
+      "thermoregulation",
+      "control loops"
+    ],
+    "learning_objective": "Reason that a control centre's output is driven by the error signal (deviation from the set point), so disabling an effector both worsens the regulated variable and increases the corrective command.",
+    "question": "A mammal is placed in a hot environment. In individual X the motor nerves supplying the sweat glands have been blocked, so the sweat glands cannot be activated; all thermoreceptors and the hypothalamus function normally. Consider two quantities: (i) the core body temperature that individual X reaches, and (ii) the frequency of nerve impulses that the hypothalamus sends along the sympathetic pathway towards the (now unresponsive) sweat glands. Compared with a normal individual in the same environment, individual X will show:",
+    "choices": {
+      "A": "a higher core temperature but a LOWER hypothalamic output, because the sweat glands are not responding to the impulses",
+      "B": "a higher core temperature but ZERO hypothalamic output along that pathway, because the reflex arc has been broken",
+      "C": "a HIGHER core temperature and a HIGHER hypothalamic output along that pathway, because the larger difference between the actual core temperature and the set point drives a stronger corrective command",
+      "D": "an essentially UNCHANGED core temperature and normal hypothalamic output, because the other heat-loss responses fully compensate for the loss of sweating",
+      "E": "a LOWER core temperature and a higher hypothalamic output"
+    },
+    "correct_answer": "C",
+    "explanation": "The control centre generates its corrective output from the error signal — the difference between the measured core temperature and the set point — not from whether the effector actually succeeds. With sweating (the principal heat-loss effector in the heat) disabled, less heat is lost, so core temperature rises further above the set point. The larger error therefore drives a STRONGER hypothalamic command along the sympathetic pathway, even though that command reaches non-functional glands.",
+    "option_analysis": {
+      "A": "Wrong: the control centre's output is set by the error signal, not by the effector's success; the hypothalamus does not detect that the sweat glands have failed and reduce its command. Misconception: believing the control centre monitors the effector's success rather than the regulated variable.",
+      "B": "Wrong: the block is at/near the effector, distal to the hypothalamus, so the hypothalamus still integrates the signal and fires along the efferent pathway — its output is not zero, and is in fact raised. Misconception: assuming a distal effector block silences the upstream control-centre output and mislocating the break in the loop.",
+      "C": "Correct: with the main heat-loss effector disabled, core temperature rises more than normal; since the hypothalamic output depends on the size of the error (actual temperature − set point), the larger error produces a stronger, not weaker, command along the pathway.",
+      "D": "Wrong: sweating is the principal heat-loss effector in a hot environment, so the remaining responses cannot fully compensate and core temperature rises. Misconception: overestimating the redundancy of the other effectors.",
+      "E": "Wrong: blocking a heat-LOSS effector in a hot environment cannot make core temperature fall. Misconception: failing to reason about the direction in which disabling a cooling response moves the regulated variable."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0233",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Homeostasis and thermoregulation",
+    "subtopic": "Peripheral versus central thermoreceptors: anticipatory correction to a skin-cooling disturbance before the core temperature deviates",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "thermoregulation",
+      "peripheral thermoreceptors",
+      "central thermoreceptors",
+      "anticipatory control",
+      "negative feedback",
+      "hypothalamus"
+    ],
+    "learning_objective": "Explain why acting on a leading indicator (skin temperature) before the regulated core variable deviates minimises the eventual deviation, distinguishing anticipatory correction from simple error feedback and from positive feedback.",
+    "question": "The hypothalamus receives temperature information from two sources: peripheral thermoreceptors in the skin and central thermoreceptors that monitor the temperature of the blood. A mammal sitting at thermal equilibrium in a warm room is suddenly exposed to a blast of very cold air on its skin. Its core (blood) temperature has not yet changed, yet almost immediately vasoconstriction of the skin arterioles and shivering begin. Which statement best explains the adaptive value of the animal responding to the skin signal before its core temperature has changed?",
+    "choices": {
+      "A": "It shows that the response is positive feedback, because the cold stimulus is amplifying itself.",
+      "B": "It shows that core temperature is actually irrelevant to thermoregulation, since the skin receptors alone control the responses.",
+      "C": "It shows that the skin thermoreceptors regulate around a higher set point than the central receptors, which is why they fire first.",
+      "D": "Because a cooled skin will soon draw heat away from the core, starting corrective responses in advance lets the animal oppose the disturbance before the regulated (core) temperature has deviated significantly, reducing the size of the eventual deviation.",
+      "E": "By responding to the skin signal, the animal prevents any heat loss at all, so its core temperature can never fall."
+    },
+    "correct_answer": "D",
+    "explanation": "Skin temperature is a leading indicator of a cold disturbance that will subsequently cool the core. By triggering heat-conserving and heat-generating responses (vasoconstriction, shivering) as soon as the skin cools — before the core temperature itself has fallen — the animal opposes the disturbance early, so the eventual deviation of the regulated core variable is smaller. This is anticipatory (feed-forward-like) correction within an overall negative-feedback system, and it works better than waiting for the core temperature to fall before responding.",
+    "option_analysis": {
+      "A": "Wrong: the loop remains negative feedback — the responses conserve and generate heat, opposing the cooling; responding early does not make it positive feedback, which would require the response to amplify the cooling. Misconception: mislabelling an anticipatory negative-feedback response as positive feedback.",
+      "B": "Wrong: core temperature is the ultimately regulated variable; the skin signal is used as an early warning, not as a replacement for core monitoring. Misconception: over-interpreting the early skin response as evidence that core temperature does not matter.",
+      "C": "Wrong: the early response is not explained by the skin receptors having a different set point; both receptor populations feed the same hypothalamic integrator. Misconception: inventing two separate set points to account for the early response.",
+      "D": "Correct: the skin is a leading indicator of a disturbance that will later cool the core, so beginning vasoconstriction and shivering as soon as the skin cools opposes the disturbance before the regulated core variable has deviated much, making the eventual fall in core temperature smaller — an anticipatory correction that outperforms waiting for the core itself to change.",
+      "E": "Wrong: the response reduces but cannot completely abolish heat loss, so it does not guarantee the core never cools. Misconception: treating an anticipatory correction as a perfect, absolute safeguard."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0234",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetic engineering and biotechnology",
+    "subtopic": "Recombinant protein production: why a cDNA copy (reverse transcriptase) is needed to express a human gene in bacteria (introns cannot be removed by prokaryotes)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "recombinant DNA",
+      "insulin",
+      "reverse transcriptase",
+      "cDNA",
+      "introns",
+      "splicing",
+      "prokaryotes",
+      "gene cloning"
+    ],
+    "learning_objective": "Explain why a functional human protein such as insulin is produced in bacteria from an intron-free cDNA made by reverse-transcribing mature mRNA, rather than from the genomic gene.",
+    "question": "A biotechnology team wants Escherichia coli to synthesise human insulin. Rather than cutting the insulin gene directly out of the genomic DNA of human cells, they isolate the mature messenger RNA (mRNA) for insulin from pancreatic beta-cells, use the enzyme reverse transcriptase to make a DNA copy of it, and insert that DNA copy into a plasmid. What is the principal reason for obtaining the gene from mature mRNA in this way rather than from the genomic gene?",
+    "choices": {
+      "A": "mRNA is chemically more stable than DNA, so the sequence survives the cloning procedure better.",
+      "B": "Reverse transcriptase copies the gene many thousands of times, providing the large quantity of DNA needed for cloning.",
+      "C": "The DNA copy made from mature mRNA lacks introns, which E. coli could not remove because it has no RNA-splicing machinery.",
+      "D": "The DNA copy already carries a bacterial promoter, so it can be transcribed directly by E. coli RNA polymerase.",
+      "E": "Starting from mRNA guarantees that the bacterial ribosomes carry out all the post-translational modifications the protein needs."
+    },
+    "correct_answer": "C",
+    "explanation": "The human insulin gene in genomic DNA contains introns. In human cells these are removed from the primary transcript by the spliceosome to give mature mRNA. E. coli is a prokaryote and has no spliceosome, so if the intron-containing genomic gene were expressed the introns would remain in the transcript and no functional insulin would be made. Mature mRNA has already been spliced, so reverse-transcribing it produces a continuous, intron-free coding sequence (cDNA) that a bacterium can transcribe and translate correctly. This is a 'why each step is needed' point: reverse transcription is chosen specifically to obtain the coding sequence in a form E. coli can use.",
+    "option_analysis": {
+      "A": "Wrong: RNA is in fact less chemically stable than DNA (it is readily hydrolysed and degraded by ribonucleases). This distractor rests on the misconception that RNA is the more robust nucleic acid, and it does not address the real problem of introns.",
+      "B": "Wrong: reverse transcriptase synthesises a single DNA strand per mRNA template; it does not amplify the sequence. This confuses reverse transcription with the exponential copying done by PCR. Amplification is a separate step and is not why mRNA is used as the starting material.",
+      "C": "Correct: mature mRNA has had its introns removed by splicing, so the cDNA made from it is a continuous coding sequence. Because prokaryotic E. coli cannot splice out introns, an intron-free cDNA is essential for the bacterium to produce functional insulin.",
+      "D": "Wrong: a cDNA molecule carries only the coding sequence copied from the mRNA; it does not automatically include a bacterial promoter. A suitable prokaryotic promoter (and ribosome-binding site) must be supplied by the expression vector. This distractor confuses the reason for using cDNA with a separate requirement for expression signals.",
+      "E": "Wrong: the source of the DNA (mRNA versus genomic) has no bearing on post-translational modification, and bacteria in fact perform few of the modifications a eukaryotic protein may need. This misconception wrongly links the choice of starting material to protein processing."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0235",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetic engineering and biotechnology",
+    "subtopic": "DNA profiling: random-match probability across independent STR loci using Hardy-Weinberg genotype frequencies and the product rule",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 135,
+    "tags": [
+      "DNA profiling",
+      "DNA fingerprinting",
+      "forensics",
+      "STR",
+      "Hardy-Weinberg",
+      "product rule",
+      "probability",
+      "heterozygote frequency"
+    ],
+    "learning_objective": "Calculate the probability that an unrelated individual matches a multi-locus DNA profile by chance, combining Hardy-Weinberg genotype frequencies with the product rule for independent loci.",
+    "question": "A DNA profile recovered from a crime scene matches a suspect at three short-tandem-repeat (STR) loci that lie on three different chromosomes (so they assort independently). The suspect is heterozygous at every locus, carrying the two alleles listed below. The population allele frequencies are:\n\n- Locus 1: allele a = 0.20, allele b = 0.10\n- Locus 2: allele c = 0.25, allele d = 0.20\n- Locus 3: allele e = 0.10, allele f = 0.05\n\nAssuming the population is in Hardy-Weinberg equilibrium at each locus, what is the approximate probability that a random, unrelated individual would by chance share this same three-locus profile?",
+    "choices": {
+      "A": "About 1 in 250",
+      "B": "About 1 in 200,000",
+      "C": "About 1 in 1,000",
+      "D": "About 1 in 25,000",
+      "E": "About 1 in 7"
+    },
+    "correct_answer": "D",
+    "explanation": "For a heterozygous genotype the Hardy-Weinberg frequency is 2pq. Locus 1: 2(0.20)(0.10) = 0.040; Locus 2: 2(0.25)(0.20) = 0.100; Locus 3: 2(0.10)(0.05) = 0.010. Because the three loci are on different chromosomes and assort independently, the probability of matching at all three is the product of the single-locus frequencies: 0.040 x 0.100 x 0.010 = 4 x 10^-5, i.e. about 1 in 25,000. Using several independent loci in this way is exactly what makes a DNA profile discriminating: each locus alone is common, but their product becomes vanishingly small.",
+    "option_analysis": {
+      "A": "Wrong: 0.040 x 0.100 = 0.004 (about 1 in 250) uses only two of the three loci, forgetting to multiply by the third locus frequency (0.010). The misconception is omitting one locus from the product.",
+      "B": "Wrong: using p x q at each locus without the factor of 2 gives (0.20x0.10)(0.25x0.20)(0.10x0.05) = 5 x 10^-6 (about 1 in 200,000). The misconception is forgetting that a heterozygote can arise two ways, so its genotype frequency is 2pq, not pq.",
+      "C": "Wrong: multiplying just one allele frequency per locus (e.g. 0.10 x 0.20 x 0.05 = 1 x 10^-3, about 1 in 1,000) treats each locus as if a single allele defined the match. This ignores that a diploid genotype has two alleles and must be scored with a genotype frequency.",
+      "D": "Correct: each heterozygous genotype has frequency 2pq (0.040, 0.100 and 0.010), and because the loci are independent the probabilities multiply to 4 x 10^-5, about 1 in 25,000.",
+      "E": "Wrong: this comes from adding the three single-locus frequencies (0.040 + 0.100 + 0.010 = 0.15, about 1 in 7) instead of multiplying them. The misconception is treating independent events with 'or' (addition) rather than the correct joint 'and' (multiplication, the product rule)."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0236",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetic engineering and biotechnology",
+    "subtopic": "Gene cloning: selecting transformants and identifying recombinants by insertional inactivation of a second marker (two-antibiotic replica plating)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "transformation",
+      "plasmid vector",
+      "selectable marker",
+      "insertional inactivation",
+      "antibiotic resistance",
+      "replica plating",
+      "recombinant selection",
+      "gene cloning"
+    ],
+    "learning_objective": "Deduce which colonies carry a recombinant plasmid when a gene is inserted into one of two antibiotic-resistance markers, and explain why two markers and two selection steps are needed.",
+    "question": "A plasmid vector carries two genes, one conferring resistance to ampicillin (ampR) and one conferring resistance to tetracycline (tetR). A human gene is inserted into a unique restriction site located inside the tetR gene, disrupting it. The ligation mixture, which contains recombinant plasmids, empty plasmids that have simply re-circularised, and unligated DNA, is used to transform E. coli. The bacteria are first spread on agar containing ampicillin, and the surviving colonies are then replica-plated onto agar containing tetracycline. Which colonies contain the recombinant plasmid carrying the human gene?",
+    "choices": {
+      "A": "All colonies that grow on the ampicillin plate, because ampicillin resistance proves the human gene was taken up.",
+      "B": "Colonies that fail to grow on either the ampicillin or the tetracycline plate.",
+      "C": "Colonies that grow on the tetracycline plate but fail to grow on the ampicillin plate.",
+      "D": "Colonies that grow on the ampicillin plate but fail to grow on the tetracycline plate.",
+      "E": "Colonies that grow on both the ampicillin plate and the tetracycline plate."
+    },
+    "correct_answer": "D",
+    "explanation": "Ampicillin selection identifies cells that took up any plasmid (transformation is inefficient, so this removes the vast majority of untransformed cells). But an ampR colony could hold either a recombinant plasmid or a re-circularised empty vector. The insert lies within tetR, so in a recombinant plasmid tetR is disrupted: the cell is still ampicillin-resistant but now tetracycline-sensitive. Empty (re-circularised) vector keeps tetR intact and stays tetracycline-resistant. Therefore recombinant colonies are ampR but tetS: they grow on ampicillin yet fail to grow when replica-plated onto tetracycline. This is why a second marker and a second plate are needed, insertional inactivation lets you tell recombinants from empty vector.",
+    "option_analysis": {
+      "A": "Wrong: ampicillin resistance shows only that a plasmid was taken up, not that it contains the insert; re-circularised empty vector is also ampR. This is the key misconception the two-marker system is designed to defeat, which is exactly why the tetracycline screen is required.",
+      "B": "Wrong: cells that grow on neither plate carry no functional plasmid (untransformed cells), and these were already eliminated on the ampicillin plate. The misconception is expecting recombinants to have lost all resistance.",
+      "C": "Wrong: this is the pattern reversed. It would require ampR to be disrupted and tetR intact, but the insert is in tetR, and every plasmid-bearing cell must be ampR to have survived the first plate. The misconception is swapping which marker was interrupted.",
+      "D": "Correct: the insert disrupts tetR, so a recombinant cell remains ampicillin-resistant (ampR intact) but becomes tetracycline-sensitive. Growth on ampicillin with loss of growth on tetracycline is the signature of insertional inactivation.",
+      "E": "Wrong: colonies resistant to both antibiotics have an intact tetR gene, so their plasmid has no insert, it is the re-circularised empty vector. This distractor assumes a recombinant keeps both resistances, missing that the insert destroys tetR."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0237",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetic engineering and biotechnology",
+    "subtopic": "Gene therapy: ex vivo somatic gene addition for a recessive enzyme deficiency, sufficiency of one functional copy and non-heritability",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "gene therapy",
+      "somatic cells",
+      "germline",
+      "recessive",
+      "loss of function",
+      "retroviral vector",
+      "gene addition",
+      "insertional mutagenesis",
+      "SCID"
+    ],
+    "learning_objective": "Reason about why adding a single functional gene copy can treat a recessive loss-of-function disorder, why somatic gene therapy is not heritable, and why random vector integration carries risk.",
+    "question": "A child has a severe combined immunodeficiency caused by inheriting two loss-of-function mutations (one on each homologous chromosome) in a gene encoding an enzyme needed by lymphocytes. In an ex vivo somatic gene-therapy trial, the child's bone-marrow stem cells are removed, a functional copy of the gene is delivered into them using a retroviral vector that integrates into the cell's DNA, and the treated cells are returned to the child. Which statement correctly describes the biology of this treatment?",
+    "choices": {
+      "A": "The therapy can work only if the retrovirus physically removes the two faulty gene copies from their normal chromosomal position and replaces them.",
+      "B": "Because the mutation is recessive, the single added functional copy would be masked by the two mutant alleles, so the therapy cannot raise the enzyme activity.",
+      "C": "Because the vector integrates into the DNA, the therapy also corrects the gene in the child's germ cells, so the child's future offspring will not inherit the disorder.",
+      "D": "Random integration of the vector carries no risk, because retroviral DNA always inserts into non-coding regions that cannot affect any other gene.",
+      "E": "Because the disorder is recessive, adding one working copy of the gene to the child's somatic cells can restore enzyme production, but the correction will not be passed on to the child's own children."
+    },
+    "correct_answer": "E",
+    "explanation": "The disorder is a recessive loss of function: the two inherited alleles make no working enzyme. Adding one functional copy of the gene provides the missing enzyme, and because the phenotype needs only some functional protein, a single working copy is enough to restore activity, there is no need to remove or repair the two mutant alleles (this is gene addition, not gene replacement). The cells treated are somatic (bone-marrow stem cells), not germ cells, so the correction cannot be transmitted to the patient's offspring. A real limitation of this approach is that the vector integrates more or less randomly, so it can disrupt or activate other genes (insertional mutagenesis), a recognised risk in early trials.",
+    "option_analysis": {
+      "A": "Wrong: this is gene addition, not gene replacement. The vector simply adds a functional copy that is expressed; it does not seek out and excise the endogenous mutant alleles at their normal locus. The misconception assumes therapy must repair the original chromosomal copies.",
+      "B": "Wrong: this reverses the logic of dominance for a loss-of-function allele. Loss-of-function mutant alleles are recessive precisely because a single functional allele produces enough working enzyme; the added copy is not 'masked'. The misconception treats the mutant alleles as if they actively suppressed the good one.",
+      "C": "Wrong: the treated cells are somatic bone-marrow cells, so integration alters only body cells, not the germ line. Somatic gene therapy is not heritable. The misconception conflates somatic correction with germline correction.",
+      "D": "Wrong: retroviral integration is essentially random and can land within or near other genes, causing insertional mutagenesis (for example activating a proto-oncogene). Claiming integration is always harmless and confined to non-coding DNA is a serious misconception.",
+      "E": "Correct: for a recessive loss-of-function disorder one added functional copy supplies the missing enzyme, so gene addition suffices; and because only somatic cells are modified, the correction is not inherited by the patient's children."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0238",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetic engineering and biotechnology",
+    "subtopic": "GMOs: evolution of herbicide resistance in weeds under selection and by transgene flow (biological and ethical reasoning behind GMOs)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "GMO",
+      "herbicide resistance",
+      "natural selection",
+      "transgene flow",
+      "gene flow",
+      "weeds",
+      "ethics of GMOs",
+      "directional selection"
+    ],
+    "learning_objective": "Apply the principles of natural selection and gene flow to explain why continuous use of a broad-spectrum herbicide with herbicide-resistant GM crops can lead to resistant weeds, and identify Lamarckian and other misconceptions.",
+    "question": "A crop plant has been genetically modified to carry a transgene that makes it resistant to a broad-spectrum herbicide, so farmers can spray the herbicide to kill weeds without harming the crop. Environmental scientists warn that continuous large-scale use of this system could, over years, reduce the long-term effectiveness of the herbicide. Which explanation best accounts for this biological concern?",
+    "choices": {
+      "A": "Exposure to the herbicide directly causes weed cells to mutate in the specific way needed to survive it, deliberately generating the resistance alleles.",
+      "B": "Because the transgene is artificial it cannot move into wild relatives, so any loss of effectiveness must instead be due to the herbicide breaking down faster in the soil.",
+      "C": "Repeated spraying acts as a strong selection pressure that favours the few weeds already carrying resistance alleles, whether these arose by chance mutation or by transgene flow from the crop, so resistant weeds increase in frequency over the generations.",
+      "D": "The transgene causes the crop to produce far more seeds, so the crop simply outcompetes the weeds and the herbicide becomes unnecessary.",
+      "E": "Individual susceptible weeds gradually become resistant during their own lifetime through repeated contact with sub-lethal doses of the herbicide, and pass on this acquired toughness."
+    },
+    "correct_answer": "C",
+    "explanation": "This is natural selection applied to a genetic-engineering context. Within any large weed population there is variation: a few individuals may already carry resistance alleles (from spontaneous mutation, or acquired by pollen-mediated transgene flow from the resistant crop into closely related weeds). Spraying kills susceptible weeds but the resistant ones survive and reproduce, so the resistance allele frequency rises generation after generation (directional selection). Eventually resistant weeds dominate and the herbicide loses effectiveness. The scenario also illustrates a genuine ethical/biological worry about GMOs, namely gene flow to wild relatives.",
+    "option_analysis": {
+      "A": "Wrong: this is the Lamarckian/directed-mutation misconception. The herbicide does not instruct weeds to mutate adaptively; mutations arise independently of need, and the herbicide only selects among existing variation.",
+      "B": "Wrong: transgenes can and do move into wild or weedy relatives by cross-pollination (transgene flow), and being 'artificial' does not prevent this. Attributing the whole effect to chemical breakdown while denying gene flow is a double misconception.",
+      "C": "Correct: the herbicide selects for pre-existing resistant variants (from mutation or transgene flow) rather than creating resistance; survivors reproduce and the resistance allele spreads, which is textbook directional natural selection and the basis of the concern.",
+      "D": "Wrong: the transgene confers herbicide tolerance, not extra seed production, and increased crop yield would not explain a decline in herbicide effectiveness. This distractor misreads the transgene's function and ignores the resistance problem entirely.",
+      "E": "Wrong: this describes inheritance of an acquired characteristic. Individual weeds do not evolve resistance within their lifetime and pass on toughness gained by exposure; it is populations that change in allele frequency across generations, not individuals."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0239",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biodiversity, classification and taxonomy",
+    "subtopic": "The taxonomic hierarchy: inferring relative relatedness from the lowest shared rank in a classification table",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "taxonomy",
+      "taxonomic hierarchy",
+      "classification",
+      "nested ranks",
+      "relatedness"
+    ],
+    "learning_objective": "Interpret a classification table as a strictly nested hierarchy and infer relative relatedness of taxa from the lowest rank they share.",
+    "question": "A taxonomist records the ranks to which four animal species (K, L, M and N) belong. The table shows, for each species, its class, order, family and genus.\n\nSpecies | Class | Order | Family | Genus\nK | Malia | Terra | Vulpa | Nyx\nL | Malia | Terra | Vulpa | Oro\nM | Malia | Terra | Wroe | Pex\nN | Malia | Sella | Yolt | Quin\n\nBecause the classification is a strictly nested hierarchy, which one of the following conclusions is necessarily correct?",
+    "choices": {
+      "A": "Species K and L are more closely related to each other than either is to M.",
+      "B": "Species M and N belong to the same order.",
+      "C": "Species N is more closely related to M than it is to K.",
+      "D": "Species K and M belong to the same family.",
+      "E": "The four species belong to four different classes."
+    },
+    "correct_answer": "A",
+    "explanation": "In a nested (hierarchical) classification, two taxa share every rank above the lowest rank they have in common, and the lower the shared rank, the more recent their most recent common ancestor. K and L share ranks down to family (both Vulpa), whereas K and M share only the order (Terra), their families differing (Vulpa vs Wroe). Therefore K and L diverged more recently than K and M, making K and L the more closely related pair. Relatedness must be judged from the lowest shared rank, not from adjacency in a table or from a single higher rank.",
+    "option_analysis": {
+      "A": "Correct: K and L share ranks down to family (both Vulpa), while K and M share only their order (Terra); a more recent common ancestor for K and L means they are more closely related than K and M.",
+      "B": "Wrong: M is in order Terra and N in order Sella, so they are in different orders. This assumes that species in the same class must also share the same order.",
+      "C": "Wrong: N shares only its class (Malia) with both M and K, since its order (Sella) differs from Terra; it is therefore equally distantly related to both. This judges relatedness from row proximity in the table rather than from the shared rank.",
+      "D": "Wrong: K and M share the order Terra but sit in different families (Vulpa vs Wroe). This assumes that sharing a higher rank (order) forces sharing of a lower rank (family) — reversing the direction of the nesting.",
+      "E": "Wrong: all four species are in class Malia. This assumes that different species must differ at every rank, including the highest ones shown."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0240",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biodiversity, classification and taxonomy",
+    "subtopic": "The three-domain system: assigning Bacteria, Archaea and Eukarya from cell features and the closer Archaea–Eukarya relationship",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "three-domain system",
+      "Archaea",
+      "Bacteria",
+      "Eukarya",
+      "peptidoglycan",
+      "histones",
+      "membrane lipids"
+    ],
+    "learning_objective": "Assign organisms to Bacteria, Archaea or Eukarya from cell-wall, membrane-lipid and DNA-packaging features, and recognise that Archaea are phylogenetically closer to Eukarya despite being prokaryotic.",
+    "question": "Three single-celled organisms (X, Y and Z) were examined; their features are summarised below.\n\nX: no nuclear envelope; cell wall containing peptidoglycan; membrane lipids unbranched and ester-linked; DNA not associated with histones.\nY: no nuclear envelope; cell wall lacking peptidoglycan; membrane lipids branched and ether-linked; DNA wound around histone-like proteins.\nZ: nuclear envelope present; membrane lipids unbranched and ester-linked; DNA wound around histones.\n\nWhich one of the following statements is correct?",
+    "choices": {
+      "A": "The three organisms are three kingdoms within a single domain.",
+      "B": "X and Y belong to the same domain because neither has a nuclear envelope.",
+      "C": "Organism Z must be a prokaryote because its membrane lipids are ester-linked, like those of X.",
+      "D": "Because Y lacks a nuclear envelope, it is more closely related to X than to Z.",
+      "E": "Organism Y is an archaeon, and it shares its DNA-packaging mechanism with organism Z."
+    },
+    "correct_answer": "E",
+    "explanation": "X has peptidoglycan and unbranched ester-linked lipids with no histones, identifying it as a bacterium; Y lacks peptidoglycan and has branched ether-linked lipids with histone-like DNA packaging, identifying it as an archaeon; Z has a nuclear envelope, identifying it as a eukaryote. Although archaea are prokaryotic in gross structure, molecular and biochemical features (histone-based DNA packaging, transcription machinery, absence of peptidoglycan) place Archaea closer to Eukarya than to Bacteria. The shared DNA-packaging around histone(-like) proteins by Y and Z reflects that relationship.",
+    "option_analysis": {
+      "A": "Wrong: X, Y and Z represent the three separate domains Bacteria, Archaea and Eukarya, not three kingdoms of one domain. This confuses the rank 'domain' with 'kingdom'.",
+      "B": "Wrong: Bacteria and Archaea are two separate domains, so lacking a nucleus does not place X and Y in one domain. This reflects the outdated 'prokaryotes form a single group (Monera)' view.",
+      "C": "Wrong: the presence of a nuclear envelope makes Z a eukaryote regardless of lipid chemistry; lipid linkage does not define cell type. This lets one shared trait override the defining feature.",
+      "D": "Wrong: absence of a nuclear envelope is a shared ancestral (prokaryotic) trait and is not evidence of close relationship; biochemical features place archaea (Y) closer to eukaryotes (Z). This groups organisms by a shared absence / by gross morphology.",
+      "E": "Correct: no peptidoglycan plus branched ether-linked lipids identify Y as Archaea, and, like eukaryotes (Z), archaea wrap their DNA around histone(-like) proteins."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0241",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biodiversity, classification and taxonomy",
+    "subtopic": "The biological species concept and its limitations: asexual, fossil, allopatric and behaviourally isolated cases",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "biological species concept",
+      "reproductive isolation",
+      "apomixis",
+      "allopatry",
+      "species concept limitations"
+    ],
+    "learning_objective": "Apply the biological species concept and recognise the situations (asexual, fossil-only, allopatric, behaviourally isolated) that reveal its limitations.",
+    "question": "Biologists study four situations:\n\nGroup 1 — a genus of dandelions in which every plant produces seeds asexually (apomixis), without fertilisation.\nGroup 2 — two fruit-fly populations, one in Asia and one in South America, that never meet in the wild but, when crossed in the laboratory, produce fully fertile offspring.\nGroup 3 — a lineage of trilobites known only from fossils.\nGroup 4 — two bird populations that live in the same wood and breed in the same season, but never interbreed because each female responds only to the courtship song of her own population.\n\nApplying the biological species concept, which one of the following statements is correct?",
+    "choices": {
+      "A": "Geographic separation by itself makes the two Group 2 fruit-fly populations two distinct biological species.",
+      "B": "The two bird populations of Group 4 are one biological species because they occupy the same wood at the same time.",
+      "C": "The Group 3 trilobites are assigned to a species by testing directly whether they are reproductively isolated.",
+      "D": "The dandelions of Group 1 can be divided into biological species according to which individuals interbreed.",
+      "E": "The two Group 2 fruit-fly populations belong to the same biological species because they can potentially interbreed to give fertile offspring."
+    },
+    "correct_answer": "E",
+    "explanation": "The biological species concept defines a species as groups of actually or potentially interbreeding natural populations that are reproductively isolated from other such groups. Group 2 shows no reproductive isolation — a laboratory cross gives fully fertile offspring — and geographic distance is not itself a biological reproductive barrier, so the populations are 'potentially interbreeding' and belong to one species. The other groups illustrate the concept's limitations: it cannot be applied to asexual organisms (Group 1) or to fossil-only lineages (Group 3), and behavioural (prezygotic) isolation keeps the sympatric birds of Group 4 as separate species despite living together.",
+    "option_analysis": {
+      "A": "Wrong: geographic separation is not a biological reproductive barrier; the concept counts potential interbreeding, which the fertile lab cross demonstrates. This equates allopatry with reproductive isolation.",
+      "B": "Wrong: a behavioural prezygotic barrier keeps the two bird populations reproductively isolated, so they are separate species despite sharing space and season. This treats mere co-occurrence as proof of one species.",
+      "C": "Wrong: reproductive isolation cannot be tested in extinct, fossil-only organisms, which are classified on morphology instead. This overlooks that the concept requires living, breeding populations.",
+      "D": "Wrong: apomictic dandelions reproduce asexually and do not interbreed, so the biological species concept cannot be applied to them at all. This assumes the concept applies to every organism.",
+      "E": "Correct: the concept includes potentially interbreeding populations, and the fully fertile hybrids show no reproductive isolation, so mere geographic distance does not split them into two species."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0242",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biodiversity, classification and taxonomy",
+    "subtopic": "Reading a phylogenetic tree: identifying a monophyletic group (clade) versus a non-monophyletic grouping",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "phylogenetic tree",
+      "clade",
+      "monophyletic",
+      "common ancestor",
+      "cladistics"
+    ],
+    "learning_objective": "Read a rooted phylogenetic tree and distinguish a monophyletic group (an ancestor plus all of its descendants) from a non-monophyletic set of taxa.",
+    "question": "A rooted phylogenetic tree of five species (P, Q, R, S and T) has the following structure:\n\n- P and Q are sister taxa (they share the most recent common ancestor).\n- R is the sister group of the (P + Q) pair.\n- S is the sister group of the group containing R, P and Q.\n- T is the sister group of all four of the other species.\n\nA clade (monophyletic group) consists of an ancestor together with all of its descendants. Which one of the following groups of species is a clade?",
+    "choices": {
+      "A": "{Q, R}",
+      "B": "{P, Q, R, S}",
+      "C": "{R, S, T}",
+      "D": "{S, T}",
+      "E": "{P, Q, T}"
+    },
+    "correct_answer": "B",
+    "explanation": "A clade must contain a common ancestor and every one of its descendants. The ancestor shared by S, R, P and Q is the node from which S and the (R, P, Q) group both descend; its descendants are exactly S, R, P and Q, because T branches off earlier (T is sister to all the others). Hence {P, Q, R, S} is monophyletic. Each other set either includes T — whose only common ancestor with the rest is the root, forcing the group to include everything — or omits a descendant (e.g. P) of the relevant node, making the group non-monophyletic (paraphyletic).",
+    "option_analysis": {
+      "A": "Wrong: the most recent common ancestor of Q and R is the node ancestral to R, P and Q, so a clade at that node must also include P; {Q, R} leaves P out. This picks two tips merely because they appear next to each other.",
+      "B": "Correct: the common ancestor of S and the (R, P, Q) group has exactly S, R, P and Q as its descendants (T diverges earlier), so {P, Q, R, S} is a monophyletic group.",
+      "C": "Wrong: the only ancestor common to R, S and T is the root, which is also ancestral to P and Q; excluding P and Q makes the group paraphyletic. This treats a block of adjacent basal tips as a clade.",
+      "D": "Wrong: the most recent common ancestor of S and T is the root, whose descendants are all five species; {S, T} omits R, P and Q, so it is not monophyletic. This groups basal-branching (\"early\") taxa as if they formed a natural group.",
+      "E": "Wrong: the only ancestor shared by T and P/Q is the root, whose descendants also include R and S; {P, Q, T} skips R and S. This assumes any chosen set of tips forms a clade."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0243",
+    "origin": "mioitalia_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Biodiversity, classification and taxonomy",
+    "subtopic": "Using a dichotomous key: keying an arthropod specimen to class from its features",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "dichotomous key",
+      "arthropods",
+      "classification",
+      "Crustacea",
+      "identification key"
+    ],
+    "learning_objective": "Follow a multi-step dichotomous key, testing every condition of each couplet, to assign an arthropod specimen to its class.",
+    "question": "Use the dichotomous key below to identify a specimen.\n\n1a. Jointed legs and a segmented exoskeleton present -> go to 2\n1b. Jointed legs absent -> (not an arthropod)\n2a. Three pairs of walking legs -> go to 3\n2b. Four or more pairs of walking legs -> go to 4\n3a. Body in three regions (head, thorax, abdomen); one pair of antennae -> Insecta\n3b. Body in two regions; antennae absent -> (not used here)\n4a. Body in two regions (cephalothorax and abdomen) -> go to 5\n4b. Body of many similar segments, most bearing legs -> go to 6\n5a. Exactly four pairs of walking legs; antennae absent -> Arachnida\n5b. Five or more pairs of walking legs; two pairs of antennae -> Crustacea\n6a. One pair of legs per body segment -> Chilopoda\n6b. Two pairs of legs per body segment -> Diplopoda\n\nSpecimen: jointed legs present; body clearly divided into a cephalothorax and an abdomen; five pairs of walking legs; two pairs of antennae; gills present; wings absent.\n\nTo which group does the specimen key out?",
+    "choices": {
+      "A": "Diplopoda",
+      "B": "Chilopoda",
+      "C": "Insecta",
+      "D": "Arachnida",
+      "E": "Crustacea"
+    },
+    "correct_answer": "E",
+    "explanation": "Each couplet must be read in full. Jointed legs present gives 1a -> 2. Five pairs of walking legs is 'four or more', so 2b -> 4. The body has two regions (cephalothorax + abdomen), so 4a -> 5. At couplet 5, option 5a needs exactly four pairs of legs AND no antennae, which the specimen fails, while 5b needs five or more pairs of legs AND two pairs of antennae, both of which the specimen has. The specimen therefore keys out to Crustacea; the gills are consistent but are not part of the key.",
+    "option_analysis": {
+      "A": "Wrong: like Chilopoda, Diplopoda lies on the many-segment branch (4b), which the two-region body excludes. This maps a high leg count straight to millipedes rather than following the key.",
+      "B": "Wrong: the centipede branch is entered only via 4b (many similar leg-bearing segments); the specimen's two-region body sends it to 4a instead. This equates a high leg count with a myriapod without applying the body-region couplet.",
+      "C": "Wrong: the Insecta route (3a) needs three pairs of legs and three body regions, but the specimen has five pairs of legs and two regions, so couplet 2 sends it to 2b, never to 3. This ignores leg number and body regions in favour of the antennae/wing features.",
+      "D": "Wrong: Arachnida is reached only through 5a, which requires exactly four pairs of legs and no antennae; this specimen has five pairs of legs and two pairs of antennae. This picks Arachnida for any two-region arthropod without checking both conditions of the couplet.",
+      "E": "Correct: 1a -> 2b (five pairs of legs is 'four or more') -> 4a (two body regions) -> 5b (five or more pairs of legs and two pairs of antennae) gives Crustacea."
+    },
+    "author": "mioitalia_editorial",
+    "created": "2026-07-08",
+    "batch": "batch12",
+    "review_status": "accepted"
+  }
+]
