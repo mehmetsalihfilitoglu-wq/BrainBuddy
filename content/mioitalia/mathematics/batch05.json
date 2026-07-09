@@ -157,32 +157,32 @@
     "exam_style": "IMAT",
     "subject": "mathematics",
     "topic": "Polynomials",
-    "subtopic": "Vieta's formulas: symmetric function of the roots of a cubic",
+    "subtopic": "Remainder and factor theorem: finding coefficients, then evaluating a further remainder",
     "difficulty": "very_hard",
-    "estimated_time_seconds": 130,
+    "estimated_time_seconds": 140,
     "tags": [
       "polynomials",
-      "Vieta",
-      "roots",
-      "symmetric functions"
+      "remainder theorem",
+      "factor theorem",
+      "simultaneous equations"
     ],
-    "learning_objective": "Use Vieta's relations to evaluate a symmetric function (sum of reciprocals) of the roots of a cubic without finding the roots.",
-    "question": "The cubic equation x³ − 7x² + 14x − 8 = 0 has three real roots a, b and c. What is the value of 1/a + 1/b + 1/c?",
+    "learning_objective": "Apply the remainder and factor theorems to set up and solve simultaneous equations for unknown coefficients, then evaluate a further remainder.",
+    "question": "The polynomial P(x) = x³ + ax² + bx + 6 leaves a remainder of 12 when it is divided by (x − 1), and (x + 2) is a factor of P(x). What is the remainder when P(x) is divided by (x − 2)?",
     "choices": {
-      "A": "14/8",
-      "B": "7/14",
-      "C": "7/8",
-      "D": "1/8",
-      "E": "8/7"
+      "A": "0",
+      "B": "12",
+      "C": "28",
+      "D": "20",
+      "E": "40"
     },
-    "correct_answer": "A",
-    "explanation": "By Vieta's formulas for x³ − 7x² + 14x − 8 = 0: a+b+c = 7, ab+bc+ca = 14, and abc = 8. The sum of the reciprocals is 1/a + 1/b + 1/c = (bc + ca + ab)/(abc) = 14/8 = 7/4. (Indeed the roots are 1, 2 and 4, whose reciprocals sum to 1 + 0.5 + 0.25 = 1.75 = 14/8.)",
+    "correct_answer": "C",
+    "explanation": "By the remainder theorem, dividing by (x − 1) gives remainder P(1): 1 + a + b + 6 = 12, so a + b = 5. By the factor theorem, (x + 2) being a factor means P(−2) = 0: −8 + 4a − 2b + 6 = 0, so 4a − 2b = 2, i.e. 2a − b = 1. Solving a + b = 5 and 2a − b = 1 gives 3a = 6, so a = 2 and b = 3. Thus P(x) = x³ + 2x² + 3x + 6, and the remainder on division by (x − 2) is P(2) = 8 + 8 + 6 + 6 = 28.",
     "option_analysis": {
-      "A": "Correct: (ab+bc+ca)/(abc) = 14/8 = 7/4.",
-      "B": "Wrong: 7/14 uses (a+b+c)/(ab+bc+ca), which is not the sum of reciprocals.",
-      "C": "Wrong: 7/8 uses (a+b+c)/(abc) instead of (ab+bc+ca)/(abc); the numerator for the sum of reciprocals is the sum of pairwise products.",
-      "D": "Wrong: 1/8 is 1/(abc), the reciprocal of the product of the roots, not the sum of their reciprocals.",
-      "E": "Wrong: 8/7 inverts the correct ratio (abc over the pairwise-product sum)."
+      "A": "Wrong: 0 would mean (x − 2) is a factor, i.e. P(2) = 0, but with a = 2 and b = 3, P(2) = 28.",
+      "B": "Wrong: 12 simply repeats the remainder for division by (x − 1); the remainder for (x − 2) must be recomputed as P(2).",
+      "C": "Correct: solving the two conditions gives a = 2, b = 3, so P(2) = 8 + 8 + 6 + 6 = 28.",
+      "D": "Wrong: 20 results from an arithmetic slip in evaluating P(2) (e.g. omitting a term).",
+      "E": "Wrong: 40 results from a sign or coefficient error when solving for a and b."
     },
     "author": "mioitalia_editorial",
     "created": "2026-07-08",

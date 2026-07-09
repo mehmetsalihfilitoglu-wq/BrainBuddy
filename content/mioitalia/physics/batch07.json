@@ -239,33 +239,33 @@
     "exam_style": "IMAT",
     "subject": "physics",
     "topic": "Direct-current circuits",
-    "subtopic": "Series–parallel network: branch current found by reducing the network and back-substituting",
+    "subtopic": "Charge and electrical energy from current and time (Q = It, E = VIt)",
     "difficulty": "hard",
     "estimated_time_seconds": 120,
     "tags": [
-      "series and parallel",
-      "current divider",
-      "equivalent resistance",
-      "Ohm's law",
-      "DC circuits"
+      "electric charge",
+      "electrical energy",
+      "current",
+      "Q = It",
+      "power"
     ],
-    "learning_objective": "Reduce a series–parallel resistor network to find the total current, then work back to obtain the current in a specified branch.",
-    "question": "An ideal 6.0 V battery (negligible internal resistance) is connected to a network in which a resistor R₁ = 2.0 Ω is in series with a parallel combination of R₂ = 6.0 Ω and R₃ = 3.0 Ω. What is the current flowing through R₂?",
+    "learning_objective": "Relate charge to current and time (Q = It) and electrical energy to power and time (E = VIt = I²Rt), keeping the time in seconds.",
+    "question": "A 12 V battery of negligible internal resistance drives a steady current through a single 6.0 Ω resistor for 4.0 minutes. Calculate (i) the total electric charge that passes through the resistor and (ii) the electrical energy converted to heat in it.",
     "choices": {
-      "A": "0.50 A",
-      "B": "0.75 A",
-      "C": "1.0 A",
-      "D": "1.5 A",
-      "E": "0.25 A"
+      "A": "480 C and 5760 J",
+      "B": "480 C and 2880 J",
+      "C": "8.0 C and 96 J",
+      "D": "2.0 C and 24 J",
+      "E": "240 C and 2880 J"
     },
     "correct_answer": "A",
-    "explanation": "The parallel pair has resistance R₂R₃/(R₂+R₃) = (6.0×3.0)/(6.0+3.0) = 18/9 = 2.0 Ω. The total circuit resistance is R₁ + 2.0 = 2.0 + 2.0 = 4.0 Ω, so the battery delivers a total current of 6.0/4.0 = 1.5 A. This whole current passes through R₁, and the potential difference across the parallel section is 1.5 × 2.0 = 3.0 V. The current through R₂ is then 3.0/6.0 = 0.50 A. (The remaining 1.0 A flows through R₃, confirming 0.50 + 1.0 = 1.5 A.)",
+    "explanation": "The current is I = V/R = 12/6.0 = 2.0 A, and the time is t = 4.0 min = 240 s. The charge is Q = It = 2.0 × 240 = 480 C. The electrical energy converted to heat is E = VIt = 12 × 2.0 × 240 = 5760 J (equivalently E = I²Rt = 2.0² × 6.0 × 240 = 5760 J).",
     "option_analysis": {
-      "A": "Correct: V across the parallel section is 3.0 V, so I through R₂ = 3.0/6.0 = 0.50 A.",
-      "B": "Wrong: 0.75 A would be half of the total current, as if the two branches were equal; they are not (6.0 Ω vs 3.0 Ω).",
-      "C": "Wrong: 1.0 A is the current through R₃ (the 3.0 Ω branch), not through R₂; the smaller resistor carries the larger share.",
-      "D": "Wrong: 1.5 A is the TOTAL current supplied by the battery, which then divides between R₂ and R₃.",
-      "E": "Wrong: 0.25 A uses the full 6.0 V across R₂ divided incorrectly, ignoring the 3.0 V drop already taken across R₁."
+      "A": "Correct: I = 2.0 A and t = 240 s give Q = It = 480 C and E = VIt = 12 × 2.0 × 240 = 5760 J.",
+      "B": "Wrong: the charge 480 C is right, but 2880 J halves the energy (e.g. using half the time or a factor-of-2 slip).",
+      "C": "Wrong: 8.0 C and 96 J use t = 4.0 s instead of 240 s (minutes not converted to seconds).",
+      "D": "Wrong: 2.0 C and 24 J confuse the current (2.0 A) with the charge and grossly under-count the energy.",
+      "E": "Wrong: 240 C and 2880 J use a current of 1.0 A (as if R were 12 Ω), not 2.0 A."
     },
     "author": "mioitalia_editorial",
     "created": "2026-07-08",
