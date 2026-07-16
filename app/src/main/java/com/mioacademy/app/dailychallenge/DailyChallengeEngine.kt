@@ -23,6 +23,8 @@ import kotlin.random.Random
  */
 class DailyChallengeEngine(private val appContext: Context) {
 
+    private val analytics: DailyChallengeAnalytics get() = DailyChallengeAnalyticsProvider.get(appContext)
+
     data class Result(
         val challenge: DailyChallengeEntity,
         val questions: List<QuestionEntity>,
@@ -132,6 +134,14 @@ class DailyChallengeEngine(private val appContext: Context) {
             )
         }
 
+        // ── guardrail: never more than CHALLENGE_SIZE new questions ──
+        val sizeViolations = DailyChallengeGuardrails.checkNewQuestionCount(selected.size)
+        if (sizeViolations.isNotEmpty()) {
+            analytics.track(DcEvents.GUARDRAIL_VIOLATION, mapOf(DcEvents.P_REASON to sizeViolations.joinToString("; ")))
+            // fail closed: never serve an over-cap batch
+            return@withContext null
+        }
+
         val challenge = DailyChallengeEntity(
             userId = userId, examType = examType, localDate = day,
             status = ChallengeStatus.AVAILABLE.name,
@@ -141,6 +151,13 @@ class DailyChallengeEngine(private val appContext: Context) {
             shortage = shortages.joinToString(";"),
         )
         dcDao.upsertChallenge(challenge)
+        analytics.track(
+            DcEvents.CHALLENGE_GENERATED,
+            mapOf(
+                DcEvents.P_EXAM to examType, DcEvents.P_LOCAL_DATE to day,
+                DcEvents.P_COUNT to selected.size, DcEvents.P_SHORTAGE to challenge.shortage,
+            ),
+        )
         resolve(challenge, qDao, dcDao)
     }
 
@@ -199,20 +216,28 @@ class DailyChallengeEngine(private val appContext: Context) {
                 firstSeenAt = prev?.firstSeenAt ?: nowMs, lastSeenAt = nowMs,
             )
         )
+        analytics.track(DcEvents.QUESTION_ANSWERED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_IS_CORRECT to isCorrect))
         val answered = dcDao.countAnswers(ck)
+        if (challenge.startedAt == 0L) {
+            analytics.track(DcEvents.CHALLENGE_STARTED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_LOCAL_DATE to localDate))
+        }
         var updated = challenge.copy(status = ChallengeStatus.IN_PROGRESS.name, startedAt = if (challenge.startedAt == 0L) nowMs else challenge.startedAt)
         if (answered >= DailyChallengeBlueprint.CHALLENGE_SIZE && challenge.status != ChallengeStatus.COMPLETED.name) {
             val score = dcDao.getAnswers(ck).count { it.isCorrect }
             updated = updated.copy(status = ChallengeStatus.COMPLETED.name, completedAt = nowMs, score = score)
-            updateStreak(dcDao, userId, localDate)
+            updateStreak(dcDao, userId, localDate, examType)
             // Suppress any remaining local reminders for today (tomorrow's slots stay intact).
             DailyChallengeReminderScheduler.onChallengeCompleted(appContext, localDate)
+            analytics.track(
+                DcEvents.CHALLENGE_COMPLETED,
+                mapOf(DcEvents.P_EXAM to examType, DcEvents.P_LOCAL_DATE to localDate, DcEvents.P_SCORE to score),
+            )
         }
         dcDao.upsertChallenge(updated)
         resolve(updated, qDao, dcDao)
     }
 
-    private suspend fun updateStreak(dcDao: DailyChallengeDao, userId: String, localDate: String) {
+    private suspend fun updateStreak(dcDao: DailyChallengeDao, userId: String, localDate: String, examType: String) {
         val prev = dcDao.getStreak(userId) ?: StreakEntity(userId)
         val yesterday = shiftDate(localDate, -1)
         val newCurrent = when (prev.lastCompletedLocalDate) {
@@ -220,9 +245,15 @@ class DailyChallengeEngine(private val appContext: Context) {
             yesterday -> prev.current + 1
             else -> 1
         }
+        if (prev.lastCompletedLocalDate != localDate) {
+            analytics.track(DcEvents.STREAK_INCREMENTED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_STREAK to newCurrent))
+        }
         val milestones = setOf(3, 7, 14, 30, 50, 100, 180, 365)
         val reached = prev.milestonesCsv.split(",").filter { it.isNotBlank() }.toMutableSet()
-        if (newCurrent in milestones) reached += newCurrent.toString()
+        if (newCurrent in milestones && newCurrent.toString() !in reached) {
+            reached += newCurrent.toString()
+            analytics.track(DcEvents.MILESTONE_REACHED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_STREAK to newCurrent))
+        }
         dcDao.upsertStreak(
             prev.copy(
                 current = newCurrent, longest = maxOf(prev.longest, newCurrent),

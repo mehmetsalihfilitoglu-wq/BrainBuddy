@@ -100,6 +100,14 @@ class ReviewEngine(private val appContext: Context) {
                 masteredAt = if (outcome.masteredAtMs != 0L) outcome.masteredAtMs else prev.masteredAt,
             )
         )
+        DailyChallengeAnalyticsProvider.get(appContext).track(
+            DcEvents.REVIEW_ANSWERED,
+            mapOf(
+                DcEvents.P_EXAM to prev.examType,
+                DcEvents.P_IS_CORRECT to isCorrect,
+                DcEvents.P_NEW_STATE to outcome.state.name,
+            ),
+        )
         outcome.state
     }
 

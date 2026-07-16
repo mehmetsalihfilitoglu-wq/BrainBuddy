@@ -32,18 +32,30 @@ class DailyChallengeReminderWorker(
         val localDate = localDate(zone)
         val reminderPrefs = DailyChallengeReminderPrefs(appContext)
 
+        val analytics = DailyChallengeAnalyticsProvider.get(appContext)
+        val completed = reminderPrefs.isCompletedOn(localDate)
         if (!DailyChallengeReminderPolicy.shouldFire(
                 notificationsEnabled = enabled,
-                completedToday = reminderPrefs.isCompletedOn(localDate),
+                completedToday = completed,
                 alreadyFiredThisSlotToday = reminderPrefs.hasSlotFired(localDate, slot),
             )
         ) {
+            analytics.track(
+                DcEvents.REMINDER_SUPPRESSED,
+                mapOf(
+                    DcEvents.P_SLOT to slot,
+                    DcEvents.P_REASON to when {
+                        !enabled -> "disabled"; completed -> "completed"; else -> "already_fired"
+                    },
+                ),
+            )
             return Result.success()
         }
 
         val (title, text) = copyForSlot(slot)
         showNotification(title, text, slot)
         reminderPrefs.markSlotFired(localDate, slot)
+        analytics.track(DcEvents.REMINDER_SHOWN, mapOf(DcEvents.P_SLOT to slot, DcEvents.P_LOCAL_DATE to localDate))
         return Result.success()
     }
 
