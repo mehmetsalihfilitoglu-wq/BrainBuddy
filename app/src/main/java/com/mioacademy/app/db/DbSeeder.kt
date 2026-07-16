@@ -137,6 +137,24 @@ object DbSeeder {
     private const val CURRENT_MIOITALIA_SEED_VERSION = 22
     private const val MIOITALIA_ASSET = "mioitalia/questions.json"
 
+    // ── TIL-I & CEnT-S Daily Challenge banks ────────────────────────────────────
+    // Fully isolated production pools (examType='TIL_I' / 'CENT_S'), own asset + version key + reseed.
+    // Only production-eligible, semantically-verified (PASS) questions are compiled into these assets.
+    private const val KEY_TIL_SEED_VERSION = "til_i_seed_version"
+    private const val CURRENT_TIL_SEED_VERSION = 1
+    private const val TIL_ASSET = "til_i/questions.json"
+    private const val KEY_CENTS_SEED_VERSION = "cents_s_seed_version"
+    private const val CURRENT_CENTS_SEED_VERSION = 1
+    private const val CENTS_ASSET = "cents_s/questions.json"
+
+    @Volatile
+    var lastTilSeeded: Int = 0
+        internal set
+
+    @Volatile
+    var lastCentsSeeded: Int = 0
+        internal set
+
     @Volatile
     var lastImatSeeded: Int = 0
         internal set
@@ -317,6 +335,85 @@ object DbSeeder {
                     reasoningLevel = 3,
                     qualityScore = 90,
                     unservableReason = null,
+                )
+            )
+        }
+        return out
+    }
+
+    /**
+     * Seeds the TIL-I Daily Challenge bank from [TIL_ASSET] (examType='TIL_I'), versioned + idempotent.
+     * Fully isolated from IMAT/MIOITALIA/LGS. On version bump: delete existing TIL_I rows, re-insert.
+     */
+    suspend fun seedTilIIfNeeded(context: Context): Int =
+        seedDailyChallengeExam(context, TIL_ASSET, "TIL_I", KEY_TIL_SEED_VERSION, CURRENT_TIL_SEED_VERSION) { lastTilSeeded = it }
+
+    /** Seeds the CEnT-S Daily Challenge bank from [CENTS_ASSET] (examType='CENT_S'), versioned + idempotent. */
+    suspend fun seedCentsIfNeeded(context: Context): Int =
+        seedDailyChallengeExam(context, CENTS_ASSET, "CENT_S", KEY_CENTS_SEED_VERSION, CURRENT_CENTS_SEED_VERSION) { lastCentsSeeded = it }
+
+    private suspend fun seedDailyChallengeExam(
+        context: Context, asset: String, examType: String, versionKey: String, currentVersion: Int, record: (Int) -> Unit,
+    ): Int = withContext(Dispatchers.IO) {
+        try {
+            val db = DatabaseProvider.get(context)
+            val meta = db.appMetaDao()
+            val dao = db.questionDao()
+            val stored = meta.get(versionKey)?.toIntOrNull() ?: 0
+            val already = try { dao.countByExamType(examType) } catch (_: Exception) { 0 }
+            if (stored >= currentVersion && already > 0) {
+                Log.i(TAG, "seed$examType skip (version=$stored, count=$already)")
+                record(0); return@withContext 0
+            }
+            val entities = parseDailyChallengeAsset(context, asset, examType)
+            if (entities.isEmpty()) {
+                Log.w(TAG, "seed$examType: asset produced 0 entities — skipping")
+                record(0); return@withContext 0
+            }
+            db.withTransaction {
+                dao.deleteByExamType(examType)
+                dao.insertAllIgnore(entities)
+            }
+            meta.set(AppMetaEntity(versionKey, currentVersion.toString()))
+            Log.i(TAG, "seed$examType inserted ${entities.size} questions (version=$currentVersion)")
+            record(entities.size); entities.size
+        } catch (e: Exception) {
+            Log.e(TAG, "seed$examType failed: ${e.message}", e); record(0); 0
+        }
+    }
+
+    private fun parseDailyChallengeAsset(context: Context, asset: String, examType: String): List<QuestionEntity> {
+        val json = try {
+            context.assets.open(asset).use { it.readBytes().toString(Charsets.UTF_8) }
+        } catch (_: Exception) { return emptyList() } // asset optional until the bank ships
+        val arr = JSONArray(json)
+        val now = System.currentTimeMillis()
+        val out = ArrayList<QuestionEntity>(arr.length())
+        for (i in 0 until arr.length()) {
+            val o = arr.optJSONObject(i) ?: continue
+            val id = o.optString("id").takeIf { it.isNotBlank() } ?: continue
+            val section = o.optString("section", "unknown")
+            val stem = o.optString("stem").takeIf { it.isNotBlank() } ?: continue
+            val choicesArr = o.optJSONArray("choices") ?: continue
+            if (choicesArr.length() < 2) continue
+            val answerIndex = o.optInt("answerIndex", -1)
+            if (answerIndex < 0 || answerIndex >= choicesArr.length()) continue
+            val image = o.optString("image").takeIf { it.isNotBlank() && it != "null" }
+            val explanation = o.optString("explanation").takeIf { it.isNotBlank() && it != "null" }
+            val subSection = o.optString("subSection", section)
+            val topic = o.optString("topic").takeIf { it.isNotBlank() && it != "null" }
+            val tier = o.optString("tier", "MEDIUM")
+            val stemNorm = stem.trim().replace(Regex("\\s+"), " ").lowercase()
+            out.add(
+                QuestionEntity(
+                    id = id, grade = 0, subject = section, difficulty = o.optInt("difficulty", 1),
+                    questionText = stem, optionsJson = choicesArr.toString(), answerIndex = answerIndex,
+                    explanation = explanation, isActive = true, examType = examType, imageAsset = image,
+                    topic = topic, type = "DAILY", skill = subSection, stemNormalized = stemNorm,
+                    stemHash = imatSha256(stemNorm), createdAt = now,
+                    sourcePack = "${examType.lowercase()}_daily", source = "original",
+                    qualityTier = tier, reasoningLevel = if (tier == "MEDIUM" || tier == "EASY") 2 else 3,
+                    qualityScore = 90, unservableReason = null,
                 )
             )
         }

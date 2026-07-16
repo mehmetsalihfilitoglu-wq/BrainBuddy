@@ -1,0 +1,28 @@
+{
+  "examProfile": "CENTS_S",
+  "examName": "CEnT-S — CISIA English admission test (2025)",
+  "verificationStatus": "PROVISIONAL / third-party-derived. Structure and topics inferred from the EuCrack CEnT-S 2025 prep book and general CISIA scientific-admission scope. NOT verified against a primary CISIA syllabus. Refine when an official source is available.",
+  "structure": {
+    "total_questions": 55,
+    "total_minutes": 110,
+    "section_timed_no_return": true,
+    "sections": [
+      { "section": "mathematics", "questions": 15, "minutes": 30 },
+      { "section": "reasoning_texts_data", "questions": 15, "minutes": 30 },
+      { "section": "biology", "questions": 10, "minutes": 20 },
+      { "section": "chemistry", "questions": 10, "minutes": 20 },
+      { "section": "physics", "questions": 5, "minutes": 10 }
+    ],
+    "scoring": "not_verified_from_current_sources"
+  },
+  "difficulty_levels": ["easy", "medium", "hard"],
+  "subjects": [
+    { "subject": "mathematics", "topics": ["numbers & arithmetic", "algebra (equations/inequalities/systems)", "exponentials & logarithms", "functions & graphs", "euclidean & analytic geometry", "trigonometry", "combinatorics & probability", "descriptive statistics"], "note": "no calculus assumed unless a verified syllabus states it" },
+    { "subject": "reasoning_texts_data", "topics": ["reading comprehension (main idea/detail/inference/tone)", "logical deduction", "quantitative/data interpretation (tables, charts)", "argument analysis"] },
+    { "subject": "biology", "topics": ["cell biology", "biological molecules", "genetics & heredity", "human physiology & anatomy", "evolution & ecology", "microbiology", "metabolism"] },
+    { "subject": "chemistry", "topics": ["atomic structure & periodic table", "chemical bonding", "stoichiometry & the mole", "states of matter & gas laws", "solutions & concentration", "acids/bases & pH", "redox reactions", "thermochemistry", "organic chemistry basics"] },
+    { "subject": "physics", "topics": ["kinematics", "dynamics & forces", "work/energy/power", "thermodynamics & calorimetry", "electrostatics & circuits", "measurement & units", "fluids"] }
+  ],
+  "excludedRelativeToTilI": ["representation / technical drawing", "computer science"],
+  "includedRelativeToTilI": ["biology", "chemistry"]
+}

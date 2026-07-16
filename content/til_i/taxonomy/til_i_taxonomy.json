@@ -1,0 +1,95 @@
+{
+  "examProfile": "TIL_I",
+  "examName": "TIL-I — Test In Laboratorio, Ingegneria (Politecnico di Torino)",
+  "source": "Quick Guide TIL-I (English version), Polito — official syllabus",
+  "note": "Calculus (differential/integral) is EXPLICITLY EXCLUDED from TIL-I. Difficulty scale: easy|medium|hard. questionType is a controlled vocabulary used app-side for filtering/analytics/weak-topics/study-plan.",
+  "structure": {
+    "total_questions": 42,
+    "total_minutes": 90,
+    "sections": [
+      { "section": "mathematics", "questions": 16, "minutes": 36 },
+      { "section": "reading_and_logic", "questions": 10, "minutes": 20, "split": { "reading_comprehension": 5, "logic": 5 } },
+      { "section": "physics", "questions": 10, "minutes": 22 },
+      { "section": "basic_technical", "questions": 6, "minutes": 12, "split": { "representation": 3, "computer_science": 3 } }
+    ],
+    "scoring": "not clearly stated in the TIL-I sources provided (the +1 / -0.25 / 0 scheme is documented for TOLC-I, a different exam; do NOT assume it applies to TIL-I)",
+    "structure_caveat": "The provided TIL-I mock exam uses an older/simplified distribution (Math 18, Physics 12, Comprehension 6, Logic 6; no Basic-Technical section). The taxonomy follows the CURRENT Quick-Guide structure above."
+  },
+  "difficulty_levels": ["easy", "medium", "hard"],
+  "question_types": [
+    "calculation", "formula_manipulation", "graph_interpretation", "word_problem",
+    "conceptual", "figure_based", "geometry_diagram", "reading_inference",
+    "logic_deduction", "spatial_reasoning", "code_reading", "unit_dimensional"
+  ],
+  "subjects": [
+    {
+      "subject": "mathematics",
+      "topics": [
+        { "topic": "Numbers & arithmetic", "subtopics": ["natural/integer/rational/real numbers", "absolute value", "powers & roots (radicals)", "prime factorisation", "LCM/GCD", "elementary word problems"], "skills": ["number sense", "estimation", "radical/power manipulation"] },
+        { "topic": "Algebra", "subtopics": ["monomials & polynomials", "polynomial factorisation", "algebraic fractions", "1st/2nd degree equations", "equations & inequalities (reducible, irrational, absolute-value)", "systems of first-degree equations"], "skills": ["algebraic manipulation", "equation solving", "inequality solving"] },
+        { "topic": "Exponentials & logarithms", "subtopics": ["properties & change of base", "exponential equations & inequalities", "logarithmic equations & inequalities"], "skills": ["log/exp laws", "solving exp/log relations"] },
+        { "topic": "Euclidean geometry", "subtopics": ["congruence & similarity", "Pythagoras & Euclid theorems", "triangles/circles/polygons: perimeter & area", "3D solids: surface area & volume"], "skills": ["geometric reasoning", "area/volume computation"] },
+        { "topic": "Analytic geometry", "subtopics": ["Cartesian coordinates", "line equations & parallel/perpendicular", "circle", "ellipse & hyperbola (axes parallel to coordinate axes)", "loci"], "skills": ["coordinate reasoning", "conic identification"] },
+        { "topic": "Trigonometry", "subtopics": ["sine/cosine/tangent & properties", "values at typical angles", "trigonometric equations & inequalities", "relations in a triangle (law of cosines)"], "skills": ["trig evaluation", "trig equation solving"] },
+        { "topic": "Functions & graphs", "subtopics": ["elementary graphs (polynomial, |x|, exp, log, trig)", "transformations (translations, symmetries about axes & y=±x)", "regions defined by inequalities in two variables"], "skills": ["graph interpretation", "graph transformation"] },
+        { "topic": "Statistics & probability", "subtopics": ["permutations & combinations (elementary counting)", "arithmetic & weighted mean", "variance", "frequency tables & histograms", "elementary operations between events"], "skills": ["counting", "descriptive statistics", "basic probability"] }
+      ]
+    },
+    {
+      "subject": "physics",
+      "topics": [
+        { "topic": "Vectors", "subtopics": ["addition/subtraction & decomposition", "magnitude & components", "unit vectors", "scalar (dot) product"], "skills": ["vector algebra", "component resolution"] },
+        { "topic": "Measurement & units", "subtopics": ["scalar vs vector", "dimensional analysis", "SI base & derived units", "unit conversion & prefixes (milli…tera)"], "skills": ["dimensional reasoning", "unit conversion"] },
+        { "topic": "Kinematics", "subtopics": ["velocity/speed/acceleration", "uniform & uniformly accelerated motion", "vertical free fall", "circular motion (angular & tangential)", "projectile/parabolic motion", "relative motion"], "skills": ["motion equations (suvat)", "graph reading"] },
+        { "topic": "Dynamics & forces", "subtopics": ["resultant force", "gravitation (Newton's law, Kepler's third law)", "elastic force (Hooke)", "friction (static/kinetic)", "normal force, tension, centripetal force", "Newton's three laws", "inclined plane, pendulum, mass-spring"], "skills": ["free-body analysis", "Newton's-law application"] },
+        { "topic": "Work & energy", "subtopics": ["work & power (+units)", "kinetic & potential energy", "work-energy theorem", "conservation of mechanical energy"], "skills": ["energy accounting"] },
+        { "topic": "Fluid mechanics", "subtopics": ["Archimedes buoyancy", "hydrostatic pressure (Stevin)", "continuity equation", "Bernoulli & Torricelli"], "skills": ["fluid statics/dynamics"] },
+        { "topic": "Calorimetry", "subtopics": ["thermal equilibrium", "specific heat & heat capacity", "phase transitions & latent heat", "thermal power"], "skills": ["heat balance calculation"] },
+        { "topic": "Thermodynamics", "subtopics": ["ideal gas equation of state", "processes (isobaric/isochoric/isothermal/adiabatic)", "first law & internal energy", "reversible/irreversible", "thermal engines, efficiency, Carnot cycle", "second law"], "skills": ["thermodynamic reasoning"] },
+        { "topic": "Electrostatics", "subtopics": ["Coulomb's law", "electric field & potential (point/spherical/plane charges)", "field lines, charge motion", "conductors in equilibrium, induction", "capacitance, series/parallel capacitors, energy", "dielectrics"], "skills": ["field/potential calculation"] },
+        { "topic": "Electric circuits", "subtopics": ["EMF, current, current density, drift velocity", "resistivity & resistance", "Ohm's law, Joule effect", "series/parallel resistors", "Kirchhoff's laws"], "skills": ["circuit analysis"] }
+      ]
+    },
+    {
+      "subject": "logic",
+      "topics": [
+        { "topic": "Orderings", "subtopics": ["ranking/sequence deduction", "arrangement puzzles"], "skills": ["ordered deduction"] },
+        { "topic": "Quantifiers", "subtopics": ["all/some/none reasoning", "quantifier validity"], "skills": ["quantifier logic"] },
+        { "topic": "Logical deductions", "subtopics": ["conditional (if-then) reasoning", "contrapositive", "syllogisms", "set relations (Venn)"], "skills": ["deductive inference"] },
+        { "topic": "Elementary logic problems", "subtopics": ["numeric/sign puzzles", "parity/sign arguments", "constraint satisfaction"], "skills": ["problem solving"] },
+        { "topic": "Negation of claims", "subtopics": ["negating quantified/conditional statements"], "skills": ["logical negation"] }
+      ]
+    },
+    {
+      "subject": "reading_comprehension",
+      "topics": [
+        { "topic": "Passage comprehension", "subtopics": ["main idea", "specific detail (text-only)", "inference from text", "author view/tone", "vocabulary in context"], "skills": ["read-and-locate", "text-bounded inference (no prior knowledge)"] }
+      ]
+    },
+    {
+      "subject": "computer_science",
+      "topics": [
+        { "topic": "Programming concepts", "subtopics": ["program & variable", "assignment vs test (= vs ==)", "operators & logical operators", "if/then/else", "loops (for/while/repeat-until)", "recursion (intro)", "arithmetic (incl. arbitrary-precision)", "block/visual programming tracing (Scratch-style) — VERIFY vs official TIL-I CS syllabus", "program tracing / output prediction"], "skills": ["code reading", "trace execution"] },
+        { "topic": "Number & data representation", "subtopics": ["number-base conversion (binary/hex/decimal)", "units of information (bit/byte/storage)", "image formats & codecs", "digital storage"], "skills": ["base conversion", "data-size reasoning"] },
+        { "topic": "Systems & tools", "subtopics": ["compiled vs interpreted", "multithread, background processes", "bit/byte/transistor", "operating systems, virtual machines", "file systems & paths", "terminal / OS & networking commands", "input vs output devices", "IP addresses, ssh, firewall, web server, browser", "software licences", "De Morgan's laws"], "skills": ["conceptual CS knowledge"] }
+      ]
+    },
+    {
+      "subject": "representation",
+      "topics": [
+        { "topic": "Spatial representation", "subtopics": ["2D↔3D object relationships", "orthographic/projected views", "graphic-technical language codes", "nets, rotations, sections"], "skills": ["spatial visualisation"] },
+        { "topic": "Projection systems", "subtopics": ["orthogonal/orthographic projections & third-view derivation", "axonometry / axonometric projections", "axonometric↔orthogonal matching", "descriptive geometry (history, solids of revolution profiles)"], "skills": ["projection reasoning", "view matching"] },
+        { "topic": "Drawing scales", "subtopics": ["scale ratios (1:2, 2:1, …)", "scale conversion", "scale ↔ real/area relationships", "scale selection for technical drawings"], "skills": ["scale computation"] }
+      ]
+    }
+  ],
+  "sourced_coverage": {
+    "note": "Question counts now present in til_i_official_bank.json (v1.3) after official extraction + verification. Difficulty for extracted items defaults to 'medium' (not individually calibrated) — recalibrate before high-stakes use.",
+    "by_subject": { "mathematics": 193, "physics": 185, "logic": 44, "reading_comprehension": 25, "representation": 15, "computer_science": 17 },
+    "caveats": {
+      "computer_science": "RESOLVED (bank v1.5): 17/17 CS items independently verified as in-syllabus (tag cs_syllabus_verified) against the TIL-I Basic-Technical/CS topics above; 16 answers confirmed, cs_010 flagged answer_needs_review. No leakage found.",
+      "reading_comprehension": "15/25 answered. 10 remain unanswerable because their passages were not captured in the photographed source (see til_i_impossible_cases.md); exclude those from graded use until passages are re-scanned.",
+      "representation": "Thin (15); 14/15 answered, figure-dependent (every item carries a full-page figure asset). repr_011 unanswerable — reference solid not in scan."
+    }
+  }
+}

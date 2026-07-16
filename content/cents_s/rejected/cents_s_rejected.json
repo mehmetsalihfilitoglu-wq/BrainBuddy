@@ -1,0 +1,258 @@
+{
+  "rejected": [
+    {
+      "stem": "A gland cell specializes in synthesizing and secreting large quantities of a protein hormone. Which two organelles would",
+      "section": "biology",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Which single observation provides the STRONGEST evidence that mitochondria evolved from once free-living prokaryotes (th",
+      "section": "biology",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "The graph shows the initial reaction velocity of an enzyme as a function of substrate concentration [S]. Curve 1 is the ",
+      "section": "biology",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Given the following data at 298 K:\n(1) C(s) + O2(g) -> CO2(g), DH1 = -394 kJ\n(2) CO(g) + 1/2 O2(g) -> CO2(g), DH2 = -283",
+      "section": "chemistry",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "A chemist takes 250 mL of a 0.80 M glucose solution and adds water until the total volume of the solution reaches 1.00 L",
+      "section": "chemistry",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "A drinking-water sample contains 3.6 mg of fluoride ion dissolved in 1.2 L of water. The density of the solution is 1.00",
+      "section": "chemistry",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "At 25 C, 100 mL of 0.10 M HCl is mixed with 100 mL of 0.050 M NaOH. Assume volumes are additive and both are strong elec",
+      "section": "chemistry",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A rigid 2.00 L vessel holds oxygen gas at 27 C and 1.50 atm. Using R = 0.0821 L*atm/(mol*K) and a molar mass of O2 = 32.",
+      "section": "chemistry",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "A fixed amount of ideal gas occupies 4.0 L at 2.0 atm and 300 K. It is then compressed to 1.0 L and simultaneously heate",
+      "section": "chemistry",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "For the reaction N2(g) + 3 H2(g) -> 2 NH3(g), the enthalpy change is DH = -92 kJ. Taking the molar mass of NH3 as 17 g/m",
+      "section": "chemistry",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "Given the following data at 298 K:\n(1) C(s) + O2(g) -> CO2(g), DH1 = -394 kJ\n(2) CO(g) + 1/2 O2(g) -> CO2(g), DH2 = -283",
+      "section": "chemistry",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "Water boils at a noticeably lower temperature on a high mountain than at sea level. Which statement correctly explains t",
+      "section": "chemistry",
+      "reasons": [
+        "duplicate"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "The graph shows the blood antibody level of a person exposed twice to the SAME antigen. After the second exposure the re",
+      "section": "biology",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The diagram shows a simplified aquatic food chain: phytoplankton are eaten by zooplankton, zooplankton are eaten by smal",
+      "section": "biology",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "How many distinct constitutional (structural) isomers have the molecular formula C3H8O? (Count both alcohols and ethers;",
+      "section": "chemistry",
+      "reasons": [
+        "verify_reject",
+        "close_to_source"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Estimate the enthalpy change for the gas-phase reaction H2 + Cl2 -> 2 HCl using these average bond energies (kJ/mol): H-",
+      "section": "chemistry",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "For the equilibrium N2(g) + 3 H2(g) <=> 2 NH3(g), delta H = -92 kJ (exothermic). The system is at equilibrium in a rigid",
+      "section": "chemistry",
+      "reasons": [
+        "verify_reject",
+        "ambiguity",
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "Methane burns completely: CH4(g) + 2 O2(g) -> CO2(g) + 2 H2O(l). Given standard enthalpies of formation (kJ/mol): delta ",
+      "section": "chemistry",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "Read the passage:\n\n\"The town of Marlow opened its first public library in 1908. Before that year, residents who wanted t",
+      "section": "reasoning",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Read the passage:\n\n\"Researchers followed 500 adults who each drank at least three cups of green tea daily for ten years.",
+      "section": "reasoning",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "A researcher grows an aquatic plant in water enriched with the heavy oxygen isotope (H2-18O) while supplying carbon diox",
+      "section": "biology",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The polymerase chain reaction (PCR) starts from a single double-stranded template molecule flanked, further out, by the ",
+      "section": "biology",
+      "reasons": [
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Consider the four main-group elements nitrogen (N), oxygen (O), fluorine (F) and phosphorus (P). Using only their positi",
+      "section": "chemistry",
+      "reasons": [
+        "verify_reject"
+      ],
+      "intended": "C",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Five boys and three girls are to stand in a single row so that no two girls stand next to each other. In how many differ",
+      "section": "mathematics",
+      "reasons": [
+        "verify_reject",
+        "close_to_source"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The pedigree shows one family across two generations. Squares are males, circles are females, and a fully shaded symbol ",
+      "section": "biology",
+      "reasons": [
+        "low_confidence"
+      ],
+      "intended": "A",
+      "solve": "A",
+      "verify": "A"
+    }
+  ]
+}

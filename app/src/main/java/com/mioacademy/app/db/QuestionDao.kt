@@ -899,4 +899,36 @@ interface QuestionDao {
         """
     )
     suspend fun clearProgressiveQuarantineDamage(): Int
+
+    // ── Daily Challenge pools (examType='TIL_I' / 'CENT_S'), isolated by examType+section ──────────
+    /** Idempotent reseed helper: delete all rows for a given examType. */
+    @Query("DELETE FROM questions WHERE COALESCE(examType, 'GENERAL') = :examType")
+    suspend fun deleteByExamType(examType: String)
+
+    /** Candidate pool for the Daily Challenge selector: one exam's one blueprint section. */
+    @Query(
+        """
+        SELECT id, subject, difficulty, grade, stemHash, stemNormalized, type, skill
+        , COALESCE(topic, 'OTHER') AS topic
+        , COALESCE(qualityTier, 'MEDIUM') AS qualityTier
+        , COALESCE(reasoningLevel, 2) AS reasoningLevel
+        FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = :examType
+        AND subject = :section
+        AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        LIMIT 5000
+        """
+    )
+    suspend fun getDailyCandidatePool(examType: String, section: String): List<QuestionCandidateRow>
+
+    /** Eligible count for one exam+section (Daily Challenge availability check). */
+    @Query(
+        """
+        SELECT COUNT(*) FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = :examType AND subject = :section AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        """
+    )
+    suspend fun countDailyEligibleBySection(examType: String, section: String): Int
 }

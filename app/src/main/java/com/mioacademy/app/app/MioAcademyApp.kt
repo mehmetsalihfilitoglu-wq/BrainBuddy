@@ -49,6 +49,11 @@ class MioAcademyApp : Application() {
                 // Seed the isolated Mioitalia ORIGINAL bank the same way (own pool, own version).
                 val mioitaliaSeeded = DbSeeder.seedMioitaliaIfNeeded(this@MioAcademyApp)
                 Log.i(STARTUP_LOG_TAG, "Mioitalia seed: inserted=$mioitaliaSeeded")
+                // Seed the isolated TIL-I & CEnT-S Daily Challenge banks (own pools, own versions).
+                // Only production-eligible, semantically-verified questions ship in these assets.
+                val tilSeeded = DbSeeder.seedTilIIfNeeded(this@MioAcademyApp)
+                val centsSeeded = DbSeeder.seedCentsIfNeeded(this@MioAcademyApp)
+                Log.i(STARTUP_LOG_TAG, "TIL-I seed: inserted=$tilSeeded | CEnT-S seed: inserted=$centsSeeded")
                 val p = StartupAuditRecorder.finalizeStartupAudit(this@MioAcademyApp)
                 Log.i(
                     "AppStartupAudit",

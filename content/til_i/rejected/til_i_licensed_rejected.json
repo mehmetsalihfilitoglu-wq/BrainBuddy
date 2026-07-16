@@ -1,0 +1,3083 @@
+{
+  "rejected": [
+    {
+      "stem": "For a positive real number a, the expression (a⁻³ : a⁻²)⁻¹ᐟ² equals:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p011.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "official"
+    },
+    {
+      "stem": "The number ∛16 equals:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p012.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Stem uses the cube-root symbol ∛ (U+221B), so ∛16 = 16^(1/3) = 2^(4/3) ≈ 2.52, which does NOT match any of the five options (4, 2, √2, ⁴√8≈1.68, 24). As literally transcribed there is no correct answer. The radical index was almost certainly mis-transcribed: the intended stem is the FOURTH root ∜16 = 16^(1/4) = 2, which would make option C the single correct answer. The question is unusable until the radical index is corrected."
+    },
+    {
+      "stem": "Which function’s graph is fully contained in the half-plane y > 1?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p013.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "sourceDefect": "TWO correct options. A) y=2 is a horizontal line entirely at y=2>1, so its graph is fully contained in y>1. C) y=10^-x+3 has 10^-x>0, so y>3>1, also fully contained. Both satisfy the condition. B) 10^x ranges (0,inf) dips below 1 for x<0; D) |log10 x| = 0 at x=1 (<1) and restricted domain; E) 2+log10 x goes to -inf. Intended answer is presumably C (nontrivial exponential shifted up), but A is a genuine also-correct trap, breaking the single-answer requirement."
+    },
+    {
+      "stem": "The equality √(a/b) = √a / √b is true:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p014.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "E",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "The inequality 1/(x−1) + 2(x+2)/(x²−1) + 1/(x+1) > 0 is satisfied for:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p014.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "E",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "The arithmetic mean of the following numbers 6, 1, 1, 1, 1, 1, 6 is:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p015.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "D",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The polynomial (x² + 1)(x² − x − 6) is divisible by:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p016.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "E",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "In a right triangle one cathetus is 12 cm and the sine of the opposite angle is 4/5. Then, the hypotenuse is:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p017.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "D",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "The solutions of the inequality (x+3)/8 + (x−1)/5 < 2 + (13/40)x are:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p018.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "A",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "The product of two positive real numbers r and y with r < y:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p019.png",
+      "reasons": [
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "A",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "In the Cartesian plane, let r : y = x and s : y = x + 4. Let A and B be two points of line r with distance 8. Let P be any point on s. The a",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p019.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "A",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "The area of a rectangle is 90 cm², and the ratio between the sides is 5 : 2. Then the perimeter of the rectangle is:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p020.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In a math test, 10 students scored the following marks out of 10: 4, 4, 5, 5, 6, 6, 6, 7, 7, 8. What is the average mark?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p021.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "D",
+      "solve": "D",
+      "verify": "",
+      "sourceDefect": "The arithmetic mean is 58/10 = 5.8, which is not among the options (A 7, B 6.5, C 5, D 6, E 5.5). No option is correct for the mean. Median and mode both equal 6 (option D), so the author appears to have confused \"average\"/mean with median/mode. As stated, the question has no correct answer."
+    },
+    {
+      "stem": "The sum 1 + 2 + 3 + · · · + n is:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p022.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "official"
+    },
+    {
+      "stem": "25 students are examined alphabetically. The teacher randomly starts with one, then continues circularly. In how many cases is the 10th stud",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p022.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "A",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "Determine the values of x that satisfy the equation √(x + 5) + √(x − 1) = 4, given x is a real number.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p023.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "The true unique real solution is x = 41/16 = 2.5625 (verified: 2.75 + 1.25 = 4). Option A (x=2.5) is close but incorrect (yields 3.963 ≠ 4). No option matches the correct value, and E (\"no real solution\") is also false since a valid solution exists. Thus zero correct options — likely the author mis-rounded 2.5625 to 2.5."
+    },
+    {
+      "stem": "A right circular cone has a base radius of 6 cm and a slant height of 10 cm. If the height is increased by 2 cm while keeping the radius con",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p023.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "sourceDefect": "Numbers do not yield a clean answer. Original height = sqrt(10^2 - 6^2) = 8. New height = 10, radius still 6, so new slant height = sqrt(6^2 + 10^2) = sqrt(136) = 2*sqrt(34). New lateral surface area = pi*r*l = 6*sqrt(136)*pi = 12*sqrt(34)*pi ≈ 69.97*pi. This is irrational and NOT exactly equal to any option; option C (70*pi) is only an approximation. No option is exactly correct, so the item fails the exactly-one-correct requirement."
+    },
+    {
+      "stem": "Solve the system of inequalities log₃(x + 2) > 1 and log₃(x − 1) < 2 for x.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p023.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Correct solution is not among the options. log₃(x+2)>1 ⟹ x+2>3 ⟹ x>1 (domain x>-2 subsumed). log₃(x-1)<2 ⟹ x-1<9 ⟹ x<10, with domain x-1>0 ⟹ x>1. Intersection is 1<x<10. None of the five options equals 1<x<10 (A gives wrong upper bound 7; D gives wrong lower bound 4). No exactly-one-correct option exists."
+    },
+    {
+      "stem": "Solve the equation (2x+3)/(x−4) = (x+1)/(x−2) for x, where x ≠ 4, −2.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p024.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No correct option: the equation reduces to x²+2x−2=0, giving x = −1 ± √3 (≈0.732, −2.732), which are irrational and none of the five listed options (−1,0,1,2,3) satisfy the equation (x=2 is even an excluded value). Additionally the stated domain restriction \"x ≠ 4, −2\" is wrong; the denominators (x−4)(x−2) require x ≠ 4, 2. The question is unusable as authored."
+    },
+    {
+      "stem": "Determine the area of a triangle with sides 5 cm, 6 cm, and 7 cm.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p024.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "sourceDefect": "Exact area by Heron's formula is 6√6 ≈ 14.70 cm², which is irrational and matches NO option exactly. B) 14 cm² is only a rough (and inaccurate) approximation — the true value rounds to ~15, not 14. There is no exactly-correct option, so the item is defective as written."
+    },
+    {
+      "stem": "Find the equation of the line passing through (1, −2) and perpendicular to y = 3x + 4.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p025.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "The mean of a data set {2, 4, 6, 8, 10} is 6. If 12 is added, what is the new variance?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p026.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "E",
+      "solve": "D",
+      "verify": "D",
+      "sourceDefect": "Population-vs-sample variance ambiguity. New set {2,4,6,8,10,12}, mean=7, sum of squared deviations=70. Population variance = 70/6 ≈ 11.67 (matches NO option exactly; only rounds crudely to C=12). Sample variance = 70/5 = 14 (exactly D). The standard 'data set'/population reading has no exact option, and two options (C via rounding, D exact) are defensible, so there is not exactly one clean correct answer. Distractors A=8 and B=10 are the ORIGINAL set's population/sample variance."
+    },
+    {
+      "stem": "Solve 2^(x+1) = 2^x + 8.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p026.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Solve 3^(2x) − 12·3^x + 27 = 0.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p029.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Equation has two real roots: substituting y=3^x gives y^2-12y+27=(y-3)(y-9)=0, so 3^x=3 (x=1) and 3^x=9 (x=2). BOTH x=1 (option A) and x=2 (option B) are correct, so no single correct answer exists. Item is unusable in single-answer MC format unless the stem asks for a specific root or the options are restructured (e.g., 'x=1 or x=2')."
+    },
+    {
+      "stem": "Find the distance between points (1, 5) and (4, −2).",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p030.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Computed distance = sqrt((4-1)^2 + (-2-5)^2) = sqrt(9+49) = sqrt(58) ≈ 7.62, which is irrational and does NOT match any option (5,6,7,8,9). No correct answer exists; coordinates were likely altered from an intended integer-distance pair."
+    },
+    {
+      "stem": "Find the focus of the parabola y² = 8x.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p031.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "The variance of {3, 5, 7, 9} is:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p031.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "A",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "What is cos 75° in exact form?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p035.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Solve 2x^2 - 7x + 3 < 0.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p036.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "official"
+    },
+    {
+      "stem": "Find sin 195°.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p037.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "sourceDefect": "Options B and C are algebraically identical, so two options are correct. sin 195° = sin(180°+15°) = -sin 15° = -(√6-√2)/4 ≈ -0.2588 (option C). But option B (√2-√6)/4 = -(√6-√2)/4 is the exact same value ≈ -0.2588. Two equal correct options = no unique answer. REJECT."
+    },
+    {
+      "stem": "Which value of x satisfies the equation √(x+1) + √(2x-3) = 4, ensuring all expressions are defined?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p037.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "D",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No correct answer among the options. The equation √(x+1)+√(2x-3)=4 reduces to x²-104x+336=0, whose valid root is x≈3.34 (the other root ~100.66 is extraneous). None of the five integer options (2,3,4,5,6) satisfies the equation: they yield 2.73, 3.73, 4.47, 5.09, 5.65 respectively. The item is unsolvable as printed — likely the constant on the RHS or a coefficient was mis-transcribed."
+    },
+    {
+      "stem": "For which value of k does the equation x^3 - 3x^2 + kx - 4 = 0 have exactly two distinct real roots?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p038.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "dupVs": "original",
+      "sourceDefect": "No correct answer among the options. A cubic has exactly two distinct real roots only with a double root (discriminant=0). Here Δ=-4k^3+9k^2+216k-864=0 has its only real solution at k≈-7.94, which is not listed. For every option k=2,3,4,5,6 the discriminant is negative (Δ = -428,-243,-112,-59,-108 respectively), so each yields exactly ONE distinct real root plus two complex conjugates — verified by factoring (e.g. k=4: (x-2)(x^2-x+2); k=6: (x-1)(x^2-2x+4)). The question as extracted is unanswerable/defective."
+    },
+    {
+      "stem": "Which polynomial P(x) = x^3 - ax^2 + bx - 12 has roots 2, 3, and 4?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p038.png",
+      "reasons": [
+        "verify_reject",
+        "ambiguity",
+        "source_defect"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "B",
+      "sourceDefect": "Stem is internally inconsistent. (x-2)(x-3)(x-4) = x^3 - 9x^2 + 26x - 24, so the constant term must be -24 (product of roots = 2*3*4 = 24). But the stem fixes the form as P(x) = x^3 - ax^2 + bx - 12, i.e. constant -12, which is impossible for roots 2,3,4. The only option matching the true roots is B (x^3 - 9x^2 + 26x - 24), yet B contradicts the stem's stated -12 constant, while the distractors A/C/D/E all carry the (wrong) -12 constant demanded by the stem. This makes the item logically contradictory: a solver trusting the stem's \"-12\" would reject the correct polynomial."
+    },
+    {
+      "stem": "What is the range of the function f(x) = (x²+1)/(x²−4) for x ≠ ±2?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p039.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No option matches the correct range. Solving y=(x²+1)/(x²−4) gives x²=(1+4y)/(y−1)≥0, yielding range (−∞, −1/4] ∪ (1, ∞). Direct checks confirm: x=0→−1/4 (max of lower branch), x=1→−2/3, x→∞→1⁺. Option A (−∞,−1)∪(1,∞) has the correct upper branch but wrong lower branch — it uses −1 instead of −1/4 and excludes genuinely-achieved values like −2/3 and −1/4. Every option is incorrect."
+    },
+    {
+      "stem": "Which value of x solves 3^(x²−3) = 9^(x+1)?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p039.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No correct answer among options. Solving 3^(x^2-3)=9^(x+1) reduces to x^2-3=2x+2, i.e. x^2-2x-5=0, giving x=1+/-sqrt(6) (approx 3.449 or -1.449) — non-integer. All five options (1,2,3,4,5) fail on substitution. Likely mistranscription of the RHS exponent (e.g. intended 9^x which yields x=3)."
+    },
+    {
+      "stem": "How many real solutions exist for x⁴ − 6x² + 8 = 0?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p039.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "C",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "What is the inverse function of f(x) = (3x−2)/(x+1)?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p040.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "D",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "The true inverse of f(x)=(3x−2)/(x+1) is (x+2)/(3−x), which is NOT among the options. Verified by composition (f∘f⁻¹=x) and by numeric test (f(1)=1/2 ⇒ f⁻¹(1/2) must be 1; no option yields 1). Option B (x+2)/(x−3) is the sign-flipped denominator and is actually the inverse of a DIFFERENT function, (3x+2)/(x−1) = option E. The option set corresponds to the function (3x+2)/(x−1), not the stated (3x−2)/(x+1). No correct answer exists as written; likely a stem/option mismatch or sign transcription error."
+    },
+    {
+      "stem": "Which values of x satisfy |x² − 6x + 8| = 2x − 4?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p040.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "The true solution set of |x^2-6x+8|=2x-4 is {2, 6} (Case1: x^2-8x+12=0 -> x=2,6; Case2: (x-2)^2=0 -> x=2; all satisfy the domain x>=2). No option lists {2,6}: A={2,4}, B={1,5}, C={0,6}, D={3,7}, E={-1,3}. There is NO correct option, so the question is unanswerable as printed."
+    },
+    {
+      "stem": "For which interval does (x² − 7x + 10)(x − 3) ≥ 0?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p040.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "The true solution of (x-2)(x-5)(x-3) >= 0 is [2,3] union [5, infinity), which is NOT among the options. Option A (x<=2 or x>=5) is the solution to only the quadratic factor (x^2-7x+10)>=0; the (x-3) factor was apparently added to the stem without updating the options (or options belong to a two-factor version). No option is correct."
+    },
+    {
+      "stem": "Solve log₄(x² − 3x + 2) = 1.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p040.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "dupVs": "licensed",
+      "sourceDefect": "No option is correct. log4(x^2-3x+2)=1 gives x^2-3x+2=4, i.e. x^2-3x-2=0, so x=(3±√17)/2 ≈ 3.56 or −0.56 — irrational and not among the choices. Checking each option: x=1 and x=2 make the argument 0 (log undefined); x=3 gives log4(2)=0.5; x=4 gives log4(6)≈1.29; x=5 gives log4(12)≈1.79. None equals 1. The option set does not contain the actual solutions."
+    },
+    {
+      "stem": "Which point lies on the curve y = ln(x² − 1) and has a slope of 2?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p042.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "D",
+      "verify": "",
+      "sourceDefect": "No correct answer exists. Slope=2 requires dy/dx=2x/(x^2-1)=2 → x^2-x-1=0 → x=(1±√5)/2, which matches no option. Only D(3,ln8) and E(-3,ln8) actually lie on the curve, but their slopes are 3/4 and -3/4. A(2,0), B(√2,ln3), C(-√2,ln3) are not even on the curve (their y-values are wrong: (2,·) needs y=ln3; (±√2,·) needs y=0). The options appear scrambled between x-values and y-values."
+    },
+    {
+      "stem": "What is the range of f(x) = e^(x²−4)?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p042.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "source_answer_conflict"
+      ],
+      "shown": "B",
+      "solve": "C",
+      "verify": "C",
+      "sourceDefect": "The exponent g(x)=x^2-4 has minimum value -4 at x=0 (attained, since x^2>=0). Therefore f(x)=e^(x^2-4) attains its minimum e^(-4) at x=0, and the true range is the CLOSED-bottom interval [e^-4, ∞). Option C is written as the OPEN interval (e^-4, ∞), which wrongly excludes e^-4. Because the minimum is actually achieved, no option is exactly correct; the intended key C has an incorrect open bracket."
+    },
+    {
+      "stem": "Find the intersection points of y = x² − 2 and y = 2x − 1.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p042.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Stem y=x²−2 and y=2x−1 yields x²−2x−1=0, roots 1±√2 (irrational). Actual intersections are (1+√2, 1+2√2) and (1−√2, 1−2√2). Every option consists of integer points that all satisfy the LINE y=2x−1 but NONE satisfy the parabola y=x²−2. No option is correct — no valid answer exists. Likely mis-transcribed equation/constant."
+    },
+    {
+      "stem": "Which value of θ (in degrees) satisfies 2 sin²θ − sin θ − 1 = 0 for 0° ≤ θ ≤ 180°?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p043.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "E",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "What is the exact value of cos 105° + sin 75°?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p043.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "The correct value is not among the options. cos105° = cos(60°+45°) = (√2−√6)/4 and sin75° = sin(45°+30°) = (√6+√2)/4, so their sum = 2√2/4 = √2/2 ≈ 0.7071. No option equals √2/2: A≈1.93, B≈0.518, C≈0.966 (this is just sin75° alone), D≈−0.259 (this is cos105° alone), E=√3/2≈0.866. The intended answer likely got garbled — options C and D are the two individual terms, and the correct sum √2/2 was never listed."
+    },
+    {
+      "stem": "Solve 2cos²x − 3cos x + 1 = 0 for x in [0, 2π)?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p044.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "",
+      "sourceDefect": "Equation 2cos^2 x - 3cos x + 1 = 0 factors to (2cos x - 1)(cos x - 1) = 0, giving cos x = 1/2 (x = pi/3, 5pi/3) AND cos x = 1 (x = 0). True solution set on [0, 2pi) is {0, pi/3, 5pi/3} — three roots. Option A (pi/3, 5pi/3) is incomplete: it drops the x = 0 root. No option lists the full solution set, so there is no correct answer."
+    },
+    {
+      "stem": "Which expression equals tan 30°?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p044.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No option equals tan 30° = 1/√3 = √3/3 ≈ 0.577. The correct value is missing. A) √3 ≈ 1.732 is tan 60° (classic distractor); B) 2−√2 ≈ 0.586 is a near-miss but not equal; D/E are tan 22.5°/67.5°. Likely the intended key was √3/3 or 1/√3 which was dropped/mistyped, leaving no correct answer."
+    },
+    {
+      "stem": "Solve sin 2x = cos x for x in [0, π].",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p044.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence",
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "A",
+      "verify": "",
+      "dupVs": "licensed",
+      "sourceDefect": "Solving sin 2x = cos x on [0,π]: 2 sinx cosx = cosx → cosx(2 sinx - 1) = 0. cosx=0 gives x=π/2; sinx=1/2 gives x=π/6 AND x=5π/6 (both in [0,π]). Full solution set is {π/6, π/2, 5π/6} — three roots. Option A lists only π/6, π/2 and omits 5π/6, so NO option is fully correct. Question is defective (incomplete answer set / no single correct option)."
+    },
+    {
+      "stem": "What is the variance of a data set {1, 3, 5, 7, 9} if the mean is increased by 2?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p045.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "sourceDefect": "Population-vs-sample-variance ambiguity: both listed as options. Data {1,3,5,7,9}, mean 5, sum of squared deviations = 40. Population variance = 40/5 = 8 (B); sample variance = 40/4 = 10 (C). Both are valid \"variance\" under different conventions and both appear as choices. Additionally, the clause \"if the mean is increased by 2\" is a translation-invariance distractor — adding a constant to every value shifts the mean but does NOT change the variance, so the answer equals the original variance regardless. The question tests that invariance concept, but the pop/sample dual answers (8 and 10) undermine single-correctness."
+    },
+    {
+      "stem": "A bag contains 3 red, 2 blue, and 1 green ball. What is the probability of drawing 2 balls of different colors in succession without replace",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p045.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "dupVs": "licensed",
+      "sourceDefect": "Correct answer is not among the options. Bag = 3R, 2B, 1G, total 6. Draw 2 without replacement, C(6,2)=15 equally likely pairs. Same-color pairs: RR=C(3,2)=3, BB=C(2,2)=1, GG=0 → 4. Different-color pairs = 15-4 = 11, or directly R&B(6)+R&G(3)+B&G(2)=11. P(different colors) = 11/15 ≈ 0.733 (= 22/30). None of the listed options (1/3, 13/30, 1/2, 2/3, 5/6) equals 11/15. Distractor B=13/30 does not correspond to any correct computation. No option is correct."
+    },
+    {
+      "stem": "What is the volume of a frustum of a cone with lower radius 6 cm, upper radius 2 cm, and height 8 cm?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p046.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Correct answer is not among the options. Frustum volume V = (1/3)πh(R²+Rr+r²) = (1/3)π·8·(36+12+4) = (1/3)π·8·52 = 416/3 π ≈ 138.67π cm³. None of A) 120π, B) 144π, C) 160π, D) 180π, E) 200π equals 416/3 π. Question is defective — no valid key."
+    },
+    {
+      "stem": "A regular hexagon has a side length of 4 cm. What is the area of the triangle formed by two adjacent sides and the center?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p046.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "B",
+      "sourceDefect": "Geometrically inconsistent/ambiguous stem. The region bounded by \"two adjacent sides and the center\" (O-V1-V2-V3) is a quadrilateral (kite = two of the six equilateral triangles), NOT a triangle, area 8√3 (B). But if read as the intended standard central triangle (one side + center) it is a single equilateral triangle, area (√3/4)·4²=4√3 (A). Both readings map to listed options, so there is no single unambiguous correct answer. Wording should be \"one side and the center\" (→4√3) or the figure should be called a quadrilateral (→8√3)."
+    },
+    {
+      "stem": "Which value is the height of a right triangle with legs 5 cm and 12 cm?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p046.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "E",
+      "solve": "B",
+      "verify": "",
+      "sourceDefect": "The term \"the height\" of a right triangle is undefined/ambiguous. In a right triangle the two legs are themselves altitudes to one another, so both leg values (B) 12 and (E) 5 are legitimately \"the height\" depending on which leg is taken as base — two defensible correct options. If instead \"height\" means the altitude to the hypotenuse, it equals (5*12)/13 = 60/13 ≈ 4.62 cm, which is NOT among the options. Option A) 13 is the hypotenuse (Pythagorean 5-12-13), not a height at all; 10 and 8 are pure distractors. No single well-defined correct answer."
+    },
+    {
+      "stem": "Which equation represents the hyperbola with asymptotes y = ±2x and vertices at (0, ±1)?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p048.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No option satisfies both constraints. Vertices (0,±1) require a²=1; asymptotes y=±2x require a/b=2, hence b²=1/4, giving the correct equation y²/1 − x²/(1/4) = 1 (y² − 4x² = 1), which is NOT among the choices. Option A matches vertices only (its asymptotes are y=±½x); Option C matches asymptotes only (its vertices are (0,±2)). Author likely confused the asymptote slope formula (a/b vs b/a). Zero correct answers — item is unusable as written."
+    },
+    {
+      "stem": "What is the point on the curve y = x³−6x²+9x+1 where the tangent is horizontal?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p048.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Two correct answers: y'=3x^2-12x+9=3(x-1)(x-3)=0 gives x=1 and x=3. Point (1,5)=option A and point (3,1)=option C both have horizontal tangents. The item has two valid keys, violating the single-correct requirement."
+    },
+    {
+      "stem": "What is the exact value of sin 165° cos 15° + cos 165° sin 15°?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p049.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Angle-addition identity: sin165°cos15°+cos165°sin15° = sin(165°+15°) = sin180° = 0. The correct value 0 is NOT among the five options, so there is no correct answer. Likely a sign transcription error — with a minus it would be sin(150°)=1/2 (option B). As written, unapprovable."
+    },
+    {
+      "stem": "What is the volume of a cone with base radius 3 cm and lateral surface area 18π cm²?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p049.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No correct option. From lateral area πrl=18π with r=3, slant l=6, height h=√(36−9)=3√3, so volume=(1/3)π·9·3√3=9√3π≈15.6π cm³. None of the options (50π–65π) matches; the intended answer key values are inconsistent with the given data (54π would require h=18)."
+    },
+    {
+      "stem": "A regular pentagon has a side length of 6 cm. What is the area of the triangle formed by two radii and one side?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p050.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No correct answer. For a regular pentagon (central angle 72°, side 6), the triangle formed by two radii and one side has area = ½·6·apothem = ½·6·(3/tan36°) ≈ 12.39 cm². This value involves √(5±2√5)-type radicals, never √3. All five options are multiples of √3, which only fit an EQUILATERAL triangle from a regular HEXAGON (central angle 60°), where 9√3 (option A) would be correct. The author confused pentagon with hexagon; none of A–E matches the true pentagon result."
+    },
+    {
+      "stem": "Which value is the height of a right triangular prism with base hypotenuse 10 cm and lateral edge 10 cm?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p050.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Unsolvable/nonsensical item. For a right prism the height equals the lateral edge = 10 cm, which is not among the options (5-9). The \"base hypotenuse 10 cm\" is irrelevant and provides no relationship that yields any offered value. No option is derivable or correct."
+    },
+    {
+      "stem": "A cylinder is inscribed in a sphere of radius 6 cm. What is the maximum height of the cylinder?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p050.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "D",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "What is the volume of a pyramid with a square base of side 8 cm and a slant height of 10 cm?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p051.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "sourceDefect": "No exactly-correct option. With slant height (face apothem) = 10 and half-base = 4, height = sqrt(100-16) = sqrt(84) ≈ 9.165, so V = (1/3)·64·sqrt(84) ≈ 195.5 cm³ — not listed. Nearest option C (192) only matches if height is wrongly rounded to 9. Option A (128) matches the classic error of using the full side (sqrt(100-64)=6) instead of half-side. Numbers 8 and 10 do not yield a clean integer volume, so the item is defective."
+    },
+    {
+      "stem": "Which value is the length of the altitude from vertex A to side BC in triangle ABC with sides 7 cm, 8 cm, and 9 cm?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p051.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No correct option: for a 7-8-9 triangle (Heron Area=12√5≈26.83), the altitude from A equals 2·Area/BC, giving 5.96 (BC=9), 6.71 (BC=8), or 7.67 (BC=7) — all above the max option (5.5). Options 3.5-5.5 contain no valid value. Secondary defect: BC is not numerically identified among 7/8/9, so even the intended altitude is under-specified/ambiguous."
+    },
+    {
+      "stem": "In a strange town, the sun shines only on Mondays, Wednesdays, and Fridays. You plan to stay for 10 days starting on a weekday to get the ma",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p053.png",
+      "reasons": [
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "If \"All rectangles are quadrilaterals and all squares are rectangles,\" then which of the following is true?",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p053.png",
+      "reasons": [
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "A bakery makes 4 types of pastries: chocolate, vanilla, strawberry, and lemon. Each day it chooses 2 types to prepare. Rules: If chocolate i",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p055.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "A",
+      "verify": "A",
+      "sourceDefect": "Two correct options. Both A ({choc,straw};{vanilla,straw}) and C ({straw,lemon};{vanilla,straw}) satisfy all three rules: no chocolate-next-day violation, vanilla always paired with strawberry, and exactly one repeat (strawberry) between days. B, D, E each violate rule 2 (vanilla without strawberry same day). Item has no unique answer."
+    },
+    {
+      "stem": "In a class, all students who play football also swim. Some students who swim also cycle. Which is necessarily true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p056.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Invalid syllogism: from \"All football players swim\" (F⊆S) and \"Some swimmers cycle\" (S∩C≠∅), NO option is necessarily true. Counter-models: (M1) a single student who plays football+swims+cycles satisfies both premises yet falsifies B (S\\C=∅) and C (C\\F=∅); (M2) students {football+swim} and {swim+cycle} falsify A (F⊄C). D and E are always false (D reverses P1; E contradicts P1). The likely intended key C fails because the swimmer-cyclists could all be football players and no non-football cyclist is guaranteed to exist. Item has no correct answer."
+    },
+    {
+      "stem": "Two workers can do a job in 5 hours together. One alone takes 8 hours. How long will the second one take working alone?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p056.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "",
+      "sourceDefect": "Correct answer is 1/(1/5 - 1/8) = 40/3 ≈ 13.33 hours, which is NOT among the options. B) 13 hours is a rounded approximation, not exact, so no option is genuinely correct. Question is unusable as written unless an exact 40/3 option is added or the numbers changed (e.g., together 4h + one 8h → second 8h)."
+    },
+    {
+      "stem": "If \"All engineers love math\" is false, which statement is true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p057.png",
+      "reasons": [
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "In a sequence where each term is the sum of the two preceding terms, starting with 1 and 3, what is the seventh term?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p057.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "E",
+      "solve": "E",
+      "verify": "E",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In a conference room with 10 chairs in a circle, if every second chair is removed starting from chair 1, which chair remains last?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p058.png",
+      "reasons": [
+        "low_confidence"
+      ],
+      "shown": "D",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "Four friends: Alice, Bob, Charlie, and Diana sit around a square table. Alice is not next to Bob. Bob sits opposite Charlie. Diana sits to t",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p059.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "",
+      "sourceDefect": "Constraint set is contradictory/unsatisfiable. At a 4-seat square table, \"Bob opposite Charlie\" forces Alice and Diana into the two side seats, each of which is adjacent to BOTH Bob and Charlie. Thus \"Alice is not next to Bob\" cannot be satisfied — the only non-adjacent pair (the diagonal) is already taken by Bob/Charlie. No valid arrangement exists, so no option is correctly derivable. Secondary defect: \"right/left of Charlie/Diana\" is ambiguous without specifying facing-center vs observer perspective."
+    },
+    {
+      "stem": "A person claims: \"If the Moon is flat, then Paris is not in France.\" Which of the following is equivalent?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p059.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "A",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "Anna, Bruno, Claudia, Davide, and Eva each make a statement. Only one of these statements is true: Anna: I have green eyes. Bruno: The squar",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p060.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "A",
+      "verify": "A",
+      "sourceDefect": "The framing clause \"Only one of these statements is true:\" contradicts the puzzle's derivable answer and is logically impossible. Objective evaluation: Bruno is TRUE (square of an odd number is odd). Davide is FALSE (2+2+4+8=16, not 31). Anna (\"green eyes\") and Eva (\"Anna's statement is false\") are mutual negations, so EXACTLY ONE of the two is always true. That already forces at least two true statements (Bruno + one of Anna/Eva), which makes Claudia's claim \"only one friend tells the truth\" FALSE. The only self-consistent count is exactly TWO true statements. Therefore the intro premise asserting \"only one is true\" cannot hold (it would make Claudia's identical claim also true → contradiction). A solver taking the stated premise at face value would wrongly pick C) One, while the correct derived answer is A) Two — this internal contradiction is a genuine defect and source of ambiguity."
+    },
+    {
+      "stem": "In a certain city, the sun shines only on Wednesdays, Fridays, and Sundays. You plan to vacation for 7 days. On which day should you arrive ",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p060.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Any 7 consecutive days span a full week and therefore always contain exactly one Wednesday, one Friday, and one Sunday = exactly 3 sunny days, no matter the arrival day. All five options yield the same result, so there is no uniquely correct answer. The question presupposes an optimal arrival day that does not exist; it is defective/unanswerable as a single-answer MCQ. (A valid version would ask for a shorter stay, e.g. 5 or 6 days, where the start day actually matters.)"
+    },
+    {
+      "stem": "You will stay for 10 days where it rains only on Mondays, Thursdays, and Fridays. To get the fewest rainy days, arrive on:",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p061.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Multiple correct answers: over any 10 consecutive days (=1 full week + 3 extra days), the count is 3 (one Mon/Thu/Fri each per full week) plus the number of rainy days among the FIRST 3 days of the stay (the doubled days). The rainy days are Mon, Thu, Fri; the longest run of consecutive non-rainy days is only 2 (Tue-Wed or Sat-Sun), so any 3-day window contains at least 1 rainy day. Minimum possible = 4 rainy days, and it is achieved by arriving Monday(A), Sunday(B), Tuesday(C), OR Saturday(E) — all give exactly 4. Only Wednesday(D) gives 5. Four of the five options tie for the minimum, so there is no unique correct answer."
+    },
+    {
+      "stem": "In a logic puzzle: four friends-Alex, Ben, Clara, and Diana-make statements: Alex: Ben always tells the truth. Ben: Diana is lying. Clara: O",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p062.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "C",
+      "verify": "E",
+      "sourceDefect": "Self-contradictory / paradoxical: no truth assignment satisfies all four statements. Modeling truth-teller⟺statement-true gives A⟺B, B⟺¬D, C⟺(exactly one true), D⟺¬C. This forces A=B=C and D=¬C, yielding either 3 truth-tellers (violates Clara's 'only one') or 1 truth-teller Diana (which makes Clara's statement true → a 2nd truth-teller). Testing each person as the sole truth-teller also fails (Ben-vs-Diana and Clara-self-reference clashes). The core flaw: Clara's statement 'Only one among us tells the truth' duplicates the external premise 'Only one statement is true,' creating a self-referential liar-paradox with no consistent solution. Intended answer (likely C or D) is provably impossible."
+    },
+    {
+      "stem": "In a triangle, point P lies on AB. For line PC to be parallel to BC, which condition must hold?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p062.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence",
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "",
+      "dupVs": "licensed",
+      "sourceDefect": "Geometrically impossible premise: P lies on AB and C is the opposite vertex, so lines PC and BC both pass through the shared point C and can never be parallel. The intended concept is the Basic Proportionality / Thales theorem, which requires a SECOND point (e.g. Q on AC) so that PQ is parallel to BC iff AP/PB = AQ/QC. As transcribed, the stem is nonsensical and option C ('ratio of AP to PB equals PC to AC') mixes incommensurable segments. No option is correct."
+    },
+    {
+      "stem": "If \"All poets are creative\" and \"Some writers are poets,\" what is necessarily true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p062.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "sourceDefect": "Two correct options. \"Some writers are creative\" (A) and \"Some creative people are writers\" (D) are logically equivalent (conversion of a particular affirmative: \"Some S are P\" iff \"Some P are S\"). Both are necessarily true from the premises, so the item lacks a unique answer."
+    },
+    {
+      "stem": "A person says: \"Either I am lying, or the sun rises in the west.\" What can be concluded?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p063.png",
+      "reasons": [
+        "verify_reject",
+        "ambiguity",
+        "source_defect",
+        "low_confidence"
+      ],
+      "shown": "E",
+      "solve": "E",
+      "verify": "E",
+      "sourceDefect": "Self-referential liar paradox: with B ('sun rises in west') false, the disjunction reduces to D ≡ ¬D, which has no consistent truth value. E ('cannot be determined') is the only non-contradicted option, but (a) it depends on reading 'I am lying' as referring to the current statement — a non-self-referential reading changes the answer, and (b) treating a paradox's resolution as 'cannot be determined' rests on an unstated metalogical convention. Interpretation-dependent/ambiguous for standardized production."
+    },
+    {
+      "stem": "Set M has a minimum value of 4, set N has a minimum value of 7. What must be true?",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p064.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "C",
+      "verify": "B",
+      "sourceDefect": "Two options are simultaneously and necessarily true, so there is no unique correct answer. B) \"All elements of N are greater than 4\": since min(N)=7, every element of N is >=7 > 4 — always true. C) \"At least one element of M is less than 7\": since min(M)=4, the element 4 is in M and 4 < 7 — always true. Both are guaranteed by the premises, making the item unusable as written. (A false: M may contain values above N's; D false: max of M could exceed 7; E false: sets need not intersect.)"
+    },
+    {
+      "stem": "In a class, all students who play football also swim. Some students who swim also cycle. Which is necessarily true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p064.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No option is necessarily true. Premises: Football⊆Swim; at least one swimmer cycles. The presumed key C (\"some cyclists do not play football\") fails in the model where every student plays football, swims, and cycles (valid under both premises). A/B also fail (all-swimmers-cycle model breaks B; non-cycling footballer breaks A). E contradicts the first premise. Under a 'some=not all' implicature reading B would hold instead of C, so the item is reading-dependent and has no single defensible answer."
+    },
+    {
+      "stem": "Set X has a minimum value of 3, set Y has a minimum value of 5. What must be true?",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p065.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "low_confidence",
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed",
+      "sourceDefect": "Two options are must-be-true, so there is no unique answer. B (\"at least one element of X is less than 5\"): the minimum of X is 3, which is an element of X and 3 < 5, so B is necessarily true. C (\"all elements of Y are greater than 3\"): the minimum of Y is 5, so every element of Y is >= 5 > 3, so C is necessarily true. Both B and C are guaranteed correct, violating the single-correct-answer requirement."
+    },
+    {
+      "stem": "If \"All poets are creative\" and \"Some writers are poets,\" what is necessarily true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p066.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "sourceDefect": "Two options are simultaneously correct. From the premises, the writers who are poets are creative, so \"Some writers are creative\" (A) holds. But particular affirmative statements are convertible: \"Some writers are creative\" is logically equivalent to \"Some creative people are writers\" (D). Both A and D are necessarily true, so there is no unique correct answer. B (all writers creative) and C (all creative are poets) are invalid; E is false. The item must be fixed by removing/altering option D (or A)."
+    },
+    {
+      "stem": "A person says: \"Either I am lying, or the sun rises in the west.\" What can be concluded?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p067.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "E",
+      "solve": "C",
+      "verify": "E",
+      "sourceDefect": "Self-referential liar/Curry-type paradox. Writing S = (\"I am lying\" ∨ \"sun rises in west\") with the second disjunct false gives S ≡ ¬S, which has no consistent truth value. Naive liar analysis → E (undeterminable); a Curry-style derivation (\"S can't be consistently false, so S is true, so the remaining disjunct must hold\") → C (sun rises in west). Two defensible answers, so not exactly one correct option. Also the referent of \"I am lying\" (this very statement vs. lying in general) is ambiguous."
+    },
+    {
+      "stem": "A code has: \"apple and sweet\" = \"go pa ti,\" \"the apple and red\" = \"la go pa si,\" \"the sugar and sweet\" = \"la lu pa ti.\" What does \"and\" corr",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p067.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "At 3:15, what is the angle between the hour and minute hands of a clock?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p067.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Six books labeled A, B, C, D, E, F are arranged on a shelf. B cannot be next to C, and A must be to the left of D. How many arrangements are",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p067.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In a class, all students who play football also swim. Some students who swim also cycle. Which is necessarily true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p068.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No option is necessarily true, so the item has zero valid answers. Premises: F->S (all footballers swim) and S∩C≠∅ (some swimmers cycle). The only valid conclusion is \"some cyclists swim,\" which is not offered. Every option fails: A refuted by F={a},S={a,b},C={b}; B refuted when all swimmers cycle; C refuted when F=S=C=all (every cyclist plays football); D is an illicit converse; E contradicts premise 1. B is only defensible via 'some implies not all' implicature (non-strict), which itself creates ambiguity with the intended-but-invalid C. Item is defective."
+    },
+    {
+      "stem": "In a town, it snows only on Tuesdays, Thursdays, and Saturdays. You plan to stay for 8 days to experience the maximum number of snowy days. ",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p068.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "",
+      "sourceDefect": "Two options are simultaneously correct. Any 8 consecutive days cover all 7 weekdays once plus the arrival weekday twice, giving 3 snow days baseline +1 iff arrival is a snow day. Both Tuesday (B) and Thursday (D) are snow days and each yield 4 snowy days (the maximum). The question demands one answer but has no unique solution."
+    },
+    {
+      "stem": "The statement \"All birds can fly\" is false. What must logically follow?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p069.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In triangle XYZ, point W lies on YZ. For line XW to be the angle bisector of angle X, which condition must hold?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p070.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "A restaurant offers 3 types of dishes: pasta, pizza, and salad. Each day, it prepares 2 types. Rules: If pasta is made, pizza is not made th",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p070.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "B",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "Four people, A, B, C, and D, make statements: A: \"D is lying.\" B: \"A and C are telling the truth.\" C: \"B is lying.\" D: \"A is lying.\" If exac",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p071.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "D",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "If the statement \"All dogs are loyal\" is false, what must logically follow?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p071.png",
+      "reasons": [
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "In a school, all students who play basketball also play tennis. Some students who play tennis also play soccer. Which statement is necessari",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p071.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No option is necessarily true, so the item has no valid correct answer. Premises: B⊆T (all basketball->tennis) and ∃(T∧S) (some tennis->soccer). A (B⊆S) not forced; B (some tennis not soccer) not forced since 'some' permits 'all'; C (some soccer not basketball) not forced — a model where the sole soccer player also plays tennis+basketball satisfies both premises, so all soccer players could be basketball players; D is an invalid converse; E contradicts premise 1. Likely intended answer C is logically invalid."
+    },
+    {
+      "stem": "In a sequence where each term is the product of the two preceding terms, starting with 2 and 3, what is the fifth term?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p072.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "D",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In a sequence where each term is the product of the two preceding terms, starting with 1 and 4, what is the fifth term?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p073.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "A safe code is a sequence of three digits (0-9). If no digit can be repeated, how many codes are possible?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p073.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In a circular arrangement of 10 chairs, every third chair is removed starting from chair 1. Which chair remains last?",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p073.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No correct option exists. Standard Josephus (k=3, count starting at chair 1) gives survivor = chair 4; the alternate reading (chair 1 removed first) gives chair 2. Neither is offered. Options D (Chair 11) and E (Chair 12) reference chairs that do not exist in a 10-chair circle. Options 3/6/9 are the first chairs ELIMINATED, not survivors. Phrasing is also ambiguous about whether chair 1 is removed first or is only the count origin."
+    },
+    {
+      "stem": "Four friends, P, Q, R, and S, sit around a square table. P is not next to Q. Q sits opposite R. S sits to the right of R. Who is sitting to ",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p074.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "D",
+      "sourceDefect": "Contradictory constraint set: on a 4-seat square table, \"Q sits opposite R\" forces P and S to be Q's two neighbors, so P is NECESSARILY adjacent to Q. The clause \"P is not next to Q\" is therefore logically unsatisfiable — no valid arrangement exists. Additionally, \"right of R\" / \"left of S\" is orientation-ambiguous (facing center vs. facing outward), which alone would flip the answer between R and P."
+    },
+    {
+      "stem": "A bag contains 7 white, 5 black, and 3 red balls. What is the minimum number of balls to draw blindly to ensure at least one of each color?",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p074.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Five people, E, F, G, H, and I, make statements. Only one statement is true: E: I have blue eyes. F: The square of an even number is even. G",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p075.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "A",
+      "solve": "B",
+      "verify": "B",
+      "sourceDefect": "Stem prepends \"Only one statement is true:\" as an apparent premise, which contradicts the actual solution and is itself logically impossible. Solving the statements at face value: F is objectively true, H objectively false; G cannot be true (would create 2 true) so G is false; I is the negation of E so exactly one of {E,I} is true — giving 2 true statements total. Thus the determinable answer is Two (B), but the \"only one is true\" framing pushes a solver toward One (A). Moreover the premise is unsatisfiable: if only F were true, I would be false, forcing E true (contradiction). The premise also duplicates G's statement, indicating a transcription error."
+    },
+    {
+      "stem": "In a city, it hails only on Mondays, Wednesdays, and Fridays. You plan to stay for 7 days. On which day should you arrive to get the most ha",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p075.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "A 7-day stay spans exactly one full week, so every day of the week (including Mon/Wed/Fri) occurs exactly once regardless of arrival day. All five options therefore give the same 3 hail days — there is no unique maximizing answer. The intended insight ('it doesn't matter') is not an option, making the item unanswerable as a single-correct MCQ. Would only work if the stay were <7 days."
+    },
+    {
+      "stem": "Two coplanar segments PQ and RS intersect at point T. For PR and QS to be parallel, which condition is necessary and sufficient?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p076.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "D",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "You will stay for 9 days in a place where it storms only on Tuesdays, Thursdays, and Sundays. To get the fewest stormy days, arrive on:",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p076.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "A",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "In a puzzle, four friends, W, X, Y, and Z, make statements: W: X always tells the truth. X: Z is lying. Y: Only one of us tells the truth. Z",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p077.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "C",
+      "verify": "",
+      "sourceDefect": "The puzzle is paradoxical/over-constrained: no truth-value assignment satisfies all four self-referential statements. Formalizing (w=x, x=NOT z, z=NOT y, y=(exactly one true)) forces w=x=y with z=NOT y, which yields either 3 truths (needs y=false, but y=true) or 1 truth (needs y=true, but y=false) — both contradictions. Testing each option under 'only one is true' also fails for all of A,B,C,D, and 'None' (E) contradicts the given premise that one statement is true (X false would force Z truthful). No single correct answer exists."
+    },
+    {
+      "stem": "In triangle ABC, point D lies on BC. For line AD to be parallel to AB, which condition must hold?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p077.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "dupVs": "licensed",
+      "sourceDefect": "The premise is geometrically impossible: lines AD and AB both pass through vertex A, and since D lies on BC (so D is not B), AD and AB are two distinct lines sharing point A — they can NEVER be parallel. No condition on D can make AD parallel to AB, so none of the five options can be correct. The question is a garbled/broken transcription (likely intended a different construction, e.g., a line through D parallel to AB, or DE parallel to AB with E on AC giving BD/DC = AE/EC). As written it has zero correct answers."
+    },
+    {
+      "stem": "If \"All musicians are passionate\" and \"Some teachers are musicians,\" what is necessarily true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p077.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree"
+      ],
+      "shown": "A",
+      "solve": "",
+      "verify": "A",
+      "sourceDefect": "Two correct options. Option A (\"Some teachers are passionate\") and Option D (\"Some passionate people are teachers\") are logical converses of a particular affirmative proposition (Some S are P <=> Some P are S), so both are necessarily true from the premises. The item therefore has no unique key. To fix, remove/alter D (e.g., replace with a genuinely non-equivalent distractor)."
+    },
+    {
+      "stem": "A person states: \"Either I am lying, or the Earth is flat.\" What can be concluded?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p078.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "E",
+      "solve": "C",
+      "verify": "B",
+      "sourceDefect": "Curry's-paradox / multiple-correct defect. Interpreting \"I am lying\" as \"this statement is false,\" the disjunction D=(¬D ∨ F) has a unique consistent classical assignment: D true and F true. This forces BOTH B (\"person telling the truth\") AND C (\"Earth is flat\") as valid conclusions, so there is no single correct option. Worse, the forced conclusion C (\"Earth is flat\") contradicts real-world fact, giving option D (\"Earth is not flat\") a competing claim. The self-reference makes the item a paradox unsuitable for a standardized answer key. E (\"cannot be determined\") is also arguably defensible if one rejects the self-referential resolution. Not fixable without rewriting the stem."
+    },
+    {
+      "stem": "At 2:30, what is the angle between the hour and minute hands of a clock?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p078.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "E",
+      "solve": "E",
+      "verify": "E",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Five books labeled P, Q, R, S, and T are arranged on a shelf. If P must be to the left of S, how many valid arrangements are possible?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p079.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Set A has a minimum value of 6, set B has a minimum value of 9. What must be true?",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p079.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "C",
+      "verify": "B",
+      "sourceDefect": "Two options are provably must-be-true, making the question have no single correct answer. B (\"All elements of B are greater than 6\"): min(B)=9, so every element of B >=9 >6, TRUE. C (\"At least one element of A is less than 9\"): the minimum 6 is itself an element of A and 6<9, so at least one element of A is less than 9, TRUE. Both B and C are logically forced by the premises."
+    },
+    {
+      "stem": "In a school, all students who play chess also play debate. Some students who play debate also play music. Which is necessarily true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p079.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No option is necessarily true. From \"all chess ⊆ debate\" and \"some debate ∩ music\" nothing valid follows linking chess and music. Counter-models kill every option: A fails (chess={1},debate={1,2},music={2}); B fails (\"some are\" does not entail \"some are not\"; debate=music={1}); C fails (chess=debate=music={1}, so all music players play chess); D reverses premise 1; E contradicts premise 1. The intended key is presumably C via the invalid inference that chess cannot cover all music players, but the music players may all lie within chess. Question has no valid answer."
+    },
+    {
+      "stem": "Set P has a minimum value of 2, set Q has a minimum value of 5. What must be true?",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p080.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "sourceDefect": "Two options are unconditionally correct. B: min(P)=2 is an element of P and 2<5, so \"at least one element of P is less than 5\" is always true. C: min(Q)=5 means every element of Q is >=5>2, so \"all elements of Q are greater than 2\" is always true. A single-correct MCQ cannot have both, so the item must be rejected."
+    },
+    {
+      "stem": "A safe requires a 5-digit code with distinct digits (0-9). How many codes are possible?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p080.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "How many ways can 12 distinct items be arranged in a 4 × 3 grid?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p080.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "If \"All scientists are curious\" and \"Some engineers are scientists,\" what is necessarily true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p081.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "sourceDefect": "Two options are necessarily true, not one. From \"Some engineers are scientists\" + \"All scientists are curious,\" the engineers-who-are-scientists are curious, so (A) \"Some engineers are curious\" holds. But a particular affirmative converts: \"Some engineers are curious\" is logically equivalent to (D) \"Some curious people are engineers,\" which is therefore ALSO necessarily true. So both A and D are correct, breaking the single-correct-answer requirement."
+    },
+    {
+      "stem": "A person states: \"Either I am lying, or the moon is made of cheese.\" What can be concluded?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p082.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "E",
+      "solve": "C",
+      "verify": "E",
+      "sourceDefect": "Self-referential liar/Curry paradox with no unique determinate answer. Treating \"I am lying\" as \"this statement is false\" with the empirically false \"moon is cheese\" disjunct collapses the sentence to the pure liar paradox (S ↔ ¬S), giving no consistent truth value → E. But under the formal Curry reading, the only consistent valuation is S=true AND Q=true, which entails BOTH B (telling the truth) and C (moon is cheese) simultaneously — two options co-correct and no single key. \"I am lying\" is also under-specified (this utterance vs. general disposition). Not exam-appropriate."
+    },
+    {
+      "stem": "A code translates: \"dog and happy\" = \"fu ra ti,\" \"the dog and big\" = \"la fu ra se,\" \"the cat and happy\" = \"la mi ra ti.\" What does \"and\" cor",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p082.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "At 7:30, what is the angle between the hour and minute hands of a clock?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p082.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Five books labeled U, V, W, X, Y are arranged on a shelf. If U must be to the left of X, how many arrangements are possible?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p082.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In a school, all students who play volleyball also play badminton. Some students who play badminton also play cricket. Which is necessarily ",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p083.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "No option is necessarily true. Premises are 'All V are B' (V subset of B) and 'Some B are C'. The middle term B is never distributed, so nothing valid follows linking V and C (undistributed-middle fallacy). Counter-models kill every option: (A) cricket-playing badminton players need not be volleyball players; (B) all badminton players could play cricket; (C) with V=B=C everyone plays all three, so every cricket player also plays volleyball; (D) illicit converse of P1; (E) contradicts P1. Setter likely intended C, but C is only a 'might', not a 'must'."
+    },
+    {
+      "stem": "A shop sells 5 types of fruits: apple, banana, orange, mango, and grape. Each day, it offers 2 types. Rules: If apple is offered, banana can",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p083.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "D",
+      "verify": "D",
+      "sourceDefect": "Two options fully satisfy all rules. D (apple,banana / orange,mango): apple→no banana next day OK, orange→mango OK, 0 repeats OK. C (orange,mango / banana,grape): orange→mango OK, no apple so R2 moot, 0 repeats OK. Both valid → not a single correct answer. A, B, E each violate the orange→mango rule."
+    },
+    {
+      "stem": "Four friends sit around a circular table. Amy is not next to Ben. Ben is to the left of Claire. Dave is opposite Claire. Who is to the right",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p084.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "C",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "A person says: ”Either I am telling the truth, or the sky is green.” What can be concluded?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p085.png",
+      "reasons": [
+        "verify_reject",
+        "ambiguity",
+        "source_defect",
+        "low_confidence"
+      ],
+      "shown": "E",
+      "solve": "E",
+      "verify": "E",
+      "sourceDefect": "Self-referential (\"I am telling the truth\") disjunction. Formalizing: S ≡ (S is true) ∨ Q, where Q = \"sky is green\". This has TWO consistent models: (a) S true, with Q unconstrained; (b) S false, which forces Q false (sky not green). Given the real sky is not green, BOTH remain consistent — so the statement's truth value is genuinely underdetermined. The likely author-intended answer (B, \"telling the truth\") is therefore WRONG, since lying is also consistent. E (\"cannot be determined\") is the only logically correct option, but the item is a dispute-prone self-reference trap."
+    },
+    {
+      "stem": "Two workers can finish a task in 6 hours together. One takes 10 hours alone. How long will the second take alone?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p085.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In a tournament, each player plays every other player once. If there are 21 matches, how many players are there?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p086.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In triangle PQR, point S lies on QR. For line PS to be the angle bisector of angle P, which condition must hold?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p086.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "At 4:45, what is the angle between the hour and minute hands of a clock?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p087.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Five items A, B, C, D, E are arranged in a line. B cannot be next to C, and A must be to the left of E. How many arrangements are possible?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p087.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Set X has a minimum value of 5, set Y has a minimum value of 8. What must be true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p088.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "low_confidence"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "sourceDefect": "Two options are necessarily true, so there is no single correct answer. Since a \"minimum value of 5\" means 5 is an attained element of X, option C (\"Some X < 8\") is always true (5 < 8), while option B (\"All Y > 5\") is also always true (all Y >= 8 > 5). Dual-correct defect; question not usable as written."
+    },
+    {
+      "stem": "In a class, all students who play hockey also skate. Some who skate also ski. Which is true?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p088.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "source_answer_conflict",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "B",
+      "verify": "C",
+      "sourceDefect": "No logically valid answer. Premises: hockey⊆skate; skate∩ski≠∅. Under \"which MUST be true,\" none of A-D is a necessary consequence (each is contingent), and only E is forced FALSE (it contradicts P1). Under \"which COULD be true,\" A, B, C, and D are all simultaneously satisfiable -> multiple correct. Either reading makes the item defective: no unique correct key. Likely-intended key C (\"some skiers don't play hockey\") is not derivable — counterexample: a single individual who plays hockey, skates, and skis satisfies both premises yet makes C false."
+    },
+    {
+      "stem": "A 2 kg mass collides elastically with a 4 kg mass at rest. The 2 kg mass moves at 6 m/s before collision. What is the velocity of the 4 kg m",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p156.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "C",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "A 5 kg object is dropped from 8 m. What is its speed just before hitting the ground? (Take g = 9.8 m/s², ignore air resistance)",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p157.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "A 5 μC charge is placed 2 m from a 10 μC charge. What is the force between them? (k = 9 × 10⁹ N·m²/C²)",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p159.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "source_defect",
+        "solve_verify_disagree"
+      ],
+      "shown": "B",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "Coulomb's law F = k·q1·q2/r² = (9e9 · 5e-6 · 10e-6)/(2²) = 0.45/4 = 0.1125 N. The correct value 0.1125 N is NOT among the options. All options (0.01125–0.05625) are exactly 1/10 of plausible values; option A (0.01125 N) is 10× too small vs the true answer. No option is correct, so there is no valid answer key."
+    },
+    {
+      "stem": "What is the unit of pressure in the SI system?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p159.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "A submarine is submerged at a depth of 50 m in seawater (density = 1025 kg/m³, g = 9.8 m/s²). What is the pressure due to the water?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p161.png",
+      "reasons": [
+        "verify_reject",
+        "source_defect"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "sourceDefect": "Numerical precision error in the correct option. P = rho*g*h = 1025 * 9.8 * 50 = 502250 Pa exactly, but option B is listed as 502500 Pa (off by 250 Pa). The discrepancy arises from rounding the intermediate product rho*g (10045) up to 10050 before multiplying by depth. Fix: change option B to 502250 Pa (or restate as approximate). B remains the unambiguous intended answer since distractors are spaced 100000 Pa apart."
+    },
+    {
+      "stem": "A straight wire carries a current of 5 A. At a point 0.1 m from the wire, what is the magnetic field? (μ₀ = 4π × 10⁻⁷ T·m/A)",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p166.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "B",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "What does Faraday's law describe?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p167.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "550. Light travels from glass (n = 1.5) to air (n = 1) at an angle of incidence of 30°. What is the angle of refraction?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p169.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "557. A concave mirror has a focal length of 15 cm. An object is placed 10 cm in front of it. What is the image distance?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p171.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "A",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "562. Which phenomenon proves light has wave nature?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p172.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "other_correct",
+        "low_confidence"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "sourceDefect": "Multiple correct answers: both C) Diffraction and D) Polarization demonstrate the wave nature of light (diffraction = wave interference/bending; polarization = transverse-wave property). The question has no single unambiguous answer as written, so it must be rejected. Reflection (A) is exhibited by particles too (not a proof); photoelectric effect (B) proves particle nature."
+    },
+    {
+      "stem": "A 5 kg object doubles its speed from 2 m/s to 4 m/s. What is the change in its kinetic energy?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p174.png",
+      "reasons": [
+        "source_answer_conflict"
+      ],
+      "shown": "C",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Which electromagnetic wave is used in medical imaging?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p176.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "sourceDefect": "Two defensible correct answers: X-rays (C) for radiography/CT is the intended textbook answer, but radio waves (D) are genuinely used in MRI, a major medical imaging modality. The stem is too underspecified (\"medical imaging\") to uniquely single out one option, creating an also-correct ambiguity. To fix, narrow the stem (e.g., \"used in radiography/bone imaging\") or remove the radio-waves distractor."
+    },
+    {
+      "stem": "A concave lens has a focal length of 15 cm. An object is placed 30 cm from the lens. What is the image distance?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p177.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "A set contains 7 yellow items, 8 green ones, and 10 blue ones. What is the probability of picking a yellow or blue item?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p179.png",
+      "reasons": [
+        "verify_reject",
+        "source_defect"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E",
+      "sourceDefect": "Options B and D are literally identical [\"(1/7) + (1/10)\"], a duplicate-distractor authoring defect. A valid MCQ requires four distinct options. The math itself is unambiguous: total = 7+8+10 = 25, P(yellow or blue) = (7+10)/25 = 17/25, so E is the sole correct answer. A is a plausible trap (wrong denominator 24). The duplicate options prevent approval despite the answer being clear."
+    },
+    {
+      "stem": "Claudia buys 3 boxes of 15 pens each. She gives 10 to her friends, uses 5 herself, and spares 6 for her sister. How many pens are left?",
+      "section": "reasoning",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p182.png",
+      "reasons": [
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "If log x = 3, what is the value of x?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p191.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Solve for x: x² − 5x + 6 = 0.",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p191.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "What is the limit of f(x) = 1/x as x → ∞?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p191.png",
+      "reasons": [
+        "verify_reject",
+        "source_defect"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A",
+      "sourceDefect": "Out-of-syllabus: this is a limits/calculus item. TIL-I explicitly excludes calculus, and CEnT-S (Math/Reasoning/Biology/Chemistry/Physics) does not cover limits/calculus. The question itself is otherwise valid and correctly answerable."
+    },
+    {
+      "stem": "Evaluate ∫₀¹ x²dx:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p192.png",
+      "reasons": [
+        "verify_reject",
+        "source_defect"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A",
+      "sourceDefect": "No transcription/logic defect; question is complete and has a unique correct answer (A = 1/3). However it is a definite-integral (calculus) item."
+    },
+    {
+      "stem": "What is the derivative of f(x) = eˣ?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p192.png",
+      "reasons": [
+        "verify_reject"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Evaluate the limit lim_{x→0} sin x/x:",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p192.png",
+      "reasons": [
+        "verify_reject"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "What is the integral of f(x) = x?",
+      "section": "mathematics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p193.png",
+      "reasons": [
+        "verify_reject"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "What is 25% of 200?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p196.png",
+      "reasons": [
+        "verify_reject"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "B"
+    },
+    {
+      "stem": "If 2x + 3 = 11, what is x?",
+      "section": "logic",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p196.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Which physical quantity remains constant for a body undergoing simple harmonic motion (SHM) at the equilibrium position?",
+      "section": "physics",
+      "sourceFile": "CEnT_S_Exam_Book (EuCrack, authorized)",
+      "sourcePage": "p201.png",
+      "reasons": [
+        "verify_reject",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "D",
+      "verify": "",
+      "sourceDefect": "The stem conflates \"quantity that remains constant during SHM\" (which is total mechanical energy — NOT among the options) with \"value at the equilibrium position.\" None of the four options remains constant during SHM: displacement, acceleration, PE, and KE all vary. At the equilibrium instant, three options (displacement, acceleration, potential energy) simultaneously equal zero, and KE is maximum — so there is no single correct answer under either reading. The question is logically inconsistent and unanswerable as written."
+    },
+    {
+      "stem": "The following expression\n\n( 3^20 + 3^20 + 3^20 )^(1/3) / (3^3)^2\n\nis equal to:",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-I Sample Test (authorized)",
+      "sourcePage": "p014.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "official"
+    },
+    {
+      "stem": "Martha, a bookkeeper, has 195 euros and no coins. A client of the bookshop asks if she can break a 10, a 20, a 50, or a 100 euros banknote, ",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-I Sample Test (authorized)",
+      "sourcePage": "p020.png",
+      "reasons": [
+        "no_source_answer_low_conf"
+      ],
+      "shown": "",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "The great mathematician Countalot discovered the Incredible numbers; he does not know yet if they are finite or infinite, but he made the fo",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-I Sample Test (authorized)",
+      "sourcePage": "p022.png",
+      "reasons": [
+        "no_source_answer_low_conf"
+      ],
+      "shown": "",
+      "solve": "D",
+      "verify": "D"
+    },
+    {
+      "stem": "A pipe with constant cross–sectional area S is bent into a U–shape. One side of the pipe is open whereas the other one is closed by a cap T ",
+      "section": "physics",
+      "sourceFile": "CISIA TOLC-I Sample Test (authorized)",
+      "sourcePage": "p029.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "source_defect",
+        "figure_inconsistent",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E",
+      "sourceDefect": "Required figure (p029.png) is absent, so geometry/orientation of cap T cannot be visually verified — question is incomplete for production. Minor transcription artifact: Italian conjunction 'ed' left in the English stem ('heights H ed h'). Note only E and C carry a factor of S (units of force); E is correct by both units and magnitude."
+    },
+    {
+      "stem": "The author of the passage is primarily concerned with:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-I Sample Test (authorized)",
+      "sourcePage": "p046.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "",
+      "sourceDefect": "Missing passage: this is a \"primary purpose / main idea\" reading-comprehension question that depends entirely on an accompanying passage, but no passage text is present in the extraction. Without the passage the question cannot be answered and no correct option can be independently determined. The distractors (B \"appeal ... and some concerns\" vs C \"arguing for adoption\" vs A \"research underlying uses\") are the classic main-purpose spread that is only resolvable against the actual text."
+    },
+    {
+      "stem": "According to paragraph [2], which of the following statements is true?",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-I Sample Test (authorized)",
+      "sourcePage": "p047.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "source_defect",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E",
+      "sourceDefect": "Passage-dependent Reading question references 'paragraph [2]' of the TOLC-I 'Coconut oil' text (Text II, source: Esempio_di_prova_English_TOLC-I), but the extracted item includes only the stem and options — the passage is NOT bundled. The question is unanswerable standalone. Answer key/options themselves are correct (E is the single right answer); the defect is missing passage association, not the item's logic."
+    },
+    {
+      "stem": "Paragraph [3] states that:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-I Sample Test (authorized)",
+      "sourcePage": "p048.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "",
+      "sourceDefect": "Incomplete item: stem references \"Paragraph [3]\" of a reading passage, but no passage text is provided in the extraction. Cannot independently determine the correct answer without the source passage, so single-correct cannot be verified."
+    },
+    {
+      "stem": "In conclusion, the author indicates that:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-I Sample Test (authorized)",
+      "sourcePage": "p048.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "source_defect",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "D",
+      "verify": "D",
+      "sourceDefect": "Reading-comprehension question requires its source passage to determine the author's concluding point, but no passage is included in the extraction. Without the passage the correct option cannot be identified or verified; the four/five options are plausible-sounding distractors that only resolve against the text."
+    },
+    {
+      "stem": "According to the traffic rules in Driveland, all car drivers must have a high–visibility jacket and a warning triangle on board. Unfortunate",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test (authorized)",
+      "sourcePage": "p009.png",
+      "reasons": [
+        "no_source_answer_low_conf"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Under the current legislation, a formal warning must be sent to all Cities that are in budget deficit and increased staff costs by more than",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test (authorized)",
+      "sourcePage": "p011.png",
+      "reasons": [
+        "no_source_answer_low_conf"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "The author of the passage is primarily concerned with:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test (authorized)",
+      "sourcePage": "p027.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "B",
+      "sourceDefect": "Passage missing. This is a main-idea reading-comprehension item whose stem (\"The author of the passage is primarily concerned with\") explicitly references a passage that is not included in the extracted content. Without the passage text, the correct answer cannot be independently and definitively determined — the question is INCOMPLETE. Answer B is a plausible guess based on the balanced \"appeal...and some concerns\" phrasing typical of correct main-idea keys, but it is unverifiable."
+    },
+    {
+      "stem": "In paragraph [2], the expression paving the way means:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test (authorized)",
+      "sourcePage": "p027.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "source_defect",
+        "no_source_answer_low_conf",
+        "low_confidence",
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed",
+      "sourceDefect": "Question references \"paragraph [2]\" of a reading passage, but no passage/text is provided with the extracted question. Without the source passage the reader cannot verify the contextual meaning of \"paving the way.\" The idiom \"paving the way\" generically means \"making it easier / preparing the ground for something,\" which maps to option C, but this cannot be confirmed against the actual paragraph. Incomplete: missing required passage."
+    },
+    {
+      "stem": "According to paragraph [2], which of the following statements is true?",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test (authorized)",
+      "sourcePage": "p028.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "source_defect",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E",
+      "sourceDefect": "The reading passage referenced by the stem (\"According to paragraph [2]\") is NOT included in the extracted content. The question is INCOMPLETE: a reading-comprehension item cannot be verified or answered without its source passage. E is only inferable from option plausibility (coconut oil becoming hard to acquire during WWII, replaced by soybean oil), not from the actual text."
+    },
+    {
+      "stem": "The equation (x² + 2x + 1)(x − 1) / (x + 1) = 0 has solution(s):",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test (authorized)",
+      "sourcePage": "p031.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "The expression 3^(x+y) + 3^(x−y) is equal to:",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test (authorized)",
+      "sourcePage": "p039.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "official"
+    },
+    {
+      "stem": "In Mathland lived a mathematician, Tony, who studied natural numbers for years. The natural numbers in Mathland have the same properties as ",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p004.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "We know that some students showed up for today's test in school, but also that not all students of the school were present. Therefore we can",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p005.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Consider the following statements:\n• All mathematicians are absent–minded\n• Lewis likes to swim\n• All people who like to swim are absent–min",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p006.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "In order to comply with the building codes of a certain city, a private house is not deemed habitable if it does not fulfill the required st",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p007.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "The sum of the ages (taken as integer numbers) of ten people of age (i.e. 18 or older) is equal to 380 years.\nTherefore we can deduce that:",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p008.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "According to the traffic rules in Driveland, all car drivers must have a high–visibility jacket and a warning triangle on board. Unfortunate",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p009.png",
+      "reasons": [
+        "no_source_answer_low_conf"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "Sebastian, a very thorough person, has a drawer for scarfs and another one for caps. In the scarfs drawer there are 5 red scarfs, 5 white on",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p010.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Under the current legislation, a formal warning must be sent to all Cities that are in budget deficit and increased staff costs by more than",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p011.png",
+      "reasons": [
+        "no_source_answer_low_conf"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A"
+    },
+    {
+      "stem": "We want to balance a two–arms scale by using some spheres with the same size but different weight depending on their color (white, red, or g",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p012.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "A third of the members of the Administrative Board of a company voted in favor of the restructuring plan; three quarters of the members of t",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p013.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "For each question in a test there are five possible answers; only one answer is correct and all the others are wrong. Therefore:",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p014.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "We know that the majority of those who have been contacted answered the survey; we also know that everyone who answered said they support th",
+      "section": "logic",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p015.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "The primary purpose of the passage is to:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p020.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "",
+      "verify": "",
+      "sourceDefect": "The stem asks for \"the primary purpose of the passage\" but no passage is included in the extracted content. A reading-comprehension purpose question is unanswerable without its source passage; the passage text is missing, making the item incomplete."
+    },
+    {
+      "stem": "In paragraph [2], the author states that:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p021.png",
+      "reasons": [
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C"
+    },
+    {
+      "stem": "According to paragraph [3], due to an increase in self-publishing:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p022.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "ambiguity",
+        "source_defect",
+        "solve_verify_disagree",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "",
+      "sourceDefect": "Question is a passage-dependent reading comprehension item that explicitly references \"paragraph [3]\", but NO reading passage is included in the extraction. Without the source text, the question cannot be answered and no correct option can be independently verified. The answer is likely A (\"the publisher's role is changing\") based on typical self-publishing discourse, but this is a guess, not verifiable from provided material. The item is INCOMPLETE."
+    },
+    {
+      "stem": "The author states in paragraph [4] that, today, publishers:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p022.png",
+      "reasons": [
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E"
+    },
+    {
+      "stem": "In the final paragraph ([5]), the author states that Croatia:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p023.png",
+      "reasons": [
+        "solve_verify_disagree",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "D"
+    },
+    {
+      "stem": "The author of the passage is primarily concerned with:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p027.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "source_defect",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "B",
+      "sourceDefect": "COPYRIGHT: verbatim reproduction of the official CISIA TOLC-I Sample Test (TEXT II 'Coconut oil', item 46; source da Silva Lima & Block, Food Quality and Safety 2019). Already sits in content/til_i/rejected/til_i_licensed_rejected.json — licensed content, cannot ship per original-authoring-only policy. INCOMPLETE: the required reading passage is not included in the extracted stem/options, so a main-idea question is unanswerable as extracted."
+    },
+    {
+      "stem": "In paragraph [2], the expression paving the way means:",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p027.png",
+      "reasons": [
+        "no_source_answer_low_conf",
+        "low_confidence",
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "According to paragraph [2], which of the following statements is true?",
+      "section": "reading",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p028.png",
+      "reasons": [
+        "verify_reject",
+        "incomplete_source",
+        "not_single_correct",
+        "source_defect",
+        "no_source_answer_low_conf",
+        "low_confidence"
+      ],
+      "shown": "",
+      "solve": "E",
+      "verify": "E",
+      "sourceDefect": "Incomplete: the question requires a reading passage (\"According to paragraph [2]\") that is not provided in the extraction. Without the source passage, the item is unanswerable and the correct option cannot be verified. Answer E is only a plausibility-based guess consistent with the typical WWII coconut-oil-shortage narrative; it cannot be confirmed as the single correct answer."
+    },
+    {
+      "stem": "Karl has completed 75% of his sticker album. Julia gives him the 10 missing stickers. How many stickers does the album contain in total?",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p030.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "The equation ((x² + 2x + 1)(x − 1)) / (x + 1) = 0 has solution(s):",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p031.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "If f(x) = |5 − 3x|, then f(2) is equal to:",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p031.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Let P(x) and Q(x) be two expressions defined for every real number x, such that P(x) ≥ 0 if and only if x ≥ 2, and Q(x) ≥ 0 if and only if x",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p032.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "If y = (ax − b) / (a − bx), then x is equal to:",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p033.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "",
+      "solve": "A",
+      "verify": "A",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Let y = x² + 4x + c be the equation of a parabola. If we know that this parabola crosses the x−axis only at one point, what is the value of ",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p034.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "E",
+      "solve": "E",
+      "verify": "E",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Consider a square Q and a circle inscribed in Q. Then the ratio between the area of the circle and the area of the square is:",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p035.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "If a and b are two numbers such that 0,35a = 0,2b, what is the value of b expressed in terms of a?",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p035.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "Let x and y be two positive numbers such that x^y > (1/x)^(1/y). Then we can certainly say that:",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p036.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "D",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "The equation of the straight line perpendicular to 2x−y+3 = 0 that forms a triangle of area 1 with the Cartesian axes in the first quarter i",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p037.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "C",
+      "solve": "C",
+      "verify": "C",
+      "dupVs": "licensed"
+    },
+    {
+      "stem": "The expression 3^(x+y) + 3^(x−y) is equal to:",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p039.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "B",
+      "solve": "B",
+      "verify": "B",
+      "dupVs": "official"
+    },
+    {
+      "stem": "The shares of three companies A, B, C had the same unit price two years ago. After one year, the price of A decreased by 10%, the price of B",
+      "section": "mathematics",
+      "sourceFile": "CISIA TOLC-E Sample Test 2 (authorized)",
+      "sourcePage": "p039.png",
+      "reasons": [
+        "duplicate"
+      ],
+      "shown": "D",
+      "solve": "D",
+      "verify": "D",
+      "dupVs": "licensed"
+    }
+  ]
+}

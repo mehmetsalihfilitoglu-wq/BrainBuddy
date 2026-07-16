@@ -1,0 +1,2437 @@
+# Content Inventory Report — IMAT · TIL-I · CEnT-S
+
+_Read-only analytics. No question, metadata, or bank was modified._
+
+_Sections follow each exam's OFFICIAL blueprint. TIL-I = 4 sections: **Mathematics · Physics · Reading + Logic · Basic Technical Knowledge**, where Reading + Logic folds in metadata sub-sections logic + reading + reading-comprehension, and Basic Technical Knowledge folds in representation + computer-science. IMAT (Biology · Chemistry · Physics & Mathematics · Logic) and CEnT-S (Mathematics · Physics · Chemistry · Biology · Reasoning on texts & data) match their blueprints as stored._
+
+## Exam summary
+
+| Exam | Total | Eligible | Official | Licensed | Original | Elite | Beginner | Blocked | Review |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| IMAT | 1950 | 1950 | 940 | 0 | 1010 | 0 | 0 | 0 | 0 |
+| TIL-I | 1222 | 1107 | 479 | 311 | 399 | 215 | 33 | 42 | 18 |
+| CEnT-S | 1179 | 1100 | 0 | 547 | 583 | 408 | 49 | 5 | 20 |
+
+_IMAT has no licensed/elite/beginner layers and was not passed through the TIL/CEnT semantic gate (separate frozen bank); those columns are 0 by design. Elite = TIL/CEnT originals derived from licensed items (a subset of Original)._
+
+## Subject distribution (all questions)
+
+**IMAT**
+
+- Biology....................... 675
+- Chemistry..................... 434
+- Physics & Mathematics......... 403
+- Logic / Critical thinking..... 438
+
+**TIL-I**
+
+- Mathematics................... 558
+- Physics....................... 400
+- Reading + Logic............... 196
+- Basic Technical Knowledge..... 68
+
+**CEnT-S**
+
+- Mathematics................... 353
+- Physics....................... 207
+- Chemistry..................... 258
+- Biology....................... 233
+- Reasoning on texts & data..... 128
+
+## Topic distribution (all questions, normalized labels)
+
+### IMAT
+
+**Biology** (675)
+- ?....................................... 102
+- Photosynthesis.......................... 12
+- Genetics................................ 12
+- Immunology.............................. 10
+- Ecology And Ecosystems.................. 10
+- Human Physiology — Cardiovascular....... 9
+- Human Physiology — Digestion & Absorption 9
+- Cellular Respiration.................... 8
+- Human Physiology — Nervous System....... 7
+- Human Physiology — Endocrine System..... 7
+- Enzymes................................. 6
+- Biochemistry & Metabolism............... 6
+- Molecular Biology & Genetics............ 6
+- Cell Biology, Membranes & Human Physiology 6
+- Human Physiology — Muscular System...... 6
+- Molecular Biology....................... 5
+- Cell Division And Chromosomes........... 5
+- Evolution And Population Genetics....... 5
+- Metabolism.............................. 5
+- Cell Signalling And Communication....... 5
+- Human Physiology — Respiratory System... 5
+- Human Physiology — Renal System And Osmoregulation 5
+- Evolution And Natural Selection......... 5
+- The Cell Membrane And Transport......... 5
+- Dna Replication, Mutation And Repair.... 5
+- Human Reproduction And Development...... 5
+- Transport In Plants..................... 5
+- Molecular Biology — Control Of Gene Expression 5
+- Cell Structure And Microscopy........... 5
+- Homeostasis And Thermoregulation........ 5
+- Genetic Engineering And Biotechnology... 5
+- Biodiversity, Classification And Taxonomy 5
+- Stem Cells And Cell Differentiation..... 5
+- The Genetic Code And Protein Synthesis.. 5
+- Ecology: Quantitative Sampling And Biodiversity 5
+- Cancer And The Cell Cycle............... 5
+- Genetic Linkage And Recombination....... 5
+- Synaptic Transmission And Neuropharmacology 5
+- Evolution, Selection And Speciation..... 5
+- Plant Reproduction And Growth........... 5
+- Gas Exchange And Surface Area To Volume Ratio 5
+- Human Health, Disease And Epidemiology.. 5
+- Water Relations And Osmosis In Cells.... 5
+- Ecology: Energy Flow And Productivity... 5
+- The Liver And Homeostasis............... 5
+- Dna Technology And Genomics............. 5
+- Human Physiology — The Kidney And Osmoregulation 5
+- Cellular Respiration (Anaerobic And Comparative) 5
+- Human Reproduction And Hormones......... 5
+- Experimental Design And Data Analysis... 5
+- Human Physiology — Blood And Gas Transport 5
+- Membrane Transport...................... 4
+- Genetics — Sex Linkage And Pedigree Analysis 4
+- Human Physiology — The Eye.............. 4
+- Human Nutrition, Diet And Deficiency.... 4
+- Human Physiology — Respiratory.......... 3
+- Biotechnology........................... 3
+- Reproduction And Development............ 3
+- Cell Biology — Endomembrane System And Protein Trafficking 3
+- Enzymes: Factors Affecting Reaction Rate 3
+- Anaerobic Respiration................... 2
+- Genetics / Dihybrid Cross............... 2
+- Digestive System........................ 2
+- Dna Structure / Bonds................... 2
+- Protein Structure....................... 2
+- Meiosis And Genetic Variation........... 2
+- Homeostasis............................. 2
+- Nucleic Acid Structure.................. 2
+- Human Physiology — Sensory Systems...... 2
+- Human Physiology — Blood................ 2
+- Biological Molecules — Biochemical Food Tests 2
+- Human Genetic Disorders And Inheritance. 2
+- Nucleic Acids / Base Pairing............ 1
+- Properties Of Water..................... 1
+- Carbohydrates / Condensation............ 1
+- Prokaryotic Vs Eukaryotic Cells......... 1
+- Cell Structure / Mitochondria........... 1
+- Mitosis And Meiosis..................... 1
+- Respiration / Atp....................... 1
+- Glycolysis.............................. 1
+- Sex-Linked Inheritance.................. 1
+- Gene Mapping / Crossover Values......... 1
+- Dihybrid Cross.......................... 1
+- Genetic Code / Translation.............. 1
+- Dna Structure........................... 1
+- Natural Selection....................... 1
+- Nervous System / Neurones............... 1
+- Ventilation / Breathing................. 1
+- Homeostasis / Blood Glucose............. 1
+- Starch And Glycosidic Bonds............. 1
+- Reflex Arc And Synapses................. 1
+- Biological Molecules And Elements....... 1
+- Homeostasis And The Brain............... 1
+- Fluid Mosaic Membrane Model............. 1
+- Circulatory System And Blood Vessels.... 1
+- Gene Expression Regulation.............. 1
+- Dihybrid Inheritance.................... 1
+- Twins And Genetics...................... 1
+- Chromosomes............................. 1
+- Hormones................................ 1
+- Nucleotide Structure.................... 1
+- Genetic Crosses......................... 1
+- Antibiotics And Resistance.............. 1
+- Glycoprotein Processing Pathway......... 1
+- Adrenaline Effects...................... 1
+- Hydrogen Bonds In Water................. 1
+- Molecular Biology / Transcription....... 1
+- Human Anatomy........................... 1
+- Biochemistry / Proteins................. 1
+- Cell Biology / Ribosomes................ 1
+- Biochemistry / Hydrolysis............... 1
+- Molecular Biology / Dna................. 1
+- Genetics / Pedigrees.................... 1
+- Molecular Biology / Base Pairing........ 1
+- Cell Division / Mitosis................. 1
+- Evolution / Genetics.................... 1
+- Photosynthesis / Respiration............ 1
+- Cell Biology / Eukaryotes............... 1
+- Homeostasis / Blood Glucose Regulation.. 1
+- Reproduction / Meiosis And Mitosis...... 1
+- Genetics / Sex-Linked Inheritance....... 1
+- Transcription / Mutation................ 1
+- Cell Membrane / Lipids.................. 1
+- Viruses / Hiv Structure................. 1
+- Synaptic Transmission................... 1
+- Organelles / Vesicles................... 1
+- Genetic Engineering / Restriction Enzymes 1
+- Meiosis / Crossing Over................. 1
+- Heart / Semilunar Valves................ 1
+- Protein Synthesis / Rer................. 1
+- Cell Types / Plant Vs Prokaryote........ 1
+- Enzyme Kinetics......................... 1
+- Menstrual Cycle / Hormones.............. 1
+- Muscle Contraction / Reflex............. 1
+- Dna Replication / Semiconservative...... 1
+- Photosynthesis / Photolysis............. 1
+- Alleles / Cell Function................. 1
+- Sarcomere / Muscle Contraction.......... 1
+- Amino Acid Structure.................... 1
+- Connective Tissue / Bone................ 1
+- Dna Microarray / Base Pairing........... 1
+- Cardiac Cycle / Pressure................ 1
+- Cell Cycle Sequence..................... 1
+- Carbohydrates........................... 1
+- Nerve Impulse / Sodium Channels......... 1
+- Cell Structures / Size.................. 1
+- Transcription / Prokaryotes............. 1
+- Mutation / Trna / Genetic Code.......... 1
+- Evolution............................... 1
+- Cell Organelles......................... 1
+- Genetics / Mitosis...................... 1
+- Nucleic Acids / Transcription And Translation 1
+- Dna And Trna Structure.................. 1
+- Evolution / Genetic Variation........... 1
+- Transgenic Plants / Genetic Engineering. 1
+- Cell Size............................... 1
+- Dna Structure / Base Pairing............ 1
+- Brain Structure / Heart Rate Control.... 1
+- Proteins / Peptide Bonds................ 1
+- Meiosis................................. 1
+- Nervous System / Action Potential....... 1
+- Mitosis / Cell Division Phases.......... 1
+- Organelles / Carbohydrates.............. 1
+- Meiosis / Cell Cycle.................... 1
+- Viruses / Proteins...................... 1
+- Oogenesis / Ploidy...................... 1
+- Enzyme Inhibitors....................... 1
+- Nucleic Acids........................... 1
+- Gas Exchange / Circulation.............. 1
+- Pituitary / Hormones.................... 1
+- Plant Cell Structure / Carbohydrates.... 1
+- Central Nervous System.................. 1
+- Cell Structure / Prokaryote Vs Eukaryote 1
+- Genetics / Inheritance.................. 1
+- Respiration............................. 1
+- Protein Structure / Haemoglobin......... 1
+- Resting Potential / Neuron.............. 1
+- Genetic Engineering / Transgenics....... 1
+- Exercise Physiology..................... 1
+- Cell Division........................... 1
+- Gene Mapping / Linkage.................. 1
+- Cardiac Cycle........................... 1
+- Enzymes / Reverse Transcriptase......... 1
+- X-Linked Inheritance.................... 1
+- Histology / Tissues..................... 1
+- Gene Therapy............................ 1
+- Photosynthesis And Respiration.......... 1
+- Biological Molecules / Peptide Bonds.... 1
+- Immune Response......................... 1
+- Bacterial Growth........................ 1
+- Transcription / Genetic Code............ 1
+- Neurones / Cell Biology................. 1
+- Cell Size / Magnification............... 1
+- B Lymphocytes / Immunology.............. 1
+- Genetics / Pedigree..................... 1
+- Mitosis / Anaphase...................... 1
+- Nervous System / Autonomic Pathways..... 1
+- Cell Structures / Components............ 1
+- Genetics / Alleles In Cells............. 1
+- Tissues................................. 1
+- Mutations / Dna Sequence................ 1
+- Cell Membranes / Permeability........... 1
+- Biological Molecules.................... 1
+- Muscle / Sarcomere...................... 1
+- Kidney / Nephron........................ 1
+- Plant Metabolism / Respiration.......... 1
+- Genetic Modification / Enzymes.......... 1
+- Mitosis / Cell Number................... 1
+- Haemoglobin / Gas Transport............. 1
+- Ions In Biological Processes............ 1
+- Circular Dna / Prokaryotes And Organelles 1
+- Amino Acid Structure / R-Group.......... 1
+- Dna Replication Vs Transcription........ 1
+- Vision / Rhodopsin...................... 1
+- Cell Membrane / Fluid Mosaic Model...... 1
+- Cell Division / Haploid Number.......... 1
+- Speciation.............................. 1
+- Mutation / Protein Effects.............. 1
+- Catabolism / Metabolism................. 1
+- Recombinant Dna / Agrobacterium......... 1
+- Fetal Circulation / Heart............... 1
+- Digestion / Bile........................ 1
+- Muscle Contraction / Neuromuscular Junction 1
+- Viruses / Hiv........................... 1
+- Kidney / Water Reabsorption............. 1
+- Cell Organelles / Relative Size......... 1
+- Characteristics Of Living Organisms..... 1
+- Microscopic Structures / Relative Size.. 1
+- Human Physiology........................ 1
+- Organelle Structure And Function........ 1
+- Cytoskeleton And Cell Motility.......... 1
+- Cell Cycle And Its Control.............. 1
+- Human Physiology — Renal................ 1
+- Human Physiology — Renal / Osmoregulation 1
+- Immunology — Adaptive Immunity.......... 1
+- Immunology — Innate Vs Adaptive......... 1
+- Microbiology............................ 1
+- Virology................................ 1
+- Protein Structure And Stabilising Bonds. 1
+- Enzyme Cofactors And Coenzymes.......... 1
+- Enzyme Regulation....................... 1
+- Metabolic Regulation.................... 1
+- Chromatin Structure And Gene Regulation. 1
+- Eukaryotic Rna Processing............... 1
+- Gene Expression And Genome Evolution.... 1
+- Human Physiology — Acid–Base Balance.... 1
+- Cell Biology — Cell Junctions And Tissue Organisation 1
+- Cell Biology — Secretory Pathway And The Extracellular Matrix 1
+- Human Physiology — Cardiovascular / Renal (Renin–Angiotensin System) 1
+- Human Physiology — Cardiovascular / Lymphatic 1
+- The Cell Cycle And Its Control.......... 1
+- Mitosis Versus Meiosis.................. 1
+- Chromosomal Abnormalities: Non-Disjunction 1
+- Chromosomal Abnormalities: Structural Mutations 1
+- Human Physiology — Nervous System (Autonomic) 1
+- Molecular Biotechnology - Recombinant Dna 1
+- Virology - Bacteriophage Biology........ 1
+- Molecular Biotechnology - Pcr........... 1
+- Molecular Biotechnology - Gel Electrophoresis 1
+- Molecular Biotechnology................. 1
+- Human Physiology — The Liver And Nitrogen Metabolism 1
+- Human Physiology — The Liver And Bile... 1
+- Sex Linkage............................. 1
+- Enzymes: Structure And Mechanism........ 1
+- Enzyme Inhibition....................... 1
+- Biological Molecules — Carbohydrates.... 1
+- Biological Molecules — Proteins......... 1
+- Biological Molecules — Lipids........... 1
+- Pathogens And Antimicrobial Drugs....... 1
+- Antibiotics And Antibiotic Resistance... 1
+- Non-Specific (Innate) Defences And Their Link To Adaptive Immunity 1
+- The Specific (Adaptive) Immune Response. 1
+- Vaccination And Immunological Memory.... 1
+- Human Genetic Disorders And Patterns Of Variation 1
+- Patterns Of Variation................... 1
+- Interaction Of Genotype And Environment. 1
+- Human Physiology — The Nervous System... 1
+- Ecology — Human Impact And Conservation. 1
+- Ecology — The Carbon Cycle And The Enhanced Greenhouse Effect 1
+- Ecology — Biodiversity.................. 1
+- Ecology — Biodiversity Loss And Habitat Destruction 1
+- Ecology — Conservation.................. 1
+- Populations, Communities And Ecosystems. 1
+- Nutrient Cycles - The Nitrogen Cycle.... 1
+- Ecological Succession................... 1
+- Populations And Communities - Predator-Prey Dynamics 1
+- Population Growth And Carrying Capacity. 1
+- Biological Molecules — Atp And Cellular Energy 1
+- Biological Molecules — Nucleotides And Atp 1
+- Biological Molecules — Coenzymes And Cellular Respiration 1
+- Biological Molecules — Water............ 1
+- Biological Molecules — Inorganic Ions... 1
+- Biotechnology — Gene Therapy............ 1
+- Biotechnology — Genetically Modified Crops 1
+- Biotechnology — Cloning................. 1
+- Biotechnology — Genetic Screening....... 1
+
+**Chemistry** (434)
+- ?....................................... 72
+- Chemical Equilibrium.................... 13
+- Redox And Electrochemistry.............. 8
+- Reaction Kinetics....................... 8
+- Chemical Thermodynamics And Electrochemistry 6
+- Organic Reaction Chemistry.............. 6
+- Organic Chemistry — Structure & Isomerism 6
+- The Periodic Table And Periodicity...... 6
+- Electrochemistry: Galvanic Cells........ 6
+- Organic Chemistry: Oxygen-Containing Compounds 6
+- The Gaseous State And Gas Laws.......... 6
+- Atomic Structure And Mass Spectrometry.. 6
+- Inorganic And Qualitative Analysis...... 6
+- Organic Synthesis And Reaction Pathways. 6
+- Structure And Bonding................... 6
+- Extraction And Reactions Of Metals...... 6
+- Solutions, Solubility And Concentration. 6
+- Organic Reaction Mechanisms............. 6
+- Reaction Types And Ionic Equations...... 6
+- Electrolysis And Industrial Electrochemistry 6
+- Acids, Bases And Aqueous Equilibria..... 5
+- Thermochemistry And Energetics.......... 5
+- Environmental And Atmospheric Chemistry. 5
+- Energetics (Thermochemistry)............ 5
+- Solutions And Colligative Properties.... 4
+- Formulae And Composition................ 4
+- Reaction Kinetics — Rate Equations And The Rate Constant 4
+- Analytical And Separation Techniques.... 4
+- Acids And Bases......................... 3
+- Structural Isomers...................... 3
+- Oxidation States........................ 3
+- Intermolecular Forces................... 3
+- Physical Chemistry: Equilibrium......... 3
+- Physical Chemistry: Thermochemistry..... 3
+- Physical Chemistry: Reaction Kinetics... 3
+- Acids, Bases And Buffers................ 3
+- Amino Acids And Proteins................ 3
+- Acids, Bases And Salts.................. 3
+- Acids, Bases And Titration Curves....... 3
+- The Periodic Table: Group 2 (Alkaline Earth Metals) 3
+- Stoichiometry / Percentage Yield........ 2
+- Concentration / Moles................... 2
+- Redox Reactions......................... 2
+- Moles / Avogadro........................ 2
+- Empirical / Molecular Formula........... 2
+- Intermolecular Forces / Boiling Point... 2
+- Solubility.............................. 2
+- Chemical Equilibrium / Kc............... 2
+- Stoichiometry And Structure............. 2
+- Atomic Structure And Periodic Trends.... 2
+- Physical Chemistry: Chemical Equilibrium 2
+- Stoichiometry And Solutions............. 2
+- Organic Chemistry: Reaction Mechanisms.. 2
+- Organic Chemistry: Biological Molecules. 2
+- Acid-Base Titration..................... 2
+- Quantitative Chemistry (Stoichiometry).. 2
+- The Periodic Table: Group 7 (Halogens).. 2
+- Periodicity / Atomic Radius............. 1
+- Covalent Bonding........................ 1
+- Organic Reactions....................... 1
+- Aromatic Hydrocarbons................... 1
+- Periodic Table / Reactivity............. 1
+- Acid-Base Reactions..................... 1
+- Electron Counting / Ions................ 1
+- Group 13 Elements....................... 1
+- Aldehydes And Molecular Formulae........ 1
+- Solubility And Water As A Solvent....... 1
+- Oxidising Agents And Redox.............. 1
+- Transition Metals....................... 1
+- The Mole And Avogadro Constant.......... 1
+- Electrons In Ions....................... 1
+- Electron Affinity....................... 1
+- Covalent Bonding And The Periodic Table. 1
+- Reaction Types.......................... 1
+- Amines And Amides Reactions............. 1
+- Formulae Of Lithium Compounds........... 1
+- States Of Matter / Phase Changes........ 1
+- Organic Synthesis / Reaction Types...... 1
+- Organic Chemistry / Isomers............. 1
+- Bonding / Carbon-Carbon Bonds........... 1
+- Periodic Table / Chemical Formulae...... 1
+- Oxidation Numbers....................... 1
+- Balancing Equations..................... 1
+- Acids / Ph.............................. 1
+- Redox / Oxidation Numbers............... 1
+- Organic Chemistry / Ethene Reactions.... 1
+- Reaction Rates.......................... 1
+- Electronic Configuration................ 1
+- Stoichiometry / Titration............... 1
+- Acidic / Basic / Amphoteric Oxides...... 1
+- Organic Reaction Schemes................ 1
+- Intermolecular Forces / Dipoles......... 1
+- Percentage Yield........................ 1
+- Self-Ionisation Of Water / Ph........... 1
+- Electron Configuration / Ions........... 1
+- Ionic Compounds / Atomic Number......... 1
+- Oxidation Numbers / Formulae............ 1
+- Organic Chemistry / Functional Groups... 1
+- Combustion / Balancing Equations........ 1
+- Acidic Oxides........................... 1
+- Ph Of Salt Solutions.................... 1
+- Ionic Equations / Precipitation......... 1
+- Organic Functional Groups............... 1
+- Electronic Structure / Isoelectronic Species 1
+- Chemical Equilibrium / Esterification... 1
+- Intermolecular Forces / Boiling Points.. 1
+- Ph Calculations......................... 1
+- Atomic Structure / Ions................. 1
+- Molecular Shape / Bond Angles........... 1
+- Mixtures / Separation Techniques........ 1
+- Electron Configuration.................. 1
+- Redox / Oxidising Agents................ 1
+- Acids / Ph / Dilution................... 1
+- Gas Stoichiometry / Volumes............. 1
+- Isomerism / Organic Chemistry........... 1
+- Ionic Solutions / Dissociation.......... 1
+- Solubility / Saturated Solutions........ 1
+- Halogens / Element Identification....... 1
+- Molecular Shape / Vsepr................. 1
+- Atomic Structure / Isotopes............. 1
+- Molecular Formula From Structure........ 1
+- Electronic Configuration / Isoelectronic Species 1
+- Ionisation Energy....................... 1
+- Iupac Nomenclature...................... 1
+- Molecular Shape And Polarity............ 1
+- Gas Laws................................ 1
+- Acid-Base / Bronsted-Lowry.............. 1
+- Kinetic Theory Of Gases................. 1
+- Equilibrium / Reaction Rate............. 1
+- Group I Elements........................ 1
+- Melting Point / Colligative Properties.. 1
+- Periodic Table / Groups................. 1
+- Ions / Atomic Structure................. 1
+- Molecular Polarity / Dipole Moment...... 1
+- Acid-Base / Indicators.................. 1
+- Isotopes / Relative Atomic Mass......... 1
+- Moles / Mass And Concentration.......... 1
+- Elements And Molecules.................. 1
+- Atomic Structure / Neutrons............. 1
+- Reactivity / Metal With Water........... 1
+- Solutions / Solubility.................. 1
+- Molecular Shape / Dipole Moment......... 1
+- Functional Groups / Amino Acids......... 1
+- Ph / Hydrogen Ion Concentration......... 1
+- Titration / Concentration............... 1
+- Acid–Base Equilibria.................... 1
+- Physical Chemistry: Acids, Bases And Buffers 1
+- Redox Chemistry......................... 1
+- Bonding And Molecular Structure......... 1
+- Organic Chemistry....................... 1
+- Ideal Gas Behaviour..................... 1
+- Organic Chemistry: Isomerism............ 1
+- Organic Chemistry: Functional-Group Reactivity 1
+- Aqueous Equilibria...................... 1
+- Atomic Structure........................ 1
+- Atomic Structure And Periodicity........ 1
+- Periodic Trends......................... 1
+- Molecular Structure (Vsepr)............. 1
+- Molecular Structure..................... 1
+- Gaseous Mixtures And Stoichiometry...... 1
+- Solutions: Concentration Units.......... 1
+- The Mole And Avogadro'S Constant........ 1
+- Gas-Volume Stoichiometry................ 1
+- Acid–Base Stoichiometry................. 1
+- Chemical Bonding And Intermolecular Forces 1
+- Chemical Bonding........................ 1
+- Chemical Bonding And Structure.......... 1
+- Molecular Shape (Vsepr)................. 1
+- Molecular Polarity And Intermolecular Forces 1
+- Chemical Bonding And Molecular Shape.... 1
+- Solutions And Concentration............. 1
+- Limiting Reagent And Percentage Yield... 1
+- The Mole Triangle In Solution........... 1
+- Solutions And Titration................. 1
+- Amines And Organic Bases................ 1
+- Aromatic Chemistry...................... 1
+- Polymers................................ 1
+- Industrial Chemistry — The Haber Process 1
+- Industrial Chemistry — The Contact Process 1
+- Industrial Chemistry — Catalysis And Equilibrium 1
+- Environmental Chemistry — Nitrogen Oxides And Acid Rain 1
+- Environmental Chemistry — Acid Rain..... 1
+- Environmental Chemistry — Stratospheric Ozone 1
+- Quantitative Chemistry (Green Chemistry Metrics) 1
+- Quantitative Chemistry (Reactions In Solution) 1
+- Quantitative Chemistry (Volumetric Analysis) 1
+- Quantitative Chemistry (Sequential Reactions) 1
+- Analytical & Separation Techniques...... 1
+
+**Physics & Mathematics** (403)
+- ?....................................... 57
+- Probability............................. 12
+- Coordinate Geometry..................... 10
+- Statistics And Data Handling............ 10
+- Fluids.................................. 9
+- Combinatorics........................... 8
+- Momentum, Impulse And Collisions........ 7
+- Gravitation And Circular Motion......... 7
+- Work, Energy And Power.................. 7
+- Forces And Newton'S Laws................ 7
+- Simple Harmonic Motion (Oscillations)... 7
+- Mensuration And Solid Geometry.......... 6
+- Ratio, Proportion And Percentages....... 6
+- Functions And Graphs.................... 6
+- Plane (Euclidean) Geometry.............. 6
+- Mechanics............................... 6
+- Direct-Current Electric Circuits........ 6
+- Numbers And Divisibility................ 4
+- Moments / Equilibrium................... 3
+- Electric Circuits....................... 3
+- Sequences And Series.................... 3
+- Logarithmic Scales...................... 3
+- Thermal Physics — Thermal Expansion..... 3
+- Thermal Physics — Heat Transfer......... 3
+- Thermal Physics — Gas Laws.............. 3
+- Electricity — Domestic Electricity...... 3
+- Gravitation............................. 2
+- Specific Heat Capacity.................. 2
+- Inequalities............................ 2
+- Logarithms.............................. 2
+- Upthrust / Archimedes................... 2
+- Equations............................... 2
+- Trigonometric Equations................. 2
+- Probability And Statistics.............. 2
+- Exponential And Logarithmic Modelling... 2
+- Polynomials............................. 2
+- Trigonometry — Solution Of Triangles.... 2
+- Trigonometry — Solution Of Non-Right Triangles 2
+- Momentum And Impulse.................... 2
+- Electricity............................. 2
+- Dc Circuits............................. 2
+- Capacitors.............................. 2
+- Electromagnetic Induction............... 2
+- Superposition And Interference.......... 2
+- Rotational Mechanics — Static Equilibrium 2
+- Fluid Mechanics — Fluid Dynamics........ 2
+- Standing Waves On Strings............... 2
+- Kinematics — Motion Graphs.............. 2
+- Projectile Motion — Projection At An Angle 2
+- Doppler Effect For Sound................ 2
+- Diffraction Grating..................... 2
+- Inequalities / Functions................ 1
+- Inequalities / Surds.................... 1
+- Mensuration / Area...................... 1
+- Simple Harmonic Motion.................. 1
+- Entropy / Thermodynamics................ 1
+- Density / Upthrust...................... 1
+- Inequalities / Set Of Values............ 1
+- Algebraic Equivalence................... 1
+- Probability Range....................... 1
+- Transformations And Symmetry............ 1
+- Distance From A Line / Coordinate Geometry 1
+- Melting And Change Of State............. 1
+- Superconductivity And Current Effects... 1
+- Capacitors In Series And Parallel....... 1
+- Vectors And Scalars..................... 1
+- Pressure................................ 1
+- Coordinate Geometry / Circle............ 1
+- Algebra / Simplification................ 1
+- Geometry / Area......................... 1
+- Simple Harmonic Motion / Energy......... 1
+- Electromagnetic Induction / Ac Generator 1
+- Units / Dimensional Analysis............ 1
+- Coordinate Geometry / Straight Lines.... 1
+- Arithmetic / Standard Form.............. 1
+- Geometry / Surface Area Of Spheres...... 1
+- Percentages............................. 1
+- Friction / Newton'S Second Law.......... 1
+- Density / Buoyancy / Thermal Expansion.. 1
+- Magnetism............................... 1
+- Simultaneous Equations.................. 1
+- Arithmetic Mean......................... 1
+- Difference Of Squares / Evaluation...... 1
+- Dimensional Analysis / Units............ 1
+- Circular Motion / Centripetal Force..... 1
+- Couples / Torque........................ 1
+- Geometry / Pythagoras................... 1
+- Algebra / Simplifying Expressions....... 1
+- Coordinate Geometry / Circles........... 1
+- Scientific Notation / Indices........... 1
+- Units And Dimensions.................... 1
+- Resistors / Circuits.................... 1
+- Kinematics / Energy..................... 1
+- Statistics / Mean....................... 1
+- Coordinate Geometry / Gradient.......... 1
+- Permutations / Combinatorics............ 1
+- Vectors / Displacement.................. 1
+- Electrical Power........................ 1
+- Thermodynamics / First Law.............. 1
+- Roots Of An Equation.................... 1
+- Area / Geometry......................... 1
+- Coordinate Geometry / Perpendicular Lines 1
+- Units And Standard Form................. 1
+- Standard Form / Arithmetic.............. 1
+- Newton'S Laws / Motion.................. 1
+- Electrical Resistance / Resistivity..... 1
+- Kinetic Theory / Molecular Motion....... 1
+- Statistics / Mean, Range, Median........ 1
+- Highest Common Factor / Prime Factors... 1
+- Algebra / Equations..................... 1
+- Indices / Powers........................ 1
+- Kinematics.............................. 1
+- Ideal Gas / Boyle'S Law................. 1
+- Electrostatics / Coulomb'S Law.......... 1
+- Algebraic Expression / Simplification... 1
+- Quadratic / Turning Point............... 1
+- Solving Equations....................... 1
+- Data / Statistics From A Table.......... 1
+- Newton'S Second Law / Acceleration...... 1
+- Specific Latent Heat / Thermal Energy... 1
+- Optics / Concave Mirror................. 1
+- Vectors / Relative Velocity............. 1
+- Functions (Logarithms And Exponentials). 1
+- Probability And Combinatorics........... 1
+- Equations (Absolute Value And Quadratics) 1
+- Plane Geometry And Trigonometry......... 1
+- Higher-Degree Equations................. 1
+- Exponential And Logarithmic Equations... 1
+- Plane Geometry And Circle Theorems...... 1
+- Triangle Relations (Trigonometry)....... 1
+- Areas And Volumes Of Solids............. 1
+- Combinatorics And Probability........... 1
+- Polynomials: Vieta'S Relations.......... 1
+- Functions: Composition And Inverses..... 1
+- Functions............................... 1
+- Exponential Decay And Half-Life......... 1
+- Recursively Defined Sequences........... 1
+- Geometric Sequences And Series.......... 1
+- Arithmetic Sequences And Series......... 1
+- Exponential Growth Modelling............ 1
+- Algebra — Simultaneous Equations........ 1
+- Algebra — Quadratic Equations........... 1
+- Algebra — Inequalities.................. 1
+- Algebra — Indices....................... 1
+- Algebra — Simultaneous Equations (Linear And Quadratic) 1
+- Algebra — Quadratic Optimisation........ 1
+- Real Numbers............................ 1
+- Sets And Counting....................... 1
+- Trigonometry — Exact Values And Identities 1
+- Trigonometry — Identities And Simplification 1
+- Trigonometry — Trigonometric Equations.. 1
+- Trigonometry............................ 1
+- Compound Growth And Interest............ 1
+- Laws Of Logarithms...................... 1
+- Exponentials And Logarithms............. 1
+- Thermodynamics.......................... 1
+- Circular Motion And Dynamics............ 1
+- Fluids And Thermodynamics............... 1
+- Electromagnetism And Waves.............. 1
+- Oscillations............................ 1
+- Magnetic Forces On Currents............. 1
+- Wave Properties: Speed, Frequency And Wavelength 1
+- Standing Waves And Resonance............ 1
+- Geometrical Optics: Thin Lenses......... 1
+- The Photoelectric Effect................ 1
+- Atomic Energy Levels And Photon Emission 1
+- Thin-Film Interference (Refraction And Superposition) 1
+- Fluid Mechanics — Hydrostatics And Buoyancy 1
+- Thermal Physics......................... 1
+- Thermal Physics — Calorimetry........... 1
+- Thermal Physics — First Law Of Thermodynamics 1
+- Thermal Physics — Ideal-Gas Law......... 1
+- Thermal Physics — Kinetic Theory And The First Law 1
+- Direct-Current Circuits................. 1
+- Waves And The Electromagnetic Spectrum.. 1
+- Wave Properties......................... 1
+- Geometrical Optics: Refraction.......... 1
+- Geometrical Optics: Mirrors............. 1
+- Standing Waves In Air Columns........... 1
+- Modern Physics — The Photoelectric Effect 1
+- Modern Physics — Atomic Spectra......... 1
+- Modern Physics — Radioactivity.......... 1
+- Modern Physics — Nuclear Decay.......... 1
+- Modern Physics — Radioactivity And Half-Life 1
+- Modern Physics — Nuclear Binding Energy And Fusion 1
+- Modern Physics — Mass–Energy Equivalence 1
+- Electric Fields And Coulomb'S Law....... 1
+- Uniform Electric Fields — Motion Of A Charge Between Parallel Plates 1
+- Magnetic Force On A Current-Carrying Conductor 1
+- Motion Of Charges In Electric And Magnetic Fields 1
+- Charged Particles In Magnetic Fields.... 1
+- Coulomb'S Law — Superposition Of Forces. 1
+- Kinematics — Uniformly Accelerated Motion (Suvat) 1
+- Kinematics — Free Fall Under Gravity.... 1
+- Projectile Motion — Horizontal Projection 1
+- Standing Waves In Pipes................. 1
+- Beats................................... 1
+- Electricity — Domestic Electricity And Energy 1
+- Household Electricity................... 1
+
+**Logic / Critical thinking** (438)
+- ?....................................... 69
+- Argument Analysis....................... 37
+- Drawing A Conclusion.................... 17
+- Main Conclusion......................... 16
+- Identifying A Flaw...................... 14
+- Identifying An Assumption............... 11
+- Weakening An Argument................... 11
+- Numerical Problem Solving............... 10
+- Spatial Reasoning....................... 9
+- Strengthening An Argument............... 7
+- Reading And Inference................... 7
+- Numeracy / Problem Solving.............. 6
+- Quantitative And Data Interpretation.... 6
+- Logic Puzzles........................... 5
+- Quantitative And Data Reasoning......... 5
+- Principle Application................... 5
+- Identifying The Conclusion.............. 4
+- Drawing Conclusions..................... 4
+- Underlying Assumption................... 4
+- Numerical Reasoning..................... 4
+- Parallel Reasoning...................... 4
+- Quantitative Reasoning.................. 4
+- Logical Reasoning....................... 4
+- Numerical And Proportional Reasoning.... 4
+- Numeracy / Tables....................... 3
+- Identifying A Conclusion................ 3
+- Data Interpretation / Tables............ 3
+- Identifying Flaws....................... 3
+- Identifying Assumptions................. 3
+- History Of Science...................... 3
+- Underlying Principle.................... 3
+- Probability Reasoning................... 2
+- Data Interpretation..................... 2
+- Numeracy / Logic........................ 2
+- Numeracy / Word Problem................. 2
+- Logical Deduction....................... 2
+- Numeracy / Percentages.................. 2
+- Problem Solving / Logic................. 2
+- Strengthen The Argument................. 2
+- Applying A Principle.................... 2
+- Data Interpretation / Table............. 2
+- Probability And Quantitative Reasoning.. 2
+- Logical Reasoning (Categorical Syllogisms) 2
+- Deductive Logic Puzzle.................. 2
+- Number And Pattern Reasoning............ 2
+- Identifying Inconsistency............... 1
+- Problem Solving / Selection............. 1
+- Numeracy / Lcm.......................... 1
+- Logical Constraints..................... 1
+- Numeracy / Timetables................... 1
+- Numeracy / Proportion................... 1
+- Numeracy / Calendar..................... 1
+- Data Interpretation / Proportion........ 1
+- Logic / Constraints..................... 1
+- Numeracy / Algebra...................... 1
+- Logical Equivalence..................... 1
+- International Institutions.............. 1
+- History Of Medicine..................... 1
+- Classical History....................... 1
+- Literature / History.................... 1
+- History Of Ideas / Enlightenment........ 1
+- Timetable Problem Solving............... 1
+- Algebraic Problem Solving............... 1
+- Ratio Problem Solving................... 1
+- Graph Interpretation / Radioactive Decay 1
+- Set / Venn Reasoning.................... 1
+- Percentage Problem Solving.............. 1
+- Logical Deduction / Ordering............ 1
+- Pie Chart / Proportional Reasoning...... 1
+- Speed / Distance / Time Problem Solving. 1
+- Spatial / Numbering Problem Solving..... 1
+- Numeracy / Capacity..................... 1
+- Numeracy / Value For Money.............. 1
+- Spatial Reasoning / Digital Display..... 1
+- Logical Reasoning / Voting.............. 1
+- Numeracy................................ 1
+- Numeracy / Discounts.................... 1
+- Logical Reasoning / Scheduling.......... 1
+- Numeracy / Geometry..................... 1
+- Spatial Reasoning / Clock............... 1
+- History / Civilizations................. 1
+- Medicine / General Science.............. 1
+- History................................. 1
+- World Organisations / Geography......... 1
+- Spatial Reasoning / Nets................ 1
+- Data Interpretation / Bar Graphs........ 1
+- Spatial Reasoning / Views............... 1
+- History Of Medicine / Science........... 1
+- International Organisations............. 1
+- Art History............................. 1
+- Technology / Current Affairs............ 1
+- Numeracy / Area......................... 1
+- Weaken The Argument..................... 1
+- Graph Interpretation.................... 1
+- Matching Reasoning / Parallel Argument.. 1
+- Logic Puzzle / Number................... 1
+- Numeracy / Ratio / Table................ 1
+- Spatial Reasoning / Mirror Image........ 1
+- Numeracy / Rates........................ 1
+- Spatial Reasoning / Diagram............. 1
+- Spatial Reasoning / Arrangement......... 1
+- Scholars And Fields Of Study............ 1
+- Nobel Peace Prize....................... 1
+- Pattern Counting........................ 1
+- Problem Solving / Scheduling............ 1
+- Combinatorics / Symmetry................ 1
+- Problem Solving......................... 1
+- Problem Solving / Timing................ 1
+- Data Selection.......................... 1
+- Spatial Reasoning / Tiles............... 1
+- Spatial Reasoning / Folding............. 1
+- Problem Solving / Time Zones............ 1
+- History / International Organisations... 1
+- History / Culture....................... 1
+- Time Zones / Problem Solving............ 1
+- Numeracy / Spatial Reasoning............ 1
+- Distance-Time Graphs.................... 1
+- Numeracy / Speed........................ 1
+- Numeracy / Table Interpretation......... 1
+- Timetables / Problem Solving............ 1
+- Economics / History Of Ideas............ 1
+- Data Interpretation / Pie Chart......... 1
+- Data Interpretation / Bar Chart......... 1
+- Numerical Reasoning / Price Table....... 1
+- Principle............................... 1
+- Matching Argument Structure............. 1
+- Numerical Reasoning / Label............. 1
+- Spatial Reasoning / Tiling.............. 1
+- Current Affairs / Newspapers............ 1
+- Numerical Reasoning / Area.............. 1
+- Spatial Reasoning / Shapes.............. 1
+- Literature.............................. 1
+- United Nations.......................... 1
+- Opera / Music........................... 1
+- Euro / Geography........................ 1
+- Shakespeare / Literature................ 1
+- World History / Chronology.............. 1
+- Nobel Prize / History................... 1
+- Game Theory............................. 1
+- Religions............................... 1
+- Italian Constitution / Civics........... 1
+- World Literature........................ 1
+- Separation Of Powers / Civics........... 1
+- Spatial Reasoning / Paper Folding....... 1
+- Data Interpretation / Survey Chart...... 1
+- Numerical Reasoning / Percentages....... 1
+- Best Value For Money.................... 1
+- Data Interpretation / Cost Table........ 1
+- Space Exploration History............... 1
+- Mathematics History / Gauss............. 1
+- Sharing Economy......................... 1
+- Cinema / Directors...................... 1
+- Languages / Linguistics................. 1
+- World Currencies........................ 1
+- Awards / Fields Medal................... 1
+- Nobel Prize In Literature............... 1
+- Literature / Primo Levi................. 1
+- Geography / Archipelagos................ 1
+- Italian Civics / Institutions........... 1
+- International Organisations / Unesco.... 1
+- Critical Thinking....................... 1
+- Logic Puzzle............................ 1
+- Argument Evaluation..................... 1
+- Data And Graph Interpretation........... 1
+- Data Sufficiency........................ 1
+- Reading And Inference (Categorical Deduction) 1
+- Deductive Reasoning..................... 1
+
+### TIL-I
+
+**Mathematics** (558)
+- Geometry................................ 36
+- Algebra................................. 33
+- Trigonometry............................ 25
+- Mathematics............................. 25
+- Analytic Geometry....................... 19
+- Logarithms.............................. 15
+- Probability............................. 9
+- Combinatorics........................... 9
+- Logarithmic Equations................... 7
+- Coordinate Geometry..................... 7
+- Numbers & Arithmetic.................... 6
+- Exponentials & Logarithms............... 5
+- Trigonometric Equations................. 5
+- Functions & Graphs...................... 4
+- Euclidean Geometry...................... 4
+- Analytic Geometry / Circles............. 4
+- Combinatorics & Probability............. 4
+- Inequalities............................ 3
+- Analytic Geometry / Conics.............. 3
+- Algebra And Functions................... 3
+- Polynomial Roots........................ 2
+- Probability / Frequency Distribution.... 2
+- Exponential Functions / Graph Identification 2
+- Solid Geometry / Spheres................ 2
+- Linear Equations / Lines................ 2
+- Algebra / Products Of Numbers........... 2
+- Powers And Exponents.................... 2
+- Trigonometry / Inequalities............. 2
+- Inequalities With Radicals.............. 2
+- Probability / Combinatorics............. 2
+- Logarithmic Functions / Graph Identification 2
+- Rational Inequalities................... 2
+- Exponents / Powers...................... 2
+- Set Theory / Inclusion-Exclusion........ 2
+- Polynomials............................. 2
+- Polynomials / Vieta'S Formulas.......... 2
+- System Of Linear Equations.............. 2
+- Analytic Geometry / Lines............... 2
+- Trigonometric Identities................ 2
+- Polynomials / Roots..................... 2
+- Sequences............................... 2
+- Conic Sections (Parabola)............... 2
+- Algebra — Quadratic Inequality.......... 2
+- Trigonometry — Exact Values............. 2
+- Systems Of Equations.................... 2
+- Work Rate............................... 2
+- Percentages............................. 2
+- Exponents............................... 2
+- Quadratic Equations..................... 2
+- Arithmetic & Geometric Sequences........ 2
+- Three-Variable Linear Systems........... 2
+- Solid Geometry.......................... 2
+- Number Theory........................... 2
+- Functions............................... 2
+- Functions And Graphs.................... 2
+- Statistics.............................. 2
+- Statistics And Data Analysis............ 2
+- Mathematics — Algebra................... 2
+- Statistics & Probability................ 1
+- Linear Equations / Intersection Of Lines 1
+- Arithmetic / Algebra Word Problem....... 1
+- Nested Radicals / Real Number Properties 1
+- Analytic Geometry / Intersection Of Curve And Line 1
+- Trigonometry / Radians.................. 1
+- Powers And Ordering Of Numbers.......... 1
+- Analytic Geometry — Conic/Locus Classification 1
+- Probability / Statistics................ 1
+- Triangle Inequality..................... 1
+- Algebraic Fractions / Simplification.... 1
+- Polynomials / Divisibility.............. 1
+- Surface Area Of A Parallelepiped........ 1
+- Trigonometric Signs For Angle In Fourth Quadrant 1
+- Quadratic Polynomials / Vieta'S Formulas 1
+- Quadratic Equations / Sign Of Roots..... 1
+- Solid Geometry / Spheres Intersection... 1
+- Radicals And Exponents / Cube Roots..... 1
+- Vectors / Dot Product / Perpendicularity 1
+- Coordinate Geometry / Triangles......... 1
+- Polynomial Equations / Roots............ 1
+- Lines In The Plane...................... 1
+- Probability / Statistics From Frequency Table 1
+- Analytic Geometry (Conic-Line Intersection) 1
+- Radicals / Real Numbers................. 1
+- Trigonometric Inequalities / Properties. 1
+- Quadratic Equations / Vieta'S Formulas.. 1
+- Number Theory / Primes.................. 1
+- Estimation / Orders Of Magnitude........ 1
+- Plane Geometry / Circles Through Two Points 1
+- Analytic Geometry / Triangle Region..... 1
+- Exponential Inequalities................ 1
+- Word Problem / Algebra.................. 1
+- Inequalities / Absolute Value........... 1
+- Radicals / Algebraic Simplification..... 1
+- Powers / Algebraic Factoring............ 1
+- Polynomials / Roots (Vieta'S Formulas).. 1
+- Analytic Geometry — Line Intersecting A Parabola 1
+- Equations — Real Roots Of A Power Equation 1
+- Analytic Geometry — Intersection Of Two Lines 1
+- Graph Transformations Of Functions...... 1
+- Analytic Geometry / Lines In The Plane.. 1
+- Vectors / Scalar (Dot) Product.......... 1
+- Number Theory, Multiples And Consecutive Integers 1
+- Radicals / Exponents.................... 1
+- Vector Difference Magnitude............. 1
+- Systems / Ratios Of Sum, Difference And Product 1
+- Linear Systems / Infinite Solutions..... 1
+- Coordinate Geometry / Triangle Classification 1
+- Similar Triangles — Area/Perimeter Scaling 1
+- Algebra — Products And Expansions....... 1
+- Similar Triangles / Area Ratio.......... 1
+- Radicals, Rational/Irrational Numbers... 1
+- Analytic Geometry - Lines............... 1
+- Quadratic Equations - Roots............. 1
+- Analytic Geometry, Lines Through Points. 1
+- Trigonometry, Sign Of Sin/Cos On Interval 1
+- Circles, Relative Position.............. 1
+- Triangle Inequality, Existence Of Triangle 1
+- Radical Simplification.................. 1
+- Parabola And Line Intersection.......... 1
+- Algebra / Word Problem.................. 1
+- Nested Radicals / Real Numbers.......... 1
+- Roots Of A Power Function............... 1
+- Trigonometry / Double Angle............. 1
+- Logarithms / Comparison................. 1
+- Analytic Geometry - Line And Parabola Intersection 1
+- Geometric Progression Word Problem...... 1
+- Algebraic Fractions Simplification...... 1
+- Exponential Function Graph Identification 1
+- Monomials / Greatest Common Divisor..... 1
+- Trigonometry / Product-To-Sum........... 1
+- Word Problem / Linear Equations......... 1
+- Logarithms / Exponentials............... 1
+- Word Problem / Proportions And Currency. 1
+- Biquadratic Equations................... 1
+- Polynomial Algebra / Simplification..... 1
+- Radicals / Simplification............... 1
+- Combinatorics / Counting Principle...... 1
+- Solid Geometry / Cube Inscribed In Sphere 1
+- Geometry / Triangle Congruence.......... 1
+- Rational Equations...................... 1
+- Arithmetic / Word Problem............... 1
+- Arithmetic / Percentages Word Problem... 1
+- Function Transformations / Graphs....... 1
+- Word Problem / Linear Systems (Ages).... 1
+- Prime Factorization..................... 1
+- Powers / Algebraic Simplification....... 1
+- Monomials / Least Common Multiple....... 1
+- Equations / Sets Of Solutions........... 1
+- Solid Geometry / Cube Cross-Section..... 1
+- Arithmetic Word Problem................. 1
+- Algebraic Simplification................ 1
+- Monomials / Common Divisor.............. 1
+- Logarithms / Properties................. 1
+- Linear Equations / Age Word Problem..... 1
+- Inequalities / Rational Inequalities.... 1
+- Algebraic Simplification / Factoring.... 1
+- Solid Geometry / Cylinder Volume Scaling 1
+- Percentage Change....................... 1
+- Radicals / Rationalization.............. 1
+- Divisibility............................ 1
+- Averages................................ 1
+- Logarithmic Inequalities................ 1
+- Analytic Geometry / Loci................ 1
+- Geometry (Rhombus)...................... 1
+- Geometry (Rectangle).................... 1
+- Conics / Analytic Geometry.............. 1
+- Permutations / Combinatorics............ 1
+- Analytic Geometry (Lines)............... 1
+- Ordering Numbers / Estimation........... 1
+- Geometry (Circles)...................... 1
+- Trigonometry / Right Triangle........... 1
+- Angle Measure / Degrees To Radians...... 1
+- Geometry / Trigonometry (Altitude Of A Triangle) 1
+- Radical Equations....................... 1
+- Analytic Geometry / Equation Of A Line.. 1
+- Combinatorial Geometry / Lines Dividing The Plane 1
+- Number Sets / Rational Vs Irrational.... 1
+- Ratios And Proportions.................. 1
+- Geometry — Volume Of Spheres............ 1
+- Functions — Range....................... 1
+- Statistics — Variance................... 1
+- Algebra — Quadratic Equation............ 1
+- Algebra — Sum Of Roots.................. 1
+- Functions — Inverse Function............ 1
+- Notation / Trigonometry Interpretation.. 1
+- Quadratic Discriminant.................. 1
+- Sphere Volume........................... 1
+- Coordinate Geometry (Lines)............. 1
+- Trigonometry (Angle Subtraction)........ 1
+- Cylinder Volume......................... 1
+- Absolute Value Equations................ 1
+- Statistics — Median..................... 1
+- Geometry — Area Of Trapezoid............ 1
+- Trigonometry — Addition Formula......... 1
+- Probability — Dice...................... 1
+- Geometry — Surface Area Of Cube......... 1
+- Geometry — Volume Of Pyramid............ 1
+- Algebra — Rational Inequality........... 1
+- Coordinate Geometry — Circle Equation... 1
+- Probability — Coin Flips................ 1
+- Geometry — Lateral Surface Of Cone...... 1
+- Statistics (Mode)....................... 1
+- Solid Geometry (Surface Area)........... 1
+- Coordinate Geometry (Midpoint).......... 1
+- Solid Geometry (Sphere)................. 1
+- Quadratic Functions (Axis Of Symmetry).. 1
+- Statistics (Standard Deviation)......... 1
+- Solid Geometry (Cone)................... 1
+- Infinite Geometric Series............... 1
+- Optimization / Minimum Value............ 1
+- Polynomial Division / Factoring......... 1
+- Conic Sections / Ellipse................ 1
+- Conic Sections / Hyperbola.............. 1
+- Optimization On Interval................ 1
+- Geometry (Triangle Area)................ 1
+- Statistics (Correlation)................ 1
+- Solid Geometry (Sphere In Cylinder)..... 1
+- Solid Geometry (Cube)................... 1
+- Statistics / Standard Deviation......... 1
+- Solid Geometry / Surface Area........... 1
+- Coordinate Geometry / Circle............ 1
+- Work And Rates.......................... 1
+- Angle Bisector Theorem.................. 1
+- Recursive Sequence...................... 1
+- Counting Principle...................... 1
+- Combinations / Round-Robin.............. 1
+- Pigeonhole Principle.................... 1
+- Geometry — Parallel Segments (Thales)... 1
+- Clock Hand Angles....................... 1
+- Combinatorics / Arrangements With Constraints 1
+- Counting / Permutations................. 1
+- Combinatorics / Handshakes.............. 1
+- Combinatorics / Arrangements............ 1
+- Inclusion-Exclusion / Minimum Overlap... 1
+- Combinatorics / Round-Robin Tournament.. 1
+- Combinatorics / Handshake Problem....... 1
+- Pigeonhole / Counting................... 1
+- Permutations............................ 1
+- Roots................................... 1
+- Arithmetic Sequences.................... 1
+- System Of Equations / Number Puzzle..... 1
+- Area Scaling............................ 1
+- Ratios.................................. 1
+- Speed / Average Rate.................... 1
+- Consecutive Integers.................... 1
+- Linear Equation......................... 1
+- Linear Equations........................ 1
+- Trigonometric Equations / Range Of Sine. 1
+- Polynomial Remainder Theorem............ 1
+- Trigonometry / Triangle Angles.......... 1
+- Exponents / Laws Of Powers.............. 1
+- Geometry / Circle Tangents.............. 1
+- Algebra — Equations..................... 1
+- Analytic Geometry — Circles............. 1
+- Solid Geometry — Volumes Of Revolution.. 1
+- Analytic Geometry — Systems Of Curves... 1
+- Analytic Geometry — Perpendicular Bisector 1
+- Powers And Radicals..................... 1
+- Geometry — Circles And Squares.......... 1
+- Geometry — Area Of A Rhombus............ 1
+- Percentages — Part/Whole................ 1
+- Absolute Value Functions — Evaluation... 1
+- Sign Of A Product — Inequalities........ 1
+- Algebraic Manipulation — Solving For A Variable 1
+- Quadratic Functions / Discriminant...... 1
+- Geometry / Area Ratio................... 1
+- Proportions / Linear Equations.......... 1
+- Exponents / Inequalities................ 1
+- Percentages / Reasoning................. 1
+- Number Theory (Primes, Gcd/Lcm, Divisibility) 1
+- Exponential/Logarithmic Growth-Decay & Compound-Interest Word Problems 1
+- Parametric Systems (Unique/None/Infinite Solutions) 1
+- Modular Arithmetic & Last-Digit Problems 1
+- Coordinate Geometry / Linear Functions.. 1
+- Functions And Graph Transformations..... 1
+- Geometry — Solids, Volume............... 1
+- Exponential Growth And Decay............ 1
+- Algebra — Inequalities And Optimization. 1
+- Coordinate (Analytic) Geometry.......... 1
+- Arithmetic And Proportional Reasoning... 1
+- Sequences And Series.................... 1
+- Statistics And Data Handling............ 1
+- Algebra — Powers And Exponents.......... 1
+- Number Sense And Real Numbers........... 1
+- Algebra / Coordinate Geometry........... 1
+- Solid Geometry — Surface Area Of A Cone. 1
+- Analytic Geometry — Conic Sections...... 1
+- Statistics And Data Interpretation...... 1
+- Descriptive Statistics.................. 1
+- Sequences And Series (Algebra).......... 1
+- Arithmetic / Applied Reasoning.......... 1
+- Geometry (Plane)........................ 1
+- Combinatorics And Discrete Reasoning.... 1
+- Plane Geometry.......................... 1
+- Arithmetic And Rates.................... 1
+- Solid Geometry / Mensuration............ 1
+- Geometry — Circles And Regular Polygons. 1
+- Plane Geometry — Angle Relationships.... 1
+- Mathematics — Arithmetic And Proportional Reasoning 1
+- Algebra And Arithmetic Reasoning........ 1
+- Algebra — Quadratics.................... 1
+- Algebra — Polynomial Inequalities....... 1
+- Algebra: Polynomials.................... 1
+- Geometry And Trigonometry............... 1
+- Algebra — Logarithmic Functions......... 1
+- Analytic (Coordinate) Geometry.......... 1
+- Algebra And Numerical Estimation........ 1
+- Percentages, Ratios & Word Problems..... 1
+- Radicals & Powers....................... 1
+- Sequences & Series...................... 1
+- Radicals And Surds...................... 1
+- Polynomial Factoring, Remainder Theorem, Sum/Product Of Roots 1
+- Systems & Word Problems................. 1
+- Ratio And Proportion.................... 1
+
+**Physics** (400)
+- Physics................................. 55
+- Mechanics............................... 9
+- Electrostatics.......................... 7
+- Thermodynamics.......................... 7
+- Kinematics.............................. 6
+- Buoyancy / Archimedes' Principle........ 6
+- Physics — Kinematics.................... 5
+- Newton'S Second Law..................... 4
+- Si Units................................ 4
+- Dimensional Analysis.................... 3
+- Thermodynamics / Thermal Equilibrium.... 3
+- Calorimetry / Thermal Equilibrium....... 3
+- Physics — Mechanics..................... 3
+- Measurement & Units..................... 2
+- Vectors................................. 2
+- Coulomb'S Law........................... 2
+- Calorimetry / Specific Heat............. 2
+- Fluid Dynamics / Continuity Equation.... 2
+- Vectors / Scalar Product................ 2
+- Newton'S Second Law / Tension........... 2
+- Thermodynamics / Specific Heat.......... 2
+- Circular Motion......................... 2
+- Kinematics / Uniform Acceleration....... 2
+- Dimensional Analysis / Units............ 2
+- Kinematics / Projectile Motion.......... 2
+- Kinetic Energy.......................... 2
+- Gravitation / Inverse-Square Law........ 2
+- Elastic Potential Energy Of A Spring.... 2
+- Kinematics / Free Fall.................. 2
+- Thermodynamics / Calorimetry............ 2
+- Gravitation & Orbital Reasoning......... 2
+- Physics — Dc Circuits................... 2
+- Optics.................................. 2
+- Dynamics & Forces....................... 1
+- Electric Circuits....................... 1
+- Calorimetry............................. 1
+- Thermodynamics — First Law.............. 1
+- Kinematics — Centripetal Acceleration... 1
+- Elasticity — Hooke'S Law................ 1
+- Definitions — Work / Joule.............. 1
+- Dynamics — Newton'S Second Law.......... 1
+- Orders Of Magnitude — Earth Radius...... 1
+- Kinematics / Trigonometry — Displacement Geometry 1
+- Fluid Statics — Hydrostatic Pressure.... 1
+- Electrostatics — Work By Electric Field. 1
+- Calorimetry — Heating Water............. 1
+- Electricity — Resistance Of A Wire...... 1
+- Kinematics — Uniformly Accelerated Motion, Return To Origin 1
+- Thermodynamics / Ideal Gas Law (Gay-Lussac) 1
+- Uniform Circular Motion / Centripetal Force 1
+- Free Fall Kinematics.................... 1
+- Uniform Circular Motion / Angular Velocity 1
+- Vector Addition / Triangle Inequality... 1
+- Dc Circuits / Ohm'S Law................. 1
+- Newton'S Second Law / Kinematics........ 1
+- Fluid Statics / Stevin'S Law............ 1
+- Circular Motion / Centripetal Acceleration 1
+- Energy / Work Of Gravity................ 1
+- Electrostatics / Gauss'S Law............ 1
+- Thermodynamics / Ideal Gas Law (Isochoric) 1
+- Fluid Statics / Archimedes' Principle... 1
+- Mechanics / Inclined Plane Acceleration. 1
+- Electrostatics / Conductors............. 1
+- Electricity / Units Of Measurement (Volt) 1
+- Work And Power / Inclined Plane......... 1
+- Electrostatics / Capacitors In Parallel. 1
+- Dynamics / Newton'S Second Law With Springs 1
+- Dynamics / Contact Force Between Connected Blocks 1
+- Kinematics / Vertical Motion Under Gravity 1
+- Si Units / Fundamental Units............ 1
+- Thermodynamics / Ideal Gas Law.......... 1
+- Vectors / Magnitude Of Vector Difference 1
+- Electrostatics / Capacitors............. 1
+- Mechanics / Work Of Centripetal Force In Uniform Circular Motion 1
+- Newtonian Mechanics / Kinematics........ 1
+- Units And Dimensions.................... 1
+- Thermodynamics / Ideal Gas.............. 1
+- Kinematics / Unit Conversion............ 1
+- Vectors / Kinematics.................... 1
+- Springs / Newton'S Second Law........... 1
+- Dc Circuits / Resistors................. 1
+- Thermodynamics / Latent Heat............ 1
+- Thermodynamics Of Ideal Gas............. 1
+- Capacitance And Charge.................. 1
+- Work-Energy Theorem / Kinetic Energy.... 1
+- Electricity / Joule Heating............. 1
+- Projectile Motion / Relative Motion..... 1
+- Thermodynamics / Heat Transfer.......... 1
+- Inclined Plane / Normal Force........... 1
+- Kinematics / Velocity-Time Graph........ 1
+- Circular Motion / Tangential Acceleration 1
+- Resistors In Parallel................... 1
+- Mass Vs Weight / Gravitation............ 1
+- Unit Conversions........................ 1
+- Ideal Gas Law........................... 1
+- Buoyancy / Archimedes................... 1
+- Kinematics / Average Acceleration....... 1
+- Thermodynamics / Transformations........ 1
+- Statics / Forces........................ 1
+- Energy / Potential Energy............... 1
+- Vectors / Vector Addition............... 1
+- Electrostatics / Electric Potential..... 1
+- Electric Circuits / Power And Resistance 1
+- Oscillations / Simple Pendulum.......... 1
+- Newtonian Dynamics / Connected Bodies... 1
+- Electrical Resistance................... 1
+- Electric Power / Current................ 1
+- Kinematics / Speed Of Light............. 1
+- Static Friction......................... 1
+- Simple Pendulum / Tension............... 1
+- Elastic Potential Energy / Energy Conservation 1
+- Hydrostatic Pressure.................... 1
+- Vectors / Direction Angle............... 1
+- Dimensional Analysis / Si Units......... 1
+- Electronics / Semiconductor Components.. 1
+- Vectors - Magnitude Of Vector Difference 1
+- Capacitors In Parallel - Charge......... 1
+- Thermodynamics — First Law, Isobaric Expansion 1
+- Electric Power / Resistance (E = I^2 R T) 1
+- Uniform Circular Motion................. 1
+- Units Of Measurement / Frequency........ 1
+- Friction / Kinematics................... 1
+- Work.................................... 1
+- Kinematics / Average Speed.............. 1
+- Electrical Resistance / Resistivity..... 1
+- Ideal Gas / Isobaric Transformation..... 1
+- Uniform Circular Motion, Centripetal Acceleration 1
+- Kinematics / Relative Motion............ 1
+- Electrostatics / Charge In Uniform Electric Field 1
+- Thermodynamics / Work Of A Gas.......... 1
+- Electric Current / Drift Velocity....... 1
+- Dynamics / Uniformly Accelerated Motion. 1
+- Work And Energy......................... 1
+- Kinematics - Free Fall Final Speed...... 1
+- Ideal Gas Law / Gay-Lussac.............. 1
+- Kinematics / Uniformly Accelerated Motion 1
+- Thermodynamics / Heat And Temperature... 1
+- Fluid Statics / Hydrostatic Pressure.... 1
+- Electric Circuits / Resistors In Parallel 1
+- Si Units / Dimensional Analysis......... 1
+- Power, Work And Energy.................. 1
+- Capacitors In Parallel / Charge Distribution 1
+- Vectors / Dot Product................... 1
+- Buoyancy / Archimedes' Principle In Air. 1
+- Thermodynamics — Heat Engine Efficiency. 1
+- Newton'S Laws — Net Force And Motion.... 1
+- First Law Of Thermodynamics — Isobaric Process 1
+- Hooke'S Law — Elastic Constants......... 1
+- Capacitors / Equivalent Capacitance..... 1
+- Kinematics / Relative Velocity.......... 1
+- Thermodynamics — Isothermal Process (Boyle'S Law) 1
+- Kinematics — Relative Velocity (Catch-Up) 1
+- Electricity — Power/Energy Dissipated In A Resistor 1
+- Kinematics — Free Fall / Projectile Time To Fall 1
+- Dc Circuits / Parallel Resistors........ 1
+- Vectors / Force Components.............. 1
+- Energy Conservation / Spring............ 1
+- Thermodynamics / Ideal Gas Isothermal... 1
+- Elasticity / Hooke'S Law................ 1
+- Work-Energy Theorem / Friction.......... 1
+- Work Done By Gravity / Conservative Forces 1
+- Kinematics / Dynamics: Inclined Plane Vs Free Fall 1
+- Dynamics: Apparent Weight / Dynamometer In Accelerating Elevator 1
+- Thermodynamics - Gay-Lussac Law (Isochoric) 1
+- Kinematics - Vertical Projectile Motion. 1
+- Electrostatics - Coulomb'S Law.......... 1
+- Dimensional Analysis / Kinetic Energy... 1
+- Thermodynamics / Isothermal Transformation 1
+- Work / Conservative Forces On An Inclined Plane 1
+- Vectors / Scalar Triple Product......... 1
+- Capacitors In Parallel.................. 1
+- Kinematics / Uniform Motion............. 1
+- Kinematics / Newton'S Second Law (Constant Force, Uniform Acceleration) 1
+- Kinematics / Acceleration............... 1
+- Kinematics / Speed And Distance......... 1
+- Circular Motion / Frequency............. 1
+- Measurement / Relative Error............ 1
+- Energy Conservation..................... 1
+- Hooke'S Law............................. 1
+- Work Against Gravity.................... 1
+- Average Speed........................... 1
+- Newton'S Laws........................... 1
+- Power................................... 1
+- Newton'S Third Law...................... 1
+- Potential Energy........................ 1
+- Inelastic Collision..................... 1
+- Weight And Gravity...................... 1
+- Si Units / Electric Current............. 1
+- Ohm'S Law / Circuits.................... 1
+- Hydraulics / Pascal'S Principle......... 1
+- Density................................. 1
+- Buoyancy................................ 1
+- Fluid Dynamics / Flow Rate.............. 1
+- Elastic Collisions / Momentum........... 1
+- Gas Laws / Boyle'S Law.................. 1
+- Gas Laws / Gay-Lussac'S Law............. 1
+- Thermodynamics / Laws................... 1
+- Heat Transfer........................... 1
+- Thermodynamics — Work Done By Gas....... 1
+- Thermodynamics — Isothermal Process..... 1
+- Series Circuits — Ohm'S Law............. 1
+- Si Units — Electric Charge.............. 1
+- Parallel Circuits — Ohm'S Law........... 1
+- Si Units — Electrical Resistance........ 1
+- Magnetic Force On A Moving Charge....... 1
+- Magnetic Materials...................... 1
+- Electromagnetic Induction — Faraday'S Law 1
+- Lenz'S Law.............................. 1
+- Waves — Wavelength...................... 1
+- Waves — Transverse Vs Longitudinal...... 1
+- Optics — Snell'S Law.................... 1
+- Waves - Period And Frequency............ 1
+- Optics - Visible Spectrum Wavelength.... 1
+- Optics - Concave Mirror Image Distance.. 1
+- Optics - Plane Mirror Image............. 1
+- Optics - Snell'S Law Refraction......... 1
+- Optics - Law Of Reflection.............. 1
+- Mechanics - Elastic Collision........... 1
+- Optics - Dispersion..................... 1
+- Waves - Speed, Wavelength, Frequency.... 1
+- Optics - Convex Lens Magnification/Focal Length 1
+- Units - Si Unit Of Energy............... 1
+- Em Spectrum - Photon Energy............. 1
+- Optics - Convex Lens Magnification...... 1
+- Mechanics - Equilibrium................. 1
+- Work Done By A Force.................... 1
+- Electrical Power Dissipation............ 1
+- Parallel Circuits....................... 1
+- Units Of Capacitance.................... 1
+- Wave Equation........................... 1
+- Wave Speed.............................. 1
+- Thin Lens Equation (Convex Lens)........ 1
+- Dispersion Of Light..................... 1
+- Dispersion In A Prism................... 1
+- Error Propagation....................... 1
+- Scalar And Vector Quantities............ 1
+- Projectile Motion....................... 1
+- Thermodynamics / Isochoric Process...... 1
+- Thermodynamics / Carnot Efficiency...... 1
+- Fluid Dynamics / Bernoulli'S Principle.. 1
+- Gravitation / Newton'S Law Of Gravitation 1
+- Kinematics / Kinetic Energy Of Free Fall 1
+- Thermodynamics / Heat Engine Efficiency. 1
+- Waves / Sound........................... 1
+- Electrostatics / Charging By Induction.. 1
+- Vectors / Scalar And Vector Product..... 1
+- Kinematics / Rotational Motion.......... 1
+- Physics — Statics....................... 1
+- Fluid Statics........................... 1
+- Mechanics (Power)....................... 1
+- Power, Efficiency & Energy Transfer..... 1
+- Fluids — Hydrostatics (U-Tube With Volume Conservation) 1
+- Electrostatics — Superposition Of Electric Fields 1
+- Fluid Mechanics......................... 1
+- Electricity And Dc Circuits............. 1
+- Thermal Physics......................... 1
+- Fluid Dynamics.......................... 1
+- Physics — Work, Energy And Power........ 1
+- Mechanics — Kinematics.................. 1
+- Physics — Mechanics / Kinematics........ 1
+- Mechanics — Newton'S Laws And Friction.. 1
+- Electricity And Magnetism............... 1
+- Electricity And Circuits................ 1
+- Measurement And Uncertainty............. 1
+- Physics — Vectors....................... 1
+- Mechanics — Forces And Dynamics......... 1
+- Mechanics — Momentum, Impulse And Collisions 1
+- Physics — Electricity And Dc Circuits... 1
+- Electricity And Magnetism (Physics)..... 1
+- Physics — Waves And Oscillations........ 1
+- Waves And Oscillations.................. 1
+- Mechanics / Statics..................... 1
+- Waves................................... 1
+- Physics — Measurement And Units......... 1
+- Mechanics (Kinematics Of One-Dimensional Motion) 1
+- Thermodynamics / Heat................... 1
+- Physics — Electricity................... 1
+- Momentum & Collisions................... 1
+
+**Reading + Logic** (196)
+- Logical Reasoning....................... 12
+- Logic................................... 11
+- Reading Comprehension................... 7
+- Passage Comprehension................... 6
+- Negation Of Universal Statement......... 5
+- Contrapositive.......................... 5
+- Reading................................. 4
+- Logical Deductions...................... 3
+- Reading Comprehension (Storks Migration Passage) 3
+- Elementary Logic Problems............... 2
+- Syllogism............................... 2
+- Quantitative Reasoning / Proportions.... 2
+- Necessary And Sufficient Conditions..... 2
+- Conditional Statements / Contrapositive. 2
+- Percentage / Discount................... 2
+- Logic — Blood Relation.................. 2
+- Logic — Direction Sense................. 2
+- Logic And Quantitative Reasoning........ 2
+- Logical And Quantitative Reasoning...... 2
+- Orderings............................... 1
+- Pigeonhole / Set Reasoning.............. 1
+- Truth-Teller / Logic Puzzle............. 1
+- Pigeonhole / Worst Case................. 1
+- Pigeonhole / Combinatorial Deduction.... 1
+- Pigeonhole / Hair-Color Deduction....... 1
+- Number Sequence......................... 1
+- Conditional Statements / Counterexample. 1
+- Propositional Logic / Conditions........ 1
+- Numerical Sequences / Pattern Recognition 1
+- Ordering / Deductive Reasoning.......... 1
+- Combinatorics / Quantitative Reasoning.. 1
+- Temporal Ordering Reasoning............. 1
+- Implications / Pigeonhole Reasoning..... 1
+- Set Reasoning / Logical Necessity....... 1
+- Negation Of A Conditional Statement..... 1
+- Reading Comprehension (Smart Plastics / Self-Healing Polymers Passage) 1
+- Set Reasoning / Pigeonhole.............. 1
+- Logic / Disproving Conditional Statements 1
+- Propositional Logic / Conditional Reasoning 1
+- Quantitative Reasoning / Diophantine.... 1
+- Combinatorics / Pigeonhole Reasoning.... 1
+- Progressive Tax Bracket Computation..... 1
+- Reading Comprehension Detail............ 1
+- Pigeonhole / Worst-Case Counting........ 1
+- Pigeonhole / Implications............... 1
+- Set/Quantitative Reasoning.............. 1
+- Passage Inference On Microbial Scientists 1
+- Incomplete Syllogism Completion......... 1
+- Verbal Logic - Double Negation Equivalence 1
+- Extended Producer Responsibility - Environmental Sustainability 1
+- Recycled Vs Virgin Raw Materials........ 1
+- Extended Producer Responsibility - Economic Advantages 1
+- Extended Producer Responsibility - Producer Behavior 1
+- Life-Cycle Approach In Product Disposal. 1
+- Truth-Teller / Liar Deduction........... 1
+- Numerical Reasoning..................... 1
+- Constraint Satisfaction / Combinatorics. 1
+- Weighing Puzzle / Problem Solving....... 1
+- Propositional Logic / Conditional Deduction 1
+- Quantitative Reasoning — Sets And Proportions 1
+- Syllogisms.............................. 1
+- Set Relationships / Venn Diagrams....... 1
+- Digital Replicas Of Artefacts (Passage Inference) 1
+- Presious Software (Passage Inference)... 1
+- Ways Of Growing Food (Passage Inference) 1
+- Farming In Skyscrapers (Passage Inference) 1
+- Passage Comprehension - Vertical Farming / 'Farming In The Sky' 1
+- English Reading Comprehension - Thin Solar Cells 1
+- English Reading Comprehension - Thin Solar Cells Fabrication 1
+- English Reading Comprehension - Future Solar Cells 1
+- Logical Equivalence Of Conditional...... 1
+- Truth-Teller / Liar Puzzle.............. 1
+- Syllogism / Categorical Logic........... 1
+- Logical Equivalence..................... 1
+- Negation Of Universal Statements........ 1
+- Code / Language Decoding................ 1
+- Contrapositive / Propositional Logic.... 1
+- Coded Language Decoding................. 1
+- Contrapositive Equivalence.............. 1
+- Depreciation / Percentage............... 1
+- Percentage.............................. 1
+- System Of Linear Equations.............. 1
+- Ratio................................... 1
+- Geometry - Square Area.................. 1
+- Mixture / Percentage.................... 1
+- Consecutive Integers.................... 1
+- Rate - Downstream Speed................. 1
+- Average Speed........................... 1
+- Geometry - Rectangle.................... 1
+- Geometry - Triangle Area................ 1
+- Combinatorics — Permutations With Parity Constraint 1
+- Logical Deduction — Negation Of Conditions 1
+- Combinatorics / Constraint Reasoning.... 1
+- Propositional Logic / Inference......... 1
+- Exponential Growth Reasoning............ 1
+- Set Theory / Percentages................ 1
+- Number Sequences........................ 1
+- Logical Negation Of Quantified Statements 1
+- Reading Comprehension - Vocabulary In Context ('Paving The Way') 1
+- Negation Of A Universal Statement....... 1
+- Deduction From Partial Quantifiers...... 1
+- Syllogism / Necessary Conclusion........ 1
+- Necessary Vs Sufficient Conditions...... 1
+- Pigeonhole / Averages Reasoning......... 1
+- Combinatorics — Worst-Case / Pigeonhole. 1
+- Reasoning — Algebraic Balance / Equations 1
+- Reasoning — Proportions And Set Overlap (Pigeonhole) 1
+- Logical Deduction About Answer Options.. 1
+- Logical Deduction / Quantifiers......... 1
+- Ordering & Ranking With Multiple Constraints 1
+- Pigeonhole & Worst-Case Guarantees...... 1
+- Logical Equivalence & Validity Of Arguments 1
+- Number & Letter Sequence Patterns....... 1
+- Logic — Truth-Tellers & Liars........... 1
+- Logic — Multi-Constraint Seating........ 1
+- Logic — Conditional Chains.............. 1
+- Logic — Multi-Constraint Ordering....... 1
+- Logic — Inclusion-Exclusion............. 1
+- Logic — Numeric Pattern Series.......... 1
+- Logic — Statement And Conclusion........ 1
+- Logic — Circular Seating................ 1
+- Logic — Conditional Reasoning........... 1
+- Deductive Reasoning..................... 1
+- Propositional Logic..................... 1
+- Numerical And Logical Reasoning......... 1
+- Deductive Logic......................... 1
+- Set Theory / Venn Diagrams.............. 1
+- Logic And Number Sequences.............. 1
+- Logic And Verbal Reasoning.............. 1
+- Logic (Propositional Reasoning)......... 1
+- Logic And Set Relations................. 1
+- Logic And Deductive Reasoning........... 1
+- Logic And Problem Solving............... 1
+- Mathematics / Logic — Algebra And Coordinate Geometry 1
+- Plane Geometry: Perimeter And Area...... 1
+- Logical-Mathematical Reasoning.......... 1
+- Logical And Numerical Reasoning......... 1
+- Geometry................................ 1
+- Combinatorics / Counting................ 1
+
+**Basic Technical Knowledge** (68)
+- Computer_science........................ 13
+- Representation.......................... 10
+- Computer Science........................ 3
+- Types Of Representation / Axonometry.... 1
+- File Systems / Paths.................... 1
+- Number Base Conversion.................. 1
+- Digital Storage / Units Of Information.. 1
+- Program Tracing / Conditionals (Scratch Blocks) 1
+- Representation Scales................... 1
+- Orthogonal Projections / Third View..... 1
+- Block/Scratch Program Tracing (Conditionals) 1
+- Virtual Machine Concept................. 1
+- Programming Constructs (If Keyword)..... 1
+- History Of Descriptive Geometry......... 1
+- Representation Scale And Area........... 1
+- Terminal / Os Commands.................. 1
+- Representation Scale.................... 1
+- Networking Commands..................... 1
+- Program Tracing / Loops................. 1
+- Technical Drawing / Scale Selection..... 1
+- Interpreted Vs Compiled Languages....... 1
+- Assignment Operator In C/Python......... 1
+- Scratch Block Program Tracing (Conditionals) 1
+- Types Of Graphical Representation / Projection 1
+- Scratch Block Program Tracing (Repeat Loop With Conditional) 1
+- Graph Transformations................... 1
+- Logarithmic Function Graph Identification 1
+- Axonometric To Orthogonal Projection Matching 1
+- Image Formats / Codecs.................. 1
+- Descriptive Geometry - Solid Of Revolution Profile 1
+- Drawing Scales - Scale Conversion....... 1
+- Orthographic Projections Matching....... 1
+- Input Vs Output Devices................. 1
+- Drawing Scales (2:1).................... 1
+- Assignment Vs Equality Operators........ 1
+- Rappresentazione - Conteggio Di Facce/Spigoli/Vertici 1
+- Spatial Reasoning / Solid Geometry...... 1
+- Algorithms.............................. 1
+- Computer Number Representation And Digital Logic 1
+- Digital Logic / Boolean Algebra......... 1
+- Number Systems And Data Representation.. 1
+- Spatial Reasoning....................... 1
+- Algorithms & Pseudocode................. 1
+- Basic Technical / Computer Science (Data Representation) 1
+- Ragionamento Spaziale................... 1
+
+### CEnT-S
+
+**Mathematics** (353)
+- Mathematics............................. 45
+- Geometry................................ 29
+- Algebra................................. 23
+- Trigonometry............................ 15
+- Probability............................. 11
+- Analytic Geometry....................... 9
+- Coordinate Geometry..................... 8
+- Logarithmic Equations................... 4
+- Combinatorics........................... 4
+- Logarithms.............................. 3
+- Percentages............................. 3
+- Statistics.............................. 3
+- Polynomials / Roots..................... 2
+- Trigonometric Equations................. 2
+- Ratios And Proportions.................. 2
+- Sequences............................... 2
+- Conic Sections (Parabola)............... 2
+- Algebra — Quadratic Inequality.......... 2
+- Trigonometry — Exact Values............. 2
+- Work Rate............................... 2
+- Exponents............................... 2
+- Quadratic Equations..................... 2
+- Inequalities............................ 2
+- Exponentials & Logarithms............... 2
+- Number Theory (Primes, Gcd/Lcm, Divisibility) 2
+- Combinatorics & Probability............. 2
+- Functions And Graphs.................... 2
+- Plane Geometry.......................... 2
+- Sequences And Series.................... 2
+- Systems & Word Problems................. 2
+- Divisibility............................ 1
+- Averages................................ 1
+- Logarithmic Inequalities................ 1
+- Analytic Geometry / Loci................ 1
+- Geometry (Rhombus)...................... 1
+- Geometry (Rectangle).................... 1
+- Conics / Analytic Geometry.............. 1
+- Permutations / Combinatorics............ 1
+- Analytic Geometry (Lines)............... 1
+- Ordering Numbers / Estimation........... 1
+- Geometry (Circles)...................... 1
+- Trigonometry / Right Triangle........... 1
+- Angle Measure / Degrees To Radians...... 1
+- Geometry / Trigonometry (Altitude Of A Triangle) 1
+- Radical Equations....................... 1
+- Exponents / Powers...................... 1
+- Analytic Geometry / Equation Of A Line.. 1
+- Combinatorial Geometry / Lines Dividing The Plane 1
+- Number Sets / Rational Vs Irrational.... 1
+- Geometry — Volume Of Spheres............ 1
+- Functions — Range....................... 1
+- Statistics — Variance................... 1
+- Algebra — Quadratic Equation............ 1
+- Algebra — Sum Of Roots.................. 1
+- Functions — Inverse Function............ 1
+- Notation / Trigonometry Interpretation.. 1
+- Quadratic Discriminant.................. 1
+- Trigonometric Identities................ 1
+- Sphere Volume........................... 1
+- Polynomial Roots........................ 1
+- Coordinate Geometry (Lines)............. 1
+- Trigonometry (Angle Subtraction)........ 1
+- Cylinder Volume......................... 1
+- Absolute Value Equations................ 1
+- Statistics — Median..................... 1
+- Geometry — Area Of Trapezoid............ 1
+- Trigonometry — Addition Formula......... 1
+- Probability — Dice...................... 1
+- Geometry — Surface Area Of Cube......... 1
+- Geometry — Volume Of Pyramid............ 1
+- Algebra — Rational Inequality........... 1
+- Coordinate Geometry — Circle Equation... 1
+- Probability — Coin Flips................ 1
+- Geometry — Lateral Surface Of Cone...... 1
+- Statistics (Mode)....................... 1
+- Solid Geometry (Surface Area)........... 1
+- Coordinate Geometry (Midpoint).......... 1
+- Solid Geometry (Sphere)................. 1
+- Quadratic Functions (Axis Of Symmetry).. 1
+- Statistics (Standard Deviation)......... 1
+- Solid Geometry (Cone)................... 1
+- Infinite Geometric Series............... 1
+- Optimization / Minimum Value............ 1
+- Polynomial Division / Factoring......... 1
+- Conic Sections / Ellipse................ 1
+- Conic Sections / Hyperbola.............. 1
+- Optimization On Interval................ 1
+- Geometry (Triangle Area)................ 1
+- Statistics (Correlation)................ 1
+- Solid Geometry (Sphere In Cylinder)..... 1
+- Solid Geometry (Cube)................... 1
+- Systems Of Equations.................... 1
+- Statistics / Standard Deviation......... 1
+- Solid Geometry / Surface Area........... 1
+- Coordinate Geometry / Circle............ 1
+- Work And Rates.......................... 1
+- Angle Bisector Theorem.................. 1
+- Recursive Sequence...................... 1
+- Counting Principle...................... 1
+- Combinations / Round-Robin.............. 1
+- Pigeonhole Principle.................... 1
+- Geometry — Parallel Segments (Thales)... 1
+- Clock Hand Angles....................... 1
+- Combinatorics / Arrangements With Constraints 1
+- Counting / Permutations................. 1
+- Combinatorics / Handshakes.............. 1
+- Combinatorics / Arrangements............ 1
+- Inclusion-Exclusion / Minimum Overlap... 1
+- Combinatorics / Round-Robin Tournament.. 1
+- Combinatorics / Handshake Problem....... 1
+- Set Theory / Inclusion-Exclusion........ 1
+- Pigeonhole / Counting................... 1
+- Permutations............................ 1
+- Roots................................... 1
+- Arithmetic Sequences.................... 1
+- System Of Equations / Number Puzzle..... 1
+- Area Scaling............................ 1
+- Ratios.................................. 1
+- System Of Linear Equations.............. 1
+- Speed / Average Rate.................... 1
+- Consecutive Integers.................... 1
+- Linear Equation......................... 1
+- Linear Equations........................ 1
+- Trigonometric Equations / Range Of Sine. 1
+- Rational Inequalities................... 1
+- Polynomial Remainder Theorem............ 1
+- Trigonometry / Triangle Angles.......... 1
+- Exponents / Laws Of Powers.............. 1
+- Geometry / Circle Tangents.............. 1
+- Algebra — Equations..................... 1
+- Analytic Geometry — Circles............. 1
+- Solid Geometry — Volumes Of Revolution.. 1
+- Analytic Geometry — Systems Of Curves... 1
+- Analytic Geometry — Perpendicular Bisector 1
+- Powers And Radicals..................... 1
+- Geometry — Circles And Squares.......... 1
+- Geometry — Area Of A Rhombus............ 1
+- Percentages — Part/Whole................ 1
+- Absolute Value Functions — Evaluation... 1
+- Sign Of A Product — Inequalities........ 1
+- Algebraic Manipulation — Solving For A Variable 1
+- Quadratic Functions / Discriminant...... 1
+- Geometry / Area Ratio................... 1
+- Proportions / Linear Equations.......... 1
+- Exponents / Inequalities................ 1
+- Analytic Geometry / Lines............... 1
+- Percentages / Reasoning................. 1
+- Arithmetic & Geometric Sequences........ 1
+- Exponential/Logarithmic Growth-Decay & Compound-Interest Word Problems 1
+- Parametric Systems (Unique/None/Infinite Solutions) 1
+- Modular Arithmetic & Last-Digit Problems 1
+- Euclidean Plane Geometry................ 1
+- Algebra — Sequences And Series.......... 1
+- Number Theory........................... 1
+- Algebra / Functions..................... 1
+- Coordinate Geometry — Straight Lines.... 1
+- Exponential And Logarithmic Reasoning... 1
+- Data Interpretation And Percentages..... 1
+- Mathematics — Functions................. 1
+- Probability And Statistics.............. 1
+- Mathematics — Number Theory............. 1
+- Arithmetic And Statistics............... 1
+- Analytic Geometry / Plane Geometry...... 1
+- Algebra — Polynomials................... 1
+- Mathematics — Combinatorics............. 1
+- Mathematics — Number Sense And Real Numbers 1
+- Algebra — Powers And Exponents.......... 1
+- Solid Geometry — Volume................. 1
+- Coordinate Geometry / Linear Functions.. 1
+- Statistics And Data Analysis............ 1
+- Solid Geometry / Mensuration............ 1
+- Geometry And Measurement................ 1
+- Statistics And Probability.............. 1
+- Solid Geometry.......................... 1
+- Algebra / Rates......................... 1
+- Number Sequences And Patterns........... 1
+- Mathematics — Combinatorics And Algebra. 1
+- Combinatorics And Set Reasoning......... 1
+- Algebra / Analytic Geometry............. 1
+- Algebra — Powers And Roots.............. 1
+- Mathematics — Algebra / Logarithms...... 1
+- Arithmetic And Number Reasoning......... 1
+- Mathematics — Algebra................... 1
+- Plane Geometry — Circles................ 1
+- Algebra And Numbers..................... 1
+- Algebra — Proportional Reasoning........ 1
+- Linear & Quadratic Equations............ 1
+- Radicals & Powers....................... 1
+- Am-Gm / Mean Inequalities............... 1
+- Coordinate Geometry (Distance/Section Formula) 1
+
+**Physics** (207)
+- Physics................................. 46
+- Physics — Kinematics.................... 5
+- Electrostatics.......................... 5
+- Si Units................................ 4
+- Thermodynamics.......................... 4
+- Physics — Mechanics..................... 4
+- Newton'S Second Law..................... 3
+- Kinematics.............................. 3
+- Dimensional Analysis.................... 2
+- Buoyancy / Archimedes' Principle........ 2
+- Calorimetry / Thermal Equilibrium....... 2
+- Gravitation & Orbital Reasoning......... 2
+- Fluid Mechanics......................... 2
+- Mechanics............................... 2
+- Optics.................................. 2
+- Fluids.................................. 2
+- Kinematics / Acceleration............... 1
+- Kinematics / Speed And Distance......... 1
+- Circular Motion / Frequency............. 1
+- Measurement / Relative Error............ 1
+- Vectors................................. 1
+- Energy Conservation..................... 1
+- Hooke'S Law............................. 1
+- Work Against Gravity.................... 1
+- Average Speed........................... 1
+- Newton'S Laws........................... 1
+- Kinetic Energy.......................... 1
+- Power................................... 1
+- Newton'S Third Law...................... 1
+- Potential Energy........................ 1
+- Inelastic Collision..................... 1
+- Weight And Gravity...................... 1
+- Si Units / Electric Current............. 1
+- Ohm'S Law / Circuits.................... 1
+- Hydraulics / Pascal'S Principle......... 1
+- Density................................. 1
+- Buoyancy................................ 1
+- Fluid Dynamics / Flow Rate.............. 1
+- Elastic Collisions / Momentum........... 1
+- Gas Laws / Boyle'S Law.................. 1
+- Gas Laws / Gay-Lussac'S Law............. 1
+- Calorimetry / Specific Heat............. 1
+- Thermodynamics / Laws................... 1
+- Heat Transfer........................... 1
+- Thermodynamics — Work Done By Gas....... 1
+- Thermodynamics — Isothermal Process..... 1
+- Coulomb'S Law........................... 1
+- Series Circuits — Ohm'S Law............. 1
+- Si Units — Electric Charge.............. 1
+- Parallel Circuits — Ohm'S Law........... 1
+- Si Units — Electrical Resistance........ 1
+- Magnetic Force On A Moving Charge....... 1
+- Magnetic Materials...................... 1
+- Electromagnetic Induction — Faraday'S Law 1
+- Lenz'S Law.............................. 1
+- Waves — Wavelength...................... 1
+- Waves — Transverse Vs Longitudinal...... 1
+- Optics — Snell'S Law.................... 1
+- Waves - Period And Frequency............ 1
+- Optics - Visible Spectrum Wavelength.... 1
+- Optics - Concave Mirror Image Distance.. 1
+- Optics - Plane Mirror Image............. 1
+- Optics - Snell'S Law Refraction......... 1
+- Optics - Law Of Reflection.............. 1
+- Mechanics - Elastic Collision........... 1
+- Optics - Dispersion..................... 1
+- Waves - Speed, Wavelength, Frequency.... 1
+- Optics - Convex Lens Magnification/Focal Length 1
+- Units - Si Unit Of Energy............... 1
+- Em Spectrum - Photon Energy............. 1
+- Optics - Convex Lens Magnification...... 1
+- Mechanics - Equilibrium................. 1
+- Work Done By A Force.................... 1
+- Electrical Power Dissipation............ 1
+- Parallel Circuits....................... 1
+- Units Of Capacitance.................... 1
+- Wave Equation........................... 1
+- Wave Speed.............................. 1
+- Thin Lens Equation (Convex Lens)........ 1
+- Dispersion Of Light..................... 1
+- Dispersion In A Prism................... 1
+- Error Propagation....................... 1
+- Scalar And Vector Quantities............ 1
+- Projectile Motion....................... 1
+- Thermodynamics / Isochoric Process...... 1
+- Thermodynamics / Carnot Efficiency...... 1
+- Fluid Dynamics / Bernoulli'S Principle.. 1
+- Gravitation / Newton'S Law Of Gravitation 1
+- Kinematics / Kinetic Energy Of Free Fall 1
+- Thermodynamics / Heat Engine Efficiency. 1
+- Waves / Sound........................... 1
+- Electrostatics / Charging By Induction.. 1
+- Vectors / Scalar And Vector Product..... 1
+- Kinematics / Rotational Motion.......... 1
+- Thermodynamics & Calorimetry............ 1
+- Mechanics (Energy)...................... 1
+- Mechanics (Power)....................... 1
+- Power, Efficiency & Energy Transfer..... 1
+- Rotational/Circular Dynamics............ 1
+- Physics — Electrostatics................ 1
+- Fluids — Hydrostatics (U-Tube With Volume Conservation) 1
+- Electricity And Dc Circuits............. 1
+- Thermal Physics......................... 1
+- Dc Circuits............................. 1
+- Mechanics — Energy, Work And Power...... 1
+- Mechanics — Static Equilibrium And Torque 1
+- Physics — Oscillations And Elasticity... 1
+- Mechanics (Dynamics).................... 1
+- Physics — Electric Circuits............. 1
+- Mechanics — Momentum And Collisions..... 1
+- Physics — Motion In One Dimension....... 1
+- Mechanics — Circular Motion............. 1
+- Physics — Mechanics (Dynamics).......... 1
+- Physics: Units And Measurement.......... 1
+- Physics: Measurement And Mechanics...... 1
+- Physics — Mechanics / Dynamics.......... 1
+- Physics — Electricity And Dimensional Analysis 1
+- Thermodynamics — Heat And Temperature... 1
+- Thermodynamics / Gas Laws............... 1
+- Electricity............................. 1
+- Physics — Dc Electric Circuits.......... 1
+- Electromagnetism........................ 1
+- Physics: Waves And Oscillations......... 1
+- Physics — Geometric Optics.............. 1
+- Physics — Measurement And Units......... 1
+- Physics — Waves And Electromagnetic Radiation 1
+- Physical Quantities, Units And Measurement 1
+- Physics — Electricity................... 1
+- Waves And Oscillations.................. 1
+- Physics — Measurement And Dimensional Analysis 1
+- Physics — Measurement And Uncertainty... 1
+- Physics — Vectors And Vector Operations. 1
+- Momentum & Collisions................... 1
+
+**Chemistry** (258)
+- Chemistry............................... 64
+- Organic Chemistry....................... 10
+- Chemical Bonding........................ 9
+- Gas Laws................................ 4
+- Acids And Bases......................... 4
+- Atomic Structure And The Periodic Table. 4
+- Thermochemistry......................... 3
+- Molecular Geometry...................... 3
+- Atomic Structure........................ 3
+- General And Inorganic Chemistry......... 3
+- Electronegativity....................... 2
+- Molecular Formulas...................... 2
+- Redox Reactions......................... 2
+- Reaction Types.......................... 2
+- Electron Configuration.................. 2
+- Stoichiometry........................... 2
+- Oxidation Numbers....................... 2
+- Hybridization........................... 2
+- Empirical Formula....................... 2
+- Intermolecular Forces................... 2
+- Chemical Reactions...................... 2
+- Mixtures................................ 2
+- Mole Concept & Stoichiometry............ 2
+- Redox Chemistry......................... 2
+- Chemistry — Solutions And Stoichiometry. 2
+- Chemistry — Thermochemistry............. 2
+- Chemistry — Chemical Bonding............ 2
+- Chemical Bonding And Molecular Structure 2
+- Empirical/Molecular Formula From % Composition 2
+- Organic Chemistry / Biochemistry........ 1
+- States Of Matter / Evaporation.......... 1
+- Aromatic Hydrocarbons................... 1
+- Phase Transitions....................... 1
+- Alkanes General Formula................. 1
+- Periodic Table Groups................... 1
+- Concentration Units..................... 1
+- Isotopes / Atomic Number................ 1
+- Molecular Geometry / Lone Pairs......... 1
+- Electrolytes............................ 1
+- Hydrogen Bonding........................ 1
+- Redox / Reduction....................... 1
+- Molar Mass.............................. 1
+- Ph And Acids/Bases...................... 1
+- Earth'S Crust Composition............... 1
+- Periodic Trends / Reactivity............ 1
+- Combustion Reactions.................... 1
+- Molecular Polarity...................... 1
+- Atomic Structure / Chemical Properties.. 1
+- Ionization Energy / Periodic Trends..... 1
+- Atomic Number........................... 1
+- Isotopes / Neutrons..................... 1
+- Chemical Bonding / Polarity............. 1
+- Periodic Table / Groups And Periods..... 1
+- Electron Configuration / Isoelectronic Species 1
+- Oxides / Compound Classification........ 1
+- Acids And Bases / Weak Acids............ 1
+- Acids And Bases / Arrhenius Theory...... 1
+- Neutralization Reactions / Salts........ 1
+- Redox Reactions / Reduction............. 1
+- Molar Mass / The Mole................... 1
+- The Mole / Avogadro'S Number............ 1
+- Ph Calculations......................... 1
+- Ph Scale / Acids And Bases.............. 1
+- Organic Functional Groups............... 1
+- Amphoteric Compounds.................... 1
+- Ketones................................. 1
+- Esterification.......................... 1
+- Alkynes................................. 1
+- Isomers................................. 1
+- Saturated Hydrocarbons.................. 1
+- Structural Isomers...................... 1
+- Carboxylic Acids........................ 1
+- Solubility.............................. 1
+- Reducing Agents......................... 1
+- Electrolysis............................ 1
+- Valency................................. 1
+- Lewis Acids And Bases................... 1
+- Physical Properties..................... 1
+- Ions And Charge......................... 1
+- Molarity................................ 1
+- Organic Reactions....................... 1
+- Elements And Molecules.................. 1
+- Organic Chemistry — Alcohols............ 1
+- Organic Chemistry — Functional Groups... 1
+- Organic Chemistry — Bonding............. 1
+- Reaction Mechanisms — Nucleophiles...... 1
+- Molecular Geometry — Vsepr.............. 1
+- Atomic Structure — Electron Shells...... 1
+- Organic Chemistry — Ester Hydrolysis.... 1
+- Periodic Table — Valence Electrons...... 1
+- Acids And Bases — Conjugate Base........ 1
+- Periodic Table / Halogens............... 1
+- Periodic Table / Transition Metals...... 1
+- Ions / Electron Configuration........... 1
+- Thermochemistry / Exothermic Reactions.. 1
+- Real Vs Ideal Gases..................... 1
+- Molar Mass From Density At Stp.......... 1
+- Intermolecular Forces / Hydrogen Bonding 1
+- Vsepr / Molecular Geometry.............. 1
+- Phase Changes / Endothermic Processes... 1
+- Mass Percent Composition................ 1
+- Thermochemistry / Bond Energy........... 1
+- Chemical Kinetics / First-Order Half-Life 1
+- Chemical Equilibrium / Catalysts........ 1
+- Thermodynamics / Gibbs Free Energy...... 1
+- Solutions / Molarity.................... 1
+- Acid-Base Reactions / Neutralization.... 1
+- Periodic Table.......................... 1
+- Chemical Bonding & Molecular Geometry... 1
+- States Of Matter........................ 1
+- Limiting Reagent And Percent Yield...... 1
+- Limiting Reagent With Gas Stoichiometry. 1
+- Molarity With Precipitation And Limiting Reagent 1
+- Solutions And Concentration............. 1
+- Acid–Base Equilibria.................... 1
+- Gases................................... 1
+- Electrochemistry / Redox................ 1
+- Molarity And Dilution With Reaction..... 1
+- General/Physical Chemistry.............. 1
+- Chemistry — Redox Reactions............. 1
+- Chemistry — Gases....................... 1
+- General Chemistry — Composition And Stoichiometry 1
+- General And Organic Chemistry........... 1
+- Chemistry — Periodic Properties......... 1
+- Chemistry — Atomic Structure And Periodic Properties 1
+- Inorganic Chemistry..................... 1
+- Stoichiometry / Quantitative Chemistry.. 1
+- Acids, Bases And Ph..................... 1
+- Chemistry: Redox And Oxidation States... 1
+- Electrochemistry........................ 1
+- General Chemistry....................... 1
+- Chemistry — Intermolecular Forces....... 1
+- Chemistry — Acids And Bases............. 1
+- Chemistry: Periodicity And Atomic Structure 1
+- Chemistry — Periodic Table And Atomic Structure 1
+- Atomic Structure And Ions............... 1
+- Stoichiometry / The Mole And Chemical Formulas 1
+- Chemical Kinetics....................... 1
+- Chemistry — States Of Matter And Gases.. 1
+- Chemistry: Periodic Table And Atomic Structure 1
+- Atomic Structure & Periodic Trends...... 1
+- Balancing Equations & Reaction Types.... 1
+
+**Biology** (233)
+- Biology................................. 63
+- Cell Biology............................ 8
+- Ecology................................. 5
+- Molecular Biology....................... 5
+- Cell Organelles......................... 4
+- Endocrine System........................ 3
+- Genetics................................ 3
+- Digestive System........................ 3
+- Photosynthesis.......................... 3
+- Reproduction............................ 2
+- Cellular Respiration.................... 2
+- Nervous System.......................... 2
+- Cell Transport.......................... 2
+- Macromolecules.......................... 2
+- Nervous System / Brain.................. 2
+- Nucleic Acids........................... 2
+- Circulatory System...................... 2
+- Membrane Transport...................... 2
+- Mendelian Genetics...................... 2
+- Human Physiology........................ 2
+- Homeostasis, Hormones & The Nervous System 2
+- Plant Structure & Transport............. 2
+- Physiology Integration (Feedback Loops). 2
+- Dihybrid Genetics....................... 2
+- Macromolecules / Genetic Information.... 1
+- Properties Of Water..................... 1
+- Kingdom Classification / Protista....... 1
+- Cell Structure / Plant Vs Animal Cells.. 1
+- Organelles / Protein Processing......... 1
+- Mitosis / Metaphase..................... 1
+- Mutations............................... 1
+- Gamete Production / Meiosis............. 1
+- Protein Synthesis / Trna................ 1
+- Mendelian Genetics / Monohybrid Cross... 1
+- Carbohydrates / Biomolecule Identification 1
+- Kingdom Classification / Plantae........ 1
+- Cell Membrane / Selective Transport..... 1
+- Dna Replication......................... 1
+- Human Anatomy........................... 1
+- Respiratory System...................... 1
+- Reproductive System..................... 1
+- Biochemistry............................ 1
+- Organ Systems........................... 1
+- Blood And Immunity...................... 1
+- Cellular Respiration / Fermentation..... 1
+- Blood................................... 1
+- Biodiversity............................ 1
+- Cell Organelles / Photosynthesis........ 1
+- Dna Base Pairing........................ 1
+- Carbohydrates / Biomolecules............ 1
+- Blood / Immune System................... 1
+- Connective Tissue....................... 1
+- Blood / Respiration..................... 1
+- Ecology / Symbiosis..................... 1
+- Digestive Enzymes....................... 1
+- Nutrition / Trophic Levels.............. 1
+- Mitosis................................. 1
+- Skeletal System......................... 1
+- Human Excretory System.................. 1
+- Molecular Biology / Translation......... 1
+- Endocrine System / Hormones............. 1
+- Homeostasis............................. 1
+- Autotrophs / Nutrition.................. 1
+- Prokaryotic Cell Structure.............. 1
+- Biomolecules / Proteins................. 1
+- Immune System........................... 1
+- Cell Cycle.............................. 1
+- Lymphatic System........................ 1
+- Tissue Types............................ 1
+- Ecology / Food Chains................... 1
+- Genetics / Hereditary Disease........... 1
+- Genetics / Sex Chromosomes.............. 1
+- Plant Anatomy / Flower.................. 1
+- Microbiology / Bacterial Structure...... 1
+- Molecular Biology / Nucleic Acids....... 1
+- Cell Biology / Prokaryotes.............. 1
+- Cell Biology / Protein Synthesis........ 1
+- Physiology / Nutrition.................. 1
+- Physiology / Respiration................ 1
+- Cell Biology / Eukaryotes............... 1
+- Molecular Biology / Dna Structure....... 1
+- Physiology / Digestive System........... 1
+- Physiology / Immune Defense............. 1
+- Physiology / Nervous System............. 1
+- Protein Structure / Peptide Bonds....... 1
+- Macromolecules / Energy................. 1
+- Enzymes / Denaturation.................. 1
+- Polysaccharides......................... 1
+- Lipids / Cell Membrane.................. 1
+- Organelles / Cellular Respiration....... 1
+- Cell Membrane / Fluid Mosaic Model...... 1
+- Prokaryotes Vs Eukaryotes............... 1
+- Endocytosis / Phagocytosis.............. 1
+- Genetics - Mendel'S Law Of Segregation.. 1
+- Genetics - Monohybrid Cross............. 1
+- Human Chromosomes....................... 1
+- Plant Hormones.......................... 1
+- Plant Physiology - Stomata.............. 1
+- Ecology - Energy Source................. 1
+- Human Nervous System / Brain Anatomy.... 1
+- Enzymes And Basic Metabolism............ 1
+- Biotechnology Basics.................... 1
+- Biomolecule Functions & Tests........... 1
+- Cell Division........................... 1
+- Biochemistry / Proteins................. 1
+- Microbiology............................ 1
+- Molecular Biology / Genetics............ 1
+- Biology — Biological Chemistry: Properties Of Water 1
+- Biology — Diversity Of Living Organisms / Taxonomy 1
+- Human Anatomy And Histology (Connective Tissue) 1
+- Biology — Human Anatomy And Physiology.. 1
+- Biochemistry / Biological Macromolecules 1
+- Cell Biology — The Plasma Membrane...... 1
+- Biology — The Human Body: Blood And Circulation 1
+- Ecology And Biodiversity................ 1
+- Genetics And Heredity................... 1
+- Human Physiology / Gastrointestinal Anatomy And Physiology 1
+- Human Physiology / Digestive System..... 1
+- Molecular Biology Of The Gene........... 1
+- Histology / Tissue Biology.............. 1
+- Human Physiology — The Circulatory System And Blood 1
+- Cell Metabolism And Nutrition........... 1
+- Human Genetics / Inheritance Of Disease. 1
+- Biology — The Nervous System............ 1
+- Human Physiology / Neuroscience......... 1
+- Pedigree Analysis....................... 1
+- Evolution & Natural Selection........... 1
+- Ecology, Food Webs & Energy Flow........ 1
+- Cell Cycle, Mitosis & Meiosis........... 1
+- Dna/Rna And The Central Dogma........... 1
+
+**Reasoning on texts & data** (128)
+- Logical Reasoning....................... 15
+- Reasoning_texts_data.................... 10
+- Negation Of Universal Statement......... 5
+- Contrapositive.......................... 5
+- Percentages And Proportional Reasoning.. 3
+- Code / Language Decoding................ 2
+- Conditional Statements / Contrapositive. 2
+- Set Theory.............................. 2
+- Logic................................... 2
+- Percentage / Discount................... 2
+- Reasoning With Texts And Data........... 2
+- Number & Letter Sequence Patterns....... 2
+- Pigeonhole / Combinatorial Reasoning.... 1
+- Logical Equivalence Of Conditional...... 1
+- Truth-Teller / Liar Puzzle.............. 1
+- Syllogism / Categorical Logic........... 1
+- Logical Equivalence..................... 1
+- Necessary And Sufficient Conditions..... 1
+- Negation Of Universal Statements........ 1
+- Contrapositive / Propositional Logic.... 1
+- Coded Language Decoding................. 1
+- Contrapositive Equivalence.............. 1
+- Combinatorial Scheduling / Optimization. 1
+- Systems Of Equations.................... 1
+- Sequences............................... 1
+- Percentages............................. 1
+- Averages................................ 1
+- Depreciation / Percentage............... 1
+- Percentage.............................. 1
+- System Of Linear Equations.............. 1
+- Ratio................................... 1
+- Geometry - Square Area.................. 1
+- Mixture / Percentage.................... 1
+- Consecutive Integers.................... 1
+- Rate - Downstream Speed................. 1
+- Average Speed........................... 1
+- Geometry - Rectangle.................... 1
+- Geometry - Triangle Area................ 1
+- Combinatorics — Permutations With Parity Constraint 1
+- Logical Deduction — Negation Of Conditions 1
+- Combinatorics / Constraint Reasoning.... 1
+- Propositional Logic / Inference......... 1
+- Exponential Growth Reasoning............ 1
+- Set Theory / Percentages................ 1
+- Number Sequences........................ 1
+- Logical Negation Of Quantified Statements 1
+- Negation Of A Universal Statement....... 1
+- Deduction From Partial Quantifiers...... 1
+- Syllogism / Necessary Conclusion........ 1
+- Necessary Vs Sufficient Conditions...... 1
+- Pigeonhole / Averages Reasoning......... 1
+- Combinatorics — Worst-Case / Pigeonhole. 1
+- Reasoning — Algebraic Balance / Equations 1
+- Reasoning — Proportions And Set Overlap (Pigeonhole) 1
+- Logical Deduction About Answer Options.. 1
+- Logical Deduction / Quantifiers......... 1
+- Ordering & Ranking With Multiple Constraints 1
+- Pigeonhole & Worst-Case Guarantees...... 1
+- Logical Equivalence & Validity Of Arguments 1
+- Logic — Inclusion-Exclusion............. 1
+- Logic — Blood Relation.................. 1
+- Logic — Statement And Conclusion........ 1
+- Logic — Circular Seating................ 1
+- Ratios And Proportions.................. 1
+- Logical Deduction....................... 1
+- Spatial Reasoning....................... 1
+- Data Analysis And Quantitative Reasoning 1
+- Logical And Numerical Reasoning......... 1
+- Logic And Reasoning..................... 1
+- Logical Reasoning (Reasoning_texts_data) 1
+- Logical Reasoning — Categorical Propositions 1
+- Deductive Reasoning / Propositional Logic 1
+- Numerical Sequences And Patterns........ 1
+- Data And Quantitative Reasoning......... 1
+- Percentages And Multiplicative Reasoning 1
+- Quantitative Reasoning.................. 1
+- Data And Proportional Reasoning......... 1
+- Numerical And Algebraic Reasoning....... 1
+- Physics / Kinematics Reasoning.......... 1
+- Geometry: Area And Missing Dimensions... 1
+- Quantitative And Spatial Reasoning...... 1
+- Combinatorics And Counting.............. 1
+- Quantified Statements And Logical Deduction 1
+- Logical And Quantitative Reasoning...... 1
+- Reasoning On Texts & Data............... 1
+- Set Cardinality / Inclusion-Exclusion Reasoning 1
+- Logic — Direction Sense................. 1
+- Logical / Numerical Reasoning........... 1
+
+## Visual distribution (heuristic by section + topic)
+
+| Visual type | IMAT | TIL-I | CEnT-S | Total |
+|---|--:|--:|--:|--:|
+| Graphs / other | 0 | 12 | 3 | 15 |
+| Geometry figures | 0 | 91 | 72 | 163 |
+| Function plots | 4 | 34 | 19 | 57 |
+| Physics diagrams | 41 | 82 | 67 | 190 |
+| Electric circuits | 3 | 21 | 9 | 33 |
+| Representation drawings | 0 | 29 | 0 | 29 |
+| Biology diagrams | 63 | 0 | 9 | 72 |
+| Chemistry diagrams | 23 | 0 | 12 | 35 |
+| Tables / data | 13 | 13 | 13 | 39 |
+| Logic diagrams / tables | 34 | 20 | 4 | 58 |
+| **Total questions with an image** | 181 | 302 | 208 | 691 |
+
+_'Images' = any question carrying a figure asset. Type is inferred from section+topic keywords (no explicit figure-type field is stored), so treat as approximate. 'Mixed visuals' are not separately tagged._
+
+## Difficulty distribution
+
+| Exam | Easy | Medium | Hard | Elite (tag) |
+|---|--:|--:|--:|--:|
+| IMAT | 0 | 1077 | 873 | 0 |
+| TIL-I | 212 | 989 | 21 | 215 |
+| CEnT-S | 429 | 739 | 11 | 408 |
+
+_Elite is a provenance tag (competency-derived originals), overlapping Medium/Hard — not a separate difficulty band._
+
+## Coverage report (by section, eligible pool)
+
+**IMAT** — strong (≥150): Biology (675), Logic / Critical thinking (438), Chemistry (434), Physics & Mathematics (403)
+- medium (50–149): —
+- weak (<50): —
+- missing sections: none
+
+**TIL-I** — strong (≥150): Mathematics (514), Physics (369), Reading + Logic (171)
+- medium (50–149): Basic Technical Knowledge (53)
+- weak (<50): —
+- missing sections: none
+
+**CEnT-S** — strong (≥150): Mathematics (329), Chemistry (243), Biology (224), Physics (191)
+- medium (50–149): Reasoning on texts & data (113)
+- weak (<50): —
+- missing sections: none
+
+## Publish dashboard
+
+| Exam | Total | Eligible | Subjects | Visual questions | Difficulty mix (elig.) | Coverage |
+|---|--:|--:|--:|--:|---|---|
+| IMAT | 1950 | 1950 | 4 | 181 (9%) | M 55% / H 45% / E 0% | 4/4 sections |
+| TIL-I | 1222 | 1107 | 4 | 302 (25%) | M 81% / H 2% / E 17% | 4/4 sections |
+| CEnT-S | 1179 | 1100 | 5 | 208 (18%) | M 63% / H 1% / E 36% | 5/5 sections |
+
+_Difficulty mix M/H/E = Medium / Hard / Easy share of the eligible pool. IMAT & the TIL/CEnT source layers include verbatim easy items; authored originals are 100% medium+hard._
