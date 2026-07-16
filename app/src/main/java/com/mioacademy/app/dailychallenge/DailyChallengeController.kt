@@ -10,6 +10,7 @@ import com.mioacademy.app.core.ExamType
 class DailyChallengeController(context: Context) {
 
     private val engine = DailyChallengeEngine(context.applicationContext)
+    private val reviewEngine = ReviewEngine(context.applicationContext)
 
     data class UiState(
         val exam: ExamType,
@@ -49,4 +50,15 @@ class DailyChallengeController(context: Context) {
 
     suspend fun reviewCount(userId: String, exam: ExamType): Int =
         engine.reviewCount(userId, exam, listOf(ReviewQueue.INCORRECT, ReviewQueue.NEEDS_REVISION, ReviewQueue.FORGOTTEN))
+
+    /** Review queue for the user. Premium unlocks unlimited depth; Free is capped. */
+    suspend fun reviewQueue(userId: String, exam: ExamType, isPremium: Boolean = false): List<ReviewEngine.ReviewItem> =
+        reviewEngine.getReviewQueue(userId, exam, isPremium)
+
+    /** Record a review attempt; advances the spaced-repetition state. Returns the new state. */
+    suspend fun submitReview(userId: String, questionId: String, isCorrect: Boolean): QuestionLearnState? =
+        reviewEngine.submitReview(userId, questionId, isCorrect)
+
+    suspend fun masteredCount(userId: String, exam: ExamType): Int =
+        reviewEngine.masteredCount(userId, exam)
 }

@@ -57,6 +57,7 @@ data class UserQuestionStateEntity(
     val timesSeen: Int = 0,
     val timesCorrect: Int = 0,
     val timesIncorrect: Int = 0,
+    val consecutiveCorrect: Int = 0, // spaced-repetition streak toward MASTERED
     val firstSeenAt: Long = 0,
     val lastSeenAt: Long = 0,
     val nextReviewAt: Long = 0,
