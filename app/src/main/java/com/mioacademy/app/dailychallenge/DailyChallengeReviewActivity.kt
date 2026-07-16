@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.mioacademy.app.R
 import com.mioacademy.app.core.ExamType
-import com.mioacademy.app.core.PremiumStore
 import com.mioacademy.app.core.StudyAreaManager
 import com.mioacademy.app.quiz.PremiumPaywallSheet
 import com.mioacademy.app.ui.onTap
@@ -75,7 +74,8 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
 
         userId = DailyChallengeUser.resolve(this)
         exam = StudyAreaManager.getActiveArea(this).career.examType
-        isPremium = try { PremiumStore(this).isPremium() } catch (_: Throwable) { false } // fail safe: not premium
+        // Review depth is gated by the entitlement seam (fails safe to Free). Never affects new-Q count.
+        isPremium = DailyChallengeEntitlement.isPremiumForReview(this)
 
         group.setOnCheckedChangeListener { _, _ ->
             if (!revealed) primary.isEnabled = group.checkedRadioButtonId != -1
