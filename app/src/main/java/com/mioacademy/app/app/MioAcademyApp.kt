@@ -32,6 +32,8 @@ class MioAcademyApp : Application() {
         LeagueScheduler.scheduleNextReset(this)
         // Safe local study reminders (real-data gated inside the worker).
         com.mioacademy.app.notification.NotificationScheduler.schedule(this)
+        // Daily Challenge reminders (09:00 / 16:00 / 20:30 local); suppressed once today is completed.
+        com.mioacademy.app.dailychallenge.DailyChallengeReminderScheduler.schedule(this)
 
         CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate).launch {
             StartupRuntimeState.markInitializing()

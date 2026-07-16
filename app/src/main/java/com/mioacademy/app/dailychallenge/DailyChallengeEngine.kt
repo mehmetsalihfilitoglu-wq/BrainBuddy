@@ -205,6 +205,8 @@ class DailyChallengeEngine(private val appContext: Context) {
             val score = dcDao.getAnswers(ck).count { it.isCorrect }
             updated = updated.copy(status = ChallengeStatus.COMPLETED.name, completedAt = nowMs, score = score)
             updateStreak(dcDao, userId, localDate)
+            // Suppress any remaining local reminders for today (tomorrow's slots stay intact).
+            DailyChallengeReminderScheduler.onChallengeCompleted(appContext, localDate)
         }
         dcDao.upsertChallenge(updated)
         resolve(updated, qDao, dcDao)
