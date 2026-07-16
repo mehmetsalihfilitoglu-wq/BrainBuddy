@@ -21,6 +21,19 @@ class SettingsActivity : AppCompatActivity() {
             setOnCheckedChangeListener { _, isChecked ->
                 notifPrefs.setMotivationNotificationsEnabled(isChecked)
                 com.mioacademy.app.notification.NotificationScheduler.reschedule(this@SettingsActivity)
+                // Daily Challenge reminders share the same toggle.
+                com.mioacademy.app.dailychallenge.DailyChallengeReminderScheduler.reschedule(this@SettingsActivity)
+                // Recovery path: if reminders are on but the OS permission is denied, open settings so
+                // the user can actually receive them.
+                if (isChecked &&
+                    !com.mioacademy.app.dailychallenge.NotificationPermission.isGranted(this@SettingsActivity)
+                ) {
+                    android.widget.Toast.makeText(
+                        this@SettingsActivity, R.string.dc_perm_open_settings, android.widget.Toast.LENGTH_LONG,
+                    ).show()
+                    com.mioacademy.app.dailychallenge.NotificationPermission
+                        .openAppNotificationSettings(this@SettingsActivity)
+                }
             }
         }
 

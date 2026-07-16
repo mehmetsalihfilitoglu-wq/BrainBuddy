@@ -49,7 +49,8 @@ class HomeActivity : AppCompatActivity() {
 
         setupBackPress()
         setupNavigation()
-        maybeRequestNotificationPermission()
+        // Notification permission is requested contextually (after the first challenge completion),
+        // not on launch — see DailyChallengeResultActivity.
 
         val content = findViewById<android.view.View>(R.id.scrollContent)
         val origBottom = content.paddingBottom
@@ -285,21 +286,6 @@ class HomeActivity : AppCompatActivity() {
         }
         findViewById<MaterialCardView>(R.id.cardProfile).onTap {
             startActivity(Intent(this, StudentProfileActivity::class.java))
-        }
-    }
-
-    /** Ask for POST_NOTIFICATIONS once (Android 13+), so reminders can be shown. */
-    private fun maybeRequestNotificationPermission() {
-        if (android.os.Build.VERSION.SDK_INT < 33) return
-        val prefs = com.mioacademy.app.core.NotificationPrefs(this)
-        if (prefs.wasPermissionRequested()) return
-        val granted = androidx.core.content.ContextCompat.checkSelfPermission(
-            this, android.Manifest.permission.POST_NOTIFICATIONS
-        ) == android.content.pm.PackageManager.PERMISSION_GRANTED
-        if (!granted) {
-            prefs.setPermissionRequested()
-            androidx.core.app.ActivityCompat.requestPermissions(
-                this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 4001)
         }
     }
 

@@ -1,5 +1,6 @@
 package com.mioacademy.app.dailychallenge
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -28,6 +30,12 @@ class DailyChallengeResultActivity : AppCompatActivity() {
 
     private val controller by lazy { DailyChallengeController(this) }
 
+    // Contextual POST_NOTIFICATIONS request — shown after a completion, never on launch.
+    private val permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        NotificationPermission.markAsked(this)
+        if (granted) DailyChallengeReminderScheduler.schedule(this) // (re)arm reminders now that we may post
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_challenge_result)
@@ -46,6 +54,11 @@ class DailyChallengeResultActivity : AppCompatActivity() {
             // Offer review only when the queue actually has something to work through.
             val reviewCount = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { 0 }
             reviewBtn.visibility = if (reviewCount > 0) View.VISIBLE else View.GONE
+        }
+
+        // The contextual moment: the user just finished — ask (once) so tomorrow's reminders can fire.
+        if (NotificationPermission.shouldAsk(this)) {
+            permissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
     }
 
