@@ -1,0 +1,193 @@
+package com.mioacademy.app.dailychallenge
+
+import android.content.Context
+import android.content.Intent
+import android.graphics.BitmapFactory
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.mioacademy.app.R
+import com.mioacademy.app.core.ExamType
+import com.mioacademy.app.core.PremiumStore
+import com.mioacademy.app.core.StudyAreaManager
+import com.mioacademy.app.quiz.PremiumPaywallSheet
+import com.mioacademy.app.ui.onTap
+import kotlinx.coroutines.launch
+import org.json.JSONArray
+
+/**
+ * The review experience: re-surfaces the user's incorrect + due-revision questions one at a time
+ * with the correct answer and explanation, and advances the spaced-repetition state on each attempt.
+ *
+ * Premium unlocks unlimited review depth; Free is capped by [ReviewEngine] (with a Premium upsell
+ * when the cap is hit). Review draws ONLY from already-seen review states, so it can never introduce
+ * a new Daily-Challenge question — the 5-new-per-day limit is untouched.
+ */
+class DailyChallengeReviewActivity : AppCompatActivity() {
+
+    private val controller by lazy { DailyChallengeController(this) }
+    private lateinit var userId: String
+    private lateinit var exam: ExamType
+    private var isPremium = false
+
+    private var items: List<ReviewEngine.ReviewItem> = emptyList()
+    private var totalEligible = 0
+    private var pos = 0
+    private var revealed = false
+    private var currentOrder: List<Int> = emptyList()
+
+    private lateinit var queueLabel: TextView
+    private lateinit var progress: TextView
+    private lateinit var image: ImageView
+    private lateinit var stem: TextView
+    private lateinit var group: RadioGroup
+    private lateinit var options: List<RadioButton>
+    private lateinit var explanationCard: View
+    private lateinit var verdict: TextView
+    private lateinit var explanation: TextView
+    private lateinit var premiumHint: TextView
+    private lateinit var primary: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_daily_challenge_review)
+        queueLabel = findViewById(R.id.dcrvQueueLabel)
+        progress = findViewById(R.id.dcrvProgress)
+        image = findViewById(R.id.dcrvImage)
+        stem = findViewById(R.id.dcrvQuestionText)
+        group = findViewById(R.id.dcrvOptionsGroup)
+        options = listOf(
+            findViewById(R.id.dcrvOptA), findViewById(R.id.dcrvOptB), findViewById(R.id.dcrvOptC),
+            findViewById(R.id.dcrvOptD), findViewById(R.id.dcrvOptE),
+        )
+        explanationCard = findViewById(R.id.dcrvExplanationCard)
+        verdict = findViewById(R.id.dcrvVerdict)
+        explanation = findViewById(R.id.dcrvExplanation)
+        premiumHint = findViewById(R.id.dcrvPremiumHint)
+        primary = findViewById(R.id.dcrvPrimaryBtn)
+
+        userId = DailyChallengeUser.resolve(this)
+        exam = StudyAreaManager.getActiveArea(this).career.examType
+        isPremium = try { PremiumStore(this).isPremium() } catch (_: Throwable) { false } // fail safe: not premium
+
+        group.setOnCheckedChangeListener { _, _ ->
+            if (!revealed) primary.isEnabled = group.checkedRadioButtonId != -1
+        }
+        premiumHint.onTap { PremiumPaywallSheet().show(supportFragmentManager, PremiumPaywallSheet.TAG) }
+        primary.onTap { onPrimary() }
+
+        load()
+    }
+
+    private fun load() {
+        lifecycleScope.launch {
+            items = try { controller.reviewQueue(userId, exam, isPremium) } catch (_: Throwable) { emptyList() }
+            totalEligible = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { items.size }
+            if (items.isEmpty()) {
+                Toast.makeText(this@DailyChallengeReviewActivity, R.string.dc_review_empty, Toast.LENGTH_LONG).show()
+                finish(); return@launch
+            }
+            pos = 0
+            render()
+        }
+    }
+
+    private fun render() {
+        revealed = false
+        val item = items[pos]
+        val q = item.question
+        queueLabel.setText(R.string.dc_review_title)
+        progress.text = DailyChallengeReviewPresenter.progressText(pos, items.size)
+
+        if (!q.imageAsset.isNullOrBlank()) {
+            try {
+                assets.open(q.imageAsset!!.trim()).use { image.setImageBitmap(BitmapFactory.decodeStream(it)) }
+                image.visibility = View.VISIBLE
+            } catch (_: Throwable) { image.visibility = View.GONE }
+        } else image.visibility = View.GONE
+
+        stem.text = q.questionText
+        val choices = parseChoices(q.optionsJson)
+        currentOrder = DailyChallengeOptions.displayOrder(q.id, choices.size)
+        group.setOnCheckedChangeListener(null)
+        group.clearCheck()
+        options.forEachIndexed { p, btn ->
+            if (p < currentOrder.size) {
+                btn.text = getString(R.string.dc_option_fmt, ('A' + p), choices[currentOrder[p]])
+                btn.visibility = View.VISIBLE
+                btn.isEnabled = true
+            } else btn.visibility = View.GONE
+        }
+        group.setOnCheckedChangeListener { _, _ -> if (!revealed) primary.isEnabled = group.checkedRadioButtonId != -1 }
+
+        explanationCard.visibility = View.GONE
+        premiumHint.visibility = View.GONE
+        primary.isEnabled = false
+        primary.setText(R.string.dc_review_check)
+    }
+
+    private fun onPrimary() {
+        if (!revealed) reveal() else advance()
+    }
+
+    private fun reveal() {
+        val checkedPos = options.indexOfFirst { it.visibility == View.VISIBLE && it.isChecked }
+        if (checkedPos < 0 || checkedPos >= currentOrder.size) return
+        val item = items[pos]
+        val q = item.question
+        val chosenOriginal = currentOrder[checkedPos]
+        val isCorrect = chosenOriginal == q.answerIndex
+        revealed = true
+        options.forEach { it.isEnabled = false }
+
+        verdict.setText(if (isCorrect) R.string.dc_review_correct else R.string.dc_review_incorrect)
+        explanation.text = q.explanation?.takeIf { it.isNotBlank() } ?: getString(R.string.dc_review_no_explanation)
+        explanationCard.visibility = View.VISIBLE
+
+        if (DailyChallengeReviewPresenter.isCapped(totalEligible, items.size, isPremium)) {
+            premiumHint.visibility = View.VISIBLE
+            premiumHint.text = getString(
+                R.string.dc_review_premium_hint,
+                DailyChallengeReviewPresenter.lockedCount(totalEligible, items.size, isPremium),
+            )
+        }
+
+        primary.isEnabled = true
+        primary.setText(
+            if (DailyChallengeReviewPresenter.step(true, pos, items.size) == DailyChallengeReviewPresenter.Step.FINISH)
+                R.string.dc_review_finish else R.string.dc_review_next
+        )
+        lifecycleScope.launch {
+            try { controller.submitReview(userId, q.id, isCorrect) } catch (_: Throwable) { /* local write; ignore */ }
+        }
+    }
+
+    private fun advance() {
+        if (pos >= items.size - 1) {
+            Toast.makeText(this, R.string.dc_review_done, Toast.LENGTH_SHORT).show()
+            finish()
+        } else {
+            pos += 1
+            render()
+        }
+    }
+
+    private fun parseChoices(optionsJson: String?): List<String> {
+        if (optionsJson.isNullOrBlank()) return listOf("A", "B", "C", "D")
+        return try {
+            val arr = JSONArray(optionsJson)
+            (0 until arr.length()).map { arr.optString(it) }
+        } catch (_: Throwable) { listOf("A", "B", "C", "D") }
+    }
+
+    companion object {
+        fun intent(context: Context): Intent = Intent(context, DailyChallengeReviewActivity::class.java)
+    }
+}

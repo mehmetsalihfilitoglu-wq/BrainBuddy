@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ProgressBar
@@ -35,11 +36,16 @@ class DailyChallengeResultActivity : AppCompatActivity() {
         val exam: ExamType = StudyAreaManager.getActiveArea(this).career.examType
 
         findViewById<Button>(R.id.dcrHomeBtn).onTap { finish() }
+        val reviewBtn = findViewById<Button>(R.id.dcrReviewBtn)
+        reviewBtn.onTap { startActivity(DailyChallengeReviewActivity.intent(this)) }
 
         lifecycleScope.launch {
             val c = controller.completion(userId, exam, localDate)
             if (c == null) { finish(); return@launch }
             bind(c)
+            // Offer review only when the queue actually has something to work through.
+            val reviewCount = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { 0 }
+            reviewBtn.visibility = if (reviewCount > 0) View.VISIBLE else View.GONE
         }
     }
 

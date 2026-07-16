@@ -133,8 +133,18 @@ class HomeActivity : AppCompatActivity() {
                         countdown.visibility = View.VISIBLE
                         countdown.text = getString(R.string.dc_next_unlock, cd)
                     } else countdown.visibility = View.GONE
-                    cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
-                    card.setOnClickListener(null)
+                    // Completed: no new questions today — offer review instead when the queue has items.
+                    val reviewCount = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { 0 }
+                    if (reviewCount > 0) {
+                        cta.isEnabled = true; cta.setText(R.string.dc_cta_review)
+                        val openReview = View.OnClickListener {
+                            startActivity(com.mioacademy.app.dailychallenge.DailyChallengeReviewActivity.intent(this@HomeActivity))
+                        }
+                        cta.onTap { openReview.onClick(it) }; card.onTap { openReview.onClick(it) }
+                    } else {
+                        cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
+                        card.setOnClickListener(null)
+                    }
                 }
                 DailyChallengeHomePresenter.CardState.IN_PROGRESS -> {
                     state.setText(R.string.dc_state_in_progress)
