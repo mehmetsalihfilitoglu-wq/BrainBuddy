@@ -41,6 +41,16 @@
             android:name=".CrashActivity"
             android:exported="false" />
 
+        <!-- ── Daily Challenge (Günün Görevi) ── -->
+        <activity
+            android:name=".dailychallenge.DailyChallengeActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".dailychallenge.DailyChallengeResultActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+
         <!-- ── Quiz engine ── -->
         <activity
             android:name=".quiz.QuizActivity"

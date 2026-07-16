@@ -262,6 +262,69 @@ class DailyChallengeEngine(private val appContext: Context) {
         )
     }
 
+    /** Current streak length (0 if none). */
+    suspend fun streak(userId: String): Int = withContext(Dispatchers.IO) {
+        DailyChallengeDatabase.get(appContext).dailyChallengeDao().getStreak(userId)?.current ?: 0
+    }
+
+    /** One answered question, for the completion breakdown. */
+    data class AnswerReview(
+        val questionId: String,
+        val section: String,
+        val stem: String,
+        val chosenIndex: Int,
+        val correctIndex: Int,
+        val isCorrect: Boolean,
+        val explanation: String,
+    )
+
+    /** Everything the completion screen needs — computed from persisted answers (restart-safe). */
+    data class Completion(
+        val localDate: String,
+        val score: Int,
+        val total: Int,
+        val nextUnlockAtMs: Long,
+        val streakCurrent: Int,
+        val reviews: List<AnswerReview>,
+        val sectionCorrect: LinkedHashMap<String, Int>,
+        val sectionTotal: LinkedHashMap<String, Int>,
+    )
+
+    /** Builds the completion summary for a (completed or in-progress) challenge; null if none exists. */
+    suspend fun getCompletion(userId: String, exam: ExamType, localDate: String): Completion? = withContext(Dispatchers.IO) {
+        val examType = exam.name
+        val qDao = DatabaseProvider.get(appContext).questionDao()
+        val dcDao = DailyChallengeDatabase.get(appContext).dailyChallengeDao()
+        val challenge = dcDao.getChallenge(userId, examType, localDate) ?: return@withContext null
+        val ck = key(userId, examType, localDate)
+        val ids = challenge.questionIdsCsv.split(",").filter { it.isNotBlank() }
+        val order = ids.withIndex().associate { (i, id) -> id to i }
+        val byId = qDao.getQuestionsByIds(ids).associateBy { it.id }
+        val answers = dcDao.getAnswers(ck).sortedBy { order[it.questionId] ?: Int.MAX_VALUE }
+        val reviews = ArrayList<AnswerReview>()
+        val sectionCorrect = LinkedHashMap<String, Int>()
+        val sectionTotal = LinkedHashMap<String, Int>()
+        for (a in answers) {
+            val q = byId[a.questionId] ?: continue
+            val section = q.subject ?: ""
+            sectionTotal[section] = (sectionTotal[section] ?: 0) + 1
+            sectionCorrect[section] = (sectionCorrect[section] ?: 0) + if (a.isCorrect) 1 else 0
+            reviews += AnswerReview(
+                questionId = a.questionId, section = section, stem = q.questionText,
+                chosenIndex = a.chosenIndex, correctIndex = q.answerIndex, isCorrect = a.isCorrect,
+                explanation = q.explanation ?: "",
+            )
+        }
+        Completion(
+            localDate = localDate,
+            score = answers.count { it.isCorrect },
+            total = DailyChallengeBlueprint.CHALLENGE_SIZE,
+            nextUnlockAtMs = challenge.expiresAt,
+            streakCurrent = dcDao.getStreak(userId)?.current ?: 0,
+            reviews = reviews, sectionCorrect = sectionCorrect, sectionTotal = sectionTotal,
+        )
+    }
+
     /** Count of questions currently available for review in the given queues. */
     suspend fun reviewCount(userId: String, exam: ExamType, queues: List<ReviewQueue>): Int = withContext(Dispatchers.IO) {
         val states = queues.flatMap {

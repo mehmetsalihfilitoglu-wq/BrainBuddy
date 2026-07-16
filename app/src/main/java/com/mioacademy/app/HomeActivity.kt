@@ -3,19 +3,28 @@
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.mioacademy.app.core.CareerPath
+import com.mioacademy.app.core.StudyAreaManager
+import com.mioacademy.app.dailychallenge.DailyChallengeActivity
+import com.mioacademy.app.dailychallenge.DailyChallengeBlueprint
+import com.mioacademy.app.dailychallenge.DailyChallengeController
+import com.mioacademy.app.dailychallenge.DailyChallengeHomePresenter
+import com.mioacademy.app.dailychallenge.DailyChallengeUser
 import com.mioacademy.app.quiz.QuizActivity
 import com.mioacademy.app.ui.onTap
 import com.mioacademy.app.core.GamificationStore
 import com.mioacademy.app.core.UserGoalPrefs
+import kotlinx.coroutines.launch
 import com.mioacademy.app.quiz.WrongPoolLauncher
 import com.mioacademy.app.quiz.WrongQuestionPoolStore
 import com.mioacademy.app.ui.GrowthHubActivity
@@ -61,10 +70,96 @@ class HomeActivity : AppCompatActivity() {
         // profile changed, so this must point at the new area's namespace.
         gam = GamificationStore(this)
         refreshHeader()
+        refreshDailyChallenge()
         refreshNextStep()
         refreshIdentityHero()
         refreshInsight()
         refreshWrongPool()
+    }
+
+    /** Binds the "Günün Görevi" (Today's Challenge) hero card from the tested engine. */
+    private fun refreshDailyChallenge() {
+        val card = findViewById<MaterialCardView>(R.id.dcHomeCard)
+        val state = findViewById<TextView>(R.id.dcHomeState)
+        val meta = findViewById<TextView>(R.id.dcHomeMeta)
+        val countdown = findViewById<TextView>(R.id.dcHomeCountdown)
+        val progressBar = findViewById<ProgressBar>(R.id.dcHomeProgressBar)
+        val cta = findViewById<Button>(R.id.dcHomeCta)
+
+        val exam = StudyAreaManager.getActiveArea(this).career.examType
+        if (!DailyChallengeBlueprint.isSupported(exam)) {
+            state.setText(R.string.dc_state_unavailable)
+            progressBar.visibility = View.GONE
+            meta.visibility = View.GONE
+            countdown.visibility = View.GONE
+            cta.visibility = View.GONE
+            card.setOnClickListener(null)
+            return
+        }
+        cta.visibility = View.VISIBLE
+
+        val controller = DailyChallengeController(this)
+        val userId = DailyChallengeUser.resolve(this)
+        lifecycleScope.launch {
+            val ui = try { controller.today(userId, exam) } catch (_: Throwable) { null }
+            val streak = try { controller.streak(userId) } catch (_: Throwable) { 0 }
+            val streakText = if (streak > 0) getString(R.string.dc_streak_label, streak)
+            else getString(R.string.dc_streak_none)
+
+            if (ui == null) {
+                // No unseen questions could be formed today (pool exhausted / edge case).
+                state.setText(R.string.dc_empty_today)
+                progressBar.visibility = View.GONE
+                meta.visibility = View.VISIBLE; meta.text = streakText
+                countdown.visibility = View.GONE
+                cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
+                card.setOnClickListener(null)
+                return@launch
+            }
+
+            val answered = ui.answered
+            val total = ui.total
+            val open = View.OnClickListener { startActivity(DailyChallengeActivity.intent(this@HomeActivity)) }
+            progressBar.visibility = View.VISIBLE
+            progressBar.max = total; progressBar.progress = answered
+            meta.visibility = View.VISIBLE
+
+            when (DailyChallengeHomePresenter.cardState(true, answered, total, ui.completed)) {
+                DailyChallengeHomePresenter.CardState.COMPLETED -> {
+                    state.setText(R.string.dc_state_completed)
+                    meta.text = streakText
+                    val cd = DailyChallengeHomePresenter.countdownText(ui.nextUnlockAtMs, System.currentTimeMillis())
+                    if (cd.isNotEmpty()) {
+                        countdown.visibility = View.VISIBLE
+                        countdown.text = getString(R.string.dc_next_unlock, cd)
+                    } else countdown.visibility = View.GONE
+                    cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
+                    card.setOnClickListener(null)
+                }
+                DailyChallengeHomePresenter.CardState.IN_PROGRESS -> {
+                    state.setText(R.string.dc_state_in_progress)
+                    meta.text = getString(
+                        R.string.dc_meta_fmt,
+                        DailyChallengeHomePresenter.progressText(answered, total),
+                        DailyChallengeHomePresenter.estimatedDurationText(total), streakText,
+                    )
+                    countdown.visibility = View.GONE
+                    cta.isEnabled = true; cta.setText(R.string.dc_cta_continue)
+                    cta.onTap { open.onClick(it) }; card.onTap { open.onClick(it) }
+                }
+                else -> { // AVAILABLE
+                    state.setText(R.string.dc_state_available)
+                    meta.text = getString(
+                        R.string.dc_meta_fmt,
+                        DailyChallengeHomePresenter.progressText(answered, total),
+                        DailyChallengeHomePresenter.estimatedDurationText(total), streakText,
+                    )
+                    countdown.visibility = View.GONE
+                    cta.isEnabled = true; cta.setText(R.string.dc_cta_start)
+                    cta.onTap { open.onClick(it) }; card.onTap { open.onClick(it) }
+                }
+            }
+        }
     }
 
     private fun refreshHeader() {

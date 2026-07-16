@@ -655,4 +655,42 @@
     <string name="legal_ad_info_title">Reklam Bilgilendirmesi</string>
     <string name="legal_ad_info_sub">Uygulama Google AdMob reklamlarını kullanmaktadır.</string>
 
+    <!-- ===== Daily Challenge (Günün Görevi) ===== -->
+    <string name="dc_title">Günün Görevi</string>
+    <string name="dc_card_subtitle">Bugünün 5 yeni sorusu</string>
+    <string name="dc_state_available">Bugünün görevi hazır</string>
+    <string name="dc_state_in_progress">Devam ediyor</string>
+    <string name="dc_state_completed">Bugün tamamlandı 🎉</string>
+    <string name="dc_state_unavailable">Bu çalışma alanı için henüz hazır değil</string>
+    <string name="dc_cta_start">Başla</string>
+    <string name="dc_cta_continue">Devam et</string>
+    <string name="dc_cta_review">Yanlışları tekrar et</string>
+    <string name="dc_cta_done">Tamamlandı</string>
+    <string name="dc_streak_label">%d günlük seri</string>
+    <string name="dc_streak_none">Seriye bugün başla</string>
+    <string name="dc_meta_fmt">%1$s · %2$s · %3$s</string>
+    <string name="dc_next_unlock">Yeni görev: %s sonra</string>
+    <string name="dc_next">Devam</string>
+    <string name="dc_finish">Bitir</string>
+    <string name="dc_question_placeholder">Soru</string>
+    <string name="dc_option_fmt">%1$s) %2$s</string>
+    <string name="dc_cd_question_figure">Soru görseli</string>
+    <string name="dc_loading">Yükleniyor…</string>
+    <string name="dc_empty_today">Bugünlük yeni soru kalmadı. Yarın yeni bir görevle dön!</string>
+    <string name="dc_error_generic">Bir sorun oluştu. Lütfen tekrar dene.</string>
+    <string name="dc_retry">Tekrar dene</string>
+
+    <!-- Completion -->
+    <string name="dc_result_title">Günün Görevi · Sonuç</string>
+    <string name="dc_result_score_label">doğru cevap</string>
+    <string name="dc_result_sections">Bölüm dağılımı</string>
+    <string name="dc_result_section_row">%1$s: %2$d/%3$d</string>
+    <string name="dc_result_streak">Seri: %d gün</string>
+    <string name="dc_result_next_unlock">Yeni görev %s sonra açılıyor</string>
+    <string name="dc_result_next_unlock_ready">Yeni görev hazır</string>
+    <string name="dc_result_feedback_great">Harika! Bugünü güçlü kapattın.</string>
+    <string name="dc_result_feedback_ok">İyi iş. Yanlışlarını tekrar ederek pekiştir.</string>
+    <string name="dc_result_feedback_low">Sorun değil — yanlışlarını tekrar et, yarın daha iyi olacak.</string>
+    <string name="dc_result_review_cta">Yanlışları tekrar et</string>
+    <string name="dc_result_home_cta">Ana sayfaya dön</string>
 </resources>

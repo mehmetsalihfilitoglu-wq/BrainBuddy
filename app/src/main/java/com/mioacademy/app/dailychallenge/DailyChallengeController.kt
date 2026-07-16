@@ -24,6 +24,10 @@ class DailyChallengeController(context: Context) {
         val shortage: String,
     )
 
+    /** Raw engine result (includes the ordered questions) for the flow screen. Idempotent per day. */
+    suspend fun loadToday(userId: String, exam: ExamType, isPremium: Boolean = false): DailyChallengeEngine.Result? =
+        engine.getOrCreateToday(userId, exam, isPremium = isPremium)
+
     /** Loads (creating once if needed) today's challenge and maps it to UI state. */
     suspend fun today(userId: String, exam: ExamType, isPremium: Boolean = false): UiState? {
         val r = engine.getOrCreateToday(userId, exam, isPremium = isPremium) ?: return null
@@ -61,4 +65,11 @@ class DailyChallengeController(context: Context) {
 
     suspend fun masteredCount(userId: String, exam: ExamType): Int =
         reviewEngine.masteredCount(userId, exam)
+
+    /** Current streak length (0 if none). */
+    suspend fun streak(userId: String): Int = engine.streak(userId)
+
+    /** Completion breakdown (score, per-section, per-question) for the result screen. */
+    suspend fun completion(userId: String, exam: ExamType, localDate: String): DailyChallengeEngine.Completion? =
+        engine.getCompletion(userId, exam, localDate)
 }
