@@ -1,4 +1,4 @@
-# BrainBuddy release — R8 / ProGuard (minify enabled)
+# EDUmio release — R8 / ProGuard (minify enabled)
 
 # Stack traces: keep line numbers (file name hidden)
 -keepattributes SourceFile,LineNumberTable

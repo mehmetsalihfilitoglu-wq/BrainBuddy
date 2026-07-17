@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BrainBuddy"
+rootProject.name = "EDUmio"
 include(":app")
