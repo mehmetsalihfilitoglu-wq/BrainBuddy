@@ -54,7 +54,7 @@
                 android:padding="20dp"
                 android:gravity="center_vertical">
 
-                <com.mioacademy.app.ui.ProgressRingView
+                <com.edumio.app.ui.ProgressRingView
                     android:id="@+id/progressRing"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -129,7 +129,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/bb_text"/>
 
-                <com.mioacademy.app.ui.BarChartView
+                <com.edumio.app.ui.BarChartView
                     android:id="@+id/barChart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -162,7 +162,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/bb_text"/>
 
-                <com.mioacademy.app.ui.LineChartView
+                <com.edumio.app.ui.LineChartView
                     android:id="@+id/lineChart"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"

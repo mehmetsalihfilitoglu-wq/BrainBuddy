@@ -389,7 +389,7 @@
                         android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescriptionSmall"
                         android:textColor="?attr/colorOnSurfaceVariant" />
 
-                    <com.mioacademy.app.ui.BarChartView
+                    <com.edumio.app.ui.BarChartView
                         android:id="@+id/topicBarChart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -699,7 +699,7 @@
                         android:layout_marginTop="@dimen/reports_title_content"
                         android:visibility="gone">
 
-                        <com.mioacademy.app.ui.LineChartView
+                        <com.edumio.app.ui.LineChartView
                             android:id="@+id/weeklyTrendChart"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.mioacademy.app"
+    namespace = "com.edumio.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.mioacademy.app"
+        applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
         versionCode = 3
