@@ -1,5 +1,11 @@
 # EDUmio Brand — Technical Exception / Compatibility Map
 
+> **SUPERSEDED (2026-07-18):** the identifiers this map listed as "kept exceptions" (brainbuddy.db,
+> BrainBuddyDatabase, com.mioacademy.app, MIOITALIA, mioitalia_seed_version, bb_/BB.) have since been
+> FULLY ERADICATED under the fresh-install decision. See `edumio_full_technical_migration_report.md`
+> and companion eradication reports. This file is retained as a historical record of the earlier phase.
+
+
 Classification per the migration spec: **A** user-facing branding (replaced) · **B** internal identifier
 safe to rename · **C** internal identifier unsafe to rename (would break upgrades / persisted data /
 platform identity).
