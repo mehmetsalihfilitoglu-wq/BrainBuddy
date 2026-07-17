@@ -15,7 +15,7 @@
         android:layout_weight="1"
         android:layout_marginEnd="6dp"
         android:layout_marginTop="24dp"
-        app:cardBackgroundColor="@color/bb_silver_bg"
+        app:cardBackgroundColor="@color/edu_silver_bg"
         app:cardCornerRadius="@dimen/radius_md"
         app:cardElevation="@dimen/elevation_raised">
 
@@ -59,7 +59,7 @@
                 android:ellipsize="end"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_text" />
+                android:textColor="@color/edu_text" />
 
             <TextView
                 android:id="@+id/tvPodiumScore2"
@@ -68,7 +68,7 @@
                 android:layout_marginTop="4dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_silver_text" />
+                android:textColor="@color/edu_silver_text" />
 
             <TextView
                 android:id="@+id/tvPodiumYou2"
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:textSize="12sp"
-                android:textColor="@color/bb_primary"
+                android:textColor="@color/edu_primary"
                 android:textStyle="bold"
                 android:visibility="gone" />
         </LinearLayout>
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1.2"
         android:layout_marginHorizontal="6dp"
-        app:cardBackgroundColor="@color/bb_gold_bg"
+        app:cardBackgroundColor="@color/edu_gold_bg"
         app:cardCornerRadius="@dimen/radius_md"
         app:cardElevation="4dp">
 
@@ -133,7 +133,7 @@
                 android:ellipsize="end"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_text" />
+                android:textColor="@color/edu_text" />
 
             <TextView
                 android:id="@+id/tvPodiumScore1"
@@ -142,7 +142,7 @@
                 android:layout_marginTop="4dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_gold_text" />
+                android:textColor="@color/edu_gold_text" />
 
             <TextView
                 android:id="@+id/tvPodiumYou1"
@@ -150,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:textSize="12sp"
-                android:textColor="@color/bb_primary"
+                android:textColor="@color/edu_primary"
                 android:textStyle="bold"
                 android:visibility="gone" />
         </LinearLayout>
@@ -164,7 +164,7 @@
         android:layout_weight="1"
         android:layout_marginStart="6dp"
         android:layout_marginTop="24dp"
-        app:cardBackgroundColor="@color/bb_bronze_bg"
+        app:cardBackgroundColor="@color/edu_bronze_bg"
         app:cardCornerRadius="@dimen/radius_md"
         app:cardElevation="@dimen/elevation_raised">
 
@@ -208,7 +208,7 @@
                 android:ellipsize="end"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_text" />
+                android:textColor="@color/edu_text" />
 
             <TextView
                 android:id="@+id/tvPodiumScore3"
@@ -217,7 +217,7 @@
                 android:layout_marginTop="4dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_bronze_text" />
+                android:textColor="@color/edu_bronze_text" />
 
             <TextView
                 android:id="@+id/tvPodiumYou3"
@@ -225,7 +225,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:textSize="12sp"
-                android:textColor="@color/bb_primary"
+                android:textColor="@color/edu_primary"
                 android:textStyle="bold"
                 android:visibility="gone" />
         </LinearLayout>

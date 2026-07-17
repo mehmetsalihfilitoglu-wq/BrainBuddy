@@ -35,6 +35,6 @@ class SyncStateStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_sync_state"
+        private const val PREFS = "edu_sync_state"
     }
 }

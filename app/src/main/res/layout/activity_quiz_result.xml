@@ -19,11 +19,11 @@
             android:text="@string/quiz_result_congrats"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_text"
+            android:textColor="@color/edu_text"
             android:gravity="center"/>
 
         <com.google.android.material.card.MaterialCardView
-            style="@style/BB.HomeCard"
+            style="@style/Edu.HomeCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/white"
@@ -43,7 +43,7 @@
                     android:text="8/10"
                     android:textSize="48sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_primary"/>
+                    android:textColor="@color/edu_primary"/>
 
         <TextView
             android:id="@+id/tvScoreLabel"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="@string/quiz_result_correct_wrong_blank"
             android:textSize="16sp"
-            android:textColor="@color/bb_text_muted"
+            android:textColor="@color/edu_text_muted"
             android:layout_marginTop="4dp"/>
 
         <TextView
@@ -61,7 +61,7 @@
             android:text="%80"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_primary"
+            android:textColor="@color/edu_primary"
             android:layout_marginTop="4dp"/>
 
                 <TextView
@@ -82,7 +82,7 @@
                     android:layout_marginTop="20dp"
                     android:max="100"
                     android:progress="80"
-                    android:progressTint="@color/bb_primary"
+                    android:progressTint="@color/edu_primary"
                     android:progressBackgroundTint="@color/divider"/>
 
                 <LinearLayout
@@ -99,7 +99,7 @@
                         android:text="+50 puan"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_primary"/>
+                        android:textColor="@color/edu_primary"/>
 
                     <TextView
                         android:id="@+id/tvStreak"
@@ -108,7 +108,7 @@
                         android:layout_marginStart="24dp"
                         android:text="🔥 3 gün seri"
                         android:textSize="16sp"
-                        android:textColor="@color/bb_text"/>
+                        android:textColor="@color/edu_text"/>
                 </LinearLayout>
 
                 <TextView
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="13sp"
-                    android:textColor="@color/bb_text_muted"
+                    android:textColor="@color/edu_text_muted"
                     android:layout_marginTop="12dp"
                     android:visibility="gone"/>
             </LinearLayout>
@@ -195,7 +195,7 @@
                         android:layout_marginStart="12dp"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text_dark"/>
+                        android:textColor="@color/edu_text_dark"/>
                 </LinearLayout>
 
                 <!-- Quota dots -->
@@ -214,13 +214,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:textSize="13sp"
-                    android:textColor="@color/bb_text_muted"
+                    android:textColor="@color/edu_text_muted"
                     android:lineSpacingMultiplier="1.3"/>
 
                 <!-- CTA button -->
                 <Button
                     android:id="@+id/btnRetryWrong"
-                    style="@style/BB.Button"
+                    style="@style/Edu.Button"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="14dp"
@@ -234,7 +234,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="12sp"
-                    android:textColor="@color/bb_turquoise"
+                    android:textColor="@color/edu_turquoise"
                     android:gravity="center"
                     android:visibility="gone"/>
             </LinearLayout>
@@ -254,7 +254,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/ad_retry_info"
                 android:textSize="14sp"
-                android:textColor="@color/bb_text_muted"
+                android:textColor="@color/edu_text_muted"
                 android:paddingBottom="8dp"/>
 
             <Button
@@ -276,7 +276,7 @@
 
             <Button
                 android:id="@+id/btnRemedialMiniTest"
-                style="@style/BB.Button"
+                style="@style/Edu.Button"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:text="@string/btn_remedial_mini"
@@ -285,7 +285,7 @@
 
         <Button
             android:id="@+id/btnRetryTest"
-            style="@style/BB.Button"
+            style="@style/Edu.Button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="12dp"
@@ -295,7 +295,7 @@
 
         <Button
             android:id="@+id/btnPlayAgain"
-            style="@style/BB.Button"
+            style="@style/Edu.Button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="12dp"
@@ -324,7 +324,7 @@
                 android:text="@string/quiz_result_wrong_answers"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_text"
+                android:textColor="@color/edu_text"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 

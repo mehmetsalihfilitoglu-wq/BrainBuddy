@@ -81,7 +81,7 @@ class SubscriptionStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_subscription"
+        private const val PREFS = "edu_subscription"
         private const val KEY = "subscription_status"
     }
 }

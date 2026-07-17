@@ -13,7 +13,7 @@
         android:background="@color/white"
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:navigationIconTint="?attr/colorPrimary"
-        app:titleTextColor="@color/bb_text" />
+        app:titleTextColor="@color/edu_text" />
 
     <WebView
         android:id="@+id/webView"

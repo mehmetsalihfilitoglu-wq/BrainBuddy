@@ -19,7 +19,7 @@
         android:layout_marginTop="8dp"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/bb_text" />
+        android:textColor="@color/edu_text" />
 
     <TextView
         android:id="@+id/tvAuditCounts"
@@ -28,7 +28,7 @@
         android:layout_marginTop="6dp"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/bb_text"
+        android:textColor="@color/edu_text"
         android:fontFamily="monospace" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="11sp"
-        android:textColor="@color/bb_text_muted"
+        android:textColor="@color/edu_text_muted"
         android:fontFamily="monospace"
         android:textIsSelectable="true" />
 
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp"
-            android:textColor="@color/bb_text"
+            android:textColor="@color/edu_text"
             android:fontFamily="monospace"
             android:textIsSelectable="true" />
     </ScrollView>

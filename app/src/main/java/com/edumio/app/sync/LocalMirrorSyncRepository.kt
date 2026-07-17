@@ -71,6 +71,6 @@ class LocalMirrorSyncRepository(context: Context) : SyncRepository {
     private fun key(userId: String) = "mirror_$userId"
 
     companion object {
-        private const val PREFS = "bb_sync_mirror"
+        private const val PREFS = "edu_sync_mirror"
     }
 }

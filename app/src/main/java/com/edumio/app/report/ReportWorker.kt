@@ -73,7 +73,7 @@ class ReportWorker(
 
     companion object {
         const val KEY_IS_DAILY = "is_daily"
-        private const val CHANNEL_ID = "bb_reports"
+        private const val CHANNEL_ID = "edu_reports"
         private const val NOTIF_ID = 2001
     }
 }

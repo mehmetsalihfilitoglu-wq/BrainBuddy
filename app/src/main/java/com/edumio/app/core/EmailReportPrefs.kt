@@ -51,7 +51,7 @@ class EmailReportPrefs(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_email_report_prefs"
+        private const val PREFS = "edu_email_report_prefs"
         private const val KEY_DAILY_ENABLED = "daily_report_enabled"
         private const val KEY_WEEKLY_ENABLED = "weekly_report_enabled"
         private const val KEY_REPORT_EMAIL = "report_email"

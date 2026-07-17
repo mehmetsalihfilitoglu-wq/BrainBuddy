@@ -27,7 +27,7 @@ class NotificationPrefs(context: Context) {
     fun setPermissionRequested() = prefs.edit().putBoolean(KEY_PERMISSION_REQUESTED, true).apply()
 
     companion object {
-        private const val PREFS = "bb_notification_prefs"
+        private const val PREFS = "edu_notification_prefs"
         private const val KEY_MOTIVATION_ENABLED = "motivation_enabled"
         private const val KEY_DAILY_REMINDER = "daily_reminder"
         private const val KEY_STREAK_WARNING = "streak_warning"

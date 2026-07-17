@@ -36,7 +36,7 @@ class SystemHealthStore(context: Context) {
     fun getLastCheckedMs(): Long = prefs.getLong(KEY_LAST_CHECKED, 0L)
 
     companion object {
-        private const val PREFS = "bb_system_health"
+        private const val PREFS = "edu_system_health"
         private const val KEY_ACCESSIBILITY = "accessibility_ok"
         private const val KEY_USAGE_STATS = "usage_stats_ok"
         private const val KEY_BATTERY = "battery_ok"

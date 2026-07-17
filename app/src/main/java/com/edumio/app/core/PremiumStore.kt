@@ -9,7 +9,7 @@ class PremiumStore(context: Context) {
     fun setPremium(premium: Boolean) = prefs.edit().putBoolean(KEY_PREMIUM, premium).apply()
 
     companion object {
-        private const val PREFS = "bb_premium"
+        private const val PREFS = "edu_premium"
         private const val KEY_PREMIUM = "is_premium"
     }
 }

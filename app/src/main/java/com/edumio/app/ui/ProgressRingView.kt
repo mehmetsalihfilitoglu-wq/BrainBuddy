@@ -20,13 +20,13 @@ class ProgressRingView @JvmOverloads constructor(
     private val bgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 24f
-        color = context.getColor(R.color.bb_text_muted).let { android.graphics.Color.argb(60, android.graphics.Color.red(it), android.graphics.Color.green(it), android.graphics.Color.blue(it)) }
+        color = context.getColor(R.color.edu_text_muted).let { android.graphics.Color.argb(60, android.graphics.Color.red(it), android.graphics.Color.green(it), android.graphics.Color.blue(it)) }
     }
     private val progressPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 24f
         strokeCap = Paint.Cap.ROUND
-        color = context.getColor(R.color.bb_primary)
+        color = context.getColor(R.color.edu_primary)
     }
     private val rect = RectF()
     var progress: Float = 0f

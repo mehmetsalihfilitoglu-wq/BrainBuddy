@@ -252,12 +252,12 @@ class QuizResultActivity : AppCompatActivity() {
             if (isGateMode) {
                 // Legacy gate mode keeps an explicit pass/fail.
                 text = if (s.passed) "✅ GEÇTİ" else "❌ BAŞARISIZ"
-                setTextColor(if (s.passed) getColor(R.color.bb_turquoise) else getColor(R.color.bb_error))
+                setTextColor(if (s.passed) getColor(R.color.edu_turquoise) else getColor(R.color.edu_error))
                 if (!s.passed) textSize = 24f
             } else {
                 // Practice is never a "failure" — it's a completed step. No anxiety.
                 text = getString(R.string.quiz_result_step_done)
-                setTextColor(getColor(R.color.bb_turquoise))
+                setTextColor(getColor(R.color.edu_turquoise))
             }
         }
 

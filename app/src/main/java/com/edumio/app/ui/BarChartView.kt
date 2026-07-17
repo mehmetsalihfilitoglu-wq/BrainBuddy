@@ -28,7 +28,7 @@ class BarChartView @JvmOverloads constructor(
 
     private val bgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = context.getColor(R.color.bb_text_muted).let {
+        color = context.getColor(R.color.edu_text_muted).let {
             android.graphics.Color.argb(60, android.graphics.Color.red(it), android.graphics.Color.green(it), android.graphics.Color.blue(it))
         }
     }
@@ -38,11 +38,11 @@ class BarChartView @JvmOverloads constructor(
     }
     private val labelPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14f, context.resources.displayMetrics)
-        color = context.getColor(R.color.bb_text_muted)
+        color = context.getColor(R.color.edu_text_muted)
     }
     private val chipPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 13f, context.resources.displayMetrics)
-        color = context.getColor(R.color.bb_text_muted)
+        color = context.getColor(R.color.edu_text_muted)
     }
 
     var data: List<BarData> = emptyList()

@@ -10,7 +10,7 @@ import com.edumio.app.R
 
 /**
  * Lightweight donut/ring chart for overall accuracy or segment breakdown.
- * Same style as ProgressRingView: stroke width 24dp, bb_primary fill, rounded corners.
+ * Same style as ProgressRingView: stroke width 24dp, edu_primary fill, rounded corners.
  */
 class DonutChartView @JvmOverloads constructor(
     context: Context,
@@ -23,7 +23,7 @@ class DonutChartView @JvmOverloads constructor(
     private val bgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
         strokeWidth = 24f
-        color = context.getColor(R.color.bb_text_muted).let {
+        color = context.getColor(R.color.edu_text_muted).let {
             android.graphics.Color.argb(60, android.graphics.Color.red(it), android.graphics.Color.green(it), android.graphics.Color.blue(it))
         }
     }
@@ -60,7 +60,7 @@ class DonutChartView @JvmOverloads constructor(
 
         if (useProgressMode) {
             if (progress > 0f) {
-                segmentPaint.color = context.getColor(R.color.bb_primary)
+                segmentPaint.color = context.getColor(R.color.edu_primary)
                 canvas.drawArc(rect, -90f, 3.6f * progress, false, segmentPaint)
             }
         } else {

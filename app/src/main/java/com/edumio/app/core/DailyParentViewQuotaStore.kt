@@ -66,7 +66,7 @@ class DailyParentViewQuotaStore(context: Context) {
         SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
 
     companion object {
-        private const val PREFS = "bb_parent_view_quota"
+        private const val PREFS = "edu_parent_view_quota"
         private const val KEY_LAST_DAY = "last_day"
         private const val KEY_FREE_USED = "free_used"
         private const val KEY_AD_CREDITS = "ad_credits"

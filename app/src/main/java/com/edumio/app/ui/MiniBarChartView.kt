@@ -26,21 +26,21 @@ class MiniBarChartView @JvmOverloads constructor(
 
     private val correctPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = context.getColor(R.color.bb_primary)
+        color = context.getColor(R.color.edu_primary)
     }
     private val wrongPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = context.getColor(R.color.bb_error)
+        color = context.getColor(R.color.edu_error)
     }
     private val blankPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
-        color = context.getColor(R.color.bb_text_muted).let {
+        color = context.getColor(R.color.edu_text_muted).let {
             android.graphics.Color.argb(120, android.graphics.Color.red(it), android.graphics.Color.green(it), android.graphics.Color.blue(it))
         }
     }
     private val labelPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         textSize = 28f
-        color = context.getColor(R.color.bb_text)
+        color = context.getColor(R.color.edu_text)
     }
 
     override fun onDraw(canvas: Canvas) {

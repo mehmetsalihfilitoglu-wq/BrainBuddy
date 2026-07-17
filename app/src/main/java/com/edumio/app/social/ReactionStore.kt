@@ -36,6 +36,6 @@ class ReactionStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_reactions"
+        private const val PREFS = "edu_reactions"
     }
 }

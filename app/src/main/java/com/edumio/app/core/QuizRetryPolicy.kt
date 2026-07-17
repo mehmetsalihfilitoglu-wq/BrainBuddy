@@ -74,7 +74,7 @@ class QuizRetryPolicy(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_quiz_retry_policy"
+        private const val PREFS = "edu_quiz_retry_policy"
         private const val KEY_SAME_TEST_TOKEN = "same_test_token"
         private const val KEY_COOLDOWN_END_MS = "cooldown_end_ms"
         const val COOLDOWN_MS = 30 * 60 * 1000L

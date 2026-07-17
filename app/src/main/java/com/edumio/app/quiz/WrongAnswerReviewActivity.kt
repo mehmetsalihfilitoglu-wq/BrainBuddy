@@ -364,7 +364,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         val fbChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
 
         b.feedbackText.visibility = View.VISIBLE
-        b.feedbackText.setTextColor(getColor(if (correct) R.color.bb_turquoise else R.color.bb_error))
+        b.feedbackText.setTextColor(getColor(if (correct) R.color.edu_turquoise else R.color.edu_error))
         b.feedbackText.text = if (correct) {
             "\u2713 Do\u011fru!"
         } else {

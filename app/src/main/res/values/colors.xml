@@ -54,27 +54,27 @@
     <color name="divider_on_brand">#33FFFFFF</color>
 
     <!-- ── Material3 semantic tokens ────────────────────────────────────────── -->
-    <color name="bb_primary">@color/brand_primary</color>
-    <color name="bb_secondary">@color/brand_secondary</color>
-    <color name="bb_accent">@color/brand_primary</color>
-    <color name="bb_tertiary">@color/brand_secondary</color>
-    <color name="bb_error">@color/color_error</color>
-    <color name="bb_text">@color/text_primary</color>
-    <color name="bb_text_muted">@color/text_secondary</color>
-    <color name="bb_text_dark">@color/text_primary</color>
-    <color name="bb_text_dark_muted">@color/text_secondary</color>
+    <color name="edu_primary">@color/brand_primary</color>
+    <color name="edu_secondary">@color/brand_secondary</color>
+    <color name="edu_accent">@color/brand_primary</color>
+    <color name="edu_tertiary">@color/brand_secondary</color>
+    <color name="edu_error">@color/color_error</color>
+    <color name="edu_text">@color/text_primary</color>
+    <color name="edu_text_muted">@color/text_secondary</color>
+    <color name="edu_text_dark">@color/text_primary</color>
+    <color name="edu_text_dark_muted">@color/text_secondary</color>
 
     <!-- Surface tokens -->
-    <color name="bb_bg">@color/surface_bg</color>
-    <color name="bb_bg_end">@color/surface_variant</color>
-    <color name="bb_card">@color/surface_bg</color>
-    <color name="bb_surface_container">@color/surface_variant</color>
-    <color name="bb_outline_variant">@color/border</color>
+    <color name="edu_bg">@color/surface_bg</color>
+    <color name="edu_bg_end">@color/surface_variant</color>
+    <color name="edu_card">@color/surface_bg</color>
+    <color name="edu_surface_container">@color/surface_variant</color>
+    <color name="edu_outline_variant">@color/border</color>
 
     <!-- Turquoise legacy → brand primary -->
-    <color name="bb_turquoise">@color/brand_primary</color>
-    <color name="bb_turquoise_dark">@color/brand_primary_dark</color>
-    <color name="bb_turquoise_light">@color/brand_primary_light</color>
+    <color name="edu_turquoise">@color/brand_primary</color>
+    <color name="edu_turquoise_dark">@color/brand_primary_dark</color>
+    <color name="edu_turquoise_light">@color/brand_primary_light</color>
 
     <!-- Global UI tokens -->
     <color name="app_title">@color/text_primary</color>
@@ -89,8 +89,8 @@
     <color name="emerald_hero_end">@color/brand_primary_dark</color>
 
     <!-- League zones -->
-    <color name="bb_promotion_zone">@color/brand_primary_light</color>
-    <color name="bb_demotion_zone">#FFEBEE</color>
+    <color name="edu_promotion_zone">@color/brand_primary_light</color>
+    <color name="edu_demotion_zone">#FFEBEE</color>
 
     <!-- Avatar rarity (unchanged — semantic, not brand) -->
     <color name="rarity_common">#90A4AE</color>
@@ -103,10 +103,10 @@
     <color name="avatar_locked_tint">#55FFFFFF</color>
 
     <!-- League podium (unchanged) -->
-    <color name="bb_gold_bg">#FFF8E1</color>
-    <color name="bb_gold_text">#F9A825</color>
-    <color name="bb_silver_bg">#F5F5F5</color>
-    <color name="bb_silver_text">#757575</color>
-    <color name="bb_bronze_bg">#FBE9E7</color>
-    <color name="bb_bronze_text">#BF360C</color>
+    <color name="edu_gold_bg">#FFF8E1</color>
+    <color name="edu_gold_text">#F9A825</color>
+    <color name="edu_silver_bg">#F5F5F5</color>
+    <color name="edu_silver_text">#757575</color>
+    <color name="edu_bronze_bg">#FBE9E7</color>
+    <color name="edu_bronze_text">#BF360C</color>
 </resources>

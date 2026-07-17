@@ -19,7 +19,7 @@
             android:text="@string/dc_result_title"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_turquoise"/>
+            android:textColor="@color/edu_turquoise"/>
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                     android:text="0/5"
                     android:textSize="44sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/edu_text_dark"/>
 
                 <TextView
                     android:id="@+id/dcrScoreLabel"
@@ -52,7 +52,7 @@
                     android:layout_marginTop="4dp"
                     android:text="@string/dc_result_score_label"
                     android:textSize="14sp"
-                    android:textColor="@color/bb_text_muted"/>
+                    android:textColor="@color/edu_text_muted"/>
 
                 <ProgressBar
                     android:id="@+id/dcrScoreBar"
@@ -62,7 +62,7 @@
                     android:layout_marginTop="14dp"
                     android:max="5"
                     android:progress="0"
-                    android:progressTint="@color/bb_turquoise"/>
+                    android:progressTint="@color/edu_turquoise"/>
 
                 <TextView
                     android:id="@+id/dcrFeedback"
@@ -72,7 +72,7 @@
                     android:gravity="center"
                     android:text="@string/dc_result_feedback_ok"
                     android:textSize="15sp"
-                    android:textColor="@color/bb_text_dark"
+                    android:textColor="@color/edu_text_dark"
                     android:lineSpacingMultiplier="1.15"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -98,7 +98,7 @@
                     android:text="@string/dc_result_sections"
                     android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/edu_text_dark"/>
 
                 <LinearLayout
                     android:id="@+id/dcrSectionContainer"
@@ -131,7 +131,7 @@
                     android:text="@string/dc_result_streak"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text_dark"/>
+                    android:textColor="@color/edu_text_dark"/>
 
                 <TextView
                     android:id="@+id/dcrNextUnlock"
@@ -140,13 +140,13 @@
                     android:layout_marginTop="6dp"
                     android:text="@string/dc_result_next_unlock"
                     android:textSize="14sp"
-                    android:textColor="@color/bb_text_muted"/>
+                    android:textColor="@color/edu_text_muted"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <Button
             android:id="@+id/dcrReviewBtn"
-            style="@style/BB.Button"
+            style="@style/Edu.Button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="20dp"

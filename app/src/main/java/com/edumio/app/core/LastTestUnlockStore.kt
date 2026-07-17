@@ -28,7 +28,7 @@ class LastTestUnlockStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_last_test_unlock"
+        private const val PREFS = "edu_last_test_unlock"
         private const val KEY_TOKEN = "token"
         private const val KEY_QUIZ_ID = "quiz_id"
         private const val KEY_QUESTION_IDS = "question_ids"

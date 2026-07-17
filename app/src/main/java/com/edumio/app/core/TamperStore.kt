@@ -49,7 +49,7 @@ class TamperStore(context: Context) {
     data class TamperEvent(val type: TamperType, val tsMs: Long)
 
     companion object {
-        private const val PREFS = "bb_tamper"
+        private const val PREFS = "edu_tamper"
         private const val KEY_EVENTS = "tamper_events"
     }
 }

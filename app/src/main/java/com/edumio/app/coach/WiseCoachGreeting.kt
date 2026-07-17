@@ -118,7 +118,7 @@ class WiseCoachGreeting(
     private enum class LeagueBucket { LOW, MID, HIGH }
 
     companion object {
-        private const val PREFS = "bb_wise_coach"
+        private const val PREFS = "edu_wise_coach"
         private const val KEY_LAST_GREETING = "last_greeting"
 
         // Generic pool – always available, wise mentor tone

@@ -31,7 +31,7 @@ class FavoritesStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_favorites"
+        private const val PREFS = "edu_favorites"
         private const val KEY_UNIS = "favorite_universities"
         private const val KEY_PROGRAMS = "favorite_programs"
     }

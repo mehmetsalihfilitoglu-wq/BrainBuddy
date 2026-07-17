@@ -118,7 +118,7 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
         currentOrder = DailyChallengeOptions.displayOrder(q.id, choices.size)
         group.setOnCheckedChangeListener(null)
         group.clearCheck()
-        val defaultColor = androidx.core.content.ContextCompat.getColor(this, R.color.bb_text_dark)
+        val defaultColor = androidx.core.content.ContextCompat.getColor(this, R.color.edu_text_dark)
         options.forEachIndexed { p, btn ->
             if (p < currentOrder.size) {
                 btn.text = getString(R.string.dc_option_fmt, ('A' + p), choices[currentOrder[p]])

@@ -138,7 +138,7 @@ class LocalAuthStubRepository(context: Context) : AuthRepository {
     }
 
     companion object {
-        private const val PREFS = "bb_auth_stub"
+        private const val PREFS = "edu_auth_stub"
         private const val KEY_USER_ID = "user_id"
         private const val KEY_EMAIL = "email"
         private const val KEY_DISPLAY_NAME = "display_name"

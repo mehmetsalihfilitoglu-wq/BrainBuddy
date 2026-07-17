@@ -25,7 +25,7 @@ class DiscoveryProgressStore(context: Context) {
     }
 
     companion object {
-        private const val PREFS = "bb_discovery_progress"
+        private const val PREFS = "edu_discovery_progress"
         private const val KEY_VIEWED_PROGRAMS = "viewed_programs"
         private const val KEY_VIEWED_UNIS = "viewed_universities"
     }

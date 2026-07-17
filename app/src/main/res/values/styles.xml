@@ -107,7 +107,7 @@
     <style name="CardStyle" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">20dp</item>
         <item name="cardElevation">4dp</item>
-        <item name="cardBackgroundColor">@color/bb_card</item>
+        <item name="cardBackgroundColor">@color/edu_card</item>
     </style>
 
     <!-- Input: TextInputLayout + TextInputEditText -->
@@ -119,38 +119,38 @@
     </style>
 
     <!-- Design system: EDUmio brand theme -->
-    <style name="BB" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/bb_primary</item>
+    <style name="Edu" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/edu_primary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/bb_primary</item>
+        <item name="colorSecondary">@color/edu_primary</item>
     </style>
 
     <!-- Card style: 20dp radius, soft shadow, 16-24dp padding -->
-    <style name="BB.Card">
+    <style name="Edu.Card">
         <item name="android:background">@drawable/bg_card</item>
         <item name="android:padding">20dp</item>
     </style>
 
     <!-- Section header: bold, large -->
-    <style name="BB.SectionHeader">
+    <style name="Edu.SectionHeader">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/bb_text</item>
+        <item name="android:textColor">@color/edu_text</item>
     </style>
 
     <!-- Stat chip: light background, readable text (Material3-like, premium look) -->
     <style name="Widget.EDUmio.Chip.Stat" parent="Widget.Material3.Chip.Assist">
-        <item name="chipBackgroundColor">@color/bb_surface_container</item>
-        <item name="android:textColor">@color/bb_text</item>
-        <item name="chipStrokeColor">@color/bb_outline_variant</item>
+        <item name="chipBackgroundColor">@color/edu_surface_container</item>
+        <item name="android:textColor">@color/edu_text</item>
+        <item name="chipStrokeColor">@color/edu_outline_variant</item>
         <item name="chipStrokeWidth">1dp</item>
         <item name="chipMinHeight">32dp</item>
     </style>
 
     <!-- Stat chip: medium, muted (legacy) -->
-    <style name="BB.StatChip">
+    <style name="Edu.StatChip">
         <item name="android:textSize">13sp</item>
-        <item name="android:textColor">@color/bb_text_muted</item>
+        <item name="android:textColor">@color/edu_text_muted</item>
     </style>
 
     <!-- Primary button: 56dp height, rounded, theme-aware -->
@@ -176,23 +176,23 @@
         <item name="strokeWidth">2dp</item>
     </style>
 
-    <style name="BB.Button" parent="BBButton"/>
+    <style name="Edu.Button" parent="BBButton"/>
 
     <!-- Home/standard card: uses shared AppCardWhite design -->
-    <style name="BB.HomeCard" parent="Widget.EDUmio.AppCardWhite" />
+    <style name="Edu.HomeCard" parent="Widget.EDUmio.AppCardWhite" />
 
     <!-- Home card chip: compact icon+text action -->
-    <style name="BB.HomeChip">
+    <style name="Edu.HomeChip">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingVertical">6dp</item>
         <item name="android:drawablePadding">8dp</item>
-        <item name="android:textColor">@color/bb_primary</item>
+        <item name="android:textColor">@color/edu_primary</item>
         <item name="android:textSize">13sp</item>
     </style>
 
     <!-- Control row: icon + title + subtitle + chevron -->
-    <style name="BB.ControlRow">
+    <style name="Edu.ControlRow">
         <item name="android:padding">16dp</item>
         <item name="android:minHeight">56dp</item>
     </style>

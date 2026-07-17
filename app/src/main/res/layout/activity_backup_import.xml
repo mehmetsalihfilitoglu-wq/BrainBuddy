@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/bb_secondary"
+        android:background="@color/edu_secondary"
         app:titleTextColor="@color/white"
         app:title="@string/backup_import"/>
 
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="Yedek JSON'unu yapıştırın veya dosyadan içe aktarın."
                 android:textSize="14sp"
-                android:textColor="@color/bb_text_muted"/>
+                android:textColor="@color/edu_text_muted"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -47,7 +47,7 @@
 
             <Button
                 android:id="@+id/btnValidate"
-                style="@style/BB.Button"
+                style="@style/Edu.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

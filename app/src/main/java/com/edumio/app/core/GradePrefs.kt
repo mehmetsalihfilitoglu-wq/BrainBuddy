@@ -72,7 +72,7 @@ class GradePrefs(private val context: Context) {
     companion object {
         /** Junior = okul öncesi / 1. sınıf okuma-yazma seviyesi */
         const val GRADE_JUNIOR = 0
-        private const val PREFS = "bb_grade_prefs"
+        private const val PREFS = "edu_grade_prefs"
         private const val KEY_SELECTED_MODE = "selected_mode"
         private const val KEY_SELECTED_GRADE = "selected_grade"
     }

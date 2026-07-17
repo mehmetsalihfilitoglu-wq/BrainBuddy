@@ -36,7 +36,7 @@
                 android:text="@string/stats_title"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_text"/>
+                android:textColor="@color/edu_text"/>
         </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
@@ -74,7 +74,7 @@
                         android:text="Seviye 1"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text"/>
+                        android:textColor="@color/edu_text"/>
 
                     <TextView
                         android:id="@+id/tvXp"
@@ -83,7 +83,7 @@
                         android:layout_marginTop="4dp"
                         android:text="0 XP"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_text_muted"/>
+                        android:textColor="@color/edu_text_muted"/>
 
                     <TextView
                         android:id="@+id/tvStreak"
@@ -92,7 +92,7 @@
                         android:layout_marginTop="4dp"
                         android:text="🔥 0 gün seri"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_text_muted"/>
+                        android:textColor="@color/edu_text_muted"/>
 
                     <TextView
                         android:id="@+id/tvOverallAccuracy"
@@ -101,7 +101,7 @@
                         android:layout_marginTop="8dp"
                         android:text="Genel doğruluk: 0%"
                         android:textSize="14sp"
-                        android:textColor="@color/bb_primary"
+                        android:textColor="@color/edu_primary"
                         android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
@@ -127,7 +127,7 @@
                     android:text="@string/stats_topics_breakdown"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
+                    android:textColor="@color/edu_text"/>
 
                 <com.edumio.app.ui.BarChartView
                     android:id="@+id/barChart"
@@ -160,7 +160,7 @@
                     android:text="@string/stats_trend_title"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
+                    android:textColor="@color/edu_text"/>
 
                 <com.edumio.app.ui.LineChartView
                     android:id="@+id/lineChart"
@@ -190,7 +190,7 @@
                     android:text="@string/stats_topic_summary"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
+                    android:textColor="@color/edu_text"/>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
@@ -213,7 +213,7 @@
                     android:text="@string/stats_needs_improvement"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_error"/>
+                    android:textColor="@color/edu_error"/>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
@@ -236,7 +236,7 @@
                     android:text="@string/stats_recent_tests"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/bb_text"/>
+                    android:textColor="@color/edu_text"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerRecentTests"

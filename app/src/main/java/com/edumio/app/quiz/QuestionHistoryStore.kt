@@ -293,7 +293,7 @@ class QuestionHistoryStore(context: Context) {
 
     companion object {
         private const val DEFAULT_PROFILE = "default"
-        private const val PREFS = "bb_question_history"
+        private const val PREFS = "edu_question_history"
         private const val MAX_COUNT_CAP = 10000
         private const val KEY_GLOBAL_TEST_INDEX = "global_test_index"
         /**

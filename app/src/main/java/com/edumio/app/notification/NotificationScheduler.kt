@@ -20,8 +20,8 @@ import java.util.concurrent.TimeUnit
  */
 object NotificationScheduler {
 
-    private const val DAILY_WORK = "bb_daily_reminder"
-    private const val STREAK_WORK = "bb_streak_warning"
+    private const val DAILY_WORK = "edu_daily_reminder"
+    private const val STREAK_WORK = "edu_streak_warning"
 
     /** Idempotent: safe to call on every app start. Honors the user's toggles. */
     fun schedule(context: Context) {

@@ -21,31 +21,31 @@ object SyncRegistry {
 
     /** Per-study-area learning data — isolated by areaId. */
     val areaStores: List<StoreSpec> = listOf(
-        StoreSpec("analytics", "bb_analytics", "analytics"),                 // sessions + past tests
-        StoreSpec("gamification", "bb_gamification", "gamification"),        // XP, level, streak, achievements
-        StoreSpec("wrong_scheduler", "bb_wrong_scheduler", "mastery"),      // Leitner boxes + review queue
-        StoreSpec("wrong_pool", "bb_wrong_question_pool", "wrongQuestions"),
-        StoreSpec("wrong_store", "bb_wrong_question_store", "wrongQuestionsStore"),
-        StoreSpec("quiz_prefs", "bb_quiz_prefs", "dailyMissions"),           // daily mission state
-        StoreSpec("student_profile", "bb_student_profile", "studentProfile"),
-        StoreSpec("avatar", "bb_avatar", "avatar"),
-        StoreSpec("weekly_reward", "bb_weekly_reward", "weeklyReward"),
-        StoreSpec("reports", "bb_reports", "reports"),
-        StoreSpec("readiness_snapshots", "bb_readiness_snapshots", "readinessSnapshots")
+        StoreSpec("analytics", "edu_analytics", "analytics"),                 // sessions + past tests
+        StoreSpec("gamification", "edu_gamification", "gamification"),        // XP, level, streak, achievements
+        StoreSpec("wrong_scheduler", "edu_wrong_scheduler", "mastery"),      // Leitner boxes + review queue
+        StoreSpec("wrong_pool", "edu_wrong_question_pool", "wrongQuestions"),
+        StoreSpec("wrong_store", "edu_wrong_question_store", "wrongQuestionsStore"),
+        StoreSpec("quiz_prefs", "edu_quiz_prefs", "dailyMissions"),           // daily mission state
+        StoreSpec("student_profile", "edu_student_profile", "studentProfile"),
+        StoreSpec("avatar", "edu_avatar", "avatar"),
+        StoreSpec("weekly_reward", "edu_weekly_reward", "weeklyReward"),
+        StoreSpec("reports", "edu_reports", "reports"),
+        StoreSpec("readiness_snapshots", "edu_readiness_snapshots", "readinessSnapshots")
     )
 
     /** Account-level data shared across the whole account. */
     val globalStores: List<StoreSpec> = listOf(
-        StoreSpec("profiles", "bb_profiles", "profile"),                     // study-area list + active area
+        StoreSpec("profiles", "edu_profiles", "profile"),                     // study-area list + active area
         StoreSpec("settings", "user_goal_prefs", "settings"),               // goals / app settings
-        StoreSpec("onboarding", "bb_onboarding_prefs", "onboarding"),
-        StoreSpec("notifications", "bb_notification_prefs", "notificationPreferences"),
-        StoreSpec("report_prefs", "bb_email_report_prefs", "reportPreferences"),
-        StoreSpec("premium", "bb_premium", "premium"),                       // entitlement cache (server-authoritative)
-        StoreSpec("subscription", "bb_subscription", "purchases"),           // subscription status (server-verified)
-        StoreSpec("question_history", "bb_question_history", "questionHistory"),
-        StoreSpec("favorites", "bb_favorites", "favorites"),
-        StoreSpec("discovery_progress", "bb_discovery_progress", "discoveryProgress")
+        StoreSpec("onboarding", "edu_onboarding_prefs", "onboarding"),
+        StoreSpec("notifications", "edu_notification_prefs", "notificationPreferences"),
+        StoreSpec("report_prefs", "edu_email_report_prefs", "reportPreferences"),
+        StoreSpec("premium", "edu_premium", "premium"),                       // entitlement cache (server-authoritative)
+        StoreSpec("subscription", "edu_subscription", "purchases"),           // subscription status (server-verified)
+        StoreSpec("question_history", "edu_question_history", "questionHistory"),
+        StoreSpec("favorites", "edu_favorites", "favorites"),
+        StoreSpec("discovery_progress", "edu_discovery_progress", "discoveryProgress")
     )
 
     private val byKey: Map<String, StoreSpec> =

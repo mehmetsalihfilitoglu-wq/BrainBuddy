@@ -13,7 +13,7 @@
         android:background="@color/white"
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:navigationIconTint="?attr/colorPrimary"
-        app:titleTextColor="@color/bb_text" />
+        app:titleTextColor="@color/edu_text" />
 
     <!-- Info banner -->
     <com.google.android.material.card.MaterialCardView
@@ -46,7 +46,7 @@
                 android:layout_marginStart="@dimen/space_12"
                 android:text="@string/legal_hub_info"
                 android:textSize="13sp"
-                android:textColor="@color/bb_text_muted" />
+                android:textColor="@color/edu_text_muted" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

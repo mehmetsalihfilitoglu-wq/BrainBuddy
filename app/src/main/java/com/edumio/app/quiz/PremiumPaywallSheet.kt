@@ -67,7 +67,7 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
             else -> getString(R.string.paywall_status_free)
         }
         tv.setTextColor(resources.getColor(
-            if (status.isPremium) R.color.emeraldDark else R.color.bb_text_muted, requireContext().theme))
+            if (status.isPremium) R.color.emeraldDark else R.color.edu_text_muted, requireContext().theme))
     }
 
     // ── Offers ────────────────────────────────────────────────────────────────
@@ -123,7 +123,7 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
         val titleRow = LinearLayout(requireContext()).apply {
             orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
         }
-        titleRow.addView(makeText(planLabel(offer.plan), 16f, R.color.bb_text_dark, bold = true))
+        titleRow.addView(makeText(planLabel(offer.plan), 16f, R.color.edu_text_dark, bold = true))
         offer.badgeLabel?.let { badge ->
             titleRow.addView(makeText(badge, 10f, R.color.emeraldDark, bold = true).apply {
                 setPadding(dp(8f), 0, 0, 0)
@@ -132,7 +132,7 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
         texts.addView(titleRow)
         texts.addView(makeText(
             getString(R.string.paywall_price_period, offer.priceLabel, offer.periodLabel),
-            13f, R.color.bb_text_muted).apply { setPadding(0, dp(2f), 0, 0) })
+            13f, R.color.edu_text_muted).apply { setPadding(0, dp(2f), 0, 0) })
         offer.savingLabel?.let { saving ->
             texts.addView(makeText(saving, 12f, R.color.emeraldDark, bold = true).apply { setPadding(0, dp(2f), 0, 0) })
         }
@@ -227,8 +227,8 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
                 ).also { if (i > 0) it.topMargin = dp(16f) }
             }
-            block.addView(makeText("✦  ${getString(titleRes)}", 15f, R.color.bb_text_dark, bold = true))
-            block.addView(makeText(getString(subRes), 13f, R.color.bb_text_muted).apply {
+            block.addView(makeText("✦  ${getString(titleRes)}", 15f, R.color.edu_text_dark, bold = true))
+            block.addView(makeText(getString(subRes), 13f, R.color.edu_text_muted).apply {
                 setLineSpacing(0f, 1.35f)
                 setPadding(dp(24f), dp(2f), 0, 0)
             })

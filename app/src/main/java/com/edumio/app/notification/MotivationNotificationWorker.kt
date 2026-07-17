@@ -68,7 +68,7 @@ class MotivationNotificationWorker(
         const val KEY_TYPE = "type"
         const val TYPE_DAILY_REMINDER = "daily_reminder"
         const val TYPE_STREAK_WARNING = "streak_warning"
-        private const val CHANNEL_ID = "bb_motivation"
+        private const val CHANNEL_ID = "edu_motivation"
         private const val NOTIF_ID = 3001
     }
 }

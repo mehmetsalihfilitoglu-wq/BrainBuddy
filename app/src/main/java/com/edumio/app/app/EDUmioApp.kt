@@ -95,7 +95,7 @@ private fun logStartupPersistenceSync(context: Context) {
         val dataDir = context.applicationInfo?.dataDir ?: context.filesDir?.parent ?: "?"
         val sharedPrefsDir = File(dataDir, "shared_prefs")
         val prefsExists = sharedPrefsDir.exists() && sharedPrefsDir.isDirectory
-        val onboardingPrefsFile = File(sharedPrefsDir, "bb_onboarding_prefs.xml")
+        val onboardingPrefsFile = File(sharedPrefsDir, "edu_onboarding_prefs.xml")
         Log.i(STARTUP_LOG_TAG, "Persistence at startup (sync): onboardingDone=$onboardingDone profileCount=$profileCount dataDir=$dataDir sharedPrefsDirExists=$prefsExists onboardingPrefsFileExists=${onboardingPrefsFile.exists()}")
     } catch (e: Exception) {
         Log.w(STARTUP_LOG_TAG, "logStartupPersistenceSync failed", e)

@@ -109,7 +109,7 @@ class LeagueScreen : AppCompatActivity() {
             podium.tvPodiumYou1.text = "Sen"
             podium.tvPodiumYou1.visibility = View.VISIBLE
             podium.podium1stCard.strokeWidth = (2 * resources.displayMetrics.density).toInt()
-            podium.podium1stCard.strokeColor = getColor(R.color.bb_primary)
+            podium.podium1stCard.strokeColor = getColor(R.color.edu_primary)
         }
 
         // 2nd place (left)
@@ -120,7 +120,7 @@ class LeagueScreen : AppCompatActivity() {
             podium.tvPodiumYou2.text = "Sen"
             podium.tvPodiumYou2.visibility = View.VISIBLE
             podium.podium2ndCard.strokeWidth = (2 * resources.displayMetrics.density).toInt()
-            podium.podium2ndCard.strokeColor = getColor(R.color.bb_primary)
+            podium.podium2ndCard.strokeColor = getColor(R.color.edu_primary)
         }
 
         // 3rd place (right)
@@ -131,7 +131,7 @@ class LeagueScreen : AppCompatActivity() {
             podium.tvPodiumYou3.text = "Sen"
             podium.tvPodiumYou3.visibility = View.VISIBLE
             podium.podium3rdCard.strokeWidth = (2 * resources.displayMetrics.density).toInt()
-            podium.podium3rdCard.strokeColor = getColor(R.color.bb_primary)
+            podium.podium3rdCard.strokeColor = getColor(R.color.edu_primary)
         }
     }
 
@@ -236,7 +236,7 @@ class LeagueAdapter(
 
         if (entry.id == currentUserId) {
             card.strokeWidth = (2 * density).toInt()
-            card.strokeColor = holder.view.context.getColor(R.color.bb_primary)
+            card.strokeColor = holder.view.context.getColor(R.color.edu_primary)
             tvScore.text = holder.view.context.getString(R.string.league_current_user_label)
             tvScore.visibility = android.view.View.VISIBLE
 
@@ -265,7 +265,7 @@ class LeagueAdapter(
         val total = allEntries.size
         val demotionThreshold = (total - 3).coerceAtLeast(4)
         if (total >= 4 && rank > demotionThreshold) {
-            card.setCardBackgroundColor(holder.view.context.getColor(R.color.bb_demotion_zone))
+            card.setCardBackgroundColor(holder.view.context.getColor(R.color.edu_demotion_zone))
         } else {
             card.setCardBackgroundColor(holder.view.context.getColor(R.color.white))
         }

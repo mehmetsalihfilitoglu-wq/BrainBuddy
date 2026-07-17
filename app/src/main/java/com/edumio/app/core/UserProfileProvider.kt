@@ -13,9 +13,9 @@ import com.edumio.app.avatar.AvatarStore
  *
  * Sources:
  *   profileId     → ProfileStore  (current active profile)
- *   displayName   → StudentProfileStore (bb_student_profile_<id> → "student_display_name")
- *   avatarId      → AvatarStore equipped MASCOT (bb_avatar_<id> → "equipped_json")
- *   xp / level / streak → GamificationStore (bb_gamification_<id>)
+ *   displayName   → StudentProfileStore (edu_student_profile_<id> → "student_display_name")
+ *   avatarId      → AvatarStore equipped MASCOT (edu_avatar_<id> → "equipped_json")
+ *   xp / level / streak → GamificationStore (edu_gamification_<id>)
  */
 data class UserProfile(
     val profileId: String,

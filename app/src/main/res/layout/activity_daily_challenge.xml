@@ -19,7 +19,7 @@
             android:text="@string/dc_title"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_turquoise"
+            android:textColor="@color/edu_turquoise"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/dcProgressText"/>
@@ -31,7 +31,7 @@
             android:text="1/5"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/bb_text_dark"
+            android:textColor="@color/edu_text_dark"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -43,7 +43,7 @@
             android:layout_marginTop="10dp"
             android:max="5"
             android:progress="1"
-            android:progressTint="@color/bb_turquoise"
+            android:progressTint="@color/edu_turquoise"
             app:layout_constraintTop_toBottomOf="@id/dcExamLabel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -82,7 +82,7 @@
                 android:text="@string/dc_question_placeholder"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/bb_text_dark"
+                android:textColor="@color/edu_text_dark"
                 android:lineSpacingMultiplier="1.2"
                 android:padding="20dp"/>
         </com.google.android.material.card.MaterialCardView>
@@ -105,7 +105,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
 
             <RadioButton
                 android:id="@+id/dcOptB"
@@ -116,7 +116,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
 
             <RadioButton
                 android:id="@+id/dcOptC"
@@ -127,7 +127,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
 
             <RadioButton
                 android:id="@+id/dcOptD"
@@ -138,7 +138,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
 
             <!-- 5th option: shown only for A–E (IMAT-format) questions. -->
             <RadioButton
@@ -150,12 +150,12 @@
                 android:visibility="gone"
                 android:background="@drawable/bg_choice_button"
                 android:textSize="16sp"
-                android:textColor="@color/bb_text_dark"/>
+                android:textColor="@color/edu_text_dark"/>
         </RadioGroup>
 
         <Button
             android:id="@+id/dcNextBtn"
-            style="@style/BB.Button"
+            style="@style/Edu.Button"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:text="@string/dc_next"

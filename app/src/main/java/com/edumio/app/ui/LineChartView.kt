@@ -35,13 +35,13 @@ class LineChartView @JvmOverloads constructor(
         get() = MaterialColors.getColor(
             context,
             com.google.android.material.R.attr.colorPrimary,
-            context.getColor(R.color.bb_primary)
+            context.getColor(R.color.edu_primary)
         )
 
     private val textColor = MaterialColors.getColor(
         context,
         com.google.android.material.R.attr.colorOnSurfaceVariant,
-        context.getColor(R.color.bb_text_muted)
+        context.getColor(R.color.edu_text_muted)
     )
 
     private val density = resources.displayMetrics.density

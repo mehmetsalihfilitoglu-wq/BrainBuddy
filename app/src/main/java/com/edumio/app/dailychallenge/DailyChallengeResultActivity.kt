@@ -85,7 +85,7 @@ class DailyChallengeResultActivity : AppCompatActivity() {
                     DailyChallengeSectionLabels.label(section), correct, total,
                 )
                 textSize = 15f
-                setTextColor(ContextCompat.getColor(this@DailyChallengeResultActivity, R.color.bb_text_dark))
+                setTextColor(ContextCompat.getColor(this@DailyChallengeResultActivity, R.color.edu_text_dark))
                 gravity = Gravity.START
                 setPadding(0, 12, 0, 0)
             }

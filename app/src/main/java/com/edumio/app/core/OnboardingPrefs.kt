@@ -3,7 +3,7 @@
 import android.content.Context
 
 object OnboardingPrefs {
-    private const val PREFS = "bb_onboarding_prefs"
+    private const val PREFS = "edu_onboarding_prefs"
     private const val KEY_IS_DONE = "is_onboarding_done"
 
     fun isDone(context: Context): Boolean =

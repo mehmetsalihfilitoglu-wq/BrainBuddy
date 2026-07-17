@@ -84,7 +84,7 @@ class ProfileStore(context: Context) {
 
     companion object {
         const val DEFAULT_ID = "default"
-        private const val PREFS = "bb_profiles"
+        private const val PREFS = "edu_profiles"
         private const val KEY_CURRENT = "current_profile_id"
         private const val KEY_PROFILES = "profiles_json"
     }

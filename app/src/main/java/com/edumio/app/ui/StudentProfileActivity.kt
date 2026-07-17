@@ -299,18 +299,18 @@ class AvatarGridAdapter(
         // Selection state
         if (selected) {
             card.strokeWidth = ctx.resources.getDimensionPixelSize(R.dimen.avatar_stroke_selected)
-            card.strokeColor = ContextCompat.getColor(ctx, R.color.bb_primary)
+            card.strokeColor = ContextCompat.getColor(ctx, R.color.edu_primary)
             card.cardElevation = 6f * ctx.resources.displayMetrics.density
             card.setCardBackgroundColor(ContextCompat.getColor(ctx, R.color.avatar_selected_bg))
-            tvName.setTextColor(ContextCompat.getColor(ctx, R.color.bb_primary))
+            tvName.setTextColor(ContextCompat.getColor(ctx, R.color.edu_primary))
             tvName.setTypeface(null, android.graphics.Typeface.BOLD)
         } else {
             card.strokeWidth = if (owned) 0 else ctx.resources.getDimensionPixelSize(R.dimen.avatar_stroke_normal)
             card.strokeColor = ContextCompat.getColor(ctx, R.color.divider_light)
             card.cardElevation = 2f * ctx.resources.displayMetrics.density
-            card.setCardBackgroundColor(ContextCompat.getColor(ctx, R.color.bb_card))
+            card.setCardBackgroundColor(ContextCompat.getColor(ctx, R.color.edu_card))
             tvName.setTextColor(ContextCompat.getColor(ctx,
-                if (owned) R.color.bb_text else R.color.bb_text_muted))
+                if (owned) R.color.edu_text else R.color.edu_text_muted))
             tvName.setTypeface(null, android.graphics.Typeface.NORMAL)
         }
 

@@ -8,8 +8,8 @@ import android.content.SharedPreferences
  * from legacy global preference files.
  *
  * Convention:
- * - Legacy global file: e.g. "bb_analytics"
- * - Per-profile file:  "bb_analytics_<profileId>"
+ * - Legacy global file: e.g. "edu_analytics"
+ * - Per-profile file:  "edu_analytics_<profileId>"
  *
  * Each accessor below:
  * - Resolves the active profile id via ActiveProfileManager.
@@ -17,7 +17,7 @@ import android.content.SharedPreferences
  */
 object ProfileScopedPrefs {
 
-    private const val MIGRATION_PREFS = "bb_profile_scoped_migration"
+    private const val MIGRATION_PREFS = "edu_profile_scoped_migration"
 
     private fun activeProfileId(context: Context): String =
         ActiveProfileManager.getActiveProfileId(context)
@@ -25,61 +25,61 @@ object ProfileScopedPrefs {
     // === Public factories for profile-scoped stores ===
 
     fun analytics(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_analytics", migrationKey = "analytics_v1")
+        profilePrefsWithMigration(context, baseName = "edu_analytics", migrationKey = "analytics_v1")
 
     fun gamification(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_gamification", migrationKey = "gamification_v1")
+        profilePrefsWithMigration(context, baseName = "edu_gamification", migrationKey = "gamification_v1")
 
     fun wrongQuestion(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_wrong_question_store", migrationKey = "wrong_question_v1")
+        profilePrefsWithMigration(context, baseName = "edu_wrong_question_store", migrationKey = "wrong_question_v1")
 
     /** Dedicated wrong-question pool (Yanlışlarını Çöz) — separate from test generation. */
     fun wrongQuestionPool(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_wrong_question_pool", migrationKey = "wrong_question_pool_v1")
+        profilePrefsWithMigration(context, baseName = "edu_wrong_question_pool", migrationKey = "wrong_question_pool_v1")
 
     /** Wrong-question scheduler: spacing by completed tests (wrongPool + completedTests). */
     fun wrongScheduler(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_wrong_scheduler", migrationKey = "wrong_scheduler_v1")
+        profilePrefsWithMigration(context, baseName = "edu_wrong_scheduler", migrationKey = "wrong_scheduler_v1")
 
     fun league(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_league", migrationKey = "league_v1")
+        profilePrefsWithMigration(context, baseName = "edu_league", migrationKey = "league_v1")
 
     fun reports(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_reports", migrationKey = "reports_v1")
+        profilePrefsWithMigration(context, baseName = "edu_reports", migrationKey = "reports_v1")
 
     /** Exam-readiness snapshots over time (for readiness-change trends + reports). */
     fun readinessSnapshots(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_readiness_snapshots", migrationKey = "readiness_snapshots_v1")
+        profilePrefsWithMigration(context, baseName = "edu_readiness_snapshots", migrationKey = "readiness_snapshots_v1")
 
     fun blockedApps(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_blocked_apps", migrationKey = "blocked_apps_v1")
+        profilePrefsWithMigration(context, baseName = "edu_blocked_apps", migrationKey = "blocked_apps_v1")
 
     fun timeLimits(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_time_limits", migrationKey = "time_limits_v1")
+        profilePrefsWithMigration(context, baseName = "edu_time_limits", migrationKey = "time_limits_v1")
 
     fun schedules(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_schedules", migrationKey = "schedules_v1")
+        profilePrefsWithMigration(context, baseName = "edu_schedules", migrationKey = "schedules_v1")
 
     fun examPacks(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_exam_packs", migrationKey = "exam_packs_v1")
+        profilePrefsWithMigration(context, baseName = "edu_exam_packs", migrationKey = "exam_packs_v1")
 
     fun avatar(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_avatar", migrationKey = "avatar_v1")
+        profilePrefsWithMigration(context, baseName = "edu_avatar", migrationKey = "avatar_v1")
 
     fun studentProfile(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_student_profile", migrationKey = "student_profile_v1")
+        profilePrefsWithMigration(context, baseName = "edu_student_profile", migrationKey = "student_profile_v1")
 
     fun quizPrefs(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_quiz_prefs", migrationKey = "quiz_prefs_v1")
+        profilePrefsWithMigration(context, baseName = "edu_quiz_prefs", migrationKey = "quiz_prefs_v1")
 
     fun weeklyReward(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_weekly_reward", migrationKey = "weekly_reward_v1")
+        profilePrefsWithMigration(context, baseName = "edu_weekly_reward", migrationKey = "weekly_reward_v1")
 
     fun rewardContracts(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_reward_contract", migrationKey = "reward_contract_v1")
+        profilePrefsWithMigration(context, baseName = "edu_reward_contract", migrationKey = "reward_contract_v1")
 
     fun gateLockedPackages(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "bb_gate_locked_packages", migrationKey = "gate_locked_v1")
+        profilePrefsWithMigration(context, baseName = "edu_gate_locked_packages", migrationKey = "gate_locked_v1")
 
     // === Core helper ===
 

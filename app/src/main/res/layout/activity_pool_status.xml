@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/bb_turquoise_dark"
+            android:background="@color/edu_turquoise_dark"
             app:titleTextColor="@color/white"
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:navigationIconTint="@color/white" />
@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="13sp"
-                    android:textColor="@color/bb_text"
+                    android:textColor="@color/edu_text"
                     android:fontFamily="monospace" />
 
                 <com.google.android.material.button.MaterialButton
@@ -74,7 +74,7 @@
                         android:text="Debug Fix (sadece DEBUG build)"
                         android:textSize="12sp"
                         android:textStyle="bold"
-                        android:textColor="@color/bb_text_muted" />
+                        android:textColor="@color/edu_text_muted" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnFixInvalidGrades"

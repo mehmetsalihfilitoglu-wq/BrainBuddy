@@ -45,7 +45,7 @@ class DailyAdQuotaStore(context: Context) {
         SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
 
     companion object {
-        private const val PREFS = "bb_daily_ad_quota"
+        private const val PREFS = "edu_daily_ad_quota"
         private const val KEY_LAST_DAY = "last_day_key"
         private const val KEY_COUNT = "count"
         const val MAX_PER_DAY = 3

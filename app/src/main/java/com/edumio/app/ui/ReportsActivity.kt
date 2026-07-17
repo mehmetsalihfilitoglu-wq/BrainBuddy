@@ -314,7 +314,7 @@ class ReportsActivity : AppCompatActivity() {
                 hasWeak -> Pair(getString(R.string.perf_status_weak), getColor(R.color.danger))
                 hasStrong && adv.trendDirection == StatsRepository.TrendDirection.IMPROVING ->
                     Pair(getString(R.string.perf_status_good), getColor(R.color.emerald_primary))
-                else -> Pair(getString(R.string.perf_status_moderate), getColor(R.color.bb_gold_text))
+                else -> Pair(getString(R.string.perf_status_moderate), getColor(R.color.edu_gold_text))
             }
             b.tvPerformanceStatus.text = statusText
             val statusBg = b.tvPerformanceStatus.background.mutate()
@@ -425,7 +425,7 @@ class ReportsActivity : AppCompatActivity() {
                 val successPercent = point.percent
                 val overallAverage = tc.averagePercent
                 val isAboveOrEqual = successPercent >= overallAverage
-                val tintColor = if (isAboveOrEqual) getColor(R.color.emerald_primary) else getColor(R.color.bb_error)
+                val tintColor = if (isAboveOrEqual) getColor(R.color.emerald_primary) else getColor(R.color.edu_error)
                 cardBinding.tvDetailSuccess.text = "${successPercent.roundToInt()}%"
                 cardBinding.tvDetailSuccess.setTextColor(tintColor)
                 val arrowRes = if (isAboveOrEqual) R.drawable.ic_trend_up else R.drawable.ic_trend_down
