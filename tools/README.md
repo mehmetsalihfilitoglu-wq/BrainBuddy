@@ -1,4 +1,4 @@
-# BrainBuddy Question Generator
+# EDUmio Question Generator
 
 Generates 500 diverse questions per subject for grade 6 (2500 total).
 

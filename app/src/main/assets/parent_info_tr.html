@@ -3,69 +3,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebeveyn Bilgilendirmesi - Barjin</title>
+    <title>Bilgilendirme - EDUmio</title>
     <style>
-        body { font-family: sans-serif; padding: 16px; line-height: 1.6; color: #333; background: #fff; }
-        h1 { font-size: 1.3em; margin-top: 1em; color: #0F172A; }
-        h2 { font-size: 1.1em; margin-top: 0.8em; color: #0F172A; }
-        p, li { margin: 0.5em 0; font-size: 0.95em; }
-        ul { padding-left: 1.2em; }
-        .updated { font-size: 0.9em; color: #666; }
-        .highlight { background: #E6F7F5; padding: 12px; border-radius: 8px; margin: 8px 0; }
-        .warning { background: #FFF3E0; padding: 12px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #FF9800; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; padding: 20px; line-height: 1.7; color: #333; background: #fff; }
+        h1 { font-size: 1.3em; margin: 0.6em 0 0.4em; color: #111827; }
+        .logo { text-align: center; margin-bottom: 8px; }
+        .logo .edu { font-size: 1.3em; font-weight: 800; color: #25D366; }
+        .logo .mio { font-size: 1.3em; font-weight: 800; color: #000; }
+        .stale { background: #FEF3C7; color: #92400E; padding: 14px 16px; border-radius: 10px; margin: 14px 0; border-left: 4px solid #F59E0B; }
+        footer { margin-top: 1.5em; padding-top: 0.8em; border-top: 1px solid #eee; font-size: 0.85em; color: #888; }
     </style>
 </head>
 <body>
-
-<h1>Ebeveyn Bilgilendirmesi</h1>
-<p class="updated">Son güncelleme: Nisan 2026</p>
-
-<div class="highlight">
-    <strong>Bu bölüm, Barjin'yi yükleyen ve yapılandıran ebeveynlere/velilere yöneliktir.</strong>
+<div class="logo"><span class="edu">EDU</span><span class="mio">mio</span></div>
+<h1>Bilgilendirme</h1>
+<div class="stale">
+    <strong>Bu sayfa artık geçerli değildir.</strong>
+    Önceki sürüm, ebeveyn kontrolü / çocuk gözetimi özellikleri olan farklı bir ürünü tanımlıyordu. EDUmio
+    bir ebeveyn kontrolü uygulaması <strong>değildir</strong>; İtalya üniversite sınavlarına (IMAT / TIL-I /
+    CEnT-S) hazırlanan öğrenciler için kişisel bir öğrenme uygulamasıdır. Uygulama engelleme, ekran süresi
+    yönetimi, PIN veya çocuk gözetimi içermez. Bu bilgilendirme sayfası ürün ekibi tarafından yayından
+    kaldırılacaktır.
 </div>
-
-<h2>1. Uygulama Amacı</h2>
-<p>Barjin, çocukların dijital cihaz kullanımını eğitim odaklı hale getiren bir ebeveyn kontrolü ve öğrenme uygulamasıdır. Çocuğunuzun belirli uygulamaları kullanabilmesi için eğitim quiz'lerini başarıyla tamamlaması gerekir.</p>
-
-<h2>2. Ebeveyn Sorumluluğu</h2>
-<ul>
-    <li>Uygulamanın kurulumu ve yapılandırılması ebeveyn tarafından yapılmalıdır</li>
-    <li>PIN ve acil durum kodu güvenli bir yerde saklanmalıdır</li>
-    <li>Engellenen uygulama listesi ve quiz ayarları çocuğun yaşına uygun şekilde belirlenmelidir</li>
-    <li>Çocuğun uygulama kullanımı düzenli olarak Raporlar bölümünden takip edilmelidir</li>
-</ul>
-
-<h2>3. Çocuğun Verileri</h2>
-<div class="warning">
-    <strong>Veri güvenliği:</strong> Çocuğunuzun tüm verileri (quiz sonuçları, performans istatistikleri, profil bilgileri) yalnızca bu cihazda saklanır. Hiçbir veri internete gönderilmez veya üçüncü taraflarla paylaşılmaz.
-</div>
-<ul>
-    <li>Profil bilgileri: Ad ve sınıf seviyesi (cihazda)</li>
-    <li>Eğitim verileri: Quiz sonuçları ve ilerleme (cihazda)</li>
-    <li>Kullanım verileri: Test sayısı ve tahmini ekran süresi (cihazda)</li>
-</ul>
-
-<h2>4. Kullanılan İzinler</h2>
-<p>Barjin'nin düzgün çalışabilmesi için şu izinleri gerektirir:</p>
-<ul>
-    <li><strong>Erişilebilirlik Hizmeti:</strong> Engellenen uygulamaların tespit edilmesi için kullanılır. Yalnızca uygulama paket adlarını kontrol eder; ekran içeriğini okumaz.</li>
-    <li><strong>Bildirim İzni:</strong> Ebeveyne koruma durumu hakkında bildirim göndermek için kullanılır.</li>
-    <li><strong>Mikrofon (RECORD_AUDIO):</strong> Junior bölümündeki "Sesli Okuma" özelliği için kullanılır. Çocuğun okuduğu kelimeyi tanımak amacıyla Android SpeechRecognizer kullanır. Ses kaydedilmez, saklanmaz ve sunucuya gönderilmez.</li>
-    <li><strong>Cihaz Yöneticisi (Opsiyonel):</strong> Gelişmiş güvenlik özellikleri için kullanılabilir.</li>
-    <li><strong>İnternet:</strong> Yalnızca reklam servisi için kullanılır.</li>
-</ul>
-
-<h2>5. Reklamlar</h2>
-<p>Uygulama, ödüllü video reklamları içerir. Bu reklamlar:</p>
-<ul>
-    <li>Otomatik gösterilmez; kullanıcı isteğiyle başlatılır</li>
-    <li>COPPA uyumlu: Çocuklara yönelik içerik derecelendirmesi (G rating) uygulanır</li>
-    <li>Ebeveyn panelinden yönetilebilir</li>
-    <li>Günlük izleme limiti vardır (maksimum 3 reklam/gün)</li>
-</ul>
-
-<h2>6. İletişim</h2>
-<p>Ebeveyn olarak herhangi bir sorunuz veya endişeniz varsa, Google Play Store uygulama sayfamızdaki destek bölümünden bize ulaşabilirsiniz.</p>
-
+<footer>&copy; 2026 EDUmio — Taslak/geçici belge.</footer>
 </body>
 </html>

@@ -3,117 +3,46 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizlilik Politikası - BrainBuddy</title>
+    <title>Gizlilik Politikası - EDUmio</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            padding: 24px;
-            max-width: 720px;
-            margin: 0 auto;
-            line-height: 1.7;
-            color: #333;
-            background: #fff;
+            padding: 24px; max-width: 720px; margin: 0 auto; line-height: 1.7; color: #333; background: #fff;
         }
-        h1 { font-size: 1.5em; margin: 1.2em 0 0.4em; color: #0F172A; }
-        h2 { font-size: 1.15em; margin: 1.2em 0 0.4em; color: #0F172A; }
+        h1 { font-size: 1.5em; margin: 1.2em 0 0.4em; color: #111827; }
         p, li { margin: 0.5em 0; font-size: 0.95em; }
-        ul { padding-left: 1.4em; }
         .updated { font-size: 0.9em; color: #666; margin-bottom: 1em; }
-        .highlight {
-            background: #E6F7F5;
-            padding: 14px 16px;
-            border-radius: 10px;
-            margin: 12px 0;
-            border-left: 4px solid #16B3A6;
+        .stale {
+            background: #FEF3C7; color: #92400E; padding: 16px 18px; border-radius: 10px;
+            margin: 16px 0; border-left: 4px solid #F59E0B; font-size: 0.95em;
         }
         .logo { text-align: center; margin-bottom: 8px; }
-        .logo span { font-size: 1.3em; font-weight: bold; color: #16B3A6; }
+        .logo .edu { font-size: 1.4em; font-weight: 800; color: #25D366; }
+        .logo .mio { font-size: 1.4em; font-weight: 800; color: #000; }
         footer { margin-top: 2em; padding-top: 1em; border-top: 1px solid #eee; font-size: 0.85em; color: #888; }
     </style>
 </head>
 <body>
 
-<div class="logo"><span>BrainBuddy</span></div>
+<div class="logo"><span class="edu">EDU</span><span class="mio">mio</span></div>
 
 <h1>Gizlilik Politikası</h1>
-<p class="updated">Son güncelleme: Nisan 2026</p>
+<p class="updated">Durum: REVİZYON AŞAMASINDA — yayına hazır değildir</p>
 
-<div class="highlight">
-    <strong>Kısa Özet:</strong> BrainBuddy, minimal veri toplama ilkesiyle çalışır. Tüm veriler cihazınızda saklanır. Sunucuya kişisel veri gönderilmez.
+<div class="stale">
+    <strong>⚠️ Bu belge güncellenmektedir ve yayına (public release) hazır DEĞİLDİR.</strong>
+    Bu sayfanın önceki sürümü, artık geçerli olmayan farklı bir ürünü (ebeveyn kontrolü / cihaz
+    kullanımı yönetimi uygulaması) tanımlıyordu. O içerik EDUmio için doğru olmadığından kaldırılmıştır.
+    EDUmio, İtalya üniversite sınavlarına (IMAT / TIL-I / CEnT-S) hazırlık için bir öğrenme uygulamasıdır;
+    ebeveyn kontrolü, uygulama engelleme, cihaz yöneticisi, çocuk ses tanıma veya reklam içermez.
+    Geçerli ve uygulanmış ürüne dayalı taslak metin için hukuk incelemesi bekleyen taslağa bakınız
+    (<code>docs/privacy_edumio_draft.md</code>). Nihai metin yürürlüğe girene kadar bu sayfa bağlayıcı
+    bir gizlilik beyanı olarak kabul edilmemelidir.
 </div>
 
-<h2>1. Genel Bilgi</h2>
-<p>BrainBuddy, ebeveynlerin çocuklarının dijital cihaz kullanımını yönetmesine yardımcı olan bir ebeveyn kontrolü ve eğitim uygulamasıdır. Bu gizlilik politikası, uygulamamızın veri toplama, kullanma ve koruma uygulamalarını açıklar.</p>
-
-<h2>2. Hedef Kitle</h2>
-<p>BrainBuddy, 18 yaş üstü ebeveynler/veliler tarafından kurulup yapılandırılan, çocukların ebeveyn gözetiminde kullandığı bir uygulamadır.</p>
-
-<h2>3. Toplanan Veriler</h2>
-<p><strong>Yerel olarak saklanan veriler (yalnızca cihazınızda):</strong></p>
-<ul>
-    <li>Profil bilgileri: Öğrenci adı, sınıf seviyesi</li>
-    <li>Güvenlik verileri: Ebeveyn PIN'i (şifrelenmiş), acil durum kodu (şifrelenmiş)</li>
-    <li>Ebeveyn ayarları: Engellenen uygulamalar, quiz aralığı, başarı oranı, ekran süresi limitleri</li>
-    <li>Eğitim verileri: Quiz sonuçları, performans istatistikleri, yanlış cevap geçmişi</li>
-    <li>Uygulama kullanım bilgisi: Test sayısı, tahmini ekran süresi</li>
-</ul>
-<p>Bu veriler internet üzerinden gönderilmez ve yalnızca cihazınızda tutulur.</p>
-<p><strong>E-posta raporları (isteğe bağlı):</strong> Ebeveyn etkinleştirirse, performans raporları belirtilen e-posta adresine Android'in yerel e-posta istemcisi aracılığıyla gönderilebilir.</p>
-
-<h2>4. Ses Tanıma (Sesli Okuma Özelliği)</h2>
-<p>BrainBuddy Junior bölümünde "Sesli Okuma" özelliği, Android SpeechRecognizer API'sini kullanarak çocuğun okuduğu kelimeyi tanır. Bu özellik için mikrofon izni gereklidir. Ses verileri:</p>
-<ul>
-    <li>Yalnızca anlık konuşma tanıma için kullanılır</li>
-    <li>Kaydedilmez ve saklanmaz</li>
-    <li>Sunucuya gönderilmez (Android'in cihaz üzerindeki tanıma motoru kullanılır)</li>
-    <li>Üçüncü taraflarla paylaşılmaz</li>
-</ul>
-
-<h2>5. Üçüncü Taraf Hizmetler</h2>
-<p><strong>Google AdMob:</strong> Uygulama, ödüllü video reklamları için Google AdMob kullanır. Reklamlar COPPA uyumlu şekilde, çocuklara yönelik içerik derecelendirmesiyle (G rating) sunulur. AdMob kendi gizlilik politikasına tabidir.</p>
-<p>Bunun dışında üçüncü taraf hizmet veya analitik aracı kullanılmamaktadır.</p>
-
-<h2>6. Erişilebilirlik Hizmeti</h2>
-<p>BrainBuddy, uygulama engelleme için Android Erişilebilirlik Hizmeti kullanır. Bu hizmet:</p>
-<ul>
-    <li>Yalnızca ön plandaki uygulamanın paket adını kontrol eder</li>
-    <li>Ekran içeriği, metin veya görüntü okumaz</li>
-    <li>Kişisel veri toplamaz</li>
-    <li>Verileri üçüncü taraflarla paylaşmaz</li>
-</ul>
-
-<h2>7. Cihaz Yöneticisi</h2>
-<p>Opsiyonel olarak Cihaz Yöneticisi izni kullanılabilir. Bu izin yalnızca ebeveyn kontrolü güvenlik politikaları kapsamında çalışır.</p>
-
-<h2>8. Veri Güvenliği</h2>
-<ul>
-    <li>PIN ve acil durum kodu şifrelenmiş olarak saklanır</li>
-    <li>Veriler cihaz dışına çıkmaz (AdMob hariç)</li>
-    <li>Bulut tabanlı hesap sistemi kullanılmaz</li>
-</ul>
-
-<h2>9. Veri Saklama ve Silme</h2>
-<p>Tüm veriler cihazınızda kalır. Uygulamayı kaldırdığınızda tüm veriler otomatik olarak silinir. Yedekleme/geri yükleme özelliği kullanılıyorsa veriler yalnızca sizin seçtiğiniz konuma aktarılır.</p>
-
-<h2>10. Çocuk Gizliliği</h2>
-<p>BrainBuddy, çocukların gizliliğini korumayı öncelik olarak benimser:</p>
-<ul>
-    <li>Çocuklardan kişisel bilgi toplamaz</li>
-    <li>Sunucuya veri göndermez</li>
-    <li>Üçüncü taraflarla çocuk verisi paylaşmaz</li>
-    <li>Reklamlar COPPA uyumlu ve çocuklara uygun içerikle sınırlandırılmıştır</li>
-    <li>Uygulama ebeveyn kontrolü altında çalışır</li>
-</ul>
-
-<h2>11. Değişiklikler</h2>
-<p>Bu gizlilik politikası güncellenebilir. Güncellemeler uygulama içinden erişilebilir olacaktır.</p>
-
-<h2>12. İletişim</h2>
-<p>Gizlilik ile ilgili sorularınız için Google Play Store uygulama sayfamızdaki destek bölümünden bize ulaşabilirsiniz.</p>
-
 <footer>
-    &copy; 2026 BrainBuddy. Tüm hakları saklıdır.
+    &copy; 2026 EDUmio. Tüm hakları saklıdır. — Taslak/geçici belge.
 </footer>
 
 </body>
