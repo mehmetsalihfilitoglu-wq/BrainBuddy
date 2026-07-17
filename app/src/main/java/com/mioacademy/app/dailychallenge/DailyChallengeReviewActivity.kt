@@ -118,9 +118,11 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
         currentOrder = DailyChallengeOptions.displayOrder(q.id, choices.size)
         group.setOnCheckedChangeListener(null)
         group.clearCheck()
+        val defaultColor = androidx.core.content.ContextCompat.getColor(this, R.color.bb_text_dark)
         options.forEachIndexed { p, btn ->
             if (p < currentOrder.size) {
                 btn.text = getString(R.string.dc_option_fmt, ('A' + p), choices[currentOrder[p]])
+                btn.setTextColor(defaultColor) // clear any correct/incorrect highlight from the previous item
                 btn.visibility = View.VISIBLE
                 btn.isEnabled = true
             } else btn.visibility = View.GONE
@@ -146,6 +148,18 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
         val isCorrect = chosenOriginal == q.answerIndex
         revealed = true
         options.forEach { it.isEnabled = false }
+
+        // Mark WHICH option was correct (and the wrong pick, if any) — a review must teach the answer.
+        // Uses an icon marker in addition to colour so it is not conveyed by colour alone.
+        val correctColor = androidx.core.content.ContextCompat.getColor(this, R.color.brand_primary_dark)
+        val wrongColor = androidx.core.content.ContextCompat.getColor(this, R.color.color_error)
+        for (p in currentOrder.indices) {
+            val btn = options[p]
+            when {
+                currentOrder[p] == q.answerIndex -> { btn.append("  ✓"); btn.setTextColor(correctColor) }
+                p == checkedPos -> { btn.append("  ✗"); btn.setTextColor(wrongColor) }
+            }
+        }
 
         verdict.setText(if (isCorrect) R.string.dc_review_correct else R.string.dc_review_incorrect)
         explanation.text = q.explanation?.takeIf { it.isNotBlank() } ?: getString(R.string.dc_review_no_explanation)
