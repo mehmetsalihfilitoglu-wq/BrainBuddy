@@ -282,7 +282,7 @@
         <!-- ─── WRONG POOL CARD ─── -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardWrongPool"
-            style="@style/Widget.BrainBuddy.AppCardWhite"
+            style="@style/Widget.EDUmio.AppCardWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_12"
@@ -323,7 +323,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/wrong_pool_home_title"
-                            style="@style/TextAppearance.BrainBuddy.AppTitle"/>
+                            style="@style/TextAppearance.EDUmio.AppTitle"/>
 
                         <TextView
                             android:id="@+id/tvWrongPoolSubtitle"
@@ -331,7 +331,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_4"
                             android:text="@string/wrong_pool_home_sub"
-                            style="@style/TextAppearance.BrainBuddy.AppSubtitle"/>
+                            style="@style/TextAppearance.EDUmio.AppSubtitle"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

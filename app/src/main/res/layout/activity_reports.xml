@@ -41,7 +41,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipRangeToday"
-                style="@style/Widget.BrainBuddy.Chip.Filter.Range"
+                style="@style/Widget.EDUmio.Chip.Filter.Range"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
@@ -49,7 +49,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipRange7"
-                style="@style/Widget.BrainBuddy.Chip.Filter.Range"
+                style="@style/Widget.EDUmio.Chip.Filter.Range"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
@@ -58,7 +58,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipRange30"
-                style="@style/Widget.BrainBuddy.Chip.Filter.Range"
+                style="@style/Widget.EDUmio.Chip.Filter.Range"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checkable="true"
@@ -87,7 +87,7 @@
             <!-- A) Haftalık Başarı kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardWeeklySuccess"
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.EDUmio.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -348,7 +348,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
                             android:text="@string/reports_empty_generic"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
+                            android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnWeeklyEmptyCta"
                             style="@style/BBButtonAlt"
@@ -363,7 +363,7 @@
             <!-- B) Konulara Göre (Doğru/Toplam) kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardTopics"
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.EDUmio.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap">
@@ -378,7 +378,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/parent_topic_performance"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle" />
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardTitle" />
 
                     <TextView
                         android:id="@+id/tvTopicsCaption"
@@ -386,7 +386,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Veri aralığı: Son 7 gün"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescriptionSmall"
                         android:textColor="?attr/colorOnSurfaceVariant" />
 
                     <com.mioacademy.app.ui.BarChartView
@@ -418,7 +418,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
                             android:text="Konu verisi için test çöz"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
+                            android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnTopicsEmptyCta"
                             style="@style/BBButtonAlt"
@@ -433,7 +433,7 @@
             <!-- B2) Performans Analizi kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardAdvancedStats"
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.EDUmio.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap"
@@ -459,7 +459,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/performance_analysis_title"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"
+                            android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardTitle"
                             android:textStyle="bold"
                             android:textColor="?attr/colorOnSurface"/>
 
@@ -633,7 +633,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
                             android:text="Performans analizi için yeterli test verisi gerekli."
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
+                            android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnAdvancedStatsEmptyCta"
                             style="@style/BBButtonAlt"
@@ -648,7 +648,7 @@
             <!-- C) Son 10 Test Başarı Trendi kartı (premium chart + empty state) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardTrend"
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.EDUmio.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap">
@@ -797,7 +797,7 @@
             <!-- D) Son Testler kartı -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardRecentTests"
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.EDUmio.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap">
@@ -812,7 +812,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Son Testler"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardTitle"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerRecentTests"
@@ -844,7 +844,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
                             android:text="@string/reports_empty_generic"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
+                            android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescription"/>
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btnRecentTestsEmptyCta"
                             style="@style/BBButtonAlt"
@@ -859,7 +859,7 @@
             <!-- E) Yanlış Cevapları İncele kartı (Premium CTA) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardReviewWrong"
-                style="@style/Widget.BrainBuddy.Card.PremiumCTA"
+                style="@style/Widget.EDUmio.Card.PremiumCTA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap">
@@ -903,7 +903,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="@string/wrong_report_card_title"
-                                    android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumTitle"/>
+                                    android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumTitle"/>
 
                                 <com.google.android.material.chip.Chip
                                     android:id="@+id/chipWrongReviewQuota"
@@ -932,7 +932,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
                                 android:text="@string/wrong_report_card_subtitle"
-                                android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"
+                                android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"
                                 tools:text="Toplam: 5 yanlış"/>
 
                             <com.google.android.material.button.MaterialButton
@@ -977,7 +977,7 @@
                         android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:text="@string/parent_no_wrong_record"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"/>
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnWrongEmptyCta"
                         style="@style/Widget.Material3.Button.TonalButton"
@@ -997,7 +997,7 @@
             <!-- En çok denenen uygulamalar card -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardApps"
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.EDUmio.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap">
@@ -1012,7 +1012,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/reports_top_apps_title"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardTitle"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardTitle"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerTopApps"
@@ -1045,21 +1045,21 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/reports_title_content"
                             android:text="@string/reports_top_apps_empty_title"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
+                            android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescription"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:text="@string/reports_top_apps_empty_subtitle"
-                            android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescriptionSmall"/>
+                            android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescriptionSmall"/>
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Haftalık XP (Toplam XP) -->
             <com.google.android.material.card.MaterialCardView
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.EDUmio.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap">
@@ -1084,7 +1084,7 @@
             <!-- Raporu Paylaş - Premium kullanıcılar için -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardShareReport"
-                style="@style/Widget.BrainBuddy.Card"
+                style="@style/Widget.EDUmio.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap"
@@ -1104,7 +1104,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/report_share"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescription"/>
 
                     <ProgressBar
                         android:id="@+id/progressShareReport"
@@ -1129,7 +1129,7 @@
             <!-- Raporu Paylaş - Kilitli (premium olmayan kullanıcılar) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardShareReportLocked"
-                style="@style/Widget.BrainBuddy.Card.PremiumCTA"
+                style="@style/Widget.EDUmio.Card.PremiumCTA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/reports_card_gap"
@@ -1147,14 +1147,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/report_share_locked_btn"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumTitle"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumTitle"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/report_share_locked_desc_title"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.CardDescription"
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.CardDescription"
                         android:textStyle="bold"/>
 
                     <TextView
@@ -1162,56 +1162,56 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/report_share_locked_bullet_1"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/report_share_locked_bullet_2"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/report_share_locked_bullet_3"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/report_share_locked_bullet_4"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/report_share_locked_bullet_5"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/report_share_locked_bullet_6"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="@string/report_share_locked_bullet_7"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"/>
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/report_share_locked_footer"
-                        android:textAppearance="@style/TextAppearance.BrainBuddy.Reports.PremiumBody"
+                        android:textAppearance="@style/TextAppearance.EDUmio.Reports.PremiumBody"
                         android:textStyle="italic"/>
 
                     <com.google.android.material.button.MaterialButton

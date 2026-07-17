@@ -108,7 +108,7 @@ object ReportRenderer {
             append(heading).append("\n\n").append(tb)
             append("\n").append(timeLine).append("\n\nÖnerimiz: ").append(recommendation)
         }
-        return ReportPayload(type, subject, wrapHtml("Mioitalia", body), text, recipient)
+        return ReportPayload(type, subject, wrapHtml("EDUmio", body), text, recipient)
     }
 
     private fun wrapHtml(title: String, inner: String): String = """

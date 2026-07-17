@@ -152,7 +152,7 @@ class StudentProfileActivity : AppCompatActivity() {
     }
 
     private fun makeReadOnlyChip(text: String): Chip {
-        return Chip(this, null, R.style.Widget_BrainBuddy_Chip_Stat).apply {
+        return Chip(this, null, R.style.Widget_EDUmio_Chip_Stat).apply {
             this.text = text
             isClickable = false
             isCheckable = false

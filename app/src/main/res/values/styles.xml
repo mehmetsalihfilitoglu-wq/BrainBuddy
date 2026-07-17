@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- ========== BrainBuddy Design System ========== -->
+    <!-- ========== EDUmio Design System ========== -->
 
-    <!-- Widget.BrainBuddy.Card: shared card style for Home + ParentHub + Reports.
+    <!-- Widget.EDUmio.Card: shared card style for Home + ParentHub + Reports.
          Premium look: 24dp radius, surface container bg, light stroke, soft elevation. -->
-    <style name="Widget.BrainBuddy.Card" parent="Widget.Material3.CardView.Elevated">
+    <style name="Widget.EDUmio.Card" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">@dimen/card_corner_radius</item>
         <item name="cardElevation">@dimen/card_elevation</item>
         <item name="cardBackgroundColor">?attr/colorSurfaceContainer</item>
@@ -14,35 +14,35 @@
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
     <!-- Premium CTA card: primaryContainer bg for premium highlight -->
-    <style name="Widget.BrainBuddy.Card.PremiumCTA" parent="Widget.BrainBuddy.Card">
+    <style name="Widget.EDUmio.Card.PremiumCTA" parent="Widget.EDUmio.Card">
         <item name="cardBackgroundColor">?attr/colorPrimaryContainer</item>
         <item name="strokeColor">?attr/colorOutlineVariant</item>
         <item name="android:foreground">@null</item>
     </style>
 
     <!-- Reports typography: card titles (TitleMedium + semiBold) -->
-    <style name="TextAppearance.BrainBuddy.Reports.CardTitle" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.Reports.CardTitle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
     <!-- Reports typography: descriptions (BodySmall/BodyMedium + onSurfaceVariant) -->
-    <style name="TextAppearance.BrainBuddy.Reports.CardDescription" parent="TextAppearance.Material3.BodyMedium">
+    <style name="TextAppearance.EDUmio.Reports.CardDescription" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Reports.CardDescriptionSmall" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.Reports.CardDescriptionSmall" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
     </style>
     <!-- Premium CTA card: title + body on primaryContainer -->
-    <style name="TextAppearance.BrainBuddy.Reports.PremiumTitle" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.Reports.PremiumTitle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Reports.PremiumBody" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.Reports.PremiumBody" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textColor">?attr/colorOnPrimaryContainer</item>
     </style>
 
     <!-- ========== Global App Card (Home + Parent Panel) ========== -->
-    <style name="Widget.BrainBuddy.AppCardWhite" parent="Widget.Material3.CardView.Elevated">
+    <style name="Widget.EDUmio.AppCardWhite" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">@dimen/app_card_radius</item>
         <item name="cardElevation">@dimen/app_card_elevation</item>
         <item name="cardBackgroundColor">@color/white</item>
@@ -50,45 +50,45 @@
         <item name="strokeWidth">@dimen/app_card_stroke_width</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.AppTitle" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.AppTitle" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/app_title</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.AppSubtitle" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.AppSubtitle" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/app_subtitle</item>
     </style>
 
     <!-- Parent Panel: emerald cards with white text (deprecated - use AppCardWhite) -->
-    <style name="Widget.BrainBuddy.ParentEmeraldCard" parent="Widget.Material3.CardView.Elevated">
+    <style name="Widget.EDUmio.ParentEmeraldCard" parent="Widget.Material3.CardView.Elevated">
         <item name="cardCornerRadius">20dp</item>
         <item name="cardElevation">4dp</item>
         <item name="cardBackgroundColor">@color/emerald_primary</item>
         <item name="strokeWidth">0dp</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Parent.Title" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.Parent.Title" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_on_emerald</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Parent.Caption" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.Parent.Caption" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/text_on_emerald_muted</item>
     </style>
 
     <!-- Typography -->
-    <style name="TextAppearance.BrainBuddy.Title" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.EDUmio.Title" parent="TextAppearance.Material3.TitleMedium">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Body" parent="TextAppearance.Material3.BodyMedium">
+    <style name="TextAppearance.EDUmio.Body" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <style name="TextAppearance.BrainBuddy.Caption" parent="TextAppearance.Material3.BodySmall">
+    <style name="TextAppearance.EDUmio.Caption" parent="TextAppearance.Material3.BodySmall">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
@@ -118,7 +118,7 @@
         <item name="boxCornerRadiusBottomEnd">12dp</item>
     </style>
 
-    <!-- Design system: BrainBuddy turquoise theme -->
+    <!-- Design system: EDUmio brand theme -->
     <style name="BB" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/bb_primary</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -139,7 +139,7 @@
     </style>
 
     <!-- Stat chip: light background, readable text (Material3-like, premium look) -->
-    <style name="Widget.BrainBuddy.Chip.Stat" parent="Widget.Material3.Chip.Assist">
+    <style name="Widget.EDUmio.Chip.Stat" parent="Widget.Material3.Chip.Assist">
         <item name="chipBackgroundColor">@color/bb_surface_container</item>
         <item name="android:textColor">@color/bb_text</item>
         <item name="chipStrokeColor">@color/bb_outline_variant</item>
@@ -179,7 +179,7 @@
     <style name="BB.Button" parent="BBButton"/>
 
     <!-- Home/standard card: uses shared AppCardWhite design -->
-    <style name="BB.HomeCard" parent="Widget.BrainBuddy.AppCardWhite" />
+    <style name="BB.HomeCard" parent="Widget.EDUmio.AppCardWhite" />
 
     <!-- Home card chip: compact icon+text action -->
     <style name="BB.HomeChip">

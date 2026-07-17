@@ -31,7 +31,7 @@ class ReportWorker(
         val isDaily = inputData.getBoolean(KEY_IS_DAILY, true)
         val (html, text) = if (isDaily) ReportGenerator.generateDailyReport(appContext)
         else ReportGenerator.generateWeeklyReport(appContext)
-        val subject = if (isDaily) "Mioitalia Günlük Rapor" else "Mioitalia Haftalık Rapor"
+        val subject = if (isDaily) "EDUmio Günlük Rapor" else "EDUmio Haftalık Rapor"
 
         // Server not configured: save report and show notification for manual share
         val file = File(appContext.filesDir, "pending_report.txt")

@@ -32,7 +32,7 @@ object PdfReportGenerator {
             StatsRepository.ReportRange.SEVEN -> "7gun"
             StatsRepository.ReportRange.THIRTY -> "30gun"
         }
-        val outFile = File(reportsDir, "barjin_rapor_${rangeSlug}_$timestamp.pdf")
+        val outFile = File(reportsDir, "edumio_rapor_${rangeSlug}_$timestamp.pdf")
 
         return try {
             // A1: Data load on IO (no UI)

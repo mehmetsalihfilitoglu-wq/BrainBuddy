@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--
-        ISEEmio / Mioitalia Design System — Material3 theme.
-        Primary: #10B981 (ISEEmio green)
+        EDUmio Design System — Material3 theme.
+        Primary: #25D366 (EDUmio green / WhatsApp Green)
         Secondary: #14B8A6 (teal accent)
         Surfaces: clean white + #F8FAFC variant
         Single source of truth — no hardcoded colors in layouts.
+        NOTE: the style id `Theme.EDUmio` is an internal identifier retained for
+        migration/reference stability; it is not user-facing.
     -->
-    <style name="Theme.BrainBuddy" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.EDUmio" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Brand -->
         <item name="colorPrimary">@color/brand_primary</item>
         <item name="colorOnPrimary">@color/white</item>

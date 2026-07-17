@@ -4,7 +4,7 @@
         Night theme intentionally mirrors the light theme — the app is
         light-mode-first (layouts hardcode white surfaces). See values-night/colors.xml.
     -->
-    <style name="Theme.BrainBuddy" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.EDUmio" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/brand_primary</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryContainer">@color/brand_primary_light</item>

@@ -75,7 +75,7 @@ class DailyChallengeReminderWorker(
         val nm = appContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             nm.createNotificationChannel(
-                NotificationChannel(CHANNEL_ID, "Günün Görevi", NotificationManager.IMPORTANCE_DEFAULT)
+                NotificationChannel(CHANNEL_ID, "EDUmio Günün Görevi", NotificationManager.IMPORTANCE_DEFAULT)
             )
         }
         val notification = NotificationCompat.Builder(appContext, CHANNEL_ID)

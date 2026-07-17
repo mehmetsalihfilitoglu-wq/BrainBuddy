@@ -93,7 +93,7 @@ class DataRightsActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_SEND).apply {
                 type = "application/json"
                 putExtra(Intent.EXTRA_STREAM, uri)
-                putExtra(Intent.EXTRA_SUBJECT, "Mioitalia — Verilerim")
+                putExtra(Intent.EXTRA_SUBJECT, "EDUmio — Verilerim")
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             }
             startActivity(Intent.createChooser(intent, getString(R.string.data_rights_export)))

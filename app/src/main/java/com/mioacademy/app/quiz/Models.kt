@@ -27,7 +27,7 @@ enum class ExamType(val displayName: String) {
     AYT("AYT"),
     IMAT("IMAT"),
     /** Mioitalia original, IMAT-format questions. Same 5-option rendering as IMAT, separate pool. */
-    MIOITALIA("Mioitalia"),
+    MIOITALIA("EDUmio"),
     GENERAL("Genel")
 }
 

@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/Widget.BrainBuddy.AppCardWhite"
+    style="@style/Widget.EDUmio.AppCardWhite"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/space_16"
@@ -30,14 +30,14 @@
 
             <TextView
                 android:id="@+id/legalDocTitle"
-                style="@style/TextAppearance.BrainBuddy.AppTitle"
+                style="@style/TextAppearance.EDUmio.AppTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/legalDocSubtitle"
-                style="@style/TextAppearance.BrainBuddy.AppSubtitle"
+                style="@style/TextAppearance.EDUmio.AppSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"

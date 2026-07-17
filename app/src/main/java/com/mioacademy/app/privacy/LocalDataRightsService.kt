@@ -20,7 +20,7 @@ class LocalDataRightsService(context: Context) : DataRightsService {
     override suspend fun exportData(): ExportResult {
         return try {
             val root = JSONObject()
-            root.put("app", "Mioitalia")
+            root.put("app", "EDUmio")
             root.put("schemaVersion", 1)
             root.put("exportedAt", System.currentTimeMillis())
             AuthProvider.currentUser(ctx)?.let {

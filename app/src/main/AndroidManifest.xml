@@ -13,7 +13,7 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BrainBuddy">
+        android:theme="@style/Theme.EDUmio">
 
         <!-- ── Core routing ── -->
         <activity
@@ -34,7 +34,7 @@
         <activity
             android:name=".OnboardingWizardActivity"
             android:exported="false"
-            android:theme="@style/Theme.BrainBuddy" />
+            android:theme="@style/Theme.EDUmio" />
 
         <!-- ── Error handling ── -->
         <activity
@@ -203,7 +203,7 @@
         <activity
             android:name=".ui.SeedAuditActivity"
             android:exported="false"
-            android:theme="@style/Theme.BrainBuddy" />
+            android:theme="@style/Theme.EDUmio" />
 
         <activity
             android:name=".ui.PoolStatusActivity"

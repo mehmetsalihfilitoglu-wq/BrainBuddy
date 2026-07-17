@@ -551,7 +551,7 @@ class GrowthHubActivity : AppCompatActivity() {
         } else {
             tvStrongEmpty.visibility = View.GONE
             strongest.forEach { (topic, tc) ->
-                chipGroupStrong.addView(Chip(this, null, R.style.Widget_BrainBuddy_Chip_Stat).apply {
+                chipGroupStrong.addView(Chip(this, null, R.style.Widget_EDUmio_Chip_Stat).apply {
                     text = "$topic  ${tc.correct}/${tc.total}"
                     isClickable = false
                     isCheckable = false
@@ -567,7 +567,7 @@ class GrowthHubActivity : AppCompatActivity() {
         } else {
             tvWeakEmpty.visibility = View.GONE
             weakest.forEach { (topic, tc) ->
-                chipGroupWeak.addView(Chip(this, null, R.style.Widget_BrainBuddy_Chip_Stat).apply {
+                chipGroupWeak.addView(Chip(this, null, R.style.Widget_EDUmio_Chip_Stat).apply {
                     text = "$topic  ${tc.correct}/${tc.total}"
                     isClickable = false
                     isCheckable = false
