@@ -7,7 +7,6 @@ import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.mioacademy.app.core.NotificationPrefs
-import java.util.Calendar
 import java.util.TimeZone
 
 /**
@@ -53,16 +52,17 @@ class DailyChallengeReminderWorker(
         }
 
         val (title, text) = copyForSlot(slot)
-        showNotification(title, text, slot)
-        reminderPrefs.markSlotFired(localDate, slot)
-        analytics.track(DcEvents.REMINDER_SHOWN, mapOf(DcEvents.P_SLOT to slot, DcEvents.P_LOCAL_DATE to localDate))
+        val posted = showNotification(title, text, slot)
+        if (posted) {
+            reminderPrefs.markSlotFired(localDate, slot)
+            analytics.track(DcEvents.REMINDER_SHOWN, mapOf(DcEvents.P_SLOT to slot, DcEvents.P_LOCAL_DATE to localDate))
+        } else {
+            analytics.track(DcEvents.REMINDER_SUPPRESSED, mapOf(DcEvents.P_SLOT to slot, DcEvents.P_REASON to "post_failed"))
+        }
         return Result.success()
     }
 
-    private fun localDate(zone: TimeZone): String {
-        val c = Calendar.getInstance(zone)
-        return String.format("%04d-%02d-%02d", c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH))
-    }
+    private fun localDate(zone: TimeZone): String = DailyChallengeDates.localDate(zone)
 
     private fun copyForSlot(slot: Int): Pair<String, String> = when (slot) {
         0 -> "Günün Görevi hazır" to "Bugünün 5 yeni sorusu seni bekliyor. Güne güçlü başla!"
@@ -70,7 +70,8 @@ class DailyChallengeReminderWorker(
         else -> "Serini koru" to "Gün bitmeden bugünkü Günün Görevi'ni tamamla ve serini sürdür."
     }
 
-    private fun showNotification(title: String, text: String, slot: Int) {
+    /** Posts the reminder. Never throws — a notification failure must not fail/retry the worker. */
+    private fun showNotification(title: String, text: String, slot: Int): Boolean = try {
         val nm = appContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             nm.createNotificationChannel(
@@ -84,6 +85,9 @@ class DailyChallengeReminderWorker(
             .setAutoCancel(true)
             .build()
         nm.notify(NOTIF_ID_BASE + slot, notification)
+        true
+    } catch (_: Throwable) {
+        false // notifications unavailable/blocked → give up quietly, do not crash or retry
     }
 
     companion object {
