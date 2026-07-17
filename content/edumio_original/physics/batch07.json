@@ -1,0 +1,275 @@
+[
+  {
+    "id": "mio_phys_0045",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Direct-current electric circuits",
+    "subtopic": "EMF and internal resistance :: Determining EMF and internal resistance from two load operating points, then the short-circuit current",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "EMF",
+      "internal resistance",
+      "terminal voltage",
+      "simultaneous equations",
+      "short-circuit current"
+    ],
+    "learning_objective": "Use two terminal-voltage/current operating points to solve V = ε − Ir for the EMF and internal resistance, then evaluate the short-circuit current ε/r.",
+    "question": "A cell drives a current of 2.0 A through an external circuit when its terminal voltage is 10.8 V. When the external resistance is reduced so that the current rises to 5.0 A, the terminal voltage falls to 9.0 V. Assuming the internal resistance is constant, what is the maximum current the cell could deliver (its short-circuit current)?",
+    "choices": {
+      "A": "15 A",
+      "B": "18 A",
+      "C": "6.7 A",
+      "D": "5.0 A",
+      "E": "20 A"
+    },
+    "correct_answer": "E",
+    "explanation": "The terminal voltage obeys V = ε − Ir. From the two points: 10.8 = ε − 2r and 9.0 = ε − 5r. Subtracting gives 1.8 = 3r, so r = 0.60 Ω, and ε = 10.8 + 2(0.60) = 12.0 V. The short-circuit current (external resistance zero) is ε/r = 12.0/0.60 = 20 A.",
+    "option_analysis": {
+      "A": "Wrong: 15 A takes the terminal voltage 9.0 V as the EMF (with r = 0.60 Ω). Misconception: treating a terminal voltage as the EMF.",
+      "B": "Wrong: 18 A takes the other terminal voltage, 10.8 V, as the EMF (with r = 0.60 Ω). Misconception: treating a terminal voltage as the EMF.",
+      "C": "Wrong: 6.7 A treats a terminal voltage divided by its current (9.0/5.0 = 1.8 Ω) as the internal resistance, then ε/1.8. Misconception: confusing the external (load) resistance with the internal resistance.",
+      "D": "Wrong: 5.0 A merely restates the larger of the two quoted currents. Misconception: assuming the maximum current is simply the largest value given, ignoring that reducing the load further increases the current.",
+      "E": "Correct: solving 10.8 = ε − 2r and 9.0 = ε − 5r gives r = 0.60 Ω and ε = 12.0 V; short-circuit current = ε/r = 12.0/0.60 = 20 A."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0046",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Direct-current electric circuits",
+    "subtopic": "EMF and internal resistance :: Maximum power transfer to a matched load (R = r) and the value of the maximum power",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "maximum power transfer",
+      "internal resistance",
+      "electrical power",
+      "impedance matching",
+      "efficiency"
+    ],
+    "learning_objective": "Apply the maximum power transfer condition (R = r) and compute the maximum power delivered to the load, distinguishing it from the total power and from maximum efficiency.",
+    "question": "A battery of EMF 24 V and internal resistance 3.0 Ω is connected to a resistor R whose value can be varied. R is adjusted to deliver the greatest possible power to itself. What is this maximum power dissipated in R?",
+    "choices": {
+      "A": "24 W",
+      "B": "192 W",
+      "C": "36 W",
+      "D": "48 W",
+      "E": "96 W"
+    },
+    "correct_answer": "D",
+    "explanation": "The power in R is greatest when R equals the internal resistance, R = r = 3.0 Ω. Then the current is I = 24/(3.0 + 3.0) = 4.0 A and P = I²R = 4.0² × 3.0 = 48 W (equivalently ε²/4r = 576/12). At this matched condition only half the total power reaches the load.",
+    "option_analysis": {
+      "A": "Wrong: 24 W comes from dividing the terminal-voltage squared by the total resistance, (IR)²/(R+r) = 12²/6. Misconception: mis-applying P = V²/R with the wrong voltage and the wrong resistance.",
+      "B": "Wrong: 192 W = ε²/R with R = 3.0 Ω, ignoring the internal resistance in the current. Misconception: neglecting internal resistance when finding the current.",
+      "C": "Wrong: 36 W corresponds to a much larger R (e.g. R = 9.0 Ω), which raises the efficiency but not the power delivered. Misconception: confusing maximum power transfer with maximum efficiency.",
+      "D": "Correct: maximum transfer occurs at R = r = 3.0 Ω; I = 24/6 = 4.0 A and P = I²R = 16 × 3.0 = 48 W.",
+      "E": "Wrong: 96 W is the total power delivered by the EMF (εI = 24 × 4.0); half of this is lost in the internal resistance. Misconception: equating the total power with the power in the load."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0047",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Direct-current electric circuits",
+    "subtopic": "Electrical power and energy :: Two lamps of different power ratings in series — converting ratings to resistance and comparing actual power",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "electrical power",
+      "power rating",
+      "resistance from rating",
+      "series circuit",
+      "lamp brightness"
+    ],
+    "learning_objective": "Convert power/voltage ratings into resistances (R = V²/P), then use the common series current to compare the actual power dissipated in each lamp and hence their brightness.",
+    "question": "Two filament lamps are marked '60 W, 120 V' and '40 W, 120 V'. They are connected in series across a 120 V supply. Treating each filament's resistance as constant and equal to its rated value, find the power dissipated by the lamp marked '40 W' and state which lamp glows more brightly.",
+    "choices": {
+      "A": "14.4 W; the 40 W lamp is brighter",
+      "B": "9.6 W; the 60 W lamp is brighter",
+      "C": "40.0 W; the 40 W lamp is brighter",
+      "D": "24.0 W; the 40 W lamp is brighter",
+      "E": "10.0 W; the 60 W lamp is brighter"
+    },
+    "correct_answer": "A",
+    "explanation": "From R = V²/P, the '60 W' lamp has 120²/60 = 240 Ω and the '40 W' lamp has 120²/40 = 360 Ω. In series the total is 600 Ω and the shared current is I = 120/600 = 0.20 A. The power in the 40 W lamp is I²R = 0.20² × 360 = 14.4 W, greater than the 9.6 W in the 60 W lamp. In series the higher-resistance (lower-rated) lamp carries the same current but drops more voltage, so it is brighter.",
+    "option_analysis": {
+      "A": "Correct: R = V²/P gives 240 Ω and 360 Ω; series current I = 120/600 = 0.20 A, so P₄₀ = 0.20² × 360 = 14.4 W > P₆₀ = 9.6 W, making the 40 W lamp brighter.",
+      "B": "Wrong: 9.6 W is actually the power in the 60 W lamp, and in series the higher-resistance 40 W lamp dissipates more. Misconception: assuming the lamp with the higher power rating is always the brighter one.",
+      "C": "Wrong: 40.0 W assumes the lamp still runs at its rated power, but the rated power applies only when the rated 120 V is across it. Misconception: treating the marked power as fixed regardless of operating conditions.",
+      "D": "Wrong: 24.0 W is the total power of both lamps together (I² × 600 Ω), not the power in one lamp. Misconception: attributing the whole circuit's power to a single component.",
+      "E": "Wrong: 10.0 W assumes the 120 V divides equally (60 V each); in series the p.d. divides in proportion to resistance, not equally. Misconception: equal voltage across series components of unequal resistance."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0048",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Direct-current electric circuits",
+    "subtopic": "Resistance and resistivity :: Resistance of a wire stretched at constant volume (R ∝ L²) and its effect on power at fixed p.d.",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "resistivity",
+      "resistance of a wire",
+      "constant volume",
+      "electrical power",
+      "scaling"
+    ],
+    "learning_objective": "Combine R = ρL/A with volume conservation to show R ∝ L² when a wire is stretched, then use P = V²/R to find the resulting change in dissipated power at constant supply voltage.",
+    "question": "A uniform metal wire dissipates power P when connected across an ideal 6.0 V supply. The wire is then stretched uniformly to three times its original length, its volume remaining constant, and reconnected across the same 6.0 V supply. The power it now dissipates is:",
+    "choices": {
+      "A": "P/9",
+      "B": "3P",
+      "C": "9P",
+      "D": "P/3",
+      "E": "P/27"
+    },
+    "correct_answer": "A",
+    "explanation": "At constant volume, A = (volume)/L, so R = ρL/A = ρL²/(volume), i.e. R ∝ L². Tripling the length increases the resistance by a factor of 9. Across a fixed voltage, P = V²/R, so the power falls by the same factor of 9, to P/9.",
+    "option_analysis": {
+      "A": "Correct: constant volume gives R = ρL²/(volume) ∝ L², so 3× length → 9× resistance; at fixed voltage P = V²/R falls to P/9.",
+      "B": "Wrong: 3P treats resistance as inversely proportional to length (R → R/3). Misconception: getting the direction of the length dependence of resistance backwards.",
+      "C": "Wrong: 9P correctly finds the 9× resistance change but reports it as the power change, i.e. assumes P ∝ R. Misconception: confusing P = V²/R (power ∝ 1/R at fixed voltage) with P ∝ R.",
+      "D": "Wrong: P/3 assumes R ∝ L (area unchanged), ignoring that stretching also thins the wire. Misconception: forgetting the cross-section decreases when the length increases at constant volume.",
+      "E": "Wrong: P/27 assumes the cross-sectional area falls as 1/L² (making R ∝ L³). Misconception: mis-scaling how the area shrinks when the wire is drawn out."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0049",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Direct-current electric circuits",
+    "subtopic": "Series and parallel networks :: Balanced Wheatstone bridge — recognising zero bridge current to reduce the network and find the supply current",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 170,
+    "tags": [
+      "Wheatstone bridge",
+      "balanced bridge",
+      "series and parallel networks",
+      "circuit reduction",
+      "Ohm's law"
+    ],
+    "learning_objective": "Recognise a balanced bridge from the arm-ratio condition, deduce that the bridge resistor carries no current, and reduce the network to a series-parallel combination to find the supply current.",
+    "question": "In a bridge circuit an ideal 9.0 V battery is connected between nodes A and C. The four arms are: A–B = 10 Ω, B–C = 20 Ω, A–D = 15 Ω and D–C = 30 Ω. A 25 Ω resistor connects the midpoints B and D. What current is drawn from the battery?",
+    "choices": {
+      "A": "0.20 A",
+      "B": "0.12 A",
+      "C": "0.09 A",
+      "D": "0.50 A",
+      "E": "0.30 A"
+    },
+    "correct_answer": "D",
+    "explanation": "Compare the arm ratios: (A–B)/(B–C) = 10/20 = 0.5 and (A–D)/(D–C) = 15/30 = 0.5. They are equal, so the bridge is balanced: nodes B and D sit at the same potential and no current flows through the 25 Ω resistor, which can be removed. The network is then the branch A–B–C (10 + 20 = 30 Ω) in parallel with A–D–C (15 + 30 = 45 Ω): 30∥45 = (30×45)/75 = 18 Ω. The supply current is I = 9.0/18 = 0.50 A.",
+    "option_analysis": {
+      "A": "Wrong: 0.20 A (= 9.0/45) uses only the A–D–C branch and ignores the parallel A–B–C path. Misconception: forgetting one of the two parallel branches.",
+      "B": "Wrong: 0.12 A (= 9.0/75) places the two branches (30 Ω and 45 Ω) in series rather than in parallel. Misconception: series/parallel confusion for the two divider branches.",
+      "C": "Wrong: 0.09 A (= 9.0/100) adds all five resistors in a single series loop (10 + 20 + 15 + 30 + 25). Misconception: treating a bridge as one series chain.",
+      "D": "Correct: the bridge is balanced (10/20 = 15/30), so the 25 Ω carries no current; the equivalent resistance is 30∥45 = 18 Ω and I = 9.0/18 = 0.50 A.",
+      "E": "Wrong: 0.30 A (= 9.0/30) uses only the A–B–C branch and ignores the parallel A–D–C path. Misconception: forgetting one of the two parallel branches."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0050",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Direct-current electric circuits",
+    "subtopic": "Potential divider :: Voltmeter loading of a potential divider — indicated reading versus true p.d. (real meter with finite resistance)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "potential divider",
+      "voltmeter loading",
+      "internal resistance of a meter",
+      "parallel resistors",
+      "measurement error"
+    ],
+    "learning_objective": "Analyse how a voltmeter of finite resistance loads a potential divider, computing the reading it gives as opposed to the true undisturbed p.d.",
+    "question": "An ideal 16 V battery is connected across a potential divider consisting of an upper resistor R₁ = 20 kΩ in series with a lower resistor R₂ = 60 kΩ. A voltmeter of internal resistance 60 kΩ is connected across R₂ to measure the p.d. across it. What reading does the voltmeter give?",
+    "choices": {
+      "A": "6.4 V",
+      "B": "8.0 V",
+      "C": "12.8 V",
+      "D": "12.0 V",
+      "E": "9.6 V"
+    },
+    "correct_answer": "E",
+    "explanation": "Without the meter the p.d. across R₂ would be 16 × 60/(20 + 60) = 12.0 V. Connecting the 60 kΩ voltmeter puts it in parallel with R₂: 60∥60 = 30 kΩ. The divider is now 20 kΩ (upper) and 30 kΩ (lower), so the voltmeter reads 16 × 30/(20 + 30) = 9.6 V. The finite meter resistance loads the divider and pulls the reading below the true value.",
+    "option_analysis": {
+      "A": "Wrong: 6.4 V is the p.d. across the upper resistor R₁ once the meter is connected (16 − 9.6), not the reading across R₂. Misconception: computing the complementary p.d.",
+      "B": "Wrong: 8.0 V assumes the 16 V divides equally between the two arms, but the resistors (20 kΩ and 60 kΩ) are unequal. Misconception: equal split across unequal series resistors.",
+      "C": "Wrong: 12.8 V results from placing the voltmeter across the upper resistor (R₁∥60 kΩ = 15 kΩ, giving 16 × 60/75) instead of across R₂. Misconception: loading the wrong arm of the divider.",
+      "D": "Wrong: 12.0 V is the true, undisturbed p.d. across R₂; it assumes an ideal voltmeter that draws no current. Misconception: neglecting the loading effect of a real voltmeter.",
+      "E": "Correct: the voltmeter loads R₂ to 60∥60 = 30 kΩ, so the reading = 16 × 30/(20 + 30) = 9.6 V, below the true 12.0 V."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0051",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Direct-current circuits",
+    "subtopic": "Charge and electrical energy from current and time (Q = It, E = VIt)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "electric charge",
+      "electrical energy",
+      "current",
+      "Q = It",
+      "power"
+    ],
+    "learning_objective": "Relate charge to current and time (Q = It) and electrical energy to power and time (E = VIt = I²Rt), keeping the time in seconds.",
+    "question": "A 12 V battery of negligible internal resistance drives a steady current through a single 6.0 Ω resistor for 4.0 minutes. Calculate (i) the total electric charge that passes through the resistor and (ii) the electrical energy converted to heat in it.",
+    "choices": {
+      "A": "480 C and 5760 J",
+      "B": "480 C and 2880 J",
+      "C": "8.0 C and 96 J",
+      "D": "2.0 C and 24 J",
+      "E": "240 C and 2880 J"
+    },
+    "correct_answer": "A",
+    "explanation": "The current is I = V/R = 12/6.0 = 2.0 A, and the time is t = 4.0 min = 240 s. The charge is Q = It = 2.0 × 240 = 480 C. The electrical energy converted to heat is E = VIt = 12 × 2.0 × 240 = 5760 J (equivalently E = I²Rt = 2.0² × 6.0 × 240 = 5760 J).",
+    "option_analysis": {
+      "A": "Correct: I = 2.0 A and t = 240 s give Q = It = 480 C and E = VIt = 12 × 2.0 × 240 = 5760 J.",
+      "B": "Wrong: the charge 480 C is right, but 2880 J halves the energy (e.g. using half the time or a factor-of-2 slip).",
+      "C": "Wrong: 8.0 C and 96 J use t = 4.0 s instead of 240 s (minutes not converted to seconds).",
+      "D": "Wrong: 2.0 C and 24 J confuse the current (2.0 A) with the charge and grossly under-count the energy.",
+      "E": "Wrong: 240 C and 2880 J use a current of 1.0 A (as if R were 12 Ω), not 2.0 A."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch07",
+    "review_status": "accepted"
+  }
+]

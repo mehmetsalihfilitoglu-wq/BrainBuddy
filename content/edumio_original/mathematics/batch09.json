@@ -1,0 +1,235 @@
+[
+  {
+    "id": "mio_math_0051",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Statistics and data handling",
+    "subtopic": "Mean from a frequency table",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "statistics",
+      "frequency table",
+      "mean",
+      "data handling"
+    ],
+    "learning_objective": "Compute the mean of discrete data presented in a frequency table by dividing the sum of value x frequency by the total frequency, and distinguish it from the median and from an unweighted average of the categories.",
+    "question": "A football team played 30 matches in a season. The frequency table below records the number of goals the team scored in each match.\n\nGoals scored (per match): 0 | 1 | 2 | 3 | 4\nNumber of matches:        6 | 9 | 8 | 5 | 2\n\nCalculate the mean number of goals scored per match.",
+    "choices": {
+      "A": "1.6",
+      "B": "2.6",
+      "C": "2.0",
+      "D": "1.5",
+      "E": "9.6"
+    },
+    "correct_answer": "A",
+    "explanation": "For a frequency table, the mean is the total of (value x frequency) divided by the total frequency. Total goals = (0x6)+(1x9)+(2x8)+(3x5)+(4x2) = 0+9+16+15+8 = 48. Total matches = 6+9+8+5+2 = 30. Mean = 48/30 = 1.6 goals per match. Two traps to avoid: never average the category labels themselves (that ignores how often each occurs), and always divide by the total number of matches, not by the number of distinct categories.",
+    "option_analysis": {
+      "A": "Correct: total goals = 48, total matches = 30, so the mean = 48/30 = 1.6 goals per match.",
+      "B": "Wrong: 2.6 comes from multiplying the frequencies by the position labels 1-5 instead of the actual goal values 0-4: (1x6+2x9+3x8+4x5+5x2)/30 = 78/30 = 2.6. This is an off-by-one error on the value axis.",
+      "C": "Wrong: (0+1+2+3+4)/5 = 2.0 averages the five goal categories as if each occurred equally often, ignoring the frequency weighting.",
+      "D": "Wrong: 1.5 is the median, not the mean. With 30 matches the median is the average of the 15th and 16th ordered values; the cumulative counts (6, 15, 23) place the 15th at 1 goal and the 16th at 2 goals, giving (1+2)/2 = 1.5. This reports the median instead of the mean.",
+      "E": "Wrong: 9.6 = 48/5 divides the total goals by the number of goal categories (5) instead of by the total number of matches (30)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0052",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Statistics and data handling",
+    "subtopic": "Weighted mean: combining the means of two unequal subgroups",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "statistics",
+      "weighted mean",
+      "combined mean",
+      "data handling"
+    ],
+    "learning_objective": "Recover the mean of one subgroup from the overall (size-weighted) mean of two combined subgroups, recognising that the combined mean is not the simple average of the two subgroup means when the groups differ in size.",
+    "question": "Two classes sat the same examination. Class A contains 30 students and Class B contains 20 students. Taking both classes together, the mean mark of all 50 students was 60. Class B alone had a mean mark of 66. What was the mean mark of Class A?",
+    "choices": {
+      "A": "56",
+      "B": "51",
+      "C": "60",
+      "D": "66",
+      "E": "54"
+    },
+    "correct_answer": "A",
+    "explanation": "Work with totals, not with means directly. The total for all 50 students is 50 x 60 = 3000. Class B's total is 20 x 66 = 1320, so Class A's total is 3000 - 1320 = 1680. Class A has 30 students, so its mean is 1680/30 = 56. The overall mean (60) is closer to Class B's mean (66) than a simple midpoint would suggest only because the groups are unequal, so you must weight by the number of students.",
+    "option_analysis": {
+      "A": "Correct: total of all 50 = 3000; Class B total = 1320; Class A total = 1680; mean = 1680/30 = 56.",
+      "B": "Wrong: 51 comes from swapping the two class sizes, weighting Class A by 20 and Class B by 30: (3000 - 30x66)/20 = 1020/20 = 51.",
+      "C": "Wrong: 60 assumes Class A's mean equals the overall mean, which is only true if both classes already share that mean.",
+      "D": "Wrong: 66 assumes both classes have the same mean and simply quotes Class B's value.",
+      "E": "Wrong: 54 treats the overall mean as the simple (unweighted) average of the two class means, giving Class A = 2x60 - 66 = 54. This ignores that Class A is larger than Class B."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0053",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Statistics and data handling",
+    "subtopic": "Comparing mean, median and mode from a frequency table (effect of skew)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "statistics",
+      "mean",
+      "median",
+      "mode",
+      "skew",
+      "frequency table"
+    ],
+    "learning_objective": "Extract the mean, median and mode from a frequency table and order the three measures, recognising how a tail of larger values (right skew) pulls the mean above the median and mode.",
+    "question": "A survey of 40 families recorded the number of children in each family, as shown below.\n\nNumber of children: 0 | 1 | 2 | 3 | 4 | 5\nNumber of families: 4 | 9 | 12 | 8 | 5 | 2\n\nWhich one of the following statements correctly describes the mean, median and mode of this data?",
+    "choices": {
+      "A": "The mean is 2.5, while the median and the mode are both equal to 2.",
+      "B": "The mean is greater than both the median and the mode, and the median and mode are equal to each other.",
+      "C": "The mode is numerically the largest of the three measures.",
+      "D": "The median is greater than the mean, and the mean is greater than the mode.",
+      "E": "The mean, the median and the mode are all equal to 2."
+    },
+    "correct_answer": "B",
+    "explanation": "Mean = total children / total families = (0x4+1x9+2x12+3x8+4x5+5x2)/40 = 87/40 = 2.175. Median: with 40 families the median is the average of the 20th and 21st ordered values; cumulative counts 4, 13, 25 place both within the '2 children' group, so the median = 2. Mode: the largest frequency is 12, at 2 children, so the mode = 2. Hence mean (2.175) > median (2) = mode (2): the small tail of 4- and 5-child families is right skew that drags the mean above the median and mode.",
+    "option_analysis": {
+      "A": "Wrong: 2.5 is the average of the six category labels (0+1+2+3+4+5)/6, which ignores the frequencies; the frequency-weighted mean is 2.175.",
+      "B": "Correct: mean = 87/40 = 2.175, median = 2 and mode = 2, so the mean exceeds the median and the mode, which are equal (a right-skewed distribution).",
+      "C": "Wrong: this confuses the modal value with the maximum data value. The mode is the most frequent value (2), not the largest number of children recorded (5).",
+      "D": "Wrong: this reverses the direction of the skew. The tail lies on the high side, so the mean is pulled up above the median, not below it.",
+      "E": "Wrong: this assumes the distribution is symmetric so all three measures coincide; in fact the upper tail pulls the mean above 2."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0054",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Statistics and data handling",
+    "subtopic": "Effect on the mean of correcting data values",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "statistics",
+      "mean",
+      "data correction",
+      "effect of changing a value"
+    ],
+    "learning_objective": "Determine the effect on the mean of correcting one or more individual data values by adjusting the total by the net change and dividing by the (unchanged) count.",
+    "question": "A teacher enters the 20 marks of a class into a spreadsheet and obtains a mean of 58. She then discovers two data-entry errors: one mark was typed as 39 but should have been 93, and another was typed as 70 but should have been 40. After both errors are corrected, what is the correct mean mark?",
+    "choices": {
+      "A": "56.8",
+      "B": "58.0",
+      "C": "59.2",
+      "D": "60.7",
+      "E": "56.5"
+    },
+    "correct_answer": "C",
+    "explanation": "The number of marks does not change, so only the total is affected. Original total = 20 x 58 = 1160. First correction: 39 becomes 93, a change of +54. Second correction: 70 becomes 40, a change of -30. Net change = +54 - 30 = +24. Corrected total = 1160 + 24 = 1184. Corrected mean = 1184/20 = 59.2.",
+    "option_analysis": {
+      "A": "Wrong: 56.8 reverses the direction of both corrections (treating 39 to 93 as -54 and 70 to 40 as +30) for a net -24: (1160 - 24)/20 = 56.8.",
+      "B": "Wrong: 58.0 assumes the two corrections cancel out and leave the mean unchanged; in fact they do not cancel (+54 versus -30).",
+      "C": "Correct: net change = +54 - 30 = +24, corrected total = 1184, mean = 1184/20 = 59.2.",
+      "D": "Wrong: 60.7 applies only the first correction (39 to 93, +54): (1160 + 54)/20 = 60.7, ignoring the second error.",
+      "E": "Wrong: 56.5 applies only the second correction (70 to 40, a change of -30): (1160 - 30)/20 = 56.5, missing the larger upward correction."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0055",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Statistics and data handling",
+    "subtopic": "Deducing a data value from combined mean, median and mode constraints",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "statistics",
+      "mean",
+      "median",
+      "mode",
+      "optimisation",
+      "constraints"
+    ],
+    "learning_objective": "Combine simultaneous constraints on the mean, median and a unique mode of a small integer data set to bound an individual value at an extreme, respecting ordering and the uniqueness of the mode.",
+    "question": "Five children have ages that are whole numbers of years. The mean of their ages is 10 years, the median is 9 years, and 7 is the only mode. What is the greatest possible age of the oldest child?",
+    "choices": {
+      "A": "16",
+      "B": "18",
+      "C": "17",
+      "D": "15",
+      "E": "19"
+    },
+    "correct_answer": "C",
+    "explanation": "Let the ages in increasing order be a <= b <= c <= d <= e. The mean of 10 gives a total of 50. The median is the third value, so c = 9. Because 7 is the ONLY mode it must occur more often than any other value; since 7 < 9 the repeated 7s must sit at the two lowest positions, forcing a = b = 7 (it cannot appear three times, as that would make the median 7). So far the total is 7 + 7 + 9 = 23, leaving d + e = 27 with 9 <= d <= e. To maximise e, minimise d. Taking d = 9 would create two 9s, tying the mode, so d must be at least 10. With d = 10, e = 27 - 10 = 17. The set {7, 7, 9, 10, 17} satisfies every condition, so the greatest possible oldest age is 17.",
+    "option_analysis": {
+      "A": "Wrong: 16 forces the fourth value to exceed the mean (10), taking d = 11 so e = 16. It confuses the mean with the median as the value that splits the ordered data.",
+      "B": "Wrong: 18 allows a second 9 in the fourth position ({7, 7, 9, 9, 18}), which makes 9 also a mode. This ignores that the problem states 7 is the ONLY mode.",
+      "C": "Correct: a = b = 7 is forced for a unique mode, c = 9 is the median, and d is minimised at 10 (d = 9 would tie the mode), giving e = 50 - 7 - 7 - 9 - 10 = 17.",
+      "D": "Wrong: 15 arises from making the top two ages as balanced as possible ({7, 7, 9, 12, 15}) instead of pushing the oldest to its extreme; it misreads 'greatest possible' as 'most evenly spread'.",
+      "E": "Wrong: 19 places 8 in the fourth position ({7, 7, 9, 8, 19}) without re-ordering, so the value treated as the median is not actually the middle value of the sorted set."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0056",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Statistics and data handling",
+    "subtopic": "Effect of a linear transformation on the mean and standard deviation",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "statistics",
+      "standard deviation",
+      "spread",
+      "linear transformation",
+      "mean"
+    ],
+    "learning_objective": "Apply the rules for how a linear transformation y = kx + c affects the mean (scaled by k and shifted by c) and the standard deviation (scaled by |k|, unaffected by the additive constant c).",
+    "question": "In a test, the raw marks of a class have a mean of 52 and a standard deviation of 8. To obtain the final marks, the teacher multiplies every raw mark by 1.25 and then adds 5 to each result. What are the mean and the standard deviation of the final marks?",
+    "choices": {
+      "A": "Mean 65, standard deviation 10",
+      "B": "Mean 70, standard deviation 10",
+      "C": "Mean 70, standard deviation 15",
+      "D": "Mean 70, standard deviation 12.5",
+      "E": "Mean 70, standard deviation 8"
+    },
+    "correct_answer": "B",
+    "explanation": "Under the transformation y = 1.25x + 5, the mean transforms in the same way as a data value: new mean = 1.25 x 52 + 5 = 65 + 5 = 70. The standard deviation measures spread about the mean. Adding the same constant (5) to every value shifts all values equally and does not change the spread, so it has no effect on the standard deviation. Multiplying every value by 1.25 stretches the spread by the same factor, so the standard deviation becomes 1.25 x 8 = 10. Hence mean 70, standard deviation 10.",
+    "option_analysis": {
+      "A": "Wrong: mean 65 forgets to add the 5 (only the multiplication was applied to the mean). The standard deviation of 10 is correct, but the mean must include the +5 shift.",
+      "B": "Correct: new mean = 1.25 x 52 + 5 = 70; new standard deviation = 1.25 x 8 = 10, since the additive 5 does not affect spread.",
+      "C": "Wrong: 15 adds 5 to the standard deviation as well (1.25 x 8 + 5). Adding a constant to every value shifts the data but leaves the spread unchanged.",
+      "D": "Wrong: 12.5 scales the standard deviation by 1.25 squared (1.5625). That factor applies to the variance, not to the standard deviation, which scales by the factor itself.",
+      "E": "Wrong: standard deviation 8 assumes the spread is unaffected by multiplication; multiplying every value by 1.25 scales the standard deviation to 1.25 x 8 = 10."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  }
+]

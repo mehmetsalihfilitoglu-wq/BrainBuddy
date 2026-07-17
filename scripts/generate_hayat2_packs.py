@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 2nd Grade Hayat Bilgisi (Life Studies) question bank for BrainBuddy.
+"""Generate 2nd Grade Hayat Bilgisi (Life Studies) question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
 MEB 2024-2025 2. Sınıf Hayat Bilgisi Öğretim Programı (6 öğrenme alanı).
-BrainBuddy Question Design Standard: senaryo tabanlı, günlük hayat, doğru davranış, sebep-sonuç, değer/davranış analizi.
+EDUmio Question Design Standard: senaryo tabanlı, günlük hayat, doğru davranış, sebep-sonuç, değer/davranış analizi.
 """
 import json
 import random
@@ -129,7 +129,7 @@ def q(idx, stem, options, answer_index, difficulty, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "hayat",
@@ -203,7 +203,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "hayat",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_hayat2_pack_{pi+1:03d}.json"

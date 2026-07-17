@@ -10,7 +10,7 @@ Build under test: `app/build/outputs/apk/debug/app-debug.apk` (from `:app:assemb
 Each step: **Action → Expected**. Mark PASS/FAIL and attach a screenshot for UI steps.
 
 ## 1. Install & first launch
-1. Install on a clean device (no prior data). → App installs; launcher icon "Mioitalia".
+1. Install on a clean device (no prior data). → App installs; launcher icon "EDUmio".
 2. Launch. → Onboarding (first run) or Home. Complete onboarding choosing an **IMAT** study area.
 3. Observe first launch after seeding. → No ANR; Home renders within a few seconds (first run seeds
    TIL-I/CEnT-S banks in the background — Home must not block).
@@ -31,7 +31,7 @@ Each step: **Action → Expected**. Mark PASS/FAIL and attach a screenshot for U
 
 ## 4. Process kill & resume (critical)
 11. Start a fresh day's challenge, answer Q1 and Q2, then kill the app (swipe from recents / `adb shell am
-    force-stop com.mioacademy.app`). Relaunch. → Home shows "Devam ediyor", 2/5. Tap "Devam et" → resumes
+    force-stop com.edumio.app`). Relaunch. → Home shows "Devam ediyor", 2/5. Tap "Devam et" → resumes
     at **Q3** (not Q1, not a new question).
 12. Repeat killing after Q3 and after Q4. → Resumes at Q4, then Q5 respectively.
 13. Answer all 5, kill before viewing result, relaunch, open the card. → Goes to completion (or completed

@@ -1,0 +1,802 @@
+[
+  {
+    "id": "mio_bio_0324",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Plant reproduction and growth",
+    "subtopic": "Flower structure and its role: inferring the pollination mechanism from floral features and recognising that the structure does not prevent self-pollination",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "plant reproduction",
+      "flower structure",
+      "pollination syndromes",
+      "insect pollination",
+      "self-pollination",
+      "form and function"
+    ],
+    "learning_objective": "Relate the structural features of a flower to its mode of pollination, and distinguish adaptation for animal pollination from any structural barrier to self-pollination.",
+    "question": "A botanist examines an unfamiliar flower and records the following features: large, brightly coloured petals marked with dark lines that converge toward the centre; a sweet scent; a small quantity of sticky pollen; and a sticky, non-feathery stigma held at the same level as the anthers. Which conclusion is best supported by these observations taken together?",
+    "choices": {
+      "A": "The flower is adapted for insect pollination, and its structure guarantees that only cross-pollination can occur.",
+      "B": "The flower is obligately self-pollinating because the anthers and stigma are held at the same level.",
+      "C": "The flower is adapted for wind pollination, the sticky stigma serving to trap airborne pollen grains.",
+      "D": "The flower is adapted for insect pollination, but nothing in the structure described prevents self-pollination.",
+      "E": "The brightly coloured petals function mainly to absorb light and warm the developing ovary."
+    },
+    "correct_answer": "D",
+    "explanation": "Every feature listed points to pollination by insects: showy scented petals and nectar guides attract animal visitors, and small quantities of sticky pollen with a sticky stigma suit transfer on an insect's body rather than through the air (wind-pollinated flowers instead have reduced or absent petals, no scent, exposed feathery stigmas and abundant, light, smooth pollen). However, attracting an insect only makes cross-pollination possible, not certain: because the anthers and the receptive stigma lie at the same level, a visitor (or the flower itself) can readily deposit the flower's own pollen on its stigma. Preventing self-pollination requires an additional device such as spatial separation (herkogamy), a difference in maturation time (dichogamy) or genetic self-incompatibility, none of which is described. So the safest conclusion is that the flower is insect-adapted yet structurally capable of selfing.",
+    "option_analysis": {
+      "A": "Wrong: insect visitation promotes but does not guarantee outcrossing, and with anthers and stigma at the same level self pollen can easily reach the stigma. Misconception: equating animal pollination with obligate cross-pollination.",
+      "B": "Wrong: anthers and stigma at the same level merely permit selfing; they do not force it, and the costly insect-attracting features would be pointless in an obligate self-pollinator. Misconception: treating physical proximity as automatic self-fertilisation.",
+      "C": "Wrong: wind-pollinated flowers have reduced petals, no scent or nectar guides, exposed feathery stigmas and copious smooth pollen; the scent, nectar guides and sticky pollen described contradict wind pollination. Misconception: reading a sticky stigma as an airborne-pollen trap and ignoring how the whole set of features fits an animal vector.",
+      "D": "Correct: the attractant features (colour, scent, nectar guides) and sticky pollen/stigma identify an insect-pollinated flower, while the anthers and stigma being level means the structure imposes no barrier to self-pollination.",
+      "E": "Wrong: petal colour and nectar guides function in visual attraction of pollinators, not in photosynthesis or in heating the ovary. Misconception: assigning a metabolic or thermal role to the corolla."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0325",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Plant reproduction and growth",
+    "subtopic": "Double fertilisation and seed formation: triploid endosperm genotype, maternal site of seed development, and the immediate paternal (xenia) effect",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "plant reproduction",
+      "double fertilisation",
+      "endosperm",
+      "ploidy",
+      "xenia",
+      "seed formation"
+    ],
+    "learning_objective": "Apply the mechanism of double fertilisation to deduce the ploidy and genotype of the endosperm and to reason about where and when a paternal endosperm phenotype appears (xenia).",
+    "question": "In an angiosperm, the allele A (coloured endosperm) is dominant to a (colourless endosperm). A true-breeding colourless plant (aa) is used as the female parent and is pollinated by a true-breeding coloured plant (AA). Recalling that the endosperm forms when one sperm nucleus fuses with the two polar nuclei of the central cell, which statement correctly describes the seeds produced in this cross?",
+    "choices": {
+      "A": "The endosperm is Aa and coloured, and coloured seeds are borne on the pollen-parent plant.",
+      "B": "The endosperm is AAa and coloured, and coloured seeds are borne on the seed-parent plant.",
+      "C": "The endosperm is Aaa and coloured, and these coloured seeds are borne on the aa seed-parent plant in the current generation.",
+      "D": "The endosperm is aa and colourless, because the endosperm is derived entirely from the female parent.",
+      "E": "The endosperm is Aaa but the seeds appear colourless until the next generation of plants is grown."
+    },
+    "correct_answer": "C",
+    "explanation": "The central cell of the aa female contributes two polar nuclei, each carrying a; the pollen from the AA father delivers a sperm nucleus carrying A. Fusion gives a triploid endosperm of genotype Aaa. Because one dominant A allele is present, the endosperm is coloured. The seed (and therefore the endosperm inside it) develops on the maternal aa plant, so coloured kernels appear on the colourless mother in the very season she is pollinated. This immediate appearance of a paternal characteristic in the endosperm of the seed parent is xenia. (The embryo, from egg + the other sperm, would be Aa, but the question concerns the endosperm.)",
+    "option_analysis": {
+      "A": "Wrong: the endosperm is triploid (two maternal polar nuclei plus one sperm), not a diploid Aa, and seeds always form on the female/seed parent, not on the pollen parent. Misconception: treating the endosperm like an ordinary diploid embryo and misplacing where seeds develop.",
+      "B": "Wrong: the central cell supplies two (maternal) a nuclei and the single sperm supplies one A, giving Aaa; AAa wrongly assigns two doses to the pollen parent. Misconception: reversing the parental contributions to the triploid endosperm.",
+      "C": "Correct: two maternal a polar nuclei plus one paternal A sperm give an Aaa (triploid) endosperm, which is coloured because A is dominant, and the seeds bearing it develop on the aa mother this generation (xenia).",
+      "D": "Wrong: a sperm nucleus (A) fuses with the polar nuclei, so the endosperm is not purely maternal; it is Aaa and coloured. Misconception: believing the endosperm inherits only from the mother.",
+      "E": "Wrong: the paternal allele is expressed in the endosperm of the seeds formed now, so coloured kernels are visible in the current season, not only after the offspring plants grow. Misconception: assuming a paternal effect can only be seen in the mature offspring plant."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0326",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Plant reproduction and growth",
+    "subtopic": "Mechanisms promoting outbreeding: gametophytic self-incompatibility, predicting which haploid pollen is accepted and the resulting offspring genotypes",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "plant reproduction",
+      "self-incompatibility",
+      "outbreeding",
+      "S-alleles",
+      "cross-pollination",
+      "genetics"
+    ],
+    "learning_objective": "Apply the rule of gametophytic self-incompatibility (rejection when the haploid pollen allele matches either pistil allele) to predict which pollen fertilises and the genotypic ratio of offspring.",
+    "question": "In a flowering plant with gametophytic self-incompatibility, a pollen grain fails to grow a pollen tube on a stigma if its own S-allele is identical to either of the two S-alleles carried by the pistil (the female parent). A plant of genotype S1S2 is used as the seed parent and receives pollen from an S2S3 plant. Which statement correctly describes the outcome?",
+    "choices": {
+      "A": "Seeds are formed; all of the pollen is effective, giving offspring S1S2, S1S3, S2S2 and S2S3.",
+      "B": "Seeds are formed; only S2-carrying pollen is effective, giving offspring S1S2 and S2S2.",
+      "C": "Seeds are formed, and all of the offspring are S2S3 because the shared S2 allele is transmitted preferentially.",
+      "D": "Seeds are formed; only S3-carrying pollen is effective, giving offspring of genotypes S1S3 and S2S3 in equal proportions.",
+      "E": "No seeds are formed, because the two plants share the S2 allele."
+    },
+    "correct_answer": "D",
+    "explanation": "In gametophytic self-incompatibility each pollen grain is haploid and behaves according to its single S-allele. The S2S3 father produces two kinds of pollen, S2 and S3, in equal numbers. On the S1S2 pistil, S2 pollen matches an allele already present (S2) and is rejected, whereas S3 pollen matches neither S1 nor S2 and is accepted. Only S3 pollen therefore achieves fertilisation, so seeds do form. Each successful seed receives S3 from the father and either S1 or S2 (with equal probability) from the mother, giving S1S3 and S2S3 offspring in a 1:1 ratio. The system rejects only the matching pollen, not the whole cross; this is exactly how it enforces outbreeding while still permitting compatible fertilisations.",
+    "option_analysis": {
+      "A": "Wrong: S2 pollen is incompatible on an S1S2 pistil, so it cannot fertilise and no S2S2 offspring can arise; not all pollen is effective. Misconception: ignoring the incompatibility rule altogether.",
+      "B": "Wrong: the rule rejects pollen whose allele matches the pistil, so it is the S2 pollen that fails and the S3 pollen that succeeds; this option applies the rule backwards. Misconception: reversing which pollen grain is incompatible.",
+      "C": "Wrong: there is no preferential transmission; among the S3-fathered seeds the mother contributes S1 or S2 with equal probability, giving both S1S3 and S2S3. Misconception: inventing biased inheritance of the shared allele.",
+      "D": "Correct: S2 pollen is rejected on the S1S2 pistil while S3 pollen is accepted, so only S3 pollen fertilises, yielding S1S3 and S2S3 offspring in equal numbers.",
+      "E": "Wrong: sharing an allele blocks only the pollen carrying that allele, not the entire cross; the S3 pollen is fully compatible, so seeds form. Misconception: treating any shared S-allele as an all-or-none barrier (confusing gametophytic with a whole-cross block)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0327",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Plant reproduction and growth",
+    "subtopic": "Germination and mobilisation of food reserves: gibberellin from the embryo induces de novo amylase synthesis in the aleurone to hydrolyse endosperm starch (de-embryonated grain experiment)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "germination",
+      "food reserves",
+      "gibberellin",
+      "aleurone",
+      "amylase",
+      "cereal grain",
+      "experimental reasoning"
+    ],
+    "learning_objective": "Interpret an experiment on de-embryonated cereal grains to identify gibberellin as the embryo-derived signal that triggers new enzyme synthesis in the aleurone and to locate the stored reserves in the endosperm.",
+    "question": "Barley grains were cut to separate the embryo from the remainder (aleurone layer plus starchy endosperm). The embryo-free halves were given three treatments and later tested for alpha-amylase activity and remaining starch: water only gave no amylase and starch remained; water plus gibberellin (GA) gave amylase and the starch was digested; water plus GA plus a protein-synthesis inhibitor gave no amylase and starch remained. Which conclusion is best supported by these results?",
+    "choices": {
+      "A": "GA is an enzyme that hydrolyses the starch reserves directly.",
+      "B": "The aleurone layer is the tissue that stores the starch reserves hydrolysed during germination.",
+      "C": "GA, normally supplied by the embryo, induces the aleurone layer to synthesise alpha-amylase, which then hydrolyses the starch stored in the endosperm.",
+      "D": "Alpha-amylase is stored ready-made in the endosperm and is simply released when GA is applied.",
+      "E": "The embryo digests the starch reserves itself, and GA is merely a by-product of this process."
+    },
+    "correct_answer": "C",
+    "explanation": "Embryo-free halves make no amylase in water alone, showing the embryo normally provides a signal. Adding GA restores amylase and starch breakdown, identifying GA as that signal (a hormone, not an enzyme). Adding a protein-synthesis inhibitor together with GA abolishes the amylase, proving the enzyme is made anew (transcribed and translated) rather than merely released from a store. The living tissue that responds is the aleurone layer, which secretes the amylase into the adjacent non-living starchy endosperm, where the starch reserves lie; the products (maltose/glucose) are then absorbed by the embryo. Hence GA from the embryo induces de novo amylase synthesis in the aleurone, mobilising endosperm starch.",
+    "option_analysis": {
+      "A": "Wrong: GA is a signalling hormone; the molecule that hydrolyses starch is amylase, produced by the aleurone in response to GA. Misconception: conflating a signalling molecule with a catalytic enzyme.",
+      "B": "Wrong: the starch reserves are in the (dead) starchy endosperm; the living aleurone is the source of the enzymes, not of the starch. Misconception: swapping the roles of the endosperm (store) and the aleurone (enzyme producer).",
+      "C": "Correct: GA (normally from the embryo) triggers the aleurone to synthesise alpha-amylase de novo, and this enzyme hydrolyses the starch stored in the endosperm.",
+      "D": "Wrong: the protein-synthesis inhibitor prevents amylase appearing even with GA present, so the enzyme must be newly synthesised, not merely released from a pre-existing store. Misconception: assuming hydrolytic enzymes are stockpiled and only liberated.",
+      "E": "Wrong: the embryo-free halves digest their starch when supplied with GA, so digestion does not require the embryo and GA is the active signal, not a waste product. Misconception: placing the site of digestion in the embryo itself."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0328",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Plant reproduction and growth",
+    "subtopic": "Gravitropism: differential auxin sensitivity of shoot versus root and the root cap as the site of graviperception (root-cap removal experiment)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "plant growth responses",
+      "gravitropism",
+      "auxin",
+      "root cap",
+      "statoliths",
+      "differential sensitivity",
+      "tropisms"
+    ],
+    "learning_objective": "Integrate the site of graviperception (root cap) with the opposite auxin dose-responses of shoot and root to predict the behaviour of each organ when the root cap is removed.",
+    "question": "When a seedling is laid horizontally in the dark, auxin accumulates on the lower side of both the shoot and the root. Shoot cells are promoted to elongate across this range of auxin concentrations, whereas root cells are so sensitive that the raised auxin on the lower side inhibits their elongation. In one experiment the root cap is carefully removed immediately before the seedling is placed on its side. Which prediction for the shoot and the root is correct?",
+    "choices": {
+      "A": "Both the shoot and the root curve upward, because auxin promotes elongation wherever it accumulates.",
+      "B": "Both the shoot and the root grow straight, because removing the root cap stops auxin production throughout the seedling.",
+      "C": "The shoot curves upward, while the root grows straight without curving, because removing the cap removes the structure that senses gravity in the root.",
+      "D": "The shoot grows straight and the root curves downward, because the shoot senses gravity only by means of the root cap.",
+      "E": "The shoot curves upward and the root curves downward as usual, because the root senses gravity in its elongation zone rather than in the cap."
+    },
+    "correct_answer": "C",
+    "explanation": "Two ideas must be combined. First, the site of gravity perception differs: in the root the sensor is the cap (columella cells containing dense statoliths), whereas the shoot perceives gravity in its own tissues (endodermal statocytes) independent of the root cap. Second, shoot and root respond oppositely to the same auxin build-up on the lower side: in the shoot the extra auxin promotes elongation on the lower side, so the shoot bends upward (negative gravitropism); in the intact root the extra auxin inhibits elongation on the lower side, so the upper side elongates more and the root bends downward (positive gravitropism). Removing the root cap deletes the root's gravity sensor, so no lateral auxin gradient is set up in the root and it grows straight (it can still elongate). The shoot is unaffected by cap removal and still curves upward. Hence: shoot up, root straight.",
+    "option_analysis": {
+      "A": "Wrong: in roots the raised auxin on the lower side inhibits elongation (roots are far more auxin-sensitive), so an intact root bends downward, not upward; and with the cap removed the root does not curve at all. Misconception: auxin promotes elongation at every concentration and in every organ.",
+      "B": "Wrong: auxin is produced mainly in the shoot apex and young leaves, so cap removal does not stop auxin supply; the shoot still redistributes auxin and bends upward, and only root graviperception is lost. Misconception: treating the root cap as the sole source of auxin for the whole seedling.",
+      "C": "Correct: the shoot still perceives gravity in its own tissues and curves upward, while removing the root cap deletes the root's graviperceptive columella, so the root sets up no auxin gradient and grows straight.",
+      "D": "Wrong: the shoot senses gravity in its own endodermal statocytes and therefore still curves upward, independently of the root cap. Misconception: assuming a single whole-plant gravity sensor located in the root cap.",
+      "E": "Wrong: the root's gravity sensor is the columella of the cap, so removing the cap abolishes the downward curvature; the elongation zone is where the response is executed, not where gravity is perceived. Misconception: locating root graviperception in the elongation zone."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0329",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Gas exchange and surface area to volume ratio",
+    "subtopic": "Surface-area-to-volume ratio and the need for a specialised gas-exchange surface as body size increases",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "gas exchange",
+      "surface area to volume",
+      "diffusion",
+      "body size",
+      "SA:V"
+    ],
+    "learning_objective": "Calculate the surface-area-to-volume ratio of geometrically similar bodies of different size and reason why larger organisms require specialised exchange surfaces.",
+    "question": "Two model organisms, P and Q, are both cube-shaped and have the same metabolic rate per unit volume. Organism P has sides of 0.1 mm; organism Q has sides of 1.0 mm. Neither has a transport system, so each relies on diffusion across its outer surface to meet its oxygen demand. Which organism is more likely to require a specialised gas-exchange surface, and why?",
+    "choices": {
+      "A": "Organism P, because its surface-area-to-volume ratio is ten times smaller.",
+      "B": "Neither, because the two organisms have the same shape and therefore the same surface-area-to-volume ratio.",
+      "C": "Organism Q, because its surface-area-to-volume ratio is ten times larger.",
+      "D": "Organism Q, because its surface-area-to-volume ratio is ten times smaller.",
+      "E": "Organism P, because the diffusion path from its surface to its centre is longer."
+    },
+    "correct_answer": "D",
+    "explanation": "For a cube of side a, surface area to volume ratio = 6a^2 / a^3 = 6/a. For P (a = 0.1 mm) this is 60 mm^-1; for Q (a = 1.0 mm) it is 6 mm^-1. As a body grows, its volume (and hence oxygen demand) rises with the cube of its length while its surface area (and hence diffusive oxygen supply) rises only with the square, so SA:V falls in proportion to 1/length. Q therefore has a SA:V ten times smaller than P and, with the same demand per unit volume, its outer surface cannot supply enough oxygen by diffusion alone. The larger organism is the one that needs a specialised gas-exchange surface and a transport system.",
+    "option_analysis": {
+      "A": "Wrong: this reverses the ratio. The smaller organism P actually has the larger SA:V (60 versus 6 mm^-1), so it is better, not worse, at meeting its demand by diffusion; it is the misconception that smaller bodies have the lower SA:V.",
+      "B": "Wrong: SA:V depends on absolute size, not shape alone. Two cubes of different side length are the same shape yet have different SA:V (proportional to 1/length), so this reflects the misconception that shape alone fixes the ratio.",
+      "C": "Wrong: it correctly identifies Q but reverses the reasoning. Larger geometrically similar bodies have a smaller SA:V, not a larger one; the ratio falls as 1/length.",
+      "D": "Correct: SA:V = 6/side, giving 60 mm^-1 for P and 6 mm^-1 for Q, so Q's ratio is ten times smaller; with demand scaling as volume, Q's surface cannot supply enough oxygen and it needs a specialised gas-exchange surface.",
+      "E": "Wrong: the longer diffusion path to the centre belongs to the larger organism Q, not P. This option correctly identifies that diffusion distance matters but attributes it to the wrong organism."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0330",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Gas exchange and surface area to volume ratio",
+    "subtopic": "Fish gill countercurrent exchange: maintaining a diffusion gradient along the whole lamella",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "gas exchange",
+      "fish gills",
+      "countercurrent",
+      "diffusion gradient",
+      "partial pressure"
+    ],
+    "learning_objective": "Reason quantitatively about how countercurrent flow across a gill lamella allows blood to be loaded to a partial pressure approaching that of the incoming water.",
+    "question": "In a fish gill, water flows across a lamella in the opposite direction to the blood (countercurrent). Where the water enters the lamella its oxygen partial pressure is 15 kPa; where it leaves, it is 6 kPa. Blood enters the lamella, at the water-exit end, with a partial pressure of 4 kPa. Assuming oxygen diffusion is close to equilibrium at every point along the lamella, what is the approximate maximum oxygen partial pressure of the blood as it leaves (at the water-entry end), and why?",
+    "choices": {
+      "A": "About 14 kPa, because at the water-entry end the blood meets the highest-partial-pressure water and countercurrent flow keeps a gradient along the whole lamella.",
+      "B": "About 15 kPa, because in countercurrent exchange the blood always leaves fully equilibrated with the incoming water.",
+      "C": "About 4 kPa, because the blood is already in equilibrium with the water and no net diffusion occurs.",
+      "D": "About 9.5 kPa, because blood and water settle at the average of their two entry partial pressures.",
+      "E": "About 6 kPa, because the blood can at best reach the partial pressure of the water leaving the lamella."
+    },
+    "correct_answer": "A",
+    "explanation": "Countercurrent flow keeps the water's oxygen partial pressure higher than the blood's at every point along the lamella, so oxygen diffuses into the blood along the entire length. As the blood approaches the water-entry end it meets the freshest water at 15 kPa, so it can be loaded until its partial pressure comes close to (but just below) 15 kPa, roughly 14 kPa. This is the key advantage over parallel (concurrent) flow, in which blood and water would converge to a common intermediate value and the blood could never exceed the partial pressure of the water it leaves with.",
+    "option_analysis": {
+      "A": "Correct: at the water-entry end the blood meets water at 15 kPa, and because countercurrent flow maintains water-above-blood partial pressure along the whole lamella, the blood is progressively loaded until it approaches about 14 kPa.",
+      "B": "Wrong: this over-states the effect. Over a lamella of finite length the blood can approach but not fully reach the incoming water's partial pressure, so 'always fully equilibrated' at exactly 15 kPa is incorrect.",
+      "C": "Wrong: this assumes no net diffusion, but a favourable gradient exists at every point, so blood gains oxygen along the lamella and its partial pressure rises well above its 4 kPa entry value.",
+      "D": "Wrong: averaging the two entry partial pressures (15 and 4 kPa) describes complete mixing to a single equilibrium value, which does not apply to a spatially separated countercurrent exchanger.",
+      "E": "Wrong: this is parallel-flow reasoning. In a concurrent exchanger the blood can only approach the partial pressure of the water it finally accompanies (6 kPa), but countercurrent flow lets the blood exceed the outgoing-water value."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0331",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Gas exchange and surface area to volume ratio",
+    "subtopic": "Insect tracheal system: tracheole-tip fluid withdrawal during activity shortens the diffusion path",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "gas exchange",
+      "insects",
+      "tracheal system",
+      "tracheoles",
+      "diffusion distance"
+    ],
+    "learning_objective": "Explain how withdrawal of tracheole fluid during activity improves oxygen delivery, using the far faster diffusion of oxygen in air than in fluid.",
+    "question": "During sustained flight, the respiring flight muscles of an insect accumulate soluble products that raise the solute concentration inside the muscle cells. As a result, the watery fluid at the blind tips of the tracheoles is drawn out into the muscle cells. What is the main consequence for gas exchange, and why?",
+    "choices": {
+      "A": "Air is drawn closer to the mitochondria, shortening the diffusion distance; because oxygen diffuses far faster in air than in tissue fluid, the rate of oxygen delivery rises.",
+      "B": "Carbon dioxide is driven out through the spiracles by the incoming fluid, lowering the tissue pH.",
+      "C": "An oxygen-carrying pigment dissolved in the tracheal fluid becomes more concentrated, raising the oxygen-carrying capacity.",
+      "D": "Water vapour is prevented from leaving the tracheoles, conserving the insect's water during flight.",
+      "E": "The tracheoles collapse, reducing their dead-space volume and forcing ventilation of the tracheal system."
+    },
+    "correct_answer": "A",
+    "explanation": "Withdrawing fluid from the tracheole tips allows the air column to extend further along the tracheole, closer to the mitochondria of the active muscle. Oxygen diffuses roughly ten thousand times faster in air than through fluid, so replacing a fluid-filled length with an air-filled length shortens the slow, fluid-phase part of the diffusion path. By Fick's law (rate proportional to area and concentration difference, and inversely proportional to distance), shortening this path increases the rate of oxygen delivery to the tissue that most needs it during flight.",
+    "option_analysis": {
+      "A": "Correct: fluid withdrawal lets air extend closer to the mitochondria, and since oxygen diffuses much faster in air than in fluid, the effective diffusion distance falls and oxygen delivery to the active muscle increases.",
+      "B": "Wrong: this invents a mechanism in which fluid pushes carbon dioxide out. Carbon dioxide leaves the tracheal system by diffusion, and the pH change described is unrelated to tracheole fluid movement.",
+      "C": "Wrong: this reflects the misconception that insects rely on a blood-like respiratory pigment. The tracheal system delivers gaseous oxygen directly to the tissues, so no dissolved oxygen-carrying pigment is involved.",
+      "D": "Wrong: this describes water conservation, not gas exchange. The fluid movement is about shortening the oxygen diffusion path to the muscle, not about sealing water inside the tracheoles.",
+      "E": "Wrong: fluid withdrawal extends, rather than collapses, the air column in the tracheole; this option confuses the local diffusion mechanism with bulk ventilation of the tracheae."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0332",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Gas exchange and surface area to volume ratio",
+    "subtopic": "Leaf gas exchange: spongy mesophyll air spaces and moist internal surface as the pathway for carbon dioxide",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "gas exchange",
+      "leaf",
+      "spongy mesophyll",
+      "stomata",
+      "carbon dioxide",
+      "photosynthesis"
+    ],
+    "learning_objective": "Relate the large intercellular air spaces and moist internal surface of the spongy mesophyll to efficient carbon dioxide supply for photosynthesis.",
+    "question": "A mutant plant develops leaves in which the mesophyll cells are packed tightly together, so the intercellular air spaces of the spongy mesophyll are almost absent. The stomata and the palisade cells are normal. In bright light and with ample water, the mutant leaf photosynthesises more slowly than a normal leaf. Which explanation best accounts for this?",
+    "choices": {
+      "A": "The moist internal surface over which carbon dioxide dissolves and diffuses into the mesophyll is reduced and the air-space pathway is lost, so carbon dioxide supply becomes limiting.",
+      "B": "The reduced air spaces trap the oxygen produced in photosynthesis, and this accumulated oxygen switches off the light-dependent reactions.",
+      "C": "Light can no longer penetrate the densely packed mesophyll, so the light-dependent reactions cannot occur even in bright light.",
+      "D": "With fewer air spaces the leaf loses less water by transpiration, and the resulting build-up of water in the cells slows photosynthesis.",
+      "E": "The stomata are forced to open wider, so more water is lost, and the resulting stomatal closure stops all gas exchange."
+    },
+    "correct_answer": "A",
+    "explanation": "In a normal leaf the spongy mesophyll provides a network of large intercellular air spaces connected to the stomata, and a very large area of moist cell-wall surface. Carbon dioxide entering through the stomata diffuses through these air spaces, dissolves on the moist walls and reaches the photosynthesising cells over a short path. Packing the cells together removes the air-space pathway and greatly reduces the moist internal surface area, so carbon dioxide cannot reach the mesophyll fast enough. With light and water in ample supply, carbon dioxide delivery becomes the factor limiting the rate of photosynthesis.",
+    "option_analysis": {
+      "A": "Correct: losing the intercellular air spaces removes the diffusion pathway and cuts the moist internal surface area over which carbon dioxide dissolves and reaches the cells, so carbon dioxide supply limits photosynthesis despite ample light and water.",
+      "B": "Wrong: this over-applies the idea of oxygen inhibition. Oxygen produced in photosynthesis does not simply accumulate and shut down the light-dependent reactions in the way described.",
+      "C": "Wrong: the spongy mesophyll functions mainly in gas exchange, not light capture. In bright light the constraint introduced here is carbon dioxide diffusion, not light penetration, and light absorption occurs chiefly in the palisade layer.",
+      "D": "Wrong: this is muddled water logic. Reduced air spaces do not create a harmful excess of water in the cells; the actual limitation is the impaired supply of carbon dioxide to the mesophyll.",
+      "E": "Wrong: this invents a stomatal chain reaction. The stomata are stated to be normal and are not the cause; the problem lies in the internal air-space and surface changes of the mesophyll."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0333",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Gas exchange and surface area to volume ratio",
+    "subtopic": "Isometric scaling of a diffusive exchange surface: combining Fick's law with surface-area-to-volume reasoning",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "gas exchange",
+      "surface area to volume",
+      "Fick's law",
+      "isometric scaling",
+      "diffusion distance"
+    ],
+    "learning_objective": "Combine Fick's law with allometric scaling to predict how the diffusive oxygen supply relative to demand changes as an organism grows isometrically.",
+    "question": "A small aquatic organism has no specialised gas-exchange surface and takes up oxygen by diffusion across its whole body wall. The uptake follows Fick's law: rate is proportional to (surface area x concentration difference) / diffusion distance, where the diffusion distance is the thickness of the body wall. The organism's oxygen demand is proportional to its body volume. It then grows isometrically, so every linear dimension - including the body-wall thickness - increases in the same proportion, while the internal and external oxygen concentrations stay the same. If every linear dimension increases 4-fold, by what factor does the oxygen it can supply by diffusion, relative to its oxygen demand, change?",
+    "choices": {
+      "A": "It is unchanged, because both surface area and volume increase together.",
+      "B": "It falls to 1/64 of its original value.",
+      "C": "It falls to 1/4 of its original value.",
+      "D": "It increases 4-fold, because the exchange surface becomes larger.",
+      "E": "It falls to 1/16 of its original value."
+    },
+    "correct_answer": "E",
+    "explanation": "Let every linear dimension scale by a factor L (here L = 4). Surface area scales as L^2 and the body-wall thickness (diffusion distance) scales as L, while the concentration difference is unchanged. By Fick's law the diffusive supply scales as (area x concentration difference) / distance, i.e. as L^2/L = L. Oxygen demand is proportional to volume, which scales as L^3. So supply/demand scales as L / L^3 = L^-2. With L = 4 the ratio becomes (1/4)^2 = 1/16, meaning the surface can now meet only one sixteenth of the demand it could originally satisfy - a quantitative reason why large organisms cannot rely on simple body-surface diffusion.",
+    "option_analysis": {
+      "A": "Wrong: this assumes area and volume scale together, but area scales as L^2 and volume as L^3, so their ratio necessarily changes as the organism grows.",
+      "B": "Wrong: 1/64 (L^-3) treats the diffusive supply as fixed while demand rises with volume; in fact the larger surface area still raises supply in proportion to L, so the exponent is -2, not -3.",
+      "C": "Wrong: 1/4 comes from using the simple surface-area-to-volume ratio (which scales as 1/L) alone and ignoring that the diffusion distance (body-wall thickness) also increases with size; including the thicker wall changes the answer to 1/16.",
+      "D": "Wrong: this considers only the growth of the exchange surface and ignores both the faster growth of demand (with volume) and the longer diffusion path, so it mistakes a larger surface for a net gain in supply relative to demand.",
+      "E": "Correct: supply scales as area/distance = L^2/L = L, demand scales as volume = L^3, so supply/demand scales as L^-2; for L = 4 this is (1/4)^2 = 1/16."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0334",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human health, disease and epidemiology",
+    "subtopic": "Communicable versus non-communicable disease: an infectious cause (HPV) does not make cervical carcinoma communicable, yet vaccination can still lower its incidence",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "communicable disease",
+      "non-communicable disease",
+      "HPV",
+      "cervical cancer",
+      "vaccination",
+      "disease classification"
+    ],
+    "learning_objective": "Distinguish communicable from non-communicable disease using the criterion of host-to-host transmission of the disease state, and reason that an infectious risk factor for a non-communicable disease can still be targeted by vaccination.",
+    "question": "Public-health officials classify diseases as communicable (the disease state is transmitted from one host to another) or non-communicable. Consider four conditions: type 2 diabetes mellitus; coronary heart disease (atherosclerosis); tuberculosis; and cervical carcinoma, the large majority of whose cases are caused by persistent infection with certain strains of human papillomavirus (HPV). Which single statement is correct?",
+    "choices": {
+      "A": "Cervical carcinoma is a communicable disease, because a person carrying the tumour can pass the cancer directly to another person.",
+      "B": "Only non-communicable diseases have identifiable risk factors, whereas communicable diseases strike affected individuals at random.",
+      "C": "Tuberculosis should be reclassified as non-communicable, because poverty and malnutrition are important risk factors for developing it.",
+      "D": "Vaccination against HPV can lower the incidence of cervical carcinoma, even though cervical carcinoma is itself a non-communicable disease.",
+      "E": "Type 2 diabetes and coronary heart disease could, in principle, be prevented by a vaccine, because both are non-communicable diseases."
+    },
+    "correct_answer": "D",
+    "explanation": "A disease is communicable if the diseased state (or the pathogen that produces it) is transmitted from host to host. Cervical carcinoma is non-communicable: a tumour cell mass cannot pass from one person to another. However, its principal cause, HPV, is a communicable virus spread between people. Because the causative agent is transmissible, a vaccine that blocks HPV infection removes the upstream cause and therefore reduces the incidence of the (non-communicable) cancer downstream. This is the key insight: a tool associated with communicable disease (vaccination) can prevent a non-communicable disease when that disease has an infectious cause. Tuberculosis, caused by airborne Mycobacterium tuberculosis, remains communicable regardless of the social risk factors that raise susceptibility. Type 2 diabetes and coronary heart disease have no infectious agent, so vaccination is irrelevant to them, and all disease categories have identifiable risk factors.",
+    "option_analysis": {
+      "A": "Wrong: mistakes an infectious cause for transmission of the disease itself. HPV can be passed between people, but the carcinoma (the population of tumour cells) is not transferred, so the cancer is not communicable.",
+      "B": "Wrong: reverses the roles and asserts communicable disease is random. Non-communicable AND communicable diseases both have identifiable risk factors (e.g. exposure, susceptibility, hygiene), and infection is not a random event.",
+      "C": "Wrong: conflates 'has social/lifestyle risk factors' with 'non-communicable'. Poverty and malnutrition raise susceptibility, but tuberculosis is still spread host-to-host by an airborne bacterium and remains communicable.",
+      "D": "Correct: the tumour itself is not transmitted (so the cancer is non-communicable), but its cause, HPV, is a communicable virus; vaccinating against HPV removes the upstream cause and lowers cervical-carcinoma incidence.",
+      "E": "Wrong: assumes any non-communicable disease can be prevented by a vaccine. Vaccines work only where a transmissible infectious agent can be targeted; diabetes and atherosclerosis have no such agent, so no vaccine can prevent them."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0335",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human health, disease and epidemiology",
+    "subtopic": "Interpreting a cohort study: computing relative risk from incidences and distinguishing it from the absolute risk difference",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "cohort study",
+      "relative risk",
+      "absolute risk",
+      "incidence",
+      "epidemiology",
+      "smoking"
+    ],
+    "learning_objective": "Calculate incidence in each arm of a cohort study, derive the relative risk and the absolute risk difference, and interpret the numerical difference between a large relative risk and a small absolute effect.",
+    "question": "A prospective cohort study follows two groups for ten years. Among 4000 smokers, 80 develop disease X. Among 8000 non-smokers, 20 develop disease X. No one is lost to follow-up. Which statement best summarises the association between smoking and disease X in this study?",
+    "choices": {
+      "A": "The relative risk is about 0.125, so in this study smoking appears to protect against disease X.",
+      "B": "The relative risk is about 4, because the smokers had four times as many cases as the non-smokers (80 versus 20).",
+      "C": "The relative risk is about 2, matching the 2% ten-year risk of disease X observed in the smokers.",
+      "D": "The relative risk is about 8, and the absolute difference in ten-year risk between the groups is about 8 percentage points.",
+      "E": "The relative risk is about 8, and the absolute difference in ten-year risk between the groups is about 1.75 percentage points."
+    },
+    "correct_answer": "E",
+    "explanation": "Relative risk compares incidences, not raw case counts, so the different group sizes must be used. Incidence in smokers = 80/4000 = 0.020 (2.0%). Incidence in non-smokers = 20/8000 = 0.0025 (0.25%). Relative risk = 0.020 / 0.0025 = 8: smokers are eight times as likely to develop X. The absolute risk difference = 0.020 − 0.0025 = 0.0175 = 1.75 percentage points. This item highlights a core epidemiological point: a large relative risk (8-fold) can coexist with a small absolute effect (under 2 percentage points), because the baseline risk is low. Relative and absolute measures answer different questions and must not be conflated.",
+    "option_analysis": {
+      "A": "Wrong: inverts the ratio (0.0025/0.020 = 0.125), placing non-smokers in the numerator. A relative risk below 1 would suggest protection, which reverses the real direction of the association.",
+      "B": "Wrong: divides raw case counts (80/20 = 4) instead of incidences. Because the smoker cohort (4000) is half the size of the non-smoker cohort (8000), comparing counts rather than rates halves the true ratio.",
+      "C": "Wrong: reports the smokers' incidence (2%) as though '2%' were the relative risk. The 2% figure is an incidence within one group, not a comparison between groups.",
+      "D": "Wrong: gets the relative risk right (8) but confuses it with the absolute difference, quoting '8 percentage points'. The 8 is a ratio; the absolute gap between 2.0% and 0.25% is only 1.75 percentage points.",
+      "E": "Correct: incidences are 2.0% and 0.25%, giving relative risk 8 and an absolute risk difference of 1.75 percentage points — correctly separating the two measures."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0336",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human health, disease and epidemiology",
+    "subtopic": "Correlation versus causation: reverse causation as an alternative explanation for a cross-sectional dietary association",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "correlation vs causation",
+      "reverse causation",
+      "cross-sectional study",
+      "confounding",
+      "study design",
+      "diet"
+    ],
+    "learning_objective": "Recognise that a cross-sectional association cannot establish temporal order, and identify reverse causation as a specific alternative to a claimed cause-and-effect relationship.",
+    "question": "A cross-sectional survey measures each participant once. It finds that adults who habitually use artificial (non-caloric) sweeteners have, on average, a higher body mass index than adults who never use them, and the difference is statistically significant. A newspaper reports: 'Study proves artificial sweeteners cause weight gain.' Which criticism of this headline is the strongest?",
+    "choices": {
+      "A": "Because each participant is measured only once, the data cannot show which came first; adults who are already heavier may adopt sweeteners to cut energy intake, so the direction of causation is undetermined.",
+      "B": "The finding proves the opposite, showing that artificial sweeteners must reduce body mass because they contain no energy.",
+      "C": "The headline is justified, because a statistically significant correlation is sufficient to establish that one variable causes the other.",
+      "D": "The association is certainly due to chance, because a substance with no calories cannot plausibly influence body mass.",
+      "E": "A randomised controlled trial would add nothing, since the survey has already adjusted for every possible confounding variable."
+    },
+    "correct_answer": "A",
+    "explanation": "In a cross-sectional design, exposure and outcome are recorded at the same moment, so the temporal order of events is unknown. The association is equally compatible with the reverse of the headline's claim: people who are already heavier may deliberately choose non-caloric sweeteners in an attempt to control their weight. This is reverse causation. Because the study cannot show which variable changed first, it cannot support the directional claim 'sweeteners cause weight gain'. Confounding (e.g. by overall dietary pattern) is a further limitation, and only a randomised or prospective design could establish temporal order and reduce confounding. A statistically significant correlation demonstrates association, never causation on its own.",
+    "option_analysis": {
+      "A": "Correct: a single-time-point (cross-sectional) design cannot fix temporal order, so heavier people adopting sweeteners (reverse causation) explains the data just as well as the headline's claim.",
+      "B": "Wrong: 'no calories, therefore must reduce weight' is mechanism-based over-reasoning that ignores the actual data. The observed association is positive, and asserting the opposite is as unjustified as the original headline.",
+      "C": "Wrong: the classic correlation-equals-causation error. Statistical significance establishes that an association is unlikely to be chance, not that one variable causes the other.",
+      "D": "Wrong: dismisses a statistically significant result as chance and denies any effect a priori. Significance argues against pure chance, and lack of an obvious mechanism does not make an association random.",
+      "E": "Wrong: assumes an observational survey controls all confounders. Cross-sectional adjustment can never guarantee removal of unmeasured confounding or fix temporal order; a randomised trial is precisely what is needed."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0337",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human health, disease and epidemiology",
+    "subtopic": "Interpreting a case-control study: computing the odds ratio, its approximation to relative risk in a rare disease, and why incidence cannot be obtained",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "case-control study",
+      "odds ratio",
+      "relative risk",
+      "rare disease assumption",
+      "epidemiology",
+      "study design"
+    ],
+    "learning_objective": "Compute an odds ratio from a case-control table and explain why such a design yields the odds ratio (which approximates relative risk for a rare disease) but not incidence or absolute risk.",
+    "question": "A case-control study of a rare disease enrols 200 people who have the disease (cases) and 200 people who do not (controls); the investigator fixed both group sizes in advance. Past exposure to environmental factor F is then determined for everyone. Among the cases, 150 had been exposed to F; among the controls, 50 had been exposed. Which conclusion is best supported?",
+    "choices": {
+      "A": "The relative risk of the disease in exposed versus unexposed people is 3, obtained from the 150 exposed cases divided by the 50 exposed controls.",
+      "B": "The odds ratio is about 9, which for this rare disease provides a good approximation to the relative risk.",
+      "C": "Exactly 75% of people exposed to factor F will go on to develop the disease, since 150 of the 200 cases were exposed.",
+      "D": "The incidence of the disease among exposed people is three times the incidence among controls.",
+      "E": "No measure of association between factor F and the disease can be calculated from this design."
+    },
+    "correct_answer": "B",
+    "explanation": "In a case-control study the investigator fixes the number of cases and controls, so the proportion of diseased people in the sample is artificial and unrelated to the true frequency in the population. Consequently, incidence, absolute risk and relative risk cannot be measured directly. What can be calculated is the odds ratio. Odds of exposure among cases = 150/50 = 3; odds of exposure among controls = 50/150 = 1/3; odds ratio = 3 ÷ (1/3) = 9 (equivalently (150×150)/(50×50) = 9). When the disease is rare, the odds ratio closely approximates the relative risk, which is why the case-control design is used for uncommon conditions. The other options misread case-control data as if they were cohort data yielding risks or incidences.",
+    "option_analysis": {
+      "A": "Wrong: treats 150/50 as a relative risk. That ratio uses the numbers of exposed cases and exposed controls, whose group sizes were arbitrarily fixed at 200 each, so it is not a relative risk.",
+      "B": "Correct: the odds ratio = (150×150)/(50×50) = 9, and because the disease is rare this odds ratio approximates the relative risk — the standard use of a case-control study.",
+      "C": "Wrong: reads 150/200 as an absolute risk of disease given exposure. It is the proportion of cases who were exposed; a case-control study cannot yield the probability of developing disease.",
+      "D": "Wrong: claims an incidence ratio, but case-control designs provide no incidence at all, because the number of cases was chosen by the investigator rather than observed in a population over time.",
+      "E": "Wrong: over-corrects by denying any measure. The odds ratio is exactly the association measure a case-control study is designed to provide."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0338",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human health, disease and epidemiology",
+    "subtopic": "Diet, BMI and metabolic risk: calculating BMI and recognising that it cannot distinguish lean mass from fat mass",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "BMI",
+      "body mass index",
+      "obesity",
+      "type 2 diabetes",
+      "metabolic risk",
+      "measurement limitation"
+    ],
+    "learning_objective": "Compute body mass index from mass and height and evaluate its validity as a measure of adiposity, recognising that BMI does not separate muscle from fat and so can misclassify a muscular individual.",
+    "question": "In a large cohort study, both body mass index (BMI = mass in kg divided by the square of height in metres) and waist circumference rise with the incidence of type 2 diabetes. A competitive weightlifter, who has a very low percentage of body fat, has a body mass of 100 kg and a height of 1.75 m. Which statement about this individual is best justified?",
+    "choices": {
+      "A": "His BMI is about 57, because BMI is mass divided by height, placing him firmly in the obese range.",
+      "B": "His BMI is about 33, so he is definitely at high risk of type 2 diabetes, since the study showed diabetes incidence rising with BMI.",
+      "C": "His BMI is about 33, which nominally falls in the obese range, but BMI cannot distinguish muscle from fat, so this figure need not indicate excess adiposity or high metabolic risk in his case.",
+      "D": "Because he is very muscular, his BMI must fall within the healthy range of 18.5 to 24.9.",
+      "E": "His BMI of about 33 means that roughly 33% of his body mass is stored as fat."
+    },
+    "correct_answer": "C",
+    "explanation": "BMI = 100 / (1.75 × 1.75) = 100 / 3.0625 ≈ 32.7, i.e. about 33, which by the usual cut-offs is labelled 'obese'. However, BMI uses only mass and height and cannot separate lean (muscle, bone) mass from fat mass. A weightlifter carries a large muscle mass and little fat, so his high BMI reflects muscularity, not the excess adiposity that actually drives metabolic and cardiovascular risk. This is why waist circumference (a marker of central fat) or direct body-composition measures are more informative for such individuals. The correct conclusion therefore reports the number but withholds the risk inference. The distractors either take BMI as a definitive risk verdict, mis-calculate it, or misread its meaning.",
+    "option_analysis": {
+      "A": "Wrong: divides by height instead of height squared (100/1.75 ≈ 57). BMI is mass ÷ (height)², so the correct value is about 33, not 57.",
+      "B": "Wrong: treats BMI as a definitive predictor for the individual. A population association between BMI and diabetes does not mean a muscular person with low body fat is necessarily at high risk; BMI misclassifies him.",
+      "C": "Correct: BMI = 100/1.75² ≈ 33 (nominally obese), but because BMI cannot distinguish lean from fat mass, a low-body-fat weightlifter's high BMI need not signal excess adiposity or elevated metabolic risk.",
+      "D": "Wrong: assumes muscularity guarantees a healthy BMI. In fact heavy muscle raises mass and therefore BMI, which is exactly why this athlete scores as 'obese' despite low body fat.",
+      "E": "Wrong: interprets the BMI number as a percentage of body fat. BMI has units of kg/m² and says nothing directly about the proportion of body mass that is fat."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0339",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Water relations and osmosis in cells",
+    "subtopic": "Incipient plasmolysis: estimating cell-sap solute potential from the sucrose concentration that plasmolyses 50% of cells (Ψp = 0)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "osmosis",
+      "water potential",
+      "plasmolysis",
+      "solute potential",
+      "plant cells",
+      "data interpretation"
+    ],
+    "learning_objective": "Interpret plasmolysis data and use the fact that pressure potential is zero at incipient plasmolysis to equate cell-sap solute potential with the external solute potential.",
+    "question": "A strip of epidermal tissue from a plant is divided into equal samples, and each sample is placed in a different sucrose solution. After 30 minutes the percentage of cells showing plasmolysis is recorded under the microscope. The solute (osmotic) potential of each sucrose solution is also given.\n\nSucrose concentration (mol dm⁻³) | Cells plasmolysed (%) | Solute potential of solution (kPa)\n0.20 | 0 | −540\n0.30 | 10 | −830\n0.35 | 50 | −970\n0.40 | 85 | −1120\n0.50 | 100 | −1450\n\nTaking the cells to be at incipient plasmolysis when 50% of them are just plasmolysed, what is the best estimate of the solute (osmotic) potential of the cell sap?",
+    "choices": {
+      "A": "+970 kPa",
+      "B": "−540 kPa",
+      "C": "−1450 kPa",
+      "D": "−830 kPa",
+      "E": "−970 kPa"
+    },
+    "correct_answer": "E",
+    "explanation": "At incipient plasmolysis the protoplast is just beginning to pull away from the wall, so the wall exerts no inward pressure and the pressure potential Ψp = 0; hence the cell's water potential equals its solute potential (Ψcell = Ψs cell). At this point there is no net water movement, so Ψcell = Ψsolution. The external solution is open to the atmosphere, so its Ψp = 0 and Ψsolution = Ψs solution. Therefore the cell-sap solute potential equals the solute potential of the solution that plasmolyses 50% of the cells (0.35 mol dm⁻³), i.e. −970 kPa.",
+    "option_analysis": {
+      "A": "Wrong: correct magnitude but the wrong sign. Solute potentials are always negative because dissolved solutes lower water potential; a positive value would wrongly imply the solute raises water potential.",
+      "B": "Wrong: takes the most dilute solution in which no cells are plasmolysed (0.20 mol dm⁻³, 0%) as the boundary. Here the cells are still fully turgid and gaining/holding water, so this over-estimates the cell water potential rather than marking the incipient point.",
+      "C": "Wrong: uses the concentration causing complete (100%) plasmolysis. That solution is far more concentrated than the cell sap; it gives its own solute potential, not the cell's, so it confuses incipient with complete plasmolysis.",
+      "D": "Wrong: reads the concentration at which plasmolysis first appears (10% of cells, 0.30 mol dm⁻³). Incipient plasmolysis is conventionally taken as the 50%-plasmolysed point, not the first visible sign of plasmolysis in a few cells.",
+      "E": "Correct: at 50% plasmolysed (incipient plasmolysis) Ψp = 0 and there is no net water movement, so the cell-sap solute potential equals the solution's solute potential, −970 kPa."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0340",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Water relations and osmosis in cells",
+    "subtopic": "The water potential equation (Ψ = Ψs + Ψp): pressure potential at equilibrium and the direction of water movement for a cell in an external solution",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "water potential",
+      "pressure potential",
+      "solute potential",
+      "turgor",
+      "osmosis",
+      "plant cells"
+    ],
+    "learning_objective": "Apply Ψ = Ψs + Ψp to determine the direction of osmotic water movement and calculate the pressure potential of a cell at equilibrium with an external solution.",
+    "question": "A plant cell is initially flaccid: its protoplast exerts no pressure on the cell wall, so its pressure potential is zero. The solute potential of its cell sap is −800 kPa. The cell is placed in a large volume of sucrose solution of water potential −300 kPa. The solution is large enough that its water potential does not change, and the dilution of the cell sap as water enters is small enough to be ignored (the solute potential of the sap stays at −800 kPa). When the cell reaches equilibrium with the solution, what is its pressure potential?",
+    "choices": {
+      "A": "+1100 kPa",
+      "B": "+800 kPa",
+      "C": "−300 kPa",
+      "D": "0 kPa",
+      "E": "+500 kPa"
+    },
+    "correct_answer": "E",
+    "explanation": "The water potential of a cell is Ψ = Ψs + Ψp. Initially Ψcell = −800 + 0 = −800 kPa, which is more negative than the solution's −300 kPa, so water moves into the cell and turgor (a positive pressure potential) develops. At equilibrium there is no net water movement, so Ψcell = Ψsolution = −300 kPa. Rearranging: Ψp = Ψcell − Ψs = −300 − (−800) = +500 kPa.",
+    "option_analysis": {
+      "A": "Wrong: adds the magnitudes of the two potentials (800 + 300) instead of using Ψp = Ψ − Ψs.",
+      "B": "Wrong: sets the pressure potential equal to the magnitude of the solute potential, as if the wall pressure must exactly cancel Ψs. That would only be true if the cell were sitting in pure water (Ψ = 0), not in a solution of Ψ = −300 kPa.",
+      "C": "Wrong: confuses pressure potential with water potential. −300 kPa is the water potential of the cell at equilibrium, not its pressure potential.",
+      "D": "Wrong: assumes the cell stays flaccid. Because the cell starts more negative (−800 kPa) than the solution (−300 kPa), water enters and a positive pressure potential (turgor) develops.",
+      "E": "Correct: at equilibrium Ψcell = Ψsolution = −300 kPa, so Ψp = Ψcell − Ψs = −300 − (−800) = +500 kPa."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0341",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Water relations and osmosis in cells",
+    "subtopic": "Interpreting potato-cylinder percentage-mass-change data: interpolating the zero-change (isotonic) point to find tissue water potential",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "osmosis",
+      "water potential",
+      "potato",
+      "percentage mass change",
+      "interpolation",
+      "data interpretation"
+    ],
+    "learning_objective": "Interpret percentage-mass-change data for plant tissue, locate the point of no net water movement by interpolation, and read off the tissue's water potential.",
+    "question": "Cylinders of potato tissue of equal initial mass are blotted, weighed, left in a range of sucrose solutions for 24 hours, then reweighed. The percentage change in mass and the water potential of each solution are shown.\n\nSucrose concentration (mol dm⁻³) | Change in mass (%) | Water potential of solution (kPa)\n0.00 | +12 | 0\n0.10 | +8 | −260\n0.20 | +4 | −500\n0.30 | −6 | −750\n0.40 | −13 | −1010\n0.50 | −19 | −1280\n\nUsing the data for the 0.20 and 0.30 mol dm⁻³ solutions, estimate the water potential of the potato tissue.",
+    "choices": {
+      "A": "0 kPa",
+      "B": "−650 kPa",
+      "C": "−500 kPa",
+      "D": "−750 kPa",
+      "E": "−600 kPa"
+    },
+    "correct_answer": "E",
+    "explanation": "There is no net osmosis (zero change in mass) when the external water potential equals the tissue water potential. Between 0.20 mol dm⁻³ (+4%) and 0.30 mol dm⁻³ (−6%) the mass change passes through zero. The zero lies 4/(4+6) = 0.4 of the way from the 0.20 point. Interpolating the water potential the same way: −500 + 0.4 × (−750 − (−500)) = −500 − 100 = −600 kPa.",
+    "option_analysis": {
+      "A": "Wrong: confuses 'no net movement of water' with 'zero water potential'. The water potentials of tissue and solution are equal at the isotonic point, but both are negative, not zero.",
+      "B": "Wrong: assumes the mass change crosses zero exactly midway between the two solutions and reads the mid-value water potential (−650 kPa). The +4% and −6% readings are unequal, so the zero is not at the midpoint.",
+      "C": "Wrong: takes the water potential of the last solution that still gives a mass increase (0.20 mol dm⁻³). The tissue is still gaining water here, so this is not the point of no net movement.",
+      "D": "Wrong: takes the water potential of the first solution that gives a mass decrease (0.30 mol dm⁻³). The tissue is losing water here, so the water potentials are not yet equal.",
+      "E": "Correct: the mass change is zero at 0.24 mol dm⁻³ (0.4 of the way from the +4% point), where tissue and solution water potentials are equal; interpolating gives −500 + 0.4 × (−250) = −600 kPa."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0342",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Water relations and osmosis in cells",
+    "subtopic": "Osmosis in animal cells: ranking crenation using osmolarity and the number of dissolved particles (dissociation of ionic solutes)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "osmosis",
+      "tonicity",
+      "crenation",
+      "red blood cells",
+      "osmolarity",
+      "dissociation",
+      "van 't Hoff"
+    ],
+    "learning_objective": "Compute the osmolarity of solutions from molar concentration and the number of particles per formula unit, and use it to rank the degree of crenation of animal cells.",
+    "question": "Human red blood cells have a cytoplasm osmotically equivalent to about 300 mOsm L⁻¹ (milliosmoles per litre). Separate samples of red blood cells are added to each of the following solutions at 37 °C. Assume all solutes are fully dissociated where applicable, and that none of them can cross the cell membrane. In which solution will the cells shrink (crenate) to the greatest extent?",
+    "choices": {
+      "A": "0.60 mol L⁻¹ glucose",
+      "B": "0.25 mol L⁻¹ calcium chloride (CaCl₂)",
+      "C": "0.30 mol L⁻¹ sodium chloride (NaCl)",
+      "D": "0.70 mol L⁻¹ glucose",
+      "E": "0.20 mol L⁻¹ sodium chloride (NaCl)"
+    },
+    "correct_answer": "B",
+    "explanation": "The degree of shrinkage depends on how hypertonic a solution is — that is, on its osmolarity (total concentration of dissolved particles), not simply on its molar concentration. Multiply each molarity by the number of particles released per formula unit: NaCl → 2, CaCl₂ → 3, glucose → 1. A: 0.20 × 2 = 400 mOsm; B: 0.25 × 3 = 750 mOsm; C: 0.60 × 1 = 600 mOsm; D: 0.30 × 2 = 600 mOsm; E: 0.70 × 1 = 700 mOsm. All exceed 300 mOsm (all hypertonic, so all cause crenation), but B has the highest particle concentration and therefore draws the most water out of the cells.",
+    "option_analysis": {
+      "A": "Wrong: 0.60 × 1 = 600 mOsm is hypertonic but lower than B. A candidate who wrongly multiplies CaCl₂ by only 2 (getting 500 mOsm) would place this glucose solution above it.",
+      "B": "Correct: CaCl₂ releases three ions per formula unit, so 0.25 × 3 = 750 mOsm — the highest osmolarity, the most hypertonic solution, and hence the greatest water efflux and crenation.",
+      "C": "Wrong: 0.30 × 2 = 600 mOsm — hypertonic but not the greatest; it equals C and is below B.",
+      "D": "Wrong: chosen by ranking on molar concentration alone (0.70 mol L⁻¹ is the highest molarity) while ignoring that ionic solutes dissociate. Counting particles gives only 700 mOsm, still below the 750 mOsm of the CaCl₂ solution.",
+      "E": "Wrong: 0.20 × 2 = 400 mOsm is hypertonic and does cause crenation, but it is the lowest osmolarity of the five, so it removes the least water — it underestimates the effect of the others."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0343",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Water relations and osmosis in cells",
+    "subtopic": "Visking-tubing model cell: quantitative water redistribution to equal concentration across a sucrose-impermeable membrane",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 180,
+    "tags": [
+      "osmosis",
+      "Visking tubing",
+      "dialysis tubing",
+      "model cell",
+      "water potential",
+      "quantitative",
+      "semipermeable membrane"
+    ],
+    "learning_objective": "Reason quantitatively about osmosis across a selectively permeable membrane by conserving solute in each compartment and applying the equal-water-potential condition at equilibrium.",
+    "question": "A piece of Visking (dialysis) tubing is filled with 20 cm³ of 1.5 mol dm⁻³ sucrose solution, tied off while slack, and suspended in a beaker containing 80 cm³ of 0.25 mol dm⁻³ sucrose solution. The tubing is freely permeable to water but not to sucrose, and because it is slack no significant hydrostatic pressure develops. The system is left until no further change occurs. Taking the total volume of liquid to be conserved, what is the net movement of water?",
+    "choices": {
+      "A": "No net movement of water, because sucrose diffuses out of the tubing until the concentrations inside and outside are equal.",
+      "B": "40 cm³ of water moves out of the tubing.",
+      "C": "40 cm³ of water moves into the tubing.",
+      "D": "100 cm³ of water moves into the tubing.",
+      "E": "30 cm³ of water moves into the tubing."
+    },
+    "correct_answer": "C",
+    "explanation": "Sucrose cannot cross the membrane, so each compartment keeps its own sucrose: tubing = 1.5 × 0.020 = 0.030 mol; beaker = 0.25 × 0.080 = 0.020 mol. The tubing solution is more concentrated, so its water potential is lower and water moves into the tubing. With no pressure build-up, both compartments have Ψp ≈ 0, so equilibrium is reached when their concentrations (and hence solute potentials) are equal. Total volume (100 cm³) and total sucrose (0.050 mol) are conserved, so the common equilibrium concentration = 0.050 mol / 0.100 dm³ = 0.50 mol dm⁻³. The tubing then holds 0.030 / 0.50 = 0.060 dm³ = 60 cm³ and the beaker 0.020 / 0.50 = 40 cm³. The tubing has therefore gained 60 − 20 = 40 cm³ of water.",
+    "option_analysis": {
+      "A": "Wrong: assumes Visking tubing is permeable to sucrose so the solute equalises and the water-potential gradient disappears. In fact the tubing retains its sucrose, keeping its water potential low, so water keeps entering.",
+      "B": "Wrong: correct magnitude but reversed direction. It treats water as moving from the more concentrated tubing to the more dilute beaker — down the solute gradient — instead of into the compartment with the lower (more negative) water potential.",
+      "C": "Correct: conserving sucrose in each compartment and setting the final concentrations equal (0.50 mol dm⁻³) gives a tubing volume of 60 cm³, a net gain of 40 cm³ of water.",
+      "D": "Wrong: treats the beaker as an infinite reservoir fixed at 0.25 mol dm⁻³, so the tubing dilutes all the way to 0.25 (0.030 / 0.25 = 120 cm³, a 100 cm³ gain). The beaker is finite and becomes more concentrated as it loses water, so the two meet at 0.50 mol dm⁻³ instead.",
+      "E": "Wrong: assumes the two compartments must finish with equal volumes (50 cm³ each), giving a 30 cm³ gain. Equilibrium requires equal concentration, not equal volume, because the compartments hold different amounts of sucrose (0.030 mol vs 0.020 mol)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch17",
+    "review_status": "accepted"
+  }
+]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 1st Grade visual-first question banks for BrainBuddy.
+"""Generate 1st Grade visual-first question banks for EDUmio.
 Math, Turkish, Life Studies, English.
 Target: 50%+ imageAsset, 30% visual-supported, 20% text-only.
 10 packs × 10 questions = 100 per subject = 400 total.
@@ -30,7 +30,7 @@ def q(subject, idx, stem, options, answer_index, difficulty, qtype, topic, skill
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": image_asset,
         "subject": "mat" if subject == "mat" else "turkce" if subject == "turkce" else "hayat" if subject == "hayat" else "ing",
@@ -232,7 +232,7 @@ def main():
                 "version": 1,
                 "mode": "LGS",
                 "subject": "mat" if subj == "mat" else "turkce" if subj == "turkce" else "hayat" if subj == "hayat" else "ing",
-                "publisher": "brainbuddy",
+                "publisher": "edumio",
                 "questions": pack_q,
             }
             path = out_dir / f"{pack_prefix}_{pi + 1:03d}.json"

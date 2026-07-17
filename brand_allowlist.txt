@@ -1,26 +1,29 @@
-# EDUmio brand-compliance allowlist
+# EDUmio brand-compliance allowlist (repository-wide scan)
 #
-# The forbidden historical brands are: BrainBuddy, Brain Buddy, Barjin, MioItalia, Mio Italia,
-# Mioitalia, MIOITALIA. BrandComplianceTest scans USER-FACING directories (res/values, res/layout,
-# res/drawable + mipmap vectors, assets/*.html, AndroidManifest) and FAILS if any of those tokens
-# appears there without an entry below.
+# Forbidden historical brands: BrainBuddy, Brain Buddy, Barjin, MioItalia, Mio Italia, Mioitalia,
+# MIOITALIA, MioAcademy, Mio Academy, mioacademy. Final and only brand: EDUmio.
 #
-# Format: <substring-token-lowercased> :: <reason>
-# A scanned line is allowed only if it contains an allowlisted token (exact, case-insensitive substring).
+# BrandComplianceTest walks the ENTIRE active repository (file contents + file names + directory
+# names) and FAILS if any forbidden token appears, EXCEPT under a path matching an entry below.
 #
-# --- USER-FACING SCAN: currently EMPTY on purpose ---
-# After migration, no forbidden brand remains in any user-facing directory, so nothing is allowlisted
-# for the scanned surface. Add an entry here ONLY with a written justification if a future, unavoidable
-# user-facing technical string must retain a historical token.
-#
-# ------------------------------------------------------------------------------------------------
-# NON-SCANNED technical exceptions (documented for the record; these live OUTSIDE the scanned
-# user-facing surface and are intentionally NOT changed — see edumio_technical_exception_map.md):
-#   brainbuddy.db                    :: Room database filename — renaming orphans all installed users' data (Category C)
-#   BrainBuddyDatabase (class)       :: internal Room @Database class name; filename must stay, class rename is churn-only
-#   com.mioacademy.app (package)     :: applicationId/namespace — NOT a forbidden token; unchanged by policy
-#   MIOITALIA / seedMioitalia / etc  :: internal original-question POOL identifiers + persisted seed-version keys (Category C)
-#   mioitalia_seed_version (pref key):: persisted SharedPreferences key — renaming breaks reseed detection on upgrade (Category C)
-#   BB. / bb_ (style/color prefixes) :: internal design-system abbreviation; not a forbidden full-word token; pervasive refs
-#   content/** & assets/**/*.json    :: question-bank provenance ("publisher"/"source") — student-invisible; banks are frozen
-#   docs/*_report.md, *_REPORT.md    :: historical engineering reports — archival record (see doc header policy)
+# Format: <repo-relative path substring> :: <reason> :: <removal condition>
+# Keep this list minimal. Every entry is either the enforcement machinery itself, migration
+# documentation that must name the old brands to record what was removed, or clearly-isolated archive.
+
+brand_allowlist.txt :: this allowlist necessarily lists the forbidden brands :: never (self-referential)
+BrandComplianceTest.kt :: the enforcement test necessarily names the forbidden brands :: never (self-referential)
+barjin_release.jks :: UNTRACKED local signing keystore (not in the tracked repo; signing files are protected) — owner should rename it out-of-band :: when owner regenerates the keystore
+docs/archive/ :: archived pre-EDUmio historical documents; excluded from active docs :: when archives are deleted
+content/shared_ingestion/edumio_brand_migration_report.md :: migration report; names removed brands as historical fact :: when superseded
+content/shared_ingestion/edumio_brand_occurrence_audit.md :: migration report :: when superseded
+content/shared_ingestion/edumio_technical_exception_map.md :: migration report :: when superseded
+content/shared_ingestion/edumio_asset_migration_report.md :: migration report :: when superseded
+content/shared_ingestion/edumio_legal_brand_audit.md :: migration report :: when superseded
+content/shared_ingestion/edumio_brand_validation_checklist.md :: migration report :: when superseded
+content/shared_ingestion/legal_gap_report.md :: legal-gap report; records the historical product it replaced :: when superseded
+content/shared_ingestion/edumio_full_technical_migration_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_persistence_migration_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_package_namespace_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_repository_zero_occurrence_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_archive_cleanup_report.md :: eradication report :: when superseded
+content/shared_ingestion/edumio_upgrade_compatibility_test_report.md :: eradication report :: when superseded

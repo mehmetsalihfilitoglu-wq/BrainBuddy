@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate 20 premium LGS İnkılap Tarihi question packs (200 questions) for BrainBuddy."""
+"""Generate 20 premium LGS İnkılap Tarihi question packs (200 questions) for EDUmio."""
 
 import json
 from pathlib import Path
@@ -269,7 +269,7 @@ def main():
                 "questionType": q_types[i % len(q_types)],
                 "skills": ["comprehension", "cause_effect", "inference", "context"],
                 "explanation": q["explanation"],
-                "source": "brainbuddy_premium",
+                "source": "edumio_premium",
                 "sourceRef": f"ink_pack{pack_num:03d}_q{i+1:02d}",
                 "subject": "inkilap",
                 "imageAsset": None
@@ -278,7 +278,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "inkilap",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions
         }
         path = BASE / f"lgs_ink_pack_{pack_num:03d}.json"

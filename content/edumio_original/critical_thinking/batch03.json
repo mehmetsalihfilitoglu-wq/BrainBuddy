@@ -1,0 +1,197 @@
+[
+  {
+    "id": "mio_ct_0012",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Reading and inference",
+    "subtopic": "Distinguishing a warranted inference from an unsupported over-claim",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "reading",
+      "inference",
+      "over-claim",
+      "counterfactual",
+      "scope-shift"
+    ],
+    "learning_objective": "Distinguish a conclusion that is logically forced by a short passage from unsupported over-claims, scope shifts, and counterfactuals.",
+    "question": "A city council reviewed its cycling policy. Since a network of protected bike lanes was completed three years ago, the number of residents who commute by bicycle has risen by about 40%. In surveys, most of these new cyclists say they would not have started cycling without the protected lanes. The total number of cycling injuries reported in the city each year, however, is almost exactly the same as it was before the lanes were built.\n\nOn the basis of the passage alone, which of the following is most strongly supported?",
+    "choices": {
+      "A": "The average risk of injury per cyclist is now lower than it was before the lanes were built.",
+      "B": "The protected lanes are the main reason the injury rate among cyclists has fallen.",
+      "C": "Without the protected lanes, the number of cycling injuries in the city would have increased.",
+      "D": "Most residents of the city now commute by bicycle.",
+      "E": "Cycling in the city is now safer than driving."
+    },
+    "correct_answer": "A",
+    "explanation": "The passage supplies two figures that can be combined: the number of cyclists rose by roughly 40%, while the total number of injuries stayed essentially constant. Spreading the same number of injuries over a substantially larger population of cyclists forces the per-cyclist injury rate down. That is the only option that follows from the stated facts. The other options each add something the passage does not license: a counterfactual, a mis-scaled quantifier, an unproven cause, or an absent comparison.",
+    "option_analysis": {
+      "A": "Correct: with the total number of injuries unchanged but roughly 40% more cyclists, injuries per cyclist must be lower. This follows arithmetically from the two figures given, without adding any assumption.",
+      "B": "Wrong: correlation-to-causation plus over-claim. The passage never isolates the lanes as the cause of any change and does not even state that the injury rate fell as a rate; other factors could contribute.",
+      "C": "Wrong: unsupported counterfactual. The passage says nothing about what the injury count would have been without the lanes; it treats an untested 'what if' as established fact.",
+      "D": "Wrong: scope/quantifier shift. 'Most of these new cyclists' is misread as 'most residents.' The passage only reports a ~40% rise in cycle commuting, not that a majority of the population now cycles.",
+      "E": "Wrong: introduces an unstated comparison. Driving is never mentioned, so no claim about the relative safety of cycling versus driving can be supported by the passage."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0013",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative and data reasoning",
+    "subtopic": "Normalising raw counts to a common rate before comparing",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "quantitative",
+      "rates",
+      "normalisation",
+      "proportional-reasoning",
+      "data-interpretation"
+    ],
+    "learning_objective": "Compare two groups fairly by converting raw counts to a common rate and applying that rate to a different denominator.",
+    "question": "Clinic X carried out 1,200 operations last year and recorded 36 post-operative infections. Clinic Y carried out 400 operations in the same period and recorded 16 post-operative infections. The two clinics treat patients of comparable risk. If Clinic Y had achieved the same infection rate per operation as Clinic X, how many post-operative infections would Clinic Y have recorded?",
+    "choices": {
+      "A": "12 infections",
+      "B": "48 infections",
+      "C": "3 infections",
+      "D": "16 infections",
+      "E": "4 infections"
+    },
+    "correct_answer": "A",
+    "explanation": "First convert Clinic X's count to a rate: 36 / 1,200 = 0.03, i.e. a 3% infection rate per operation. Then apply that rate to Clinic Y's number of operations: 0.03 x 400 = 12 infections. The trap is that Clinic Y actually recorded a HIGHER rate (16 / 400 = 4%) than Clinic X despite fewer infections in absolute terms, so a fair comparison requires normalising to a common rate rather than comparing raw counts.",
+    "option_analysis": {
+      "A": "Correct: Clinic X's rate is 36/1,200 = 3%; applying 3% to Clinic Y's 400 operations gives 0.03 x 400 = 12 infections.",
+      "B": "Wrong: multiplies Clinic Y's 16 infections by 3 (the ratio of the clinics' sizes, 1,200/400) in the wrong direction, inflating the count instead of rescaling it to a common rate.",
+      "C": "Wrong: reads Clinic X's infection rate of 3% as a raw count of '3 infections', confusing a percentage with a number.",
+      "D": "Wrong: leaves Clinic Y's actual figure of 16 unchanged, failing to apply Clinic X's lower rate at all.",
+      "E": "Wrong: gives the reduction (16 - 12 = 4), i.e. how many fewer infections would be needed, rather than the resulting number of infections that would be recorded."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0014",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Logic puzzles",
+    "subtopic": "Truth-tellers and liars: self-referential statements and consistency testing",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "logic-puzzle",
+      "knights-and-knaves",
+      "self-reference",
+      "consistency",
+      "deduction"
+    ],
+    "learning_objective": "Solve a self-referential truth-teller/liar puzzle by testing each candidate assignment for internal consistency and eliminating those that contradict.",
+    "question": "On a certain island, every inhabitant is either a truth-teller, who makes only true statements, or a liar, who makes only false statements. Three inhabitants make the following statements:\n\n- Aldo says: 'Exactly one of the three of us is a truth-teller.'\n- Bea says: 'Aldo is a liar.'\n- Carlo says: 'Aldo and Bea are both liars.'\n\nWhich of the following must be true?",
+    "choices": {
+      "A": "Exactly one of them is a truth-teller, and it is Carlo.",
+      "B": "None of them is a truth-teller.",
+      "C": "Exactly one of them is a truth-teller, and it is Aldo.",
+      "D": "Exactly two of them are truth-tellers.",
+      "E": "Exactly one of them is a truth-teller, and it is Bea."
+    },
+    "correct_answer": "C",
+    "explanation": "Test each possibility for consistency. Suppose Aldo is a truth-teller: then his statement is true, so there is exactly one truth-teller, namely Aldo, making Bea and Carlo liars. Check them: Bea (liar) says 'Aldo is a liar,' which is false as required; Carlo (liar) says 'Aldo and Bea are both liars,' which is false (Aldo is a truth-teller) as required. This assignment is fully consistent. Suppose instead Aldo is a liar: Bea's statement 'Aldo is a liar' is then true, so Bea is a truth-teller; Carlo's statement is then false, so Carlo is a liar; but that leaves exactly one truth-teller (Bea), which makes Aldo's statement TRUE — impossible for a liar. So the only self-consistent solution is Aldo = truth-teller, Bea = liar, Carlo = liar.",
+    "option_analysis": {
+      "A": "Wrong: making Carlo the truth-teller requires his statement 'Aldo and Bea are both liars' to be true, but in the valid solution Aldo is a truth-teller, so Carlo's statement is false and he cannot be the truth-teller.",
+      "B": "Wrong: this assumes the statements form an unresolvable paradox. In fact a unique consistent assignment exists, so it is false that none of them is a truth-teller.",
+      "C": "Correct: checking all eight assignments, only Aldo = truth-teller, Bea = liar, Carlo = liar is self-consistent. Aldo's statement is true (he is the single truth-teller), and Bea's and Carlo's statements are both false, exactly as liars require.",
+      "D": "Wrong: two truth-tellers would make Aldo's 'exactly one' statement false while he is supposedly truthful, a direct contradiction.",
+      "E": "Wrong: this corresponds to Aldo = liar, Bea = truth-teller, Carlo = liar, but that fails the consistency check: if Aldo is a liar, his statement 'exactly one is a truth-teller' becomes true (Bea alone), which a liar cannot truthfully assert."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0015",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Flaw: survivorship / selection bias (sampling on the outcome)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "argument-analysis",
+      "flaw",
+      "survivorship-bias",
+      "selection-bias",
+      "unrepresentative-sample"
+    ],
+    "learning_objective": "Recognise survivorship (selection) bias: identify when a sample is defined by the very outcome under investigation, so failures are systematically excluded.",
+    "question": "A financial columnist examined the managers of the ten largest investment funds in the country and found that all ten follow an aggressive, high-risk strategy. She concluded that an aggressive, high-risk strategy is the most reliable way to achieve strong long-term investment returns.\n\nThe columnist's reasoning is most vulnerable to the objection that:",
+    "choices": {
+      "A": "aggressive funds that performed badly would never have grown large enough to enter her sample, so failures are systematically excluded.",
+      "B": "she treats the strategy used by the most successful funds as automatically the best one for others to copy.",
+      "C": "she assumes the aggressive strategy caused the funds to grow large rather than merely accompanying their growth.",
+      "D": "a sample of only ten funds is too small to support any general conclusion.",
+      "E": "she does not specify what level of return should count as 'strong'."
+    },
+    "correct_answer": "A",
+    "explanation": "The sample consists only of funds that have already become the largest — that is, only of survivors and successes. Any aggressive fund that pursued the same high-risk strategy and collapsed is, by construction, absent from the data. Because the evidence is filtered on the outcome (fund size, a marker of success), it cannot show that the strategy is reliable; it can only show that the strategy is common among those that happened to succeed. This is the defining structure of survivorship (selection) bias.",
+    "option_analysis": {
+      "A": "Correct: this is survivorship (selection) bias. The sample is defined by an outcome — having become one of the largest funds — so aggressive funds that failed are invisible, and the surviving aggressive funds cannot establish that the strategy is reliable.",
+      "B": "Wrong: this describes an appeal to success/popularity, but it merely restates the appeal of the conclusion rather than explaining why the evidence is unrepresentative of aggressive strategies in general.",
+      "C": "Wrong: a correlation-versus-causation objection, tempting but off-target. Her conclusion is about long-term returns in general, and the decisive weakness is that her sample is drawn only from survivors, not that fund size was mis-attributed to the strategy.",
+      "D": "Wrong: it blames the sample size, but the number ten is not the defect. Even the 100 largest funds would be filtered by the same success-based selection, so enlarging the sample would not remove the bias.",
+      "E": "Wrong: this attacks the vagueness of a term. Even if 'strong' were precisely defined, the underlying problem — that only surviving, successful funds were examined — would remain untouched."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0016",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative and data reasoning",
+    "subtopic": "Base-rate reasoning and positive predictive value (conditional-probability inversion)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "quantitative",
+      "base-rate",
+      "conditional-probability",
+      "positive-predictive-value",
+      "diagnostic-test"
+    ],
+    "learning_objective": "Combine prevalence, sensitivity and specificity to invert a conditional probability and compute the positive predictive value of a screening test.",
+    "question": "A screening test for a certain disease is used in a large population. The disease is present in 2% of the people screened. The test correctly returns a positive result in 90% of people who have the disease, and it wrongly returns a positive result in 5% of people who do not have the disease. A randomly screened person tests positive. Approximately what is the probability that this person actually has the disease?",
+    "choices": {
+      "A": "About 73%",
+      "B": "About 2%",
+      "C": "About 90%",
+      "D": "About 27%",
+      "E": "About 95%"
+    },
+    "correct_answer": "D",
+    "explanation": "Work with a concrete population of 10,000. Diseased: 2% = 200 people, of whom 90% test positive, giving 180 true positives. Healthy: 9,800 people, of whom 5% test positive, giving 490 false positives. Total positives = 180 + 490 = 670. The probability that a positive person truly has the disease is 180 / 670 ≈ 0.27, i.e. about 27%. Because the disease is rare, false positives from the large healthy majority swamp the true positives, so a positive result is more often wrong than right — a base-rate effect.",
+    "option_analysis": {
+      "A": "Wrong: gives the complementary probability, P(no disease | positive) = 490/670 ≈ 73% — the chance the person is disease-free — rather than the chance they have the disease.",
+      "B": "Wrong: simply gives the prevalence (2%) and ignores the information supplied by the positive test result altogether.",
+      "C": "Wrong: reports the test's sensitivity, P(positive | disease) = 90%, mistaking it for P(disease | positive) and ignoring the low base rate.",
+      "D": "Correct: among 10,000 people, 180 true positives arise from the 200 diseased (90%) and 490 false positives from the 9,800 healthy (5%); P(disease | positive) = 180/670 ≈ 27%.",
+      "E": "Wrong: reports the specificity (95%), confusing the true-negative rate with the predictive value of a positive result."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch03",
+    "review_status": "accepted"
+  }
+]

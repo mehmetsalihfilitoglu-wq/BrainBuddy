@@ -1,0 +1,794 @@
+[
+  {
+    "id": "mio_bio_0024",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Membrane transport",
+    "subtopic": "Secondary active transport: Na+-glucose cotransport (SGLT1)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "membrane transport",
+      "secondary active transport",
+      "cotransport",
+      "Na/K-ATPase",
+      "ouabain",
+      "epithelial absorption"
+    ],
+    "learning_objective": "Explain how secondary active transporters depend on a gradient established by a separate primary active pump, and predict the effect of inhibiting that pump.",
+    "question": "In the epithelial cells lining the small intestine, glucose is absorbed from the gut lumen across the apical membrane by the sodium-glucose cotransporter SGLT1, which moves glucose into the cell against its concentration gradient. The energy for this uphill movement comes from the inward electrochemical gradient for Na+, which is maintained by the Na+/K+-ATPase in the basolateral membrane. A researcher applies ouabain, a specific inhibitor of the Na+/K+-ATPase, to the basolateral surface of one such cell. Assuming the drug acts only on this pump, what is the most likely consequence for apical glucose uptake shortly afterwards?",
+    "choices": {
+      "A": "Glucose uptake is unaffected, because glucose crosses the apical membrane by facilitated diffusion down its own gradient.",
+      "B": "Glucose uptake increases, because inhibiting the pump raises intracellular Na+ and this drives the cotransporter faster.",
+      "C": "Glucose uptake decreases, because the inward Na+ gradient that powers SGLT1 gradually collapses.",
+      "D": "Glucose uptake is unaffected, because SGLT1 hydrolyses ATP directly and does not depend on the Na+/K+-ATPase.",
+      "E": "Glucose uptake decreases, because ouabain directly blocks the glucose-binding site of SGLT1."
+    },
+    "correct_answer": "C",
+    "explanation": "SGLT1 is a secondary active transporter: it does not use ATP itself but harnesses the inward electrochemical gradient for Na+ (high outside, low inside) to drag glucose in against glucose's own gradient. That Na+ gradient exists only because the Na+/K+-ATPase continuously pumps Na+ out of the cell. Ouabain blocks this pump, so intracellular Na+ rises and the inward Na+ gradient dissipates. With the driving force gone, SGLT1 can no longer accumulate glucose and apical uptake falls. This illustrates the coupling between a primary active pump (which sets up the gradient) and a secondary transporter (which spends the gradient).",
+    "option_analysis": {
+      "A": "Wrong: confuses the apical SGLT1 with the basolateral GLUT2. Apical uptake is uphill (secondary active via SGLT1), not facilitated diffusion; facilitated diffusion of glucose occurs later at the basolateral membrane via GLUT2.",
+      "B": "Wrong: assumes that a higher intracellular Na+ concentration speeds cotransport. In fact SGLT1 is driven by the INWARD Na+ gradient; raising intracellular Na+ shrinks that gradient and slows transport. This reverses the direction of the driving force.",
+      "C": "Correct: the Na+/K+-ATPase keeps intracellular Na+ low, sustaining the inward Na+ gradient. Blocking it lets intracellular Na+ climb, the gradient collapses, and SGLT1 loses its energy source, so glucose uptake decreases.",
+      "D": "Wrong: encodes the misconception that all 'active' transport is directly ATP-powered (primary active transport). SGLT1 does not hydrolyse ATP; it is secondary active and wholly dependent on the Na+ gradient set up by the ATPase.",
+      "E": "Wrong: misattributes ouabain's target. Ouabain is specific for the Na+/K+-ATPase and does not bind SGLT1 or its glucose site; the fall in uptake is indirect, via loss of the Na+ gradient."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0025",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Membrane transport",
+    "subtopic": "Water potential: net water movement between adjacent plant cells",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "water potential",
+      "osmosis",
+      "solute potential",
+      "pressure potential",
+      "plant cells",
+      "turgor"
+    ],
+    "learning_objective": "Calculate water potential from solute and pressure potentials and use it (not solute concentration alone) to predict the direction of net water movement.",
+    "question": "Two adjacent plant cells, A and B, are in direct contact so that water can move between them. Their potentials are as follows. Cell A: solute potential = -0.9 MPa, pressure potential = +0.5 MPa. Cell B: solute potential = -0.6 MPa, pressure potential = +0.1 MPa. Water potential is the sum of the solute potential and the pressure potential, and water moves by osmosis from a region of higher (less negative) water potential to a region of lower (more negative) water potential. In which direction does net water movement occur, and why?",
+    "choices": {
+      "A": "From A to B, because cell A has the higher (less negative) water potential.",
+      "B": "There is no net movement, because the two cells have equal solute potentials.",
+      "C": "From B to A, because cell A has the more negative solute potential and therefore draws water in.",
+      "D": "From B to A, because cell A has the higher pressure potential.",
+      "E": "From A to B, because cell B has the more negative solute potential."
+    },
+    "correct_answer": "A",
+    "explanation": "Compute each water potential. Cell A: -0.9 + 0.5 = -0.4 MPa. Cell B: -0.6 + 0.1 = -0.5 MPa. Water moves from higher to lower water potential, i.e. from -0.4 MPa to -0.5 MPa, so net movement is from A to B. Note the trap: cell A has the MORE negative (more concentrated) solute potential, so a candidate who reasons only from solute concentration would wrongly send water toward A. Because A's high pressure potential (turgor) raises its overall water potential above B's, water actually leaves A. Water potential, not solute potential alone, sets the direction of osmosis.",
+    "option_analysis": {
+      "A": "Correct: A's water potential is -0.4 MPa and B's is -0.5 MPa. Water moves from higher (A) to lower (B) water potential, so net movement is A to B.",
+      "B": "Wrong: the solute potentials are -0.9 MPa and -0.6 MPa, which are not equal; and even if solute potentials matched, equal water potentials (not solute potentials) would be required for equilibrium.",
+      "C": "Wrong: uses solute potential alone, ignoring pressure potential. It is true that A has the more negative solute potential, but its high turgor pressure raises its total water potential to -0.4 MPa, above B's -0.5 MPa, so water leaves A rather than entering it.",
+      "D": "Wrong: identifies the correct fact (A has the higher pressure potential) but draws the wrong conclusion. A higher pressure potential raises A's water potential, which pushes water OUT of A, not into it.",
+      "E": "Wrong direction of premise: the stated direction (A to B) is right, but the reason is false. B's solute potential (-0.6 MPa) is LESS negative than A's (-0.9 MPa), so B does not have the more negative solute potential; this option encodes the 'water follows the more concentrated solute' misconception."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0026",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Organelle structure and function",
+    "subtopic": "Peroxisome biochemistry: VLCFA beta-oxidation and H2O2 detoxification by catalase",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "peroxisome",
+      "catalase",
+      "hydrogen peroxide",
+      "beta-oxidation",
+      "very-long-chain fatty acids",
+      "organelle biochemistry",
+      "oxidative stress"
+    ],
+    "learning_objective": "Distinguish the roles of peroxisomal oxidases and catalase, and predict the biochemical consequence of losing catalase while other peroxisomal functions remain intact.",
+    "question": "Peroxisomes carry out the beta-oxidation of very-long-chain fatty acids (VLCFAs). The first oxidation step is catalysed by an oxidase that transfers electrons directly to molecular O2, generating hydrogen peroxide (H2O2). Catalase, abundant in the peroxisomal matrix, then converts H2O2 to water and oxygen. In a cell line, a mutation prevents newly synthesised catalase from being imported into peroxisomes, while the peroxisomal membrane, the import of other matrix enzymes, and the beta-oxidation oxidases all remain functional. Which consequence is most likely?",
+    "choices": {
+      "A": "Hydrogen peroxide produced by the oxidases is no longer broken down within the peroxisome, promoting oxidative damage.",
+      "B": "VLCFAs are diverted to the mitochondria, where they are fully oxidised without producing any H2O2.",
+      "C": "Cholesterol synthesis rises sharply, because catalase normally inhibits that pathway.",
+      "D": "VLCFA beta-oxidation stops immediately, because catalase catalyses the first oxidation step of the pathway.",
+      "E": "The peroxisome switches to using O2 as the terminal acceptor of an electron transport chain to synthesise ATP."
+    },
+    "correct_answer": "A",
+    "explanation": "The peroxisomal oxidases and catalase have distinct jobs. The oxidases perform the oxidation steps of VLCFA beta-oxidation and, in doing so, hand electrons to O2, producing H2O2. Catalase then detoxifies that H2O2. If catalase can no longer enter the peroxisome but the oxidases still work, H2O2 continues to be generated but is no longer efficiently destroyed at its site of production, so it accumulates and can leak out, causing oxidative damage to lipids, proteins and DNA. This is the key structure-function insight: losing the detoxifying enzyme does not stop substrate oxidation; it uncouples production of a reactive by-product from its disposal.",
+    "option_analysis": {
+      "A": "Correct: the oxidases keep generating H2O2, but with catalase missing from the matrix the peroxisome can no longer detoxify it locally, so H2O2 accumulates and drives oxidative damage.",
+      "B": "Wrong: mitochondria cannot begin oxidation of very-long-chain fatty acids; VLCFAs must first be chain-shortened in peroxisomes. This option also wrongly implies fatty-acid oxidation elsewhere avoids the H2O2 problem, which is irrelevant to a catalase-import defect.",
+      "C": "Wrong: fabricates a regulatory link. Catalase is a hydrogen-peroxide-decomposing enzyme and is not an inhibitor of cholesterol synthesis; loss of catalase import would not upregulate that pathway.",
+      "D": "Wrong: confuses the roles of the two enzymes. Catalase does not perform an oxidation step of beta-oxidation; it only decomposes the H2O2 produced by the oxidases. Beta-oxidation can continue without catalase.",
+      "E": "Wrong: peroxisomes do not run an ATP-generating electron transport chain. Their oxidases pass electrons to O2 to form H2O2, not to synthesise ATP; this confuses peroxisomal oxidation with mitochondrial oxidative phosphorylation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0027",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cytoskeleton and cell motility",
+    "subtopic": "Motor-protein directionality: dynein-driven retrograde axonal transport",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "cytoskeleton",
+      "microtubules",
+      "motor proteins",
+      "dynein",
+      "kinesin",
+      "axonal transport",
+      "polarity"
+    ],
+    "learning_objective": "Relate microtubule polarity to the directionality of kinesin and dynein and predict which transport process fails when one motor is inhibited.",
+    "question": "In the long axon of a motor neuron, microtubules are uniformly oriented with their plus ends directed towards the synaptic terminal. Kinesin walks towards microtubule plus ends, whereas cytoplasmic dynein walks towards minus ends. A neurotoxin is applied that specifically inhibits cytoplasmic dynein, leaving kinesin and the microtubules themselves intact. Which process is most directly impaired?",
+    "choices": {
+      "A": "Anterograde transport of synaptic-vesicle precursors from the cell body to the terminal.",
+      "B": "Diffusion of neurotransmitter molecules across the synaptic cleft.",
+      "C": "Retrograde transport of signalling endosomes from the terminal back towards the cell body.",
+      "D": "Fast axonal transport of newly synthesised membrane proteins towards the plus ends of the microtubules.",
+      "E": "Movement of mitochondria from the cell body towards the terminal along the plus-end direction."
+    },
+    "correct_answer": "C",
+    "explanation": "The direction a cargo travels is set by which motor carries it and by microtubule polarity. In this axon, plus ends point to the terminal, so minus ends point back to the cell body. Kinesin (plus-end-directed) therefore drives anterograde transport (soma to terminal), while dynein (minus-end-directed) drives retrograde transport (terminal to soma). Inhibiting dynein specifically knocks out minus-end-directed movement, so the retrograde return of materials such as signalling endosomes from the terminal to the cell body fails, while kinesin-based anterograde transport continues.",
+    "option_analysis": {
+      "A": "Wrong: anterograde transport (soma to terminal, towards plus ends) is powered by kinesin, not dynein, so it is unaffected. This encodes the common confusion of the two motors' directions.",
+      "B": "Wrong: neurotransmitter crosses the synaptic cleft by simple diffusion, a process independent of motor proteins and microtubules; it would not be affected by a dynein inhibitor.",
+      "C": "Correct: dynein is the minus-end-directed motor. With plus ends at the terminal, minus ends face the soma, so dynein mediates retrograde (terminal to soma) transport of signalling endosomes, which is exactly what its inhibition impairs.",
+      "D": "Wrong: transport towards the plus ends is carried out by kinesin; dynein moves towards minus ends. Inhibiting dynein does not block plus-end-directed cargo.",
+      "E": "Wrong: movement towards the terminal is the plus-end direction, which is kinesin's territory (anterograde), not dynein's. Same directional confusion as option A."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0028",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cell cycle and its control",
+    "subtopic": "G1/S checkpoint: Rb-E2F control and CDK phosphorylation of Rb",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "cell cycle",
+      "G1/S checkpoint",
+      "restriction point",
+      "retinoblastoma protein",
+      "E2F",
+      "CDK4/6",
+      "cyclin D"
+    ],
+    "learning_objective": "Reason through the double-negative logic of Rb-E2F control to predict the cell-cycle outcome of a non-phosphorylatable Rb mutant.",
+    "question": "During G1, the retinoblastoma protein (Rb) binds and inhibits the transcription factor E2F, which is required to switch on genes needed for S phase. Mitogenic signals activate cyclin D-CDK4/6 complexes, which phosphorylate Rb; phosphorylated Rb releases E2F, allowing passage through the G1/S checkpoint. A researcher engineers cells to express a mutant Rb in which every CDK phosphorylation site has been altered so that the protein can no longer be phosphorylated, and both endogenous (normal) Rb genes are deleted. The mutant Rb still binds E2F normally. What is the most likely behaviour of these cells?",
+    "choices": {
+      "A": "They progress through the cell cycle faster than normal, because Rb can no longer be switched off.",
+      "B": "They become unable to exit mitosis, because E2F is needed to activate the anaphase-promoting complex.",
+      "C": "They arrest in G1 and cannot enter S phase, because E2F remains permanently inhibited.",
+      "D": "They arrest in G2, because Rb phosphorylation is required for entry into mitosis.",
+      "E": "They enter S phase only when cyclin D-CDK4/6 activity is high, just as normal cells do."
+    },
+    "correct_answer": "C",
+    "explanation": "Rb acts as a brake: in its unphosphorylated state it binds E2F and blocks the G1/S transition, and it is normally released only when cyclin D-CDK4/6 phosphorylates it. The mutant Rb can never be phosphorylated, so it is locked in the active, E2F-binding state permanently, and because the normal Rb genes are deleted there is no phosphorylatable copy to relieve the block. E2F therefore stays inhibited no matter how strong the mitogenic signal, S-phase genes are never switched on, and the cells arrest in G1. The item hinges on a double negative: 'cannot be phosphorylated' means 'cannot be inactivated,' i.e. the brake is always on.",
+    "option_analysis": {
+      "A": "Wrong: reverses the logic. 'Rb can no longer be switched off' means the inhibitory brake is permanently engaged, which blocks the cycle rather than accelerating it. This confuses loss-of-function of Rb (which would speed the cycle) with a constitutively active Rb.",
+      "B": "Wrong: fabricates a mechanism. The anaphase-promoting complex is regulated by Cdc20/Cdh1 and the spindle-assembly checkpoint, not by E2F, and Rb-E2F acts at the G1/S boundary rather than at mitotic exit.",
+      "C": "Correct: a non-phosphorylatable Rb stays permanently bound to E2F; with no normal Rb present, E2F can never be released, S-phase genes stay off, and the cells arrest in G1 regardless of mitogenic input.",
+      "D": "Wrong: misplaces the checkpoint. Rb-E2F controls the G1/S transition, so the block occurs in G1, not G2; Rb phosphorylation is not the trigger for mitotic entry.",
+      "E": "Wrong: assumes phosphorylation can still occur. Because the phosphorylation sites are destroyed, raising cyclin D-CDK4/6 activity has no effect on this Rb; E2F stays bound whatever the CDK activity."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0029",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology",
+    "subtopic": "DNA replication fidelity and proofreading",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "DNA replication",
+      "proofreading",
+      "mismatch repair",
+      "mutation rate",
+      "replication fidelity"
+    ],
+    "learning_objective": "Quantify how successive, independent error-correction mechanisms (base selection, 3'->5' proofreading exonuclease and post-replication mismatch repair) combine multiplicatively to set the overall fidelity of DNA replication.",
+    "question": "During DNA replication in a bacterium, the intrinsic base-pairing selectivity of DNA polymerase III inserts an incorrect nucleotide with a frequency of 1 x 10^-5 per base pair. The polymerase's 3'->5' exonuclease (proofreading) activity then lowers this error frequency by a further factor of 10^2, and post-replication mismatch repair lowers it by an additional factor of 10^2. Assuming the three mechanisms act independently, what is the overall frequency of uncorrected errors per base pair per round of replication?",
+    "choices": {
+      "A": "1 x 10^-5",
+      "B": "1 x 10^-7",
+      "C": "1 x 10^-1",
+      "D": "1 x 10^-11",
+      "E": "1 x 10^-9"
+    },
+    "correct_answer": "E",
+    "explanation": "Each mechanism reduces the error frequency by a multiplicative factor, so the frequencies (or their equivalent factors) multiply: (1 x 10^-5) x 10^-2 x 10^-2 = 1 x 10^-9 errors per base pair. This layered strategy - accurate base selection, then proofreading, then mismatch repair - is why the measured spontaneous mutation rate of E. coli is on the order of 10^-9 to 10^-10 per base pair per generation.",
+    "option_analysis": {
+      "A": "Wrong: assumes proofreading and mismatch repair do not change the intrinsic error rate, i.e. that fidelity is fixed by base-pairing selectivity alone.",
+      "B": "Wrong: applies only one of the two correction steps (1 x 10^-5 x 10^-2 = 1 x 10^-7), typically by forgetting that mismatch repair acts as a separate stage after proofreading.",
+      "C": "Wrong: obtained by subtracting the correction exponents from the initial one (-5 - (-2) - (-2) = -1), i.e. treating each error-reduction step as if it raised the error frequency. Reductions must lower it, so this direction is inverted.",
+      "D": "Wrong: over-counts by applying a third factor of 10^-2 (for example by also crediting the initial base selection as a 100-fold 'correction'), giving 1 x 10^-11.",
+      "E": "Correct: the three independent factors multiply, 1 x 10^-5 x 10^-2 x 10^-2 = 1 x 10^-9 per base pair."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0030",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology",
+    "subtopic": "Transcription: identifying the template strand and mRNA polarity",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "transcription",
+      "template strand",
+      "coding strand",
+      "mRNA",
+      "antiparallel",
+      "RNA polymerase"
+    ],
+    "learning_objective": "Deduce an mRNA sequence from a double-stranded gene by using the direction of RNA polymerase movement to identify the template strand and then applying antiparallel complementarity with U replacing T.",
+    "question": "A short region of a bacterial gene is shown below (the diagram is drawn with its left-hand end first):\n\nStrand 1: 5'-G G T A C G A T G C C A-3'\nStrand 2: 3'-C C A T G C T A C G G T-5'\n\nRNA polymerase transcribes this region and the resulting mRNA has its 5' end at the left-hand side of the diagram. Which of the following is the sequence of the mRNA transcript?",
+    "choices": {
+      "A": "5'-GGTACGATGCCA-3'",
+      "B": "5'-CCAUGCUACGGU-3'",
+      "C": "5'-GGUACGAUGCCA-3'",
+      "D": "5'-UGGCAUCGUACC-3'",
+      "E": "5'-ACCGUAGCAUGG-3'"
+    },
+    "correct_answer": "C",
+    "explanation": "Because the mRNA's 5' end is at the left, it is synthesised 5'->3' from left to right, so RNA polymerase reads the template 3'->5' from left to right. The strand whose 3' end lies on the left is Strand 2, which is therefore the template. The transcript is complementary and antiparallel to Strand 2, which makes it identical in base sequence to the coding strand (Strand 1) with uracil replacing thymine: 5'-GGUACGAUGCCA-3'.",
+    "option_analysis": {
+      "A": "Wrong: correct base order but retains thymine. RNA contains uracil, not thymine.",
+      "B": "Wrong: this is the base-by-base complement of the coding strand read in the same left-to-right direction, ignoring the requirement that the transcript be antiparallel to its template.",
+      "C": "Correct: Strand 2 is the template, so the transcript is complementary and antiparallel to it, matching Strand 1 with U for T -> 5'-GGUACGAUGCCA-3'.",
+      "D": "Wrong: Strand 1 was mistakenly used as the template, giving a transcript complementary to the coding strand (equivalent to Strand 2 written as RNA).",
+      "E": "Wrong: correct bases but written in reversed polarity (5' placed on the right); this contradicts the stated position of the transcript's 5' end."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0031",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology",
+    "subtopic": "Nonsense point mutation: classification and protein truncation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "nonsense mutation",
+      "point mutation",
+      "genetic code",
+      "truncated protein",
+      "translation"
+    ],
+    "learning_objective": "Classify a single-nucleotide substitution as silent, missense, nonsense or frameshift and predict its consequence for the polypeptide by applying the genetic code within a fixed reading frame.",
+    "question": "Part of a bacterial mRNA is translated in the reading frame shown:\n\n5'-AUG . ACU . UGG . GAA . UAU-3'\n\nThe relevant codon assignments are: AUG = Met (initiation), ACU = Thr, UGG = Trp, GAA = Glu, UAU = Tyr, UGU/UGC = Cys, UGA = stop. A single base substitution changes the last nucleotide of the third codon from G to A. What is the nature and consequence of this mutation?",
+    "choices": {
+      "A": "Nonsense mutation; the ribosome reads through the signal and adds one extra residue, lengthening the chain.",
+      "B": "Frameshift mutation; every codon downstream of the change is shifted and altered.",
+      "C": "Silent mutation; the polypeptide sequence is unchanged.",
+      "D": "Missense mutation; tryptophan is replaced by cysteine.",
+      "E": "Nonsense mutation; a truncated dipeptide (Met-Thr) is released."
+    },
+    "correct_answer": "E",
+    "explanation": "Changing the third base of UGG from G to A gives UGA, a stop codon. Translation initiates at AUG (Met), incorporates Thr from ACU, then meets UGA and terminates, releasing the dipeptide Met-Thr. The rest of the protein is never synthesised, so this is a nonsense mutation producing a truncated product.",
+    "option_analysis": {
+      "A": "Wrong: a stop codon causes termination, not read-through or elongation. In the absence of a suppressor, a nonsense mutation shortens rather than lengthens the product.",
+      "B": "Wrong: a single base substitution does not move the reading frame; frameshifts arise only from insertions or deletions of nucleotides.",
+      "C": "Wrong: assumes third-base ('wobble') changes are always synonymous. UGG is the only tryptophan codon and has no synonymous single-base neighbour, so no substitution here can be silent.",
+      "D": "Wrong: converting Trp to Cys would require UGG->UGU or UGG->UGC (a change of the third base to U or C); a G->A change produces the stop codon UGA, not a Cys codon. This reflects the assumption that any third-position change gives a conservative amino-acid swap.",
+      "E": "Correct: UGG->UGA is a nonsense mutation; translation halts after Met-Thr, releasing a truncated dipeptide."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0032",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology",
+    "subtopic": "lac operon regulation in a merodiploid (cis/trans test)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "lac operon",
+      "operator-constitutive",
+      "merodiploid",
+      "cis-dominance",
+      "gene regulation",
+      "inducible"
+    ],
+    "learning_objective": "Predict structural-gene expression in a lac-operon partial diploid by distinguishing cis-acting operator mutations (which affect only the linked gene) from the trans-acting, diffusible repressor.",
+    "question": "In the E. coli lac operon, lacI encodes a diffusible repressor, lacO is the operator and lacZ encodes beta-galactosidase. A partial diploid (merodiploid) has the genotype:\n\nI+ Oc Z-  /  I+ O+ Z+\n\nwhere Oc is an operator-constitutive mutation (its operator cannot bind repressor) and Z- encodes an inactive enzyme. Under what condition(s) is functional beta-galactosidase produced?",
+    "choices": {
+      "A": "Only in the presence of inducer.",
+      "B": "Never, under any condition.",
+      "C": "Constitutively, but at approximately half the wild-type level.",
+      "D": "Only in the absence of inducer.",
+      "E": "Constitutively - both in the presence and in the absence of inducer."
+    },
+    "correct_answer": "A",
+    "explanation": "An operator is cis-acting: Oc drives constitutive transcription only of the gene on its own DNA molecule, which here is Z- (inactive), so that copy yields no functional enzyme regardless of inducer. The functional Z+ lies downstream of a normal O+ operator; the diffusible repressor (produced from either I+ gene) binds O+ and keeps Z+ silent unless inducer is present. Therefore functional beta-galactosidase is inducible - made only when inducer is present.",
+    "option_analysis": {
+      "A": "Correct: the only functional gene, Z+, sits behind a normal O+ operator and is controlled by the diffusible repressor, so active enzyme appears only when inducer inactivates that repressor.",
+      "B": "Wrong: overlooks the intact Z+ on the second DNA molecule, which produces active enzyme when the operon is induced.",
+      "C": "Wrong: invokes a gene-dosage 'half-level' argument; the O+ Z+ copy is normally repressible/inducible, not constitutively expressed at any level.",
+      "D": "Wrong: this describes a repressible system in which inducer switches expression off. The lac operon is inducible, so inducer switches it on.",
+      "E": "Wrong: treats Oc as though it were trans-dominant and made the whole cell constitutive. Operator mutations act only in cis, on the gene physically linked to them (here the dead Z-)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0033",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Molecular biology",
+    "subtopic": "Amber (nonsense) suppressor tRNA from an anticodon mutation",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "suppressor tRNA",
+      "anticodon",
+      "genetic code",
+      "antiparallel pairing",
+      "nonsense suppression",
+      "read-through"
+    ],
+    "learning_objective": "Use antiparallel base-pairing to determine the codon recognised by a mutant tRNA from its anticodon, and predict the cellular consequences of a nonsense (amber) suppressor tRNA.",
+    "question": "A tRNA that normally carries tyrosine has the anticodon 3'-A U G-5', which decodes the tyrosine codons 5'-UAC-3' and 5'-UAU-3'. A single base change alters its anticodon to 3'-A U C-5'; the mutant tRNA is still aminoacylated with tyrosine. Which statement best describes the codon now recognised and the consequence for the cell?",
+    "choices": {
+      "A": "It now reads the codon 5'-UAG-3' and inserts tyrosine, suppressing amber (UAG) stop signals; read-through of some normal UAG terminators also produces C-terminally extended proteins.",
+      "B": "The mutation converts a sense codon into a stop codon within every mRNA, truncating all proteins.",
+      "C": "It now reads the codon 5'-GAU-3' and inserts aspartate, causing widespread missense substitutions.",
+      "D": "It can no longer be charged with an amino acid, so translation of all mRNAs stops.",
+      "E": "It now pairs with the codon 5'-AUC-3' (isoleucine), mis-incorporating tyrosine at isoleucine positions."
+    },
+    "correct_answer": "A",
+    "explanation": "The anticodon 3'-A U C-5' base-pairs antiparallel with the codon 5'-U A G-3' (A:U, U:A, C:G). UAG is the amber stop codon, and because the tRNA remains charged with tyrosine it inserts Tyr wherever a UAG is decoded. This is a nonsense (amber) suppressor tRNA: it restores full-length product from genes carrying a premature UAG, and because it competes with release factors it occasionally reads through genuine UAG terminators, giving slightly extended proteins. Cells survive because suppression is inefficient and other tyrosine-tRNA genes still decode true Tyr codons.",
+    "option_analysis": {
+      "A": "Correct: antiparallel pairing gives the codon UAG; still charged with tyrosine, the tRNA suppresses amber stop signals and can extend proteins at normal UAG terminators.",
+      "B": "Wrong: confuses a change in one tRNA gene with a change to the mRNA codons themselves. The DNA and mRNA codons are unaltered - only the decoding of UAG is changed.",
+      "C": "Wrong: derives the codon without reversing polarity (reading the anticodon left-to-right as GAU) and also changes the amino acid; the tRNA still carries tyrosine, not aspartate.",
+      "D": "Wrong: assumes the anticodon is the sole recognition element for charging. Tyrosyl-tRNA synthetase uses other identity determinants, so the mutant tRNA remains aminoacylated (as the stem states).",
+      "E": "Wrong: treats the anticodon sequence as identical to the codon, ignoring complementarity; the true codon is the antiparallel complement UAG, not AUC."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0034",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — cardiovascular",
+    "subtopic": "Cardiac cycle: valve states and phase identification from chamber pressures",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "cardiac cycle",
+      "heart valves",
+      "isovolumetric contraction",
+      "pressure–volume",
+      "cardiovascular physiology"
+    ],
+    "learning_objective": "Determine the phase of the cardiac cycle and the state of the atrioventricular and semilunar valves from simultaneous chamber pressures and the direction of pressure change.",
+    "question": "At one instant during the cardiac cycle in a healthy adult, simultaneous catheter measurements in the left heart give the following pressures: left atrium 8 mmHg, left ventricle 40 mmHg (rising steeply), and aorta 82 mmHg. Which phase of the cardiac cycle is the heart in, and what is the state of the two left-sided valves?",
+    "choices": {
+      "A": "Isovolumetric relaxation; both the mitral valve and the aortic valve are closed.",
+      "B": "Ventricular ejection; the aortic valve is open and the mitral valve is closed.",
+      "C": "Isovolumetric contraction; both the mitral valve and the aortic valve are closed.",
+      "D": "Atrial systole; the mitral valve is open and the aortic valve is closed.",
+      "E": "Rapid ventricular filling; the mitral valve is open and the aortic valve is closed."
+    },
+    "correct_answer": "C",
+    "explanation": "A valve opens only when the pressure upstream exceeds the pressure downstream. The mitral (AV) valve is open only while left atrial pressure exceeds left ventricular pressure; here LV (40 mmHg) exceeds LA (8 mmHg), so the mitral valve is shut. The aortic valve is open only while LV pressure exceeds aortic pressure; here LV (40 mmHg) is below aortic (82 mmHg), so the aortic valve is shut. With both valves closed the ventricular volume is fixed. Because the ventricular pressure is rising steeply, the ventricle is contracting against closed valves — the defining feature of isovolumetric (isovolumic) contraction, the phase between mitral closure and aortic opening.",
+    "option_analysis": {
+      "A": "Wrong: isovolumetric relaxation also has both valves closed, but ventricular pressure would be falling, not rising steeply. Misconception: equating 'both valves closed' with relaxation while ignoring the direction of the pressure change.",
+      "B": "Wrong: ejection requires the aortic valve to be open, i.e. LV pressure above aortic pressure; here LV (40) is far below aortic (82), so no blood is being ejected. Misconception: assuming the ventricle is ejecting whenever its pressure is high or rising, without checking it against aortic pressure.",
+      "C": "Correct: LV (40) > LA (8) closes the mitral valve and LV (40) < aortic (82) keeps the aortic valve shut; with both valves closed and pressure rising steeply the ventricle contracts at constant volume — isovolumetric contraction.",
+      "D": "Wrong: atrial systole occurs late in filling with the mitral valve open and LV pressure only marginally above atrial pressure; an LV pressure of 40 mmHg with the mitral valve necessarily closed excludes it. Misconception: confusing a mid-contraction pressure with the small late-diastolic rise of atrial contraction.",
+      "E": "Wrong: filling needs the mitral valve open, which requires LA pressure above LV pressure; here LV (40) > LA (8), so the mitral valve must be closed. Misconception: assuming the mitral valve is still open simply because ventricular pressure is below aortic pressure."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0035",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — cardiovascular",
+    "subtopic": "Cardiac output and stroke volume by the Fick principle",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "Fick principle",
+      "cardiac output",
+      "stroke volume",
+      "oxygen content",
+      "arterio-venous difference"
+    ],
+    "learning_objective": "Apply the Fick principle to compute cardiac output from oxygen consumption and the arterio-venous oxygen content difference, then derive stroke volume using the given heart rate.",
+    "question": "An endurance athlete is studied at rest. Whole-body oxygen consumption is 250 mL/min, the oxygen content of arterial blood is 200 mL O2 per litre, the oxygen content of mixed venous blood (sampled from the pulmonary artery) is 150 mL O2 per litre, and the heart rate is 50 beats per minute. Using the Fick principle, what is the stroke volume?",
+    "choices": {
+      "A": "25 mL",
+      "B": "71 mL",
+      "C": "100 mL",
+      "D": "200 mL",
+      "E": "50 mL"
+    },
+    "correct_answer": "C",
+    "explanation": "The Fick principle states cardiac output = oxygen consumption ÷ (arterial O2 content − mixed venous O2 content). The arterio-venous difference is 200 − 150 = 50 mL O2 per litre, so cardiac output = 250 mL/min ÷ 50 mL/L = 5 L/min = 5000 mL/min. Stroke volume = cardiac output ÷ heart rate = 5000 mL/min ÷ 50 /min = 100 mL. A stroke volume of 100 mL with a resting heart rate of 50 bpm is physiologically consistent with a trained endurance athlete (large stroke volume, low resting rate).",
+    "option_analysis": {
+      "A": "Wrong: 25 mL comes from dividing oxygen consumption by the arterial content alone (250 ÷ 200 = 1.25 L/min, giving 25 mL). Misconception: using arterial O2 content instead of the arterio-venous difference in the denominator of the Fick equation.",
+      "B": "Wrong: 71 mL comes from ignoring the stated heart rate of 50 and dividing by a textbook 70 bpm (5000 ÷ 70). Misconception: defaulting to a 'normal' resting heart rate instead of the value given for this bradycardic athlete.",
+      "C": "Correct: cardiac output = 250 ÷ (200 − 150) = 5 L/min = 5000 mL/min; stroke volume = 5000 ÷ 50 = 100 mL.",
+      "D": "Wrong: 200 mL results from halving the arterio-venous difference to 25 mL/L, giving a cardiac output of 10 L/min. Misconception: mis-scaling the content difference in the opposite direction.",
+      "E": "Wrong: 50 mL results from doubling the arterio-venous difference to 100 mL/L, giving a cardiac output of 2.5 L/min. Misconception: mis-scaling the O2 content difference (e.g. treating the two contents as differing by 100 rather than 50)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0036",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — respiratory",
+    "subtopic": "Alveolar gas equation and the alveolar–arterial oxygen gradient in hypoventilation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 135,
+    "tags": [
+      "alveolar gas equation",
+      "hypoventilation",
+      "A–a gradient",
+      "respiratory exchange ratio",
+      "gas exchange"
+    ],
+    "learning_objective": "Use the alveolar gas equation with the respiratory exchange ratio and a given alveolar–arterial gradient to predict arterial PO2 during hypoventilation.",
+    "question": "A patient breathing room air (inspired PO2 = 150 mmHg) hypoventilates, and the arterial PCO2 rises to 60 mmHg. Assume a respiratory exchange ratio of 0.8 and a normal alveolar–arterial oxygen difference of 10 mmHg. Using the alveolar gas equation, what is the expected arterial PO2?",
+    "choices": {
+      "A": "90 mmHg",
+      "B": "100 mmHg",
+      "C": "75 mmHg",
+      "D": "65 mmHg",
+      "E": "60 mmHg"
+    },
+    "correct_answer": "D",
+    "explanation": "The alveolar gas equation gives alveolar PO2 = inspired PO2 − (arterial PCO2 ÷ respiratory exchange ratio) = 150 − (60 ÷ 0.8) = 150 − 75 = 75 mmHg. The arterial PO2 is then the alveolar value minus the alveolar–arterial gradient: 75 − 10 = 65 mmHg. This illustrates how hypoventilation (a rising PCO2) directly lowers alveolar and hence arterial PO2 even when the lungs themselves are healthy.",
+    "option_analysis": {
+      "A": "Wrong: 90 mmHg uses a normal PCO2 of 40 (150 − 40/0.8 − 10), ignoring the stated hypoventilation. Misconception: failing to feed the raised CO2 into the alveolar gas equation.",
+      "B": "Wrong: 100 mmHg uses a normal PCO2 of 40 and also omits the A–a gradient (150 − 40/0.8). Misconception: two combined errors — ignoring the CO2 rise and equating alveolar with arterial PO2.",
+      "C": "Wrong: 75 mmHg is the alveolar PO2 and omits subtracting the 10 mmHg alveolar–arterial gradient. Misconception: treating alveolar PO2 as identical to arterial PO2.",
+      "D": "Correct: alveolar PO2 = 150 − 60/0.8 = 75 mmHg; arterial PO2 = 75 − 10 (A–a gradient) = 65 mmHg.",
+      "E": "Wrong: 60 mmHg is simply the given arterial PCO2 reported as if it were the PO2. Misconception: conflating the partial pressures of oxygen and carbon dioxide."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0037",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — respiratory",
+    "subtopic": "Oxygen–haemoglobin dissociation curve and the Bohr effect: quantifying O2 unloading",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "oxygen–haemoglobin curve",
+      "Bohr effect",
+      "oxygen unloading",
+      "haemoglobin",
+      "exercise physiology"
+    ],
+    "learning_objective": "Quantify the additional oxygen unloaded to exercising tissue produced by a Bohr right-shift, using haemoglobin concentration, the oxygen-binding constant and saturation values.",
+    "question": "Blood has a haemoglobin concentration of 150 g/L, and fully saturated haemoglobin carries 1.34 mL of O2 per gram; dissolved O2 is negligible. Arterial blood leaves the lungs 98% saturated. In resting muscle the blood returns 75% saturated. During heavy exercise the Bohr effect (raised CO2, H+ and temperature in the muscle) shifts the dissociation curve so that, at the same tissue PO2, the blood now returns only 40% saturated, while arterial saturation stays at 98%. How much ADDITIONAL O2 (per litre of blood) is unloaded to the muscle during exercise compared with rest?",
+    "choices": {
+      "A": "117 mL/L",
+      "B": "46 mL/L",
+      "C": "70 mL/L",
+      "D": "197 mL/L",
+      "E": "53 mL/L"
+    },
+    "correct_answer": "C",
+    "explanation": "The oxygen capacity of the blood is 150 g/L × 1.34 mL/g = 201 mL O2 per litre. Oxygen unloaded equals capacity × the fall in saturation across the tissue. At rest the fall is 98% − 75% = 23%, giving 0.23 × 201 ≈ 46 mL/L; during exercise it is 98% − 40% = 58%, giving 0.58 × 201 ≈ 117 mL/L. The ADDITIONAL oxygen unloaded is the difference, which depends only on the extra fall in venous saturation caused by the Bohr shift: (75% − 40%) × 201 = 0.35 × 201 ≈ 70 mL/L. The Bohr effect therefore markedly increases oxygen delivery to active tissue without needing any change in arterial saturation.",
+    "option_analysis": {
+      "A": "Wrong: 117 mL/L is the total oxygen unloaded during exercise, (0.98 − 0.40) × 201. Misconception: computing total exercise delivery rather than the increment over rest.",
+      "B": "Wrong: 46 mL/L is the resting oxygen unloading, (0.98 − 0.75) × 201. Misconception: reporting resting extraction instead of the ADDITIONAL amount unloaded during exercise.",
+      "C": "Correct: additional unloading = (resting venous saturation − exercise venous saturation) × capacity = (0.75 − 0.40) × (150 × 1.34) = 0.35 × 201 ≈ 70 mL/L.",
+      "D": "Wrong: 197 mL/L is the arterial oxygen content, 0.98 × 201. Misconception: reporting the oxygen carried by arterial blood instead of the amount released to the tissue.",
+      "E": "Wrong: 53 mL/L multiplies the 0.35 saturation change by 150 g/L but omits the 1.34 mL O2/g binding constant. Misconception: leaving out haemoglobin's oxygen-carrying constant, so the capacity is understated."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0038",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — respiratory",
+    "subtopic": "Chemical control of ventilation: oxygen-induced hypercapnia in chronic CO2 retention",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "chemical control of ventilation",
+      "peripheral chemoreceptors",
+      "hypoxic drive",
+      "Haldane effect",
+      "ventilation–perfusion",
+      "COPD"
+    ],
+    "learning_objective": "Integrate peripheral chemoreceptor drive, hypoxic pulmonary vasoconstriction and the Haldane effect to explain oxygen-induced hypercapnia in a patient with chronic carbon-dioxide retention.",
+    "question": "A patient with long-standing chronic obstructive pulmonary disease has an arterial PCO2 of 60 mmHg, PO2 of 50 mmHg and pH 7.36 (near-normal owing to renal compensation). He is given 60% inspired oxygen. Over the next 30 minutes his arterial PCO2 rises to 80 mmHg and he becomes drowsy. Which combination of mechanisms best explains the rise in PCO2?",
+    "choices": {
+      "A": "Oxygen constricts the pulmonary vessels, increasing physiological dead space, while oxygenated haemoglobin simultaneously binds and carries far more carbon dioxide.",
+      "B": "High inspired oxygen directly stimulates the central chemoreceptors, which then depress the medullary respiratory centre and lower alveolar ventilation.",
+      "C": "Loss of hypoxic drive at the peripheral chemoreceptors combines with worsened ventilation–perfusion matching from released hypoxic pulmonary vasoconstriction and with the Haldane effect.",
+      "D": "The high oxygen produces a respiratory alkalosis that shifts the oxygen–haemoglobin curve leftward and thereby impairs carbon-dioxide transport in the blood.",
+      "E": "Correcting the hypoxia withdraws drive from the central chemoreceptors, which are the body's principal sensors of a low arterial PO2, so ventilation falls."
+    },
+    "correct_answer": "C",
+    "explanation": "In chronic CO2 retention the central chemoreceptors have been reset by compensating bicarbonate, so a substantial part of the ventilatory drive comes from the hypoxic stimulus at the peripheral (carotid body) chemoreceptors. Giving high inspired oxygen has three converging effects that raise PCO2: (1) it abolishes the hypoxic drive, reducing minute ventilation; (2) it reverses hypoxic pulmonary vasoconstriction, so perfusion is redistributed to poorly ventilated alveoli, worsening ventilation–perfusion matching and increasing dead-space ventilation; and (3) through the Haldane effect, oxygenating haemoglobin lowers its affinity for CO2, displacing CO2 into the plasma and raising the measured PCO2. Only central chemoreceptors are reset; oxygen is sensed peripherally, not centrally.",
+    "option_analysis": {
+      "A": "Wrong: it is the RELEASE, not the constriction, of hypoxic pulmonary vasoconstriction that worsens V/Q matching, and oxygenated haemoglobin binds LESS CO2 (the Haldane effect), not more. Misconception: reversing the direction of both hypoxic pulmonary vasoconstriction and the Haldane effect.",
+      "B": "Wrong: the central chemoreceptors sense CO2/H+, not oxygen, and are not 'stimulated' or directly depressed by a high inspired PO2. Misconception: treating the central chemoreceptors as oxygen sensors that can be switched off by O2.",
+      "C": "Correct: high FIO2 removes the hypoxic stimulus at the carotid bodies (reducing ventilation), reverses hypoxic pulmonary vasoconstriction (worsening V/Q matching and dead space), and via the Haldane effect displaces CO2 from oxygenated haemoglobin — together raising the arterial PCO2.",
+      "D": "Wrong: high inspired oxygen does not cause a respiratory alkalosis, and a leftward curve shift concerns oxygen binding, not the reason PCO2 climbs. Misconception: inventing an alkalosis and misapplying the oxygen dissociation curve to carbon-dioxide transport.",
+      "E": "Wrong: a low PaO2 is detected by the peripheral chemoreceptors, not the central ones, so it cannot be the central chemoreceptors whose oxygen drive is withdrawn. Misconception: assigning oxygen sensing to the central chemoreceptors."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0039",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics",
+    "subtopic": "Hardy–Weinberg equilibrium for an X-linked recessive allele (male vs female incidence)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "genetics",
+      "hardy-weinberg",
+      "X-linked",
+      "population genetics",
+      "allele frequency"
+    ],
+    "learning_objective": "Apply Hardy–Weinberg reasoning to an X-linked locus, distinguishing hemizygous male incidence (q) from homozygous female incidence (q²) and from carrier frequency (2pq).",
+    "question": "An X-linked recessive metabolic disorder affects 8% of the males in a large, randomly mating population that is at Hardy–Weinberg equilibrium for the locus. Assuming the recessive allele has the same frequency in both sexes, what percentage of the females in this population are expected to be affected by the disorder?",
+    "choices": {
+      "A": "About 14.7%",
+      "B": "About 8%",
+      "C": "About 0.64%",
+      "D": "About 4%",
+      "E": "About 16%"
+    },
+    "correct_answer": "C",
+    "explanation": "A male is hemizygous, so he shows the recessive phenotype whenever he carries the single allele; therefore the frequency of affected males equals the recessive allele frequency, q = 0.08. A female is affected only if she is homozygous for the allele, which occurs with probability q² = (0.08)² = 0.0064, i.e. about 0.64%. The key is to separate three distinct quantities at an X-linked locus: male incidence (q), affected-female incidence (q²), and carrier-female frequency (2pq).",
+    "option_analysis": {
+      "A": "Wrong: 2pq = 2(0.92)(0.08) ≈ 0.147 is the frequency of heterozygous CARRIER females, who are unaffected. This confuses the carrier frequency with the affected-female frequency.",
+      "B": "Wrong: applies the male incidence q directly to females. This ignores that a female needs two copies of the recessive allele, so her risk is q² (0.0064), not q (0.08) — the classic error of treating the sexes symmetrically at an X-linked locus.",
+      "C": "Correct: males express the allele hemizygously, so q = frequency of affected males = 0.08; a female is affected only when homozygous, with probability q² = 0.08² = 0.0064 ≈ 0.64%.",
+      "D": "Wrong: halves the male frequency (q/2 = 0.04), wrongly assuming females are simply 'half as likely' because they carry a second X. The correct relationship between female and male incidence for an X-linked recessive is q² versus q, not q/2.",
+      "E": "Wrong: doubles the male frequency (2q = 0.16). Doubling the allele frequency has no genetic justification; it confuses allele dosage with the probability of the homozygous genotype."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0040",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics",
+    "subtopic": "Linkage: predicting a recessive class from a coupling-phase dihybrid intercross using recombination frequency",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "genetics",
+      "linkage",
+      "recombination",
+      "gametes",
+      "product rule"
+    ],
+    "learning_objective": "Convert a recombination frequency into gamete-class frequencies for a coupling-phase dihybrid and combine them with the product rule to predict offspring proportions in an intercross (not a testcross).",
+    "question": "In a certain plant, the gene for flower colour (P = purple, dominant to p = white) and the gene for pollen shape (L = long, dominant to l = round) are linked, 20 map units apart. A plant heterozygous at both loci, with the two dominant alleles on one homologue and the two recessive alleles on the other (arrangement PL / pl), is crossed with a genetically identical plant (also PL / pl). What proportion of the offspring are expected to be white-flowered with round pollen (genotype pp ll)?",
+    "choices": {
+      "A": "0.01",
+      "B": "0.04",
+      "C": "0.16",
+      "D": "0.0625",
+      "E": "0.32"
+    },
+    "correct_answer": "C",
+    "explanation": "A recombination frequency of 20 map units means 20% of gametes are recombinant, split equally between the two recombinant classes (Pl = 0.10, pL = 0.10), and 80% are parental, split equally between the two parental classes (PL = 0.40, pl = 0.40). In the coupling (cis) arrangement PL/pl, the pl gamete is PARENTAL, with frequency 0.40. A pp ll offspring requires a pl gamete from each parent, so the proportion is 0.40 × 0.40 = 0.16.",
+    "option_analysis": {
+      "A": "Wrong: uses the single-class recombinant frequency (0.10) as though pl were a recombinant gamete: 0.10 × 0.10 = 0.01. In the cis arrangement pl is a parental gamete (0.40), not a recombinant one.",
+      "B": "Wrong: treats the total recombination frequency (0.20) as the frequency of the pl gamete, giving 0.20 × 0.20 = 0.04. But 0.20 is the combined recombinant fraction; each recombinant class is 0.10 and each parental class 0.40.",
+      "C": "Correct: in coupling the pl gamete is parental with frequency (1 − 0.20)/2 = 0.40; two such gametes must unite, so P(pp ll) = 0.40 × 0.40 = 0.16.",
+      "D": "Wrong: 1/16 = 0.0625 assumes the genes assort independently. That would give a pl gamete frequency of 1/4 and pp ll offspring of (1/4)² = 1/16, ignoring the linkage that raises the parental-gamete frequency.",
+      "E": "Wrong: doubles the correct value (2 × 0.16 = 0.32), as if there were two independent routes to pp ll. Only one gamete combination produces pp ll (pl × pl), so no doubling is warranted."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0041",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics",
+    "subtopic": "Deducing the mode of inheritance from sex-specific transmission patterns in a pedigree",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "genetics",
+      "pedigree",
+      "X-linked dominant",
+      "inheritance patterns",
+      "sex linkage"
+    ],
+    "learning_objective": "Distinguish autosomal, X-linked (dominant/recessive) and mitochondrial inheritance from sex-specific transmission patterns in a multigenerational pedigree.",
+    "question": "A geneticist studies a large family spanning four generations. The following observations hold consistently throughout the pedigree: the trait appears in every generation; every affected father has affected daughters — all of his daughters are affected — but none of his sons are affected; affected mothers transmit the trait to approximately half of their sons and half of their daughters. Which mode of inheritance best explains this pattern?",
+    "choices": {
+      "A": "Mitochondrial (maternal) inheritance",
+      "B": "X-linked dominant",
+      "C": "Autosomal dominant",
+      "D": "Autosomal recessive",
+      "E": "X-linked recessive"
+    },
+    "correct_answer": "B",
+    "explanation": "The decisive clue is the behaviour of affected fathers: they transmit the trait to ALL of their daughters and to NONE of their sons. An affected father who is X^A Y passes his X (carrying the dominant allele) to every daughter and his Y to every son, so all daughters are affected and no sons are. An affected heterozygous mother (X^A X) passes the allele to about half of her children of either sex. This is the signature of X-linked dominant inheritance.",
+    "option_analysis": {
+      "A": "Wrong: mitochondrial traits are transmitted only through the mother, so affected fathers would have NO affected children at all. Here affected fathers transmit to every daughter, which rules out maternal inheritance.",
+      "B": "Correct: an affected father is X^A Y, so he gives X^A to all daughters (all affected) and his Y to all sons (none affected); an affected heterozygous mother transmits to ~½ of children of either sex. Every observation fits X-linked dominant inheritance.",
+      "C": "Wrong: an autosomal dominant allele is transmitted to sons and daughters with equal frequency, so an affected father would have some affected sons. The complete absence of affected sons from affected fathers, combined with all daughters affected, excludes autosomal inheritance.",
+      "D": "Wrong: an autosomal recessive trait typically skips generations and appears horizontally (in siblings born to unaffected parents). Here the trait appears in every generation and is transmitted vertically, which is incompatible with recessive inheritance.",
+      "E": "Wrong: for an X-linked recessive trait an affected father (X^a Y) would not make all daughters affected unless the mother were also affected/carrier, and the trait would generally skip generations and appear mainly in males — the opposite of the pattern described."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0042",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics",
+    "subtopic": "Trihybrid self-cross: applying the product rule to homozygosity across independent loci",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "genetics",
+      "trihybrid",
+      "product rule",
+      "independent assortment",
+      "homozygosity"
+    ],
+    "learning_objective": "Use the product rule across independently assorting loci and correctly interpret 'homozygous' as including both homozygous-dominant and homozygous-recessive states.",
+    "question": "In pea plants, three genes assort independently. A plant of genotype AaBbCc is self-pollinated. What fraction of the resulting offspring are expected to be homozygous at all three loci?",
+    "choices": {
+      "A": "1/8",
+      "B": "1/64",
+      "C": "1/2",
+      "D": "1/4",
+      "E": "27/64"
+    },
+    "correct_answer": "A",
+    "explanation": "For a single heterozygous locus (Aa × Aa), the offspring are 1/4 AA : 1/2 Aa : 1/4 aa, so the probability of being homozygous (AA or aa) is 1/4 + 1/4 = 1/2. Because the three loci assort independently, apply the product rule: P(homozygous at all three) = (1/2) × (1/2) × (1/2) = 1/8. The essential subtlety is that 'homozygous' includes both AA and aa.",
+    "option_analysis": {
+      "A": "Correct: at each locus P(homozygous) = P(AA) + P(aa) = 1/4 + 1/4 = 1/2; with independent assortment, P(homozygous at all three loci) = (1/2)³ = 1/8.",
+      "B": "Wrong: 1/64 = (1/4)³ counts only the fully recessive genotype aabbcc, treating 'homozygous' as 'homozygous recessive' and omitting the AA homozygotes at each locus.",
+      "C": "Wrong: 1/2 is the per-locus probability of homozygosity for a single gene; it omits the product rule across the three independent loci.",
+      "D": "Wrong: 1/4 = (1/2)² accounts for only two of the three loci, failing to extend the product rule to the third independent locus.",
+      "E": "Wrong: 27/64 = (3/4)³ is the probability of showing the dominant phenotype at all three loci — a phenotype question — not the probability of genotypic homozygosity."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0043",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics",
+    "subtopic": "Complementary (9:7) gene interaction with conditional genotype probability",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "genetics",
+      "epistasis",
+      "complementary genes",
+      "conditional probability",
+      "dihybrid ratio"
+    ],
+    "learning_objective": "Interpret a modified dihybrid ratio arising from complementary (duplicate recessive) epistasis and compute a conditional genotype probability within a phenotypic class.",
+    "question": "Two pure-breeding white-flowered varieties of sweet pea are crossed and produce an F1 that is entirely purple-flowered. When the F1 is self-pollinated, the F2 segregates 9 purple : 7 white. Purple pigment forms only when at least one dominant allele is present at BOTH of two independently assorting genes, A and B; every other genotype is white. Among the white-flowered F2 plants, what proportion are expected to be homozygous recessive at both loci (genotype aabb)?",
+    "choices": {
+      "A": "3/7",
+      "B": "1/16",
+      "C": "1/7",
+      "D": "7/16",
+      "E": "1/4"
+    },
+    "correct_answer": "C",
+    "explanation": "In the F2, purple (A_B_) plants make up 9/16 and white plants make up 7/16, split as aaB_ = 3/16, A_bb = 3/16, and aabb = 1/16. The question asks for a conditional proportion: among the white plants only, what fraction are aabb? This equals P(aabb) / P(white) = (1/16) / (7/16) = 1/7.",
+    "option_analysis": {
+      "A": "Wrong: 3/7 is the fraction of white plants belonging to one single-recessive class (aaB_ or A_bb), i.e. (3/16)/(7/16). It corresponds to a single-recessive class, not the double-recessive aabb class.",
+      "B": "Wrong: 1/16 is the unconditional probability of aabb among ALL F2 plants. The question restricts attention to white plants, so one must divide by the total white fraction (7/16).",
+      "C": "Correct: of the 16 equally likely F2 genotypic units, 7 are white and exactly 1 of those is aabb, so the conditional proportion is (1/16)/(7/16) = 1/7.",
+      "D": "Wrong: 7/16 is the overall proportion of white plants in the F2, not the fraction of the white plants that are aabb. It answers a different question and omits the required conditioning.",
+      "E": "Wrong: 1/4 is P(aa) at a single locus; it ignores the second locus and the conditioning on the white phenotype entirely."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch02",
+    "review_status": "accepted"
+  }
+]

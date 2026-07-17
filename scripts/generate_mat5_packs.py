@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 5th Grade Mathematics question bank for BrainBuddy.
+"""Generate 5th Grade Mathematics question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
-BrainBuddy Question Design Standard: yorum, çok adımlı işlem, gerçek hayat senaryosu.
+EDUmio Question Design Standard: yorum, çok adımlı işlem, gerçek hayat senaryosu.
 """
 import json
 import random
@@ -44,7 +44,7 @@ def q(id_val, stem, options, answer_index, difficulty, qtype, topic, skills, exp
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "mat",
@@ -142,7 +142,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "mat",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_mat5_pack_{pi+1:03d}.json"

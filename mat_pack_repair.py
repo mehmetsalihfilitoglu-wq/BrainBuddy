@@ -146,7 +146,7 @@ def normalize_schema(q: dict) -> dict:
     if not skills or not any((str(s) or "").strip() for s in skills):
         out["skills"] = out.get("skills") or ["problem_cozme"]
     if not (out.get("source") or "").strip():
-        out["source"] = out.get("source") or "brainbuddy"
+        out["source"] = out.get("source") or "edumio"
     if not (out.get("sourceRef") or "").strip():
         src_ref = out.get("sourceRef") or f"repair-{hash(stem) % 100000}"
         out["sourceRef"] = str(src_ref)

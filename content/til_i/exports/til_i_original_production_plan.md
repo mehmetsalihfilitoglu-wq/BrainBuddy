@@ -1,6 +1,6 @@
 # TIL-I Original Question Production Plan
 
-**Goal:** an isolated, production-ready TIL-I original question bank (`examProfile: "TIL_I"`), mirroring the frozen-official + original-bank architecture proven on IMAT. Built **after** official extraction, seeded separately, never blended with IMAT / Mioitalia / CEnT-S.
+**Goal:** an isolated, production-ready TIL-I original question bank (`examProfile: "TIL_I"`), mirroring the frozen-official + original-bank architecture proven on IMAT. Built **after** official extraction, seeded separately, never blended with IMAT / EDUmio / CEnT-S.
 
 ## 1. Target composition (weighted to the real TIL-I exam)
 
@@ -41,7 +41,7 @@ Do not reproduce, number-swap, or lightly reskin any official TIL-I/mock item. S
 
 When producing TIL-I originals, tag those with cross-exam value `sharedCandidate: true` + `"shared_candidate_cents_s"`: general **logic**, **reading comprehension**, and **exam-agnostic quantitative word problems**. Physics/CS/Representation stay TIL-I-only until a CEnT-S syllabus is provided. **No CEnT-S export happens from the TIL-I bank** — a shared item is later copied as a separate `cents_s_...` record.
 
-## 6. Pipeline (reuse the IMAT/Mioitalia machinery)
+## 6. Pipeline (reuse the IMAT/EDUmio machinery)
 
 1. Editorial batches (~50), topic-steered per the taxonomy, rotating subtopics via an avoid-list.
 2. Generate → **independent adversarial verify** (re-solve each from scratch) → dedup vs official + prior originals (Jaccard) → hand-verify every quantitative answer → assemble → build asset → seed-version bump → build → commit → report.

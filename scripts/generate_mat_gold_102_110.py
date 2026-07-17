@@ -71,7 +71,7 @@ def make_pack(pack_num, questions):
         "version": 1,
         "mode": "LGS",
         "subject": "mat",
-        "publisher": "brainbuddy",
+        "publisher": "edumio",
         "questions": [
             {
                 "difficulty": q["difficulty"],
@@ -83,7 +83,7 @@ def make_pack(pack_num, questions):
                 "answerIndex": q["answerIndex"],
                 "explanation": q["explanation"],
                 "imageAsset": None,
-                "source": "brainbuddy_premium",
+                "source": "edumio_premium",
                 "sourceRef": f"gold{pack_num}_q{i:02d}",
                 "subject": "mat"
             }

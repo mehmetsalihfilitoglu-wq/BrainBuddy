@@ -1,0 +1,787 @@
+[
+  {
+    "id": "mio_bio_0064",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and population genetics",
+    "subtopic": "Natural selection: relative fitness and the selection coefficient",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "evolution",
+      "natural selection",
+      "relative fitness",
+      "selection coefficient",
+      "directional selection"
+    ],
+    "learning_objective": "Convert genotype survival data into relative fitnesses and calculate the selection coefficient acting against a genotype.",
+    "question": "In a large, randomly mating population of a beetle, a single autosomal locus has two alleles, B and b. A visually hunting predator removes prey before reproduction. Over one generation the proportions of each genotype that survive to reproduce are measured as: BB 90%, Bb 90%, bb 45%. Assuming these survival differences are the only source of fitness variation, what is the selection coefficient (s) acting against the bb genotype, taking the fittest genotype as the reference (relative fitness = 1)?",
+    "choices": {
+      "A": "0.10",
+      "B": "0.55",
+      "C": "0.50",
+      "D": "0.45",
+      "E": "0.90"
+    },
+    "correct_answer": "C",
+    "explanation": "Fitness must be expressed relative to the fittest genotype, not as an absolute survival proportion. The survival values are BB 0.90, Bb 0.90, bb 0.45; dividing each by the maximum (0.90) gives relative fitnesses of 1, 1 and 0.50. The selection coefficient against a genotype is s = 1 - (its relative fitness) = 1 - 0.50 = 0.50. Because heterozygotes are as fit as the dominant homozygote, this is directional selection against the recessive homozygote only, so the b allele is removed slowly (only when homozygous).",
+    "option_analysis": {
+      "A": "Wrong: computes 1 - 0.90 = 0.10, the selection coefficient against the BB/Bb genotypes; it treats the absolute survival of the fittest genotype as though it were a relative fitness and finds s for the wrong genotype.",
+      "B": "Wrong: takes the absolute mortality of bb (1 - 0.45 = 0.55) as the selection coefficient, failing to scale fitness relative to the fittest genotype (0.90) before subtracting from 1.",
+      "C": "Correct: relative fitness of bb = 0.45/0.90 = 0.50, so s = 1 - 0.50 = 0.50.",
+      "D": "Wrong: reports bb's raw survival proportion (0.45) as the selection coefficient, confusing survival (relative fitness) with s, which is 1 - relative fitness.",
+      "E": "Wrong: reports the survival/relative fitness of the fittest genotype (0.90) instead of the selection coefficient against bb."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0065",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and population genetics",
+    "subtopic": "Hardy-Weinberg deviation: inbreeding coefficient (fixation index F) from heterozygote deficiency",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "evolution",
+      "Hardy-Weinberg deviation",
+      "inbreeding coefficient",
+      "fixation index",
+      "heterozygote deficiency"
+    ],
+    "learning_objective": "Detect and quantify deviation from Hardy-Weinberg proportions using the fixation index F to infer inbreeding.",
+    "question": "A botanist genotypes 400 individuals of a self-compatible plant at a single codominant locus and obtains: AA = 180, Aa = 40, aa = 180. Using the observed and expected heterozygote frequencies, calculate the inbreeding coefficient (fixation index) F = (H_exp - H_obs)/H_exp for this sample.",
+    "choices": {
+      "A": "0.10",
+      "B": "0.80",
+      "C": "0.20",
+      "D": "0.40",
+      "E": "0.50"
+    },
+    "correct_answer": "B",
+    "explanation": "First find the allele frequencies: p(A) = (2x180 + 40)/800 = 400/800 = 0.5, so q(a) = 0.5. Under Hardy-Weinberg the expected heterozygote frequency is H_exp = 2pq = 2(0.5)(0.5) = 0.50. The observed heterozygote frequency is H_obs = 40/400 = 0.10. Therefore F = (H_exp - H_obs)/H_exp = (0.50 - 0.10)/0.50 = 0.80. A large positive F signals a strong deficiency of heterozygotes relative to Hardy-Weinberg expectation, exactly what non-random mating by self-fertilisation (inbreeding) produces; F ranges from 0 (random mating) to 1 (complete inbreeding).",
+    "option_analysis": {
+      "A": "Wrong: reports the observed heterozygote frequency itself (40/400 = 0.10), mistaking H_obs for the fixation index.",
+      "B": "Correct: F = (0.50 - 0.10)/0.50 = 0.80, a strong heterozygote deficiency consistent with inbreeding (selfing).",
+      "C": "Wrong: computes the ratio H_obs/H_exp = 0.10/0.50 = 0.20 rather than 1 - H_obs/H_exp; this is the fraction of expected heterozygosity that remains, not F.",
+      "D": "Wrong: gives the raw heterozygote deficit H_exp - H_obs = 0.50 - 0.10 = 0.40 without dividing by H_exp, so the result is not the dimensionless fixation index.",
+      "E": "Wrong: reports the expected heterozygosity 2pq = 0.50 rather than computing the deviation of the observed value from it."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0066",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and population genetics",
+    "subtopic": "Interpreting a phylogenetic tree: synapomorphy versus homoplasy (convergent evolution)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "evolution",
+      "phylogenetics",
+      "cladogram",
+      "synapomorphy",
+      "homoplasy",
+      "monophyly"
+    ],
+    "learning_objective": "Map character states onto a phylogeny to distinguish shared derived characters (synapomorphies) from homoplasy.",
+    "question": "A rooted phylogeny of four extant species has the topology ((W, X), (Y, Z)): W and X form one clade, Y and Z form a sister clade, and a distantly related species S is the outgroup that branches basally to all four. Assuming this tree is correct and that each character has a single evolutionary origin unless the data force otherwise, which of the following character distributions can ONLY be explained by two independent origins (i.e. homoplasy / convergent evolution) rather than by a single shared derived character inherited from a common ancestor?",
+    "choices": {
+      "A": "A character present in X and Y only",
+      "B": "A character present in W and X only",
+      "C": "A character present in Y and Z only",
+      "D": "A character present in Z only",
+      "E": "A character present in W, X, Y and Z but absent from the outgroup S"
+    },
+    "correct_answer": "A",
+    "explanation": "A shared character maps to a single origin only if the species that possess it form a clade (monophyletic group) on the tree. On ((W,X),(Y,Z)) with outgroup S, the sets {W,X}, {Y,Z}, {W,X,Y,Z} and {Z} are each monophyletic, so each can arise once in the appropriate ancestral lineage. The set {X, Y} is not monophyletic: X and Y sit in different sister clades, and their most recent common ancestor is the ancestor of the entire ingroup, which is also ancestral to W and Z. A single origin in that ancestor would therefore predict the character in W and Z as well. Presence in X and Y alone must instead be explained by two independent origins (convergence) or one origin plus losses, i.e. homoplasy.",
+    "option_analysis": {
+      "A": "Correct: X and Y lie in different sister clades, so their most recent common ancestor is also ancestral to W and Z; a single origin would predict the trait in W and Z too, forcing two independent origins (homoplasy).",
+      "B": "Wrong: {W, X} is a clade, so the character can arise once in their common ancestor as a valid synapomorphy; this misidentifies a single-origin trait as convergence.",
+      "C": "Wrong: {Y, Z} is a clade, so one origin in their common ancestor fully explains the distribution with no convergence required.",
+      "D": "Wrong: a character unique to one species (an autapomorphy) arises once on that terminal branch and never requires convergence.",
+      "E": "Wrong: {W, X, Y, Z} is the monophyletic ingroup, so a single origin on the stem lineage after divergence from S accounts for it; this mistakes a deep synapomorphy for convergence."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0067",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and population genetics",
+    "subtopic": "Molecular clock: divergence-time estimation with substitutions on both lineages",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "evolution",
+      "molecular clock",
+      "phylogenetics",
+      "sequence divergence",
+      "divergence time"
+    ],
+    "learning_objective": "Estimate divergence time from sequence divergence using a molecular clock, correctly accounting for substitutions on both lineages.",
+    "question": "A neutrally evolving gene accumulates substitutions at an approximately constant rate of 1.5 x 10^-9 substitutions per nucleotide site per year on EACH lineage. Two present-day species, P and Q, that descend from a single common ancestor differ at 4.5% of the aligned nucleotide sites in this gene. Treating every differing site as one substitution and ignoring multiple hits and back-mutation, estimate the time since P and Q last shared a common ancestor.",
+    "choices": {
+      "A": "7.5 million years",
+      "B": "30 million years",
+      "C": "60 million years",
+      "D": "22.5 million years",
+      "E": "15 million years"
+    },
+    "correct_answer": "E",
+    "explanation": "Since P and Q diverged, substitutions have been accumulating independently along BOTH descendant lineages. If each lineage evolves at rate r, the observed pairwise divergence after time t is D = 2rt. Solving for t: t = D/(2r) = 0.045/(2 x 1.5 x 10^-9) = 0.045/(3.0 x 10^-9) = 1.5 x 10^7 years = 15 million years. The most common error is to divide the observed divergence by r alone (t = D/r), which double-counts nothing but forgets that the change is spread over two lineages, giving an answer twice too large (30 million years).",
+    "option_analysis": {
+      "A": "Wrong: divides by 4r (0.045/(6 x 10^-9) = 7.5 My), applying the two-lineage correction twice - both halving the divergence and using 2r - so the factor of two is double-counted.",
+      "B": "Wrong: treats all observed substitutions as though they accumulated along a single lineage (t = D/r = 0.045/(1.5 x 10^-9)), ignoring that both lineages have been diverging since the common ancestor.",
+      "C": "Wrong: multiplies rather than divides by the factor of two (t = 2D/r), mistakenly assuming that 'two lineages' means the estimated time must be doubled.",
+      "D": "Wrong: uses a combined rate of about 2 x 10^-9 (sloppily doubling 1.5 x 10^-9 to 2 x 10^-9) instead of the correct 3 x 10^-9, an arithmetic slip in forming 2r.",
+      "E": "Correct: substitutions accumulate on both lineages, so D = 2rt and t = 0.045/(2 x 1.5 x 10^-9) = 1.5 x 10^7 = 15 million years."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0068",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Trophic energy transfer: gross production efficiency from a complete energy budget (ingestion, egestion, assimilation, respiration)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "ecology",
+      "energy flow",
+      "trophic efficiency",
+      "ecological energetics",
+      "food chains"
+    ],
+    "learning_objective": "Calculate the fraction of ingested energy that becomes production available to the next trophic level, correctly distinguishing ingestion, egestion, assimilation and respiratory loss.",
+    "question": "A population of caterpillars feeding on oak leaves has the following annual energy budget per square metre of woodland floor: energy ingested = 1000 kJ; energy lost in faeces = 400 kJ; and 75% of the assimilated energy is subsequently lost as respiratory heat. Expressed as a percentage of the energy the caterpillars ingest, how much energy becomes production available to organisms at the next trophic level?",
+    "choices": {
+      "A": "40%",
+      "B": "15%",
+      "C": "45%",
+      "D": "25%",
+      "E": "60%"
+    },
+    "correct_answer": "B",
+    "explanation": "Work through the budget in order. Assimilation = ingestion − egestion (faeces) = 1000 − 400 = 600 kJ. Respiratory loss = 75% of assimilation = 0.75 × 600 = 450 kJ. Production (energy stored as new biomass, i.e. what is available to predators) = assimilation − respiration = 600 − 450 = 150 kJ. As a fraction of ingestion this is 150/1000 = 15%. The key discipline is choosing the correct denominator (ingestion, not assimilation) and applying the respiratory percentage to the assimilated energy rather than to the total ingested energy.",
+    "option_analysis": {
+      "A": "Wrong: 400/1000 is simply the egested (faecal) fraction of ingestion. This confuses the energy lost in faeces with the energy retained as production.",
+      "B": "Correct: assimilation = 1000 − 400 = 600 kJ; respiration = 0.75 × 600 = 450 kJ; production = 600 − 450 = 150 kJ; 150/1000 = 15%.",
+      "C": "Wrong: 450/1000 is the respiratory loss as a fraction of ingestion. This reports the energy dissipated as heat rather than the energy retained as production.",
+      "D": "Wrong: 150/600 is the net (tissue) production efficiency, which uses assimilation as the denominator. The question asks for production as a fraction of ingested energy, so the denominator must be 1000 kJ, not 600 kJ.",
+      "E": "Wrong: 600/1000 is the assimilation efficiency (assimilation ÷ ingestion). This mistakes the energy taken up across the gut wall for the energy actually converted into new biomass, ignoring the large respiratory loss."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0069",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Ecological pyramids: reconciling an inverted biomass pyramid with an upright energy pyramid using biomass turnover",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "ecology",
+      "ecological pyramids",
+      "biomass",
+      "productivity",
+      "turnover",
+      "trophic efficiency"
+    ],
+    "learning_objective": "Convert standing-crop biomass and turnover rate into production, and use production (not standing biomass) to compute trophic-transfer efficiency in an aquatic system with an inverted biomass pyramid.",
+    "question": "In a lake, the phytoplankton have a standing biomass of 10 g m⁻² and are completely replaced 50 times per year, whereas the zooplankton that graze on them have a standing biomass of 20 g m⁻² and are replaced 5 times per year. The standing-crop biomass therefore forms an inverted pyramid. Using these data, what is the ecological (trophic-transfer) efficiency between the phytoplankton and the zooplankton?",
+    "choices": {
+      "A": "50%",
+      "B": "20%",
+      "C": "4%",
+      "D": "200%",
+      "E": "10%"
+    },
+    "correct_answer": "B",
+    "explanation": "Ecological efficiency must be based on production (the rate at which biomass is generated), not on the standing crop present at any instant. Annual production = standing biomass × turnover rate. Phytoplankton production = 10 × 50 = 500 g m⁻² yr⁻¹; zooplankton production = 20 × 5 = 100 g m⁻² yr⁻¹. Efficiency = 100/500 = 20%. This is exactly why an inverted pyramid of standing biomass (20 g of zooplankton sitting on only 10 g of phytoplankton) is compatible with a normal, upright pyramid of energy: the phytoplankton have a very high turnover, so their small standing crop supports a much larger annual production than the slower-turnover zooplankton.",
+    "option_analysis": {
+      "A": "Wrong: 10/20 = 50% uses the ratio of standing biomasses (producer/consumer). It treats standing crop as if it were energy flow and ignores turnover entirely.",
+      "B": "Correct: phytoplankton production = 10 × 50 = 500 g m⁻² yr⁻¹; zooplankton production = 20 × 5 = 100 g m⁻² yr⁻¹; efficiency = 100/500 = 20%.",
+      "C": "Wrong: 20/500 = 4% mixes the two measures inconsistently, converting the producer to a production rate (500) but leaving the consumer as a standing biomass (20). Both trophic levels must be expressed as production.",
+      "D": "Wrong: 20/10 = 200% uses the standing-biomass ratio in the consumer/producer direction. Besides ignoring turnover, an efficiency exceeding 100% is physically impossible and should signal that standing biomass is the wrong quantity to use.",
+      "E": "Wrong: this applies the textbook '10% rule' by rote instead of computing the efficiency from the data provided. The question supplies specific turnover figures precisely so that the actual value must be calculated."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0070",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Nitrogen cycle: denitrification under anaerobic conditions and the oxidation-state changes of nitrogen",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "ecology",
+      "biogeochemical cycles",
+      "nitrogen cycle",
+      "denitrification",
+      "oxidation state",
+      "redox"
+    ],
+    "learning_objective": "Identify the process responsible for gaseous nitrogen loss from a waterlogged soil and state the correct oxidation-state change, distinguishing denitrification from nitrification, nitrogen fixation and ammonification.",
+    "question": "Two identical field plots are each given an equal amount of ¹⁵N-labelled nitrate fertiliser. Plot A is well-drained and aerobic; Plot B is waterlogged and anaerobic for several weeks. After this period, most of the labelled nitrogen has been lost from Plot B as a gas, whereas Plot A has retained it. Which process best accounts for the loss from Plot B, and what change in the oxidation state of nitrogen does it involve?",
+    "choices": {
+      "A": "Denitrification: nitrogen is reduced from +5 in nitrate to −3 in ammonia gas, which then escapes to the atmosphere.",
+      "B": "Nitrification: nitrogen is oxidised from −3 in ammonium to +5 in nitrate by aerobic bacteria.",
+      "C": "Ammonification: organic nitrogen is broken down to ammonium (−3), with no net loss of nitrogen from the soil.",
+      "D": "Nitrogen fixation: nitrogen is reduced from 0 in atmospheric N₂ to −3 in ammonium.",
+      "E": "Denitrification: nitrogen is reduced from +5 in nitrate to 0 in N₂ gas by bacteria respiring anaerobically, so the labelled nitrogen escapes to the atmosphere."
+    },
+    "correct_answer": "E",
+    "explanation": "Under waterlogged, oxygen-poor conditions, facultatively anaerobic bacteria use nitrate as a terminal electron acceptor in place of oxygen. This is denitrification, which reduces nitrate (NO₃⁻, nitrogen at +5) through intermediates to dinitrogen gas (N₂, nitrogen at 0), which is lost to the atmosphere — exactly matching the observed gaseous loss of the ¹⁵N label from the anaerobic plot. The aerobic Plot A retains the nitrate because denitrification is suppressed when oxygen is available. Confirm the oxidation states: in NO₃⁻ each O is −2 (total −6) and the ion charge is −1, so N = +5; in N₂ the element is 0.",
+    "option_analysis": {
+      "A": "Wrong: the process is correctly named, but the product and oxidation state are wrong. Denitrification yields N₂ (oxidation state 0), not ammonia. Reduction of nitrate all the way to ammonium (−3) is a different pathway (DNRA) and would not produce the gaseous N₂ loss described.",
+      "B": "Wrong: nitrification is the aerobic oxidation of ammonium to nitrate. It could not dominate in an anaerobic soil, the substrate here is already nitrate rather than ammonium, and it produces no gas — so it cannot explain the loss. This confuses nitrification with denitrification.",
+      "C": "Wrong: ammonification (decomposition of organic nitrogen to ammonium) neither removes nitrogen from the soil nor produces a gas, so it cannot account for the loss of the labelled nitrate.",
+      "D": "Wrong: nitrogen fixation converts atmospheric N₂ into ammonium and is an input of nitrogen to the soil, not a loss. It runs in the opposite direction to what is observed.",
+      "E": "Correct: anaerobic conditions favour denitrification, in which nitrate (N at +5) is reduced to N₂ gas (N at 0) and lost to the atmosphere, explaining the disappearance of the ¹⁵N label as a gas."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0071",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Logistic population growth and carrying capacity: maximum sustainable yield at N = K/2 (rK/4)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "ecology",
+      "population growth",
+      "logistic model",
+      "carrying capacity",
+      "maximum sustainable yield",
+      "density dependence"
+    ],
+    "learning_objective": "Apply the logistic growth equation to determine the maximum sustainable yield of a harvested population and distinguish the yield (rK/4) from the population size (K/2) at which it occurs.",
+    "question": "A fish population in a lake grows according to the logistic model dN/dt = rN(1 − N/K), with an intrinsic rate of increase r = 0.6 yr⁻¹ and a carrying capacity K = 20 000 fish. A fishery wishes to take the maximum sustainable yield — the largest catch that can be removed indefinitely — by holding the population at the density that maximises its growth rate. What is this maximum sustainable yield?",
+    "choices": {
+      "A": "3 000 fish per year",
+      "B": "2 250 fish per year",
+      "C": "10 000 fish per year",
+      "D": "6 000 fish per year",
+      "E": "12 000 fish per year"
+    },
+    "correct_answer": "A",
+    "explanation": "For logistic growth, the population's absolute growth rate dN/dt is greatest at N = K/2, because the product N(1 − N/K) is maximised there. The maximum growth rate — and therefore the maximum sustainable harvest — is dN/dt = rK/4. Here N = K/2 = 10 000 fish, and the maximum sustainable yield = rK/4 = 0.6 × 20 000 / 4 = 3000 fish per year. Removing 3000 fish per year while holding the stock at 10 000 exactly balances the population's replacement rate, so the catch can be sustained indefinitely.",
+    "option_analysis": {
+      "A": "Correct: maximum growth occurs at N = K/2, giving dN/dt = rK/4 = 0.6 × 20 000 / 4 = 3000 fish per year.",
+      "B": "Wrong: 2250 comes from assuming the maximum yield occurs at N = K/4: r(K/4)(1 − 1/4) = 0.6 × 5000 × 0.75 = 2250. The growth rate peaks at K/2, not K/4.",
+      "C": "Wrong: 10 000 is K/2, the population size at which the yield is maximised, not the yield itself. It reports the density rather than the number of fish that can be removed per year.",
+      "D": "Wrong: 0.6 × 10 000 = 6000 evaluates rN at N = K/2 but omits the factor (1 − N/K) = 0.5. It treats growth as exponential at K/2 rather than logistic.",
+      "E": "Wrong: 0.6 × 20 000 = 12 000 is rK, the exponential growth rate the population would have if it grew without any density limitation. It ignores the braking term (1 − N/K)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0072",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Protein structure and stabilising bonds",
+    "subtopic": "Deducing quaternary structure and interchain disulfide bonding from reducing vs non-reducing SDS-PAGE",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "protein structure",
+      "quaternary structure",
+      "disulfide bonds",
+      "SDS-PAGE",
+      "denaturation",
+      "data interpretation"
+    ],
+    "learning_objective": "Interpret reducing versus non-reducing SDS-PAGE data to distinguish covalent (disulfide) from non-covalent quaternary-structure interactions and identify subunit composition.",
+    "question": "A purified protein is analysed by SDS-PAGE. SDS is an anionic detergent that coats polypeptides and abolishes non-covalent interactions (hydrogen bonds, ionic bonds and hydrophobic interactions) but does not break covalent bonds. Under non-reducing conditions the protein migrates as a single band corresponding to 96 kDa. When the sample is first treated with an excess of a thiol reducing agent (β-mercaptoethanol) and then run under otherwise identical denaturing conditions, it migrates as a single band corresponding to 48 kDa. Which conclusion about the protein is best supported by these results?",
+    "choices": {
+      "A": "The reducing agent hydrolyses peptide bonds, halving the length of each polypeptide chain.",
+      "B": "The native protein is a homodimer of two identical 48 kDa subunits joined by at least one interchain disulfide bond.",
+      "C": "The native protein is a homodimer whose 48 kDa subunits are held together only by hydrogen bonds and hydrophobic interactions.",
+      "D": "The 96 kDa band is the 48 kDa protein bound to an SDS micelle, so the true subunit mass is 48 kDa under both conditions.",
+      "E": "The native protein is a 96 kDa monomer that the reducing agent cleaves into two 48 kDa fragments."
+    },
+    "correct_answer": "B",
+    "explanation": "Because SDS abolishes all non-covalent interactions, any species larger than a single subunit that survives non-reducing SDS-PAGE must be held together by covalent bonds. A 96 kDa band under these conditions therefore indicates a covalent linkage. The only side-chain covalent cross-link found between polypeptides is the disulfide bond, and it is exactly what β-mercaptoethanol reduces. After reduction the species runs at 48 kDa, i.e. it splits into two equal halves. The protein is thus a homodimer of two 48 kDa subunits held together by at least one interchain disulfide bond. Reduction breaks only S–S bonds; peptide bonds and the primary structure are untouched.",
+    "option_analysis": {
+      "A": "Wrong: β-mercaptoethanol reduces disulfide bonds only; it does not hydrolyse peptide bonds, and the primary sequence length is unchanged. This confuses reduction of S–S bonds with peptide-bond hydrolysis.",
+      "B": "Correct: SDS removes non-covalent forces, so the intact 96 kDa non-reducing band must be covalently held; reduction to 48 kDa shows the covalent link was an interchain disulfide joining two identical subunits — a disulfide-bonded homodimer.",
+      "C": "Wrong: if the subunits were held only by non-covalent interactions, SDS alone (non-reducing conditions) would already dissociate them and the protein would run at 48 kDa without any reducing agent. This encodes the misconception that SDS leaves quaternary contacts intact.",
+      "D": "Wrong: SDS-PAGE migration is calibrated for uniformly SDS-coated polypeptides, so a discrete 96 kDa band reflects a real 96 kDa covalent species, not an 'SDS-micelle' artefact. This encodes the misconception that detergent binding inflates the apparent mass into a false higher band.",
+      "E": "Wrong: reducing agents break disulfide (S–S) bonds to give free –SH groups; they do not cleave the polypeptide backbone. This encodes the common misconception that reduction hydrolyses/fragments the chain rather than simply severing disulfide cross-links."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0073",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Enzyme cofactors and coenzymes",
+    "subtopic": "Distinguishing a recyclable coenzyme (apoenzyme to holoenzyme) from a prosthetic group and a metal cofactor",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "coenzyme",
+      "apoenzyme",
+      "holoenzyme",
+      "prosthetic group",
+      "cofactor",
+      "B-vitamins",
+      "experimental reasoning"
+    ],
+    "learning_objective": "Interpret reconstitution data (heat stability, dialysability, sub-stoichiometry, vitamin origin) to classify an enzyme's required small molecule as a recyclable coenzyme rather than a prosthetic group, metal cofactor, substrate or allosteric activator.",
+    "question": "A dehydrogenase is purified to homogeneity. When incubated with a large excess of its organic substrate, the pure protein produces no detectable product. Adding a small, sub-stoichiometric amount of a heat-stable, dialysable, organic molecule that the cell derives from a B-vitamin restores full catalytic activity, and the total quantity of product eventually formed greatly exceeds the number of moles of the added molecule. Which interpretation of these observations is correct?",
+    "choices": {
+      "A": "The pure protein was an inactive apoenzyme, and the added molecule is a coenzyme acting as a co-substrate that is chemically transformed and then continuously regenerated by the surrounding reaction system.",
+      "B": "The added molecule is a prosthetic group covalently bound to the enzyme, so one molecule permanently activates one enzyme.",
+      "C": "The added molecule is an allosteric activator binding a regulatory site, and product exceeds it because activation is catalytic.",
+      "D": "The added molecule is the true substrate, and the 'excess organic substrate' already present is actually a competitive inhibitor.",
+      "E": "The added molecule is a metal-ion cofactor needed to complete the geometry of the active site."
+    },
+    "correct_answer": "A",
+    "explanation": "Several clues converge. The pure enzyme is inactive on its own, so a required component was lost during purification — the protein is an apoenzyme. The missing component is small (dialysable), heat-stable and organic and is made from a B-vitamin: these are the defining properties of a coenzyme (e.g. NAD+ from niacin). Crucially it works in sub-stoichiometric amounts yet supports the formation of far more product than the moles added, which is only possible if it is chemically changed during catalysis and then regenerated (re-oxidised/recycled) so that each molecule turns over many times. Apoenzyme + coenzyme reconstitutes the active holoenzyme.",
+    "option_analysis": {
+      "A": "Correct: the inactive pure protein is the apoenzyme; the dialysable, heat-stable, organic, vitamin-derived molecule is a coenzyme that acts as a co-substrate, being chemically altered and then regenerated so that a catalytic (sub-stoichiometric) amount supports large product formation.",
+      "B": "Wrong: a prosthetic group is tightly (often covalently) bound and would not be removable by dialysis, nor would a permanently 1:1-bound group explain product greatly exceeding the sub-stoichiometric amount added. This encodes the misconception that a loosely bound, recyclable coenzyme and a tightly bound prosthetic group are equivalent.",
+      "C": "Wrong: an allosteric activator binds reversibly at a regulatory site and is not itself chemically consumed and regenerated stoichiometrically with turnover; the vitamin origin and sub-stoichiometric recycling point specifically to a coenzyme/co-substrate, not a regulatory effector. This encodes the misconception that any small activating molecule is an allosteric regulator.",
+      "D": "Wrong: activity requires BOTH the abundant organic substrate and the small added molecule, so the abundant compound is a genuine substrate, not an inhibitor; and the small molecule is catalytic, not consumed 1:1 as a substrate would be. This encodes the misconception of swapping the roles of substrate and coenzyme.",
+      "E": "Wrong: a metal-ion cofactor is inorganic, whereas the molecule here is explicitly organic and vitamin-derived. This encodes the misconception that any small activating factor is a metal ion, conflating organic coenzymes with inorganic cofactors."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0074",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Enzyme regulation",
+    "subtopic": "Branch-point flux redirection under cumulative (concerted) end-product feedback inhibition",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "feedback inhibition",
+      "allosteric regulation",
+      "branched pathway",
+      "cumulative feedback",
+      "metabolic flux",
+      "committed step"
+    ],
+    "learning_objective": "Predict how metabolic flux is redirected at a branch point when only one end product accumulates, given branch-specific feedback plus cumulative inhibition of the shared first enzyme.",
+    "question": "In a branched biosynthetic pathway, a common precursor X is converted by enzyme E1 into the intermediate M. M is then converted either into amino acid P by enzyme E2 (the first committed step of that branch) or into amino acid Q by enzyme E3 (the first committed step of the other branch). Regulation is as follows: P allosterically inhibits E2, Q allosterically inhibits E3, and E1 is inhibited only when P and Q are BOTH present at high concentration. A culture is supplied with an abundant external source of P that enters the cells, while Q remains scarce. Assuming X stays available, what is the most likely immediate consequence?",
+    "choices": {
+      "A": "Q synthesis rises because the excess P is converted back into M through the reverse reaction of E2, refilling the branch point.",
+      "B": "Synthesis of both P and Q continues unchanged, because allosteric inhibition alters only overall reaction rates, not the direction of flux through a pathway.",
+      "C": "The high level of P inhibits E3 as well as E2, so synthesis of Q stops and M accumulates upstream.",
+      "D": "The high level of P alone inhibits E1, so the whole pathway shuts down and synthesis of both P and Q stops.",
+      "E": "Conversion of M to P slows because P inhibits E2, but E1 stays active because Q is low; M is therefore diverted into the other branch and synthesis of Q is maintained or increased."
+    },
+    "correct_answer": "E",
+    "explanation": "Excess P inhibits only E2, the first committed step of its own branch — this is the specificity of feedback (end-product) inhibition. The shared first enzyme E1 requires BOTH P and Q to be high before it is switched off (cumulative/concerted feedback); because Q is scarce, E1 keeps running and M continues to be made. With the P branch throttled but M still being produced, flux is redirected through E3 so that Q synthesis is sustained or increased. This 'require both' logic on the common step is precisely the design that prevents one abundant end product from starving the cell of the other.",
+    "option_analysis": {
+      "A": "Wrong: E2 catalyses a committed biosynthetic step and does not simply run in reverse to regenerate M from P. This encodes the misconception that committed metabolic steps are freely reversible.",
+      "B": "Wrong: feedback inhibition at a branch point does change the distribution (direction) of flux, not merely the global rate; slowing E2 while E1 and E3 run reroutes intermediate M. This encodes the misconception that inhibition cannot redirect flux.",
+      "C": "Wrong: an end product inhibits the first committed step of its OWN branch, not the enzyme of the other branch; P does not inhibit E3. This encodes the misconception that end products inhibit branch enzymes non-specifically.",
+      "D": "Wrong: this assumes a single end product can shut down the shared first enzyme. E1 here is controlled by cumulative feedback and needs both P and Q high; assuming one product alone stops the whole pathway is the classic misconception that ignores why cumulative control exists (to avoid starving the other branch).",
+      "E": "Correct: P inhibits its own branch enzyme E2; E1 is not shut down because it needs both P and Q high and Q is low; the continuing supply of M is therefore channelled through E3 to make Q."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0075",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Reproduction and development",
+    "subtopic": "Oogenesis: meiotic arrest and first-polar-body inference of the ovum genotype",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "oogenesis",
+      "meiosis",
+      "polar body",
+      "gametogenesis",
+      "allele segregation"
+    ],
+    "learning_objective": "Trace allele segregation through meiosis I and II in oogenesis and use the first-polar-body genotype to infer the allele carried by the ovum.",
+    "question": "In a woman heterozygous for an autosomal gene (genotype Bb), the locus lies very close to its centromere, so crossing over between the gene and the centromere can be ignored. At ovulation a secondary oocyte is released together with the first polar body, and meiosis II is completed only if fertilisation occurs. In one such cell the first polar body is found to carry the b allele on both of its sister chromatids. Which statement correctly describes the secondary oocyte and the egg it can give rise to?",
+    "choices": {
+      "A": "The secondary oocyte carries two chromatids, both bearing B, and the egg will carry a single B allele.",
+      "B": "The secondary oocyte is Bb, so on fertilisation it yields an egg equally likely to carry B or b.",
+      "C": "The secondary oocyte carries a single B chromatid, and the egg will carry B.",
+      "D": "The secondary oocyte is Bb but only B is expressed, so the egg will carry B.",
+      "E": "The secondary oocyte carries two chromatids, both bearing b, and the egg will carry b."
+    },
+    "correct_answer": "A",
+    "explanation": "After DNA replication in the primary oocyte, each homologue consists of two identical sister chromatids: one homologue is B|B, the other b|b. Meiosis I separates the homologues, and because the locus is adjacent to the centromere no recombination occurs, so the secondary oocyte receives one intact homologue and the first polar body the other. Detecting b on both chromatids of the first polar body therefore shows that the secondary oocyte holds two B chromatids. Meiosis II, completed only at fertilisation, separates these sisters, so the ovum carries a single B allele while the second polar body takes the other B. This reciprocal relationship is the basis of first-polar-body preimplantation diagnosis.",
+    "option_analysis": {
+      "A": "Correct: reciprocal segregation at meiosis I gives the oocyte a homologue with two B chromatids, and meiosis II then yields an ovum with a single B allele.",
+      "B": "Wrong: this assumes the homologues did not separate at meiosis I, leaving the oocyte heterozygous. In fact meiosis I separates the B|B homologue from the b|b homologue, so the oocyte is not Bb.",
+      "C": "Wrong: the egg allele (B) is correctly identified, but this ignores that sister chromatids remain joined until meiosis II, so the secondary oocyte contains two B chromatids, not one.",
+      "D": "Wrong: this confuses allelic content with gene expression. The oocyte is not heterozygous, and dominance does not alter which allele is physically present in the cell.",
+      "E": "Wrong: this treats the polar body and the oocyte as carrying the same allele. Their segregation is reciprocal, so a b-bearing first polar body implies a B-bearing oocyte."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0076",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Reproduction and development",
+    "subtopic": "Hormonal control of the menstrual cycle: oestradiol threshold and the switch from negative to positive feedback",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "menstrual cycle",
+      "oestradiol",
+      "LH surge",
+      "negative feedback",
+      "ovulation"
+    ],
+    "learning_objective": "Explain how both the concentration and the duration of oestradiol determine whether it exerts negative or positive feedback on gonadotrophin release and the LH surge.",
+    "question": "During a normal menstrual cycle, oestradiol from the developing follicle first suppresses gonadotrophin release, but when its concentration rises above a critical level and is sustained for about two days it instead triggers a surge of luteinising hormone (LH) that causes ovulation. In an experiment a woman receives a continuous infusion of oestradiol that holds her plasma oestradiol at a steady value just below this critical level from the beginning of the follicular phase onward, and all other hormones are initially normal. What is the most likely outcome?",
+    "choices": {
+      "A": "No LH surge and no ovulation, because sub-threshold oestradiol maintains negative feedback and suppresses FSH and LH.",
+      "B": "Ovulation at the normal time, but the corpus luteum fails to form afterwards.",
+      "C": "A larger LH surge at the usual time, because the follicle is exposed to additional oestradiol.",
+      "D": "A surge of FSH rather than LH, which triggers ovulation as usual.",
+      "E": "An earlier-than-normal LH surge, because any rise in oestradiol promotes LH release."
+    },
+    "correct_answer": "A",
+    "explanation": "Oestradiol acts biphasically. Below a critical concentration, and when not sustained above threshold, it exerts negative feedback that suppresses GnRH-driven FSH and LH; only when it exceeds the threshold and is maintained for about two days does it switch to positive feedback and generate the LH surge that triggers ovulation. A constant sub-threshold infusion locks the system in negative feedback: FSH is suppressed, so no dominant follicle matures, endogenous oestradiol never reaches the threshold, and no LH surge or ovulation occurs. This is precisely the contraceptive logic of oestrogen-containing preparations.",
+    "option_analysis": {
+      "A": "Correct: a steady sub-threshold level keeps the axis in negative feedback, suppressing FSH so no follicle matures and no surge is generated, preventing ovulation.",
+      "B": "Wrong: this decouples ovulation from the LH surge. Ovulation depends on the surge, which does not occur when oestradiol stays sub-threshold.",
+      "C": "Wrong: this treats the surge as simply dose-additive, overlooking that a critical threshold must be exceeded and sustained; sub-threshold levels produce the opposite effect.",
+      "D": "Wrong: it is the LH surge, not FSH, that triggers ovulation, and in any case no gonadotrophin surge is generated under sustained negative feedback.",
+      "E": "Wrong: this assumes oestradiol always stimulates LH, ignoring the negative-feedback range and the requirement that the level be both above threshold and sustained."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0077",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Reproduction and development",
+    "subtopic": "Fertilisation: the Ca2+ wave as the common trigger for the cortical reaction and completion of meiosis II",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "fertilisation",
+      "polyspermy",
+      "cortical reaction",
+      "calcium signalling",
+      "meiosis II"
+    ],
+    "learning_objective": "Relate the fertilisation-induced rise in cytosolic calcium to both the slow block to polyspermy and the resumption of meiosis II in the egg.",
+    "question": "Fertilisation of a mammalian egg triggers a wave of increased cytosolic Ca2+ that both drives exocytosis of cortical granules (which modify the zona pellucida) and releases the egg from arrest in metaphase of the second meiotic division. In an experiment, a chemical prevents the Ca2+ rise at the moment a single sperm fuses with the egg, yet the sperm nucleus still enters the cytoplasm. Which combination of effects is most likely?",
+    "choices": {
+      "A": "The egg immediately begins cleavage into two cells without completing meiosis.",
+      "B": "The zona pellucida hardens normally, but meiosis II fails to complete.",
+      "C": "Both the block to polyspermy and the completion of meiosis II fail.",
+      "D": "Meiosis II completes normally, but the block to polyspermy fails.",
+      "E": "Both processes occur normally, because sperm entry alone is sufficient."
+    },
+    "correct_answer": "C",
+    "explanation": "The fertilisation Ca2+ wave is the shared second-messenger signal for two events: cortical-granule exocytosis, which modifies the zona pellucida to establish the slow block to polyspermy, and release from metaphase-II arrest, which allows meiosis II to be completed. Abolishing the Ca2+ rise removes the trigger for both, so the zona is not modified (further sperm can still bind and enter) and the egg remains arrested in meiosis II. Mechanical entry of the sperm nucleus does not substitute for the Ca2+ signal.",
+    "option_analysis": {
+      "A": "Wrong: cleavage is a mitotic division that cannot precede completion of meiosis, and without the Ca2+ signal the egg stays arrested rather than dividing.",
+      "B": "Wrong: this assumes the cortical reaction is Ca2+-independent. Cortical-granule exocytosis is Ca2+-triggered, so without the Ca2+ rise the zona is not hardened.",
+      "C": "Correct: both the polyspermy block and completion of meiosis II depend on the Ca2+ rise, so preventing it causes both to fail.",
+      "D": "Wrong: this assumes resumption of meiosis is Ca2+-independent, but release from metaphase-II arrest also depends on the Ca2+ signal.",
+      "E": "Wrong: this assumes physical sperm entry alone drives the downstream events; in fact the Ca2+ second messenger is required for both."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0078",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Homeostasis",
+    "subtopic": "Thermoregulation: hypothalamic set-point resetting during the rising phase of fever",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "thermoregulation",
+      "fever",
+      "set point",
+      "negative feedback",
+      "hypothalamus"
+    ],
+    "learning_objective": "Predict thermoregulatory effector responses and the subjective sensation from the error between a reset hypothalamic set point and the actual core temperature.",
+    "question": "A patient develops a bacterial infection, and pyrogens reset the hypothalamic thermoregulatory 'set point' from 37.0 °C to 39.0 °C. Immediately after the set point is raised, the patient's core temperature is still 37.2 °C. Which set of responses will the hypothalamus most likely initiate at this moment, and how will the patient feel?",
+    "choices": {
+      "A": "No thermoregulatory response, because 37.2 °C is close to normal.",
+      "B": "Cutaneous vasodilation and shivering, and the patient feels cold.",
+      "C": "Cutaneous vasoconstriction and shivering, and the patient feels cold.",
+      "D": "Cutaneous vasoconstriction and sweating, and the patient feels hot.",
+      "E": "Cutaneous vasodilation and sweating, and the patient feels hot."
+    },
+    "correct_answer": "C",
+    "explanation": "The hypothalamus controls temperature by acting on the error between the set point and the actual temperature. With the set point raised to 39 °C but the core still at 37.2 °C, the body reads a deficit and initiates heat-gain and heat-conservation responses: cutaneous vasoconstriction (reducing skin heat loss, giving pale, cold skin) and shivering (metabolic heat production). Because the raised set point and skin thermoreceptors signal that the body is 'too cold', the patient experiences chills and feels cold even while the core temperature is actually climbing. Only when the fever breaks, and the set point falls below the actual temperature, do vasodilation and sweating occur.",
+    "option_analysis": {
+      "A": "Wrong: thermoregulation responds to the error relative to the current set point, not to whether the absolute temperature is 'near normal'; a 1.8 °C deficit drives a strong response.",
+      "B": "Wrong: it pairs a heat-loss effector (vasodilation) with a cold sensation. Vasodilation would oppose reaching the higher set point and is inconsistent with the deficit.",
+      "C": "Correct: with actual temperature below the raised set point, the hypothalamus drives vasoconstriction and shivering, and the patient feels cold.",
+      "D": "Wrong: sweating is a heat-loss response and contradicts the need to raise temperature toward the new, higher set point.",
+      "E": "Wrong: this describes the response when the set point falls below actual temperature (the fever breaking), not the rising phase; during the rise the body must conserve and generate heat."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0079",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Homeostasis",
+    "subtopic": "Blood-glucose homeostasis: why muscle glycogen cannot raise blood glucose (glucose-6-phosphatase) during fasting",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "blood glucose",
+      "glucagon",
+      "glycogen",
+      "glucose-6-phosphatase",
+      "gluconeogenesis"
+    ],
+    "learning_objective": "Explain the tissue-specific control of blood glucose using the presence of hepatic glucose-6-phosphatase and the role of gluconeogenesis during fasting.",
+    "question": "After about 24 hours of fasting, a person's liver glycogen is nearly exhausted, yet their skeletal muscles still contain substantial glycogen. Despite this, muscle glycogen cannot be used to raise the blood glucose concentration directly. Which statement best explains this and identifies how blood glucose is now maintained?",
+    "choices": {
+      "A": "Muscle cells lack glucose-6-phosphatase, so they cannot release free glucose into the blood, and blood glucose is now maintained mainly by hepatic gluconeogenesis.",
+      "B": "Muscle cells lack glycogen phosphorylase and so cannot break down their glycogen at all, and blood glucose is maintained by dietary intake.",
+      "C": "Glucagon converts muscle glycogen to lactate, and blood glucose is maintained by muscle exporting this lactate directly as glucose.",
+      "D": "Muscle glycogen is a chemically different polymer that cannot be hydrolysed, and blood glucose is maintained by converting fatty acids into glucose.",
+      "E": "Insulin prevents muscle from releasing glucose during fasting, and blood glucose is maintained by increased insulin secretion."
+    },
+    "correct_answer": "A",
+    "explanation": "During fasting, high glucagon and low insulin mobilise glucose. The liver expresses glucose-6-phosphatase, allowing it to dephosphorylate glucose-6-phosphate and export free glucose from both glycogenolysis and gluconeogenesis. Skeletal muscle lacks glucose-6-phosphatase (and lacks glucagon receptors), so glucose-6-phosphate produced from muscle glycogen is trapped and used within the muscle rather than being released to the blood. Once hepatic glycogen is depleted at around 24 hours, blood glucose is sustained chiefly by hepatic gluconeogenesis from lactate, glycerol, and glucogenic amino acids.",
+    "option_analysis": {
+      "A": "Correct: the absence of glucose-6-phosphatase in muscle prevents export of free glucose, and with liver glycogen depleted, gluconeogenesis becomes the main source of blood glucose.",
+      "B": "Wrong: muscle does possess glycogen phosphorylase and readily breaks down its own glycogen; the enzyme it lacks is glucose-6-phosphatase, and fasting excludes dietary intake.",
+      "C": "Wrong: muscle can release lactate, but lactate does not itself raise blood glucose; it must be reconverted to glucose by the liver via the Cori cycle, so it is not a direct export of glucose.",
+      "D": "Wrong: muscle and liver glycogen are the same polymer, and even-chain fatty acids cannot yield a net conversion to glucose in humans, so this cannot be the source.",
+      "E": "Wrong: insulin is low, not high, during fasting; this reverses the hormonal logic, as glucagon dominates and drives hepatic glucose output."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0080",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and population genetics",
+    "subtopic": "Hardy–Weinberg: carrier frequency from the recessive phenotype frequency",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "Hardy-Weinberg",
+      "carrier frequency",
+      "recessive",
+      "allele frequency"
+    ],
+    "learning_objective": "Use the Hardy–Weinberg principle to obtain the heterozygous carrier frequency from the observed frequency of the recessive phenotype.",
+    "question": "In a large, randomly mating population at Hardy–Weinberg equilibrium, a recessive autosomal condition is expressed in 9% of individuals. What proportion of the whole population are heterozygous carriers of the recessive allele?",
+    "choices": {
+      "A": "9%",
+      "B": "30%",
+      "C": "21%",
+      "D": "42%",
+      "E": "49%"
+    },
+    "correct_answer": "D",
+    "explanation": "The recessive phenotype has frequency q² = 0.09, so q = 0.30 and p = 1 − q = 0.70. The heterozygous carriers have frequency 2pq = 2(0.70)(0.30) = 0.42, i.e. 42% of the population. Note that carriers (42%) greatly outnumber affected individuals (9%).",
+    "option_analysis": {
+      "A": "Wrong: 9% is q², the frequency of AFFECTED (homozygous recessive) individuals, not the carriers.",
+      "B": "Wrong: 30% is the allele frequency q itself, not the heterozygote frequency.",
+      "C": "Wrong: 21% halves the carrier frequency, e.g. by computing pq instead of 2pq.",
+      "D": "Correct: 2pq = 2(0.70)(0.30) = 0.42 = 42%.",
+      "E": "Wrong: 49% is p² (the dominant homozygotes), not the heterozygotes."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0081",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Energy transfer efficiency along a food chain",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "energy flow",
+      "trophic levels",
+      "ecological efficiency",
+      "food chain"
+    ],
+    "learning_objective": "Apply a fixed percentage energy-transfer efficiency across successive trophic levels to find the energy reaching a higher consumer.",
+    "question": "In a food chain, the producers have a net primary productivity of 30 000 kJ m⁻² yr⁻¹. If only 10% of the energy at each trophic level is passed on to the next, approximately how much energy per square metre per year is available to the tertiary (third-level) consumers?",
+    "choices": {
+      "A": "300 kJ",
+      "B": "30 kJ",
+      "C": "3 kJ",
+      "D": "3000 kJ",
+      "E": "100 kJ"
+    },
+    "correct_answer": "B",
+    "explanation": "Energy is lost by a factor of 10 at each transfer. Producers → primary consumers: 30 000 × 0.10 = 3000. Primary → secondary consumers: 3000 × 0.10 = 300. Secondary → tertiary consumers: 300 × 0.10 = 30 kJ m⁻² yr⁻¹. Tertiary consumers are three transfers above the producers, so the energy is 30 000 × 0.10³ = 30 kJ.",
+    "option_analysis": {
+      "A": "Wrong: 300 kJ is the energy at the SECONDARY consumers (two transfers), one level too low.",
+      "B": "Correct: 30 000 × 0.10³ = 30 kJ reaches the tertiary consumers.",
+      "C": "Wrong: 3 kJ applies a fourth transfer (quaternary consumers).",
+      "D": "Wrong: 3000 kJ is the energy at the PRIMARY consumers (one transfer).",
+      "E": "Wrong: 100 kJ does not correspond to any whole number of 10% transfers from 30 000."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0082",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Protein structure",
+    "subtopic": "Effect of reducing disulfide bridges on levels of protein structure",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "protein structure",
+      "disulfide bonds",
+      "tertiary structure",
+      "denaturation",
+      "primary structure"
+    ],
+    "learning_objective": "Relate specific stabilising bonds to the levels of protein structure and predict the effect of selectively breaking disulfide bridges.",
+    "question": "A folded globular protein that contains several disulfide bridges is treated with a reagent that reduces (breaks) all disulfide bonds but does not hydrolyse peptide bonds. Which statement best describes the immediate consequence for the protein?",
+    "choices": {
+      "A": "The primary structure is preserved, but the tertiary structure is destabilised and biological activity is likely lost.",
+      "B": "Only the secondary structure (α-helices and β-sheets) is lost, while the tertiary fold is retained.",
+      "C": "The protein is converted into a different protein with a new amino acid sequence.",
+      "D": "Its primary structure is destroyed, because disulfide bonds link adjacent amino acids in the chain.",
+      "E": "Nothing changes, because disulfide bonds are not involved in stabilising protein shape."
+    },
+    "correct_answer": "A",
+    "explanation": "Disulfide bridges are covalent cross-links between cysteine side chains that help stabilise the tertiary (and, in multi-subunit proteins, quaternary) structure — the three-dimensional fold. They are NOT part of the primary structure, which is the sequence of amino acids joined by peptide bonds. Reducing the disulfides therefore leaves the primary structure (sequence) intact but removes key tertiary cross-links, so the protein unfolds/destabilises and typically loses its biological activity.",
+    "option_analysis": {
+      "A": "Correct: the peptide-bond sequence (primary structure) is preserved, but loss of the disulfide cross-links destabilises the tertiary fold and usually abolishes activity.",
+      "B": "Wrong: reducing disulfides targets tertiary cross-links, not the backbone hydrogen bonds of secondary structure specifically.",
+      "C": "Wrong: the amino-acid sequence is unchanged, so it is the same protein, merely unfolded.",
+      "D": "Wrong: primary structure is the amino-acid sequence held by PEPTIDE bonds, which are untouched; disulfides do not define the sequence.",
+      "E": "Wrong: disulfide bridges are important tertiary-structure stabilisers, so breaking them clearly affects the protein."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0083",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Metabolic regulation",
+    "subtopic": "Branch-point (end-product) feedback inhibition in a branched pathway",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "feedback inhibition",
+      "allosteric regulation",
+      "branched pathway",
+      "metabolic control"
+    ],
+    "learning_objective": "Explain why, in a branched biosynthetic pathway, feedback inhibition targeting the first enzyme of a branch is advantageous over inhibiting the first common enzyme.",
+    "question": "A branched biosynthetic pathway makes two different end products, P and Q, from a common precursor; the pathway splits at a branch point into a P-branch and a Q-branch. In many organisms the end product P inhibits the first enzyme of the P-branch only (after the branch point), rather than the first enzyme of the whole common pathway. What is the principal advantage of this arrangement?",
+    "choices": {
+      "A": "It allows the cell to shut down production of P when P is abundant, without also stopping the synthesis of Q.",
+      "B": "It increases the maximum rate at which both P and Q can be produced simultaneously.",
+      "C": "It prevents the common precursor from ever accumulating in the cell.",
+      "D": "It allows P to be synthesised even when the cell already contains a large excess of P.",
+      "E": "It ensures that P and Q are always produced in exactly equal amounts."
+    },
+    "correct_answer": "A",
+    "explanation": "If P instead inhibited the first enzyme of the COMMON pathway, a build-up of P would also cut off the supply of precursor to the Q-branch, starving the cell of Q. By having P inhibit only the first enzyme UNIQUE to its own (P) branch, the cell can throttle P synthesis when P is plentiful while still channelling the common intermediate into the Q-branch. This branch-specific (often allosteric) feedback lets the two end products be regulated independently.",
+    "option_analysis": {
+      "A": "Correct: inhibiting only the P-branch's first enzyme regulates P without cutting off Q, because the common steps still run.",
+      "B": "Wrong: feedback inhibition limits (does not raise) output; its purpose is control, not higher maximal rate.",
+      "C": "Wrong: branch-point inhibition does not guarantee the precursor never accumulates; it specifically protects Q synthesis.",
+      "D": "Wrong: the point of feedback inhibition is to STOP making P when P is in excess, not to keep making it.",
+      "E": "Wrong: the branches are regulated independently, so P and Q need not be produced in equal amounts."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  }
+]

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 6th Grade Sosyal Bilgiler question bank for BrainBuddy.
+"""Generate 6th Grade Sosyal Bilgiler question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
-BrainBuddy Question Design Standard: paragraf yorum, harita/grafik/tablo yorumlama, tarihsel analiz, sebep-sonuç.
+EDUmio Question Design Standard: paragraf yorum, harita/grafik/tablo yorumlama, tarihsel analiz, sebep-sonuç.
 """
 import json
 import random
@@ -122,7 +122,7 @@ def q(idx, stem, options, answer_index, difficulty, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "sosyal",
@@ -193,7 +193,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "sosyal",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_sosyal6_pack_{pi+1:03d}.json"

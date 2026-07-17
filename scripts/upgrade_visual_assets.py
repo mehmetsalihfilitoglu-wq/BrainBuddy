@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BrainBuddy visual upgrade: replace generic placeholder imageAssets with
+EDUmio visual upgrade: replace generic placeholder imageAssets with
 question-specific visuals for fen, mat, sosyal, english.
 
 - Scans lgs_import for priority subjects
@@ -530,7 +530,7 @@ def main():
 
     rel = lambda p: str(Path(p).relative_to(ROOT)) if str(ROOT) in str(p) else str(p)
     with open(report_path, "w", encoding="utf-8") as f:
-        f.write("# BrainBuddy Visual Upgrade — Report\n\n")
+        f.write("# EDUmio Visual Upgrade — Report\n\n")
         f.write("## Summary\n\n")
         f.write("| Metric | Count |\n|--------|-------|\n")
         f.write(f"| **Total upgraded (question-specific asset)** | {len(upgraded)} |\n")

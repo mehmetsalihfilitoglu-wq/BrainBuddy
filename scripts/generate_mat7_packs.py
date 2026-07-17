@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 7th Grade Mathematics question bank for BrainBuddy.
+"""Generate 7th Grade Mathematics question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
 Yeni nesil LGS-style, 80%+ scenario-based.
 """
@@ -39,7 +39,7 @@ def q(id_val, stem, options, answer_index, difficulty, qtype, topic, skills, exp
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "mat",
@@ -405,7 +405,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "mat",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_mat7_pack_{pack_idx+1:03d}.json"

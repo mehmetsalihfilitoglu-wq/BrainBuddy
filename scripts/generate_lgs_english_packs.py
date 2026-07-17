@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate 30 LGS English question packs (300 questions total) for BrainBuddy."""
+"""Generate 30 LGS English question packs (300 questions total) for EDUmio."""
 
 import json
 import os
@@ -258,12 +258,12 @@ def make_pack(pack_num: int, topic: str, base_questions: list) -> dict:
         q_copy = {**q, "difficulty": 5 if (i % 3 != 0) else 4, "topic": topic,
                   "questionType": ["dialogue_completion", "reading_comprehension", "situation_matching", "inference", "response_selection"][i % 5],
                   "skills": ["comprehension", "inference", "context", "tone"]}
-        q_copy["source"] = "brainbuddy_premium"
+        q_copy["source"] = "edumio_premium"
         q_copy["sourceRef"] = f"eng_pack{pack_num:03d}_q{i+1:02d}"
         q_copy["subject"] = "ing"
         q_copy["imageAsset"] = None
         questions.append(q_copy)
-    return {"version": 1, "mode": "LGS", "subject": "ing", "publisher": "brainbuddy", "questions": questions}
+    return {"version": 1, "mode": "LGS", "subject": "ing", "publisher": "edumio", "questions": questions}
 
 # Generate additional questions for remaining topics (abbreviated - add more in production)
 ADDITIONAL_QUESTIONS = {
@@ -410,7 +410,7 @@ def build_questions_for_pack(pack_num: int, topic: str, round_idx: int) -> list:
             "questionType": ["dialogue_completion", "reading_comprehension", "situation_matching", "inference", "response_selection", "interpretation"][(pack_num + i) % 6],
             "skills": ["comprehension", "inference", "context", "tone"],
             "explanation": q["explanation"],
-            "source": "brainbuddy_premium",
+            "source": "edumio_premium",
             "sourceRef": f"eng_pack{pack_num:03d}_q{i+1:02d}",
             "subject": "ing",
             "imageAsset": None
@@ -427,7 +427,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "ing",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions
         }
         path = BASE / f"lgs_eng_pack_{pack_num:03d}.json"

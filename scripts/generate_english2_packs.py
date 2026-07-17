@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 2nd Grade English question bank for BrainBuddy.
+"""Generate 2nd Grade English question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
 MEB 2024-2025 2. Sınıf İngilizce Öğretim Programı (10 ünite).
-BrainBuddy Question Design Standard: dialogue completion, situation-response, picture interpretation,
+EDUmio Question Design Standard: dialogue completion, situation-response, picture interpretation,
 short reading comprehension, meaning inference.
 """
 import json
@@ -161,7 +161,7 @@ def q(idx, stem, options, answer_index, difficulty, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "ing",
@@ -235,7 +235,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "ing",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_eng2_pack_{pi+1:03d}.json"

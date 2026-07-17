@@ -1,0 +1,196 @@
+[
+  {
+    "id": "mio_ct_0092",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Identifying a necessary unstated assumption: ruling out lead-time bias so that longer post-diagnosis survival reflects a genuine postponement of death rather than only an earlier diagnosis date",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "unstated assumption",
+      "lead-time bias",
+      "screening",
+      "negation test",
+      "epidemiological reasoning"
+    ],
+    "learning_objective": "Apply the negation test to identify the assumption that the extra measured survival of screen-detected patients reflects a real delay of death, not merely an earlier starting point for measuring survival (lead-time bias).",
+    "question": "A regional health board argues: 'Our new blood test detects tumour T, on average, three years earlier than waiting for symptoms to appear. Patients whose tumour T is found by the test survive, on average, longer after their diagnosis than patients whose tumour is diagnosed only once symptoms appear. We conclude that introducing the test as a screening programme will prolong the lives of people with tumour T, and it should therefore be funded.' The argument depends on which of the following assumptions?",
+    "choices": {
+      "A": "The greater post-diagnosis survival of screen-detected patients reflects a genuine postponement of death, and not merely the earlier moment at which their disease is first counted as diagnosed.",
+      "B": "Tumour T is the leading cause of death among the people who would be screened.",
+      "C": "The blood test detects tumour T in every person who has it, with no missed cases.",
+      "D": "No patient whose tumour is diagnosed only after symptoms appear survives for more than three years.",
+      "E": "The blood test costs less to administer than the treatment given after a symptomatic diagnosis."
+    },
+    "correct_answer": "A",
+    "explanation": "The conclusion is causal: the programme will prolong lives. 'Survival after diagnosis' is measured from the date of diagnosis. If the test simply moves the diagnosis date three years earlier without changing the date of death, screen-detected patients would automatically show longer post-diagnosis survival while dying at exactly the same time — this is lead-time bias. So the argument must assume that the extra measured survival is a real delay of death, not just an earlier start of the survival clock. Negation test: deny assumption C (the extra survival is only advanced measurement, deaths occur on the same dates) and the conclusion collapses, so C is a necessary assumption.",
+    "option_analysis": {
+      "A": "Correct: unless the longer post-diagnosis survival represents a true postponement of death rather than lead-time bias (starting the clock three years earlier), the programme would not prolong life at all; negating this assumption destroys the argument, so it is necessary.",
+      "B": "Wrong: how important tumour T is relative to other causes of death is irrelevant to whether the programme prolongs the lives of those who have it. This mistakes salience/importance for logical necessity.",
+      "C": "Wrong: perfect sensitivity would make the test better but is not required — the inference about the patients who ARE detected can stand even if some cases are missed. This confuses a desirable property of the test with a premise the argument actually needs.",
+      "D": "Wrong: this is far stronger than the argument requires; it needs earlier detection to postpone death, not a universal three-year ceiling on symptomatic survival. An assumption must be necessary, and this over-strong claim is not.",
+      "E": "Wrong: relative cost bears on whether the programme is good value, not on whether it prolongs life, which is what the conclusion asserts. This imports a cost-effectiveness consideration into a causal-benefit claim."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0093",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Strengthening a causal claim: reversibility and re-challenge (removing the putative cause abolishes the effect and reinstating it restores the effect)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "strengthen",
+      "causation",
+      "reversibility",
+      "re-challenge",
+      "experimental control"
+    ],
+    "learning_objective": "Recognise that experimentally removing a putative cause and observing the effect disappear, then restoring the cause and observing the effect return, provides stronger causal support than a mere association.",
+    "question": "A researcher claims that gut bacterium B causes excess weight gain in mice. Her evidence is that germ-free mice colonised with bacterium B gained more weight over eight weeks than genetically identical germ-free mice that were left uncolonised. Which of the following findings, if true, would most strengthen the claim that bacterium B causes the excess weight gain?",
+    "choices": {
+      "A": "When bacterium B is later eliminated from the colonised mice with a narrow-spectrum antibiotic, their excess weight gain stops and partly reverses, and re-colonising them with B restores it.",
+      "B": "During the eight weeks, the colonised mice were housed at a warmer ambient temperature than the germ-free control mice.",
+      "C": "Bacterium B can be cultured in the laboratory on a simple glucose medium.",
+      "D": "Obese humans are more likely than lean humans to carry bacterium B in their intestines.",
+      "E": "Germ-free mice are more costly and difficult to rear than mice colonised with bacterium B."
+    },
+    "correct_answer": "A",
+    "explanation": "The strongest support for a causal claim is a demonstration that manipulating the putative cause manipulates the effect: removing bacterium B halts and reverses the weight gain (reversibility), and reintroducing it brings the weight gain back (re-challenge). This directly links presence of B to the effect while the same animals serve as their own controls, ruling out many alternative explanations. A mere association (option A) or an irrelevant property (options C, D) is far weaker, and option E actually introduces a confounder.",
+    "option_analysis": {
+      "A": "Correct: removing the putative cause abolishes the effect and reinstating it restores it (reversibility plus re-challenge in the same animals) — the strongest experimental demonstration that B is doing the causing.",
+      "B": "Wrong: differing ambient temperature is a confounder (temperature affects metabolism and weight), so this would weaken the attribution to B, not strengthen it — it confuses a weakener with a strengthener.",
+      "C": "Wrong: culturability is a laboratory convenience that says nothing about whether B affects body weight; it mistakes an unrelated property of the organism for evidence of its effect.",
+      "D": "Wrong: a cross-sectional association in a different species is weak and open to reverse causation (obesity could promote carriage of B rather than the reverse); an association is not strong causal evidence.",
+      "E": "Wrong: the relative cost or difficulty of rearing the two groups is irrelevant to causation; it is a practical fact offered as if it were evidence."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0094",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Detecting the flaw: fallacy of division (inferring a property of an individual member from a property of the group/average as a whole), distinguished from its converse, composition",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "detect the flaw",
+      "fallacy of division",
+      "composition",
+      "average vs individual"
+    ],
+    "learning_objective": "Identify the fallacy of division — distributing a property of a whole or an average onto each individual member — and distinguish it from the converse fallacy of composition.",
+    "question": "Consider the following argument: 'The research department of Company X is, on average, the most productive in the industry: its scientists publish more papers per person each year than the scientists of any rival department. Dr Rossi is a scientist in Company X's research department. Therefore Dr Rossi publishes more papers each year than any scientist working for a rival company.' Which of the following best identifies the principal flaw in this argument?",
+    "choices": {
+      "A": "It infers that a property holding of a group taken as a whole (its average output) must hold of each individual member of that group.",
+      "B": "It infers that a property holding of the individual members must hold of the whole group they form.",
+      "C": "It rejects a conclusion on the basis of who advances it rather than on the evidence offered.",
+      "D": "It treats a correlation between two quantities as though one of them must cause the other.",
+      "E": "It draws a general conclusion from a sample that is too small to be representative."
+    },
+    "correct_answer": "A",
+    "explanation": "The department's high AVERAGE output does not entail that every member exceeds every rival individual: a group can have the highest mean while containing members who are below average or below particular rivals. Concluding a specific fact about the individual (Dr Rossi) from a fact about the aggregate/average is the fallacy of division. Option E states the mirror-image error (composition, reasoning from parts to the whole), which is the tempting trap for candidates who confuse the two directions.",
+    "option_analysis": {
+      "A": "Correct: a high group average does not guarantee that any particular member (Dr Rossi) beats every rival, since some members may lie below the mean; inferring the individual from the aggregate is precisely the fallacy of division.",
+      "B": "Wrong: this describes composition (part-to-whole), the converse fallacy; the argument actually reasons from the whole/average to a part, so this option is the mirror-image trap that confuses division with composition.",
+      "C": "Wrong: no one's identity or authority is used to dismiss a claim, so there is no ad hominem; this mislabels the flaw by treating any people-focused argument as an attack on the source.",
+      "D": "Wrong: no causal claim is made at all; the mistake is distributing an average onto an individual, not inferring causation from correlation, so the correlation-causation label is misapplied.",
+      "E": "Wrong: the error is not about sample size or representativeness — the departmental average could be perfectly well established; this reflexively reaches for 'small sample' whenever a generalisation appears."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0095",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Numerical and proportional reasoning",
+    "subtopic": "Repeated dilution (successive draw-and-replace): geometric decay of the surviving fraction and the least number of steps to fall below a threshold",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "proportional reasoning",
+      "successive dilution",
+      "geometric decay",
+      "threshold",
+      "powers"
+    ],
+    "learning_objective": "Model successive draw-and-replace operations as repeated multiplication by a constant fraction and find the smallest number of iterations for which the surviving fraction drops below a stated threshold.",
+    "question": "A 60-litre vat is completely filled with disinfectant. In one operation, 12 litres are drawn off from the well-stirred vat and immediately replaced with 12 litres of water; the vat is then stirred again. The same operation is then repeated as many times as required. What is the least number of operations after which less than half of the original disinfectant remains in the vat?",
+    "choices": {
+      "A": "2",
+      "B": "5",
+      "C": "4",
+      "D": "3",
+      "E": "It never falls below half, however many times the operation is repeated."
+    },
+    "correct_answer": "C",
+    "explanation": "Each operation removes 12 of the 60 litres of well-mixed contents and replaces them with water, so it multiplies the amount of original disinfectant by 48/60 = 4/5. After n operations the surviving fraction is (4/5)^n. We need (4/5)^n < 1/2. Now (4/5)^3 = 64/125 = 0.512, which is still greater than 0.5, while (4/5)^4 = 256/625 = 0.4096, which is less than 0.5. Hence four operations are required.",
+    "option_analysis": {
+      "A": "Wrong: this treats removal as additive — 12 litres per operation, so 'half' (30 litres) looks gone after about two to three operations. But each replacement re-dilutes what remains, so the loss is multiplicative (geometric), not linear.",
+      "B": "Wrong: this over-counts by one, for instance by mistracking the powers or demanding the fraction fall below half a step too late; the first power below 0.5 is the fourth, not the fifth.",
+      "C": "Correct: each operation multiplies the disinfectant by 48/60 = 4/5, and (4/5)^3 = 0.512 > 0.5 while (4/5)^4 = 256/625 = 0.4096 < 0.5, so four operations are the least number needed.",
+      "D": "Wrong: this computes the surviving fraction multiplicatively but stops at (4/5)^3 = 64/125 = 0.512 and misreads 0.512 as already below one-half. Since 0.512 > 0.5, three operations are not enough — a careless threshold comparison.",
+      "E": "Wrong: because 4/5 < 1, the surviving fraction (4/5)^n decreases towards zero, so it must eventually drop below one-half; there is no positive floor that is never crossed."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0096",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Logical reasoning",
+    "subtopic": "Multi-step propositional deduction integrating modus tollens, disjunctive syllogism and modus ponens over two conditionals with a disjunction of their antecedents",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "deduction",
+      "modus tollens",
+      "disjunctive syllogism",
+      "modus ponens",
+      "propositional logic"
+    ],
+    "learning_objective": "Chain modus tollens, disjunctive syllogism and modus ponens to derive the single conclusion that must follow from a set of conditional and disjunctive premises.",
+    "question": "A pharmacy's quality-control protocol for a batch of vaccine is in force, and all of the following statements are true: (1) If the cold chain was broken, the batch is destroyed. (2) If the vial seals are intact, the batch is released. (3) Either the cold chain was broken or the vial seals are intact (or both). (4) The batch was not released. Which one of the following must be true?",
+    "choices": {
+      "A": "Nothing definite about the batch's fate can be concluded from the statements.",
+      "B": "The batch is destroyed.",
+      "C": "The batch is released.",
+      "D": "The vial seals are intact.",
+      "E": "The cold chain was not broken."
+    },
+    "correct_answer": "B",
+    "explanation": "From (2) 'seals intact → released' together with (4) 'not released', modus tollens gives 'the seals are not intact'. Feeding that into (3) 'cold chain broken OR seals intact', disjunctive syllogism gives 'the cold chain was broken'. Finally, (1) 'cold chain broken → destroyed' gives, by modus ponens, that the batch is destroyed. The chain is forced, so 'the batch is destroyed' must be true.",
+    "option_analysis": {
+      "A": "Wrong: a definite conclusion does follow — the batch is destroyed — so the premises are not indeterminate; this reflects a failure to carry out the multi-step chain.",
+      "B": "Correct: modus tollens on (2) and (4) yields 'seals not intact'; disjunctive syllogism on (3) then yields 'cold chain broken'; modus ponens on (1) yields 'the batch is destroyed'.",
+      "C": "Wrong: this directly contradicts premise (4), which states the batch was not released; it ignores a stated premise in favour of the salient positive outcome.",
+      "D": "Wrong: applying modus tollens to (2) and (4) shows the seals are NOT intact, so this is false; it selects the seals as the true disjunct without first using 'not released'.",
+      "E": "Wrong: the deduction establishes that the cold chain WAS broken, the opposite of this option; inferring 'cold chain not broken' from 'not released' is a denying-the-antecedent-style slip."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch19",
+    "review_status": "accepted"
+  }
+]

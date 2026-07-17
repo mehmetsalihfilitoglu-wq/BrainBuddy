@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 2nd Grade Mathematics question bank for BrainBuddy.
+"""Generate 2nd Grade Mathematics question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
 MEB 2024-2025 2. Sınıf Matematik Öğretim Programı (7 ünite).
-BrainBuddy Question Design Standard: günlük hayat problemleri, yorum gerektiren, çok adımlı işlem, mantık yürütme, tablo/veri yorumlama.
+EDUmio Question Design Standard: günlük hayat problemleri, yorum gerektiren, çok adımlı işlem, mantık yürütme, tablo/veri yorumlama.
 """
 import json
 import random
@@ -42,7 +42,7 @@ def q(id_val, stem, options, answer_index, difficulty, qtype, topic, skills, exp
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "mat",
@@ -162,7 +162,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "mat",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_mat2_pack_{pi+1:03d}.json"

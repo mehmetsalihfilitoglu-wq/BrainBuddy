@@ -1,0 +1,804 @@
+[
+  {
+    "id": "mio_bio_0304",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Synaptic transmission and neuropharmacology",
+    "subtopic": "Acetylcholinesterase inhibition by an organophosphate: acetylcholine accumulation and sustained postsynaptic depolarisation",
+    "difficulty": "medium",
+    "estimated_time_seconds": 55,
+    "tags": [
+      "synaptic transmission",
+      "acetylcholinesterase",
+      "organophosphate",
+      "cholinergic synapse",
+      "neuromuscular junction",
+      "enzyme inhibitor"
+    ],
+    "learning_objective": "Predict how irreversible acetylcholinesterase inhibition alters transmitter clearance and the postsynaptic membrane potential at a cholinergic synapse.",
+    "question": "An agricultural worker is exposed to an organophosphate insecticide that irreversibly inhibits acetylcholinesterase at neuromuscular junctions. Assuming that presynaptic release of acetylcholine and the postsynaptic nicotinic receptors are initially normal, which of the following best describes the immediate consequence at an affected junction?",
+    "choices": {
+      "A": "Acetylcholine is taken back up unchanged into the presynaptic terminal, briefly reducing transmission until stores recover.",
+      "B": "Less acetylcholine reaches the receptors, so the postsynaptic membrane fails to depolarise.",
+      "C": "The postsynaptic membrane becomes hyperpolarised because acetylcholine can no longer bind its receptors.",
+      "D": "Acetylcholine is not broken down, so it lingers in the cleft and repeatedly binds its receptors, keeping the postsynaptic membrane depolarised.",
+      "E": "Presynaptic voltage-gated Ca2+ channels stay open, causing one large release of acetylcholine followed by silence."
+    },
+    "correct_answer": "D",
+    "explanation": "Acetylcholinesterase normally hydrolyses acetylcholine in the synaptic cleft, terminating its action so the postsynaptic membrane can repolarise between impulses. If the enzyme is irreversibly inhibited, released acetylcholine is not destroyed; it stays in the cleft and continues to bind (and rebind) nicotinic receptors. The postsynaptic membrane is therefore held depolarised, producing prolonged and repetitive stimulation of the muscle (progressing, with continued exposure, toward a depolarising block). The key idea is that blocking the enzyme increases, not decreases, transmitter action.",
+    "option_analysis": {
+      "A": "Wrong: applies the reuptake mechanism of transmitters such as noradrenaline to acetylcholine. Cholinergic transmission is terminated by enzymatic hydrolysis in the cleft, not by reuptake of intact acetylcholine.",
+      "B": "Wrong: assumes the enzyme is needed to supply or deliver acetylcholine. Acetylcholinesterase destroys the transmitter; inhibiting it raises, not lowers, the amount acting on receptors.",
+      "C": "Wrong: treats the enzyme inhibitor as if it blocked receptor binding and caused inhibition. Acetylcholine still binds normally and the response is excitatory (depolarising), not hyperpolarising.",
+      "D": "Correct: with acetylcholinesterase inhibited, acetylcholine is not hydrolysed, so it accumulates and continues to activate nicotinic receptors, holding the postsynaptic membrane depolarised and causing prolonged/repetitive stimulation.",
+      "E": "Wrong: places the drug's action on presynaptic Ca2+ channels. An acetylcholinesterase inhibitor acts on the cleft enzyme and does not control presynaptic calcium entry or vesicle release."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0305",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Synaptic transmission and neuropharmacology",
+    "subtopic": "Temporal summation at a single excitatory synapse: firing frequency versus EPSP decay time",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "synaptic integration",
+      "temporal summation",
+      "spatial summation",
+      "EPSP",
+      "threshold",
+      "firing frequency"
+    ],
+    "learning_objective": "Distinguish temporal from spatial summation and determine whether a single presynaptic neuron can reach threshold by comparing its firing interval with the EPSP decay time.",
+    "question": "A motor neuron has a resting potential of -70 mV and an action-potential threshold of -55 mV. A single excitatory presynaptic neuron, X, produces an EPSP of +5 mV at the trigger zone, and one EPSP alone does not reach threshold. Each EPSP decays back to the resting potential about 20 ms after it begins. Neuron X can fire at frequencies up to 200 Hz, and no other presynaptic neuron is active. Which statement best explains whether neuron X, acting alone, can bring the motor neuron to threshold?",
+    "choices": {
+      "A": "Yes, but only because rapid firing increases the amplitude of each individual EPSP to above +15 mV.",
+      "B": "No: because each individual EPSP (+5 mV) is below threshold, the membrane can never reach -55 mV however X fires.",
+      "C": "Yes, by spatial summation, because firing at 200 Hz recruits additional release sites that act like extra neurons.",
+      "D": "Yes, by temporal summation, because at 200 Hz the 5 ms interval between EPSPs is shorter than the ~20 ms an EPSP takes to decay, so several EPSPs overlap and add, driving the membrane past -55 mV.",
+      "E": "No: a single presynaptic neuron can never trigger an action potential, because reaching threshold always requires spatial summation from several neurons."
+    },
+    "correct_answer": "D",
+    "explanation": "Threshold is 15 mV above rest (-70 to -55 mV), so three +5 mV EPSPs must add together. Whether they can add depends on timing: at 200 Hz the interval between successive EPSPs is 1/200 s = 5 ms, which is much shorter than the ~20 ms an EPSP needs to decay. A new EPSP therefore arrives while earlier ones are still present, so they overlap and summate (temporal summation), lifting the membrane past -55 mV. This is temporal summation because the repeated inputs come from one presynaptic neuron over time; spatial summation would require several different neurons active at once. Individual EPSP amplitude is fixed and does not grow with frequency.",
+    "option_analysis": {
+      "A": "Wrong: assumes frequency increases the size of each EPSP. Individual EPSP amplitude is set by transmitter and receptors; frequency lets EPSPs sum, it does not enlarge them.",
+      "B": "Wrong: treats subthreshold EPSPs as unable to combine. Subthreshold EPSPs summate when they overlap in time, so the membrane can indeed reach threshold.",
+      "C": "Wrong: mislabels high-frequency firing of one neuron as spatial summation. Spatial summation requires inputs from different neurons at different locations; repeated firing of a single neuron is temporal summation.",
+      "D": "Correct: because the interspike interval (5 ms) is shorter than the EPSP decay time (~20 ms), successive EPSPs overlap and add, so temporal summation from neuron X alone can drive the membrane past -55 mV.",
+      "E": "Wrong: assumes one presynaptic neuron can never fire the postsynaptic cell. A single neuron firing rapidly can reach threshold by temporal summation without any other input."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0306",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Synaptic transmission and neuropharmacology",
+    "subtopic": "Depolarising neuromuscular blocker (agonist) causing Na+-channel inactivation, and why an acetylcholinesterase inhibitor does not reverse the block",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "neuromuscular junction",
+      "agonist",
+      "depolarising block",
+      "nicotinic receptor",
+      "sodium channel inactivation",
+      "acetylcholinesterase inhibitor"
+    ],
+    "learning_objective": "Explain the mechanism of a depolarising neuromuscular blocker and predict, from its agonist action, why an acetylcholinesterase inhibitor fails to reverse the block.",
+    "question": "Drug Z binds nicotinic acetylcholine receptors at the neuromuscular junction and activates them, but unlike acetylcholine it is not hydrolysed by acetylcholinesterase, so it remains bound for a prolonged time. After a brief initial twitching, the muscle becomes flaccid and unresponsive to nerve stimulation. Which option best explains the paralysis and predicts the effect of also giving an acetylcholinesterase inhibitor?",
+    "choices": {
+      "A": "Drug Z prevents acetylcholine release from the presynaptic terminal; an acetylcholinesterase inhibitor would reverse the paralysis by sparing the little acetylcholine released.",
+      "B": "Drug Z is a competitive antagonist that occupies receptors without activating them; an acetylcholinesterase inhibitor would reverse the paralysis by raising acetylcholine.",
+      "C": "Drug Z hyperpolarises the end plate by opening K+ channels; an acetylcholinesterase inhibitor would restore excitability by depolarising the membrane.",
+      "D": "Drug Z is an agonist that holds the end plate depolarised, inactivating the muscle's voltage-gated Na+ channels; because acetylcholine acts the same way, an acetylcholinesterase inhibitor would not relieve, and could deepen, the block.",
+      "E": "Drug Z inhibits acetylcholinesterase, so the paralysis is due to acetylcholine build-up; an acetylcholinesterase inhibitor would therefore have no additional effect."
+    },
+    "correct_answer": "D",
+    "explanation": "Drug Z is a depolarising blocker (like suxamethonium). As an agonist it opens nicotinic receptors and depolarises the end plate; the brief twitching reflects this initial excitation. Because it is not cleared by acetylcholinesterase, the end plate stays depolarised. Sustained depolarisation drives the surrounding muscle's voltage-gated Na+ channels into a persistent inactivated state, so no new action potentials can be generated and the muscle goes flaccid (a depolarising block). Adding an acetylcholinesterase inhibitor raises acetylcholine, another agonist that depolarises the end plate the same way, so it cannot reverse the block and tends to worsen it. This is the opposite of a competitive antagonist such as curare, whose block is relieved by raising acetylcholine.",
+    "option_analysis": {
+      "A": "Wrong: places the action presynaptically. Drug Z acts on postsynaptic receptors; the initial twitching shows transmitter/agonist action at the end plate, not a block of release.",
+      "B": "Wrong: describes a non-depolarising competitive antagonist (curare). Drug Z activates receptors and causes initial twitching, so it is an agonist, and its block is not reversed by more acetylcholine.",
+      "C": "Wrong: assumes paralysis results from hyperpolarisation. The end plate is held depolarised (an excitatory agonist), not hyperpolarised, so opening K+ channels does not describe Drug Z.",
+      "D": "Correct: Drug Z is an agonist that maintains end-plate depolarisation, inactivating voltage-gated Na+ channels (depolarising block); since acetylcholine is also an agonist, an acetylcholinesterase inhibitor does not relieve and may deepen the block.",
+      "E": "Wrong: misassigns the mechanism to enzyme inhibition. The stem states Drug Z binds and activates receptors; it is not an acetylcholinesterase inhibitor, and its persistent receptor activation is the cause."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0307",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Synaptic transmission and neuropharmacology",
+    "subtopic": "Glycinergic inhibition and disinhibition: strychnine as a competitive antagonist at Cl--permeable inhibitory receptors",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "inhibitory postsynaptic potential",
+      "IPSP",
+      "glycine",
+      "chloride channel",
+      "antagonist",
+      "disinhibition",
+      "strychnine"
+    ],
+    "learning_objective": "Reason from the block of an inhibitory (Cl--permeable) receptor to the loss of IPSPs and the resulting disinhibition of the postsynaptic neuron.",
+    "question": "In the spinal cord, an inhibitory interneuron releases glycine onto a motor neuron. Glycine binding opens ligand-gated channels selectively permeable to Cl-; the Cl- equilibrium potential is -75 mV and the motor neuron rests at -70 mV. Strychnine is a competitive antagonist at the glycine receptor. Which option best predicts the effect of strychnine on the motor neuron?",
+    "choices": {
+      "A": "Strychnine opens extra Cl- channels, hyperpolarising the motor neuron and reducing its firing.",
+      "B": "Strychnine blocks glycine release from the interneuron, but the motor neuron is unaffected because glycine is excitatory.",
+      "C": "Strychnine directly depolarises the motor neuron by allowing Na+ influx through the glycine receptors.",
+      "D": "Strychnine converts each inhibitory postsynaptic potential into a larger inhibitory potential, silencing the motor neuron.",
+      "E": "Strychnine prevents glycine from opening the Cl- channels, so the normal inhibitory postsynaptic potentials are lost and the motor neuron becomes more easily excited by its excitatory inputs."
+    },
+    "correct_answer": "E",
+    "explanation": "Glycine is an inhibitory transmitter: it opens Cl--permeable channels, and because the Cl- equilibrium potential (-75 mV) is slightly more negative than rest (-70 mV), Cl- enters and produces a small hyperpolarising, stabilising IPSP that opposes excitation. Strychnine is a competitive antagonist, so it occupies the glycine receptor without opening the channel and prevents glycine from acting. The IPSPs are therefore lost. Removing this inhibition (disinhibition) leaves the motor neuron's excitatory inputs unopposed, so the cell is more easily driven to threshold and fires more readily, which underlies the muscle spasms of strychnine poisoning.",
+    "option_analysis": {
+      "A": "Wrong: treats an antagonist as an agonist. Strychnine blocks the glycine receptor rather than opening Cl- channels, so it removes inhibition instead of adding it.",
+      "B": "Wrong: relocates the action to presynaptic release and calls glycine excitatory. Strychnine acts on the postsynaptic receptor, and glycine is inhibitory, so blocking it releases the neuron from inhibition.",
+      "C": "Wrong: assumes the glycine receptor is an excitatory Na+ channel. It is Cl- selective and inhibitory; strychnine does not create a depolarising Na+ current.",
+      "D": "Wrong: assumes an antagonist strengthens inhibition. Blocking the receptor abolishes the IPSP; it cannot enlarge it.",
+      "E": "Correct: as a competitive antagonist strychnine prevents glycine from opening the inhibitory Cl- channels, abolishing the IPSPs; the loss of inhibition leaves excitatory inputs unopposed, so the motor neuron becomes hyperexcitable."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0308",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Synaptic transmission and neuropharmacology",
+    "subtopic": "Presynaptic exocytosis block by botulinum toxin (SNARE cleavage) and why an acetylcholinesterase inhibitor cannot rescue transmission, contrasted with myasthenia gravis",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "botulinum toxin",
+      "SNARE proteins",
+      "vesicle exocytosis",
+      "acetylcholinesterase inhibitor",
+      "myasthenia gravis",
+      "neuromuscular junction"
+    ],
+    "learning_objective": "Integrate the site of a presynaptic exocytosis block with the mechanism of acetylcholinesterase inhibitors to judge whether raising acetylcholine can restore transmission.",
+    "question": "Botulinum toxin enters cholinergic presynaptic terminals and cleaves SNARE proteins, which are required for synaptic vesicles to fuse with the presynaptic membrane. A patient with botulism has profound muscle weakness. A clinician notes that in myasthenia gravis, where antibodies destroy postsynaptic nicotinic receptors, the acetylcholinesterase inhibitor neostigmine improves strength, and she asks whether neostigmine would help the botulism patient. Which of the following is the best-reasoned answer?",
+    "choices": {
+      "A": "Neostigmine would restore strength by stimulating the presynaptic terminal to release its vesicles despite the cleaved SNARE proteins.",
+      "B": "Neostigmine would worsen the weakness, because raising acetylcholine would compete with botulinum toxin for the postsynaptic receptors.",
+      "C": "Neostigmine would be equally effective, because in both conditions the problem is too little acetylcholine action, which an acetylcholinesterase inhibitor always corrects.",
+      "D": "Neostigmine would help even more, because with SNARE proteins cleaved the released acetylcholine cannot be recycled and so must be preserved by blocking its breakdown.",
+      "E": "Neostigmine would give little benefit, because botulinum toxin blocks acetylcholine release, so almost none reaches the cleft; preventing breakdown cannot help when little transmitter is present, unlike in myasthenia gravis where release is normal."
+    },
+    "correct_answer": "E",
+    "explanation": "An acetylcholinesterase inhibitor works by slowing the breakdown of acetylcholine that has been released, so more transmitter remains in the cleft to activate receptors. In myasthenia gravis, release is normal but receptors are scarce; raising the acetylcholine concentration lets the few remaining receptors be activated more, improving strength. In botulism, however, SNARE cleavage prevents vesicle fusion, so almost no acetylcholine is released in the first place. Blocking the enzyme can only preserve transmitter that is present, and here there is essentially none to preserve, so neostigmine gives little benefit. The reasoning hinges on the site of the lesion (presynaptic release versus postsynaptic receptor) and on what an acetylcholinesterase inhibitor can and cannot do.",
+    "option_analysis": {
+      "A": "Wrong: assumes an acetylcholinesterase inhibitor can trigger vesicle release. It acts only in the cleft on the enzyme and cannot restore exocytosis when SNARE proteins are cleaved.",
+      "B": "Wrong: places the toxin's action on postsynaptic receptors. Botulinum toxin acts presynaptically on vesicle fusion, so there is no receptor competition; raising acetylcholine would not worsen the block this way.",
+      "C": "Wrong: assumes an acetylcholinesterase inhibitor corrects any neuromuscular weakness. It requires transmitter to be released; a presynaptic release block leaves nothing to preserve, so the two conditions are not equivalent.",
+      "D": "Wrong: confuses SNARE-dependent vesicle fusion with transmitter recycling and assumes acetylcholine is released. With release blocked there is essentially no transmitter to preserve, so no extra benefit.",
+      "E": "Correct: botulinum toxin blocks acetylcholine release, so there is little transmitter in the cleft; an acetylcholinesterase inhibitor only preserves released transmitter and therefore helps little, in contrast to myasthenia gravis where normal release means raising acetylcholine can activate the scarce receptors."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0309",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution, selection and speciation",
+    "subtopic": "Modes of selection: stabilising selection predicted to reduce phenotypic variance while leaving the mean unchanged, reasoned from survival-by-phenotype data",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "evolution",
+      "natural selection",
+      "stabilising selection",
+      "trait distribution",
+      "phenotypic variance"
+    ],
+    "learning_objective": "Given a scenario describing which phenotypes survive, identify the mode of selection and predict the resulting change in the trait's mean and variance.",
+    "question": "In a population of a burrowing rodent, adult body mass varies continuously with a mean of 120 g. Over one severe winter, researchers record the survival of marked individuals. The lightest animals freeze because they cannot store enough fat, while the heaviest animals are dug out and eaten by predators because they cannot retreat far enough down their narrow burrows; individuals close to the mean survive best. Body mass is heritable, and the population is allowed to return to its former size before breeding. Compared with the parental generation, what is the most likely body-mass distribution among the offspring of the survivors?",
+    "choices": {
+      "A": "A distribution with a similar mean but a smaller variance (narrower spread).",
+      "B": "A distribution with the same mean but a larger variance (broader spread).",
+      "C": "A bimodal distribution with two peaks and fewer intermediates.",
+      "D": "A distribution with a higher mean and unchanged variance (shifted to the right).",
+      "E": "A distribution with a lower mean and a larger variance."
+    },
+    "correct_answer": "A",
+    "explanation": "The mode of selection is read from which phenotypes survive. Both extremes (the lightest and the heaviest) are removed while intermediates survive best, which defines stabilising selection. Its effect on the trait distribution is to leave the mean roughly unchanged while reducing the variance (a narrower spread). Directional selection would shift the mean; disruptive selection would increase the variance and tend toward bimodality. Because body mass is heritable, the offspring of the surviving intermediate parents cluster more tightly around the original mean.",
+    "option_analysis": {
+      "A": "Correct: both light and heavy individuals are removed while intermediates survive best, so this is stabilising selection — the mean stays roughly the same and the variance (spread) decreases.",
+      "B": "Wrong: a larger variance is the outcome of disruptive selection, which favours the extremes; here both extremes are selected against (confusing selection against extremes with selection against intermediates).",
+      "C": "Wrong: a bimodal distribution is the signature of disruptive selection (extremes favoured); because intermediates are favoured here, no two peaks form.",
+      "D": "Wrong: a rightward shift of the mean is directional selection, expected only if one extreme is consistently favoured; symmetric removal of both extremes leaves the mean about the same.",
+      "E": "Wrong: this combines a downward mean shift with greater spread, neither of which is expected when selection acts symmetrically against both tails of the distribution."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0310",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution, selection and speciation",
+    "subtopic": "Directional selection and the limit to selection response: a trait plateaus as favourable alleles approach fixation and heritable variation is exhausted",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "evolution",
+      "directional selection",
+      "genetic variation",
+      "insecticide resistance",
+      "response to selection"
+    ],
+    "learning_objective": "Integrate directional selection with the requirement for heritable variation to explain both a sustained change in a trait and its eventual plateau under continued selection.",
+    "question": "A pest insect population is sprayed continuously with a single insecticide. Resistance is heritable and is conferred by alleles at several genes that were all present at low frequency before spraying began. Over about 30 generations the mean resistance of the population rises steadily and then levels off at a high value, even though spraying continues at the same intensity and the population remains large and isolated from other populations. Which explanation best accounts for BOTH the steady rise and the later plateau?",
+    "choices": {
+      "A": "Gene flow from surrounding unsprayed populations supplied resistance alleles until an equilibrium frequency was reached.",
+      "B": "Directional selection raised the frequency of the pre-existing resistance alleles, shifting the mean; the plateau occurs because those alleles are now nearly fixed, leaving little heritable variation for selection to act on.",
+      "C": "The insecticide induced new resistance mutations that accumulated and then stopped forming, so resistance rose and then plateaued.",
+      "D": "Genetic drift raised the resistance alleles to high frequency independently of the insecticide, then reached a chance equilibrium.",
+      "E": "Stabilising selection maintained an intermediate optimum level of resistance, which was reached at the plateau."
+    },
+    "correct_answer": "B",
+    "explanation": "A single sustained pressure favouring one extreme of a trait is directional selection: the mean resistance rises as the pre-existing resistance alleles increase in frequency. Selection can only act while heritable variation remains. As the beneficial alleles approach fixation, the additive genetic variation for resistance is largely used up, so the response to selection slows and the trait plateaus even though the insecticide is still applied. Any further increase would require new mutation or immigration of new resistance alleles; the insecticide itself does not create the mutations, which pre-existed.",
+    "option_analysis": {
+      "A": "Wrong: surrounding unsprayed populations carry mostly susceptibility alleles, so gene flow from them would dilute resistance rather than build it — and the stem specifies the population is isolated.",
+      "B": "Correct: the insecticide is a directional selective agent that raises the frequency of pre-existing resistance alleles (shifting the mean); the plateau occurs because those alleles have become nearly fixed, so little heritable variation remains for further response.",
+      "C": "Wrong: the insecticide selects among pre-existing alleles rather than inducing the specific beneficial mutations (a Lamarckian/adaptive-mutation misconception), and mutation does not simply switch off to produce a plateau.",
+      "D": "Wrong: drift is random and would not repeatably and specifically raise the resistance alleles under strong, sustained selection; the tight association with spraying indicates selection, not chance.",
+      "E": "Wrong: stabilising selection maintains an intermediate optimum, but the data show the mean driven to a high extreme, which is directional rather than stabilising."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0311",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution, selection and speciation",
+    "subtopic": "Reproductive isolation: successful fertilisation excludes all prezygotic barriers, leaving postzygotic hybrid inviability and hybrid sterility",
+    "difficulty": "hard",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "speciation",
+      "reproductive isolation",
+      "prezygotic",
+      "postzygotic",
+      "hybrid sterility"
+    ],
+    "learning_objective": "Classify an isolating mechanism as prezygotic or postzygotic by reasoning about the stage at which it acts, and state its consequence for gene flow.",
+    "question": "Two closely related frog species breed in the same ponds at the same time of year and readily attempt to mate with one another. When a male of species X fertilises the eggs of species Y, the resulting embryos begin to develop but nearly all die before hatching; the very few that hatch grow into weak adults that are completely sterile. Which statement correctly classifies the isolating mechanism(s) and their significance?",
+    "choices": {
+      "A": "Mechanical (prezygotic) isolation prevents the transfer of gametes between the two species.",
+      "B": "Temporal (prezygotic) isolation keeps the two species from interbreeding and prevents gene flow.",
+      "C": "Mating, gamete transfer and fertilisation all succeed, so every prezygotic barrier has failed; isolation is postzygotic — reduced hybrid viability and hybrid sterility — and still prevents gene flow.",
+      "D": "Behavioural (prezygotic) isolation prevents the two species from mating in the wild.",
+      "E": "Gametic (prezygotic) isolation prevents fertilisation, so the two species remain distinct."
+    },
+    "correct_answer": "C",
+    "explanation": "Isolating mechanisms are classified by whether they act before or after zygote formation. Here mating occurs, gametes are transferred and eggs are fertilised, and embryos begin to develop — so every prezygotic barrier (temporal, behavioural, mechanical, gametic) has failed. Isolation is achieved only after the zygote forms: the death of hybrid embryos is reduced hybrid viability, and the sterility of the rare survivors is hybrid sterility. Both are postzygotic barriers, and together they still block gene flow, keeping the two species distinct.",
+    "option_analysis": {
+      "A": "Wrong: mechanical isolation would block gamete transfer through incompatible structures, yet transfer and fertilisation clearly occur here.",
+      "B": "Wrong: temporal isolation means breeding at different times, but both species breed in the same ponds in the same season, so this prezygotic barrier does not apply (labelling any barrier temporal without checking the timing).",
+      "C": "Correct: mating, gamete transfer and fertilisation all succeed, so prezygotic barriers are absent; isolation arises after the zygote forms through hybrid inviability (embryos die) and hybrid sterility (survivors cannot breed), which still prevents gene flow.",
+      "D": "Wrong: behavioural isolation would prevent courtship and mating, but the frogs readily attempt to mate, so this barrier is absent.",
+      "E": "Wrong: gametic isolation would prevent fertilisation, yet the eggs are fertilised and embryos begin to develop, so this barrier is not operating."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0312",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution, selection and speciation",
+    "subtopic": "Sympatric speciation by allopolyploidy: chromosome doubling restores meiotic pairing and produces instant reproductive isolation from both parents",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "speciation",
+      "sympatric",
+      "allopolyploidy",
+      "chromosome doubling",
+      "hybrid sterility"
+    ],
+    "learning_objective": "Explain how whole-genome doubling of a sterile interspecific hybrid restores fertility and creates a new species sympatrically in one generation.",
+    "question": "A diploid plant of species A (2n = 14) is pollinated by a diploid plant of species B (2n = 18). The F1 hybrid is vigorous but completely sterile. In one such hybrid a spontaneous doubling of the entire chromosome set occurs in a cell lineage that gives rise to flowers, and these flowers set viable seed. The resulting plants can breed with one another but cannot produce fertile offspring with either species A or species B. Which statement best accounts for these observations?",
+    "choices": {
+      "A": "This is allopatric speciation, because the new species is geographically separated from its parents.",
+      "B": "The F1 hybrid was sterile because of a prezygotic barrier, and chromosome doubling removed that barrier.",
+      "C": "Because the new plants can still be pollinated by species A and B, they are not yet reproductively isolated.",
+      "D": "Chromosome doubling produced an allopolyploid (2n = 32) in which every chromosome now has a pairing partner, restoring fertile meiosis; the new species is reproductively isolated from both parents and has formed sympatrically in one generation.",
+      "E": "The new fertile species has 2n = 16, the average of the two parental chromosome numbers."
+    },
+    "correct_answer": "D",
+    "explanation": "The F1 hybrid contains one chromosome set from each parent: 7 (from A) + 9 (from B) = 16 chromosomes that lack homologous partners, so they cannot pair at meiosis and the plant is sterile — a postzygotic barrier. A spontaneous doubling of the whole set gives an allopolyploid with two A sets and two B sets, 2n = 32; now every chromosome has a homologue, meiosis is regular and the plant is fertile. A cross back to either 2n parent would give an unbalanced, sterile offspring, so the polyploid is reproductively isolated from both parents. Because it arose within the parents' range in a single generation, this is sympatric speciation by allopolyploidy.",
+    "option_analysis": {
+      "A": "Wrong: allopatric speciation requires a geographic barrier, but the new species arose in place among its parents with no physical separation, so the process is sympatric.",
+      "B": "Wrong: the F1 already existed as a growing adult, so its sterility is a postzygotic barrier (failed meiotic pairing), not a prezygotic one; doubling restored chromosome pairing rather than removing a mating barrier.",
+      "C": "Wrong: the stem states the new plants breed only among themselves and cannot make fertile offspring with A or B, so they are reproductively isolated — this option contradicts the data.",
+      "D": "Correct: the hybrid's 16 unpaired chromosomes cause meiosis to fail (sterility); doubling to an allopolyploid (2n = 32) gives every chromosome a homologue, restoring fertile meiosis, and the polyploid cannot cross with either parent, so it has speciated sympatrically in one generation.",
+      "E": "Wrong: 2n = 16 is the sterile hybrid's chromosome count (7 + 9); the fertile new species has the doubled complement, 2n = 32, and its chromosome number is not the arithmetic mean of the parents."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0313",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution, selection and speciation",
+    "subtopic": "Genetic drift versus selection: divergence among replicate small populations (with within-population fixation) as the signature of drift on a neutral allele",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "evolution",
+      "genetic drift",
+      "founder effect",
+      "neutral allele",
+      "population size"
+    ],
+    "learning_objective": "Predict and interpret the pattern produced by genetic drift across replicate small populations, and distinguish it from the pattern expected under natural selection.",
+    "question": "A researcher starts with one large, genetically variable population of a small fish in which a neutral colour allele g is at a frequency of 0.5. She uses it to found 20 separate ponds, each begun with only 8 randomly chosen individuals, and lets each pond breed in isolation for many generations at a small, constant size. The colour has no effect on survival or reproduction in any pond. After many generations, what pattern is expected across the 20 ponds, and why?",
+    "choices": {
+      "A": "All 20 ponds will shift g in the same direction, showing that natural selection is acting on the colour.",
+      "B": "The ponds will come to differ widely from one another — some fixing g and others losing it — while variation within each pond falls; this divergence is genetic drift, amplified by the small founder number and small population size.",
+      "C": "Each pond will keep exactly the founder frequency, because the founders were chosen at random from the source population.",
+      "D": "All 20 ponds will converge on a g frequency near 0.5, because without selection the frequency cannot change.",
+      "E": "All 20 ponds will lose allele g, because a neutral allele is eventually eliminated in every population."
+    },
+    "correct_answer": "B",
+    "explanation": "Because the allele is neutral, selection is absent and frequency changes are due to genetic drift — random sampling of alleles each generation. Drift is random in direction and is strongest when the number of founders and the population size are small. Its diagnostic signature across replicate populations is that they diverge from one another (some fix g, others lose it, so variance among ponds increases) while each pond loses heterozygosity within (each heads toward fixation of one allele). A consistent shift in the same direction across independent replicates would instead indicate selection. The expected outcome is therefore wide divergence among the 20 ponds caused by drift.",
+    "option_analysis": {
+      "A": "Wrong: a consistent same-direction shift across independent replicates is the signature of selection, not drift; drift moves each population randomly and independently, so their directions differ.",
+      "B": "Correct: with no selection, each small pond's g frequency follows an independent random walk (drift); the small founder number and small size intensify drift, so replicate ponds diverge — some fixing g, others losing it — while heterozygosity within each pond declines toward fixation, the hallmark pattern of drift.",
+      "C": "Wrong: random sampling sets the average starting frequency near 0.5 but does not freeze it; drift changes the frequency every generation, so ponds do not retain the founder value.",
+      "D": "Wrong: selection is not the only force that changes allele frequencies; in finite populations a neutral allele drifts randomly, so 'no selection means no change' ignores drift.",
+      "E": "Wrong: g starts at 0.5, not rare, and neutral alleles are not systematically eliminated; in any given pond drift is as likely to fix g as to lose it."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0314",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Populations, communities and ecosystems",
+    "subtopic": "Interspecific interactions: classifying an interaction (mutualism/commensalism/parasitism/predation/competition) from the effect on each species when cultured alone versus together",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "ecology",
+      "interspecific interactions",
+      "symbiosis",
+      "commensalism",
+      "data interpretation"
+    ],
+    "learning_objective": "Classify an interspecific interaction by determining the sign of the effect on each species from monoculture-versus-mixed-culture density data.",
+    "question": "In a controlled laboratory experiment, two free-living aquatic species, S and T, were cultured under identical conditions either separately (monoculture) or together (mixed culture). The mean final population density (individuals mL^-1, averaged over replicates) was recorded:\n\n- S in monoculture: 820\n- T in monoculture: 610\n- S in mixed culture: 1150\n- T in mixed culture: 590\n\nThe change in T between the two treatments (610 -> 590) lies within the range of random variation between replicates, whereas the increase in S is statistically significant. Which term best describes the interaction between S and T under these conditions?",
+    "choices": {
+      "A": "Parasitism, with S gaining resources at the expense of T",
+      "B": "Predation, with S consuming T as its prey",
+      "C": "Mutualism, because the combined density of the two species is greater than in either monoculture",
+      "D": "Competition, because growing the two species together lowers the density that each can reach",
+      "E": "Commensalism, with S benefiting from the association while T is essentially unaffected"
+    },
+    "correct_answer": "E",
+    "explanation": "Interactions are classified by the sign of the effect on each partner. Read each species' mixed-culture density against its own monoculture control: S = benefit (+), T = no significant change (0). A +/0 relationship is commensalism (S is the commensal, T the unaffected host). Competition is -/-, mutualism +/+, and parasitism/predation +/- (host or prey harmed). The statistical caveat about T is the crux: without it one might over-read the trivial 610->590 dip as harm (parasitism/predation), or wrongly credit a benefit to just one species as mutualism.",
+    "option_analysis": {
+      "A": "Wrong: parasitism (+/-) requires the host T to be harmed (a density decrease), yet T's density is essentially unchanged. Misconception: assuming the species that gains must always do so at a measurable cost to the other.",
+      "B": "Wrong: predation predicts a marked fall in the prey's density, but T changes only 610->590, within random variation. Misconception: believing that any increase of one species in mixed culture must be paid for by consuming the other.",
+      "C": "Wrong: mutualism (+/+) requires BOTH partners to benefit, but T shows no significant change, so the benefit is one-sided. Misconception: treating a higher combined total, or a benefit to only one species, as evidence of mutual benefit.",
+      "D": "Wrong: competition would depress BOTH densities in mixed culture, yet S rises well above its monoculture value, so the data are incompatible with competition. Misconception: assuming that two species sharing a culture must necessarily compete (any coexistence read as competition).",
+      "E": "Correct: S is helped (820->1150) while T is neither significantly helped nor harmed (610->590, non-significant). A +/0 outcome is commensalism, with S the commensal and T the unaffected host."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0315",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Nutrient cycles - the nitrogen cycle",
+    "subtopic": "Biological nitrogen fixation: the oxygen-sensitivity of nitrogenase and the dual role of leghaemoglobin in Rhizobium root-nodule symbiosis",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "ecology",
+      "nitrogen cycle",
+      "nitrogen fixation",
+      "Rhizobium",
+      "nitrogenase",
+      "mutualism"
+    ],
+    "learning_objective": "Explain how the oxygen-sensitivity of nitrogenase and the aerobic ATP demand of nitrogen fixation are reconciled by leghaemoglobin in the legume-Rhizobium mutualism, and interpret a leghaemoglobin-deficient mutant.",
+    "question": "Root nodules of leguminous plants house Rhizobium bacteroids that reduce atmospheric N2 to ammonia using the enzyme nitrogenase, a reaction that consumes a large amount of ATP. Nitrogenase is irreversibly inactivated by oxygen. Healthy nodules are pink because they contain a high concentration of leghaemoglobin, a red oxygen-binding protein. A host-plant mutant that cannot synthesise functional leghaemoglobin forms white nodules that contain normal numbers of bacteroids but fix nitrogen at less than 5% of the wild-type rate. Which statement best explains the role of leghaemoglobin and the mutant phenotype?",
+    "choices": {
+      "A": "Leghaemoglobin supplies the nitrogen atoms that nitrogenase incorporates into ammonia; the mutant lacks this nitrogen source",
+      "B": "Leghaemoglobin carries the ammonia product to the plant cytoplasm; without it, ammonia accumulates and feedback-inhibits nitrogenase",
+      "C": "Leghaemoglobin is the catalyst that directly reduces N2 to ammonia; the mutant nodules therefore have no fixing enzyme",
+      "D": "Leghaemoglobin excludes oxygen completely so that fixation proceeds anaerobically; in the mutant, oxygen leaks in and poisons nitrogenase",
+      "E": "Leghaemoglobin holds the free-oxygen concentration very low, protecting nitrogenase, while still delivering bound oxygen fast enough to fuel the respiration that supplies ATP; in the mutant, free oxygen rises and inactivates nitrogenase"
+    },
+    "correct_answer": "E",
+    "explanation": "Fixation poses an 'oxygen paradox': nitrogenase is destroyed by O2, yet the reaction is so ATP-expensive that the bacteroid must respire aerobically to power it. Leghaemoglobin resolves this by buffering the free (dissolved) O2 concentration to a very low level (protecting nitrogenase) while its rapid loading/unloading maintains a high O2 flux to the bacteroid for respiration. The mutant shows the defect is regulatory (O2 handling), not a shortage of bacteria or enzyme, because bacteroid numbers are normal yet fixation collapses.",
+    "option_analysis": {
+      "A": "Wrong: the nitrogen incorporated into ammonia comes from N2, not from leghaemoglobin, which binds oxygen rather than nitrogen. Misconception: assuming an abundant nodule protein must be the substrate source, confusing an O2 carrier with the N source.",
+      "B": "Wrong: leghaemoglobin binds oxygen, not ammonia, and ammonia export does not depend on it. Misconception: inventing a plausible-sounding product-transport role for an oxygen-binding protein.",
+      "C": "Wrong: the catalyst that reduces N2 is nitrogenase; leghaemoglobin is an oxygen-transport protein, not the fixing enzyme. Misconception: conflating the abundant red pigment with the catalytic enzyme.",
+      "D": "Wrong: bacteroids must respire aerobically to make the large ATP supply fixation needs, so oxygen cannot be excluded completely; leghaemoglobin buffers O2 low rather than eliminating it. Misconception: treating oxygen as purely a poison and the nodule as strictly anaerobic, ignoring the aerobic ATP requirement.",
+      "E": "Correct: leghaemoglobin buffers free O2 to a very low level (protecting the O2-labile nitrogenase) while its rapid binding/release keeps a high O2 flux to the bacteroid for ATP-generating respiration. Losing it raises free O2, inactivating nitrogenase, so fixation fails despite normal bacteroid numbers."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0316",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecological succession",
+    "subtopic": "Primary versus secondary succession: soil/seed-bank persistence and pioneer facilitation (nitrogen accumulation) determining the rate of succession to climax",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "ecology",
+      "succession",
+      "primary succession",
+      "secondary succession",
+      "facilitation"
+    ],
+    "learning_objective": "Distinguish primary from secondary succession by soil/seed-bank persistence and explain, via pioneer facilitation and nitrogen accumulation, why the rate of succession to climax differs.",
+    "question": "Two neighbouring areas begin to be recolonised by plants. Area 1 is bare rock newly exposed by a retreating glacier. Area 2 is a field where a mature forest was destroyed by fire, but the soil - including its buried seed bank and nutrients - remained intact. Ecologists follow both areas until each reaches a comparable climax community and find that Area 2 reaches climax far sooner than Area 1. Which statement best interprets these observations?",
+    "choices": {
+      "A": "Area 2 is primary succession because the fire sterilised the ground, while Area 1 is secondary succession because lichens were already present on the rock",
+      "B": "Area 1 undergoes primary succession and is slower because pioneers must first build soil and accumulate nitrogen - partly via nitrogen-fixing species - before larger plants can establish, whereas Area 2 undergoes secondary succession from intact soil and a seed bank and so reaches climax sooner",
+      "C": "Area 1 reaches climax faster than Area 2 because bare rock has no established competitors to slow colonisation",
+      "D": "The climax community is set entirely by whichever pioneer species happens to arrive first, independently of soil development or climate",
+      "E": "Both areas undergo primary succession, because the pre-existing vegetation was destroyed in each case"
+    },
+    "correct_answer": "B",
+    "explanation": "The primary/secondary distinction hinges on whether soil (and its seed bank) persists, not on whether vegetation was destroyed. Bare glacial rock has no soil, so Area 1 is primary succession - and it is slow because pioneers must weather rock and, crucially, accumulate nitrogen (nitrogen-fixers) and organic matter before later seres can establish (facilitation). Retained soil plus seed bank after the fire makes Area 2 secondary succession, which is fast because the limiting 'start-up' step has been skipped.",
+    "option_analysis": {
+      "A": "Wrong: the definitions are reversed - intact soil after fire is secondary, and bare glacial rock is primary regardless of a few lichens. Misconception: swapping the primary/secondary criteria and misreading which site retains soil.",
+      "B": "Correct: bare rock lacks soil, so Area 1 is primary succession, and pioneers (lichens/mosses, plus nitrogen-fixing species adding soil nitrogen) must first create the conditions later species need (facilitation), which is slow. Area 2 keeps soil, nutrients and a seed bank, so it is secondary succession and reaches climax much faster.",
+      "C": "Wrong: the stem states the opposite (Area 2 is faster), and bare rock is slow precisely because soil and nutrients must be built first, not because competitors are absent. Misconception: assuming lack of competitors is the rate-limiting factor rather than soil/nutrient development.",
+      "D": "Wrong: the climax is determined largely by climate and soil (and later interactions), not fixed by the identity of the first colonisers. Misconception: over-crediting pioneer identity, treating first arrival as dictating the endpoint.",
+      "E": "Wrong: primary vs secondary succession is defined by whether soil and its seed bank persist, not by whether vegetation was destroyed; Area 2 retains soil and is therefore secondary. Misconception: equating any recolonisation after destruction with primary succession."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0317",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Populations and communities - predator-prey dynamics",
+    "subtopic": "Predator-prey population cycles: identifying predator and prey and explaining the phase lag between their oscillations",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "ecology",
+      "predator-prey",
+      "population cycles",
+      "predation",
+      "data interpretation"
+    ],
+    "learning_objective": "Identify predator and prey and explain the phase lag in coupled population cycles from time-series abundance data, distinguishing predator regulation from bottom-up resource limitation.",
+    "question": "In an enclosed grassland community two animal species, H and L, were censused every year. Their estimated abundances (arbitrary units) over one full cycle were:\n\nYear:  1    2    3    4    5    6    7    8\nH:     20   45   70   55   25   15   20   40\nL:      8   10   18   30   28   15    8    9\n\nBoth species oscillate with the same period, and L's peak (year 4) consistently follows H's peak (year 3). Which interpretation is best supported by these data?",
+    "choices": {
+      "A": "The two populations fluctuate independently, and their equal period is coincidental",
+      "B": "L is the predator, and its rise drives an immediate, same-year fall in H, showing tight lag-free control",
+      "C": "H is the predator, because whichever species reaches the higher numbers must be the predator",
+      "D": "L is the predator: its numbers keep rising for a time after H has begun to fall because abundant prey still supports predator reproduction, and H falls once predator density is high enough that losses to predation exceed H's reproduction - so the predator peak lags the prey peak",
+      "E": "H declines only because it exhausts its own food supply just as it peaks, and L has no influence on H's fall"
+    },
+    "correct_answer": "D",
+    "explanation": "Two clues identify predator and prey: relative abundance (prey are usually more numerous - here H peaks at 70 versus L at 30) and phase (the predator lags the prey - L peaks in year 4, one year after H's year-3 peak). The lag arises because the predator's growth depends on prey already being abundant, so predators keep increasing after prey have started to decline and only fall once prey become scarce. Recognising this signature rules out reversed roles, coincidence, instantaneous control and a predator-free bottom-up story.",
+    "option_analysis": {
+      "A": "Wrong: the consistent one-year lag of L behind H is a signature of coupling, not coincidence; independent populations would not track one another's peaks and troughs. Misconception: dismissing a regular phase relationship as chance.",
+      "B": "Wrong: the data show a lag (H peaks year 3, L year 4; H is already falling in year 4 while L is still rising), not instantaneous control. Misconception: expecting predator and prey to peak and fall simultaneously, with no time delay.",
+      "C": "Wrong: prey are typically more numerous than their predators, so the more abundant species (H, peak 70 vs 30) is the prey, not the predator. Misconception: believing predators outnumber their prey.",
+      "D": "Correct: L is the predator (fewer individuals, peak lags prey). After H peaks in year 3 the predators keep increasing to year 4 because prey are still plentiful; H falls once predation losses outstrip its reproduction, and L then declines as prey become scarce. The quarter-cycle lag is the classic predator-prey signature.",
+      "E": "Wrong: H's decline coincides with high and still-rising predator numbers, so predation cannot be dismissed; a purely bottom-up account ignores the tight lagged coupling shown. Misconception: attributing prey decline solely to its own food limitation while denying any predator role."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0318",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Population growth and carrying capacity",
+    "subtopic": "Overshoot and dieback: delayed density dependence causing a population to exceed carrying capacity before settling (distinguishing the transient peak from K)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "ecology",
+      "population growth",
+      "carrying capacity",
+      "density dependence",
+      "logistic growth"
+    ],
+    "learning_objective": "Interpret an overshoot-and-dieback population trajectory in terms of delayed density-dependent limitation and carrying capacity, distinguishing the transient peak from K and identifying the density-dependent regulating factor.",
+    "question": "A few individuals of a large herbivore are introduced to an island that has abundant vegetation and no predators. The population is censused for 25 years:\n\n- Year 0: 25\n- Year 5: ~260\n- Year 10: ~2 100\n- Year 13: ~6 000 (highest count)\n- Year 16: ~900\n- Year 25: fluctuating around ~2 000\n\nWhich statement best explains this pattern?",
+    "choices": {
+      "A": "Because the population was growing exponentially it would double indefinitely, so the fall after year 13 can only be a census error",
+      "B": "While food was plentiful the population grew rapidly, and because the density-dependent brake (food depletion) acted with a delay it overshot the number the island can sustain; the ensuing food shortage raised the death rate sharply, causing the crash before numbers settled near a carrying capacity of about 2 000",
+      "C": "The island's carrying capacity is 6 000 - the highest count recorded - and the later decline must have been caused by an external event unrelated to the herbivore's own numbers",
+      "D": "The crash was caused by predators that multiplied in response to the abundant herbivores and drove both to a shared equilibrium",
+      "E": "Numbers fell because emigration happened to balance births, with population density having no effect on birth or death rates"
+    },
+    "correct_answer": "B",
+    "explanation": "The trajectory - rapid rise, a peak well above the eventual level, a crash, then settling - is overshoot-and-dieback. It occurs when density-dependent limitation (here food depletion from overgrazing) acts with a time lag, so numbers exceed the carrying capacity before the elevated death rate pulls them back. The key discriminations are that the peak (6 000) is not K (~2 000), that growth is not truly unlimited (environmental resistance intensifies with density), and that with no predators the regulating factor is intraspecific competition for food - a density-dependent effect.",
+    "option_analysis": {
+      "A": "Wrong: exponential growth cannot continue indefinitely because environmental resistance (here, food) intensifies with density; the crash is real, not an error. Misconception: believing growth stays exponential and unlimited.",
+      "B": "Correct: early growth is near-exponential while food is non-limiting, but because overgrazing's effect on the food supply lags the rise in numbers, the population overshoots the carrying capacity (~2 000). The resulting food shortage is density-dependent, sharply raising mortality and causing the dieback before numbers settle around K.",
+      "C": "Wrong: the peak of 6 000 is a transient overshoot, not the sustainable carrying capacity, and the decline follows from the population's own excess density (food depletion), not an unrelated external cause. Misconception: reading the highest count as K and ignoring delayed density dependence.",
+      "D": "Wrong: the stem specifies there are no predators, so a predator increase cannot explain the crash; regulation here is by food, not predation. Misconception: importing predator-prey control into a predator-free system.",
+      "E": "Wrong: the crash reflects density-dependent mortality (starvation) once food is exhausted, so density strongly affects the death rate; a density-independent balance of emigration and births cannot produce an overshoot-and-crash. Misconception: denying density dependence."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0319",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — digestion & absorption",
+    "subtopic": "Nervous (cephalic-phase) control of gastric acid secretion by the vagus nerve, distinguished from hormonal/local gastric-phase secretion using a vagotomy experiment",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "digestion",
+      "gastric secretion",
+      "nervous control",
+      "cephalic phase",
+      "vagus nerve",
+      "gastrin",
+      "experiment interpretation"
+    ],
+    "learning_objective": "Interpret an experiment to distinguish the nervous (vagal, cephalic-phase) control of gastric acid secretion from hormonal/local control of the gastric phase.",
+    "question": "A researcher measures gastric acid (HCl) secretion in two people. In a healthy volunteer, being shown and allowed to smell an appetising meal — without being allowed to eat it — produces a clear rise in gastric acid secretion. The measurement is repeated in a second person whose vagus-nerve branches to the stomach were surgically cut (vagotomy) years earlier for another condition. In this second person, the sight and smell of food produce no rise in acid secretion, yet placing food directly into the stomach still causes acid to be secreted.\n\nWhich conclusion is best supported by these results?",
+    "choices": {
+      "A": "The vagus nerve is required for gastric acid secretion at all times, so the vagotomised person can secrete no acid under any circumstances.",
+      "B": "The rise in acid on seeing and smelling food is a purely hormonal (gastrin-mediated) response that does not require any nerves.",
+      "C": "The rise in acid on seeing and smelling food is a nervous reflex carried by the vagus nerve, whereas food in the stomach can still trigger secretion by other (hormonal or local) pathways.",
+      "D": "The sight and smell of food normally inhibit acid secretion, and cutting the vagus nerve simply removes this inhibition.",
+      "E": "Food placed directly in the stomach stimulates acid secretion only by stretching the stomach wall and thereby activating the vagus nerve."
+    },
+    "correct_answer": "C",
+    "explanation": "Gastric secretion is controlled in phases. The cephalic phase is triggered by the sight, smell, taste or thought of food, before any food reaches the stomach; it is a nervous reflex mediated by the parasympathetic vagus nerve. Cutting the vagus therefore abolishes the response to sight and smell — exactly what is seen in the second person. However, once food is in the stomach it stimulates acid secretion during the gastric phase largely through the hormone gastrin (released from G cells) and local reflexes; these do not depend on the intact vagus, so acid is still secreted when food is placed directly in the stomach. The results together separate a nervous (vagal, cephalic) component from a non-vagal (hormonal/local, gastric) component.",
+    "option_analysis": {
+      "A": "Wrong: the vagotomised person still secretes acid when food is placed in the stomach, so the vagus is not required for all acid secretion. Misconception: over-generalising the vagus as the sole pathway and ignoring gastrin/local reflexes.",
+      "B": "Wrong: the response to sight and smell is abolished by cutting the vagus nerve, proving it is a nervous reflex, not a purely hormonal one. Misconception: assuming all gastric secretion is driven by gastrin and ignoring the nervous cephalic phase.",
+      "C": "Correct: loss of the vagus removes the sight/smell (cephalic, nervous) response but leaves the food-in-stomach (gastric, hormonal/local) response intact, exactly matching the data.",
+      "D": "Wrong: sight and smell clearly stimulate (not inhibit) acid secretion in the healthy volunteer. Misconception: reversing the sign of the cephalic-phase response.",
+      "E": "Wrong: if gastric-phase secretion depended only on a vagal stretch reflex, cutting the vagus would abolish it too, yet it persists. Misconception: attributing gastric-phase secretion solely to a vagal stretch reflex rather than to gastrin and local reflexes."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0320",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — digestion & absorption",
+    "subtopic": "Hormonal control of duodenal secretions: secretin-driven pancreatic bicarbonate and CCK-driven enzyme/bile release, and the consequences of losing duodenal endocrine cells",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "digestion",
+      "hormonal control",
+      "secretin",
+      "cholecystokinin",
+      "pancreas",
+      "bicarbonate",
+      "optimum pH",
+      "malabsorption"
+    ],
+    "learning_objective": "Integrate the roles of duodenal hormones (secretin and CCK) with pancreatic-enzyme pH optima to predict the effect of losing duodenal endocrine cells on digestion.",
+    "question": "When acidic, partly digested chyme passes from the stomach into the duodenum, endocrine cells in the duodenal wall release hormones into the blood. One hormone (secretin) stimulates the pancreas and liver to release a watery, hydrogencarbonate (bicarbonate)-rich fluid; another (cholecystokinin, CCK), released mainly in response to fats and proteins, stimulates the pancreas to release digestive enzymes and causes the gall bladder to contract. Pancreatic enzymes such as trypsin and pancreatic lipase have their optimum activity around pH 8.\n\nA patient has a disease that selectively destroys the hormone-secreting cells of the duodenal lining, but the pancreas, liver, gall bladder and all the ducts remain structurally normal. After a fatty, protein-rich meal, which outcome is most likely?",
+    "choices": {
+      "A": "Pancreatic enzyme secretion increases, because losing the hormones removes their normal inhibition of the pancreas.",
+      "B": "Duodenal pH stays abnormally low and both pancreatic enzyme delivery and bile release are reduced, so fat and protein digestion are impaired.",
+      "C": "Protein digestion is impaired but fat digestion is normal, because pancreatic lipase, unlike trypsin, is secreted continuously and independently of hormones.",
+      "D": "Duodenal pH rises to about 8 and fat digestion is normal, because pancreatic bicarbonate secretion does not depend on these hormones.",
+      "E": "Fat digestion is unaffected, because the gall bladder empties automatically as soon as fat enters the duodenum."
+    },
+    "correct_answer": "B",
+    "explanation": "The pancreas, gall bladder and liver in this patient are intact but they are not receiving their normal blood-borne signals. Without secretin, the pancreas and liver fail to release the bicarbonate-rich fluid that normally neutralises the acid from the stomach, so the duodenum stays acidic. Without CCK, pancreatic digestive enzymes are not released in adequate amounts and the gall bladder does not contract to deliver bile. The low duodenal pH compounds the problem, because trypsin and lipase (optimum pH ~8) work poorly in acid even if some reaches the duodenum. The net result is impaired digestion of both fat (no bile, poorly working lipase) and protein (little trypsin working at the wrong pH).",
+    "option_analysis": {
+      "A": "Wrong: secretin and CCK are stimulatory, not inhibitory, so losing them decreases (not increases) pancreatic secretion. Misconception: confusing a stimulatory hormonal signal with negative feedback that normally restrains secretion.",
+      "B": "Correct: loss of secretin leaves the duodenum acidic, and loss of CCK reduces enzyme and bile delivery; the low pH further disables the pH-8 enzymes, impairing both fat and protein digestion.",
+      "C": "Wrong: pancreatic lipase, like trypsin, is released under CCK control and is pH-sensitive, so fat digestion is also impaired. Misconception: assuming lipase is secreted continuously and independently of hormonal signals.",
+      "D": "Wrong: bicarbonate release is driven by secretin, so losing the duodenal endocrine cells prevents neutralisation and the duodenum stays acidic. Misconception: treating pancreatic/hepatic bicarbonate secretion as automatic rather than secretin-controlled.",
+      "E": "Wrong: gall-bladder contraction is triggered by CCK, not automatically by fat; without CCK, bile is not delivered. Misconception: believing the gall bladder empties on its own when fat arrives."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0321",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — digestion & absorption",
+    "subtopic": "Site of final carbohydrate digestion: the membrane-bound brush-border maltase step is non-redundant whereas salivary amylase is dispensable (amylase locations and conditions along the gut)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "digestion",
+      "carbohydrate",
+      "salivary amylase",
+      "pancreatic amylase",
+      "brush border",
+      "maltase",
+      "microvilli",
+      "redundancy"
+    ],
+    "learning_objective": "Reason about where each stage of carbohydrate digestion occurs to identify which single enzyme deficiency most severely blocks the conversion of dietary starch to absorbable glucose.",
+    "question": "In humans, starch digestion begins in the mouth (salivary amylase, optimum near pH 7) and continues in the small intestine (pancreatic amylase). Both amylases break starch down only as far as the disaccharide maltose and short glucose chains; the final step to free glucose is carried out by maltase, an enzyme that is not free in the gut lumen but is bound to the membrane of the microvilli (the brush border) of the small-intestine epithelium. Salivary amylase is rapidly inactivated by stomach acid.\n\nFour people each completely lack ONE of the following. In whom is the digestion of a starchy meal to absorbable glucose most severely impaired?",
+    "choices": {
+      "A": "A person who produces no salivary amylase.",
+      "B": "A person who produces no bile salts.",
+      "C": "A person who lacks brush-border maltase (and the related membrane-bound glucosidases).",
+      "D": "A person whose stomach produces no hydrochloric acid.",
+      "E": "A person who produces no pepsin."
+    },
+    "correct_answer": "C",
+    "explanation": "The key is to identify which step in the pathway has no back-up. Salivary amylase is largely redundant: it is inactivated by stomach acid, and pancreatic amylase carries out the same job in the small intestine, so a person lacking salivary amylase digests starch almost normally. Pancreatic amylase and salivary amylase, however, can only produce maltose and short chains — they cannot make free glucose. That final, non-redundant step is performed by the membrane-bound brush-border maltase. If maltase (and the related brush-border glucosidases) is absent, maltose cannot be converted to glucose no matter how much amylase is present, so starch cannot be fully digested and absorbed. The stomach acid, pepsin and bile options are irrelevant to starch digestion (they act on protein or, for bile, on fat).",
+    "option_analysis": {
+      "A": "Wrong: salivary amylase is redundant — it is destroyed by stomach acid, and pancreatic amylase performs the same function, so its absence has little effect. Misconception: over-rating salivary amylase as essential for starch digestion.",
+      "B": "Wrong: bile salts emulsify fats and play no part in starch digestion. Misconception: assuming bile is needed to break down carbohydrates.",
+      "C": "Correct: the brush-border maltase step is the only route from maltose to absorbable glucose and has no back-up, so its loss blocks the completion of starch digestion regardless of amylase activity.",
+      "D": "Wrong: stomach acid does not digest starch; if anything, its absence would let salivary amylase survive longer, not impair starch digestion. Misconception: assuming acid chemically digests carbohydrate.",
+      "E": "Wrong: pepsin digests protein, not starch, so its absence does not affect carbohydrate digestion. Misconception: enzyme–substrate confusion (matching a protease to carbohydrate)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0322",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — digestion & absorption",
+    "subtopic": "Regional specialisation of the terminal ileum: enterohepatic recycling of bile salts and the fat malabsorption caused by ileal resection",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "digestion",
+      "ileum",
+      "bile salts",
+      "enterohepatic circulation",
+      "micelles",
+      "fat absorption",
+      "malabsorption",
+      "regional specialisation"
+    ],
+    "learning_objective": "Explain why the terminal ileum's specialised reabsorption of bile salts is essential for sustained fat digestion, and predict the consequence of removing it.",
+    "question": "The bile salts that emulsify fats are not simply lost in the faeces after every meal. Most are reabsorbed in the final part of the small intestine (the terminal ileum), returned to the liver in the blood, and secreted again in the bile. This recycling keeps the pool of bile salts large enough for normal fat digestion even though the liver makes only a small amount of new bile salt each day.\n\nA patient has the terminal ileum surgically removed but keeps a normal liver, gall bladder, pancreas and the rest of the small intestine. Which outcome is most likely, and why?",
+    "choices": {
+      "A": "Fat absorption is unaffected, because once pancreatic lipase is present bile salts are no longer needed.",
+      "B": "Fat absorption increases, because the bile salts now remain in the intestine longer instead of being removed.",
+      "C": "Bile salts are lost in the faeces faster than the liver can replace them, the bile-salt pool shrinks, and fat absorption is impaired (fatty stools).",
+      "D": "Carbohydrate and protein absorption fail but fat absorption stays normal, because the terminal ileum is the main site where sugars and amino acids are absorbed.",
+      "E": "Fat digestion is unaffected, because the liver simply increases new bile-salt synthesis enough to fully replace the lost recycling."
+    },
+    "correct_answer": "C",
+    "explanation": "The terminal ileum is regionally specialised: it is the site where bile salts are actively reabsorbed and returned to the liver (enterohepatic circulation), allowing the small daily synthesis to support a large recycling pool. Remove that segment and bile salts escape into the faeces on each pass. Because the liver's synthetic capacity is limited and cannot make up the whole recycled amount, the bile-salt pool progressively shrinks. Bile salts are needed to form micelles that carry the products of fat digestion to the epithelial surface, so a depleted pool causes fat malabsorption and fatty stools — even though the liver, pancreas and gall bladder are all structurally normal. (Sugars and amino acids are absorbed mainly in the more proximal small intestine, so their absorption is largely preserved.)",
+    "option_analysis": {
+      "A": "Wrong: pancreatic lipase alone is not enough; bile salts are needed to emulsify fat and form micelles for absorption. Misconception: thinking lipase makes bile salts unnecessary.",
+      "B": "Wrong: removing the ileum removes the reabsorption site, so bile salts are lost faster, not retained longer. Misconception: reversing the direction of the effect on the bile-salt pool.",
+      "C": "Correct: without ileal reabsorption, bile salts are lost faster than the liver can replace them, the pool shrinks, micelle formation fails, and fat is malabsorbed.",
+      "D": "Wrong: sugars and amino acids are absorbed mainly in the proximal small intestine (duodenum/jejunum); the terminal ileum's special role is bile-salt (and B12) reabsorption. Misconception: mislocating the site of sugar/amino-acid absorption.",
+      "E": "Wrong: hepatic synthesis of new bile salts is limited and cannot fully replace the amount that was being recycled, so the pool falls. Misconception: assuming the liver can compensate without limit."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0323",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — digestion & absorption",
+    "subtopic": "Fate of absorbed products: lipophilic substances enter the lacteals/lymph and bypass the hepatic portal vein, escaping hepatic first-pass metabolism",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 135,
+    "tags": [
+      "digestion",
+      "absorption",
+      "lacteal",
+      "lymph",
+      "hepatic portal vein",
+      "chylomicron",
+      "first-pass metabolism",
+      "lipophilic drug",
+      "integration"
+    ],
+    "learning_objective": "Integrate the lymphatic (lacteal) versus hepatic-portal routing of absorbed products with hepatic first-pass metabolism to explain the enhanced systemic delivery of a lipophilic compound taken with a fatty meal.",
+    "question": "Water-soluble products of digestion, such as glucose and amino acids, are absorbed into the blood capillaries of the villi and carried in the hepatic portal vein directly to the liver before reaching the rest of the body. The products of fat digestion are re-formed into triglycerides inside the epithelial cells, packaged into large lipoprotein droplets (chylomicrons), and released not into the blood capillaries but into the lacteal (a lymph vessel) of each villus; intestinal lymph then drains into a large vein in the neck. The liver chemically alters (metabolises) many absorbed substances the first time they pass through it.\n\nA new drug is normally broken down extensively by the liver. Researchers find that when it is given by mouth in a highly fat-soluble (lipophilic) form together with a fatty meal, a much larger fraction of the dose reaches the general (systemic) circulation unchanged than when the same drug is given in a water-soluble form. What is the best explanation?",
+    "choices": {
+      "A": "The lipophilic drug is carried in the hepatic portal vein bound to chylomicrons, which the liver cannot take up, so it passes straight through the liver unchanged.",
+      "B": "The lipophilic drug is absorbed into the lacteals with the products of fat digestion and travels in the lymph to the systemic circulation, so on its first pass it largely bypasses the hepatic portal vein and the liver.",
+      "C": "The liver only ever metabolises water-soluble substances, so making the drug fat-soluble means it is never metabolised by the liver at any time.",
+      "D": "Fat-soluble substances cannot cross the intestinal epithelium, so less drug is absorbed and therefore less is available for the liver to destroy.",
+      "E": "The fatty meal speeds up stomach emptying, so the drug spends less time exposed to digestive enzymes and is destroyed less."
+    },
+    "correct_answer": "B",
+    "explanation": "The two absorption routes have different destinations. Water-soluble products enter the villus capillaries and the hepatic portal vein, so they must pass through the liver first, where much of an extensively-metabolised drug is destroyed on this 'first pass'. Fat-digestion products are packaged into chylomicrons and released into the lacteal (lymph), which drains into a neck vein and thus into the systemic circulation — bypassing the hepatic portal vein and the liver on the first pass. A highly lipophilic drug taken with a fatty meal is incorporated into chylomicrons and follows this lymphatic route, so more of it reaches the systemic blood unchanged before ever encountering the liver. This is an application of the routing of absorbed products, not a claim that the liver never metabolises the drug.",
+    "option_analysis": {
+      "A": "Wrong: chylomicrons enter the lacteals and the lymph, not the hepatic portal vein, so the stated route is anatomically incorrect. Misconception: believing chylomicrons travel in the portal blood to the liver rather than in the lymphatic system.",
+      "B": "Correct: as a lipophilic molecule, the drug is carried with fats into the lacteal and travels in lymph to the systemic circulation, bypassing the hepatic portal vein and the liver's first-pass metabolism.",
+      "C": "Wrong: the liver does metabolise lipophilic drugs (often by making them water-soluble); the drug escapes only the first pass by routing through the lymph, not metabolism forever. Misconception: overstating a first-pass bypass as permanent immunity to hepatic metabolism.",
+      "D": "Wrong: lipophilic substances cross the lipid membranes of the epithelium readily, and if less were absorbed the systemic amount would fall, contradicting the data. Misconception: assuming fat-soluble molecules cannot be absorbed.",
+      "E": "Wrong: fat actually slows stomach emptying, and enzyme exposure time is not what determines how much drug the liver destroys. Misconception: inventing a gastric-emptying mechanism instead of reasoning about the absorption route."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch16",
+    "review_status": "accepted"
+  }
+]

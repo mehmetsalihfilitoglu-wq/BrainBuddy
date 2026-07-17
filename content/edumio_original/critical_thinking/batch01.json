@@ -1,0 +1,193 @@
+[
+  {
+    "id": "mio_ct_0002",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "argument analysis",
+    "subtopic": "parallel reasoning",
+    "difficulty": "medium",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "critical_thinking",
+      "argument_analysis",
+      "parallel_reasoning",
+      "conditional_logic"
+    ],
+    "learning_objective": "Identify the argument whose logical structure matches a given valid conditional-and-denial pattern, distinguishing it from superficially similar but structurally different arguments.",
+    "question": "Every student who completes the summer laboratory placement is awarded a certificate of practical competence. Aylin did not complete the summer laboratory placement, so she will not be awarded a certificate of practical competence.\n\nWhich one of the following most closely parallels the reasoning used in the above argument?",
+    "choices": {
+      "A": "Only candidates who submit two references are considered for the post. Mara submitted two references, so she will be considered for the post.",
+      "B": "Every applicant who scores above the threshold is invited to interview. Deniz scored above the threshold, so Deniz will be invited to interview.",
+      "C": "Every member of the choir has passed the audition. Since Ela has not passed the audition, she is not a member of the choir.",
+      "D": "Every resident of the north wing holds a parking permit. Kaan does not live in the north wing, so Kaan does not hold a parking permit.",
+      "E": "Every book in the reference collection may be consulted only on the premises. This volume may be borrowed, so it is not part of the reference collection."
+    },
+    "correct_answer": "D",
+    "explanation": "The original has the form: All A are B; x is not-A; therefore x is not-B. This is formally invalid (denying the antecedent), because being A is stated as sufficient for B but not as necessary — something could be B without being A. The parallel must reproduce exactly this structure: a universal 'all A are B', a premise that the subject is not-A, and a conclusion that the subject is not-B. Option D does this precisely: All north-wing residents hold a permit; Kaan is not a north-wing resident; therefore Kaan holds no permit — the identical denying-the-antecedent pattern (and the identical flaw). The correct parallel is judged by matching logical form, not by whether the reasoning is sound.",
+    "option_analysis": {
+      "A": "Incorrect: 'Only candidates who submit two references are considered' makes submitting references necessary, not sufficient, then affirms it to conclude eligibility — a different (and separately flawed) structure from the original.",
+      "B": "Incorrect: this affirms the antecedent (All A are B; x is A; therefore x is B) — a valid form, the opposite structure to the flawed original.",
+      "C": "Incorrect: this is denying the consequent / contrapositive (All A are B; x is not-B; therefore x is not-A) — a valid form, not the invalid denying-the-antecedent of the original.",
+      "D": "Correct: reproduces the exact form of the original — All A are B; the subject is not-A; therefore the subject is not-B (denying the antecedent) — including its flaw.",
+      "E": "Incorrect: same valid contrapositive structure as B (reasons from the negation of the consequent back to the negation of the antecedent), so it does not match the invalid original."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0003",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "quantitative reasoning",
+    "subtopic": "data interpretation with conditional proportions",
+    "difficulty": "hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "critical_thinking",
+      "quantitative_reasoning",
+      "diagnostic_testing",
+      "multi_step_arithmetic"
+    ],
+    "learning_objective": "Combine test-outcome proportions with false-positive and false-negative rates to recover the true prevalence of a condition in a screened population.",
+    "question": "A clinic screens 900 people for a condition using a single test. Exactly 20% of those screened test positive. Of the people who test positive, one quarter do not actually have the condition (they are false positives). Of the people who test negative, one twenty-fourth actually do have the condition (they are false negatives).\n\nHow many of the 900 people screened actually have the condition?",
+    "choices": {
+      "A": "135",
+      "B": "210",
+      "C": "150",
+      "D": "180",
+      "E": "165"
+    },
+    "correct_answer": "E",
+    "explanation": "Of 900 people, 20% test positive = 180, leaving 720 testing negative. Among the 180 positives, one quarter (45) are false positives, so the true positives — positives who really have the condition — number 180 − 45 = 135. Among the 720 negatives, one twenty-fourth (30) are false negatives who really do have the condition. The people who actually have the condition are the true positives plus the false negatives: 135 + 30 = 165. The key step is recognising that the truly affected are drawn from BOTH the positive group (minus false positives) and the negative group (the false negatives).",
+    "option_analysis": {
+      "A": "Incorrect (135): counts only the true positives and forgets the false negatives hidden among those who tested negative.",
+      "B": "Incorrect (210): adds all false results to the positives (180 + 30) or otherwise double-counts, treating every error as an additional case rather than reallocating them correctly.",
+      "C": "Incorrect (150): a mixed slip — e.g. subtracting the false negatives (30) from the positives (180) instead of adding the false negatives to the true positives.",
+      "D": "Incorrect (180): equates 'actually have the condition' with 'tested positive', ignoring both false positives and false negatives.",
+      "E": "Correct (165): true positives (180 − 45 = 135) plus false negatives (720 ÷ 24 = 30) = 165."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0004",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "logic puzzle",
+    "subtopic": "ordering / ranking deduction",
+    "difficulty": "hard",
+    "estimated_time_seconds": 165,
+    "tags": [
+      "critical_thinking",
+      "logic_puzzle",
+      "deductive_ordering",
+      "constraint_satisfaction"
+    ],
+    "learning_objective": "Combine positional and relational constraints to deduce a unique finishing order and read off a specified position.",
+    "question": "Five runners — Pia, Quinn, Rai, Sol and Tan — finished a race in positions first to fifth, with no ties. The following all hold:\n- Exactly two runners finished ahead of Quinn.\n- Pia finished neither first nor last.\n- Quinn finished ahead of Sol.\n- Rai and Sol did not finish in adjacent positions.\n- Tan finished in the position immediately behind Rai.\n\nWho finished fourth?",
+    "choices": {
+      "A": "Quinn",
+      "B": "Rai",
+      "C": "Tan",
+      "D": "Sol",
+      "E": "Pia"
+    },
+    "correct_answer": "E",
+    "explanation": "Exactly two ahead of Quinn fixes Quinn in 3rd. Quinn ahead of Sol means Sol is 4th or 5th. Rai and Sol are non-adjacent, and Tan is immediately behind Rai. Test Rai in 1st: then Tan is 2nd, leaving 4th and 5th for Pia and Sol; Pia cannot be last, so Pia is 4th and Sol is 5th. Check non-adjacency: Rai(1) and Sol(5) are not adjacent — valid. Any other placement of Rai fails: Rai in 2nd forces Tan into Quinn's 3rd slot; Rai in 4th forces Tan 5th, leaving Sol nowhere ahead-of-constraint-consistent and non-adjacent; Rai in 5th leaves no room for Tan behind. The unique order is Rai, Tan, Quinn, Pia, Sol, so fourth place is Pia.",
+    "option_analysis": {
+      "A": "Incorrect: 'exactly two ahead of Quinn' places Quinn third, not fourth — a common miscount treating the clue as 'two others' inclusively.",
+      "B": "Incorrect: Rai must be first for the Tan and non-adjacency constraints to hold; placing Rai fourth breaks the Tan-immediately-behind clue.",
+      "C": "Incorrect: Tan is immediately behind Rai in second place, not fourth; this confuses the Rai–Tan pairing's location.",
+      "D": "Incorrect: Sol is fifth; solvers who read 'Quinn ahead of Sol' as 'Sol immediately after Quinn' wrongly place Sol fourth.",
+      "E": "Correct: the only consistent order is Rai(1), Tan(2), Quinn(3), Pia(4), Sol(5); Pia is fourth."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0005",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "argument analysis",
+    "subtopic": "underlying assumption / weaken integration",
+    "difficulty": "hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "critical_thinking",
+      "argument_analysis",
+      "assumption",
+      "causation",
+      "confounding"
+    ],
+    "learning_objective": "Identify the unstated assumption that a causal recommendation depends upon when it is inferred from an observed association between two variables.",
+    "question": "A city recorded that neighbourhoods with more street trees have, on average, lower rates of hospital admission for respiratory illness than neighbourhoods with few street trees. A planning report concludes that the city should plant more street trees in the worst-affected neighbourhoods in order to reduce respiratory admissions there.\n\nWhich one of the following is an assumption on which the report's conclusion depends?",
+    "choices": {
+      "A": "Neighbourhoods with few street trees have the highest rates of respiratory admission in absolute terms.",
+      "B": "Street trees are the single most important factor determining respiratory admission rates in any neighbourhood.",
+      "C": "Planting street trees is less expensive than other measures the city might take to reduce respiratory illness.",
+      "D": "The lower admission rates in leafier neighbourhoods are not explained mainly by some other factor that also happens to accompany the presence of street trees.",
+      "E": "Residents of neighbourhoods with many street trees spend more time outdoors than residents of other neighbourhoods."
+    },
+    "correct_answer": "D",
+    "explanation": "The report moves from an observed correlation (leafier neighbourhoods have fewer admissions) to a causal recommendation (planting trees will reduce admissions). For that leap to hold, the association must not be driven by a confounder — some third factor (e.g. wealth, lower traffic, better housing) that co-occurs with tree cover and is the real cause of the lower admissions. The argument therefore depends on assuming the relationship is not merely a by-product of such a confounding factor; the negation test confirms it: if the difference WERE explained by another accompanying factor, planting trees would not be expected to reduce admissions and the conclusion collapses. This is the classic correlation-versus-causation assumption.",
+    "option_analysis": {
+      "A": "Incorrect: this restates part of the data pattern and is not something the causal conclusion must presuppose; the recommendation could hold even if some leafy area had a high absolute rate.",
+      "B": "Incorrect: the conclusion needs trees to have SOME causal effect, not to be the single most important factor — this overstates what the argument requires (too strong to be a necessary assumption).",
+      "C": "Incorrect: relative cost concerns policy choice, not whether planting trees will actually reduce admissions — irrelevant to the causal inference.",
+      "D": "Correct: ruling out a confounder that accompanies tree cover is exactly what the correlation-to-causation inference depends on; its negation destroys the argument.",
+      "E": "Incorrect: this offers a possible mechanism but the argument does not require it, and if anything more outdoor time could increase exposure — it is not a needed assumption."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0006",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "reading and inference",
+    "subtopic": "short passage inference",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 175,
+    "tags": [
+      "critical_thinking",
+      "reading_comprehension",
+      "inference",
+      "logical_deduction"
+    ],
+    "learning_objective": "Draw the single conclusion that must be true given a short passage, distinguishing entailed inferences from statements that are merely consistent with or plausibly suggested by the text.",
+    "question": "Passage: In the regional library network, any title held in the rare-books room is never available for home loan. Every title that can be reserved online can be borrowed for home loan. Some titles in the folklore collection can be reserved online, and every title in the folklore collection is either in the rare-books room or in the open-access hall, but no title is in both.\n\nWhich one of the following must be true on the basis of the passage alone?",
+    "choices": {
+      "A": "Every title in the folklore collection can be reserved online.",
+      "B": "At least one title in the folklore collection is held in the open-access hall.",
+      "C": "Every title in the rare-books room belongs to the folklore collection.",
+      "D": "No title in the folklore collection can be borrowed for home loan.",
+      "E": "No title in the open-access hall can be reserved online."
+    },
+    "correct_answer": "B",
+    "explanation": "Chain the conditionals. Rare-books titles are never home-loanable; online-reservable titles are all home-loanable; therefore no rare-books title can be reserved online (contrapositive). Some folklore titles CAN be reserved online, so those particular folklore titles are not in the rare-books room. Since every folklore title is in either the rare-books room or the open-access hall (and not both), any folklore title that is not in the rare-books room must be in the open-access hall. Hence at least one folklore title is in the open-access hall — option B is guaranteed. The other options either overgeneralise from 'some' to 'all', assert unsupported exclusivity, or reverse a conditional.",
+    "option_analysis": {
+      "A": "Incorrect: the passage says only that SOME folklore titles can be reserved online; inferring 'every' is an illicit some-to-all generalisation.",
+      "B": "Correct: the online-reservable folklore titles cannot be in the rare-books room (they are home-loanable), so by the exclusive either/or they must be in the open-access hall — at least one such title exists.",
+      "C": "Incorrect: this reverses the relationship — the passage never says rare-books titles are drawn from the folklore collection.",
+      "D": "Incorrect: the folklore titles that can be reserved online are precisely the ones that CAN be borrowed for home loan, so 'no folklore title can be borrowed' is false.",
+      "E": "Incorrect: nothing forbids open-access-hall titles from being reservable online; the passage constrains rare-books titles, not open-access ones."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch01",
+    "review_status": "accepted"
+  }
+]

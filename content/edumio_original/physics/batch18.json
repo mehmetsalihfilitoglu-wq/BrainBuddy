@@ -1,0 +1,282 @@
+[
+  {
+    "id": "mio_phys_0122",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Fluids",
+    "subtopic": "Static pressure: absolute pressure at the base of a closed (pressurised) tank — transmitted surface pressure plus the ρgh column",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "fluids",
+      "hydrostatics",
+      "pressure",
+      "Pascal's principle",
+      "P=rho g h",
+      "absolute pressure"
+    ],
+    "learning_objective": "Combine Pascal's transmission of an applied surface pressure with the hydrostatic term ρgh to find the absolute pressure at the base of a closed liquid column.",
+    "question": "A sealed, rigid tank contains a 3.0 m depth of oil of density 800 kg/m^3. The space above the oil is filled with compressed gas at a pressure of 1.5 x 10^5 Pa. Taking g = 10 m/s^2, what is the absolute pressure exerted by the fluid on the bottom of the tank?",
+    "choices": {
+      "A": "1.80 x 10^5 Pa",
+      "B": "0.24 x 10^5 Pa",
+      "C": "1.74 x 10^5 Pa",
+      "D": "2.74 x 10^5 Pa",
+      "E": "1.50 x 10^5 Pa"
+    },
+    "correct_answer": "C",
+    "explanation": "In a static fluid the pressure a depth h below a surface is P = P_surface + ρgh. Here the surface is not open to the atmosphere; it carries the compressed gas, whose pressure of 1.5 x 10^5 Pa is transmitted undiminished throughout the oil (Pascal's principle). The hydrostatic column term is ρgh = 800 x 10 x 3.0 = 2.4 x 10^4 Pa = 0.24 x 10^5 Pa. Adding them: P_bottom = 1.5 x 10^5 + 0.24 x 10^5 = 1.74 x 10^5 Pa.",
+    "option_analysis": {
+      "A": "Wrong: 1.80 x 10^5 Pa uses the density of water (1000 kg/m^3) instead of the oil (800 kg/m^3) in the ρgh term, giving 0.30 x 10^5 Pa for the column.",
+      "B": "Wrong: 0.24 x 10^5 Pa is only the hydrostatic column term; it treats the tank as open and ignores the compressed gas whose pressure is transmitted to the oil surface.",
+      "C": "Correct: 1.74 x 10^5 Pa is the transmitted gas pressure 1.5 x 10^5 Pa plus the hydrostatic column ρgh = 800 x 10 x 3.0 = 0.24 x 10^5 Pa.",
+      "D": "Wrong: 2.74 x 10^5 Pa adds a further 1.0 x 10^5 Pa of atmospheric pressure, double-counting — the stated gas pressure is already the absolute pressure pushing on the oil surface.",
+      "E": "Wrong: 1.50 x 10^5 Pa is the gas pressure alone; it ignores the ρgh column of oil and wrongly assumes the pressure is the same at every depth (pressure is uniform only in a gas of negligible weight)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0123",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Fluids",
+    "subtopic": "Hydraulics (Pascal's principle): piston displacement is the input displacement divided by the area ratio (area ∝ diameter^2)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "fluids",
+      "hydraulic press",
+      "Pascal's principle",
+      "area ratio",
+      "incompressibility",
+      "force multiplication"
+    ],
+    "learning_objective": "Apply Pascal's principle and fluid incompressibility to relate piston displacements through the inverse of the area ratio, using diameters (area ∝ diameter^2).",
+    "question": "In a hydraulic lift the small (input) piston has a diameter of 3.0 cm and the large (output) piston has a diameter of 15 cm. The pistons are connected by an incompressible fluid. During one stroke the small piston is pushed down through 20 cm. Assuming no fluid is lost, through what distance does the large piston (and the load it carries) rise?",
+    "choices": {
+      "A": "100 cm",
+      "B": "4.0 cm",
+      "C": "0.80 cm",
+      "D": "500 cm",
+      "E": "20 cm"
+    },
+    "correct_answer": "C",
+    "explanation": "Force is multiplied by the ratio of piston areas, A_large/A_small = (d_large/d_small)^2 = (15/3)^2 = 25. Because the fluid is incompressible, the volume pushed out of the small cylinder equals the volume entering the large one: A_small·s_small = A_large·s_large. Hence s_large = s_small x (A_small/A_large) = 20 cm / 25 = 0.80 cm. Energy is conserved: 25x the force acts over 1/25 of the distance.",
+    "option_analysis": {
+      "A": "Wrong: 100 cm multiplies by the diameter ratio (5); it both mis-scales the geometry and inverts the relationship (the large piston must move less, not more).",
+      "B": "Wrong: 4.0 cm divides by the diameter ratio (5) instead of the area ratio (25), forgetting that area scales with the square of the diameter.",
+      "C": "Correct: 0.80 cm = 20 cm divided by the area ratio (15/3)^2 = 25, from equal displaced fluid volumes.",
+      "D": "Wrong: 500 cm multiplies by the area ratio (25) — the correct factor applied in the wrong direction; that factor multiplies the force, not the distance.",
+      "E": "Wrong: 20 cm assumes both pistons move the same distance; Pascal's principle equalises pressure, not displacement, and the fixed fluid volume forces the larger piston to move less."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0124",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Fluids",
+    "subtopic": "Pressure measurement: open-tube mercury manometer — absolute gas pressure from the column-height difference and the sign of the level offset",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "fluids",
+      "manometer",
+      "mercury",
+      "gauge pressure",
+      "absolute pressure",
+      "hydrostatics"
+    ],
+    "learning_objective": "Read an open-tube mercury manometer: relate the column-height difference to the gauge pressure via ρgh, fix the sign from which arm is lower, and add atmospheric pressure to obtain the absolute pressure.",
+    "question": "A gas supply is connected to one arm of a U-tube manometer that contains mercury of density 1.36 x 10^4 kg/m^3; the other arm is open to the atmosphere. The mercury in the arm connected to the gas stands 25 cm lower than the mercury in the open arm. Atmospheric pressure is 1.00 x 10^5 Pa and g = 10 m/s^2. What is the absolute pressure of the gas supply?",
+    "choices": {
+      "A": "1.03 x 10^5 Pa",
+      "B": "0.34 x 10^5 Pa",
+      "C": "1.34 x 10^5 Pa",
+      "D": "1.68 x 10^5 Pa",
+      "E": "0.66 x 10^5 Pa"
+    },
+    "correct_answer": "C",
+    "explanation": "The mercury is lower on the gas side, so the gas pushes harder than the atmosphere: P_gas = P_atm + ρ_Hg·g·h. The column (gauge) term is ρ_Hg·g·h = 13600 x 10 x 0.25 = 3.4 x 10^4 Pa = 0.34 x 10^5 Pa. Absolute pressure = 1.00 x 10^5 + 0.34 x 10^5 = 1.34 x 10^5 Pa.",
+    "option_analysis": {
+      "A": "Wrong: 1.03 x 10^5 Pa uses the density of water instead of mercury in the ρgh term (1000 x 10 x 0.25 = 0.025 x 10^5 Pa added to atmospheric).",
+      "B": "Wrong: 0.34 x 10^5 Pa is only the gauge pressure (the height-difference term); it omits the atmospheric pressure acting on the open arm, so it is not the absolute pressure.",
+      "C": "Correct: 1.34 x 10^5 Pa = 1.00 x 10^5 Pa (atmosphere) + 13600 x 10 x 0.25 Pa (mercury column), because the depressed gas-side level shows the gas exceeds atmospheric.",
+      "D": "Wrong: 1.68 x 10^5 Pa doubles the 25 cm reading to 50 cm, wrongly adding the drop on one side to the rise on the other — the stated 25 cm is already the difference between the two levels.",
+      "E": "Wrong: 0.66 x 10^5 Pa subtracts the column term from atmospheric, reversing the sign — that would apply only if the gas-side level were the higher one (gas pressure below atmospheric)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0125",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Fluids",
+    "subtopic": "Archimedes' principle: density of a solid from its weight in air and its apparent weight when fully submerged in water",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "fluids",
+      "Archimedes",
+      "upthrust",
+      "apparent weight",
+      "density",
+      "buoyancy"
+    ],
+    "learning_objective": "Use the loss of apparent weight on full immersion to find the upthrust, hence the displaced-water volume and the object's density (ρ = ρ_water·W_air/(W_air − W_apparent)).",
+    "question": "A solid metal object weighs 8.0 N in air. When it is fully immersed in water of density 1.0 x 10^3 kg/m^3 and hangs from a spring balance, the balance reads 7.0 N. Taking g = 10 m/s^2, what is the density of the metal?",
+    "choices": {
+      "A": "8000 kg/m^3",
+      "B": "7000 kg/m^3",
+      "C": "1000 kg/m^3",
+      "D": "1140 kg/m^3",
+      "E": "125 kg/m^3"
+    },
+    "correct_answer": "A",
+    "explanation": "Upthrust = weight in air − apparent weight = 8.0 − 7.0 = 1.0 N, which equals the weight of displaced water ρ_w·V·g, so V = 1.0/(1000 x 10) = 1.0 x 10^-4 m^3. The object's mass is W_air/g = 0.80 kg, giving density = 0.80/(1.0 x 10^-4) = 8.0 x 10^3 kg/m^3. Equivalently ρ = ρ_water·W_air/(W_air − W_apparent) = 1000 x 8.0/1.0 = 8000 kg/m^3 (g cancels).",
+    "option_analysis": {
+      "A": "Correct: 8000 kg/m^3 = ρ_water x W_air/(W_air − W_apparent) = 1000 x 8.0/1.0.",
+      "B": "Wrong: 7000 kg/m^3 uses the apparent weight (7.0 N) as the object's true weight in the numerator; the object's real weight is its weight in air (8.0 N).",
+      "C": "Wrong: 1000 kg/m^3 treats the upthrust (1.0 N) as the object's own weight, so it merely returns the density of the water.",
+      "D": "Wrong: 1140 kg/m^3 divides the weight in air by the apparent weight (8/7) rather than by the upthrust (8/1).",
+      "E": "Wrong: 125 kg/m^3 inverts the ratio (upthrust/weight-in-air = 1/8), dividing the displaced-water contribution the wrong way round."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0126",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Fluids",
+    "subtopic": "Flotation: reserve buoyancy — maximum extra load a floating block can carry before it submerges (freeboard volume)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "fluids",
+      "flotation",
+      "Archimedes",
+      "reserve buoyancy",
+      "freeboard",
+      "upthrust"
+    ],
+    "learning_objective": "Recognise that only the reserve buoyancy of the un-submerged (freeboard) volume can support added load, and compute the added mass as ρ_water x cross-sectional area x freeboard height.",
+    "question": "A rectangular block of wood of uniform cross-sectional area 200 cm^2 and height 20 cm floats upright in water of density 1.0 x 10^3 kg/m^3 with 4.0 cm of its height above the surface. What is the maximum additional mass that can be placed centrally on top of the block before it becomes fully submerged? Take g = 10 m/s^2.",
+    "choices": {
+      "A": "8.0 kg",
+      "B": "0.80 kg",
+      "C": "0.08 kg",
+      "D": "4.0 kg",
+      "E": "3.2 kg"
+    },
+    "correct_answer": "B",
+    "explanation": "The block already floats, so its own weight is balanced by the upthrust from the submerged 16 cm. Additional load can only be supported by the extra upthrust gained as the remaining 4.0 cm of freeboard sinks below the surface. That reserve mass = ρ_w x A x Δh = 1000 x (200 x 10^-4 m^2) x 0.040 m = 1000 x 0.02 x 0.040 = 0.80 kg. (The extra buoyant force is 8.0 N, i.e. a mass of 0.80 kg.)",
+    "option_analysis": {
+      "A": "Wrong: 8.0 kg is the extra buoyant force in newtons (8.0 N) misreported as a mass; dividing by g = 10 gives the correct 0.80 kg.",
+      "B": "Correct: 0.80 kg = ρ_water x cross-sectional area x freeboard = 1000 x 0.02 x 0.040.",
+      "C": "Wrong: 0.08 kg comes from a unit slip, converting 200 cm^2 to 0.002 m^2 (dividing by 10^5 instead of 10^4).",
+      "D": "Wrong: 4.0 kg uses the full block height (20 cm), the block's total buoyant capacity, ignoring that most of it already supports the block itself.",
+      "E": "Wrong: 3.2 kg uses the already-submerged depth (16 cm); that buoyancy is already supporting the block's own weight and cannot carry any extra load."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0127",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Fluids",
+    "subtopic": "Continuity equation: incompressible flow shared among identical parallel branches and its redistribution when one branch is blocked",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "fluids",
+      "continuity equation",
+      "incompressible flow",
+      "area ratio",
+      "branching pipes",
+      "flow speed"
+    ],
+    "learning_objective": "Apply the continuity equation A·v = constant with area ∝ radius^2, distribute the volume flow among identical parallel branches, and re-solve when the number of open branches changes.",
+    "question": "Water flows steadily through a horizontal main pipe of internal radius 6.0 cm at 2.0 m/s. The main pipe divides into four identical outlet pipes, each of internal radius 2.0 cm, and the water is shared equally between them. One of the four outlet pipes then becomes completely blocked, while the volume flow rate delivered by the main pipe stays the same. Assuming the water is incompressible, what is the speed of the water in each of the three outlet pipes that remain open?",
+    "choices": {
+      "A": "18 m/s",
+      "B": "4.5 m/s",
+      "C": "6.0 m/s",
+      "D": "2.0 m/s",
+      "E": "1.5 m/s"
+    },
+    "correct_answer": "C",
+    "explanation": "The volume flow delivered by the main pipe, Q = A_main·v_main, is conserved. The area ratio A_main/A_small = (6/2)^2 = 9. With one of the four outlets blocked, Q is shared equally among the 3 open outlets: 3·A_small·v = A_main·v_main, so v = (A_main/(3·A_small))·v_main = (9/3) x 2.0 = 6.0 m/s.",
+    "option_analysis": {
+      "A": "Wrong: 18 m/s applies the area ratio but forgets the flow is split between several outlet pipes, treating it as a single outlet (9 x 2.0).",
+      "B": "Wrong: 4.5 m/s ignores the blockage and divides the flow among all four outlets: (9/4) x 2.0.",
+      "C": "Correct: 6.0 m/s = (9/3) x 2.0, the area ratio (6/2)^2 = 9 divided among the 3 outlets that remain open.",
+      "D": "Wrong: 2.0 m/s fails to square the radius ratio (uses 6/2 = 3 instead of 9), giving (3/3) x 2.0.",
+      "E": "Wrong: 1.5 m/s makes two errors at once — it fails to square the radius ratio and divides among four outlets: (3/4) x 2.0."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0128",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Fluids",
+    "subtopic": "Hydrostatics: resultant force on a vertical submerged surface via the average (centroid/mid-depth) pressure",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "fluids",
+      "hydrostatics",
+      "force on a surface",
+      "average pressure",
+      "centroid",
+      "P=rho g h"
+    ],
+    "learning_objective": "Compute the resultant hydrostatic force on a vertical rectangular surface as the average (mid-depth) pressure multiplied by the wetted area, recognising the linear variation of pressure with depth.",
+    "question": "A rectangular vertical sluice gate is 3.0 m wide. Fresh water of density 1.0 x 10^3 kg/m^3 stands against one side of the gate to a depth of 4.0 m, with no water on the other side. Taking g = 10 m/s^2 and atmospheric pressure acting equally on both sides, what is the total horizontal force exerted by the water on the gate?",
+    "choices": {
+      "A": "1.2 x 10^5 N",
+      "B": "2.4 x 10^5 N",
+      "C": "4.0 x 10^4 N",
+      "D": "6.0 x 10^4 N",
+      "E": "4.8 x 10^5 N"
+    },
+    "correct_answer": "B",
+    "explanation": "Pressure rises linearly from 0 (gauge) at the surface to ρgH = 1000 x 10 x 4.0 = 4.0 x 10^4 Pa at the base. For a surface of uniform width the average pressure is the value at the centroid (mid-depth): (0 + 4.0 x 10^4)/2 = 2.0 x 10^4 Pa. The wetted area is 3.0 m x 4.0 m = 12 m^2. Force = average pressure x area = 2.0 x 10^4 x 12 = 2.4 x 10^5 N. Atmospheric pressure acts on both faces and cancels.",
+    "option_analysis": {
+      "A": "Wrong: 1.2 x 10^5 N averages the pressure but then also uses only half the area, applying the factor of one-half twice.",
+      "B": "Correct: 2.4 x 10^5 N = average pressure (2.0 x 10^4 Pa at mid-depth) x wetted area (3.0 x 4.0 = 12 m^2).",
+      "C": "Wrong: 4.0 x 10^4 N is the maximum pressure at the base (in Pa) reported as a force; it omits the area factor entirely.",
+      "D": "Wrong: 6.0 x 10^4 N multiplies the average pressure by the width only (3.0 m), leaving the depth out of the wetted area.",
+      "E": "Wrong: 4.8 x 10^5 N uses the maximum bottom pressure over the whole area without averaging, treating the pressure as uniform at its deepest value."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch18",
+    "review_status": "accepted"
+  }
+]

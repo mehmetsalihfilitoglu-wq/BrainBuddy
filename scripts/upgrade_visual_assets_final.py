@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BrainBuddy Final Visual Completion Pass — eliminate remaining generic visual assets.
+EDUmio Final Visual Completion Pass — eliminate remaining generic visual assets.
 Scope: fen, english, sosyal. Prefer representative visual over generic placeholder.
 """
 import json
@@ -397,7 +397,7 @@ def main():
     rel = lambda p: str(Path(p).relative_to(ROOT)) if str(ROOT) in str(p) else str(p)
 
     with open(ROOT / "VISUAL_UPGRADE_REPORT_FINAL.md", "w", encoding="utf-8") as f:
-        f.write("# BrainBuddy Visual Upgrade — Final Completion Pass Report\n\n")
+        f.write("# EDUmio Visual Upgrade — Final Completion Pass Report\n\n")
         f.write("## 1. Counts\n\n")
         f.write("| Metric | Count |\n|--------|-------|\n")
         f.write(f"| Newly upgraded (final pass) | {len(upgraded)} |\n")

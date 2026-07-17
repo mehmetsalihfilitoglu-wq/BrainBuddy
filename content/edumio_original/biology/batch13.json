@@ -1,0 +1,801 @@
+[
+  {
+    "id": "mio_bio_0244",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Stem cells and cell differentiation",
+    "subtopic": "Induced pluripotent stem cells: autologous (patient-derived) cells minimise immune rejection compared with allogeneic embryonic stem cells",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "stem cells",
+      "iPSC",
+      "cell therapy",
+      "immune rejection",
+      "pluripotency",
+      "regenerative medicine"
+    ],
+    "learning_objective": "Explain why patient-derived induced pluripotent stem cells offer an immunological advantage over embryonic-stem-cell-derived grafts in cell-replacement therapy.",
+    "question": "A 60-year-old man has age-related macular degeneration, in which the retinal pigment epithelial (RPE) cells of the eye degenerate. Researchers take a small skin biopsy from the patient, reprogram his fibroblasts into induced pluripotent stem cells (iPSCs) by the transient expression of a defined set of transcription factors, then differentiate these iPSCs into RPE cells and transplant them into his retina. Compared with transplanting RPE cells that had been differentiated from an unrelated human embryonic stem cell (hESC) line, the principal biological advantage of this iPSC-based approach is that the transplanted cells:",
+    "choices": {
+      "A": "bypass the need for differential gene expression because they already express all of their genes",
+      "B": "are genetically identical to the patient, so they are far less likely to be rejected by his immune system",
+      "C": "carry a different genome from the patient, which allows his inherited disease alleles to be corrected",
+      "D": "divide indefinitely without differentiating, ensuring a permanent supply of new pigment cells",
+      "E": "are totipotent and can therefore regenerate the entire retina, not merely the pigment epithelium"
+    },
+    "correct_answer": "B",
+    "explanation": "iPSCs are made by reprogramming a patient's own somatic cells to a pluripotent state; cells derived from them are genetically identical (autologous) to the recipient, so they carry the patient's own MHC (self) markers and are not seen as foreign. An hESC line comes from an unrelated embryo (allogeneic), so its derivatives would be attacked by the recipient's immune system unless immunosuppression is used. The immunological match is the key advantage here.",
+    "option_analysis": {
+      "A": "Wrong: differentiated RPE cells express only a subset of the genome, and no cell expresses all its genes at once; differential gene expression is precisely how the cells become RPE — this is the misconception that pluripotent or stem cells express every gene simultaneously.",
+      "B": "Correct: iPSCs are autologous, so their derivatives are genetically matched to the patient and are far less likely to trigger immune rejection than an allogeneic hESC-derived graft.",
+      "C": "Wrong: iPSCs derived from the patient carry the SAME genome, including any disease alleles; reprogramming changes gene expression, not DNA sequence, and does not by itself correct alleles — a misconception that reprogramming rewrites or repairs the genome.",
+      "D": "Wrong: cells that self-renew indefinitely without differentiating would form tumours and would not supply functional pigment; the therapy requires the cells to differentiate into RPE — this confuses unlimited self-renewal with therapeutic benefit.",
+      "E": "Wrong: iPSCs are pluripotent, not totipotent, and the therapeutic goal is to replace one cell type (RPE), not regenerate the whole retina; this reflects the misconception that iPSCs are totipotent and that maximal potency is always better."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0245",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Stem cells and cell differentiation",
+    "subtopic": "Somatic-cell nuclear transfer (Gurdon-type experiment): genome equivalence — a differentiated nucleus retains the full genome, so differentiation reflects differential gene expression, not gene loss",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "stem cells",
+      "nuclear transfer",
+      "genome equivalence",
+      "differentiation",
+      "reprogramming",
+      "differential gene expression"
+    ],
+    "learning_objective": "Interpret a nuclear-transfer experiment as evidence that differentiation results from reversible differential gene expression rather than from irreversible loss or alteration of genes.",
+    "question": "In a classic experiment, the nucleus of a fully differentiated intestinal epithelial cell taken from an adult frog is transferred into an unfertilised egg whose own nucleus has first been destroyed. A proportion of these reconstructed eggs develop into normal, fertile adult frogs. Which single conclusion is most directly supported by this result?",
+    "choices": {
+      "A": "Differentiation is caused by irreversible DNA mutations that the egg cytoplasm was subsequently able to repair",
+      "B": "Adult intestinal epithelial cells are naturally totipotent and routinely give rise to whole organisms within the frog",
+      "C": "During differentiation, the intestinal cell had permanently deleted the genes that intestinal cells do not use",
+      "D": "The egg cytoplasm introduced into the transferred nucleus new genes that had been absent from the intestinal cell",
+      "E": "The nucleus of a differentiated cell retains the complete genome needed to specify every cell type of the organism"
+    },
+    "correct_answer": "E",
+    "explanation": "The differentiated intestinal nucleus, once placed in egg cytoplasm, directs development of a whole frog. This is only possible if that nucleus still contains all the genes for every cell type. Differentiation must therefore be caused by the reversible switching on and off of genes (differential gene expression), which the egg cytoplasm reprogrammes, not by any permanent change to the DNA itself. This is the principle of genome equivalence.",
+    "option_analysis": {
+      "A": "Wrong: differentiation is not caused by DNA mutations, and 'repair by cytoplasm' is fictional; the cytoplasm alters gene expression, not DNA sequence — the misconception that differentiation involves changes to the base sequence.",
+      "B": "Wrong: in the body these cells are not totipotent and do not form whole organisms; their full potential is only revealed after nuclear transfer and reprogramming, and true totipotency also requires the capacity to form extra-embryonic tissue — an overstatement of the cells' normal potency.",
+      "C": "Wrong: if the unused genes had been deleted, the nucleus could not direct formation of a complete frog; the result argues directly against gene loss — the classic 'genes are lost during differentiation' misconception.",
+      "D": "Wrong: the cytoplasm reprogrammes which of the nucleus's existing genes are expressed; it does not add missing genes — the misconception that the cytoplasm supplies new genetic information.",
+      "E": "Correct: the experiment demonstrates genome equivalence — the differentiated nucleus retains the full genome, and differentiation is due to reversible differential gene expression that egg cytoplasm can reset."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0246",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Stem cells and cell differentiation",
+    "subtopic": "Potency hierarchy: classifying totipotent, pluripotent and multipotent cells by what they can and cannot form, including the requirement to form extra-embryonic tissue for totipotency",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "stem cells",
+      "totipotency",
+      "pluripotency",
+      "multipotency",
+      "potency",
+      "reasoning"
+    ],
+    "learning_objective": "Classify cells as totipotent, pluripotent or multipotent from a description of the tissues they can and cannot form.",
+    "question": "In mammalian development the following facts are established. (1) A complete new individual requires both the embryo proper AND the extra-embryonic tissues such as the placenta. (2) An isolated single cell (blastomere) from a 4-cell-stage embryo can, on its own, give rise to a complete individual. (3) A cell of the inner cell mass of the later blastocyst can form every tissue of the fetus but cannot on its own form a placenta. (4) A haematopoietic stem cell of the bone marrow can form the various types of blood cell but no other kind of tissue. Consider three cells: cell P (an isolated 4-cell-stage blastomere), cell Q (an inner-cell-mass cell) and cell R (a haematopoietic stem cell). Which row classifies all three correctly?",
+    "choices": {
+      "A": "P pluripotent; Q pluripotent; R multipotent",
+      "B": "P totipotent; Q pluripotent; R multipotent",
+      "C": "P totipotent; Q multipotent; R pluripotent",
+      "D": "P totipotent; Q pluripotent; R pluripotent",
+      "E": "P pluripotent; Q totipotent; R multipotent"
+    },
+    "correct_answer": "B",
+    "explanation": "Totipotent cells can form the entire organism, including the extra-embryonic (placental) tissues — this describes the 4-cell blastomere P. Pluripotent cells can form all cell types of the body proper but not the extra-embryonic tissues on their own — this describes the inner-cell-mass cell Q. Multipotent cells can form only a limited range of related cell types within one lineage — the haematopoietic stem cell R, restricted to blood-cell types. Hence P = totipotent, Q = pluripotent, R = multipotent.",
+    "option_analysis": {
+      "A": "Wrong: it underrates P as pluripotent, but a 4-cell blastomere can generate a complete individual including extra-embryonic tissue, which is totipotency — the misconception that no single body cell is ever totipotent.",
+      "B": "Correct: P (whole individual, including placenta) is totipotent, Q (all body tissues but not placenta) is pluripotent, and R (blood lineages only) is multipotent.",
+      "C": "Wrong: it inverts the ranking of Q and R, labelling the broad inner-cell-mass cell multipotent and the lineage-restricted blood stem cell pluripotent — a reversal of the potency order.",
+      "D": "Wrong: it misclassifies R as pluripotent, but a haematopoietic stem cell forms only blood-cell lineages and is multipotent — the misconception that any tissue-resident stem cell is pluripotent.",
+      "E": "Wrong: it swaps the labels for P and Q; the inner-cell-mass cell cannot form a placenta alone, so it is pluripotent, not totipotent — confusion between the definitions of totipotent and pluripotent."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0247",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Stem cells and cell differentiation",
+    "subtopic": "Master regulatory transcription factor driving differentiation: one activator (e.g. MyoD) switches on a pre-existing but silent gene programme, illustrating differential gene expression from an identical genome",
+    "difficulty": "hard",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "stem cells",
+      "differentiation",
+      "transcription factor",
+      "master regulator",
+      "differential gene expression",
+      "genome equivalence"
+    ],
+    "learning_objective": "Explain how a master regulatory transcription factor can redirect differentiation by activating genes that are already present but silent in the genome.",
+    "question": "When the gene encoding the transcription factor MyoD is artificially switched on in cultured skin fibroblasts (connective-tissue cells), a large fraction of the fibroblasts stop dividing and differentiate into skeletal-muscle-like cells that make muscle-specific proteins such as myosin. These fibroblasts had never previously produced any muscle proteins. Which explanation best accounts for this observation?",
+    "choices": {
+      "A": "MyoD is itself the enzyme that directly synthesises myosin and the other muscle-specific proteins",
+      "B": "The muscle-protein genes were already present but silent in the fibroblasts, and MyoD acts as a master regulator that switches them on",
+      "C": "Fibroblasts and muscle cells contain different genomes, and MyoD replaces the fibroblast genome with a muscle-cell genome",
+      "D": "MyoD physically inserts the muscle-protein genes, such as the myosin gene, into the fibroblast genome",
+      "E": "The muscle-protein genes were physically absent from the fibroblasts and were supplied to them by the culture medium"
+    },
+    "correct_answer": "B",
+    "explanation": "All somatic cells of an organism share the same genome, so the fibroblasts already carried the muscle-protein genes, but those genes were switched off. MyoD is a master regulatory transcription factor: when expressed, it binds regulatory DNA and activates the whole battery of muscle-specific genes, driving the fibroblast into the muscle programme. This is a direct demonstration of differentiation by differential gene expression rather than by any change in gene content.",
+    "option_analysis": {
+      "A": "Wrong: MyoD is a regulatory protein that activates transcription of muscle genes; it is not an enzyme that manufactures myosin — the misconception that confuses a gene regulator with the product it induces.",
+      "B": "Correct: identical genome, differential gene expression — the muscle genes are present but silent, and the master regulator MyoD activates the muscle gene programme.",
+      "C": "Wrong: all somatic cells share one genome, and genomes are not swapped between cell types; the fibroblast keeps its own DNA — the 'different genomes for different cell types' misconception.",
+      "D": "Wrong: transcription factors regulate the expression of genes already in the genome; they do not insert new genes — the misconception that transcription factors add DNA to the cell.",
+      "E": "Wrong: genes are not delivered by the culture medium, and the fibroblast genome already contains the muscle genes (genome equivalence) — the 'missing gene supplied from outside' misconception."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0248",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Stem cells and cell differentiation",
+    "subtopic": "Epigenetic inheritance of the differentiated state: heritable maintenance of a gene-expression pattern through mitosis without DNA sequence change, and the need to reset these marks during reprogramming",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "stem cells",
+      "epigenetics",
+      "differentiation",
+      "cell memory",
+      "reprogramming",
+      "iPSC",
+      "differential gene expression"
+    ],
+    "learning_objective": "Integrate genome equivalence with epigenetic inheritance to explain how a differentiated state is transmitted to daughter cells and what this implies for reprogramming to pluripotency.",
+    "question": "A hepatocyte (liver cell) and a neuron taken from the same individual contain identical DNA base sequences, yet each maintains its own distinct pattern of active and silent genes. Moreover, when a cell of a given type divides during development, its daughter cells reliably keep the parent cell's identity and gene-expression pattern, even though no change occurs in the DNA base sequence. Which of the following best explains this faithful transmission of the differentiated state, AND correctly states what it predicts must happen when a hepatocyte is reprogrammed into an induced pluripotent stem cell (iPSC)?",
+    "choices": {
+      "A": "The transcription factors are diluted to zero at every division, so cell identity cannot really be inherited; reprogramming simply works by adding fresh cytoplasm to the cell",
+      "B": "Each cell type carries a different set of genes that is copied faithfully at division; reprogramming must delete the liver-specific genes and insert stem-cell genes",
+      "C": "The gene-expression pattern is re-established purely by chance at every division and is not truly heritable; reprogramming therefore requires no specific molecular change",
+      "D": "The differences between cell types arise from DNA mutations unique to each lineage; reprogramming must reverse these mutations by correcting the base sequence",
+      "E": "Heritable epigenetic marks (such as DNA-methylation and histone-modification patterns) are copied along with the DNA at each division; reprogramming to an iPSC must therefore erase and reset these marks"
+    },
+    "correct_answer": "E",
+    "explanation": "Because the DNA sequence is identical in every cell type, the stable differences between hepatocytes and neurons — and their faithful transmission to daughter cells — must be carried by information that lies on top of the sequence. Epigenetic marks such as DNA methylation and histone modifications set which genes are active or silent, are copied when the DNA replicates, and thereby give cells a heritable 'memory' of their identity. Reprogramming a hepatocyte to a pluripotent iPSC must therefore reverse this differentiated state by erasing and resetting these epigenetic marks, restoring a pluripotent expression pattern without altering the base sequence.",
+    "option_analysis": {
+      "A": "Wrong: regulatory information is inherited (through epigenetic marks and the maintained expression of key transcription factors), not lost to zero each division, and reprogramming is not achieved by 'adding cytoplasm' — the misconception that identity cannot be inherited and that cytoplasm alone reprogrammes a cell.",
+      "B": "Wrong: by genome equivalence all cell types carry the same genes, so nothing is deleted or inserted during differentiation or reprogramming — the misconception that different cell types have different gene content.",
+      "C": "Wrong: the differentiated state is stably and reproducibly inherited, not random, and reprogramming is a defined (if inefficient) molecular process — the misconception that cell identity is re-set by chance each division.",
+      "D": "Wrong: lineage identity is not caused by DNA mutations, the sequences are identical, and reprogramming does not correct any base sequence — the misconception that differentiation is driven by mutation.",
+      "E": "Correct: heritable epigenetic marks maintain differential gene expression through mitosis without changing the DNA sequence, and reprogramming to pluripotency requires resetting those marks."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0249",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human genetic disorders and inheritance",
+    "subtopic": "Autosomal recessive inheritance (cystic fibrosis): probability that an unaffected sibling is a carrier, conditioned on being unaffected (the 2/3 rule)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 60,
+    "tags": [
+      "autosomal recessive",
+      "cystic fibrosis",
+      "conditional probability",
+      "carrier",
+      "Mendelian inheritance"
+    ],
+    "learning_objective": "Apply conditional probability to a monohybrid autosomal-recessive cross to determine the probability that a phenotypically unaffected sibling is a heterozygous carrier.",
+    "question": "Cystic fibrosis is an autosomal recessive disorder caused by mutations in the CFTR gene. A couple, neither of whom is affected, have already had one child with cystic fibrosis. Their second child, a girl, does not have the disorder. Assuming the alleles show simple Mendelian dominance, what is the probability that this healthy daughter is a carrier (heterozygous)?",
+    "choices": {
+      "A": "1/2",
+      "B": "2/3",
+      "C": "1/4",
+      "D": "1",
+      "E": "3/4"
+    },
+    "correct_answer": "B",
+    "explanation": "Because the couple already have an affected (cc) child, each parent must carry one recessive allele, so both are heterozygous carriers (Cc). A Cc x Cc cross gives a genotype ratio of 1 CC : 2 Cc : 1 cc. The daughter is unaffected, so the cc outcome is excluded; among the three remaining unaffected genotypes (1 CC and 2 Cc), two are carriers. Hence P(carrier | unaffected) = 2/3. The key step is renormalising after removing the excluded affected class, rather than quoting the unconditional heterozygote frequency of 1/2.",
+    "option_analysis": {
+      "A": "Wrong: 1/2 is the UNCONDITIONAL frequency of Cc in a Cc x Cc cross; it ignores the information that the daughter is unaffected and so fails to remove the excluded cc class.",
+      "B": "Correct: after excluding the affected (cc) outcome, the unaffected genotypes are 1 CC : 2 Cc, giving a 2/3 probability that an unaffected child is a carrier.",
+      "C": "Wrong: 1/4 is the frequency of a single homozygous class (CC or cc) in the cross; treating 'carrier' as a one-quarter class confuses the heterozygote frequency with a homozygote frequency.",
+      "D": "Wrong: this assumes every unaffected child of two carriers must be heterozygous, ignoring the 1/4 chance of the homozygous-normal (CC) genotype.",
+      "E": "Wrong: 3/4 is the probability that a child of two carriers is unaffected (i.e. not cc); it answers 'probability of being healthy', not 'probability of being a carrier given that she is healthy'."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0250",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human genetic disorders and inheritance",
+    "subtopic": "Autosomal dominant inheritance with age-dependent penetrance (Huntington disease): Bayesian carrier probability for an asymptomatic at-risk individual",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "autosomal dominant",
+      "Huntington disease",
+      "age-dependent penetrance",
+      "Bayesian reasoning",
+      "conditional probability"
+    ],
+    "learning_objective": "Combine a prior transmission risk with age-specific penetrance to update the probability that an asymptomatic at-risk individual carries a late-onset autosomal-dominant allele.",
+    "question": "Huntington disease is an autosomal dominant neurodegenerative disorder with age-dependent onset. A woman's father is affected, and her mother has no family history of the disease. It is known that by age 50, 50% of individuals who carry the Huntington allele have developed symptoms, whereas non-carriers never develop them. The woman is now exactly 50 years old and has no symptoms. What is the probability that she carries the Huntington allele?",
+    "choices": {
+      "A": "2/3",
+      "B": "1/2",
+      "C": "1/4",
+      "D": "1/3",
+      "E": "3/4"
+    },
+    "correct_answer": "D",
+    "explanation": "Because her father is affected (and heterozygous) and her mother is not a carrier, her prior probability of having inherited the allele is 1/2. Being symptom-free at 50 is informative: only 50% of carriers are still asymptomatic at that age, whereas 100% of non-carriers are asymptomatic. By Bayes' theorem, P(carrier | asymptomatic) = (1/2 x 0.5) / (1/2 x 0.5 + 1/2 x 1) = 0.25 / 0.75 = 1/3. Late onset means the absence of symptoms lowers, but does not eliminate, her carrier probability.",
+    "option_analysis": {
+      "A": "Wrong: 2/3 = P(NON-carrier | asymptomatic) = 0.5/0.75; this is the complement, answering the probability that she does NOT carry the allele.",
+      "B": "Wrong: 1/2 is the prior transmission risk; it treats being symptom-free at 50 as uninformative and ignores the age-dependent penetrance evidence.",
+      "C": "Wrong: 1/4 is the joint probability P(carrier AND asymptomatic) = 1/2 x 1/2; it omits the Bayes denominator, i.e. it has not been renormalised by the total probability of being asymptomatic.",
+      "D": "Correct: Bayes' theorem gives (1/2 x 0.5)/(1/2 x 0.5 + 1/2 x 1) = 0.25/0.75 = 1/3.",
+      "E": "Wrong: 3/4 is the overall probability of being asymptomatic at 50 (the normalising denominator, 0.75) mistaken for the posterior itself."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0251",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human genetic disorders and patterns of variation",
+    "subtopic": "The sickle-cell alleles (HbA/HbS): dominance relationships are phenotype-dependent (recessive for anaemia, codominant at the protein level)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "sickle-cell",
+      "dominance",
+      "codominance",
+      "haemoglobin",
+      "level of phenotype"
+    ],
+    "learning_objective": "Recognise that dominance is a property of a specified phenotype at a particular level of analysis, not an intrinsic property of an allele, using the HbA/HbS system.",
+    "question": "A geneticist examines the beta-globin alleles HbA and HbS in a person who is heterozygous (genotype HbA HbS). She records three observations: (i) under normal conditions the person shows no sickle-cell anaemia; (ii) haemoglobin electrophoresis of the person's red cells reveals both an HbA band and an HbS band; (iii) the person is resistant to falciparum malaria. Which statement best describes the dominance relationship between HbA and HbS?",
+    "choices": {
+      "A": "HbS is completely dominant over HbA for every phenotype, since one HbS allele already has detectable effects.",
+      "B": "HbS is completely recessive to HbA for every phenotype, since the heterozygote is healthy.",
+      "C": "The dominance relationship is not fixed: HbS is recessive for the anaemia phenotype but codominant at the protein level, so dominance depends on the phenotype examined.",
+      "D": "HbA and HbS show incomplete dominance for every phenotype, because the heterozygote is healthier than either homozygote in malarial regions.",
+      "E": "HbA and HbS are codominant for every phenotype, because both proteins are produced in the heterozygote."
+    },
+    "correct_answer": "C",
+    "explanation": "Dominance is not an intrinsic property of an allele; it depends on the phenotype and the level at which that phenotype is scored. For the disease phenotype (sickle-cell anaemia), an HbA HbS heterozygote is essentially healthy under normal conditions, so HbS behaves as recessive. At the protein level, electrophoresis of the heterozygote reveals BOTH HbA and HbS, so the alleles are codominant. (For malaria resistance, the single HbS allele is already protective.) The only statement that captures this is that the dominance relationship changes with the phenotype being examined.",
+    "option_analysis": {
+      "A": "Wrong: treating HbS as dominant for all phenotypes over-extends the 'any detectable effect' view; it would wrongly predict that heterozygotes suffer sickle-cell anaemia.",
+      "B": "Wrong: taking HbS as simply recessive for every phenotype over-generalises the healthy heterozygote and ignores that electrophoresis reveals both HbA and HbS, which is codominance at the protein level.",
+      "C": "Correct: HbS is recessive for the anaemia phenotype and codominant at the protein (electrophoresis) level, so the dominance relationship depends on which phenotype is examined.",
+      "D": "Wrong: this confuses the heterozygote's fitness advantage in malarial regions (heterozygote advantage/overdominance) with incomplete dominance, which refers to a blended intermediate phenotype, not to fitness.",
+      "E": "Wrong: codominance holds at the protein level but not for the anaemia phenotype. If it did, heterozygotes would show intermediate anaemia under normal conditions, which they do not."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0252",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Patterns of variation",
+    "subtopic": "Polygenic (additive) inheritance and continuous variation: deducing gene number from the F2 extreme-class frequency and predicting the number of phenotypic classes",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "polygenic inheritance",
+      "continuous variation",
+      "additive alleles",
+      "quantitative genetics",
+      "F2 ratio"
+    ],
+    "learning_objective": "Use the frequency of the extreme F2 phenotype to determine the number of additive loci and then predict the number of discrete phenotypic classes produced by polygenic inheritance.",
+    "question": "In a plant species, seed mass is controlled by several unlinked genes with equal and additive effects (each uppercase allele adds the same fixed increment of mass), and environmental variation is negligible. A true-breeding heavy-seeded line is crossed with a true-breeding light-seeded line. In the F2 generation, 1/64 of the plants produce seeds as light as the light-seeded parental line. How many distinct phenotypic classes (distinguishable seed-mass categories) are expected in this F2 generation?",
+    "choices": {
+      "A": "6",
+      "B": "3",
+      "C": "5",
+      "D": "7",
+      "E": "4"
+    },
+    "correct_answer": "D",
+    "explanation": "For n unlinked loci with equal additive effects, the fraction of the F2 that is as extreme as one parental line is (1/4)^n, because each locus must independently become homozygous for the appropriate allele. Here (1/4)^n = 1/64, so 4^n = 64 and n = 3 loci. The number of discrete phenotypic classes equals the number of possible active-allele doses, which run from 0 to 2n, giving 2n + 1 = 7 classes. So three additive genes produce 7 seed-mass classes. If environmental variation were added, these discrete classes would blur into an apparently continuous (quantitative) distribution.",
+    "option_analysis": {
+      "A": "Wrong: 2n = 6 counts the number of steps/intervals between doses rather than the number of dose values, forgetting the '+1' for the zero-dose class.",
+      "B": "Wrong: 3 is the number of loci (n) obtained in the first step; it stops before converting to phenotypic classes and mistakes the gene number for the class number.",
+      "C": "Wrong: 2n - 1 = 5 drops one of the two extreme classes when counting the doses from 0 to 2n.",
+      "D": "Correct: with n = 3 additive loci the active-allele dose ranges from 0 to 6, giving 2n + 1 = 7 phenotypic classes.",
+      "E": "Wrong: n + 1 = 4 misapplies the '+1' rule; the classes run over the active-allele doses from 0 to 2n, not from 0 to n."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0253",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Interaction of genotype and environment",
+    "subtopic": "Genotype-environment interaction and reaction norms: interpreting crossing reaction norms (rank reversal) to conclude that no genotype is superior across all environments",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "genotype-environment interaction",
+      "reaction norm",
+      "phenotypic plasticity",
+      "continuous variation",
+      "data interpretation"
+    ],
+    "learning_objective": "Interpret reaction-norm data showing rank reversal to identify a genotype-environment interaction and to evaluate claims about genetic versus environmental causation and heritability.",
+    "question": "Two pure-breeding plant genotypes, X and Y, were each propagated as clones and grown at three altitudes. The mean stem height (cm) of each genotype in each environment is shown below. Low altitude - X: 60, Y: 40. Medium altitude - X: 45, Y: 45. High altitude - X: 25, Y: 55. Which conclusion is best supported by these data?",
+    "choices": {
+      "A": "The height differences are caused entirely by the environment, because both genotypes reach 45 cm at medium altitude.",
+      "B": "Genotype X is genetically superior to genotype Y, because it produces the single tallest plants recorded.",
+      "C": "The height differences are caused entirely by genotype, because the two clones differ at low and high altitude.",
+      "D": "No genotype is superior across all environments: the effect of genotype on height depends on the altitude, demonstrating a genotype-environment interaction.",
+      "E": "Because the reaction norms cross, height must have zero heritability in this species."
+    },
+    "correct_answer": "D",
+    "explanation": "Plot or read the two reaction norms across altitude: genotype X is tallest at low altitude, the two are equal at medium altitude, and genotype Y is tallest at high altitude, so the lines cross (a rank reversal). Because the two clones differ within the SAME environment (low and high altitude), genotype affects height; because each clone changes across altitudes, environment also affects height. The crossing shows the effect of genotype depends on the environment, i.e. a genotype-environment interaction, so no genotype is best in every environment. Crossing reaction norms do not imply zero heritability, because heritability is defined within a given environment.",
+    "option_analysis": {
+      "A": "Wrong: an 'environment-only' explanation cannot hold because the two clones reach different heights in the SAME environment at low and high altitude, which requires a genotype effect.",
+      "B": "Wrong: this cherry-picks the single tallest value; a maximum in one environment is not overall genetic superiority once the reaction norms cross.",
+      "C": "Wrong: a 'genotype-only' explanation cannot hold because each clone changes height across altitudes, which requires an environmental effect.",
+      "D": "Correct: the reaction norms cross, so the genotype rank depends on altitude (a genotype-environment interaction), and no genotype is superior in every environment.",
+      "E": "Wrong: crossing reaction norms do not make a trait non-heritable; heritability is defined within a particular environment, and clear genetic differences exist at low and high altitude."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0254",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the nervous system",
+    "subtopic": "Brain regions and functions: localising a lesion to the cerebellum from a coordination deficit with intact strength and sensation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "nervous system",
+      "brain regions",
+      "cerebellum",
+      "lesion localisation",
+      "CNS organisation"
+    ],
+    "learning_objective": "Deduce which region of the brain has been damaged by reasoning from a pattern of preserved and lost functions, distinguishing coordination deficits (cerebellum) from loss of strength (motor cortex) and from autonomic/vital deficits (medulla).",
+    "question": "A patient suffers a localised injury confined to a single region of the brain. On examination, muscle strength is normal in all four limbs and sensation (touch, pain, position) is intact everywhere. However, the patient's movements are jerky and poorly coordinated, she cannot bring a fingertip accurately to her nose, and she cannot maintain her balance when standing still. Her heart rate, breathing and body temperature are all normal. Which region has most probably been damaged?",
+    "choices": {
+      "A": "The hypothalamus",
+      "B": "The corpus callosum",
+      "C": "The cerebrum (primary motor cortex)",
+      "D": "The cerebellum",
+      "E": "The medulla oblongata"
+    },
+    "correct_answer": "D",
+    "explanation": "The key to localisation is the dissociation between what is lost and what is preserved. Muscle strength and sensation are normal, which excludes damage to the primary motor cortex (which would cause weakness/paralysis) and to sensory pathways. Heart rate, breathing and temperature are normal, excluding the medulla oblongata and hypothalamus. What remains impaired is the coordination, smoothness and timing of movement and the maintenance of balance and posture — precisely the functions of the cerebellum, which fine-tunes and coordinates motor output using sensory feedback without itself initiating movement or generating force. The pattern (ataxia, past-pointing, loss of balance with intact power and sensation) is therefore cerebellar.",
+    "option_analysis": {
+      "A": "Wrong: the hypothalamus regulates body temperature, water balance, hunger and endocrine output via the pituitary, none of which is disturbed here, and it has no role in coordinating limb movement. Misconception: treating the hypothalamus as a general 'control centre' for motor acts.",
+      "B": "Wrong: the corpus callosum is a band of white matter connecting the two cerebral hemispheres; its damage produces disconnection effects between the hemispheres, not limb ataxia or loss of balance. Misconception: assuming any midline brain structure governs movement coordination.",
+      "C": "Wrong: damage to the primary motor cortex of the cerebrum would produce weakness or paralysis (loss of strength) on the opposite side of the body. Here strength is explicitly normal. Misconception: that any disorder of movement must arise from the motor cortex, ignoring the cerebellum's coordinating role.",
+      "D": "Correct: the cerebellum coordinates and smooths voluntary movement and maintains balance and posture using sensory feedback, without generating muscle force or sensation. Loss of coordination, past-pointing and imbalance with fully preserved strength and sensation is the classic cerebellar picture.",
+      "E": "Wrong: the medulla oblongata contains the vital centres controlling heart rate and breathing; damage would disturb these, yet they are stated to be normal. Misconception: confusing the medulla's autonomic/vital functions with the coordination of skeletal movement."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0255",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the eye",
+    "subtopic": "Gross structure and refraction: the cornea, not the lens, produces most of the eye's refraction because refraction depends on the refractive-index difference at a boundary",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "eye",
+      "cornea",
+      "lens",
+      "refraction",
+      "refractive index",
+      "image formation"
+    ],
+    "learning_objective": "Integrate eye structure with the physics of refraction to recognise that the amount of bending at a surface depends on the difference in refractive index across it, so the air–cornea boundary — not the lens — provides most of the eye's focusing power, while the lens supplies adjustable fine focusing.",
+    "question": "As light enters the eye it is refracted at several boundaries before reaching the retina. The approximate refractive indices are: air 1.00; cornea and aqueous humour 1.34; lens 1.42; vitreous humour 1.34. A student states: 'The lens is the structure that does most of the focusing of light onto the retina.' Which statement is the best evaluation of this claim?",
+    "choices": {
+      "A": "The claim is correct, because the lens is the only structure in the eye able to change its shape and therefore bends light the most.",
+      "B": "The claim is incorrect: most refraction occurs at the air–cornea boundary, because that is where the largest change in refractive index occurs, while the lens provides adjustable fine focusing.",
+      "C": "The claim is incorrect: most refraction actually occurs at the retina, since that is where the sharp image is finally formed and detected.",
+      "D": "The claim is incorrect: the cornea and the lens each refract light by exactly the same amount, so neither structure dominates the focusing.",
+      "E": "The claim is correct, because the lens has the highest refractive index of any structure in the eye and so bends light the most strongly."
+    },
+    "correct_answer": "B",
+    "explanation": "The amount by which light bends at a surface depends on the difference in refractive index across that surface, not on the absolute value on one side. The biggest jump in refractive index occurs as light passes from air (1.00) into the cornea/aqueous humour (1.34), a change of about 0.34, so the cornea provides most (roughly two-thirds) of the eye's converging power. The lens (1.42) is surrounded on both sides by media of index about 1.34, so the difference at each lens surface is only about 0.08 and it bends light comparatively little. Crucially, however, the lens can change its curvature, so although its contribution is smaller it is variable and provides the adjustable fine focusing needed for accommodation. The student has confused 'able to change focus' with 'provides most of the focusing'.",
+    "option_analysis": {
+      "A": "Wrong: the ability to change shape governs how the focus is adjusted, not how much refraction occurs. The fixed cornea, at the air interface, does most of the bending. Misconception: equating the adjustable component with the dominant component.",
+      "B": "Correct: refraction magnitude depends on the refractive-index difference at a boundary; the air–cornea step (1.00→1.34) is the largest, so the cornea dominates focusing, while the lens (surrounded by media of similar index) contributes less but adjustably.",
+      "C": "Wrong: the retina is a light-absorbing, signal-transducing layer where the image is detected, not a refracting surface; refraction is essentially complete before light reaches it. Misconception: conflating where the image forms with where the light is bent.",
+      "D": "Wrong: the cornea and lens do not refract equally; the cornea provides roughly two-thirds of the total converging power. Misconception: assuming the two main refracting structures must contribute equally.",
+      "E": "Wrong: although the lens has the highest refractive index, it sits between media of index ~1.34, so the difference at its surfaces is small; bending depends on the difference, not the absolute index. Misconception: that a high refractive index alone causes strong refraction regardless of the surrounding medium."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0256",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the eye",
+    "subtopic": "The pupillary light reflex: antagonistic iris muscles, parasympathetic constriction and the consensual (both-eyes) response coordinated within the brain",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "eye",
+      "iris",
+      "pupil reflex",
+      "autonomic nervous system",
+      "consensual reflex",
+      "antagonistic muscles"
+    ],
+    "learning_objective": "Explain the pupillary light reflex in terms of active contraction of the circular (sphincter) iris muscle under parasympathetic control, distinguish it from the radial dilator muscle, and account for the consensual response through central relay of the afferent signal to both eyes.",
+    "question": "A bright light is shone into a person's right eye only, while the left eye remains shaded. Both pupils are observed to constrict. Which statement correctly describes the mechanism of this response?",
+    "choices": {
+      "A": "Both pupils constrict because the circular muscles of the iris relax, allowing the pupil to close passively under elastic recoil of the surrounding tissue.",
+      "B": "Both pupils constrict through contraction of the circular (sphincter) muscles of the iris under parasympathetic control, because signals from the illuminated eye are relayed within the brain to the nerve supply of both eyes.",
+      "C": "The response occurs because the two optic nerves join and fuse into a single nerve before any signal can reach the muscles of the iris.",
+      "D": "Both pupils constrict because light entering the right eye is scattered inside the head and also reaches and stimulates the retina of the shaded left eye.",
+      "E": "Both pupils constrict through contraction of the radial (dilator) muscles of the iris, which are stimulated by sympathetic motor neurones."
+    },
+    "correct_answer": "B",
+    "explanation": "The iris contains two antagonistic sets of smooth muscle: circular (sphincter) muscles that actively contract to make the pupil smaller, controlled by the parasympathetic system, and radial (dilator) muscles that contract to widen the pupil, controlled by the sympathetic system. In bright light the parasympathetic pathway drives contraction of the circular muscles, constricting the pupil to protect the retina and reduce excess light. Because the sensory (afferent) signal from the illuminated eye is carried to the brain and there relayed to the motor supply of both eyes, both pupils constrict together — the consensual reflex — even though only one eye was illuminated. No light needs to reach the shaded eye, no nerve fusion occurs, and constriction is an active contraction, not passive relaxation.",
+    "option_analysis": {
+      "A": "Wrong: pupil constriction is an active contraction of the circular muscle, not passive closure from relaxation; relaxing the circular muscle would tend to let the pupil widen. Misconception: that constriction happens passively rather than by muscle contraction.",
+      "B": "Correct: bright light triggers parasympathetically driven contraction of the circular (sphincter) iris muscles, and central relay of the afferent signal to the motor supply of both eyes produces the consensual constriction of both pupils.",
+      "C": "Wrong: the optic nerves do not fuse; the fibres partially cross at the optic chiasma and the reflex is coordinated by central connections in the midbrain that reach both eyes. Misconception: inventing anatomical nerve fusion to explain a bilateral response.",
+      "D": "Wrong: the shaded eye is not appreciably illuminated; its constriction is produced neurally (the consensual reflex), not by stray light reaching its retina. Misconception: that both pupils respond only if both retinas are directly lit.",
+      "E": "Wrong: the radial muscles are the dilator muscles and their sympathetic contraction widens the pupil; constriction is not produced by them. Misconception: swapping the roles/innervation of the radial and circular iris muscles."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0257",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the eye",
+    "subtopic": "Accommodation: quantitative change in the lens's refractive power (dioptres) needed to shift focus from a distant object to a near object in a reduced-eye model",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "eye",
+      "accommodation",
+      "lens power",
+      "dioptres",
+      "refraction",
+      "near point"
+    ],
+    "learning_objective": "Apply the thin-lens power relation to a fixed-image-distance model of the eye to calculate the increase in refractive power (dioptres) required for accommodation from infinity to the near point, and recognise that a fixed image distance does not fix the power.",
+    "question": "A simplified model treats the eye as a single thin converging lens fixed 2.0 cm in front of the retina, on which a sharp image must always be formed. For an object at distance u and a sharp image at distance v from the lens, the lens power required is P = 1/v + 1/u, where distances are in metres and P is in dioptres (m⁻¹). By how much must the power of this lens change, and in which direction, when the eye shifts from focusing on a very distant object to focusing on an object 25 cm in front of the lens?",
+    "choices": {
+      "A": "It must decrease by 4 dioptres.",
+      "B": "It must increase by 2 dioptres.",
+      "C": "It must increase by 50 dioptres.",
+      "D": "It does not change at all, because the image distance is fixed at 2.0 cm.",
+      "E": "It must increase by 4 dioptres."
+    },
+    "correct_answer": "E",
+    "explanation": "The image distance is fixed at v = 2.0 cm = 0.020 m, so 1/v = 50 dioptres for every case. For a very distant object, u → infinity so 1/u → 0, giving P(far) = 50 + 0 = 50 D. For the near object at 25 cm = 0.25 m, 1/u = 1/0.25 = 4 D, giving P(near) = 50 + 4 = 54 D. The required power therefore rises from 50 D to 54 D, an increase of 4 dioptres. This increase is exactly what accommodation provides: the ciliary muscle contracts, the suspensory ligaments slacken, and the lens becomes more curved and more powerful so that the nearer object is still focused on the fixed-distance retina.",
+    "option_analysis": {
+      "A": "Wrong: the direction is inverted. Focusing on a nearer object requires more converging power, so the power must increase, not decrease. Misconception: that bringing an object closer needs a weaker (flatter) lens.",
+      "B": "Wrong: this results from misreading the near distance as 50 cm (0.5 m), giving 1/0.5 = 2 D. The stated distance is 25 cm, for which 1/0.25 = 4 D. Misconception: an object-distance error (or failing to convert units correctly).",
+      "C": "Wrong: 50 D is the total power needed for distant vision, not the change on accommodating; the question asks for the difference between the two states. Misconception: reporting the absolute power instead of the required change.",
+      "D": "Wrong: although v (and hence 1/v) is fixed, the object distance changes, so 1/u changes from 0 to 4 D and the total power must change. A fixed image distance does not imply a fixed power. Misconception: assuming a constant image distance keeps the required lens power constant.",
+      "E": "Correct: P(far) = 1/0.020 + 0 = 50 D and P(near) = 1/0.020 + 1/0.25 = 50 + 4 = 54 D, so the power must increase by 4 D."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0258",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Human physiology — the eye",
+    "subtopic": "Rods versus cones: retinal convergence and spatial summation explain the sensitivity–acuity trade-off and averted (peripheral) vision of faint objects",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "eye",
+      "rods",
+      "cones",
+      "fovea",
+      "retinal convergence",
+      "visual acuity",
+      "sensitivity"
+    ],
+    "learning_objective": "Integrate the distribution of rods and cones with the degree of retinal convergence to explain why the light-sensitive but low-acuity rod-rich periphery detects faint stimuli that the cone-only fovea misses, and why cone wiring gives acuity rather than sensitivity.",
+    "question": "An astronomer notices that a very faint star vanishes when she looks straight at it, but reappears when she directs her gaze slightly to one side of it. Which explanation best accounts for this observation and what it reveals about rods and cones?",
+    "choices": {
+      "A": "The peripheral retina is packed with cones, each of which has its own separate nerve fibre; this one-to-one wiring gives the cones very high sensitivity to dim light, so the faint star is only seen off-centre.",
+      "B": "The lens inverts the image of the star, so the star can only appear the correct way up, and therefore visible, when it is viewed off to one side rather than straight ahead.",
+      "C": "Looking straight at the star focuses its image on the fovea, which contains only rods, and rods are insensitive to dim light; looking to one side moves the image onto the periphery, which is rich in cones that summate weak signals to give greater sensitivity.",
+      "D": "Looking straight at the star focuses its image on the fovea, which contains only cones, and cones are relatively insensitive to dim light; looking to one side moves the image onto the peripheral retina, where many rods converge onto each nerve cell so their weak signals summate, giving greater sensitivity.",
+      "E": "Looking directly at the star causes the pupil to constrict and admit less light, whereas looking to one side lets the pupil dilate, so more light enters and the star becomes visible."
+    },
+    "correct_answer": "D",
+    "explanation": "The fovea (the point of direct fixation) contains only cones, packed at high density and wired with very little convergence (close to one photoreceptor per bipolar/ganglion cell). This gives excellent detail (high acuity) and colour vision but relatively poor sensitivity, because each cone signal is read almost individually and a very dim source produces too little response in any one cone. In the peripheral retina rods dominate, and many rods converge onto a single downstream nerve cell. Their individually weak responses summate (spatial summation), so a faint stimulus that would be undetectable through a single cone can cross threshold — high sensitivity but low acuity. Hence a faint star is best seen with 'averted vision', placing its image on the rod-rich periphery. The trade-off (sensitivity via convergence versus acuity via one-to-one wiring) is the core concept.",
+    "option_analysis": {
+      "A": "Wrong: one-to-one (low-convergence) wiring gives cones high acuity, not high sensitivity, and the periphery is not cone-rich. Sensitivity comes from convergence and summation, which cones largely lack. Misconception: confusing the mechanism of acuity with the mechanism of sensitivity.",
+      "B": "Wrong: the inverted retinal image is interpreted correctly by the brain regardless of gaze direction, and image inversion has nothing to do with detecting a faint source. Misconception: thinking image orientation on the retina affects visibility.",
+      "C": "Wrong: it reverses the distribution — the fovea is cone-only and the periphery is rod-rich — and it wrongly attributes summation to cones. Misconception: swapping the locations of rods and cones in the retina.",
+      "D": "Correct: the cone-only fovea has low convergence and low dim-light sensitivity, whereas the rod-rich periphery has high convergence so that many rod signals summate onto one nerve cell, detecting the faint star through averted vision.",
+      "E": "Wrong: pupil diameter is governed mainly by overall light intensity (and near focusing), not by whether the gaze is centred on a tiny faint source; this would not explain the effect. Misconception: attributing averted-vision detection to a pupil-size change."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0259",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology — human impact and conservation",
+    "subtopic": "Eutrophication: diel dissolved-oxygen swings in a eutrophic water body and the pre-dawn respiration minimum",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "ecology",
+      "eutrophication",
+      "dissolved oxygen",
+      "photosynthesis and respiration",
+      "data interpretation",
+      "human impact"
+    ],
+    "learning_objective": "Interpret 24-hour dissolved-oxygen data from a nutrient-enriched water body and explain the pre-dawn oxygen minimum in terms of continued community respiration without photosynthetic input.",
+    "question": "Two neighbouring ponds are monitored for a full day. Pond X receives heavy runoff of nitrate and phosphate fertiliser and carries a dense bloom of algae; oligotrophic Pond Y receives no fertiliser. Dissolved oxygen is recorded at the same depth in each pond. In Pond X it rises to about 16 mg L-1 in mid-afternoon (well above the air-saturation value of roughly 9 mg L-1) and falls to about 2 mg L-1 just before dawn, when fish are frequently found dead. In Pond Y the dissolved oxygen stays close to 8 mg L-1 throughout the 24 hours. Which statement best explains the large daily swing and the dangerously low pre-dawn oxygen in Pond X?",
+    "choices": {
+      "A": "The dense algae release oxygen by photosynthesis by day but respire continuously; after dark, respiration by the algae and by decomposer bacteria proceeds with no photosynthetic input, so oxygen is drawn down to a minimum just before dawn.",
+      "B": "After dark the algae photosynthesise using energy stored during the day, and this night-time photosynthesis consumes the dissolved oxygen.",
+      "C": "Atmospheric oxygen can dissolve into the water only while the pond is illuminated, so essentially no oxygen enters the water during the night.",
+      "D": "The fall in water temperature overnight lowers the solubility of oxygen, so much less oxygen can remain dissolved by dawn.",
+      "E": "The surface mat of algae blocks sunlight from the water below, and without light the respiration of the algae and bacteria stops each night."
+    },
+    "correct_answer": "A",
+    "explanation": "In an enriched water body the nutrients support a very large photosynthetic and heterotrophic biomass. During daylight, gross photosynthesis exceeds community respiration, so oxygen accumulates and the water becomes supersaturated (16 mg L-1, above the 9 mg L-1 saturation value). Photosynthesis stops at night, but respiration by the algae, animals and (especially) the decomposer bacteria breaking down the abundant organic matter continues. With no photosynthetic oxygen input, oxygen is consumed faster than it can diffuse in from the air, reaching a minimum just before dawn — hence dawn fish kills. Oligotrophic Pond Y has a small biomass, so both its daytime production and its night-time respiratory demand are small and the oxygen level barely changes. The key reasoning is that the bloom drives both the daytime supersaturation and the night-time depletion.",
+    "option_analysis": {
+      "A": "Correct: daytime photosynthesis by the large algal biomass causes supersaturation, while continuous respiration by algae and decomposers, with no photosynthetic input after dark, drives oxygen to a pre-dawn minimum; the small biomass of the oligotrophic pond shows little swing.",
+      "B": "Wrong: photosynthesis never consumes net oxygen (it releases it) and cannot occur in the dark. This choice reflects the misconception that stored 'light energy' lets algae photosynthesise at night.",
+      "C": "Wrong: diffusion of atmospheric oxygen across the water surface is a physical process independent of light and continues at night. The misconception is that gas exchange requires illumination.",
+      "D": "Wrong: gas solubility increases as temperature falls, so cooler night water can hold more dissolved oxygen, not less. This choice inverts the temperature–solubility relationship, and in any case solubility changes are far too small to explain a fall from 16 to 2 mg L-1.",
+      "E": "Wrong: respiration is not driven by light and does not stop in the dark — it is precisely the continuing night-time respiration that removes the oxygen. This choice confuses the light-dependence of photosynthesis with respiration."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0260",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology — the carbon cycle and the enhanced greenhouse effect",
+    "subtopic": "Global carbon budget: computing the annual rise in atmospheric CO2 from source and sink fluxes",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "ecology",
+      "carbon cycle",
+      "greenhouse effect",
+      "climate",
+      "carbon budget",
+      "data interpretation",
+      "unit conversion"
+    ],
+    "learning_objective": "Combine anthropogenic carbon source and sink fluxes into a net atmospheric imbalance and convert this mass flux into an annual change in atmospheric CO2 concentration, strengthening the greenhouse effect.",
+    "question": "A simplified global carbon budget for one year is given (all figures in gigatonnes of carbon, Gt C). Anthropogenic sources: fossil-fuel combustion 9.0 Gt C; deforestation and other land-use change 1.0 Gt C. Net carbon sinks: uptake by the oceans 2.5 Gt C; net uptake by land vegetation and soils 3.5 Gt C. The remaining carbon accumulates in the atmosphere, strengthening the greenhouse effect. Assume that adding 2.0 Gt C to the atmosphere raises the atmospheric CO2 concentration by 1 ppm. By how much does the atmospheric CO2 concentration rise in this year?",
+    "choices": {
+      "A": "4.0 ppm",
+      "B": "5.0 ppm",
+      "C": "1.5 ppm",
+      "D": "1.0 ppm",
+      "E": "2.0 ppm"
+    },
+    "correct_answer": "E",
+    "explanation": "Total anthropogenic emissions = 9.0 + 1.0 = 10.0 Gt C. Total uptake by sinks = 2.5 + 3.5 = 6.0 Gt C. The net amount added to the atmosphere = 10.0 - 6.0 = 4.0 Gt C. Converting to a concentration change using 2.0 Gt C per ppm gives 4.0 / 2.0 = 2.0 ppm for the year. The exercise integrates the carbon cycle (balancing sources against sinks) with a mass-to-concentration unit conversion, and shows that only the imbalance between emissions and sink uptake accumulates to enhance the greenhouse effect.",
+    "option_analysis": {
+      "A": "Wrong: 4.0 is the net mass flux in Gt C reported directly as if it were ppm, skipping the required 2.0 Gt C per ppm conversion. This is a unit-conversion error.",
+      "B": "Wrong: this ignores all carbon sinks, dividing the full 10.0 Gt C of emissions by 2.0 to get 5.0 ppm. It assumes every tonne emitted stays airborne, whereas roughly 60% is taken up by ocean and land sinks.",
+      "C": "Wrong: this omits the 1.0 Gt C land-use-change emission, using only 9.0 - 6.0 = 3.0 Gt C to get 1.5 ppm. It reflects the misconception that only fossil fuels add carbon to the atmosphere.",
+      "D": "Wrong: this treats deforestation (1.0 Gt C) as a sink rather than a source, giving net 9.0 - (6.0 + 1.0) = 2.0 Gt C and 1.0 ppm. Land-use change releases carbon; it does not remove it.",
+      "E": "Correct: net accumulation = (9.0 + 1.0) - (2.5 + 3.5) = 4.0 Gt C; dividing by 2.0 Gt C per ppm gives 2.0 ppm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0261",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology — biodiversity",
+    "subtopic": "Simpson's index of diversity: richness versus evenness when comparing two communities",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "ecology",
+      "biodiversity",
+      "Simpson's index",
+      "species richness",
+      "evenness",
+      "data interpretation"
+    ],
+    "learning_objective": "Calculate and compare Simpson's index of diversity for two communities and explain why species richness alone does not determine diversity when evenness differs.",
+    "question": "Simpson's index of diversity is defined as D = 1 - Sigma (n/N)^2, where n/N is the proportion of all individuals belonging to each species; larger D means greater diversity. Community P contains 5 species with relative abundances 0.80, 0.05, 0.05, 0.05 and 0.05. Community Q contains 4 species, each with a relative abundance of 0.25. Which statement correctly compares the two communities?",
+    "choices": {
+      "A": "Community P is the more diverse because it contains the greater number of species, and species richness alone determines Simpson's index.",
+      "B": "Community P is the more diverse because a larger number of species always lowers Sigma (n/N)^2 and therefore always raises D.",
+      "C": "Community Q is the more diverse (D = 0.75 versus 0.35 for P); although Q has fewer species, its individuals are far more evenly distributed, and evenness outweighs the difference in richness.",
+      "D": "Community Q is the more diverse only because having fewer species automatically produces a higher value of D.",
+      "E": "The two communities are equally diverse, because Simpson's index depends only on the number of species and these differ by just one."
+    },
+    "correct_answer": "C",
+    "explanation": "For Community P, Sigma (n/N)^2 = 0.80^2 + 4 x 0.05^2 = 0.64 + 0.01 = 0.65, so D = 1 - 0.65 = 0.35. For Community Q, Sigma (n/N)^2 = 4 x 0.25^2 = 4 x 0.0625 = 0.25, so D = 1 - 0.25 = 0.75. Community Q is therefore more than twice as diverse by this index even though it has one fewer species. Simpson's index responds to both richness and evenness: Community P is dominated by a single species (80% of individuals), which drives its dominance term high and its diversity low, whereas Q's individuals are spread evenly across its species. This illustrates that richness alone is a poor measure of diversity.",
+    "option_analysis": {
+      "A": "Wrong: this equates diversity with species richness and ignores evenness, which is exactly the factor that makes the dominated community P less diverse.",
+      "B": "Wrong: adding species does not necessarily lower the dominance term — a community overwhelmingly dominated by one species (like P) can have a high Sigma (n/N)^2 despite more species. Richness does not guarantee a higher D.",
+      "C": "Correct: D(P) = 0.35 and D(Q) = 0.75; the greater evenness of Q outweighs its lower richness, giving it the higher index.",
+      "D": "Wrong: it reaches the right community for the wrong reason. Fewer species does not by itself raise D; a highly uneven 4-species community would score low. It is Q's evenness, not its lower richness, that makes it more diverse.",
+      "E": "Wrong: Simpson's index depends on the proportional abundances, not merely on how many species are present, so two communities differing by one species can have very different diversity."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0262",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology — biodiversity loss and habitat destruction",
+    "subtopic": "Species–area relationship: predicting eventual species loss from a reduction in habitat area (power law)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "ecology",
+      "biodiversity loss",
+      "habitat destruction",
+      "species-area relationship",
+      "conservation",
+      "power law",
+      "calculation"
+    ],
+    "learning_objective": "Use the species–area power law to predict the fraction of species expected to persist after a defined reduction in habitat area and recognise that species loss is not proportional to area lost.",
+    "question": "The number of species S supported by a habitat of area A often follows the relationship S = c x A^z, where c and z are constants for a given type of habitat and organism. For a certain forest bird community, z = 0.25. A large tract of this forest is cleared until only 1/16 of its original area survives as protected fragments (c and z are assumed unchanged). According to this relationship, the fraction of the original number of bird species expected to persist in the long term is:",
+    "choices": {
+      "A": "15/16 of the original number of species",
+      "B": "1/8 of the original number of species",
+      "C": "1/2 of the original number of species",
+      "D": "1/16 of the original number of species",
+      "E": "1/4 of the original number of species"
+    },
+    "correct_answer": "C",
+    "explanation": "Because S is proportional to A^z, the ratio of new to original species number is S_new/S_old = (A_new/A_old)^z. Here A_new/A_old = 1/16 and z = 0.25, so the fraction is (1/16)^0.25. Since 16 = 2^4, (1/16)^(1/4) = 1/2. Thus even though 15/16 (about 94%) of the area is destroyed, the model predicts that about half of the bird species will eventually be lost and half will persist. The power-law form means species loss is much less than proportional to area at first but becomes severe as habitat shrinks — a key quantitative argument in conservation planning.",
+    "option_analysis": {
+      "A": "Wrong: 15/16 assumes species number is barely affected because only area, not species, is 'removed'. This ignores the species–area relationship entirely and drastically underestimates extinction from habitat loss.",
+      "B": "Wrong: 1/8 = (1/16)^0.75, obtained by using an exponent of 0.75 rather than 0.25 (for example, confusing z with 1 - z).",
+      "C": "Correct: (1/16)^0.25 = (2^-4)^(1/4) = 2^-1 = 1/2, so about half the species are expected to persist.",
+      "D": "Wrong: 1/16 assumes species number is directly proportional to area, i.e. it uses z = 1 instead of z = 0.25. The species–area relationship is a power law with z well below 1.",
+      "E": "Wrong: 1/4 = (1/16)^0.5, which uses an exponent of 0.5 (a square root) instead of the fourth root implied by z = 0.25."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0263",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology — conservation",
+    "subtopic": "Conservation genetics: erosion of heterozygosity by genetic drift at small effective population size in a captive-breeding programme",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "ecology",
+      "conservation",
+      "genetic diversity",
+      "genetic drift",
+      "effective population size",
+      "captive breeding",
+      "calculation"
+    ],
+    "learning_objective": "Apply the heterozygosity-decay relationship to quantify the loss of genetic diversity by drift in a small captive population and appreciate why small effective population size threatens conservation programmes.",
+    "question": "A captive-breeding programme for an endangered mammal is founded from wild stock with an expected heterozygosity (a measure of genetic diversity) of H0 = 0.80. Because of limited enclosure space, the programme is run at a constant effective population size of Ne = 5 for 3 generations, with no introduction of new animals. The expected heterozygosity after t generations is given by Ht = H0 × (1 − 1/(2Ne))^t. The expected heterozygosity after 3 generations is closest to:",
+    "choices": {
+      "A": "0.65",
+      "B": "0.58",
+      "C": "0.72",
+      "D": "0.41",
+      "E": "0.56"
+    },
+    "correct_answer": "B",
+    "explanation": "The per-generation retention factor is 1 − 1/(2Ne) = 1 − 1/10 = 0.90. Over 3 generations this compounds: 0.90^3 = 0.729. Therefore H3 = 0.80 × 0.729 = 0.583, i.e. about 0.58. About 27% of the original genetic diversity has been lost to genetic drift in just three generations. Because loss accelerates as Ne falls, this quantifies why keeping effective population sizes large — and exchanging individuals between institutions to raise the effective size — is central to conservation breeding.",
+    "option_analysis": {
+      "A": "Wrong: 0.65 comes from 0.80 × 0.90^2, using t = 2 rather than t = 3 (squaring instead of cubing the factor).",
+      "B": "Correct: H3 = 0.80 × (0.90)^3 = 0.80 × 0.729 = 0.58.",
+      "C": "Wrong: 0.72 comes from 0.80 × 0.90, applying the retention factor for only one generation instead of three. It ignores that drift compounds over t generations.",
+      "D": "Wrong: 0.41 comes from using 1/Ne instead of 1/(2Ne); dropping the factor of 2 overstates the loss.",
+      "E": "Wrong: 0.56 comes from treating the loss as linear (10% of H0 lost per generation × 3 = 30%, giving 0.80 × 0.70). Drift erodes heterozygosity multiplicatively, not by a fixed subtraction each generation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  }
+]

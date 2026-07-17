@@ -6,7 +6,7 @@ How the Daily Challenge model will be built when implementation is approved. **N
 ExamProfile · Question(read-only bank) · UserQuestionState · DailyChallenge · ChallengeAnswer · SectionDeficitLedger(+nested) · Streak · ReviewQueueItem · TopicExposure · NotificationPreferences · ConsentRecord · NotificationLog · EmailEvent · AnalyticsEvent. (Fields in `daily_challenge_state_machine.md`.)
 
 ## 2. Required persistence
-- **Content (ships in app / seeded):** the 5 eligible banks per exam → seeded to Room under `examType` (TIL_I/CENTS_S/IMAT) with internal columns `poolType, sourceType(internal), eligibleForProduction, finalVerify, section, subSection, topic, difficulty, eliteFlag, stemHash, figureFamily, passageId, solvePatternSignature`. IMAT/MIOITALIA already seed; add TIL-I/CEnT-S seeders (mirror pattern). Copy `content/{til_i,cents_s}` banks into app assets.
+- **Content (ships in app / seeded):** the 5 eligible banks per exam → seeded to Room under `examType` (TIL_I/CENTS_S/IMAT) with internal columns `poolType, sourceType(internal), eligibleForProduction, finalVerify, section, subSection, topic, difficulty, eliteFlag, stemHash, figureFamily, passageId, solvePatternSignature`. IMAT/EDUMIO_ORIGINAL already seed; add TIL-I/CEnT-S seeders (mirror pattern). Copy `content/{til_i,cents_s}` banks into app assets.
 - **Per-user state (local first, sync-ready):** UserQuestionState, DailyChallenge+ChallengeAnswer, SectionDeficitLedger, Streak, ReviewQueueItem, TopicExposure. Local Room now; behind the existing SyncRepository seam so it can move server-side without rework.
 - **Comms/consent (server-side eventually):** NotificationPreferences, ConsentRecord+audit, NotificationLog, EmailEvent, suppression list.
 

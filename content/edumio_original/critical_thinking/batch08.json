@@ -1,0 +1,192 @@
+[
+  {
+    "id": "mio_ct_0037",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Argument analysis",
+    "subtopic": "Weakening a causal claim by a pre-existing trend (the outcome was already declining before the intervention)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "weaken",
+      "causal reasoning",
+      "pre-existing trend",
+      "before-after fallacy"
+    ],
+    "learning_objective": "Weaken a before-after causal claim by identifying that the outcome was already following a pre-existing trend independent of the intervention.",
+    "question": "Two years ago a town council replaced the street lighting on Maple Road with much brighter LED lamps. In the two years since, the number of night-time road accidents on Maple Road has fallen by 30%. The council concludes that the brighter lighting caused this reduction and now plans to fit the same lamps on every road in the town. Which one of the following, if true, most seriously weakens the council's argument?",
+    "choices": {
+      "A": "Night-time accidents on Maple Road had already been falling by roughly 30% every two years throughout the decade before the new lighting was fitted.",
+      "B": "The brighter LED lighting cost considerably more to install and maintain than the council had originally budgeted for the project.",
+      "C": "Since the new lighting was installed, the number of daytime accidents on Maple Road has remained essentially unchanged.",
+      "D": "Surveys show that most drivers say they feel noticeably safer and more confident when driving along well-lit roads at night.",
+      "E": "Since the new lighting was installed, thefts from cars parked overnight on Maple Road have also fallen noticeably."
+    },
+    "correct_answer": "A",
+    "explanation": "The argument infers causation purely from a before-after change. It is weakened most by evidence that the fall would have happened even without the new lamps. Option C shows the 30%-per-two-years decline is simply the continuation of a long-standing pre-existing trend, so the lighting need not have contributed anything, and the case for rolling it out town-wide collapses.",
+    "option_analysis": {
+      "A": "Correct: If night-time accidents were already dropping by about 30% every two years before the lamps were fitted, the observed fall is just the continuation of a pre-existing trend and need not be due to the lighting at all, destroying the causal inference.",
+      "B": "Wrong: The cost of the scheme is irrelevant to whether the lighting caused the fall in accidents. Misconception: attacking a proposal on grounds (expense) unrelated to the causal claim actually being made.",
+      "C": "Wrong: Unchanged daytime accidents act as a control that, if anything, strengthens the case, since a general cause would have lowered daytime accidents too. Misconception: assuming any 'no change' comparison must weaken a causal claim, when here it supports it.",
+      "D": "Wrong: Drivers' subjective feelings of safety, if anything, lend mild support to the council and give no reason to doubt the causal claim. Misconception: treating supportive or merely subjective evidence as though it undermines the argument.",
+      "E": "Wrong: A fall in overnight car thefts concerns a completely different outcome and does not bear on whether the lighting reduced accidents. Misconception: treating an unrelated additional effect as evidence for or against the accident claim."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0038",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Logical reasoning",
+    "subtopic": "Necessary and sufficient conditions: valid deduction via the contrapositive of a sufficient condition",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "necessary vs sufficient",
+      "conditional logic",
+      "contrapositive",
+      "valid deduction"
+    ],
+    "learning_objective": "Combine a necessary condition ('only if') and a sufficient condition ('if...then') and use the contrapositive to draw the one valid conclusion.",
+    "question": "At a certain university all of the following are true: (i) a student is awarded the Dean's Scholarship only if she has a first-class average; (ii) every student who has a first-class average and has also completed a research project is awarded the Dean's Scholarship; (iii) Anna has completed a research project but was not awarded the Dean's Scholarship. Which one of the following can be validly concluded?",
+    "choices": {
+      "A": "Had Anna not completed a research project, she would have been awarded the scholarship.",
+      "B": "Anna does not have a first-class average.",
+      "C": "Anna has a first-class average but chose to turn the Dean's Scholarship down.",
+      "D": "No student who completes a research project is ever awarded the Dean's Scholarship.",
+      "E": "At least some students who have a first-class average are not awarded the scholarship."
+    },
+    "correct_answer": "B",
+    "explanation": "Statement (ii) says that having a first-class average AND a completed research project is sufficient for the scholarship. Its contrapositive: anyone not awarded the scholarship must lack a first-class average or lack a research project (or both). Anna was not awarded it, so the antecedent of (ii) fails; yet she did complete a research project, so the missing ingredient can only be the first-class average. Statement (i), a necessary condition, is not even required for this step. Hence Anna does not have a first-class average.",
+    "option_analysis": {
+      "A": "Wrong: This denies the antecedent of the sufficient condition (ii); completing the project was never established as her only obstacle, and without it she might still fail to qualify. Misconception: treating a sufficient condition as though it were necessary (denying the antecedent).",
+      "B": "Correct: By the contrapositive of (ii), not being awarded the scholarship while having completed a research project forces the absence of a first-class average.",
+      "C": "Wrong: Nothing in the premises mentions declining the award; turning it down is invented information. Misconception: supplying an unstated explanation instead of drawing only what the premises force.",
+      "D": "Wrong: One student's failure cannot support a universal claim about all research-project students; indeed (ii) says such students are awarded the scholarship whenever they also have a first-class average. Misconception: over-generalising from a single case.",
+      "E": "Wrong: The premises only let us conclude that Anna lacks a first-class average, so she is not an example of a first-class student who was denied the award; no first-class student is shown to have been refused. Misconception: confusing 'a first-class average is necessary for the award' with 'some first-class students are denied the award'."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0039",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Quantitative and data reasoning",
+    "subtopic": "Change in a rate under differential percentage growth of numerator and denominator; percentage points vs relative change",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "percentage points",
+      "relative vs absolute change",
+      "rates",
+      "ratio reasoning"
+    ],
+    "learning_objective": "Compute the change in a rate when numerator and denominator grow by different percentages, and distinguish percentage points from relative percentage change.",
+    "question": "In 2023 a diagnostic laboratory tested a batch of samples, and 60% of them gave a positive result. In 2024 the laboratory tested 50% more samples than in 2023, and the number of positive results was 20% higher than in 2023. By how much did the laboratory's positivity rate (the percentage of tested samples that are positive) change from 2023 to 2024?",
+    "choices": {
+      "A": "It rose by 12 percentage points, from 60% to 72%.",
+      "B": "It rose by 15 percentage points, from 60% to 75%.",
+      "C": "It fell by 12 percentage points, from 60% to 48%.",
+      "D": "It stayed the same, at 60%.",
+      "E": "It fell by 20 percentage points, from 60% to 40%."
+    },
+    "correct_answer": "C",
+    "explanation": "Take 100 samples in 2023, of which 60 are positive. In 2024 there are 150 samples (50% more) and 60 x 1.20 = 72 positives, so the positivity rate is 72/150 = 48%. The rate therefore falls by 60 - 48 = 12 percentage points. Because the denominator (samples) grew faster (50%) than the numerator (positives, 20%), the rate had to drop.",
+    "option_analysis": {
+      "A": "Wrong: 72 is the 2024 positive count, not the rate; treating the 20% rise in positives as a rise in the rate ignores the larger rise in the denominator. Misconception: confusing a change in the numerator's count with a change in the rate.",
+      "B": "Wrong: 75% comes from dividing by the smaller growth factor (60 x 1.5 / 1.2), i.e. swapping which quantity grew by which percentage. Misconception: inverting the numerator (positives) and denominator (total samples) growth factors.",
+      "C": "Correct: 72 positives out of 150 samples is 48%, a fall of 12 percentage points from 60%.",
+      "D": "Wrong: The rate is unchanged only if numerator and denominator grow by the same factor; here they grow by 20% and 50%, so the rate must change. Misconception: assuming a rate is unaffected whenever both of its parts increase.",
+      "E": "Wrong: 48% is 20% below 60% in relative terms (48 = 0.8 x 60), but that is a 20% relative decrease, not 20 percentage points. Misconception: reporting a relative percentage change as though it were a change in percentage points."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0040",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Deductive logic puzzle",
+    "subtopic": "Scheduling five items across weekday slots from a fixed slot, ordering, gap and exclusion constraints",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "scheduling",
+      "ordering constraints",
+      "logic puzzle",
+      "unique deduction"
+    ],
+    "learning_objective": "Combine fixed-slot, ordering, gap and exclusion constraints to deduce a unique schedule and identify the forced conclusion.",
+    "question": "Five students - G, H, J, K and L - each give exactly one presentation. The presentations take place on five consecutive weekdays, Monday to Friday, with exactly one presentation per day. The schedule satisfies all of the following: G presents on Wednesday; J presents on an earlier day than K; H presents on an earlier day than L; exactly two presentations are scheduled on the days between H's presentation and L's presentation; K does not present on Friday. Which one of the following must be true?",
+    "choices": {
+      "A": "K presents on Friday.",
+      "B": "J presents on a later day than H.",
+      "C": "K presents on Thursday.",
+      "D": "L presents on Thursday.",
+      "E": "H presents on Monday."
+    },
+    "correct_answer": "C",
+    "explanation": "G is fixed on Wednesday (day 3). 'Exactly two presentations between H and L' means H and L sit three days apart, and with H before L the only options are (Monday, Thursday) or (Tuesday, Friday). If H = Monday and L = Thursday, the free days Tuesday and Friday must take J and K; since K cannot be on Friday, K = Tuesday and J = Friday, but that makes J later than K, violating 'J before K'. So H = Tuesday and L = Friday. The free days Monday and Thursday take J and K, and 'J before K' forces J = Monday, K = Thursday. The unique schedule is Mon = J, Tue = H, Wed = G, Thu = K, Fri = L, so K presents on Thursday.",
+    "option_analysis": {
+      "A": "Wrong: The constraints explicitly forbid K on Friday, and in the valid schedule Friday is taken by L. Misconception: ignoring the 'K not on Friday' exclusion.",
+      "B": "Wrong: In the valid schedule J presents on Monday and H on Tuesday, so J is earlier, not later, than H. Misconception: assuming the two separate order chains (J before K, H before L) force H into the earliest slot.",
+      "C": "Correct: The constraints yield the unique schedule Mon = J, Tue = H, Wed = G, Thu = K, Fri = L, in which K presents on Thursday.",
+      "D": "Wrong: L = Thursday also comes from the rejected (Monday, Thursday) arrangement. Misconception: overlooking that keeping K off Friday makes that arrangement violate 'J presents before K'.",
+      "E": "Wrong: H = Monday belongs to the rejected (Monday, Thursday) arrangement, which fails because, once K is kept off Friday, it cannot satisfy 'J before K'. Misconception: adopting that placement for H and L without checking the ordering and Friday constraints."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0041",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Reading and inference",
+    "subtopic": "Resolving an apparent paradox via an overlooked queueing stage (faster processing yet longer total time under higher load)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "resolve paradox",
+      "queueing",
+      "throughput vs speed",
+      "critical reasoning"
+    ],
+    "learning_objective": "Resolve an apparent paradox by identifying an overlooked stage (queue waiting time) whose growth outweighs a faster processing step.",
+    "question": "A factory replaced its single processing machine with a new one that handles items twice as fast as the old machine. Surprisingly, after the change the average time an item spent in the factory, from arrival to dispatch, actually increased. Which one of the following, if true, best resolves this apparent paradox?",
+    "choices": {
+      "A": "The old machine had been in continuous service at the factory for more than twenty years.",
+      "B": "The new machine only reaches its full speed after a short warm-up period at the start of each working day.",
+      "C": "Customers are now willing to pay a higher price in return for faster delivery of their orders.",
+      "D": "After the new machine was installed the factory accepted about three times as many orders, so items now wait much longer in a queue before they reach the machine.",
+      "E": "The new machine occasionally breaks down and is then out of action while it is repaired within a day."
+    },
+    "correct_answer": "D",
+    "explanation": "The time an item spends in the factory is its waiting (queueing) time plus its processing time. The new machine halved the processing time, so for the total to rise, waiting time must have grown by more. Option A supplies exactly this: tripling the order volume created long queues, so items now wait far longer before processing even though each item is handled faster once it starts.",
+    "option_analysis": {
+      "A": "Wrong: The old machine's age is background information that says nothing about why times rose after the change. Misconception: mistaking an irrelevant historical fact for an explanation.",
+      "B": "Wrong: A brief daily warm-up still leaves the machine at least as fast as the old one for most of the day, so it cannot push the overall average above the old baseline. Misconception: treating a small, partial slowdown as if it could outweigh a full doubling of speed.",
+      "C": "Wrong: Customers' willingness to pay concerns pricing and demand, not the mechanism by which processing-to-dispatch time increased. Misconception: mistaking a statement of motivation or demand for a causal explanation of the delay.",
+      "D": "Correct: Total dwell time = waiting time + processing time. Tripling the order volume lengthens the queue so much that the extra waiting time outweighs the halved processing time, so the average time in the factory rises despite the faster machine.",
+      "E": "Wrong: Occasional breakdowns repaired within a day cannot systematically outweigh a doubling of processing speed and would not reliably raise the long-run average. Misconception: seizing on any negative detail without checking it is large and consistent enough to reverse the effect."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch08",
+    "review_status": "accepted"
+  }
+]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-BrainBuddy visual upgrade pass 2: finish deterministic non-generic replacements.
+EDUmio visual upgrade pass 2: finish deterministic non-generic replacements.
 - Process only remaining generic imageAsset questions (fen, mat, sosyal, english).
 - Classify: deterministic_replace | safe_template_replace | manual_review | keep_generic.
 - Replace only when new image directly reflects solvable question content.
@@ -459,7 +459,7 @@ def main():
     cumulative = PASS1_UPGRADED_COUNT + len(upgraded)
 
     with open(report_path, "w", encoding="utf-8") as f:
-        f.write("# BrainBuddy Visual Upgrade — Pass 2 Report\n\n")
+        f.write("# EDUmio Visual Upgrade — Pass 2 Report\n\n")
         f.write("## Summary\n\n")
         f.write("| Metric | Count |\n|--------|-------|\n")
         f.write(f"| **Newly upgraded (pass 2)** | {len(upgraded)} |\n")

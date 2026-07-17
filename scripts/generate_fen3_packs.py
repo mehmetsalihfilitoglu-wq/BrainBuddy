@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 3rd Grade Fen Bilimleri question bank for BrainBuddy.
+"""Generate 3rd Grade Fen Bilimleri question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
-BrainBuddy Question Design Standard: deney/gözlem/grafik/tablo yorumlama, sebep-sonuç, kavram bağlantısı.
+EDUmio Question Design Standard: deney/gözlem/grafik/tablo yorumlama, sebep-sonuç, kavram bağlantısı.
 """
 import json
 import random
@@ -126,7 +126,7 @@ def q(idx, stem, options, answer_index, difficulty, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "fen",
@@ -200,7 +200,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "fen",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_fen3_pack_{pi+1:03d}.json"

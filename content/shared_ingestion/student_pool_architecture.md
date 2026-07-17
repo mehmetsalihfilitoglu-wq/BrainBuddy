@@ -40,5 +40,5 @@ The student-facing question object MUST NOT expose any of: sourceType, sourceNam
 
 ## Current implementation state (2026-07-12)
 - `Question` domain model carries no provenance → "source invisible" already holds. GOOD.
-- IMAT (`examType='IMAT'`) and MIOITALIA (`examType='MIOITALIA'`) already seed as isolated pools consumed uniformly. Pattern to follow.
+- IMAT (`examType='IMAT'`) and EDUMIO_ORIGINAL (`examType='EDUMIO_ORIGINAL'`) already seed as isolated pools consumed uniformly. Pattern to follow.
 - **NOT YET BUILT for TIL-I/CEnT-S:** (a) copy content/{til_i,cents_s} banks into app assets; (b) `DbSeeder.seedTilIIfNeeded` / `seedCentsIfNeeded` inserting ALL layers under `examType='TIL_I'|'CENTS_S'` with internal provenance columns + eligibility flags (approved-only, confidence≥threshold, no unresolved defects, beginner pool tagged and excluded by default); (c) TIL-I/CEnT-S `QuizBlueprint`s (subject targets from the verified exam specs); (d) eligible-pool query honoring the exclusions above; (e) verify the mapper still exposes no provenance. Implement in the app branch, not committed until the editorial audit completes.

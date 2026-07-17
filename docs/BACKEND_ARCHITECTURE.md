@@ -1,4 +1,4 @@
-# Mioitalia — Backend Architecture & Contract
+# EDUmio — Backend Architecture & Contract
 
 **Status:** the Android client is *backend-ready*. Every server responsibility lives
 behind a client interface with a working on-device implementation, so the app builds,
@@ -166,8 +166,8 @@ and coaching, never XP / "more questions" / dopamine.
 
 | Plan | Product id | Price (default) | Notes |
 |---|---|---|---|
-| Monthly | `mioitalia_premium_monthly` | **₺199 / ay** | |
-| Yearly | `mioitalia_premium_yearly` | **₺1.699 / yıl** | badge **"En Avantajlı"**, default-selected, saving copy **"Aylık ödemeye göre yaklaşık %29 tasarruf"** |
+| Monthly | `edumio_premium_monthly` | **₺199 / ay** | |
+| Yearly | `edumio_premium_yearly` | **₺1.699 / yıl** | badge **"En Avantajlı"**, default-selected, saving copy **"Aylık ödemeye göre yaklaşık %29 tasarruf"** |
 
 Remote Config keys: `premium_monthly_price`, `premium_yearly_price`, `premium_yearly_badge`,
 `premium_yearly_saving`. Play returns the localized `formattedPrice` at runtime; the Remote

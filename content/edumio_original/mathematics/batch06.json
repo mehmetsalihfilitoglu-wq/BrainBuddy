@@ -1,0 +1,236 @@
+[
+  {
+    "id": "mio_math_0033",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Exponential decay and half-life",
+    "subtopic": "Half-life: expressing a threshold as a power of one half to count half-lives and find an elapsed time",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "half-life",
+      "exponential decay",
+      "powers of two",
+      "word problem",
+      "radioactivity"
+    ],
+    "learning_objective": "Convert a remaining-amount threshold into a power of 1/2, count the number of half-lives, and translate this into elapsed time.",
+    "question": "A radioactive isotope has a half-life of 8 hours. A freshly prepared sample contains 240 mg of the isotope. A measurement using the sample is regarded as valid only while at least 7.5 mg of the isotope remains. What is the greatest whole number of hours after preparation at which a measurement is still valid?",
+    "choices": {
+      "A": "24 hours",
+      "B": "32 hours",
+      "C": "48 hours",
+      "D": "80 hours",
+      "E": "40 hours"
+    },
+    "correct_answer": "E",
+    "explanation": "The remaining fraction at the threshold is 7.5/240 = 1/32 = (1/2)^5, so exactly 5 half-lives must elapse to reach 7.5 mg. Each half-life is 8 hours, so this occurs at 5 x 8 = 40 hours. At t = 40 h the mass is exactly 7.5 mg, which still satisfies 'at least 7.5 mg', so the measurement remains valid; only after 40 h does it fall below the threshold. The greatest whole number of hours at which it is still valid is therefore 40.",
+    "option_analysis": {
+      "A": "Wrong: mis-simplifies the ratio 7.5/240 to 1/8 = (1/2)^3, obtaining 3 half-lives and 3 x 8 = 24 hours.",
+      "B": "Wrong: off-by-one interval count. Listing the reduced masses 120, 60, 30, 15, 7.5 gives five numbers but the student counts only 4 halving steps (4 x 8 = 32); 32 is also seductive because it equals the denominator of the fraction 1/32.",
+      "C": "Wrong: the student counts one half-life too many (6 half-lives, halving on to 3.75 mg) and computes 6 x 8 = 48 hours, overshooting the threshold.",
+      "D": "Wrong: uses the wrong duration per half-life (treats it as 16 hours) or reads 240/7.5 as a time, giving 80; confuses the half-life value with a doubling/quantity relationship.",
+      "E": "Correct: 7.5/240 = 1/32 = (1/2)^5 gives 5 half-lives, and 5 x 8 = 40 hours, at which the mass is exactly at (not below) the threshold."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0034",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Recursively defined sequences",
+    "subtopic": "First-order linear recurrence a(n+1)=p*a(n)+q: iterating (or the shift-to-geometric closed form) to find a distant term",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "recurrence",
+      "recursive sequence",
+      "linear recurrence",
+      "fixed point",
+      "geometric substitution"
+    ],
+    "learning_objective": "Evaluate or solve a first-order linear recurrence, either by careful iteration or by shifting to the fixed point to obtain a geometric closed form.",
+    "question": "A sequence of real numbers is defined by a(1) = 5 and the rule a(n+1) = 3*a(n) - 4 for every integer n >= 1. What is the value of a(6)?",
+    "choices": {
+      "A": "729",
+      "B": "2187",
+      "C": "245",
+      "D": "727",
+      "E": "731"
+    },
+    "correct_answer": "E",
+    "explanation": "Iterating: a1 = 5, a2 = 3(5)-4 = 11, a3 = 3(11)-4 = 29, a4 = 3(29)-4 = 83, a5 = 3(83)-4 = 245, a6 = 3(245)-4 = 731. Equivalently, the fixed point is x = 3x - 4, i.e. x = 2; setting b(n) = a(n) - 2 gives b(n+1) = 3*b(n) with b(1) = 3, so b(n) = 3^n and a(n) = 3^n + 2. Then a(6) = 3^6 + 2 = 729 + 2 = 731.",
+    "option_analysis": {
+      "A": "Wrong: uses only the homogeneous part, a(n) = 3^n, dropping the constant term (the +2 arising from the fixed point x = 2), giving 3^6 = 729.",
+      "B": "Wrong: exponent off-by-one, using a(n) = 3^(n+1) (or evaluating a(7)), giving 3^7 = 2187.",
+      "C": "Wrong: gives a(5) = 245, stopping one iteration short (off-by-one in the index).",
+      "D": "Wrong: takes the wrong sign for the fixed point, using a(n) = 3^n - 2 instead of 3^n + 2, giving 729 - 2 = 727.",
+      "E": "Correct: a(n) = 3^n + 2, so a(6) = 729 + 2 = 731 (confirmed by direct iteration)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0035",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Geometric sequences and series",
+    "subtopic": "Finite geometric series: solving for the number of terms from a given partial sum",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "geometric series",
+      "partial sum",
+      "solving for n",
+      "powers of three",
+      "word problem"
+    ],
+    "learning_objective": "Model a spreading process as a finite geometric series and solve the resulting exponential equation for the number of terms.",
+    "question": "A message is posted on day 1 to 6 people. On each following day, every person who received the message on the previous day forwards it to 3 new people, and no one ever receives it more than once. Including the 6 original recipients, the total number of people who have received the message by the end of day n is 2184. Find n.",
+    "choices": {
+      "A": "5",
+      "B": "6",
+      "C": "9",
+      "D": "7",
+      "E": "8"
+    },
+    "correct_answer": "B",
+    "explanation": "The numbers of new recipients on successive days are 6, 18, 54, ..., a geometric sequence with first term a = 6 and ratio r = 3. The cumulative total after n days is S(n) = 6(3^n - 1)/(3 - 1) = 3(3^n - 1) = 3^(n+1) - 3. Setting 3^(n+1) - 3 = 2184 gives 3^(n+1) = 2187 = 3^7, so n + 1 = 7 and n = 6. (Check: 6 + 18 + 54 + 162 + 486 + 1458 = 2184.)",
+    "option_analysis": {
+      "A": "Wrong: after correctly finding n + 1 = 7 the student subtracts 1 an extra time (e.g. treating day 1 as a non-forwarding day that should not be counted), reporting 5.",
+      "B": "Correct: S(n) = 3^(n+1) - 3 = 2184 gives 3^(n+1) = 2187 = 3^7, so n = 6.",
+      "C": "Wrong: also uses a doubling (ratio-2) model but rounds the non-integer solution of 2^n = 365 upward, giving n = 9.",
+      "D": "Wrong: mis-simplifies the geometric sum as 3^n - 3 (dropping one power of 3), solving 3^n = 2187 and reading off n = 7 -- the classic off-by-one in the exponent.",
+      "E": "Wrong: models the spread with ratio 2 (doubling) instead of 3, solving 6(2^n - 1) = 2184, i.e. 2^n = 365, and rounding to n = 8."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0036",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Arithmetic sequences and series",
+    "subtopic": "Equal partial sums S_p = S_q of an arithmetic progression and the consequence for S_(p+q)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "arithmetic progression",
+      "partial sums",
+      "block sums",
+      "structural reasoning",
+      "series"
+    ],
+    "learning_objective": "Use the structure of arithmetic partial sums to deduce that S_p = S_q forces S_(p+q) = 0, without solving for the individual parameters.",
+    "question": "In an arithmetic progression the sum of the first 10 terms is equal to the sum of the first 20 terms. Given that the common difference is not zero, what is the sum of the first 30 terms?",
+    "choices": {
+      "A": "It is equal to twice the sum of the first 10 terms",
+      "B": "It is negative, with a magnitude that depends on the common difference",
+      "C": "It cannot be determined without knowing the first term and the common difference",
+      "D": "It is equal to the sum of the first 10 terms",
+      "E": "It is equal to 0"
+    },
+    "correct_answer": "E",
+    "explanation": "Let the first term be a and the common difference d. Then S(10) = 5(2a + 9d) and S(20) = 10(2a + 19d). Setting them equal: 10a + 45d = 20a + 190d, which reduces to 2a + 29d = 0. Now S(30) = 15(2a + 29d) = 15 x 0 = 0. Structurally: the terms in positions 11-20 sum to S(20) - S(10) = 0, and because the three consecutive 10-term blocks form an arithmetic progression, the block in positions 21-30 equals the negative of the block in positions 1-10, so the whole 30-term total cancels to zero.",
+    "option_analysis": {
+      "A": "Wrong: treats partial sums additively, S(30) = S(20) + S(10) = 2*S(10), ignoring that the third block of ten terms is negative.",
+      "B": "Wrong: correctly reduces S(30) to 15(2a + 29d) but fails to recognise that this bracket is exactly zero, guessing a negative sign-dependent value.",
+      "C": "Wrong: assumes two unknowns need two data, missing that S(10) = S(20) already supplies exactly the relation 2a + 29d = 0 that S(30) depends on.",
+      "D": "Wrong: over-extends the vanishing of the middle block (positions 11-20) to the last block as well, concluding S(30) = S(20) = S(10); in fact the last block equals minus the first, so they cancel.",
+      "E": "Correct: S(10) = S(20) forces 2a + 29d = 0, and S(30) = 15(2a + 29d) = 0."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0037",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Exponential growth modelling",
+    "subtopic": "Time to reach a growth multiple using logarithms and log laws (logarithm of a non-integer growth factor)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "exponential growth",
+      "logarithms",
+      "log laws",
+      "doubling factor",
+      "word problem"
+    ],
+    "learning_objective": "Set up an exponential growth model with a fractional percentage increase and solve for time using logarithm laws, including expressing log(1.5) via log 3 and log 2.",
+    "question": "A colony of algae grows exponentially, increasing its mass by 50% every 10 days. Using log_10(2) = 0.301 and log_10(3) = 0.477, find, to the nearest day, the time required for the mass to become three times its initial value.",
+    "choices": {
+      "A": "40 days",
+      "B": "27 days",
+      "C": "4 days",
+      "D": "16 days",
+      "E": "20 days"
+    },
+    "correct_answer": "B",
+    "explanation": "A 50% increase every 10 days multiplies the mass by 1.5 each period, so after t days the mass is M0 * (1.5)^(t/10). Setting (1.5)^(t/10) = 3 and taking base-10 logarithms: (t/10) * log(1.5) = log 3. Now log(1.5) = log(3/2) = log 3 - log 2 = 0.477 - 0.301 = 0.176. Hence t = 10 * (0.477 / 0.176) = 10 * 2.710 = 27.1, which is 27 days to the nearest day.",
+    "option_analysis": {
+      "A": "Wrong: adds percentages linearly -- to triple needs a +200% rise, and at 50% per 10 days that is taken as 4 periods, giving 40 days.",
+      "B": "Correct: (1.5)^(t/10) = 3 gives t = 10 * log3 / log(1.5) with log(1.5) = 0.477 - 0.301 = 0.176, so t is about 27 days.",
+      "C": "Wrong: inverts the ratio, computing t = 10 * log(1.5)/log 3 = 10 * (0.176/0.477) = 3.7, rounded to 4.",
+      "D": "Wrong: models '50% increase' as a doubling (factor 2), computing t = 10 * log3/log2 = 10 * (0.477/0.301) = 15.85, rounded to 16.",
+      "E": "Wrong: linearises the exponent, writing 1.5 * (t/10) = 3 so t/10 = 2 and t = 20; it treats the exponent as a plain multiplier."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0038",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Exponential and logarithmic modelling",
+    "subtopic": "Compound growth: least whole number of periods for a quantity to exceed a target, solved with logarithms",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "compound growth",
+      "geometric growth",
+      "logarithms",
+      "exponential model",
+      "inequality"
+    ],
+    "learning_objective": "Model repeated proportional (compound) growth as a geometric sequence and use logarithms to find the least whole number of periods needed to exceed a target value.",
+    "question": "A sum of money is invested in an account that increases its value by 25% at the end of each complete year (compound growth), with no withdrawals. After how many complete years will the investment first be worth more than DOUBLE its original value? (Use log10(2) = 0.301 and log10(1.25) = 0.097.)",
+    "choices": {
+      "A": "2 years",
+      "B": "4 years",
+      "C": "3 years",
+      "D": "8 years",
+      "E": "5 years"
+    },
+    "correct_answer": "B",
+    "explanation": "After n complete years the value is a factor 1.25^n of the original, so we need the least whole number n with 1.25^n > 2. Taking logarithms, n·log(1.25) > log(2), so n > log(2)/log(1.25) = 0.301/0.097 = 3.10. The least whole number satisfying this is n = 4. (Check: 1.25^3 = 1.953 < 2, while 1.25^4 = 2.441 > 2.)",
+    "option_analysis": {
+      "A": "Wrong: 1.25^2 = 1.5625, far short of doubling.",
+      "B": "Correct: n > log2/log1.25 = 3.10, so the least whole number is 4; 1.25^4 = 2.441 > 2.",
+      "C": "Wrong: 1.25^3 = 1.953, which is still LESS than 2, so after 3 years the investment has not yet doubled; this ignores that n must be rounded UP to the next whole year.",
+      "D": "Wrong: 8 years would correspond to misreading the growth as roughly 1.25^8 needed, or confusing 'double' with a much larger target; doubling is reached by year 4.",
+      "E": "Wrong: 5 years overshoots; the value first exceeds double at year 4, not year 5."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  }
+]

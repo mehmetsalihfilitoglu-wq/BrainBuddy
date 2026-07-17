@@ -1,0 +1,234 @@
+[
+  {
+    "id": "mio_math_0063",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Ratio, proportion and percentages",
+    "subtopic": "Sharing a quantity in a given ratio (recovering the total from the difference between two shares)",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "ratio",
+      "sharing in a ratio",
+      "parts method",
+      "word problem"
+    ],
+    "learning_objective": "Recover the total quantity and individual shares from a three-part ratio when only the difference between two shares is given.",
+    "question": "A sum of money is divided among three siblings in the ratio 4 : 5 : 7. The eldest sibling receives 120 euros more than the youngest. What is the total sum of money that is divided among the three siblings?",
+    "choices": {
+      "A": "960 euros",
+      "B": "640 euros",
+      "C": "440 euros",
+      "D": "280 euros",
+      "E": "1920 euros"
+    },
+    "correct_answer": "B",
+    "explanation": "Let one part equal k. The three shares are 4k, 5k and 7k. The eldest (7 parts) exceeds the youngest (4 parts) by 7k - 4k = 3k, and this difference equals 120 euros, so 3k = 120 and k = 40 euros. The total is (4 + 5 + 7)k = 16 x 40 = 640 euros.",
+    "option_analysis": {
+      "A": "Wrong: Uses the wrong pair of shares for the difference, taking eldest minus middle (7k - 5k = 2k = 120), giving k = 60 and 16k = 960. The '120 more' refers to the eldest-versus-youngest gap, which is 3 parts, not 2.",
+      "B": "Correct: The difference between the eldest and youngest shares is 7k - 4k = 3k = 120, so k = 40 and the total is 16k = 640 euros.",
+      "C": "Wrong: Correctly finds k = 40 but adds only the two siblings named in the question, the eldest and youngest (7k + 4k = 11k = 440), instead of the full total over all three parts.",
+      "D": "Wrong: Correctly finds k = 40 but reports the eldest sibling's individual share (7k = 280) instead of the total sum.",
+      "E": "Wrong: Treats the 120 euros as the value of a single part (k = 120) rather than as the value of the 3-part difference, giving 16 x 120 = 1920."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0064",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Ratio, proportion and percentages",
+    "subtopic": "Combined direct and inverse variation (y proportional to x^2 and inversely to z) with percentage change",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "proportion",
+      "direct proportion",
+      "inverse proportion",
+      "power law",
+      "percentage change"
+    ],
+    "learning_objective": "Compute the overall multiplicative factor and percentage change in a quantity that varies as a power of one variable and inversely with another when both variables change.",
+    "question": "A physical quantity y varies directly as the square of x and inversely as z. The value of x is then increased by 20% and, at the same time, the value of z is decreased by 25%. By what percentage does y change?",
+    "choices": {
+      "A": "It increases by 65%",
+      "B": "It increases by 44%",
+      "C": "It increases by 92%",
+      "D": "It increases by 60%",
+      "E": "It increases by 8%"
+    },
+    "correct_answer": "C",
+    "explanation": "Since y is proportional to x^2 / z, the new value is y' proportional to (1.20x)^2 / (0.75z) = (1.44 x^2) / (0.75 z) = 1.92 (x^2 / z). Thus y is multiplied by 1.92, an increase of 92%.",
+    "option_analysis": {
+      "A": "Wrong: Adds the separate percentage effects instead of multiplying the factors: 2 x 20% (from the square) plus 25% (from z) = 65%. Percentage changes on different variables combine multiplicatively, not additively.",
+      "B": "Wrong: Accounts only for the change in x (1.20^2 = 1.44, i.e. +44%) and forgets the effect of the change in z.",
+      "C": "Correct: The factor is (1.20)^2 / 0.75 = 1.44 / 0.75 = 1.92, so y increases by 92%.",
+      "D": "Wrong: Treats y as proportional to x (not x^2), giving a factor 1.20 / 0.75 = 1.60, i.e. +60%. It ignores that y varies as the SQUARE of x.",
+      "E": "Wrong: Multiplies by 0.75 for z instead of dividing (as inverse proportion requires): 1.44 x 0.75 = 1.08, i.e. +8%. A decrease in z in an inverse relation should raise y, not lower it."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0065",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Ratio, proportion and percentages",
+    "subtopic": "Successive (compound) percentage changes: two discounts followed by a tax",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "percentages",
+      "successive percentage change",
+      "compound change",
+      "discount and tax"
+    ],
+    "learning_objective": "Combine successive percentage decreases and an increase by multiplying the corresponding factors, and express the result relative to the original.",
+    "question": "A television has a marked price of 500 euros. In a sale the price is first reduced by 20%. A store member then receives a further 25% off the reduced price. Finally, a sales tax of 10% is added to the amount then payable. Expressed as a percentage of the original marked price, what is the final amount the member pays?",
+    "choices": {
+      "A": "65%",
+      "B": "60%",
+      "C": "70%",
+      "D": "66%",
+      "E": "60.5%"
+    },
+    "correct_answer": "D",
+    "explanation": "Each stage multiplies the running amount by a factor: a 20% reduction gives 0.80, a further 25% reduction gives 0.75, and adding 10% tax gives 1.10. The overall factor is 0.80 x 0.75 x 1.10 = 0.60 x 1.10 = 0.66, so the member pays 66% of the marked price.",
+    "option_analysis": {
+      "A": "Wrong: Adds and subtracts the percentages directly (-20% - 25% + 10% = -35%), giving 65%. Successive percentage changes must be applied multiplicatively to the running total, not summed.",
+      "B": "Wrong: Applies both discounts correctly (0.80 x 0.75 = 0.60) but forgets to add the 10% tax, giving 60%.",
+      "C": "Wrong: Computes the 10% tax on the marked price rather than on the amount payable: reduced amount = 0.60 x 500 = 300, tax = 0.10 x 500 = 50, total 350, i.e. 70%. Tax is charged on the price actually payable (300), not the marked price.",
+      "D": "Correct: 0.80 x 0.75 x 1.10 = 0.66, so the final amount is 66% of the marked price.",
+      "E": "Wrong: Takes both discounts off the ORIGINAL marked price (a single 45% reduction, factor 0.55) and then adds tax: 0.55 x 1.10 = 0.605, i.e. 60.5%. The second discount applies to the already-reduced price, not the marked price."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0066",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Ratio, proportion and percentages",
+    "subtopic": "Reverse percentage: recovering an original cost from a nested profit margin and added tax",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "percentages",
+      "reverse percentage",
+      "profit margin",
+      "VAT",
+      "multiplier"
+    ],
+    "learning_objective": "Work backwards through two successive percentage increases (a mark-up followed by a tax) to recover the original base value.",
+    "question": "A retailer prices an item by first adding a profit of 25% to the cost price, and then adding 20% value-added tax to that profit-inclusive price. A customer pays 360 euros in total. What was the cost price of the item?",
+    "choices": {
+      "A": "288 euros",
+      "B": "300 euros",
+      "C": "240 euros",
+      "D": "216 euros",
+      "E": "250 euros"
+    },
+    "correct_answer": "C",
+    "explanation": "Let the cost price be C. The profit-inclusive price is 1.25C, and adding 20% tax multiplies this by 1.20, so the amount paid is 1.20 x 1.25 x C = 1.50C. Setting 1.50C = 360 gives C = 240 euros.",
+    "option_analysis": {
+      "A": "Wrong: Reverses only the 25% profit (360 / 1.25 = 288) and forgets to undo the 20% tax.",
+      "B": "Wrong: Reverses only the 20% tax (360 / 1.20 = 300) and forgets to undo the 25% profit mark-up. This gives the profit-inclusive price, not the cost price.",
+      "C": "Correct: The amount paid is 1.25 x 1.20 x C = 1.50C = 360, so C = 240 euros.",
+      "D": "Wrong: Reverses the two increases by MULTIPLYING by (1 - rate) instead of dividing by (1 + rate): 360 x 0.80 x 0.75 = 216. To undo an increase you divide by the growth factor, not multiply by its complement.",
+      "E": "Wrong: Uses 20% for both stages (factor 1.20 x 1.20 = 1.44), giving 360 / 1.44 = 250. The profit margin is 25%, not 20%, so the combined factor is 1.50, not 1.44."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0067",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Ratio, proportion and percentages",
+    "subtopic": "Repeated-replacement mixture: successive draw-and-replace dilution (geometric decay of the pure component)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "mixtures",
+      "successive dilution",
+      "replacement problem",
+      "geometric factor",
+      "proportion"
+    ],
+    "learning_objective": "Model repeated draw-off-and-replace operations as successive multiplication of the pure-component quantity by a constant fraction, and evaluate the amount remaining.",
+    "question": "A cask contains 64 litres of pure wine. 16 litres are drawn off and replaced with water, and the contents are thoroughly stirred. Then 16 litres of the mixture are drawn off and again replaced with water. How many litres of wine remain in the cask after these two operations?",
+    "choices": {
+      "A": "32 litres",
+      "B": "36 litres",
+      "C": "60 litres",
+      "D": "27 litres",
+      "E": "48 litres"
+    },
+    "correct_answer": "B",
+    "explanation": "Each draw-and-replace removes a fraction 16/64 = 1/4 of whatever is currently in the cask, so the wine remaining is multiplied by (1 - 1/4) = 3/4 each time. After two operations the wine is 64 x (3/4)^2 = 64 x 9/16 = 36 litres.",
+    "option_analysis": {
+      "A": "Wrong: Subtracts 16 litres of pure wine at each draw (64 - 16 - 16 = 32), ignoring that the second 16-litre draw already contains water, so less than 16 litres of wine is removed the second time.",
+      "B": "Correct: The wine is multiplied by 3/4 at each of the two operations: 64 x (3/4)^2 = 36 litres.",
+      "C": "Wrong: Squares the removed fraction and applies it to the water instead of tracking the wine: assumes the water is (1/4)^2 = 1/16 of the cask (4 litres), leaving 60 litres of wine. It is the wine, not the removed fraction, that is multiplied by 3/4 each time.",
+      "D": "Wrong: Applies three replacements instead of two, 64 x (3/4)^3 = 27, miscounting the number of operations described.",
+      "E": "Wrong: Applies only one replacement (64 x 3/4 = 48), stopping after the first draw instead of carrying out both operations."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_math_0068",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "mathematics",
+    "topic": "Ratio, proportion and percentages",
+    "subtopic": "Combining two chained ratios about a shared quantity, then applying an absolute difference",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "ratio",
+      "combining ratios",
+      "chained ratio",
+      "common term",
+      "difference constraint"
+    ],
+    "learning_objective": "Link two ratios sharing a common quantity into a single three-part ratio and use an absolute difference to find one specific share.",
+    "question": "In a company, the ratio of Aldo's monthly salary to Bianca's is 2 : 3, and the ratio of Bianca's monthly salary to Carla's is 4 : 5. Carla earns 700 euros per month more than Aldo. What is Bianca's monthly salary?",
+    "choices": {
+      "A": "800 euros",
+      "B": "1200 euros",
+      "C": "1500 euros",
+      "D": "700 euros",
+      "E": "560 euros"
+    },
+    "correct_answer": "B",
+    "explanation": "To combine the ratios, make Bianca's value common. Aldo : Bianca = 2 : 3 = 8 : 12 and Bianca : Carla = 4 : 5 = 12 : 15, so Aldo : Bianca : Carla = 8 : 12 : 15. Carla exceeds Aldo by 15 - 8 = 7 parts, which equals 700 euros, so one part = 100 euros. Bianca receives 12 parts = 1200 euros.",
+    "option_analysis": {
+      "A": "Wrong: Solves the linked ratio correctly (one part = 100 euros) but reports Aldo's salary, 8 parts = 800 euros, instead of Bianca's.",
+      "B": "Correct: The combined ratio is 8 : 12 : 15; the 7-part gap between Carla and Aldo is 700 euros, so one part is 100 euros and Bianca's 12 parts give 1200 euros.",
+      "C": "Wrong: Solves correctly (one part = 100 euros) but reports Carla's salary, 15 parts = 1500 euros, instead of Bianca's.",
+      "D": "Wrong: Fails to reconcile Bianca's value across the two ratios and simply writes Aldo : Bianca : Carla = 2 : 3 : 5. Then Carla - Aldo = 3 parts = 700, and Bianca (also 3 parts) comes out equal to the 700-euro difference. The two ratios must be scaled to a common value for Bianca (12) before combining.",
+      "E": "Wrong: Sets Carla's full share (15 parts) equal to the 700-euro difference rather than the 15 - 8 = 7-part gap, giving one part = 700/15 and Bianca = 12 x 700/15 = 560 euros. The 700 euros is the difference between Carla and Aldo, not Carla's whole salary."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch11",
+    "review_status": "accepted"
+  }
+]

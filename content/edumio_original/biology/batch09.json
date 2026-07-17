@@ -1,0 +1,794 @@
+[
+  {
+    "id": "mio_bio_0164",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration",
+    "subtopic": "Link reaction: pyruvate dehydrogenase, thiamine (TPP) cofactor and glucose-precipitated lactic acidosis",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "cellular respiration",
+      "link reaction",
+      "pyruvate dehydrogenase",
+      "thiamine",
+      "lactic acidosis",
+      "applied"
+    ],
+    "learning_objective": "Apply knowledge of the link reaction (oxidative decarboxylation of pyruvate) and the need to regenerate NAD+ for glycolysis to explain a clinical scenario in which a thiamine-dependent block diverts pyruvate to lactate.",
+    "question": "A chronically malnourished adult is admitted confused. Blood tests show a raised lactate concentration and a raised pyruvate concentration, with a normal blood glucose. Before the results are available the patient is given an intravenous infusion of concentrated glucose, after which the blood lactate rises sharply and the confusion worsens. The underlying defect is a deficiency of thiamine pyrophosphate, the cofactor required by pyruvate dehydrogenase. Which statement best explains why the glucose infusion acutely worsened the lactic acidosis?",
+    "choices": {
+      "A": "The infused glucose accelerated the Krebs cycle, and the resulting extra carbon dioxide lowered the blood pH independently of any change in lactate.",
+      "B": "The extra glucose raised the glycolytic flux and pyruvate production, but with pyruvate dehydrogenase impaired the pyruvate could not form acetyl-CoA and was instead reduced to lactate to regenerate NAD+.",
+      "C": "The infused glucose was stored as glycogen, and the subsequent glycogenolysis released stored lactate directly into the bloodstream.",
+      "D": "The infused glucose was converted directly into lactate by the liver without first passing through the glycolytic pathway.",
+      "E": "The infused glucose inhibited the electron transport chain, preventing the reoxidation of NADH to NAD+."
+    },
+    "correct_answer": "B",
+    "explanation": "Pyruvate dehydrogenase, the enzyme of the link reaction, uses thiamine pyrophosphate to carry out the oxidative decarboxylation of pyruvate to acetyl-CoA. If it is inactive, pyruvate cannot enter the Krebs cycle. A glucose load increases glycolytic flux, so more pyruvate is made; because glycolysis needs a continuous supply of NAD+, the accumulating pyruvate is reduced to lactate by lactate dehydrogenase (regenerating NAD+), and blood lactate rises. This is why thiamine must be replaced before (or with) glucose in such patients.",
+    "option_analysis": {
+      "A": "Wrong: the acidosis is a lactic acidosis, not a respiratory (CO2) acidosis, and the Krebs cycle is in fact under-supplied here; this misattributes the fall in pH to dissolved CO2.",
+      "B": "Correct: with the link reaction blocked, the extra pyruvate generated from the glucose load is diverted to lactate to regenerate the NAD+ that glycolysis requires, worsening the acidosis.",
+      "C": "Wrong: glycogen is a store of glucose, not of lactate, and its breakdown yields glucose phosphates, not free lactate; the misconception invents a lactate store.",
+      "D": "Wrong: lactate is a product of glycolysis (pyruvate reduction); the misconception is that glucose can be turned into lactate without proceeding through the glycolytic pathway.",
+      "E": "Wrong: glucose is a respiratory substrate, not an electron-transport-chain inhibitor; this confuses the substrate with an inhibitor of oxidative phosphorylation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0165",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration",
+    "subtopic": "Krebs cycle carbon tracing: the CO2 lost in the first turn originates from oxaloacetate, not from the entering acetyl group",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "cellular respiration",
+      "Krebs cycle",
+      "citric acid cycle",
+      "isotope labelling",
+      "decarboxylation",
+      "carbon accounting"
+    ],
+    "learning_objective": "Trace individual carbon atoms through one turn of the citric acid cycle and recognise that the two carbons lost as CO2 in the first turn derive from oxaloacetate, so a labelled acetyl group is retained in the four-carbon intermediates.",
+    "question": "Isolated respiring mitochondria are supplied with acetyl-CoA in which BOTH carbon atoms of the acetyl group are labelled with carbon-14, together with unlabelled oxaloacetate. The preparation is allowed to complete exactly one turn of the citric acid (Krebs) cycle, and no intermediates are withdrawn from the cycle. At the end of this single turn, where is the carbon-14 label found?",
+    "choices": {
+      "A": "Both carbon-14 atoms have been released as labelled carbon dioxide, but only during the link reaction that immediately precedes the cycle.",
+      "B": "Both carbon-14 atoms are retained within the four-carbon intermediates (they appear in the regenerated oxaloacetate), and no labelled carbon dioxide is released during this turn.",
+      "C": "Exactly one carbon-14 atom has been released as labelled carbon dioxide and the other remains within a four-carbon intermediate.",
+      "D": "Both carbon-14 atoms have been transferred into the reduced coenzymes NADH and FADH2 produced during the turn.",
+      "E": "Both carbon-14 atoms have been released as carbon-14-labelled carbon dioxide."
+    },
+    "correct_answer": "B",
+    "explanation": "The two decarboxylations of a single turn occur when isocitrate becomes alpha-ketoglutarate and when alpha-ketoglutarate becomes succinyl-CoA. Careful atom-mapping shows that both carbons lost as CO2 originate from the four-carbon oxaloacetate that was already present, not from the two-carbon acetyl group just added. The acetyl carbons remain in the four-carbon pool (succinate is symmetrical, so their positions become scrambled) and are only released as CO2 in later turns. Hence, after exactly one turn, none of the label appears in CO2.",
+    "option_analysis": {
+      "A": "Wrong: the link reaction decarboxylates pyruvate, not acetyl-CoA, so it cannot release the acetyl-group label; this confuses the stages of respiration.",
+      "B": "Correct: the CO2 of the first turn comes from oxaloacetate carbons, so the labelled acetyl carbons stay in the four-carbon intermediates and no labelled CO2 is produced in this turn.",
+      "C": "Wrong: a partial form of the same misconception; neither of the two CO2 released in the first turn comes from the acetyl carbons.",
+      "D": "Wrong: NADH and FADH2 carry reducing equivalents (hydrogen and electrons), not carbon atoms; this confuses carbon flow with electron flow.",
+      "E": "Wrong: this is the classic misconception that the two carbons entering as the acetyl group are the ones immediately decarboxylated; in fact they are retained in the first turn."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0166",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration",
+    "subtopic": "Electron transport chain: site-specific inhibition (Complex III) and the redox state of carriers upstream versus downstream",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "cellular respiration",
+      "electron transport chain",
+      "oxidative phosphorylation",
+      "respiratory inhibitor",
+      "redox state",
+      "chemiosmosis"
+    ],
+    "learning_objective": "Predict how a block at a defined point in the electron transport chain redistributes the redox state of the carriers (reduced upstream, oxidised downstream) and its consequences for oxygen uptake and the proton gradient, distinguishing an inhibitor from an uncoupler.",
+    "question": "Antimycin A blocks electron transfer within Complex III of the mitochondrial electron transport chain, at the point at which electrons would otherwise be passed to cytochrome c. A suspension of actively respiring mitochondria is supplied with abundant NADH-generating substrate and oxygen, and antimycin A is then added. Considering the NADH/NAD+ pool, ubiquinone (coenzyme Q), cytochrome c and Complex IV, together with oxygen uptake and the proton gradient, which set of changes best describes the state reached shortly afterwards?",
+    "choices": {
+      "A": "All of the electron carriers become fully oxidised, while oxygen consumption continues, though at a reduced rate.",
+      "B": "Carriers on the substrate side of the block (the NADH pool and ubiquinone) become reduced, while those on the oxygen side (cytochrome c and Complex IV) become oxidised; oxygen consumption stops and the proton gradient collapses.",
+      "C": "All of the electron carriers become fully reduced, oxygen consumption stops, and the proton gradient increases above its normal value.",
+      "D": "Cytochrome c and Complex IV become reduced while the NADH pool becomes oxidised, and oxygen consumption continues unchanged.",
+      "E": "Only the proton gradient is affected: it rises sharply while every electron carrier stays in its normal resting redox state."
+    },
+    "correct_answer": "B",
+    "explanation": "Electrons dam up behind the block, so the carriers before Complex III (NADH pool and ubiquinone) become fully reduced, while the carriers after the block (cytochrome c and Complex IV) drain their electrons to oxygen and then remain oxidised because no further electrons arrive. With no electron flow to oxygen, oxygen uptake stops and no protons are pumped, so the existing gradient dissipates through the membrane's natural leak. This is the opposite pattern to an uncoupler, which collapses the gradient but actually increases oxygen uptake.",
+    "option_analysis": {
+      "A": "Wrong: a block does not oxidise the carriers upstream of it, and once electron flow ceases oxygen consumption stops rather than merely slowing; this misreads the direction of the redox change.",
+      "B": "Correct: carriers upstream of the block accumulate electrons (reduced) and those downstream lose theirs (oxidised); with no electrons reaching oxygen, oxygen uptake halts and the ungenerated gradient decays.",
+      "C": "Wrong: the carriers downstream of the block cannot become reduced, and the gradient cannot rise when pumping has stopped; this confuses inhibition with an impossible strengthening of the gradient.",
+      "D": "Wrong: this reverses the correct pattern; electrons pile up before, not after, the block, so it is the downstream carriers that become oxidised.",
+      "E": "Wrong: this describes an uncoupler-like fantasy in reverse; a Complex III block necessarily changes the redox state of the carriers and cannot raise the gradient."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0167",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration",
+    "subtopic": "Aerobic versus anaerobic respiration: the increase in glucose-consumption rate required to sustain a fixed ATP demand",
+    "difficulty": "hard",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "cellular respiration",
+      "anaerobic respiration",
+      "lactate fermentation",
+      "ATP yield",
+      "Pasteur effect",
+      "quantitative"
+    ],
+    "learning_objective": "Use the contrasting net ATP yields of complete aerobic oxidation and lactate fermentation to calculate how much faster glucose must be consumed anaerobically to meet an unchanged ATP demand.",
+    "question": "A muscle fibre hydrolyses ATP at a constant rate of 96 mmol per minute. Under fully aerobic conditions it meets this demand by completely oxidising glucose, with a net yield of 32 mol ATP per mol glucose. Its oxygen supply is then cut off and it switches to lactate fermentation, whose net yield is only the ATP produced by glycolysis, 2 mol ATP per mol glucose. If the fibre continues to hydrolyse ATP at the same rate, by what factor does its rate of glucose consumption change?",
+    "choices": {
+      "A": "It increases 30-fold.",
+      "B": "It increases 16-fold.",
+      "C": "It increases 2-fold.",
+      "D": "It decreases to one-sixteenth of the aerobic rate.",
+      "E": "It is unchanged, because glycolysis produces the same amount of ATP whether or not oxygen is present."
+    },
+    "correct_answer": "B",
+    "explanation": "Aerobically the fibre consumes 96/32 = 3 mmol glucose per minute; anaerobically it must consume 96/2 = 48 mmol glucose per minute to make the same ATP. The rate therefore rises by a factor of 48/3 = 16. Because fermentation captures only a small fraction of the energy of glucose, glucose (and glycogen) is drained rapidly during anaerobic activity.",
+    "option_analysis": {
+      "A": "Wrong: this uses the difference 32 minus 2 rather than the ratio 32/2; a factor is obtained by division, not subtraction.",
+      "B": "Correct: 96/2 = 48 mmol/min anaerobically versus 96/32 = 3 mmol/min aerobically, a 16-fold increase.",
+      "C": "Wrong: this simply seizes on the number 2 (the anaerobic yield) rather than forming the ratio of the two yields.",
+      "D": "Wrong: this inverts the ratio; a lower yield per glucose means more, not less, glucose must be consumed.",
+      "E": "Wrong: glycolysis alone contributes only 2 of the 32 ATP made aerobically, so losing the aerobic stages is far from negligible; this ignores the Krebs cycle and oxidative phosphorylation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0168",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Cellular respiration",
+    "subtopic": "Chemiosmotic proton budget: converting proton stoichiometry into ATP per NADH/FADH2 and the fraction of the total from oxidative phosphorylation versus substrate-level phosphorylation",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 160,
+    "tags": [
+      "cellular respiration",
+      "chemiosmosis",
+      "oxidative phosphorylation",
+      "proton motive force",
+      "ATP yield",
+      "substrate-level phosphorylation"
+    ],
+    "learning_objective": "Derive the ATP produced per NADH and per FADH2 from a given proton-pumping and proton-cost stoichiometry, compute the total ATP yield per glucose, and determine what fraction of that total is produced by chemiosmosis rather than substrate-level phosphorylation.",
+    "question": "In the complete aerobic oxidation of one molecule of glucose, the reactions up to and including the citric acid cycle generate 10 NADH, 2 FADH2 and a net of 4 ATP by substrate-level phosphorylation. Assume that oxidising one NADH drives the pumping of 10 protons across the inner mitochondrial membrane, that oxidising one FADH2 drives 6 protons, and that the synthesis and export of one cytosolic ATP consumes 4 protons. Calculate the total ATP yield per glucose and, from it, the percentage of that total produced by chemiosmosis (oxidative phosphorylation).",
+    "choices": {
+      "A": "A total of 32 ATP, of which 87.5% (28 ATP) is produced by chemiosmosis.",
+      "B": "A total of 38 ATP, of which about 89% is produced by chemiosmosis.",
+      "C": "A total of 32 ATP, of which 100% is produced by chemiosmosis.",
+      "D": "A total of 28 ATP, all of it produced by chemiosmosis.",
+      "E": "A total of 30 ATP, of which about 93% is produced by chemiosmosis."
+    },
+    "correct_answer": "A",
+    "explanation": "From the proton budget, each NADH yields 10/4 = 2.5 ATP and each FADH2 yields 6/4 = 1.5 ATP. Chemiosmotic ATP = (10 x 2.5) + (2 x 1.5) = 25 + 3 = 28 ATP. Adding the 4 ATP made by substrate-level phosphorylation gives a total of 32 ATP per glucose. The fraction from chemiosmosis is 28/32 = 0.875, i.e. 87.5%.",
+    "option_analysis": {
+      "A": "Correct: 28 ATP from proton-driven synthesis plus 4 from substrate-level phosphorylation gives 32 in total, and 28/32 = 87.5% is chemiosmotic.",
+      "B": "Wrong: this uses the older whole-number values of 3 ATP per NADH and 2 ATP per FADH2 (giving 30 + 4 chemiosmotic and 38 total); the proton budget given here yields the modern 2.5 and 1.5 values.",
+      "C": "Wrong: this counts the substrate-level ATP in the total but forgets that those 4 ATP are not made by chemiosmosis, so the chemiosmotic fraction is less than 100%.",
+      "D": "Wrong: this omits the substrate-level ATP from the total altogether, treating the 28 chemiosmotic ATP as the whole yield.",
+      "E": "Wrong: this correctly obtains 28 chemiosmotic ATP but counts only the 2 net glycolytic ATP as substrate-level, forgetting the 2 ATP (GTP) made in the citric acid cycle, giving 30 total and 28/30 approximately 93%."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0169",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics — sex linkage and pedigree analysis",
+    "subtopic": "X-linked dominant inheritance with prenatal male lethality: proportion of affected liveborn offspring",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "genetics",
+      "sex linkage",
+      "X-linked dominant",
+      "male lethality",
+      "conditional probability"
+    ],
+    "learning_objective": "Combine an X-linked dominant Punnett analysis with prenatal male lethality and renormalise probabilities to the surviving (liveborn) population.",
+    "question": "A rare disorder is inherited as an X-linked dominant trait. In hemizygous males the mutant allele is lethal before birth, so no affected boys are ever liveborn; heterozygous females are affected but survive normally. A woman who is heterozygous for the disorder has children with an unaffected man. Considering only their liveborn children, what proportion is expected to be affected by the disorder?",
+    "choices": {
+      "A": "2/3",
+      "B": "1/4",
+      "C": "1/6",
+      "D": "1/2",
+      "E": "1/3"
+    },
+    "correct_answer": "E",
+    "explanation": "Let the dominant disease allele be X^D. The cross is X^D X⁺ (mother) × X⁺ Y (father). The four equally likely conceptuses are: X^D X⁺ (affected daughter), X⁺ X⁺ (normal daughter), X^D Y (affected son — dies before birth), and X⁺ Y (normal son). The affected son is not liveborn, so the denominator of surviving children is 3, not 4. Among the three equally likely liveborn children, exactly one (the affected daughter) is affected, giving 1/3.",
+    "option_analysis": {
+      "A": "Wrong: this is the proportion of liveborn children that are UNAFFECTED (one affected daughter versus two unaffected liveborn) — the complement of the required value.",
+      "B": "Wrong: uses the affected daughters as a fraction of all conceptions (1/4) without removing the non-viable affected sons from the denominator. Renormalising to liveborn children gives 1/3.",
+      "C": "Wrong: results from an extra, unjustified halving (for example multiplying 1/3 by 1/2 for sex). The affected class among survivors is already fully specified as 1/3.",
+      "D": "Wrong: ignores the prenatal death of affected males. If every conceptus survived, half (affected daughters plus affected sons) would be affected — but affected sons are not liveborn, so the surviving affected fraction is 1/3.",
+      "E": "Correct: of the four equally likely conceptuses, the affected son dies before birth. Three equally likely liveborn children remain (affected daughter, normal daughter, normal son), of whom one is affected: 1/3."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0170",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics — sex linkage and pedigree analysis",
+    "subtopic": "X-linked recessive pedigree: carrier probability of an affected male's sister and the risk to her son",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "genetics",
+      "sex linkage",
+      "X-linked recessive",
+      "pedigree",
+      "carrier probability"
+    ],
+    "learning_objective": "Chain a pedigree-derived carrier probability with an allele-transmission probability to obtain the risk to a specified offspring.",
+    "question": "Duchenne muscular dystrophy is inherited as an X-linked recessive condition. A woman's brother is affected, while both of her parents are unaffected. The woman herself is unaffected and has children with an unaffected man. What is the probability that their first son will be affected?",
+    "choices": {
+      "A": "1/4",
+      "B": "1/2",
+      "C": "1/16",
+      "D": "1/3",
+      "E": "1/8"
+    },
+    "correct_answer": "A",
+    "explanation": "The affected brother is X^a Y and the father is unaffected (X^A Y), so the mother must be a carrier (X^A X^a). The unaffected woman is therefore a daughter of a carrier mother and an unaffected father: she is X^A X^A or X^A X^a with equal probability, i.e. a carrier with probability 1/2. A carrier transmits X^a to a son with probability 1/2. The child is already specified as a son, so no further sex factor is applied: P(affected son) = 1/2 × 1/2 = 1/4.",
+    "option_analysis": {
+      "A": "Correct: the mother is an obligate carrier (X^A X^a) because the brother is affected and the father is not. The woman is a carrier with probability 1/2, and a carrier passes X^a to a son with probability 1/2, giving 1/2 × 1/2 = 1/4.",
+      "B": "Wrong: assumes the woman is certainly a carrier. Her mother is an obligate carrier, but the woman herself had only a 1/2 chance of inheriting the mutant allele; 1/2 × 1/2 = 1/4.",
+      "C": "Wrong: over-multiplies the 1/2 factors (for example carrier × son × transmission × an extra step). Only two independent 1/2 factors are justified here.",
+      "D": "Wrong: misapplies a conditional-probability adjustment (as though eliminating an outcome). The straightforward carrier-probability-then-transmission calculation gives 1/4.",
+      "E": "Wrong: multiplies by an additional 1/2 for the child being a son, but the question already specifies a son, so no extra sex factor is warranted."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0171",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics — sex linkage and pedigree analysis",
+    "subtopic": "X-linked recessive: obligate-carrier daughter of an affected male and the 'at least one' risk across two grandsons",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "genetics",
+      "sex linkage",
+      "X-linked recessive",
+      "obligate carrier",
+      "at least one probability"
+    ],
+    "learning_objective": "Establish obligate-carrier status across a generation and apply the complement rule to an 'at least one affected' outcome among multiple sons.",
+    "question": "A man is red–green colour-blind (an X-linked recessive trait). His wife has normal colour vision and is not a carrier. One of their daughters, who has normal colour vision, has two sons with a man who has normal colour vision. What is the probability that at least one of these two grandsons is colour-blind?",
+    "choices": {
+      "A": "1/8",
+      "B": "1",
+      "C": "1/2",
+      "D": "3/4",
+      "E": "1/4"
+    },
+    "correct_answer": "D",
+    "explanation": "The colour-blind grandfather is X^c Y and the non-carrier grandmother is X^C X^C. Every daughter therefore receives X^c from her father and X^C from her mother, making her an obligate carrier (X^C X^c) with probability 1. This carrier daughter has children with an X^C Y man, so each son independently receives X^c (colour-blind) with probability 1/2. For two sons, P(at least one colour-blind) = 1 − P(neither) = 1 − (1/2)² = 3/4.",
+    "option_analysis": {
+      "A": "Wrong: introduces an unjustified third factor of 1/2 (for example treating the daughter as only a probable carrier). She is an obligate carrier, so only the two independent 1/2 son-transmissions apply.",
+      "B": "Wrong: assumes every son of a carrier is affected. A carrier transmits the mutant X to each son with probability 1/2, not with certainty.",
+      "C": "Wrong: this is the probability that a single son is colour-blind; it does not account for there being two sons or for the 'at least one' requirement.",
+      "D": "Correct: the daughter is an obligate carrier (X^c from her colour-blind father, X^C from her non-carrier mother). Each son is colour-blind with probability 1/2, so P(at least one of two) = 1 − (1/2)² = 3/4.",
+      "E": "Wrong: this is the probability that BOTH sons are colour-blind (1/2 × 1/2), not the probability that at least one is."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0172",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Genetics — sex linkage and pedigree analysis",
+    "subtopic": "Sex determination and non-disjunction: origin of a colour-blind 47,XXY individual (maternal meiosis II)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 155,
+    "tags": [
+      "genetics",
+      "sex linkage",
+      "sex determination",
+      "non-disjunction",
+      "Klinefelter",
+      "meiosis"
+    ],
+    "learning_objective": "Integrate X-linked recessive genotype logic with XX/XY sex determination to trace an aneuploid karyotype to a specific parental meiotic division.",
+    "question": "A boy has Klinefelter syndrome (karyotype 47,XXY) and is also red–green colour-blind, a trait inherited as an X-linked recessive condition. Both of his parents have normal colour vision. Where did the non-disjunction event that produced his karyotype most probably occur?",
+    "choices": {
+      "A": "A mitotic (post-zygotic) non-disjunction in the early embryo",
+      "B": "Maternal meiosis I",
+      "C": "Paternal meiosis I",
+      "D": "Paternal meiosis II",
+      "E": "Maternal meiosis II"
+    },
+    "correct_answer": "E",
+    "explanation": "Being colour-blind, the boy must carry the recessive allele on BOTH X chromosomes (X^c X^c Y). His father has normal vision, so any X the father could contribute carries the normal allele (X^C); a paternal X would therefore make the boy a normal-vision carrier, contradicting his phenotype. Hence both X^c chromosomes are maternal and identical. His mother has normal vision, so she is a carrier (X^C X^c). Two identical X^c chromosomes reach one egg only when sister chromatids fail to separate at meiosis II of a c-bearing secondary oocyte; fertilisation by a Y-bearing sperm then yields X^c X^c Y. This is maternal meiosis II.",
+    "option_analysis": {
+      "A": "Wrong: a post-zygotic mitotic error would create a chromosomal mosaic and cannot convert a heterozygous zygote into a uniformly colour-blind XXY individual; the homozygous X^c X^c constitution points to a meiotic origin in the mother.",
+      "B": "Wrong: maternal meiosis I non-disjunction would place the two different homologues (X^C and X^c) in the egg, producing an X^C X^c Y son with normal colour vision — inconsistent with his being colour-blind.",
+      "C": "Wrong: a paternal meiosis I error yields an XY sperm carrying the father's X^C, so the son would inherit a normal-vision X and could not be colour-blind.",
+      "D": "Wrong: paternal meiosis II non-disjunction produces XX or YY sperm, not XY, so it cannot generate a 47,XXY karyotype — and any paternal X is X^C in any case.",
+      "E": "Correct: the boy is colour-blind, so both X chromosomes carry the recessive allele; since the father contributes only X^C, both X^c must be maternal and identical, which arises when sister chromatids fail to separate at meiosis II of a c-bearing oocyte, giving an X^c X^c egg fertilised by a Y sperm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0173",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and natural selection",
+    "subtopic": "Modes of selection: disruptive (diversifying) selection and its effect on phenotypic variance",
+    "difficulty": "hard",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "evolution",
+      "natural selection",
+      "disruptive selection",
+      "phenotypic variance",
+      "modes of selection"
+    ],
+    "learning_objective": "Distinguish directional, stabilising and disruptive selection from a described change in a phenotypic distribution, and predict the effect on phenotypic variance.",
+    "question": "A finch species feeds on the seeds of a single plant community. Following an ecological change, the birds now encounter only two kinds of seed: large, hard-shelled seeds that can be cracked only by birds with deep, powerful bills, and small, soft seeds handled most efficiently by birds with shallow bills. Seeds of intermediate size have become rare. The population is large and mating is random. After many generations, the once bell-shaped (approximately normal) distribution of bill depth has become distinctly bimodal, with two peaks and few birds of intermediate bill depth. Which of the following best describes the mode of selection acting and its effect on the phenotypic variance of bill depth?",
+    "choices": {
+      "A": "Negative frequency-dependent selection; a stable polymorphism is maintained by always favouring whichever bill type is currently rarer.",
+      "B": "Stabilising selection; the phenotypic variance decreases because intermediate phenotypes are favoured.",
+      "C": "Genetic drift; the intermediate phenotypes have been lost from the population purely by chance.",
+      "D": "Disruptive selection; the phenotypic variance increases because both extremes are favoured over intermediates.",
+      "E": "Directional selection; the mean bill depth shifts progressively toward one single extreme."
+    },
+    "correct_answer": "D",
+    "explanation": "When a resource is split into two distinct, non-overlapping types, individuals at each extreme are favoured while intermediates (able to exploit neither type efficiently) are disfavoured. This is disruptive (diversifying) selection: it removes intermediate phenotypes, produces a bimodal distribution and increases the phenotypic variance. Directional selection would shift the mean toward one extreme (one displaced peak), and stabilising selection would narrow the distribution around the mean (reducing variance). Because the population is large and the loss of intermediates is systematic and tied to resource use, the pattern reflects selection, not the random sampling of genetic drift.",
+    "option_analysis": {
+      "A": "Wrong: the pattern is driven by a bimodal resource distribution that favours both extremes simultaneously, not by a rare-morph advantage; negative frequency-dependent selection tends to equalise morph frequencies rather than to eliminate intermediates. Misconception: conflating disruptive selection with frequency-dependent selection.",
+      "B": "Wrong: stabilising selection favours intermediate phenotypes and REDUCES variance, giving a narrower single-peaked distribution — the opposite of the observed bimodality. Misconception: assuming any strong selection narrows a distribution.",
+      "C": "Wrong: the population is large and the loss of intermediates is systematic and linked to resource use, so it reflects selection, not the random sampling error of drift (which is negligible in large populations). Misconception: attributing a deterministic, selection-driven pattern to chance.",
+      "D": "Correct: each extreme matches one available resource while intermediates fit neither, so both extremes are favoured over the middle. This disruptive (diversifying) selection increases phenotypic variance and generates the bimodal distribution.",
+      "E": "Wrong: directional selection shifts the mean toward one extreme, producing a single displaced peak, not two peaks with a scarce middle. Misconception: treating any change in a distribution as directional."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0174",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and natural selection",
+    "subtopic": "Speciation and reproductive isolation: identifying a prezygotic (temporal) barrier in sympatry and the biological species concept",
+    "difficulty": "hard",
+    "estimated_time_seconds": 70,
+    "tags": [
+      "evolution",
+      "speciation",
+      "reproductive isolation",
+      "prezygotic barrier",
+      "biological species concept"
+    ],
+    "learning_objective": "Classify a reproductive isolating mechanism as prezygotic or postzygotic from a scenario, and apply the biological species concept correctly to sympatric populations.",
+    "question": "Two closely related frog species live in and around the same ponds (they are sympatric). One species breeds during a brief period in early spring; the other breeds only in late spring. As a result, the two almost never mate with each other in the wild. When researchers bring the two species together in the laboratory and cross them artificially, the resulting hybrids are healthy and fully fertile. Which of the following best characterises the reproductive isolation that keeps these two species distinct in nature?",
+    "choices": {
+      "A": "Hybrid sterility, a postzygotic barrier that prevents the production of fertile offspring.",
+      "B": "Behavioural isolation, a prezygotic barrier, because the two species use different mating calls.",
+      "C": "Gametic isolation, a postzygotic barrier that prevents the sperm and egg from fusing.",
+      "D": "There is no true reproductive isolation, so they are a single species, because their hybrids are fertile.",
+      "E": "Temporal (seasonal) isolation, a prezygotic barrier, because the difference in breeding time prevents mating."
+    },
+    "correct_answer": "E",
+    "explanation": "The two species are sympatric, so geography is not the barrier. The decisive difference is breeding time: because they reproduce in different seasons they rarely meet as potential mates, so mating is prevented before fertilisation. This is a prezygotic, specifically temporal (allochronic), isolating mechanism. The fact that laboratory hybrids are healthy and fully fertile shows that postzygotic barriers (hybrid inviability, sterility or breakdown) are essentially absent — isolation is maintained entirely before fertilisation. Under the biological species concept, species are defined by reproductive isolation under natural conditions, not by whether hybrids can be forced in the laboratory.",
+    "option_analysis": {
+      "A": "Wrong: the hybrids are explicitly healthy and fully fertile, so hybrid sterility is not operating. Misconception: assuming a postzygotic barrier exists whenever two distinct species are involved.",
+      "B": "Wrong: no information about mating calls is given; the stated cause of non-mating is timing, not acoustic signals. Misconception: defaulting to behavioural isolation whenever animals are involved.",
+      "C": "Wrong on two counts: gametic isolation is a prezygotic (pre-fertilisation) barrier, not postzygotic, and nothing in the scenario indicates gamete incompatibility. Misconception: classifying any fertilisation-level barrier as postzygotic.",
+      "D": "Wrong: the biological species concept is based on reproductive isolation in nature; in the wild the frogs do not interbreed (temporal barrier), so they are distinct species despite laboratory-forced fertile hybrids. Misconception: equating the potential for lab hybridisation with membership of one species.",
+      "E": "Correct: the sympatric distribution rules out geographic separation, and the operative difference is breeding season — a prezygotic (temporal/allochronic) barrier that stops mating before gametes can ever meet."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0175",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and natural selection",
+    "subtopic": "Sources of heritable variation: mutation as the ultimate source of new alleles versus recombination reshuffling existing alleles",
+    "difficulty": "hard",
+    "estimated_time_seconds": 65,
+    "tags": [
+      "evolution",
+      "genetic variation",
+      "mutation",
+      "recombination",
+      "independent assortment"
+    ],
+    "learning_objective": "Identify mutation as the only source of new alleles and distinguish it from mechanisms (crossing over, independent assortment, random fertilisation) that merely recombine existing alleles.",
+    "question": "A microbiologist compares a strictly asexual (clonal) bacterial population with a sexually reproducing plant population. Considering the origins of heritable genetic variation, which of the following statements is correct?",
+    "choices": {
+      "A": "Mutation is the ultimate source of new alleles, whereas recombination, independent assortment and random fertilisation generate only new combinations of already-existing alleles.",
+      "B": "A strictly asexual population cannot accumulate any heritable variation over time.",
+      "C": "Natural selection generates the advantageous variants that subsequently spread through the population.",
+      "D": "Crossing over during meiosis creates entirely new alleles by exchanging segments between homologous chromosomes.",
+      "E": "Independent assortment of chromosomes increases the total number of different alleles present in the gene pool."
+    },
+    "correct_answer": "A",
+    "explanation": "New alleles arise only by mutation, which is therefore the ultimate source of genetic variation. The sexual processes — crossing over, independent assortment of chromosomes and random fertilisation — rearrange pre-existing alleles into new genotypic combinations but do not create any new alleles. Asexual organisms still undergo mutation, so clonal populations do accumulate heritable variation (mutation is essentially their only source). Natural selection acts on variation already present, changing allele frequencies, but it does not create the variants.",
+    "option_analysis": {
+      "A": "Correct: only mutation introduces new alleles; crossing over, independent assortment and random fertilisation produce novel combinations of alleles that already exist.",
+      "B": "Wrong: mutation occurs in asexual organisms too, so clonal populations do accumulate heritable variation — indeed mutation is their principal source of it. Misconception: assuming variation requires sexual reproduction.",
+      "C": "Wrong: selection sorts among variants already present, altering their frequencies, but it does not produce the variants themselves. Misconception: treating selection as a creative source of variation.",
+      "D": "Wrong: crossing over recombines existing alleles at different loci onto the same chromosome; generating a genuinely new allele requires mutation. Misconception: believing recombination between homologues creates new alleles.",
+      "E": "Wrong: independent assortment produces new combinations of chromosomes and alleles but adds no new alleles to the gene pool. Misconception: equating new genotype combinations with new alleles."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0176",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and natural selection",
+    "subtopic": "Genetic drift and the founder effect: chance rise of a deleterious allele and loss of heterozygosity in a small isolated population",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "evolution",
+      "genetic drift",
+      "founder effect",
+      "heterozygosity",
+      "small populations"
+    ],
+    "learning_objective": "Integrate the founder effect, genetic drift and the weakness of selection in small populations to explain both the elevated frequency of a deleterious allele and reduced heterozygosity.",
+    "question": "A small group of individuals from a large mainland bird population colonises a remote oceanic island. Many generations later, biologists find that (i) an allele that is mildly deleterious on the mainland is now common in the island population, and (ii) the island population has much lower overall heterozygosity than the mainland source population. There has been no subsequent migration between the island and the mainland. Which explanation best accounts for BOTH observations?",
+    "choices": {
+      "A": "The harsh island environment directly induced new mutations that raised the frequency of the allele precisely where it was needed.",
+      "B": "The allele cannot really be deleterious, because any allele that rises in frequency must by definition be advantageous.",
+      "C": "Natural selection favoured the allele on the island, and this same selection also increased the population's heterozygosity.",
+      "D": "Repeated gene flow from the mainland introduced the allele and simultaneously maintained high genetic diversity on the island.",
+      "E": "A founder effect set a high initial frequency of the allele by chance, and ongoing genetic drift in the small population raised or fixed alleles at random and eroded heterozygosity, with selection too weak to counteract the drift."
+    },
+    "correct_answer": "E",
+    "explanation": "A founder effect is a sampling effect: the few colonists carry, by chance, allele frequencies that may differ greatly from the source, so a mildly deleterious allele can start out common. Thereafter, in a small population, genetic drift changes allele frequencies at random and steadily removes variation, lowering heterozygosity. Because the magnitude of drift is large relative to weak selection in small populations, even a mildly deleterious allele can rise or become fixed. This single framework — founder effect plus drift overwhelming weak selection — explains both the high frequency of the deleterious allele and the reduced heterozygosity.",
+    "option_analysis": {
+      "A": "Wrong: mutations arise at random with respect to an organism's needs; an environment does not direct adaptive mutations to appear where required. This is a Lamarckian/directed-mutation error.",
+      "B": "Wrong: an increase in allele frequency does not imply higher fitness; drift can raise or even fix deleterious alleles, especially in small populations. Misconception: equating a change in frequency with adaptive value.",
+      "C": "Wrong: selection would tend to reduce a deleterious allele, not raise it, and directional selection toward fixation generally lowers rather than raises heterozygosity. Misconception: assuming any common allele must have been selected for.",
+      "D": "Wrong: the scenario states there has been no migration, and in any case gene flow tends to increase, not decrease, heterozygosity, contradicting observation (ii). Misconception: invoking gene flow despite explicit isolation.",
+      "E": "Correct: the founder effect can set a high chance frequency of a mildly deleterious allele, and drift in the small isolated population both alters frequencies at random and erodes heterozygosity, because drift dominates weak selection when populations are small."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0177",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Evolution and natural selection",
+    "subtopic": "Gene flow as a homogenising force: migration–selection balance maintaining a sharp local adaptation and its relation to divergence",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "evolution",
+      "gene flow",
+      "local adaptation",
+      "migration-selection balance",
+      "speciation"
+    ],
+    "learning_objective": "Explain that gene flow opposes divergence and that a sharp adaptive difference across a short distance reflects a balance between strong local selection and homogenising gene flow.",
+    "question": "A wind-pollinated grass grows across a sharp boundary between uncontaminated pasture and soil heavily contaminated with toxic heavy metals from old mine workings. Plants rooted in the contaminated soil are metal-tolerant; plants only a short distance away in the pasture are not tolerant. Each year, wind carries pollen freely in both directions across the boundary. Which statement best describes the evolutionary role of this pollen flow?",
+    "choices": {
+      "A": "Because pollen moves in both directions, the two groups must be genetically identical at all loci.",
+      "B": "The continued coexistence of tolerant and non-tolerant plants proves that gene flow has no effect on allele frequencies in either group.",
+      "C": "The presence of metal-tolerant plants on the mine soil proves that the heavy metals directly caused the necessary tolerance mutations to arise where they were needed.",
+      "D": "The pollen flow accelerates genetic divergence between the two groups and is actively driving sympatric speciation.",
+      "E": "Gene flow tends to homogenise the two groups, so the sharp difference in tolerance persists only because strong local selection in each habitat counteracts the maladapted alleles arriving each generation; removing the gene flow would allow further divergence."
+    },
+    "correct_answer": "E",
+    "explanation": "Gene flow (here via pollen) mixes alleles between populations and opposes their genetic divergence — it is a homogenising force, not a diversifying one. A sharp adaptive difference can nonetheless persist across a short distance if selection against the maladapted immigrant alleles is strong enough each generation to offset the incoming gene flow; this is a migration–selection balance. If gene flow were reduced or eliminated (for example by a barrier), the populations would be free to diverge further, a possible step toward speciation. Gene flow does not drive divergence, does not make populations identical when opposed by strong selection, and is not absent merely because a stable difference is observed; and mutations are not directed by need.",
+    "option_analysis": {
+      "A": "Wrong: strong local selection can maintain large allele-frequency differences at the tolerance loci despite gene flow, so the two groups are not genetically identical. Misconception: assuming gene flow always fully homogenises populations.",
+      "B": "Wrong: gene flow does move alleles across the boundary every generation; the tolerance difference persists because selection counteracts that flow, not because gene flow has no effect. Misconception: inferring 'no gene flow' from a stable observed difference.",
+      "C": "Wrong: mutations occur at random with respect to need — the heavy metals did not direct tolerance mutations to appear; pre-existing tolerant variants were selected on the mine soil. This is a Lamarckian/directed-mutation error.",
+      "D": "Wrong: gene flow opposes divergence and works against speciation; it does not accelerate divergence or drive sympatric speciation. Misconception: reversing the role of gene flow, treating a homogenising force as a diversifying one.",
+      "E": "Correct: gene flow homogenises populations, and the persistence of the sharp tolerance boundary reflects a migration–selection balance in which strong local selection each generation offsets the incoming maladapted alleles; blocking gene flow would permit further divergence."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0178",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Exponential population growth: doubling time and projection from two censuses",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "ecology",
+      "population-growth",
+      "exponential-growth",
+      "doubling-time",
+      "data-interpretation"
+    ],
+    "learning_objective": "Interpret census data for an exponentially growing population, determine the doubling time and project future population size, distinguishing exponential from linear growth.",
+    "question": "An insect species is accidentally introduced to an island that has abundant food and no natural predators, so its population grows exponentially. A census records 300 individuals at the start of year 0 and 2400 individuals at the start of year 12. Assuming the exponential growth continues unchanged, what is the best estimate of the population at the start of year 20?",
+    "choices": {
+      "A": "4800",
+      "B": "19200",
+      "C": "9600",
+      "D": "4000",
+      "E": "3800"
+    },
+    "correct_answer": "C",
+    "explanation": "The population multiplied by 2400/300 = 8 = 2^3 in 12 years, so there were three doublings in 12 years and the doubling time is 12/3 = 4 years. From year 12 to year 20 is a further 8 years = 2 more doublings, giving 2400 x 2^2 = 9600 (equivalently 300 x 2^(20/4) = 300 x 32 = 9600). Exponential growth multiplies the population by a constant factor per fixed time interval; it does not add a constant number of individuals.",
+    "option_analysis": {
+      "A": "Wrong: assumes only one further doubling occurs between year 12 and year 20, i.e. taking the doubling time to be roughly 8 years (the length of the projection interval) instead of deriving it, so 2400 x 2 = 4800. Misconception: guessing the doubling time from the size of the interval rather than calculating it from the data.",
+      "B": "Wrong: reapplies the entire 12-year growth factor of x8 to the 8-year projection interval, giving 2400 x 8 = 19200. Misconception: reusing the observed overall multiplication factor without scaling it to the shorter time interval.",
+      "C": "Correct: the doubling time is 12/3 = 4 years because the population multiplied by 8 = 2^3 in 12 years; the 8 remaining years give two more doublings, so 2400 x 4 = 9600.",
+      "D": "Wrong: scales the population in direct proportion to elapsed time, 2400 x (20/12) = 4000. Misconception: treating cumulative population size as directly proportional to time rather than as an exponential function of time.",
+      "E": "Wrong: linear extrapolation. This treats growth as a constant increase of (2400-300)/12 = 175 individuals per year, giving 300 + 175 x 20 = 3800. Misconception: confusing exponential growth (constant multiplicative factor) with arithmetic/linear growth (constant additive increment)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0179",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Logistic growth: instantaneous growth rate and the density-dependent fall in per-capita rate from the logistic equation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "ecology",
+      "population-growth",
+      "logistic-growth",
+      "carrying-capacity",
+      "density-dependence"
+    ],
+    "learning_objective": "Apply the logistic equation to compute the instantaneous population growth rate at a given population size and recognise the density-dependent fall in the per-capita rate as the population approaches carrying capacity.",
+    "question": "A deer population on a reserve grows according to the logistic model, dN/dt = rN(1 - N/K), with a maximum per-capita growth rate r = 0.20 per year and a carrying capacity K = 5000. When the population is N = 4000, approximately how many deer are added to the population per year?",
+    "choices": {
+      "A": "800",
+      "B": "250",
+      "C": "160",
+      "D": "200",
+      "E": "640"
+    },
+    "correct_answer": "C",
+    "explanation": "Substitute into the logistic equation: dN/dt = rN(1 - N/K) = 0.20 x 4000 x (1 - 4000/5000) = 0.20 x 4000 x 0.20 = 160 deer per year. Note that the realized per-capita growth rate has fallen to r(1 - N/K) = 0.20 x 0.20 = 0.04 per year, far below the maximum of 0.20, because density-dependent factors slow growth as N approaches K.",
+    "option_analysis": {
+      "A": "Wrong: uses the pure exponential expression rN = 0.20 x 4000 = 800, ignoring the density-dependent braking term. Misconception: treating a population close to carrying capacity as if it were still growing exponentially.",
+      "B": "Wrong: this is the maximum growth rate rK/4 = 0.20 x 5000/4 = 250, which occurs only at N = K/2 = 2500, not at N = 4000. Misconception: quoting the peak growth rate of the logistic curve regardless of the actual population size.",
+      "C": "Correct: dN/dt = rN(1 - N/K) = 0.20 x 4000 x 0.20 = 160 deer per year.",
+      "D": "Wrong: uses dN/dt = r(K - N) = 0.20 x (5000 - 4000) = 200, dropping the factor N. Misconception: forgetting that the absolute growth rate is proportional to the current population size N as well as to the remaining capacity.",
+      "E": "Wrong: uses rN x (N/K) = 0.20 x 4000 x 0.80 = 640, inverting the density term. Misconception: using N/K instead of (1 - N/K), which makes growth appear to accelerate rather than slow as N nears K."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0180",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Keystone predation: predator removal releases the dominant competitor and lowers prey diversity (competitive exclusion)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "ecology",
+      "interspecific-interactions",
+      "predation",
+      "competition",
+      "keystone-species",
+      "competitive-exclusion",
+      "data-interpretation"
+    ],
+    "learning_objective": "Interpret a predator-removal experiment to explain how a keystone predator maintains species diversity by suppressing a competitively dominant prey species.",
+    "question": "On a rocky shore, a predatory starfish feeds preferentially on a mussel that is the strongest competitor for space among the sessile organisms. In an experiment, the starfish is continually removed from marked plots. Over two years the number of sessile animal and algal species in the removal plots falls from 15 to 8, whereas adjacent control plots (starfish still present) remain at about 15 species. Which explanation is best supported by these results?",
+    "choices": {
+      "A": "The starfish had controlled a parasite of the weaker species, so its removal let the parasite spread and kill them.",
+      "B": "The starfish had suppressed the dominant mussel; once released from predation the mussel monopolised space and competitively excluded the weaker species.",
+      "C": "Freed from predation the prey grew exponentially until resources ran out, and the resulting die-off reduced all species roughly equally.",
+      "D": "The starfish acted as a mutualist that fertilised the algae, so its removal starved the primary producers and reduced diversity.",
+      "E": "Removing the starfish lowered disturbance and let the community mature to a more diverse climax; the value of 8 merely reflects sampling error."
+    },
+    "correct_answer": "B",
+    "explanation": "This is a classic keystone-predator effect. By preying on the competitively dominant mussel, the starfish stops that one species from taking over the limited hard substrate. When the predator is removed, the dominant competitor monopolises the space and competitively excludes the subordinate species, so diversity falls even though an organism-killing predator has been taken away. The unchanged control plots show the decline is caused by the removal, not by chance.",
+    "option_analysis": {
+      "A": "Wrong: introduces a parasite with no supporting evidence and proposes an indirect pathway opposite in direction to the mechanism shown. Misconception: inventing an unsupported indirect (parasite) explanation instead of the direct predation-on-a-competitor mechanism.",
+      "B": "Correct: loss of the keystone predator releases the dominant competitor, which then monopolises space and excludes other species, so diversity falls.",
+      "C": "Wrong: a non-selective resource crash would depress all populations but would not specifically eliminate the weaker competitors while the dominant persists, and it ignores competitive exclusion. Misconception: attributing a diversity decline to a density-dependent population crash rather than to competition for space.",
+      "D": "Wrong: reclassifies a predator as a mutualist and invokes a bottom-up nutrient-supply mechanism for which there is no evidence. Misconception: assuming that any organism whose loss harms the community must have acted through mutualism or nutrient provision rather than through predation on a competitor.",
+      "E": "Wrong: it assumes that less predation must mean higher diversity and dismisses clear experimental data (controls unchanged at 15 while removal plots fell to 8). Misconception: the intuition that removing a predator always increases prey diversity, overlooking the keystone role."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0181",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Nitrification: aerobic chemoautotrophic ammonium- and nitrite-oxidising bacteria and the effect of a nitrification inhibitor on nitrate leaching",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "ecology",
+      "nitrogen-cycle",
+      "nitrification",
+      "chemoautotrophic-bacteria",
+      "soil",
+      "leaching"
+    ],
+    "learning_objective": "Identify the bacterial steps of nitrification and predict the effect of inhibiting ammonium oxidation on the form of soil nitrogen, its retention, and nitrate leaching.",
+    "question": "Nitrification in well-aerated soil is the two-step oxidation of ammonium: ammonium (NH4+) is first oxidised to nitrite (NO2-) by one group of aerobic chemoautotrophic bacteria, and nitrite is then oxidised to nitrate (NO3-) by a second group. A farmer applies ammonium fertiliser to a well-drained field and treats one half with a chemical that inhibits the first (ammonium-oxidising) step. Nitrate anions are highly soluble and are readily washed out of soil (leached), whereas ammonium cations bind to soil particles and are retained. After several weeks of rain, compared with the untreated half, the treated half will most likely show:",
+    "choices": {
+      "A": "no difference, because plant roots take up ammonium and nitrate equally well.",
+      "B": "more nitrogen retained in the soil as ammonium and less lost by leaching, because little nitrate is formed.",
+      "C": "a build-up of nitrite, because the block prevents nitrite from being oxidised to nitrate.",
+      "D": "more nitrate accumulation, because inhibiting nitrification also blocks denitrification.",
+      "E": "greater loss of nitrogen as ammonia gas, because ammonium that cannot be oxidised escapes into the air."
+    },
+    "correct_answer": "B",
+    "explanation": "Blocking the first, ammonium-oxidising step (carried out by bacteria such as Nitrosomonas) stops NH4+ being converted onward to NO3-. Ammonium therefore accumulates, and because it binds to soil particles it is retained, while little of the leachable nitrate is produced. So the treated half keeps more nitrogen and loses less to leaching than the untreated half.",
+    "option_analysis": {
+      "A": "Wrong: the chemical form of nitrogen strongly affects leaching, since nitrate is washed out while ammonium is retained, so the two halves must differ. Misconception: believing the form of nitrogen has no effect on its retention in soil.",
+      "B": "Correct: with the first step blocked, ammonium accumulates and is held on soil particles, and little leachable nitrate is formed, so more nitrogen is retained and less is leached.",
+      "C": "Wrong: nitrite would accumulate only if the second (nitrite-oxidising) step were blocked; here the first step is inhibited, so it is ammonium, not nitrite, that builds up. Misconception: mis-assigning which step and which bacteria the inhibitor targets.",
+      "D": "Wrong: nitrification and denitrification are separate processes, and blocking nitrification produces less nitrate, not more; denitrification is irrelevant in this aerobic, ammonium-dominated scenario. Misconception: confusing nitrification with denitrification.",
+      "E": "Wrong: the main fate of the retained ammonium here is adsorption onto soil particles, not escape as gas; inhibiting oxidation does not drive ammonia volatilisation. Misconception: assuming that un-oxidised ammonium must be lost as ammonia gas, conflating leaching with volatilisation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0182",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Ecology and ecosystems",
+    "subtopic": "Ecological succession: GPP, community respiration, the P/R ratio and net ecosystem production approaching steady state at the climax",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "ecology",
+      "succession",
+      "primary-succession",
+      "GPP",
+      "respiration",
+      "net-ecosystem-production",
+      "carbon-cycle",
+      "data-interpretation"
+    ],
+    "learning_objective": "Use gross primary production and community respiration data across successional stages to calculate net ecosystem production and the P/R ratio and to identify the approach to steady state at the climax.",
+    "question": "During primary succession on bare volcanic rock, ecologists measured gross primary production (GPP) and total community respiration (R) at three successional stages (units: g carbon per square metre per year):\nEarly stage: GPP = 500, R = 200\nMid stage: GPP = 1200, R = 700\nLate (climax) stage: GPP = 1000, R = 980\nWhich statement is best supported by these data?",
+    "choices": {
+      "A": "The ecosystem gains carbon at every stage, but the net rate of carbon accumulation is smallest at the climax, where respiration almost balances gross production.",
+      "B": "At the climax the ecosystem is a net source of carbon to the atmosphere, because respiration exceeds gross production.",
+      "C": "Net ecosystem production is greatest at the climax stage, because the standing biomass is greatest there.",
+      "D": "The P/R ratio rises towards the climax, showing that the community becomes progressively more autotrophic.",
+      "E": "The mid stage is the climax community, because gross primary production peaks there."
+    },
+    "correct_answer": "A",
+    "explanation": "Net ecosystem production NEP = GPP - R, the carbon stored in the ecosystem each year. Early = 300, mid = 500, climax = 20; all are positive, so carbon accumulates at every stage, but the accumulation rate is smallest at the climax. There the P/R ratio (1000/980 approximately 1.0) approaches 1, the classic hallmark of a mature ecosystem near steady state, where gross production is almost exactly balanced by community respiration.",
+    "option_analysis": {
+      "A": "Correct: GPP exceeds R at all three stages (NEP = 300, 500, 20), so carbon accumulates throughout; NEP is smallest (20) at the climax, where the P/R ratio is about 1.0.",
+      "B": "Wrong: at the climax GPP (1000) still exceeds R (980), so NEP is positive (+20) and the ecosystem is a small net sink, not a source. Misconception: assuming that at the climax respiration must exceed production (P/R below 1).",
+      "C": "Wrong: net ecosystem production is the annual net carbon gain (GPP - R), which is lowest at the climax; the large standing biomass is the accumulated stock, not the current rate of net production. Misconception: confusing total biomass (a stock) with net ecosystem production (a rate or flux).",
+      "D": "Wrong: the P/R ratio falls towards 1 across the series (2.5, then about 1.7, then about 1.02); it does not rise, and the community becomes less strongly autotrophic as it nears balance. Misconception: reversing the direction of the P/R trend during succession.",
+      "E": "Wrong: the climax is defined by stability and a P/R ratio near 1, not by maximum GPP; peak gross production at the mid stage does not make it the climax. Misconception: equating maximum gross primary production with the climax community."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_bio_0183",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "biology",
+    "topic": "Sex linkage",
+    "subtopic": "Identifying the mode of inheritance of a condition from a described family pattern",
+    "difficulty": "medium",
+    "estimated_time_seconds": 90,
+    "tags": [
+      "sex linkage",
+      "mode of inheritance",
+      "X-linked recessive",
+      "pedigree reasoning",
+      "inheritance pattern"
+    ],
+    "learning_objective": "Infer the mode of inheritance of a trait from a described transmission pattern, using the absence of male-to-male transmission and passage through unaffected daughters as the signature of X-linked recessive inheritance.",
+    "question": "In a large family a certain genetic condition is seen only in males. An affected man's sons are all unaffected, and all of his daughters are unaffected; however, about half of the sons of those daughters are affected. Which mode of inheritance is most consistent with this pattern?",
+    "choices": {
+      "A": "X-linked dominant",
+      "B": "Y-linked (holandric)",
+      "C": "Autosomal dominant",
+      "D": "X-linked recessive",
+      "E": "Autosomal recessive"
+    },
+    "correct_answer": "D",
+    "explanation": "The key features are: the condition appears almost only in males; there is no father-to-son transmission (the affected man's sons are unaffected); and the trait reappears in grandsons through the man's unaffected daughters, with about half of those grandsons affected. This is the classic signature of X-linked recessive inheritance: an affected father (X^a Y) passes X^a to all his daughters, making them unaffected carriers, and each carrier daughter passes the allele to about half of her sons. His own sons receive his Y (not X^a) and are unaffected.",
+    "option_analysis": {
+      "A": "Wrong: with X-linked dominant inheritance an affected father would pass the allele to ALL his daughters, who would then be affected, not unaffected.",
+      "B": "Wrong: a Y-linked trait would pass directly from father to ALL sons, so the affected man's sons would be affected — the opposite of what is described.",
+      "C": "Wrong: an autosomal dominant condition would affect both sexes roughly equally and would typically be transmitted directly from an affected parent to about half the children of either sex.",
+      "D": "Correct: only males affected, no male-to-male transmission, and reappearance in grandsons via unaffected (carrier) daughters is exactly the X-linked recessive pattern.",
+      "E": "Wrong: an autosomal recessive condition is not sex-limited in this way and would not characteristically skip through daughters to reappear specifically in grandsons; affected individuals of both sexes would be expected."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch09",
+    "review_status": "accepted"
+  }
+]

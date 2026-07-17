@@ -1,0 +1,283 @@
+[
+  {
+    "id": "mio_phys_0024",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Wave properties: speed, frequency and wavelength",
+    "subtopic": "Wave crossing a boundary: frequency invariance relating wavelength to wave speed in a new medium",
+    "difficulty": "medium",
+    "estimated_time_seconds": 75,
+    "tags": [
+      "waves",
+      "wave speed",
+      "frequency",
+      "wavelength",
+      "boundary",
+      "ultrasound",
+      "medical physics"
+    ],
+    "learning_objective": "Apply the invariance of frequency when a wave crosses a boundary to relate wavelength and wave speed in two media.",
+    "question": "A diagnostic ultrasound transducer emits waves at a frequency of 1.5 MHz. The waves first travel through soft tissue, in which the speed of sound is 1500 m/s, before entering a region of bone, in which the speed of sound is 4050 m/s. Assuming the frequency of the wave is unchanged as it crosses the boundary, what is the wavelength of the ultrasound in the bone?",
+    "choices": {
+      "A": "1.9 mm",
+      "B": "5.4 mm",
+      "C": "1.0 mm",
+      "D": "0.37 mm",
+      "E": "2.7 mm"
+    },
+    "correct_answer": "E",
+    "explanation": "When a wave passes from one medium into another the frequency is fixed by the source and does not change; it is the speed, and therefore the wavelength, that change. Using v = fλ, the wavelength in bone is λ = v_bone/f = 4050/(1.5×10^6) = 2.7×10^-3 m = 2.7 mm. The higher speed in bone gives a longer wavelength than in tissue (where λ = 1500/1.5×10^6 = 1.0 mm), because λ is directly proportional to v at constant f.",
+    "option_analysis": {
+      "A": "Wrong: uses the arithmetic mean of the two speeds ((1500+4050)/2 = 2775 m/s) in λ = v/f. Averaging the speeds has no physical basis; the wavelength in bone depends only on the speed in bone.",
+      "B": "Wrong: assumes the frequency halves on entering the denser bone, giving λ = v/(f/2) = 2 × 2.7 mm. The frequency is set by the source and does not change at the boundary.",
+      "C": "Wrong: this is the wavelength in soft tissue (1500/1.5×10^6). It reflects the misconception that wavelength is a fixed property of the wave that is carried unchanged across a boundary; in fact the frequency is what stays constant.",
+      "D": "Wrong: obtained by scaling the tissue wavelength by the inverse speed ratio (1.0 mm × 1500/4050), i.e. assuming the wavelength shortens as the speed rises. This inverts λ = v/f, in which a higher speed at fixed frequency gives a longer wavelength.",
+      "E": "Correct: the frequency is unchanged across the boundary, so λ_bone = v_bone/f = 4050/(1.5×10^6) = 2.7×10^-3 m = 2.7 mm."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0025",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Superposition and interference",
+    "subtopic": "Two coherent sound sources: lowest frequency for destructive interference from a fixed path difference",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "interference",
+      "superposition",
+      "path difference",
+      "destructive interference",
+      "sound",
+      "coherent sources"
+    ],
+    "learning_objective": "Use the path-difference condition for destructive interference of two coherent, in-phase sources to determine the lowest frequency producing a minimum.",
+    "question": "Two small loudspeakers, driven in phase by the same signal generator, both face a listener. The listener stands at a point where the distance to one loudspeaker is 0.85 m greater than the distance to the other. Starting from a very low value, the frequency of the generator is slowly increased. Taking the speed of sound in air to be 340 m/s, what is the lowest frequency at which the listener hears a distinct minimum in loudness?",
+    "choices": {
+      "A": "600 Hz",
+      "B": "800 Hz",
+      "C": "400 Hz",
+      "D": "100 Hz",
+      "E": "200 Hz"
+    },
+    "correct_answer": "E",
+    "explanation": "For two sources emitting in phase, destructive interference occurs when the path difference is an odd number of half-wavelengths: ΔL = (n + ½)λ, with n = 0, 1, 2, ... The lowest frequency corresponds to the longest wavelength, i.e. the smallest half-integer n = 0, giving ΔL = λ/2. Hence λ = 2ΔL = 2 × 0.85 = 1.70 m and f = v/λ = 340/1.70 = 200 Hz.",
+    "option_analysis": {
+      "A": "Wrong: uses the next-order minimum ΔL = 3λ/2 (n = 1), giving λ = 0.567 m and f = 600 Hz. This is a genuine minimum but not the lowest frequency, which needs the smallest half-integer n = 0.",
+      "B": "Wrong: sets ΔL = 2λ, giving λ = 0.425 m and f = 800 Hz. Integer wavelengths give maxima, not minima, and this is also a higher order.",
+      "C": "Wrong: applies the constructive condition ΔL = λ (a maximum) instead of the destructive condition, giving λ = 0.85 m and f = 400 Hz. This confuses the requirement for a loudness maximum with that for a minimum.",
+      "D": "Wrong: uses ΔL = λ/4, giving λ = 3.4 m and f = 100 Hz. A quarter-wavelength path difference corresponds to a 90° phase difference, not the 180° required for a minimum.",
+      "E": "Correct: the lowest-frequency minimum has ΔL = λ/2 (n = 0), so λ = 2 × 0.85 = 1.70 m and f = v/λ = 340/1.70 = 200 Hz."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0026",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Standing waves and resonance",
+    "subtopic": "Closed air column: speed of sound from successive resonance lengths with end-correction cancellation",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "standing waves",
+      "resonance",
+      "air column",
+      "closed pipe",
+      "end correction",
+      "speed of sound"
+    ],
+    "learning_objective": "Determine the speed of sound from the spacing of successive air-column resonances, recognising that the end correction cancels in the difference of consecutive resonance lengths.",
+    "question": "In a resonance-tube experiment, a tuning fork of frequency 500 Hz is held just above the open end of a tube closed at the other end by water, whose level can be lowered to increase the length of the air column. The first two consecutive air-column lengths at which a loud resonance is heard are 16.0 cm and 51.0 cm. Given that each measured length includes an unknown end correction, determine the speed of sound in the air column.",
+    "choices": {
+      "A": "700 m/s",
+      "B": "1020 m/s",
+      "C": "320 m/s",
+      "D": "175 m/s",
+      "E": "350 m/s"
+    },
+    "correct_answer": "E",
+    "explanation": "For a tube closed at one end, resonances occur at lengths L = (2m − 1)λ/4 (plus an end correction e that is the same for every resonance). Consecutive resonance lengths therefore differ by exactly λ/2, and the constant end correction cancels in the difference: λ/2 = 51.0 − 16.0 = 35.0 cm, so λ = 0.70 m. The speed of sound is v = fλ = 500 × 0.70 = 350 m/s.",
+    "option_analysis": {
+      "A": "Wrong: assumes consecutive resonances differ by λ/4 rather than λ/2, giving λ = 1.40 m and v = 700 m/s. The spacing of successive resonance positions is half a wavelength.",
+      "B": "Wrong: takes the second length as λ/4 (λ = 4 × 0.51 = 2.04 m, v = 1020 m/s), treating it as the fundamental. Higher resonances occur at odd multiples of λ/4, not at λ/4 itself.",
+      "C": "Wrong: treats the first length as exactly λ/4, ignoring the end correction (λ = 4 × 0.16 = 0.64 m, v = 320 m/s). The end correction makes L₁ = λ/4 only approximate, which is why the difference method is used.",
+      "D": "Wrong: assumes consecutive resonances are a full wavelength apart, giving λ = 0.35 m and v = 175 m/s. In a resonating air column successive resonance positions are separated by λ/2, not λ.",
+      "E": "Correct: the difference of successive resonance lengths equals λ/2 and is independent of the end correction: λ/2 = 0.51 − 0.16 = 0.35 m, λ = 0.70 m, and v = fλ = 500 × 0.70 = 350 m/s."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0027",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Geometrical optics: thin lenses",
+    "subtopic": "Displacement (conjugate-foci) method for the focal length of a converging lens",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "thin lens",
+      "converging lens",
+      "focal length",
+      "displacement method",
+      "conjugate foci",
+      "image formation"
+    ],
+    "learning_objective": "Apply the displacement (conjugate-foci) method to obtain a converging lens's focal length from a fixed object-screen separation and the separation of the two imaging positions.",
+    "question": "A small illuminated object and a screen are fixed 90.0 cm apart. A converging lens placed between them can be set at two distinct positions, each of which throws a sharply focused image of the object onto the screen. These two lens positions are 30.0 cm apart. What is the focal length of the lens?",
+    "choices": {
+      "A": "22.5 cm",
+      "B": "40.0 cm",
+      "C": "20.0 cm",
+      "D": "45.0 cm",
+      "E": "30.0 cm"
+    },
+    "correct_answer": "C",
+    "explanation": "By the principle of reversibility, if a lens at object distance u forms a sharp image at distance v (with u + v = D), then swapping the object and image distances also gives a sharp image; the two lens positions are the conjugate points. Their separation is d = |v − u|, so u = (D − d)/2 and v = (D + d)/2. Substituting into 1/f = 1/u + 1/v gives the displacement-method result f = (D² − d²)/(4D) = (90² − 30²)/(4 × 90) = 7200/360 = 20.0 cm. (Check: u = 30 cm, v = 60 cm, and 1/30 + 1/60 = 1/20.)",
+    "option_analysis": {
+      "A": "Wrong: uses f = D/4 = 22.5 cm, the relation valid only in the limiting case where the two positions merge (d = 0, the minimum object-screen separation of 4f). With a real displacement d = 30 cm this overestimates f.",
+      "B": "Wrong: uses f = (D² − d²)/(2D), dropping the factor of 4 in the correct formula: 7200/180 = 40 cm. The denominator should be 4D.",
+      "C": "Correct: the displacement method gives f = (D² − d²)/(4D) = (90² − 30²)/(4 × 90) = 20.0 cm, consistent with conjugate distances 30 cm and 60 cm.",
+      "D": "Wrong: takes f = D/2 = 45 cm, half the fixed separation. No relation gives the focal length as half the object-screen distance.",
+      "E": "Wrong: 30.0 cm is the smaller object distance (D − d)/2 at which one sharp image forms; it is mistaken for the focal length. Object distance and focal length are distinct quantities."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0028",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "The photoelectric effect",
+    "subtopic": "Threshold wavelength from two stopping-potential measurements (eliminating Planck's constant and the work function)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "photoelectric effect",
+      "stopping potential",
+      "work function",
+      "threshold wavelength",
+      "Planck's constant",
+      "photon energy"
+    ],
+    "learning_objective": "Combine two stopping-potential measurements at different wavelengths to eliminate Planck's constant and the work function and obtain the photoelectric threshold wavelength.",
+    "question": "When a clean metal surface is illuminated with monochromatic light of wavelength 310 nm, the stopping potential needed to reduce the photocurrent to zero is 1.0 V. When the wavelength is changed to 248 nm, the stopping potential is 2.0 V. The maximum kinetic energy of the ejected electrons equals eV_s, where V_s is the stopping potential. Using only these data and the elementary charge (that is, without quoting a tabulated value for Planck's constant), determine the longest wavelength of light that can still eject electrons from this metal.",
+    "choices": {
+      "A": "620 nm",
+      "B": "413 nm",
+      "C": "248 nm",
+      "D": "310 nm",
+      "E": "1240 nm"
+    },
+    "correct_answer": "B",
+    "explanation": "The photoelectric equation is eV_s = hc/λ − φ. Writing it for both measurements and subtracting eliminates φ: e(V₂ − V₁) = hc(1/λ₂ − 1/λ₁). Thus hc = e(V₂ − V₁)/(1/λ₂ − 1/λ₁) = (1.0 eV)/(1/248 − 1/310 nm⁻¹) = 1240 eV·nm. Then φ = hc/λ₁ − eV₁ = 4.0 − 1.0 = 3.0 eV. The threshold (longest ejecting) wavelength satisfies hc/λ₀ = φ, so λ₀ = hc/φ = 1240/3.0 ≈ 413 nm.",
+    "option_analysis": {
+      "A": "Wrong: sets the work function equal to the larger stopping-potential energy (φ = eV₂ = 2.0 eV), giving 1240/2.0 = 620 nm. Stopping-potential energy is the electrons' kinetic energy, not the work function.",
+      "B": "Correct: subtracting the two photoelectric equations gives hc = e(V₂ − V₁)/(1/λ₂ − 1/λ₁) = 1240 eV·nm, then φ = hc/λ₁ − eV₁ = 3.0 eV, and λ₀ = hc/φ = 1240/3.0 ≈ 413 nm.",
+      "C": "Wrong: a sign error adds the stopping-potential energy to the photon energy, φ = hc/λ₁ + eV₁ = 5.0 eV, giving 1240/5.0 = 248 nm. The kinetic energy must be subtracted from the photon energy to obtain φ.",
+      "D": "Wrong: assumes the threshold is simply the longer of the two tested wavelengths. Both tested wavelengths eject electrons, so both lie below the true threshold, which must be calculated.",
+      "E": "Wrong: sets the work function equal to the smaller stopping-potential energy (φ = eV₁ = 1.0 eV), giving 1240/1.0 = 1240 nm. This again confuses electron kinetic energy with the work function."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0029",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Atomic energy levels and photon emission",
+    "subtopic": "Electron-impact excitation of hydrogen: number of emission lines from the highest level reached",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 125,
+    "tags": [
+      "atomic energy levels",
+      "hydrogen spectrum",
+      "electron bombardment",
+      "emission lines",
+      "photon emission",
+      "excitation energy"
+    ],
+    "learning_objective": "Relate the kinetic energy of bombarding electrons to the highest hydrogen energy level excited, then count the distinct emission lines produced by the de-exciting ensemble.",
+    "question": "A sample of atomic hydrogen, initially in the ground state, is bombarded by a beam of electrons that have each been accelerated from rest through a potential difference of 12.5 V. The hydrogen energy levels are given by E_n = −13.6/n² eV, and each excitation is produced by a single electron collision. After the collisions have occurred throughout the sample, how many distinct wavelengths can appear in the emission spectrum of the gas?",
+    "choices": {
+      "A": "1",
+      "B": "6",
+      "C": "10",
+      "D": "2",
+      "E": "3"
+    },
+    "correct_answer": "E",
+    "explanation": "Each bombarding electron carries a kinetic energy of 12.5 eV. Exciting an atom from n = 1 to level n requires ΔE = 13.6(1 − 1/n²). For n = 2 this is 10.2 eV and for n = 3 it is 13.6 × (8/9) = 12.09 eV, both ≤ 12.5 eV, whereas reaching n = 4 requires 13.6 × (15/16) = 12.75 eV > 12.5 eV. Hence the highest populated level is n = 3. Across the ensemble, downward transitions occur between every pair of the accessible levels 1, 2 and 3, giving C(3,2) = 3 distinct wavelengths: 3→2, 3→1 and 2→1.",
+    "option_analysis": {
+      "A": "Wrong: counts a single de-excitation (e.g. only 3→1), overlooking that different atoms follow different downward routes, so several distinct lines appear across the sample.",
+      "B": "Wrong: assumes excitation up to n = 4, giving C(4,2) = 6 lines. Reaching n = 4 needs 12.75 eV, which exceeds the 12.5 eV available, so n = 4 is not populated.",
+      "C": "Wrong: assumes excitation to n = 5, giving C(5,2) = 10 lines. Reaching n = 5 requires 13.6 × (24/25) ≈ 13.06 eV, far above the available energy, so this level is inaccessible.",
+      "D": "Wrong: counts only transitions ending on the ground state (3→1 and 2→1) and omits the 3→2 transition. Emission lines arise from every pair of accessible levels, not only those terminating at n = 1.",
+      "E": "Correct: 12.5 eV excites atoms to at most n = 3 (12.09 eV needed, versus 12.75 eV for n = 4), so emission occurs between levels 1, 2 and 3, giving C(3,2) = 3 distinct wavelengths."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0030",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Thin-film interference (refraction and superposition)",
+    "subtopic": "Minimum film thickness for constructive reflection with reflection phase changes accounted for",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 135,
+    "tags": [
+      "thin film interference",
+      "refraction",
+      "superposition",
+      "phase change on reflection",
+      "optical path difference",
+      "refractive index"
+    ],
+    "learning_objective": "Account for reflection phase changes and the reduced wavelength inside a film to find the minimum thickness giving constructive reflection.",
+    "question": "A thin, uniform film of soap solution of refractive index 1.33 is supported vertically in air and illuminated at normal incidence by white light. Viewed in reflected light, the film appears strongly reflective (a bright fringe) for green light of vacuum wavelength 532 nm. Taking full account of any phase changes that occur on reflection, what is the smallest non-zero thickness of the film consistent with this observation?",
+    "choices": {
+      "A": "267 nm",
+      "B": "100 nm",
+      "C": "200 nm",
+      "D": "400 nm",
+      "E": "133 nm"
+    },
+    "correct_answer": "B",
+    "explanation": "Two rays interfere in reflection: one reflected at the front (air-to-film) surface and one reflected at the back (film-to-air) surface after traversing the film twice. Reflection at the front surface is off a higher-index medium and introduces a π phase change; reflection at the back surface is off a lower-index medium and introduces none. This net half-wave difference means the bright-fringe (constructive) condition is 2nt = (m + ½)λ, with m = 0, 1, 2, ... The smallest non-zero thickness uses m = 0: 2nt = λ/2, so t = λ/(4n) = 532/(4 × 1.33) = 100 nm.",
+    "option_analysis": {
+      "A": "Wrong: ignores both the refractive index and the phase change, using 2t = λ so t = λ/2 = 266 nm. Neither the reduced wavelength in the film nor the reflection phase shift is included.",
+      "B": "Correct: with the π phase change at the front surface only, constructive reflection needs 2nt = (m + ½)λ; the smallest non-zero thickness (m = 0) is t = λ/(4n) = 532/(4 × 1.33) = 100 nm.",
+      "C": "Wrong: omits the phase change and uses the bright-fringe condition 2nt = λ (m = 1), giving t = λ/(2n) = 200 nm. Once the π phase change is included, this condition actually gives a dark fringe.",
+      "D": "Wrong: drops the factor of 2 for the double traversal of the film, setting nt = λ so t = λ/n = 400 nm. The light crosses the film thickness twice, so the optical path difference is 2nt.",
+      "E": "Wrong: ignores the refractive index of the film and applies t = λ/4 with the vacuum wavelength (532/4 = 133 nm). The path difference is governed by the wavelength inside the film, so n must appear: t = λ/(4n)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  }
+]

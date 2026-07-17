@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 6th Grade English question bank for BrainBuddy.
+"""Generate 6th Grade English question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
-BrainBuddy Question Design Standard: dialogue, scenario, reading comprehension, inference.
+EDUmio Question Design Standard: dialogue, scenario, reading comprehension, inference.
 """
 import json
 import random
@@ -121,7 +121,7 @@ def q(idx, stem, options, answer_index, difficulty, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "ing",
@@ -192,7 +192,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "ing",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_eng6_pack_{pi+1:03d}.json"

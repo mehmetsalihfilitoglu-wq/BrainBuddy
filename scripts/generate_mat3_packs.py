@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 3rd Grade Mathematics question bank for BrainBuddy.
+"""Generate 3rd Grade Mathematics question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
-BrainBuddy Question Design Standard: yorum gerektiren, çok adımlı işlem, günlük hayat senaryosu, grafik/tablo yorumlama.
+EDUmio Question Design Standard: yorum gerektiren, çok adımlı işlem, günlük hayat senaryosu, grafik/tablo yorumlama.
 """
 import json
 import random
@@ -44,7 +44,7 @@ def q(id_val, stem, options, answer_index, difficulty, qtype, topic, skills, exp
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "mat",
@@ -177,7 +177,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "mat",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_mat3_pack_{pi+1:03d}.json"

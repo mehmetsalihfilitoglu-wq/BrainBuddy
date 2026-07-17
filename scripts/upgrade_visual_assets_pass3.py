@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""BrainBuddy visual upgrade pass 3: hard-case recovery only. fen, english, sosyal."""
+"""EDUmio visual upgrade pass 3: hard-case recovery only. fen, english, sosyal."""
 import json
 import re
 from pathlib import Path
@@ -335,7 +335,7 @@ def main():
     rel = lambda p: str(Path(p).relative_to(ROOT)) if str(ROOT) in str(p) else str(p)
 
     with open(ROOT / "VISUAL_UPGRADE_REPORT_PASS3.md", "w", encoding="utf-8") as f:
-        f.write("# BrainBuddy Visual Upgrade — Pass 3 Report\n\n")
+        f.write("# EDUmio Visual Upgrade — Pass 3 Report\n\n")
         f.write("## Counts\n\n")
         f.write("| Metric | Count |\n|--------|-------|\n")
         f.write(f"| Newly upgraded (pass 3) | {len(upgraded)} |\n")

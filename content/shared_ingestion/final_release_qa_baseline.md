@@ -1,7 +1,7 @@
 # Final Release QA — Baseline
 
 **Date:** 2026-07-17
-**Repository:** `C:/Users/39351/AndroidStudioProjects/BrainBuddy` (primary checkout)
+**Repository:** `C:/Users/39351/AndroidStudioProjects/EDUmio` (primary checkout)
 **Branch:** `seeding-final-fix`
 **Baseline HEAD (before QA phase):** `ed073cb` feat(entitlements): connect premium review access
 

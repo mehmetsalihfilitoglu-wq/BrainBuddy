@@ -1,0 +1,275 @@
+[
+  {
+    "id": "mio_phys_0094",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Kinematics — motion graphs",
+    "subtopic": "Velocity–time graph: total distance as the area under a three-phase (trapezoidal) graph",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "kinematics",
+      "velocity-time graph",
+      "area under graph",
+      "displacement",
+      "uniform acceleration"
+    ],
+    "learning_objective": "Find total distance travelled by summing the areas of the separate segments beneath a multi-phase velocity–time graph.",
+    "question": "The velocity–time graph of a cyclist consists of three straight-line segments: starting from rest, the velocity rises uniformly to 8.0 m/s over the first 4.0 s; it then stays constant at 8.0 m/s for the next 6.0 s; finally it falls uniformly back to rest over the last 2.0 s. What total distance does the cyclist travel during the whole 12 s?",
+    "choices": {
+      "A": "64 m",
+      "B": "96 m",
+      "C": "56 m",
+      "D": "48 m",
+      "E": "72 m"
+    },
+    "correct_answer": "E",
+    "explanation": "The distance travelled equals the area under a velocity–time graph. Split the graph into an accelerating triangle, a constant-velocity rectangle and a decelerating triangle: area = ½·4·8 + 6·8 + ½·2·8 = 16 + 48 + 8 = 72 m. All three regions must be included.",
+    "option_analysis": {
+      "A": "Wrong: 64 m = 16 + 48 includes the acceleration triangle and the rectangle but forgets the deceleration triangle (½·2·8 = 8 m).",
+      "B": "Wrong: 96 m = 8.0 m/s × 12 s assumes the cyclist moves at the maximum (constant-phase) speed for the whole 12 s, ignoring the lower speeds during the accelerating and decelerating phases.",
+      "C": "Wrong: 56 m = 48 + 8 includes the rectangle and the deceleration triangle but forgets the acceleration triangle (½·4·8 = 16 m).",
+      "D": "Wrong: 48 m counts only the rectangular constant-velocity area (8 × 6) and omits both triangular areas under the sloping segments.",
+      "E": "Correct: area = ½·4·8 (accelerating triangle) + 6·8 (rectangle) + ½·2·8 (decelerating triangle) = 16 + 48 + 8 = 72 m."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0095",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Kinematics — uniformly accelerated motion (suvat)",
+    "subtopic": "Total stopping distance: constant-speed thinking distance plus uniform-deceleration braking distance",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "kinematics",
+      "suvat",
+      "stopping distance",
+      "reaction time",
+      "braking"
+    ],
+    "learning_objective": "Combine a constant-velocity reaction phase with a uniform-deceleration phase, applying v²/(2a) correctly, to obtain total stopping distance.",
+    "question": "A car travels along a straight road at 40 m/s. The driver sees a hazard and, after a reaction time of 0.50 s during which the car continues at constant speed, applies the brakes and decelerates uniformly at 4.0 m/s² until the car stops. What total distance does the car travel from the instant the hazard appears until it comes to rest?",
+    "choices": {
+      "A": "420 m",
+      "B": "220 m",
+      "C": "210 m",
+      "D": "20 m",
+      "E": "200 m"
+    },
+    "correct_answer": "B",
+    "explanation": "The motion has two phases. During the 0.50 s reaction time the speed is constant, so the thinking distance is v·t = 40 × 0.50 = 20 m. The braking distance is v²/(2a) = 40²/(2×4) = 200 m. Total = 20 + 200 = 220 m.",
+    "option_analysis": {
+      "A": "Wrong: 420 m = 20 + 400 uses v²/a = 1600/4 = 400 m for braking, omitting the factor ½ (equivalently assuming the speed stays 40 m/s throughout braking).",
+      "B": "Correct: thinking distance = 40 × 0.50 = 20 m; braking distance = 40²/(2×4) = 200 m; total = 220 m.",
+      "C": "Wrong: 210 m = 10 + 200 applies s = ½·v·t to the reaction phase (½·40·0.5 = 10 m); but during the reaction the speed is constant, so the thinking distance is v·t = 20 m.",
+      "D": "Wrong: 20 m is only the thinking distance; it ignores the braking distance, treating the car as if it stopped instantly once the brakes were applied.",
+      "E": "Wrong: 200 m is only the braking distance v²/(2a); it ignores the 20 m covered at constant speed during the 0.50 s reaction time."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0096",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Kinematics — free fall under gravity",
+    "subtopic": "Free fall past a window: average speed over a timed interval used to find the entry speed and hence the release height",
+    "difficulty": "hard",
+    "estimated_time_seconds": 125,
+    "tags": [
+      "free fall",
+      "gravity",
+      "average velocity",
+      "suvat",
+      "window problem"
+    ],
+    "learning_objective": "Use the average speed over a timed segment of free fall to deduce the instantaneous entry speed and then the height fallen before that segment.",
+    "question": "A small stone is released from rest and falls freely. It is observed to pass a window 1.8 m tall, taking 0.20 s to travel from the top of the window to the bottom. From what height above the top of the window was the stone released? (g = 10 m/s²)",
+    "choices": {
+      "A": "4.05 m",
+      "B": "5.0 m",
+      "C": "2.45 m",
+      "D": "0.20 m",
+      "E": "3.2 m"
+    },
+    "correct_answer": "E",
+    "explanation": "The average speed across the window is 1.8/0.20 = 9 m/s, which equals (v_top + v_bottom)/2. Since v_bottom = v_top + g·0.20 = v_top + 2, we get v_top + 1 = 9, so v_top = 8 m/s. The stone reached 8 m/s falling from rest, so the release height above the top of the window is v_top²/(2g) = 64/20 = 3.2 m.",
+    "option_analysis": {
+      "A": "Wrong: 4.05 m uses the average window speed 9 m/s as the speed at the top of the window (h = 9²/20). The 9 m/s is the speed at the mid-time of the crossing, not at the top.",
+      "B": "Wrong: 5.0 m uses the bottom-of-window speed 10 m/s as the entry speed (h = 10²/20); this actually gives the height above the bottom of the window, not the top.",
+      "C": "Wrong: 2.45 m mistakenly takes 9 m/s as the speed at the bottom of the window, giving 7 m/s at the top (h = 7²/20); it places the average speed at the wrong end of the interval.",
+      "D": "Wrong: 0.20 m treats the 0.20 s crossing time as the entire fall time from release, giving h = ½·g·(0.20)² and ignoring the speed the stone already had on reaching the window.",
+      "E": "Correct: average speed = 1.8/0.20 = 9 m/s = (v_top + v_bottom)/2 with v_bottom = v_top + 2, giving v_top = 8 m/s; height = 8²/(2·10) = 3.2 m."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0097",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Projectile motion — horizontal projection",
+    "subtopic": "Horizontal projection landing at 45°: relating fall height, time, launch speed and range (R = 2h)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "projectile motion",
+      "horizontal projection",
+      "velocity components",
+      "range",
+      "45 degrees"
+    ],
+    "learning_objective": "Treat horizontal and vertical components independently and use the impact-angle condition (equal components) to find the horizontal range of a horizontally projected body.",
+    "question": "A ball is thrown horizontally from the top of a vertical cliff of height 20 m. It strikes the ground with its velocity directed at 45° below the horizontal. How far from the base of the cliff does it land? (g = 10 m/s²)",
+    "choices": {
+      "A": "44.7 m",
+      "B": "28.3 m",
+      "C": "40 m",
+      "D": "20 m",
+      "E": "80 m"
+    },
+    "correct_answer": "C",
+    "explanation": "Vertically, 20 = ½·10·t² gives t = 2 s, and the vertical impact speed is v_y = g·t = 20 m/s. A 45° impact angle means the components are equal, so the horizontal launch speed u = v_y = 20 m/s. The range is R = u·t = 20 × 2 = 40 m (note R = g·t² = 2h).",
+    "option_analysis": {
+      "A": "Wrong: 44.7 m = √(20² + 40²) is the magnitude of the straight-line displacement from launch to landing point, not the horizontal distance requested.",
+      "B": "Wrong: 28.3 m omits the factor ½ in h = ½g·t² (solving 20 = 10·t² gives t = √2 s) while still using u = 20 m/s, so R = 20·√2 ≈ 28.3 m.",
+      "C": "Correct: t = √(2·20/10) = 2 s; v_y = 10·2 = 20 m/s; the 45° condition gives u = v_y = 20 m/s; range = 20 × 2 = 40 m.",
+      "D": "Wrong: 20 m assumes '45°' means the horizontal and vertical displacements are equal (R = h). In fact the 45° velocity condition gives R = u·t = (g·t)·t = 2·(½g·t²) = 2h = 40 m.",
+      "E": "Wrong: 80 m adds the horizontal and vertical impact speeds (20 + 20 = 40 m/s) and multiplies by the flight time; only the horizontal component should be multiplied by the time."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0098",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Projectile motion — projection at an angle",
+    "subtopic": "Complementary launch angles giving equal range: comparing the maximum heights reached",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "projectile motion",
+      "maximum height",
+      "complementary angles",
+      "range",
+      "trigonometry"
+    ],
+    "learning_objective": "Recognise that complementary angles give equal range but different maximum heights, and compute the difference in maximum height from H = v²sin²θ/(2g).",
+    "question": "Two balls are thrown from ground level with the same speed of 20 m/s, one at 30° above the horizontal and the other at 60° above the horizontal. They land at the same horizontal distance from the launch point. By how much does the maximum height reached by the 60° ball exceed that reached by the 30° ball? (g = 10 m/s²)",
+    "choices": {
+      "A": "15 m",
+      "B": "10 m",
+      "C": "5 m",
+      "D": "20 m",
+      "E": "0 m"
+    },
+    "correct_answer": "B",
+    "explanation": "Maximum height H = v²sin²θ/(2g). H(60°) = 400·(√3/2)²/20 = 400·0.75/20 = 15 m and H(30°) = 400·(1/2)²/20 = 400·0.25/20 = 5 m. Although the two complementary angles give the same range, the steeper launch rises higher; the difference is 15 − 5 = 10 m.",
+    "option_analysis": {
+      "A": "Wrong: 15 m is the maximum height of the 60° ball alone; the excess over the 30° ball's height must be found by subtraction.",
+      "B": "Correct: H(60°) = 400·0.75/20 = 15 m and H(30°) = 400·0.25/20 = 5 m, so the 60° ball rises 10 m higher.",
+      "C": "Wrong: 5 m is the maximum height of the 30° ball alone, not the difference between the two heights.",
+      "D": "Wrong: 20 m adds the two maximum heights (15 + 5) instead of subtracting them.",
+      "E": "Wrong: 0 m assumes equal range implies equal maximum height. Equal ranges come from the complementary angles, but the steeper launch always reaches a greater maximum height."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0099",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Projectile motion — projection at an angle",
+    "subtopic": "Recovering the vertical launch component from a post-apex point (via horizontal timing) to find the maximum height",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "projectile motion",
+      "maximum height",
+      "velocity components",
+      "suvat",
+      "trajectory point"
+    ],
+    "learning_objective": "Use constant horizontal motion to time a projectile to a known point, back out the vertical launch component from the vertical displacement equation, and hence find the maximum height.",
+    "question": "A ball is projected from ground level and moves with a constant horizontal velocity of 20 m/s. When it has travelled 60 m horizontally, it is 15 m above the ground and descending. What is the maximum height the ball reaches? (g = 10 m/s²)",
+    "choices": {
+      "A": "40 m",
+      "B": "20 m",
+      "C": "45 m",
+      "D": "15 m",
+      "E": "60 m"
+    },
+    "correct_answer": "B",
+    "explanation": "The horizontal motion fixes the time to the point: t = 60/20 = 3 s. Vertically, 15 = v_y·t − ½g·t² = 3v_y − ½·10·9 = 3v_y − 45, giving v_y = 20 m/s (the vertical launch component). The maximum height is then v_y²/(2g) = 400/20 = 20 m. (The apex occurs at t = v_y/g = 2 s, one second before the observed descending point.)",
+    "option_analysis": {
+      "A": "Wrong: 40 m uses H = v_y²/g = 400/10, omitting the factor ½ in H = v_y²/(2g).",
+      "B": "Correct: t = 60/20 = 3 s; 15 = 3v_y − ½·10·3² gives v_y = 20 m/s; maximum height = 20²/(2·10) = 20 m.",
+      "C": "Wrong: 45 m is just the term ½g·t² = ½·10·3² evaluated at t = 3 s — one piece of the vertical equation, not the maximum height.",
+      "D": "Wrong: 15 m takes the stated height at the observed point as the maximum. But the ball is described as still descending through 15 m, so it was higher earlier; the apex lies above this point.",
+      "E": "Wrong: 60 m is the horizontal distance travelled, mistaken for a vertical height."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0100",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Kinematics — motion graphs",
+    "subtopic": "Velocity–time graph crossing zero: total distance travelled versus net displacement",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "kinematics",
+      "velocity-time graph",
+      "distance vs displacement",
+      "sign change",
+      "area under graph"
+    ],
+    "learning_objective": "Locate the instant of velocity reversal on a velocity–time graph and add the magnitudes of the two areas to obtain total distance, distinguishing it from net displacement.",
+    "question": "A particle moves along a straight line. Its velocity–time graph is a single straight line: the velocity is +12 m/s at t = 0 and decreases uniformly, reaching −8 m/s at t = 10 s. What total distance does the particle travel during these 10 s?",
+    "choices": {
+      "A": "36 m",
+      "B": "16 m",
+      "C": "20 m",
+      "D": "52 m",
+      "E": "100 m"
+    },
+    "correct_answer": "D",
+    "explanation": "The acceleration is (−8 − 12)/10 = −2 m/s², so the velocity is zero at t = 6 s. The particle first moves forward, covering ½·6·12 = 36 m, then reverses and covers ½·4·8 = 16 m backwards. Total distance travelled is the sum of the magnitudes, 36 + 16 = 52 m (whereas the net displacement is only 36 − 16 = 20 m).",
+    "option_analysis": {
+      "A": "Wrong: 36 m counts only the forward phase (0–6 s) and ignores the distance travelled after the velocity reverses at t = 6 s.",
+      "B": "Wrong: 16 m counts only the reverse phase (6–10 s) and ignores the forward distance before the velocity reverses.",
+      "C": "Wrong: 20 m is the net displacement (signed area, 36 − 16), obtained from s = ut + ½at² = 12·10 + ½(−2)·100. Total distance must add the two path lengths without cancellation.",
+      "D": "Correct: velocity is zero at t = 6 s; forward distance = ½·6·12 = 36 m and reverse distance = ½·4·8 = 16 m, giving total path length 36 + 16 = 52 m.",
+      "E": "Wrong: 100 m treats the whole graph as one trapezoid, ½(12 + 8)·10, ignoring that the velocity changes sign at t = 6 s so the two areas represent motion in opposite directions."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch14",
+    "review_status": "accepted"
+  }
+]

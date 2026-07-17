@@ -1,0 +1,195 @@
+[
+  {
+    "id": "mio_ct_0027",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Principle application",
+    "subtopic": "Applying a two-part (conjunctive, biconditional) eligibility rule to candidate cases",
+    "difficulty": "medium",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "principle-application",
+      "conjunctive-condition",
+      "biconditional",
+      "rule-application"
+    ],
+    "learning_objective": "Apply a two-part (conjunctive, biconditional) eligibility rule to candidate cases and identify the one that satisfies every condition.",
+    "question": "A regional council adopts the following rule for awarding public research grants: \"A project qualifies for a public grant precisely when both of the following hold: (i) it would be unable to secure adequate private investment on its own, and (ii) its expected benefits would be shared across the general public rather than captured by a single commercial backer.\" On the basis of this rule alone, which of the following projects qualifies for a public grant?",
+    "choices": {
+      "A": "A drug trial that a pharmaceutical company is fully willing to finance, in return for which the company would hold the sole patent on any resulting medicine.",
+      "B": "A study of soil micro-organisms that no private investor is willing to back because it promises no commercial return, and whose findings would be published openly for the benefit of all farmers.",
+      "C": "A software project that has already secured venture-capital funding and whose profits flow to its founders, although it also releases a free public version.",
+      "D": "A water-purification scheme that a single bottling firm is eager to finance in exchange for exclusive rights to the treated water in the region.",
+      "E": "A vaccine-storage technology that several private firms are competing to finance, and whose results would be made freely available to public health services."
+    },
+    "correct_answer": "B",
+    "explanation": "The rule is a biconditional joining two conditions that must BOTH be met: the project cannot attract adequate private funding (i) AND its benefits are shared with the general public rather than captured by one backer (ii). Test each candidate against both conditions and keep only the one satisfying each. The soil-microbiology study cannot attract private investment (no commercial return) and its openly published findings benefit all farmers, so it satisfies (i) and (ii). Every other option fails at least one condition, usually because private finance is available.",
+    "option_analysis": {
+      "A": "Wrong: The company is willing to finance it (fails i) and the sole-patent arrangement captures the benefit for one backer (fails ii). Misconception: assuming that anything medical is automatically a public good deserving public money, without checking the stated conditions.",
+      "B": "Correct: No private investor will back it, satisfying (i), and its openly published findings are shared across the general public, satisfying (ii); it is the only project meeting both conditions.",
+      "C": "Wrong: It has already secured venture-capital funding, so it fails condition (i); the free public version is a lure. Misconception: treating some public benefit as enough while ignoring that BOTH conditions of a conjunction must hold.",
+      "D": "Wrong: A single bottling firm would capture the benefit through exclusive rights (fails ii) and is willing to finance it (fails i). Misconception: reasoning 'clean water is a public good, so it qualifies' while overlooking the single-backer capture.",
+      "E": "Wrong: Its results would be public (satisfies ii), but competing firms are willing to finance it, so it fails condition (i). Misconception: meeting only the public-benefit half of a two-part rule and ignoring the conjunction."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0028",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Parallel reasoning",
+    "subtopic": "Parallel flaw: matching the logical form of affirming the consequent",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "parallel-reasoning",
+      "parallel-flaw",
+      "affirming-the-consequent",
+      "logical-form",
+      "conditional-logic"
+    ],
+    "learning_objective": "Recognise the abstract logical form of an argument and match a flawed argument to another exhibiting the same fallacy (affirming the consequent), distinguishing it from valid forms and from other fallacies.",
+    "question": "Consider the following argument: \"Every cyclist who is dehydrated performs poorly in the final sprint. Elena performed poorly in the final sprint. Therefore Elena must have been dehydrated.\" Which one of the following arguments is flawed in the same way as the argument above?",
+    "choices": {
+      "A": "Every genuine sapphire scratches glass. This stone does not scratch glass. Therefore this stone is not a genuine sapphire.",
+      "B": "Everything that scratches glass is a genuine sapphire. This stone scratches glass. Therefore this stone is a genuine sapphire.",
+      "C": "Every genuine sapphire scratches glass. This stone is a genuine sapphire. Therefore this stone scratches glass.",
+      "D": "Every genuine sapphire scratches glass. This stone is not a genuine sapphire. Therefore this stone does not scratch glass.",
+      "E": "Every genuine sapphire scratches glass. This stone scratches glass. Therefore this stone is a genuine sapphire."
+    },
+    "correct_answer": "E",
+    "explanation": "The stem has the form: 'All D are P; e is P; therefore e is D.' It affirms the consequent (poor performance) and wrongly infers the antecedent (dehydration) — invalid, because poor performance could have other causes. The parallel-flaw task is to find the argument sharing this exact invalid form, not merely the same topic or the same conclusion. Option C reads 'All S are G (scratch glass); this is G; therefore this is S' — precisely affirming the consequent.",
+    "option_analysis": {
+      "A": "Wrong: This is valid (modus tollens / contrapositive): denying the consequent validly yields denial of the antecedent. Misconception: assuming any conditional syllogism containing a negation shares the stem's flaw.",
+      "B": "Wrong: This argument is actually valid, because its first premise is the converse ('everything that scratches glass is a sapphire'); given that premise the conclusion follows by modus ponens. Misconception: judging arguments parallel because they reach the same conclusion ('it is a sapphire') rather than by shared logical form.",
+      "C": "Wrong: This is a valid argument (modus ponens): it affirms the antecedent 'is a sapphire' and validly concludes 'scratches glass'. Matching a flawed argument to a valid one fails. Misconception: matching surface vocabulary rather than logical form.",
+      "D": "Wrong: This is a fallacy, but a different one — denying the antecedent ('not a sapphire, therefore does not scratch glass'). Misconception: treating any invalid conditional argument as 'the same flaw' regardless of its specific form.",
+      "E": "Correct: It has the stem's structure — 'all S are G; this is G; therefore this is S' — affirming the consequent and invalidly inferring the antecedent, exactly parallel to the dehydration argument."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0029",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Principle application",
+    "subtopic": "Principle identification: selecting the principle that best justifies a differential judgement",
+    "difficulty": "hard",
+    "estimated_time_seconds": 95,
+    "tags": [
+      "principle-identification",
+      "justification",
+      "differential-judgement",
+      "argument-analysis"
+    ],
+    "learning_objective": "Identify the general principle that, if adopted, would most strongly justify a specific differential judgement between two cases.",
+    "question": "An anti-doping panel considers two swimmers, X and Y. Both test positive for the same banned stimulant at identical concentrations. The panel establishes that X took the substance knowingly in order to gain an advantage, whereas Y ingested it unknowingly in a contaminated dietary supplement. The panel bans X but clears Y. Which of the following principles, if accepted, would most strongly justify the panel's decision to treat the two cases differently?",
+    "choices": {
+      "A": "An athlete should be sanctioned whenever a banned substance is detected above the permitted threshold, irrespective of how it entered the body.",
+      "B": "An athlete should be sanctioned only if he or she bears personal responsibility for the banned substance entering the body.",
+      "C": "An athlete should be sanctioned only if the banned substance measurably improved his or her performance.",
+      "D": "An athlete should be sanctioned only if he or she has previously been found guilty of a doping offence.",
+      "E": "The severity of a sanction should be proportional to the measured concentration of the banned substance."
+    },
+    "correct_answer": "B",
+    "explanation": "To justify treating the two swimmers differently, the chosen principle must turn on the one feature that actually differs between them — X acted knowingly, Y did not — while everything else (substance, concentration) is identical. A responsibility-based principle bans the athlete who is responsible (X) and clears the one who is not (Y), exactly reproducing the panel's decision. The other principles either treat both cases alike or hinge on a factor the scenario does not distinguish.",
+    "option_analysis": {
+      "A": "Wrong: This strict-liability principle would require banning BOTH swimmers, since both exceeded the threshold, so it cannot justify differential treatment. Misconception: assuming any anti-doping principle supports any anti-doping decision.",
+      "B": "Correct: Making personal responsibility the criterion tracks precisely the knowing/unknowing difference between X and Y, justifying banning the responsible swimmer while clearing the blameless one.",
+      "C": "Wrong: The scenario never states that performance effects differed between the swimmers, so this principle does not track the knowing/unknowing distinction. Misconception: importing a plausible-sounding but irrelevant criterion.",
+      "D": "Wrong: The cases are distinguished by intent, not by prior record; nothing indicates that either swimmer has a previous offence. Misconception: choosing a fair-sounding principle that is orthogonal to the stated difference between the cases.",
+      "E": "Wrong: The concentration is identical for the two swimmers, so a concentration-based principle predicts identical, not different, treatment. Misconception: seizing on the salient 'same concentration' detail as if it were the operative reason."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0030",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Reading and inference",
+    "subtopic": "Multi-premise quantifier deduction (must-be-true) from a short passage",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "reading-inference",
+      "must-be-true",
+      "quantifiers",
+      "categorical-deduction",
+      "valid-inference"
+    ],
+    "learning_objective": "Draw a valid must-be-true inference by combining several quantified statements in a short passage, while rejecting invalid conversions and over-generalisations.",
+    "question": "Read the following passage: \"At Northgate Hospital, everyone who serves on the finance committee also serves on the audit board. Some members of the audit board are external consultants brought in from other organisations. Under the hospital's rules, no external consultant may vote on the annual budget, whereas every member of the finance committee is entitled to vote on it.\" If all of the statements in the passage are true, which one of the following must also be true?",
+    "choices": {
+      "A": "Every member of the audit board may vote on the annual budget.",
+      "B": "Some members of the finance committee are external consultants.",
+      "C": "No member of the finance committee is an external consultant.",
+      "D": "No member of the audit board may vote on the annual budget.",
+      "E": "Every external consultant serves on the audit board."
+    },
+    "correct_answer": "C",
+    "explanation": "Combine the two voting statements: every finance-committee member is entitled to vote, but no external consultant may vote. Anyone who may vote therefore cannot be an external consultant, so no finance-committee member can be an external consultant — a valid must-be-true conclusion. The other options either reverse a 'some' statement, or over-extend a rule that applies only to consultants or only to finance-committee members.",
+    "option_analysis": {
+      "A": "Wrong: Some audit-board members are external consultants, who may not vote, so not every audit-board member may vote. Misconception: over-generalising the finance committee's voting right to the whole audit board.",
+      "B": "Wrong: This is in fact impossible — finance members may all vote and consultants may not, so no finance member can be a consultant. Misconception: assuming that groups sharing the audit board must overlap everywhere.",
+      "C": "Correct: Every finance member may vote and no external consultant may vote; therefore no finance-committee member can be an external consultant, a valid deduction combining the two voting rules.",
+      "D": "Wrong: Finance-committee members serve on the audit board and are entitled to vote, so some audit-board members certainly can vote. Misconception: extending 'no consultant may vote' to the entire audit board.",
+      "E": "Wrong: The passage states only that SOME audit-board members are consultants; it does not follow that every consultant is on the audit board. Misconception: illicitly converting 'some A are C' into 'all C are A'."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_ct_0031",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "critical_thinking",
+    "topic": "Deductive logic puzzle",
+    "subtopic": "Ordering five items from relative-position clues and identifying a forced conclusion",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "logic puzzle",
+      "ordering",
+      "deduction",
+      "relative position",
+      "must be true"
+    ],
+    "learning_objective": "Combine several relative-order constraints (adjacency, 'ahead of', 'not first', 'after') to pin down a unique ordering and identify which statement is necessarily true.",
+    "question": "Five runners — P, Q, R, S and T — finish a race in positions first to fifth, with no dead heats (no ties). The following facts are known: (1) R finishes immediately ahead of P, with no runner between them. (2) Q finishes somewhere ahead of R, but Q is not first. (3) S finishes at some point after P. On the basis of these facts alone, which one of the following must be true?",
+    "choices": {
+      "A": "Q finishes fourth.",
+      "B": "R finishes fifth.",
+      "C": "S finishes ahead of Q.",
+      "D": "P finishes ahead of R.",
+      "E": "T finishes first."
+    },
+    "correct_answer": "E",
+    "explanation": "From the clues, among P, Q, R and S the order is forced: Q is ahead of R (clue 2), R is immediately ahead of P (clue 1), and S is after P (clue 3), giving the relative sequence Q, R, P, S. The only remaining runner, T, must be slotted in. If T were anywhere except first, then Q — the earliest of the other four — would be first, contradicting clue 2 (Q is not first). Therefore T must finish first, and the unique full order is T (1st), Q (2nd), R (3rd), P (4th), S (5th). Hence 'T finishes first' must be true.",
+    "option_analysis": {
+      "A": "Wrong: in the forced order Q finishes second, not fourth.",
+      "B": "Wrong: R finishes third; S is the runner in fifth (last) place.",
+      "C": "Wrong: S finishes fifth (last) and Q second, so S is behind Q, not ahead.",
+      "D": "Wrong: clue 1 puts R immediately AHEAD of P, so P is behind R (P is 4th, R is 3rd), never ahead of it.",
+      "E": "Correct: placing T anywhere but first would make Q first (Q leads the other four), which clue 2 forbids; so T must be first, giving the unique order T, Q, R, P, S."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch06",
+    "review_status": "accepted"
+  }
+]

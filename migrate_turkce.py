@@ -131,7 +131,7 @@ def convert_question(legacy, source_ref):
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
     }
 
@@ -154,7 +154,7 @@ def main():
     max_ref = 0
     for q in existing_questions:
         ref = q.get("sourceRef", "")
-        m = re.search(r"lgs_brainbuddy_tr_(\d+)", ref)
+        m = re.search(r"lgs_edumio_tr_(\d+)", ref)
         if m:
             max_ref = max(max_ref, int(m.group(1)))
 
@@ -170,7 +170,7 @@ def main():
         if find_duplicate(stem, existing_stems):
             skipped += 1
             continue
-        ref_str = f"lgs_brainbuddy_tr_{next_ref:04d}"
+        ref_str = f"lgs_edumio_tr_{next_ref:04d}"
         c = convert_question(leg, ref_str)
         if c:
             converted.append(c)

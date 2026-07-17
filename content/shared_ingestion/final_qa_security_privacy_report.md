@@ -16,7 +16,7 @@ and email are **not implemented** (out of scope this phase); their requirements 
 | External storage | **None** used by DC |
 | Sensitive debug logging | `LocalDailyChallengeAnalytics` logs event **names + minimal params** (exam, date, slot, is_correct, score) via `Log.i` — no question stems, answer text, or PII. Bounded in-memory ring buffer; nothing leaves the device. |
 | Anonymous user id | `DailyChallengeUser.resolve` uses the auth id when signed in, else a locally-generated random UUID (`anon_<uuid>`). Not derived from device identifiers; not PII. |
-| DB access boundaries | `daily_challenge.db` is app-private (Room, internal storage); separate from `brainbuddy.db` (no schema/migration coupling) |
+| DB access boundaries | `daily_challenge.db` is app-private (Room, internal storage); separate from `edumio.db` (no schema/migration coupling) |
 | Entitlement tampering | Premium is read from `EntitlementProvider` (currently local `PremiumStore`). A local flag is trivially tamperable on a rooted device, but tampering only widens **review depth** — it can never increase the 5-new-per-day count (enforced independently of entitlement; `DailyChallengeEntitlementPolicyTest`). Server-side entitlement verification is a backend requirement (below). |
 | Backup behaviour | Uses the app's existing backup configuration; `daily_challenge.db` is local app data. No new backup surface introduced by DC. |
 

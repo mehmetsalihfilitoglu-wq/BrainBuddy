@@ -1,0 +1,270 @@
+[
+  {
+    "id": "mio_phys_0087",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Work, energy and power",
+    "subtopic": "Efficiency of a machine from useful output power (mgv) and electrical input power",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "power",
+      "efficiency",
+      "mechanical work",
+      "energy conservation"
+    ],
+    "learning_objective": "Calculate the useful output power of a machine that raises a load at constant speed and combine it with the input power to find the efficiency.",
+    "question": "An electric hoist raises a load of mass 50 kg vertically at a constant speed of 0.40 m/s. While doing so it draws 250 W of electrical power from the mains. Taking g = 10 m/s^2, what is the efficiency of the hoist?",
+    "choices": {
+      "A": "8%",
+      "B": "80%",
+      "C": "200%",
+      "D": "125%",
+      "E": "20%"
+    },
+    "correct_answer": "B",
+    "explanation": "Because the load moves at constant speed, the useful output is the rate at which gravitational potential energy is gained: P_out = mgv = 50 x 10 x 0.40 = 200 W. Efficiency = useful output power / total input power = 200 / 250 = 0.80 = 80%. The key steps are (i) recognising that output power is force times velocity with the force equal to the weight mg, and (ii) forming the ratio the correct way round (output over input, always < 100%).",
+    "option_analysis": {
+      "A": "Wrong: treats the numerical mass (50) as if it were the weight in newtons, omitting g. This gives P_out = 50 x 0.40 = 20 W and 20/250 = 8%.",
+      "B": "Correct: P_out = mgv = 50 x 10 x 0.40 = 200 W, and efficiency = 200/250 = 80%.",
+      "C": "Wrong: uses the weight (force) mg = 500 N as if it were the output power, forgetting to multiply by the speed, giving 500/250 = 200%.",
+      "D": "Wrong: inverts the efficiency ratio to input/output = 250/200 = 1.25 = 125%, which wrongly exceeds 100%.",
+      "E": "Wrong: reports the fraction of power that is wasted, (250 - 200)/250 = 20%, instead of the fraction usefully delivered."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0088",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Work, energy and power",
+    "subtopic": "Conversion of elastic potential energy of a compressed spring into gravitational potential energy (vertical launch)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "elastic potential energy",
+      "Hooke's law",
+      "gravitational potential energy",
+      "energy conservation"
+    ],
+    "learning_objective": "Apply conservation of energy to equate the elastic potential energy stored in a compressed spring to the gravitational potential energy of a launched mass at its highest point.",
+    "question": "A light vertical spring of stiffness k = 800 N/m is compressed by 0.15 m and used to launch a small ball of mass 0.20 kg straight up. Take the compressed position as the reference level and assume all the stored elastic energy is converted, with no air resistance. Taking g = 10 m/s^2, what is the maximum height the ball rises above its release point?",
+    "choices": {
+      "A": "2.25 m",
+      "B": "9.0 m",
+      "C": "45 m",
+      "D": "30 m",
+      "E": "4.5 m"
+    },
+    "correct_answer": "E",
+    "explanation": "The energy stored in the compressed spring is E = (1/2)kx^2 = (1/2)(800)(0.15)^2 = (1/2)(800)(0.0225) = 9.0 J. At the highest point the ball is momentarily at rest, so all of this energy has become gravitational potential energy: mgh = 9.0 J. Hence h = 9.0 / (0.20 x 10) = 9.0 / 2.0 = 4.5 m above the release (compressed) position.",
+    "option_analysis": {
+      "A": "Wrong: divides the correct height by 2, as if the stored energy were shared between the upward and downward parts of the flight; energy conservation to the highest point uses all 9.0 J.",
+      "B": "Wrong: omits the factor of 1/2 in the elastic energy, using kx^2 = 18 J, so h = 18/2.0 = 9.0 m.",
+      "C": "Wrong: forgets the g in mgh and divides the energy by the mass alone, 9.0/0.20 = 45 m.",
+      "D": "Wrong: uses the extension x rather than x^2 in the elastic energy, (1/2)(800)(0.15) = 60 J, giving h = 60/2.0 = 30 m.",
+      "E": "Correct: (1/2)kx^2 = 9.0 J = mgh gives h = 9.0/(0.20 x 10) = 4.5 m."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0089",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Work, energy and power",
+    "subtopic": "Non-linear (quadratic) scaling of spring energy: additional work to stretch a spring between two non-zero extensions",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "elastic potential energy",
+      "Hooke's law",
+      "work done",
+      "quadratic scaling"
+    ],
+    "learning_objective": "Recognise that the energy stored in a spring scales with the square of the extension and compute the additional work needed to extend it further from a non-zero starting extension.",
+    "question": "A spring obeys Hooke's law. The work needed to stretch it from its natural length by 4.0 cm is 1.6 J. How much additional work is required to stretch it a further 4.0 cm, that is from an extension of 4.0 cm to an extension of 8.0 cm?",
+    "choices": {
+      "A": "1.6 J",
+      "B": "3.2 J",
+      "C": "6.4 J",
+      "D": "4.8 J",
+      "E": "9.6 J"
+    },
+    "correct_answer": "D",
+    "explanation": "The energy stored at extension x is (1/2)kx^2. From (1/2)k(0.04)^2 = 1.6 J we get k = 2000 N/m. The total work to reach 8.0 cm is (1/2)(2000)(0.08)^2 = 6.4 J. The additional work beyond the first 4.0 cm is 6.4 - 1.6 = 4.8 J. Because the energy grows as the square of the extension, doubling the extension quadruples the total stored energy, so the second equal stretch requires three times as much work as the first.",
+    "option_analysis": {
+      "A": "Wrong: assumes an equal further extension needs equal work, treating the force (and hence work) as constant rather than increasing with extension.",
+      "B": "Wrong: assumes the work is proportional to extension, so a second equal stretch simply doubles the first (2 x 1.6 = 3.2 J), ignoring the x^2 dependence.",
+      "C": "Wrong: gives the total work to reach 8.0 cm, (1/2)k(0.08)^2 = 6.4 J, forgetting to subtract the 1.6 J already done over the first 4.0 cm.",
+      "D": "Correct: (1/2)k(x2^2 - x1^2) = (1/2)(2000)(0.0064 - 0.0016) = 6.4 - 1.6 = 4.8 J.",
+      "E": "Wrong: omits the factor of 1/2, computing k(x2^2 - x1^2) = 2000(0.0064 - 0.0016) = 9.6 J."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0090",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Work, energy and power",
+    "subtopic": "Power delivered by a vehicle at constant speed against gravity (weight component on an incline) and resistance",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "power",
+      "inclined plane",
+      "work done against gravity",
+      "resistive force"
+    ],
+    "learning_objective": "Compute the driving power needed to move a vehicle at constant speed up an incline by summing the gravitational component along the slope and the resistive force, then multiplying by speed.",
+    "question": "A car of mass 1200 kg travels at a constant 20 m/s up a straight road that rises 1 m vertically for every 20 m measured along the road. A constant resistive force of 500 N opposes its motion. Taking g = 10 m/s^2, what useful power must the engine deliver?",
+    "choices": {
+      "A": "10 kW",
+      "B": "250 kW",
+      "C": "12 kW",
+      "D": "22 kW",
+      "E": "240 kW"
+    },
+    "correct_answer": "D",
+    "explanation": "At constant speed the driving force balances the two opposing forces along the slope: the component of weight down the slope, mg sin(theta) = 1200 x 10 x (1/20) = 600 N, and the resistance, 500 N. Total driving force = 600 + 500 = 1100 N. Power = force x speed = 1100 x 20 = 22 000 W = 22 kW. Note that sin(theta) = 1/20 because the rise is measured per unit distance along the road.",
+    "option_analysis": {
+      "A": "Wrong: includes only the resistive force, 500 x 20 = 10 kW, ignoring the work done against gravity on the slope.",
+      "B": "Wrong: uses the full weight mg = 12 000 N (instead of the along-slope component) plus the 500 N resistance, (12 500) x 20 = 250 kW.",
+      "C": "Wrong: includes only the gravitational component, 600 x 20 = 12 kW, ignoring the resistive force.",
+      "D": "Correct: (mg sin(theta) + resistance) x v = (600 + 500) x 20 = 22 kW.",
+      "E": "Wrong: uses the full weight mg = 12 000 N instead of its component mg sin(theta), and omits the resistance, giving 12 000 x 20 = 240 kW."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0091",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Work, energy and power",
+    "subtopic": "Height at which kinetic energy equals gravitational potential energy for a body thrown vertically upward",
+    "difficulty": "hard",
+    "estimated_time_seconds": 115,
+    "tags": [
+      "kinetic energy",
+      "gravitational potential energy",
+      "energy conservation",
+      "projectile"
+    ],
+    "learning_objective": "Use conservation of energy to find the height at which the kinetic and potential energies of an upward-thrown body are equal.",
+    "question": "A ball is thrown vertically upward from ground level with an initial speed of 20 m/s. Neglecting air resistance and taking g = 10 m/s^2, at what height above the launch point is the ball's kinetic energy equal to its gravitational potential energy?",
+    "choices": {
+      "A": "40 m",
+      "B": "5.0 m",
+      "C": "15 m",
+      "D": "10 m",
+      "E": "20 m"
+    },
+    "correct_answer": "D",
+    "explanation": "By energy conservation the total energy stays equal to the initial kinetic energy, KE0 = (1/2)mv0^2. Where KE = PE, each is half the total, so PE = (1/2)KE0: mgh = (1/2)(1/2)mv0^2 = (1/4)mv0^2. Thus h = v0^2/(4g) = 400/40 = 10 m. Equivalently, since the maximum height is v0^2/(2g) = 20 m, the kinetic and potential energies are equal at exactly half the maximum height, 10 m.",
+    "option_analysis": {
+      "A": "Wrong: omits the factor of 1/2 in the kinetic energy, setting mgh = mv0^2, so h = v0^2/g = 40 m.",
+      "B": "Wrong: applies an extra factor of 1/2, using h = v0^2/(8g) = 5 m, e.g. by setting the potential energy to one quarter rather than one half of the total.",
+      "C": "Wrong: guesses the crossover at three quarters of the maximum height (0.75 x 20 = 15 m), misjudging how the linearly rising potential energy meets the falling kinetic energy.",
+      "D": "Correct: mgh = (1/4)mv0^2 gives h = v0^2/(4g) = 400/40 = 10 m (half of the 20 m maximum height).",
+      "E": "Wrong: takes the maximum height, 20 m, on the mistaken belief that KE = PE at the top; there the kinetic energy is zero and the two are not equal."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0092",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Work, energy and power",
+    "subtopic": "Electrical input power of a pump from mass flow rate, lift height and efficiency",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "power",
+      "efficiency",
+      "mass flow rate",
+      "gravitational potential energy",
+      "unit conversion"
+    ],
+    "learning_objective": "Combine a mass flow rate, a lift height and an efficiency to determine the electrical input power of a pump, handling the per-minute to per-second conversion.",
+    "question": "A pump raises water through a vertical height of 12 m, delivering 300 kg of water every minute. The pump is 60% efficient, and the water is delivered slowly so its kinetic energy is negligible. Taking g = 10 m/s^2, what electrical input power does the pump require?",
+    "choices": {
+      "A": "100 W",
+      "B": "1000 W",
+      "C": "360 W",
+      "D": "600 W",
+      "E": "60 kW"
+    },
+    "correct_answer": "B",
+    "explanation": "The mass flow rate is 300 kg per 60 s = 5.0 kg/s. The useful output power is the rate of gain of gravitational potential energy: P_out = (m/t)gh = 5.0 x 10 x 12 = 600 W. Since efficiency = output/input, the input power is P_in = P_out / 0.60 = 600 / 0.60 = 1000 W = 1.0 kW.",
+    "option_analysis": {
+      "A": "Wrong: omits g, treating the mass in kilograms as a weight, so P_out = 5.0 x 12 = 60 W and 60/0.60 = 100 W.",
+      "B": "Correct: P_out = (5.0 kg/s)(10)(12) = 600 W, and P_in = 600/0.60 = 1000 W.",
+      "C": "Wrong: multiplies the output by the efficiency instead of dividing, 600 x 0.60 = 360 W, which wrongly makes the input smaller than the output.",
+      "D": "Wrong: gives the useful output power 600 W and forgets to divide by the efficiency to obtain the larger input power.",
+      "E": "Wrong: fails to convert the flow rate, using 300 kg/s: P_out = 300 x 10 x 12 = 36 000 W, then 36 000/0.60 = 60 000 W."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_phys_0093",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "physics",
+    "topic": "Work, energy and power",
+    "subtopic": "Two-stage energy conservation: friction loss on a rough incline then a rise up a smooth incline",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "conservation of energy",
+      "work-energy",
+      "friction",
+      "inclined plane",
+      "gravitational potential energy"
+    ],
+    "learning_objective": "Track mechanical energy through two stages — a descent with friction and a frictionless rise — using the work–energy principle to find the final height.",
+    "question": "A 2.0 kg block is released from rest at the top of a rough incline. It slides 9.0 m along the slope while descending a vertical height of 5.0 m, and a constant frictional force of 4.0 N opposes its motion the whole way down. At the bottom it passes onto a short smooth horizontal surface and then continues up a second, completely frictionless incline. Taking g = 10 m/s², what is the maximum vertical height the block reaches on the second incline?",
+    "choices": {
+      "A": "5.0 m",
+      "B": "6.4 m",
+      "C": "3.2 m",
+      "D": "4.0 m",
+      "E": "2.5 m"
+    },
+    "correct_answer": "C",
+    "explanation": "Going down the rough incline, the gravitational potential energy released is mgh = 2.0 × 10 × 5.0 = 100 J, while friction removes W = F × distance = 4.0 × 9.0 = 36 J. So the kinetic energy at the bottom is 100 − 36 = 64 J. The second incline is frictionless, so all of this kinetic energy is reconverted to gravitational potential energy at the highest point: mgh' = 64 J, giving h' = 64 / (2.0 × 10) = 3.2 m. The block rises to a lower height than it started because friction dissipated 36 J on the way down.",
+    "option_analysis": {
+      "A": "Wrong: 5.0 m assumes no energy is lost, so the block would return to its starting height; it ignores the 36 J removed by friction on the descent.",
+      "B": "Wrong: 6.4 m would require 128 J at the bottom, i.e. adding the friction work instead of subtracting it.",
+      "C": "Correct: KE at the bottom is 100 − 36 = 64 J, and on the frictionless incline mgh' = 64 J gives h' = 3.2 m.",
+      "D": "Wrong: 4.0 m corresponds to 80 J, as if friction removed only 20 J instead of 36 J.",
+      "E": "Wrong: 2.5 m corresponds to about 50 J of kinetic energy, an incorrect friction loss (e.g. using half the sliding distance)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch13",
+    "review_status": "accepted"
+  }
+]

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert BrainBuddy visual-reference questions into true visual questions.
+"""Convert EDUmio visual-reference questions into true visual questions.
 - A (default): assign imageAsset to reusable placeholder images
 - B: rewrite stem to remove visual references when stem fully describes content
 

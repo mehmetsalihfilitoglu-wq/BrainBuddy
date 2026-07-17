@@ -3,7 +3,7 @@
 Grade 6 Question Pool Generator - 500 questions per subject (2500 total).
 
 Generates diverse, non-templated questions with varied contexts, sentence structures,
-and questionTypes. Output JSON compatible with BrainBuddy DbSeeder packs.
+and questionTypes. Output JSON compatible with EDUmio DbSeeder packs.
 
 Usage:
   python question_generator.py [--output-dir app/src/main/assets/packs]

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 7th Grade Din Kültürü ve Ahlak Bilgisi question bank for BrainBuddy.
+"""Generate 7th Grade Din Kültürü ve Ahlak Bilgisi question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
-BrainBuddy Question Design Standard: ayet/hadis yorumlama, senaryo tabanlı ahlak, kavram çıkarımı.
+EDUmio Question Design Standard: ayet/hadis yorumlama, senaryo tabanlı ahlak, kavram çıkarımı.
 """
 import json
 import random
@@ -137,7 +137,7 @@ def q(idx, stem, options, answer_index, difficulty, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "din",
@@ -208,7 +208,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "din",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_din7_pack_{pi+1:03d}.json"

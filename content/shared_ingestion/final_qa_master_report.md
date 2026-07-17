@@ -1,6 +1,6 @@
 # Final Release QA & Stabilization — Master Report
 
-**Product:** MioAcademy Daily Challenge (Günün Görevi) · **Branch:** `seeding-final-fix` · **Date:** 2026-07-17
+**Product:** EDUmio Daily Challenge (Günün Görevi) · **Branch:** `seeding-final-fix` · **Date:** 2026-07-17
 **Role:** QA Lead / Release Engineer / Reliability / Accessibility / Educational-product auditor.
 **Mandate:** find and fix meaningful defects; no new features; preserve content and invariants; do not push.
 

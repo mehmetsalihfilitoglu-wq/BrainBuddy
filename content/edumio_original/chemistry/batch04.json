@@ -1,0 +1,470 @@
+[
+  {
+    "id": "mio_chem_0039",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Atomic structure",
+    "subtopic": "Quantum numbers: counting the electrons in a ground-state atom that share a specified magnetic quantum number",
+    "difficulty": "medium",
+    "estimated_time_seconds": 85,
+    "tags": [
+      "quantum numbers",
+      "electron configuration",
+      "magnetic quantum number",
+      "orbitals",
+      "zinc"
+    ],
+    "learning_objective": "Translate a ground-state electron configuration into the population of orbitals sharing a given magnetic quantum number, distinguishing orbitals from electrons.",
+    "question": "In a ground-state atom of zinc (Z = 30), how many of its electrons have a magnetic quantum number ml = 0?",
+    "choices": {
+      "A": "12",
+      "B": "16",
+      "C": "14",
+      "D": "30",
+      "E": "7"
+    },
+    "correct_answer": "C",
+    "explanation": "Zinc has the ground-state configuration 1s²2s²2p⁶ 3s²3p⁶ 3d¹⁰4s², i.e. seven fully occupied subshells (1s, 2s, 2p, 3s, 3p, 3d, 4s). The magnetic quantum number ml labels individual orbitals within a subshell, and every subshell (whatever its value of l) contains exactly one orbital with ml = 0. Because all seven subshells are completely filled, each of these seven ml = 0 orbitals holds 2 electrons. Total = 7 × 2 = 14 electrons with ml = 0.",
+    "option_analysis": {
+      "A": "Wrong: excludes the filled 3d subshell, reflecting the misconception that d-subshells have only ml = ±1, ±2 and no ml = 0 orbital (6 subshells × 2 = 12).",
+      "B": "Wrong: over-counts the occupied subshells as eight (e.g. by wrongly assuming an occupied 4p subshell), giving 8 × 2 = 16.",
+      "C": "Correct: seven completely filled subshells, each contributing one ml = 0 orbital holding 2 electrons, gives 7 × 2 = 14.",
+      "D": "Wrong: simply states the total number of electrons in the atom, ignoring the ml = 0 restriction entirely.",
+      "E": "Wrong: counts the seven ml = 0 orbitals but records only one electron per orbital, forgetting that in the ground state of zinc every one of these orbitals is doubly occupied."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0040",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Atomic structure and periodicity",
+    "subtopic": "Transition-metal ion electron configurations and number of unpaired electrons (paramagnetism)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "electron configuration",
+      "transition metals",
+      "unpaired electrons",
+      "Hund's rule",
+      "ionisation order"
+    ],
+    "learning_objective": "Derive a first-row transition-metal ion configuration by removing 4s before 3d electrons and apply Hund's rule to count unpaired electrons.",
+    "question": "Which of the following gaseous ions, in its ground state, has exactly four unpaired electrons? (Assume the free ion adopts the arrangement of maximum multiplicity.)",
+    "choices": {
+      "A": "Cr³⁺",
+      "B": "Fe²⁺",
+      "C": "Mn²⁺",
+      "D": "Fe³⁺",
+      "E": "Ni²⁺"
+    },
+    "correct_answer": "B",
+    "explanation": "For a first-row transition-metal ion the 4s electrons are removed before the 3d electrons. Fe is [Ar]3d⁶4s², so Fe²⁺ is [Ar]3d⁶. Placing six electrons across the five 3d orbitals under Hund's rule gives one doubly occupied orbital and four singly occupied orbitals → four unpaired electrons. Checking the others: Cr³⁺ = 3d³ (3 unpaired), Mn²⁺ = 3d⁵ (5), Fe³⁺ = 3d⁵ (5), Ni²⁺ = 3d⁸ (2). Only Fe²⁺ gives four.",
+    "option_analysis": {
+      "A": "Wrong: Cr³⁺ is [Ar]3d³ with three unpaired electrons; chosen by a candidate who over-counts the d-electrons as 3d⁴.",
+      "B": "Correct: Fe²⁺ = [Ar]3d⁶; the six d-electrons occupy the orbitals as (↑↓)(↑)(↑)(↑)(↑), giving exactly four unpaired electrons.",
+      "C": "Wrong: Mn²⁺ is a half-filled 3d⁵ with five unpaired electrons; chosen by a candidate who pairs one electron and so fails to apply Hund's rule fully.",
+      "D": "Wrong: Fe³⁺ is [Ar]3d⁵ (five unpaired). This is the strongest trap: a candidate who removes only the two 4s electrons — forgetting the third electron is also lost, from 3d — obtains 3d⁶ and wrongly reads off four unpaired electrons.",
+      "E": "Wrong: Ni²⁺ is [Ar]3d⁸ with only two unpaired electrons; chosen by a candidate who ignores the forced pairing in a d⁸ set."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0041",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Periodic trends",
+    "subtopic": "Ionic radius across an isoelectronic series governed by effective nuclear charge",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "periodic trends",
+      "ionic radius",
+      "isoelectronic series",
+      "effective nuclear charge",
+      "ordering"
+    ],
+    "learning_objective": "Rank an isoelectronic set of ions by radius using nuclear charge as the sole variable, and distinguish this from neutral-atom size trends.",
+    "question": "The ions P³⁻, S²⁻, Cl⁻, K⁺ and Ca²⁺ are all isoelectronic (each has 18 electrons). Which sequence lists them in order of increasing ionic radius?",
+    "choices": {
+      "A": "K⁺ < Ca²⁺ < Cl⁻ < S²⁻ < P³⁻",
+      "B": "Ca²⁺ < K⁺ < P³⁻ < S²⁻ < Cl⁻",
+      "C": "P³⁻ < S²⁻ < Cl⁻ < K⁺ < Ca²⁺",
+      "D": "Ca²⁺ < K⁺ < Cl⁻ < S²⁻ < P³⁻",
+      "E": "Cl⁻ < S²⁻ < P³⁻ < Ca²⁺ < K⁺"
+    },
+    "correct_answer": "D",
+    "explanation": "All five species share the same 18-electron cloud, so the only variable is the nuclear charge pulling on it. As Z increases (P 15 → S 16 → Cl 17 → K 19 → Ca 20) the effective nuclear charge per electron rises and the radius contracts. Thus the smallest ion is the one with the most protons, Ca²⁺, and the largest is P³⁻: increasing radius is Ca²⁺ < K⁺ < Cl⁻ < S²⁻ < P³⁻.",
+    "option_analysis": {
+      "A": "Wrong: groups cations below anions (correct) but inverts the cations, treating fewer protons (K⁺) as giving a smaller ion — the reverse of the effective-nuclear-charge effect.",
+      "B": "Wrong: orders the cations correctly but reverses the anions, reflecting the belief that a greater negative charge contracts rather than expands the ion.",
+      "C": "Wrong: orders by increasing atomic number, reflecting the misconception that a larger nuclear charge produces a larger radius — the trend is exactly reversed.",
+      "D": "Correct: within an isoelectronic series radius decreases as nuclear charge increases, so Ca²⁺ (Z = 20) is smallest and P³⁻ (Z = 15) largest.",
+      "E": "Wrong: uses neutral-atom radii (period-3 atoms smaller than period-4 K and Ca), ignoring that these are isoelectronic ions whose sizes are set by nuclear charge, not by periodic position."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0042",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Molecular structure (VSEPR)",
+    "subtopic": "Bond-angle comparison: lone-pair count versus central-atom size and s–p mixing",
+    "difficulty": "hard",
+    "estimated_time_seconds": 110,
+    "tags": [
+      "VSEPR",
+      "bond angle",
+      "lone pairs",
+      "hydride angles",
+      "s-character"
+    ],
+    "learning_objective": "Rank bond angles by combining lone-pair repulsion with the effect of central-atom size/electronegativity, recognising that lone-pair count alone is insufficient.",
+    "question": "Which of the following molecules has the smallest bond angle at its central atom?",
+    "choices": {
+      "A": "BF₃",
+      "B": "H₂S",
+      "C": "CH₄",
+      "D": "NH₃",
+      "E": "H₂O"
+    },
+    "correct_answer": "B",
+    "explanation": "BF₃ is trigonal planar (120°, no lone pairs) and CH₄ tetrahedral (109.5°). Adding lone pairs compresses the angle: NH₃ (one lone pair) ≈ 107° and H₂O (two lone pairs) ≈ 104.5°. H₂O and H₂S both have two lone pairs, so lone-pair count cannot separate them; the deciding factor is the central atom. Sulfur is larger and less electronegative than oxygen and uses almost pure p orbitals for bonding (little s–p mixing), giving an angle of about 92° — the smallest of the set.",
+    "option_analysis": {
+      "A": "Wrong: BF₃ is trigonal planar at 120°, the largest angle here; chosen by a candidate who assumes an electron-deficient, small central atom must force a small angle.",
+      "B": "Correct: H₂S has two lone pairs and a large, weakly electronegative sulfur atom bonding through nearly pure p orbitals, giving ≈92° — the smallest angle.",
+      "C": "Wrong: CH₄ is 109.5°; chosen by a candidate who thinks four bonding pairs are the most crowded arrangement, overlooking that lone pairs push angles below the tetrahedral value.",
+      "D": "Wrong: NH₃ is ≈107°; chosen by a candidate who correctly credits lone-pair compression but stops at one lone pair, missing the more compressed H₂O and H₂S.",
+      "E": "Wrong: H₂O is ≈104.5°. This is the key trap — a candidate applying 'most lone pairs = smallest angle' picks H₂O and forgets that the larger central atom in H₂S drives its angle lower still."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0043",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Molecular structure",
+    "subtopic": "Hybridisation of atoms in a cumulated multiple-bond (cumulene/heterocumulene) system",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 130,
+    "tags": [
+      "hybridisation",
+      "sigma and pi bonds",
+      "cumulated double bonds",
+      "VSEPR domains",
+      "isocyanate"
+    ],
+    "learning_objective": "Assign hybridisation to each heavy atom in a molecule by counting electron domains (sigma bonds plus lone pairs), correctly handling atoms bearing two cumulated double bonds.",
+    "question": "Methyl isocyanate has the connectivity H₃C–N=C=O. What are the hybridisation states of, respectively, the carbon of the CH₃ group, the nitrogen atom, and the central carbon atom (the one bonded to both N and O)?",
+    "choices": {
+      "A": "sp³, sp², sp",
+      "B": "sp³, sp³, sp²",
+      "C": "sp², sp², sp",
+      "D": "sp³, sp, sp",
+      "E": "sp³, sp², sp²"
+    },
+    "correct_answer": "A",
+    "explanation": "Count electron domains (sigma bonds + lone pairs) on each atom. The CH₃ carbon forms four sigma bonds → four domains → sp³. The nitrogen is single-bonded to the CH₃ carbon and double-bonded to the central carbon, and carries one lone pair: two sigma bonds + one lone pair = three domains → sp² (bent at N). The central carbon has two cumulated double bonds (=N and =O): two sigma bonds and two pi bonds, giving only two domains → sp (linear N=C=O). Hence sp³, sp², sp.",
+    "option_analysis": {
+      "A": "Correct: CH₃ carbon (4 sigma) is sp³; N (2 sigma + 1 lone pair) is sp²; the central carbon (2 sigma + 2 pi, two domains) is sp.",
+      "B": "Wrong: treats N as sp³ (counting it as an ordinary amine and ignoring its pi bond) and the central carbon as sp²; reflects assigning hybridisation from lone pairs alone while overlooking multiple bonds.",
+      "C": "Wrong: demotes the CH₃ carbon to sp², mis-counting its four sigma bonds — probably by association with the adjacent unsaturated system.",
+      "D": "Wrong: treats N as sp, assuming it is linear like the central carbon and ignoring the lone pair that adds a third electron domain.",
+      "E": "Wrong: correct for the first two atoms but labels the central carbon sp², failing to recognise that a carbon bearing two cumulated double bonds has only two electron domains and is sp."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0044",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Intermolecular forces",
+    "subtopic": "Intramolecular versus intermolecular hydrogen bonding and its effect on volatility (ortho/para isomers)",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "intermolecular forces",
+      "hydrogen bonding",
+      "intramolecular hydrogen bond",
+      "boiling point",
+      "structural isomers"
+    ],
+    "learning_objective": "Explain a boiling-point difference between constitutional isomers by distinguishing intramolecular from intermolecular hydrogen bonding, rejecting molar-mass and polarity-cancellation explanations.",
+    "question": "2-Nitrophenol and 4-nitrophenol are structural isomers of formula C₆H₅NO₃ that differ only in the position of the –NO₂ group relative to the –OH group. 2-Nitrophenol is markedly more volatile (lower boiling point, readily steam-distilled) than 4-nitrophenol. Which statement best accounts for this difference?",
+    "choices": {
+      "A": "4-Nitrophenol forms intramolecular hydrogen bonds that raise its boiling point above that of the ortho isomer.",
+      "B": "In 2-nitrophenol the –OH and neighbouring –NO₂ form an intramolecular hydrogen bond, leaving fewer intermolecular hydrogen bonds, whereas 4-nitrophenol hydrogen-bonds intermolecularly.",
+      "C": "2-Nitrophenol is non-polar because its –OH and –NO₂ bond dipoles cancel, so only weak dispersion forces act between its molecules.",
+      "D": "4-Nitrophenol has the greater molar mass, so it experiences stronger London dispersion forces between molecules.",
+      "E": "2-Nitrophenol ionises to a much greater extent in the liquid, and the resulting ion–ion attractions dominate its physical behaviour."
+    },
+    "correct_answer": "B",
+    "explanation": "In the ortho isomer the –OH group sits next to the –NO₂ group, so the O–H can hydrogen-bond to an oxygen of the same molecule (a six-membered intramolecular chelate ring). This 'ties up' the O–H donor internally, sharply reducing molecule-to-molecule hydrogen bonding, so 2-nitrophenol is more volatile. In the para isomer the two groups are too far apart for an intramolecular bond, so every –OH hydrogen-bonds to neighbouring molecules, building an extended network that raises the boiling point.",
+    "option_analysis": {
+      "A": "Wrong: reverses the geometry (only the ortho isomer can hydrogen-bond intramolecularly) and the direction of the effect — intramolecular hydrogen bonding lowers, not raises, the boiling point.",
+      "B": "Correct: intramolecular hydrogen bonding in the ortho isomer removes hydrogen-bond donors/acceptors from the intermolecular pool, lowering its boiling point relative to the intermolecularly hydrogen-bonded para isomer.",
+      "C": "Wrong: an ortho arrangement does not make the molecule non-polar — the bond dipoles do not cancel — and the volatility difference stems from hydrogen bonding, not from a loss of polarity.",
+      "D": "Wrong: the two compounds are isomers with identical molecular formulae and therefore identical molar masses, so dispersion forces cannot be the distinguishing factor — a misconception that attributes any boiling-point gap to mass.",
+      "E": "Wrong: conflates acidity/ionisation with volatility; the neutral molecular liquid, not an ionic lattice, governs the boiling point, and greater acidity would not lower it in this way."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0045",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical thermodynamics and electrochemistry",
+    "subtopic": "Standard free-energy change from cell potential (ΔG° = −nFE°) and spontaneity",
+    "difficulty": "medium",
+    "estimated_time_seconds": 80,
+    "tags": [
+      "electrochemistry",
+      "gibbs-free-energy",
+      "fuel-cell",
+      "nFE",
+      "spontaneity"
+    ],
+    "learning_objective": "Relate a standard cell potential to the standard Gibbs free-energy change using ΔG° = −nFE°, correctly identifying the number of electrons transferred in a balanced equation.",
+    "question": "A hydrogen–oxygen fuel cell operates by the overall reaction\n2 H₂(g) + O₂(g) → 2 H₂O(l),   E°cell = +1.23 V at 298 K.\nTaking the Faraday constant as F = 96 500 C mol⁻¹, what is the standard Gibbs free-energy change, ΔG°, for the reaction exactly as written?",
+    "choices": {
+      "A": "−237 kJ",
+      "B": "−950 kJ",
+      "C": "−475 kJ",
+      "D": "+475 kJ",
+      "E": "−119 kJ"
+    },
+    "correct_answer": "C",
+    "explanation": "First fix the number of electrons transferred in the reaction as written. Each H₂ is oxidised to 2 H⁺ + 2 e⁻, so 2 H₂ release 4 electrons; O₂ + 4 H⁺ + 4 e⁻ → 2 H₂O accepts them. Hence n = 4. Then ΔG° = −nFE° = −(4)(96 500 C mol⁻¹)(1.23 V) = −4.7478×10⁵ J ≈ −475 kJ. The value is large and negative, consistent with a spontaneous, energy-releasing fuel-cell reaction. The key skills are reading n from the balanced equation (not per mole of H₂ or per mole of water) and applying the negative sign so that a positive E° gives a negative ΔG°.",
+    "option_analysis": {
+      "A": "Wrong: used n = 2 (electrons per mole of H₂ or per mole of H₂O) instead of n = 4 for the reaction as written, halving the magnitude.",
+      "B": "Wrong: overcounted the charge as n = 8 (e.g. one electron per hydrogen atom), doubling the true value.",
+      "C": "Correct: n = 4 electrons are transferred, so ΔG° = −(4)(96 500)(1.23) = −4.75×10⁵ J ≈ −475 kJ; negative, hence spontaneous.",
+      "D": "Wrong: correct magnitude but positive sign — the negative sign in ΔG° = −nFE° was dropped, wrongly inferring a positive ΔG° from a positive E°.",
+      "E": "Wrong: used n = 1, ignoring that four electrons are exchanged in the balanced equation."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0046",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical thermodynamics and electrochemistry",
+    "subtopic": "Equilibrium constant from standard cell EMF (ΔG° = −nFE° = −RT ln K)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 105,
+    "tags": [
+      "electrochemistry",
+      "equilibrium-constant",
+      "nernst-relation",
+      "EMF",
+      "log-K"
+    ],
+    "learning_objective": "Convert a standard cell potential into an equilibrium constant via log K = nE°/0.0592 at 298 K, avoiding sign, electron-count and ln-versus-log errors.",
+    "question": "For a certain galvanic cell the overall reaction transfers n = 2 electrons and has a standard cell potential E°cell = +0.30 V at 298 K. Given that (2.303 RT)/F = 0.0592 V at this temperature, the equilibrium constant K for the cell reaction is closest to:",
+    "choices": {
+      "A": "1 × 10⁻¹⁰",
+      "B": "1 × 10⁵",
+      "C": "1 × 10²⁰",
+      "D": "1 × 10¹⁰",
+      "E": "1 × 10²³"
+    },
+    "correct_answer": "D",
+    "explanation": "Combine ΔG° = −nFE° with ΔG° = −RT ln K to get nFE° = RT ln K, i.e. log K = nE°/[(2.303RT)/F] = nE°/0.0592 at 298 K. Substituting: log K = (2)(0.30)/0.0592 = 0.60/0.0592 ≈ 10.1, so K ≈ 1×10¹⁰. A positive E° (spontaneous cell) must give K > 1, and the factor n = 2 roughly doubles the exponent compared with a one-electron cell.",
+    "option_analysis": {
+      "A": "Wrong: correct magnitude but negative exponent — a sign slip in ΔG° = −nFE°; a positive E° gives K ≫ 1, not K ≪ 1.",
+      "B": "Wrong: used n = 1 (log K = 0.30/0.0592 ≈ 5), ignoring that two electrons are transferred.",
+      "C": "Wrong: doubled the exponent (≈ 20), e.g. by applying the factor of 2 or the 2.303 term twice.",
+      "D": "Correct: log K = nE°/0.0592 = (2)(0.30)/0.0592 ≈ 10.1, so K ≈ 1×10¹⁰.",
+      "E": "Wrong: used the natural-log constant RT/F ≈ 0.0257 V inside the base-10 expression, confusing ln K with log₁₀K."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0047",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical thermodynamics and electrochemistry",
+    "subtopic": "Second law: total entropy change of the universe and spontaneity (ΔS_surr = −ΔH/T)",
+    "difficulty": "hard",
+    "estimated_time_seconds": 100,
+    "tags": [
+      "thermodynamics",
+      "entropy",
+      "second-law",
+      "spontaneity",
+      "surroundings"
+    ],
+    "learning_objective": "Determine spontaneity from the total entropy change of the universe, correctly evaluating ΔS_surroundings = −ΔH/T and combining it with ΔS_system.",
+    "question": "A reaction carried out at a constant temperature of 300 K has ΔH = −120 kJ mol⁻¹ and a system entropy change ΔS_system = −200 J K⁻¹ mol⁻¹. Using ΔS_surroundings = −ΔH/T, what is the total entropy change of the universe, and is the reaction spontaneous at 300 K?",
+    "choices": {
+      "A": "+400 J K⁻¹ mol⁻¹; spontaneous",
+      "B": "+200 J K⁻¹ mol⁻¹; non-spontaneous",
+      "C": "−600 J K⁻¹ mol⁻¹; non-spontaneous",
+      "D": "−200 J K⁻¹ mol⁻¹; non-spontaneous",
+      "E": "+200 J K⁻¹ mol⁻¹; spontaneous"
+    },
+    "correct_answer": "E",
+    "explanation": "The second law states a process is spontaneous when ΔS_universe = ΔS_system + ΔS_surroundings > 0. The surroundings receive the released heat: ΔS_surr = −ΔH/T = −(−120 000 J mol⁻¹)/300 K = +400 J K⁻¹ mol⁻¹ (watch the unit conversion kJ → J). Then ΔS_universe = −200 + 400 = +200 J K⁻¹ mol⁻¹ > 0, so the reaction is spontaneous at 300 K, even though the system's own entropy decreases. (It would become non-spontaneous only above 600 K, where |ΔS_surr| falls below 200.)",
+    "option_analysis": {
+      "A": "Wrong: counted only ΔS_surroundings (+400) and neglected the negative system term.",
+      "B": "Wrong: obtained the correct +200 but applied the second law backwards — a positive ΔS_universe means the reaction IS spontaneous.",
+      "C": "Wrong: sign error — took ΔS_surr = +ΔH/T = −400 and added to −200.",
+      "D": "Wrong: judged spontaneity from ΔS_system (−200) alone, ignoring the entropy exported to the surroundings.",
+      "E": "Correct: ΔS_surr = −ΔH/T = +400, so ΔS_universe = −200 + 400 = +200 J K⁻¹ mol⁻¹ > 0; spontaneous."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0048",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical thermodynamics and electrochemistry",
+    "subtopic": "Predicting reaction direction from ΔG = ΔG° + RT ln Q by comparing Q with K",
+    "difficulty": "hard",
+    "estimated_time_seconds": 120,
+    "tags": [
+      "thermodynamics",
+      "reaction-direction",
+      "reaction-quotient",
+      "Q-vs-K",
+      "gibbs"
+    ],
+    "learning_objective": "Predict the direction of a gas-phase reaction under non-standard conditions by evaluating the reaction quotient and comparing it with K (equivalently, the sign of ΔG = ΔG° + RT ln Q).",
+    "question": "The gas-phase reaction H₂(g) + I₂(g) ⇌ 2 HI(g) has ΔG° = −11.4 kJ mol⁻¹ at 298 K, where (2.303 RT) = 5.71 kJ mol⁻¹. At a certain instant the partial pressures are p(HI) = 10 atm, p(H₂) = 0.10 atm and p(I₂) = 0.10 atm. In which direction does the reaction proceed, and why?",
+    "choices": {
+      "A": "No net reaction, because the two terms cancel (ΔG = 0)",
+      "B": "At equilibrium, because Q = K",
+      "C": "To the right, because ΔG° < 0",
+      "D": "To the right, because Q < K",
+      "E": "To the left, because Q > K"
+    },
+    "correct_answer": "E",
+    "explanation": "Direction is set by ΔG = ΔG° + 2.303RT·log Q, not by ΔG° alone. From ΔG° = −2.303RT·log K: log K = 11.4/5.71 = 2.0, so K = 1×10². The quotient Q = p(HI)²/[p(H₂)·p(I₂)] = (10)²/(0.10 × 0.10) = 100/0.01 = 1×10⁴. Since Q (10⁴) > K (10²), ΔG = −11.4 + 5.71·log(10⁴) = −11.4 + 22.8 = +11.4 kJ mol⁻¹ > 0, so the forward reaction is non-spontaneous and the system shifts to the LEFT (net decomposition of HI) despite ΔG° being negative.",
+    "option_analysis": {
+      "A": "Wrong: faulty arithmetic — ΔG° = −11.4 and 2.303RT·log Q = +22.8 do not cancel; their sum is +11.4 kJ mol⁻¹.",
+      "B": "Wrong: assumes Q equals K; here Q (10⁴) ≠ K (10²), so the system is not at equilibrium.",
+      "C": "Wrong: judges direction from the standard free energy only; ΔG° fixes K, but the actual direction depends on ΔG = ΔG° + RT ln Q under the stated pressures.",
+      "D": "Wrong: inverted the reaction quotient (reactants over products), giving Q < K and the opposite conclusion.",
+      "E": "Correct: Q = 10⁴ exceeds K = 10², making ΔG = +11.4 kJ mol⁻¹ > 0, so the reaction runs in reverse (to the left)."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0049",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical thermodynamics and electrochemistry",
+    "subtopic": "Combining standard electrode potentials of half-reactions with different n via ΔG additivity",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 150,
+    "tags": [
+      "electrochemistry",
+      "electrode-potential",
+      "gibbs-additivity",
+      "intensive-property",
+      "iron"
+    ],
+    "learning_objective": "Derive an unknown standard electrode potential by adding the free energies (not the potentials) of two half-reactions that involve different numbers of electrons.",
+    "question": "Given the standard electrode potentials E°(Fe³⁺/Fe²⁺) = +0.77 V and E°(Fe²⁺/Fe) = −0.44 V, calculate the standard electrode potential for the three-electron half-reaction\nFe³⁺(aq) + 3 e⁻ → Fe(s).",
+    "choices": {
+      "A": "−0.11 V",
+      "B": "+0.33 V",
+      "C": "−0.037 V",
+      "D": "+0.367 V",
+      "E": "+0.165 V"
+    },
+    "correct_answer": "C",
+    "explanation": "Electrode potentials are intensive, so they cannot simply be added or averaged when the electron numbers differ; the extensive quantity ΔG° = −nFE° is what adds. For Fe³⁺ + e⁻ → Fe²⁺: ΔG₁° = −(1)F(0.77). For Fe²⁺ + 2 e⁻ → Fe: ΔG₂° = −(2)F(−0.44). Summing gives Fe³⁺ + 3 e⁻ → Fe with ΔG₃° = ΔG₁° + ΔG₂° = −3FE₃°. Therefore E₃° = (n₁E₁ + n₂E₂)/(n₁ + n₂) = [(1)(0.77) + (2)(−0.44)]/3 = (0.77 − 0.88)/3 = −0.11/3 = −0.037 V.",
+    "option_analysis": {
+      "A": "Wrong: computed the correct ΔG-weighted numerator (1×0.77 + 2×(−0.44) = −0.11) but failed to divide by the total 3 electrons.",
+      "B": "Wrong: added the two potentials directly, treating E° as an additive (extensive) quantity.",
+      "C": "Correct: since ΔG° adds, −3FE₃° = −1F(0.77) − 2F(−0.44), giving E₃° = (0.77 − 0.88)/3 = −0.037 V.",
+      "D": "Wrong: weighted by electron number but swapped the weights (2 on +0.77 V and 1 on −0.44 V).",
+      "E": "Wrong: took the simple arithmetic mean (0.77 + (−0.44))/2, ignoring that the two steps involve different electron numbers."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  },
+  {
+    "id": "mio_chem_0050",
+    "origin": "edumio_original",
+    "exam_style": "IMAT",
+    "subject": "chemistry",
+    "topic": "Chemical thermodynamics and electrochemistry",
+    "subtopic": "Faraday's laws: total gas volume from electrolysis of water with different electron stoichiometry at each electrode",
+    "difficulty": "very_hard",
+    "estimated_time_seconds": 140,
+    "tags": [
+      "electrolysis",
+      "faradays-laws",
+      "moles-of-electrons",
+      "gas-volume",
+      "water-electrolysis"
+    ],
+    "learning_objective": "Apply Faraday's laws to relate charge to moles of electrons and, using the differing electron counts of the cathode and anode half-reactions, compute the total volume of gases evolved during the electrolysis of water.",
+    "question": "A constant current of 5.00 A is passed through dilute sulfuric acid (electrolysis of water) for 32 min 10 s. The gases produced at both electrodes are collected at STP (molar volume 22.4 L mol⁻¹). Taking F = 96 500 C mol⁻¹, what is the TOTAL volume of gas (H₂ + O₂) evolved?",
+    "choices": {
+      "A": "1.12 L",
+      "B": "2.24 L",
+      "C": "0.56 L",
+      "D": "3.36 L",
+      "E": "1.68 L"
+    },
+    "correct_answer": "E",
+    "explanation": "Charge passed: Q = I·t = 5.00 A × (32×60 + 10) s = 5.00 × 1930 = 9650 C, giving moles of electrons = 9650/96 500 = 0.100 mol. At the cathode, 2 H⁺ + 2 e⁻ → H₂, so n(H₂) = 0.100/2 = 0.050 mol. At the anode, 2 H₂O → O₂ + 4 H⁺ + 4 e⁻, so n(O₂) = 0.100/4 = 0.025 mol. Total gas = 0.050 + 0.025 = 0.075 mol; at STP, V = 0.075 × 22.4 = 1.68 L. The crucial step is using the different electron counts (2 for H₂, 4 for O₂), which gives the characteristic 2:1 volume ratio of hydrogen to oxygen.",
+    "option_analysis": {
+      "A": "Wrong: counted only the cathode gas H₂ (0.050 mol → 1.12 L), omitting the oxygen at the anode.",
+      "B": "Wrong: assumed equal moles of H₂ and O₂ (0.050 each → 0.100 mol), ignoring the different electron stoichiometry at the two electrodes.",
+      "C": "Wrong: counted only the anode gas O₂ (0.025 mol → 0.56 L), omitting the hydrogen at the cathode.",
+      "D": "Wrong: used incorrect electron counts (H₂ = 0.100 mol, O₂ = 0.050 mol → 0.150 mol), i.e. did not divide the charge correctly among the half-reactions.",
+      "E": "Correct: 0.100 mol e⁻ gives 0.050 mol H₂ (÷2) and 0.025 mol O₂ (÷4); total 0.075 mol × 22.4 = 1.68 L."
+    },
+    "author": "edumio_editorial",
+    "created": "2026-07-08",
+    "batch": "batch04",
+    "review_status": "accepted"
+  }
+]

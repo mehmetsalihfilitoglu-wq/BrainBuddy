@@ -34,7 +34,7 @@ def q(subject, global_idx, stem, options, ai, diff, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": image_asset,
         "subject": subj_key,
@@ -234,7 +234,7 @@ def main():
                 "version": 1,
                 "mode": "LGS",
                 "subject": "mat" if subj == "mat" else "turkce" if subj == "turkce" else "hayat" if subj == "hayat" else "ing",
-                "publisher": "brainbuddy",
+                "publisher": "edumio",
                 "questions": pack_q,
             }
             path = out_dir / f"{pack_prefix}_{pack_num:03d}.json"

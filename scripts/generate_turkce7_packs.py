@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 7th Grade Turkish question bank for BrainBuddy.
+"""Generate 7th Grade Turkish question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
-BrainBuddy Question Design Standard: paragraph-based, interpretation, reasoning.
+EDUmio Question Design Standard: paragraph-based, interpretation, reasoning.
 """
 import json
 import random
@@ -197,7 +197,7 @@ def q(idx, stem, options, answer_index, difficulty, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "turkce",
@@ -276,7 +276,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "turkce",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_turkce7_pack_{pi+1:03d}.json"

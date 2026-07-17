@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate 2nd Grade Türkçe question bank for BrainBuddy.
+"""Generate 2nd Grade Türkçe question bank for EDUmio.
 50 packs × 10 questions = 500 questions.
 MEB 2024-2025 2. Sınıf Türkçe Öğretim Programı (Okuma, Söz Varlığı, Anlama, Görsel Okuma).
-BrainBuddy Question Design Standard: kısa metin yorumlama, görsel yorumlama, cümlede anlam, sözcük anlamı çıkarma, paragraf ana fikri.
+EDUmio Question Design Standard: kısa metin yorumlama, görsel yorumlama, cümlede anlam, sözcük anlamı çıkarma, paragraf ana fikri.
 """
 import json
 import random
@@ -95,7 +95,7 @@ def q(idx, stem, options, answer_index, difficulty, qtype, topic, skills, explan
         "topic": topic,
         "skills": skills,
         "explanation": explanation,
-        "source": "brainbuddy",
+        "source": "edumio",
         "sourceRef": source_ref,
         "imageAsset": None,
         "subject": "turkce",
@@ -169,7 +169,7 @@ def main():
             "version": 1,
             "mode": "LGS",
             "subject": "turkce",
-            "publisher": "brainbuddy",
+            "publisher": "edumio",
             "questions": questions,
         }
         path = OUT_DIR / f"lgs_turkce2_pack_{pi+1:03d}.json"
