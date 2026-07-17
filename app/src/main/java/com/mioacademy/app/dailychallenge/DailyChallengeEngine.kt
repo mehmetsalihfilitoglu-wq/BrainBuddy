@@ -6,8 +6,9 @@ import com.mioacademy.app.db.DatabaseProvider
 import com.mioacademy.app.db.QuestionCandidateRow
 import com.mioacademy.app.db.QuestionEntity
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import java.util.Calendar
 import java.util.TimeZone
 import kotlin.random.Random
 
@@ -25,6 +26,12 @@ class DailyChallengeEngine(private val appContext: Context) {
 
     private val analytics: DailyChallengeAnalytics get() = DailyChallengeAnalyticsProvider.get(appContext)
 
+    private companion object {
+        // Process-wide: engine instances are created per-Activity, so the generation lock must be
+        // shared across ALL of them to serialize same-day challenge creation (no double-retire race).
+        val generationLock = Mutex()
+    }
+
     data class Result(
         val challenge: DailyChallengeEntity,
         val questions: List<QuestionEntity>,
@@ -35,25 +42,13 @@ class DailyChallengeEngine(private val appContext: Context) {
 
     private fun key(userId: String, examType: String, localDate: String) = "$userId:$examType:$localDate"
 
-    /** Local calendar date (YYYY-MM-DD) for the user's timezone. Calendar-based (safe on minSdk 24). */
-    fun localDate(zone: TimeZone = TimeZone.getDefault(), nowMs: Long = System.currentTimeMillis()): String {
-        val c = Calendar.getInstance(zone); c.timeInMillis = nowMs
-        return String.format("%04d-%02d-%02d", c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH))
-    }
+    /** Local calendar date (YYYY-MM-DD) for the user's timezone. Delegates to [DailyChallengeDates]. */
+    fun localDate(zone: TimeZone = TimeZone.getDefault(), nowMs: Long = System.currentTimeMillis()): String =
+        DailyChallengeDates.localDate(zone, nowMs)
 
     /** Millis at the end of the given local day (next midnight) — challenge expiry. */
-    fun endOfLocalDay(localDate: String, zone: TimeZone = TimeZone.getDefault()): Long {
-        val p = localDate.split("-").map { it.toInt() }
-        val c = Calendar.getInstance(zone); c.clear(); c.set(p[0], p[1] - 1, p[2], 0, 0, 0); c.add(Calendar.DAY_OF_MONTH, 1)
-        return c.timeInMillis
-    }
-
-    /** Shift a YYYY-MM-DD date by [days] (calendar-safe, timezone-neutral). */
-    private fun shiftDate(localDate: String, days: Int): String {
-        val p = localDate.split("-").map { it.toInt() }
-        val c = Calendar.getInstance(TimeZone.getTimeZone("UTC")); c.clear(); c.set(p[0], p[1] - 1, p[2]); c.add(Calendar.DAY_OF_MONTH, days)
-        return String.format("%04d-%02d-%02d", c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH))
-    }
+    fun endOfLocalDay(localDate: String, zone: TimeZone = TimeZone.getDefault()): Long =
+        DailyChallengeDates.endOfLocalDay(localDate, zone)
 
     /**
      * Returns today's Daily Challenge, generating it once if needed. Idempotent per local day: a second
@@ -78,87 +73,95 @@ class DailyChallengeEngine(private val appContext: Context) {
             return@withContext resolve(existing, qDao, dcDao)
         }
 
-        // ── ledgers ──
-        val deficits = dcDao.getDeficits(userId, examType)
-        val expected = HashMap<String, Double>(); val actual = HashMap<String, Double>()
-        val subExpected = HashMap<String, Double>(); val subActual = HashMap<String, Double>()
-        for (d in deficits) {
-            if (d.section.contains('/')) { subExpected[d.section] = d.expectedToDate; subActual[d.section] = d.actualToDate }
-            else { expected[d.section] = d.expectedToDate; actual[d.section] = d.actualToDate }
-        }
-
-        val alloc = DailyChallengeBlueprint.allocate(exam, expected, actual)
-        val seen = dcDao.getSeenQuestionIds(userId, examType).toHashSet()
-        val rng = Random(rngSeed ?: (day.hashCode().toLong() * 1_000_003L + userId.hashCode()))
-
-        val selected = ArrayList<QuestionCandidateRow>()
-        val usedTopics = HashSet<String>(); val usedStems = HashSet<String>()
-        val shortages = ArrayList<String>()
-        val leftoverPools = ArrayList<QuestionCandidateRow>() // unseen candidates not picked, for reallocation
-
-        for ((section, count) in alloc) {
-            if (count <= 0) continue
-            val pool = qDao.getDailyCandidatePool(examType, section).filter { it.id !in seen && it.stemHash !in usedStems }
-            val picked = if (DailyChallengeBlueprint.SUBSECTIONS.containsKey(section)) {
-                pickWithSubSections(section, count, pool, subExpected, subActual, usedTopics, usedStems, rng)
-            } else {
-                DailyChallengeSelection.pickN(pool, count, usedTopics, usedStems, rng)
+        // Serialize generation: a concurrent caller (e.g. the home card refreshing while the flow
+        // screen opens) must never generate or retire two challenges for the same day. Double-checked
+        // under the lock so the winner's challenge is reused rather than regenerated.
+        return@withContext generationLock.withLock {
+            dcDao.getChallenge(userId, examType, day)?.let { existing ->
+                return@withLock resolve(existing, qDao, dcDao)
             }
-            selected += picked
-            leftoverPools += pool.filter { p -> picked.none { it.id == p.id } && p.stemHash !in usedStems }
-            if (picked.size < count) shortages += "$section:${picked.size}/$count"
-        }
 
-        // ── reconcile to exactly 5 without substituting the blueprint silently (record shortage) ──
-        var deficitSlots = DailyChallengeBlueprint.CHALLENGE_SIZE - selected.size
-        if (deficitSlots > 0) {
-            val fill = DailyChallengeSelection.pickN(leftoverPools.distinctBy { it.id }, deficitSlots, usedTopics, usedStems, rng)
-            selected += fill
-            deficitSlots = DailyChallengeBlueprint.CHALLENGE_SIZE - selected.size
-        }
-        if (selected.isEmpty()) return@withContext null // no unseen questions at all → cannot form a challenge
+            // ── ledgers ──
+            val deficits = dcDao.getDeficits(userId, examType)
+            val expected = HashMap<String, Double>(); val actual = HashMap<String, Double>()
+            val subExpected = HashMap<String, Double>(); val subActual = HashMap<String, Double>()
+            for (d in deficits) {
+                if (d.section.contains('/')) { subExpected[d.section] = d.expectedToDate; subActual[d.section] = d.actualToDate }
+                else { expected[d.section] = d.expectedToDate; actual[d.section] = d.actualToDate }
+            }
 
-        // ── persist ledgers ──
-        for ((s, v) in expected) dcDao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, actual[s] ?: 0.0))
-        for ((s, v) in subExpected) dcDao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, subActual[s] ?: 0.0))
+            val alloc = DailyChallengeBlueprint.allocate(exam, expected, actual)
+            val seen = dcDao.getSeenQuestionIds(userId, examType).toHashSet()
+            val rng = Random(rngSeed ?: (day.hashCode().toLong() * 1_000_003L + userId.hashCode()))
 
-        // ── retire selected (SEEN_ONCE) — leaves the unseen pool permanently ──
-        val nowStamp = nowMs
-        for (c in selected) {
-            dcDao.upsertState(
-                UserQuestionStateEntity(
-                    userId = userId, questionId = c.id, examType = examType,
-                    section = c.subject, topic = c.topic, state = QuestionLearnState.SEEN_ONCE.name,
-                    timesSeen = 1, firstSeenAt = nowStamp, lastSeenAt = nowStamp,
+            val selected = ArrayList<QuestionCandidateRow>()
+            val usedTopics = HashSet<String>(); val usedStems = HashSet<String>()
+            val shortages = ArrayList<String>()
+            val leftoverPools = ArrayList<QuestionCandidateRow>() // unseen candidates not picked, for reallocation
+
+            for ((section, count) in alloc) {
+                if (count <= 0) continue
+                val pool = qDao.getDailyCandidatePool(examType, section).filter { it.id !in seen && it.stemHash !in usedStems }
+                val picked = if (DailyChallengeBlueprint.SUBSECTIONS.containsKey(section)) {
+                    pickWithSubSections(section, count, pool, subExpected, subActual, usedTopics, usedStems, rng)
+                } else {
+                    DailyChallengeSelection.pickN(pool, count, usedTopics, usedStems, rng)
+                }
+                selected += picked
+                leftoverPools += pool.filter { p -> picked.none { it.id == p.id } && p.stemHash !in usedStems }
+                if (picked.size < count) shortages += "$section:${picked.size}/$count"
+            }
+
+            // ── reconcile to exactly 5 without substituting the blueprint silently (record shortage) ──
+            var deficitSlots = DailyChallengeBlueprint.CHALLENGE_SIZE - selected.size
+            if (deficitSlots > 0) {
+                val fill = DailyChallengeSelection.pickN(leftoverPools.distinctBy { it.id }, deficitSlots, usedTopics, usedStems, rng)
+                selected += fill
+                deficitSlots = DailyChallengeBlueprint.CHALLENGE_SIZE - selected.size
+            }
+            if (selected.isEmpty()) return@withLock null // no unseen questions at all → cannot form a challenge
+
+            // ── guardrail BEFORE any side effect: never more than CHALLENGE_SIZE new questions ──
+            // Runs prior to ledger/retirement writes so a fail-closed batch leaves NO trace.
+            val sizeViolations = DailyChallengeGuardrails.checkNewQuestionCount(selected.size)
+            if (sizeViolations.isNotEmpty()) {
+                analytics.track(DcEvents.GUARDRAIL_VIOLATION, mapOf(DcEvents.P_REASON to sizeViolations.joinToString("; ")))
+                return@withLock null // fail closed: never serve an over-cap batch, and never retire it
+            }
+
+            // ── persist ledgers ──
+            for ((s, v) in expected) dcDao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, actual[s] ?: 0.0))
+            for ((s, v) in subExpected) dcDao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, subActual[s] ?: 0.0))
+
+            // ── retire selected (SEEN_ONCE) — leaves the unseen pool permanently ──
+            for (c in selected) {
+                dcDao.upsertState(
+                    UserQuestionStateEntity(
+                        userId = userId, questionId = c.id, examType = examType,
+                        section = c.subject, topic = c.topic, state = QuestionLearnState.SEEN_ONCE.name,
+                        timesSeen = 1, firstSeenAt = nowMs, lastSeenAt = nowMs,
+                    )
                 )
+            }
+
+            val challenge = DailyChallengeEntity(
+                userId = userId, examType = examType, localDate = day,
+                status = ChallengeStatus.AVAILABLE.name,
+                questionIdsCsv = selected.joinToString(",") { it.id },
+                allocationCsv = alloc.entries.joinToString("|") { "${it.key}:${it.value}" },
+                expiresAt = endOfLocalDay(day, zone),
+                shortage = shortages.joinToString(";"),
             )
+            dcDao.upsertChallenge(challenge)
+            analytics.track(
+                DcEvents.CHALLENGE_GENERATED,
+                mapOf(
+                    DcEvents.P_EXAM to examType, DcEvents.P_LOCAL_DATE to day,
+                    DcEvents.P_COUNT to selected.size, DcEvents.P_SHORTAGE to challenge.shortage,
+                ),
+            )
+            resolve(challenge, qDao, dcDao)
         }
-
-        // ── guardrail: never more than CHALLENGE_SIZE new questions ──
-        val sizeViolations = DailyChallengeGuardrails.checkNewQuestionCount(selected.size)
-        if (sizeViolations.isNotEmpty()) {
-            analytics.track(DcEvents.GUARDRAIL_VIOLATION, mapOf(DcEvents.P_REASON to sizeViolations.joinToString("; ")))
-            // fail closed: never serve an over-cap batch
-            return@withContext null
-        }
-
-        val challenge = DailyChallengeEntity(
-            userId = userId, examType = examType, localDate = day,
-            status = ChallengeStatus.AVAILABLE.name,
-            questionIdsCsv = selected.joinToString(",") { it.id },
-            allocationCsv = alloc.entries.joinToString("|") { "${it.key}:${it.value}" },
-            expiresAt = endOfLocalDay(day, zone),
-            shortage = shortages.joinToString(";"),
-        )
-        dcDao.upsertChallenge(challenge)
-        analytics.track(
-            DcEvents.CHALLENGE_GENERATED,
-            mapOf(
-                DcEvents.P_EXAM to examType, DcEvents.P_LOCAL_DATE to day,
-                DcEvents.P_COUNT to selected.size, DcEvents.P_SHORTAGE to challenge.shortage,
-            ),
-        )
-        resolve(challenge, qDao, dcDao)
     }
 
     private fun pickWithSubSections(
@@ -239,25 +242,21 @@ class DailyChallengeEngine(private val appContext: Context) {
 
     private suspend fun updateStreak(dcDao: DailyChallengeDao, userId: String, localDate: String, examType: String) {
         val prev = dcDao.getStreak(userId) ?: StreakEntity(userId)
-        val yesterday = shiftDate(localDate, -1)
-        val newCurrent = when (prev.lastCompletedLocalDate) {
-            localDate -> prev.current // already counted today
-            yesterday -> prev.current + 1
-            else -> 1
+        val r = DailyChallengeStreak.onComplete(
+            prevCurrent = prev.current, prevLongest = prev.longest,
+            prevLastDate = prev.lastCompletedLocalDate, prevMilestonesCsv = prev.milestonesCsv,
+            todayLocalDate = localDate,
+        )
+        if (r.incremented) {
+            analytics.track(DcEvents.STREAK_INCREMENTED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_STREAK to r.current))
         }
-        if (prev.lastCompletedLocalDate != localDate) {
-            analytics.track(DcEvents.STREAK_INCREMENTED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_STREAK to newCurrent))
-        }
-        val milestones = setOf(3, 7, 14, 30, 50, 100, 180, 365)
-        val reached = prev.milestonesCsv.split(",").filter { it.isNotBlank() }.toMutableSet()
-        if (newCurrent in milestones && newCurrent.toString() !in reached) {
-            reached += newCurrent.toString()
-            analytics.track(DcEvents.MILESTONE_REACHED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_STREAK to newCurrent))
+        for (m in r.newMilestones) {
+            analytics.track(DcEvents.MILESTONE_REACHED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_STREAK to m))
         }
         dcDao.upsertStreak(
             prev.copy(
-                current = newCurrent, longest = maxOf(prev.longest, newCurrent),
-                lastCompletedLocalDate = localDate, milestonesCsv = reached.joinToString(","),
+                current = r.current, longest = r.longest,
+                lastCompletedLocalDate = r.lastCompletedLocalDate, milestonesCsv = r.milestonesCsv,
             )
         )
     }
