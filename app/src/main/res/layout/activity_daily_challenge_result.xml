@@ -12,6 +12,15 @@
         android:orientation="vertical"
         android:padding="@dimen/page_padding_h">
 
+        <ImageView
+            android:id="@+id/dcrMascot"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ic_edumio_mascot"
+            android:contentDescription="@string/dc_cd_mascot"/>
+
         <TextView
             android:id="@+id/dcrTitle"
             android:layout_width="match_parent"

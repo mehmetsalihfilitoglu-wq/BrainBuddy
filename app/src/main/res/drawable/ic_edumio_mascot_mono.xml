@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  EDUmio mascot — monochrome silhouette for Android 13+ themed icons.
+  Single fill (system re-tints); body + mortarboard solid, eyes punched out (evenOdd)
+  so the character stays recognizable. 108 safe-zone geometry.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#000000"
+        android:fillType="evenOdd"
+        android:pathData="M42,46 h24 a16,16 0 0 1 16,16 v6 a16,16 0 0 1 -16,16 h-24 a16,16 0 0 1 -16,-16 v-6 a16,16 0 0 1 16,-16 Z M54,30 L84,42 L54,46 L24,42 Z M45,54 a7,9 0 1,0 0,18 a7,9 0 1,0 0,-18 Z M63,54 a7,9 0 1,0 0,18 a7,9 0 1,0 0,-18 Z" />
+</vector>

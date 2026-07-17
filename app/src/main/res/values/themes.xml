@@ -59,4 +59,15 @@
         <item name="android:windowAnimationStyle">@style/Animation.Mio</item>
     </style>
 
+    <!--
+        EDUmio splash — Android 12+ SplashScreen API shows the mascot on launch over a clean
+        white background, then hands off to Theme.EDUmio. Platform attrs are ignored gracefully on
+        API < 31 (standard window background), so no extra dependency is required.
+    -->
+    <style name="Theme.EDUmio.Splash" parent="Theme.EDUmio">
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/ic_edumio_mascot</item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="s">@color/white</item>
+    </style>
+
 </resources>

@@ -49,7 +49,7 @@ class ReportWorker(
         val notification = NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setContentTitle(appContext.getString(R.string.report_ready_title))
             .setContentText(appContext.getString(R.string.report_ready_text))
-            .setSmallIcon(android.R.drawable.ic_dialog_email)
+            .setSmallIcon(com.edumio.app.R.drawable.ic_notification_mascot)
             .setContentIntent(pending)
             .setAutoCancel(true)
             .build()

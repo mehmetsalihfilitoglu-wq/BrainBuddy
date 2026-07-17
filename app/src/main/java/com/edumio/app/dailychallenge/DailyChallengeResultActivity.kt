@@ -63,6 +63,11 @@ class DailyChallengeResultActivity : AppCompatActivity() {
     }
 
     private fun bind(c: DailyChallengeEngine.Completion) {
+        findViewById<android.widget.ImageView>(R.id.dcrMascot).setImageResource(
+            com.edumio.app.ui.EduMascot.drawable(
+                com.edumio.app.ui.EduMascot.forCompletion(c.score, c.total, c.streakCurrent)
+            )
+        )
         findViewById<TextView>(R.id.dcrScoreBig).text = "${c.score}/${c.total}"
         val bar = findViewById<ProgressBar>(R.id.dcrScoreBar)
         bar.max = c.total; bar.progress = c.score

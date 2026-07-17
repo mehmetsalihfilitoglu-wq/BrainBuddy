@@ -58,7 +58,7 @@ class MotivationNotificationWorker(
         val notification = NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setContentTitle(title)
             .setContentText(text)
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setSmallIcon(com.edumio.app.R.drawable.ic_notification_mascot)
             .build()
         (appContext.getSystemService(android.content.Context.NOTIFICATION_SERVICE) as NotificationManager)
             .notify(NOTIF_ID, notification)

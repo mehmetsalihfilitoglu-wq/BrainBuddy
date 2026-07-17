@@ -81,7 +81,7 @@ class DailyChallengeReminderWorker(
         val notification = NotificationCompat.Builder(appContext, CHANNEL_ID)
             .setContentTitle(title)
             .setContentText(text)
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setSmallIcon(com.edumio.app.R.drawable.ic_notification_mascot)
             .setAutoCancel(true)
             .build()
         nm.notify(NOTIF_ID_BASE + slot, notification)
