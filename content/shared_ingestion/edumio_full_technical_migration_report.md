@@ -63,7 +63,9 @@ e06ce04 chore(brand): eradicate historical names from content/docs/scripts + who
 ## Status
 **EDUmio FULL TECHNICAL BRAND ERADICATION COMPLETE** for the active repository: zero unexplained
 historical-brand occurrences in contents, file names, or directory paths; the project builds; all tests
-pass; the APK assembles as `com.edumio.app`/EDUmio; content and business logic are unchanged. Remaining
-occurrences exist only in immutable Git history, the `.claude` tool worktrees (ephemeral, excluded), an
-untracked local signing keystore (protected), and the migration reports/allowlist that must name the
-removed brands — all documented in `edumio_repository_zero_occurrence_report.md`.
+pass; the APK assembles as `com.edumio.app`/EDUmio; content and business logic are unchanged. The
+release signing keystore was also migrated (`barjin_release.jks` → `edumio_release.jks`, a pure filename
+rename — bytes/certificate unchanged, signing identity preserved). Remaining occurrences exist only in
+immutable Git history, the `.claude` tool worktrees (ephemeral, excluded), and the migration reports/
+allowlist that must name the removed brands — all documented in
+`edumio_repository_zero_occurrence_report.md`.

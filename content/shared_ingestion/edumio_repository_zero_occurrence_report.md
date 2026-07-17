@@ -15,7 +15,7 @@ Forbidden tokens checked (case-insensitive): `brainbuddy`, `brain buddy`, `barji
 | `.git/**` | Immutable Git history | Cannot/should not rewrite history |
 | `.claude/worktrees/**` (e.g. `agitated-shtern`) | Tool artifact | Ephemeral Claude Code worktrees — separate checkouts, like `.git`/`.idea`; excluded from the scan |
 | `build/`, `.gradle/`, `.idea/`, `.kotlin/` | Build / IDE artifacts | Regenerated; excluded |
-| `barjin_release.jks` | **Untracked** local signing keystore | Not part of the tracked repo; signing files are protected — owner should rename out-of-band |
+| ~~`barjin_release.jks`~~ → `edumio_release.jks` | **Untracked** local signing keystore | **RENAMED 2026-07-18** (bytes/certificate unchanged — same SHA-256; identity preserved). New name is brand-clean; no allowlist entry needed. |
 | `brand_allowlist.txt`, `BrandComplianceTest.kt` | Enforcement machinery | Must name the forbidden brands to detect them |
 | `content/shared_ingestion/edumio_*_report.md`, `edumio_technical_exception_map.md`, `edumio_legal_brand_audit.md`, `legal_gap_report.md`, `edumio_full_technical_migration_report.md`, `edumio_persistence_migration_report.md`, `edumio_package_namespace_report.md`, `edumio_archive_cleanup_report.md`, `edumio_upgrade_compatibility_test_report.md`, this file | Migration documentation | Record what was removed; naming the old brands is their purpose |
 | `docs/archive/pre-edumio/**` | Archived historical evidence | Retained with an `ARCHIVE_README` header; excluded from active scan |

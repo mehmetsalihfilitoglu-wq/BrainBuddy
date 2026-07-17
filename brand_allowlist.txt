@@ -12,7 +12,6 @@
 
 brand_allowlist.txt :: this allowlist necessarily lists the forbidden brands :: never (self-referential)
 BrandComplianceTest.kt :: the enforcement test necessarily names the forbidden brands :: never (self-referential)
-barjin_release.jks :: UNTRACKED local signing keystore (not in the tracked repo; signing files are protected) — owner should rename it out-of-band :: when owner regenerates the keystore
 docs/archive/ :: archived pre-EDUmio historical documents; excluded from active docs :: when archives are deleted
 content/shared_ingestion/edumio_brand_migration_report.md :: migration report; names removed brands as historical fact :: when superseded
 content/shared_ingestion/edumio_brand_occurrence_audit.md :: migration report :: when superseded

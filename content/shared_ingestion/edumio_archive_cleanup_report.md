@@ -27,6 +27,7 @@ the name used at the time"). These are excluded from active documentation and fr
 ## Renamed files / directories
 | Old | New |
 |---|---|
+| `barjin_release.jks` (untracked release signing keystore) | `edumio_release.jks` — pure filename rename; bytes/certificate unchanged (same SHA-256 `f1daeeb…`, 2752 B); no new keystore generated, signing identity preserved |
 | `app/src/main/assets/mioitalia/` | `app/src/main/assets/edumio_original/` |
 | `content/mioitalia/` | `content/edumio_original/` |
 | `scripts/build_mioitalia_asset.js` | `scripts/build_edumio_original_asset.js` |
@@ -42,5 +43,5 @@ Python/JS generator scripts (self-provenance literals).
 
 ## Left untouched (by policy)
 - `.claude/worktrees/**` (tool worktrees) and `.git/**` (history).
-- `barjin_release.jks` (untracked, protected signing key — owner action).
+- (release signing keystore renamed to `edumio_release.jks` — see Renamed table above).
 - The migration-report files + `brand_allowlist.txt` + `BrandComplianceTest.kt` (must name old brands).
