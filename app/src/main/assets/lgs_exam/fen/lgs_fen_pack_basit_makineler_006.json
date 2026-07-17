@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Bir kaldıraçta yük kolu 3 m, kuvvet kolu 12 m'dir. Bu kaldıraçla 360 N'luk bir yük dengelenmek isteniyor. Buna göre uygulanması gereken kuvvet kaç N'dur?",
@@ -18,7 +18,7 @@
       "topic": "Basit Makineler",
       "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
       "explanation": "Kuvvet kazancı = kuvvet kolu / yük kolu = 12 / 3 = 4'tür. Uygulanan kuvvet = 360 / 4 = 90 N olur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "Basit Makineler",
       "skills": ["makara", "kuvvet_kazanci", "yol_kaybi"],
       "explanation": "İdeal sistemde kuvvetten kazanç kadar yoldan kayıp vardır. İp çekilme miktarı = 2 × 6 = 12 m olur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "Basit Makineler",
       "skills": ["egik_duzlem", "kuvvet", "uzunluk"],
       "explanation": "Eğik düzlem uzadıkça uygulanan kuvvet azalır. Aynı yük aynı yüksekliğe çıkarıldığından ideal durumda yapılan iş aynıdır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "Basit Makineler",
       "skills": ["is", "kuvvet", "yol", "enerji"],
       "explanation": "İş = Kuvvet × Yol = 240 × 3 = 720 J.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "Basit Makineler",
       "skills": ["disli_cark", "tur_sayisi", "oran"],
       "explanation": "Dişli sayısı ile tur sayısı ters orantılıdır. 40 dişli çark 1 tur attığında 10 dişli çark 40/10 = 4 tur atar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "Basit Makineler",
       "skills": ["kaldirac", "makara", "kuvvet_kazanci"],
       "explanation": "Aynı yük ve aynı kuvvet kazancı olduğundan ideal sistemlerde gereken kuvvet aynıdır. İşten kazanç yoktur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "Basit Makineler",
       "skills": ["kaldirac", "destek_noktasi", "kuvvet_kazanci"],
       "explanation": "Destek yüke yaklaştırıldığında yük kolu kısalır, kuvvet kolu uzar. Böylece kuvvet kazancı artar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "Basit Makineler",
       "skills": ["vida", "dis_araligi", "kuvvet_kazanci"],
       "explanation": "Diş aralığı küçüldükçe vida bir turda daha az ilerler. Bu nedenle daha çok tur gerekir ancak daha küçük kuvvetle iş yapılabilir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "Basit Makineler",
       "skills": ["kaldirac", "kuvvet_kazanci", "yol_kaybi"],
       "explanation": "İdeal basit makinelerde kuvvetten kazanç kadar yoldan kayıp vardır. Kuvvet kazancı 4 ise yük 1 m yükselirken kuvvet uygulanan uç 4 m yol alır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "Basit Makineler",
       "skills": ["basit_makine", "is", "enerji"],
       "explanation": "İdeal koşullarda basit makineler yapılan işi azaltmaz; sadece işi kolaylaştırır. İşten kazanç yoktur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_006_q10"
     }
   ]

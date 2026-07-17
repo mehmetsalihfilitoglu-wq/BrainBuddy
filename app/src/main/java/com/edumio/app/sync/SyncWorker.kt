@@ -27,8 +27,8 @@ class SyncWorker(context: Context, params: WorkerParameters) : CoroutineWorker(c
     }
 
     companion object {
-        private const val PERIODIC = "mioitalia_sync_periodic"
-        private const val ONE_SHOT = "mioitalia_sync_oneshot"
+        private const val PERIODIC = "edumio_original_sync_periodic"
+        private const val ONE_SHOT = "edumio_original_sync_oneshot"
 
         private val networkConstraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)

@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat4_v2_0031",
@@ -23,7 +23,7 @@
         "problem_cozme"
       ],
       "explanation": "4567÷23=198 tam, kalan 13 (198×23=4554, 4567−4554=13). B(199 kutu): 23×199=4577>4567, olmaz. C(197 kutu): 23×197=4531, kalan=36 (mümkün ama maksimum tam kutu değil). D: 198 kutu ama 0 artar: 198×23=4554≠4567.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0031",
       "imageAsset": null,
       "subject": "mat"
@@ -47,7 +47,7 @@
         "cikarma"
       ],
       "explanation": "Büyük dikdörtgen: 12×8=96 m². Çıkıntı (kesilen bölüm): 4×3=12 m². Kalan: 96−12=84 m². A(72): 12×6=72, genişliği 6 almış. B(76): 96−20=76, kesilen bölümü 5×4=20 almış. D(88): 96−8=88, kesilen bölümü 8 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0032",
       "imageAsset": null,
       "subject": "mat"
@@ -71,7 +71,7 @@
         "toplama"
       ],
       "explanation": "Oğul = x, Baba = 3x. x+3x=4x=52 → x=13. Baba: 39. Doğrulama: 39+13=52 ✓, 39=3×13 ✓. A(36,16): 36+16=52 ✓ ama 36≠3×16=48. C(42,10): 42+10=52 ✓ ama 42≠3×10=30. D(40,12): toplam 52 ✓ ama 40≠3×12=36.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0033",
       "imageAsset": null,
       "subject": "mat"
@@ -95,7 +95,7 @@
         "problem_cozme"
       ],
       "explanation": "Mehmet: 3/4×4=3 kg. Ahmet+Mehmet: 4+3=7 kg. Can=7 kg. A(5): Mehmet=2 kg almış, 4+1=5 değil. B(6): Mehmet=3, Can=sadece Mehmet×2=6 sanmış. D(8): Can=Ahmet×2=8 sanmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0034",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
         "problem_cozme"
       ],
       "explanation": "%20 indirim: 250×(20/100)=50 TL indirim. İndirimli: 250−50=200 TL. 3 tane: 3×200=600 TL. B(210): %16 indirim sanmış. C(180): %28 indirim hesaplamış. D: indirimli fiyat 200 doğru ama 3×250=750 yerine 650 hata.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0035",
       "imageAsset": null,
       "subject": "mat"
@@ -143,7 +143,7 @@
         "problem_cozme"
       ],
       "explanation": "Toplam: 15+22+18+25=80. Ortalama: 80÷4=20. 5 sınavda ortalama 21: toplam=21×5=105. 5. sınav: 105−80=25. B(23): 5×21=105, 105−82=23 hata (toplamı 82 almış). D(21): ortalama doğru ama 5×21=105, 105−80=25 olmasına rağmen 21 demiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0036",
       "imageAsset": null,
       "subject": "mat"
@@ -167,7 +167,7 @@
         "kural_bulma"
       ],
       "explanation": "Dizi kare sayıları: n. terim = n². 8. terim: 8²=64. 9. terim: 9²=81. Fark: 81−64=17. B(15): ardışık kareler arasındaki farkı 2n+1 yerine 2n−1 hesaplamış. C(56): 8. terimi yanlış. D(72): 8²=72 yanlış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0037",
       "imageAsset": null,
       "subject": "mat"
@@ -191,7 +191,7 @@
         "problem_cozme"
       ],
       "explanation": "37×3=111, 37×6=222, 37×9=333, 37×12=444, 37×15=555, 37×18=666, 37×21=777, 37×24=888, 37×27=999. Evet, 27=3×9 ve sonuç 999. B: hesap doğru ama örüntüyü tanımamış. C(1001): hesap hatası. D(972): 36×27=972 tuzağı.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0038",
       "imageAsset": null,
       "subject": "mat"
@@ -215,7 +215,7 @@
         "fayans"
       ],
       "explanation": "Oda: 600 cm × 400 cm. Fayans: 40 cm × 40 cm. Sıra sayısı: 600÷40=15, 400÷40=10. Toplam: 15×10=150 fayans. A(120): 600÷50=12, 400÷50=8, 12×10=120 hata. B(140): 14×10=140, boyutu yanlış hesaplamış. D(160): 16×10=160, sütun sayısını fazla almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0039",
       "imageAsset": null,
       "subject": "mat"
@@ -239,7 +239,7 @@
         "problem_cozme"
       ],
       "explanation": "Toplam koyun: 48×3=144. Her koyundan 1,5 kg: 144×1,5=216 kg. A(144): 1,5 çarpmayı unutmuş, sadece koyun sayısını yazmış. B(180): 120 koyun × 1,5=180, bir grubu saymamış. D(198): 132 koyun × 1,5=198 hata.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0040",
       "imageAsset": null,
       "subject": "mat"

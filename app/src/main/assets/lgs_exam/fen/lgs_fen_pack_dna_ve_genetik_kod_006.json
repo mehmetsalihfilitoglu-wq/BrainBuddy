@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Bir karakter bakımından baskın fenotipli iki birey çaprazlanıyor. Oluşan yavrular arasında çekinik fenotipli bireyler de görülüyor. Bu yavrular arasından rastgele seçilen baskın fenotipli bir bireyin heterozigot olma olasılığı kaçtır?",
@@ -18,7 +18,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet_kare", "olasilik", "genotip_belirleme"],
       "explanation": "Çekinik fenotipli yavru oluştuğuna göre ebeveynler Aa × Aa'dır. Yavru genotip oranı 1 AA : 2 Aa : 1 aa olur. Baskın fenotipli bireyler AA ve Aa olduğundan toplam 3 bireyin 2'si heterozigottur. Olasılık 2/3'tür.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "nukleotit_sayisi"],
       "explanation": "DNA'da A=T ve G=C'dir. Guanin sayısına x dersek sitozin de x, adenin ve timin ise x+200 olur. Toplam baz sayısı x + x + (x+200) + (x+200) = 2800 → 4x + 400 = 2800 → 4x = 2400 → x = 600 gibi görünür; ancak burada toplam baz sayısı değil toplam nükleotit sayısı değil mi diye karıştırılmamalıdır. Baz sayısı DNA'nın iki zincirindeki toplam bazların toplamıdır. Doğru kurulum 2x + 2(x+200)=2800 → 4x+400=2800 → x=600'dür. Sitozin 600 olmalıdır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "cift_zincir"],
       "explanation": "Bir zincirdeki guanin sayısı 90'dır. Karşı zincirdeki guanin sayısı, ilk zincirdeki sitozin sayısına eşit olacağından 110'dur. Toplam guanin sayısı 90 + 110 = 200'dür.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet_kare", "genotip_belirleme"],
       "explanation": "Beyaz çiçekli birey çekinik olduğundan mm'dir. Yavruların yarısı mor, yarısı beyaz olduğuna göre çaprazlama Mm × mm şeklindedir. Mor ebeveyn heterozigottur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "kalitsal", "vucut_hucre"],
       "explanation": "DNA dizilimindeki değişim mutasyondur. Ancak değişim vücut hücrelerinde gerçekleştiği için kalıtsal olarak yavrulara aktarılmaz.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dogal_secilim", "adaptasyon", "modifikasyon"],
       "explanation": "Çevreye daha uygun özellik taşıyan bireylerin hayatta kalıp daha çok çoğalması doğal seçilimdir. Diğer seçeneklerde çevreye bağlı modifikasyon örnekleri vardır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "nukleotit"],
       "explanation": "DNA'da adenin timine, guanin sitozine eşittir. Adenin ile guaninin eşit olması zorunlu değildir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet_kare", "genotip_orani", "olasilik"],
       "explanation": "Aa × Aa çaprazlamasında genotip oranı 1 AA : 2 Aa : 1 aa'dır. Heterozigot olasılığı 2/4, homozigot baskın olasılığı 1/4 olduğundan heterozigot oluşma olasılığı daha fazladır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "baz_orani"],
       "explanation": "DNA'da G=C olduğundan sitozin de %15'tir. G+C=%30 olur. Geriye A+T=%70 kalır. A=T olduğuna göre adenin %35'tir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "modifikasyon", "adaptasyon", "ozellikler"],
       "explanation": "Mutasyon her zaman zararlı değildir; faydalı veya etkisiz de olabilir. Modifikasyon çevre etkisiyle oluşur ve kalıtsal değildir. Adaptasyon bireyin yaşamı içinde sonradan kazandığı değil, nesiller boyunca seçilmiş kalıtsal uyum özellikleridir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_006_q10"
     }
   ]

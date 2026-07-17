@@ -3,7 +3,7 @@ package com.edumio.app.billing
 import android.app.Activity
 
 /**
- * The subscription/billing boundary. Mioitalia is ad-free: revenue is Free vs
+ * The subscription/billing boundary. EdumioOriginal is ad-free: revenue is Free vs
  * Premium (monthly / yearly). This contract is what the paywall and entitlement
  * layer talk to — never Google Play Billing directly.
  *
@@ -75,8 +75,8 @@ sealed class PurchaseResult {
 
 /** Stable Play product ids (single source of truth for both client and console). */
 object BillingProducts {
-    const val PREMIUM_MONTHLY = "mioitalia_premium_monthly"
-    const val PREMIUM_YEARLY = "mioitalia_premium_yearly"
+    const val PREMIUM_MONTHLY = "edumio_premium_monthly"
+    const val PREMIUM_YEARLY = "edumio_premium_yearly"
 
     fun productId(plan: SubscriptionPlan): String = when (plan) {
         SubscriptionPlan.MONTHLY -> PREMIUM_MONTHLY

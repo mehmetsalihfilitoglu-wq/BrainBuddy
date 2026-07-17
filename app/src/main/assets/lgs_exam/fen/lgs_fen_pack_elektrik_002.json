@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Özdeş iki ampul seri bağlanarak bir devre kuruluyor. Aynı ampuller paralel bağlanarak kurulan başka bir devre ile karşılaştırıldığında seri devredeki ampullerin parlaklığı için aşağıdakilerden hangisi doğrudur?",
@@ -18,7 +18,7 @@
       "topic": "Elektrik",
       "skills": ["seri_devre", "paralel_devre", "parlaklik"],
       "explanation": "Seri devrede toplam direnç artar ve ampullerin parlaklığı azalır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "Elektrik",
       "skills": ["paralel_devre", "elektrik_devresi"],
       "explanation": "Paralel devrede ampuller birbirinden bağımsızdır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "Elektrik",
       "skills": ["akim", "gerilim", "devre"],
       "explanation": "Pil sayısı arttıkça devredeki gerilim ve akım artar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "Elektrik",
       "skills": ["direnc", "akim", "ohm"],
       "explanation": "Direnç arttığında devredeki akım azalır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "Elektrik",
       "skills": ["yuk", "elektrik_etkilesim", "coulomb"],
       "explanation": "Zıt yüklü cisimler birbirini çeker.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "Elektrik",
       "skills": ["elektroskop", "yuk", "etki"],
       "explanation": "Aynı işaretli yükler birbirini iter.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "Elektrik",
       "skills": ["seri_devre", "akim", "elektrik_devresi"],
       "explanation": "Seri devrede bir ampul çıkarılırsa devre tamamlanmaz ve akım kesilir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "Elektrik",
       "skills": ["paralel_devre", "seri_devre", "avantaj"],
       "explanation": "Paralel devrede bir ampul çalışmasa bile diğerleri çalışmaya devam eder.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "Elektrik",
       "skills": ["seri_devre", "direnc", "akim"],
       "explanation": "Seri devrede ampul sayısı arttıkça toplam direnç artar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "Elektrik",
       "skills": ["elektrik_akimi", "elektron", "devre"],
       "explanation": "Elektrik akımı, iletkende bulunan serbest elektronların belirli bir yönde hareket etmesidir. Proton ve nötronlar çekirdekte tutulur, ışık ise akımın sebebi değil sonucudur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_002_q10"
     }
   ]

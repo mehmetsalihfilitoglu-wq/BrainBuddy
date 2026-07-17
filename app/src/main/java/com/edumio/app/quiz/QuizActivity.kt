@@ -196,7 +196,7 @@ class QuizActivity : AppCompatActivity() {
             val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS)
             val replayQuestionIds = intent.getStringArrayListExtra(EXTRA_QUESTION_IDS_FOR_REPLAY)
 
-            // Mioitalia: quiz access is open — no grade gate
+            // EdumioOriginal: quiz access is open — no grade gate
             val levelGroup = LevelGroup.GRADE_5_8
             val effectiveGrade = 0
             val isLgsMode = false

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.animation.OvershootInterpolator
 
 /**
- * Small, consistent microinteractions that make Mioitalia feel deliberate and
+ * Small, consistent microinteractions that make EdumioOriginal feel deliberate and
  * premium — not a toy. A tap gives a light haptic confirmation plus a restrained
  * press-bounce; a "success" (correct answer, milestone, goal met) uses a
  * slightly firmer haptic. Everything respects the device's system haptic

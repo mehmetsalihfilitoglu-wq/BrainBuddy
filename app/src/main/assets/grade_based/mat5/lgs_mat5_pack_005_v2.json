@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat5_v2_0041",
@@ -23,7 +23,7 @@
         "problem_cozme"
       ],
       "explanation": "6,48 ÷ 0,27 = 648 ÷ 27 = 24 porsiyon. A(20): 6,48÷0,32=20,25, payda yanlış. B(22): 6,48÷(0,27+0,02)=22,3, toplama hatası. D(27): paydayı sonuç sanan tuzak.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0041",
       "imageAsset": null,
       "subject": "mat"
@@ -47,7 +47,7 @@
         "boru_havuz"
       ],
       "explanation": "Net dolum oranı: 5/12 − 1/4 = 5/12 − 3/12 = 2/12 = 1/6 (saatte). Dolma süresi: 1 ÷ (1/6) = 6 saat. A(3): dolum oranını 1/3 hesaplamış. B(4): boşaltma oranını net dolum sanmış, 1÷(1/4)=4. D(12): boşaltma oranı yerine 1/12 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0042",
       "imageAsset": null,
       "subject": "mat"
@@ -71,7 +71,7 @@
         "para"
       ],
       "explanation": "İndirimli: 500×0,80=400 TL. KDV'li: 400×1,10=440 TL. A(420): %20 indirim sonrası %10 eklemek yerine net %10 düşmüş sanmış, 500×0,84=420. B(430): 500−20%+%10=500−100+50=450 değil 430, hatalı hesap. D(450): indirim ve KDV'yi orijinal fiyata ayrı ayrı uygulamış, 500−100+50=450.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0043",
       "imageAsset": null,
       "subject": "mat"
@@ -95,7 +95,7 @@
         "zaman"
       ],
       "explanation": "EKOK(12,18,24): 12=2²×3, 18=2×3², 24=2³×3. EKOK=2³×3²=72 dakika. 07:00+72dk=07:00+1s12dk=08:12. A(07:54): 12+18+24=54 dk tuzağı. B(08:00): 60 dk sanmış. D(08:24): EKOK'u 84 dk hesaplamış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0044",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
         "cikarma"
       ],
       "explanation": "Büyük dikdörtgen: 10×8=80 m². Kesilen köşe: 4×3=12 m². Kalan: 80−12=68 m². A(60): 10×6=60, yüksekliği 6 almış. B(64): kesilen alanı 16 almış (4×4=16). D(72): kesilen alanı 8 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0045",
       "imageAsset": null,
       "subject": "mat"
@@ -143,7 +143,7 @@
         "yakalama"
       ],
       "explanation": "B yola çıktığında A'nın avansı: 60×1,5=90 km. Hız farkı: 90−60=30 km/h. Yakalama süresi: 90÷30=3 saat. B, 09:30'dan 3 saat sonra yakalar: 12:30. A(12:00): hız farkını 45 almış, 90÷45=2h → 11:30 değil. B(12:15): 2,75h hesaplamış. D(13:00): avansı 105 km sanmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0046",
       "imageAsset": null,
       "subject": "mat"
@@ -167,7 +167,7 @@
         "toplama_cikarma"
       ],
       "explanation": "3½ + 2⅔ − 1⅙ = 7/2 + 8/3 − 7/6. OPD=6: 21/6 + 16/6 − 7/6 = 30/6 = 5 kg. A(4½): 7/2+8/3=37/6, 37/6−7/6=30/6=5 değil 9/2=4½ hata. B(4 5/6): yanlış ortak payda. D(5 1/6): 30/6=5 yerine 31/6 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0047",
       "imageAsset": null,
       "subject": "mat"
@@ -191,7 +191,7 @@
         "denklem"
       ],
       "explanation": "EBOB × EKOK = A × B → 15 × 180 = 45 × B → B = 2700 ÷ 45 = 60. Doğrulama: EBOB(45,60)=15 ✓, EKOK(45,60)=180 ✓. A(45): B=A sanmış. B(50): 15×180=2700, 2700÷54=50 hata. D(75): 2700÷36=75, EBOB'u 36 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0048",
       "imageAsset": null,
       "subject": "mat"
@@ -215,7 +215,7 @@
         "veri_analiz"
       ],
       "explanation": "Toplam: 12+18+24+6+15+21+9=105. Ortalama: 105÷7=15. Sıralı dizi: 6,9,12,15,18,21,24. Ortanca (4. eleman)=15. A: medyanı 12 almış (3. eleman). C: ortalamayı 14 hesaplamış (toplam 98 sanmış). D: medyanı 18 almış (5. eleman).",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0049",
       "imageAsset": null,
       "subject": "mat"
@@ -239,7 +239,7 @@
         "birim_cevirme"
       ],
       "explanation": "Hacim: 12×9×5=540 dm³=540 litre. A(480): 12×8×5=480, genişliği 8 almış. B(510): 12×8,5×5=510, yuvarlama hatası. D(580): 12×9×5+40=580, fazladan alan eklemiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0050",
       "imageAsset": null,
       "subject": "mat"

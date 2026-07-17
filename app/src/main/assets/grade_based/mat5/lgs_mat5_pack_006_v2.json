@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat5_v2_0051",
@@ -23,7 +23,7 @@
         "para"
       ],
       "explanation": "Elma: 5×6,40=32,00 TL. Armut: 2,5×8,80=22,00 TL. Toplam: 32+22=54,00 TL. A(48): 5×6,40=32, 2,5×6,40=16 (aynı fiyatı kullanmış). B(51,50): armut için 2,5×7,80=19,50 almış. D(57): 5×7=35, 2,5×8,80=22 hata.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0051",
       "imageAsset": null,
       "subject": "mat"
@@ -47,7 +47,7 @@
         "para"
       ],
       "explanation": "1. indirim: 800×0,75=600 TL. 2. indirim: 600×0,90=540 TL. A(480): tek seferde %40 indirim uygulamış, 800×0,60=480. B(500): 800−%25−%25=800×0,75×0,75=450 değil, farklı hata. C(520): 800−%25−%10=800−200−80=520, orijinal fiyat üzerinden her ikisini de uygulamış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0052",
       "imageAsset": null,
       "subject": "mat"
@@ -71,7 +71,7 @@
         "cevre"
       ],
       "explanation": "Alan: (22+14)/2×8=18×8=144 m². Çevre: 22+14+10+10=56 m. B: çevreyi 54 almış (bacakları 9 saymış). C(128): (22+14)/2×7=126≈128 hata, yüksekliği 7 almış. D(160): (22+14)/2×10=180 yanlış, bacak uzunluğunu yükseklik sanmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0053",
       "imageAsset": null,
       "subject": "mat"
@@ -95,7 +95,7 @@
         "problem_cozme"
       ],
       "explanation": "8 öğrenci toplamı: 8×73=584. 9. öğrenci sonrası: 584+91=675. Yeni ortalama: 675÷9=75. A(73): değişmez sanmış. B(74): (73+91)÷2=82, 82÷9... yanlış yöntem, ya da 584+91=675, 675÷9=74 yuvarlama hatası. D(77): (73+91)÷2=82, 82'yi ortalama zannetmiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0054",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
         "problem_cozme"
       ],
       "explanation": "Pazartesi satış: 3/5×720=432. Kalan: 720−432=288. Salı satış: 1/4×288=72. Kalan: 288−72=216. A(180): Salı'yı orijinalin 1/4'ü sanmış, 720/4=180. B(200): toplam satışı 520 almış. C(210): Salı'yı 78 almış, 288−78=210 hata.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0055",
       "imageAsset": null,
       "subject": "mat"
@@ -143,7 +143,7 @@
         "mesafe"
       ],
       "explanation": "Toplam hız: 60+80=140 km/h. Süre: 420÷140=3 saat. A şehrine mesafe: 60×3=180 km. B(200): B şehrine mesafeyi vermiş, 80×3=240, ya da P'nin hızını 80 almış. C(2,5 saat): toplam hızı 168 sanmış. D(4 saat): toplamı 105 km/h almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0056",
       "imageAsset": null,
       "subject": "mat"
@@ -167,7 +167,7 @@
         "kural_bulma"
       ],
       "explanation": "Bölen sayısı formülü: (3+1)×(2+1)×(1+1)=4×3×2=24. A(18): üsleri toplamış, (3+2+1)×3=18. B(20): (4+1)×(2+1)×(1+1)=30 değil, üsleri yanlış saymış. D(28): (3+1)×(2+1)×(2+1)=36 değil, birini fazla almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0057",
       "imageAsset": null,
       "subject": "mat"
@@ -191,7 +191,7 @@
         "formul"
       ],
       "explanation": "Küp yüzey alanı: 6×kenar²=6×7²=6×49=294 cm². A(196): 4×7²=196, 4 yüz saymış. B(245): 5×7²=245, 5 yüz saymış. D(343): 7³=343, hacim hesaplamış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0058",
       "imageAsset": null,
       "subject": "mat"
@@ -215,7 +215,7 @@
         "denklem"
       ],
       "explanation": "x − 2x/5 = 84 → 3x/5 = 84 → x = 84×5÷3 = 140. Doğrulama: 140−(2/5)×140=140−56=84 ✓. A(120): 120×(3/5)=72≠84. B(126): 126×(3/5)=75,6≠84. C(134): 134×(3/5)=80,4≠84.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0059",
       "imageAsset": null,
       "subject": "mat"
@@ -239,7 +239,7 @@
         "veri_analiz"
       ],
       "explanation": "Sıralı: 55,65,67,78,78,82,90. Mod: en çok tekrarlanan=78 (iki kez). Medyan: 4. eleman=78. A: medyan 67 yanlış (3. eleman). C: mod 82 yanlış (82 bir kez geçiyor). D: medyan 82 yanlış (5. eleman).",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0060",
       "imageAsset": null,
       "subject": "mat"

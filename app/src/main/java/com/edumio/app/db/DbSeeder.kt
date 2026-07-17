@@ -130,12 +130,12 @@ object DbSeeder {
     private const val CURRENT_IMAT_SEED_VERSION = 17
     private const val IMAT_ASSET = "imat/imat_questions.json"
 
-    // ── Mioitalia ORIGINAL question bank ────────────────────────────────────────
-    // Fully isolated pool (examType='MIOITALIA'), own asset + own version key + own reseed, kept
+    // ── EdumioOriginal ORIGINAL question bank ────────────────────────────────────────
+    // Fully isolated pool (examType='EDUMIO_ORIGINAL'), own asset + own version key + own reseed, kept
     // separate from the official IMAT bank so users never confuse original with official content.
-    private const val KEY_MIOITALIA_SEED_VERSION = "mioitalia_seed_version"
-    private const val CURRENT_MIOITALIA_SEED_VERSION = 22
-    private const val MIOITALIA_ASSET = "mioitalia/questions.json"
+    private const val KEY_EDUMIO_ORIGINAL_SEED_VERSION = "edumio_original_seed_version"
+    private const val CURRENT_EDUMIO_ORIGINAL_SEED_VERSION = 22
+    private const val EDUMIO_ORIGINAL_ASSET = "edumio_original/questions.json"
 
     // ── TIL-I & CEnT-S Daily Challenge banks ────────────────────────────────────
     // Fully isolated production pools (examType='TIL_I' / 'CENT_S'), own asset + version key + reseed.
@@ -160,7 +160,7 @@ object DbSeeder {
         internal set
 
     @Volatile
-    var lastMioitaliaSeeded: Int = 0
+    var lastEdumioOriginalSeeded: Int = 0
         internal set
 
     /**
@@ -254,46 +254,46 @@ object DbSeeder {
     } catch (_: Exception) { "" }
 
     /**
-     * Seeds Mioitalia ORIGINAL questions from [MIOITALIA_ASSET] into Room (examType='MIOITALIA'),
-     * idempotent and versioned via [KEY_MIOITALIA_SEED_VERSION]. Fully isolated from the official IMAT
-     * pool and the K-12/LGS flow. On version bump it deletes existing Mioitalia rows and re-inserts.
+     * Seeds EdumioOriginal ORIGINAL questions from [EDUMIO_ORIGINAL_ASSET] into Room (examType='EDUMIO_ORIGINAL'),
+     * idempotent and versioned via [KEY_EDUMIO_ORIGINAL_SEED_VERSION]. Fully isolated from the official IMAT
+     * pool and the K-12/LGS flow. On version bump it deletes existing EdumioOriginal rows and re-inserts.
      */
-    suspend fun seedMioitaliaIfNeeded(context: Context): Int = withContext(Dispatchers.IO) {
+    suspend fun seedEdumioOriginalIfNeeded(context: Context): Int = withContext(Dispatchers.IO) {
         try {
             val db = DatabaseProvider.get(context)
             val meta = db.appMetaDao()
             val dao = db.questionDao()
-            val stored = meta.get(KEY_MIOITALIA_SEED_VERSION)?.toIntOrNull() ?: 0
-            val already = try { dao.countActiveMioitaliaQuestions() } catch (_: Exception) { 0 }
-            if (stored >= CURRENT_MIOITALIA_SEED_VERSION && already > 0) {
-                Log.i(TAG, "seedMioitalia skip (version=$stored, count=$already)")
-                lastMioitaliaSeeded = 0
+            val stored = meta.get(KEY_EDUMIO_ORIGINAL_SEED_VERSION)?.toIntOrNull() ?: 0
+            val already = try { dao.countActiveEdumioOriginalQuestions() } catch (_: Exception) { 0 }
+            if (stored >= CURRENT_EDUMIO_ORIGINAL_SEED_VERSION && already > 0) {
+                Log.i(TAG, "seedEdumioOriginal skip (version=$stored, count=$already)")
+                lastEdumioOriginalSeeded = 0
                 return@withContext 0
             }
-            val entities = parseMioitaliaAsset(context)
+            val entities = parseEdumioOriginalAsset(context)
             if (entities.isEmpty()) {
-                Log.w(TAG, "seedMioitalia: asset produced 0 entities — skipping")
-                lastMioitaliaSeeded = 0
+                Log.w(TAG, "seedEdumioOriginal: asset produced 0 entities — skipping")
+                lastEdumioOriginalSeeded = 0
                 return@withContext 0
             }
             db.withTransaction {
-                dao.deleteMioitaliaQuestions()
+                dao.deleteEdumioOriginalQuestions()
                 dao.insertAllIgnore(entities)
             }
-            meta.set(AppMetaEntity(KEY_MIOITALIA_SEED_VERSION, CURRENT_MIOITALIA_SEED_VERSION.toString()))
-            Log.i(TAG, "seedMioitalia inserted ${entities.size} original questions (version=$CURRENT_MIOITALIA_SEED_VERSION)")
-            lastMioitaliaSeeded = entities.size
+            meta.set(AppMetaEntity(KEY_EDUMIO_ORIGINAL_SEED_VERSION, CURRENT_EDUMIO_ORIGINAL_SEED_VERSION.toString()))
+            Log.i(TAG, "seedEdumioOriginal inserted ${entities.size} original questions (version=$CURRENT_EDUMIO_ORIGINAL_SEED_VERSION)")
+            lastEdumioOriginalSeeded = entities.size
             entities.size
         } catch (e: Exception) {
-            Log.e(TAG, "seedMioitalia failed: ${e.message}", e)
-            lastMioitaliaSeeded = 0
+            Log.e(TAG, "seedEdumioOriginal failed: ${e.message}", e)
+            lastEdumioOriginalSeeded = 0
             0
         }
     }
 
-    private fun parseMioitaliaAsset(context: Context): List<QuestionEntity> {
+    private fun parseEdumioOriginalAsset(context: Context): List<QuestionEntity> {
         val json = try {
-            context.assets.open(MIOITALIA_ASSET).use { it.readBytes().toString(Charsets.UTF_8) }
+            context.assets.open(EDUMIO_ORIGINAL_ASSET).use { it.readBytes().toString(Charsets.UTF_8) }
         } catch (_: Exception) { return emptyList() } // asset optional until the bank ships
         val arr = JSONArray(json)
         val now = System.currentTimeMillis()
@@ -322,13 +322,13 @@ object DbSeeder {
                     answerIndex = answerIndex,
                     explanation = explanation,
                     isActive = true,
-                    examType = "MIOITALIA",
+                    examType = "EDUMIO_ORIGINAL",
                     imageAsset = image,
                     topic = topic,
                     stemNormalized = stemNorm,
                     stemHash = imatSha256(stemNorm),
                     createdAt = now,
-                    sourcePack = "mioitalia_${o.optString("contentSubject", examSubject)}",
+                    sourcePack = "edumio_original_${o.optString("contentSubject", examSubject)}",
                     source = "original",
                     year = null,
                     qualityTier = "HIGH",
@@ -343,7 +343,7 @@ object DbSeeder {
 
     /**
      * Seeds the TIL-I Daily Challenge bank from [TIL_ASSET] (examType='TIL_I'), versioned + idempotent.
-     * Fully isolated from IMAT/MIOITALIA/LGS. On version bump: delete existing TIL_I rows, re-insert.
+     * Fully isolated from IMAT/EDUMIO_ORIGINAL/LGS. On version bump: delete existing TIL_I rows, re-insert.
      */
     suspend fun seedTilIIfNeeded(context: Context): Int =
         seedDailyChallengeExam(context, TIL_ASSET, "TIL_I", KEY_TIL_SEED_VERSION, CURRENT_TIL_SEED_VERSION) { lastTilSeeded = it }

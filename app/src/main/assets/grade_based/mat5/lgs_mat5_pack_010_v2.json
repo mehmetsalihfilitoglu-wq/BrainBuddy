@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat5_v2_0091",
@@ -14,7 +14,7 @@
       "topic": "kesirler",
       "skills": ["ondalık_kesir_dönüşümü", "kesir_toplama", "birim_kıyaslama"],
       "explanation": "0,375=375/1000=3/8. 3/8+7/8=10/8=5/4. A(1): 3/8+7/8=10/8>1 olduğunu fark etmemiş. C(3/2): 10/8'i 12/8=3/2 okumuş. D(7/4): paydaları toplamış → 3+7=10 değil 14, 14/8=7/4.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0091",
       "imageAsset": null,
       "subject": "mat"
@@ -29,7 +29,7 @@
       "topic": "yuzde",
       "skills": ["ardışık_indirim", "ondalık_çarpma", "zincirleme"],
       "explanation": "640×0,75=480. 480×0,80=384. A(352): 640×(1−0,45)=640×0,55=352, indirimleri toplamış (%25+%20=%45). B(368): ara hesapta hata. D(400): ikinci indirim için 480−80=400, sabit 80 TL çıkarmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0092",
       "imageAsset": null,
       "subject": "mat"
@@ -44,7 +44,7 @@
       "topic": "geometri",
       "skills": ["küp_hacmi", "birim_dönüşümü", "üçlü_çarpma"],
       "explanation": "Hacim: 30³=30×30×30=27000 cm³. 27000÷1000=27 litre. A(9): 30²÷100=9, hacim yerine yüzey karıştırmış. B(18): 27÷1,5=18, yanlış bölme. D(36): 30³=27000'i 36000 almış veya 1 litreyi 750 cm³ saymış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0093",
       "imageAsset": null,
       "subject": "mat"
@@ -59,7 +59,7 @@
       "topic": "kesirler",
       "skills": ["karma_kesir_bölme", "kesrin_kesirine_bölme"],
       "explanation": "7½÷¾=15/2÷3/4=15/2×4/3=60/6=10 parça. A(8): 15/2−3/4=30/4−3/4=27/4≈6,75≈8 gibi hata. B(9): kesirli bölmede paydaları farklı işlemiş. D(12): 7,5÷(3/4) yerine 7,5×(3/4)×... veya bölmek yerine 9÷0,75=12 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0094",
       "imageAsset": null,
       "subject": "mat"
@@ -74,7 +74,7 @@
       "topic": "istatistik",
       "skills": ["ağırlıklı_toplam", "ortalama_güncelleme", "bölme"],
       "explanation": "Eski toplam: 5×24=120. Yeni toplam: 120+36=156. Yeni ortalama: 156÷6=26. A(25): 1 artış sanmış. C(27): (24+36)/2=30→yanlış. D(28): (24+36)/2+3=33→yanlış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0095",
       "imageAsset": null,
       "subject": "mat"
@@ -89,7 +89,7 @@
       "topic": "dogal_sayilar",
       "skills": ["asal_çarpanlara_ayırma", "bölen_sayısı_formülü"],
       "explanation": "120=2³×3¹×5¹. Bölen sayısı: (3+1)×(1+1)×(1+1)=4×2×2=16. Bölenler: 1,2,3,4,5,6,8,10,12,15,20,24,30,40,60,120 → 16 tane. A(10): üsleri toplamış: 3+1+1+1+1=6, ek 4... B(14): manuel saymada 2 böleni atlamış. D(20): fazla bölen saymış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0096",
       "imageAsset": null,
       "subject": "mat"
@@ -104,7 +104,7 @@
       "topic": "dogal_sayilar",
       "skills": ["harita_ölçeği", "birim_dönüşümü", "çarpma"],
       "explanation": "4,8 cm × 200 000 = 960 000 cm. 960 000 ÷ 100 000 = 9,6 km. A(4,8): dönüşüm yapmamış. C(48): 960 000 cm ÷ 20 000 = 48 km, yanlış bölme. D(96): 4,8×20=96 km, ölçeği 10 kat büyük almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0097",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
       "topic": "dogal_sayilar",
       "skills": ["EBOB", "EKOK", "çarpım_özelliği", "toplam"],
       "explanation": "a×b=EKOK×EBOB=180×12=2160. a+b=96, a×b=2160 → (a−b)²=96²−4×2160=576 → a−b=24. a=60, b=36. Doğrulama: EBOB(36,60)=12 ✓, EKOK(36,60)=180 ✓. A(24 ve 72): EBOB(24,72)=24≠12. C(48 ve 48): EBOB=48≠12. D(40 ve 56): toplam 96 ama EKOK(40,56)=280≠180.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0098",
       "imageAsset": null,
       "subject": "mat"
@@ -134,7 +134,7 @@
       "topic": "geometri",
       "skills": ["dikdörtgen_alan", "üçgen_alan", "bileşik_şekil"],
       "explanation": "Dikdörtgen: 8×4=32 m². Üçgen: (8×3)÷2=12 m². Toplam: 32+12=44 m². A(32): üçgeni eklemeyi unutmuş. B(38): üçgen için 8×3÷4=6 almış → 32+6=38. D(50): üçgen için 8×3=24 bölmeden eklemiş → 32+24=56 ama 50 yazmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0099",
       "imageAsset": null,
       "subject": "mat"
@@ -149,7 +149,7 @@
       "topic": "istatistik",
       "skills": ["ortalama", "denklem_kurma", "geri_hesaplama"],
       "explanation": "Eski toplam: 5×20=100. En büyük sayı x olsun. (100−x+2x)/5=26 → 100+x=130 → x=30. A(24): toplam farkı (130−100=30), 30÷... hata. B(28): 5×26=130, 130−100=30 yerine 28 almış. D(32): 100+32=132, 132÷5=26,4≠26.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0100",
       "imageAsset": null,
       "subject": "mat"

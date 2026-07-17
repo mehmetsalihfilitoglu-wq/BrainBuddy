@@ -1,7 +1,7 @@
 package com.edumio.app.auth
 
 /**
- * The complete authentication contract for Mioitalia — provider-agnostic and
+ * The complete authentication contract for EdumioOriginal — provider-agnostic and
  * backend-agnostic. [LocalAuthStubRepository] implements it fully on-device so
  * the app builds and works today; a `FirebaseAuthRepository` will implement the
  * same contract once `google-services.json` is added, with no changes to callers.

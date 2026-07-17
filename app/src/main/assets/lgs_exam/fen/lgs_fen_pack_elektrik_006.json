@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Özdeş bir pil ve özdeş ampullerle kurulan bir devrede iki ampul seri bağlıdır. Devreye üçüncü özdeş ampul paralel bir kol olacak şekilde ekleniyor. Buna göre ampullerin parlaklığı için aşağıdakilerden hangisi doğrudur?",
@@ -18,7 +18,7 @@
       "topic": "Elektrik",
       "skills": ["seri_devre", "paralel_devre", "parlaklik"],
       "explanation": "Paralel bağlanan ampul pile doğrudan bağlanmış gibi çalışır. Seri bağlı ampuller ise daha yüksek toplam direnç nedeniyle daha sönük yanar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "Elektrik",
       "skills": ["paralel_devre", "parlaklik"],
       "explanation": "Paralel devrede her ampul pile doğrudan bağlıdır. Yeni kol eklense bile ilk ampulün pile bağlanma şekli değişmediği için parlaklığı değişmez.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "Elektrik",
       "skills": ["seri_devre", "direnc"],
       "explanation": "Seri bağlı her ampul devrenin toplam direncini artırır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "Elektrik",
       "skills": ["akim", "gerilim", "devre"],
       "explanation": "Pil sayısının artması devredeki gerilimi artırır ve akım artar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "Elektrik",
       "skills": ["elektroskop", "yuk", "etki"],
       "explanation": "Aynı işaretli yükler birbirini iter. Elektronlar yapraklara doğru itildiği için yapraklar daha fazla açılır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "Elektrik",
       "skills": ["yuk", "elektrik_etkilesim", "coulomb"],
       "explanation": "Birbirini iten cisimler aynı işaretli yüklüdür.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "Elektrik",
       "skills": ["elektriklenme", "elektron", "yuk"],
       "explanation": "Elektron kaybeden cisim pozitif yükle yüklenir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "Elektrik",
       "skills": ["seri_devre", "parlaklik", "direnc"],
       "explanation": "Seri devrede toplam direnç daha büyüktür ve ampuller daha sönük yanar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "Elektrik",
       "skills": ["paralel_devre", "elektrik_devresi"],
       "explanation": "Paralel devrede bir kol çıkarılsa bile diğer kollar pile bağlı kalır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "Elektrik",
       "skills": ["elektrik_akimi", "elektron", "devre"],
       "explanation": "Akım, iletkendeki serbest elektronların yönlü hareketiyle oluşur. Ampulün yanması bu akımın varlığını gösterir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_el_006_q10"
     }
   ]

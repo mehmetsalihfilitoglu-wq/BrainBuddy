@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "difficulty": 2,
@@ -24,7 +24,7 @@
       "answerIndex": 2,
       "explanation": "Pazartesi = 5k, salı = 7k → 12k = 720 → k = 60. Pazartesi 300, salı 420 TL. Çarşamba = 2m, perşembe = 3m → 5m = 900 → m = 180. Çarşamba 360, perşembe 540 TL. P–P toplam: 300+420+360+540 = 1620. Cuma = 2180 − 1620 = 560 TL.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q01",
       "subject": "mat"
     },
@@ -47,7 +47,7 @@
       "answerIndex": 1,
       "explanation": "İndirimli fiyat 500×0,8=400 TL. 400(1+b/100)=540 → 1+b/100=1,35 → b=35.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q02",
       "subject": "mat"
     },
@@ -70,7 +70,7 @@
       "answerIndex": 2,
       "explanation": "2^(2x−y) = 2^(2x)/2^y = (2^x)²/2^y = a²/b. 2^(x+y) = 2^x·2^y = ab. Toplam: a²/b + ab = ab + 8. a²/b + ab − ab = 8 → a²/b = 8 → a² = 8b. 2^x=a, 2^y=b → a ve b 2'nin kuvvetleri. a²=8b → a²=2³b. a=2^p, b=2^q olsun. 2^(2p)=2³·2^q=2^(3+q) → 2p=3+q. En basit: q=1 → 2p=4 → p=2. a=4, b=2. ab=8. Ama ifade a²/b+ab = 16/2+8 = 8+8 = 16. Verilen: ab+8 = 8+8 = 16. Eşleşti. ab=8. Seçeneklerde 8 var, index 2. Ama cevap 4 demiş. Kontrol: ab=4 için a=2, b=2. a²/b+ab = 4/2+4 = 6. ab+8 = 12. Eşit değil. ab=8 doğru. Cevap index 2 (8). Kullanıcı answerIndex 0 (4) demiş. Belki farklı kurgu. a²/b + ab = ab + 8 → a²/b = 8. a=4, b=2 → ab=8. Cevap 8.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q03",
       "subject": "mat"
     },
@@ -94,7 +94,7 @@
       "answerIndex": 1,
       "explanation": "Dikdörtgen 12×k (k uzun kenar). Kare kenarı x olsun. Kalan alan = 12k − 2x² (iki köşede kare kesildiğini varsayalım; köşe üzerinde 'bir köşesi kenarlar üzerinde' bir kare - genelde bir köşe kesilir). Kalan = 12k − x². 12k − x² = (5/8)·12k = 7,5k. 12k − 7,5k = x² → 4,5k = x². k ve x ilişkisi: kare dikdörtgen içinde, köşede. kare kenarı x ≤ 12. x=3 için x²=9 → 4,5k=9 → k=2. Dikdörtgen 12×2, alan 24. Kalan 24−9=15. 15 = (5/8)·24 = 15 ✓. x=3.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q04",
       "subject": "mat"
     },
@@ -117,7 +117,7 @@
       "answerIndex": 0,
       "explanation": "Ortalama = medyan olmalı. 4 kişi kaldığında. Ayrılan x olsun. Kalan: {2,3,5,7,13}\\{x}. Olasılıklar: 2 ayrılırsa kalan {3,5,7,13}, ortalama 7, medyan (5+7)/2=6. Eşit değil. 3 ayrılırsa kalan {2,5,7,13}, ortalama 6,75, medyan (5+7)/2=6. 5 ayrılırsa kalan {2,3,7,13}, ortalama 6,25, medyan (3+7)/2=5. 7 ayrılırsa kalan {2,3,5,13}, ortalama 5,75, medyan (3+5)/2=4. 13 ayrılırsa kalan {2,3,5,7}, ortalama 4,25, medyan (3+5)/2=4. Hiçbiri ortalama=medyan vermiyor. Tekrar: 4 veri için medyan orta iki sayının ortalaması. 2 ayrılınca {3,5,7,13}: ortalama 7, medyan 6. 13 ayrılınca {2,3,5,7}: ortalama 4,25, medyan 4. Belki 5 ayrılınca: ortalama (2+3+7+13)/4=6,25, medyan (3+7)/2=5. Ortalama=medyan için 4 veri: a,b,c,d sıralı. Medyan=(b+c)/2. Ortalama=(a+b+c+d)/4. Eşitlik: (a+b+c+d)/4 = (b+c)/2 → a+d = b+c. 2,3,5,7,13'ten 4 seç. 2,5,7,13: 2+13=15, 5+7=12. 3,5,7,13: 3+13=16, 5+7=12. 2,3,7,13: 2+13=15, 3+7=10. 2,3,5,13: 2+13=15, 3+5=8. 2,3,5,7: 2+7=9, 3+5=8. Hiçbirinde a+d=b+c yok. O halde veri farklı olabilir. Ya da cevap '2' kabul edilir (en düşük yaş - tipik eleyici). Cevap 2.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q05",
       "subject": "mat"
     },
@@ -140,7 +140,7 @@
       "answerIndex": 2,
       "explanation": "Bidon V litre. 2V/5 + 12 = V/2. 12 = V/2 − 2V/5 = 5V/10 − 4V/10 = V/10. V = 120 litre.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q06",
       "subject": "mat"
     },
@@ -163,7 +163,7 @@
       "answerIndex": 0,
       "explanation": "Eğim = (k−5)/(6−2) = 1/2 → k−5 = 2 → k=7. Doğru (2,5) ve (6,7)'den geçer. y−5 = (1/2)(x−2) → y = x/2 + 4. y=0 için 0 = a/2 + 4 → a = −8. Cevap a = −8.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q07",
       "subject": "mat"
     },
@@ -186,7 +186,7 @@
       "answerIndex": 0,
       "explanation": "Toplam 12 bilye, 3'ü C(12,3)=220 şekilde seçilir. Bir kırmızı, bir mavi, bir yeşil: 3×4×5=60. Olasılık 60/220 = 3/11.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q08",
       "subject": "mat"
     },
@@ -209,7 +209,7 @@
       "answerIndex": 0,
       "explanation": "√(n+5)=a, √(n−4)=b. a−b=1 ve a²−b²=9. (a−b)(a+b)=9 → a+b=9. a−b=1, a+b=9 → a=5, b=4. n+5=25, n−4=16 → n=20.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q09",
       "subject": "mat"
     },
@@ -232,7 +232,7 @@
       "answerIndex": 0,
       "explanation": "3^(2x+1)=27=3³ → 2x+1=3 → x=1. 2^(3y−1)=8=2³ → 3y−1=3 → y=4/3. 2x+3y = 2 + 4 = 6.",
       "imageAsset": null,
-      "source": "brainbuddy_premium",
+      "source": "edumio_premium",
       "sourceRef": "gold101_q10",
       "subject": "mat"
     }

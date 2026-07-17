@@ -50,7 +50,7 @@ class LocalDataRightsService(context: Context) : DataRightsService {
             root.put("areas", areas)
 
             val json = root.toString(2)
-            val file = File(ctx.filesDir, "mioitalia_export_${System.currentTimeMillis()}.json")
+            val file = File(ctx.filesDir, "edumio_original_export_${System.currentTimeMillis()}.json")
             file.writeText(json)
             ExportResult.Success(file.absolutePath, json.toByteArray().size)
         } catch (e: Exception) {

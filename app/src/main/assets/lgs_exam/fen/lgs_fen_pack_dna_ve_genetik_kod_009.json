@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "İki farklı canlı türünde aynı gen için yapılan DNA analizinde A bazı oranları sırasıyla %28 ve %22 bulunuyor. Bu iki türün DNA'ları için aşağıdaki yorumlardan hangisi kesin olarak söylenebilir?",
@@ -18,7 +18,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "yorumlama"],
       "explanation": "DNA'da baz eşleşme kuralına göre A = T her zaman geçerlidir. Hangi tür olursa olsun adenin oranı timin oranına eşittir. G ve C oranları bilinmeden diğer yorumlar kesin değildir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "alel_orani", "heterozigot", "populasyon"],
       "explanation": "Baskın ve çekinik aleller eşit olduğunda (B=b=%50), çiftleşmelerde BB %25, bb %25, Bb %50 oranında oluşur. Bu, Punnett karesi ile bulunabilir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["genotip_fenotip", "cevre_etkisi", "modifikasyon"],
       "explanation": "Aynı genotip, farklı çevre (spor vs hareketsizlik). Vücut kitle farkı çevresel etkiyle oluşur; kas-kilo farkı modifikasyona örnektir. Genotip aynı olduğu halde fenotipte fark var; bu, çevrenin bazı özellikleri etkileyebileceğini gösterir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "denklem"],
       "explanation": "A = T, G = C. A = 2G. Toplam: 2A + 2G = 720. 2(2G) + 2G = 6G = 720 → G = 120, C = 120. A = 2G = 240 = T.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "antibiyotik_direnci", "dogal_secilim", "yorumlama"],
       "explanation": "Antibiyotik ortamında hayatta kalan bireyler genellikle direnç geni taşır; bu da mutasyonla oluşmuş olabilir. Modifikasyon kalıtsal değildir ve bu hızlı seçilimi açıklamaz. B'de az koloni, C'de çok – her ikisinde de direnç mutasyonları olma olasılığı yüksektir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet", "olasilik", "kosullu"],
       "explanation": "Aa × Aa → 1 AA : 2 Aa : 1 aa. Baskın fenotipliler AA ve Aa (3 adet). Bunların 2'si heterozigot (Aa). Baskın fenotipte olanlardan heterozigot olma olasılığı = 2/3.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dogal_secilim", "adaptasyon", "cevre", "tarihsel_ornek"],
       "explanation": "Sanayi devrimi sonrası ağaçlar karardığında açık renkli güveler daha kolay görülüp avlandı; koyu renkliler hayatta kaldı ve daha fazla üredi. Bu doğal seçilim örneğidir. Mutasyon zaten vardı; çevre değişince seçilim etkili oldu.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "oran"],
       "explanation": "G + C = %60 → A + T = %40. A = T olduğundan A = %20.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "cift_karakter", "bagimsiz_dagilim", "olasilik"],
       "explanation": "Aa × Aa → aa olasılığı 1/4. Bb × Bb → bb olasılığı 1/4. Bağımsız olaylar: aabb = (1/4)(1/4) = 1/16.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "modifikasyon", "ayrim", "kalitsal"],
       "explanation": "Temel fark: Mutasyonda DNA dizilimi değişir ve değişim nesillere aktarılabilir. Modifikasyonda DNA değişmez, çevresel etkiyle fenotip değişir ve genellikle yavrulara geçmez. Bu gözlem, ikisini ayırt etmek için en güçlü kriterdir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_009_q10"
     }
   ]

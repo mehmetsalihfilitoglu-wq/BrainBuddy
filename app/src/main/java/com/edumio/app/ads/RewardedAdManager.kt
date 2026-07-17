@@ -5,7 +5,7 @@ import android.app.Activity
 /**
  * Ad-free unlock shim.
  *
- * Mioitalia has no advertisements. This retains the previous call surface so the
+ * EdumioOriginal has no advertisements. This retains the previous call surface so the
  * review/report screens compile unchanged, but there is no ad: a free unlock is
  * granted instantly (still bounded by each screen's own daily quota; Premium is
  * unlimited). No Google Mobile Ads SDK, no network, no "watch an ad".

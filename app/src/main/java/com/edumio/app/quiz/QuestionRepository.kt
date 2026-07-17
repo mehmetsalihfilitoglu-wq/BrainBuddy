@@ -1168,10 +1168,10 @@ class QuestionRepository(private val context: Context) {
 
     /**
      * IMAT-format practice pools. Selecting a mode is a query-level choice (no schema migration is ever
-     * needed to switch): OFFICIAL_IMAT = frozen official bank only; MIOITALIA_ORIGINAL = original bank
+     * needed to switch): OFFICIAL_IMAT = frozen official bank only; EDUMIO_ORIGINAL_ORIGINAL = original bank
      * only; MIXED = both together. Official and original items never blend unless MIXED is chosen.
      */
-    enum class PracticePool { OFFICIAL_IMAT, MIOITALIA_ORIGINAL, MIXED }
+    enum class PracticePool { OFFICIAL_IMAT, EDUMIO_ORIGINAL_ORIGINAL, MIXED }
 
     /**
      * Unified IMAT-format quiz picker. Serves questions from the requested [pool], fully isolated from
@@ -1186,7 +1186,7 @@ class QuestionRepository(private val context: Context) {
     ): List<Question> {
         val source = when (pool) {
             PracticePool.OFFICIAL_IMAT -> roomStore.getImatQuestions(examSubject)
-            PracticePool.MIOITALIA_ORIGINAL -> roomStore.getMioitaliaQuestions(examSubject)
+            PracticePool.EDUMIO_ORIGINAL_ORIGINAL -> roomStore.getEdumioOriginalQuestions(examSubject)
             PracticePool.MIXED -> roomStore.getMixedImatQuestions(examSubject)
         }
         if (source.isEmpty()) return emptyList()
@@ -1203,14 +1203,14 @@ class QuestionRepository(private val context: Context) {
         profileId: String? = null,
     ): List<Question> = pickQuizQuestionsForPool(PracticePool.OFFICIAL_IMAT, count, examSubject, profileId)
 
-    /** Mioitalia originals only (examType='MIOITALIA'). */
-    fun pickQuizQuestionsForMioitalia(
+    /** EdumioOriginal originals only (examType='EDUMIO_ORIGINAL'). */
+    fun pickQuizQuestionsForEdumioOriginal(
         count: Int = MIN_QUESTIONS_PER_TEST,
         examSubject: String? = null,
         profileId: String? = null,
-    ): List<Question> = pickQuizQuestionsForPool(PracticePool.MIOITALIA_ORIGINAL, count, examSubject, profileId)
+    ): List<Question> = pickQuizQuestionsForPool(PracticePool.EDUMIO_ORIGINAL_ORIGINAL, count, examSubject, profileId)
 
-    /** Mixed practice: official IMAT + Mioitalia originals. */
+    /** Mixed practice: official IMAT + EdumioOriginal originals. */
     fun pickQuizQuestionsForMixed(
         count: Int = MIN_QUESTIONS_PER_TEST,
         examSubject: String? = null,

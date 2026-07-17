@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat4_v2_0111",
@@ -14,7 +14,7 @@
       "topic": "dogal_sayilar",
       "skills": ["rakam_toplamı", "rakam_çarpımı", "sayı_oluşturma"],
       "explanation": "a+b=12, a×b=32 → rakamlar 4 ve 8 (4+8=12, 4×8=32 ✓). Oluşan sayılar: 48 veya 84. En büyüğü 84. A(48): en küçük düzenleme. B(68): 6+8=14≠12, koşulu sağlamıyor. D(96): 9+6=15≠12, koşulu sağlamıyor.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0111",
       "imageAsset": null,
       "subject": "mat"
@@ -29,7 +29,7 @@
       "topic": "problem_cozme",
       "skills": ["ortak_çalışma", "kesir_toplama", "kalan_iş"],
       "explanation": "A+B birlikte dolum hızı: 1/6+1/4=5/12/saat. 2 saatte doldurulan: 2×5/12=10/12=5/6. Kalan: 1−5/6=1/6. A hızı: 1/6/saat. Süre: (1/6)÷(1/6)=1 saat. A(30dk): kalan 1/6'yı A'nın 2 kat hızda bitireceğini sanmış. C(1,5h): kalan 1/4 almış. D(2h): kalan 2/6=1/3 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0112",
       "imageAsset": null,
       "subject": "mat"
@@ -44,7 +44,7 @@
       "topic": "dogal_sayilar",
       "skills": ["oran", "toplam_pay", "bölme"],
       "explanation": "Toplam pay: 3+4=7. Birim pay: 35÷7=5. Kız: 3×5=15. A(12): toplam payı 35÷(3+4+1)=4 gibi yanlış hesaplayıp 3×4=12. C(18): oranı 3:5 almış. D(20): erkek sayısını (4×5=20) vermiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0113",
       "imageAsset": null,
       "subject": "mat"
@@ -59,7 +59,7 @@
       "topic": "örüntüler",
       "skills": ["aritmetik_dizi", "ortak_fark", "geri_hesap"],
       "explanation": "a₇−a₃=4d → 37−17=20 → d=5. a₁=a₃−2d=17−10=7. A(5): d=6 almış → 17−12=5. C(9): d=4 almış → 17−8=9. D(11): d=3 almış → 17−6=11.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0114",
       "imageAsset": null,
       "subject": "mat"
@@ -74,7 +74,7 @@
       "topic": "yuzde",
       "skills": ["kâr", "zarar", "zincirleme_yüzde"],
       "explanation": "Tüccarın satış fiyatı: 250×1,20=300 TL. Alıcının sattığı fiyat: 300×0,90=270 TL. Zarar: 300−270=30 TL. A(20): 250×0,10=25 değil 20 almış. B(25): 250×0,10=25, yani kârı değil orijinal fiyatın %10'unu almış. D(35): 300−270=30 yerine 35 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0115",
       "imageAsset": null,
       "subject": "mat"
@@ -89,7 +89,7 @@
       "topic": "geometri",
       "skills": ["kare_alan", "çıkarma", "genişleme"],
       "explanation": "Eski kare: 12²=144 cm². Yeni kare: (12+5)²=17²=289 cm². Fark: 289−144=145 cm². A(119): 12+5=17, 17²=289 yerine 17²−12=263... hata. B(125): 5³=125, yanlış işlem. D(169): 17²=289 değil 169 (13² ile karıştırmış).",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0116",
       "imageAsset": null,
       "subject": "mat"
@@ -104,7 +104,7 @@
       "topic": "dogal_sayilar",
       "skills": ["EKOK", "asal_çarpan", "döngüsel_planlama"],
       "explanation": "EKOK(4,6,8): 4=2², 6=2×3, 8=2³ → EKOK=2³×3=24 gün. A(12): EKOK(4,6)=12, 8'i dahil etmemiş. B(18): EKOK(6,8)=24 değil 18 hesaplamış. D(48): 4×6×8=192÷EKOK=8 gibi yanlış yol.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0117",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
       "topic": "kesirler",
       "skills": ["karma_kesir", "çıkarma", "OPD"],
       "explanation": "5⅙−2¾=31/6−11/4. OPD=12: 62/12−33/12=29/12=2 5/12. A(2 1/12): 25/12 hata. C(2 7/12): 31/12 yanlış. D(3 1/12): 37/12, çıkarmak yerine eklemiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0118",
       "imageAsset": null,
       "subject": "mat"
@@ -134,7 +134,7 @@
       "topic": "kesirler",
       "skills": ["kesir_toplama", "geri_hesaplama", "bütçe"],
       "explanation": "Harcanan: 1/4+1/3+1/6=3/12+4/12+2/12=9/12=3/4. Kalan: 1−3/4=1/4. 1/4×bütçe=500 → bütçe=2000 TL. A(1500): kalan 1/3 sanmış → 1/3=500 → B=1500. B(1800): harcama oranını 7/9 almış. D(2400): kalan 5/12 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0119",
       "imageAsset": null,
       "subject": "mat"
@@ -149,7 +149,7 @@
       "topic": "istatistik",
       "skills": ["ortalama", "toplam_geri_hesap", "çıkarma"],
       "explanation": "Altı sayı toplamı: 6×15=90. Altıncı sayı: 90−82=8. A(6): 5×15=75, 82−75=7≈6 tahmini. C(10): 5×16=80, 90−80=10 (yanlış ortalama). D(12): 6×17=102, 102−82=20... farklı yanlış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0120",
       "imageAsset": null,
       "subject": "mat"

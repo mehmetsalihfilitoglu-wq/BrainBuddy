@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Bir karakter bakımından Aa genotipli iki birey çaprazlanıyor. Oluşan yavrular arasından baskın fenotipli bireyler seçiliyor. Bu bireylerin kendi aralarında çaprazlanması durumunda çekinik fenotipli birey oluşma olasılığı kaçtır?",
@@ -18,7 +18,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet_kare", "olasilik", "saf_dol"],
       "explanation": "Aa × Aa → 1 AA : 2 Aa : 1 aa. Baskın fenotipli bireyler AA ve Aa'dır. Heterozigot olma olasılığı 2/3'tür. Çekinik birey oluşabilmesi için iki heterozigot bireyin çaprazlanması gerekir: (2/3 × 2/3) × 1/4 = 1/9.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "baz_orani"],
       "explanation": "DNA'da G=C olduğundan sitozin de %22'dir. G+C=%44 olur. Geriye %56 kalır. A=T olduğundan timin %28 olur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "cift_zincir"],
       "explanation": "Bir zincirdeki A karşı zincirde T ile eşleşir. Ayrıca o zincirdeki T karşı zincirde A olur. Bu nedenle toplam T sayısı 240 + 240 = 480 olur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "nukleotit", "bazlar"],
       "explanation": "Nükleotit; deoksiriboz şekeri, fosfat ve organik bazdan oluşur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "dogal_secilim", "evrim"],
       "explanation": "Faydalı mutasyonlar doğal seçilimle popülasyonda yaygınlaşabilir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["modifikasyon", "cevre_etkisi", "kalitsal"],
       "explanation": "Bronzlaşma çevresel etkiyle oluşur ve kalıtsal değildir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet_kare", "olasilik"],
       "explanation": "Aa × aa çaprazlamasında yavruların yarısı Aa, yarısı aa olur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dogal_secilim", "adaptasyon", "evrim"],
       "explanation": "Çevreye daha iyi uyum sağlayan bireylerin hayatta kalması doğal seçilimdir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "baz_orani", "nukleotit_sayisi"],
       "explanation": "A=T olduğundan timin de %30'dur. A+T=%60 olur. G+C=%40 kalır. G=C olduğundan sitozin %20 olur. 2000 × 0.20 = 400.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "modifikasyon", "adaptasyon", "ozellikler"],
       "explanation": "Mutasyon her zaman zararlı değildir. Modifikasyon kalıtsal değildir. Adaptasyon nesiller boyunca gelişen kalıtsal özelliklerdir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_008_q10"
     }
   ]

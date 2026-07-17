@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Bir kaldıraç sisteminde yük kolu 3 m, kuvvet kolu 9 m'dir. Bu sistemle 180 N'luk bir yük dengelenmek istenmektedir. Buna göre uygulanması gereken kuvvet kaç N'dur?",
@@ -18,7 +18,7 @@
       "topic": "Basit Makineler",
       "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
       "explanation": "Kuvvet kazancı = kuvvet kolu / yük kolu = 9 / 3 = 3. Kuvvet = 180 / 3 = 60 N.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "Basit Makineler",
       "skills": ["kaldirac", "destek_noktasi", "ornekler"],
       "explanation": "Destek ortadaysa birinci tip kaldıraçtır. Makas buna örnektir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "Basit Makineler",
       "skills": ["makara", "hareketli_makara", "kuvvet_kazanci"],
       "explanation": "Kuvvet kazancı hareketli makara sayısının iki katıdır. 2 hareketli makara → 4 kuvvet kazancı.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "Basit Makineler",
       "skills": ["makara", "kuvvet_kazanci", "yol_kaybi"],
       "explanation": "Yoldan kayıp kuvvet kazancı kadardır. 2 × 4 = 8 m ip çekilir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "Basit Makineler",
       "skills": ["egik_duzlem", "kuvvet_kazanci", "uzunluk"],
       "explanation": "Eğik düzlem uzadıkça kuvvet azalır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "Basit Makineler",
       "skills": ["is", "kuvvet", "yol", "enerji"],
       "explanation": "İş = Kuvvet × Yol. 100 × 2 = 200 J.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "Basit Makineler",
       "skills": ["disli_cark", "kuvvet", "hiz"],
       "explanation": "Büyük dişli döndüğünde kuvvet artar fakat hız azalır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "Basit Makineler",
       "skills": ["vida", "egik_duzlem", "basit_makine"],
       "explanation": "Vida eğik düzlemin silindir etrafına sarılmış hâlidir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "Basit Makineler",
       "skills": ["kaldirac", "kuvvet_kazanci", "kuvvet_hesabi"],
       "explanation": "Kuvvet kazancı = 8/2 = 4. Kuvvet = 160 / 4 = 40 N.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "Basit Makineler",
       "skills": ["basit_makine", "is", "ozellik"],
       "explanation": "Basit makineler işten kazanç sağlamaz fakat işi kolaylaştırırlar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bm_002_q10"
     }
   ]

@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat4_v2_0091",
@@ -14,7 +14,7 @@
       "topic": "dogal_sayilar",
       "skills": ["denklem_kurma", "oran", "zaman"],
       "explanation": "x yıl sonra: (40+x)=2,5×(10+x) → 40+x=25+2,5x → 15=1,5x → x=10. Kontrol: 50/20=2,5 ✓. A(5): babanın yaşını 5 katı almış. B(8): denklemi hatalı kurmuş, 40+8=48, 10+8=18, 48/18≈2,67≠2,5. D(15): 55/25=2,2≠2,5.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0091",
       "imageAsset": null,
       "subject": "mat"
@@ -29,7 +29,7 @@
       "topic": "geometri",
       "skills": ["dikdörtgen_alan", "çıkarma", "bileşik_şekil"],
       "explanation": "Büyük dikdörtgen: 12×9=108 m². Çıkarılan kısım: 5×4=20 m². L-alan: 108−20=88 m². A(68): girinti için 5×8=40 almış → 108−40=68. B(78): 5×6=30 → 108−30=78. D(98): 5×2=10 → 108−10=98.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0092",
       "imageAsset": null,
       "subject": "mat"
@@ -44,7 +44,7 @@
       "topic": "yuzde",
       "skills": ["yüzde_değişim", "oran", "alan_sabitliği"],
       "explanation": "Uzun kenar 1,25 kat olursa alan sabit kalmak için kısa kenar 1/1,25=4/5 katına düşmeli. 1−4/5=1/5=%20 azalma. C(%25): 'eşit oranda' tuzağı — aynı yüzde artış/azalış uygulanırsa alan sabit kalmaz (1,25×0,75=0,9375). D(%30): fazla azaltılmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0093",
       "imageAsset": null,
       "subject": "mat"
@@ -59,7 +59,7 @@
       "topic": "dogal_sayilar",
       "skills": ["ardışık_tek_sayı", "orta_terim", "toplam"],
       "explanation": "Orta sayı x: (x−4)+(x−2)+x+(x+2)+(x+4)=5x=85 → x=17. En büyük: x+4=21. A(17): ortadaki sayıyı en büyük sanmış. B(19): x+2=19, bir önceki terimi almış. D(23): x+6=23, bir adım fazla gitmiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0094",
       "imageAsset": null,
       "subject": "mat"
@@ -74,7 +74,7 @@
       "topic": "istatistik",
       "skills": ["ağırlıklı_ortalama", "toplam", "bölme"],
       "explanation": "4-A toplamı: 20×70=1400. 4-B toplamı: 30×80=2400. Birleşik toplam: 3800. Ortalama: 3800÷50=76. B(75): (70+80)÷2=75, sınıf büyüklüklerini görmezden gelmiş (klasik tuzak). A(74): toplam hesabında hata. D(77): 4-B toplamını 2450 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0095",
       "imageAsset": null,
       "subject": "mat"
@@ -89,7 +89,7 @@
       "topic": "kesirler",
       "skills": ["kesir_çarpma", "kesir_bölme", "tavan_fonksiyonu"],
       "explanation": "Toplam ihtiyaç: 5×(9/4)=45/4=11,25 L. Şişe başına: 7/4=1,75 L. Şişe sayısı: (45/4)÷(7/4)=45/7≈6,43. Yarım şişe olmadığı için 7 şişe gerekir. A(6): 6×1,75=10,5 L < 11,25 L, yetmez. C(8) ve D(9): gereğinden fazla.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0096",
       "imageAsset": null,
       "subject": "mat"
@@ -104,7 +104,7 @@
       "topic": "istatistik",
       "skills": ["ortalama", "toplam_geri_hesap", "güncelleme"],
       "explanation": "İlk 5 sınav toplamı: 5×60=300. Yeni toplam: 300+90=390. Yeni ortalama: 390÷6=65. A(60): hiç değişmediğini sanmış. C(75): (60+90)÷2=75, yalnızca iki değerin ortalamasını almış. D(78): 390÷5=78, sayıyı 6 yerine 5 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0097",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
       "topic": "problem_cozme",
       "skills": ["ters_orantı", "makine_hızı", "zaman"],
       "explanation": "Toplam makine-saat: 3×6=18. 5 makine ile: 18÷5=3,6 saat=3 saat 36 dakika. A(3 saat): 18÷6=3 h, 5 yerine 6 makine almış. B(3 saat 12 dk): 3,2 h=16 mak-saat ≠18. D(4 saat): 5×4=20 mak-saat > 18.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0098",
       "imageAsset": null,
       "subject": "mat"
@@ -134,7 +134,7 @@
       "topic": "yuzde",
       "skills": ["ardışık_yüzde", "indirim", "KDV"],
       "explanation": "200×0,85=170 TL (indirimli). 170×1,10=187 TL (KDV sonrası). A(170): KDV eklemeyi unutmuş. B(180): %15 yerine %10 indirim almış → 200×0,90=180. D(190): KDV'yi indirimli fiyat üzerinden değil orijinal fiyat üzerinden almış → 170+200×0,10=190.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0099",
       "imageAsset": null,
       "subject": "mat"
@@ -149,7 +149,7 @@
       "topic": "dogal_sayilar",
       "skills": ["oran", "pay_hesabı", "bölme"],
       "explanation": "Toplam pay: 1+3+5=9. Birim pay: 90÷9=10. En büyük pay (5): 5×10=50. A(10): 1 birimlik en küçük kutuyu vermiş. B(30): 3 birimlik orta kutuyu vermiş. C(45): toplam payı 9 değil 10 almış → 5×9=45.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat4_v2_0100",
       "imageAsset": null,
       "subject": "mat"

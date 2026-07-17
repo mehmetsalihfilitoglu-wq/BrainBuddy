@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Bir karakter bakımından heterozigot iki birey (Aa × Aa) çaprazlanıyor. Oluşan yavrular arasından baskın fenotipli bireyler seçilip kendi aralarında tekrar çaprazlanıyor. Buna göre ikinci çaprazlamada çekinik fenotipli birey oluşma olasılığı kaçtır?",
@@ -18,7 +18,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet_kare", "olasilik", "saf_dol"],
       "explanation": "İlk çaprazlamada genotip oranı 1 AA : 2 Aa : 1 aa olur. Baskın fenotipliler AA ve Aa'dır. Baskın bireyler içindeki heterozigot oranı 2/3'tür. İkinci çaprazlamada çekinik birey oluşabilmesi için iki bireyin de heterozigot olması gerekir: (2/3 × 2/3) × (1/4) = 1/9.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "baz_orani"],
       "explanation": "DNA'da G=C olduğundan sitozin de %18'dir. G+C=%36 olur. Geriye %64 kalır ve A=T olduğundan adenin %32 olur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "cift_zincir"],
       "explanation": "Toplam adenin sayısı = bir zincirdeki A + karşı zincirdeki A = 210 + 210 = 420.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "nukleotit", "bazlar"],
       "explanation": "Nükleotit; deoksiriboz şekeri, fosfat ve organik bazdan oluşur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "kalitsal", "ureme_hucre"],
       "explanation": "Mutasyon üreme hücrelerinde gerçekleştiğinde kalıtsal olabilir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["modifikasyon", "cevre_etkisi", "kalitsal"],
       "explanation": "Ten renginin güneşte koyulaşması çevresel etkidir ve kalıtsal değildir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet_kare", "olasilik"],
       "explanation": "Aa × AA çaprazlamasında yavruların yarısı AA, yarısı Aa olur. Heterozigot olma olasılığı 1/2'dir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dogal_secilim", "adaptasyon", "evrim"],
       "explanation": "Çevreye daha uygun bireylerin hayatta kalması doğal seçilimdir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi"],
       "explanation": "DNA'da sitozin ile guanin eşit sayıda bulunur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "modifikasyon", "adaptasyon", "ozellikler"],
       "explanation": "Adaptasyon bireyin yaşamında oluşmaz, nesiller boyunca gelişir. Modifikasyon çevreseldir ve kalıtsal değildir. Mutasyon DNA dizilimi değişimidir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_007_q10"
     }
   ]

@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat5_v2_0111",
@@ -14,7 +14,7 @@
       "topic": "kesirler",
       "skills": ["kesir_toplama", "kesir_çıkarma", "kesir_çarpma", "işlem_sırası"],
       "explanation": "2/3+1/4=8/12+3/12=11/12. 3/5−1/10=6/10−1/10=5/10=1/2. 11/12×1/2=11/24. A(7/20): parantez içlerini çarpmış: 2/3×3/5=6/15=2/5 ve 1/4×1/10=1/40... yanlış. C(5/12): 2. parantezi 5/12 almış → 11/12×5/12... hata. D(3/8): 1. parantezi yanlış hesaplamış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0111",
       "imageAsset": null,
       "subject": "mat"
@@ -29,7 +29,7 @@
       "topic": "yuzde",
       "skills": ["geri_hesaplama", "yüzde_denklemi", "bölme"],
       "explanation": "x×0,90=441 → x=441÷0,9=490 TL. A(485): 441+441×0,10=441+44,1=485,1≈485, indirimli fiyata %10 eklemiş. C(495): hata. D(500): güzel yuvarlak sayı tuzağı — 500×0,9=450≠441.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0112",
       "imageAsset": null,
       "subject": "mat"
@@ -44,7 +44,7 @@
       "topic": "dogal_sayilar",
       "skills": ["karekök_tahmini", "aralık_sayma", "tam_kare"],
       "explanation": "√100=10, √300≈17,3. Tam kareler: 10²=100, 11²=121, 12²=144, 13²=169, 14²=196, 15²=225, 16²=256, 17²=289. 18²=324>300. Sayı: 10'dan 17'ye = 8 tane. A(6): 300'ü dahil etmemiş ve 15'te durmuş. B(7): 17²=289'u atlamış. D(9): 18²=324'ü de eklemiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0113",
       "imageAsset": null,
       "subject": "mat"
@@ -59,7 +59,7 @@
       "topic": "dogal_sayilar",
       "skills": ["oran", "fark", "birim_pay"],
       "explanation": "5k−3k=2k=16 → k=8. Büyük sayı: 5×8=40. A(24): küçük sayı (3×8=24). B(32): 4×8=32, yanlış katsayı. D(48): 6×8=48, bir pay fazla almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0114",
       "imageAsset": null,
       "subject": "mat"
@@ -74,7 +74,7 @@
       "topic": "ondalik_sayilar",
       "skills": ["işlem_önceliği", "ondalık_çarpma", "ondalık_bölme"],
       "explanation": "İşlem sırası: önce ×/÷. 3,6×2,5=9,0; 1,8÷0,6=3,0. Sonra: 9,0−3,0+4,2=10,2. C(16,2): soldan sağa çarpma/bölme önceliğini gözetmeden hesaplamış: 9,0−1,8=7,2; 7,2÷0,6=12; 12+4,2=16,2. D(7,2): son adımı (4,2 ekleme) yapmamış → 9,0−3,0=6,0... hata.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0115",
       "imageAsset": null,
       "subject": "mat"
@@ -89,7 +89,7 @@
       "topic": "problem_cozme",
       "skills": ["kesir_toplama", "kalan_iş", "ters_orantı"],
       "explanation": "Yapılan: 1/3+1/4=4/12+3/12=7/12. Kalan: 1−7/12=5/12. Cem 5/12'yi 5 günde bitiriyor → tam işi: 5÷(5/12)=5×12/5=12 gün. A(8): kalan 1/3 almış → 5÷(1/3)=15 değil 8 yazmış. B(10): kalan 1/2 almış. D(15): 5÷(5/12) yerine 5×(5/12)×... hata.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0116",
       "imageAsset": null,
       "subject": "mat"
@@ -104,7 +104,7 @@
       "topic": "istatistik",
       "skills": ["ortalama", "toplam_güncelleme", "aykırı_değer"],
       "explanation": "Eski toplam: 5×22=110. Yeni toplam: 110−32+40=118. Yeni ortalama: 118÷5=23,6. A(23): değişimin 1 puan artıracağını sanmış. B(23,2): 110−32+38=116, 40 yerine 38 koymuş. D(24): 110−30+40=120, 32 yerine 30 çıkarmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0117",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
       "topic": "dogal_sayilar",
       "skills": ["EBOB_EKOK_çarpım_özelliği"],
       "explanation": "a×b=EBOB×EKOK=8×96=768. A(384): 8×96÷2=384, yarısını almış. B(576): EKOK²÷EBOB=9216÷16=576 gibi yanlış. D(864): 8×108=864, EKOK'u yanlış okumuş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0118",
       "imageAsset": null,
       "subject": "mat"
@@ -134,7 +134,7 @@
       "topic": "geometri",
       "skills": ["benzerlik_oranı", "alan_oranı", "kare_oran"],
       "explanation": "Alan oranı=(kenar oranının karesi)=(3/4)²=9/16. Büyük üçgen: 27×(16/9)=48 cm². A(36): 27×(4/3)=36, alan oranını kenar oranıyla karıştırmış. B(40): 27×(40/27)=40, anlamsız işlem. D(54): 27×2=54, oranı 1:2 sanmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0119",
       "imageAsset": null,
       "subject": "mat"
@@ -149,7 +149,7 @@
       "topic": "yuzde",
       "skills": ["oran_dağıtım", "yüzde_hesabı", "zincirleme"],
       "explanation": "Toplam pay: 2+5+3=10. Koyun: 150×5/10=75. %20 satıldı, kalan %80: 75×0,80=60. A(45): satılan koyun sayısını (15) vermiş, 60−15=45... hata. B(54): 75×0,72=54, yanlış oran. D(65): 75−10=65, sabit 10 çıkarmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0120",
       "imageAsset": null,
       "subject": "mat"

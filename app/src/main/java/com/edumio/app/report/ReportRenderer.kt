@@ -114,7 +114,7 @@ object ReportRenderer {
     private fun wrapHtml(title: String, inner: String): String = """
         <html><body style="margin:0;background:#FafBfC;font-family:-apple-system,Segoe UI,Roboto,sans-serif">
           <div style="max-width:520px;margin:0 auto;padding:24px">
-            <div style="font-size:13px;letter-spacing:.14em;color:$ACCENT;font-weight:700">MIOITALIA</div>
+            <div style="font-size:13px;letter-spacing:.14em;color:$ACCENT;font-weight:700">EDUMIO_ORIGINAL</div>
             <div style="background:#fff;border:1px solid #EEE;border-radius:16px;padding:20px;margin-top:12px">$inner</div>
             <p style="color:#AAA;font-size:12px;margin-top:16px">Bu rapor yalnızca senin gerçek çalışma verilerinden oluşturuldu.</p>
           </div>

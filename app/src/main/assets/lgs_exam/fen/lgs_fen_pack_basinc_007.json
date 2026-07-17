@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Bir öğrenci taban alanları eşit olan K, L ve M prizmalarını sırayla yatay zemine koyup basınç ölçüyor. K ve L aynı malzemeden, M farklı malzemedendir. K'nin yüksekliği L'nin 2 katı, L ve M'nin yükseklikleri eşittir. Ölçüm sonuçları: PK = 4 birim, PL = 2 birim, PM = 3 birim. Buna göre M prizmasının yoğunluğu L prizmasının yoğunluğunun kaç katıdır?",
@@ -18,7 +18,7 @@
       "topic": "Basınç",
       "skills": ["kati_basinc", "yogunluk", "mukayese", "veri_yorumlama"],
       "explanation": "P = F/A = (d·V·g)/A = d·h·g (V/A = h, prizma için). L için: 2 = dL·h·g. M için: 3 = dM·h·g. Oran: dM/dL = 3/2 = 1,5. K verisi karşılaştırma için kullanılabilir (yükseklik 2h iken P=4 → tutarlı).",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "Basınç",
       "skills": ["sivi_basinc", "deney_tasarimi", "degisken_kontrol"],
       "explanation": "Sıvı basıncı sadece derinlik ve yoğunluğa bağlıdır; kabın şekli taban basıncını etkilemez. Aynı derinlikte üç farklı şekilde eşit basınç bulunması beklenen bir sonuçtur. Arkadaşın \"yeterli değil\" demesi: Deney, kabın şeklinin etkisini test etmek için yapılmıştır; oysa burada asıl test edilmesi gereken farklı derinliklerde aynı sıvıda P ∝ h ilişkisinin kap şeklinden bağımsız olup olmadığıdır. Sadece tek bir derinlikte ölçüm yapıldığı için deney sınırlı kalmıştır.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "Basınç",
       "skills": ["acik_hava_basinci", "gaz_basinci", "günlük_gözlem"],
       "explanation": "Yükseğe çıkıldıkça açık hava basıncı azalır. Kapalı şişedeki hava (şişe ağzı kapalı) dış basınca göre denge halindedir. Dış basınç azalınca iç hava genleşir ve şişe hacmi artar. Su miktarı sabit olduğundan şişe genişledikçe su seviyesi düşük görünür.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "Basınç",
       "skills": ["sivi_basinc", "acik_hava_basinci", "yogunluk", "deney_yorumlama"],
       "explanation": "U borusunda açık uçta basınç atmosfer basıncına eşittir. Su yoğunluğu tuzlu sudan az olduğu için aynı basınç farkında su kolonu daha uzun olur. Kapalı uçtaki basınç, sıvı kolonunun yüksekliği ve yoğunluğuyla belirlenir. Su tarafında kolon uzun, yoğunluk düşük; kapalı uçta basınç nispeten düşük kalır, balon daha az şişer. Tuzlu su tarafında yoğunluk yüksek, kolon kısa, kapalı uçtaki basınç daha yüksek, balon daha çok şişer.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "Basınç",
       "skills": ["sivi_basinc", "grafik", "eğim", "yogunluk"],
       "explanation": "P = ρgh bağıntısında h derinlik (m), g = 10 N/kg. P (Pa = N/m²), dP/dh = ρg. Eğim ρg = 10000 N/m³ ise ρ = 1000 kg/m³. Birim tutarlı: N/m² per m = N/m³ = (kg·m/s²)/m³, g = 10 m/s² → ρ = 1000 kg/m³.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "Basınç",
       "skills": ["sivi_basinc", "kuvvet", "alan", "karsilastirma"],
       "explanation": "F = P·A = ρgh·A olduğundan A = F/(ρgh) = F/(ρg·h). ρ ve g sabitse A ∝ F/h. N: F/h = 15/15 = 1; M: 25/25 = 1; K,L: 20/20 = 1. F/h oranı A ile orantılı. N'de h en küçük (15 cm) olduğundan P = ρgh en küçük. Aynı F için P küçükse A büyük olur (A = F/P). N'de P en düşük → AN en büyük. K ve L aynı h ve F → aynı A. M'de P en yüksek → AM en küçük. Sıralama: AN > AK = AL > AM yani N > L = K > M.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "Basınç",
       "skills": ["gaz_basinci", "ideal_gaz", "sicaklik", "hacim"],
       "explanation": "İdeal gaz: PV = nRT. P ∝ T/V. T 2 kat, V yarı → P' = P · (2T/T) · (V/(V/2)) = P · 2 · 2 = 4P.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "Basınç",
       "skills": ["sivi_basinc", "yogunluk", "derinlik", "mukayese"],
       "explanation": "P = ρgh. Buzlu bardakta: eriyen buz su ekler, h artar; sıcaklık düşer, ρ hafif artar. İkisi de P'yi artırır. Tuzlu bardakta: ρ artar, h neredeyse aynı. P = ρgh ile P artar. Hangisinin daha fazla arttığı h ve ρ değişimlerine bağlı; verilen bilgiyle kesin söylenemez.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "Basınç",
       "skills": ["gaz_basinci", "hacim", "boyle", "piston"],
       "explanation": "Sabit T'de Boyle: P1V1 = P2V2. V yarıya inince P 2 katına çıkar. Piston ağırlığı ek basınç (mg/A) ekler ama bu sabittir. Gaz basıncı 2 katına çıkar; toplam basınç da artar. İtiraz, piston ağırlığının da toplam basınca katkı yaptığını vurguluyor; ancak ihmal edilebilir olduğunda öğrencinin önermesi doğrudur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "Basınç",
       "skills": ["sivi_basinc", "kuvvet", "kab_sekli"],
       "explanation": "Durgun sıvıda tabana etki eden kuvvet, taban üzerindeki sıvı sütununun ağırlığına eşittir. M genişleyen olsa bile taban düz ise taban üzerindeki dikey sıvı sütunu aynı kütleyi (tüm su) içerir. Üçünde de toplam su aynı → ağırlık aynı → tabana iletilen kuvvet aynı (aksi yöndeki kuvvetler denge halinde).",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_bas_007_q10"
     }
   ]

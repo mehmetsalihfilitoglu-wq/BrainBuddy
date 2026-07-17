@@ -1,7 +1,7 @@
 package com.edumio.app.auth
 
 /**
- * The identity providers Mioitalia supports. EMAIL and GOOGLE are wired now
+ * The identity providers EdumioOriginal supports. EMAIL and GOOGLE are wired now
  * (Google via a [CredentialProvider] token seam); APPLE is a first-class future
  * provider — the architecture is provider-agnostic so it slots in when the iOS
  * app exists, without touching UI or business logic.

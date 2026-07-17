@@ -2,7 +2,7 @@
   "version": 1,
   "mode": "LGS",
   "subject": "fen",
-  "publisher": "brainbuddy",
+  "publisher": "edumio",
   "questions": [
     {
       "stem": "Bir DNA molekülünde toplam 1200 nükleotit bulunmaktadır. Yapılan analizde sitozin bazının sayısının toplam nükleotitlerin %20'si olduğu belirlenmiştir.\n\nBuna göre guanin bazı sayısı kaçtır?",
@@ -18,7 +18,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "guanin_sitozin"],
       "explanation": "DNA'da C = G'dir. %20 C varsa %20 G vardır. 1200 x 0.20 = 240",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q01"
     },
     {
@@ -35,7 +35,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "adenin_timin"],
       "explanation": "DNA'da A = T olduğu için timin sayısı da 300'dür.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q02"
     },
     {
@@ -52,7 +52,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["kalitim", "punnet_kare", "fenotip"],
       "explanation": "Aa x Aa çaprazlamasında fenotip oranı 3:1 olur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q03"
     },
     {
@@ -69,7 +69,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["genotip", "fenotip", "baskin_ceknik"],
       "explanation": "aa genotipinde çekinik özellik ortaya çıkar.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q04"
     },
     {
@@ -86,7 +86,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "direnc", "dna_degisimi"],
       "explanation": "DNA dizilimindeki kalıcı değişim mutasyondur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q05"
     },
     {
@@ -103,7 +103,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dogal_secilim", "adaptasyon", "evrim"],
       "explanation": "Çevreye daha uyumlu bireylerin hayatta kalması doğal seçilimdir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q06"
     },
     {
@@ -120,7 +120,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "nukleotit", "yapi"],
       "explanation": "DNA protein değil nükleotitlerden oluşur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q07"
     },
     {
@@ -137,7 +137,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["dna_yapisi", "baz_esitligi", "guanin_sitozin"],
       "explanation": "G = C olduğu için sitozin de %15'tir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q08"
     },
     {
@@ -154,7 +154,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["mutasyon", "kalitsal", "ozellikler"],
       "explanation": "Mutasyonlar zararlı, faydalı veya nötr olabilir.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q09"
     },
     {
@@ -171,7 +171,7 @@
       "topic": "DNA ve Genetik Kod",
       "skills": ["modifikasyon", "mutasyon", "ayrim"],
       "explanation": "DNA değişimi mutasyondur.",
-      "source": "brainbuddy",
+      "source": "edumio",
       "sourceRef": "fen_dna_002_q10"
     }
   ]

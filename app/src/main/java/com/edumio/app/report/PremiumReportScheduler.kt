@@ -33,8 +33,8 @@ import java.util.concurrent.TimeUnit
  */
 object PremiumReportScheduler {
 
-    private const val WEEKLY_WORK = "mioitalia_weekly_report"
-    private const val MONTHLY_WORK = "mioitalia_monthly_report"
+    private const val WEEKLY_WORK = "edumio_original_weekly_report"
+    private const val MONTHLY_WORK = "edumio_original_monthly_report"
 
     fun scheduleAll(context: Context) {
         scheduleWeekly(context)

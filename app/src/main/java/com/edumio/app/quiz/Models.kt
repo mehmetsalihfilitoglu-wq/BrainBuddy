@@ -26,13 +26,13 @@ enum class ExamType(val displayName: String) {
     TYT("TYT"),
     AYT("AYT"),
     IMAT("IMAT"),
-    /** Mioitalia original, IMAT-format questions. Same 5-option rendering as IMAT, separate pool. */
-    MIOITALIA("EDUmio"),
+    /** EdumioOriginal original, IMAT-format questions. Same 5-option rendering as IMAT, separate pool. */
+    EDUMIO_ORIGINAL("EDUmio"),
     GENERAL("Genel")
 }
 
 /** IMAT-format exams: five options (A–E), verbatim choices, runtime option shuffle. */
-fun ExamType.isImatFormat(): Boolean = this == ExamType.IMAT || this == ExamType.MIOITALIA
+fun ExamType.isImatFormat(): Boolean = this == ExamType.IMAT || this == ExamType.EDUMIO_ORIGINAL
 
 data class Question(
     val id: String,
@@ -63,7 +63,7 @@ data class Question(
     /** For header/subtitle: LGS shows "LGS", IMAT shows no grade, normal mode shows numeric grade (gradeTag). */
     val gradeDisplayLabel: String get() = when (examType) {
         ExamType.LGS -> "LGS"
-        ExamType.IMAT, ExamType.MIOITALIA -> ""
+        ExamType.IMAT, ExamType.EDUMIO_ORIGINAL -> ""
         else -> gradeTag
     }
 }

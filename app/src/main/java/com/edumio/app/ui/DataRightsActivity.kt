@@ -87,7 +87,7 @@ class DataRightsActivity : AppCompatActivity() {
     private fun shareExport(filePath: String) {
         try {
             // FileProvider only exposes cacheDir; copy the export there to share it.
-            val shareFile = File(cacheDir, "mioitalia_export.json")
+            val shareFile = File(cacheDir, "edumio_original_export.json")
             File(filePath).copyTo(shareFile, overwrite = true)
             val uri = FileProvider.getUriForFile(this, "$packageName.provider", shareFile)
             val intent = Intent(Intent.ACTION_SEND).apply {

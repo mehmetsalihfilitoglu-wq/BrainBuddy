@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat5_v2_0081",
@@ -14,7 +14,7 @@
       "topic": "geometri",
       "skills": ["dikdörtgen_alan", "üçgen_alan", "bileşik_şekil"],
       "explanation": "Dikdörtgen alan: 20×12=240 m². Üçgen havuz alanı: (8×6)÷2=24 m². Yeşil alan: 240−24=216 m². Yaygın hata: Üçgen alanını bölmeden 8×6=48 almak → 240−48=192 (A şıkkı). Ya da dikdörtgeni 20×12 yerine (20−8)×12=144 hesaplamak.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0081",
       "imageAsset": null,
       "subject": "mat"
@@ -29,7 +29,7 @@
       "topic": "yuzde_ve_faiz",
       "skills": ["basit_faiz", "yüzde_hesabı", "çarpma"],
       "explanation": "Basit faiz = Ana para × Faiz oranı × Süre = 2400 × 0,015 × 4 = 144 TL. Toplam = 2400 + 144 = 2544 TL. Sık hata 1: Yıl sayısını unutmak → 2400+36=2436 (A şıkkı). Sık hata 2: %1,5'i 0,15 yazmak → 2400×0,15×4=1440, toplam=3840 (kapsam dışı). Sık hata 3: 2400×0,015×4 yerine 2400×(1,015)^4 (bileşik faiz karışımı) → 2592 (D şıkkı).",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0082",
       "imageAsset": null,
       "subject": "mat"
@@ -44,7 +44,7 @@
       "topic": "kesirler",
       "skills": ["kesir_karşılaştırma", "ortak_payda", "ondalık_yaklaşım"],
       "explanation": "Ondalık karşılaştırma: 5/6≈0,833; 11/14≈0,786; 7/9≈0,778; 8/11≈0,727. En büyük 5/6'dır → Ali. Yaygın tuzak: Pay sayısı en büyük olan 11/14'ü seçmek. Doğru yöntem: Ortak paydaya getirmek veya ondalığa çevirmek.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0083",
       "imageAsset": null,
       "subject": "mat"
@@ -59,7 +59,7 @@
       "topic": "geometri",
       "skills": ["sınır_sayma", "iç_alan_hesabı", "çıkarma"],
       "explanation": "Toplam fayans: 15×10=150. İç kısım: Her iki kenardan 1 fayans çıkarılır → (15−2)×(10−2)=13×8=104. Sık hata 1: 1 yerine sadece bir taraftan çıkarmak → 14×9=126 (iç değil tüm alan hesabı gibi). Sık hata 2: Kenar fayans sayısını 2×(15+10)=50 sanıp 150−50=100 yazmak (B şıkkı) — köşe fayansları çift sayılmaz ama bu formül kenar sayısı içindir, iç için (15-2)×(10-2) gerekir.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0084",
       "imageAsset": null,
       "subject": "mat"
@@ -74,7 +74,7 @@
       "topic": "yuzde_ve_faiz",
       "skills": ["ardışık_yüzde", "çarpım_yöntemi", "net_değişim"],
       "explanation": "800×1,30=1040 TL. 1040×0,70=728 TL. Net değişim: 728−800=−72 TL → −72/800=−0,09=%9 düşüş. Klasik tuzak: +%30 ve −%30 birbirini götürür sanmak → 800 TL (B şıkkı). Doğru çarpan: 1,30×0,70=0,91 → %9 net düşüş, sıfır değil.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0085",
       "imageAsset": null,
       "subject": "mat"
@@ -89,7 +89,7 @@
       "topic": "problem_cozme",
       "skills": ["ortak_çalışma_hızı", "kesir_toplama", "iş_problemi"],
       "explanation": "A+B günlük hız: 1/8+1/12=3/24+2/24=5/24. 3 günde yapılan: 3×5/24=15/24=5/8. Kalan iş: 1−5/8=3/8. A+B+C günlük hız: 5/24+4/24=9/24=3/8. Kalan bitirmek için: (3/8)÷(3/8)=1 gün. Toplam: 3+1=4 gün. Sık hata: Cem'i baştan dahil edip 1/(1/8+1/12+1/6)=8/3≈2,67 gün yazmak.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0086",
       "imageAsset": null,
       "subject": "mat"
@@ -104,7 +104,7 @@
       "topic": "istatistik",
       "skills": ["ortanca", "veri_sıralama", "tek_eleman_sayısı"],
       "explanation": "Yeni sıralı küme: 12, 18, 20, 24, 27, 31, 45 (7 eleman). Ortanca = 4. eleman = 24. Tuzak: Kümenin 6 elemanlı olduğunu sanıp 3. ve 4. elemanların ortalamasını almak → (20+24)/2=22. Veya eklenen iki sayının ortalamasını (20+27)/2=23,5 yazmak. 7 eleman için tek ortadaki sayı (indeks 4) kullanılır.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0087",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
       "topic": "yuzde_ve_oran",
       "skills": ["yüzde_hesabı", "oran", "kesir_sadeleştirme"],
       "explanation": "Erkek: 600×0,40=240. Kız: 600−240=360. Spor üyesi erkek: 240×0,75=180. Spor üyesi kız: 360×0,40=144. Toplam spor üyesi: 180+144=324. Oran: 324/600=27/50. Sık hata: Oranları doğrudan ortalamayla birleştirmek → (75%+40%)/2=%57,5 → 600×0,575=345≠324. Ya da 324/600'ü sadeleştirememek → 324/600 bırakmak.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0088",
       "imageAsset": null,
       "subject": "mat"
@@ -134,7 +134,7 @@
       "topic": "yuzde_ve_faiz",
       "skills": ["ardışık_yüzde", "geri_hesaplama", "denklem_kurma"],
       "explanation": "x×1,20×0,75=540 → x×0,90=540 → x=600 TL. Net etki: 1,20×0,75=0,90 → %10 indirim. Sık hata 1: Net etkinin %5 indirim olduğunu sanmak (20−25=−5) → 540÷0,95≈568 TL (B şıkkına yakın). Sık hata 2: 540÷0,75=720 sonra 720÷1,20=600 yerine 540×1,20÷0,75=864 yazmak (işlem sırası yanlış).",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0089",
       "imageAsset": null,
       "subject": "mat"
@@ -149,7 +149,7 @@
       "topic": "geometri",
       "skills": ["paralelkenar_alan", "üçgen_alan", "bileşik_şekil_hesabı"],
       "explanation": "Paralelkenar alanı: taban×yükseklik=14×9=126 m². Üçgen alanı: (taban×yükseklik)÷2=(14×6)÷2=42 m². Toplam: 126+42=168 m². Sık hata: Üçgen alanını bölmemek → 14×6=84, 126+84=210. Ya da paralelkenarı yanlış hesaplayıp 14×(9+6)=210 yazmak.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0090",
       "imageAsset": null,
       "subject": "mat"

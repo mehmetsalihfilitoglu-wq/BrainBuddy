@@ -2,7 +2,7 @@
   "version": 2,
   "mode": "LGS",
   "subject": "mat",
-  "publisher": "brainbuddy_v2",
+  "publisher": "edumio_v2",
   "questions": [
     {
       "id": "mat5_v2_0101",
@@ -14,7 +14,7 @@
       "topic": "kesirler",
       "skills": ["kesir_bölme", "oran", "eşit_başlangıç"],
       "explanation": "(2/3)÷(3/4)=(2/3)×(4/3)=8/9. A(2/3): Ahmet'in kısmını olduğu gibi oran sanmış. C(9/8): Buse/Ahmet'i hesaplamış (ters oran). D(4/3): pay ve paydaları çaprazlamamış: 2×4/3×3=8/9 değil 4/3 almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0101",
       "imageAsset": null,
       "subject": "mat"
@@ -29,7 +29,7 @@
       "topic": "yuzde",
       "skills": ["kâr_yüzdesi", "KDV", "ardışık_yüzde"],
       "explanation": "Satış fiyatı: 400×1,30=520 TL. KDV sonrası: 520×1,05=546 TL. A(504): 400×1,26=504, yanlış kâr oranı. B(520): KDV'yi unutmuş. D(560): KDV'yi 520 üzerinden değil 400 üzerinden almış → 520+400×0,10=560.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0102",
       "imageAsset": null,
       "subject": "mat"
@@ -44,7 +44,7 @@
       "topic": "dogal_sayilar",
       "skills": ["9_bölünebilme", "4_bölünebilme", "basamak_analizi"],
       "explanation": "9'a bölünme: 1+2+N+6=9+N, 9'un katı olması için N=0 (toplam 9) veya N=9 (toplam 18). 4'e bölünme: son iki basamak N6. N=0: 06÷4=1,5 → 4'e bölünmüyor ✗. N=9: 96÷4=24 → 4'e bölünüyor ✓. Yalnızca N=9 her iki koşulu sağlar. A(0): yalnızca 9'a bölünmeyi kontrol etmiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0103",
       "imageAsset": null,
       "subject": "mat"
@@ -59,7 +59,7 @@
       "topic": "geometri",
       "skills": ["kare_alan", "dikdörtgen_alan", "çevre_hesabı"],
       "explanation": "Kare kenarı: 48÷4=12 m, alan=144 m². Dikdörtgen: 2(15+k)=48 → k=9, alan=135 m². Fark: 144−135=9 m². A(6): dikdörtgen kısa kenarını 9 yerine 10 almış → alan=150, fark=6. C(12): kare kenarını 48÷3=16 almış. D(15): kenar uzunluk farkını (15−12=3... değil) vermiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0104",
       "imageAsset": null,
       "subject": "mat"
@@ -74,7 +74,7 @@
       "topic": "problem_cozme",
       "skills": ["net_boşalma_hızı", "kesir_çıkarma", "zaman_hesabı"],
       "explanation": "Net boşalma hızı: 1/20−1/30=3/60−2/60=1/60 havuz/dakika. Boşalma süresi: 1÷(1/60)=60 dakika. A(30): yalnızca tahliyeyi kullanmış → 1/(1/30)=30. B(45): net hızı 1/45 almış. D(120): dolum ve tahliyeyi ters almış → net dolum 1/60, boşalma=120 diye.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0105",
       "imageAsset": null,
       "subject": "mat"
@@ -89,7 +89,7 @@
       "topic": "dogal_sayilar",
       "skills": ["birim_fiyat", "orantı", "ondalık_çarpma"],
       "explanation": "Birim fiyat: 67,5÷4,5=15 TL/m. 7,2 m fiyatı: 7,2×15=108 TL. A(94,5): 7,2/4,5=1,4 (yanlış), 67,5×1,4=94,5. B(100,8): 63×1,6=100,8 — 67,5'u 63 almış. D(112,5): 7,5 metre hesabı → 7,5×15=112,5.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0106",
       "imageAsset": null,
       "subject": "mat"
@@ -104,7 +104,7 @@
       "topic": "yuzde",
       "skills": ["kâr_hesabı", "ardışık_kâr", "zincirleme"],
       "explanation": "Ahmet→Buse: 1200×1,25=1500 TL. Buse→Cem: 1500×1,20=1800 TL. A(1620): kârları toplamış → 1200×1,35=1620. B(1700): ara hesapta hata. D(1920): 1200×1,60=1920, %60 tek kâr almış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0107",
       "imageAsset": null,
       "subject": "mat"
@@ -119,7 +119,7 @@
       "topic": "istatistik",
       "skills": ["mod", "ortalama_güncelleme", "toplam_değişimi"],
       "explanation": "Eski toplam: 10×18=180. 3×15=45 çıkarılır, 3×20=60 eklenir. Yeni toplam: 180−45+60=195. Yeni ortalama: 195÷10=19,5. A(19): yalnızca 1 değeri değiştirmiş → (180−15+20)/10=185/10=18,5≈19. C(20): eski modu 10 almış → 180−30+60=210, 210/10=21. D(20,5): toplam 205 yazmış.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0108",
       "imageAsset": null,
       "subject": "mat"
@@ -134,7 +134,7 @@
       "topic": "dogal_sayilar",
       "skills": ["harita_ölçeği", "birim_dönüşümü"],
       "explanation": "6,4 cm × 50 000 = 320 000 cm. 320 000 cm ÷ 100 000 = 3,2 km. A(0,32): 320 000 ÷ 1 000 000 = 0,32, fazla sıfır koymuş. C(32): 320 000 ÷ 10 000 = 32 km, hatalı birim. D(320): 320 000 ÷ 1 000 = 320 m, km'ye çevirmemiş.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0109",
       "imageAsset": null,
       "subject": "mat"
@@ -149,7 +149,7 @@
       "topic": "geometri",
       "skills": ["baklava_alan_formülü", "köşegen", "çarpma_bölme"],
       "explanation": "Baklava alanı=(d₁×d₂)÷2=(16×10)÷2=160÷2=80 m². A(48): bir köşegeni 6 almış → 16×6÷2=48. B(64): yarı köşegenleri kullanmış → 8×8=64 hata. D(96): 16×12÷2=96, yanlış ikinci köşegen.",
-      "source": "brainbuddy_v2",
+      "source": "edumio_v2",
       "sourceRef": "mat5_v2_0110",
       "imageAsset": null,
       "subject": "mat"

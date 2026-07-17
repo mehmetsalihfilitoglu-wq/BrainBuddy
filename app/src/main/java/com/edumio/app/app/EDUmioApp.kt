@@ -48,9 +48,9 @@ class EDUmioApp : Application() {
                 // official items are never touched by the K-12/LGS-tuned cleanup pass.
                 val imatSeeded = DbSeeder.seedImatIfNeeded(this@EDUmioApp)
                 Log.i(STARTUP_LOG_TAG, "IMAT seed: inserted=$imatSeeded")
-                // Seed the isolated Mioitalia ORIGINAL bank the same way (own pool, own version).
-                val mioitaliaSeeded = DbSeeder.seedMioitaliaIfNeeded(this@EDUmioApp)
-                Log.i(STARTUP_LOG_TAG, "Mioitalia seed: inserted=$mioitaliaSeeded")
+                // Seed the isolated EdumioOriginal ORIGINAL bank the same way (own pool, own version).
+                val edumio_originalSeeded = DbSeeder.seedEdumioOriginalIfNeeded(this@EDUmioApp)
+                Log.i(STARTUP_LOG_TAG, "EdumioOriginal seed: inserted=$edumio_originalSeeded")
                 // Seed the isolated TIL-I & CEnT-S Daily Challenge banks (own pools, own versions).
                 // Only production-eligible, semantically-verified questions ship in these assets.
                 val tilSeeded = DbSeeder.seedTilIIfNeeded(this@EDUmioApp)
