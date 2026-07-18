@@ -1,5 +1,11 @@
 # Daily Challenge — Product Architecture v2.0
 
+> **Implementation update (2026-07-18):** the shipping engine now enforces **exactly ONE immutable
+> Daily Challenge per account per local day, across all exams** (switching exams never regenerates it).
+> See [daily_challenge_single_immutable_model.md](daily_challenge_single_immutable_model.md) for the
+> authoritative model, schema, and invariant tests. This doc's product philosophy still holds; the model
+> doc governs the keying/immutability details.
+
 **Permanent product philosophy. This document supersedes every prior "test / practice / quiz" framing.** The product revolves around the **Daily Challenge**, not around tests. Documentation-only; no app code changes here. Nothing committed.
 
 ## 1. Core philosophy

@@ -45,14 +45,17 @@ class DailyChallengeResultActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.dcrHomeBtn).onTap { finish() }
         val reviewBtn = findViewById<Button>(R.id.dcrReviewBtn)
-        reviewBtn.onTap { startActivity(DailyChallengeReviewActivity.intent(this)) }
 
         lifecycleScope.launch {
-            val c = controller.completion(userId, exam, localDate)
+            val c = controller.completion(userId, localDate)
             if (c == null) { finish(); return@launch }
             bind(c)
+            // Review is scoped to the exam THIS challenge belongs to — not the currently-active area,
+            // which may differ if the user switched study areas after completing it.
+            val challengeExam = runCatching { ExamType.valueOf(c.examProfile) }.getOrDefault(exam)
+            reviewBtn.onTap { startActivity(DailyChallengeReviewActivity.intent(this@DailyChallengeResultActivity, challengeExam)) }
             // Offer review only when the queue actually has something to work through.
-            val reviewCount = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { 0 }
+            val reviewCount = try { controller.reviewCount(userId, challengeExam) } catch (_: Throwable) { 0 }
             reviewBtn.visibility = if (reviewCount > 0) View.VISIBLE else View.GONE
         }
 

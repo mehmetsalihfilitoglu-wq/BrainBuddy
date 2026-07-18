@@ -31,8 +31,11 @@ class DailyChallengeController(context: Context) {
     /** Loads (creating once if needed) today's challenge and maps it to UI state. */
     suspend fun today(userId: String, exam: ExamType, isPremium: Boolean = false): UiState? {
         val r = engine.getOrCreateToday(userId, exam, isPremium = isPremium) ?: return null
+        // The card reflects the exam the CHALLENGE belongs to (its recorded profile), which may differ
+        // from the currently-active exam if the user switched after it was generated.
+        val challengeExam = runCatching { ExamType.valueOf(r.challenge.examProfile) }.getOrDefault(exam)
         return UiState(
-            exam = exam,
+            exam = challengeExam,
             available = true,
             answered = r.answered,
             total = r.total,
@@ -44,11 +47,12 @@ class DailyChallengeController(context: Context) {
         )
     }
 
+    /** Records an answer against today's ONE challenge (looked up by user+day; exam-agnostic). */
     suspend fun submit(
-        userId: String, exam: ExamType, localDate: String,
+        userId: String, localDate: String,
         questionId: String, chosenIndex: Int, isCorrect: Boolean, timeMs: Long,
     ): DailyChallengeEngine.Result? =
-        engine.submitAnswer(userId, exam, localDate, questionId, chosenIndex, isCorrect, timeMs)
+        engine.submitAnswer(userId, localDate, questionId, chosenIndex, isCorrect, timeMs)
 
     fun todayLocalDate(): String = engine.localDate()
 
@@ -69,7 +73,7 @@ class DailyChallengeController(context: Context) {
     /** Current streak length (0 if none). */
     suspend fun streak(userId: String): Int = engine.streak(userId)
 
-    /** Completion breakdown (score, per-section, per-question) for the result screen. */
-    suspend fun completion(userId: String, exam: ExamType, localDate: String): DailyChallengeEngine.Completion? =
-        engine.getCompletion(userId, exam, localDate)
+    /** Completion breakdown (score, per-section, per-question) for the result screen. Exam-agnostic. */
+    suspend fun completion(userId: String, localDate: String): DailyChallengeEngine.Completion? =
+        engine.getCompletion(userId, localDate)
 }

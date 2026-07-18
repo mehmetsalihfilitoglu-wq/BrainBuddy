@@ -23,4 +23,13 @@ object DailyChallengeUser {
         prefs.edit().putString(KEY_ANON_ID, fresh).apply()
         return fresh
     }
+
+    /** The persisted anonymous id, if one exists — WITHOUT creating one. Used for account linking. */
+    fun peekAnonId(context: Context): String? =
+        context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString(KEY_ANON_ID, null)
+
+    /** Stop tracking the anonymous id (after its state has been linked to a signed-in account). */
+    fun clearAnonId(context: Context) {
+        context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().remove(KEY_ANON_ID).apply()
+    }
 }

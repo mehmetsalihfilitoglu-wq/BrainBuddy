@@ -16,7 +16,6 @@ import com.google.android.material.card.MaterialCardView
 import com.edumio.app.core.CareerPath
 import com.edumio.app.core.StudyAreaManager
 import com.edumio.app.dailychallenge.DailyChallengeActivity
-import com.edumio.app.dailychallenge.DailyChallengeBlueprint
 import com.edumio.app.dailychallenge.DailyChallengeController
 import com.edumio.app.dailychallenge.DailyChallengeHomePresenter
 import com.edumio.app.dailychallenge.DailyChallengeUser
@@ -90,22 +89,19 @@ class HomeActivity : AppCompatActivity() {
         fun setMascot(e: com.edumio.app.ui.EduMascot.Expression) =
             mascot.setImageResource(com.edumio.app.ui.EduMascot.drawable(e))
 
+        // The active exam is used ONLY to generate today's challenge if none exists yet. If a challenge
+        // already exists (possibly generated from a different exam), today() returns it regardless — so
+        // switching exams never hides or regenerates it. today() is null only when there is genuinely
+        // nothing to show (unsupported active exam AND no existing challenge, or pool exhausted).
         val exam = StudyAreaManager.getActiveArea(this).career.examType
-        if (!DailyChallengeBlueprint.isSupported(exam)) {
-            state.setText(R.string.dc_state_unavailable)
-            progressBar.visibility = View.GONE
-            meta.visibility = View.GONE
-            countdown.visibility = View.GONE
-            cta.visibility = View.GONE
-            setMascot(com.edumio.app.ui.EduMascot.Expression.SLEEPING)
-            card.setOnClickListener(null)
-            return
-        }
         cta.visibility = View.VISIBLE
 
         val controller = DailyChallengeController(this)
-        val userId = DailyChallengeUser.resolve(this)
         lifecycleScope.launch {
+            // First sign-in of a previously-anonymous session: adopt the anon challenge into the account
+            // BEFORE resolving the id, so signing in never regenerates today's challenge.
+            com.edumio.app.dailychallenge.DailyChallengeAccountLink.linkIfNeeded(this@HomeActivity)
+            val userId = DailyChallengeUser.resolve(this@HomeActivity)
             val ui = try { controller.today(userId, exam) } catch (_: Throwable) { null }
             val streak = try { controller.streak(userId) } catch (_: Throwable) { 0 }
             val streakText = if (streak > 0) getString(R.string.dc_streak_label, streak)
@@ -141,11 +137,12 @@ class HomeActivity : AppCompatActivity() {
                         countdown.text = getString(R.string.dc_next_unlock, cd)
                     } else countdown.visibility = View.GONE
                     // Completed: no new questions today — offer review instead when the queue has items.
-                    val reviewCount = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { 0 }
+                    // Review is scoped to the exam the challenge belongs to (ui.exam), not necessarily the active one.
+                    val reviewCount = try { controller.reviewCount(userId, ui.exam) } catch (_: Throwable) { 0 }
                     if (reviewCount > 0) {
                         cta.isEnabled = true; cta.setText(R.string.dc_cta_review)
                         val openReview = View.OnClickListener {
-                            startActivity(com.edumio.app.dailychallenge.DailyChallengeReviewActivity.intent(this@HomeActivity))
+                            startActivity(com.edumio.app.dailychallenge.DailyChallengeReviewActivity.intent(this@HomeActivity, ui.exam))
                         }
                         cta.onTap { openReview.onClick(it) }; card.onTap { openReview.onClick(it) }
                     } else {

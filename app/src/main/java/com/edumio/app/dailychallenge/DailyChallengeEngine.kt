@@ -12,23 +12,57 @@ import kotlinx.coroutines.withContext
 import java.util.TimeZone
 import kotlin.random.Random
 
+/** Read-only content the engine needs (from edumio.db). Injected so the engine is unit-testable. */
+interface DcContentSource {
+    suspend fun getDailyCandidatePool(examType: String, section: String): List<QuestionCandidateRow>
+    suspend fun getQuestionsByIds(ids: List<String>): List<QuestionEntity>
+}
+
+/** Production content source backed by the shared content database (edumio.db / QuestionDao). */
+private class RoomContentSource(private val appContext: Context) : DcContentSource {
+    override suspend fun getDailyCandidatePool(examType: String, section: String) =
+        DatabaseProvider.get(appContext).questionDao().getDailyCandidatePool(examType, section)
+
+    override suspend fun getQuestionsByIds(ids: List<String>) =
+        DatabaseProvider.get(appContext).questionDao().getQuestionsByIds(ids)
+}
+
 /**
  * The Daily Challenge engine. Guarantees the hard product invariants:
- *  - exactly 5 NEW questions per challenge,
- *  - one challenge per (user, exam, local calendar day) — idempotent, no second unlock,
+ *  - EXACTLY ONE challenge per (user account, local calendar day) — NOT one per exam,
+ *  - exactly 5 NEW questions, generated ONCE and then IMMUTABLE (same ids, same order, forever),
+ *  - idempotent retrieval: once a day's challenge exists it is ALWAYS returned — reopening, process
+ *    death, rotation, switching exams, or opening Review/Premium never generate a second one,
  *  - Premium NEVER increases the new-question count (no premium input affects generation),
  *  - only production-eligible questions, drawn ONLY from the user's NEVER_SEEN pool,
  *  - blueprint-proportional section allocation (cumulative deficit) decided BEFORE selection,
  *  - each served question is retired from the unseen pool immediately (appears once, ever).
- * Content is read from edumio.db (QuestionDao); user state lives in daily_challenge.db.
+ *
+ * Progress belongs to the account ([userId]); a different account (different email → different auth
+ * uid) has an entirely independent keyspace and therefore starts from zero.
+ *
+ * Content is read from edumio.db via [DcContentSource]; user progress lives in daily_challenge.db.
+ * All external dependencies are injected, so every invariant above is provable in a pure-JVM test
+ * with an in-memory [DailyChallengeDao] and a fake [DcContentSource].
  */
-class DailyChallengeEngine(private val appContext: Context) {
+class DailyChallengeEngine internal constructor(
+    private val dao: DailyChallengeDao,
+    private val content: DcContentSource,
+    private val analytics: DailyChallengeAnalytics,
+    private val onChallengeCompleted: (localDate: String) -> Unit,
+) {
 
-    private val analytics: DailyChallengeAnalytics get() = DailyChallengeAnalyticsProvider.get(appContext)
+    /** Production wiring: real Room stores + analytics + local reminder scheduler. */
+    constructor(appContext: Context) : this(
+        dao = DailyChallengeDatabase.get(appContext).dailyChallengeDao(),
+        content = RoomContentSource(appContext.applicationContext),
+        analytics = DailyChallengeAnalyticsProvider.get(appContext),
+        onChallengeCompleted = { date -> DailyChallengeReminderScheduler.onChallengeCompleted(appContext, date) },
+    )
 
     private companion object {
         // Process-wide: engine instances are created per-Activity, so the generation lock must be
-        // shared across ALL of them to serialize same-day challenge creation (no double-retire race).
+        // shared across ALL of them to serialize same-day challenge creation (no double-generate race).
         val generationLock = Mutex()
     }
 
@@ -40,7 +74,8 @@ class DailyChallengeEngine(private val appContext: Context) {
         val completed: Boolean,
     )
 
-    private fun key(userId: String, examType: String, localDate: String) = "$userId:$examType:$localDate"
+    /** Answer/progress key — exam-agnostic, so it is stable even if the active exam changes mid-day. */
+    private fun key(userId: String, localDate: String) = "$userId:$localDate"
 
     /** Local calendar date (YYYY-MM-DD) for the user's timezone. Delegates to [DailyChallengeDates]. */
     fun localDate(zone: TimeZone = TimeZone.getDefault(), nowMs: Long = System.currentTimeMillis()): String =
@@ -51,9 +86,11 @@ class DailyChallengeEngine(private val appContext: Context) {
         DailyChallengeDates.endOfLocalDay(localDate, zone)
 
     /**
-     * Returns today's Daily Challenge, generating it once if needed. Idempotent per local day: a second
-     * call the same day returns the SAME challenge (never a new one). [isPremium] is accepted only to make
-     * the invariant explicit in tests — it is intentionally IGNORED for question count.
+     * Returns today's ONE Daily Challenge, generating it once if — and only if — none exists yet for
+     * this account+day. A second call the same day (any exam, any entry point) returns the SAME
+     * challenge and never a new one. [exam] is used ONLY as the generation source when there is nothing
+     * to return yet; it never re-keys or replaces an existing challenge. [isPremium] is accepted only to
+     * make the invariant explicit in tests — it is intentionally IGNORED for question count.
      */
     suspend fun getOrCreateToday(
         userId: String,
@@ -63,26 +100,29 @@ class DailyChallengeEngine(private val appContext: Context) {
         @Suppress("UNUSED_PARAMETER") isPremium: Boolean = false,
         rngSeed: Long? = null,
     ): Result? = withContext(Dispatchers.IO) {
-        if (!DailyChallengeBlueprint.isSupported(exam)) return@withContext null
-        val examType = exam.name
         val day = localDate(zone, nowMs)
-        val qDao = DatabaseProvider.get(appContext).questionDao()
-        val dcDao = DailyChallengeDatabase.get(appContext).dailyChallengeDao()
 
-        dcDao.getChallenge(userId, examType, day)?.let { existing ->
-            return@withContext resolve(existing, qDao, dcDao)
+        // 1) Immutable return: if today's challenge already exists, ALWAYS return it — regardless of
+        //    which exam is active now (it may have been generated from a different one). No regeneration.
+        dao.getChallengeForDay(userId, day)?.let { existing ->
+            return@withContext resolve(existing)
         }
 
-        // Serialize generation: a concurrent caller (e.g. the home card refreshing while the flow
-        // screen opens) must never generate or retire two challenges for the same day. Double-checked
-        // under the lock so the winner's challenge is reused rather than regenerated.
+        // 2) No challenge yet. We can only generate for a supported exam; otherwise there is nothing to
+        //    show. (An existing challenge is served in step 1 even when the active exam is unsupported.)
+        if (!DailyChallengeBlueprint.isSupported(exam)) return@withContext null
+        val examType = exam.name
+
+        // 3) Serialize generation: a concurrent caller (e.g. the home card refreshing while the flow
+        //    screen opens) must never generate or retire two challenges for the same day. Double-checked
+        //    under the lock so the winner's challenge is reused rather than regenerated.
         return@withContext generationLock.withLock {
-            dcDao.getChallenge(userId, examType, day)?.let { existing ->
-                return@withLock resolve(existing, qDao, dcDao)
+            dao.getChallengeForDay(userId, day)?.let { existing ->
+                return@withLock resolve(existing)
             }
 
             // ── ledgers ──
-            val deficits = dcDao.getDeficits(userId, examType)
+            val deficits = dao.getDeficits(userId, examType)
             val expected = HashMap<String, Double>(); val actual = HashMap<String, Double>()
             val subExpected = HashMap<String, Double>(); val subActual = HashMap<String, Double>()
             for (d in deficits) {
@@ -91,7 +131,7 @@ class DailyChallengeEngine(private val appContext: Context) {
             }
 
             val alloc = DailyChallengeBlueprint.allocate(exam, expected, actual)
-            val seen = dcDao.getSeenQuestionIds(userId, examType).toHashSet()
+            val seen = dao.getSeenQuestionIds(userId, examType).toHashSet()
             val rng = Random(rngSeed ?: (day.hashCode().toLong() * 1_000_003L + userId.hashCode()))
 
             val selected = ArrayList<QuestionCandidateRow>()
@@ -101,7 +141,7 @@ class DailyChallengeEngine(private val appContext: Context) {
 
             for ((section, count) in alloc) {
                 if (count <= 0) continue
-                val pool = qDao.getDailyCandidatePool(examType, section).filter { it.id !in seen && it.stemHash !in usedStems }
+                val pool = content.getDailyCandidatePool(examType, section).filter { it.id !in seen && it.stemHash !in usedStems }
                 val picked = if (DailyChallengeBlueprint.SUBSECTIONS.containsKey(section)) {
                     pickWithSubSections(section, count, pool, subExpected, subActual, usedTopics, usedStems, rng)
                 } else {
@@ -119,7 +159,11 @@ class DailyChallengeEngine(private val appContext: Context) {
                 selected += fill
                 deficitSlots = DailyChallengeBlueprint.CHALLENGE_SIZE - selected.size
             }
-            if (selected.isEmpty()) return@withLock null // no unseen questions at all → cannot form a challenge
+            // Fail CLOSED on undersupply: the challenge is "exactly 5 NEW questions, never fewer". If the
+            // unseen pool can't fill all 5 slots, serve NOTHING today (Home shows the empty state) rather
+            // than a 1–4 question challenge that could never satisfy the `answered >= 5` completion gate
+            // (which would strand it IN_PROGRESS forever and never fire streak/reminder resolution).
+            if (selected.size < DailyChallengeBlueprint.CHALLENGE_SIZE) return@withLock null
 
             // ── guardrail BEFORE any side effect: never more than CHALLENGE_SIZE new questions ──
             // Runs prior to ledger/retirement writes so a fail-closed batch leaves NO trace.
@@ -130,12 +174,12 @@ class DailyChallengeEngine(private val appContext: Context) {
             }
 
             // ── persist ledgers ──
-            for ((s, v) in expected) dcDao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, actual[s] ?: 0.0))
-            for ((s, v) in subExpected) dcDao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, subActual[s] ?: 0.0))
+            for ((s, v) in expected) dao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, actual[s] ?: 0.0))
+            for ((s, v) in subExpected) dao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, subActual[s] ?: 0.0))
 
             // ── retire selected (SEEN_ONCE) — leaves the unseen pool permanently ──
             for (c in selected) {
-                dcDao.upsertState(
+                dao.upsertState(
                     UserQuestionStateEntity(
                         userId = userId, questionId = c.id, examType = examType,
                         section = c.subject, topic = c.topic, state = QuestionLearnState.SEEN_ONCE.name,
@@ -145,14 +189,18 @@ class DailyChallengeEngine(private val appContext: Context) {
             }
 
             val challenge = DailyChallengeEntity(
-                userId = userId, examType = examType, localDate = day,
+                userId = userId, localDate = day,
+                challengeId = "$userId:$day",
+                examProfile = examType,
                 status = ChallengeStatus.AVAILABLE.name,
                 questionIdsCsv = selected.joinToString(",") { it.id },
+                currentIndex = 0,
                 allocationCsv = alloc.entries.joinToString("|") { "${it.key}:${it.value}" },
+                createdAt = nowMs,
                 expiresAt = endOfLocalDay(day, zone),
                 shortage = shortages.joinToString(";"),
             )
-            dcDao.upsertChallenge(challenge)
+            dao.upsertChallenge(challenge)
             analytics.track(
                 DcEvents.CHALLENGE_GENERATED,
                 mapOf(
@@ -160,7 +208,7 @@ class DailyChallengeEngine(private val appContext: Context) {
                     DcEvents.P_COUNT to selected.size, DcEvents.P_SHORTAGE to challenge.shortage,
                 ),
             )
-            resolve(challenge, qDao, dcDao)
+            resolve(challenge)
         }
     }
 
@@ -188,20 +236,23 @@ class DailyChallengeEngine(private val appContext: Context) {
         return picked
     }
 
-    /** Record an answer; on the 5th answer, complete the challenge and update the streak. */
+    /**
+     * Record an answer against today's ONE challenge; on the 5th answer, complete it and update the
+     * streak. Looks the challenge up by (user, day) only — so it targets the correct challenge even if
+     * the active exam changed since it was generated. Never creates a challenge.
+     */
     suspend fun submitAnswer(
-        userId: String, exam: ExamType, localDate: String,
+        userId: String, localDate: String,
         questionId: String, chosenIndex: Int, isCorrect: Boolean, timeMs: Long,
         nowMs: Long = System.currentTimeMillis(),
     ): Result? = withContext(Dispatchers.IO) {
-        val examType = exam.name
-        val qDao = DatabaseProvider.get(appContext).questionDao()
-        val dcDao = DailyChallengeDatabase.get(appContext).dailyChallengeDao()
-        val challenge = dcDao.getChallenge(userId, examType, localDate) ?: return@withContext null
-        val ck = key(userId, examType, localDate)
-        dcDao.upsertAnswer(ChallengeAnswerEntity(ck, questionId, userId, chosenIndex, isCorrect, timeMs, nowMs))
-        // update learning state
-        val prev = dcDao.getState(userId, questionId)
+        val challenge = dao.getChallengeForDay(userId, localDate) ?: return@withContext null
+        val ck = key(userId, localDate)
+        dao.upsertAnswer(ChallengeAnswerEntity(ck, questionId, userId, chosenIndex, isCorrect, timeMs, nowMs))
+        // update learning state — the question's exam comes from its own retired state / the challenge,
+        // NEVER from a (possibly since-switched) active exam, so review scoping stays correct.
+        val prev = dao.getState(userId, questionId)
+        val questionExam = prev?.examType ?: challenge.examProfile
         val newState = when {
             isCorrect -> QuestionLearnState.CORRECT
             prev == null || prev.state == QuestionLearnState.SEEN_ONCE.name -> QuestionLearnState.INCORRECT_ONCE
@@ -209,9 +260,9 @@ class DailyChallengeEngine(private val appContext: Context) {
         }
         val section = prev?.section ?: ""
         val topic = prev?.topic ?: ""
-        dcDao.upsertState(
+        dao.upsertState(
             UserQuestionStateEntity(
-                userId = userId, questionId = questionId, examType = examType, section = section, topic = topic,
+                userId = userId, questionId = questionId, examType = questionExam, section = section, topic = topic,
                 state = newState.name,
                 timesSeen = (prev?.timesSeen ?: 1),
                 timesCorrect = (prev?.timesCorrect ?: 0) + (if (isCorrect) 1 else 0),
@@ -219,41 +270,46 @@ class DailyChallengeEngine(private val appContext: Context) {
                 firstSeenAt = prev?.firstSeenAt ?: nowMs, lastSeenAt = nowMs,
             )
         )
-        analytics.track(DcEvents.QUESTION_ANSWERED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_IS_CORRECT to isCorrect))
-        val answered = dcDao.countAnswers(ck)
+        analytics.track(DcEvents.QUESTION_ANSWERED, mapOf(DcEvents.P_EXAM to questionExam, DcEvents.P_IS_CORRECT to isCorrect))
+        val answered = dao.countAnswers(ck)
         if (challenge.startedAt == 0L) {
-            analytics.track(DcEvents.CHALLENGE_STARTED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_LOCAL_DATE to localDate))
+            analytics.track(DcEvents.CHALLENGE_STARTED, mapOf(DcEvents.P_EXAM to challenge.examProfile, DcEvents.P_LOCAL_DATE to localDate))
         }
-        var updated = challenge.copy(status = ChallengeStatus.IN_PROGRESS.name, startedAt = if (challenge.startedAt == 0L) nowMs else challenge.startedAt)
+        // currentIndex mirrors the durable answered-count (the resume cursor) and is persisted every step.
+        var updated = challenge.copy(
+            status = ChallengeStatus.IN_PROGRESS.name,
+            startedAt = if (challenge.startedAt == 0L) nowMs else challenge.startedAt,
+            currentIndex = answered,
+        )
         if (answered >= DailyChallengeBlueprint.CHALLENGE_SIZE && challenge.status != ChallengeStatus.COMPLETED.name) {
-            val score = dcDao.getAnswers(ck).count { it.isCorrect }
+            val score = dao.getAnswers(ck).count { it.isCorrect }
             updated = updated.copy(status = ChallengeStatus.COMPLETED.name, completedAt = nowMs, score = score)
-            updateStreak(dcDao, userId, localDate, examType)
+            updateStreak(userId, localDate, challenge.examProfile)
             // Suppress any remaining local reminders for today (tomorrow's slots stay intact).
-            DailyChallengeReminderScheduler.onChallengeCompleted(appContext, localDate)
+            onChallengeCompleted(localDate)
             analytics.track(
                 DcEvents.CHALLENGE_COMPLETED,
-                mapOf(DcEvents.P_EXAM to examType, DcEvents.P_LOCAL_DATE to localDate, DcEvents.P_SCORE to score),
+                mapOf(DcEvents.P_EXAM to challenge.examProfile, DcEvents.P_LOCAL_DATE to localDate, DcEvents.P_SCORE to score),
             )
         }
-        dcDao.upsertChallenge(updated)
-        resolve(updated, qDao, dcDao)
+        dao.upsertChallenge(updated)
+        resolve(updated)
     }
 
-    private suspend fun updateStreak(dcDao: DailyChallengeDao, userId: String, localDate: String, examType: String) {
-        val prev = dcDao.getStreak(userId) ?: StreakEntity(userId)
+    private suspend fun updateStreak(userId: String, localDate: String, examProfile: String) {
+        val prev = dao.getStreak(userId) ?: StreakEntity(userId)
         val r = DailyChallengeStreak.onComplete(
             prevCurrent = prev.current, prevLongest = prev.longest,
             prevLastDate = prev.lastCompletedLocalDate, prevMilestonesCsv = prev.milestonesCsv,
             todayLocalDate = localDate,
         )
         if (r.incremented) {
-            analytics.track(DcEvents.STREAK_INCREMENTED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_STREAK to r.current))
+            analytics.track(DcEvents.STREAK_INCREMENTED, mapOf(DcEvents.P_EXAM to examProfile, DcEvents.P_STREAK to r.current))
         }
         for (m in r.newMilestones) {
-            analytics.track(DcEvents.MILESTONE_REACHED, mapOf(DcEvents.P_EXAM to examType, DcEvents.P_STREAK to m))
+            analytics.track(DcEvents.MILESTONE_REACHED, mapOf(DcEvents.P_EXAM to examProfile, DcEvents.P_STREAK to m))
         }
-        dcDao.upsertStreak(
+        dao.upsertStreak(
             prev.copy(
                 current = r.current, longest = r.longest,
                 lastCompletedLocalDate = r.lastCompletedLocalDate, milestonesCsv = r.milestonesCsv,
@@ -263,7 +319,7 @@ class DailyChallengeEngine(private val appContext: Context) {
 
     /** Current streak length (0 if none). */
     suspend fun streak(userId: String): Int = withContext(Dispatchers.IO) {
-        DailyChallengeDatabase.get(appContext).dailyChallengeDao().getStreak(userId)?.current ?: 0
+        dao.getStreak(userId)?.current ?: 0
     }
 
     /** One answered question, for the completion breakdown. */
@@ -280,6 +336,7 @@ class DailyChallengeEngine(private val appContext: Context) {
     /** Everything the completion screen needs — computed from persisted answers (restart-safe). */
     data class Completion(
         val localDate: String,
+        val examProfile: String, // the exam this challenge belongs to (for correctly-scoped review)
         val score: Int,
         val total: Int,
         val nextUnlockAtMs: Long,
@@ -289,17 +346,14 @@ class DailyChallengeEngine(private val appContext: Context) {
         val sectionTotal: LinkedHashMap<String, Int>,
     )
 
-    /** Builds the completion summary for a (completed or in-progress) challenge; null if none exists. */
-    suspend fun getCompletion(userId: String, exam: ExamType, localDate: String): Completion? = withContext(Dispatchers.IO) {
-        val examType = exam.name
-        val qDao = DatabaseProvider.get(appContext).questionDao()
-        val dcDao = DailyChallengeDatabase.get(appContext).dailyChallengeDao()
-        val challenge = dcDao.getChallenge(userId, examType, localDate) ?: return@withContext null
-        val ck = key(userId, examType, localDate)
+    /** Builds the completion summary for today's (completed or in-progress) challenge; null if none. */
+    suspend fun getCompletion(userId: String, localDate: String): Completion? = withContext(Dispatchers.IO) {
+        val challenge = dao.getChallengeForDay(userId, localDate) ?: return@withContext null
+        val ck = key(userId, localDate)
         val ids = challenge.questionIdsCsv.split(",").filter { it.isNotBlank() }
         val order = ids.withIndex().associate { (i, id) -> id to i }
-        val byId = qDao.getQuestionsByIds(ids).associateBy { it.id }
-        val answers = dcDao.getAnswers(ck).sortedBy { order[it.questionId] ?: Int.MAX_VALUE }
+        val byId = content.getQuestionsByIds(ids).associateBy { it.id }
+        val answers = dao.getAnswers(ck).sortedBy { order[it.questionId] ?: Int.MAX_VALUE }
         val reviews = ArrayList<AnswerReview>()
         val sectionCorrect = LinkedHashMap<String, Int>()
         val sectionTotal = LinkedHashMap<String, Int>()
@@ -316,10 +370,11 @@ class DailyChallengeEngine(private val appContext: Context) {
         }
         Completion(
             localDate = localDate,
+            examProfile = challenge.examProfile,
             score = answers.count { it.isCorrect },
             total = DailyChallengeBlueprint.CHALLENGE_SIZE,
             nextUnlockAtMs = challenge.expiresAt,
-            streakCurrent = dcDao.getStreak(userId)?.current ?: 0,
+            streakCurrent = dao.getStreak(userId)?.current ?: 0,
             reviews = reviews, sectionCorrect = sectionCorrect, sectionTotal = sectionTotal,
         )
     }
@@ -333,14 +388,84 @@ class DailyChallengeEngine(private val appContext: Context) {
                 ReviewQueue.FORGOTTEN -> listOf(QuestionLearnState.FORGOTTEN.name)
             }
         }.distinct()
-        DailyChallengeDatabase.get(appContext).dailyChallengeDao().countStatesByStates(userId, exam.name, states)
+        dao.countStatesByStates(userId, exam.name, states)
     }
 
-    private suspend fun resolve(challenge: DailyChallengeEntity, qDao: com.edumio.app.db.QuestionDao, dcDao: DailyChallengeDao): Result {
+    /**
+     * Portable snapshot of an account's ENTIRE Daily Challenge state — every challenge + answers, plus
+     * the retirement/review states, the deficit ledger, and the streak. This is the unit a backend syncs
+     * so a reinstall restores not just today's challenge but also question retirement (so served questions
+     * never recur) and the review queue.
+     */
+    suspend fun exportSnapshot(userId: String): DailyChallengeSnapshot = withContext(Dispatchers.IO) {
+        DailyChallengeSnapshot(
+            challenges = dao.getAllChallengesForUser(userId),
+            answers = dao.getAllAnswersForUser(userId),
+            states = dao.getAllStatesForUser(userId),
+            deficits = dao.getAllDeficitsForUser(userId),
+            streak = dao.getStreak(userId),
+        )
+    }
+
+    /**
+     * Restore a synced snapshot into local storage (e.g. after reinstall, once sync has pulled it).
+     * Purely additive/idempotent: it writes back the SAME challenges + answers + retirement/review/
+     * deficit/streak state, so subsequent [getOrCreateToday] calls return the stored challenge and never
+     * regenerate, AND future days do not re-serve already-retired questions.
+     */
+    suspend fun restoreSnapshot(snapshot: DailyChallengeSnapshot): Unit = withContext(Dispatchers.IO) {
+        // Write the challenge row LAST: presence of a day's challenge is the "this day is fully restored"
+        // sentinel that [migrateAccount] keys off, so a crash before this point simply re-adopts on retry.
+        for (a in snapshot.answers) dao.upsertAnswer(a)
+        for (s in snapshot.states) dao.upsertState(s)
+        for (d in snapshot.deficits) dao.upsertDeficit(d)
+        snapshot.streak?.let { dao.upsertStreak(it) }
+        for (c in snapshot.challenges) dao.upsertChallenge(c)
+    }
+
+    /**
+     * Link an anonymous session's Daily Challenge state to a real account on sign-in, so signing in never
+     * regenerates the day's challenge or loses its retirement history.
+     *
+     * This is a MERGE that only ever ADDS what the target account doesn't already own — it never clobbers
+     * an existing account's data:
+     *  - a challenge is adopted only for days the account has NO challenge (so a returning account keeps
+     *    its history AND doesn't regenerate today — it adopts today's anon challenge instead),
+     *  - a retirement/review state is adopted only for questions the account hasn't seen,
+     *  - streak/deficit ledgers are adopted only when the account has none.
+     *
+     * Because every decision is recomputed from the target's CURRENT state, the operation is idempotent
+     * and self-healing: a re-run after a crash mid-migration simply adopts whatever is still missing (no
+     * partial-write hole). Returns true iff anything was adopted.
+     */
+    suspend fun migrateAccount(fromUserId: String, toUserId: String): Boolean = withContext(Dispatchers.IO) {
+        if (fromUserId.isBlank() || toUserId.isBlank() || fromUserId == toUserId) return@withContext false
+        val source = exportSnapshot(fromUserId)
+        if (source.challenges.isEmpty() && source.states.isEmpty()) return@withContext false
+
+        val targetDays = dao.getAllChallengesForUser(toUserId).mapTo(HashSet()) { it.localDate }
+        val challengesToAdopt = source.challenges.filter { it.localDate !in targetDays }
+        val adoptDays = challengesToAdopt.mapTo(HashSet()) { it.localDate }
+        val answersToAdopt = source.answers.filter { it.challengeKey.removePrefix("${it.userId}:") in adoptDays }
+        val statesToAdopt = source.states.filter { dao.getState(toUserId, it.questionId) == null }
+        val streakToAdopt = if (dao.getStreak(toUserId) == null) source.streak else null
+        val deficitsToAdopt = if (dao.getAllDeficitsForUser(toUserId).isEmpty()) source.deficits else emptyList()
+
+        if (challengesToAdopt.isEmpty() && statesToAdopt.isEmpty() && streakToAdopt == null && deficitsToAdopt.isEmpty()) {
+            return@withContext false
+        }
+        restoreSnapshot(
+            DailyChallengeSnapshot(challengesToAdopt, answersToAdopt, statesToAdopt, deficitsToAdopt, streakToAdopt)
+                .rekeyedTo(toUserId)
+        )
+        true
+    }
+
+    private suspend fun resolve(challenge: DailyChallengeEntity): Result {
         val ids = challenge.questionIdsCsv.split(",").filter { it.isNotBlank() }
-        val byId = qDao.getQuestionsByIds(ids).associateBy { it.id }
+        val byId = content.getQuestionsByIds(ids).associateBy { it.id }
         val ordered = ids.mapNotNull { byId[it] }
-        val answered = dcDao.countAnswers(key(challenge.userId, challenge.examType, challenge.localDate))
+        val answered = dao.countAnswers(key(challenge.userId, challenge.localDate))
         return Result(challenge, ordered, answered, DailyChallengeBlueprint.CHALLENGE_SIZE, challenge.status == ChallengeStatus.COMPLETED.name)
     }
 }

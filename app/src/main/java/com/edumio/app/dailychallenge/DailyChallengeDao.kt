@@ -12,11 +12,30 @@ interface DailyChallengeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertChallenge(c: DailyChallengeEntity)
 
-    @Query("SELECT * FROM daily_challenge WHERE userId = :userId AND examType = :examType AND localDate = :localDate LIMIT 1")
-    suspend fun getChallenge(userId: String, examType: String, localDate: String): DailyChallengeEntity?
+    /** The single challenge for this account+day (exam-agnostic). Returns it regardless of examProfile. */
+    @Query("SELECT * FROM daily_challenge WHERE userId = :userId AND localDate = :localDate LIMIT 1")
+    suspend fun getChallengeForDay(userId: String, localDate: String): DailyChallengeEntity?
 
-    @Query("SELECT COUNT(*) FROM daily_challenge WHERE userId = :userId AND examType = :examType AND localDate = :localDate")
-    suspend fun countChallengesForDay(userId: String, examType: String, localDate: String): Int
+    /** Must always be 0 or 1 — proves "exactly one Daily Challenge per account per day". */
+    @Query("SELECT COUNT(*) FROM daily_challenge WHERE userId = :userId AND localDate = :localDate")
+    suspend fun countChallengesForDay(userId: String, localDate: String): Int
+
+    /** Total challenge rows for an account across all days (used by tests / diagnostics). */
+    @Query("SELECT COUNT(*) FROM daily_challenge WHERE userId = :userId")
+    suspend fun countChallengesForUser(userId: String): Int
+
+    // ── Full-account export (sync snapshot + anonymous→account linking) ───────────────────────────
+    @Query("SELECT * FROM daily_challenge WHERE userId = :userId")
+    suspend fun getAllChallengesForUser(userId: String): List<DailyChallengeEntity>
+
+    @Query("SELECT * FROM challenge_answer WHERE userId = :userId")
+    suspend fun getAllAnswersForUser(userId: String): List<ChallengeAnswerEntity>
+
+    @Query("SELECT * FROM user_question_state WHERE userId = :userId")
+    suspend fun getAllStatesForUser(userId: String): List<UserQuestionStateEntity>
+
+    @Query("SELECT * FROM section_deficit WHERE userId = :userId")
+    suspend fun getAllDeficitsForUser(userId: String): List<SectionDeficitEntity>
 
     // ── Answers ─────────────────────────────────────────────────────────────────
     @Insert(onConflict = OnConflictStrategy.REPLACE)

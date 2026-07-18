@@ -80,6 +80,10 @@ class DailyChallengeActivity : AppCompatActivity() {
 
     private fun load() {
         lifecycleScope.launch {
+            // Adopt any anonymous challenge into the signed-in account before resolving the id, so a
+            // sign-in that happened outside Home can never cause a second challenge here.
+            DailyChallengeAccountLink.linkIfNeeded(this@DailyChallengeActivity)
+            userId = DailyChallengeUser.resolve(this@DailyChallengeActivity)
             val result = try {
                 controller.loadToday(userId, exam)
             } catch (t: Throwable) {
@@ -151,7 +155,7 @@ class DailyChallengeActivity : AppCompatActivity() {
         nextBtn.isEnabled = false
         lifecycleScope.launch {
             try {
-                controller.submit(userId, exam, localDate, q.id, originalIndex, isCorrect, timeMs)
+                controller.submit(userId, localDate, q.id, originalIndex, isCorrect, timeMs)
             } catch (_: Throwable) {
                 Toast.makeText(this@DailyChallengeActivity, R.string.dc_error_generic, Toast.LENGTH_SHORT).show()
                 busy = false; nextBtn.isEnabled = true

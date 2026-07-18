@@ -73,7 +73,10 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
         primary = findViewById(R.id.dcrvPrimaryBtn)
 
         userId = DailyChallengeUser.resolve(this)
-        exam = StudyAreaManager.getActiveArea(this).career.examType
+        // Scope the review queue to the exam passed by the caller (the challenge being reviewed), so it is
+        // not empty after the user switches study areas. Falls back to the active area for direct entry.
+        exam = intent.getStringExtra(EXTRA_EXAM)?.let { runCatching { ExamType.valueOf(it) }.getOrNull() }
+            ?: StudyAreaManager.getActiveArea(this).career.examType
         // Review depth is gated by the entitlement seam (fails safe to Free). Never affects new-Q count.
         isPremium = DailyChallengeEntitlement.isPremiumForReview(this)
 
@@ -204,6 +207,12 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun intent(context: Context): Intent = Intent(context, DailyChallengeReviewActivity::class.java)
+        private const val EXTRA_EXAM = "dc_review_exam"
+
+        /** [exam] scopes the review queue to a specific exam (the challenge being reviewed). */
+        fun intent(context: Context, exam: ExamType? = null): Intent =
+            Intent(context, DailyChallengeReviewActivity::class.java).apply {
+                if (exam != null) putExtra(EXTRA_EXAM, exam.name)
+            }
     }
 }

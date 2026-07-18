@@ -13,15 +13,32 @@ enum class ChallengeStatus { AVAILABLE, IN_PROGRESS, COMPLETED, EXPIRED }
 /** Independent review queues (MASTERED/CORRECT are not review-eligible). */
 enum class ReviewQueue { INCORRECT, NEEDS_REVISION, FORGOTTEN }
 
-/** One challenge per (user, exam, local calendar day). questionIdsCsv holds the 5 retired question ids in order. */
-@Entity(tableName = "daily_challenge", primaryKeys = ["userId", "examType", "localDate"])
+/**
+ * EXACTLY ONE Daily Challenge per (user, local calendar day) — NOT per exam. Once a row exists for a
+ * day it is immutable and is ALWAYS returned; switching exams, reopening, or process death never
+ * generate a second one. [examProfile] records which exam profile the 5 questions were drawn from at
+ * generation time, but it is deliberately NOT part of the primary key, so the challenge is returned
+ * regardless of the currently-active exam.
+ *
+ * Persisted contract (matches the product spec): userId, localDate, challengeId, examProfile,
+ * questionIdsCsv (= orderedQuestionIds), currentIndex, answers (see [ChallengeAnswerEntity]),
+ * completedAt, createdAt.
+ */
+@Entity(tableName = "daily_challenge", primaryKeys = ["userId", "localDate"])
 data class DailyChallengeEntity(
     val userId: String,
-    val examType: String,
     val localDate: String, // YYYY-MM-DD in the user's timezone
+    /** Stable, deterministic id for this challenge: "userId:localDate". Never changes once generated. */
+    val challengeId: String,
+    /** Exam profile the 5 questions were generated from — recorded, but NOT part of the key. */
+    val examProfile: String,
     val status: String,
+    /** The 5 retired question ids, in fixed order. Immutable once generated (orderedQuestionIds). */
     val questionIdsCsv: String,
+    /** Resume cursor: number of questions answered so far (kept == count of persisted answers). */
+    val currentIndex: Int = 0,
     val allocationCsv: String, // section:n|section:n for audit
+    val createdAt: Long = 0,
     val startedAt: Long = 0,
     val completedAt: Long = 0,
     val expiresAt: Long = 0,
@@ -29,7 +46,7 @@ data class DailyChallengeEntity(
     val shortage: String = "", // records any section shortage encountered at generation
 )
 
-/** One row per answered Daily-Challenge question. challengeKey = userId:examType:localDate. */
+/** One row per answered Daily-Challenge question. challengeKey = userId:localDate (exam-agnostic). */
 @Entity(tableName = "challenge_answer", primaryKeys = ["challengeKey", "questionId"])
 data class ChallengeAnswerEntity(
     val challengeKey: String,

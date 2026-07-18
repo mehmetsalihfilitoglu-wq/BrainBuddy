@@ -2,7 +2,6 @@ package com.edumio.app.dailychallenge
 
 import android.content.Context
 import com.edumio.app.core.ExamType
-import com.edumio.app.db.DatabaseProvider
 import com.edumio.app.db.QuestionEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -12,10 +11,29 @@ import kotlinx.coroutines.withContext
  * spaced-repetition state via [ReviewScheduler].
  *
  * Hard invariant: review re-surfaces ONLY questions the user has already been served — it never
- * introduces a new (NEVER_SEEN) question, so it cannot increase the "5 new per local day" count.
- * Premium unlocks unlimited review depth; Free is capped at [ReviewScheduler.FREE_REVIEW_DAILY_CAP].
+ * introduces a new (NEVER_SEEN) question and never creates a Daily Challenge row, so it cannot
+ * increase the "5 new per local day" count. Premium unlocks unlimited review depth; Free is capped
+ * at [ReviewScheduler.FREE_REVIEW_DAILY_CAP].
+ *
+ * Dependencies are injected (Room stores + content) so this invariant is provable in a pure-JVM test.
  */
-class ReviewEngine(private val appContext: Context) {
+class ReviewEngine internal constructor(
+    private val dao: DailyChallengeDao,
+    private val content: DcContentSource,
+    private val analytics: DailyChallengeAnalytics,
+) {
+
+    /** Production wiring: real Room stores + analytics. */
+    constructor(appContext: Context) : this(
+        dao = DailyChallengeDatabase.get(appContext).dailyChallengeDao(),
+        content = object : DcContentSource {
+            override suspend fun getDailyCandidatePool(examType: String, section: String) =
+                com.edumio.app.db.DatabaseProvider.get(appContext).questionDao().getDailyCandidatePool(examType, section)
+            override suspend fun getQuestionsByIds(ids: List<String>) =
+                com.edumio.app.db.DatabaseProvider.get(appContext).questionDao().getQuestionsByIds(ids)
+        },
+        analytics = DailyChallengeAnalyticsProvider.get(appContext),
+    )
 
     data class ReviewItem(
         val question: QuestionEntity,
@@ -42,9 +60,7 @@ class ReviewEngine(private val appContext: Context) {
         isPremium: Boolean = false,
         nowMs: Long = System.currentTimeMillis(),
     ): List<ReviewItem> = withContext(Dispatchers.IO) {
-        val qDao = DatabaseProvider.get(appContext).questionDao()
-        val dcDao = DailyChallengeDatabase.get(appContext).dailyChallengeDao()
-        val states = dcDao.getStatesByStates(userId, exam.name, reviewStateNames)
+        val states = dao.getStatesByStates(userId, exam.name, reviewStateNames)
 
         // decay overdue revision items to FORGOTTEN, then keep only those actually due now
         val due = ArrayList<UserQuestionStateEntity>()
@@ -53,7 +69,7 @@ class ReviewEngine(private val appContext: Context) {
             val decayed = ReviewScheduler.decayIfOverdue(cur, s.nextReviewAt, nowMs)
             val row = if (decayed != cur) {
                 val updated = s.copy(state = decayed.name)
-                dcDao.upsertState(updated)
+                dao.upsertState(updated)
                 updated
             } else s
             if (ReviewScheduler.isDue(QuestionLearnState.valueOf(row.state), row.nextReviewAt, nowMs)) due += row
@@ -67,7 +83,7 @@ class ReviewEngine(private val appContext: Context) {
             )
         )
         val capped = ReviewScheduler.applyPremiumCap(ordered, isPremium)
-        val byId = qDao.getQuestionsByIds(capped.map { it.questionId }).associateBy { it.id }
+        val byId = content.getQuestionsByIds(capped.map { it.questionId }).associateBy { it.id }
         capped.mapNotNull { st ->
             val q = byId[st.questionId] ?: return@mapNotNull null
             val state = QuestionLearnState.valueOf(st.state)
@@ -83,12 +99,11 @@ class ReviewEngine(private val appContext: Context) {
         isCorrect: Boolean,
         nowMs: Long = System.currentTimeMillis(),
     ): QuestionLearnState? = withContext(Dispatchers.IO) {
-        val dcDao = DailyChallengeDatabase.get(appContext).dailyChallengeDao()
-        val prev = dcDao.getState(userId, questionId) ?: return@withContext null
+        val prev = dao.getState(userId, questionId) ?: return@withContext null
         val outcome = ReviewScheduler.onReview(
             QuestionLearnState.valueOf(prev.state), prev.consecutiveCorrect, isCorrect, nowMs,
         )
-        dcDao.upsertState(
+        dao.upsertState(
             prev.copy(
                 state = outcome.state.name,
                 consecutiveCorrect = outcome.consecutiveCorrect,
@@ -100,7 +115,7 @@ class ReviewEngine(private val appContext: Context) {
                 masteredAt = if (outcome.masteredAtMs != 0L) outcome.masteredAtMs else prev.masteredAt,
             )
         )
-        DailyChallengeAnalyticsProvider.get(appContext).track(
+        analytics.track(
             DcEvents.REVIEW_ANSWERED,
             mapOf(
                 DcEvents.P_EXAM to prev.examType,
@@ -113,7 +128,6 @@ class ReviewEngine(private val appContext: Context) {
 
     /** Count of questions mastered through review (for progress UI). */
     suspend fun masteredCount(userId: String, exam: ExamType): Int = withContext(Dispatchers.IO) {
-        DailyChallengeDatabase.get(appContext).dailyChallengeDao()
-            .countStatesByStates(userId, exam.name, listOf(QuestionLearnState.MASTERED.name))
+        dao.countStatesByStates(userId, exam.name, listOf(QuestionLearnState.MASTERED.name))
     }
 }

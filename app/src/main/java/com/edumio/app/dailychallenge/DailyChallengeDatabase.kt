@@ -18,7 +18,10 @@ import androidx.room.RoomDatabase
         SectionDeficitEntity::class,
         StreakEntity::class,
     ],
-    version = 1,
+    // v2: daily_challenge re-keyed from (userId, examType, localDate) → (userId, localDate); added
+    //     challengeId / examProfile / currentIndex / createdAt. Pre-launch app → destructive rebuild
+    //     (no production users to migrate; consistent with the app-wide fresh-install decision).
+    version = 2,
     exportSchema = false,
 )
 abstract class DailyChallengeDatabase : RoomDatabase() {
@@ -34,7 +37,7 @@ abstract class DailyChallengeDatabase : RoomDatabase() {
                     context.applicationContext,
                     DailyChallengeDatabase::class.java,
                     "daily_challenge.db",
-                ).build().also { instance = it }
+                ).fallbackToDestructiveMigration().build().also { instance = it }
             }
     }
 }
