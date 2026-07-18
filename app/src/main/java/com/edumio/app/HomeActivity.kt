@@ -86,6 +86,9 @@ class HomeActivity : AppCompatActivity() {
         val countdown = findViewById<TextView>(R.id.dcHomeCountdown)
         val progressBar = findViewById<ProgressBar>(R.id.dcHomeProgressBar)
         val cta = findViewById<Button>(R.id.dcHomeCta)
+        val mascot = findViewById<android.widget.ImageView>(R.id.dcHomeMascot)
+        fun setMascot(e: com.edumio.app.ui.EduMascot.Expression) =
+            mascot.setImageResource(com.edumio.app.ui.EduMascot.drawable(e))
 
         val exam = StudyAreaManager.getActiveArea(this).career.examType
         if (!DailyChallengeBlueprint.isSupported(exam)) {
@@ -94,6 +97,7 @@ class HomeActivity : AppCompatActivity() {
             meta.visibility = View.GONE
             countdown.visibility = View.GONE
             cta.visibility = View.GONE
+            setMascot(com.edumio.app.ui.EduMascot.Expression.SLEEPING)
             card.setOnClickListener(null)
             return
         }
@@ -114,9 +118,11 @@ class HomeActivity : AppCompatActivity() {
                 meta.visibility = View.VISIBLE; meta.text = streakText
                 countdown.visibility = View.GONE
                 cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
+                setMascot(com.edumio.app.ui.EduMascot.Expression.SLEEPING)
                 card.setOnClickListener(null)
                 return@launch
             }
+            setMascot(com.edumio.app.ui.EduMascot.forHome(available = !ui.completed, completed = ui.completed))
 
             val answered = ui.answered
             val total = ui.total

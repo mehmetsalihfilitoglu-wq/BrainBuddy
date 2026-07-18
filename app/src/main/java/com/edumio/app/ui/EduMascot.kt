@@ -25,10 +25,16 @@ object EduMascot {
         WAVE,        // onboarding greeting
     }
 
-    /** Master mascot for a given expression. Future expression art plugs in here only. */
+    /** Drawable for a given expression. All are consistent variants of the one master mascot. */
     @DrawableRes
-    fun drawable(@Suppress("UNUSED_PARAMETER") expression: Expression = Expression.NEUTRAL): Int =
-        R.drawable.ic_edumio_mascot
+    fun drawable(expression: Expression = Expression.NEUTRAL): Int = when (expression) {
+        Expression.HAPPY -> R.drawable.ic_edumio_mascot_happy
+        Expression.EXCITED, Expression.CELEBRATE -> R.drawable.ic_edumio_mascot_celebrate
+        Expression.THINKING -> R.drawable.ic_edumio_mascot_thoughtful
+        Expression.SLEEPING -> R.drawable.ic_edumio_mascot_sleeping
+        // NEUTRAL / PREMIUM / WAVE use the master mascot (PREMIUM adds a ribbon in-layout later).
+        else -> R.drawable.ic_edumio_mascot
+    }
 
     /** Expression for a Daily-Challenge completion, based on how well it went. */
     fun forCompletion(score: Int, total: Int, streak: Int): Expression = when {

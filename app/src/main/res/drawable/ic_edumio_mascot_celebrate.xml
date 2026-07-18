@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- EDUmio mascot — CELEBRATING (challenge complete / perfect streak): happy squint eyes,
+     open smile, a few subtle sparkles. Same body/cap as the base mascot. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:pathData="M48,78 L60,78 L57.5,88 L50.5,88 Z" android:fillColor="#159A45" />
+    <path android:pathData="M42,42 h24 a16,16 0 0 1 16,16 v8 a16,16 0 0 1 -16,16 h-24 a16,16 0 0 1 -16,-16 v-8 a16,16 0 0 1 16,-16 Z">
+        <aapt:attr name="android:fillColor"><gradient android:type="linear" android:startX="54" android:startY="42" android:endX="54" android:endY="82"><item android:offset="0.0" android:color="#FF45DD70" /><item android:offset="1.0" android:color="#FF1CA84C" /></gradient></aapt:attr>
+    </path>
+    <path android:pathData="M54,32 L84,43 L54,50 L24,43 Z" android:fillColor="#202124" />
+    <path android:pathData="M82.5,44 h2 v11 h-2 Z" android:fillColor="#1CA84C" />
+    <path android:pathData="M80.5,55 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0 Z" android:fillColor="#25D366" />
+    <path android:pathData="M49,27 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 Z" android:fillColor="#25D366" />
+    <path android:pathData="M51.5,26 a2.2,2.2 0 1,0 4.4,0 a2.2,2.2 0 1,0 -4.4,0 Z" android:fillColor="#3CE06A" />
+    <!-- happy squint eyes (^ ^) -->
+    <path android:pathData="M38,63 Q45,55 52,63" android:strokeColor="#1C1C1E" android:strokeWidth="3.4" android:strokeLineCap="round" android:fillColor="#00000000" />
+    <path android:pathData="M56,63 Q63,55 70,63" android:strokeColor="#1C1C1E" android:strokeWidth="3.4" android:strokeLineCap="round" android:fillColor="#00000000" />
+    <!-- open smile -->
+    <path android:pathData="M46,71 Q54,82 62,71 Q54,74.5 46,71 Z" android:fillColor="#12913F" />
+    <!-- subtle sparkles -->
+    <path android:pathData="M28,35 l1.4,3.1 l3.1,1.4 l-3.1,1.4 l-1.4,3.1 l-1.4,-3.1 l-3.1,-1.4 l3.1,-1.4 Z" android:fillColor="#FFC93C" />
+    <path android:pathData="M80,33 l1.2,2.6 l2.6,1.2 l-2.6,1.2 l-1.2,2.6 l-1.2,-2.6 l-2.6,-1.2 l2.6,-1.2 Z" android:fillColor="#FFC93C" />
+    <path android:pathData="M86,60 l1,2.1 l2.1,1 l-2.1,1 l-1,2.1 l-1,-2.1 l-2.1,-1 l2.1,-1 Z" android:fillColor="#FFC93C" />
+</vector>

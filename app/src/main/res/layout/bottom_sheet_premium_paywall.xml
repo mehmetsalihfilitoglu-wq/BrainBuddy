@@ -22,14 +22,13 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bg_bottom_sheet_handle"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:importantForAccessibility="no"
-            android:text="👑"
-            android:textSize="40sp"/>
+            android:layout_marginTop="14dp"
+            android:src="@drawable/ic_edumio_mascot_celebrate"
+            android:contentDescription="@string/dc_cd_mascot"/>
 
         <TextView
             android:id="@+id/tvPaywallTitle"

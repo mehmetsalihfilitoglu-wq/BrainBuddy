@@ -91,8 +91,10 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
             items = try { controller.reviewQueue(userId, exam, isPremium) } catch (_: Throwable) { emptyList() }
             totalEligible = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { items.size }
             if (items.isEmpty()) {
-                Toast.makeText(this@DailyChallengeReviewActivity, R.string.dc_review_empty, Toast.LENGTH_LONG).show()
-                finish(); return@launch
+                // Empty review — show the sleeping mascot empty state instead of a bare toast.
+                setContentView(R.layout.view_mascot_empty)
+                findViewById<Button>(R.id.emptyClose).onTap { finish() }
+                return@launch
             }
             pos = 0
             render()
