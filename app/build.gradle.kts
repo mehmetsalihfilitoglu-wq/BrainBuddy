@@ -145,6 +145,7 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-config")
+    implementation("com.google.firebase:firebase-appcheck-playintegrity")
     // Google Sign-In via Credential Manager (used by the Google auth path; harmless when unused).
     implementation("androidx.credentials:credentials:1.3.0")
     implementation("androidx.credentials:credentials-play-services-auth:1.3.0")

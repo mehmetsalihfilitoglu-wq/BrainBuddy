@@ -111,6 +111,19 @@ exports.onUserCreate = functionsV1.region("europe-west1").auth.user().onCreate(a
   }, { merge: true });
 });
 
+/**
+ * onUserDeleted — GDPR account deletion across all server systems. When Firebase Auth deletes the account
+ * (client calls user.delete()), recursively purge the user's entire Firestore tree + their purchase-token
+ * index. On-device data is cleared by the client (LocalDataRightsService). Premium purchase RECORDS may be
+ * retained only as long as legal accounting requires (handled outside this recursive delete if needed).
+ */
+exports.onUserDeleted = functionsV1.region("europe-west1").auth.user().onDelete(async (user) => {
+  const uid = user.uid;
+  await db.recursiveDelete(db.doc(`users/${uid}`));
+  const tokens = await db.collection("purchaseTokens").where("uid", "==", uid).get();
+  await Promise.all(tokens.docs.map((d) => d.ref.delete()));
+});
+
 // Phase 4 — billing: server-side Play purchase verification + RTDN (see billing.js). Required after
 // admin.initializeApp() above so the Admin SDK singleton is ready.
 const billing = require("./billing");

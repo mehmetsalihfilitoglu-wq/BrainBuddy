@@ -62,34 +62,40 @@ lint blocker + stripped answer-leaking logs). 162/0 tests. 5 commits.
 - 🔵 product ids/prices, Play↔GCP linkage, RTDN topic. 🟡 live verify/restore. ⏭️ client verify wiring.
 - Premium neutrality preserved (never changes the 5/day count).
 
-## Phase 5 — Notifications (FCM) — ⚪
-FCM + local reminder orchestration; ≤3 daily, stop-on-complete, right day/account, quiet hours, idempotency.
+## Phase 6 — Notifications (FCM) — ✅ core (see `PHASE6_NOTIFICATIONS_REPORT.md`)
+- ✅ `EdumioMessagingService` (manifest, inert without config) + `FcmTokenRegistrar` + pure
+  `PushNotificationPolicy` (≤3/day, quiet hours incl. midnight-wrap, dedup, stop-on-complete; 4 tests) +
+  `functions/messaging.js`. Local WorkManager reminders remain primary. 🟡 live delivery / server sweep.
 
-## Phase 6 — Email lifecycle — ⚪
-Provider abstraction; transactional/learning/marketing separation; consent, unsubscribe, suppression,
-frequency caps; provider credential 🔵.
+## Phase 7 — Email lifecycle — ✅ core (see `PHASE7_EMAIL_REPORT.md`)
+- ✅ Pure `EmailPolicy` (consent: transactional/learning-opt-out/marketing-opt-in; ≤1 daily reminder +
+  stop-on-complete; caps/dedup/suppression; 5 tests) + `functions/email.js` provider seam + webhook. No
+  solution bodies ever emailed. Verification/reset are native Firebase Auth. 🔵 provider credential.
 
-## Phase 7 — Analytics / Crashlytics / Performance — ⚪
-Funnels + dashboards spec; safe keys; perf traces; never logs sensitive content; failure never blocks learning.
+## Phase 8 — Remote Config — ✅ (see `PHASE7-10_OBSERVABILITY_REPORT.md`)
+- ✅ `FirebaseRemoteConfigAdapter` behind the seam; bundled defaults are the safe fallback; cannot alter
+  content/answers/5-question rule/blueprints/solutions.
 
-## Phase 8 — Remote Config / feature flags — ⚪
-Behind existing seam; kill switches, maintenance, paywall copy, min-version; safe defaults; cannot alter
-content/answers/5-question rule.
+## Phase 7/9 — Analytics & Crashlytics — ✅ (see `PHASE7-10_OBSERVABILITY_REPORT.md`)
+- ✅ `FirebaseAnalyticsTracker` + pure `AnalyticsSafety` (no PII/content; 4 tests); `CrashReporter` seam +
+  `CrashlyticsReporter`. 🟡 Performance-Monitoring traces are a follow-up.
 
-## Phase 9 — Admin & content operations — ⚪
-Secure internal-only admin (RBAC, audited); not in student app.
+## Phase 9 — Admin & content operations — ⚪ (deferred)
+Secure internal-only admin (RBAC, audited) — not built (lower priority than the trust/backend layers; not in
+the user's stated priority list for this pass). Firestore already default-deny; admin would use custom
+claims + a separate console.
 
-## Phase 10 — Security / privacy / compliance hardening — ⚪
-App Check / Play Integrity; rules/IAM audit; abuse limits; full account deletion across systems.
+## Phase 10 — Security / privacy / compliance hardening — ✅ core (see `PHASE10-12_SECURITY_RELEASE_REPORT.md`)
+- ✅ App Check (Play Integrity) initializer (gated); default-deny owner-scoped rules across all collections;
+  abuse limits (auth quotas, billing re-verify, email suppression, push caps); **account deletion across all
+  systems** via `onUserDeleted` recursive purge + `LocalDataRightsService`. 🔵 enforce App Check in console.
 
-## Phase 11 — Production build & Play readiness — ⚪
-AAB, App Signing, mapping retention, tracks, rollout/rollback — see `PLAY_STORE_RELEASE_CHECKLIST.md`.
+## Phase 11–12 — Release infra & device QA — ✅ ready / 🔵 owner / 📋 script
+- ✅ Secure signing + guard + R8 + full release build proven (Phase 0). 📋 `REAL_DEVICE_TEST_SCRIPT.md`
+  (manual — no device here). 🔵 AAB upload, App Signing, store listing, staged rollout.
 
-## Phase 12 — Real-device QA — ⚪ (script ready)
-`REAL_DEVICE_TEST_SCRIPT.md`; instrumentation where possible; manual otherwise; no false completion.
-
-## Phase 13 — Closed-beta readiness — ⚪
-`CLOSED_BETA_CHECKLIST.md`; measurable evidence-backed gates.
+## Phase 13 — Closed-beta readiness — 📋 (see `CLOSED_BETA_CHECKLIST.md`)
+Evidence-gated exit criteria defined; declaration awaits real Firebase + device evidence.
 
 ---
 
@@ -102,8 +108,23 @@ AAB, App Signing, mapping retention, tracks, rollout/rollback — see `PLAY_STOR
 | 1 (auth core) | 171/0 | debug ✅ | ✅ (`af65df01…`) | 1 |
 | 2 (sync) | 178/0 | compile ✅ | ✅ (`af65df01…`) | 1 |
 | 3 (server challenge) | 184/0 | compile ✅ + JS `node --check` | ✅ (`af65df01…`) | 1 |
+| 4–5 (billing) | 192/0 | compile ✅ + JS ✅ | ✅ (`af65df01…`) | 1 |
+| 7–10 (observability) | 196/0 | compile ✅ | ✅ (`af65df01…`) | 1 |
+| 6 (FCM) | 200/0 | debug ✅ (manifest merge) + JS ✅ | ✅ (`af65df01…`) | 1 |
+| 7 (email) | 205/0 | compile ✅ + JS ✅ | ✅ (`af65df01…`) | 1 |
+| 10–12 (security/release) | 205/0 | debug ✅ (App Check) + JS ✅ | ✅ (`af65df01…`) | 1 |
 
 ## Current honest status
-**REPOSITORY COMPLETE for Phases 0–0.5; engineering continuing through Phase 1+.** Public-release gates
-(real Firebase, tested auth/rules/sync, server challenge, real billing, hosted legal, device QA) remain
-open and owner/environment-gated.
+**REPOSITORY COMPLETE — OWNER CONFIGURATION REQUIRED.** Every repository-side backend system in the priority
+list (Firestore sync, server-authoritative challenge, Cloud Functions, premium verification, billing, FCM,
+email, analytics, crashlytics, remote config, App Check, account deletion, release infra) is implemented
+behind the existing seams with local fallback, pure logic covered by **205/0 JVM tests**, Cloud Functions +
+rules as validated source (`node --check`), and honest per-phase docs. The app still builds and runs fully
+offline with no Firebase (verified every phase). Content frozen throughout (`af65df01…`).
+
+**What remains is genuinely owner/environment-gated** and cannot be done from this repo: create the Firebase
+project + `google-services.json`, deploy Functions + rules, create Play products + prices, choose an email
+provider + credentials, host lawyer-reviewed legal docs, and run the live emulator/device/purchase QA. Small
+repo-side follow-ups (auth UI, client wiring of ChallengeAuthority/verifyPurchase, admin console, Performance
+traces) are noted per phase. **Not READY FOR PUBLIC RELEASE** until the owner completes those and the
+device/live QA passes — see `PLAY_STORE_RELEASE_CHECKLIST.md` + `CLOSED_BETA_CHECKLIST.md`.
