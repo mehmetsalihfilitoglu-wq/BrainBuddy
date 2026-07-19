@@ -4897,21 +4897,23 @@
  {
   "questionId": "imat_2014_specimen_critical_thinking_009",
   "correctOption": 2,
-  "shortExplanation": "Cost is materials 1.50 plus 30 minutes of labour at 5.40/hour (2.70), totalling 4.20. Charging 70% more gives 4.20 x 1.7 = 7.14.",
+  "shortExplanation": "Add the real costs first: 1.50 for materials plus 2.70 for half an hour of labour makes 4.20. Charging 70% more means multiplying by 1.7, so 4.20 x 1.7 = 7.14.",
   "solutionSteps": [
-   "Labour for 30 minutes = 5.40 / 2 = 2.70.",
-   "Total production cost = 1.50 + 2.70 = 4.20.",
-   "Selling price = cost + 70% = 4.20 x 1.70 = 7.14."
+   "Find the labour cost. Staff are paid 5.40 per hour, and this necklace takes 30 minutes, which is half an hour, so labour = 5.40 / 2 = 2.70.",
+   "Add the materials. Materials cost 1.50, so total production cost = 1.50 + 2.70 = 4.20.",
+   "Apply the markup. '70% more than it costs' means the price is the cost plus another 70% of it, that is cost x 1.70.",
+   "Multiply: 4.20 x 1.70 = 7.14. That is the selling price."
   ],
-  "keyConcept": "Selling price = production cost x (1 + markup fraction), where cost includes both materials and time-based labour.",
-  "commonMistake": "Using the full hourly wage instead of half for the 30-minute job, or forgetting to add materials to labour before the markup.",
+  "keyConcept": "Selling price = (materials + labour) x (1 + markup). Scale the hourly wage to the actual time worked, add materials, then apply the percentage once.",
+  "commonMistake": "Charging the full hourly wage for a 30-minute job. The necklace uses only half an hour, so labour is 2.70, not 5.40; using 5.40 pushes the cost to 6.90 and the price to a wrong 11.73.",
   "optionExplanations": {
-   "1": "11.73 comes from marking up the full-hour cost, not the correct 30-minute cost.",
-   "3": "11.34 applies the markup to a cost that wrongly uses a full hour of labour (1.50 + 5.40 = 6.90 x 1.7 gives about 11.73).",
-   "4": "5.40 is just the hourly wage and ignores materials and the markup."
+   "0": "Uses a full hour of labour: (1.50 + 5.40) x 1.7 = 6.90 x 1.7 = 11.73. The job is only 30 minutes, so labour should be halved to 2.70.",
+   "1": "This is only the extra 70%: 4.20 x 0.7 = 2.94. It forgets to add back the original 4.20 cost that you are marking up.",
+   "3": "This marks up twice: 4.20 x 1.7 = 7.14, then adds the 4.20 cost again (7.14 + 4.20 = 11.34). The x1.7 already includes the cost, so you add it only once.",
+   "4": "Just the hourly wage, with no materials, no time adjustment and no markup."
   },
-  "formulaNotes": "price = (materials + labour) x 1.7 = (1.50 + 2.70) x 1.7 = 7.14.",
-  "solutionVersion": 1
+  "formulaNotes": "price = (materials + labour) x 1.7 = (1.50 + 2.70) x 1.7 = 4.20 x 1.7 = 7.14.",
+  "solutionVersion": 2
  },
  {
   "questionId": "imat_2014_specimen_critical_thinking_010",
@@ -5062,25 +5064,27 @@
  {
   "questionId": "imat_2014_specimen_critical_thinking_017",
   "correctOption": 0,
-  "shortExplanation": "The board is numbered in a boustrophedon (snake) pattern. Using the numbers on the piece and their vertical/horizontal neighbours, the board width solves to 7, so the whole board has 7*7 = 49 squares.",
+  "shortExplanation": "The board snakes: rows alternate direction. To hop from a cell to the one directly above or below, the count must run to a wall and back plus one turn. Using 17 with its neighbours 12 (below) and 26 (above) pins the width at 7, so the board is 7 x 7 = 49.",
   "solutionSteps": [
-   "Note the snake numbering: odd rows run left-to-right, even rows run right-to-left, each row holding N consecutive numbers for a board of width N.",
-   "In the piece, 16, 17, 18 increase left-to-right, so this is an odd row: 16 = (r-1)*N + c, giving these values at columns c, c+1, c+2.",
-   "The row above shows 27, 26 (decreasing left-to-right = even row); 27 sits above 16 and 26 above 17.",
-   "Add the value above a cell to the cell: 16 + 27 = 43 = 2*r*N + 1, so r*N = 21.",
-   "The row below (even) has 12 beneath 17; combining 16 = (r-1)*N + c and 12 = (r-1)*N - c gives c = 2 and (r-1)*N = 14.",
-   "Then N = r*N - (r-1)*N = 21 - 14 = 7, so the board is 7 by 7.",
-   "Total squares = 7*7 = 49."
+   "Read the rule from the small board. Row 1 runs left-to-right (1..5), row 2 runs right-to-left (6..10), row 3 left-to-right again, and so on. The numbers snake, reversing direction every row.",
+   "Key idea: because rows reverse, a cell and the cell directly above or below it are NOT just one row's worth apart. To get from one to the other, the count runs sideways to a wall, makes a U-turn (that costs 1), then runs back. So the vertical gap depends on how far the cell sits from that wall.",
+   "In the piece, 16, 17, 18 increase left-to-right, so this middle row runs left-to-right. Directly below 17 is 12, and directly above 17 is 26. We will use 17 for both steps.",
+   "Go down first. Heading down, the count runs to the LEFT wall and back, so the gap = 2 x (column - 1) + 1. Here 17 - 12 = 5, so 2 x (column - 1) + 1 = 5, giving column - 1 = 2. So 17 sits in column 3.",
+   "Now go up. Heading up, the count runs to the RIGHT wall and back, so the gap = 2 x (width - column) + 1. Here 26 - 17 = 9, so 2 x (width - 3) + 1 = 9, giving width - 3 = 4.",
+   "Solve: width = 3 + 4 = 7. The board is 7 wide, and being square it is 7 tall.",
+   "Total squares = 7 x 7 = 49."
   ],
-  "keyConcept": "Boustrophedon numbering lets you set up equations from a cell and its neighbours to recover the board width.",
-  "commonMistake": "Assuming the numbers run straightforwardly left-to-right on every row instead of alternating direction.",
+  "keyConcept": "In a boustrophedon (snake) grid, the vertical gap between stacked cells is not the row length; it is twice the distance to the nearer turning wall, plus 1 for the U-turn. Two such gaps give you both the column and the width.",
+  "commonMistake": "Assuming every row runs left-to-right, so the cell above is always exactly 'one width' higher. The reversing rows make the vertical gap depend on the column, and ignoring that gives the wrong width.",
   "optionExplanations": {
-   "1": "81 corresponds to a 9x9 board, which does not satisfy the values on the piece.",
-   "2": "25 is the size of the original small 5x5 board, not the larger one described.",
-   "4": "64 would require a width of 8, but the neighbour relations force width 7."
+   "1": "81 is 9 x 9. A width of 9 would make 26 - 17 = 2 x (9 - 3) + 1 = 13, not the 9 shown, so the board is not 9 wide.",
+   "2": "25 is the small 5 x 5 example board, not the larger board the piece is cut from.",
+   "3": "121 is 11 x 11. A width of 11 clashes with the neighbour gaps, which force width 7.",
+   "4": "64 is 8 x 8. A width of 8 would make 26 - 17 = 2 x (8 - 3) + 1 = 11, not 9, so width 8 is impossible."
   },
-  "figureExplanation": "The small key board shows the snake numbering rule; the piece shows 27,26 above 16,17,18 with 12 below 17, and these adjacencies pin the board width to 7.",
-  "solutionVersion": 1
+  "figureExplanation": "The piece shows three stacked rows: 27, 26 on top; 16, 17, 18 in the middle; and 12 alone at the bottom, sitting under 17. Because 16, 17, 18 climb left-to-right, the middle row runs that way, so 12 (below 17) and 26 (above 17) are 17's vertical neighbours. The drop 17 - 12 = 5 places 17 in column 3 (run to the left wall and back), and the rise 26 - 17 = 9 then gives width 7 (run to the right wall and back). A square board 7 wide has 7 x 7 = 49 squares.",
+  "formulaNotes": "Down to the row below: gap = 2 x (column - 1) + 1. Up to the row above: gap = 2 x (width - column) + 1. From 17: 17 - 12 = 5 gives column 3; 26 - 17 = 9 gives width 7.",
+  "solutionVersion": 2
  },
  {
   "questionId": "imat_2014_specimen_critical_thinking_018",
@@ -6315,24 +6319,26 @@
  {
   "questionId": "imat_2015_specimen_critical_thinking_020",
   "correctOption": 2,
-  "shortExplanation": "A 1 m clear border in the 6 m by 6 m room leaves a 4 m by 4 m area, and each 1.5 m case needs a straight edge run of at least 1.5 m. The tall arch, 4 m wide and 3 m high, fits that area and offers exactly nine such runs.",
+  "shortExplanation": "The 1 m clearance shrinks the usable floor to a 4 m by 4 m square, and the nine rigid 1.5 m cases each need a straight edge at least 1.5 m long. Only the tall arch both fits that square and offers exactly nine such edges.",
   "solutionSteps": [
-   "A 1 m clear border on all sides of the 6 m by 6 m room leaves a 4 m by 4 m usable area for the tables.",
-   "Each 1.5 m display case must sit against a straight edge run of at least 1.5 m, so a satisfactory layout must expose at least nine such runs.",
-   "The winning arch is a 4 m top bar (two tables side by side) with a 2 m table hanging as a leg at each end; it measures 4 m wide and 3 m high, so it fits inside the 4 m by 4 m area.",
-   "Counting its usable runs: the 4 m top gives 2 runs, each 3 m outer side gives 2 (4 total), the 2 m underside of the bar gives 1, and each 2 m inner leg face gives 1 (2 total), making 9.",
-   "So this arrangement seats all nine cases and fits; each other layout either does not fit or exposes fewer than nine usable runs."
+   "Start with the room. It is 6 m by 6 m, and you must leave 1 m clear all the way around the tables. That 1 m border on every side leaves a 4 m by 4 m square in the middle for the four tables.",
+   "Now the cases. There are nine of them, each a rigid 1.5 m long. A case can only lie along a straight stretch of table edge that is at least 1.5 m long, so you need nine such straight stretches in total.",
+   "So a good layout must clear two hurdles at once: fit inside the 4 m by 4 m square, AND expose at least nine straight runs of 1.5 m.",
+   "Check the tall arch. It is a 4 m wide top bar with a 2 m tall leg hanging under each end, so it measures 4 m across and 3 m tall. That fits inside the 4 m by 4 m square.",
+   "Count its outer runs. Top of the bar (4 m long): 2 cases. Left outer edge (3 m): 2 cases. Right outer edge (3 m): 2 cases.",
+   "Count its inner runs. The gap under the bar, between the legs (2 m): 1 case. The inner face of each leg (2 m tall): 1 case each, so 2 more.",
+   "Add them up: 2 + 2 + 2 + 1 + 2 = 9. It fits the square and holds all nine cases, so this is the satisfactory arrangement."
   ],
-  "keyConcept": "A satisfactory layout must both fit inside the 4 m by 4 m usable area and expose at least nine straight edge runs, each at least 1.5 m long, for the nine display cases.",
-  "commonMistake": "Only checking whether the tables fit inside the room, and ignoring that there must be enough straight edge length to seat all nine 1.5 m cases.",
+  "keyConcept": "A layout works only if it clears both hurdles at once: it fits the 4 m by 4 m usable square, and its edges provide at least nine separate straight runs of 1.5 m for the nine rigid cases.",
+  "commonMistake": "Checking only whether the tables fit and forgetting the second hurdle. The neat 3 m by 3 m pinwheel fits easily, but its four 3 m sides give only eight 1.5 m runs, so the ninth case has nowhere to go.",
   "optionExplanations": {
-   "0": "The 3 m by 3 m pinwheel fits, but its four 3 m sides give only eight 1.5 m runs, one short of nine.",
-   "1": "Four tables placed in a single line are 8 m long, so this layout cannot leave the required 1 m clearance in a 6 m room.",
-   "3": "The solid 4 m by 2 m block fits but exposes only two 4 m sides and two 2 m sides, about six usable runs.",
-   "4": "This broad arch is about 6 m wide, so it cannot leave the required 1 m clearance in the 6 m room."
+   "0": "The pinwheel fits as a tidy 3 m by 3 m square, but its four 3 m sides each hold only two 1.5 m cases: eight in all, one short of nine.",
+   "1": "Four tables in one row stretch 8 m long. That cannot even fit the 4 m usable width, let alone leave the 1 m clearance.",
+   "3": "The solid 4 m by 2 m block fits, but only its outside edges are usable: two 4 m sides (2 cases each) and two 2 m sides (1 each) give just six runs.",
+   "4": "The right shape but stretched too wide, about 6 m across, so it cannot leave the 1 m clear border in a 6 m room."
   },
-  "figureExplanation": "The satisfactory arrangement is the tall arch: a 4 m top bar made of two tables with a 2 m table hanging as a leg at each end, spanning 4 m wide and 3 m high. Its 4 m top, two 3 m outer sides, 2 m bar underside and two 2 m inner leg faces together supply exactly nine straight 1.5 m runs while fitting the 4 m by 4 m area; the wider arch is too big, and the block, pinwheel and line either give too few runs or do not fit.",
-  "solutionVersion": 1
+  "figureExplanation": "The five pictures are: a pinwheel of four tables (a 3 m by 3 m square), a single 8 m row, a tall arch (a 4 m wide bar with a 2 m leg under each end, so 4 m by 3 m), a solid 4 m by 2 m block, and a wider stretched arch. Trace the tall arch's edges to see why it wins: the 4 m top holds 2 cases, each 3 m outer side holds 2, the 2 m gap under the bar holds 1, and the 2 m inner face of each leg holds 1, giving nine in all, while its 4 m by 3 m footprint still fits the 4 m by 4 m usable square. The pinwheel gives only 8 runs, the block only 6, and the row and the wide arch are too long to leave the 1 m clearance.",
+  "solutionVersion": 2
  },
  {
   "questionId": "imat_2015_specimen_general_knowledge_021",

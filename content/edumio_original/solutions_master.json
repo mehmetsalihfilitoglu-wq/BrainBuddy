@@ -97,23 +97,25 @@
  {
   "questionId": "mio_bio_0006",
   "correctOption": 1,
-  "shortExplanation": "Per glucose: 4 ATP from substrate-level phosphorylation, 8 mitochondrial NADH at 2.5 = 20 ATP, 2 Krebs FADH2 at 1.5 = 3 ATP, and 2 cytosolic NADH via the glycerol-3-phosphate shuttle entering as FADH2 at 1.5 = 3 ATP, giving 30. The malate-aspartate shuttle would enter those NADH at 2.5, adding 2 for a total of 32.",
+  "shortExplanation": "Add up the ATP from every stage. The trick is knowing where each NADH and FADH2 is born. Because this cell uses the glycerol-3-phosphate shuttle, its two glycolysis NADH enter the chain as if they were FADH2 (1.5 ATP each instead of 2.5), which lowers the total to 30. A malate-aspartate cell would let them enter at 2.5, giving 32.",
   "solutionSteps": [
-   "Substrate-level phosphorylation: 2 net glycolysis + 2 Krebs GTP = 4 ATP.",
-   "8 mitochondrial NADH x 2.5 = 20 ATP.",
-   "2 Krebs FADH2 x 1.5 = 3 ATP.",
-   "2 cytosolic NADH via glycerol-3-phosphate shuttle enter as FADH2: 2 x 1.5 = 3 ATP.",
-   "Total = 4 + 20 + 3 + 3 = 30 ATP.",
-   "Malate-aspartate delivers those NADH at 2.5 each (5 ATP), adding 2 for 32 ATP."
+   "First list every electron carrier one glucose makes. Glycolysis: 2 NADH (in the cytosol). Pyruvate oxidation of both pyruvates: 2 NADH. Krebs cycle, 2 turns: 6 NADH and 2 FADH2.",
+   "Now sort them by where they act. The 2 pyruvate-oxidation NADH plus the 6 Krebs NADH are already inside the mitochondrion, so that is 2 + 6 = 8 mitochondrial NADH.",
+   "Score the substrate-level ATP (made directly, no chain): 2 net from glycolysis + 2 from the Krebs cycle = 4 ATP.",
+   "Score the 8 mitochondrial NADH: 8 x 2.5 = 20 ATP.",
+   "Score the 2 Krebs FADH2: 2 x 1.5 = 3 ATP.",
+   "Now the 2 cytosolic NADH from glycolysis. The glycerol-3-phosphate shuttle drops their electrons into the chain at the FADH2 level, so each is worth 1.5, not 2.5: 2 x 1.5 = 3 ATP.",
+   "Add every part: 4 (substrate-level) + 20 (mito NADH) + 3 (Krebs FADH2) + 3 (shuttle NADH) = 30 ATP.",
+   "Compare shuttles: malate-aspartate delivers those same 2 cytosolic NADH at 2.5 each = 5 ATP, which is 2 more than 3, so its total is 32 ATP."
   ],
-  "keyConcept": "The glycerol-3-phosphate shuttle delivers cytosolic NADH electrons at the FADH2 level (1.5 ATP), costing 1 ATP per NADH versus the malate-aspartate shuttle.",
-  "commonMistake": "Using the older 3-ATP-per-NADH / 2-ATP-per-FADH2 convention instead of the stated 2.5/1.5 values.",
+  "keyConcept": "Total ATP = substrate-level ATP + (each NADH and FADH2 x its yield). What changes between the two cells is only the entry point of the 2 glycolysis NADH: the glycerol-3-phosphate shuttle costs 1 ATP per NADH (enters as FADH2, 1.5) versus malate-aspartate (enters as NADH, 2.5).",
+  "commonMistake": "Grabbing '8 NADH' without checking where they come from, or forgetting the shuttle demotes the cytosolic NADH to 1.5 ATP and counting them at 2.5 like the mitochondrial ones.",
   "optionExplanations": {
-   "0": "Counts the cytosolic NADH as mitochondrial NADH (2.5) despite the specified glycerol-3-phosphate shuttle, and mislabels the totals.",
-   "2": "Uses the older 3/2 ATP convention, inflating the totals to 38/36 instead of the stated 2.5/1.5 values.",
-   "3": "Correctly gets 30 but overstates the shuttle penalty as 4 rather than 2 (each cytosolic NADH differs by only 1 ATP)."
+   "0": "Counts the 2 cytosolic NADH at 2.5 (as if they entered as NADH), ignoring that the stated glycerol-3-phosphate shuttle enters them at 1.5, and mislabels the totals.",
+   "2": "Uses the old 3-ATP-per-NADH / 2-per-FADH2 numbers instead of the 2.5/1.5 the question gives, which inflates everything to 38/36.",
+   "3": "Gets 30 correctly but overstates the gap between shuttles as 4; each of the 2 cytosolic NADH differs by only 1 ATP, so the gap is 2."
   },
-  "solutionVersion": 1
+  "solutionVersion": 2
  },
  {
   "questionId": "mio_bio_0007",
@@ -1914,23 +1916,25 @@
  {
   "questionId": "mio_bio_0099",
   "correctOption": 2,
-  "shortExplanation": "In the sliding-filament model the filaments do not shorten, so the A band stays at the thick-filament length of 1.6 micrometres. The H zone width = sarcomere length - 2.0; at 2.0 micrometres it is 2.0 - 2.0 = 0, as the thin-filament tips meet at the M line.",
+  "shortExplanation": "The filaments only slide, they never shorten. So the A band stays equal to the thick-filament length, 1.6 um, no matter what. The H zone is the small gap in the middle where the thin filaments have not yet reached. As the sarcomere shortens, the thin filaments slide toward the center and close that gap. Doing the arithmetic, the gap goes from 0.6 um (relaxed) to exactly 0 at 2.0 um.",
   "solutionSteps": [
-   "Note the A band equals the thick-filament length and does not change: 1.6 micrometres.",
-   "Measure from the M line: each thick filament reaches +/- 0.8 micrometres.",
-   "Each thin-filament tip lies at (L/2 - 1.0) from the centre, so H zone width = 2 x (L/2 - 1.0) = L - 2.0.",
-   "At L = 2.0 micrometres, H zone = 2.0 - 2.0 = 0.",
-   "Result: A band 1.6 micrometres, H zone 0."
+   "A band first: it is just the stretch covered by the thick filaments. Since filaments do not change length, the A band is fixed at 1.6 um in both the relaxed and contracted states.",
+   "Now picture the H zone: it is the empty middle strip of the A band where only thick filaments sit, because the thin filaments coming in from each side have not reached that far.",
+   "Set up the geometry. Put the center (M line) at position 0. The two Z lines sit at the two ends, each half a sarcomere away, so at a distance L/2 from center (L = sarcomere length).",
+   "Each thin filament grows 1.0 um inward from its Z line, so its tip reaches to (L/2 - 1.0) from the center. The H zone is the leftover gap between the two facing tips, one on each side: H = 2 x (L/2 - 1.0) = L - 2.0.",
+   "Sanity check on the relaxed muscle: L = 2.6 gives H = 2.6 - 2.0 = 0.6 um. Good, that is a normal small H zone.",
+   "Now contract to L = 2.0: H = 2.0 - 2.0 = 0. The thin-filament tips have just met in the middle, so the H zone vanishes.",
+   "Answer: A band 1.6 um, H zone 0."
   ],
-  "keyConcept": "During contraction filaments slide without shortening, so the A band is fixed at thick-filament length while the H zone narrows as H = sarcomere length - 2.0.",
-  "commonMistake": "Believing the filaments themselves shorten (shrinking the A band) or that the H zone is fixed or widens during contraction.",
+  "keyConcept": "Sliding-filament rule: filaments slide, they do not shrink. The A band is locked at the thick-filament length; the H zone is the central thin-filament-free gap, whose width is H = (sarcomere length) - 2 x (thin-filament length), here H = L - 2.0.",
+  "commonMistake": "Thinking the filaments themselves shorten (which would shrink the A band) or forgetting the H zone closes as the thin filaments slide inward.",
   "optionExplanations": {
-   "0": "The H zone narrows and disappears during contraction; it never widens to 0.8 micrometres.",
-   "1": "The A band equals the thick-filament length and cannot change, because myofilaments do not shorten.",
-   "3": "0.3 micrometres shrinks the H zone by only half the shortening; it actually shortens by the full 0.6 micrometres.",
-   "4": "0.6 micrometres keeps the relaxed value; the H zone must shrink as the thin filaments slide inward."
+   "0": "The H zone shrinks during contraction, it does not grow; 0.8 um is wider than even the relaxed value of 0.6.",
+   "1": "The A band equals the unchanging thick-filament length, 1.6 um; it cannot fall to 1.0 because filaments do not shorten.",
+   "3": "0.3 um only closes the gap halfway; the thin tips actually slide the full 0.3 um each (0.6 um combined), meeting at the center for H = 0.",
+   "4": "0.6 um is the relaxed H zone; contraction slides the thin filaments inward, so the gap must shrink below that."
   },
-  "solutionVersion": 1
+  "solutionVersion": 2
  },
  {
   "questionId": "mio_bio_0100",
@@ -2801,22 +2805,23 @@
  {
   "questionId": "mio_bio_0144",
   "correctOption": 4,
-  "shortExplanation": "The sub-atmospheric pleural pressure keeps a positive transpulmonary gradient holding the lung expanded against its inward recoil. Opening the pleura raises pressure to atmospheric, abolishing the gradient, so the lung collapses inward under its own recoil while the chest wall springs outward toward its larger resting volume.",
+  "shortExplanation": "Think of two springs pulling against each other. The lung always wants to shrink inward; the chest wall always wants to spring outward. Normally the sealed, slightly-suction pleural space glues them together at a compromise size. The stab wound lets air in and kills the suction, so each spring is free to snap to its own natural shape: the lung collapses inward and the chest wall bulges outward.",
   "solutionSteps": [
-   "Recall the sealed sub-atmospheric pleural pressure creates a positive transpulmonary pressure holding the lung open.",
-   "Note this balance depends on the lung's inward recoil opposing the chest wall's outward recoil across a sealed space.",
-   "Open the pleura: air enters until intrapleural pressure equals atmospheric, abolishing the transpulmonary gradient.",
-   "Conclude the lung recoils inward and collapses, while the released chest wall springs outward."
+   "Picture two opposing springs. Spring 1 is the lung: its elastic tissue always tends to pull inward (collapse). Spring 2 is the chest wall: it always tends to spring outward (expand).",
+   "What holds them together at rest? The pleural space between them is sealed and has a slight suction (a little below atmospheric). That suction is the 'glue' forcing the two springs to share one in-between size.",
+   "The stab wound opens that space to outside air. Air rushes in until the pressure inside equals atmospheric, so the suction is gone. The glue is removed.",
+   "With the glue gone, each spring is free to go to its own resting shape. The lung, pulling inward, collapses. The chest wall, pushing outward, springs open and enlarges.",
+   "So on the injured side: lung collapses inward, chest wall bulges outward. They separate in opposite directions."
   ],
-  "keyConcept": "The transpulmonary pressure from a sealed sub-atmospheric pleural space holds the lung expanded; losing the seal lets the lung and chest wall recoil in opposite directions.",
-  "commonMistake": "Treating the chest wall's recoil as inward; the relaxed chest wall's resting volume is larger, so it recoils outward.",
+  "keyConcept": "The sealed pleural suction couples two springs pulling opposite ways: lung-inward and chest-wall-outward. Break the seal and each recoils to its own natural shape, so they move apart, not together.",
+  "commonMistake": "Assuming the chest wall also collapses inward. A relaxed chest wall's natural size is larger than at rest, so once released it springs outward, not in.",
   "optionExplanations": {
-   "0": "The balance depended on the sealed sub-atmospheric space, so removing the seal does change the geometry.",
-   "1": "The relaxed chest wall recoils outward, not inward, so the two structures do not collapse together.",
-   "2": "The lung's elastic tissue and surface tension give a net inward recoil, so it does not spring outward.",
-   "3": "This reverses both recoils; the lung recoils inward and the relaxed chest wall recoils outward."
+   "0": "The balance existed only because the sealed suction held the two springs together; remove the seal and the shapes must change.",
+   "1": "Only the lung collapses inward; the released chest wall springs outward, so they do not collapse together.",
+   "2": "The lung's elastic recoil and surface tension pull it inward, so it collapses rather than springing outward.",
+   "3": "This swaps the two recoils; in reality the lung goes inward and the chest wall goes outward."
   },
-  "solutionVersion": 1
+  "solutionVersion": 2
  },
  {
   "questionId": "mio_bio_0145",
@@ -2983,22 +2988,23 @@
  {
   "questionId": "mio_bio_0153",
   "correctOption": 3,
-  "shortExplanation": "Inulin concentration rises only as water is reabsorbed, so the fraction of filtered water remaining is 1/(TF/P inulin) = 1/3. The fraction of X remaining is TF/P(X)/TF/P(inulin) = 1.2/3.0 = 0.4, so the fraction reabsorbed is 1 - 0.4 = 0.6 = 60%.",
+  "shortExplanation": "Inulin is a water tracer: since none of it leaves the tubule, its concentration rises only because water was reabsorbed. A TF/P of 3.0 means the fluid got 3x more concentrated, so only 1/3 of the filtered water is left. For X, compare its TF/P to inulin's: 1.2/3.0 = 0.4, meaning 40% of X remains, so 60% was reabsorbed.",
   "solutionSteps": [
-   "Since inulin is neither reabsorbed nor secreted, its amount is constant and its rise reflects water removal only.",
-   "Fraction of filtered water still in the tubule = 1/(TF/P inulin) = 1/3.",
-   "Fraction of X remaining = TF/P(X)/TF/P(inulin) = 1.2/3.0 = 0.4.",
-   "Fraction of X reabsorbed = 1 - 0.4 = 0.6 = 60%."
+   "Key idea: amount of a solute = concentration x volume. Track inulin first because its amount never changes (not reabsorbed, not secreted).",
+   "So for inulin: (concentration at start x volume filtered) = (concentration now x volume remaining). Rearrange: volume remaining / volume filtered = start concentration / now concentration = 1 / (TF/P inulin) = 1/3. Only a third of the filtered water is still in the tubule.",
+   "Now X. Fraction of X remaining = (amount of X now) / (amount of X filtered) = (TF_X x volume remaining) / (P_X x volume filtered).",
+   "Split that into two ratios: (TF_X / P_X) x (volume remaining / volume filtered) = (TF/P for X) x (1 / (TF/P inulin)) = 1.2 x (1/3) = 1.2/3.0 = 0.4.",
+   "So 0.4 (40%) of the filtered X is still present. The rest was reabsorbed: 1 - 0.4 = 0.6 = 60%."
   ],
-  "keyConcept": "Inulin acts as a volume marker; dividing a solute's TF/P by inulin's TF/P gives the fraction of that solute's filtered load still remaining.",
-  "commonMistake": "Reading the concentration ratio directly as a reabsorbed fraction, or forgetting to subtract the remaining fraction from 1.",
+  "keyConcept": "Because amount = concentration x volume and inulin's amount is fixed, inulin's TF/P tells you how much water was removed. Any freely filtered solute's fraction remaining = (its TF/P) / (inulin's TF/P); fraction reabsorbed = 1 minus that.",
+  "commonMistake": "Reading a concentration ratio as if it were directly the reabsorbed fraction, forgetting that concentration also climbs simply because water left, or skipping the final 1 - (fraction remaining) step.",
   "optionExplanations": {
-   "0": "1/(TF/P inulin) = 1/3 is the fraction of filtered water still in the tubule, not the fraction of X reabsorbed.",
-   "1": "1 - 1/3 = 67% is the fraction of water reabsorbed and wrongly assumes X is reabsorbed in the same proportion as water.",
-   "2": "Reading a TF/P of 1.2 as a '20% reabsorption' ignores that concentration also rises simply because water was removed.",
-   "4": "1.2/3.0 = 0.4 is the fraction of X still remaining, not the fraction reabsorbed."
+   "0": "1/3 is the fraction of filtered water still in the tubule, not the fraction of X that was reabsorbed.",
+   "1": "67% is the fraction of water reabsorbed (1 - 1/3); it wrongly assumes X is handled in exactly the same proportion as water.",
+   "2": "Reading TF/P = 1.2 as '20% reabsorbed' ignores that X's concentration also rose just because water was removed.",
+   "4": "40% (from 1.2/3.0) is the fraction of X still remaining, not the fraction reabsorbed; you must subtract it from 1."
   },
-  "solutionVersion": 1
+  "solutionVersion": 2
  },
  {
   "questionId": "mio_bio_0154",
@@ -7120,22 +7126,24 @@
  {
   "questionId": "mio_bio_0361",
   "correctOption": 2,
-  "shortExplanation": "The two original template strands persist and add only two run-off (long) products per cycle, so long products grow linearly. Long products then template target-length strands, which grow exponentially, so after many cycles almost all product is the exact primer-to-primer amplicon.",
+  "shortExplanation": "The two original template strands are never used up, and each cycle each of them makes exactly one run-off (long) strand, so long strands pile up two at a time: 2, 4, 6, 8... (linear). But every long strand, when copied, produces an exact primer-to-primer strand, and those copy each other and double every cycle (exponential). Exponential quickly buries linear, so almost all the final DNA is exactly the target length.",
   "solutionSteps": [
-   "The two original strands persist and are copied to run-off (long) products each cycle.",
-   "Exactly two new long products are added per cycle, so they grow linearly.",
-   "A long product terminates at a primer site, so copying it gives a target-length strand.",
-   "Target-length strands template only target-length strands and grow exponentially, dominating the mixture."
+   "Start with what makes a 'long' strand. A long strand can only form on an original template, because only the originals run all the way past the far primer site to the strand's end.",
+   "There are exactly 2 original strands, and they are not consumed: after being copied they are still there, ready next cycle. So each cycle they hand out exactly 2 new long strands.",
+   "Count long strands cycle by cycle: after cycle 1 there are 2, after cycle 2 there are 4, then 6, 8... They go up by a fixed +2 each time. That is linear growth.",
+   "Now a long strand stops at a primer site on one end. So when you copy a long strand, the new strand starts at one primer and ends at the other primer site: it is exactly target length.",
+   "Target-length strands template only more target-length strands, and every one present gets copied each cycle, so their number doubles: exponential growth.",
+   "After many cycles, exponential (target) has raced far ahead of linear (long). The tiny, slowly-growing pile of long strands is drowned out, so almost every molecule is the exact amplicon."
   ],
-  "keyConcept": "Long run-off products accumulate linearly from the persistent originals while target-length strands accumulate exponentially, so the exact amplicon dominates.",
-  "commonMistake": "Assuming every product species doubles each cycle, or mis-counting when the fully bounded amplicon first appears.",
+  "keyConcept": "In PCR the two originals act like reusable stamps: they add long run-off strands at a steady +2 per cycle (linear), while the exact primer-to-primer strands copy each other and double (exponential). Exponential always overtakes linear, so the exact amplicon dominates.",
+  "commonMistake": "Assuming every kind of strand doubles each cycle. The long strands cannot double, because they only come from the 2 fixed originals, so their count grows by a constant amount, not a constant ratio.",
   "optionExplanations": {
-   "0": "Run-off products are re-made only from the two persistent original strands, so they increase by a fixed two per cycle, not exponentially.",
-   "1": "First-cycle products are run-off strands extending to the template end, not target-length strands.",
-   "3": "The first molecule with both strands exactly target length appears at the end of the third cycle, not the second.",
-   "4": "Template strands are not consumed; they act catalytically and persist, generating long products every cycle."
+   "0": "Long strands are re-made only from the 2 persistent originals, so they rise by a fixed +2 each cycle (linear), not by doubling, and cannot stay in a fixed ratio to the exponentially growing target strands.",
+   "1": "Cycle 1 can only produce run-off strands that reach the template's end; a bounded primer-to-primer product does not exist yet after one cycle.",
+   "3": "The first fully double-stranded molecule that is target length on both strands appears at the end of the third cycle, not the second.",
+   "4": "The originals are templates, not raw material; they are copied and remain intact, spawning long strands every cycle rather than being converted away."
   },
-  "solutionVersion": 1
+  "solutionVersion": 2
  },
  {
   "questionId": "mio_bio_0362",
@@ -14900,20 +14908,21 @@
  {
   "questionId": "mio_math_0007",
   "correctOption": 3,
-  "shortExplanation": "Substituting u = 2^x turns the equation into u^2 - 5u + 4 = 0, giving u = 1 or u = 4, so x = 0 or x = 2. Their sum is 2.",
+  "shortExplanation": "Since 2^(2x) is just (2^x) squared, let u = 2^x. The equation becomes u^2 - 5u + 4 = 0, which factors to give u = 1 or u = 4. Turn each back into x: 2^x = 1 means x = 0, and 2^x = 4 means x = 2. The sum is 0 + 2 = 2.",
   "solutionSteps": [
-   "Notice 2^(2x) = (2^x)^2, so let u = 2^x (with u > 0). The equation becomes u^2 - 5u + 4 = 0.",
-   "Factor: (u - 1)(u - 4) = 0, so u = 1 or u = 4.",
-   "Convert back to x: 2^x = 1 gives x = 0, and 2^x = 4 gives x = 2.",
-   "Sum of the real solutions = 0 + 2 = 2."
+   "Spot the hidden square: 2^(2x) = (2^x)^2. So if we call u = 2^x, the whole equation is a plain quadratic in u.",
+   "Substitute: u^2 - 5u + 4 = 0 (and note u = 2^x is always positive, so any valid u must be > 0).",
+   "Factor: (u - 1)(u - 4) = 0, giving u = 1 or u = 4. Both are positive, so both are allowed.",
+   "Convert back to x. From 2^x = 1: any base to the 0 power is 1, so x = 0. From 2^x = 4 = 2^2, so x = 2.",
+   "The question asks for the sum of the x-values, not the u-values: 0 + 2 = 2."
   ],
-  "keyConcept": "The substitution u = 2^x converts an exponential equation into a quadratic; solve for u, then take logs (base 2) to recover the x-values before answering.",
-  "commonMistake": "Reporting the sum of the u-roots (1 + 4 = 5) instead of the sum of the x-values (0 + 2 = 2).",
+  "keyConcept": "When an exponential equation has both a^(2x) and a^x, let u = a^x to turn it into a quadratic. Solve for u, keep only u > 0, then take the log (here read off the power of 2) to get x back before answering.",
+  "commonMistake": "Adding the u-roots (1 + 4 = 5) and stopping there, instead of converting to x first. The question asks for the x-values.",
   "optionExplanations": {
-   "0": "This is the sum of the u-roots (1 + 4 = 5), the values before converting back to x.",
-   "1": "6 would require x-values summing to 6, such as 2 and 4. But 2^x = 4 gives x = 2 (not 4), and the other root 2^x = 1 gives x = 0, so neither solution equals 4 and the true sum is 2.",
-   "2": "This mis-solves 2^x = 4 as x = 4 (confusing base and exponent); correctly, 2^x = 4 means x = 2.",
-   "4": "This reports only one solution (x = 0) and forgets to add the second solution x = 2."
+   "0": "This is the sum of the u-roots, 1 + 4 = 5, forgetting to convert u back into x.",
+   "1": "This comes from solving 2^x = 4 correctly as x = 2 but misreading 2^x = 1 as x = 1; in fact 2^0 = 1, so that root is x = 0, and the true sum is 0 + 2 = 2, not 1 + 2 = 3.",
+   "2": "This mis-solves 2^x = 4 as x = 4 (confusing the base with the exponent) and adds it to x = 2, giving 6; correctly 2^x = 4 means x = 2.",
+   "4": "This finds only the x = 0 root and forgets to add the second root, x = 2."
   },
   "solutionVersion": 2
  },

@@ -4643,23 +4643,25 @@
  {
   "questionId": "cents_s_lic_math_0028",
   "correctOption": 1,
-  "shortExplanation": "Variance grows with the spread of values about the mean. The set {-2, 0, 2} is symmetric with the widest spread, giving the greatest variance.",
+  "shortExplanation": "Variance measures how far the numbers sit from their own average. The set {-2, 0, 2} is centered at 0 and reaches the farthest, so its deviations are the biggest and its variance wins.",
   "solutionSteps": [
-   "Each listed set has mean 0 except {2,1,2} (mean 5/3).",
-   "For {-1,0,1}: variance = (1+0+1)/3 = 2/3.",
-   "For {-2,0,2}: variance = (4+0+4)/3 = 8/3.",
-   "For {-1,0,2}: mean 1/3, variance = ((16/9)+(1/9)+(25/9))/3 = 42/27 ≈ 1.56.",
-   "For {2,1,2}: variance = ((1/9)+(4/9)+(1/9))/3 = 6/27 ≈ 0.22.",
-   "The largest value, 8/3, belongs to {-2,0,2}."
+   "Variance = the average of (each value - mean)^2. So first find each set's own mean, then measure how far its values fall from that mean.",
+   "Quick intuition: a set spread wide around its center will have large deviations, so large variance. {-2, 0, 2} spans the widest (from -2 to 2) and is centered, so it's the front-runner. Let's confirm by computing.",
+   "S = {-1, 0, 1}: mean = 0. Deviations -1, 0, 1; squares 1, 0, 1. Variance = (1+0+1)/3 = 2/3 = 0.67.",
+   "T = {-2, 0, 2}: mean = 0. Deviations -2, 0, 2; squares 4, 0, 4. Variance = (4+0+4)/3 = 8/3 = 2.67.",
+   "X = {-1, 0, 2}: mean = (-1+0+2)/3 = 1/3. Deviations -4/3, -1/3, 5/3; squares 16/9, 1/9, 25/9 = 42/9. Variance = (42/9)/3 = 42/27 = 1.56.",
+   "Y = {2, 1, 2}: mean = (2+1+2)/3 = 5/3. Deviations 1/3, -2/3, 1/3; squares 1/9, 4/9, 1/9 = 6/9. Variance = (6/9)/3 = 6/27 = 0.22.",
+   "Compare: 0.67, 2.67, 1.56, 0.22. The largest is 2.67, from {-2, 0, 2}."
   ],
-  "keyConcept": "Variance measures average squared deviation from the mean; wider symmetric spread means larger variance.",
-  "commonMistake": "Judging by the largest single value rather than the spread of deviations from the mean.",
+  "keyConcept": "Variance is the average squared distance of values from their own mean. Each set has its own mean, so always recompute the mean before measuring the spread. A wider, more centered spread means larger variance.",
+  "commonMistake": "Judging by the biggest single number (Y contains a 2, so it looks 'big') instead of by how far the values sit from the set's own mean. Y's numbers are actually clustered close together, so its variance is the smallest.",
   "optionExplanations": {
-   "0": "{-1,0,1} has spread only half as wide, giving variance 2/3.",
-   "3": "{-1,0,2} has variance about 1.56, smaller than 8/3.",
-   "4": "{2,1,2} is tightly clustered, giving the smallest variance."
+   "0": "{-1, 0, 1} is centered at 0 but only reaches +/-1, half as wide as {-2, 0, 2}, giving a smaller variance of 0.67.",
+   "2": "This claims a tie, but X and Y have different variances (1.56 vs 0.22), and neither beats 2.67, so they cannot be the answer.",
+   "3": "{-1, 0, 2} has variance 1.56 — larger than S but still below 2.67, because it isn't centered and doesn't reach as far as {-2, 0, 2}.",
+   "4": "{2, 1, 2} is tightly bunched near 2, so its values barely deviate from their mean of 5/3, giving the smallest variance, 0.22."
   },
-  "solutionVersion": 1
+  "solutionVersion": 2
  },
  {
   "questionId": "cents_s_lic_math_0029",
@@ -21247,25 +21249,30 @@
  {
   "questionId": "cents_s_orig_phys_0182",
   "correctOption": 1,
-  "shortExplanation": "The two field contributions are 2.88x10^5 N/C and 1.0x10^5 N/C at an angle to each other; adding them as vectors using the figure's geometry gives about 2.42x10^5 N/C.",
+  "shortExplanation": "Each charge makes its own electric field at P. They point in different directions, so you can't add their sizes directly — you split each into horizontal and vertical parts, add those, and recombine. The result is about 2.42x10^5 N/C.",
   "solutionSteps": [
-   "Field from q1 at P: E1 = k q1 / d1^2 = 9.0e9 * 2e-6 / 0.25^2 = 2.88x10^5 N/C, pointing from the origin toward P (away from the positive charge).",
-   "Field from q2 at P: E2 = k q2 / d2^2 = 9.0e9 * 1e-6 / 0.30^2 = 1.0x10^5 N/C, pointing from P toward q2 (toward the negative charge).",
-   "Unit vector for E1 = P/|P| = (0.07,0.24)/0.25 = (0.28, 0.96); so E1 = (0.806, 2.765)x10^5 N/C.",
-   "Unit vector for E2 = (q2 - P)/d2 = (0.18,-0.24)/0.30 = (0.60,-0.80); so E2 = (0.600,-0.800)x10^5 N/C.",
-   "Add components: Ex = 1.406x10^5, Ey = 1.965x10^5 N/C.",
-   "Magnitude = sqrt(1.406^2 + 1.965^2)x10^5 = 2.42x10^5 N/C."
+   "Idea: the total field at P is the vector sum of the field from q1 and the field from q2. 'Vector sum' matters because the two arrows point different ways, so we add them by components, not by simply adding their lengths.",
+   "Size of each field, using E = k*q/d^2 with the distances marked in the figure (d1 = 0.25 m, d2 = 0.30 m).",
+   "E1 = (9.0e9 * 2e-6) / 0.25^2 = 2.88x10^5 N/C.",
+   "E2 = (9.0e9 * 1e-6) / 0.30^2 = 1.0x10^5 N/C.",
+   "Direction of each field, read from the figure. q1 is positive, so its field points AWAY from q1: from the origin out to P (up and to the right, the E1 arrow). q2 is negative, so its field points TOWARD q2: from P down to q2 (down and to the right, the E2 arrow).",
+   "To split a field into horizontal (x) and vertical (y) parts, we need its direction as fractions: how much of the arrow is sideways and how much is up/down. Take the arrow's coordinate change and divide by its length.",
+   "E1 runs from (0,0) to P(0.07, 0.24), length 0.25. Sideways fraction = 0.07/0.25 = 0.28; upward fraction = 0.24/0.25 = 0.96. So E1's parts are: x = 2.88e5 * 0.28 = 0.81e5, y = 2.88e5 * 0.96 = 2.76e5.",
+   "E2 runs from P(0.07, 0.24) to q2(0.25, 0), a change of (0.18, -0.24), length 0.30. Sideways fraction = 0.18/0.30 = 0.60; vertical fraction = -0.24/0.30 = -0.80 (negative means downward). So E2's parts are: x = 1.0e5 * 0.60 = 0.60e5, y = 1.0e5 * (-0.80) = -0.80e5.",
+   "Add the parts. Horizontal: Ex = 0.81 + 0.60 = 1.41x10^5. Vertical: Ey = 2.76 + (-0.80) = 1.96x10^5. Notice the vertical parts partly cancel — E1 points up, E2 points down — which is exactly why the answer is smaller than adding the sizes.",
+   "Recombine with Pythagoras: E = sqrt(1.41^2 + 1.96^2) x10^5 = sqrt(1.99 + 3.86) x10^5 = sqrt(5.85) x10^5 = 2.42x10^5 N/C."
   ],
-  "keyConcept": "Electric fields superpose as vectors; each contribution's direction is set by the sign of its source charge and the line joining charge to point.",
-  "commonMistake": "Adding the two magnitudes arithmetically (2.88 + 1.0) instead of adding them as vectors along their actual directions.",
+  "keyConcept": "Electric fields add as vectors. Each charge's field has a size (k*q/d^2) and a direction (away from a positive charge, toward a negative one). To add arrows that point different ways, split each into x and y parts, add the parts separately, then use Pythagoras to get the total size.",
+  "commonMistake": "Adding the two sizes straight across, 2.88 + 1.0 = 3.88x10^5, which is the last option. That is only valid if both arrows point the same way. Here they point in different directions and the vertical parts partly cancel, so the real total is noticeably smaller.",
   "optionExplanations": {
-   "2": "3.05x10^5 N/C overstates the sum by not fully accounting for the angle between the two fields.",
-   "3": "3.57x10^5 N/C is close to a direct scalar-ish addition and ignores the partial cancellation in the y-direction.",
-   "4": "3.88x10^5 N/C is essentially E1 + E2 added as scalars, which is not valid for non-parallel vectors."
+   "0": "1.41x10^5 N/C is just the horizontal total Ex by itself; it forgets to include the vertical part Ey when recombining.",
+   "2": "3.05x10^5 N/C treats the two arrows as almost parallel, overcounting because it ignores how much the vertical parts cancel.",
+   "3": "3.57x10^5 N/C comes from nearly adding the sizes and only partly accounting for the angle between the fields, so the vertical cancellation is understated.",
+   "4": "3.88x10^5 N/C is E1 + E2 added as plain numbers, which is wrong for arrows that point different ways."
   },
-  "figureExplanation": "The figure gives P(0.07,0.24), q2 at x=0.25, and the distances d1=0.25 m and d2=0.30 m, which set both the magnitudes and the directions of E1 (away from q1) and E2 (toward q2).",
-  "formulaNotes": "E = k q / d^2 for each charge; net field = vector sum of the two contributions.",
-  "solutionVersion": 1
+  "figureExplanation": "The figure fixes both the sizes and the directions. It gives P at (0.07, 0.24), q2 at x = 0.25, and the two straight-line distances d1 = 0.25 m and d2 = 0.30 m used in E = k*q/d^2. The dashed lines are the directions: E1 lies along the origin-to-P line (drawn pointing up-right, away from the positive q1), and E2 lies along the P-to-q2 line (drawn pointing down-right, toward the negative q2). Reading those two dashed directions is what lets us split each field into its x and y parts.",
+  "formulaNotes": "E = k*q/d^2 gives each field's size. To split a field of size E into parts, multiply E by the direction fractions (coordinate change divided by length). Recombine with E_total = sqrt(Ex^2 + Ey^2).",
+  "solutionVersion": 2
  },
  {
   "questionId": "cents_s_orig_reasoning_texts_data_0024",

@@ -18198,25 +18198,29 @@
  {
   "questionId": "til_i_orig_elite_0415",
   "correctOption": 2,
-  "shortExplanation": "The kite PAOB is two congruent right triangles of area (1/2)*20*PA, so 20*PA = 300 gives PA = 15 m and OP = sqrt(20^2 + 15^2) = 25 m. The chord AB is twice the altitude from A to OP: AB = 2*(20*15/25) = 24 m.",
+  "shortExplanation": "The shape PAOB is a kite made of two equal right triangles, so its area is radius times tangent length: 20*PA = 300 gives PA = 15. Then OP = 25 by Pythagoras. The chord AB crosses OP at right angles and is split in half; each half is found by computing triangle OAP's area two ways, giving 12. So AB = 24 m.",
   "solutionSteps": [
-   "Read the radius from the figure: OA = OB = 20 m, with right angles at A and B because a tangent is perpendicular to the radius at the contact point.",
-   "PAOB splits along OP into two congruent right triangles OAP and OBP, each with legs OA = 20 and PA (tangent length).",
-   "Area condition: 2 * (1/2) * 20 * PA = 300, so 20 * PA = 300 and PA = 15 m.",
-   "Hypotenuse: OP = sqrt(20^2 + 15^2) = sqrt(400 + 225) = sqrt(625) = 25 m.",
-   "By symmetry OP is the perpendicular bisector of chord AB, and half of AB is the altitude from A to the hypotenuse in triangle OAP: h = (leg1 * leg2)/hypotenuse = (20 * 15)/25 = 12 m.",
-   "Therefore AB = 2 * 12 = 24 m."
+   "Start by seeing the shape. The little squares in the figure mark right angles at A and B: a tangent always meets the radius at 90 degrees where it touches the circle. So triangle OAP and triangle OBP are both right-angled.",
+   "OA = OB = 20 (both radii) and PA = PB (the two tangents from one outside point are always equal). That makes PAOB a kite, and the dashed line OP is its mirror line.",
+   "Find PA from the area. The kite is two equal right triangles, each with legs OA = 20 and PA. Total area = 2 * (1/2) * 20 * PA = 20 * PA. Set 20 * PA = 300, so PA = 15 m.",
+   "Find OP with Pythagoras in right triangle OAP: OP = sqrt(20^2 + 15^2) = sqrt(400 + 225) = sqrt(625) = 25 m.",
+   "Now locate AB. Because OP is the mirror line of the kite, the chord AB is perpendicular to OP and is cut exactly in half where they cross. Call that crossing point M, so AM is half of AB.",
+   "AM is the height from A straight down onto OP, so it is the height of triangle OAP measured from vertex A to its base OP. Find it by writing the area of triangle OAP two ways.",
+   "Area using the two legs: (1/2) * 20 * 15 = 150. Area using base OP and height AM: (1/2) * 25 * AM. These are the same triangle, so 150 = (1/2) * 25 * AM, giving AM = 300 / 25 = 12 m.",
+   "AM is only half the chord, so AB = 2 * 12 = 24 m."
   ],
-  "keyConcept": "Tangent-radius perpendicularity plus kite symmetry: AB equals twice the altitude to the hypotenuse of right triangle OAP, i.e. AB = 2*OA*PA/OP.",
-  "commonMistake": "Stopping at a partial result — reporting the tangent length 15 m or the half-chord 12 m instead of the full chord AB = 24 m.",
+  "keyConcept": "In a tangent kite, the line from the outside point to the center is a mirror line: it hits the chord of contact at right angles and bisects it. Combine that symmetry with 'area of one triangle computed two ways' to get the half-chord.",
+  "commonMistake": "Answering with a number you found along the way — the tangent length 15, the half-chord 12, or OP = 25 — instead of the full chord AB. The question asks for the whole strip AB, so the half must be doubled.",
   "optionExplanations": {
-   "0": "12 m is only half of AB — the perpendicular distance from A to the line OP — and must be doubled.",
-   "1": "15 m is the length of each tangent walkway PA (or PB), not the chord joining the contact points.",
-   "3": "25 m is the distance OP from the centre to the gate, the hypotenuse of the right triangle, not the chord AB."
+   "0": "12 m is only half of AB (the distance from A to the mirror line OP). It still has to be doubled.",
+   "1": "15 m is the length of each tangent walkway PA or PB, not the chord joining the two contact points.",
+   "2": "Correct: the half-chord is 12 m, so the full flower strip AB = 2 * 12 = 24 m.",
+   "3": "25 m is OP, the distance from the center to the gate. That is the hypotenuse, not the chord AB.",
+   "4": "40 m has no basis here; it looks like doubling 20 (the radius), but the radius is not the chord."
   },
-  "figureExplanation": "The figure marks the radius 20 m, right angles at A and B where the tangents touch the circle, and the dashed symmetry line OP; the green segment AB is the chord whose length is asked, bisected perpendicularly by OP.",
-  "formulaNotes": "Altitude to the hypotenuse of a right triangle: h = (product of legs)/hypotenuse. Here AB = 2h = 2*(20*15)/25 = 24.",
-  "solutionVersion": 1
+  "figureExplanation": "The figure shows the two right-angle squares at A and B (tangent meets radius), the radius labelled 20 m, and the dashed line OP acting as the kite's mirror. The green segment AB is the flower strip we want. Because OP is the mirror line, AB crosses it at 90 degrees and is split into two equal halves at that crossing point — that crossing height in triangle OAP is what we solve for, then double.",
+  "formulaNotes": "Same triangle, two area formulas: (1/2)*leg1*leg2 = (1/2)*base*height. Here (1/2)*20*15 = (1/2)*OP*AM, so AM = (20*15)/25 = 12 and AB = 2*AM = 24.",
+  "solutionVersion": 2
  },
  {
   "questionId": "til_i_orig_elite_0416",
@@ -18701,24 +18705,29 @@
  {
   "questionId": "til_i_orig_logic_0062",
   "correctOption": 1,
-  "shortExplanation": "Using the totals for the Museum and the Castle plus the grand total of 50, the triple-overlap works out to 4, so Castle-and-Gardens-only is 5. Exactly two attractions = 9 + 3 + 5 = 17.",
+  "shortExplanation": "The question only needs the three overlap-of-two regions. Two of them are shown (9 and 3); the third depends on how many visited all three. Using the totals for Museum, Castle and the whole group pins that number at 4, making the last two-region 5. So exactly two = 9 + 3 + 5 = 17.",
   "solutionSteps": [
-   "From the diagram: Museum-and-Castle only = 9, Castle only = 7, Museum-and-Gardens only = 3. Let all three = t, Museum only = a, Castle-and-Gardens only = c, Gardens only = g.",
-   "The condition 'only Gardens is twice all three' gives g = 2t.",
-   "Museum total: a + 9 + 3 + t = 30, so a = 18 - t.",
-   "Castle total: 9 + 7 + t + c = 25, so c = 9 - t.",
-   "Everyone visited something, so the seven regions sum to 50: (18 - t) + 9 + 7 + 3 + t + (9 - t) + 2t = 50, which simplifies to 46 + t = 50, so t = 4.",
-   "Then c = 9 - 4 = 5, and exactly two = 9 + 3 + c = 9 + 3 + 5 = 17."
+   "First, what does 'exactly two' mean? It is the three petal regions where two circles overlap but the center is left out: Museum-and-Castle, Museum-and-Gardens, and Castle-and-Gardens.",
+   "From the diagram, two of these are already given: Museum-and-Castle only = 9, Museum-and-Gardens only = 3. The Castle-and-Gardens region is a '?', so that is the one piece we must find.",
+   "Everything hinges on the center (all three). Call that unknown number t. We'll write the other missing regions in terms of t, then let the totals fix t.",
+   "The clue says 'only Gardens is twice all three', so Gardens-only = 2t.",
+   "Castle total must be 25. The Castle circle holds four regions: Castle only (7) + Museum-and-Castle (9) + center (t) + Castle-and-Gardens (?). So Castle-and-Gardens = 25 - 7 - 9 - t = 9 - t.",
+   "Museum total must be 30. The Museum circle holds: Museum only (?) + Museum-and-Castle (9) + Museum-and-Gardens (3) + center (t). So Museum only = 30 - 9 - 3 - t = 18 - t.",
+   "Now use the grand total: all seven regions add to 50. The plain numbers are 18 + 7 + 9 + 3 + 9 = 46. The t-terms are (-t) + 2t + (-t) + t = +t. So 46 + t = 50, giving t = 4.",
+   "Finally, Castle-and-Gardens = 9 - t = 9 - 4 = 5.",
+   "Exactly two attractions = 9 + 3 + 5 = 17."
   ],
-  "keyConcept": "Assign a variable to the triple overlap, express every unknown region through it using the given totals, then use the grand total to pin it down.",
-  "commonMistake": "Adding the triple-overlap region into the 'exactly two' count; people who visited all three do not count as visiting exactly two.",
+  "keyConcept": "Give the center (all-three) region a name, write every unknown region as a small expression in that name using each circle's total, then let the grand total solve for it.",
+  "commonMistake": "Counting the center region as 'exactly two'. People who visited all three visited three attractions, not two, so they never belong in this count.",
   "optionExplanations": {
-   "0": "12 is just the sum of the two given pairwise regions (9 + 3), forgetting the unknown Castle-and-Gardens region of 5.",
-   "2": "21 comes from including the 4 people who visited all three attractions in the 'exactly two' count.",
-   "4": "33 mixes in single-attraction regions; only the three pairwise-only regions count."
+   "0": "12 is just the two visible overlap regions (9 + 3). It forgets the hidden Castle-and-Gardens region, which turns out to be 5.",
+   "1": "Correct: the three two-circle overlaps are 9, 3 and 5, and 9 + 3 + 5 = 17.",
+   "2": "21 adds the 4 people from the center (all three) into the count. Those people visited three attractions, so they don't belong here.",
+   "3": "25 is the Castle total, not the number who visited exactly two attractions.",
+   "4": "33 mixes in single-attraction regions; only the three two-circle overlap regions count as 'exactly two'."
   },
-  "figureExplanation": "The Venn diagram supplies the three known regions that anchor the algebra: 9 in Museum-and-Castle only, 7 in Castle only, and 3 in Museum-and-Gardens only; the center, Museum-only, Castle-and-Gardens-only and Gardens-only regions are the unknowns.",
-  "solutionVersion": 1
+  "figureExplanation": "The Venn diagram gives the three fixed anchors: 9 in the Museum-and-Castle overlap, 7 in Castle only, and 3 in the Museum-and-Gardens overlap. Every region marked '?' (the center, Museum only, Castle-and-Gardens, and Gardens only) is what the algebra fills in. The Castle-and-Gardens '?' is the single missing piece of the 'exactly two' count.",
+  "solutionVersion": 2
  },
  {
   "questionId": "til_i_orig_logic_0063",
