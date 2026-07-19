@@ -13,8 +13,8 @@ object LegalConfig {
     const val ASSET_PRIVACY_POLICY = "file:///android_asset/privacy_policy_tr.html"
     const val ASSET_TERMS_OF_USE = "file:///android_asset/terms_of_use_tr.html"
     const val ASSET_DATA_USAGE = "file:///android_asset/data_usage_tr.html"
-    const val ASSET_AD_INFO = "file:///android_asset/ad_info_tr.html"
-    const val ASSET_PARENT_INFO = "file:///android_asset/parent_info_tr.html"
+    // Removed (Phase 0): ad_info (falsely claimed the app uses Google AdMob — EDUmio has NO ads/ads SDK)
+    // and parent_info (Barjin parental-control era, already unused).
 
     // ── Web URLs (from BuildConfig, set in build.gradle.kts per build type) ──
     val WEB_PRIVACY_POLICY: String get() = BuildConfig.PRIVACY_POLICY_URL
@@ -46,12 +46,6 @@ object LegalConfig {
             R.string.legal_data_usage_sub,
             R.drawable.ic_info_outline,
             ASSET_DATA_USAGE
-        ),
-        LegalDoc(
-            R.string.legal_ad_info_title,
-            R.string.legal_ad_info_sub,
-            R.drawable.ic_review,
-            ASSET_AD_INFO
         )
     )
 }
