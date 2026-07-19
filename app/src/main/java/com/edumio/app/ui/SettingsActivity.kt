@@ -52,8 +52,14 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<android.view.View>(R.id.cardDataRights)?.setOnClickListener {
             startActivity(Intent(this, DataRightsActivity::class.java))
         }
-        findViewById<android.view.View>(R.id.cardAccountSync)?.setOnClickListener {
-            startActivity(Intent(this, AccountSyncActivity::class.java))
+        findViewById<android.view.View>(R.id.cardAccountSync)?.apply {
+            // Spark-safe v1.0: account + cloud sync stay dormant (they need deployed backend). Hide the
+            // entry entirely so no unusable/failing feature is exposed. Re-appears when SPARK_SAFE=false.
+            if (com.edumio.app.release.ReleaseProfile.cloudAccountEnabled) {
+                setOnClickListener { startActivity(Intent(this@SettingsActivity, AccountSyncActivity::class.java)) }
+            } else {
+                visibility = android.view.View.GONE
+            }
         }
         findViewById<android.view.View>(R.id.cardPremium)?.setOnClickListener {
             com.edumio.app.quiz.PremiumPaywallSheet()

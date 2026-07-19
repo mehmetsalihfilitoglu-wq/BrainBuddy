@@ -19,6 +19,9 @@ object SyncProvider {
     }
 
     private fun build(appContext: Context): SyncRepository =
-        if (FirebaseConfig.isConfigured(appContext)) FirestoreSyncRepository()
+        // Spark-safe v1.0: cloud sync stays on the local mirror until the backend + rules are deployed.
+        if (FirebaseConfig.isConfigured(appContext) &&
+            com.edumio.app.release.ReleaseProfile.cloudSyncEnabled
+        ) FirestoreSyncRepository()
         else LocalMirrorSyncRepository(appContext)
 }

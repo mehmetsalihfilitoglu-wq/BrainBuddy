@@ -24,11 +24,14 @@ class LocalEntitlementRepository(context: Context) : EntitlementRepository {
 }
 
 /** Composition root for entitlement verification. Returns the server-verified repository once Firebase is
- *  configured, else the local cache. Callers are unchanged; both fail safe to Free. */
+ *  configured AND server entitlement is enabled (not in Spark-safe v1.0); else the local cache. Callers are
+ *  unchanged; both fail safe to Free. */
 object EntitlementProvider {
     fun repository(context: Context): EntitlementRepository {
         val app = context.applicationContext
-        return if (FirebaseConfig.isConfigured(app)) FirestoreEntitlementRepository(app)
+        return if (FirebaseConfig.isConfigured(app) &&
+            com.edumio.app.release.ReleaseProfile.serverEntitlementEnabled
+        ) FirestoreEntitlementRepository(app)
         else LocalEntitlementRepository(app)
     }
 }

@@ -54,7 +54,23 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
         view.findViewById<View>(R.id.tvRestore).setOnClickListener { onRestoreClicked() }
         view.findViewById<View>(R.id.tvPaywallDismiss).setOnClickListener { dismiss() }
 
-        loadOffers()
+        // Spark-safe v1.0: purchases need Play products + server verification. Keep the value proposition
+        // visible but HIDE the purchase/restore CTAs (no CTA that cannot complete). Premium stays Free.
+        if (com.edumio.app.release.ReleaseProfile.purchasesEnabled) {
+            loadOffers()
+        } else {
+            applyComingSoon(view)
+        }
+    }
+
+    private fun applyComingSoon(view: View) {
+        view.findViewById<View>(R.id.btnPaywallPremium)?.visibility = View.GONE
+        view.findViewById<View>(R.id.tvRestore)?.visibility = View.GONE
+        view.findViewById<View>(R.id.plansContainer)?.visibility = View.GONE
+        view.findViewById<TextView>(R.id.tvSubscriptionStatus)?.apply {
+            text = "Premium çok yakında — bu sürümde tüm günlük sorular zaten ücretsiz."
+            setTextColor(resources.getColor(R.color.emeraldDark, requireContext().theme))
+        }
     }
 
     // ── Status ────────────────────────────────────────────────────────────────

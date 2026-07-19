@@ -25,13 +25,17 @@ android {
         minSdk = 24
         targetSdk = 35
         versionCode = 3
-        versionName = "1.2"
+        versionName = "1.0.0"   // Spark-safe v1.0 first public release name (versionCode must stay monotonic across Play uploads)
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
         buildConfigField("String", "TERMS_URL", "\"\"")
         // Embed seed version so audit screen can show it without importing DbSeeder
         buildConfigField("int", "DB_SEED_VERSION", "9")
+        // Spark-safe v1.0: keep cloud features that need deployed Cloud Functions / Blaze / Play products
+        // DORMANT (account+sync UI, purchase CTAs, server entitlement/sync). Analytics + Crashlytics stay on
+        // (Firebase Spark-compatible). Flip to false when the backend is deployed. See ReleaseProfile.
+        buildConfigField("boolean", "SPARK_SAFE", "true")
 
         // 🔥 adaptive icon hatasını engelle
         vectorDrawables.useSupportLibrary = true
