@@ -80,6 +80,11 @@ service cloud.firestore {
         allow read: if isOwner(uid);
         allow write: if false; // server-only (completeDailyChallenge)
       }
+
+      // FCM device tokens: the owner registers/removes its own; the server reads them to send pushes.
+      match /fcmTokens/{token} {
+        allow read, write: if isOwner(uid);
+      }
     }
 
     // Play purchase-token → uid reverse index (written by the verification function; RTDN reads it).

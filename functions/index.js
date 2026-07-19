@@ -116,3 +116,7 @@ exports.onUserCreate = functionsV1.region("europe-west1").auth.user().onCreate(a
 const billing = require("./billing");
 exports.verifyPurchase = billing.verifyPurchase;
 exports.playRtdnHandler = billing.playRtdnHandler;
+
+// Phase 6 — messaging (server-initiated FCM pushes; local WorkManager reminders remain primary).
+const messaging = require("./messaging");
+exports.sendTestPush = messaging.sendTestPush;
