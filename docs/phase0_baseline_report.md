@@ -23,8 +23,9 @@ those references (and kept its own new docs brand-clean), so the suite is now fu
 ## Post-Phase-0 state (for comparison)
 | Metric | After Phase 0 |
 |---|---|
-| Debug APK size | 79,230,667 bytes (~79.2 MB; ≈ baseline) |
-| JVM unit tests | **155 / 0 failures** (+3 Room schema-freeze tests) |
+| Debug APK size | 80,749,809 bytes (~80.7 MB; up ~1.5 MB only because `resources.arsc` is now stored uncompressed — packaging, not content) |
+| Release APK size | 70.8 MB (R8 shrink/obfuscate; full release build verified end-to-end) |
+| JVM unit tests | **162 / 0 failures** (+3 Room schema-freeze, +7 premium fail-safe) |
 | Room `exportSchema` | `true`; schemas frozen at `edumio.db` v24, `daily_challenge.db` v2 |
 | Release signing | untracked `keystore.properties` + build guard blocks unsigned release |
 | Legal | false AdMob disclosure removed; drafts still gated from publication |

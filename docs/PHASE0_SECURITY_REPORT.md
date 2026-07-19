@@ -45,7 +45,25 @@ is a static hygiene pass appropriate for the pre-launch stage.
   platform default. (Moot today anyway: the app makes no first-party network calls — all backend seams are
   local. See `PHASE0_FIREBASE_READINESS_REPORT.md`.)
 
-## 6. Build hardening — ENABLED
+## 6. WebView & IPC surface — SAFE
+- **WebView** is used only by the legal viewers (`legal/LegalDocActivity`, `ui/PrivacyPolicyActivity`).
+  Both set `settings.javaScriptEnabled = false` and load **only local** `file:///android_asset/*.html`. No
+  `allowFileAccessFromFileURLs` / `allowUniversalAccessFromFileURLs` / `addJavascriptInterface`, and no
+  remote URL loading → no XSS/file-exfil surface.
+- **PendingIntent:** the only one (`report/ReportWorker`) is created with `FLAG_IMMUTABLE` (+
+  `FLAG_UPDATE_CURRENT`) — correct for API 23+; no mutable implicit intents.
+
+## 7. Debug-log leakage — FIXED
+- The quiz/quality engines log question stems, correct answers, and choice text at `Log.d/v/i/w` (e.g.
+  `AdaptiveQuizRuntime`, `QuizOutputGuard`, `QuestionRepository`). In a **release** build this would leak
+  answer text to Logcat.
+- Fix: a `-assumenosideeffects` rule in `proguard-rules.pro` strips all `Log.d/v/i/w` calls (and their
+  now-dead string building) from the release build. `Log.e` is kept for genuine error diagnostics; its
+  remaining sites log only ids/counts after redacting the one that printed full choices
+  (`DISTRACTOR_SUFFIX_LEAK … choices=…` → `choiceCount=…`).
+- Debug builds retain logs for development (minify off) — acceptable, developer-only.
+
+## 8. Build hardening — ENABLED
 - Release: `isMinifyEnabled = true` with `proguard-android-optimize.txt` + `proguard-rules.pro` (R8
   shrink + obfuscate). **Optional follow-up (not a blocker):** add `isShrinkResources = true` to also strip
   unused resources.
@@ -61,8 +79,11 @@ is a static hygiene pass appropriate for the pre-launch stage.
 | 5 | Backup extraction | ✅ Disabled | None |
 | 6 | Exported components | ✅ Minimal | None |
 | 7 | Cleartext / network | ✅ Default-deny | None |
-| 8 | R8/ProGuard | ✅ On | Optional: `shrinkResources` |
-| 9 | DB encryption | ⚠️ Plain (low risk) | Reconsider if PII grows (Phase 2) |
+| 8 | WebView (legal viewers) | ✅ JS off, local-only | None |
+| 9 | PendingIntent flags | ✅ FLAG_IMMUTABLE | None |
+| 10 | Debug logs leaking answers | ✅ Fixed | Release strips `Log.d/v/i/w`; one `Log.e` redacted |
+| 11 | R8/ProGuard | ✅ On | Optional: `shrinkResources` |
+| 12 | DB encryption | ⚠️ Plain (low risk) | Reconsider if PII grows (Phase 2) |
 
 ## Conclusion
 **No security blocker for internal QA or closed beta.** The one release-time dependency is the owner

@@ -34,5 +34,5 @@ migration path — tracked in `PHASE0_RELEASE_BLOCKERS.md`.
 
 ## Verification
 - `assembleDebug` succeeds; schema JSONs are generated deterministically (identityHash-based).
-- `155/0` unit tests pass, including the 3 new schema-freeze assertions.
+- `162/0` unit tests pass, including the 3 new schema-freeze assertions.
 - No entity, migration, or data was modified — this change is purely additive (export + freeze + test).

@@ -2514,7 +2514,7 @@ class QuestionRepository(private val context: Context) {
         // Final safety: verify no suffix pattern leaked through
         val hasSuffix = fixed.any { AdaptiveQuizRuntime.containsSuffixPattern(it) }
         if (hasSuffix) {
-            Log.e(TAG, "DISTRACTOR_SUFFIX_LEAK id=${entity.id} choices=${fixed.joinToString("|")}")
+            Log.e(TAG, "DISTRACTOR_SUFFIX_LEAK id=${entity.id} choiceCount=${fixed.size}")
             QualityAudit.quarantinedLowQualityCount++
             return null
         }

@@ -15,13 +15,22 @@ Everything needed to build, install, and exercise the app internally is done.
 | Item | Status |
 |---|---|
 | Debug build succeeds (`assembleDebug`, ~79.2 MB) | ✅ |
-| Full unit suite green (155/0) | ✅ |
+| Full unit suite green (162/0) | ✅ |
 | No false legal/ads disclosure | ✅ (AdMob disclosure removed) |
 | Room schemas frozen + migration-safety test | ✅ |
 | Brand-compliance gate green | ✅ (cleaned pre-existing violation) |
 | Content layer intact (banks/keys/figures/solutions/DC) | ✅ (untouched) |
+| **Release build completes end-to-end (R8 + lintVital)** | ✅ (fixed a fatal `ExtraTranslation` lint blocker — see below) |
+| Debug logs don't leak answers in release | ✅ (R8 strips `Log.d/v/i/w`; one `Log.e` redacted) |
 
 **Verdict: internal QA can proceed now.**
+
+> **Blocker found & fixed by end-to-end release validation:** `lintVitalRelease` was failing with 8 fatal
+> `ExtraTranslation` errors — four dead, unreferenced `perm_*` strings existed in `values-en`/`values-it`
+> but not the default locale (orphaned when the parental-control feature was removed). **Any** release build
+> (`assembleRelease`/`bundleRelease`) would have failed. The orphaned strings were removed; a full release
+> build now succeeds (R8 minify + lintVital + signing all pass, verified with a stand-in debug key — no new
+> keystore generated, temp `keystore.properties` deleted afterwards).
 
 ---
 
@@ -31,8 +40,9 @@ Needs a signed artifact and truthful store metadata, but not the full public leg
 | Item | Status | Owner |
 |---|---|---|
 | Secure release signing wired (no secret in git) | ✅ | — |
+| Release build path proven end-to-end (R8 + lintVital + signing) | ✅ | Verified with a stand-in debug key; real key just swaps in |
 | Real `keystore.properties` + `edumio_release.jks` on the build machine | 🔵 | Owner supplies at build time (`PHASE0_RELEASE_SIGNING_REPORT.md`) |
-| Signed release build (`bundleRelease`) verified once | 🟠 | Run once with real keystore |
+| Signed release build with the REAL key produced once | 🟠 | Run once with the real keystore (mechanics already validated) |
 | Play Data Safety form filled truthfully (no ads; IAP; on-device data) | 🔵 | Owner (`CURRENT_DATA_PROCESSING_INVENTORY.md`) |
 | A privacy policy URL reachable (Play requires one even for closed testing) | 🔵 | Owner hosts (can be the reviewed draft) |
 | `versionCode`/`versionName` bump policy | ⚪ | currently 3 / 1.2 |

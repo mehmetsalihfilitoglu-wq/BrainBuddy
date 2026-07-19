@@ -31,13 +31,14 @@ import javax.crypto.SecretKey
 class PremiumStore(context: Context) {
     private val prefs = context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    /** Fail-safe: unknown / unsigned / tampered / error → NOT premium (Free). */
+    /** Fail-safe: unknown / unsigned / tampered / error → NOT premium (Free). Decision logic is the pure,
+     *  unit-tested [PremiumIntegrity.isTrusted]; only signing needs the Keystore. */
     fun isPremium(): Boolean {
         return try {
             val value = prefs.getBoolean(KEY_PREMIUM, false)
             if (!value) return false
-            val sig = prefs.getString(KEY_SIG, null) ?: return false
-            constantTimeEquals(sig, sign(payload(true)))
+            val sig = prefs.getString(KEY_SIG, null)
+            PremiumIntegrity.isTrusted(value, sig, sign(payload(true)))
         } catch (_: Throwable) {
             false
         }
@@ -74,15 +75,6 @@ class PremiumStore(context: Context) {
             ).build(),
         )
         return gen.generateKey()
-    }
-
-    private fun constantTimeEquals(a: String, b: String): Boolean {
-        val x = a.toByteArray(Charsets.UTF_8)
-        val y = b.toByteArray(Charsets.UTF_8)
-        if (x.size != y.size) return false
-        var r = 0
-        for (i in x.indices) r = r or (x[i].toInt() xor y[i].toInt())
-        return r == 0
     }
 
     companion object {
