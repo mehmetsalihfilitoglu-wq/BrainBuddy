@@ -711,4 +711,41 @@
 
     <!-- Notification permission -->
     <string name="dc_perm_open_settings">Hatırlatıcıların gösterilmesi için bildirim iznini aç.</string>
+
+    <!-- Premium solutions + wrong-question pool -->
+    <string name="sol_title">Çözüm</string>
+    <string name="sol_your_answer">Senin cevabın</string>
+    <string name="sol_correct_answer">Doğru cevap</string>
+    <string name="sol_short_title">Kısa açıklama</string>
+    <string name="sol_steps_title">Adım adım çözüm</string>
+    <string name="sol_key_concept">Anahtar kavram</string>
+    <string name="sol_common_mistake">Sık yapılan hata</string>
+    <string name="sol_figure_title">Şekil yorumu</string>
+    <string name="sol_formula_title">Formül notu</string>
+    <string name="sol_options_title">Diğer seçenekler neden yanlış?</string>
+    <string name="sol_missing">Bu soru için doğrulanmış çözüm henüz hazır değil.</string>
+    <string name="sol_locked_title">Çözümler Premium\'da</string>
+    <string name="sol_locked_body">Her sorunun doğrulanmış adım adım çözümü, kavramı ve sık yapılan hatası Premium ile açılır.</string>
+    <string name="sol_locked_cta">Premium\'a geç</string>
+    <string name="sol_view">Çözümü gör</string>
+    <string name="sol_retry">Soruyu tekrar çöz</string>
+    <string name="sol_retry_later">Daha sonra dene</string>
+
+    <string name="wp_title">Yanlış Sorularım</string>
+    <string name="wp_active_count">Aktif</string>
+    <string name="wp_due_count">Sırada</string>
+    <string name="wp_resolved_count">Çözüldü</string>
+    <string name="wp_filter_all">Tümü</string>
+    <string name="wp_sort_due">Tarihe göre</string>
+    <string name="wp_sort_recent">En yeni</string>
+    <string name="wp_sort_most_wrong">En çok yanlış</string>
+    <string name="wp_wrong_times">%d kez yanlış</string>
+    <string name="wp_status_active">Tekrar bekliyor</string>
+    <string name="wp_status_scheduled">Planlandı</string>
+    <string name="wp_status_resolved">Çözüldü</string>
+    <string name="wp_empty">Aktif yanlış sorun yok. Böyle devam!</string>
+    <string name="wp_retry_success">Doğru! Bu soru aktif yanlış havuzundan çıktı.</string>
+    <string name="wp_locked_body">Yanlış sorularını sınırsız tekrar et, her birinin tam çözümünü gör.</string>
+    <string name="dcr_wrong_title">Yanlışların</string>
+    <string name="sol_locked_inline">Tam çözüm Premium\'da. Doğru cevabı yukarıda işaretledik.</string>
 </resources>

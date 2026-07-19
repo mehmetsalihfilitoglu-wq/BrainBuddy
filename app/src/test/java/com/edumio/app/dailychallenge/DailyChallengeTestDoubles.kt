@@ -75,6 +75,14 @@ class InMemoryDailyChallengeDao : DailyChallengeDao {
     override suspend fun countStatesByStates(userId: String, examType: String, states: List<String>): Int =
         synchronized(lock) { this.states.values.count { it.userId == userId && it.examType == examType && it.state in states } }
 
+    override suspend fun getStatesByStatesAllExams(userId: String, states: List<String>): List<UserQuestionStateEntity> =
+        synchronized(lock) { this.states.values.filter { it.userId == userId && it.state in states } }
+
+    override suspend fun getLatestAnswerForQuestion(userId: String, questionId: String): ChallengeAnswerEntity? =
+        synchronized(lock) {
+            answers.values.filter { it.userId == userId && it.questionId == questionId }.maxByOrNull { it.answeredAt }
+        }
+
     override suspend fun upsertDeficit(d: SectionDeficitEntity) = synchronized(lock) {
         deficits["${d.userId}|${d.examType}|${d.section}"] = d
     }

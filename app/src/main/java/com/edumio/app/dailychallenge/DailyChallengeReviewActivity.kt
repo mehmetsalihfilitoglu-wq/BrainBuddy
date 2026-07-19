@@ -41,6 +41,8 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
     private var pos = 0
     private var revealed = false
     private var currentOrder: List<Int> = emptyList()
+    /** Non-null → single-question "Retry Question" mode launched from the hub / solution screen. */
+    private var singleQuestionId: String? = null
 
     private lateinit var queueLabel: TextView
     private lateinit var progress: TextView
@@ -90,9 +92,21 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
     }
 
     private fun load() {
+        singleQuestionId = intent.getStringExtra(EXTRA_QUESTION_ID)
         lifecycleScope.launch {
-            items = try { controller.reviewQueue(userId, exam, isPremium) } catch (_: Throwable) { emptyList() }
-            totalEligible = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { items.size }
+            val single = singleQuestionId
+            if (single != null) {
+                // Retry Question: exactly this already-served question, regardless of due time.
+                items = try { listOfNotNull(controller.reviewItem(userId, single)) } catch (_: Throwable) { emptyList() }
+                totalEligible = items.size
+                if (items.isNotEmpty()) {
+                    DailyChallengeAnalyticsProvider.get(this@DailyChallengeReviewActivity)
+                        .track(DcEvents.RETRY_STARTED, mapOf(DcEvents.P_QUESTION_ID to single))
+                }
+            } else {
+                items = try { controller.reviewQueue(userId, exam, isPremium) } catch (_: Throwable) { emptyList() }
+                totalEligible = try { controller.reviewCount(userId, exam) } catch (_: Throwable) { items.size }
+            }
             if (items.isEmpty()) {
                 // Empty review — show the sleeping mascot empty state instead of a bare toast.
                 setContentView(R.layout.view_mascot_empty)
@@ -167,7 +181,23 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
         }
 
         verdict.setText(if (isCorrect) R.string.dc_review_correct else R.string.dc_review_incorrect)
-        explanation.text = q.explanation?.takeIf { it.isNotBlank() } ?: getString(R.string.dc_review_no_explanation)
+
+        // Solution content is Premium-gated (fail-closed): Free sees the correct option marked above
+        // plus a locked hint — the explanation body is never bound for Free (no leakage).
+        val solutionLink = findViewById<TextView>(R.id.dcrvSolutionLink)
+        val premiumForSolutions = DailyChallengeEntitlement.isPremiumForSolutions(this)
+        if (premiumForSolutions) {
+            explanation.text = q.explanation?.takeIf { it.isNotBlank() } ?: getString(R.string.dc_review_no_explanation)
+            solutionLink.visibility = View.VISIBLE
+            solutionLink.onTap {
+                startActivity(
+                    com.edumio.app.solutions.SolutionActivity.intent(this, exam, q.id, currentOrder.getOrNull(checkedPos))
+                )
+            }
+        } else {
+            explanation.setText(R.string.sol_locked_inline)
+            solutionLink.visibility = View.GONE
+        }
         explanationCard.visibility = View.VISIBLE
 
         if (DailyChallengeReviewPresenter.isCapped(totalEligible, items.size, isPremium)) {
@@ -179,18 +209,28 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
         }
 
         primary.isEnabled = true
-        primary.setText(
-            if (DailyChallengeReviewPresenter.step(true, pos, items.size) == DailyChallengeReviewPresenter.Step.FINISH)
-                R.string.dc_review_finish else R.string.dc_review_next
-        )
+        if (singleQuestionId != null) {
+            // Retry mode: one question, then done. Wrong → "try later"; correct → finish with success.
+            if (isCorrect) {
+                Toast.makeText(this, R.string.wp_retry_success, Toast.LENGTH_SHORT).show()
+                primary.setText(R.string.dc_review_finish)
+            } else {
+                primary.setText(R.string.sol_retry_later)
+            }
+        } else {
+            primary.setText(
+                if (DailyChallengeReviewPresenter.step(true, pos, items.size) == DailyChallengeReviewPresenter.Step.FINISH)
+                    R.string.dc_review_finish else R.string.dc_review_next
+            )
+        }
         lifecycleScope.launch {
             try { controller.submitReview(userId, q.id, isCorrect) } catch (_: Throwable) { /* local write; ignore */ }
         }
     }
 
     private fun advance() {
-        if (pos >= items.size - 1) {
-            Toast.makeText(this, R.string.dc_review_done, Toast.LENGTH_SHORT).show()
+        if (singleQuestionId != null || pos >= items.size - 1) {
+            if (singleQuestionId == null) Toast.makeText(this, R.string.dc_review_done, Toast.LENGTH_SHORT).show()
             finish()
         } else {
             pos += 1
@@ -208,11 +248,16 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
 
     companion object {
         private const val EXTRA_EXAM = "dc_review_exam"
+        private const val EXTRA_QUESTION_ID = "dc_review_question_id"
 
         /** [exam] scopes the review queue to a specific exam (the challenge being reviewed). */
         fun intent(context: Context, exam: ExamType? = null): Intent =
             Intent(context, DailyChallengeReviewActivity::class.java).apply {
                 if (exam != null) putExtra(EXTRA_EXAM, exam.name)
             }
+
+        /** Single-question "Retry Question" mode (the hub's path A). Never surfaces a new question. */
+        fun retryIntent(context: Context, exam: ExamType, questionId: String): Intent =
+            intent(context, exam).putExtra(EXTRA_QUESTION_ID, questionId)
     }
 }

@@ -19,4 +19,10 @@ object DailyChallengeEntitlement {
     } catch (_: Throwable) {
         false // fail safe: unknown entitlement → treat as Free
     }
+
+    /**
+     * Premium gate for full solution content (reader screen, result-screen solution actions, hub).
+     * Same seam and the same fail-closed rule: unknown/failed entitlement behaves as Free.
+     */
+    fun isPremiumForSolutions(context: Context): Boolean = isPremiumForReview(context)
 }

@@ -55,6 +55,14 @@
             android:name=".dailychallenge.DailyChallengeReviewActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".dailychallenge.WrongQuestionsActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
+        <activity
+            android:name=".solutions.SolutionActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|screenLayout" />
 
         <!-- ── Quiz engine ── -->
         <activity

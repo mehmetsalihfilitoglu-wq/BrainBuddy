@@ -92,6 +92,20 @@ class ReviewEngine internal constructor(
         }
     }
 
+    /**
+     * One specific question as a retry-able review item (the hub's "Retry Question" path), regardless
+     * of its due time — Premium allows unlimited retries of previously-served wrong questions. Returns
+     * null when the question was never served to this user or is not review-eligible (e.g. MASTERED),
+     * so this can NEVER surface a new question or touch the 5-new-per-day count.
+     */
+    suspend fun getReviewItem(userId: String, questionId: String): ReviewItem? = withContext(Dispatchers.IO) {
+        val st = dao.getState(userId, questionId) ?: return@withContext null // never served → not retryable
+        val state = runCatching { QuestionLearnState.valueOf(st.state) }.getOrNull() ?: return@withContext null
+        val queue = ReviewScheduler.queueOf(state) ?: return@withContext null // not review-eligible
+        val q = content.getQuestionsByIds(listOf(questionId)).firstOrNull() ?: return@withContext null
+        ReviewItem(q, state, queue, st.nextReviewAt)
+    }
+
     /** Advance a question's spaced-repetition state after a review attempt. Returns the new state. */
     suspend fun submitReview(
         userId: String,
@@ -123,6 +137,21 @@ class ReviewEngine internal constructor(
                 DcEvents.P_NEW_STATE to outcome.state.name,
             ),
         )
+        // Wrong-pool lifecycle events (IDs only, never content). A correct attempt that moves the
+        // question out of the always-due INCORRECT/FORGOTTEN states resolved it; a wrong attempt
+        // keeps it active and reschedules it.
+        val wasActive = prev.state == QuestionLearnState.INCORRECT_ONCE.name ||
+            prev.state == QuestionLearnState.INCORRECT_MULTIPLE.name ||
+            prev.state == QuestionLearnState.FORGOTTEN.name
+        analytics.track(
+            if (isCorrect) DcEvents.RETRY_CORRECT else DcEvents.RETRY_WRONG,
+            mapOf(DcEvents.P_QUESTION_ID to questionId, DcEvents.P_EXAM to prev.examType),
+        )
+        if (isCorrect && wasActive) {
+            analytics.track(DcEvents.WRONG_POOL_RESOLVED, mapOf(DcEvents.P_QUESTION_ID to questionId))
+        } else if (!isCorrect) {
+            analytics.track(DcEvents.WRONG_POOL_RESCHEDULED, mapOf(DcEvents.P_QUESTION_ID to questionId))
+        }
         outcome.state
     }
 

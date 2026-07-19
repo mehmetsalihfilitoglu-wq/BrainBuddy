@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wp_title"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/edu_text_dark"/>
+
+        <!-- counters -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <TextView android:id="@+id/wpActive" style="@style/WpCounter"/>
+            <TextView android:id="@+id/wpDue" style="@style/WpCounter" android:layout_marginStart="8dp"/>
+            <TextView android:id="@+id/wpResolved" style="@style/WpCounter" android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <!-- exam filter chips -->
+        <LinearLayout
+            android:id="@+id/wpExamFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"/>
+
+        <!-- sort chips -->
+        <LinearLayout
+            android:id="@+id/wpSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="24dp">
+
+            <LinearLayout
+                android:id="@+id/wpList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+            <!-- empty state -->
+            <LinearLayout
+                android:id="@+id/wpEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="40dp"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/ic_edumio_mascot_happy"
+                    android:contentDescription="@string/dc_cd_mascot"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/wp_empty"
+                    android:textSize="15sp"
+                    android:textColor="@color/edu_text_muted"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+            <!-- locked (Free) state: counts stay visible, list/actions do not -->
+            <LinearLayout
+                android:id="@+id/wpLocked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="40dp"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/ic_edumio_mascot_thoughtful"
+                    android:contentDescription="@string/dc_cd_mascot"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/sol_locked_title"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/edu_text_dark"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/wp_locked_body"
+                    android:textSize="14sp"
+                    android:textColor="@color/edu_text_muted"
+                    android:gravity="center"/>
+                <Button
+                    android:id="@+id/wpLockedCta"
+                    style="@style/Edu.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/sol_locked_cta"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -26,6 +26,17 @@ object DcEvents {
     const val MILESTONE_REACHED = "dc_milestone_reached"
     const val GUARDRAIL_VIOLATION = "dc_guardrail_violation"
 
+    // Premium solutions + wrong-question pool. Params carry question IDs only — never stems,
+    // options, or solution bodies (see premium_solution_architecture.md §Analytics).
+    const val SOL_OPENED = "sol_opened"
+    const val SOL_CTA_SHOWN = "sol_cta_shown"
+    const val SOL_CTA_CONVERTED = "sol_cta_converted"
+    const val RETRY_STARTED = "wp_retry_started"
+    const val RETRY_CORRECT = "wp_retry_correct"
+    const val RETRY_WRONG = "wp_retry_wrong"
+    const val WRONG_POOL_RESOLVED = "wp_item_resolved"
+    const val WRONG_POOL_RESCHEDULED = "wp_item_rescheduled"
+
     const val P_EXAM = "exam"
     const val P_LOCAL_DATE = "local_date"
     const val P_SECTION = "section"
@@ -37,6 +48,8 @@ object DcEvents {
     const val P_REASON = "reason"
     const val P_NEW_STATE = "new_state"
     const val P_STREAK = "streak"
+    const val P_QUESTION_ID = "question_id" // an internal id, never content
+
 }
 
 /** Default on-device implementation: logs and keeps a small ring buffer for QA/debug. */

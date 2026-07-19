@@ -115,6 +115,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/dcrWrongTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/dcr_wrong_title"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/edu_text_dark"
+                    android:visibility="gone"/>
+
+                <!-- one row per wrong answer, with the two Premium actions (or a locked CTA) -->
+                <LinearLayout
+                    android:id="@+id/dcrWrongContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="4dp"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

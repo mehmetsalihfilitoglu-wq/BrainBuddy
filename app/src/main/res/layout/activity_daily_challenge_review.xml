@@ -123,6 +123,19 @@
                     android:textSize="15sp"
                     android:textColor="@color/edu_text_dark"
                     android:lineSpacingMultiplier="1.15"/>
+
+                <TextView
+                    android:id="@+id/dcrvSolutionLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:minHeight="44dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/sol_view"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/brand_primary_dark"
+                    android:visibility="gone"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

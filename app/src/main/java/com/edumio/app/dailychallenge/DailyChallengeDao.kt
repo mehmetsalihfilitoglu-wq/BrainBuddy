@@ -68,6 +68,14 @@ interface DailyChallengeDao {
     @Query("SELECT COUNT(*) FROM user_question_state WHERE userId = :userId AND examType = :examType AND state IN (:states)")
     suspend fun countStatesByStates(userId: String, examType: String, states: List<String>): Int
 
+    /** Cross-exam variant for the wrong-question hub's "all exams" view. */
+    @Query("SELECT * FROM user_question_state WHERE userId = :userId AND state IN (:states)")
+    suspend fun getStatesByStatesAllExams(userId: String, states: List<String>): List<UserQuestionStateEntity>
+
+    /** The user's most recent recorded answer for one question (their chosen option for the solution view). */
+    @Query("SELECT * FROM challenge_answer WHERE userId = :userId AND questionId = :questionId ORDER BY answeredAt DESC LIMIT 1")
+    suspend fun getLatestAnswerForQuestion(userId: String, questionId: String): ChallengeAnswerEntity?
+
     // ── Deficit ledgers ─────────────────────────────────────────────────────────
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertDeficit(d: SectionDeficitEntity)

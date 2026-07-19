@@ -142,7 +142,13 @@ class HomeActivity : AppCompatActivity() {
                     if (reviewCount > 0) {
                         cta.isEnabled = true; cta.setText(R.string.dc_cta_review)
                         val openReview = View.OnClickListener {
-                            startActivity(com.edumio.app.dailychallenge.DailyChallengeReviewActivity.intent(this@HomeActivity, ui.exam))
+                            // Premium: the two-path wrong-question hub. Free: the capped review flow.
+                            startActivity(
+                                if (com.edumio.app.dailychallenge.DailyChallengeEntitlement.isPremiumForSolutions(this@HomeActivity))
+                                    com.edumio.app.dailychallenge.WrongQuestionsActivity.intent(this@HomeActivity)
+                                else
+                                    com.edumio.app.dailychallenge.DailyChallengeReviewActivity.intent(this@HomeActivity, ui.exam)
+                            )
                         }
                         cta.onTap { openReview.onClick(it) }; card.onTap { openReview.onClick(it) }
                     } else {

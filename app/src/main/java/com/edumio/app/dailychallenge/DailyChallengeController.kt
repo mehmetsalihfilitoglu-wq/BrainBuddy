@@ -67,6 +67,10 @@ class DailyChallengeController(context: Context) {
     suspend fun submitReview(userId: String, questionId: String, isCorrect: Boolean): QuestionLearnState? =
         reviewEngine.submitReview(userId, questionId, isCorrect)
 
+    /** One already-served question as a retry item (single-question Retry mode); null if not eligible. */
+    suspend fun reviewItem(userId: String, questionId: String): ReviewEngine.ReviewItem? =
+        reviewEngine.getReviewItem(userId, questionId)
+
     suspend fun masteredCount(userId: String, exam: ExamType): Int =
         reviewEngine.masteredCount(userId, exam)
 

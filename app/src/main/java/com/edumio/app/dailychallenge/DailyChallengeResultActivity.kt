@@ -53,7 +53,15 @@ class DailyChallengeResultActivity : AppCompatActivity() {
             // Review is scoped to the exam THIS challenge belongs to — not the currently-active area,
             // which may differ if the user switched study areas after completing it.
             val challengeExam = runCatching { ExamType.valueOf(c.examProfile) }.getOrDefault(exam)
-            reviewBtn.onTap { startActivity(DailyChallengeReviewActivity.intent(this@DailyChallengeResultActivity, challengeExam)) }
+            val premium = DailyChallengeEntitlement.isPremiumForSolutions(this@DailyChallengeResultActivity)
+            bindWrongAnswers(c, challengeExam, premium)
+            reviewBtn.onTap {
+                // Premium goes to the wrong-question hub (two-path experience); Free keeps capped review.
+                startActivity(
+                    if (premium) WrongQuestionsActivity.intent(this@DailyChallengeResultActivity)
+                    else DailyChallengeReviewActivity.intent(this@DailyChallengeResultActivity, challengeExam)
+                )
+            }
             // Offer review only when the queue actually has something to work through.
             val reviewCount = try { controller.reviewCount(userId, challengeExam) } catch (_: Throwable) { 0 }
             reviewBtn.visibility = if (reviewCount > 0) View.VISIBLE else View.GONE
@@ -105,6 +113,61 @@ class DailyChallengeResultActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.dcrNextUnlock).text =
             if (countdown.isEmpty()) getString(R.string.dc_result_next_unlock_ready)
             else getString(R.string.dc_result_next_unlock, countdown)
+    }
+
+    /**
+     * One row per wrong answer with the two learning paths. Premium: "Retry" (answer again — the only
+     * way out of the active pool) and "View solution". Free: a locked CTA — no solution text is ever
+     * bound, so nothing can leak through accessibility, logs, or view state.
+     */
+    private fun bindWrongAnswers(c: DailyChallengeEngine.Completion, challengeExam: ExamType, premium: Boolean) {
+        val title = findViewById<TextView>(R.id.dcrWrongTitle)
+        val box = findViewById<LinearLayout>(R.id.dcrWrongContainer)
+        box.removeAllViews()
+        val wrong = c.reviews.filter { !it.isCorrect }
+        if (wrong.isEmpty()) { title.visibility = View.GONE; return }
+        title.visibility = View.VISIBLE
+        if (!premium) {
+            DailyChallengeAnalyticsProvider.get(this).track(DcEvents.SOL_CTA_SHOWN)
+        }
+        for (r in wrong) {
+            val stemPreview = TextView(this).apply {
+                text = r.stem
+                textSize = 13f
+                maxLines = 2
+                ellipsize = android.text.TextUtils.TruncateAt.END
+                setTextColor(ContextCompat.getColor(this@DailyChallengeResultActivity, R.color.edu_text_dark))
+                setPadding(0, 18, 0, 4)
+            }
+            box.addView(stemPreview)
+            val actions = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+            if (premium) {
+                actions.addView(rowAction(getString(R.string.sol_retry)) {
+                    startActivity(DailyChallengeReviewActivity.retryIntent(this, challengeExam, r.questionId))
+                })
+                actions.addView(rowAction(getString(R.string.sol_view)) {
+                    startActivity(
+                        com.edumio.app.solutions.SolutionActivity.intent(this, challengeExam, r.questionId, r.chosenIndex)
+                    )
+                })
+            } else {
+                actions.addView(rowAction(getString(R.string.sol_locked_cta)) {
+                    com.edumio.app.quiz.PremiumPaywallSheet().show(supportFragmentManager, com.edumio.app.quiz.PremiumPaywallSheet.TAG)
+                })
+            }
+            box.addView(actions)
+        }
+    }
+
+    private fun rowAction(label: String, onClick: () -> Unit): TextView = TextView(this).apply {
+        text = label
+        textSize = 13f
+        setTypeface(typeface, android.graphics.Typeface.BOLD)
+        setTextColor(ContextCompat.getColor(this@DailyChallengeResultActivity, R.color.brand_primary_dark))
+        minHeight = 44
+        gravity = Gravity.CENTER_VERTICAL
+        setPadding(0, 6, 48, 6)
+        onTap { onClick() }
     }
 
     companion object {
