@@ -2,6 +2,7 @@ package com.edumio.app.analytics
 
 import android.content.Context
 import android.util.Log
+import com.edumio.app.firebase.FirebaseConfig
 
 /**
  * Product-analytics boundary. Business/UI code logs events through this interface,
@@ -37,8 +38,20 @@ class LogcatAnalyticsTracker : AnalyticsTracker {
 object AnalyticsProvider {
     @Volatile private var cached: AnalyticsTracker? = null
 
-    fun tracker(context: Context? = null): AnalyticsTracker =
-        cached ?: synchronized(this) { cached ?: LogcatAnalyticsTracker().also { cached = it } }
+    fun tracker(context: Context? = null): AnalyticsTracker {
+        cached?.let { return it }
+        // Without a context we can't probe config yet — return a transient Logcat tracker, don't cache it,
+        // so the Firebase tracker can still be installed on the first context-bearing call.
+        val ctx = context ?: return LogcatAnalyticsTracker()
+        return synchronized(this) {
+            cached ?: run {
+                val t: AnalyticsTracker =
+                    if (FirebaseConfig.isConfigured(ctx)) FirebaseAnalyticsTracker(ctx) else LogcatAnalyticsTracker()
+                cached = t
+                t
+            }
+        }
+    }
 
     /** Sugar so call sites read `Analytics.track(APP_OPENED)`. */
     fun track(event: String, params: Map<String, Any?> = emptyMap()) = tracker().track(event, params)
