@@ -1,0 +1,50 @@
+rules_version = '2';
+
+// EDUmio Firestore security rules.
+// DEFAULT-DENY: anything not explicitly allowed below is denied by Firestore. A request is granted only if
+// a matching rule's condition evaluates true. No question/solution CONTENT is ever stored server-side; only
+// per-user identity + learning STATE (learning-state collections arrive in Phase 2 with their own rules).
+//
+// Test with the Emulator Suite:  firebase emulators:exec --only firestore "npm --prefix firestore-tests test"
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(uid) { return isSignedIn() && request.auth.uid == uid; }
+
+    // ── users/{uid} : identity + preferences (Phase 1) ──────────────────────────────
+    match /users/{uid} {
+      // Owner-only read.
+      allow read: if isOwner(uid);
+
+      // Create: the doc's uid must equal the auth uid, and only known fields may be present. email /
+      // emailVerified are written from the auth token by the client but validated to match it, so they
+      // cannot be forged for another identity.
+      allow create: if isOwner(uid)
+        && request.resource.data.uid == uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.keys().hasOnly([
+             'uid','email','emailVerified','displayName','photoUrl','authProvider',
+             'selectedExam','locale','timezone','accountStatus','schemaVersion','createdAt','updatedAt'
+           ]);
+
+      // Update: uid + email are immutable; only preference/profile fields may change.
+      allow update: if isOwner(uid)
+        && request.resource.data.uid == resource.data.uid
+        && request.resource.data.email == resource.data.email
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+             'displayName','photoUrl','authProvider','selectedExam','locale','timezone',
+             'emailVerified','schemaVersion','updatedAt'
+           ]);
+
+      // Delete: owner may delete (account deletion flow).
+      allow delete: if isOwner(uid);
+    }
+
+    // Everything else: denied by default (no rule → no access). Phase 2 adds:
+    //   users/{uid}/dailyChallenges/{localDate}, questionStates/{qid}, reviewAttempts/{id},
+    //   learningState/current, preferences/current — each owner-scoped and integrity-checked.
+    //   Server-authoritative fields (entitlements, canonical challenge identity) become server-write-only.
+  }
+}

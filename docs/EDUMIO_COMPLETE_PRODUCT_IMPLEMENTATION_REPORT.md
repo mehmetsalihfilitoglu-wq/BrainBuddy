@@ -31,10 +31,12 @@ lint blocker + stripped answer-leaking logs). 162/0 tests. 5 commits.
   `PLAY_STORE_RELEASE_CHECKLIST.md`, `CLOSED_BETA_CHECKLIST.md`, `REAL_DEVICE_TEST_SCRIPT.md`.
 - Content integrity baseline captured (aggregate asset hash; 3151 files).
 
-## Phase 1 — Firebase foundation + Authentication — ⚪ (next)
-Behind `AuthRepository`: Firebase BoM + conditional google-services/crashlytics plugins (build green with no
-`google-services.json`); email/password + Google auth; verification/reset; anon→account adoption preserving
-DC state; `users/{uid}` profile; Firestore rules; auth UI. Runtime validation 🔵.
+## Phase 1 — Firebase foundation + Authentication — ✅ core / ⏭️ UI (see `PHASE1_AUTH_REPORT.md`)
+- ✅ Firebase BoM + conditional plugins (build green with no `google-services.json`, verified).
+- ✅ `FirebaseAuthRepository` (full contract) + `AuthProvider` switch; pure `AuthErrorMapper` +
+  `EmailVerificationPolicy` (9 tests). ✅ `UserProfile` + `firestore.rules` (default-deny, non-forgeable).
+- ⏭️ Auth UI screens, Google CredentialProvider impl, Firestore profile writer, adoption trigger.
+- 🟡 Live auth / 🔵 rules deploy need the owner's Firebase project.
 
 ## Phase 2 — Cloud synchronization — ⚪
 `FirestoreSyncRepository` for learning state only; conflict strategy + pure tests; `firestore.rules` + rules
@@ -83,7 +85,9 @@ AAB, App Signing, mapping retention, tracks, rollout/rollback — see `PLAY_STOR
 | Phase | Tests | Build | Content hash unchanged | Commits |
 |---|---|---|---|---|
 | 0 | 162/0 | debug+release ✅ | ✅ | 5 |
-| 0.5 | 162/0 | (docs only) | ✅ (`af65df01…`) | (this) |
+| 0.5 | 162/0 | (docs only) | ✅ (`af65df01…`) | 1 |
+| 1 (foundation) | 162/0 | debug ✅ (fallback) | ✅ | 1 |
+| 1 (auth core) | 171/0 | debug ✅ | ✅ (`af65df01…`) | 1 |
 
 ## Current honest status
 **REPOSITORY COMPLETE for Phases 0–0.5; engineering continuing through Phase 1+.** Public-release gates
