@@ -46,9 +46,12 @@ lint blocker + stripped answer-leaking logs). 162/0 tests. 5 commits.
   (server-write-only). ✅ Emulator rules-test source (`firestore-tests/`).
 - 🟡 Live multi-device/conflict/offline tests run on the owner/CI emulator; 🔵 rules deploy.
 
-## Phase 3 — Server-authoritative Daily Challenge — ⚪
-`functions/` canonical-day + one-challenge transaction + completion ack + streak authority + idempotency;
-client canonical-day logic + tests; local fallback preserved.
+## Phase 3 — Server-authoritative Daily Challenge — ✅ core / ⏭️ client wiring (see `PHASE3_SERVER_CHALLENGE_REPORT.md`)
+- ✅ Cloud Functions source (`functions/`): `claimDailyChallenge` (one immutable challenge/day, 5-distinct,
+  first-writer-wins), `completeDailyChallenge` (current-day-only, monotonic, authoritative streak),
+  `onUserCreate` (server profile writer). Pure `lib/challenge.js` + mocha tests; `node --check` clean.
+- ✅ Kotlin `ServerChallengeContract` (6 tests). ✅ rules: challenges/entitlements/learningState server-only.
+- ⏭️ Client `ChallengeAuthority` wiring (deferred — needs deployed functions + device). 🟡 deploy + runtime.
 
 ## Phase 4 — Premium & Play Billing — ⚪
 Purchase flow states; Cloud Functions token verification + RTDN; server-write-only entitlement; Premium
@@ -93,6 +96,7 @@ AAB, App Signing, mapping retention, tracks, rollout/rollback — see `PLAY_STOR
 | 1 (foundation) | 162/0 | debug ✅ (fallback) | ✅ | 1 |
 | 1 (auth core) | 171/0 | debug ✅ | ✅ (`af65df01…`) | 1 |
 | 2 (sync) | 178/0 | compile ✅ | ✅ (`af65df01…`) | 1 |
+| 3 (server challenge) | 184/0 | compile ✅ + JS `node --check` | ✅ (`af65df01…`) | 1 |
 
 ## Current honest status
 **REPOSITORY COMPLETE for Phases 0–0.5; engineering continuing through Phase 1+.** Public-release gates

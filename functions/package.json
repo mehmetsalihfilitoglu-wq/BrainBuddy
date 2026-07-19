@@ -1,0 +1,21 @@
+{
+  "name": "edumio-functions",
+  "description": "EDUmio Cloud Functions — server-authoritative Daily Challenge, profile, and (Phase 4) Play purchase verification.",
+  "engines": { "node": "20" },
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "serve": "firebase emulators:start --only functions,firestore,auth",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "test": "mocha --recursive test"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.3.0",
+    "firebase-functions": "^5.0.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.3.0",
+    "mocha": "^10.4.0"
+  }
+}

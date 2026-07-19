@@ -74,6 +74,12 @@ service cloud.firestore {
         allow read: if isOwner(uid);
         allow write: if false; // server-only (purchase-verification function)
       }
+
+      // Authoritative learning state written by Cloud Functions (e.g. server-computed streak, Phase 3).
+      match /learningState/{docId} {
+        allow read: if isOwner(uid);
+        allow write: if false; // server-only (completeDailyChallenge)
+      }
     }
 
     // Everything else: denied by default (no matching rule → no access).
