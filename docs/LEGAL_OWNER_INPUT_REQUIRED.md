@@ -30,7 +30,7 @@ The engineering integration is ready: fill `PRIVACY_POLICY_URL` / `TERMS_URL` in
 ## What Phase 0 already fixed
 - Removed the **false AdMob disclosure** (`ad_info` legal doc claimed "the app uses Google AdMob" — it
   does not; there is no ads SDK). See `CURRENT_DATA_PROCESSING_INVENTORY.md`.
-- Removed the stale Barjin-era `parent_info` doc.
+- Removed the stale legacy `parent_info` doc (parental-control era).
 - Confirmed `data_usage_tr.html` is honest (states no ads / no microphone / no server data transfer today).
 
 ## Owner action

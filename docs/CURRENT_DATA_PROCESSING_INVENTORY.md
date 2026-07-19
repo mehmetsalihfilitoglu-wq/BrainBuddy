@@ -39,8 +39,9 @@ All user data lives on-device only. No account is required to use the app.
   network. **Phase 0 removed the false "the app uses Google AdMob" legal disclosure** (`ad_info` doc).
   > Follow-up (product, not a release blocker): some review/report buttons still read "Reklam İzle"
   > ("Watch Ad") though the unlock is now free/ad-free — recommend renaming to honest "free unlock" copy.
-- **No microphone / camera / location / contacts.** Manifest permissions are minimal (`INTERNET`,
-  `POST_NOTIFICATIONS`, and standard boot/vibrate for reminders). No dangerous permissions.
+- **No microphone / camera / location / contacts.** Manifest declares exactly three permissions —
+  `INTERNET`, `ACCESS_NETWORK_STATE`, `POST_NOTIFICATIONS` — all `normal`/notification-runtime. No
+  dangerous permissions.
 - **No third-party data sharing.** Nothing is shared with any third party today.
 
 ## D. Future data processing (planned — NOT active; do not disclose as current)

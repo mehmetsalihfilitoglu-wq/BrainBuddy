@@ -52,7 +52,7 @@ So Phase 2 is **not** a rewrite. It is: (1) implement the cloud half of contract
    content are never synced as user data and never regenerated. `content/**` is read-only.
 4. **Offline-first everywhere.** Every online call has a local fallback and fails safe (unknown
    entitlement → Free; no network → serve cache, queue sync).
-5. **Fresh-install posture.** Package was renamed `com.brainbuddy → com.edumio`; there are **no
+5. **Fresh-install posture.** Package was renamed to `com.edumio` from the legacy namespace; there are **no
    production users**. This is the last moment to freeze schemas and choose account/migration semantics
    cheaply — do it before public launch.
 6. **Idempotency by construction.** Deterministic keys already exist (`challengeId = userId:localDate`,
@@ -367,7 +367,7 @@ Testing → Key decisions.**
 - **Exists:** auth contract + real local crypto; billing seams; `PremiumStore` (plaintext boolean);
   `DataRightsService` (real on-device export/delete, honest `LocalDoneCloudPending`); `DataIntegrityChecker`
   (content integrity at startup); structural per-user path isolation; documented rules assumptions; **dead**
-  Barjin scaffolding (`TamperStore`, `SystemHealthStore` — zero callers).
+  legacy parental-control scaffolding (`TamperStore`, `SystemHealthStore` — zero callers).
 - **Missing:** server purchase verification; `Purchase.signature` validation; replay protection (token
   reuse); offline integrity of premium/streak (plaintext, unsigned); Firebase Auth; **Firestore security
   rules** (only prose); cloud account-deletion Function; (no anti-tamper/Play Integrity — decide if needed).

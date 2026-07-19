@@ -12,7 +12,7 @@ and prepare (not complete) the integration. No content changed.
 | Finding | Severity | Action taken |
 |---|---|---|
 | `ad_info` legal doc claimed **"the app uses Google AdMob"** — false (no ads SDK, no AdMob) | **High (Data-Safety inaccuracy)** | **Removed** the doc from `LegalConfig.allDocuments()` + its `ASSET_AD_INFO` const + `legal_ad_info_*` strings + `assets/ad_info_tr.html` |
-| Stale Barjin-era `parent_info` doc (parental-control) still referenced by const | Low (dead/stale) | **Removed** the const + `assets/parent_info_tr.html` (was already absent from the doc list) |
+| Stale legacy `parent_info` doc (parental-control era) still referenced by const | Low (dead/stale) | **Removed** the const + `assets/parent_info_tr.html` (was already absent from the doc list) |
 | Privacy Policy + Terms are **drafts** (marked "yayına hazır DEĞİLdir") | **High (blocks public release)** | Left as drafts; confirmed the app does **not** present them as final (web button hidden while URLs empty). Owner checklist created. |
 | `PRIVACY_POLICY_URL` / `TERMS_URL` empty in `BuildConfig` | High (Play requires a hosted privacy URL) | Left empty (owner must host + provide); integration point documented |
 | `data_usage_tr.html` | — (verified honest) | No change — it already states there are **no ads, no microphone, no server data transfer** today |

@@ -14,7 +14,7 @@ object LegalConfig {
     const val ASSET_TERMS_OF_USE = "file:///android_asset/terms_of_use_tr.html"
     const val ASSET_DATA_USAGE = "file:///android_asset/data_usage_tr.html"
     // Removed (Phase 0): ad_info (falsely claimed the app uses Google AdMob — EDUmio has NO ads/ads SDK)
-    // and parent_info (Barjin parental-control era, already unused).
+    // and parent_info (legacy parental-control era, already unused).
 
     // ── Web URLs (from BuildConfig, set in build.gradle.kts per build type) ──
     val WEB_PRIVACY_POLICY: String get() = BuildConfig.PRIVACY_POLICY_URL
