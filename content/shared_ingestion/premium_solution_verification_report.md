@@ -54,10 +54,17 @@ asserts ids and answer keys are intact.
 
 | Bank | Eligible | Shipped | Blocked | of which answer-integrity | of which quality |
 |---|---|---|---|---|---|
-| IMAT | 940 | 912 | 28 | 15 (13 adjudicated + 2 verifier-disagree) | 13 (12 + 1 missing-verdict) |
+| IMAT (official) | 940 | 912 | 28 | 15 (13 adjudicated + 2 verifier-disagree) | 13 (12 + 1 missing-verdict) |
+| EDUmio IMAT-original | 1010 | 1010 | 0 | 0 | 0 |
 | TIL-I | 1107 | 1102 | 5 | 1 | 4 |
 | CEnT-S | 1100 | 1100 | 0 | 0 | 0 |
-| **Total** | **3147** | **3114 (98.95%)** | **33** | **16** | **17** |
+| **Total** | **4157** | **4124 (99.21%)** | **33** | **16** | **17** |
+
+The EDUmio IMAT-original bank (1010) was produced by a **structure + independent-blind-verify** pipeline
+(reusing its existing verified explanations, not regenerating): a structurer restructured the existing
+reasoning into the schema and independently confirmed the answer; an independent verifier solved each
+question blind (never shown the explanation or the stored answer). Both had to agree with the stored key
+(triple-confirmed) at qualityPass ≥ 0.90. 0 conflicts, 0 blocked — 100% coverage.
 
 Every shipped solution's `correctOption` equals the bank's stored `answerIndex` by construction (0
 mismatches on a full asset scan), re-asserted at runtime scale by
