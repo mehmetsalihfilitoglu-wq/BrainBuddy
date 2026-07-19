@@ -15,9 +15,10 @@
 local.properties
 
 # ── IMAT milestone housekeeping: exclude non-production artifacts ──
-# Signing keystores (SECRETS — must never be committed)
+# Signing keystores + credentials (SECRETS — must never be committed)
 *.jks
 *.keystore
+keystore.properties
 # Next.js build cache (stray; this is an Android repo)
 .next/
 # Claude Code local/temp

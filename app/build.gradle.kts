@@ -1,8 +1,20 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
 }
+
+// ── Release signing ─────────────────────────────────────────────────────────────────────────────
+// Credentials live in keystore.properties (git-ignored; see keystore.properties.example). NEVER commit
+// secrets. When absent, release signing is simply not configured and a release build fails with a clear
+// message (see the taskGraph check below). Debug builds are unaffected (they use the Android debug key).
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+val hasReleaseSigning = keystorePropertiesFile.exists()
+if (hasReleaseSigning) FileInputStream(keystorePropertiesFile).use { keystoreProperties.load(it) }
 
 android {
     namespace = "com.edumio.app"
@@ -25,6 +37,19 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        // Only defined when keystore.properties is present, so a checkout without the secrets file still
+        // builds debug. storeFile is resolved relative to the repo root (edumio_release.jks lives there).
+        if (hasReleaseSigning) {
+            create("release") {
+                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -32,6 +57,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Signed with the EDUmio release key only when configured; otherwise the taskGraph check below
+            // fails a release build with actionable guidance (debug stays on the debug key).
+            if (hasReleaseSigning) signingConfig = signingConfigs.getByName("release")
         }
         debug {
             isMinifyEnabled = false
@@ -54,6 +82,32 @@ android {
         unitTests.all {
             it.testLogging.showStandardStreams = true
         }
+    }
+
+    // Make the exported Room schemas available to Migration instrumentation tests (MigrationTestHelper).
+    sourceSets {
+        getByName("androidTest").assets.srcDir("$projectDir/schemas")
+    }
+}
+
+// Export Room schemas to a stable, version-controlled directory (app/schemas/<db-fqcn>/<version>.json).
+// These frozen JSONs are the migration baseline; never edit a shipped schema, only add the next version.
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
+// Fail a RELEASE build with clear guidance when signing is not configured (keystore.properties absent).
+// Debug builds are never affected.
+gradle.taskGraph.whenReady {
+    val releaseArtifactRequested = allTasks.any { task ->
+        (task.name.startsWith("assemble") || task.name.startsWith("bundle")) && task.name.contains("Release")
+    }
+    if (releaseArtifactRequested && !hasReleaseSigning) {
+        throw GradleException(
+            "EDUmio release signing is not configured. Copy keystore.properties.example to " +
+                "keystore.properties and fill in the EDUmio release keystore (edumio_release.jks) " +
+                "credentials. Secrets must never be committed. See docs/PHASE0_RELEASE_SIGNING_REPORT.md."
+        )
     }
 }
 

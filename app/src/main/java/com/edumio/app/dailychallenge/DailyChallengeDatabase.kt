@@ -22,7 +22,9 @@ import androidx.room.RoomDatabase
     //     challengeId / examProfile / currentIndex / createdAt. Pre-launch app → destructive rebuild
     //     (no production users to migrate; consistent with the app-wide fresh-install decision).
     version = 2,
-    exportSchema = false,
+    // Schema exported to app/schemas/ and committed (frozen v2 baseline). Pre-launch this DB still uses
+    // destructive fallback (no production users); once real users exist, add additive 2→3 migrations.
+    exportSchema = true,
 )
 abstract class DailyChallengeDatabase : RoomDatabase() {
     abstract fun dailyChallengeDao(): DailyChallengeDao

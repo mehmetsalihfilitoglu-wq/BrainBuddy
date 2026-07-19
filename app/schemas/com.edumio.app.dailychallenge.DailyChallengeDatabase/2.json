@@ -1,0 +1,381 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "281b7220d75c9c714b8fd1da2ade6716",
+    "entities": [
+      {
+        "tableName": "daily_challenge",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `localDate` TEXT NOT NULL, `challengeId` TEXT NOT NULL, `examProfile` TEXT NOT NULL, `status` TEXT NOT NULL, `questionIdsCsv` TEXT NOT NULL, `currentIndex` INTEGER NOT NULL, `allocationCsv` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `startedAt` INTEGER NOT NULL, `completedAt` INTEGER NOT NULL, `expiresAt` INTEGER NOT NULL, `score` INTEGER NOT NULL, `shortage` TEXT NOT NULL, PRIMARY KEY(`userId`, `localDate`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localDate",
+            "columnName": "localDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "challengeId",
+            "columnName": "challengeId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "examProfile",
+            "columnName": "examProfile",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "questionIdsCsv",
+            "columnName": "questionIdsCsv",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentIndex",
+            "columnName": "currentIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "allocationCsv",
+            "columnName": "allocationCsv",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startedAt",
+            "columnName": "startedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "completedAt",
+            "columnName": "completedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expiresAt",
+            "columnName": "expiresAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "shortage",
+            "columnName": "shortage",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId",
+            "localDate"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "challenge_answer",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`challengeKey` TEXT NOT NULL, `questionId` TEXT NOT NULL, `userId` TEXT NOT NULL, `chosenIndex` INTEGER NOT NULL, `isCorrect` INTEGER NOT NULL, `timeMs` INTEGER NOT NULL, `answeredAt` INTEGER NOT NULL, PRIMARY KEY(`challengeKey`, `questionId`))",
+        "fields": [
+          {
+            "fieldPath": "challengeKey",
+            "columnName": "challengeKey",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "questionId",
+            "columnName": "questionId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chosenIndex",
+            "columnName": "chosenIndex",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCorrect",
+            "columnName": "isCorrect",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeMs",
+            "columnName": "timeMs",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "answeredAt",
+            "columnName": "answeredAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "challengeKey",
+            "questionId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "user_question_state",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `questionId` TEXT NOT NULL, `examType` TEXT NOT NULL, `section` TEXT NOT NULL, `topic` TEXT NOT NULL, `state` TEXT NOT NULL, `timesSeen` INTEGER NOT NULL, `timesCorrect` INTEGER NOT NULL, `timesIncorrect` INTEGER NOT NULL, `consecutiveCorrect` INTEGER NOT NULL, `firstSeenAt` INTEGER NOT NULL, `lastSeenAt` INTEGER NOT NULL, `nextReviewAt` INTEGER NOT NULL, `masteredAt` INTEGER NOT NULL, PRIMARY KEY(`userId`, `questionId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "questionId",
+            "columnName": "questionId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "examType",
+            "columnName": "examType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "section",
+            "columnName": "section",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "topic",
+            "columnName": "topic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timesSeen",
+            "columnName": "timesSeen",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timesCorrect",
+            "columnName": "timesCorrect",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timesIncorrect",
+            "columnName": "timesIncorrect",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "consecutiveCorrect",
+            "columnName": "consecutiveCorrect",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstSeenAt",
+            "columnName": "firstSeenAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastSeenAt",
+            "columnName": "lastSeenAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nextReviewAt",
+            "columnName": "nextReviewAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "masteredAt",
+            "columnName": "masteredAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId",
+            "questionId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_user_question_state_userId_state",
+            "unique": false,
+            "columnNames": [
+              "userId",
+              "state"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_user_question_state_userId_state` ON `${TABLE_NAME}` (`userId`, `state`)"
+          },
+          {
+            "name": "index_user_question_state_userId_examType_section",
+            "unique": false,
+            "columnNames": [
+              "userId",
+              "examType",
+              "section"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_user_question_state_userId_examType_section` ON `${TABLE_NAME}` (`userId`, `examType`, `section`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "section_deficit",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `examType` TEXT NOT NULL, `section` TEXT NOT NULL, `expectedToDate` REAL NOT NULL, `actualToDate` REAL NOT NULL, PRIMARY KEY(`userId`, `examType`, `section`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "examType",
+            "columnName": "examType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "section",
+            "columnName": "section",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expectedToDate",
+            "columnName": "expectedToDate",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "actualToDate",
+            "columnName": "actualToDate",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId",
+            "examType",
+            "section"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "streak",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `current` INTEGER NOT NULL, `longest` INTEGER NOT NULL, `lastCompletedLocalDate` TEXT NOT NULL, `milestonesCsv` TEXT NOT NULL, PRIMARY KEY(`userId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "current",
+            "columnName": "current",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longest",
+            "columnName": "longest",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastCompletedLocalDate",
+            "columnName": "lastCompletedLocalDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "milestonesCsv",
+            "columnName": "milestonesCsv",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '281b7220d75c9c714b8fd1da2ade6716')"
+    ]
+  }
+}

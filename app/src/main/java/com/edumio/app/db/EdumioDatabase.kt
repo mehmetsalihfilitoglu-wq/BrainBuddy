@@ -14,7 +14,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         WrongAnswerEntity::class
     ],
     version = 24,
-    exportSchema = false
+    // Schema is exported to app/schemas/ (KSP room.schemaLocation) and committed. v24 is the FROZEN
+    // production baseline: never edit shipped migrations, only append 24→25… . See
+    // docs/PHASE0_ROOM_SCHEMA_REPORT.md.
+    exportSchema = true
 )
 abstract class EdumioDatabase : RoomDatabase() {
 
