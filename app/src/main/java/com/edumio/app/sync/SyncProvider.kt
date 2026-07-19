@@ -1,11 +1,12 @@
 package com.edumio.app.sync
 
 import android.content.Context
+import com.edumio.app.firebase.FirebaseConfig
 
 /**
- * Composition root for cloud sync. Returns the on-device mirror today; returns a
- * `FirestoreSyncRepository` once Firebase is configured — the only place that
- * choice is made, mirroring [com.edumio.app.auth.AuthProvider].
+ * Composition root for cloud sync. Returns [FirestoreSyncRepository] once Firebase is configured, else the
+ * on-device [LocalMirrorSyncRepository] — the only place that choice is made, mirroring
+ * [com.edumio.app.auth.AuthProvider]. [SyncEngine] is unchanged either way.
  */
 object SyncProvider {
 
@@ -17,8 +18,7 @@ object SyncProvider {
         }
     }
 
-    private fun build(appContext: Context): SyncRepository {
-        // return FirestoreSyncRepository(appContext)  // when google-services.json is added
-        return LocalMirrorSyncRepository(appContext)
-    }
+    private fun build(appContext: Context): SyncRepository =
+        if (FirebaseConfig.isConfigured(appContext)) FirestoreSyncRepository()
+        else LocalMirrorSyncRepository(appContext)
 }

@@ -1,0 +1,13 @@
+{
+  "name": "edumio-firestore-rules-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Emulator rules tests for EDUmio firestore.rules. Run: firebase emulators:exec --only firestore \"npm --prefix firestore-tests test\"",
+  "scripts": {
+    "test": "mocha --timeout 10000 rules.test.js"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^3.0.4",
+    "mocha": "^10.4.0"
+  }
+}

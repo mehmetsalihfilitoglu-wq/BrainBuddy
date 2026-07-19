@@ -38,9 +38,13 @@ lint blocker + stripped answer-leaking logs). 162/0 tests. 5 commits.
 - ⏭️ Auth UI screens, Google CredentialProvider impl, Firestore profile writer, adoption trigger.
 - 🟡 Live auth / 🔵 rules deploy need the owner's Firebase project.
 
-## Phase 2 — Cloud synchronization — ⚪
-`FirestoreSyncRepository` for learning state only; conflict strategy + pure tests; `firestore.rules` + rules
-tests; same-day no-dup-challenge across devices.
+## Phase 2 — Cloud synchronization — ✅ core (see `PHASE2_SYNC_REPORT.md`)
+- ✅ `FirestoreSyncRepository` behind the `SyncRepository` seam (per-doc transactional LWW; learning-state
+  only, no content); `SyncProvider` switch. ✅ `SyncConflictResolver` pure merge rules (7 tests: LWW,
+  streak-non-decreasing, sticky completion, first-created canonical challenge, deficit merge).
+- ✅ `firestore.rules` extended: syncRecords owner-only; `challenges`/`entitlements` **client-read-only**
+  (server-write-only). ✅ Emulator rules-test source (`firestore-tests/`).
+- 🟡 Live multi-device/conflict/offline tests run on the owner/CI emulator; 🔵 rules deploy.
 
 ## Phase 3 — Server-authoritative Daily Challenge — ⚪
 `functions/` canonical-day + one-challenge transaction + completion ack + streak authority + idempotency;
@@ -88,6 +92,7 @@ AAB, App Signing, mapping retention, tracks, rollout/rollback — see `PLAY_STOR
 | 0.5 | 162/0 | (docs only) | ✅ (`af65df01…`) | 1 |
 | 1 (foundation) | 162/0 | debug ✅ (fallback) | ✅ | 1 |
 | 1 (auth core) | 171/0 | debug ✅ | ✅ (`af65df01…`) | 1 |
+| 2 (sync) | 178/0 | compile ✅ | ✅ (`af65df01…`) | 1 |
 
 ## Current honest status
 **REPOSITORY COMPLETE for Phases 0–0.5; engineering continuing through Phase 1+.** Public-release gates

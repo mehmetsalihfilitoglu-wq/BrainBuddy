@@ -40,11 +40,42 @@ service cloud.firestore {
 
       // Delete: owner may delete (account deletion flow).
       allow delete: if isOwner(uid);
+
+      // ── Learning-state sync mirror (Phase 2) ──────────────────────────────────────
+      // One doc per store snapshot (users/{uid}/syncRecords/{documentId}). Owner-only. Payload is the
+      // user's OWN learning state (never question/solution content). Shape-validated; areaId isolation is
+      // carried in the documentId by construction.
+      match /syncRecords/{docId} {
+        allow read: if isOwner(uid);
+        allow write: if isOwner(uid)
+          && request.resource.data.scope in ['GLOBAL', 'STUDY_AREA']
+          && request.resource.data.storeKey is string
+          && request.resource.data.updatedAt is number;
+        allow delete: if isOwner(uid);
+      }
+
+      // Sync bookkeeping (server-time clock probe). Owner-only.
+      match /meta/{docId} {
+        allow read, write: if isOwner(uid);
+      }
+
+      // ── Server-authoritative: READ-ONLY to the client, written ONLY by Cloud Functions ────────────
+      // The Admin SDK bypasses these rules, so `write: if false` means "server-only". This is what makes
+      // the canonical Daily Challenge and Premium entitlement impossible for a client to forge.
+
+      // Canonical Daily Challenge, one immutable doc per local day (Phase 3).
+      match /challenges/{day} {
+        allow read: if isOwner(uid);
+        allow write: if false; // server-only (Cloud Function issues/locks the challenge)
+      }
+
+      // Premium entitlement, derived from verified Play purchases (Phase 4).
+      match /entitlements/{docId} {
+        allow read: if isOwner(uid);
+        allow write: if false; // server-only (purchase-verification function)
+      }
     }
 
-    // Everything else: denied by default (no rule → no access). Phase 2 adds:
-    //   users/{uid}/dailyChallenges/{localDate}, questionStates/{qid}, reviewAttempts/{id},
-    //   learningState/current, preferences/current — each owner-scoped and integrity-checked.
-    //   Server-authoritative fields (entitlements, canonical challenge identity) become server-write-only.
+    // Everything else: denied by default (no matching rule → no access).
   }
 }
