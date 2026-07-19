@@ -134,4 +134,30 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("androidx.datastore:datastore-preferences:1.2.0")
     implementation("com.android.billingclient:billing-ktx:7.1.1")
+
+    // ── Firebase (behind provider seams; inert at runtime until google-services.json is supplied) ──
+    // The BoM pins mutually-compatible versions. FirebaseInitProvider no-ops without a configured default
+    // app (logs a warning, never crashes); all EDUmio code checks FirebaseConfig.isConfigured() first.
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-messaging")
+    // Google Sign-In via Credential Manager (used by the Google auth path; harmless when unused).
+    implementation("androidx.credentials:credentials:1.3.0")
+    implementation("androidx.credentials:credentials-play-services-auth:1.3.0")
+    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
+}
+
+// ── Firebase build plugins: applied ONLY when the owner's google-services.json is present ──────────────
+// Present  → google-services generates google_app_id etc. and Crashlytics symbol upload is enabled.
+// Absent   → neither plugin applies; the app builds and runs in local-fallback mode with no Firebase.
+// google-services.json is git-ignored and must never be committed (see docs/OWNER_CONSOLE_SETUP_GUIDE.md).
+if (project.file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+    apply(plugin = "com.google.firebase.crashlytics")
+    logger.lifecycle("EDUmio: google-services.json found → Firebase build plugins ACTIVE.")
+} else {
+    logger.lifecycle("EDUmio: no google-services.json → Firebase inactive (local-fallback build).")
 }
