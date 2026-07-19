@@ -85,7 +85,16 @@ service cloud.firestore {
       match /fcmTokens/{token} {
         allow read, write: if isOwner(uid);
       }
+
+      // Email + notification preferences / consent: owner-managed.
+      match /preferences/{docId} {
+        allow read, write: if isOwner(uid);
+      }
     }
+
+    // Email suppression list + idempotency ledger: entirely server-only.
+    match /emailSuppression/{addr} { allow read, write: if false; }
+    match /emailSends/{key} { allow read, write: if false; }
 
     // Play purchase-token → uid reverse index (written by the verification function; RTDN reads it).
     // Entirely server-only: clients can neither read nor write it.

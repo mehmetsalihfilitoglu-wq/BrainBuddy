@@ -120,3 +120,7 @@ exports.playRtdnHandler = billing.playRtdnHandler;
 // Phase 6 — messaging (server-initiated FCM pushes; local WorkManager reminders remain primary).
 const messaging = require("./messaging");
 exports.sendTestPush = messaging.sendTestPush;
+
+// Phase 7 — email lifecycle (provider seam; verification/reset are native Firebase Auth).
+const email = require("./email");
+exports.emailWebhook = email.emailWebhook;
