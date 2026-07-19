@@ -82,6 +82,12 @@ service cloud.firestore {
       }
     }
 
+    // Play purchase-token → uid reverse index (written by the verification function; RTDN reads it).
+    // Entirely server-only: clients can neither read nor write it.
+    match /purchaseTokens/{token} {
+      allow read, write: if false;
+    }
+
     // Everything else: denied by default (no matching rule → no access).
   }
 }

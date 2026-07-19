@@ -2,6 +2,7 @@ package com.edumio.app.billing
 
 import android.content.Context
 import com.edumio.app.core.PremiumStore
+import com.edumio.app.firebase.FirebaseConfig
 
 /**
  * Reads/writes the local premium cache ([PremiumStore]) and, for now, treats the
@@ -22,8 +23,12 @@ class LocalEntitlementRepository(context: Context) : EntitlementRepository {
     override suspend fun refresh(userId: String?): Entitlement = current()
 }
 
-/** Composition root for entitlement verification. */
+/** Composition root for entitlement verification. Returns the server-verified repository once Firebase is
+ *  configured, else the local cache. Callers are unchanged; both fail safe to Free. */
 object EntitlementProvider {
-    fun repository(context: Context): EntitlementRepository =
-        LocalEntitlementRepository(context.applicationContext)
+    fun repository(context: Context): EntitlementRepository {
+        val app = context.applicationContext
+        return if (FirebaseConfig.isConfigured(app)) FirestoreEntitlementRepository(app)
+        else LocalEntitlementRepository(app)
+    }
 }

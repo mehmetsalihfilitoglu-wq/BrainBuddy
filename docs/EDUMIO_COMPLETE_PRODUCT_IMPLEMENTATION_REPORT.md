@@ -53,9 +53,14 @@ lint blocker + stripped answer-leaking logs). 162/0 tests. 5 commits.
 - ✅ Kotlin `ServerChallengeContract` (6 tests). ✅ rules: challenges/entitlements/learningState server-only.
 - ⏭️ Client `ChallengeAuthority` wiring (deferred — needs deployed functions + device). 🟡 deploy + runtime.
 
-## Phase 4 — Premium & Play Billing — ⚪
-Purchase flow states; Cloud Functions token verification + RTDN; server-write-only entitlement; Premium
-neutrality preserved; product ids/prices 🔵.
+## Phase 4–5 — Premium verification & Play Billing — ✅ core (see `PHASE4_BILLING_REPORT.md`)
+- ✅ Pure `EntitlementState` (Play state → isPremium, fail-safe Free) + `PurchaseAccountBinding` (bind to
+  account, doubt→Free) — 8 tests. ✅ `FirestoreEntitlementRepository` behind the seam; `EntitlementProvider`
+  switch.
+- ✅ `functions/billing.js`: `verifyPurchase` (Play Developer API) + `playRtdnHandler` (Pub/Sub); server-only
+  entitlement + purchaseTokens index; `node --check` clean.
+- 🔵 product ids/prices, Play↔GCP linkage, RTDN topic. 🟡 live verify/restore. ⏭️ client verify wiring.
+- Premium neutrality preserved (never changes the 5/day count).
 
 ## Phase 5 — Notifications (FCM) — ⚪
 FCM + local reminder orchestration; ≤3 daily, stop-on-complete, right day/account, quiet hours, idempotency.

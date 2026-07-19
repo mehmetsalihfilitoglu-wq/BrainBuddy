@@ -111,5 +111,8 @@ exports.onUserCreate = functionsV1.region("europe-west1").auth.user().onCreate(a
   }, { merge: true });
 });
 
-// Phase 4 (billing) functions — verifyPurchase (Play Developer API) + playRtdnHandler (Pub/Sub) — are added
-// in billing/index.js and re-exported here when that phase lands.
+// Phase 4 — billing: server-side Play purchase verification + RTDN (see billing.js). Required after
+// admin.initializeApp() above so the Admin SDK singleton is ready.
+const billing = require("./billing");
+exports.verifyPurchase = billing.verifyPurchase;
+exports.playRtdnHandler = billing.playRtdnHandler;
