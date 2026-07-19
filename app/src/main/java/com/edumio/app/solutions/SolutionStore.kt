@@ -20,23 +20,36 @@ object SolutionStore {
 
     private val cache = ConcurrentHashMap<String, Map<String, Solution>>()
 
-    /** Asset directory per production exam; null for exams without a solution overlay. */
-    fun assetDir(exam: ExamType): String? = when (exam) {
-        ExamType.IMAT -> "imat"
-        ExamType.TIL_I -> "til_i"
-        ExamType.CENT_S -> "cents_s"
+    /**
+     * Asset directory per production bank, keyed by the question's stored examType STRING. Covers the
+     * Daily-Challenge exams (IMAT / TIL-I / CEnT-S) AND the IMAT-format original practice pool
+     * ("EDUMIO_ORIGINAL"), which is a separate examType served in the quiz flow. Returns null for
+     * exams without a solution overlay.
+     */
+    fun assetDir(examTypeName: String): String? = when (examTypeName) {
+        "IMAT" -> "imat"
+        "TIL_I" -> "til_i"
+        "CENT_S" -> "cents_s"
+        "EDUMIO_ORIGINAL" -> "edumio_original"
         else -> null
     }
 
+    /** Convenience for the Daily-Challenge [ExamType] enum. */
+    fun assetDir(exam: ExamType): String? = assetDir(exam.name)
+
+    /** The solution for one question by its stored examType string, or null when none is shipped. */
+    suspend fun solutionFor(context: Context, examTypeName: String, questionId: String): Solution? =
+        index(context, assetDir(examTypeName))?.get(questionId)
+
     /** The solution for one question, or null when none is shipped. Off the main thread. */
     suspend fun solutionFor(context: Context, exam: ExamType, questionId: String): Solution? =
-        index(context, exam)?.get(questionId)
+        index(context, assetDir(exam))?.get(questionId)
 
     /** Number of shipped solutions for an exam (used by coverage diagnostics). */
-    suspend fun count(context: Context, exam: ExamType): Int = index(context, exam)?.size ?: 0
+    suspend fun count(context: Context, exam: ExamType): Int = index(context, assetDir(exam))?.size ?: 0
 
-    private suspend fun index(context: Context, exam: ExamType): Map<String, Solution>? {
-        val dir = assetDir(exam) ?: return null
+    private suspend fun index(context: Context, dir: String?): Map<String, Solution>? {
+        if (dir == null) return null
         cache[dir]?.let { return it }
         return withContext(Dispatchers.IO) {
             cache[dir] ?: try {

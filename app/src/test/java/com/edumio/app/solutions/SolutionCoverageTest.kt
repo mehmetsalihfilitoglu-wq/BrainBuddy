@@ -22,9 +22,24 @@ class SolutionCoverageTest {
 
     private val banks = listOf(
         Bank("IMAT", "src/main/assets/imat/imat_questions.json", "src/main/assets/imat/solutions.json", "src/main/assets/imat/solutions_blocked.json"),
+        Bank("EDUmio-original", "src/main/assets/edumio_original/questions.json", "src/main/assets/edumio_original/solutions.json", "src/main/assets/edumio_original/solutions_blocked.json"),
         Bank("TIL-I", "src/main/assets/til_i/questions.json", "src/main/assets/til_i/solutions.json", "src/main/assets/til_i/solutions_blocked.json"),
         Bank("CEnT-S", "src/main/assets/cents_s/questions.json", "src/main/assets/cents_s/solutions.json", "src/main/assets/cents_s/solutions_blocked.json"),
     )
+
+    /**
+     * Single source of truth for the COMPLETE production solution inventory, so an entire bank can
+     * never be silently omitted again (this test is why the EDUmio-original bank was caught). Every
+     * production question bank (asset dir → its questions file → expected count) is listed here; the
+     * `noProductionBankIsSilentlyOmitted` test cross-checks it against the on-disk assets both ways.
+     */
+    private val productionBanks = mapOf(
+        "imat" to Pair("imat/imat_questions.json", 940),
+        "edumio_original" to Pair("edumio_original/questions.json", 1010),
+        "til_i" to Pair("til_i/questions.json", 1107),
+        "cents_s" to Pair("cents_s/questions.json", 1100),
+    )
+    private val grandTotalProduction = 4157
 
     /** Documented, verified answer-key conflicts that intentionally ship no solution. */
     private fun blockedIds(path: String): Set<String> {
@@ -104,6 +119,37 @@ class SolutionCoverageTest {
                 }
             }
         }
+    }
+
+    @Test
+    fun noProductionBankIsSilentlyOmitted() {
+        // Every listed production bank has complete coverage (a solution OR a documented block per Q).
+        var grand = 0
+        for ((dir, spec) in productionBanks) {
+            val (qfile, expected) = spec
+            val q = JSONArray(read("src/main/assets/$qfile"))
+            assertEquals("$dir: question count drifted from expected", expected, q.length())
+            val sol = JSONArray(read("src/main/assets/$dir/solutions.json"))
+            val solIds = (0 until sol.length()).map { sol.getJSONObject(it).getString("questionId") }.toSet()
+            val blocked = blockedIds("src/main/assets/$dir/solutions_blocked.json")
+            for (i in 0 until q.length()) {
+                val id = q.getJSONObject(i).getString("id")
+                assertTrue("$dir/$id: neither a solution nor a documented block", id in solIds || id in blocked)
+            }
+            assertEquals("$dir: shipped + blocked must exactly equal the inventory", q.length(), solIds.size + blocked.size)
+            grand += q.length()
+        }
+        assertEquals("complete production inventory across all banks", grandTotalProduction, grand)
+
+        // Two-way guard: any asset bank that ships a solutions.json MUST be one of the production banks,
+        // and every production bank MUST ship one — so a new bank cannot be added without coverage,
+        // and a covered bank cannot be dropped, without failing here.
+        val assetsRoot = File("src/main/assets")
+        val banksWithSolutions = (assetsRoot.listFiles() ?: emptyArray())
+            .filter { it.isDirectory && File(it, "solutions.json").exists() }
+            .map { it.name }.toSet()
+        assertEquals("mismatch between banks that ship solutions and the production coverage set",
+            productionBanks.keys, banksWithSolutions)
     }
 
     @Test
