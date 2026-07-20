@@ -1,5 +1,6 @@
 package com.edumio.app.ui
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
@@ -18,9 +19,11 @@ import com.google.android.material.button.MaterialButton
 import com.edumio.app.R
 import com.edumio.app.analytics.AnalyticsEvents
 import com.edumio.app.analytics.AnalyticsProvider
+import com.edumio.app.HomeActivity
 import com.edumio.app.auth.AuthProvider
 import com.edumio.app.auth.AuthProviderType
 import com.edumio.app.auth.AuthResult
+import com.edumio.app.core.OnboardingPrefs
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -147,12 +150,28 @@ class AuthActivity : AppCompatActivity() {
                         AnalyticsProvider.track(
                             if (signUpMode) AnalyticsEvents.SIGN_UP_COMPLETED else AnalyticsEvents.SIGN_IN_COMPLETED)
                         AnalyticsProvider.tracker().setUserId(result.user.userId)
-                        finish()
+                        routeAfterAuth()
                     }
                     is AuthResult.Error -> showError(result.message)
                 }
             }
         }.start()
+    }
+
+    /**
+     * After a successful sign-in/up: a returning, already-set-up user goes straight to Home; a brand-new
+     * user (onboarding not yet complete) simply finishes back to the onboarding wizard, which detects the
+     * new signed-in state and advances to exam selection.
+     */
+    private fun routeAfterAuth() {
+        if (OnboardingPrefs.isDone(this)) {
+            startActivity(
+                Intent(this, HomeActivity::class.java).addFlags(
+                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                )
+            )
+        }
+        finish()
     }
 
     private fun showResetDialog() {
