@@ -108,14 +108,23 @@ class HomeActivity : AppCompatActivity() {
             else getString(R.string.dc_streak_none)
 
             if (ui == null) {
-                // No unseen questions could be formed today (pool exhausted / edge case).
-                state.setText(R.string.dc_empty_today)
                 progressBar.visibility = View.GONE
                 meta.visibility = View.VISIBLE; meta.text = streakText
                 countdown.visibility = View.GONE
-                cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
                 setMascot(com.edumio.app.ui.EduMascot.Expression.SLEEPING)
-                card.setOnClickListener(null)
+                if (!com.edumio.app.dailychallenge.DailyChallengeBlueprint.isSupported(exam)) {
+                    // The active study area has no daily-challenge blueprint yet: this is NOT "completed" —
+                    // invite the student to free practice instead of showing a misleading "done" state.
+                    state.setText(R.string.dc_state_unavailable)
+                    cta.isEnabled = true; cta.setText(R.string.dc_cta_practice)
+                    val practice = View.OnClickListener { startActivity(Intent(this@HomeActivity, QuizActivity::class.java)) }
+                    cta.onTap { practice.onClick(it) }; card.onTap { practice.onClick(it) }
+                } else {
+                    // Supported exam but genuinely no unseen questions left today (pool exhausted).
+                    state.setText(R.string.dc_empty_today)
+                    cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
+                    card.setOnClickListener(null)
+                }
                 return@launch
             }
             setMascot(com.edumio.app.ui.EduMascot.forHome(available = !ui.completed, completed = ui.completed))
@@ -201,7 +210,6 @@ class HomeActivity : AppCompatActivity() {
         val goal = goalPrefs.getGoal()
         val career = goal.careerPath
 
-        val freeze = if (gam.freezeTokens() > 0) " 🧊" else ""
         val streakDays = gam.streakDays()
 
         findViewById<TextView>(R.id.tvCareerIdentity).text =
@@ -211,8 +219,8 @@ class HomeActivity : AppCompatActivity() {
         // Never punish a zero/broken streak — invite instead of shaming.
         val streakLabel = when {
             streakDays <= 0 -> getString(R.string.home_streak_start)
-            streakDays == 1 -> "1 gün$freeze"
-            else -> "$streakDays gün$freeze"
+            streakDays == 1 -> "1 gün"
+            else -> "$streakDays gün"
         }
         findViewById<TextView>(R.id.streakBadge).text = "🔥 $streakLabel"
         findViewById<TextView>(R.id.pointsBadge).text = "⭐ ${gam.xp()} XP"
@@ -229,14 +237,11 @@ class HomeActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvStepTitle).text = step.title
         findViewById<TextView>(R.id.tvStepMeta).text = step.meta
 
-        val target = step.missionTarget.coerceAtLeast(1)
-        val done = step.missionDone.coerceIn(0, target)
-        findViewById<ProgressBar>(R.id.missionProgressBar).apply {
-            max = target
-            progress = done
-        }
-        findViewById<TextView>(R.id.tvMissionProgress).text =
-            getString(R.string.home_mission_progress, done, target)
+        // The daily task and its progress live on the Günün Görevi (Daily Challenge) hero above; this
+        // "next step" card is the single secondary action, so it no longer shows a separate mission
+        // counter (the old "0/2 tamamlandı", which read as a confusing second daily goal).
+        findViewById<ProgressBar>(R.id.missionProgressBar).visibility = View.GONE
+        findViewById<TextView>(R.id.tvMissionProgress).visibility = View.GONE
 
         val btn = findViewById<MaterialButton>(R.id.btnStepStart)
         btn.text = step.actionLabel
@@ -282,9 +287,6 @@ class HomeActivity : AppCompatActivity() {
         // setting under Profile → Çalışma Alanlarım (StudyAreasActivity.setActiveArea).
         findViewById<MaterialCardView>(R.id.cardWrongPool).onTap {
             WrongPoolLauncher.launch(this)
-        }
-        findViewById<View>(R.id.btnSettings).onTap {
-            startActivity(Intent(this, com.edumio.app.ui.SettingsActivity::class.java))
         }
         findViewById<MaterialCardView>(R.id.cardStudy).onTap {
             startActivity(Intent(this, StudyHubActivity::class.java))

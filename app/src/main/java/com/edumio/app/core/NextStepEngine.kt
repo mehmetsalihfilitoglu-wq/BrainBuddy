@@ -47,9 +47,9 @@ class NextStepEngine(private val context: Context) {
             else
                 "${plan.examCode} formatı · ${plan.total} soru"
             return NextStep(
-                title = "Bugünkü Mini Sınav",
+                title = "Serbest Pratik",
                 meta = meta,
-                actionLabel = "Sınava Başla",
+                actionLabel = "Pratik Yap",
                 kind = Kind.PRACTICE,
                 subjectFilter = null,
                 missionCategories = plan.executionCategories,
