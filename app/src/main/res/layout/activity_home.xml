@@ -50,15 +50,6 @@
                     android:textColor="@color/textSecondary"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
-
-            <ImageView
-                android:id="@+id/btnSettings"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_settings"
-                android:padding="12dp"
-                app:tint="@color/textSecondary"
-                android:contentDescription="@null"/>
         </LinearLayout>
 
         <!-- ─── TODAY'S CHALLENGE (Günün Görevi) — daily habit hero ─── -->

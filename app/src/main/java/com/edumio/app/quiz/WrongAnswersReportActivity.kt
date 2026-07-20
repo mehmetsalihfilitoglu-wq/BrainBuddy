@@ -16,7 +16,6 @@ import com.edumio.app.R
 import com.edumio.app.ads.RewardedAdManager
 import com.edumio.app.core.PremiumStore
 import com.edumio.app.databinding.ActivityWrongAnswersReportBinding
-import com.edumio.app.ui.SettingsActivity
 import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -134,10 +133,6 @@ class WrongAnswersReportActivity : AppCompatActivity() {
             .setNegativeButton(getString(R.string.close)) { d, _ ->
                 pendingUnlockItem = null
                 d.dismiss()
-            }
-            .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
-                pendingUnlockItem = null
-                startActivity(Intent(this, SettingsActivity::class.java))
             }
 
         if (RewardedAdManager.isLoaded()) {

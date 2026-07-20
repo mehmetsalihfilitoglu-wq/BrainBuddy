@@ -17,7 +17,6 @@ import com.edumio.app.core.PremiumStore
 import com.edumio.app.core.WrongReviewAnalytics
 import com.edumio.app.core.WrongReviewQuotaStore
 import com.edumio.app.databinding.ActivityWrongAnswersListBinding
-import com.edumio.app.ui.SettingsActivity
 import com.google.android.material.card.MaterialCardView
 
 /**
@@ -174,11 +173,6 @@ class WrongAnswersListActivity : AppCompatActivity() {
             .setNegativeButton(getString(R.string.close)) { dialog, _ ->
                 pendingExpandQuestionId = null
                 dialog.dismiss()
-            }
-            .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
-                WrongReviewAnalytics.logPremiumClick()
-                pendingExpandQuestionId = null
-                startActivity(Intent(this, SettingsActivity::class.java))
             }
 
         if (RewardedAdManager.isLoaded()) {

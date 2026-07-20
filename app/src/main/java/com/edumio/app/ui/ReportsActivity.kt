@@ -725,10 +725,6 @@ class ReportsActivity : AppCompatActivity() {
                 pendingWrongReportSinceMillis = 0
                 d.dismiss()
             }
-            .setNeutralButton(getString(R.string.wrong_review_btn_premium)) { _, _ ->
-                pendingWrongReportSinceMillis = 0
-                startActivity(Intent(this, SettingsActivity::class.java))
-            }
         if (RewardedAdManager.isLoaded()) {
             builder.setPositiveButton(getString(R.string.wrong_report_btn_watch_unlock)) { d, _ ->
                 d.dismiss()
