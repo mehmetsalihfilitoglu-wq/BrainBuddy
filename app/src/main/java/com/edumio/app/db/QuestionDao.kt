@@ -274,6 +274,23 @@ interface QuestionDao {
     suspend fun deleteEdumioOriginalQuestions()
 
     /**
+     * Generic isolated pool for a single examType (e.g. 'TIL_I', 'CENT_S'). Strictly examType-scoped +
+     * active + servable — NEVER blends with legacy K-12/LGS/grade content. Used so every EDUmio exam's
+     * practice draws only from its own verified bank.
+     */
+    @Query(
+        """
+        SELECT * FROM questions
+        WHERE COALESCE(examType, 'GENERAL') = :examType
+        AND isActive = 1
+        AND (unservableReason IS NULL OR unservableReason = '')
+        AND (:examSubject IS NULL OR subject = :examSubject)
+        LIMIT 5000
+        """
+    )
+    suspend fun getPoolByExamType(examType: String, examSubject: String?): List<QuestionEntity>
+
+    /**
      * Mixed practice pool: official IMAT + EdumioOriginal originals together. Used only when the user
      * explicitly chooses Mixed mode; Official-only and Originals-only use the pools above.
      */

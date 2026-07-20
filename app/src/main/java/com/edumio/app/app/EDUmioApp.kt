@@ -40,8 +40,11 @@ class EDUmioApp : Application() {
             Log.i(STARTUP_LOG_TAG, "Startup: seed → audit → publish (sequential IO)")
             val payload = withContext(Dispatchers.IO) {
                 logStartupPersistenceAsync(this@EDUmioApp)
-                val didSeed = DbSeeder.seedIfNeeded(this@EDUmioApp)
-                Log.i(STARTUP_LOG_TAG, "Seed finished: didSeed=$didSeed")
+                // LEGACY K-12/LGS/grade_based seed pipeline (the source of "15² kaçtır?"-style questions) is
+                // DEBUG-ONLY. In production EDUmio ships ONLY the isolated exam banks seeded below (IMAT,
+                // EdumioOriginal, TIL-I, CEnT-S) — no legacy content ever enters the DB.
+                val didSeed = if (com.edumio.app.BuildConfig.DEBUG) DbSeeder.seedIfNeeded(this@EDUmioApp) else false
+                Log.i(STARTUP_LOG_TAG, "Seed finished: didSeed=$didSeed (legacy pipeline debug-only)")
                 val integrityResult = DataIntegrityChecker.runCleanup(this@EDUmioApp)
                 Log.i(STARTUP_LOG_TAG, "IntegrityCheck: hardDeleted=${integrityResult.hardDeleted} totalMarked=${integrityResult.totalMarked}")
                 // Seed the isolated official IMAT bank AFTER integrity cleanup so those

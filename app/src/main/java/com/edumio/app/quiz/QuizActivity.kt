@@ -108,16 +108,38 @@ class QuizActivity : AppCompatActivity() {
     }
 
 
+    /** Controlled error when an exam's question bank is empty — no fake question, no wrong-domain fallback. */
+    private fun showEmptyPoolError() {
+        b.loadingBar.visibility = View.GONE
+        b.questionCard.visibility = View.GONE
+        b.optionsGroup.visibility = View.GONE
+        b.submitBtn.visibility = View.GONE
+        b.nextBtn.visibility = View.GONE
+        b.subjectChip.visibility = View.GONE
+        b.progressText.visibility = View.GONE
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+            .setTitle("Soru havuzu hazır değil")
+            .setMessage("Bu sınav için soru havuzu şu anda hazır değil. Lütfen daha sonra tekrar dene.")
+            .setCancelable(false)
+            .setPositiveButton("Tamam") { _, _ -> finish() }
+            .show()
+    }
+
     private fun initQuiz(savedInstanceState: Bundle?) {
         repo = QuestionRepository(this)
         quizPrefs = QuizPrefs(this)
 
-        // Show loading UI immediately - keeps "Test hazırlanıyor..." responsive
-        b.subjectChip.text = getString(com.edumio.app.R.string.test_preparing)
-        b.nextBtn.isEnabled = false
-        b.questionText.text = getString(com.edumio.app.R.string.test_preparing)
+        // Real loading indicator (NOT a fake "Test hazırlanıyor" question): hide every question widget and
+        // show a spinner. The counter/question card/Next are never populated with placeholder text, so the
+        // loading state is not counted as question 1 and Next cannot be pressed.
+        b.loadingBar.visibility = View.VISIBLE
+        b.questionCard.visibility = View.GONE
+        b.subjectChip.visibility = View.GONE
+        b.progressText.visibility = View.GONE
         b.optionsGroup.visibility = View.GONE
         b.submitBtn.visibility = View.GONE
+        b.nextBtn.visibility = View.GONE
+        b.nextBtn.isEnabled = false
         b.nextBtn.setOnClickListener { }
 
         lifecycleScope.launch {
@@ -125,8 +147,7 @@ class QuizActivity : AppCompatActivity() {
             // Without this gate, the quiz can run against an empty/partial DB
             // on first launch and show "Soru havuzu yetersiz".
             if (!StartupRuntimeState.startupInitializationComplete) {
-                b.questionText.text = getString(R.string.test_preparing)
-                // Observe the startup flow — proceed as soon as Ready fires.
+                // (loadingBar already visible) — Observe the startup flow — proceed as soon as Ready fires.
                 // Timeout is generous (15s) to handle slow first-install seeding
                 // of 20k+ questions. If it expires we proceed anyway and let the
                 // quiz builder handle whatever state the DB is in.
@@ -205,23 +226,21 @@ class QuizActivity : AppCompatActivity() {
 
             val tapToRepoStart = System.currentTimeMillis()
             android.util.Log.d("QUIZ_PERF", "[QUIZ_PERF] tap_to_repo_start=${tapToRepoStart}ms (since epoch)")
-            // IMAT profiles ALWAYS serve the isolated official IMAT pool. Resolved up-front — before
-            // the 5s legacy-build timeout — so a slow legacy build can NEVER fall back to legacy
-            // (LGS/grade) content for an IMAT profile. The IMAT picker is a single fast query.
-            val imatResult: QuizBuildResult? =
-                if (!isReplayFromLastTest && !retryWrongMode && (wrongIds == null || wrongIds.isEmpty())) {
+            // STRICT EXAM ISOLATION: an EDUmio exam profile (IMAT/TIL-I/CEnT-S) is served ONLY from its own
+            // verified bank — never legacy K-12/LGS/grade content, never the in-code fallback. Resolved
+            // up-front so a slow/empty legacy build can never leak wrong-domain questions. Empty bank →
+            // controlled error (handled below); no fallback.
+            val isPracticeBuild = !isReplayFromLastTest && !retryWrongMode && (wrongIds == null || wrongIds.isEmpty())
+            val activeExam: com.edumio.app.core.ExamType? = try {
+                com.edumio.app.core.UserGoalPrefs(this@QuizActivity.applicationContext).getGoal().careerPath.examType
+            } catch (_: Exception) { null }
+            val result: QuizBuildResult =
+                if (isPracticeBuild && activeExam != null && repo.isEdumioExam(activeExam)) {
                     withContext(Dispatchers.IO) {
-                        val imatMode = try {
-                            com.edumio.app.core.UserGoalPrefs(this@QuizActivity.applicationContext)
-                                .getGoal().careerPath.examType == com.edumio.app.core.ExamType.IMAT
-                        } catch (_: Exception) { false }
-                        if (imatMode) {
-                            val qs = repo.pickQuizQuestionsForImat(count = targetCount)
-                            if (qs.isNotEmpty()) QuizBuildResult(qs, null, "imat", false, 0) else null
-                        } else null
+                        val qs = repo.pickQuizForActiveExam(activeExam, count = targetCount, profileId = quizId)
+                        QuizBuildResult(qs, null, "exam_${activeExam.name}", false, 0)
                     }
-                } else null
-            val result = imatResult ?: withTimeoutOrNull(5000L) {
+                } else (withTimeoutOrNull(5000L) {
                 withContext(Dispatchers.IO) {
                 buildQuizOnBackground(
                     context = this@QuizActivity.applicationContext,
@@ -255,10 +274,22 @@ class QuizActivity : AppCompatActivity() {
                     quizId = quizId,
                     targetCount = targetCount
                 )
-            }
+            })
             val buildDoneMs = System.currentTimeMillis()
             android.util.Log.d("QUIZ_PERF", "[QUIZ_PERF] total_build_ms=${buildDoneMs - tapToRepoStart} picker=${result.pickerDebugPath} questions=${result.questions.size}")
             withContext(Dispatchers.Main) {
+                b.loadingBar.visibility = View.GONE
+                if (result.questions.isEmpty()) {
+                    // Controlled empty-pool error — NEVER a fake question or a wrong-domain fallback.
+                    showEmptyPoolError()
+                    return@withContext
+                }
+                // Loading finished — reveal the real question UI (hidden during load).
+                b.questionCard.visibility = View.VISIBLE
+                b.subjectChip.visibility = View.VISIBLE
+                b.progressText.visibility = View.VISIBLE
+                b.optionsGroup.visibility = View.VISIBLE
+                b.nextBtn.visibility = View.VISIBLE
                 questions = result.questions
                 savedInstanceState?.getInt("quiz_index", -1)?.takeIf { it >= 0 && questions.isNotEmpty() }?.let { saved ->
                     index = saved.coerceIn(0, questions.lastIndex)

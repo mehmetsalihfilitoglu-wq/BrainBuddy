@@ -907,8 +907,17 @@ class QuestionRepository(private val context: Context) {
         return if (filtered.isEmpty()) base else filtered
     }
 
-    /** In-code fallback so quiz never crashes when asset is missing or pool is empty. */
-    private fun getFallbackQuestions(): List<Question> = listOf(
+    /**
+     * In-code K-12 fallback (Turkish grade-school questions like "15² kaçtır?"). These are LEGACY BrainBuddy
+     * content and must NEVER be served in production — an EDUmio exam profile shows a controlled empty-pool
+     * error instead of a wrong-domain fallback. Kept only for DEBUG diagnostics of the legacy grade path.
+     */
+    private fun getFallbackQuestions(): List<Question> {
+        if (!com.edumio.app.BuildConfig.DEBUG) return emptyList()
+        return getFallbackQuestionsDebug()
+    }
+
+    private fun getFallbackQuestionsDebug(): List<Question> = listOf(
         Question(id = "fb1", levelGroup = LevelGroup.GRADE_5_8, subject = Subject.MAT, gradeTag = "6", grade = 6, stem = "12 × 15 işleminin sonucu kaçtır?", choices = listOf("160", "170", "180", "190"), correctIndex = 2, hint = "12×10=120, 12×5=60", imageAsset = null, difficulty = QuizDifficulty.EASY),
         Question(id = "fb2", levelGroup = LevelGroup.GRADE_5_8, subject = Subject.TURKCE, gradeTag = "6", grade = 6, stem = "Türkiye'nin başkenti neresidir?", choices = listOf("İstanbul", "İzmir", "Ankara", "Bursa"), correctIndex = 2, hint = "Mustafa Kemal Atatürk'ün kararıyla.", imageAsset = null, difficulty = QuizDifficulty.EASY),
         Question(id = "fb3", levelGroup = LevelGroup.GRADE_5_8, subject = Subject.FEN, gradeTag = "6", grade = 6, stem = "Güneş sisteminde Dünya'dan sonra gelen gezegen hangisidir?", choices = listOf("Venüs", "Mars", "Jüpiter", "Satürn"), correctIndex = 1, hint = "Merkür, Venüs, Dünya, Mars...", imageAsset = null, difficulty = QuizDifficulty.EASY),
@@ -1171,7 +1180,7 @@ class QuestionRepository(private val context: Context) {
      * needed to switch): OFFICIAL_IMAT = frozen official bank only; EDUMIO_ORIGINAL_ORIGINAL = original bank
      * only; MIXED = both together. Official and original items never blend unless MIXED is chosen.
      */
-    enum class PracticePool { OFFICIAL_IMAT, EDUMIO_ORIGINAL_ORIGINAL, MIXED }
+    enum class PracticePool { OFFICIAL_IMAT, EDUMIO_ORIGINAL_ORIGINAL, MIXED, TIL_I, CENT_S }
 
     /**
      * Unified IMAT-format quiz picker. Serves questions from the requested [pool], fully isolated from
@@ -1188,6 +1197,8 @@ class QuestionRepository(private val context: Context) {
             PracticePool.OFFICIAL_IMAT -> roomStore.getImatQuestions(examSubject)
             PracticePool.EDUMIO_ORIGINAL_ORIGINAL -> roomStore.getEdumioOriginalQuestions(examSubject)
             PracticePool.MIXED -> roomStore.getMixedImatQuestions(examSubject)
+            PracticePool.TIL_I -> roomStore.getQuestionsByExamType("TIL_I", examSubject)
+            PracticePool.CENT_S -> roomStore.getQuestionsByExamType("CENT_S", examSubject)
         }
         if (source.isEmpty()) return emptyList()
         val blocked = if (profileId != null) roomStore.getQuestionIdsFromLastNTests(profileId, 3) else emptySet()
@@ -1216,6 +1227,31 @@ class QuestionRepository(private val context: Context) {
         examSubject: String? = null,
         profileId: String? = null,
     ): List<Question> = pickQuizQuestionsForPool(PracticePool.MIXED, count, examSubject, profileId)
+
+    /** Is this one of EDUmio's isolated production exams (each has its own verified bank)? */
+    fun isEdumioExam(examType: com.edumio.app.core.ExamType): Boolean = when (examType) {
+        com.edumio.app.core.ExamType.IMAT,
+        com.edumio.app.core.ExamType.TIL_I,
+        com.edumio.app.core.ExamType.CENT_S -> true
+        else -> false
+    }
+
+    /**
+     * The single entry point for practice questions of an EDUmio exam profile. STRICTLY isolated: each exam
+     * draws ONLY from its own examType bank(s) — never legacy K-12/LGS/grade content and never the hardcoded
+     * fallback. IMAT = official IMAT + EdumioOriginal originals; TIL-I / CEnT-S = their own banks. Returns an
+     * EMPTY list when the bank is empty (the caller shows a controlled error instead of any fallback).
+     */
+    fun pickQuizForActiveExam(
+        examType: com.edumio.app.core.ExamType,
+        count: Int = MIN_QUESTIONS_PER_TEST,
+        profileId: String? = null,
+    ): List<Question> = when (examType) {
+        com.edumio.app.core.ExamType.IMAT -> pickQuizQuestionsForPool(PracticePool.MIXED, count, null, profileId)
+        com.edumio.app.core.ExamType.TIL_I -> pickQuizQuestionsForPool(PracticePool.TIL_I, count, null, profileId)
+        com.edumio.app.core.ExamType.CENT_S -> pickQuizQuestionsForPool(PracticePool.CENT_S, count, null, profileId)
+        else -> emptyList()
+    }
 
     /**
      * LGS mode: uses only LGS question pool (examType=LGS).

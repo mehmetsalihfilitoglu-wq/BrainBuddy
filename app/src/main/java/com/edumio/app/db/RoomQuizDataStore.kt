@@ -120,6 +120,12 @@ class RoomQuizDataStore(private val context: Context) {
         questionDao.getEdumioOriginalPool(examSubject).map { QuestionMapper.toQuestion(it) }
     }
 
+    /** Generic isolated pool for any single examType (e.g. "TIL_I", "CENT_S"). */
+    fun getQuestionsByExamType(examType: String, examSubject: String? = null): List<Question> =
+        runBlocking(Dispatchers.IO) {
+            questionDao.getPoolByExamType(examType, examSubject).map { QuestionMapper.toQuestion(it) }
+        }
+
     fun countActiveEdumioOriginalQuestions(): Int = runBlocking(Dispatchers.IO) {
         questionDao.countActiveEdumioOriginalQuestions()
     }
