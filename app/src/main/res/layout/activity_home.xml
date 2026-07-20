@@ -237,8 +237,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_12"
-            android:clickable="true"
-            android:focusable="true"
             app:cardCornerRadius="@dimen/radius_md"
             app:cardElevation="0dp"
             app:cardBackgroundColor="@color/white"
@@ -267,18 +265,6 @@
                         android:textStyle="bold"
                         android:textColor="@color/textPrimary"/>
 
-                    <TextView
-                        android:id="@+id/tvSwitchAreaHint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/home_active_area_hint"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/emeraldDark"
-                        android:drawableEnd="@drawable/ic_chevron_right"
-                        android:drawableTint="@color/emeraldDark"
-                        android:drawablePadding="2dp"
-                        android:paddingStart="@dimen/space_8"/>
                 </LinearLayout>
 
                 <!-- Degree line (kept, small) -->

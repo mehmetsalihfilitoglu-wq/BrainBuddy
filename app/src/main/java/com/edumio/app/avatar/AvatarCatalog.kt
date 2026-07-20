@@ -44,7 +44,7 @@ object AvatarCatalog {
         AvatarItem("frame_6", AvatarCategory.BADGE_FRAME, "Efsane Halesi", 600, 15, AvatarRarity.LEGENDARY, R.drawable.avatar_frame_legend),
 
         // MASCOT - 10 items
-        AvatarItem("mascot_default", AvatarCategory.MASCOT, "Brainy", 0, 1, AvatarRarity.COMMON, R.drawable.avatar_mascot_brainy),
+        AvatarItem("mascot_default", AvatarCategory.MASCOT, "Mio", 0, 1, AvatarRarity.COMMON, R.drawable.avatar_mascot_brainy),
         AvatarItem("mascot_1", AvatarCategory.MASCOT, "Gülümseyen", 80, 3, AvatarRarity.COMMON, R.drawable.avatar_mascot_smile),
         AvatarItem("mascot_2", AvatarCategory.MASCOT, "Süper Kahraman", 150, 5, AvatarRarity.RARE, R.drawable.avatar_mascot_hero),
         AvatarItem("mascot_3", AvatarCategory.MASCOT, "Uzaylı", 250, 8, AvatarRarity.EPIC, R.drawable.avatar_mascot_alien),

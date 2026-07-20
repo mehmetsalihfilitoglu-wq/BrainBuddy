@@ -110,6 +110,7 @@
 
         <!-- ── Premium ── -->
         <TextView
+            android:id="@+id/sectionPremiumHeader"
             style="@style/Edu.SectionHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -61,9 +61,15 @@ class SettingsActivity : AppCompatActivity() {
                 visibility = android.view.View.GONE
             }
         }
-        findViewById<android.view.View>(R.id.cardPremium)?.setOnClickListener {
-            com.edumio.app.quiz.PremiumPaywallSheet()
-                .show(supportFragmentManager, com.edumio.app.quiz.PremiumPaywallSheet.TAG)
+        // v1.0 is entirely free — hide the whole Premium section (header + card) when premium UI is off.
+        if (com.edumio.app.release.ReleaseProfile.premiumEnabled) {
+            findViewById<android.view.View>(R.id.cardPremium)?.setOnClickListener {
+                com.edumio.app.quiz.PremiumPaywallSheet()
+                    .show(supportFragmentManager, com.edumio.app.quiz.PremiumPaywallSheet.TAG)
+            }
+        } else {
+            findViewById<android.view.View>(R.id.cardPremium)?.visibility = android.view.View.GONE
+            findViewById<android.view.View>(R.id.sectionPremiumHeader)?.visibility = android.view.View.GONE
         }
     }
 

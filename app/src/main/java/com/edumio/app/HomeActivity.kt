@@ -278,9 +278,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupNavigation() {
-        findViewById<MaterialCardView>(R.id.cardIdentityHero).onTap {
-            com.edumio.app.ui.AreaSwitcher.show(this) { refreshAll() }
-        }
+        // Active study area is INFO-ONLY on Home (no quick "Değiştir"). Switching areas is a deliberate
+        // setting under Profile → Çalışma Alanlarım (StudyAreasActivity.setActiveArea).
         findViewById<MaterialCardView>(R.id.cardWrongPool).onTap {
             WrongPoolLauncher.launch(this)
         }

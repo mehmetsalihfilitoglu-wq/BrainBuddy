@@ -44,6 +44,12 @@ class PremiumPaywallSheet : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // v1.0 is entirely free: the paywall must never appear. Defensive net covering every entry point —
+        // if any stray caller opens it, dismiss immediately. Billing code is untouched.
+        if (!com.edumio.app.release.ReleaseProfile.premiumEnabled) {
+            dismissAllowingStateLoss()
+            return
+        }
         WrongReviewAnalytics.logPaywallOpened()
         AnalyticsProvider.track(AnalyticsEvents.PREMIUM_PAYWALL_VIEWED)
 

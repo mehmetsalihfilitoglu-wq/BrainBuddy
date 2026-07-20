@@ -194,8 +194,13 @@ class StudentProfileActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardSettings).setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
-        findViewById<MaterialCardView>(R.id.cardPremium).setOnClickListener {
-            PremiumPaywallSheet().show(supportFragmentManager, PremiumPaywallSheet.TAG)
+        // v1.0 is entirely free — hide the Profile Premium card when premium UI is off.
+        findViewById<MaterialCardView>(R.id.cardPremium).apply {
+            if (com.edumio.app.release.ReleaseProfile.premiumEnabled) {
+                setOnClickListener { PremiumPaywallSheet().show(supportFragmentManager, PremiumPaywallSheet.TAG) }
+            } else {
+                visibility = android.view.View.GONE
+            }
         }
     }
 
@@ -205,7 +210,7 @@ class StudentProfileActivity : AppCompatActivity() {
             tvAvatarName.text = item.displayName
         } else {
             avatarPreview.setImageResource(R.drawable.avatar_mascot_brainy)
-            tvAvatarName.text = "Brainy"
+            tvAvatarName.text = "Mio"
         }
     }
 

@@ -908,7 +908,7 @@ class QuestionRepository(private val context: Context) {
     }
 
     /**
-     * In-code K-12 fallback (Turkish grade-school questions like "15² kaçtır?"). These are LEGACY BrainBuddy
+     * In-code K-12 fallback (Turkish grade-school questions like "15² kaçtır?"). These are LEGACY grade-based
      * content and must NEVER be served in production — an EDUmio exam profile shows a controlled empty-pool
      * error instead of a wrong-domain fallback. Kept only for DEBUG diagnostics of the legacy grade path.
      */

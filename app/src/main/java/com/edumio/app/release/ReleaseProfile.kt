@@ -32,6 +32,13 @@ object ReleaseProfile {
 
     /** Firebase Crashlytics — Spark-compatible, always allowed when Firebase is configured. */
     val crashlyticsEnabled: Boolean get() = ReleaseFlags.crashlyticsEnabled(sparkSafe)
+
+    /**
+     * Master switch for ALL user-visible Premium UI — paywall, upsell/promo cards, premium badges, and
+     * locked-feature "unlock with Premium" CTAs. The first Play release is entirely FREE, so this is false.
+     * Billing/entitlement code stays intact (kept independent of SPARK_SAFE); only the UI surfaces hide.
+     */
+    const val premiumEnabled: Boolean = false
 }
 
 /**
