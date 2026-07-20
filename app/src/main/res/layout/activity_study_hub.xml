@@ -201,24 +201,6 @@
              DiscoverActivity / ToolsActivity remain in the codebase for a future version;
              their in-app entry cards are intentionally removed to keep the app exam-only. -->
 
-        <!-- ─── SUBJECTS SECTION ─── -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/study_hub_subjects_header"
-            android:textSize="10sp"
-            android:textColor="@color/emeraldDark"
-            android:letterSpacing="0.12"
-            android:layout_marginTop="@dimen/space_24"
-            android:layout_marginBottom="@dimen/space_12"/>
-
-        <!-- Subject cards are added here programmatically -->
-        <LinearLayout
-            android:id="@+id/subjectCardsContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"/>
-
         <!-- ─── ÇALIŞMA KOÇU (single entry → CoachScreen) ─── -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardCoachTip"
