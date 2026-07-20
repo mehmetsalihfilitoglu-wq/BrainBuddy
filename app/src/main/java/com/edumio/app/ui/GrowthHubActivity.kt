@@ -22,7 +22,6 @@ import com.edumio.app.core.AchievementEngine
 import com.edumio.app.core.AnalyticsStore
 import com.edumio.app.core.GamificationStore
 import com.edumio.app.core.ProgressInsights
-import com.edumio.app.core.WeeklyRewardStore
 import com.edumio.app.quiz.WrongPoolLauncher
 import com.edumio.app.quiz.WrongQuestionPoolStore
 import com.edumio.app.social.LeagueScreen
@@ -155,6 +154,9 @@ class GrowthHubActivity : AppCompatActivity() {
      * data-computed insights. Everything active-area scoped.
      */
     private fun buildPremiumSection(container: LinearLayout, insights: ProgressInsights) {
+        // v1.0 is entirely free: with the premium UI off, don't surface a premium section or an upsell
+        // that would open a paywall which immediately dismisses itself.
+        if (!com.edumio.app.release.ReleaseProfile.premiumEnabled) return
         container.addView(sectionLabel(getString(R.string.premium_analysis_section)))
         if (!com.edumio.app.core.PremiumStore(this).isPremium()) {
             container.addView(upsellCard())
@@ -528,8 +530,7 @@ class GrowthHubActivity : AppCompatActivity() {
     }
 
     private fun refreshHeroStats() {
-        val freezeSuffix = if (gam.freezeTokens() > 0) " 🧊" else ""
-        findViewById<TextView>(R.id.tvHeroStreak).text = "${gam.streakDays()}$freezeSuffix"
+        findViewById<TextView>(R.id.tvHeroStreak).text = "${gam.streakDays()}"
         findViewById<TextView>(R.id.tvHeroXp).text = "${gam.xp()}"
         findViewById<TextView>(R.id.tvHeroLevel).text = "${gam.level()}"
 
@@ -592,7 +593,8 @@ class GrowthHubActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardLeague).onTap {
             startActivity(Intent(this, LeagueScreen::class.java))
         }
-        // §9: the Weekly Reward Chest gamification is removed from v1.0 — hide the card entirely.
-        findViewById<MaterialCardView>(R.id.cardWeeklyChest).visibility = android.view.View.GONE
+        findViewById<MaterialCardView>(R.id.cardReports).onTap {
+            startActivity(Intent(this, ReportsActivity::class.java))
+        }
     }
 }

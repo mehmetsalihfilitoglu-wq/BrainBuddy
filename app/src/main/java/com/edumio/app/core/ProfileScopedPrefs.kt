@@ -72,9 +72,6 @@ object ProfileScopedPrefs {
     fun quizPrefs(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "edu_quiz_prefs", migrationKey = "quiz_prefs_v1")
 
-    fun weeklyReward(context: Context): SharedPreferences =
-        profilePrefsWithMigration(context, baseName = "edu_weekly_reward", migrationKey = "weekly_reward_v1")
-
     fun rewardContracts(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "edu_reward_contract", migrationKey = "reward_contract_v1")
 

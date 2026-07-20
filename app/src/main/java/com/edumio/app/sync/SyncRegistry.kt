@@ -29,7 +29,6 @@ object SyncRegistry {
         StoreSpec("quiz_prefs", "edu_quiz_prefs", "dailyMissions"),           // daily mission state
         StoreSpec("student_profile", "edu_student_profile", "studentProfile"),
         StoreSpec("avatar", "edu_avatar", "avatar"),
-        StoreSpec("weekly_reward", "edu_weekly_reward", "weeklyReward"),
         StoreSpec("reports", "edu_reports", "reports"),
         StoreSpec("readiness_snapshots", "edu_readiness_snapshots", "readinessSnapshots")
     )

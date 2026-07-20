@@ -507,9 +507,9 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Weekly Chest -->
+        <!-- Raporlar (progress reports live under İlerleme, not Ayarlar) -->
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardWeeklyChest"
+            android:id="@+id/cardReports"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_8"
@@ -526,12 +526,12 @@
                 android:padding="@dimen/space_16"
                 android:gravity="center_vertical">
 
-                <TextView
+                <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:text="📦"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
+                    android:src="@drawable/ic_review"
+                    app:tint="@color/emerald"
+                    android:contentDescription="@null"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -541,10 +541,9 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvWeeklyChestTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/progress_weekly_chest"
+                        android:text="@string/reports_title"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:textColor="@color/textPrimary"/>
@@ -552,7 +551,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/progress_weekly_chest_sub"
+                        android:text="@string/settings_reports_sub"
                         android:textSize="11sp"
                         android:textColor="@color/textSecondary"
                         android:layout_marginTop="2dp"/>
