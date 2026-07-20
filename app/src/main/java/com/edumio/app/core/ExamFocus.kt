@@ -17,7 +17,7 @@ object ExamFocus {
 
     /** The exam types currently offered. Falls back to all if config is empty/invalid. */
     fun activeExamTypes(): Set<ExamType> {
-        val raw = RemoteConfigProvider.get().getString(RemoteConfigKeys.ACTIVE_EXAM_TYPES, "IMAT")
+        val raw = RemoteConfigProvider.get().getString(RemoteConfigKeys.ACTIVE_EXAM_TYPES, "IMAT,TIL_I,CENT_S")
         val parsed = raw.split(",")
             .map { it.trim() }
             .filter { it.isNotEmpty() }

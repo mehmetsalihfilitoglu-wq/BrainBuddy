@@ -92,7 +92,7 @@ object RemoteConfigKeys {
         PREMIUM_YEARLY_SAVING to "Aylık ödemeye göre yaklaşık %29 tasarruf",
         PREMIUM_VALUE_ANCHOR to "Yıllık plan, klasik hazırlık kurslarının çok altında — bir sınav döngüsü için tek seferlik bütçe.",
         PAYWALL_SHOW_YEARLY to false,
-        ACTIVE_EXAM_TYPES to "IMAT",
+        ACTIVE_EXAM_TYPES to "IMAT,TIL_I,CENT_S",
         CAMPAIGN_BANNER_ENABLED to false,
         CAMPAIGN_BANNER_TEXT to "",
         DISCOVERY_BANNER_ENABLED to false,
