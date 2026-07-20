@@ -32,10 +32,13 @@ class MainActivity : AppCompatActivity() {
         val onboardingDone = OnboardingPrefs.isDone(this)
         val target = if (!onboardingDone) OnboardingWizardActivity::class.java else HomeActivity::class.java
         Log.d("MainActivity", "onboardingDone=$onboardingDone startScreen=${target.simpleName}")
+        // NOTE: NO_HISTORY was applied to the LAUNCHED screen (Home), which made the OS finish Home the
+        // moment the user opened any sub-screen — so system BACK from a sub-screen found an empty task and
+        // closed the app. Removed. The splash still doesn't linger because we finish() below + CLEAR_TASK.
         startActivity(
             Intent(this, target).addFlags(
                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or
-                        Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NO_HISTORY
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP
             )
         )
         finish()
