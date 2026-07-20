@@ -3,10 +3,19 @@ package com.edumio.app.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.edumio.app.BuildConfig
+import com.edumio.app.MainActivity
 import com.edumio.app.R
+import com.edumio.app.auth.AuthProvider
 import com.edumio.app.core.BackupManager
 import com.edumio.app.core.NotificationPrefs
 
+/**
+ * MVP settings — four focused sections only: Hesap (signed-in email + sign out), Bildirimler
+ * (the single reminder toggle), Gizlilik ve Veri (privacy policy, data export/restore, account
+ * deletion) and Uygulama (version). No premium, no reports, no cloud-sync entry, no emoji.
+ */
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +24,13 @@ class SettingsActivity : AppCompatActivity() {
 
         findViewById<android.view.View>(R.id.btnBack).setOnClickListener { finish() }
 
+        // ── Hesap: real signed-in email + sign out ──
+        val email = AuthProvider.currentUser(this)?.email
+        findViewById<android.widget.TextView>(R.id.tvAccountEmail).text =
+            email?.takeIf { it.isNotBlank() } ?: "—"
+        findViewById<android.view.View>(R.id.cardSignOut).setOnClickListener { confirmSignOut() }
+
+        // ── Bildirimler: single reminder toggle ──
         val notifPrefs = NotificationPrefs(this)
         findViewById<android.widget.Switch>(R.id.switchMotivationNotifications)?.apply {
             isChecked = notifPrefs.areMotivationNotificationsEnabled()
@@ -37,8 +53,9 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
-        findViewById<android.view.View>(R.id.cardReports)?.setOnClickListener {
-            startActivity(Intent(this, ReportsActivity::class.java))
+        // ── Gizlilik ve Veri ──
+        findViewById<android.view.View>(R.id.cardPrivacyPolicy)?.setOnClickListener {
+            startActivity(Intent(this, com.edumio.app.legal.LegalHubActivity::class.java))
         }
         findViewById<android.view.View>(R.id.cardBackup)?.setOnClickListener {
             BackupManager.exportBackup(this)
@@ -46,31 +63,39 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<android.view.View>(R.id.cardRestore)?.setOnClickListener {
             startActivity(Intent(this, BackupImportActivity::class.java))
         }
-        findViewById<android.view.View>(R.id.cardPrivacyPolicy)?.setOnClickListener {
-            startActivity(Intent(this, com.edumio.app.legal.LegalHubActivity::class.java))
-        }
         findViewById<android.view.View>(R.id.cardDataRights)?.setOnClickListener {
             startActivity(Intent(this, DataRightsActivity::class.java))
         }
-        findViewById<android.view.View>(R.id.cardAccountSync)?.apply {
-            // Spark-safe v1.0: account + cloud sync stay dormant (they need deployed backend). Hide the
-            // entry entirely so no unusable/failing feature is exposed. Re-appears when SPARK_SAFE=false.
-            if (com.edumio.app.release.ReleaseProfile.cloudAccountEnabled) {
-                setOnClickListener { startActivity(Intent(this@SettingsActivity, AccountSyncActivity::class.java)) }
-            } else {
-                visibility = android.view.View.GONE
-            }
-        }
-        // v1.0 is entirely free — hide the whole Premium section (header + card) when premium UI is off.
-        if (com.edumio.app.release.ReleaseProfile.premiumEnabled) {
-            findViewById<android.view.View>(R.id.cardPremium)?.setOnClickListener {
-                com.edumio.app.quiz.PremiumPaywallSheet()
-                    .show(supportFragmentManager, com.edumio.app.quiz.PremiumPaywallSheet.TAG)
-            }
-        } else {
-            findViewById<android.view.View>(R.id.cardPremium)?.visibility = android.view.View.GONE
-            findViewById<android.view.View>(R.id.sectionPremiumHeader)?.visibility = android.view.View.GONE
-        }
+
+        // ── Uygulama: version ──
+        findViewById<android.widget.TextView>(R.id.tvVersionValue).text = BuildConfig.VERSION_NAME
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Keep the email fresh (e.g. after a re-auth elsewhere).
+        val email = AuthProvider.currentUser(this)?.email
+        findViewById<android.widget.TextView>(R.id.tvAccountEmail).text =
+            email?.takeIf { it.isNotBlank() } ?: "—"
+    }
+
+    private fun confirmSignOut() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.settings_signout_confirm_title)
+            .setMessage(R.string.settings_signout_confirm_message)
+            .setNegativeButton(R.string.data_rights_cancel, null)
+            .setPositiveButton(R.string.settings_signout) { _, _ -> doSignOut() }
+            .show()
+    }
+
+    private fun doSignOut() {
+        AuthProvider.repository(this).signOut()
+        // Re-route through the launcher: signed out + onboarding done → the sign-in screen.
+        startActivity(
+            Intent(this, MainActivity::class.java).addFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            )
+        )
+        finish()
+    }
 }

@@ -104,15 +104,10 @@
     <string name="progress_detailed_stats_sub">Grafik ve trend analizi</string>
     <string name="progress_league">Lig</string>
     <string name="progress_league_sub">Haftalık sıralama</string>
-    <string name="progress_weekly_chest">Haftalık Sandık</string>
-    <string name="progress_weekly_chest_sub">Donma jetonu kazan</string>
-    <string name="progress_chest_xp_hint">Daha fazla XP kazanın (Silver: 80, Gold: 150)</string>
 
     <!-- StudyHub Phase 2D -->
     <string name="study_hub_title">Öğren</string>
     <string name="study_hub_btn_practice">Tüm Konularda Pratik Yap</string>
-    <string name="study_hub_subjects_header">KONU ALANLARI</string>
-    <string name="study_hub_subject_action">Bu konuda pratik yap</string>
     <string name="study_hub_stats_accuracy">Doğruluk</string>
     <string name="study_hub_stats_tests">Test</string>
     <string name="study_hub_stats_questions">Soru</string>
@@ -228,10 +223,18 @@
     <string name="close">Kapat</string>
     <string name="settings_title">Ayarlar</string>
 
-    <!-- Settings sections (with icons) -->
-    <string name="settings_section_reports">📊 Raporlar &amp; Veri</string>
-    <string name="settings_section_customization">🔔 Bildirimler</string>
-    <string name="settings_section_premium">⭐ Premium</string>
+    <!-- Settings sections -->
+    <string name="settings_section_reports">Raporlar</string>
+    <string name="settings_section_customization">Bildirimler</string>
+    <string name="settings_section_premium">Premium</string>
+    <string name="settings_section_privacy_data">Gizlilik ve Veri</string>
+    <string name="settings_section_app">Uygulama</string>
+    <string name="settings_signout">Çıkış Yap</string>
+    <string name="settings_signout_sub">Hesabından güvenle çıkış yap</string>
+    <string name="settings_signout_confirm_title">Çıkış yapılsın mı?</string>
+    <string name="settings_signout_confirm_message">Tekrar giriş yapana kadar günlük görevine ve ilerlemene erişemezsin.</string>
+    <string name="settings_account_signed_in">E-posta ile giriş yapıldı</string>
+    <string name="settings_version_label">Sürüm</string>
     <string name="settings_premium_title">Premium\'u Keşfet</string>
     <string name="settings_premium_sub">Daha akıllı hazırlan — neyin işe yaradığını gör</string>
     <string name="cd_back">Geri</string>
@@ -251,7 +254,7 @@
     <string name="settings_reports_sub">Günlük ve haftalık raporlara eriş</string>
     <string name="settings_backup_sub">Verileri dışa aktar</string>
     <string name="settings_restore_sub">Yedekten geri yükle</string>
-    <string name="settings_section_about">🔒 Gizlilik ve Yasal</string>
+    <string name="settings_section_about">Gizlilik ve Yasal</string>
     <string name="settings_privacy_sub">Gizlilik politikamızı inceleyin</string>
     <!-- Privacy & data rights (GDPR) -->
     <string name="settings_data_rights_sub">Verilerini dışa aktar veya hesabını sil</string>
@@ -656,11 +659,12 @@
     <!-- ===== Daily Challenge (Günün Görevi) ===== -->
     <string name="dc_title">Günün Görevi</string>
     <string name="dc_card_subtitle">Bugünün 5 yeni sorusu</string>
-    <string name="dc_state_available">Bugünün görevi hazır</string>
+    <string name="dc_state_available">Bugünkü Mini Test hazır</string>
     <string name="dc_state_in_progress">Devam ediyor</string>
     <string name="dc_state_completed">Bugün tamamlandı 🎉</string>
     <string name="dc_state_unavailable">Bu çalışma alanı için henüz hazır değil</string>
-    <string name="dc_cta_start">Başla</string>
+    <string name="dc_cta_start">Bugünkü Mini Teste Başla</string>
+    <string name="dc_cta_practice">Pratik Yap</string>
     <string name="dc_cta_continue">Devam et</string>
     <string name="dc_cta_review">Yanlışları tekrar et</string>
     <string name="dc_cta_done">Tamamlandı</string>
