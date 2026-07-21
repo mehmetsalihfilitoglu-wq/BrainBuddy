@@ -84,6 +84,36 @@ class MvpRegressionTest {
         assertFalse(ReleaseProfile.premiumEnabled)
     }
 
+    @Test
+    fun premiumUiIsNeverShown() {
+        // Every locked state / upsell / paywall CTA in the app routes through this seam. If it were true
+        // while nothing is purchasable, users would get dead buttons on core learning screens.
+        assertFalse(com.edumio.app.core.FeatureAccess.mayShowPremiumUi())
+    }
+
+    @Test
+    fun leagueIsHiddenForFirstRelease() {
+        // The Lig opponents are locally simulated and there is no backend — it must not be reachable.
+        assertFalse(ReleaseProfile.leagueEnabled)
+    }
+
+    /**
+     * Load-bearing: unlocking review for everyone (because v1.0 is free) must NOT be able to hand out
+     * more than five NEW questions per day. The entitlement flag is deliberately ignored here.
+     */
+    @Test
+    fun fiveNewQuestionsPerDay_holdsRegardlessOfEntitlement() {
+        assertEquals(
+            DailyChallengeBlueprint.CHALLENGE_SIZE,
+            com.edumio.app.dailychallenge.DailyChallengeEntitlementPolicy.newQuestionLimit(isPremium = true),
+        )
+        assertEquals(
+            DailyChallengeBlueprint.CHALLENGE_SIZE,
+            com.edumio.app.dailychallenge.DailyChallengeEntitlementPolicy.newQuestionLimit(isPremium = false),
+        )
+        assertEquals(5, DailyChallengeBlueprint.CHALLENGE_SIZE)
+    }
+
     // ── Per-exam isolation: only the three shipped exams have a challenge blueprint; a non-shipped ──
     //    exam is unsupported (→ no challenge is ever formed, so it can never fall back to a legacy pool).
 
