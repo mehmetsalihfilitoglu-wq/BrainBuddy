@@ -7,26 +7,91 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; padding: 20px; line-height: 1.7; color: #333; background: #fff; }
-        h1 { font-size: 1.3em; margin: 0.6em 0 0.4em; color: #111827; }
+        h1 { font-size: 1.35em; margin: 0.6em 0 0.4em; color: #111827; }
+        h2 { font-size: 1.05em; margin: 1.2em 0 0.35em; color: #111827; }
+        p, li { font-size: 0.95em; }
+        ul { margin: 0.3em 0 0.3em 1.2em; }
         .logo { text-align: center; margin-bottom: 8px; }
         .logo .edu { font-size: 1.3em; font-weight: 800; color: #25D366; }
         .logo .mio { font-size: 1.3em; font-weight: 800; color: #000; }
-        .stale { background: #FEF3C7; color: #92400E; padding: 14px 16px; border-radius: 10px; margin: 14px 0; border-left: 4px solid #F59E0B; }
+        .meta { color: #6B7280; font-size: 0.85em; margin-bottom: 0.6em; }
         footer { margin-top: 1.5em; padding-top: 0.8em; border-top: 1px solid #eee; font-size: 0.85em; color: #888; }
     </style>
 </head>
+<!--
+  OWNER ACTION REQUIRED BEFORE SUBMITTING TO GOOGLE PLAY:
+  1) Replace CONTACT_EMAIL_PLACEHOLDER below with a real, monitored support e-mail address.
+  2) Set the "Yürürlük tarihi" to the actual publication date.
+  3) Publish this same text at a PUBLIC URL and enter that URL in the Play Console listing
+     (Play requires a publicly reachable privacy-policy URL — an in-app page alone is not enough),
+     then set PRIVACY_POLICY_URL in app/build.gradle.kts.
+  4) Have it reviewed by a lawyer for your jurisdiction. The technical descriptions below reflect
+     what the app actually does as of this build and are accurate, but this file is not legal advice.
+-->
 <body>
 <div class="logo"><span class="edu">EDU</span><span class="mio">mio</span></div>
 <h1>Gizlilik Politikası</h1>
-<div class="stale">
-    <strong>⚠️ Bu belge güncellenmektedir ve yayına hazır DEĞİLDİR.</strong>
-    Önceki sürüm, artık geçerli olmayan farklı bir ürünü (ebeveyn kontrolü, uygulama engelleme, reklam)
-    tanımlıyordu. Bu özellikler EDUmio'da bulunmadığından o içerik kaldırılmıştır. EDUmio, İtalya üniversite
-    sınavlarına (IMAT / TIL-I / CEnT-S) hazırlık için bir öğrenme uygulamasıdır; tüm verileri şu an
-    cihazınızda yerel tutar, sunucuya kişisel veri göndermez ve reklam içermez. Geçerli ürüne dayalı, hukuk
-    incelemesi bekleyen taslak metin ayrıca hazırlanmıştır. Nihai metin yürürlüğe girene kadar bu sayfa
-    bağlayıcı bir gizlilik beyanı olarak kabul edilmemelidir.
-</div>
-<footer>&copy; 2026 EDUmio — Taslak/geçici belge.</footer>
+<p class="meta">Yürürlük tarihi: 2026 — EDUmio v1.0</p>
+
+<p>EDUmio, İtalya üniversite giriş sınavlarına (IMAT, TIL-I, CEnT-S) hazırlanmanı sağlayan bir
+öğrenme uygulamasıdır. Bu politika, hangi verileri neden işlediğimizi ve bunlar üzerinde hangi
+haklara sahip olduğunu açıklar.</p>
+
+<h2>1. Hesap bilgileri</h2>
+<p>EDUmio'yu kullanmak için bir hesap oluşturman gerekir. Kayıt ve giriş işlemleri Google'ın
+<strong>Firebase Authentication</strong> hizmeti üzerinden yapılır. Bu kapsamda işlenen veriler:</p>
+<ul>
+    <li><strong>E-posta adresin</strong> — hesabını tanımlamak, giriş yapmanı ve şifre sıfırlamanı sağlamak için.</li>
+    <li><strong>Kullanıcı kimliği (UID)</strong> — çalışma verilerini hesabınla ilişkilendirmek için.</li>
+    <li><strong>Görünen ad</strong> (isteğe bağlı) — uygulama içinde sana hitap etmek için.</li>
+</ul>
+<p>Şifren EDUmio tarafından görülmez ve cihazında düz metin olarak saklanmaz; doğrulama tümüyle
+Firebase Authentication tarafından yapılır.</p>
+
+<h2>2. Cihazında kalan çalışma verileri</h2>
+<p>Günlük görev geçmişin, doğru/yanlış cevapların, yanlış soru havuzun, XP'in, seviyen, serin ve
+uygulama ayarların <strong>yalnızca cihazında</strong> saklanır. Bu sürümde çalışma verilerin bir
+sunucuya yedeklenmez veya cihazlar arasında senkronize edilmez.</p>
+
+<h2>3. Kullanım ve hata verileri</h2>
+<ul>
+    <li><strong>Firebase Analytics</strong> — hangi ekranların kullanıldığı gibi toplu kullanım
+        istatistikleri; uygulamayı iyileştirmek için.</li>
+    <li><strong>Firebase Crashlytics</strong> — uygulama çöktüğünde hata kaydı ve cihaz modeli /
+        işletim sistemi sürümü gibi teknik bilgiler; hataları düzeltmek için.</li>
+</ul>
+<p>Bu veriler Google tarafından, hizmet sağlayıcımız sıfatıyla işlenir.</p>
+
+<h2>4. Reklam yok</h2>
+<p>EDUmio <strong>reklam içermez</strong>. Uygulamada herhangi bir reklam SDK'sı bulunmaz,
+<strong>reklam kimliği (Advertising ID) kullanılmaz</strong> ve verilerin reklam amacıyla üçüncü
+taraflara satılmaz veya paylaşılmaz.</p>
+
+<h2>5. Bildirimler</h2>
+<p>İzin verirsen, çalışma hatırlatıcıları için bildirim göndeririz. Bu bildirimler cihazında
+yerel olarak planlanır. Bildirimleri istediğin an Ayarlar &rarr; Bildirimler'den kapatabilirsin.</p>
+
+<h2>6. Saklama süresi</h2>
+<p>Hesap bilgilerin, sen hesabını silene kadar saklanır. Cihazındaki çalışma verileri, sen
+silene veya uygulamayı kaldırana kadar cihazında kalır.</p>
+
+<h2>7. Haklarını nasıl kullanırsın</h2>
+<ul>
+    <li><strong>Verilerini dışa aktar:</strong> Ayarlar &rarr; Gizlilik ve Veri &rarr; Verileri Dışa Aktar.</li>
+    <li><strong>Hesabını ve verilerini sil:</strong> Ayarlar &rarr; Gizlilik ve Veri &rarr;
+        Gizlilik ve Verilerim &rarr; Hesabımı ve Verilerimi Sil. Bu işlem hesabını kalıcı olarak siler
+        ve geri alınamaz.</li>
+    <li><strong>Çıkış yap:</strong> Ayarlar &rarr; Hesap &rarr; Çıkış Yap.</li>
+</ul>
+
+<h2>8. Çocukların gizliliği</h2>
+<p>EDUmio üniversite giriş sınavlarına hazırlananlara yöneliktir ve çocuklara yönelik olarak
+tasarlanmamıştır.</p>
+
+<h2>9. Değişiklikler ve iletişim</h2>
+<p>Bu politikayı güncellersek, güncel metni bu sayfada yayımlarız. Soruların veya talepler için:
+<strong>CONTACT_EMAIL_PLACEHOLDER</strong></p>
+
+<footer>&copy; 2026 EDUmio</footer>
 </body>
 </html>

@@ -7,27 +7,64 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; padding: 20px; line-height: 1.7; color: #333; background: #fff; }
-        h1 { font-size: 1.3em; margin: 0.6em 0 0.4em; color: #111827; }
+        h1 { font-size: 1.35em; margin: 0.6em 0 0.4em; color: #111827; }
+        h2 { font-size: 1.05em; margin: 1.2em 0 0.35em; color: #111827; }
+        p, li { font-size: 0.95em; }
+        ul { margin: 0.3em 0 0.3em 1.2em; }
+        table { border-collapse: collapse; width: 100%; margin: 0.5em 0; font-size: 0.9em; }
+        th, td { border: 1px solid #E5E7EB; padding: 7px 9px; text-align: left; vertical-align: top; }
+        th { background: #F9FAFB; }
         .logo { text-align: center; margin-bottom: 8px; }
         .logo .edu { font-size: 1.3em; font-weight: 800; color: #25D366; }
         .logo .mio { font-size: 1.3em; font-weight: 800; color: #000; }
-        .stale { background: #FEF3C7; color: #92400E; padding: 14px 16px; border-radius: 10px; margin: 14px 0; border-left: 4px solid #F59E0B; }
         footer { margin-top: 1.5em; padding-top: 0.8em; border-top: 1px solid #eee; font-size: 0.85em; color: #888; }
     </style>
 </head>
+<!--
+  OWNER NOTE: this page must stay consistent with the Play Console "Data safety" form.
+  Declare: E-mail address (account management, required), User IDs (account management, required),
+  Crash logs + App interactions (analytics/diagnostics). Advertising ID: NO. Data sold: NO.
+  Data encrypted in transit: YES. Users can request deletion: YES (in-app).
+-->
 <body>
 <div class="logo"><span class="edu">EDU</span><span class="mio">mio</span></div>
 <h1>Veri Kullanımı Bilgilendirmesi</h1>
-<div class="stale">
-    <strong>⚠️ Bu belge güncellenmektedir ve yayına hazır DEĞİLDİR.</strong>
-    Önceki sürüm, artık geçerli olmayan farklı bir ürünün veri kullanımını (reklam SDK'sı, mikrofon/ses
-    tanıma, uygulama engelleme, PIN) tanımlıyordu. Bu işlevler EDUmio'da bulunmaz. EDUmio, İtalya üniversite
-    sınavlarına (IMAT / TIL-I / CEnT-S) hazırlık uygulamasıdır ve şu an <strong>tüm verileri cihazınızda
-    yerel</strong> tutar: çalışma/profil tercihi, anonim yerel kimlik, Günün Görevi ve tekrar durumu, seri.
-    Reklam, mikrofon izni ve sunucuya veri aktarımı <strong>yoktur</strong>. Cihaz-içi analiz olayları yalnızca
-    bellek içindedir ve soru/cevap içeriği kaydetmez. Geçerli ürüne dayalı, hukuk incelemesi bekleyen taslak
-    metin ayrıca hazırlanmıştır.
-</div>
-<footer>&copy; 2026 EDUmio — Taslak/geçici belge.</footer>
+
+<p>Bu sayfa, EDUmio'nun hangi veriyi topladığını, neden topladığını ve nerede tutulduğunu özetler.
+Ayrıntılar için <strong>Gizlilik Politikası</strong>'na bakabilirsin.</p>
+
+<h2>Toplanan veriler</h2>
+<table>
+    <tr><th>Veri</th><th>Amaç</th><th>Nerede</th></tr>
+    <tr><td>E-posta adresi</td><td>Hesap oluşturma, giriş, şifre sıfırlama</td><td>Firebase Authentication (Google)</td></tr>
+    <tr><td>Kullanıcı kimliği (UID)</td><td>Çalışma verilerini hesabınla ilişkilendirmek</td><td>Firebase Authentication (Google)</td></tr>
+    <tr><td>Görünen ad (isteğe bağlı)</td><td>Uygulama içinde hitap</td><td>Cihaz + hesap profili</td></tr>
+    <tr><td>Çalışma verileri (günlük görev, doğru/yanlış, XP, seri, ayarlar)</td><td>Öğrenme deneyimini sürdürmek</td><td>Yalnızca cihazında</td></tr>
+    <tr><td>Kullanım olayları</td><td>Uygulamayı iyileştirmek</td><td>Firebase Analytics (Google)</td></tr>
+    <tr><td>Çökme kayıtları</td><td>Hataları düzeltmek</td><td>Firebase Crashlytics (Google)</td></tr>
+</table>
+
+<h2>Toplanmayanlar</h2>
+<ul>
+    <li>Reklam kimliği (Advertising ID) — uygulama <strong>reklam içermez</strong>.</li>
+    <li>Konum, rehber, mikrofon, kamera, SMS veya dosya erişimi.</li>
+    <li>Ödeme bilgisi — bu sürümde uygulama içi satın alma yoktur.</li>
+</ul>
+
+<h2>Paylaşım</h2>
+<p>Verilerin <strong>satılmaz</strong> ve reklam amacıyla paylaşılmaz. Yukarıdaki hizmetler,
+yalnızca uygulamanın çalışması için hizmet sağlayıcı sıfatıyla Google tarafından işlenir.</p>
+
+<h2>İzinler</h2>
+<ul>
+    <li><strong>İnternet / ağ durumu</strong> — giriş yapmak ve hata raporu göndermek için.</li>
+    <li><strong>Bildirimler</strong> — yalnızca izin verirsen, çalışma hatırlatıcıları için.</li>
+</ul>
+
+<h2>Kontrol sende</h2>
+<p>Verilerini Ayarlar &rarr; Gizlilik ve Veri bölümünden dışa aktarabilir, hesabını ve verilerini
+kalıcı olarak silebilirsin.</p>
+
+<footer>&copy; 2026 EDUmio</footer>
 </body>
 </html>
