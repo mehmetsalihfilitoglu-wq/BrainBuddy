@@ -71,7 +71,6 @@ class ReportsActivity : AppCompatActivity() {
 
             statsRepo = StatsRepository(this)
             wrongReportUnlockStore = WrongReportUnlockStore(this)
-            RewardedAdManager.preload(this)
             val autoOpenWrongReview = intent.getBooleanExtra(EXTRA_OPEN_WRONG_REVIEW, false)
 
             @Suppress("BlockingMethodInNonBlockingContext")
@@ -175,13 +174,16 @@ class ReportsActivity : AppCompatActivity() {
                 }
             }
 
-            // Premium gate listeners for "Raporu Paylaş"
-            val goToPremium = View.OnClickListener {
-                com.edumio.app.quiz.PremiumPaywallSheet()
-                    .show(supportFragmentManager, com.edumio.app.quiz.PremiumPaywallSheet.TAG)
+            // Premium gate listeners for "Raporu Paylaş" — only wired when the Premium UI exists at all,
+            // otherwise these open a paywall that immediately dismisses itself.
+            if (com.edumio.app.core.FeatureAccess.mayShowPremiumUi()) {
+                val goToPremium = View.OnClickListener {
+                    com.edumio.app.quiz.PremiumPaywallSheet()
+                        .show(supportFragmentManager, com.edumio.app.quiz.PremiumPaywallSheet.TAG)
+                }
+                b.cardShareReportLocked?.setOnClickListener(goToPremium)
+                b.btnShareReportLockedCta?.setOnClickListener(goToPremium)
             }
-            b.cardShareReportLocked?.setOnClickListener(goToPremium)
-            b.btnShareReportLockedCta?.setOnClickListener(goToPremium)
 
             b.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
@@ -564,14 +566,11 @@ class ReportsActivity : AppCompatActivity() {
             b.wrongHasData.visibility = View.VISIBLE
             b.wrongEmpty.visibility = View.GONE
             val wrongCount = model.wrongReview.wrongCount
-            val isPremium = com.edumio.app.core.PremiumStore(this).isPremium()
+            val isPremium = com.edumio.app.core.FeatureAccess.hasFullAccess(this)
             b.tvWrongCardTitle?.text = getString(R.string.wrong_report_card_title)
             b.tvWrongCardSubtitle?.text = getString(R.string.wrong_report_card_subtitle, wrongCount)
-            b.btnReviewWrongParent?.text = if (isPremium) {
-                getString(R.string.wrong_report_btn_detail)
-            } else {
-                getString(R.string.wrong_report_btn_watch_unlock)
-            }
+            // Never offer to "watch an ad to unlock": the app ships no ad SDK.
+            b.btnReviewWrongParent?.text = getString(R.string.wrong_report_btn_detail)
             b.chipWrongReviewQuota?.visibility = View.GONE
             b.tvWrongReviewPremiumUpsell?.visibility = View.GONE
             b.btnReviewWrongParent?.setOnClickListener {
@@ -589,8 +588,9 @@ class ReportsActivity : AppCompatActivity() {
 
         b.tvWeeklyXp.text = "Toplam XP: ${model.weeklyXp}"
 
-        // Share card premium state — re-evaluated on every applyModel call (refreshes on onResume)
-        val isSharePremium = com.edumio.app.core.PremiumStore(this).isPremium()
+        // Share card premium state — re-evaluated on every applyModel call (refreshes on onResume).
+        // While the Premium UI is off everyone gets the real share card, never the locked upsell.
+        val isSharePremium = com.edumio.app.core.FeatureAccess.hasFullAccess(this)
         b.cardShareReport?.visibility = if (isSharePremium) View.VISIBLE else View.GONE
         b.cardShareReportLocked?.visibility = if (isSharePremium) View.GONE else View.VISIBLE
     }
@@ -698,8 +698,9 @@ class ReportsActivity : AppCompatActivity() {
     private lateinit var wrongReportUnlockStore: WrongReportUnlockStore
 
     private fun openWrongAnswersReport(sinceMillis: Long) {
-        val isPremium = com.edumio.app.core.PremiumStore(this).isPremium()
-        if (isPremium || wrongReportUnlockStore.isUnlocked()) {
+        // v1.0 is entirely free and ships no ad SDK — open the report directly rather than offering to
+        // "watch an advertisement" that can never play.
+        if (com.edumio.app.core.FeatureAccess.hasFullAccess(this) || wrongReportUnlockStore.isUnlocked()) {
             startWrongAnswersReportActivity(sinceMillis)
             return
         }

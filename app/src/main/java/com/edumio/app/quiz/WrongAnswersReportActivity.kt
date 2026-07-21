@@ -59,14 +59,8 @@ class WrongAnswersReportActivity : AppCompatActivity() {
 
         repository = WrongAnswersReportRepository(this)
         premiumStore = PremiumStore(this)
-        RewardedAdManager.preload(this)
 
         loadItems()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        RewardedAdManager.preload(this)
     }
 
     private fun loadItems() {
@@ -97,7 +91,9 @@ class WrongAnswersReportActivity : AppCompatActivity() {
             return
         }
 
-        if (premiumStore.isPremium()) {
+        // v1.0 is entirely free and ships no ad SDK: unlock directly instead of offering to "watch an
+        // advertisement" that can never play.
+        if (com.edumio.app.core.FeatureAccess.hasFullAccess(this)) {
             performUnlock(item)
             return
         }

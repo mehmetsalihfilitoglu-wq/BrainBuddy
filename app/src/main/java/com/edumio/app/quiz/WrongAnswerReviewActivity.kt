@@ -50,8 +50,15 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
     private val revealedIndices = mutableSetOf<Int>()
     private var adState = AdState.IDLE
 
+    /**
+     * v1.0 ships entirely free, so every user has full access and [renderLocked] is unreachable.
+     * Previously this asked [WrongReviewAccessManager.isPremium] directly, which is always false in a
+     * shipping build — so wrong-answer review (an MVP keep-list feature) hid the question, asked the user
+     * to watch an advertisement the app does not contain, and after 3/day became a hard dead end whose
+     * only remaining button opened a paywall that immediately dismisses itself.
+     */
     private val hasFullAccess: Boolean
-        get() = accessManager.isPremium() || isParentReview
+        get() = com.edumio.app.core.FeatureAccess.hasFullAccess(this) || isParentReview
 
     // ── Lifecycle ────────────────────────────────────────────────
 
@@ -66,7 +73,6 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         analyticsStore = AnalyticsStore(this)
         accessManager = WrongReviewAccessManager(this)
         accessManager.handleDailyReset()
-        RewardedAdManager.preload(this)
 
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS) ?: arrayListOf()
         val sessionJson = intent.getStringExtra(EXTRA_SESSION_JSON)
@@ -150,6 +156,13 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
     }
 
     private fun updateQuotaDisplay() {
+        // While the Premium UI is off there is no quota concept to communicate at all — showing a
+        // "Sınırsız" badge would only advertise a tier the user cannot buy.
+        if (!com.edumio.app.core.FeatureAccess.mayShowPremiumUi()) {
+            b.tvQuotaDots.visibility = View.GONE
+            b.tvQuotaBadge.visibility = View.GONE
+            return
+        }
         if (hasFullAccess) {
             b.tvQuotaDots.visibility = View.GONE
             b.tvQuotaBadge.visibility = View.VISIBLE

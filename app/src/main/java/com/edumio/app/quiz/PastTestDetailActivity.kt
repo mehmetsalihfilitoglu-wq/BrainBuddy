@@ -62,7 +62,6 @@ class PastTestDetailActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[PastTestDetailViewModel::class.java]
         viewModel.load(testId)
-        RewardedAdManager.preload(this)
 
         val dateStr = SimpleDateFormat("d MMMM yyyy", Locale("tr")).format(Date(snapshot.createdAt))
         findViewById<android.widget.TextView>(R.id.tvScore).text = "${snapshot.score}/${snapshot.total}"
@@ -141,6 +140,15 @@ class PastTestDetailActivity : AppCompatActivity() {
         val btnReplay = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnReplay)
         val layoutLimitReached = findViewById<View>(R.id.layoutLimitReached)
         val btnPremiumCta = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnPremiumCta)
+
+        if (!com.edumio.app.core.FeatureAccess.mayShowPremiumUi()) {
+            // Replaying an exact past test is NOT on the v1.0 keep-list, and its "Premium'a geç" CTA opens
+            // a paywall that dismisses itself. Hide the whole row rather than showing a dead upsell.
+            // Replay stays disabled (QuizActivity bounces token-less replays back to Home).
+            btnReplay.visibility = View.GONE
+            layoutLimitReached.visibility = View.GONE
+            return
+        }
 
         if (premium) {
             // Premium: replay the exact test freely.

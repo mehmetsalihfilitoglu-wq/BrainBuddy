@@ -309,16 +309,25 @@ class QuizResultActivity : AppCompatActivity() {
             am.handleDailyReset()
             val isPrem = am.isPremium()
 
-            // Lock icon + wrong count
-            tvLockIcon.text = if (isPrem) "\u2705" else "\uD83D\uDD12"
             tvWrongCount.text = getString(R.string.result_wrong_count, wrongIds.size)
 
-            // Quota dots + info
-            if (isPrem) {
+            if (!com.edumio.app.core.FeatureAccess.mayShowPremiumUi()) {
+                // v1.0 is entirely free: review is always fully unlocked, there is no daily quota and the
+                // app contains no advertisements. Never render a padlock, quota dots or a Premium upsell \u2014
+                // the old copy promised "Her inceleme i\u00E7in reklam izlenir" on the most-visited screen.
+                tvLockIcon.visibility = View.GONE
+                tvQuotaDots.visibility = View.GONE
+                tvPremiumHint.visibility = View.GONE
+                tvReviewInfo.text = getString(R.string.result_review_info_open)
+            } else if (isPrem) {
+                tvLockIcon.visibility = View.VISIBLE
+                tvLockIcon.text = "✅"
                 tvQuotaDots.visibility = View.GONE
                 tvReviewInfo.text = getString(R.string.result_premium_all_unlocked)
                 tvPremiumHint.visibility = View.GONE
             } else {
+                tvLockIcon.visibility = View.VISIBLE
+                tvLockIcon.text = "🔒"
                 val used = am.getUsedToday()
                 val max = WrongReviewAccessManager.FREE_PER_DAY
                 val remaining = max - used

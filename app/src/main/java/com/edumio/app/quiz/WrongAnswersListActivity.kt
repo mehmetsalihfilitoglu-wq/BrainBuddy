@@ -55,7 +55,6 @@ class WrongAnswersListActivity : AppCompatActivity() {
         quotaStore = WrongReviewQuotaStore(this)
         premiumStore = PremiumStore(this)
         quotaStore.ensureDailyReset()
-        RewardedAdManager.preload(this)
 
         val wrongIds = intent.getStringArrayListExtra(EXTRA_WRONG_IDS) ?: arrayListOf()
         val sessionJson = intent.getStringExtra(EXTRA_SESSION_JSON)
@@ -106,9 +105,18 @@ class WrongAnswersListActivity : AppCompatActivity() {
         outState.putStringArrayList(STATE_EXPANDED_IDS, ArrayList(expandedIds))
     }
 
+    /** v1.0 ships free: everything is unlocked and no ad/quota copy may be shown. */
+    private val fullAccess: Boolean
+        get() = com.edumio.app.core.FeatureAccess.hasFullAccess(this)
+
     private fun updateQuotaChip() {
+        if (!com.edumio.app.core.FeatureAccess.mayShowPremiumUi()) {
+            // No tier, no quota, no advertisements — don't advertise a limit that does not exist.
+            b.chipQuota.visibility = View.GONE
+            return
+        }
         b.chipQuota.visibility = View.VISIBLE
-        b.chipQuota.text = if (premiumStore.isPremium()) {
+        b.chipQuota.text = if (fullAccess) {
             getString(R.string.wrong_review_unlimited)
         } else {
             getString(R.string.wrong_review_remaining, quotaStore.getRemaining())
@@ -128,7 +136,7 @@ class WrongAnswersListActivity : AppCompatActivity() {
 
         questions.find { it.id == questionId } ?: return
 
-        if (premiumStore.isPremium()) {
+        if (fullAccess) {
             revealAndExpand(questionId)
             return
         }

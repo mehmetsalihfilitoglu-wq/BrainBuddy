@@ -272,6 +272,9 @@
     <string name="data_rights_cancel">Vazgeç</string>
     <string name="data_rights_deleted">Verilerin silindi.</string>
     <string name="data_rights_delete_error">Silme sırasında bir sorun oluştu.</string>
+    <!-- Firebase rejects user.delete() on an old session; the user must sign in again first. -->
+    <string name="data_rights_delete_reauth">Güvenlik için hesabını silmeden önce lütfen çıkış yapıp tekrar giriş yap.</string>
+    <string name="data_rights_delete_network">Hesabın silinebilmesi için internet bağlantısı gerekiyor. Bağlantını kontrol edip tekrar dene.</string>
     <string name="data_rights_cloud_note">Bulut senkronu aktif olduğunda dışa aktarma ve silme, hesabının tüm cihazlarını ve sunucudaki verini de kapsayacak.</string>
 
     <!-- Account & Sync -->
@@ -562,6 +565,8 @@
     <!-- Result screen conversion card -->
     <string name="result_wrong_count">%1$d yanlış soru</string>
     <string name="result_review_info_free">Günde %1$d/%2$d inceleme hakkı kaldı\nHer inceleme için reklam izlenir</string>
+    <!-- v1.0 is entirely free: review is always open, no quota and no advertisements. -->
+    <string name="result_review_info_open">Yanlışlarını inceleyip doğrusunu öğren</string>
     <string name="result_review_limit_done">Bugünkü inceleme hakkınız doldu</string>
     <string name="result_premium_all_unlocked">Tüm yanlışlarını sınırsız incele</string>
 
