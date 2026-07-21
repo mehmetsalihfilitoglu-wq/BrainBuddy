@@ -39,6 +39,13 @@ object ReleaseProfile {
      * Billing/entitlement code stays intact (kept independent of SPARK_SAFE); only the UI surfaces hide.
      */
     const val premiumEnabled: Boolean = false
+
+    /**
+     * Master switch for the Lig (league / weekly ranking) surface. It has no backend, so its opponents are
+     * locally simulated — presenting them as real competitors is both off the MVP keep-list and a
+     * deceptive-behaviour risk. Hidden for the first Play release; the `league/` code stays in the repo.
+     */
+    const val leagueEnabled: Boolean = false
 }
 
 /**

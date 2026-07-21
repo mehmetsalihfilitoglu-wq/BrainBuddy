@@ -14,10 +14,18 @@ import com.edumio.app.billing.EntitlementProvider
  */
 object DailyChallengeEntitlement {
 
-    fun isPremiumForReview(context: Context): Boolean = try {
-        EntitlementProvider.repository(context).current().isPremium
-    } catch (_: Throwable) {
-        false // fail safe: unknown entitlement → treat as Free
+    fun isPremiumForReview(context: Context): Boolean {
+        // v1.0 ships to Google Play entirely FREE: no product is purchasable and the paywall
+        // self-dismisses, so gating review/solutions on entitlement would leave every user staring at a
+        // locked explanation whose only CTA does nothing. While the Premium UI is off, review depth is
+        // open to everyone. This CANNOT affect the 5-new-questions-per-day invariant:
+        // [DailyChallengeEntitlementPolicy.newQuestionLimit] ignores the premium flag by design.
+        if (!com.edumio.app.release.ReleaseProfile.premiumEnabled) return true
+        return try {
+            EntitlementProvider.repository(context).current().isPremium
+        } catch (_: Throwable) {
+            false // fail safe: unknown entitlement → treat as Free
+        }
     }
 
     /**
