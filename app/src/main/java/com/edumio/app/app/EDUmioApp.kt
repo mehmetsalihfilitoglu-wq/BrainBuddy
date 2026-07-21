@@ -29,7 +29,9 @@ class EDUmioApp : Application() {
         logStartupPersistenceSync(this)
         // Ensure a valid profile ID exists on first launch (single-profile mode).
         ActiveProfileManager.getActiveProfileId(this)
-        LeagueScheduler.scheduleNextReset(this)
+        // The Lig (league) surface is hidden for the first Play release — it has no backend and its
+        // opponents are simulated — so its weekly reset work is not scheduled either.
+        if (com.edumio.app.release.ReleaseProfile.leagueEnabled) LeagueScheduler.scheduleNextReset(this)
         // Safe local study reminders (real-data gated inside the worker).
         com.edumio.app.notification.NotificationScheduler.schedule(this)
         // Daily Challenge reminders (09:00 / 16:00 / 20:30 local); suppressed once today is completed.
@@ -69,22 +71,27 @@ class EDUmioApp : Application() {
             StartupRuntimeState.publishReady(payload)
         }
 
-        Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
-            try {
-                val text = buildFullCrashReport(throwable)
-                val i = Intent(this, CrashActivity::class.java).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                    putExtra("crash_text", text)
-                    putExtra("stack_trace", text)
-                    putExtra("error_details", text)
+        // DEBUG-ONLY developer crash screen. In a release build this must NOT be installed: it replaces
+        // (rather than chains) the default handler, which orphans Crashlytics and suppresses Play Console
+        // vitals — and it would show the user an obfuscated R8 stack trace under an English title.
+        if (com.edumio.app.BuildConfig.DEBUG) {
+            Thread.setDefaultUncaughtExceptionHandler { _, throwable ->
+                try {
+                    val text = buildFullCrashReport(throwable)
+                    val i = Intent(this, CrashActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        putExtra("crash_text", text)
+                        putExtra("stack_trace", text)
+                        putExtra("error_details", text)
+                    }
+                    startActivity(i)
+                    Thread.sleep(400)
+                } catch (_: Exception) {
+                    // ignore
                 }
-                startActivity(i)
-                Thread.sleep(400)
-            } catch (_: Exception) {
-                // ignore
+                Process.killProcess(Process.myPid())
+                exitProcess(10)
             }
-            Process.killProcess(Process.myPid())
-            exitProcess(10)
         }
     }
 }

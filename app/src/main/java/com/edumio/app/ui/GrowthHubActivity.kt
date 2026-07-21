@@ -590,8 +590,14 @@ class GrowthHubActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardDetailedStats).onTap {
             startActivity(Intent(this, StatsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP))
         }
-        findViewById<MaterialCardView>(R.id.cardLeague).onTap {
-            startActivity(Intent(this, LeagueScreen::class.java))
+        // Lig is hidden for the first Play release: no backend, and its opponents are locally simulated,
+        // so showing them as real competitors would be misleading. Code stays; only the entry is removed.
+        findViewById<MaterialCardView>(R.id.cardLeague).apply {
+            if (com.edumio.app.release.ReleaseProfile.leagueEnabled) {
+                onTap { startActivity(Intent(this@GrowthHubActivity, LeagueScreen::class.java)) }
+            } else {
+                visibility = View.GONE
+            }
         }
         findViewById<MaterialCardView>(R.id.cardReports).onTap {
             startActivity(Intent(this, ReportsActivity::class.java))
