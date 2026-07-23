@@ -197,7 +197,9 @@ class WrongAnswersReportActivity : AppCompatActivity() {
             val key = "${item.testId}_${item.questionId}"
             val isExpanded = expandedIds.contains(key)
 
-            if (item.isUnlocked) {
+            // v1 ships no ad SDK and is entirely free: every row is shown unlocked — the real question stem
+            // and a neutral "Detayı Göster" action, never the old "Reklam İzle ve Aç" locked row.
+            if (item.isUnlocked || com.edumio.app.core.FeatureAccess.hasFullAccess(holder.itemView.context)) {
                 holder.tvTitle.text = item.questionStem?.take(80)?.let { if (it.length >= 80) "$it…" else it } ?: "Yanlış cevap verilmiş soru"
                 holder.btnAction.text = holder.itemView.context.getString(R.string.wrong_review_btn_show_detail)
                 holder.collapsedSection.visibility = View.VISIBLE
@@ -208,7 +210,7 @@ class WrongAnswersReportActivity : AppCompatActivity() {
                 }
             } else {
                 holder.tvTitle.text = holder.itemView.context.getString(R.string.wrong_report_locked_title)
-                holder.btnAction.text = holder.itemView.context.getString(R.string.wrong_report_btn_watch_unlock)
+                holder.btnAction.text = holder.itemView.context.getString(R.string.wrong_report_btn_detail)
                 holder.collapsedSection.visibility = View.VISIBLE
                 holder.expandedSection.visibility = View.GONE
             }
