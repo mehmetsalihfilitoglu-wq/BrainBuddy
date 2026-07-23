@@ -92,26 +92,18 @@ class StudentProfileActivity : AppCompatActivity() {
     private fun refreshGoalCard() {
         val goal = goalPrefs.getGoal()
         val career = goal.careerPath
-        val italianLevel = goal.italianLevel
 
         // Career identity
         findViewById<TextView>(R.id.tvCareerGoal).text = "${career.emoji} ${journeyTitleFor(career)}"
         findViewById<TextView>(R.id.tvGoalDegree).text = career.italianDegreeName
 
-        // Destination cities
-        val citiesView = findViewById<TextView>(R.id.tvGoalCities)
-        if (goal.destinationCities.isNotEmpty()) {
-            citiesView.text = "📍 " + goal.destinationCities.joinToString(", ")
-            citiesView.visibility = View.VISIBLE
-        } else {
-            citiesView.visibility = View.GONE
-        }
+        // v1 onboarding no longer collects destination cities or Italian level, so don't surface them —
+        // show only the active exam.
+        findViewById<TextView>(R.id.tvGoalCities).visibility = View.GONE
 
-        // Meta chips: exam type + Italian level
         val chipGroup = findViewById<ChipGroup>(R.id.chipGroupGoalMeta)
         chipGroup.removeAllViews()
         chipGroup.addView(makeReadOnlyChip(career.examType.code))
-        chipGroup.addView(makeReadOnlyChip("${italianLevel.emoji} ${italianLevel.ceferLevel}"))
     }
 
     private fun makeReadOnlyChip(text: String): Chip {

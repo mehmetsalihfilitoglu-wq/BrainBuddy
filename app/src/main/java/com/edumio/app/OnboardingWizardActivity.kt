@@ -30,7 +30,6 @@ import com.edumio.app.core.UserGoal
 import com.edumio.app.core.UserGoalPrefs
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.textfield.TextInputEditText
 
@@ -38,13 +37,15 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
     // --- wizard state ---
     private var currentStep = 0
-    private val totalSteps = 6  // steps 0..5
+    // v1 onboarding: Welcome → Exam → Name. City / timeline / Italian-level steps were removed from the
+    // flow — the step list is the single source of truth in OnboardingSteps.ORDER.
+    private val totalSteps = com.edumio.app.core.OnboardingSteps.ORDER.size
 
     // Ordered set of chosen study areas; the first one becomes the active area.
     private val selectedCareers = LinkedHashSet<CareerPath>()
-    private val selectedCities = mutableSetOf<String>()
-    private var applicationYear = 2026
-    private var italianLevel: ItalianLevel = ItalianLevel.A0
+    // Kept only as defaults for UserGoal; v1 onboarding no longer asks the user for these.
+    private val applicationYear = 2026
+    private val italianLevel: ItalianLevel = ItalianLevel.A0
     private var studentName = ""
     private var dailyGoalQuestions = 15
 
@@ -57,9 +58,6 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
     // --- step-specific view caches ---
     private var careerAdapter: CareerAdapter? = null
-    private val timelineCards = mutableListOf<MaterialCardView>()
-    private val levelCards = mutableListOf<MaterialCardView>()
-    private var timelineYears = listOf(2026, 2027, 2028, 0) // 0 = exploring
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,16 +69,16 @@ class OnboardingWizardActivity : AppCompatActivity() {
         headerDots = findViewById(R.id.headerDots)
         dotContainer = findViewById(R.id.dotContainer)
 
-        // Inflate all 6 steps into the ViewFlipper
+        // Inflate the v1 steps into the ViewFlipper, strictly from OnboardingSteps.ORDER so the removed
+        // city / timeline / level screens are genuinely unreachable (not merely hidden).
         val inflater = LayoutInflater.from(this)
-        val stepLayouts = listOf(
-            R.layout.onboarding_step_welcome,
-            R.layout.onboarding_step_career,
-            R.layout.onboarding_step_city,
-            R.layout.onboarding_step_timeline,
-            R.layout.onboarding_step_level,
-            R.layout.onboarding_step_name
-        )
+        val stepLayouts = com.edumio.app.core.OnboardingSteps.ORDER.map { step ->
+            when (step) {
+                com.edumio.app.core.OnboardingSteps.Step.WELCOME -> R.layout.onboarding_step_welcome
+                com.edumio.app.core.OnboardingSteps.Step.EXAM -> R.layout.onboarding_step_career
+                com.edumio.app.core.OnboardingSteps.Step.NAME -> R.layout.onboarding_step_name
+            }
+        }
         stepLayouts.forEach { layoutRes ->
             val v = inflater.inflate(layoutRes, viewFlipper, false)
             viewFlipper.addView(v)
@@ -88,9 +86,6 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
         buildDots()
         setupCareerStep()
-        setupCityStep()
-        setupTimelineStep()
-        setupLevelStep()
         setupNameStep()
 
         renderStep(animate = false)
@@ -197,99 +192,8 @@ class OnboardingWizardActivity : AppCompatActivity() {
         rv.isNestedScrollingEnabled = true
     }
 
-    private fun setupCityStep() {
-        val step = viewFlipper.getChildAt(2)
-        val chipGroup = step.findViewById<ChipGroup>(R.id.chipGroupCities)
-
-        // Pairs of (display text, canonical city key) — keys avoid emoji parsing issues
-        val cities = listOf(
-            "🏛️  Roma" to "Roma",
-            "🏙️  Milano" to "Milano",
-            "🎓  Bologna" to "Bologna",
-            "🌸  Firenze" to "Firenze",
-            "⚽  Torino" to "Torino",
-            "☀️  Napoli" to "Napoli",
-            "📖  Padova" to "Padova",
-            "🌊  Palermo" to "Palermo",
-            "🗺️  Henüz bilmiyorum" to "Henüz bilmiyorum"
-        )
-
-        cities.forEach { (displayText, key) ->
-            val chip = Chip(this).apply {
-                text = displayText
-                tag = key
-                isCheckable = true
-                chipCornerRadius = 24f
-                setChipBackgroundColorResource(R.color.white)
-                setChipStrokeColorResource(R.color.divider_light)
-                chipStrokeWidth = 3f
-            }
-            chip.setOnCheckedChangeListener { _, checked ->
-                val cityKey = chip.tag as String
-                if (cityKey == "Henüz bilmiyorum") {
-                    if (checked) {
-                        selectedCities.clear()
-                        selectedCities.add("Henüz bilmiyorum")
-                        chipGroup.children.filterIsInstance<Chip>().forEach { c ->
-                            if (c != chip) c.isChecked = false
-                        }
-                    } else {
-                        selectedCities.remove("Henüz bilmiyorum")
-                    }
-                } else {
-                    if (checked) {
-                        selectedCities.add(cityKey)
-                        chipGroup.children.filterIsInstance<Chip>()
-                            .find { (it.tag as? String) == "Henüz bilmiyorum" }
-                            ?.isChecked = false
-                        selectedCities.remove("Henüz bilmiyorum")
-                    } else {
-                        selectedCities.remove(cityKey)
-                    }
-                }
-            }
-            chipGroup.addView(chip)
-        }
-    }
-
-    private fun setupTimelineStep() {
-        val step = viewFlipper.getChildAt(3)
-        val cardIds = listOf(R.id.cardTimeline1, R.id.cardTimeline2, R.id.cardTimeline3, R.id.cardTimeline4)
-        timelineYears = listOf(2026, 2027, 2028, 0)
-
-        cardIds.forEachIndexed { i, id ->
-            val card = step.findViewById<MaterialCardView>(id)
-            timelineCards.add(card)
-            card.setOnClickListener {
-                applicationYear = timelineYears[i]
-                selectOptionCard(card, timelineCards)
-            }
-        }
-        // Default selection = option 2 (next year)
-        applicationYear = 2027
-        selectOptionCard(timelineCards[1], timelineCards)
-    }
-
-    private fun setupLevelStep() {
-        val step = viewFlipper.getChildAt(4)
-        val cardIds = listOf(R.id.cardLevel1, R.id.cardLevel2, R.id.cardLevel3, R.id.cardLevel4)
-        val levels = ItalianLevel.values()
-
-        cardIds.forEachIndexed { i, id ->
-            val card = step.findViewById<MaterialCardView>(id)
-            levelCards.add(card)
-            card.setOnClickListener {
-                italianLevel = levels[i]
-                selectOptionCard(card, levelCards)
-            }
-        }
-        // Default = A0
-        italianLevel = ItalianLevel.A0
-        selectOptionCard(levelCards[0], levelCards)
-    }
-
     private fun setupNameStep() {
-        val step = viewFlipper.getChildAt(5)
+        val step = viewFlipper.getChildAt(com.edumio.app.core.OnboardingSteps.ORDER.indexOf(com.edumio.app.core.OnboardingSteps.Step.NAME))
         val et = step.findViewById<TextInputEditText>(R.id.etName)
         val chipGroup = step.findViewById<ChipGroup>(R.id.chipGroupGoal)
 
@@ -312,16 +216,20 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
     // ─── validation & data collection ────────────────────────────────────────
 
+    /** Index of the name step in the current flow (Welcome=0, Exam=1, Name=2). */
+    private val nameStepIndex
+        get() = com.edumio.app.core.OnboardingSteps.ORDER.indexOf(com.edumio.app.core.OnboardingSteps.Step.NAME)
+
     private fun validateStep(): Boolean {
         return when (currentStep) {
-            1 -> {
+            1 -> { // Exam selection
                 if (selectedCareers.isEmpty()) {
                     Toast.makeText(this, "Lütfen en az bir alan seç", Toast.LENGTH_SHORT).show()
                     false
                 } else true
             }
-            5 -> {
-                val et = viewFlipper.getChildAt(5).findViewById<TextInputEditText>(R.id.etName)
+            nameStepIndex -> {
+                val et = viewFlipper.getChildAt(nameStepIndex).findViewById<TextInputEditText>(R.id.etName)
                 studentName = et.text?.toString()?.trim() ?: ""
                 if (studentName.isBlank()) {
                     studentName = "Öğrenci"
@@ -333,11 +241,9 @@ class OnboardingWizardActivity : AppCompatActivity() {
     }
 
     private fun collectStepData() {
-        // Career adapter selection is already live-updated
-        // Cities are live-updated via chip listeners
-        // Timeline and level are live-updated via card listeners
-        if (currentStep == 5) {
-            val et = viewFlipper.getChildAt(5).findViewById<TextInputEditText>(R.id.etName)
+        // Career adapter selection is already live-updated.
+        if (currentStep == nameStepIndex) {
+            val et = viewFlipper.getChildAt(nameStepIndex).findViewById<TextInputEditText>(R.id.etName)
             val name = et.text?.toString()?.trim() ?: ""
             if (name.isNotBlank()) studentName = name
         }
@@ -349,7 +255,8 @@ class OnboardingWizardActivity : AppCompatActivity() {
         val name = studentName.ifBlank { "Öğrenci" }
         val careers = selectedCareers.toList().ifEmpty { listOf(CareerPath.OTHER) }
         val primaryCareer = careers.first() // first chosen area becomes the active one
-        val cities = selectedCities.toList().ifEmpty { emptyList() }
+        // v1 onboarding no longer asks for destination cities; default to none.
+        val cities = emptyList<String>()
 
         val goal = UserGoal(
             careerPath = primaryCareer,
@@ -419,25 +326,6 @@ class OnboardingWizardActivity : AppCompatActivity() {
             }
             v.layoutParams = (v.layoutParams as LinearLayout.LayoutParams).apply {
                 width = size; height = size
-            }
-        }
-    }
-
-    // ─── option card selection helper ─────────────────────────────────────────
-
-    private fun selectOptionCard(selected: MaterialCardView, all: List<MaterialCardView>) {
-        val emerald = ContextCompat.getColor(this, R.color.emerald)
-        val emeraldSoft = ContextCompat.getColor(this, R.color.emeraldSoft)
-        val outline = ContextCompat.getColor(this, R.color.divider_light)
-        all.forEach { card ->
-            if (card == selected) {
-                card.strokeColor = emerald
-                card.setCardBackgroundColor(emeraldSoft)
-                card.strokeWidth = (2 * resources.displayMetrics.density).toInt()
-            } else {
-                card.strokeColor = outline
-                card.setCardBackgroundColor(Color.WHITE)
-                card.strokeWidth = (1.5f * resources.displayMetrics.density).toInt()
             }
         }
     }

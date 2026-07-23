@@ -3,6 +3,8 @@ package com.edumio.app.mvp
 import com.edumio.app.auth.NoOpAuthRepository
 import com.edumio.app.core.AppRouter
 import com.edumio.app.core.ExamType
+import com.edumio.app.core.OnboardingSteps
+import java.io.File
 import com.edumio.app.dailychallenge.DailyChallengeBlueprint
 import com.edumio.app.dailychallenge.DailyChallengeHomePresenter
 import com.edumio.app.dailychallenge.DailyChallengeHomePresenter.CardState
@@ -44,6 +46,45 @@ class MvpRegressionTest {
     fun routerHasNoAuthDestination() {
         // Structural guarantee that no sign-in screen exists in the routing surface.
         assertFalse(AppRouter.Destination.values().any { it.name == "AUTH" })
+    }
+
+    // ── Minimal onboarding: Welcome → Exam → Name → Home; city/level/timeline unreachable ─────────
+
+    @Test
+    fun onboardingFlowIsExactlyWelcomeExamName() {
+        // The wizard builds its ViewFlipper strictly from this list, so this IS the reachable flow
+        // (Home follows after the last step). No network is involved in any step.
+        assertEquals(
+            listOf(OnboardingSteps.Step.WELCOME, OnboardingSteps.Step.EXAM, OnboardingSteps.Step.NAME),
+            OnboardingSteps.ORDER,
+        )
+    }
+
+    @Test
+    fun onboardingDoesNotIncludeCityLevelOrTimeline() {
+        // These screens were removed from the flow, not just hidden — the only steps that exist are the
+        // three above, so a city / Italian-level / timeline screen can never be reached.
+        val names = OnboardingSteps.Step.values().map { it.name }.toSet()
+        assertFalse(names.contains("CITY"))
+        assertFalse(names.contains("LEVEL"))
+        assertFalse(names.contains("TIMELINE"))
+        assertEquals(3, OnboardingSteps.Step.values().size)
+        assertTrue(names.contains("EXAM")) // exam selection is still present
+    }
+
+    // ── The support e-mail placeholder must not ship, and the real address must be present ─────────
+
+    @Test
+    fun legalDocsHaveRealSupportEmailAndNoPlaceholder() {
+        val docs = listOf(
+            "src/main/assets/privacy_policy_tr.html",
+            "src/main/assets/terms_of_use_tr.html",
+        )
+        for (path in docs) {
+            val text = File(path).readText()
+            assertFalse("$path still contains CONTACT_EMAIL_PLACEHOLDER", text.contains("CONTACT_EMAIL_PLACEHOLDER"))
+            assertTrue("$path is missing the real support e-mail", text.contains("support.edumio@gmail.com"))
+        }
     }
 
     // ── The account system is off: no Firebase Auth, no hidden account ─────────────────────────────
