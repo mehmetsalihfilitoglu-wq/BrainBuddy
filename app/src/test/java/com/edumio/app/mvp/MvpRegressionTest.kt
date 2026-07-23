@@ -1,5 +1,6 @@
 package com.edumio.app.mvp
 
+import com.edumio.app.auth.NoOpAuthRepository
 import com.edumio.app.core.AppRouter
 import com.edumio.app.core.ExamType
 import com.edumio.app.dailychallenge.DailyChallengeBlueprint
@@ -9,46 +10,56 @@ import com.edumio.app.release.ReleaseProfile
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /**
- * MVP regression coverage for the product-hardening round: the pure, JVM-testable invariants behind
- * mandatory authentication, correct Home states, premium being off, and per-exam isolation.
+ * MVP regression coverage for the account-free v1: the pure, JVM-testable invariants behind removing
+ * authentication, correct Home states, premium being off, and per-exam isolation.
  *
  * Device-only behaviours (system BACK not closing the app on sub-screens; the actual Room per-exam
- * question query) are covered by manual/instrumented checks; here we lock the logic those screens rely
- * on so a regression fails the JVM suite.
+ * question query; on-device persistence surviving process death) are covered by manual/instrumented
+ * checks; here we lock the logic those screens rely on so a regression fails the JVM suite.
  */
 class MvpRegressionTest {
 
-    // ── Authentication gate: Home is unreachable while signed out (no anonymous auth) ──────────────
+    // ── Account-free routing: there is no sign-in screen and no signed-out state can block access ──
 
     @Test
-    fun unauthenticatedUser_neverRoutesToHome() {
-        // Whatever the onboarding state, a signed-out user must NOT land on Home.
-        assertNotEquals(AppRouter.Destination.HOME, AppRouter.decide(signedIn = false, onboardingDone = true))
-        assertNotEquals(AppRouter.Destination.HOME, AppRouter.decide(signedIn = false, onboardingDone = false))
+    fun freshInstall_routesToOnboarding_neverAuth() {
+        // A fresh install goes to onboarding — and there is no AUTH destination at all (compile-time),
+        // so a launcher can never open a sign-in screen.
+        assertEquals(AppRouter.Destination.ONBOARDING, AppRouter.decide(onboardingDone = false))
     }
 
     @Test
-    fun returningSignedOutUser_routesToAuth() {
-        assertEquals(AppRouter.Destination.AUTH, AppRouter.decide(signedIn = false, onboardingDone = true))
+    fun returningUser_reachesHome_withNoAuth() {
+        // A returning user opens straight into Home from locally-persisted onboarding state — no network,
+        // no sign-in, no login-required guard.
+        assertEquals(AppRouter.Destination.HOME, AppRouter.decide(onboardingDone = true))
     }
 
     @Test
-    fun freshInstall_routesToOnboarding() {
-        assertEquals(AppRouter.Destination.ONBOARDING, AppRouter.decide(signedIn = false, onboardingDone = false))
+    fun routerHasNoAuthDestination() {
+        // Structural guarantee that no sign-in screen exists in the routing surface.
+        assertFalse(AppRouter.Destination.values().any { it.name == "AUTH" })
+    }
+
+    // ── The account system is off: no Firebase Auth, no hidden account ─────────────────────────────
+
+    @Test
+    fun authIsDisabledForV1() {
+        assertFalse(ReleaseProfile.authEnabled)
     }
 
     @Test
-    fun signedInButNotSetUp_routesToOnboarding() {
-        assertEquals(AppRouter.Destination.ONBOARDING, AppRouter.decide(signedIn = true, onboardingDone = false))
-    }
-
-    @Test
-    fun signedInAndSetUp_routesToHome() {
-        assertEquals(AppRouter.Destination.HOME, AppRouter.decide(signedIn = true, onboardingDone = true))
+    fun noOpAuth_hasNoAccountAndTouchesNoBackend() {
+        // While authEnabled is false, AuthProvider hands out this repository. It reports no account and
+        // never creates one (anonymous, device-ID or otherwise) — no Firebase Auth SDK is contacted.
+        val repo = NoOpAuthRepository()
+        assertFalse(repo.isSignedIn())
+        assertNull(repo.currentUser())
     }
 
     // ── Home states: a brand-new user is never shown "completed" with zero progress ────────────────
@@ -95,6 +106,15 @@ class MvpRegressionTest {
     fun leagueIsHiddenForFirstRelease() {
         // The Lig opponents are locally simulated and there is no backend — it must not be reachable.
         assertFalse(ReleaseProfile.leagueEnabled)
+    }
+
+    @Test
+    fun cloudAndPurchaseEntryPointsAreDisabledInSparkSafe() {
+        // In the shipping (spark-safe) configuration, every backend-dependent surface stays off, so no
+        // premium purchase or cloud-sync entry point is reachable.
+        assertFalse(com.edumio.app.release.ReleaseFlags.purchasesEnabled(sparkSafe = true))
+        assertFalse(com.edumio.app.release.ReleaseFlags.cloudSyncEnabled(sparkSafe = true))
+        assertFalse(com.edumio.app.release.ReleaseFlags.cloudAccountEnabled(sparkSafe = true))
     }
 
     /**
