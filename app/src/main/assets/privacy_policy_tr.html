@@ -23,10 +23,10 @@
   1) Replace CONTACT_EMAIL_PLACEHOLDER below with a real, monitored support e-mail address.
   2) Set the "Yürürlük tarihi" to the actual publication date.
   3) Publish this same text at a PUBLIC URL and enter that URL in the Play Console listing
-     (Play requires a publicly reachable privacy-policy URL — an in-app page alone is not enough),
-     then set PRIVACY_POLICY_URL in app/build.gradle.kts.
+     (Play requires a publicly reachable privacy-policy URL), then set PRIVACY_POLICY_URL in
+     app/build.gradle.kts.
   4) Have it reviewed by a lawyer for your jurisdiction. The technical descriptions below reflect
-     what the app actually does as of this build and are accurate, but this file is not legal advice.
+     what the app actually does as of this build (v1: NO user account); this file is not legal advice.
 -->
 <body>
 <div class="logo"><span class="edu">EDU</span><span class="mio">mio</span></div>
@@ -37,30 +37,25 @@
 öğrenme uygulamasıdır. Bu politika, hangi verileri neden işlediğimizi ve bunlar üzerinde hangi
 haklara sahip olduğunu açıklar.</p>
 
-<h2>1. Hesap bilgileri</h2>
-<p>EDUmio'yu kullanmak için bir hesap oluşturman gerekir. Kayıt ve giriş işlemleri Google'ın
-<strong>Firebase Authentication</strong> hizmeti üzerinden yapılır. Bu kapsamda işlenen veriler:</p>
-<ul>
-    <li><strong>E-posta adresin</strong> — hesabını tanımlamak, giriş yapmanı ve şifre sıfırlamanı sağlamak için.</li>
-    <li><strong>Kullanıcı kimliği (UID)</strong> — çalışma verilerini hesabınla ilişkilendirmek için.</li>
-    <li><strong>Görünen ad</strong> (isteğe bağlı) — uygulama içinde sana hitap etmek için.</li>
-</ul>
-<p>Şifren EDUmio tarafından görülmez ve cihazında düz metin olarak saklanmaz; doğrulama tümüyle
-Firebase Authentication tarafından yapılır.</p>
+<h2>1. Hesap yok</h2>
+<p>Bu sürümde EDUmio'yu kullanmak için <strong>hesap oluşturmana gerek yoktur</strong>. Uygulama
+e-posta adresi, şifre veya benzeri bir kimlik bilgisi <strong>toplamaz</strong>. Giriş ekranı,
+kayıt veya oturum açma yoktur.</p>
 
 <h2>2. Cihazında kalan çalışma verileri</h2>
-<p>Günlük görev geçmişin, doğru/yanlış cevapların, yanlış soru havuzun, XP'in, seviyen, serin ve
-uygulama ayarların <strong>yalnızca cihazında</strong> saklanır. Bu sürümde çalışma verilerin bir
-sunucuya yedeklenmez veya cihazlar arasında senkronize edilmez.</p>
+<p>Görünen adın, seçtiğin sınav, günlük görev geçmişin, doğru/yanlış cevapların, yanlış soru havuzun,
+XP'in, seviyen, serin ve uygulama ayarların <strong>yalnızca cihazında</strong> saklanır. Bu veriler
+bir sunucuya gönderilmez, bir hesaba bağlanmaz ve cihazlar arasında senkronize edilmez.</p>
 
 <h2>3. Kullanım ve hata verileri</h2>
 <ul>
-    <li><strong>Firebase Analytics</strong> — hangi ekranların kullanıldığı gibi toplu kullanım
-        istatistikleri; uygulamayı iyileştirmek için.</li>
+    <li><strong>Firebase Analytics</strong> — hangi ekranların kullanıldığı gibi toplu, kimliksiz
+        kullanım istatistikleri; uygulamayı iyileştirmek için.</li>
     <li><strong>Firebase Crashlytics</strong> — uygulama çöktüğünde hata kaydı ve cihaz modeli /
         işletim sistemi sürümü gibi teknik bilgiler; hataları düzeltmek için.</li>
 </ul>
-<p>Bu veriler Google tarafından, hizmet sağlayıcımız sıfatıyla işlenir.</p>
+<p>Bu veriler Google tarafından, hizmet sağlayıcımız sıfatıyla işlenir ve bir EDUmio hesabıyla
+ilişkilendirilmez.</p>
 
 <h2>4. Reklam yok</h2>
 <p>EDUmio <strong>reklam içermez</strong>. Uygulamada herhangi bir reklam SDK'sı bulunmaz,
@@ -72,16 +67,14 @@ taraflara satılmaz veya paylaşılmaz.</p>
 yerel olarak planlanır. Bildirimleri istediğin an Ayarlar &rarr; Bildirimler'den kapatabilirsin.</p>
 
 <h2>6. Saklama süresi</h2>
-<p>Hesap bilgilerin, sen hesabını silene kadar saklanır. Cihazındaki çalışma verileri, sen
-silene veya uygulamayı kaldırana kadar cihazında kalır.</p>
+<p>Verilerin, sen silene veya uygulamayı kaldırana kadar yalnızca cihazında kalır. Uygulamayı
+kaldırırsan cihazındaki ilerlemen silinir; bu veriler buluta yedeklenmediği için geri getirilemez.</p>
 
 <h2>7. Haklarını nasıl kullanırsın</h2>
 <ul>
     <li><strong>Verilerini dışa aktar:</strong> Ayarlar &rarr; Gizlilik ve Veri &rarr; Verileri Dışa Aktar.</li>
-    <li><strong>Hesabını ve verilerini sil:</strong> Ayarlar &rarr; Gizlilik ve Veri &rarr;
-        Gizlilik ve Verilerim &rarr; Hesabımı ve Verilerimi Sil. Bu işlem hesabını kalıcı olarak siler
-        ve geri alınamaz.</li>
-    <li><strong>Çıkış yap:</strong> Ayarlar &rarr; Hesap &rarr; Çıkış Yap.</li>
+    <li><strong>Verilerini sil:</strong> Ayarlar &rarr; Gizlilik ve Veri &rarr; Gizlilik ve Verilerim
+        &rarr; Verilerimi Sil. Bu işlem cihazındaki tüm çalışma verini kalıcı olarak siler.</li>
 </ul>
 
 <h2>8. Çocukların gizliliği</h2>

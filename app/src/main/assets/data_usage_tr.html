@@ -22,9 +22,8 @@
 </head>
 <!--
   OWNER NOTE: this page must stay consistent with the Play Console "Data safety" form.
-  Declare: E-mail address (account management, required), User IDs (account management, required),
-  Crash logs + App interactions (analytics/diagnostics). Advertising ID: NO. Data sold: NO.
-  Data encrypted in transit: YES. Users can request deletion: YES (in-app).
+  v1 has NO user account. Declare: Crash logs + App interactions/diagnostics (Analytics + Crashlytics).
+  No e-mail, no user IDs collected. Advertising ID: NO. Data sold: NO. Data encrypted in transit: YES.
 -->
 <body>
 <div class="logo"><span class="edu">EDU</span><span class="mio">mio</span></div>
@@ -33,19 +32,19 @@
 <p>Bu sayfa, EDUmio'nun hangi veriyi topladığını, neden topladığını ve nerede tutulduğunu özetler.
 Ayrıntılar için <strong>Gizlilik Politikası</strong>'na bakabilirsin.</p>
 
+<p>Bu sürümde <strong>hesap yoktur</strong>: e-posta, şifre veya kullanıcı kimliği toplanmaz.</p>
+
 <h2>Toplanan veriler</h2>
 <table>
     <tr><th>Veri</th><th>Amaç</th><th>Nerede</th></tr>
-    <tr><td>E-posta adresi</td><td>Hesap oluşturma, giriş, şifre sıfırlama</td><td>Firebase Authentication (Google)</td></tr>
-    <tr><td>Kullanıcı kimliği (UID)</td><td>Çalışma verilerini hesabınla ilişkilendirmek</td><td>Firebase Authentication (Google)</td></tr>
-    <tr><td>Görünen ad (isteğe bağlı)</td><td>Uygulama içinde hitap</td><td>Cihaz + hesap profili</td></tr>
-    <tr><td>Çalışma verileri (günlük görev, doğru/yanlış, XP, seri, ayarlar)</td><td>Öğrenme deneyimini sürdürmek</td><td>Yalnızca cihazında</td></tr>
-    <tr><td>Kullanım olayları</td><td>Uygulamayı iyileştirmek</td><td>Firebase Analytics (Google)</td></tr>
+    <tr><td>Görünen ad, seçilen sınav, çalışma verileri (günlük görev, doğru/yanlış, XP, seri, ayarlar)</td><td>Öğrenme deneyimini sürdürmek</td><td>Yalnızca cihazında</td></tr>
+    <tr><td>Kullanım olayları (kimliksiz)</td><td>Uygulamayı iyileştirmek</td><td>Firebase Analytics (Google)</td></tr>
     <tr><td>Çökme kayıtları</td><td>Hataları düzeltmek</td><td>Firebase Crashlytics (Google)</td></tr>
 </table>
 
 <h2>Toplanmayanlar</h2>
 <ul>
+    <li>Hesap bilgisi — e-posta, şifre veya kullanıcı kimliği <strong>toplanmaz</strong> (hesap yok).</li>
     <li>Reklam kimliği (Advertising ID) — uygulama <strong>reklam içermez</strong>.</li>
     <li>Konum, rehber, mikrofon, kamera, SMS veya dosya erişimi.</li>
     <li>Ödeme bilgisi — bu sürümde uygulama içi satın alma yoktur.</li>
@@ -62,8 +61,8 @@ yalnızca uygulamanın çalışması için hizmet sağlayıcı sıfatıyla Googl
 </ul>
 
 <h2>Kontrol sende</h2>
-<p>Verilerini Ayarlar &rarr; Gizlilik ve Veri bölümünden dışa aktarabilir, hesabını ve verilerini
-kalıcı olarak silebilirsin.</p>
+<p>Verilerini Ayarlar &rarr; Gizlilik ve Veri bölümünden dışa aktarabilir veya cihazından kalıcı
+olarak silebilirsin. Veriler buluta yedeklenmez; uygulamayı kaldırırsan yerel ilerlemen silinir.</p>
 
 <footer>&copy; 2026 EDUmio</footer>
 </body>
