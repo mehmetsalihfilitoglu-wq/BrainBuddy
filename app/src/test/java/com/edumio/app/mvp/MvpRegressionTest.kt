@@ -188,6 +188,53 @@ class MvpRegressionTest {
         assertFalse(DailyChallengeBlueprint.isSupported(ExamType.TOLC_I))
     }
 
+    // ── §6 Exam selection collapses to exactly the three shipped exams ─────────────────────────────
+
+    @Test
+    fun exactlyThreeSelectableExams_imatTilCent() {
+        val three = setOf(ExamType.IMAT, ExamType.TIL_I, ExamType.CENT_S)
+        // Selection shows one card per exam (a representative CareerPath carries each isolated bank).
+        val cards = com.edumio.app.core.CareerPath.values()
+            .filter { it.examType in three }
+            .distinctBy { it.examType }
+        assertEquals(3, cards.size)
+        assertEquals(three, cards.map { it.examType }.toSet())
+        // Every shipped exam must have at least one representative career, or its card would vanish.
+        three.forEach { ex -> assertTrue(com.edumio.app.core.CareerPath.values().any { it.examType == ex }) }
+    }
+
+    // ── §3 Option labels: bare-letter figure questions are detected and never shuffled ─────────────
+
+    @Test
+    fun letterOptionsAreDetected() {
+        assertTrue(com.edumio.app.quiz.OptionLabels.isLetterOptions(listOf("A", "B", "C", "D", "E")))
+        assertTrue(com.edumio.app.quiz.OptionLabels.isLetterOptions(listOf("A", "B", "C", "D")))
+        // Real text options are NOT letter options (so they keep their "A) …" label + shuffle).
+        assertFalse(com.edumio.app.quiz.OptionLabels.isLetterOptions(listOf("12", "24", "36", "48")))
+        assertFalse(com.edumio.app.quiz.OptionLabels.isLetterOptions(listOf("A) 12", "B) 24")))
+        // A partial / out-of-order letter set is not treated as bare-letter.
+        assertFalse(com.edumio.app.quiz.OptionLabels.isLetterOptions(listOf("A", "C", "B", "D")))
+        assertFalse(com.edumio.app.quiz.OptionLabels.isLetterOptions(emptyList()))
+    }
+
+    @Test
+    fun letterOptionsUseIdentityOrder() {
+        // Bare-letter figure questions MUST keep identity order so each on-screen letter still points at
+        // the correct region of the image (this is the in-scope §3 fix; it is forced regardless of id).
+        listOf("q-imat-1", "abc", "z").forEach { id ->
+            assertEquals(
+                listOf(0, 1, 2, 3, 4),
+                com.edumio.app.dailychallenge.DailyChallengeOptions.displayOrder(id, 5, letterOptions = true),
+            )
+        }
+        // The non-letter ordering is always a valid permutation of all indices (correctness of scoring
+        // relies on this — the tapped display position maps back to a real original option index).
+        assertEquals(
+            setOf(0, 1, 2, 3, 4),
+            com.edumio.app.dailychallenge.DailyChallengeOptions.displayOrder("q-imat-1", 5, letterOptions = false).toSet(),
+        )
+    }
+
     @Test
     fun eachExamBlueprintUsesOnlyItsOwnSections() {
         // The three exams' section vocabularies must not silently share the SAME full section set,
