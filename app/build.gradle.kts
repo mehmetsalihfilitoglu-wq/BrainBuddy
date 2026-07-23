@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 4
-        versionName = "1.0.0-rc2"   // account-free v1 device-test RC; versionCode bumped so this artifact is distinct from the prior APK (must stay monotonic across Play uploads)
+        versionCode = 5
+        versionName = "1.0.0-rc3"   // adds real deterministic option shuffle; versionCode bumped so this artifact is distinct from rc2 (must stay monotonic across Play uploads)
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
