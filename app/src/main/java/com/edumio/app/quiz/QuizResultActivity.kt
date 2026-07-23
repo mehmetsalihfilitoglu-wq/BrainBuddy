@@ -393,10 +393,11 @@ class QuizResultActivity : AppCompatActivity() {
             finish()
         }
 
-        findViewById<android.widget.Button>(R.id.btnPlayAgain).setOnClickListener {
-            startActivity(Intent(this, QuizActivity::class.java))
-            finish()
-        }
+        // v1 exposes no "Tekrar Oyna" — a replay would start another new-question session. Only wrong-answer
+        // review and Home remain. (This legacy result screen is itself unreachable once the quiz entry
+        // points are removed; hidden here as belt-and-suspenders.)
+        findViewById<android.widget.Button>(R.id.btnPlayAgain).visibility = View.GONE
+        findViewById<android.widget.Button>(R.id.btnRetryTest).visibility = View.GONE
 
         if (s.passed) {
             newMilestone?.let { msg ->

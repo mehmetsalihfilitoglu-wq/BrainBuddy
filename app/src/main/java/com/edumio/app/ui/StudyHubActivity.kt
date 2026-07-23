@@ -35,9 +35,10 @@ class StudyHubActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() { finish() }
         })
-        findViewById<MaterialButton>(R.id.btnPracticeAll).onTap {
-            startActivity(Intent(this, QuizActivity::class.java))
-        }
+        // v1 has exactly one new-question action — the Daily Challenge. The generic "Pratik Yap" here
+        // started a separate quiz session, so it is removed; Öğren keeps the coach tip and wrong-question
+        // review (neither creates new questions).
+        findViewById<MaterialButton>(R.id.btnPracticeAll).visibility = View.GONE
         findViewById<MaterialCardView>(R.id.cardCoachTip).onTap {
             startActivity(Intent(this, com.edumio.app.coach.CoachScreen::class.java))
         }

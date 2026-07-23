@@ -145,6 +145,7 @@
 
         <!-- ─── TODAY'S NEXT STEP — the one decided action ─── -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardNextStep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_24"

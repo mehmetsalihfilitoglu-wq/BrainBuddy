@@ -112,19 +112,16 @@ class HomeActivity : AppCompatActivity() {
                 meta.visibility = View.VISIBLE; meta.text = streakText
                 countdown.visibility = View.GONE
                 setMascot(com.edumio.app.ui.EduMascot.Expression.SLEEPING)
+                // v1 has no separate practice flow, so neither edge launches a quiz session.
                 if (!com.edumio.app.dailychallenge.DailyChallengeBlueprint.isSupported(exam)) {
-                    // The active study area has no daily-challenge blueprint yet: this is NOT "completed" —
-                    // invite the student to free practice instead of showing a misleading "done" state.
+                    // The active study area has no daily-challenge blueprint yet — not "completed".
                     state.setText(R.string.dc_state_unavailable)
-                    cta.isEnabled = true; cta.setText(R.string.dc_cta_practice)
-                    val practice = View.OnClickListener { startActivity(Intent(this@HomeActivity, QuizActivity::class.java)) }
-                    cta.onTap { practice.onClick(it) }; card.onTap { practice.onClick(it) }
                 } else {
                     // Supported exam but genuinely no unseen questions left today (pool exhausted).
                     state.setText(R.string.dc_empty_today)
-                    cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
-                    card.setOnClickListener(null)
                 }
+                cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
+                card.setOnClickListener(null)
                 return@launch
             }
             setMascot(com.edumio.app.ui.EduMascot.forHome(available = !ui.completed, completed = ui.completed))
@@ -235,11 +232,16 @@ class HomeActivity : AppCompatActivity() {
         val step = com.edumio.app.core.NextStepEngine(this).compute()
 
         findViewById<TextView>(R.id.tvStepTitle).text = step.title
+        // v1's only new-question action is the Daily Challenge (the hero card above). This "next step"
+        // card is now purely a shortcut to wrong-question REVIEW; for any other kind (which would have
+        // started a separate practice session) it is hidden entirely rather than offering a second flow.
+        val nextStepCard = findViewById<MaterialCardView>(R.id.cardNextStep)
+        if (step.kind != com.edumio.app.core.NextStepEngine.Kind.REVIEW) {
+            nextStepCard.visibility = View.GONE
+            return
+        }
+        nextStepCard.visibility = View.VISIBLE
         findViewById<TextView>(R.id.tvStepMeta).text = step.meta
-
-        // The daily task and its progress live on the Günün Görevi (Daily Challenge) hero above; this
-        // "next step" card is the single secondary action, so it no longer shows a separate mission
-        // counter (the old "0/2 tamamlandı", which read as a confusing second daily goal).
         findViewById<ProgressBar>(R.id.missionProgressBar).visibility = View.GONE
         findViewById<TextView>(R.id.tvMissionProgress).visibility = View.GONE
 
@@ -248,12 +250,7 @@ class HomeActivity : AppCompatActivity() {
         btn.onTap {
             when (step.kind) {
                 com.edumio.app.core.NextStepEngine.Kind.REVIEW -> WrongPoolLauncher.launch(this)
-                else -> startActivity(Intent(this, QuizActivity::class.java).also { i ->
-                    step.subjectFilter?.let { i.putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, it) }
-                    step.missionCategories?.takeIf { it.isNotEmpty() }?.let {
-                        i.putExtra(QuizActivity.EXTRA_MISSION_CATEGORIES, it.joinToString(","))
-                    }
-                })
+                else -> Unit
             }
         }
     }

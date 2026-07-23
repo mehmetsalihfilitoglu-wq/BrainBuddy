@@ -30,20 +30,9 @@ class CoachScreen : AppCompatActivity() {
         findViewById<TextView>(R.id.tvDailyRec).text = daily.text
         findViewById<TextView>(R.id.tvWeeklyPlan).text = weekly.summary
 
-        if (daily.isRemedialSuggestion && daily.topic != null) {
-            findViewById<View>(R.id.btnRemedial).apply {
-                visibility = View.VISIBLE
-                setOnClickListener {
-                    startActivity(
-                        Intent(this@CoachScreen, com.edumio.app.quiz.QuizActivity::class.java)
-                            .putExtra(com.edumio.app.quiz.QuizActivity.EXTRA_REMEDIAL, true)
-                    )
-                    finish()
-                }
-            }
-        } else {
-            findViewById<View>(R.id.btnRemedial).visibility = View.GONE
-        }
+        // v1's only new-question action is the Daily Challenge, so the coach no longer starts a separate
+        // remedial quiz — it stays advice-only. The remedial button is always hidden.
+        findViewById<View>(R.id.btnRemedial).visibility = View.GONE
 
         findViewById<View>(R.id.btnCoachBack).setOnClickListener { finish() }
     }

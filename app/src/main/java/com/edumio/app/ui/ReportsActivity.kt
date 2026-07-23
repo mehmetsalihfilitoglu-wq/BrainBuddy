@@ -376,16 +376,14 @@ class ReportsActivity : AppCompatActivity() {
             }
             b.tvInsightText.text = insightText
 
+            // v1 has no subject "mini test": keep the weakest-topic advice text, but never surface a
+            // button that would start a separate quiz session.
+            b.btnMiniTestSuggest.visibility = View.GONE
             if (rec != null) {
                 b.tvMostWrongTopic.visibility = View.VISIBLE
                 b.tvMostWrongTopic.text = rec.message
-                b.btnMiniTestSuggest.visibility = View.VISIBLE
-                b.btnMiniTestSuggest.setOnClickListener {
-                    startQuizWithSubjectFilter(rec.subjectTr)
-                }
             } else {
                 b.tvMostWrongTopic.visibility = View.GONE
-                b.btnMiniTestSuggest.visibility = View.GONE
             }
         } else {
             b.cardAdvancedStats.visibility = View.GONE
@@ -628,12 +626,6 @@ class ReportsActivity : AppCompatActivity() {
         bottomSheet.show()
     }
 
-    private fun startQuizWithSubjectFilter(subjectTr: String) {
-        startActivity(Intent(this, QuizActivity::class.java).apply {
-            putExtra(QuizActivity.EXTRA_SUBJECT_FILTER, subjectTr)
-        })
-    }
-
     private fun showPdfErrorDialogIfAvailable() {
         val errorFile = File(cacheDir, PdfReportGenerator.PDF_ERROR_FILENAME)
         val content = runCatching { errorFile.readText() }.getOrNull()
@@ -691,8 +683,14 @@ class ReportsActivity : AppCompatActivity() {
         }
     }
 
+    // v1's only new-question action is the Daily Challenge, so every empty-state CTA points there instead
+    // of starting a legacy quiz session.
     private fun startQuiz() {
-        startActivity(Intent(this, QuizActivity::class.java))
+        startActivity(com.edumio.app.dailychallenge.DailyChallengeActivity.intent(this))
+    }
+
+    private fun startQuizWithSubjectFilter(@Suppress("UNUSED_PARAMETER") subjectTr: String) {
+        startActivity(com.edumio.app.dailychallenge.DailyChallengeActivity.intent(this))
     }
 
     private lateinit var wrongReportUnlockStore: WrongReportUnlockStore
