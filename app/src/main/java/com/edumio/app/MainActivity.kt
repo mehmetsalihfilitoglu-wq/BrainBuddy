@@ -6,11 +6,9 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.edumio.app.auth.AuthProvider
 import com.edumio.app.core.AppRouter
 import com.edumio.app.core.OnboardingPrefs
 import com.edumio.app.core.StudyAreaManager
-import com.edumio.app.ui.AuthActivity
 
 /**
  * Launcher / splash activity. Shows the EDUmio mascot + wordmark briefly (over the Android 12
@@ -33,17 +31,14 @@ class MainActivity : AppCompatActivity() {
         if (routed || isFinishing) return
         routed = true
         val onboardingDone = OnboardingPrefs.isDone(this)
-        val signedIn = AuthProvider.isSignedIn(this)
-        // Authentication is mandatory (real Firebase account, no anonymous): the app never reaches Home
-        // for a signed-out user. Fresh installs run the onboarding wizard (welcome → sign in/up → exam →
-        // name → Home); a returning user who has completed onboarding but signed out lands on the sign-in
-        // screen; everyone else who is both signed in and set up goes straight Home. See [AppRouter].
-        val target = when (AppRouter.decide(signedIn = signedIn, onboardingDone = onboardingDone)) {
+        // v1 is account-free: route purely on locally-persisted onboarding state. A fresh install runs the
+        // onboarding wizard (welcome → exam → name → Home); a returning user opens straight into Home with
+        // no network and no sign-in. See [AppRouter].
+        val target = when (AppRouter.decide(onboardingDone = onboardingDone)) {
             AppRouter.Destination.HOME -> HomeActivity::class.java
-            AppRouter.Destination.AUTH -> AuthActivity::class.java
             AppRouter.Destination.ONBOARDING -> OnboardingWizardActivity::class.java
         }
-        Log.d("MainActivity", "onboardingDone=$onboardingDone signedIn=$signedIn startScreen=${target.simpleName}")
+        Log.d("MainActivity", "onboardingDone=$onboardingDone startScreen=${target.simpleName}")
         // NOTE: NO_HISTORY was applied to the LAUNCHED screen (Home), which made the OS finish Home the
         // moment the user opened any sub-screen — so system BACK from a sub-screen found an empty task and
         // closed the app. Removed. The splash still doesn't linger because we finish() below + CLEAR_TASK.

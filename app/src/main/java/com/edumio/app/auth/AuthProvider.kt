@@ -31,7 +31,10 @@ object AuthProvider {
     fun currentUser(context: Context): AuthUser? = repository(context).currentUser()
     fun isSignedIn(context: Context): Boolean = repository(context).isSignedIn()
 
-    private fun buildRepository(appContext: Context): AuthRepository =
-        if (FirebaseConfig.isConfigured(appContext)) FirebaseAuthRepository()
-        else LocalAuthStubRepository(appContext)
+    private fun buildRepository(appContext: Context): AuthRepository = when {
+        // v1 ships account-free: never touch a real auth backend at runtime. See ReleaseProfile.authEnabled.
+        !com.edumio.app.release.ReleaseProfile.authEnabled -> NoOpAuthRepository()
+        FirebaseConfig.isConfigured(appContext) -> FirebaseAuthRepository()
+        else -> LocalAuthStubRepository(appContext)
+    }
 }

@@ -28,8 +28,6 @@ import com.edumio.app.core.ProfileStore
 import com.edumio.app.core.StudyAreaManager
 import com.edumio.app.core.UserGoal
 import com.edumio.app.core.UserGoalPrefs
-import com.edumio.app.auth.AuthProvider
-import com.edumio.app.ui.AuthActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.chip.Chip
@@ -49,9 +47,6 @@ class OnboardingWizardActivity : AppCompatActivity() {
     private var italianLevel: ItalianLevel = ItalianLevel.A0
     private var studentName = ""
     private var dailyGoalQuestions = 15
-
-    // Set while the mandatory sign-in/up screen is open; onResume advances once the user is authenticated.
-    private var awaitingAuth = false
 
     // --- root views ---
     private lateinit var viewFlipper: ViewFlipper
@@ -124,17 +119,8 @@ class OnboardingWizardActivity : AppCompatActivity() {
         if (!validateStep()) return
         collectStepData()
 
-        // Mandatory auth gate: leaving the welcome step requires a real account. A user who is not yet
-        // signed in is sent to the sign-in/up screen; onResume resumes the wizard once authenticated.
-        if (currentStep == 0 && !AuthProvider.isSignedIn(this)) {
-            awaitingAuth = true
-            startActivity(
-                Intent(this, AuthActivity::class.java)
-                    .putExtra(AuthActivity.EXTRA_MODE, AuthActivity.MODE_SIGN_UP)
-            )
-            return
-        }
-
+        // v1 is account-free: onboarding runs welcome → exam → … → name → Home with no sign-in step and
+        // no network. Everything collected here is persisted locally in finishOnboarding().
         if (currentStep == totalSteps - 1) {
             finishOnboarding()
             return
@@ -144,19 +130,6 @@ class OnboardingWizardActivity : AppCompatActivity() {
         currentStep++
         animateTo(forward)
         renderStep(animate = true)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        // Returning from the auth screen: advance into setup only if the user actually signed in.
-        if (awaitingAuth) {
-            awaitingAuth = false
-            if (AuthProvider.isSignedIn(this) && currentStep == 0) {
-                currentStep = 1
-                animateTo(forward = true)
-                renderStep(animate = true)
-            }
-        }
     }
 
     private fun onBackClicked() {

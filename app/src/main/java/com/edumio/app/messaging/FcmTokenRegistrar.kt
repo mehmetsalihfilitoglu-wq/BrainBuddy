@@ -16,6 +16,10 @@ object FcmTokenRegistrar {
 
     fun register(context: Context, token: String) {
         try {
+            // v1 is account-free and has no deployed backend: server push can never target a user, and we
+            // must not contact Firebase Auth. Bail out BEFORE any FirebaseAuth/Firestore call. FCM may
+            // still auto-fetch a token; it simply goes unused (local WorkManager reminders are unaffected).
+            if (!com.edumio.app.release.ReleaseProfile.cloudSyncEnabled) return
             if (token.isBlank() || !FirebaseConfig.isConfigured(context)) return
             val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return
             FirebaseFirestore.getInstance()
