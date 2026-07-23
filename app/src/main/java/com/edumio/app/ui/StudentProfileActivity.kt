@@ -93,17 +93,11 @@ class StudentProfileActivity : AppCompatActivity() {
         val goal = goalPrefs.getGoal()
         val career = goal.careerPath
 
-        // Career identity
-        findViewById<TextView>(R.id.tvCareerGoal).text = "${career.emoji} ${journeyTitleFor(career)}"
-        findViewById<TextView>(R.id.tvGoalDegree).text = career.italianDegreeName
-
-        // v1 onboarding no longer collects destination cities or Italian level, so don't surface them —
-        // show only the active exam.
+        // v1 is exam-framed: show the exam, not the degree/career journey, and no city/level.
+        findViewById<TextView>(R.id.tvCareerGoal).text = "${career.emoji} ${career.examType.code}"
+        findViewById<TextView>(R.id.tvGoalDegree).text = career.examType.fullNameIt
         findViewById<TextView>(R.id.tvGoalCities).visibility = View.GONE
-
-        val chipGroup = findViewById<ChipGroup>(R.id.chipGroupGoalMeta)
-        chipGroup.removeAllViews()
-        chipGroup.addView(makeReadOnlyChip(career.examType.code))
+        findViewById<ChipGroup>(R.id.chipGroupGoalMeta).visibility = View.GONE
     }
 
     private fun makeReadOnlyChip(text: String): Chip {

@@ -18,10 +18,10 @@ import android.content.Context
  */
 object StudyAreaManager {
 
-    /** One study area = one profile carrying a career. */
+    /** One study area = one profile carrying a career (which maps 1:1 to an exam). */
     data class Area(val id: String, val career: CareerPath, val isActive: Boolean) {
-        /** e.g. "Tıp · IMAT" */
-        val displayName: String get() = "${career.displayNameTr} · ${career.examType.code}"
+        /** v1 is exam-framed: show the exam, not the degree/career. e.g. "IMAT". */
+        val displayName: String get() = career.examType.code
         val emoji: String get() = career.emoji
     }
 

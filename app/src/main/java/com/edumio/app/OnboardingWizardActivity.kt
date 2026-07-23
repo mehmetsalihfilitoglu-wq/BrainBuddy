@@ -354,9 +354,10 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: VH, position: Int) {
             val career = items[position]
+            // v1 selects by EXAM, not degree/career: show the exam code + its verified full name.
             holder.tvEmoji.text = career.emoji
-            holder.tvName.text = career.displayNameTr
-            holder.tvItalian.text = career.italianDegreeName
+            holder.tvName.text = career.examType.code            // IMAT / TIL-I / CEnT-S
+            holder.tvItalian.text = career.examType.fullNameIt   // verified product description
 
             val isSelected = position in selectedPositions
             val emerald = ContextCompat.getColor(holder.card.context, R.color.emerald)

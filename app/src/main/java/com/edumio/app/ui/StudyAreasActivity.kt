@@ -178,7 +178,7 @@ class StudyAreasActivity : AppCompatActivity() {
             toast(getString(R.string.areas_all_added))
             return
         }
-        val labels = available.map { "${it.emoji}  ${it.displayNameTr} · ${it.examType.code}" }.toTypedArray()
+        val labels = available.map { "${it.emoji}  ${it.examType.code} · ${it.examType.fullNameIt}" }.toTypedArray()
         MaterialAlertDialogBuilder(this)
             .setTitle(getString(R.string.areas_add_dialog_title))
             .setItems(labels) { _, which ->
