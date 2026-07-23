@@ -110,27 +110,19 @@ class DailyChallengeActivity : AppCompatActivity() {
         progressBar.max = questions.size
         progressBar.progress = index + 1
 
-        if (!q.imageAsset.isNullOrBlank()) {
-            try {
-                assets.open(q.imageAsset!!.trim()).use { image.setImageBitmap(BitmapFactory.decodeStream(it)) }
-                image.visibility = View.VISIBLE
-                image.contentDescription = getString(R.string.dc_cd_question_figure)
-            } catch (_: Throwable) {
-                image.visibility = View.GONE
-            }
-        } else {
-            image.visibility = View.GONE
-        }
+        com.edumio.app.quiz.QuestionImageBinder.bind(image, q.imageAsset, getString(R.string.dc_cd_question_figure))
 
         stem.text = q.questionText
         val choices = parseChoices(q.optionsJson)
-        currentOrder = DailyChallengeOptions.displayOrder(q.id, choices.size)
+        val lettered = com.edumio.app.quiz.OptionLabels.isLetterOptions(choices)
+        currentOrder = DailyChallengeOptions.displayOrder(q.id, choices.size, letterOptions = lettered)
         group.setOnCheckedChangeListener(null)
         group.clearCheck()
         options.forEachIndexed { pos, btn ->
             if (pos < currentOrder.size) {
-                val letter = ('A' + pos)
-                btn.text = getString(R.string.dc_option_fmt, letter, choices[currentOrder[pos]])
+                val text = choices[currentOrder[pos]]
+                // Bare-letter questions (options live in the figure) show just "A","B",… — never "A) A".
+                btn.text = if (lettered) text else getString(R.string.dc_option_fmt, ('A' + pos), text)
                 btn.visibility = View.VISIBLE
                 btn.isEnabled = true
             } else {

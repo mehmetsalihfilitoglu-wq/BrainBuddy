@@ -142,7 +142,10 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
 
         // Header
         b.progressText.text = "${index + 1}/${questions.size}"
-        b.subjectChip.text = "${q.subject.tr} \u2022 (\u0130nceleme)"
+        // Prefer the exam-subject label (IMAT/EDUmio carry it in topic); otherwise show a neutral
+        // "(\u0130nceleme)" rather than the K-12 "Matematik" that every exam subject collapses to.
+        val subjectLabel = q.topic?.takeIf { it.isNotBlank() }
+        b.subjectChip.text = if (subjectLabel != null) "$subjectLabel \u2022 (\u0130nceleme)" else "(\u0130nceleme)"
 
         updateQuotaDisplay()
 
@@ -233,18 +236,8 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
         b.questionText.text = q.stem
         b.questionText.visibility = View.VISIBLE
 
-        // Show image if available
-        if (!q.imageAsset.isNullOrBlank()) {
-            try {
-                assets.open(q.imageAsset!!.trim()).use { input ->
-                    val bmp = BitmapFactory.decodeStream(input)
-                    if (bmp != null) {
-                        b.questionImage.setImageBitmap(bmp)
-                        b.questionImage.visibility = View.VISIBLE
-                    }
-                }
-            } catch (_: Exception) { /* skip */ }
-        }
+        // Show image if available (shared binder: natural aspect ratio, memory-safe, never cropped).
+        QuestionImageBinder.bind(b.questionImage, q.imageAsset)
 
         val displayChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
         val userSel = sessionAnswers[q.id] ?: -1

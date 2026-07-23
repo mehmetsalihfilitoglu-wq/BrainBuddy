@@ -103,9 +103,10 @@
                 <ImageView
                     android:id="@+id/questionImage"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
                     android:visibility="gone"
                     android:contentDescription="@null"/>
 

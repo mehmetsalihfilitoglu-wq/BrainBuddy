@@ -125,22 +125,19 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
         queueLabel.setText(R.string.dc_review_title)
         progress.text = DailyChallengeReviewPresenter.progressText(pos, items.size)
 
-        if (!q.imageAsset.isNullOrBlank()) {
-            try {
-                assets.open(q.imageAsset!!.trim()).use { image.setImageBitmap(BitmapFactory.decodeStream(it)) }
-                image.visibility = View.VISIBLE
-            } catch (_: Throwable) { image.visibility = View.GONE }
-        } else image.visibility = View.GONE
+        com.edumio.app.quiz.QuestionImageBinder.bind(image, q.imageAsset, getString(R.string.dc_cd_question_figure))
 
         stem.text = q.questionText
         val choices = parseChoices(q.optionsJson)
-        currentOrder = DailyChallengeOptions.displayOrder(q.id, choices.size)
+        val lettered = com.edumio.app.quiz.OptionLabels.isLetterOptions(choices)
+        currentOrder = DailyChallengeOptions.displayOrder(q.id, choices.size, letterOptions = lettered)
         group.setOnCheckedChangeListener(null)
         group.clearCheck()
         val defaultColor = androidx.core.content.ContextCompat.getColor(this, R.color.edu_text_dark)
         options.forEachIndexed { p, btn ->
             if (p < currentOrder.size) {
-                btn.text = getString(R.string.dc_option_fmt, ('A' + p), choices[currentOrder[p]])
+                val text = choices[currentOrder[p]]
+                btn.text = if (lettered) text else getString(R.string.dc_option_fmt, ('A' + p), text)
                 btn.setTextColor(defaultColor) // clear any correct/incorrect highlight from the previous item
                 btn.visibility = View.VISIBLE
                 btn.isEnabled = true

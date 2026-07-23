@@ -99,9 +99,10 @@ object QuestionMapper {
             imageAsset = e.imageAsset?.takeIf { it.isNotBlank() },
             difficulty = difficulty,
             examType = examType,
-            // For IMAT, carry the exam-subject label in topic so the quiz chip can show it
-            // (the K-12 Subject enum has no IMAT subjects). Preserve null for other exams.
-            topic = if (examType == ExamType.IMAT) imatSubjectLabel(e.subject) else null,
+            // For IMAT and the EDUmio-original bank (which uses the same IMAT subject codes), carry the
+            // exam-subject label in topic so the header can show a real subject (Biyoloji/Kimya/…) instead
+            // of falling back to the brand name "EDUmio". Preserve null for other exams.
+            topic = if (examType == ExamType.IMAT || examType == ExamType.EDUMIO_ORIGINAL) imatSubjectLabel(e.subject) else null,
             type = e.type,
             skill = e.skill,
             presentationStem = presentationStem,

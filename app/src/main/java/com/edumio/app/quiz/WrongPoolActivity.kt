@@ -103,24 +103,7 @@ class WrongPoolActivity : AppCompatActivity() {
             b.progressText.text = getString(R.string.wrong_pool_remaining, poolStore.size())
             b.questionText.text = q.stem
 
-            if (!q.imageAsset.isNullOrBlank()) {
-                val path = q.imageAsset!!.trim()
-                try {
-                    assets.open(path).use { stream ->
-                        val bitmap = BitmapFactory.decodeStream(stream)
-                        if (bitmap != null) {
-                            b.questionImage.setImageBitmap(bitmap)
-                            b.questionImage.visibility = View.VISIBLE
-                        } else {
-                            b.questionImage.visibility = View.GONE
-                        }
-                    }
-                } catch (_: Exception) {
-                    b.questionImage.visibility = View.GONE
-                }
-            } else {
-                b.questionImage.visibility = View.GONE
-            }
+            QuestionImageBinder.bind(b.questionImage, q.imageAsset)
 
             b.optA.text = q.choices.getOrNull(0) ?: "-"
             b.optB.text = q.choices.getOrNull(1) ?: "-"

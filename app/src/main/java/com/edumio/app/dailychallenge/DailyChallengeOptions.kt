@@ -13,8 +13,13 @@ package com.edumio.app.dailychallenge
  */
 object DailyChallengeOptions {
 
-    fun displayOrder(questionId: String, optionCount: Int): List<Int> {
-        if (optionCount <= 1) return (0 until optionCount).toList()
+    /**
+     * [letterOptions] = the choices are bare letters whose real options live inside the figure
+     * (see [com.edumio.app.quiz.OptionLabels.isLetterOptions]). Those must be shown in identity order so
+     * each letter still points at the correct region of the image; only genuine text options are shuffled.
+     */
+    fun displayOrder(questionId: String, optionCount: Int, letterOptions: Boolean = false): List<Int> {
+        if (optionCount <= 1 || letterOptions) return (0 until optionCount).toList()
         // Stable, id-seeded key per original index; sort by it for a deterministic permutation.
         return (0 until optionCount).sortedBy { idx ->
             var h = 1125899906842597L // FNV-ish seed
@@ -25,6 +30,6 @@ object DailyChallengeOptions {
     }
 
     /** Display position at which [originalAnswerIndex] appears. */
-    fun displayIndexOfAnswer(questionId: String, optionCount: Int, originalAnswerIndex: Int): Int =
-        displayOrder(questionId, optionCount).indexOf(originalAnswerIndex).coerceAtLeast(0)
+    fun displayIndexOfAnswer(questionId: String, optionCount: Int, originalAnswerIndex: Int, letterOptions: Boolean = false): Int =
+        displayOrder(questionId, optionCount, letterOptions).indexOf(originalAnswerIndex).coerceAtLeast(0)
 }

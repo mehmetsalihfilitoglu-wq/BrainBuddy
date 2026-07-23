@@ -110,17 +110,13 @@ class SolutionActivity : AppCompatActivity() {
 
             // figure
             val figure = findViewById<ImageView>(R.id.solFigure)
-            if (!q.imageAsset.isNullOrBlank()) {
-                try {
-                    assets.open(q.imageAsset!!.trim()).use { figure.setImageBitmap(BitmapFactory.decodeStream(it)) }
-                    figure.visibility = View.VISIBLE
-                } catch (_: Throwable) { figure.visibility = View.GONE }
-            }
+            com.edumio.app.quiz.QuestionImageBinder.bind(figure, q.imageAsset)
             findViewById<TextView>(R.id.solStem).text = q.questionText
 
             // options in the SAME stable display order as the flow screens
             val choices = parseChoices(q.optionsJson)
-            val order = DailyChallengeOptions.displayOrder(q.id, choices.size)
+            val lettered = com.edumio.app.quiz.OptionLabels.isLetterOptions(choices)
+            val order = DailyChallengeOptions.displayOrder(q.id, choices.size, letterOptions = lettered)
             val optBox = findViewById<LinearLayout>(R.id.solOptions)
             optBox.removeAllViews()
             val green = ContextCompat.getColor(this@SolutionActivity, R.color.brand_primary_dark)
@@ -132,8 +128,10 @@ class SolutionActivity : AppCompatActivity() {
                     chosen != null && orig == chosen && chosen != q.answerIndex -> "  ✗"
                     else -> ""
                 }
+                val d = resources.displayMetrics.density
+                val optText = choices[orig]
                 optBox.addView(TextView(this@SolutionActivity).apply {
-                    text = getString(R.string.dc_option_fmt, ('A' + pos), choices[orig]) + marker
+                    text = (if (lettered) optText else getString(R.string.dc_option_fmt, ('A' + pos), optText)) + marker
                     textSize = 15f
                     setLineSpacing(0f, 1.25f)
                     setTextColor(when {
@@ -141,7 +139,7 @@ class SolutionActivity : AppCompatActivity() {
                         chosen != null && orig == chosen -> red
                         else -> dark
                     })
-                    setPadding(0, 8, 0, 8)
+                    setPadding(0, (8 * d).toInt(), 0, (8 * d).toInt())
                 })
             }
 
@@ -180,7 +178,7 @@ class SolutionActivity : AppCompatActivity() {
         if (s.shortExplanation.isNotBlank()) section(R.string.sol_short_title, s.shortExplanation)
         if (s.solutionSteps.isNotEmpty()) {
             body.addView(sectionTitle(getString(R.string.sol_steps_title)))
-            body.addView(sectionBody(s.solutionSteps.mapIndexed { i, st -> "${i + 1}. $st" }.joinToString("\n")))
+            body.addView(sectionBody(s.solutionSteps.mapIndexed { i, st -> "${i + 1}. $st" }.joinToString("\n\n")))
         }
         s.figureExplanation?.let { section(R.string.sol_figure_title, it) }
         s.formulaNotes?.let { section(R.string.sol_formula_title, it) }
@@ -188,7 +186,7 @@ class SolutionActivity : AppCompatActivity() {
         if (s.commonMistake.isNotBlank()) section(R.string.sol_common_mistake, s.commonMistake)
         if (s.optionExplanations.isNotEmpty()) {
             body.addView(sectionTitle(getString(R.string.sol_options_title)))
-            body.addView(sectionBody(s.optionExplanations.entries.joinToString("\n") { "• ${it.value}" }))
+            body.addView(sectionBody(s.optionExplanations.entries.joinToString("\n\n") { "• ${it.value}" }))
         }
     }
 
@@ -199,7 +197,9 @@ class SolutionActivity : AppCompatActivity() {
         setTextColor(ContextCompat.getColor(this@SolutionActivity, R.color.edu_text_muted))
         isAllCaps = true
         letterSpacing = 0.06f
-        setPadding(0, 26, 0, 4)
+        val d = resources.displayMetrics.density
+        // Clear vertical space before each section heading so sections don't run together (raw px → dp).
+        setPadding(0, (22 * d).toInt(), 0, (6 * d).toInt())
     }
 
     private fun sectionBody(text: String) = TextView(this).apply {
@@ -207,6 +207,9 @@ class SolutionActivity : AppCompatActivity() {
         textSize = 15f
         setLineSpacing(0f, 1.35f)
         setTextColor(ContextCompat.getColor(this@SolutionActivity, R.color.edu_text_dark))
+        // Bottom breathing room so consecutive section bodies don't butt against the next heading.
+        val d = resources.displayMetrics.density
+        setPadding(0, 0, 0, (6 * d).toInt())
     }
 
     private fun parseChoices(optionsJson: String?): List<String> {
