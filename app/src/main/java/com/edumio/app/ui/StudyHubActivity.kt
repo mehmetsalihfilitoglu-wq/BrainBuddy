@@ -36,12 +36,8 @@ class StudyHubActivity : AppCompatActivity() {
             override fun handleOnBackPressed() { finish() }
         })
         // v1 has exactly one new-question action — the Daily Challenge. The generic "Pratik Yap" here
-        // started a separate quiz session, so it is removed; Öğren keeps the coach tip and wrong-question
-        // review (neither creates new questions).
+        // started a separate quiz session, so it is removed. The Study Coach is not part of v1 either.
         findViewById<MaterialButton>(R.id.btnPracticeAll).visibility = View.GONE
-        findViewById<MaterialCardView>(R.id.cardCoachTip).onTap {
-            startActivity(Intent(this, com.edumio.app.coach.CoachScreen::class.java))
-        }
         // V1 focus: university discovery + info/tools live on web (Instagram/blog/ISEEmio),
         // not in the exam-prep app. DiscoverActivity / ToolsActivity are kept in the codebase
         // for a future major version; only their in-app entry points are removed.
@@ -66,7 +62,6 @@ class StudyHubActivity : AppCompatActivity() {
     private fun refreshAll() {
         refreshExamContext()
         refreshStats()
-        refreshCoachTip()
         refreshWrongPool()
     }
 
@@ -94,18 +89,6 @@ class StudyHubActivity : AppCompatActivity() {
         }
     }
 
-    private fun refreshCoachTip() {
-        // The card is always visible as the single entry to the study coach.
-        // When there is enough data, preview the weakest-topic tip; otherwise
-        // show a neutral description of what the coach offers.
-        val weakest = analytics.getWeakestTopicsWithCounts(1)
-            .firstOrNull { it.second.total >= 5 }
-        findViewById<TextView>(R.id.tvCoachMessage).text = if (weakest != null) {
-            getString(R.string.study_hub_coach_tip, weakest.first, weakest.second.accuracy.roundToInt())
-        } else {
-            getString(R.string.study_hub_coach_generic)
-        }
-    }
 
     private fun refreshWrongPool() {
         val card = findViewById<MaterialCardView>(R.id.cardWrongPool)

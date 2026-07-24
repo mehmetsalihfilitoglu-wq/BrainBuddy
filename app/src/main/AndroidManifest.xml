@@ -210,10 +210,6 @@
             android:name=".legal.LegalDocActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".coach.CoachScreen"
-            android:exported="false" />
-
         <!-- ── Developer / debug tools ── -->
         <activity
             android:name=".ui.DebugSeedStatusActivity"

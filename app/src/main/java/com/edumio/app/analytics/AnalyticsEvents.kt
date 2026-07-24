@@ -28,11 +28,10 @@ object AnalyticsEvents {
     const val REVIEW_COMPLETED = "review_completed"
     const val WRONG_QUESTION_MASTERED = "wrong_question_mastered"
 
-    // Progress / coach
+    // Progress
     const val ACHIEVEMENT_UNLOCKED = "achievement_unlocked"
     const val EXAM_READINESS_VIEWED = "exam_readiness_viewed"
     const val PROGRESS_VIEWED = "progress_viewed"
-    const val COACH_VIEWED = "coach_viewed"
 
     // Discovery
     const val UNIVERSITY_DISCOVERY_VIEWED = "university_discovery_viewed"

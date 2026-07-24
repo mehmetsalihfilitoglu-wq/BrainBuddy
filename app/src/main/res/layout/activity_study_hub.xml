@@ -201,66 +201,6 @@
              DiscoverActivity / ToolsActivity remain in the codebase for a future version;
              their in-app entry cards are intentionally removed to keep the app exam-only. -->
 
-        <!-- ─── ÇALIŞMA KOÇU (single entry → CoachScreen) ─── -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardCoachTip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_12"
-            app:cardCornerRadius="@dimen/radius_md"
-            app:cardElevation="0dp"
-            app:cardBackgroundColor="@color/white"
-            app:strokeWidth="1dp"
-            app:strokeColor="@color/border">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="@dimen/space_16"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/icon_action"
-                    android:layout_height="@dimen/icon_action"
-                    android:src="@drawable/ic_review"
-                    app:tint="@color/emerald"
-                    android:contentDescription="@null"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/space_12"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/study_hub_coach_label"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/textPrimary"/>
-
-                    <TextView
-                        android:id="@+id/tvCoachMessage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/study_hub_coach_generic"
-                        android:textSize="12sp"
-                        android:textColor="@color/textSecondary"
-                        android:layout_marginTop="2dp"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="›"
-                    android:textSize="22sp"
-                    android:textColor="@color/textSecondary"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
         <!-- ─── WRONG POOL CARD ─── -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardWrongPool"
