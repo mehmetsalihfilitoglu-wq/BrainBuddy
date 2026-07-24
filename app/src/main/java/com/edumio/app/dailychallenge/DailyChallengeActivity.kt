@@ -112,6 +112,13 @@ class DailyChallengeActivity : AppCompatActivity() {
 
         com.edumio.app.quiz.QuestionImageBinder.bind(image, q.imageAsset, getString(R.string.dc_cd_question_figure))
 
+        // Each question rebinds the SAME views inside one ScrollView, so without this the next
+        // question inherits the previous one's scroll position — if you scrolled down to answer Q2,
+        // Q3's stem opens off-screen above the fold. Reset to the top on every question.
+        findViewById<android.widget.ScrollView>(R.id.dcScroll)?.let { sv ->
+            sv.post { sv.scrollTo(0, 0) }
+        }
+
         stem.text = com.edumio.app.quiz.QuestionTypography.format(q.questionText)
         val choices = parseChoices(q.optionsJson)
         val lettered = com.edumio.app.quiz.OptionLabels.isLetterOptions(choices)

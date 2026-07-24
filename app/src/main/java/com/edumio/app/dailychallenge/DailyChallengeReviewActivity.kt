@@ -127,6 +127,12 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
 
         com.edumio.app.quiz.QuestionImageBinder.bind(image, q.imageAsset, getString(R.string.dc_cd_question_figure))
 
+        // Same rebind-in-place ScrollView as the challenge flow: without a reset the next review
+        // question opens at the previous one's scroll offset, with its stem above the fold.
+        findViewById<android.widget.ScrollView>(R.id.dcrvScroll)?.let { sv ->
+            sv.post { sv.scrollTo(0, 0) }
+        }
+
         stem.text = com.edumio.app.quiz.QuestionTypography.format(q.questionText)
         val choices = parseChoices(q.optionsJson)
         val lettered = com.edumio.app.quiz.OptionLabels.isLetterOptions(choices)

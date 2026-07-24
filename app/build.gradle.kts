@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 11
-        versionName = "1.0.0-rc9"   // final polish: one dialog system + TalkBack labels on back buttons (versionCode bumped, monotonic across Play uploads)
+        versionCode = 12
+        versionName = "1.0.0-rc10"  // core-loop scroll reset + app-wide adjustResize keyboard handling (versionCode bumped, monotonic across Play uploads)
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")

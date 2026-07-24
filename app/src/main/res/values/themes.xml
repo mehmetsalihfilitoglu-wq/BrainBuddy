@@ -66,6 +66,13 @@
         <!-- Default button style -->
         <item name="materialButtonStyle">@style/BBButton</item>
 
+        <!-- Keyboard: RESIZE the window rather than pan it, so a focused field never pushes the
+             screen's primary CTA out of view (the onboarding footer button sits outside the step
+             ViewFlipper and was vulnerable to this). Declared once here so every screen behaves the
+             same — previously only the now-dead AuthActivity declared a soft-input mode, leaving the
+             real input screens on the OEM-dependent default. -->
+        <item name="android:windowSoftInputMode">adjustResize</item>
+
         <!-- Cohesive, subtle screen transitions across the whole app -->
         <item name="android:windowAnimationStyle">@style/Animation.Mio</item>
     </style>
