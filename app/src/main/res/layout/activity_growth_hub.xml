@@ -33,7 +33,7 @@
                 android:src="@drawable/ic_arrow_back"
                 android:padding="12dp"
                 app:tint="@color/textSecondary"
-                android:contentDescription="@null"/>
+                android:contentDescription="@string/cd_back"/>
 
             <TextView
                 android:layout_width="wrap_content"

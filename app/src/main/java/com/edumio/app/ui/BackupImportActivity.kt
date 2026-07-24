@@ -2,8 +2,8 @@
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.edumio.app.R
 import com.edumio.app.core.BackupManager
 
@@ -24,7 +24,7 @@ class BackupImportActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             val msg = getString(R.string.backup_import_summary, summary.profileCount, summary.blockedAppCount)
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setTitle("Yedek Özeti")
                 .setMessage("$msg\n\nUygula?")
                 .setPositiveButton("Evet") { _, _ ->

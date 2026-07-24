@@ -35,6 +35,17 @@
         <!-- Outline -->
         <item name="colorOutlineVariant">@color/border</item>
 
+        <!-- Surface-container roles. Material3 draws dialogs, menus and bottom sheets on these;
+             leaving them undefined made every dialog fall back to the Material BASELINE
+             (purple-tinted) surface instead of EDUmio white. -->
+        <item name="colorSurfaceContainerHigh">@color/surface_bg</item>
+        <item name="colorSurfaceContainerHighest">@color/surface_variant</item>
+        <item name="colorSurfaceContainerLow">@color/surface_bg</item>
+        <item name="colorSurfaceContainerLowest">@color/white</item>
+
+        <!-- ONE dialog look app-wide (container, radius, title/body, button treatment). -->
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.EDUmio.Dialog</item>
+
         <!-- Window & system bars.
              targetSdk 35 enforces edge-to-edge on Android 15; the app's layouts
              are built for fitted windows, so we opt out and keep classic insets.

@@ -10,8 +10,8 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.core.content.FileProvider
 import com.edumio.app.R
 import com.edumio.app.analytics.AnalyticsEvents
@@ -103,7 +103,7 @@ class DataRightsActivity : AppCompatActivity() {
     }
 
     private fun confirmDelete() {
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle(getString(R.string.data_rights_delete))
             .setMessage(getString(R.string.data_rights_delete_confirm))
             .setNegativeButton(getString(R.string.data_rights_cancel), null)
