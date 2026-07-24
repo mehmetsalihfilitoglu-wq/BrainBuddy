@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ═══ Wide windows ≥ 720dp — tablets, iPad-Air-class ═══ -->
+<resources>
+
+    <!-- 720dp window → ≈480dp column; 839dp → ≈599dp. -->
+    <dimen name="page_padding_h">120dp</dimen>
+
+    <dimen name="section_gap">32dp</dimen>
+    <dimen name="card_gap">16dp</dimen>
+
+</resources>
