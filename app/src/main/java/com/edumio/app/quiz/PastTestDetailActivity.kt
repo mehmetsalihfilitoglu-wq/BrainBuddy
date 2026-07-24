@@ -203,7 +203,8 @@ private class WrongQuestionDetailAdapter(
         if (item.isUnlocked) {
             layoutLocked.visibility = View.GONE
             layoutUnlocked.visibility = View.VISIBLE
-            holder.view.findViewById<android.widget.TextView>(R.id.tvQuestion).text = item.question?.stem ?: "-"
+            holder.view.findViewById<android.widget.TextView>(R.id.tvQuestion).text =
+                QuestionTypography.format(item.question?.stem).ifEmpty { "-" }
             holder.view.findViewById<android.widget.TextView>(R.id.tvUserChoice).apply {
                 visibility = View.VISIBLE
                 text = "Senin cevabın: ${item.userChoiceText}\n❌ Yanlış"

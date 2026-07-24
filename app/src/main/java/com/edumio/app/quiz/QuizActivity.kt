@@ -710,7 +710,7 @@ class QuizActivity : AppCompatActivity() {
         } else {
             "${q.subject.tr} • ${q.gradeDisplayLabel}"
         }
-        b.questionText.text = q.stem
+        b.questionText.text = QuestionTypography.format(q.stem)
 
         if (!q.imageAsset.isNullOrBlank()) {
             val path = q.imageAsset!!.trim()

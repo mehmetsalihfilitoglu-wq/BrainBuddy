@@ -127,7 +127,7 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
 
         com.edumio.app.quiz.QuestionImageBinder.bind(image, q.imageAsset, getString(R.string.dc_cd_question_figure))
 
-        stem.text = q.questionText
+        stem.text = com.edumio.app.quiz.QuestionTypography.format(q.questionText)
         val choices = parseChoices(q.optionsJson)
         val lettered = com.edumio.app.quiz.OptionLabels.isLetterOptions(choices)
         currentOrder = DailyChallengeOptions.displayOrder(q.id, choices.size, letterOptions = lettered)

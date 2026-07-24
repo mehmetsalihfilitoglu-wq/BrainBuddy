@@ -111,7 +111,7 @@ class SolutionActivity : AppCompatActivity() {
             // figure
             val figure = findViewById<ImageView>(R.id.solFigure)
             com.edumio.app.quiz.QuestionImageBinder.bind(figure, q.imageAsset)
-            findViewById<TextView>(R.id.solStem).text = q.questionText
+            findViewById<TextView>(R.id.solStem).text = com.edumio.app.quiz.QuestionTypography.format(q.questionText)
 
             // options in the SAME stable display order as the flow screens
             val choices = parseChoices(q.optionsJson)

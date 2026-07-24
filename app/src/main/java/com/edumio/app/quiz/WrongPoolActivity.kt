@@ -101,7 +101,7 @@ class WrongPoolActivity : AppCompatActivity() {
             currentQuestion = q
             b.subjectChip.text = getString(R.string.wrong_pool_mode_chip)
             b.progressText.text = getString(R.string.wrong_pool_remaining, poolStore.size())
-            b.questionText.text = q.stem
+            b.questionText.text = QuestionTypography.format(q.stem)
 
             QuestionImageBinder.bind(b.questionImage, q.imageAsset)
 

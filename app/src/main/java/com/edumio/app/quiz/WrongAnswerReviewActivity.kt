@@ -233,7 +233,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
 
     private fun renderUnlocked(q: Question) {
         // Show full question
-        b.questionText.text = q.stem
+        b.questionText.text = QuestionTypography.format(q.stem)
         b.questionText.visibility = View.VISIBLE
 
         // Show image if available (shared binder: natural aspect ratio, memory-safe, never cropped).
@@ -266,7 +266,7 @@ class WrongAnswerReviewActivity : AppCompatActivity() {
     // ── RETRY mode ───────────────────────────────────────────────
 
     private fun renderRetry(q: Question) {
-        b.questionText.text = q.stem
+        b.questionText.text = QuestionTypography.format(q.stem)
         b.questionText.visibility = View.VISIBLE
 
         val displayChoices = QuizOutputGuard.sanitizeQuestion(q).presentationChoices ?: q.choices
