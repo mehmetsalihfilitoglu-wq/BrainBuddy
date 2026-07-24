@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 8
-        versionName = "1.0.0-rc6"   // question typography standard: lossless sentence-per-paragraph rendering across IMAT/TIL-I/CEnT-S (versionCode bumped, monotonic across Play uploads)
+        versionCode = 9
+        versionName = "1.0.0-rc7"   // UX polish pass: visible selected/disabled states, one chip spec, dp-correct touch targets (versionCode bumped, monotonic across Play uploads)
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")

@@ -103,7 +103,8 @@ class DailyChallengeResultActivity : AppCompatActivity() {
                 textSize = 15f
                 setTextColor(ContextCompat.getColor(this@DailyChallengeResultActivity, R.color.edu_text_dark))
                 gravity = Gravity.START
-                setPadding(0, 12, 0, 0)
+                // dp, not raw pixels — 12px collapsed to ~4dp of breathing room on a 3x screen.
+                setPadding(0, (12 * resources.displayMetrics.density).toInt(), 0, 0)
             }
             container.addView(row)
         }
@@ -137,7 +138,8 @@ class DailyChallengeResultActivity : AppCompatActivity() {
                 maxLines = 2
                 ellipsize = android.text.TextUtils.TruncateAt.END
                 setTextColor(ContextCompat.getColor(this@DailyChallengeResultActivity, R.color.edu_text_dark))
-                setPadding(0, 18, 0, 4)
+                val d = resources.displayMetrics.density
+                setPadding(0, (18 * d).toInt(), 0, (4 * d).toInt())
             }
             box.addView(stemPreview)
             val actions = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
@@ -159,14 +161,28 @@ class DailyChallengeResultActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * A row action ("Tekrar Çöz" / "Çözümü Gör"). These were sized in RAW PIXELS (minHeight = 44px ≈ 15dp
+     * on a 3x screen, 6px ≈ 2dp of vertical padding), so they were both far under the 48dp touch guideline
+     * and looked like plain text rather than something you can press (UX rules 2 & 5). They now use the
+     * shared control background and dp-correct sizing.
+     */
     private fun rowAction(label: String, onClick: () -> Unit): TextView = TextView(this).apply {
+        val d = resources.displayMetrics.density
         text = label
         textSize = 13f
         setTypeface(typeface, android.graphics.Typeface.BOLD)
         setTextColor(ContextCompat.getColor(this@DailyChallengeResultActivity, R.color.brand_primary_dark))
-        minHeight = 44
-        gravity = Gravity.CENTER_VERTICAL
-        setPadding(0, 6, 48, 6)
+        gravity = Gravity.CENTER
+        setBackgroundResource(R.drawable.bg_filter_chip)
+        val padH = resources.getDimensionPixelSize(R.dimen.chip_padding_h)
+        setPaddingRelative(padH, (6 * d).toInt(), padH, (6 * d).toInt())
+        val h = resources.getDimensionPixelSize(R.dimen.chip_min_height)
+        minHeight = h
+        minimumHeight = h
+        layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT, h,
+        ).apply { marginEnd = resources.getDimensionPixelSize(R.dimen.chip_gap) }
         onTap { onClick() }
     }
 

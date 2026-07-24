@@ -73,7 +73,8 @@ class StudyAreasActivity : AppCompatActivity() {
             ).also { if (addTopMargin) it.topMargin = dpi(8f) }
             radius = 16 * dp
             cardElevation = 0f
-            strokeWidth = dpi(if (area.isActive) 1.5f else 1f)
+            // A clear 2dp brand border on the active area — a 1.5dp-vs-1dp difference read as "identical".
+            strokeWidth = dpi(if (area.isActive) 2f else 1f)
             setStrokeColor(
                 resources.getColor(if (area.isActive) R.color.emerald else R.color.border, theme)
             )
@@ -120,21 +121,32 @@ class StudyAreasActivity : AppCompatActivity() {
         row.addView(textCol)
 
         if (area.isActive) {
+            // STATUS (not an action): a filled brand pill, so "this is the active area" is unmistakable
+            // and can never be confused with the "Aktif yap" action on the other rows (UX rules 1/3/4).
             val badge = TextView(this).apply {
                 text = getString(R.string.areas_active_badge)
-                setTextSize(TypedValue.COMPLEX_UNIT_SP, 11f)
+                setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
                 setTypeface(null, android.graphics.Typeface.BOLD)
-                setTextColor(resources.getColor(R.color.emeraldDark, theme))
+                setTextColor(resources.getColor(R.color.white, theme))
+                isSelected = true
+                setBackgroundResource(R.drawable.bg_filter_chip)
+                setPadding(dpi(12f), dpi(6f), dpi(12f), dpi(6f))
             }
             row.addView(badge)
         } else {
+            // ACTION: a bordered, quiet control with a full 48dp touch target — visually a button,
+            // deliberately different from the filled status pill above.
             val setActive = TextView(this).apply {
                 text = getString(R.string.areas_set_active)
                 setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
                 setTypeface(null, android.graphics.Typeface.BOLD)
                 setTextColor(resources.getColor(R.color.emeraldDark, theme))
-                setPadding(dpi(8f), dpi(8f), dpi(8f), dpi(8f))
-                setOnClickListener {
+                gravity = Gravity.CENTER
+                setBackgroundResource(R.drawable.bg_filter_chip)
+                setPadding(dpi(12f), dpi(6f), dpi(12f), dpi(6f))
+                minHeight = dpi(44f)
+                minimumHeight = dpi(44f)
+                onTap {
                     StudyAreaManager.setActiveArea(this@StudyAreasActivity, area.id)
                     rebuildAreas()
                 }

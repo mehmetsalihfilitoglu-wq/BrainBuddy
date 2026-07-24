@@ -287,7 +287,9 @@ class OnboardingWizardActivity : AppCompatActivity() {
         dotContainer.removeAllViews()
         val activeDots = totalSteps - 1 // steps 1..5
         val emerald = ContextCompat.getColor(this, R.color.emerald)
-        val light = ContextCompat.getColor(this, R.color.divider_light)
+        // Inactive dots were @color/divider_light (#F3F4F6) on a white header — a 1.06:1 contrast
+        // ratio, i.e. invisible. A mid-grey keeps "how many steps are left" readable (UX rule 1).
+        val light = ContextCompat.getColor(this, R.color.text_tertiary)
         val dp6 = (6 * resources.displayMetrics.density).toInt()
         val dp8 = (8 * resources.displayMetrics.density).toInt()
         repeat(activeDots) {
@@ -305,7 +307,9 @@ class OnboardingWizardActivity : AppCompatActivity() {
 
     private fun highlightDot(activeDotIndex: Int) {
         val emerald = ContextCompat.getColor(this, R.color.emerald)
-        val light = ContextCompat.getColor(this, R.color.divider_light)
+        // Inactive dots were @color/divider_light (#F3F4F6) on a white header — a 1.06:1 contrast
+        // ratio, i.e. invisible. A mid-grey keeps "how many steps are left" readable (UX rule 1).
+        val light = ContextCompat.getColor(this, R.color.text_tertiary)
         dotContainer.children.forEachIndexed { i, v ->
             v.background?.setTint(if (i == activeDotIndex) emerald else light)
             val size = if (i == activeDotIndex) {
@@ -354,9 +358,12 @@ class OnboardingWizardActivity : AppCompatActivity() {
             val outline = ContextCompat.getColor(holder.card.context, R.color.divider_light)
             val density = resources.displayMetrics.density
 
+            // Selection must be obvious at a glance (UX rule 1): a 2dp-vs-1.5dp stroke plus a ~1.09:1
+            // fill difference read as "these look the same". A 3dp brand border against a 1dp hairline
+            // is an unmistakable step, and the tinted fill reinforces it.
             holder.card.strokeColor = if (isSelected) emerald else outline
             holder.card.setCardBackgroundColor(if (isSelected) emeraldSoft else Color.WHITE)
-            holder.card.strokeWidth = if (isSelected) (2 * density).toInt() else (1.5f * density).toInt()
+            holder.card.strokeWidth = if (isSelected) (3 * density).toInt() else (1 * density).toInt()
 
             holder.card.setOnClickListener {
                 val pos = holder.bindingAdapterPosition

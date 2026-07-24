@@ -67,6 +67,12 @@ class WrongQuestionsActivity : AppCompatActivity() {
         refresh()
     }
 
+    /**
+     * Exam filter + sort selectors. Both render through the shared [com.edumio.app.ui.FilterChips], so the
+     * ACTIVE option is always filled/highlighted and the touch targets meet the 48dp guideline — previously
+     * every chip painted the same background (the user could not tell what was selected) and its size was
+     * set in raw pixels, which made the row tiny and cramped on a high-density screen.
+     */
     private fun buildChips() {
         val exams = listOf<Pair<String, ExamType?>>(
             getString(R.string.wp_filter_all) to null,
@@ -74,29 +80,18 @@ class WrongQuestionsActivity : AppCompatActivity() {
             ExamType.TIL_I.code to ExamType.TIL_I,
             ExamType.CENT_S.code to ExamType.CENT_S,
         )
-        val filterBox = findViewById<LinearLayout>(R.id.wpExamFilter)
-        filterBox.removeAllViews()
-        exams.forEach { (label, exam) ->
-            filterBox.addView(chip(label) { examFilter = exam; refresh() })
-        }
-        val sortBox = findViewById<LinearLayout>(R.id.wpSort)
-        sortBox.removeAllViews()
-        sortBox.addView(chip(getString(R.string.wp_sort_due)) { sort = Sort.DUE; refresh() })
-        sortBox.addView(chip(getString(R.string.wp_sort_recent)) { sort = Sort.RECENT; refresh() })
-        sortBox.addView(chip(getString(R.string.wp_sort_most_wrong)) { sort = Sort.MOST_WRONG; refresh() })
-    }
+        com.edumio.app.ui.FilterChips.bind(
+            findViewById(R.id.wpExamFilter), exams, examFilter,
+        ) { examFilter = it; refresh() }
 
-    private fun chip(label: String, onClick: () -> Unit) = TextView(this).apply {
-        text = label
-        textSize = 13f
-        setTextColor(ContextCompat.getColor(this@WrongQuestionsActivity, R.color.edu_text_dark))
-        setBackgroundColor(ContextCompat.getColor(this@WrongQuestionsActivity, R.color.brand_primary_light))
-        setPadding(28, 14, 28, 14)
-        val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        lp.marginEnd = 12
-        layoutParams = lp
-        minHeight = 44
-        onTap { onClick() }
+        val sorts = listOf(
+            getString(R.string.wp_sort_due) to Sort.DUE,
+            getString(R.string.wp_sort_recent) to Sort.RECENT,
+            getString(R.string.wp_sort_most_wrong) to Sort.MOST_WRONG,
+        )
+        com.edumio.app.ui.FilterChips.bind(
+            findViewById(R.id.wpSort), sorts, sort,
+        ) { sort = it; refresh() }
     }
 
     private fun refresh() {

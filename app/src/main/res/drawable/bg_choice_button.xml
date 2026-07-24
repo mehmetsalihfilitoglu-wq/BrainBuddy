@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The ONE answer-option background, shared by every answering screen (Daily Challenge, its review,
+     the wrong-question retry and the quiz). It previously had a single white state, so the option the
+     student had just tapped looked identical to the four they had not (UX rules 1, 4, 9).
+     CHECKED now fills with the brand tint and gains a 2dp brand border — an unmistakable step. -->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/edu_turquoise">
     <item>
-        <shape android:shape="rectangle">
-            <solid android:color="@color/white"/>
-            <corners android:radius="16dp"/>
-        </shape>
+        <selector>
+
+            <!-- SELECTED / CHECKED: filled tint + strong border. -->
+            <item android:state_checked="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/brand_primary_light" />
+                    <stroke android:width="2dp" android:color="@color/brand_primary" />
+                    <corners android:radius="@dimen/radius_md" />
+                </shape>
+            </item>
+            <!-- Some hosts drive these rows with isSelected rather than isChecked. -->
+            <item android:state_selected="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/brand_primary_light" />
+                    <stroke android:width="2dp" android:color="@color/brand_primary" />
+                    <corners android:radius="@dimen/radius_md" />
+                </shape>
+            </item>
+
+            <!-- DEFAULT: white card with a hairline border so it still reads as a tappable row. -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/white" />
+                    <stroke android:width="1dp" android:color="@color/border" />
+                    <corners android:radius="@dimen/radius_md" />
+                </shape>
+            </item>
+
+        </selector>
     </item>
 </ripple>

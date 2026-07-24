@@ -792,7 +792,9 @@ class QuizActivity : AppCompatActivity() {
         b.feedbackText.visibility = View.GONE
         listOf(b.optA, b.optB, b.optC, b.optD, b.optE).forEach {
             it.alpha = 1f
-            it.setBackgroundColor(android.graphics.Color.TRANSPARENT)
+            // Restore the shared state-list background (NOT a flat colour): it carries the option's
+            // card look AND its checked state, so the tapped answer stays visibly selected.
+            it.setBackgroundResource(R.drawable.bg_choice_button)
         }
 
         b.nextBtn.isEnabled = true

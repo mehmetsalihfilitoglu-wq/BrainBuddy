@@ -32,6 +32,13 @@
     <dimen name="icon_action">24dp</dimen>       <!-- visual glyph size -->
     <dimen name="touch_target">48dp</dimen>      <!-- min interactive size (a11y) -->
 
+    <!-- Filter / segmented-control chips (the ONE chip spec — see bg_filter_chip.xml) -->
+    <dimen name="chip_corner_radius">20dp</dimen>
+    <dimen name="chip_min_height">44dp</dimen>   <!-- visual height; touch is padded to 48dp -->
+    <dimen name="chip_padding_h">16dp</dimen>
+    <dimen name="chip_gap">8dp</dimen>
+    <dimen name="chip_text_size">13sp</dimen>
+
     <!-- Buttons -->
     <dimen name="button_min_height">56dp</dimen>
 
