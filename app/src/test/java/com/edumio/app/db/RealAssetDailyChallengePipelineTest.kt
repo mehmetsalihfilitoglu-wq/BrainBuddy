@@ -1,7 +1,9 @@
 package com.edumio.app.db
 
 import com.edumio.app.core.ExamType
+import com.edumio.app.dailychallenge.ChallengeStatus
 import com.edumio.app.dailychallenge.DailyChallengeBlueprint
+import com.edumio.app.dailychallenge.DailyChallengeEngine
 import com.edumio.app.dailychallenge.DailyChallengeHomePresenter
 import com.edumio.app.dailychallenge.DailyChallengeHomePresenter.CardState
 import com.edumio.app.dailychallenge.DcContentSource
@@ -136,6 +138,74 @@ class RealAssetDailyChallengePipelineTest {
             )
 
             println("[REAL-ASSET ${exam.name}] parsed=${rows.size} servable=$servable sections=$sectionCounts served=${servedRows.map { it.subject }}")
+        }
+    }
+
+    /**
+     * Full runtime lifecycle per exam with the REAL production assets — the automated stand-in for the
+     * on-device fresh-install walkthrough (behaviours #2–#7): auto-generate today's challenge (exactly 5,
+     * no "Sorular yüklenemedi" throw), answer all 5 through to completion + score, Home shows COMPLETED,
+     * then close & reopen (a NEW engine on the SAME store) and confirm the SAME completed challenge is
+     * preserved with no regeneration. Behaviour #1 (Activity launch / onboarding UI) and the pixel
+     * rendering of #5 require a physical device and are covered by the manual checklist, not this test.
+     */
+    @Test
+    fun realAssets_allThreeExams_fullLifecycle_generate_answer_complete_reopen() = runBlocking {
+        for (bank in banks) {
+            val exam = bank.exam
+            val rows = bank.parse(readAsset(bank.asset).second)
+            val content = RealAssetContent(rows)
+            val dao = InMemoryDailyChallengeDao()
+            val engine = testEngine(dao, content)
+            val userId = "device_${exam.name}"
+
+            // #2/#3/#4 — auto-generate: exactly 5, not completed, never null (no "Sorular yüklenemedi")
+            val gen = engine.getOrCreateToday(userId, exam, utc, t0)
+            assertNotNull("${exam.name}: Günün Görevi auto-generates (no 'Sorular yüklenemedi')", gen)
+            assertEquals("${exam.name}: exactly 5 questions", 5, gen!!.questions.size)
+            assertFalse("${exam.name}: starts NOT completed", gen.completed)
+            assertEquals(
+                "${exam.name}: Home opens AVAILABLE",
+                CardState.AVAILABLE,
+                DailyChallengeHomePresenter.cardState(true, gen.answered, gen.total, gen.completed),
+            )
+
+            // #5 — solve all 5 through to completion (each answer persisted, resume cursor advances)
+            val qids = gen.challenge.questionIdsCsv.split(",").filter { it.isNotBlank() }
+            assertEquals("${exam.name}: 5 question ids", 5, qids.size)
+            var last: DailyChallengeEngine.Result = gen
+            qids.forEachIndexed { i, qid ->
+                last = engine.submitAnswer(
+                    userId, gen.challenge.localDate, qid, chosenIndex = 0, isCorrect = i % 2 == 0, timeMs = 1000, nowMs = t0,
+                )!!
+                assertEquals("${exam.name}: progress after ${i + 1} answers", i + 1, last.answered)
+            }
+
+            // #6 — completed + scored; Home shows COMPLETED
+            assertTrue("${exam.name}: completed after 5 answers", last.completed)
+            assertEquals("${exam.name}: status COMPLETED", ChallengeStatus.COMPLETED.name, last.challenge.status)
+            assertEquals("${exam.name}: score = number correct (3)", 3, last.challenge.score)
+            assertEquals(
+                "${exam.name}: Home shows COMPLETED (Tamamlandı)",
+                CardState.COMPLETED,
+                DailyChallengeHomePresenter.cardState(true, last.answered, last.total, last.completed),
+            )
+            val completion = engine.getCompletion(userId, gen.challenge.localDate)
+            assertNotNull("${exam.name}: completion summary available", completion)
+            assertEquals("${exam.name}: completion covers all 5", 5, completion!!.total)
+
+            // #7 — close & reopen: a NEW engine on the SAME store returns the SAME, still-completed
+            // challenge and generates nothing new (state preserved).
+            val reopened = testEngine(dao, content).getOrCreateToday(userId, exam, utc, t0)
+            assertNotNull("${exam.name}: reopen returns a challenge", reopened)
+            assertEquals(
+                "${exam.name}: reopen returns the SAME challenge",
+                gen.challenge.questionIdsCsv, reopened!!.challenge.questionIdsCsv,
+            )
+            assertTrue("${exam.name}: still COMPLETED after reopen", reopened.completed)
+            assertEquals("${exam.name}: exactly one challenge for the day", 1, dao.countChallengesForUser(userId))
+
+            println("[LIFECYCLE ${exam.name}] PASS generate=5 answered=5 completed=true score=${last.challenge.score} reopen=same+completed")
         }
     }
 }
