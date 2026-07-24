@@ -13,8 +13,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.edumio.app.core.CareerPath
+import com.edumio.app.core.ExamType
 import com.edumio.app.core.StudyAreaManager
+import com.edumio.app.db.DbSeeder
 import com.edumio.app.dailychallenge.DailyChallengeActivity
 import com.edumio.app.dailychallenge.DailyChallengeController
 import com.edumio.app.dailychallenge.DailyChallengeHomePresenter
@@ -102,26 +103,44 @@ class HomeActivity : AppCompatActivity() {
             // BEFORE resolving the id, so signing in never regenerates today's challenge.
             com.edumio.app.dailychallenge.DailyChallengeAccountLink.linkIfNeeded(this@HomeActivity)
             val userId = DailyChallengeUser.resolve(this@HomeActivity)
-            val ui = try { controller.today(userId, exam) } catch (_: Throwable) { null }
+            val supported = com.edumio.app.dailychallenge.DailyChallengeBlueprint.isSupported(exam)
+            var ui = try { controller.today(userId, exam) } catch (_: Throwable) { null }
+            if (ui == null && supported) {
+                // Fresh install: the exam's question bank may not have finished seeding yet — the banks are
+                // seeded asynchronously at startup, TIL-I / CEnT-S LAST. Seed it idempotently and retry ONCE
+                // so a first-time user lands on an AVAILABLE challenge, never a spurious "completed"/empty
+                // state caused by the pool being momentarily empty.
+                ensureExamBankSeeded(exam)
+                ui = try { controller.today(userId, exam) } catch (_: Throwable) { null }
+            }
             val streak = try { controller.streak(userId) } catch (_: Throwable) { 0 }
             val streakText = if (streak > 0) getString(R.string.dc_streak_label, streak)
             else getString(R.string.dc_streak_none)
 
             if (ui == null) {
+                // today() == null is NEVER "completed": a completed challenge is a persisted row and always
+                // comes back non-null, so null means today's challenge could not be built. Split the real
+                // cases so a fresh user never sees "Tamamlandı" / "Bugünlük yeni soru kalmadı".
                 progressBar.visibility = View.GONE
                 meta.visibility = View.VISIBLE; meta.text = streakText
                 countdown.visibility = View.GONE
                 setMascot(com.edumio.app.ui.EduMascot.Expression.SLEEPING)
-                // v1 has no separate practice flow, so neither edge launches a quiz session.
-                if (!com.edumio.app.dailychallenge.DailyChallengeBlueprint.isSupported(exam)) {
-                    // The active study area has no daily-challenge blueprint yet — not "completed".
-                    state.setText(R.string.dc_state_unavailable)
-                } else {
-                    // Supported exam but genuinely no unseen questions left today (pool exhausted).
-                    state.setText(R.string.dc_empty_today)
+                when (DailyChallengeHomePresenter.emptyState(supported)) {
+                    DailyChallengeHomePresenter.CardState.ERROR -> {
+                        // Supported exam, but the bank could not be loaded/built → controlled error + retry.
+                        state.setText(R.string.dc_state_error)
+                        cta.visibility = View.VISIBLE
+                        cta.isEnabled = true; cta.setText(R.string.dc_cta_retry)
+                        val retry = View.OnClickListener { refreshDailyChallenge() }
+                        cta.onTap { retry.onClick(it) }; card.onTap { retry.onClick(it) }
+                    }
+                    else -> {
+                        // Unsupported active exam — no content for it yet. Not "completed"; nothing to start.
+                        state.setText(R.string.dc_state_unavailable)
+                        cta.visibility = View.GONE
+                        card.setOnClickListener(null)
+                    }
                 }
-                cta.isEnabled = false; cta.setText(R.string.dc_cta_done)
-                card.setOnClickListener(null)
                 return@launch
             }
             setMascot(com.edumio.app.ui.EduMascot.forHome(available = !ui.completed, completed = ui.completed))
@@ -205,13 +224,14 @@ class HomeActivity : AppCompatActivity() {
 
     private fun refreshIdentityHero() {
         val goal = goalPrefs.getGoal()
-        val career = goal.careerPath
+        val exam = goal.careerPath.examType
 
         val streakDays = gam.streakDays()
 
-        findViewById<TextView>(R.id.tvCareerIdentity).text =
-            "${career.emoji} ${journeyTitleFor(career)}"
-        findViewById<TextView>(R.id.tvItalianDegree).text = career.italianDegreeName
+        // v1 is exam-framed: show ONLY the active exam (IMAT / TIL-I / CEnT-S). The old career-journey
+        // title ("Mühendislik Yolculuğu") and degree name ("Ingegneria") are never shown.
+        findViewById<TextView>(R.id.tvCareerIdentity).text = "🇮🇹 ${exam.code}"
+        findViewById<TextView>(R.id.tvItalianDegree).visibility = View.GONE
 
         // Never punish a zero/broken streak — invite instead of shaming.
         val streakLabel = when {
@@ -315,20 +335,17 @@ class HomeActivity : AppCompatActivity() {
         })
     }
 
-    private fun journeyTitleFor(career: CareerPath): String = when (career) {
-        CareerPath.MEDICINE -> "Tıp Yolculuğu"
-        CareerPath.DENTISTRY -> "Diş Hekimliği Yolculuğu"
-        CareerPath.ENGINEERING -> "Mühendislik Yolculuğu"
-        CareerPath.COMPUTER_SCIENCE -> "Bilgisayar Bilimi Yolculuğu"
-        CareerPath.ARCHITECTURE -> "Mimarlık Yolculuğu"
-        CareerPath.ECONOMICS -> "Ekonomi Yolculuğu"
-        CareerPath.LAW -> "Hukuk Yolculuğu"
-        CareerPath.PHARMACY -> "Eczacılık Yolculuğu"
-        CareerPath.BIOLOGY -> "Biyoloji Yolculuğu"
-        CareerPath.PSYCHOLOGY -> "Psikoloji Yolculuğu"
-        CareerPath.VETERINARY -> "Veteriner Yolculuğu"
-        CareerPath.MATHEMATICS -> "Matematik Yolculuğu"
-        CareerPath.DESIGN -> "Tasarım Yolculuğu"
-        CareerPath.OTHER -> "İtalya Yolculuğu"
+    /**
+     * Idempotently seeds the active exam's Daily Challenge bank (no-op if already seeded / versioned).
+     * Recovers the fresh-install race where Home renders before the async startup seed has finished for
+     * TIL-I / CEnT-S (which seed last), so the first-time user still gets an AVAILABLE challenge.
+     */
+    private suspend fun ensureExamBankSeeded(exam: ExamType) {
+        when (exam) {
+            ExamType.IMAT -> DbSeeder.seedImatIfNeeded(this)
+            ExamType.TIL_I -> DbSeeder.seedTilIIfNeeded(this)
+            ExamType.CENT_S -> DbSeeder.seedCentsIfNeeded(this)
+            else -> Unit
+        }
     }
 }

@@ -90,12 +90,12 @@ class StudentProfileActivity : AppCompatActivity() {
     }
 
     private fun refreshGoalCard() {
-        val goal = goalPrefs.getGoal()
-        val career = goal.careerPath
+        val exam = goalPrefs.getGoal().careerPath.examType
 
-        // v1 is exam-framed: show the exam, not the degree/career journey, and no city/level.
-        findViewById<TextView>(R.id.tvCareerGoal).text = "${career.emoji} ${career.examType.code}"
-        findViewById<TextView>(R.id.tvGoalDegree).text = career.examType.fullNameIt
+        // v1 is exam-framed: show ONLY the active exam (IMAT / TIL-I / CEnT-S) — never the degree name
+        // (e.g. "Ingegneria") or the career journey, and no city/level.
+        findViewById<TextView>(R.id.tvCareerGoal).text = "🇮🇹 ${exam.code}"
+        findViewById<TextView>(R.id.tvGoalDegree).visibility = View.GONE
         findViewById<TextView>(R.id.tvGoalCities).visibility = View.GONE
         findViewById<ChipGroup>(R.id.chipGroupGoalMeta).visibility = View.GONE
     }
@@ -115,22 +115,5 @@ class StudentProfileActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardSettings).setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
-    }
-
-    private fun journeyTitleFor(career: com.edumio.app.core.CareerPath): String = when (career) {
-        com.edumio.app.core.CareerPath.MEDICINE -> "Tıp Yolculuğu"
-        com.edumio.app.core.CareerPath.DENTISTRY -> "Diş Hekimliği Yolculuğu"
-        com.edumio.app.core.CareerPath.ENGINEERING -> "Mühendislik Yolculuğu"
-        com.edumio.app.core.CareerPath.COMPUTER_SCIENCE -> "Bilgisayar Bilimi Yolculuğu"
-        com.edumio.app.core.CareerPath.ARCHITECTURE -> "Mimarlık Yolculuğu"
-        com.edumio.app.core.CareerPath.ECONOMICS -> "Ekonomi Yolculuğu"
-        com.edumio.app.core.CareerPath.LAW -> "Hukuk Yolculuğu"
-        com.edumio.app.core.CareerPath.PHARMACY -> "Eczacılık Yolculuğu"
-        com.edumio.app.core.CareerPath.BIOLOGY -> "Biyoloji Yolculuğu"
-        com.edumio.app.core.CareerPath.PSYCHOLOGY -> "Psikoloji Yolculuğu"
-        com.edumio.app.core.CareerPath.VETERINARY -> "Veteriner Yolculuğu"
-        com.edumio.app.core.CareerPath.MATHEMATICS -> "Matematik Yolculuğu"
-        com.edumio.app.core.CareerPath.DESIGN -> "Tasarım Yolculuğu"
-        com.edumio.app.core.CareerPath.OTHER -> "İtalya Yolculuğu"
     }
 }

@@ -14,7 +14,7 @@ object DailyChallengeHomePresenter {
     /** Seconds of estimated effort per question (used for the "~N dk" hint). */
     const val SECONDS_PER_QUESTION = 60
 
-    enum class CardState { UNAVAILABLE, AVAILABLE, IN_PROGRESS, COMPLETED }
+    enum class CardState { UNAVAILABLE, AVAILABLE, IN_PROGRESS, COMPLETED, ERROR }
 
     /** The card state given engine facts. [supported] is false when the active exam has no bank. */
     fun cardState(supported: Boolean, answered: Int, total: Int, completed: Boolean): CardState = when {
@@ -23,6 +23,16 @@ object DailyChallengeHomePresenter {
         answered > 0 -> CardState.IN_PROGRESS
         else -> CardState.AVAILABLE
     }
+
+    /**
+     * The card state when the engine returned NO challenge (today() == null). This is NEVER "completed":
+     * a genuinely completed challenge is a persisted row and always comes back as a non-null result, so a
+     * null means today's challenge could not be built. For a supported exam that means the question bank
+     * could not be loaded (e.g. not yet seeded / read error) → [CardState.ERROR] with a retry, not
+     * "Tamamlandı"; for an unsupported exam there is simply no content for it yet → [CardState.UNAVAILABLE].
+     */
+    fun emptyState(supported: Boolean): CardState =
+        if (supported) CardState.ERROR else CardState.UNAVAILABLE
 
     /** "2/5" style progress. */
     fun progressText(answered: Int, total: Int): String = "$answered/$total"

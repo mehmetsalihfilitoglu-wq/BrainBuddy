@@ -71,10 +71,11 @@ class StudyHubActivity : AppCompatActivity() {
     }
 
     private fun refreshExamContext() {
-        val career = goalPrefs.getGoal().careerPath
-        val exam = career.examType
-        findViewById<TextView>(R.id.tvCareerLabel).text = "${career.emoji} ${career.displayNameTr}"
-        findViewById<TextView>(R.id.tvExamLabel).text = "${exam.code} · ${exam.fullNameIt}"
+        // v1 is exam-framed: show ONLY the active exam (IMAT / TIL-I / CEnT-S). Never the career name
+        // ("Mühendislik") or the Italian degree/exam name — consistent with Home and Profile.
+        val exam = goalPrefs.getGoal().careerPath.examType
+        findViewById<TextView>(R.id.tvCareerLabel).text = "🇮🇹 ${exam.code}"
+        findViewById<TextView>(R.id.tvExamLabel).visibility = android.view.View.GONE
     }
 
     private fun refreshStats() {
