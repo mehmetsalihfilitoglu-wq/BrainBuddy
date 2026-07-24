@@ -202,8 +202,11 @@ object DbSeeder {
         }
     }
 
-    private fun parseImatAsset(context: Context): List<QuestionEntity> {
-        val json = context.assets.open(IMAT_ASSET).use { it.readBytes().toString(Charsets.UTF_8) }
+    private fun parseImatAsset(context: Context): List<QuestionEntity> =
+        parseImatQuestions(context.assets.open(IMAT_ASSET).use { it.readBytes().toString(Charsets.UTF_8) })
+
+    /** Pure IMAT parser (no Android) so the real production asset can be verified in a JVM test. */
+    internal fun parseImatQuestions(json: String): List<QuestionEntity> {
         val arr = JSONArray(json)
         val now = System.currentTimeMillis()
         val out = ArrayList<QuestionEntity>(arr.length())
@@ -386,6 +389,11 @@ object DbSeeder {
         val json = try {
             context.assets.open(asset).use { it.readBytes().toString(Charsets.UTF_8) }
         } catch (_: Exception) { return emptyList() } // asset optional until the bank ships
+        return parseDailyChallengeQuestions(json, examType)
+    }
+
+    /** Pure TIL-I / CEnT-S parser (no Android) so the real production assets can be verified in a JVM test. */
+    internal fun parseDailyChallengeQuestions(json: String, examType: String): List<QuestionEntity> {
         val arr = JSONArray(json)
         val now = System.currentTimeMillis()
         val out = ArrayList<QuestionEntity>(arr.length())

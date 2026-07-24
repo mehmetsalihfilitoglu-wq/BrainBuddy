@@ -87,7 +87,6 @@
     <string name="readiness_not_enough">Sınav hazırlık skorun için biraz daha veri gerekli. Birkaç test daha çözünce burada görünecek.</string>
     <string name="readiness_opportunity">En çok gelişim fırsatı: %1$s</string>
     <string name="readiness_week_change">Bu hafta hazırlık skorun: %1$s puan</string>
-    <string name="plan_today_section">BUGÜNÜN PLANI</string>
     <string name="learning_states_section">ÖĞRENME DURUMU</string>
     <string name="learning_state_wrong">Yanlış</string>
     <string name="learning_state_reviewing">Tekrarda</string>
@@ -111,8 +110,6 @@
     <string name="study_hub_stats_accuracy">Doğruluk</string>
     <string name="study_hub_stats_tests">Test</string>
     <string name="study_hub_stats_questions">Soru</string>
-    <string name="study_hub_coach_label">Çalışma Koçu</string>
-    <string name="study_hub_coach_generic">Performansına göre kişisel çalışma önerileri</string>
 
     <!-- Study areas (multi-exam profiles) -->
     <string name="areas_title">Çalışma Alanlarım</string>
@@ -175,7 +172,6 @@
     <string name="discover_featured_programs_count">%1$d İngilizce mühendislik programı</string>
     <string name="discover_detail_campus">Kampüs</string>
     <string name="discover_detail_seats">Kontenjan</string>
-    <string name="study_hub_coach_tip">%1$s pratiği seni İtalya\'daki hedefe taşır (%2$d%% doğruluk). Bugün buraya odaklan.</string>
 
     <!-- Home Phase 2C: Mission + Nav -->
     <string name="home_next_step_label">BUGÜNKÜ ADIM</string>
@@ -216,7 +212,6 @@
     <string name="wrong_pool_premium_title">Premium Özellik</string>
     <string name="wrong_pool_premium_message">Yanlışlarını tekrar çözmek için premium üyelik gerekiyor.</string>
     <string name="wrong_pool_card_empty_sub">Yanlışların burada akıllı tekrar planına alınır. Şimdilik temizsin.</string>
-    <string name="wise_coach_default">Her gün küçük bir adım, seni İtalya\'ya taşır.</string>
 
     <!-- Settings -->
     <string name="btn_detail">Detaya Git</string>
@@ -596,12 +591,6 @@
     <string name="paywall_restore_none">Geri yüklenecek aktif bir abonelik bulunamadı.</string>
     <string name="paywall_restore_done">Aboneliğin geri yüklendi.</string>
 
-    <!-- Coach Screen (Phase 2G) -->
-    <string name="coach_screen_title">Çalışma Koçu</string>
-    <string name="coach_daily_label">BUGÜNKÜ ÖNERİ</string>
-    <string name="coach_weekly_label">HAFTALIK PLAN</string>
-    <string name="coach_remedial_btn">Mini Tekrar Testi Başlat</string>
-    <string name="coach_back">Geri</string>
 
     <!-- Wrong Answers Report (from Reports screen) -->
     <string name="wrong_report_title">Yanlış Cevaplar</string>
@@ -660,7 +649,9 @@
     <string name="dc_state_in_progress">Devam ediyor</string>
     <string name="dc_state_completed">Bugün tamamlandı 🎉</string>
     <string name="dc_state_unavailable">Bu çalışma alanı için henüz hazır değil</string>
-    <!-- Shown ONLY when the question bank could not be loaded/built (never confused with "completed"). -->
+    <!-- First-open, while the active exam's question bank finishes seeding (normal path → AVAILABLE). -->
+    <string name="dc_state_loading">Günün görevi hazırlanıyor…</string>
+    <!-- Last-resort ONLY if the bank truly cannot be built after auto-retries (never confused with "completed"). -->
     <string name="dc_state_error">Sorular yüklenemedi. Lütfen tekrar dene.</string>
     <string name="dc_cta_retry">Tekrar Dene</string>
     <string name="dc_cta_start">Günün Görevine Başla</string>

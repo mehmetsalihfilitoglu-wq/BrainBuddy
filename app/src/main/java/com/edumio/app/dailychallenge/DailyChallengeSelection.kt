@@ -24,8 +24,17 @@ object DailyChallengeSelection {
         rng: Random,
     ): List<QuestionCandidateRow> {
         if (count <= 0 || pool.isEmpty()) return emptyList()
+        // Randomize within each quality tier, then order by tier. The random tiebreak MUST be a stable key
+        // (shuffle once), NOT `compareBy(..., { rng.nextInt() })`: a comparator selector that returns a new
+        // random value on every comparison violates the Comparator contract, so TimSort throws
+        // IllegalArgumentException("Comparison method violates its general contract!") for some pools/seeds.
+        // That surfaced as a whole exam (seen first on CEnT-S) failing to generate a challenge —
+        // getOrCreateToday threw, was swallowed to null, and Home showed "Sorular yüklenemedi".
+        // shuffled(rng) is deterministic for a fixed seed and sortedBy is a stable sort, so this keeps the
+        // engine reproducible while fixing the contract violation.
         val ranked = pool.filter { it.stemHash !in usedStems }
-            .sortedWith(compareBy({ tierOrder(it.qualityTier) }, { rng.nextInt() }))
+            .shuffled(rng)
+            .sortedBy { tierOrder(it.qualityTier) }
         val out = ArrayList<QuestionCandidateRow>(count)
         for (c in ranked) {
             if (out.size >= count) break

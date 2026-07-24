@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 6
-        versionName = "1.0.0-rc4"   // removes onboarding daily-goal picker; fixes fresh-install "completed" state + exam-framed identity (versionCode bumped, monotonic across Play uploads)
+        versionCode = 7
+        versionName = "1.0.0-rc5"   // removes Study Coach; deterministic first-open (loading→seed→AVAILABLE); real-asset pipeline verified for IMAT/TIL-I/CEnT-S (versionCode bumped, monotonic across Play uploads)
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")

@@ -95,7 +95,17 @@ class HomeActivity : AppCompatActivity() {
         // switching exams never hides or regenerates it. today() is null only when there is genuinely
         // nothing to show (unsupported active exam AND no existing challenge, or pool exhausted).
         val exam = StudyAreaManager.getActiveArea(this).career.examType
-        cta.visibility = View.VISIBLE
+
+        // Show a loading state immediately: on first open the active exam's bank may still be seeding (banks
+        // seed asynchronously at startup, TIL-I / CEnT-S last). The normal path is loading → seed completes
+        // → AVAILABLE, WITHOUT the user ever needing to press a retry button.
+        progressBar.visibility = View.GONE
+        countdown.visibility = View.GONE
+        meta.visibility = View.GONE
+        cta.visibility = View.GONE
+        state.setText(R.string.dc_state_loading)
+        setMascot(com.edumio.app.ui.EduMascot.Expression.SLEEPING)
+        card.setOnClickListener(null)
 
         val controller = DailyChallengeController(this)
         lifecycleScope.launch {
@@ -104,14 +114,18 @@ class HomeActivity : AppCompatActivity() {
             com.edumio.app.dailychallenge.DailyChallengeAccountLink.linkIfNeeded(this@HomeActivity)
             val userId = DailyChallengeUser.resolve(this@HomeActivity)
             val supported = com.edumio.app.dailychallenge.DailyChallengeBlueprint.isSupported(exam)
+            // Resolve today's challenge, driving seeding to completion. If the active exam's bank has not
+            // finished seeding yet, seed it (idempotent) and retry a few times — a concurrent startup seed
+            // may also be landing — so a first-time user deterministically reaches AVAILABLE. ERROR is only
+            // reached if the bank genuinely cannot be built after these attempts.
             var ui = try { controller.today(userId, exam) } catch (_: Throwable) { null }
-            if (ui == null && supported) {
-                // Fresh install: the exam's question bank may not have finished seeding yet — the banks are
-                // seeded asynchronously at startup, TIL-I / CEnT-S LAST. Seed it idempotently and retry ONCE
-                // so a first-time user lands on an AVAILABLE challenge, never a spurious "completed"/empty
-                // state caused by the pool being momentarily empty.
+            var attempts = 0
+            while (ui == null && supported && attempts < 3) {
                 ensureExamBankSeeded(exam)
                 ui = try { controller.today(userId, exam) } catch (_: Throwable) { null }
+                if (ui != null) break
+                attempts++
+                kotlinx.coroutines.delay(350)
             }
             val streak = try { controller.streak(userId) } catch (_: Throwable) { 0 }
             val streakText = if (streak > 0) getString(R.string.dc_streak_label, streak)
@@ -151,6 +165,7 @@ class HomeActivity : AppCompatActivity() {
             progressBar.visibility = View.VISIBLE
             progressBar.max = total; progressBar.progress = answered
             meta.visibility = View.VISIBLE
+            cta.visibility = View.VISIBLE
 
             when (DailyChallengeHomePresenter.cardState(true, answered, total, ui.completed)) {
                 DailyChallengeHomePresenter.CardState.COMPLETED -> {
