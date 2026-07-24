@@ -30,7 +30,6 @@ import com.edumio.app.core.UserGoal
 import com.edumio.app.core.UserGoalPrefs
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.google.android.material.chip.ChipGroup
 import com.google.android.material.textfield.TextInputEditText
 
 class OnboardingWizardActivity : AppCompatActivity() {
@@ -47,7 +46,6 @@ class OnboardingWizardActivity : AppCompatActivity() {
     private val applicationYear = 2026
     private val italianLevel: ItalianLevel = ItalianLevel.A0
     private var studentName = ""
-    private var dailyGoalQuestions = 15
 
     // --- root views ---
     private lateinit var viewFlipper: ViewFlipper
@@ -193,24 +191,16 @@ class OnboardingWizardActivity : AppCompatActivity() {
     }
 
     private fun setupNameStep() {
+        // v1 name step collects ONLY the student's name. The daily target is fixed (5 questions/day) and
+        // is not a user choice, so there is no goal picker here.
         val step = viewFlipper.getChildAt(com.edumio.app.core.OnboardingSteps.ORDER.indexOf(com.edumio.app.core.OnboardingSteps.Step.NAME))
         val et = step.findViewById<TextInputEditText>(R.id.etName)
-        val chipGroup = step.findViewById<ChipGroup>(R.id.chipGroupGoal)
 
         et.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 studentName = et.text?.toString()?.trim() ?: ""
                 true
             } else false
-        }
-
-        chipGroup.setOnCheckedStateChangeListener { group, _ ->
-            val checkedId = group.checkedChipId
-            dailyGoalQuestions = when (checkedId) {
-                R.id.chipGoal5 -> 5
-                R.id.chipGoal30 -> 30
-                else -> 15
-            }
         }
     }
 
@@ -263,7 +253,6 @@ class OnboardingWizardActivity : AppCompatActivity() {
             destinationCities = cities,
             applicationYear = applicationYear,
             italianLevel = italianLevel,
-            dailyGoalQuestions = dailyGoalQuestions,
             studentName = name
         )
 

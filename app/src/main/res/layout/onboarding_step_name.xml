@@ -33,8 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Adın"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="28dp">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
@@ -43,88 +42,6 @@
                 android:maxLines="1"
                 android:imeOptions="actionDone"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Günlük hedefiniz"
-            android:textSize="15sp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="@color/textPrimary"
-            android:layout_marginBottom="4dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Her gün kaç soru çözmek istersin?"
-            android:textSize="13sp"
-            android:textColor="@color/textSecondary"
-            android:layout_marginBottom="12dp"/>
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroupGoal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:singleSelection="true"
-            app:selectionRequired="true"
-            android:layout_marginBottom="28dp"
-            xmlns:app="http://schemas.android.com/apk/res-auto">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipGoal5"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🌙  5 soru  (~5 dk)"
-                android:textSize="13sp"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipGoal15"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="⭐  15 soru  (~15 dk)"
-                android:textSize="13sp"
-                android:checked="true"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipGoal30"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🔥  30 soru  (~30 dk)"
-                android:textSize="13sp"/>
-
-        </com.google.android.material.chip.ChipGroup>
-
-        <!-- Italian motivational phrase at bottom -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp"
-            android:background="@drawable/bg_gradient"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="« In bocca al lupo! »"
-                android:textSize="16sp"
-                android:fontFamily="serif"
-                android:textStyle="italic"
-                android:textColor="@color/emeraldDark"
-                android:layout_marginBottom="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="(İtalyanca: Bol şans! — Yolculuğun başlıyor.)"
-                android:textSize="11sp"
-                android:textColor="@color/textSecondary"/>
-
-        </LinearLayout>
 
     </LinearLayout>
 
