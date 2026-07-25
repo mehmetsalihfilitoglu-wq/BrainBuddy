@@ -149,9 +149,10 @@ class WrongQuestionsActivity : AppCompatActivity() {
             val (active, scheduled, resolvedCount) = loaded
             val dueCount = active.size + scheduled.count { now >= it.nextReviewAt }
 
-            findViewById<TextView>(R.id.wpActive).text = "${getString(R.string.wp_active_count)}\n${active.size}"
-            findViewById<TextView>(R.id.wpDue).text = "${getString(R.string.wp_due_count)}\n$dueCount"
-            findViewById<TextView>(R.id.wpResolved).text = "${getString(R.string.wp_resolved_count)}\n$resolvedCount"
+            // The labels are static text inside each statistic card; only the numbers are bound here.
+            findViewById<TextView>(R.id.wpActive).text = active.size.toString()
+            findViewById<TextView>(R.id.wpDue).text = dueCount.toString()
+            findViewById<TextView>(R.id.wpResolved).text = resolvedCount.toString()
 
             if (!SolutionAccessPolicy.mayBindSolutionText(access)) {
                 // Free: counts only. No stems, no actions — the entitlement layer is the boundary.

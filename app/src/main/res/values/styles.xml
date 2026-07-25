@@ -250,17 +250,80 @@
         <item name="android:activityCloseExitAnimation">@anim/mio_close_exit</item>
     </style>
 
-    <!-- Wrong-question hub: counter tile ("Aktif 12") -->
-    <style name="WpCounter">
-        <item name="android:layout_width">0dp</item>
+    <!-- ===== Wrong-question hub ("Yanlış Sorularım") =====================================
+         Shared components for this screen only. -->
+
+    <!-- The ONE action button for the wrong-question flow ("Soruyu tekrar çöz" / "Çözümü gör").
+         The old markup pinned android:layout_height="46dp", which overrode BBButton's 56dp minHeight;
+         MaterialButton then subtracts its default 6dp top + 6dp bottom insets, leaving a ~34dp content
+         box. 13sp bold Turkish text with descenders (ç, ğ, ş) does not fit in 34dp, so the label was
+         clipped. Here the height is content-driven with a 48dp floor, the insets are zeroed so the
+         declared height is the usable height, and the text is vertically centred on one line. -->
+    <style name="Widget.EDUmio.WrongQuestion.Action" parent="BBButton">
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:minHeight">@dimen/touch_target</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">@dimen/space_12</item>
+        <item name="android:paddingEnd">@dimen/space_12</item>
+        <item name="android:paddingTop">@dimen/space_12</item>
+        <item name="android:paddingBottom">@dimen/space_12</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">1</item>
         <item name="android:gravity">center</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:textSize">13sp</item>
+        <!-- At very large accessibility font scales the label shrinks within this range instead of
+             being truncated; the button box itself still grows, so nothing is ever cut off. -->
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMinTextSize">11sp</item>
+        <item name="autoSizeMaxTextSize">14sp</item>
+    </style>
+
+    <!-- Compact statistic card (Aktif / Sırada / Çözüldü). Same surface, radius and border language
+         as the question cards below it, so the header reads as part of the same screen. -->
+    <style name="Widget.EDUmio.StatCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <!-- Same radius / surface / flat elevation as item_wrong_question's card, so the header block
+             belongs to the same screen. Not clickable: these are read-only counters, so no foreground
+             ripple and no selectableItemBackground. -->
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/elevation_flat</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Names deliberately avoid the "Widget.EDUmio.StatCard.*" form: dot notation would make these
+         implicitly inherit the card style (0dp width, weight, match_parent height). -->
+    <style name="Widget.EDUmio.StatCardContent" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">@dimen/space_8</item>
+        <item name="android:paddingEnd">@dimen/space_8</item>
+        <item name="android:paddingTop">@dimen/space_12</item>
+        <item name="android:paddingBottom">@dimen/space_12</item>
+    </style>
+
+    <!-- The number is the primary element; the label is secondary metadata beneath it. -->
+    <style name="Widget.EDUmio.StatCardValue" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/edu_text_dark</item>
-        <item name="android:background">@color/brand_primary_light</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="Widget.EDUmio.StatCardLabel" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/edu_text_muted</item>
     </style>
 
 </resources>

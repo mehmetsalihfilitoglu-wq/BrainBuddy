@@ -41,29 +41,25 @@
             android:textSize="12sp"
             android:textColor="@color/edu_text_muted"/>
 
+        <!-- Actions are STACKED, not side by side. "Soruyu tekrar çöz" is 17 characters; in half of a
+             card row it does not fit on one line on a 360dp phone, so it wrapped to a second line that
+             the old hard 46dp height then cut off. Full-width buttons keep both labels on one line, at
+             identical width and height, on every supported width and font scale. -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_marginTop="10dp">
 
             <Button
                 android:id="@+id/wqRetry"
-                style="@style/Edu.Button"
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_weight="1"
-                android:textSize="13sp"
+                style="@style/Widget.EDUmio.WrongQuestion.Action"
                 android:text="@string/sol_retry"/>
 
             <Button
                 android:id="@+id/wqSolution"
-                style="@style/Edu.Button"
-                android:layout_width="0dp"
-                android:layout_height="46dp"
-                android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:textSize="13sp"
+                style="@style/Widget.EDUmio.WrongQuestion.Action"
+                android:layout_marginTop="8dp"
                 android:text="@string/sol_view"/>
         </LinearLayout>
     </LinearLayout>

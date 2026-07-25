@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 15
-        versionName = "1.0.0-rc13"  // withhold unanswerable cropped-image questions; conditional two-reminder policy (11:30 + 18:30)
+        versionCode = 16
+        versionName = "1.0.0-rc14"  // Wrong Questions screen: un-clip the action buttons; statistics as cards
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
