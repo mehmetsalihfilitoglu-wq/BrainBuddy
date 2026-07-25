@@ -131,7 +131,17 @@ class WrongQuestionsActivity : AppCompatActivity() {
                 val s = dao.getStatesByStatesAllExams(userId, scheduledStates).filtered()
                 val r = dao.getStatesByStatesAllExams(userId, resolvedStates).filtered().size
                 Triple(a, s, r)
-            } catch (_: Throwable) { null }
+            } catch (c: kotlinx.coroutines.CancellationException) {
+                throw c // back-press mid-query is a lifecycle event, not a database failure
+            } catch (t: Throwable) {
+                // Practically unreachable: the DB is local, uses destructive-migration fallback, the
+                // queries are off-main-thread, and this screen is only reachable after a successful read
+                // of the same database. Report it rather than swallow it — loud in Crashlytics, quiet
+                // for the student — and never render it as "you have no wrong questions".
+                com.edumio.app.observability.CrashReporterProvider
+                    .get(this@WrongQuestionsActivity).recordException(t)
+                null
+            }
 
             if (loaded == null) { showLoadError(); return@launch }
             error.visibility = View.GONE

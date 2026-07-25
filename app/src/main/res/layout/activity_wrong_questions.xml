@@ -105,15 +105,9 @@
                 android:gravity="center"
                 android:paddingTop="40dp"
                 android:visibility="gone">
-                <ImageView
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:src="@drawable/ic_edumio_mascot_thoughtful"
-                    android:contentDescription="@string/dc_cd_mascot"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:text="@string/wp_load_error"
                     android:textSize="15sp"
                     android:textColor="@color/edu_text_muted"

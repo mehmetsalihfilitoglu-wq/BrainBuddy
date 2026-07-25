@@ -21,9 +21,7 @@ class DailyChallengeReminderWorker(
 ) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): Result {
-        val slot = inputData.getInt(KEY_SLOT, -1)
-        if (slot < 0 || slot >= DailyChallengeReminderPolicy.slotCount()) return Result.success()
-
+        val slot = SLOT // v1 posts exactly ONE reminder a day
         val notifPrefs = NotificationPrefs(appContext)
         val enabled = notifPrefs.areMotivationNotificationsEnabled() && notifPrefs.isDailyReminderEnabled()
 
@@ -33,10 +31,15 @@ class DailyChallengeReminderWorker(
 
         val analytics = DailyChallengeAnalyticsProvider.get(appContext)
         val completed = reminderPrefs.isCompletedOn(localDate)
+        // Local wall-clock minute, read HERE rather than when the work was queued: WorkManager may run
+        // this long after the intended time (Doze / device asleep), which is how 04:02 and 08:10
+        // happened. The window check below turns such a late run into a no-op.
+        val nowMinute = nowMinuteOfDay(zone)
         if (!DailyChallengeReminderPolicy.shouldFire(
                 notificationsEnabled = enabled,
                 completedToday = completed,
-                alreadyFiredThisSlotToday = reminderPrefs.hasSlotFired(localDate, slot),
+                alreadyFiredToday = reminderPrefs.hasSlotFired(localDate, slot),
+                nowMinuteOfDay = nowMinute,
             )
         ) {
             analytics.track(
@@ -44,30 +47,36 @@ class DailyChallengeReminderWorker(
                 mapOf(
                     DcEvents.P_SLOT to slot,
                     DcEvents.P_REASON to when {
-                        !enabled -> "disabled"; completed -> "completed"; else -> "already_fired"
+                        !enabled -> "disabled"
+                        completed -> "completed"
+                        !DailyChallengeReminderPolicy.isWithinAllowedWindow(nowMinute) -> "outside_window"
+                        else -> "already_fired"
                     },
                 ),
             )
+            // Still re-arm: a suppressed run must not end the daily schedule.
+            DailyChallengeReminderScheduler.enqueueNext(appContext)
             return Result.success()
         }
 
-        val (title, text) = copyForSlot(slot)
-        val posted = showNotification(title, text, slot)
+        val posted = showNotification(TITLE, BODY, slot)
         if (posted) {
             reminderPrefs.markSlotFired(localDate, slot)
             analytics.track(DcEvents.REMINDER_SHOWN, mapOf(DcEvents.P_SLOT to slot, DcEvents.P_LOCAL_DATE to localDate))
         } else {
             analytics.track(DcEvents.REMINDER_SUPPRESSED, mapOf(DcEvents.P_SLOT to slot, DcEvents.P_REASON to "post_failed"))
         }
+        // Arm tomorrow's reminder against the CURRENT local clock, so timezone and DST changes are
+        // picked up automatically and exactly one reminder stays queued at any time.
+        DailyChallengeReminderScheduler.enqueueNext(appContext)
         return Result.success()
     }
 
     private fun localDate(zone: TimeZone): String = DailyChallengeDates.localDate(zone)
 
-    private fun copyForSlot(slot: Int): Pair<String, String> = when (slot) {
-        0 -> "Günün Görevi hazır" to "Bugünün 5 yeni sorusu seni bekliyor. Güne güçlü başla!"
-        1 -> "Günü kaçırma" to "Bugünkü 5 soruyu henüz çözmedin. 5 dakikanı ayır."
-        else -> "Serini koru" to "Gün bitmeden bugünkü Günün Görevi'ni tamamla ve serini sürdür."
+    private fun nowMinuteOfDay(zone: TimeZone): Int {
+        val c = java.util.Calendar.getInstance(zone)
+        return c.get(java.util.Calendar.HOUR_OF_DAY) * 60 + c.get(java.util.Calendar.MINUTE)
     }
 
     /** Posts the reminder. Never throws — a notification failure must not fail/retry the worker. */
@@ -92,6 +101,11 @@ class DailyChallengeReminderWorker(
 
     companion object {
         const val KEY_SLOT = "dc_reminder_slot"
+        /** v1 has exactly one reminder a day; the slot index is retained only for the fired-marker key. */
+        private const val SLOT = 0
+        /** Calm, non-guilt copy. The old second/third reminders ("Günü kaçırma", "Serini koru") are gone. */
+        private const val TITLE = "Günün Görevi hazır"
+        private const val BODY = "Bugünün 5 sorusu seni bekliyor."
         private const val CHANNEL_ID = "dc_daily_challenge"
         private const val NOTIF_ID_BASE = 4100
     }

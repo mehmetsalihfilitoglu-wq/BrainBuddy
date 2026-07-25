@@ -177,16 +177,13 @@ class DailyChallengeEngine internal constructor(
             for ((s, v) in expected) dao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, actual[s] ?: 0.0))
             for ((s, v) in subExpected) dao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, subActual[s] ?: 0.0))
 
-            // ── retire selected (SEEN_ONCE) — leaves the unseen pool permanently ──
-            for (c in selected) {
-                dao.upsertState(
-                    UserQuestionStateEntity(
-                        userId = userId, questionId = c.id, examType = examType,
-                        section = c.subject, topic = c.topic, state = QuestionLearnState.SEEN_ONCE.name,
-                        timesSeen = 1, firstSeenAt = nowMs, lastSeenAt = nowMs,
-                    )
-                )
-            }
+            // ── NO retirement here ──
+            // Questions are CONSUMED when they are ANSWERED (see submitAnswer), not when the challenge
+            // is generated. Merely opening Home generates today's challenge; retiring at that moment
+            // permanently burned five unseen questions even if the student never answered one. The
+            // day's five ids are already persisted in the immutable challenge row below, so reopening
+            // returns exactly the same unfinished challenge and partial progress survives a restart —
+            // while anything left unanswered stays in the unseen pool and can be served again later.
 
             val challenge = DailyChallengeEntity(
                 userId = userId, localDate = day,
@@ -258,8 +255,12 @@ class DailyChallengeEngine internal constructor(
             prev == null || prev.state == QuestionLearnState.SEEN_ONCE.name -> QuestionLearnState.INCORRECT_ONCE
             else -> QuestionLearnState.INCORRECT_MULTIPLE
         }
-        val section = prev?.section ?: ""
-        val topic = prev?.topic ?: ""
+        // Section/topic used to come from the SEEN_ONCE row written at generation time. Now that a
+        // question is only recorded when it is answered, resolve them from the question itself on the
+        // first answer so review grouping and section labels stay correct.
+        val meta = if (prev == null) content.getQuestionsByIds(listOf(questionId)).firstOrNull() else null
+        val section = prev?.section ?: meta?.subject ?: ""
+        val topic = prev?.topic ?: meta?.topic ?: ""
         dao.upsertState(
             UserQuestionStateEntity(
                 userId = userId, questionId = questionId, examType = questionExam, section = section, topic = topic,

@@ -23,42 +23,18 @@ object NotificationScheduler {
     private const val DAILY_WORK = "edu_daily_reminder"
     private const val STREAK_WORK = "edu_streak_warning"
 
-    /** Idempotent: safe to call on every app start. Honors the user's toggles. */
+    /**
+     * v1 NOTIFICATION POLICY: ONE respectful reminder a day, owned entirely by
+     * [com.edumio.app.dailychallenge.DailyChallengeReminderScheduler] (11:30 local, 11:00–20:00 window).
+     *
+     * This legacy motivation scheduler added a SECOND and THIRD daily notification (an 18:00 "daily
+     * reminder" and a 20:00 "streak warning") on top of that, using PeriodicWorkRequests whose fire
+     * time drifts into Doze maintenance windows — part of why reminders were observed at 04:02/08:10.
+     * For v1 it is disabled and any previously-enqueued work is cancelled, including on upgrade.
+     * Calling schedule() is therefore an explicit "make sure none of this is queued".
+     */
     fun schedule(context: Context) {
-        val prefs = NotificationPrefs(context)
-        if (!prefs.areMotivationNotificationsEnabled()) {
-            cancel(context)
-            return
-        }
-        val wm = WorkManager.getInstance(context)
-
-        if (prefs.isDailyReminderEnabled()) {
-            wm.enqueueUniquePeriodicWork(
-                DAILY_WORK,
-                ExistingPeriodicWorkPolicy.KEEP,
-                PeriodicWorkRequestBuilder<MotivationNotificationWorker>(1, TimeUnit.DAYS)
-                    .setInitialDelay(delayToHour(18), TimeUnit.MILLISECONDS)
-                    .setInputData(workDataOf(
-                        MotivationNotificationWorker.KEY_TYPE to MotivationNotificationWorker.TYPE_DAILY_REMINDER))
-                    .build()
-            )
-        } else {
-            wm.cancelUniqueWork(DAILY_WORK)
-        }
-
-        if (prefs.isStreakWarningEnabled()) {
-            wm.enqueueUniquePeriodicWork(
-                STREAK_WORK,
-                ExistingPeriodicWorkPolicy.KEEP,
-                PeriodicWorkRequestBuilder<MotivationNotificationWorker>(1, TimeUnit.DAYS)
-                    .setInitialDelay(delayToHour(20), TimeUnit.MILLISECONDS)
-                    .setInputData(workDataOf(
-                        MotivationNotificationWorker.KEY_TYPE to MotivationNotificationWorker.TYPE_STREAK_WARNING))
-                    .build()
-            )
-        } else {
-            wm.cancelUniqueWork(STREAK_WORK)
-        }
+        cancel(context)
     }
 
     /** Re-apply after the user changes notification settings. */

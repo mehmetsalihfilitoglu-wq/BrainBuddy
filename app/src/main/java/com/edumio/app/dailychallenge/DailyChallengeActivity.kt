@@ -90,7 +90,14 @@ class DailyChallengeActivity : AppCompatActivity() {
             var loadFailed = false
             val result = try {
                 controller.loadToday(userId, exam)
+            } catch (c: kotlinx.coroutines.CancellationException) {
+                throw c // screen closed mid-load: a lifecycle event, never a "failure"
             } catch (t: Throwable) {
+                // Practically unreachable on a normal install (local Room + assets shipped in the APK).
+                // Report it so it is loud in Crashlytics and effectively invisible to the student —
+                // never swallowed, and never dressed up as a dramatic error screen.
+                com.edumio.app.observability.CrashReporterProvider
+                    .get(this@DailyChallengeActivity).recordException(t)
                 loadFailed = true
                 null
             }
@@ -119,17 +126,15 @@ class DailyChallengeActivity : AppCompatActivity() {
     }
 
     /**
-     * ERROR state for the answering screen: an honest message plus a retry that genuinely re-runs
-     * generation. It never claims the day is finished and never silently closes the screen.
+     * Minimal, non-prominent fallback for a practically-unreachable load failure. It is deliberately
+     * NOT a dramatic full-screen error: the exception has already gone to Crashlytics, and the student
+     * simply returns to Home (which owns the real retry). The one thing it must never do is repeat the
+     * old lie that there are no questions left today.
      */
     private fun showLoadError() {
         if (isFinishing || isDestroyed) return
-        com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
-            .setMessage(R.string.dc_load_error)
-            .setCancelable(false)
-            .setPositiveButton(R.string.dc_cta_retry) { d, _ -> d.dismiss(); load() }
-            .setNegativeButton(R.string.cd_back) { d, _ -> d.dismiss(); finish() }
-            .show()
+        Toast.makeText(this, R.string.dc_load_error, Toast.LENGTH_LONG).show()
+        finish()
     }
 
     private fun render() {

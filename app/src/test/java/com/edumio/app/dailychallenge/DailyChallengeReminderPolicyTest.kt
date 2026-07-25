@@ -5,60 +5,155 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/** Pure JVM tests for the Daily Challenge reminder scheduling policy (no Android deps). */
+/**
+ * Guards the v1 notification policy after real-device reminders were observed at 04:02 and 08:10.
+ *
+ * Policy: ONE reminder a day at 11:30 local, hard window 11:00–20:00, never a catch-up fire, never
+ * more than once a day. (This replaces the old three-slot 09:00 / 16:00 / 20:30 policy.)
+ */
 class DailyChallengeReminderPolicyTest {
 
+    private fun min(h: Int, m: Int = 0) = h * 60 + m
+
+    // ── the observed bad times must be structurally impossible ─────────────────────────────────────
+
     @Test
-    fun threeSlotsAt0900_1600_2030InOrder() {
-        assertEquals(3, DailyChallengeReminderPolicy.slotCount())
-        assertEquals(listOf(540, 960, 1230), DailyChallengeReminderPolicy.SLOT_MINUTES.toList())
-        val sorted = DailyChallengeReminderPolicy.SLOT_MINUTES.toList().sorted()
-        assertEquals("slots must be ascending", sorted, DailyChallengeReminderPolicy.SLOT_MINUTES.toList())
+    fun the0402Observation_isImpossible() {
+        assertFalse("04:02 is outside the allowed window", DailyChallengeReminderPolicy.isWithinAllowedWindow(min(4, 2)))
+        assertFalse(
+            "must never post at 04:02, even if WorkManager runs the job then",
+            DailyChallengeReminderPolicy.shouldFire(
+                notificationsEnabled = true, completedToday = false, alreadyFiredToday = false,
+                nowMinuteOfDay = min(4, 2),
+            ),
+        )
     }
 
     @Test
-    fun delayToUpcomingSlotIsSameDay() {
-        // now 08:00 (480). 09:00 slot is 60 min away.
-        assertEquals(60, DailyChallengeReminderPolicy.delayMinutesToSlot(540, 480))
-        // now 08:00, 16:00 slot is 480 min away.
-        assertEquals(480, DailyChallengeReminderPolicy.delayMinutesToSlot(960, 480))
+    fun the0810Observation_isImpossible() {
+        assertFalse(DailyChallengeReminderPolicy.isWithinAllowedWindow(min(8, 10)))
+        assertFalse(
+            DailyChallengeReminderPolicy.shouldFire(
+                notificationsEnabled = true, completedToday = false, alreadyFiredToday = false,
+                nowMinuteOfDay = min(8, 10),
+            ),
+        )
     }
 
     @Test
-    fun delayToPassedSlotWrapsToTomorrow() {
-        // now 10:00 (600). 09:00 slot already passed → 23h to tomorrow's 09:00.
-        assertEquals(540 - 600 + 1440, DailyChallengeReminderPolicy.delayMinutesToSlot(540, 600))
-        // exactly at the slot → schedule for tomorrow (never negative, never zero).
-        assertEquals(1440, DailyChallengeReminderPolicy.delayMinutesToSlot(540, 540))
-        assertTrue(DailyChallengeReminderPolicy.delayMinutesToSlot(540, 600) > 0)
+    fun nothingFiresBefore1100() {
+        for (m in 0 until min(11, 0)) {
+            assertFalse("minute $m must be blocked", DailyChallengeReminderPolicy.isWithinAllowedWindow(m))
+        }
     }
 
     @Test
-    fun remainingSlotsExcludePastTimes() {
-        assertEquals(listOf(540, 960, 1230), DailyChallengeReminderPolicy.remainingSlotsToday(0))
-        assertEquals(listOf(960, 1230), DailyChallengeReminderPolicy.remainingSlotsToday(600)) // after 09:00
-        assertEquals(listOf(1230), DailyChallengeReminderPolicy.remainingSlotsToday(1000)) // after 16:00
-        assertTrue(DailyChallengeReminderPolicy.remainingSlotsToday(1300).isEmpty()) // after 20:30
+    fun nothingFiresAfter2000() {
+        for (m in min(20, 1) until 24 * 60) {
+            assertFalse("minute $m must be blocked", DailyChallengeReminderPolicy.isWithinAllowedWindow(m))
+        }
     }
 
     @Test
-    fun completionSuppressesAllRemainingReminders() {
-        // once completed today, no slot fires regardless of enabled/fired state
-        assertFalse(DailyChallengeReminderPolicy.shouldFire(notificationsEnabled = true, completedToday = true, alreadyFiredThisSlotToday = false))
+    fun theAllowedWindowIsExactlyElevenToTwenty() {
+        assertTrue(DailyChallengeReminderPolicy.isWithinAllowedWindow(min(11, 0)))
+        assertTrue(DailyChallengeReminderPolicy.isWithinAllowedWindow(min(11, 30)))
+        assertTrue(DailyChallengeReminderPolicy.isWithinAllowedWindow(min(20, 0)))
+        assertFalse(DailyChallengeReminderPolicy.isWithinAllowedWindow(min(10, 59)))
+        assertFalse(DailyChallengeReminderPolicy.isWithinAllowedWindow(min(20, 1)))
+    }
+
+    // ── scheduling: today if still ahead, otherwise tomorrow — never instantly ─────────────────────
+
+    @Test
+    fun schedulesTodayWhenElevenThirtyIsStillAhead() {
+        assertEquals("09:00 → 150 min to 11:30", 150, DailyChallengeReminderPolicy.delayMinutesToNextReminder(min(9, 0)))
+        assertEquals("11:29 → 1 min", 1, DailyChallengeReminderPolicy.delayMinutesToNextReminder(min(11, 29)))
     }
 
     @Test
-    fun disabledNotificationsNeverFire() {
-        assertFalse(DailyChallengeReminderPolicy.shouldFire(notificationsEnabled = false, completedToday = false, alreadyFiredThisSlotToday = false))
+    fun schedulesTomorrowWhenTodaysTimeHasPassed_neverInstantly() {
+        val atNoon = DailyChallengeReminderPolicy.delayMinutesToNextReminder(min(12, 0))
+        assertEquals("12:00 → 23h30 until tomorrow 11:30", 23 * 60 + 30, atNoon)
+        assertTrue("a passed slot must never resolve to an immediate fire", atNoon > 0)
+
+        val at2300 = DailyChallengeReminderPolicy.delayMinutesToNextReminder(min(23, 0))
+        assertEquals(12 * 60 + 30, at2300)
+        assertTrue(at2300 > 0)
     }
 
     @Test
-    fun alreadyFiredSlotIsIdempotent() {
-        assertFalse(DailyChallengeReminderPolicy.shouldFire(notificationsEnabled = true, completedToday = false, alreadyFiredThisSlotToday = true))
+    fun everyPossibleNowResolvesToAStrictlyFutureDelayLandingOnElevenThirty() {
+        for (now in 0 until 24 * 60) {
+            val d = DailyChallengeReminderPolicy.delayMinutesToNextReminder(now)
+            assertTrue("now=$now must be strictly in the future", d > 0)
+            assertTrue("now=$now must be within a day", d <= DailyChallengeReminderPolicy.MINUTES_PER_DAY)
+            assertEquals(
+                "the post time is always 11:30",
+                DailyChallengeReminderPolicy.REMINDER_MINUTE,
+                (now + d) % DailyChallengeReminderPolicy.MINUTES_PER_DAY,
+            )
+        }
     }
 
     @Test
-    fun firesOnlyWhenEnabledNotCompletedNotYetFired() {
-        assertTrue(DailyChallengeReminderPolicy.shouldFire(notificationsEnabled = true, completedToday = false, alreadyFiredThisSlotToday = false))
+    fun aDeferredOvernightRun_postsNothing_ratherThanCatchingUp() {
+        // The device was asleep and WorkManager wakes the job at 03:00: it must post nothing.
+        assertFalse(
+            DailyChallengeReminderPolicy.shouldFire(
+                notificationsEnabled = true, completedToday = false, alreadyFiredToday = false,
+                nowMinuteOfDay = min(3, 0),
+            ),
+        )
+    }
+
+    // ── one per day, and suppression rules ────────────────────────────────────────────────────────
+
+    @Test
+    fun onlyOneReminderPerDay() {
+        val inWindow = min(11, 30)
+        assertTrue(
+            DailyChallengeReminderPolicy.shouldFire(true, completedToday = false, alreadyFiredToday = false, nowMinuteOfDay = inWindow),
+        )
+        assertFalse(
+            "a second run the same day must not post again",
+            DailyChallengeReminderPolicy.shouldFire(true, completedToday = false, alreadyFiredToday = true, nowMinuteOfDay = inWindow),
+        )
+    }
+
+    @Test
+    fun completingTodaysChallengeSuppressesTodaysReminder() {
+        assertFalse(
+            DailyChallengeReminderPolicy.shouldFire(
+                notificationsEnabled = true, completedToday = true, alreadyFiredToday = false,
+                nowMinuteOfDay = min(11, 30),
+            ),
+        )
+    }
+
+    @Test
+    fun notificationsOffSuppressesEverything() {
+        assertFalse(
+            DailyChallengeReminderPolicy.shouldFire(
+                notificationsEnabled = false, completedToday = false, alreadyFiredToday = false,
+                nowMinuteOfDay = min(11, 30),
+            ),
+        )
+    }
+
+    @Test
+    fun firesOnlyWhenEnabledNotCompletedNotYetFiredAndInWindow() {
+        assertTrue(
+            DailyChallengeReminderPolicy.shouldFire(
+                notificationsEnabled = true, completedToday = false, alreadyFiredToday = false,
+                nowMinuteOfDay = min(11, 30),
+            ),
+        )
+    }
+
+    @Test
+    fun theDefaultReminderTimeIsElevenThirtyAndInsideTheWindow() {
+        assertEquals(11 * 60 + 30, DailyChallengeReminderPolicy.REMINDER_MINUTE)
+        assertTrue(DailyChallengeReminderPolicy.isWithinAllowedWindow(DailyChallengeReminderPolicy.REMINDER_MINUTE))
     }
 }

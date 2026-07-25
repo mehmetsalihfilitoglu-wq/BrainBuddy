@@ -138,11 +138,15 @@ class DailyChallengeImmutabilityTest {
         val userId = "u1"
 
         val d1 = engine.getOrCreateToday(userId, ExamType.IMAT, utc, t0)!!
+        // Questions are consumed when ANSWERED, not when generated, so answer day 1 before rolling over.
+        ids(d1.challenge.questionIdsCsv).forEach {
+            engine.submitAnswer(userId, d1.challenge.localDate, it, 0, true, 100, t0)
+        }
         val d2 = engine.getOrCreateToday(userId, ExamType.IMAT, utc, nextDay)!!
 
         assertNotEquals("distinct local days", d1.challenge.localDate, d2.challenge.localDate)
         assertNotEquals("distinct question sets", d1.challenge.questionIdsCsv, d2.challenge.questionIdsCsv)
-        // no id reused across days (each question is retired forever)
+        // no ANSWERED id is ever re-served (retirement happens on answer)
         assertTrue(ids(d1.challenge.questionIdsCsv).intersect(ids(d2.challenge.questionIdsCsv).toSet()).isEmpty())
         assertEquals(1, dao.countChallengesForDay(userId, d1.challenge.localDate))
         assertEquals(1, dao.countChallengesForDay(userId, d2.challenge.localDate))
@@ -224,7 +228,8 @@ class DailyChallengeImmutabilityTest {
         // and it introduces no new seen questions and no new challenge
         assertEquals(seenBefore, dao.getSeenQuestionIds(userId, ExamType.IMAT.name).toSet())
         assertEquals(challengesBefore, dao.countChallengesForUser(userId))
-        assertEquals(5, dao.getSeenQuestionIds(userId, ExamType.IMAT.name).size)
+        // Consumption is answer-driven: exactly the two answered questions are recorded, not all five.
+        assertEquals(2, dao.getSeenQuestionIds(userId, ExamType.IMAT.name).size)
     }
 
     // ── 11. reinstall restores today's challenge after sync (fresh store + snapshot) ─────────────
@@ -358,7 +363,9 @@ class DailyChallengeImmutabilityTest {
         engine.migrateAccount(anonId, accountId)
         assertEquals(1, dao.countChallengesForDay(accountId, anon.challenge.localDate))
         assertEquals(anon.challenge.questionIdsCsv, dao.getChallengeForDay(accountId, anon.challenge.localDate)!!.questionIdsCsv)
-        assertEquals("retirement states not double-counted", 5, dao.getAllStatesForUser(accountId).size)
+        // One question was answered, so exactly one learning state exists — and migrating twice must
+        // not duplicate it (consumption is answer-driven, so five states would be wrong here).
+        assertEquals("retirement states not double-counted", 1, dao.getAllStatesForUser(accountId).size)
         assertEquals(1, dao.countAnswers("$accountId:${anon.challenge.localDate}"))
     }
 
