@@ -99,8 +99,19 @@ class RealAssetDailyChallengePipelineTest {
                 "${exam.name}: every row carries examType='${exam.name}'",
                 rows.size, rows.count { it.examType == exam.name },
             )
-            val servable = rows.count { it.isActive && (it.unservableReason == null || it.unservableReason == "") }
-            assertEquals("${exam.name}: all rows servable (isActive, no unservableReason)", rows.size, servable)
+            // Every row is active; the ONLY rows withheld from serving are the deliberately quarantined
+            // cropped-image questions (see UnservableQuestions), which the candidate query filters out.
+            assertEquals("${exam.name}: every row stays active", rows.size, rows.count { it.isActive })
+            val withheld = rows.count { it.unservableReason == UnservableQuestions.REASON }
+            val servable = rows.count { it.isActive && it.unservableReason.isNullOrBlank() }
+            assertEquals(
+                "${exam.name}: servable = all rows minus the quarantined ones",
+                rows.size - withheld, servable,
+            )
+            assertEquals(
+                "${exam.name}: nothing is withheld for any other reason",
+                withheld, rows.count { !it.unservableReason.isNullOrBlank() },
+            )
 
             // D) blueprint sections: every requested section is present with a positive count
             val content = RealAssetContent(rows)

@@ -156,4 +156,82 @@ class DailyChallengeReminderPolicyTest {
         assertEquals(11 * 60 + 30, DailyChallengeReminderPolicy.REMINDER_MINUTE)
         assertTrue(DailyChallengeReminderPolicy.isWithinAllowedWindow(DailyChallengeReminderPolicy.REMINDER_MINUTE))
     }
+
+    // ── the SECOND (18:30) reminder ───────────────────────────────────────────────────────────────
+
+    @Test
+    fun secondReminderIsAtEighteenThirtyAndInsideTheWindow() {
+        assertEquals(18 * 60 + 30, DailyChallengeReminderPolicy.SECOND_REMINDER_MINUTE)
+        assertTrue(DailyChallengeReminderPolicy.isWithinAllowedWindow(DailyChallengeReminderPolicy.SECOND_REMINDER_MINUTE))
+    }
+
+    @Test
+    fun atMostTwoRemindersPerDay() {
+        assertEquals(2, DailyChallengeReminderPolicy.MAX_REMINDERS_PER_DAY)
+    }
+
+    @Test
+    fun theTwoRemindersAreSevenHoursApart_neverCloseTogether() {
+        val gap = DailyChallengeReminderPolicy.SECOND_REMINDER_MINUTE - DailyChallengeReminderPolicy.REMINDER_MINUTE
+        assertEquals(7 * 60, gap)
+        assertTrue("reminders must not be bunched together", gap >= 4 * 60)
+    }
+
+    @Test
+    fun secondReminderSchedulesTodayWhenStillAhead_otherwiseTomorrow() {
+        // 09:00 → 9h30 to today's 18:30
+        assertEquals(9 * 60 + 30, DailyChallengeReminderPolicy.delayMinutesToSecondReminder(min(9, 0)))
+        // 12:00 (first reminder passed, second still ahead) → 6h30 to today's 18:30
+        assertEquals(6 * 60 + 30, DailyChallengeReminderPolicy.delayMinutesToSecondReminder(min(12, 0)))
+        // 19:00 (both passed) → tomorrow's 18:30, never instant
+        val after = DailyChallengeReminderPolicy.delayMinutesToSecondReminder(min(19, 0))
+        assertEquals(23 * 60 + 30, after)
+        assertTrue(after > 0)
+    }
+
+    @Test
+    fun everyPossibleNowResolvesTheSecondReminderToAFutureEighteenThirty() {
+        for (now in 0 until 24 * 60) {
+            val d = DailyChallengeReminderPolicy.delayMinutesToSecondReminder(now)
+            assertTrue("now=$now must be strictly future", d > 0)
+            assertEquals(
+                DailyChallengeReminderPolicy.SECOND_REMINDER_MINUTE,
+                (now + d) % DailyChallengeReminderPolicy.MINUTES_PER_DAY,
+            )
+        }
+    }
+
+    @Test
+    fun completingAfterTheFirstReminderSuppressesTheSecond() {
+        // 18:30, challenge finished during the afternoon → the follow-up must not post.
+        assertFalse(
+            DailyChallengeReminderPolicy.shouldFire(
+                notificationsEnabled = true, completedToday = true, alreadyFiredToday = false,
+                nowMinuteOfDay = DailyChallengeReminderPolicy.SECOND_REMINDER_MINUTE,
+            ),
+        )
+    }
+
+    @Test
+    fun secondReminderStillFiresWhenTheChallengeIsStillIncomplete() {
+        assertTrue(
+            DailyChallengeReminderPolicy.shouldFire(
+                notificationsEnabled = true, completedToday = false, alreadyFiredToday = false,
+                nowMinuteOfDay = DailyChallengeReminderPolicy.SECOND_REMINDER_MINUTE,
+            ),
+        )
+    }
+
+    @Test
+    fun bothRemindersSitInsideTheAllowedWindow_andNothingElseDoes() {
+        val both = listOf(
+            DailyChallengeReminderPolicy.REMINDER_MINUTE,
+            DailyChallengeReminderPolicy.SECOND_REMINDER_MINUTE,
+        )
+        both.forEach { assertTrue(DailyChallengeReminderPolicy.isWithinAllowedWindow(it)) }
+        // The classic bad deliveries remain impossible for either slot.
+        listOf(min(4, 2), min(8, 10), min(21, 0), min(23, 59), 0).forEach {
+            assertFalse("minute $it must never post", DailyChallengeReminderPolicy.isWithinAllowedWindow(it))
+        }
+    }
 }

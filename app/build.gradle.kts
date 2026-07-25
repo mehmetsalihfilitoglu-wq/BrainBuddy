@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 14
-        versionName = "1.0.0-rc12"  // consumption lifecycle (answer-time, not app-open), image audit, one calm 11:30 reminder
+        versionCode = 15
+        versionName = "1.0.0-rc13"  // withhold unanswerable cropped-image questions; conditional two-reminder policy (11:30 + 18:30)
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")

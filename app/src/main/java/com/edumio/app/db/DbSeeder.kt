@@ -127,7 +127,8 @@ object DbSeeder {
     // Fully isolated from the legacy K-12 / LGS seed pipeline: own asset, own meta
     // version key, own quality-gate-free ingestion (these are official verbatim items).
     private const val KEY_IMAT_SEED_VERSION = "imat_seed_version"
-    private const val CURRENT_IMAT_SEED_VERSION = 17
+    // v18: withhold cropped-source questions that cannot be answered (see UnservableQuestions).
+    private const val CURRENT_IMAT_SEED_VERSION = 18
     private const val IMAT_ASSET = "imat/imat_questions.json"
 
     // ── EdumioOriginal ORIGINAL question bank ────────────────────────────────────────
@@ -141,10 +142,12 @@ object DbSeeder {
     // Fully isolated production pools (examType='TIL_I' / 'CENT_S'), own asset + version key + reseed.
     // Only production-eligible, semantically-verified (PASS) questions are compiled into these assets.
     private const val KEY_TIL_SEED_VERSION = "til_i_seed_version"
-    private const val CURRENT_TIL_SEED_VERSION = 1
+    // v2: withhold cropped-source questions that cannot be answered (see UnservableQuestions).
+    private const val CURRENT_TIL_SEED_VERSION = 2
     private const val TIL_ASSET = "til_i/questions.json"
     private const val KEY_CENTS_SEED_VERSION = "cents_s_seed_version"
-    private const val CURRENT_CENTS_SEED_VERSION = 1
+    // v2: withhold cropped-source questions that cannot be answered (see UnservableQuestions).
+    private const val CURRENT_CENTS_SEED_VERSION = 2
     private const val CENTS_ASSET = "cents_s/questions.json"
 
     @Volatile
@@ -245,7 +248,9 @@ object DbSeeder {
                     qualityTier = "MEDIUM",
                     reasoningLevel = 2,
                     qualityScore = 80,
-                    unservableReason = null,
+                    // Withheld when the source figure is cropped so badly the answer cannot be
+                    // determined; the candidate query filters these out. Record is kept, not deleted.
+                    unservableReason = UnservableQuestions.reasonFor(id),
                 )
             )
         }
@@ -421,7 +426,9 @@ object DbSeeder {
                     stemHash = imatSha256(stemNorm), createdAt = now,
                     sourcePack = "${examType.lowercase()}_daily", source = "original",
                     qualityTier = tier, reasoningLevel = if (tier == "MEDIUM" || tier == "EASY") 2 else 3,
-                    qualityScore = 90, unservableReason = null,
+                    qualityScore = 90,
+                    // See UnservableQuestions: cropped-source figures whose answer is unrecoverable.
+                    unservableReason = UnservableQuestions.reasonFor(id),
                 )
             )
         }

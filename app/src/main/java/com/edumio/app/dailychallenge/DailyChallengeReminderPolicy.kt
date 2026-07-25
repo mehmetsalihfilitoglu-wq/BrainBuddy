@@ -19,15 +19,29 @@ object DailyChallengeReminderPolicy {
     const val WINDOW_START_MINUTE = 11 * 60      // 11:00
     const val WINDOW_END_MINUTE = 20 * 60        // 20:00
 
-    /** The single daily reminder time: 11:30 local. */
+    /** First reminder: 11:30 local. */
     const val REMINDER_MINUTE = 11 * 60 + 30
+
+    /** Second (and final) reminder: 18:30 local — only if the challenge is STILL incomplete. */
+    const val SECOND_REMINDER_MINUTE = 18 * 60 + 30
+
+    /** At most two reminders per local calendar day. */
+    const val MAX_REMINDERS_PER_DAY = 2
 
     /**
      * Minutes from [nowMinuteOfDay] until the next 11:30. If today's time has already passed, this
      * returns the delay to TOMORROW's 11:30 — a missed slot must never fire instantly.
      */
-    fun delayMinutesToNextReminder(nowMinuteOfDay: Int): Int {
-        val diff = REMINDER_MINUTE - nowMinuteOfDay
+    fun delayMinutesToNextReminder(nowMinuteOfDay: Int): Int =
+        delayMinutesTo(REMINDER_MINUTE, nowMinuteOfDay)
+
+    /** Minutes until the next 18:30 (today if still ahead, otherwise tomorrow). */
+    fun delayMinutesToSecondReminder(nowMinuteOfDay: Int): Int =
+        delayMinutesTo(SECOND_REMINDER_MINUTE, nowMinuteOfDay)
+
+    /** Strictly-future delay to the next occurrence of [targetMinuteOfDay]; never zero, never negative. */
+    private fun delayMinutesTo(targetMinuteOfDay: Int, nowMinuteOfDay: Int): Int {
+        val diff = targetMinuteOfDay - nowMinuteOfDay
         return if (diff > 0) diff else diff + MINUTES_PER_DAY
     }
 

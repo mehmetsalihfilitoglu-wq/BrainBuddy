@@ -21,7 +21,9 @@ class DailyChallengeReminderWorker(
 ) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): Result {
-        val slot = SLOT // v1 posts exactly ONE reminder a day
+        // 0 = the 11:30 reminder, 1 = the 18:30 follow-up. Two a day at most, and the second only if
+        // the challenge is STILL incomplete — the completion check below suppresses it otherwise.
+        val slot = inputData.getInt(KEY_SLOT, 0).coerceIn(0, 1)
         val notifPrefs = NotificationPrefs(appContext)
         val enabled = notifPrefs.areMotivationNotificationsEnabled() && notifPrefs.isDailyReminderEnabled()
 
@@ -59,7 +61,8 @@ class DailyChallengeReminderWorker(
             return Result.success()
         }
 
-        val posted = showNotification(TITLE, BODY, slot)
+        val posted = if (slot == 0) showNotification(TITLE, BODY, slot)
+        else showNotification(SECOND_TITLE, SECOND_BODY, slot)
         if (posted) {
             reminderPrefs.markSlotFired(localDate, slot)
             analytics.track(DcEvents.REMINDER_SHOWN, mapOf(DcEvents.P_SLOT to slot, DcEvents.P_LOCAL_DATE to localDate))
@@ -101,11 +104,11 @@ class DailyChallengeReminderWorker(
 
     companion object {
         const val KEY_SLOT = "dc_reminder_slot"
-        /** v1 has exactly one reminder a day; the slot index is retained only for the fired-marker key. */
-        private const val SLOT = 0
-        /** Calm, non-guilt copy. The old second/third reminders ("Günü kaçırma", "Serini koru") are gone. */
+        /** Calm, non-guilt copy. The old "Günü kaçırma" / "Serini koru" reminders are gone for good. */
         private const val TITLE = "Günün Görevi hazır"
         private const val BODY = "Bugünün 5 sorusu seni bekliyor."
+        private const val SECOND_TITLE = "Bugünün görevini tamamla"
+        private const val SECOND_BODY = "5 soruluk görevini tamamlamak için hâlâ zamanın var."
         private const val CHANNEL_ID = "dc_daily_challenge"
         private const val NOTIF_ID_BASE = 4100
     }

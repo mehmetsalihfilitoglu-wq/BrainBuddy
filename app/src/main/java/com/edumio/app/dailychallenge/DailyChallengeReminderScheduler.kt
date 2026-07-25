@@ -23,7 +23,11 @@ import java.util.concurrent.TimeUnit
  */
 object DailyChallengeReminderScheduler {
 
-    /** Single unique work name — enqueueUniqueWork(REPLACE) makes duplicates impossible. */
+    /** Two unique work names — enqueueUniqueWork(REPLACE) makes duplicates impossible. */
+    const val WORK_FIRST = "EDUmioDailyReminderFirst"
+    const val WORK_SECOND = "EDUmioDailyReminderSecond"
+
+    /** Pre-rc13 single-reminder work name; cancelled on upgrade. */
     private const val WORK_NAME = "dc_reminder_daily"
 
     /** Pre-v1 scheduled three periodic slots (09:00 / 16:00 / 20:30); they must be cancelled on upgrade. */
@@ -42,18 +46,24 @@ object DailyChallengeReminderScheduler {
     }
 
     /**
-     * Arms the next reminder for the upcoming 11:30 local. If 11:30 has already passed today this
-     * schedules TOMORROW — a missed reminder is never fired late as a catch-up.
+     * Arms BOTH reminders against the current local wall clock: 11:30 and 18:30. Each resolves to the
+     * next strictly-future occurrence, so a slot whose time has already passed today lands tomorrow —
+     * a missed reminder is never fired late as a catch-up. Each worker re-checks completion AND the
+     * allowed window immediately before posting, so a deferred run posts nothing.
      */
     fun enqueueNext(context: Context) {
-        val delayMinutes = DailyChallengeReminderPolicy
-            .delayMinutesToNextReminder(nowMinuteOfDay())
-            .toLong()
+        val now = nowMinuteOfDay()
+        enqueue(context, WORK_FIRST, DailyChallengeReminderPolicy.delayMinutesToNextReminder(now), slot = 0)
+        enqueue(context, WORK_SECOND, DailyChallengeReminderPolicy.delayMinutesToSecondReminder(now), slot = 1)
+    }
+
+    private fun enqueue(context: Context, workName: String, delayMinutes: Int, slot: Int) {
         WorkManager.getInstance(context).enqueueUniqueWork(
-            WORK_NAME,
+            workName,
             ExistingWorkPolicy.REPLACE, // replacing always cancels the previous schedule first
             OneTimeWorkRequestBuilder<DailyChallengeReminderWorker>()
-                .setInitialDelay(delayMinutes, TimeUnit.MINUTES)
+                .setInitialDelay(delayMinutes.toLong(), TimeUnit.MINUTES)
+                .setInputData(androidx.work.workDataOf(DailyChallengeReminderWorker.KEY_SLOT to slot))
                 .build(),
         )
     }
@@ -65,7 +75,9 @@ object DailyChallengeReminderScheduler {
 
     /** Cancels every pending EDUmio daily reminder, current and legacy. */
     fun cancel(context: Context) {
-        WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME)
+        val wm = WorkManager.getInstance(context)
+        wm.cancelUniqueWork(WORK_FIRST)
+        wm.cancelUniqueWork(WORK_SECOND)
         cancelLegacy(context)
     }
 
@@ -81,6 +93,7 @@ object DailyChallengeReminderScheduler {
     private fun cancelLegacy(context: Context) {
         val wm = WorkManager.getInstance(context)
         for (slot in 0 until LEGACY_SLOT_COUNT) wm.cancelUniqueWork(LEGACY_WORK_PREFIX + slot)
+        wm.cancelUniqueWork(WORK_NAME) // the rc12 single-reminder work name
     }
 
     /** Local wall-clock minute-of-day — recomputed each call, so timezone/DST changes are picked up. */
