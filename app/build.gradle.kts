@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 12
-        versionName = "1.0.0-rc10"  // core-loop scroll reset + app-wide adjustResize keyboard handling (versionCode bumped, monotonic across Play uploads)
+        versionCode = 13
+        versionName = "1.0.0-rc11"  // FINAL RC: honest ERROR states — a load/DB failure is never reported as "no questions left" or "no wrong questions"
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")

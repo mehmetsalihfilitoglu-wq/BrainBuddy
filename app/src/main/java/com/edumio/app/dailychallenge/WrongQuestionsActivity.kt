@@ -94,6 +94,19 @@ class WrongQuestionsActivity : AppCompatActivity() {
         ) { sort = it; refresh() }
     }
 
+    /**
+     * ERROR state — the backing queries failed. Deliberately separate from the EMPTY state: an
+     * unreadable database must never be presented as "you have no wrong questions". Retry re-runs
+     * the load.
+     */
+    private fun showLoadError() {
+        findViewById<LinearLayout>(R.id.wpList).removeAllViews()
+        findViewById<LinearLayout>(R.id.wpEmpty).visibility = View.GONE
+        findViewById<LinearLayout>(R.id.wpLocked).visibility = View.GONE
+        findViewById<LinearLayout>(R.id.wpError).visibility = View.VISIBLE
+        findViewById<Button>(R.id.wpErrorRetry).onTap { refresh() }
+    }
+
     private fun refresh() {
         val userId = DailyChallengeUser.resolve(this)
         val premium = DailyChallengeEntitlement.isPremiumForSolutions(this)
@@ -101,6 +114,7 @@ class WrongQuestionsActivity : AppCompatActivity() {
         val list = findViewById<LinearLayout>(R.id.wpList)
         val empty = findViewById<LinearLayout>(R.id.wpEmpty)
         val locked = findViewById<LinearLayout>(R.id.wpLocked)
+        val error = findViewById<LinearLayout>(R.id.wpError)
 
         lifecycleScope.launch {
             val dao = DailyChallengeDatabase.get(this@WrongQuestionsActivity).dailyChallengeDao()
@@ -109,15 +123,20 @@ class WrongQuestionsActivity : AppCompatActivity() {
             fun List<UserQuestionStateEntity>.filtered() =
                 if (examFilter == null) this else filter { it.examType == examFilter!!.name }
 
-            val active = try {
-                dao.getStatesByStatesAllExams(userId, activeStates).filtered()
-            } catch (_: Throwable) { emptyList() }
-            val scheduled = try {
-                dao.getStatesByStatesAllExams(userId, scheduledStates).filtered()
-            } catch (_: Throwable) { emptyList() }
-            val resolvedCount = try {
-                dao.getStatesByStatesAllExams(userId, resolvedStates).filtered().size
-            } catch (_: Throwable) { 0 }
+            // Each query used to swallow its exception into an empty list, so a DATABASE FAILURE was
+            // rendered as the congratulation "Aktif yanlış sorun yok. Böyle devam!" — the app reported
+            // success for data it could not read. Load once, and keep failure distinct from empty.
+            val loaded = try {
+                val a = dao.getStatesByStatesAllExams(userId, activeStates).filtered()
+                val s = dao.getStatesByStatesAllExams(userId, scheduledStates).filtered()
+                val r = dao.getStatesByStatesAllExams(userId, resolvedStates).filtered().size
+                Triple(a, s, r)
+            } catch (_: Throwable) { null }
+
+            if (loaded == null) { showLoadError(); return@launch }
+            error.visibility = View.GONE
+
+            val (active, scheduled, resolvedCount) = loaded
             val dueCount = active.size + scheduled.count { now >= it.nextReviewAt }
 
             findViewById<TextView>(R.id.wpActive).text = "${getString(R.string.wp_active_count)}\n${active.size}"
@@ -158,7 +177,13 @@ class WrongQuestionsActivity : AppCompatActivity() {
             }
 
             list.removeAllViews()
-            empty.visibility = if (rows.isEmpty()) View.VISIBLE else View.GONE
+            // EMPTY vs CONTENT only — the ERROR case returned early above.
+            empty.visibility = when (
+                DailyChallengeHomePresenter.listState(loadFailed = false, itemCount = rows.size)
+            ) {
+                DailyChallengeHomePresenter.ListState.EMPTY -> View.VISIBLE
+                else -> View.GONE
+            }
             val inflater = LayoutInflater.from(this@WrongQuestionsActivity)
             val df = DateFormat.getDateInstance(DateFormat.SHORT)
             for (r in rows) {

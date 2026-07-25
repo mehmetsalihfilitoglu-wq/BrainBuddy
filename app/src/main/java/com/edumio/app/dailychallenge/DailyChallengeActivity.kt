@@ -84,24 +84,52 @@ class DailyChallengeActivity : AppCompatActivity() {
             // sign-in that happened outside Home can never cause a second challenge here.
             DailyChallengeAccountLink.linkIfNeeded(this@DailyChallengeActivity)
             userId = DailyChallengeUser.resolve(this@DailyChallengeActivity)
+            // A THROWN failure and a legitimately-absent challenge used to collapse into the same null
+            // and were both reported as "Bugünlük yeni soru kalmadı" — so a real question-bank failure
+            // looked to the student like a normal, successful end of the day. Keep the two apart.
+            var loadFailed = false
             val result = try {
                 controller.loadToday(userId, exam)
             } catch (t: Throwable) {
+                loadFailed = true
                 null
             }
-            if (result == null) {
-                Toast.makeText(this@DailyChallengeActivity, R.string.dc_empty_today, Toast.LENGTH_LONG).show()
-                finish(); return@launch
+            when (
+                DailyChallengeHomePresenter.flowState(
+                    loadFailed = loadFailed,
+                    hasChallenge = result != null,
+                    answered = result?.answered ?: 0,
+                    total = result?.total ?: 0,
+                    completed = result?.completed ?: false,
+                )
+            ) {
+                DailyChallengeHomePresenter.FlowState.ERROR -> { showLoadError(); return@launch }
+                DailyChallengeHomePresenter.FlowState.COMPLETED -> { openResult(); return@launch }
+                else -> Unit // AVAILABLE — fall through and render
             }
-            questions = result.questions
-            if (result.completed || questions.isEmpty()) {
-                openResult(); return@launch
-            }
+            questions = result!!.questions
+            // Defensive: a challenge row with no resolvable questions cannot be answered — that is a
+            // content-load failure, not a finished day.
+            if (questions.isEmpty()) { showLoadError(); return@launch }
             index = DailyChallengeHomePresenter.resumeIndex(result.answered, result.total, result.completed)
             if (index >= questions.size) { openResult(); return@launch }
             examLabel.text = getString(R.string.dc_title)
             render()
         }
+    }
+
+    /**
+     * ERROR state for the answering screen: an honest message plus a retry that genuinely re-runs
+     * generation. It never claims the day is finished and never silently closes the screen.
+     */
+    private fun showLoadError() {
+        if (isFinishing || isDestroyed) return
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+            .setMessage(R.string.dc_load_error)
+            .setCancelable(false)
+            .setPositiveButton(R.string.dc_cta_retry) { d, _ -> d.dismiss(); load() }
+            .setNegativeButton(R.string.cd_back) { d, _ -> d.dismiss(); finish() }
+            .show()
     }
 
     private fun render() {

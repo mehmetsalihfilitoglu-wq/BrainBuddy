@@ -95,6 +95,37 @@
                     android:gravity="center"/>
             </LinearLayout>
 
+            <!-- error state: the queries FAILED. Deliberately distinct from the empty state above —
+                 a database failure must never be reported as "no wrong questions, keep it up!". -->
+            <LinearLayout
+                android:id="@+id/wpError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="40dp"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/ic_edumio_mascot_thoughtful"
+                    android:contentDescription="@string/dc_cd_mascot"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/wp_load_error"
+                    android:textSize="15sp"
+                    android:textColor="@color/edu_text_muted"
+                    android:gravity="center"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/wpErrorRetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:text="@string/dc_cta_retry"/>
+            </LinearLayout>
+
             <!-- locked (Free) state: counts stay visible, list/actions do not -->
             <LinearLayout
                 android:id="@+id/wpLocked"

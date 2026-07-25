@@ -649,6 +649,11 @@
     <string name="dc_state_in_progress">Devam ediyor</string>
     <string name="dc_state_completed">Bugün tamamlandı 🎉</string>
     <string name="dc_state_unavailable">Bu çalışma alanı için henüz hazır değil</string>
+    <!-- Shown when the question bank genuinely could not be loaded. NEVER reuse the "no questions
+         left today" copy for this: a failure must not read like a normal end of the day. -->
+    <string name="dc_load_error">Sorular yüklenemedi.\nLütfen tekrar deneyin.</string>
+    <!-- Wrong-question hub: a database failure is an error, not an empty pool. -->
+    <string name="wp_load_error">Yanlış sorular yüklenemedi.\nLütfen tekrar deneyin.</string>
     <!-- First-open, while the active exam's question bank finishes seeding (normal path → AVAILABLE). -->
     <string name="dc_state_loading">Günün görevi hazırlanıyor…</string>
     <!-- Last-resort ONLY if the bank truly cannot be built after auto-retries (never confused with "completed"). -->
