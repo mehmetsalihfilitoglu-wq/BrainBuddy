@@ -116,9 +116,6 @@ class AccountSyncActivity : AppCompatActivity() {
         container.addView(rowCard(getString(R.string.data_rights_export), null) {
             startActivity(Intent(this, DataRightsActivity::class.java))
         })
-        container.addView(rowCard(getString(R.string.data_rights_delete), null) {
-            startActivity(Intent(this, DataRightsActivity::class.java))
-        })
         container.addView(rowCard(getString(R.string.data_rights_privacy), null) {
             startActivity(Intent(this, com.edumio.app.legal.LegalHubActivity::class.java))
         })

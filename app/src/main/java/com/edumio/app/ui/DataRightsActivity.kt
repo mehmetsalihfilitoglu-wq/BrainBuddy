@@ -11,21 +11,20 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.core.content.FileProvider
 import com.edumio.app.R
 import com.edumio.app.analytics.AnalyticsEvents
 import com.edumio.app.analytics.AnalyticsProvider
 import com.edumio.app.privacy.DataRightsProvider
-import com.edumio.app.privacy.DeletionResult
 import com.edumio.app.privacy.ExportResult
 import kotlinx.coroutines.runBlocking
 import java.io.File
 
 /**
- * Privacy & My Data — real, non-broken GDPR controls: export all local data (shareable
- * JSON) and delete account/data locally now, with honest copy that cloud-wide deletion
- * arrives with account sync. Backed by [DataRightsProvider]; no fake backend behaviour.
+ * Privacy & My Data — informational screen with one real control: export all local data as a
+ * shareable JSON file. v1 has no account, no cloud sync and no server-side user data, so the app
+ * ships no in-app deletion action; uninstalling removes the on-device data. Backed by
+ * [DataRightsProvider]; no fake backend behaviour.
  */
 class DataRightsActivity : AppCompatActivity() {
 
@@ -52,20 +51,12 @@ class DataRightsActivity : AppCompatActivity() {
         col.addView(actionCard(
             getString(R.string.data_rights_export),
             getString(R.string.data_rights_export_sub),
-            danger = false
         ) { exportData() }, cardParams())
 
         col.addView(actionCard(
             getString(R.string.data_rights_privacy),
             getString(R.string.data_rights_privacy_sub),
-            danger = false
         ) { startActivity(Intent(this, com.edumio.app.legal.LegalHubActivity::class.java)) }, cardParams())
-
-        col.addView(actionCard(
-            getString(R.string.data_rights_delete),
-            getString(R.string.data_rights_delete_sub),
-            danger = true
-        ) { confirmDelete() }, cardParams())
 
         col.addView(body(getString(R.string.data_rights_cloud_note), topMargin = dpi(20f)))
     }
@@ -102,55 +93,25 @@ class DataRightsActivity : AppCompatActivity() {
         }
     }
 
-    private fun confirmDelete() {
-        MaterialAlertDialogBuilder(this)
-            .setTitle(getString(R.string.data_rights_delete))
-            .setMessage(getString(R.string.data_rights_delete_confirm))
-            .setNegativeButton(getString(R.string.data_rights_cancel), null)
-            .setPositiveButton(getString(R.string.data_rights_delete_confirm_yes)) { _, _ -> performDelete() }
-            .show()
-    }
-
-    private fun performDelete() {
-        Thread {
-            val result = runBlocking { DataRightsProvider.service(this@DataRightsActivity).deleteAccount(null) }
-            runOnUiThread {
-                when (result) {
-                    is DeletionResult.Error ->
-                        Toast.makeText(this, getString(R.string.data_rights_delete_error), Toast.LENGTH_LONG).show()
-                    else -> {
-                        AnalyticsProvider.track(AnalyticsEvents.ACCOUNT_DELETED)
-                        Toast.makeText(this, getString(R.string.data_rights_deleted), Toast.LENGTH_LONG).show()
-                        val launch = packageManager.getLaunchIntentForPackage(packageName)?.apply {
-                            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                        }
-                        startActivity(launch)
-                        finishAffinity()
-                    }
-                }
-            }
-        }.start()
-    }
-
     // ── small view builders ──
     private fun cardParams() = LinearLayout.LayoutParams(
         LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
     ).also { it.topMargin = dpi(12f) }
 
     private fun actionCard(
-        titleText: String, subText: String, danger: Boolean, onClick: () -> Unit
+        titleText: String, subText: String, onClick: () -> Unit
     ): com.google.android.material.card.MaterialCardView {
         val inner = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dpi(16f), dpi(16f), dpi(16f), dpi(16f))
         }
-        inner.addView(text(titleText, 16f, if (danger) R.color.warning_text else R.color.textPrimary, bold = true))
+        inner.addView(text(titleText, 16f, R.color.textPrimary, bold = true))
         inner.addView(text(subText, 13f, R.color.textSecondary, topMargin = dpi(2f), lineMultiplier = 1.4f))
         return com.google.android.material.card.MaterialCardView(this).apply {
             radius = 16 * dp
             cardElevation = 0f
             strokeWidth = dpi(1f)
-            setStrokeColor(getColor(if (danger) R.color.warning_text else R.color.border))
+            setStrokeColor(getColor(R.color.border))
             setCardBackgroundColor(getColor(R.color.white))
             isClickable = true
             isFocusable = true

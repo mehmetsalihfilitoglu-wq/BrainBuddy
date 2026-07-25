@@ -9,8 +9,9 @@ import java.io.File
 
 /**
  * Real on-device data rights for the account-free v1: export bundles all local study data into a
- * shareable JSON file, and delete wipes every on-device SharedPreferences store. No user account, no
- * auth backend and no cloud are involved — nothing here fakes a server operation.
+ * shareable JSON file. No user account, no auth backend and no cloud are involved — nothing here
+ * fakes a server operation. There is deliberately no delete operation: v1 stores nothing off-device,
+ * and uninstalling the app removes the on-device data.
  */
 class LocalDataRightsService(context: Context) : DataRightsService {
 
@@ -54,35 +55,6 @@ class LocalDataRightsService(context: Context) : DataRightsService {
         }
     }
 
-    override suspend fun deleteLocalData(): DeletionResult {
-        return try {
-            // Clear every SharedPreferences file (all user progress/settings/session).
-            // Bundled question content in the DB is left intact.
-            val prefsDir = File(ctx.applicationInfo.dataDir, "shared_prefs")
-            prefsDir.listFiles()?.forEach { f ->
-                if (f.name.endsWith(".xml")) {
-                    val name = f.name.removeSuffix(".xml")
-                    ctx.getSharedPreferences(name, Context.MODE_PRIVATE).edit().clear().commit()
-                }
-            }
-            DeletionResult.LocalDone
-        } catch (e: Exception) {
-            DeletionResult.Error(e.message ?: "local delete error")
-        }
-    }
-
-    override suspend fun deleteCloudData(userId: String?): DeletionResult =
-        DeletionResult.LocalDoneCloudPending  // backend only — queued until connected
-
-    override suspend fun deleteAccount(userId: String?): DeletionResult {
-        // v1 has NO user account: "delete" is a purely local wipe of on-device study data. No auth or
-        // cloud backend is contacted. (The method name is kept to satisfy the DataRightsService seam.)
-        return deleteLocalData()
-    }
-
-    override fun revokeSessions() {
-        // No account/session in v1 — nothing to revoke.
-    }
 }
 
 /** Composition root for data-rights — returns a Firebase-backed service once connected. */

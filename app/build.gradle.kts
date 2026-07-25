@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 17
-        versionName = "1.0.0"  // first public release (code unchanged from 1.0.0-rc14)
+        versionCode = 18
+        versionName = "1.0.0"  // first public release; no in-app data-deletion feature (see NoDataDeletionFeatureTest)
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")

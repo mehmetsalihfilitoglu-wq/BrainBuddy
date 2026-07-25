@@ -57,7 +57,6 @@ object AnalyticsEvents {
     const val ACCOUNT_CREATED = "account_created"
     const val LOGIN_COMPLETED = "login_completed"
     const val LOGOUT = "logout"
-    const val ACCOUNT_DELETED = "account_deleted"
     const val GDPR_EXPORT_REQUESTED = "gdpr_export_requested"
 
     // Account & Sync UX

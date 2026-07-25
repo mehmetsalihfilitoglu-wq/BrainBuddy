@@ -289,7 +289,7 @@
                 <ImageView
                     android:layout_width="@dimen/icon_action"
                     android:layout_height="@dimen/icon_action"
-                    android:src="@drawable/ic_delete"
+                    android:src="@drawable/ic_lock"
                     app:tint="@color/edu_primary"
                     android:contentDescription="@null"/>
                 <LinearLayout
