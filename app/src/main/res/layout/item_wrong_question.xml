@@ -53,11 +53,15 @@
 
             <Button
                 android:id="@+id/wqRetry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 style="@style/Widget.EDUmio.WrongQuestion.Action"
                 android:text="@string/sol_retry"/>
 
             <Button
                 android:id="@+id/wqSolution"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 style="@style/Widget.EDUmio.WrongQuestion.Action"
                 android:layout_marginTop="8dp"
                 android:text="@string/sol_view"/>

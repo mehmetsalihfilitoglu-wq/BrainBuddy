@@ -32,41 +32,72 @@
             android:baselineAligned="false"
             android:layout_marginTop="12dp">
 
-            <com.google.android.material.card.MaterialCardView style="@style/Widget.EDUmio.StatCard">
-                <LinearLayout style="@style/Widget.EDUmio.StatCardContent">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="@style/Widget.EDUmio.StatCard">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.EDUmio.StatCardContent">
                     <TextView
                         android:id="@+id/wpActive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         style="@style/Widget.EDUmio.StatCardValue"
                         tools:text="2"/>
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         style="@style/Widget.EDUmio.StatCardLabel"
                         android:text="@string/wp_active_count"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 style="@style/Widget.EDUmio.StatCard"
                 android:layout_marginStart="8dp">
-                <LinearLayout style="@style/Widget.EDUmio.StatCardContent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.EDUmio.StatCardContent">
                     <TextView
                         android:id="@+id/wpDue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         style="@style/Widget.EDUmio.StatCardValue"
                         tools:text="2"/>
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         style="@style/Widget.EDUmio.StatCardLabel"
                         android:text="@string/wp_due_count"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 style="@style/Widget.EDUmio.StatCard"
                 android:layout_marginStart="8dp">
-                <LinearLayout style="@style/Widget.EDUmio.StatCardContent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.EDUmio.StatCardContent">
                     <TextView
                         android:id="@+id/wpResolved"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         style="@style/Widget.EDUmio.StatCardValue"
                         tools:text="0"/>
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         style="@style/Widget.EDUmio.StatCardLabel"
                         android:text="@string/wp_resolved_count"/>
                 </LinearLayout>

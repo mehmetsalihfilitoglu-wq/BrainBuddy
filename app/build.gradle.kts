@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 19
-        versionName = "1.0.0"  // first public release; removeFirst()/removeLast() -> removeAt() for pre-API-35 compatibility
+        versionCode = 20
+        versionName = "1.0.0"  // fixes the vc19 inflation crash: layout params moved out of styles into the layouts
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")

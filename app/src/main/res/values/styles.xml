@@ -228,8 +228,6 @@
 
     <!-- Home card chip: compact icon+text action -->
     <style name="Edu.HomeChip">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingVertical">6dp</item>
         <item name="android:drawablePadding">8dp</item>
         <item name="android:textColor">@color/edu_primary</item>
@@ -260,8 +258,10 @@
          clipped. Here the height is content-driven with a 48dp floor, the insets are zeroed so the
          declared height is the usable height, and the text is vertically centred on one line. -->
     <style name="Widget.EDUmio.WrongQuestion.Action" parent="BBButton">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <!-- layout_width/height deliberately NOT set here: layout params are read by the parent during
+             generateLayoutParams and are not reliably resolved from a style. Setting them here caused the
+             vc19 production crash (UnsupportedOperationException: You must supply a layout_width
+             attribute). Every layout using this style declares both inline. -->
         <item name="android:minHeight">@dimen/touch_target</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
@@ -282,9 +282,6 @@
     <!-- Compact statistic card (Aktif / Sırada / Çözüldü). Same surface, radius and border language
          as the question cards below it, so the header reads as part of the same screen. -->
     <style name="Widget.EDUmio.StatCard" parent="Widget.Material3.CardView.Elevated">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
         <!-- Same radius / surface / flat elevation as item_wrong_question's card, so the header block
              belongs to the same screen. Not clickable: these are read-only counters, so no foreground
              ripple and no selectableItemBackground. -->
@@ -298,8 +295,6 @@
     <!-- Names deliberately avoid the "Widget.EDUmio.StatCard.*" form: dot notation would make these
          implicitly inherit the card style (0dp width, weight, match_parent height). -->
     <style name="Widget.EDUmio.StatCardContent" parent="">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingStart">@dimen/space_8</item>
@@ -310,16 +305,12 @@
 
     <!-- The number is the primary element; the label is secondary metadata beneath it. -->
     <style name="Widget.EDUmio.StatCardValue" parent="">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/edu_text_dark</item>
         <item name="android:maxLines">1</item>
     </style>
     <style name="Widget.EDUmio.StatCardLabel" parent="">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">2dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12sp</item>

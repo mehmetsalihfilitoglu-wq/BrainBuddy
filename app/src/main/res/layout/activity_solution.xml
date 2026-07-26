@@ -79,6 +79,8 @@
                  floor, so this label cannot be clipped either (it was pinned to 52dp). -->
             <Button
                 android:id="@+id/solRetryBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 style="@style/Widget.EDUmio.WrongQuestion.Action"
                 android:layout_marginTop="18dp"
                 android:text="@string/sol_retry"/>

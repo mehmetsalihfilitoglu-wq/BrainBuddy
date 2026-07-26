@@ -103,9 +103,12 @@ class WrongQuestionsScreenLayoutTest {
                 h != null && h.endsWith("dp"),
             )
             assertEquals("${b.idName()}: must use the shared action component", ACTION_STYLE, b.styleRef())
+            // Height is declared INLINE, never via the style: layout params are read by the parent in
+            // generateLayoutParams and are not reliably resolved from a style. Supplying them only in the
+            // style caused the vc19 production crash (UnsupportedOperationException: "You must supply a
+            // layout_width attribute"). See LayoutInflationSafetyTest.
+            assertEquals("${b.idName()}: sizes to its content", "wrap_content", h)
         }
-        val styleHeight = styleItems("Widget.EDUmio.WrongQuestion.Action")["android:layout_height"]
-        assertEquals("the shared action component sizes to its content", "wrap_content", styleHeight)
     }
 
     @Test
@@ -150,8 +153,19 @@ class WrongQuestionsScreenLayoutTest {
         val buttons = actionButtons()
         // Identical component + no per-instance size/typography overrides == identical measured height.
         assertEquals("both use one component", 1, buttons.map { it.styleRef() }.toSet().size)
+        // Layout params are declared inline (see the crash note above), so both buttons must declare the
+        // SAME width and height — that is what makes them equal, not a shared style.
+        assertEquals(
+            "both buttons must declare the same inline width",
+            1, buttons.map { it.androidAttr("layout_width") }.toSet().size,
+        )
+        assertEquals(
+            "both buttons must declare the same inline height",
+            1, buttons.map { it.androidAttr("layout_height") }.toSet().size,
+        )
+        assertEquals("full-card width", "match_parent", buttons[0].androidAttr("layout_width"))
         for (b in buttons) {
-            for (attr in listOf("layout_height", "layout_width", "textSize", "minHeight", "padding",
+            for (attr in listOf("textSize", "minHeight", "padding",
                     "paddingTop", "paddingBottom", "insetTop", "insetBottom")) {
                 assertTrue(
                     "${b.idName()}: must not override '$attr' per-instance (breaks equal sizing)",
@@ -159,11 +173,6 @@ class WrongQuestionsScreenLayoutTest {
                 )
             }
         }
-        assertEquals(
-            "the shared component spans the full card width, so both buttons are equally wide",
-            "match_parent",
-            styleItems("Widget.EDUmio.WrongQuestion.Action")["android:layout_width"],
-        )
     }
 
     @Test
@@ -241,13 +250,19 @@ class WrongQuestionsScreenLayoutTest {
     @Test
     fun statCardsAreEqualWidthEqualHeightAndNotClickable() {
         val s = styleItems("Widget.EDUmio.StatCard")
-        assertEquals("equal width via weight", "0dp", s["android:layout_width"])
-        assertEquals("equal width via weight", "1", s["android:layout_weight"])
-        assertEquals("equal height: all cards match the tallest", "match_parent", s["android:layout_height"])
         assertTrue(
             "read-only counters must not gain a clickable foreground",
             s["android:foreground"] == null && s["android:clickable"] == null,
         )
+        // Sizing is declared INLINE on every card, never via the style — supplying layout params only
+        // through a style caused the vc19 inflation crash. All three must agree, or the row is unequal.
+        val cards = statCards()
+        assertEquals("three stat cards", 3, cards.size)
+        for (c in cards) {
+            assertEquals("equal width via weight", "0dp", c.androidAttr("layout_width"))
+            assertEquals("equal width via weight", "1", c.androidAttr("layout_weight"))
+            assertEquals("equal height: all cards match the tallest", "match_parent", c.androidAttr("layout_height"))
+        }
 
         val row = parse("layout/activity_wrong_questions.xml").descendants()
             .last { e -> e.descendants().any { it.styleRef() == "@style/Widget.EDUmio.StatCard" } }
@@ -294,18 +309,23 @@ class WrongQuestionsScreenLayoutTest {
     fun screenStaysUsableAtLargeFontScale() {
         val action = styleItems("Widget.EDUmio.WrongQuestion.Action")
         // Buttons grow with the text (no fixed height) and the label shrinks within a floor rather
-        // than being truncated.
-        assertEquals("wrap_content", action["android:layout_height"])
+        // than being truncated. Height is asserted on the LAYOUT, not the style.
+        for (b in actionButtons()) {
+            assertEquals("${b.idName()} grows with its text", "wrap_content", b.androidAttr("layout_height"))
+        }
         assertEquals("uniform", action["autoSizeTextType"])
         val min = action.getValue("autoSizeMinTextSize").removeSuffix("sp").toFloat()
         val max = action.getValue("autoSizeMaxTextSize").removeSuffix("sp").toFloat()
         assertTrue("autosize range must be valid ($min..$max)", min in 10f..max && max <= 16f)
 
-        // Nothing in a stat card is height-constrained, so a wrapped label expands the card.
-        for (style in listOf("Widget.EDUmio.StatCardContent", "Widget.EDUmio.StatCardValue",
-                "Widget.EDUmio.StatCardLabel")) {
-            val h = styleItems(style)["android:layout_height"]
-            assertEquals("$style must size to its content", "wrap_content", h)
+        // Nothing INSIDE a stat card is height-constrained, so a wrapped label expands the card.
+        for (card in statCards()) {
+            for (e in card.descendants()) {
+                assertEquals(
+                    "<${e.tagName}> inside a stat card must size to its content",
+                    "wrap_content", e.androidAttr("layout_height"),
+                )
+            }
         }
         for (card in statCards()) {
             for (e in card.descendants()) {
