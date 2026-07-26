@@ -50,6 +50,9 @@ class DailyChallengeEngine internal constructor(
     private val content: DcContentSource,
     private val analytics: DailyChallengeAnalytics,
     private val onChallengeCompleted: (localDate: String) -> Unit,
+    // Learning-statistics persistence. Defaulted to a no-op so existing wiring and unit tests are
+    // untouched; production supplies the Android-backed sink below.
+    private val statsSink: DailyChallengeStatsSink = DailyChallengeStatsSink.NoOp,
 ) {
 
     /** Production wiring: real Room stores + analytics + local reminder scheduler. */
@@ -58,6 +61,7 @@ class DailyChallengeEngine internal constructor(
         content = RoomContentSource(appContext.applicationContext),
         analytics = DailyChallengeAnalyticsProvider.get(appContext),
         onChallengeCompleted = { date -> DailyChallengeReminderScheduler.onChallengeCompleted(appContext, date) },
+        statsSink = AndroidDailyChallengeStatsSink(appContext),
     )
 
     private companion object {
@@ -105,6 +109,13 @@ class DailyChallengeEngine internal constructor(
         // 1) Immutable return: if today's challenge already exists, ALWAYS return it — regardless of
         //    which exam is active now (it may have been generated from a different one). No regeneration.
         dao.getChallengeForDay(userId, day)?.let { existing ->
+            // REPAIR PATH: if this challenge is already COMPLETED, make sure its statistics entry
+            // exists. Covers a completion whose stats write failed or was interrupted (process death
+            // between marking COMPLETED and writing). Idempotent — keyed by exam + local date — so a
+            // challenge already recorded is left untouched and can never be counted twice.
+            if (existing.status == ChallengeStatus.COMPLETED.name) {
+                recordCompletionStats(userId, day)
+            }
             return@withContext resolve(existing)
         }
 
@@ -282,6 +293,7 @@ class DailyChallengeEngine internal constructor(
             startedAt = if (challenge.startedAt == 0L) nowMs else challenge.startedAt,
             currentIndex = answered,
         )
+        var justCompleted = false
         if (answered >= DailyChallengeBlueprint.CHALLENGE_SIZE && challenge.status != ChallengeStatus.COMPLETED.name) {
             val score = dao.getAnswers(ck).count { it.isCorrect }
             updated = updated.copy(status = ChallengeStatus.COMPLETED.name, completedAt = nowMs, score = score)
@@ -292,9 +304,31 @@ class DailyChallengeEngine internal constructor(
                 DcEvents.CHALLENGE_COMPLETED,
                 mapOf(DcEvents.P_EXAM to challenge.examProfile, DcEvents.P_LOCAL_DATE to localDate, DcEvents.P_SCORE to score),
             )
+            justCompleted = true
         }
         dao.upsertChallenge(updated)
+        // Order matters: the final answer is already persisted and the challenge is now durably
+        // COMPLETED, so statistics are written last. This is the AUTHORITATIVE stats write — it is a
+        // domain transition, not a screen, so it happens even if the result screen never launches
+        // (process death after the fifth answer, failed navigation, user backgrounding the app).
+        // recordCompletionStats never throws: a failed write must not roll back real progress, and the
+        // repair path in getOrCreateToday retries it idempotently.
+        if (justCompleted) recordCompletionStats(userId, localDate)
         resolve(updated)
+    }
+
+    /**
+     * Idempotent statistics write for a completed challenge. Safe to call repeatedly: the recorder
+     * refuses a challenge that is already stored (keyed by exam + local date) and refuses one that is
+     * not genuinely finished, so retries repair a missing write without ever double-counting.
+     */
+    private suspend fun recordCompletionStats(userId: String, localDate: String) {
+        try {
+            val completion = getCompletion(userId, localDate) ?: return
+            statsSink.recordIfAbsent(completion, System.currentTimeMillis())
+        } catch (_: Throwable) {
+            // Never surface a bookkeeping failure to the user; the next load retries.
+        }
     }
 
     private suspend fun updateStreak(userId: String, localDate: String, examProfile: String) {

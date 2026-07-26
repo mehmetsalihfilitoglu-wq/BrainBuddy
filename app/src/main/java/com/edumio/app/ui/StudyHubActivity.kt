@@ -73,20 +73,47 @@ class StudyHubActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvExamLabel).visibility = android.view.View.GONE
     }
 
+    /** The learning-statistics card has exactly two states — never a placeholder. */
+    internal enum class StatsState { EMPTY, LOADED }
+
     private fun refreshStats() {
         val counts = analytics.getOverallCounts()
         val testCount = analytics.getTestPerformances().size
         val accuracy = analytics.getOverallAccuracy()
 
-        if (counts.total > 0) {
-            findViewById<TextView>(R.id.tvStatsAccuracy).text = "%${accuracy.roundToInt()}"
-            findViewById<TextView>(R.id.tvStatsTests).text = "$testCount"
-            findViewById<TextView>(R.id.tvStatsQuestions).text = "${counts.total}"
-        } else {
-            listOf(R.id.tvStatsAccuracy, R.id.tvStatsTests, R.id.tvStatsQuestions).forEach {
-                findViewById<TextView>(it).text = "—"
+        val row = findViewById<View>(R.id.statsRow)
+        val empty = findViewById<View>(R.id.statsEmpty)
+
+        when (statsState(counts.total)) {
+            StatsState.LOADED -> {
+                row.visibility = View.VISIBLE
+                empty.visibility = View.GONE
+                findViewById<TextView>(R.id.tvStatsAccuracy).text = "%${accuracy.roundToInt()}"
+                findViewById<TextView>(R.id.tvStatsTests).text = "$testCount"
+                findViewById<TextView>(R.id.tvStatsQuestions).text = "${counts.total}"
+            }
+            // No dashes, no fabricated zeros: the card explains itself and offers the one action that
+            // can produce data. Purely data-driven, so it disappears on its own once stats exist.
+            StatsState.EMPTY -> {
+                row.visibility = View.GONE
+                empty.visibility = View.VISIBLE
+                findViewById<View>(R.id.btnStatsEmptyCta).setOnClickListener {
+                    startActivity(
+                        Intent(this, com.edumio.app.dailychallenge.DailyChallengeActivity::class.java)
+                    )
+                }
             }
         }
+    }
+
+    internal companion object {
+        /**
+         * Pure state decision, unit-testable without a device. The threshold is deliberately "any real
+         * answered question" rather than a hardcoded test count — the card must light up as soon as
+         * there is something true to show.
+         */
+        internal fun statsState(answeredQuestions: Int): StatsState =
+            if (answeredQuestions > 0) StatsState.LOADED else StatsState.EMPTY
     }
 
 

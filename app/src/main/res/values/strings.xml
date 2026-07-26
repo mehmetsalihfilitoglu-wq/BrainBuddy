@@ -110,6 +110,12 @@
     <string name="study_hub_stats_accuracy">Doğruluk</string>
     <string name="study_hub_stats_tests">Test</string>
     <string name="study_hub_stats_questions">Soru</string>
+    <!-- Learning-statistics empty state: shown INSTEAD of the value row while there is no real data,
+         so the card never renders placeholder dashes. Driven by the data itself (see
+         StudyHubActivity.refreshStats); it disappears on its own as soon as statistics exist. -->
+    <string name="study_hub_stats_empty_title">İstatistiklerin hazırlanıyor</string>
+    <string name="study_hub_stats_empty_body">İlk günlük görevini tamamladığında doğruluk oranını ve çözdüğün soru sayısını burada görebileceksin.</string>
+    <string name="study_hub_stats_empty_cta">Günün Görevine Başla</string>
 
     <!-- Study areas (multi-exam profiles) -->
     <string name="areas_title">Çalışma Alanlarım</string>

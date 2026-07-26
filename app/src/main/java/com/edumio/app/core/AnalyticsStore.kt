@@ -11,8 +11,20 @@ data class QuizSession(
     val pointsEarned: Int
 )
 
-class AnalyticsStore(context: Context) {
-    private val prefs = ProfileScopedPrefs.analytics(context)
+class AnalyticsStore private constructor(private val prefs: android.content.SharedPreferences) {
+
+    /** Default: the ACTIVE profile's store — what every reader (StudyHub, Reports) uses. */
+    constructor(context: Context) : this(ProfileScopedPrefs.analytics(context))
+
+    /** Ids of every stored performance — the dedup surface for idempotent writes. */
+    fun performanceQuizIds(): Set<String> = try {
+        val arr = JSONArray(prefs.getString(KEY_PERFORMANCES, "[]"))
+        (0 until arr.length()).mapNotNull { arr.optJSONObject(it)?.optString("quizId") }
+            .filter { it.isNotBlank() }.toSet()
+    } catch (_: Exception) {
+        // Corrupt legacy state must not crash a write path; treat as "nothing recorded yet".
+        emptySet()
+    }
 
     fun recordSession(session: QuizSession) {
         val arr = JSONArray(prefs.getString(KEY_SESSIONS, "[]"))
@@ -236,5 +248,13 @@ class AnalyticsStore(context: Context) {
         private const val KEY_SESSIONS = "sessions_json"
         private const val KEY_PERFORMANCES = "test_performances"
         private const val KEY_REVIEW_CORRECTIONS = "review_corrections_total"
+
+        /**
+         * Store for an EXPLICIT profile. Used when recording a completed Daily Challenge so the entry
+         * lands on the exam it was played for, not on whichever study area happens to be active at
+         * write time (they differ if the user switched areas, or if the write is a later retry).
+         */
+        fun forProfile(context: Context, profileId: String): AnalyticsStore =
+            AnalyticsStore(ProfileScopedPrefs.analyticsForProfile(context, profileId))
     }
 }

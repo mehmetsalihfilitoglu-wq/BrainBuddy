@@ -27,6 +27,17 @@ object ProfileScopedPrefs {
     fun analytics(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "edu_analytics", migrationKey = "analytics_v1")
 
+    /**
+     * Analytics store for an EXPLICIT profile rather than the active one.
+     *
+     * A completed Daily Challenge must be recorded against the exam it was played for, even if the
+     * user has since switched study areas (or the write is retried later, when a different area is
+     * active). Skips the legacy global->profile migration on purpose: that one-shot migration belongs
+     * to the active profile and must not be re-run for another one.
+     */
+    fun analyticsForProfile(context: Context, profileId: String): SharedPreferences =
+        context.getSharedPreferences("edu_analytics_$profileId", Context.MODE_PRIVATE)
+
     fun gamification(context: Context): SharedPreferences =
         profilePrefsWithMigration(context, baseName = "edu_gamification", migrationKey = "gamification_v1")
 
