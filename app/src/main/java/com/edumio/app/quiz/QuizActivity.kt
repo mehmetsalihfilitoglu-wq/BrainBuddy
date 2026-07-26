@@ -581,7 +581,9 @@ class QuizActivity : AppCompatActivity() {
             // If all remaining are same subject, allow consecutive.
             val entry = candidate ?: bySubject.entries.firstOrNull { it.value.isNotEmpty() }
                 ?: return@repeat
-            val q = entry.value.removeFirst()
+            // removeAt(0), not removeFirst(): on API 35 / Java 21 the latter resolves to
+            // java.util.SequencedCollection.removeFirst(), which does not exist below API 35.
+            val q = entry.value.removeAt(0)
             result.add(q)
             prevSubject = q.subject
             if (entry.value.isEmpty()) bySubject.remove(entry.key)

@@ -2322,7 +2322,9 @@ class QuestionRepository(private val context: Context) {
                     if (pool == null || pool.isEmpty()) { iter.remove(); continue }
                     var found = false
                     while (pool.isNotEmpty()) {
-                        val row = pool.removeFirst()
+                        // removeAt(0), not removeFirst() — see QuizActivity.spreadSubjects: the
+                        // SequencedCollection member does not exist below API 35.
+                        val row = pool.removeAt(0)
                         val entity = replByIdE[row.id] ?: continue
                         val q = materializeSingleQuestion(entity, expectLgs = false)
                         if (q != null) {

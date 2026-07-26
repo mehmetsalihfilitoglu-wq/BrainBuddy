@@ -61,7 +61,7 @@ class LocalDailyChallengeAnalytics : DailyChallengeAnalytics {
         Log.i(TAG, line)
         synchronized(ring) {
             ring.addLast(line)
-            while (ring.size > MAX) ring.removeFirst()
+            while (ring.size > MAX) ring.removeAt(0)
         }
     }
 
