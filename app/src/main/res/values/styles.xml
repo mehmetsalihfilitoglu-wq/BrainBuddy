@@ -109,7 +109,22 @@
         <item name="backgroundTint">@color/surface_bg</item>
     </style>
 
-    <style name="TextAppearance.EDUmio.Dialog.Title" parent="TextAppearance.Material3.HeadlineSmall">
+    <!--
+        Dialog title. MUST be a WIDGET style descending from MaterialAlertDialog.*.Title.Text, never a
+        bare TextAppearance.
+
+        Material applies this attribute to a view that declares NO layout params of its own:
+            mtrl_alert_dialog_title.xml:36-38
+              <androidx.appcompat.widget.DialogTitle
+                  android:id="@+id/alertTitle"
+                  style="?attr/materialAlertDialogTitleTextStyle"/>
+        The width/height come from the style. Pointing the attribute at a TextAppearance (which carries
+        none) left the view with no width and crashed every titled dialog in the app with
+        "UnsupportedOperationException: Binary XML file line #38: You must supply a layout_width
+        attribute." — the vc19/vc20 production crash. Inheriting the Material style restores the params;
+        the three items below keep the EDUmio look identical.
+    -->
+    <style name="Widget.EDUmio.Dialog.TitleText" parent="MaterialAlertDialog.Material3.Title.Text">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_primary</item>
@@ -129,7 +144,7 @@
 
     <style name="ThemeOverlay.EDUmio.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
         <item name="alertDialogStyle">@style/Widget.EDUmio.AlertDialog</item>
-        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.EDUmio.Dialog.Title</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Widget.EDUmio.Dialog.TitleText</item>
         <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.EDUmio.Dialog.Body</item>
         <item name="buttonBarPositiveButtonStyle">@style/Widget.EDUmio.Dialog.Button</item>
         <item name="buttonBarNegativeButtonStyle">@style/Widget.EDUmio.Dialog.Button</item>

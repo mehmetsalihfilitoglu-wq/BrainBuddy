@@ -24,8 +24,8 @@ android {
         applicationId = "com.edumio.app"
         minSdk = 24
         targetSdk = 35
-        versionCode = 20
-        versionName = "1.0.0"  // fixes the vc19 inflation crash: layout params moved out of styles into the layouts
+        versionCode = 21
+        versionName = "1.0.0"  // fixes the titled-dialog crash: Material title style must supply layout params
 
         // Play Store için gerçek URL ekleyin; boş bırakılırsa "Web'de görüntüle" butonu gizlenir
         buildConfigField("String", "PRIVACY_POLICY_URL", "\"\"")
