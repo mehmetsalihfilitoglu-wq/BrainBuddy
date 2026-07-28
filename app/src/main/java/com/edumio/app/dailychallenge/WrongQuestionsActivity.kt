@@ -50,7 +50,12 @@ class WrongQuestionsActivity : AppCompatActivity() {
         QuestionLearnState.FORGOTTEN.name,
     )
     private val scheduledStates = listOf(QuestionLearnState.NEEDS_REVISION.name)
-    private val resolvedStates = listOf(QuestionLearnState.NEEDS_REVISION.name, QuestionLearnState.MASTERED.name)
+
+    // "Çözüldü" must mean genuinely finished. NEEDS_REVISION used to be counted here AND rendered in
+    // the list below, so one correct retry both incremented this counter and left the card on screen —
+    // the "it says solved but it is still there" report. Only MASTERED (MASTERY_STREAK consecutive
+    // correct reviews) is resolved.
+    private val resolvedStates = listOf(QuestionLearnState.MASTERED.name)
 
     private var examFilter: ExamType? = null // null = all
     private var sort = Sort.DUE
@@ -167,8 +172,13 @@ class WrongQuestionsActivity : AppCompatActivity() {
             }
             locked.visibility = View.GONE
 
-            // Premium list: active pool + scheduled reviews (resolved history is reflected in counts).
-            val pool = active + scheduled
+            // Premium list: the active pool plus scheduled reviews that are ACTUALLY DUE.
+            // A question answered correctly during retry becomes NEEDS_REVISION with nextReviewAt set a
+            // day or more ahead. Rendering those made a correct retry look like it did nothing — the app
+            // said "aktif yanlış havuzundan çıktı" while the card stayed on screen. Spaced repetition is
+            // unchanged (MASTERY_STREAK still governs mastery); the item simply returns when it is due.
+            // Same predicate as dueCount above, so the list and the "Sırada" counter agree.
+            val pool = active + scheduled.filter { now >= it.nextReviewAt }
             val stems = try {
                 DatabaseProvider.get(this@WrongQuestionsActivity).questionDao()
                     .getQuestionsByIds(pool.map { it.questionId }).associateBy { it.id }

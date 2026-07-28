@@ -68,6 +68,9 @@ class DailyChallengeEngine internal constructor(
         // Process-wide: engine instances are created per-Activity, so the generation lock must be
         // shared across ALL of them to serialize same-day challenge creation (no double-generate race).
         val generationLock = Mutex()
+
+        /** Never displace more than this many of the day's new questions with scheduled reviews. */
+        const val MAX_INJECTED_REVIEWS = 2
     }
 
     data class Result(
@@ -184,6 +187,18 @@ class DailyChallengeEngine internal constructor(
                 return@withLock null // fail closed: never serve an over-cap batch, and never retire it
             }
 
+            // ── inject due scheduled reviews, BEFORE anything is persisted ──
+            // At most two due reviews REPLACE same-section new picks, so the challenge stays exactly
+            // CHALLENGE_SIZE and the blueprint's section distribution is untouched (which is also why
+            // the deficit ledgers below stay correct — the count per section never changes).
+            // A displaced question is simply not shown: nothing here marks it exposed, and retirement
+            // happens only at answer time, so it remains fully eligible for a later challenge.
+            // Every due review, oldest first — NOT pre-capped: eligibility depends on today's sections,
+            // so trimming before that check could let older ineligible reviews mask an eligible one.
+            val dueReviews = dao.getDueReviews(userId, examType, nowMs)
+                .map { DailyChallengeSelection.DueReview(it.questionId, it.section, it.nextReviewAt) }
+            val injection = DailyChallengeSelection.injectDueReviews(selected, dueReviews, MAX_INJECTED_REVIEWS)
+
             // ── persist ledgers ──
             for ((s, v) in expected) dao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, actual[s] ?: 0.0))
             for ((s, v) in subExpected) dao.upsertDeficit(SectionDeficitEntity(userId, examType, s, v, subActual[s] ?: 0.0))
@@ -201,7 +216,7 @@ class DailyChallengeEngine internal constructor(
                 challengeId = "$userId:$day",
                 examProfile = examType,
                 status = ChallengeStatus.AVAILABLE.name,
-                questionIdsCsv = selected.joinToString(",") { it.id },
+                questionIdsCsv = injection.orderedIds.joinToString(","),
                 currentIndex = 0,
                 allocationCsv = alloc.entries.joinToString("|") { "${it.key}:${it.value}" },
                 createdAt = nowMs,
@@ -261,6 +276,31 @@ class DailyChallengeEngine internal constructor(
         // NEVER from a (possibly since-switched) active exam, so review scoping stays correct.
         val prev = dao.getState(userId, questionId)
         val questionExam = prev?.examType ?: challenge.examProfile
+
+        // A question is an INJECTED SCHEDULED REVIEW iff its PRE-ANSWER persisted state is
+        // NEEDS_REVISION. That fact lives in Room, so routing survives Activity recreation and process
+        // death with no extra column and no migration. Such an answer runs the spaced-repetition
+        // contract instead of the plain new-question path: correct advances the ladder, incorrect sends
+        // it back to the active wrong pool with the streak reset (ReviewScheduler.onReview). Everything
+        // after this block — answer count, completion, streak, stats — is deliberately shared.
+        val isInjectedReview = prev != null && prev.state == QuestionLearnState.NEEDS_REVISION.name
+        if (isInjectedReview) {
+            val outcome = ReviewScheduler.onReview(
+                QuestionLearnState.NEEDS_REVISION, prev!!.consecutiveCorrect, isCorrect, nowMs,
+            )
+            dao.upsertState(
+                prev.copy(
+                    state = outcome.state.name,
+                    consecutiveCorrect = outcome.consecutiveCorrect,
+                    timesSeen = prev.timesSeen + 1,
+                    timesCorrect = prev.timesCorrect + if (isCorrect) 1 else 0,
+                    timesIncorrect = prev.timesIncorrect + if (isCorrect) 0 else 1,
+                    lastSeenAt = nowMs,
+                    nextReviewAt = outcome.nextReviewAtMs,
+                    masteredAt = if (outcome.masteredAtMs != 0L) outcome.masteredAtMs else prev.masteredAt,
+                )
+            )
+        } else {
         val newState = when {
             isCorrect -> QuestionLearnState.CORRECT
             prev == null || prev.state == QuestionLearnState.SEEN_ONCE.name -> QuestionLearnState.INCORRECT_ONCE
@@ -282,6 +322,7 @@ class DailyChallengeEngine internal constructor(
                 firstSeenAt = prev?.firstSeenAt ?: nowMs, lastSeenAt = nowMs,
             )
         )
+        }
         analytics.track(DcEvents.QUESTION_ANSWERED, mapOf(DcEvents.P_EXAM to questionExam, DcEvents.P_IS_CORRECT to isCorrect))
         val answered = dao.countAnswers(ck)
         if (challenge.startedAt == 0L) {

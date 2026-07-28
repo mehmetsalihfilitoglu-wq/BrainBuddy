@@ -29,13 +29,21 @@ class ReviewSchedulerTest {
     @Test
     fun intervalsGrowWithEachCorrectReview() {
         val now = 5_000_000L
+        // Ladder: 1st correct -> 7d, 2nd -> 14d, 3rd -> 30d, 4th -> 60d, 5th -> MASTERED.
         val i1 = ReviewScheduler.onReview(QuestionLearnState.INCORRECT_ONCE, 0, true, now)
         val i2 = ReviewScheduler.onReview(QuestionLearnState.NEEDS_REVISION, 1, true, now)
         val i3 = ReviewScheduler.onReview(QuestionLearnState.NEEDS_REVISION, 2, true, now)
-        assertEquals(now + 1 * day, i1.nextReviewAtMs) // 1 day
-        assertEquals(now + 3 * day, i2.nextReviewAtMs) // 3 days
-        assertEquals(now + 7 * day, i3.nextReviewAtMs) // 7 days
+        val i4 = ReviewScheduler.onReview(QuestionLearnState.NEEDS_REVISION, 3, true, now)
+        assertEquals(now + 7 * day, i1.nextReviewAtMs)
+        assertEquals(now + 14 * day, i2.nextReviewAtMs)
+        assertEquals(now + 30 * day, i3.nextReviewAtMs)
+        assertEquals(now + 60 * day, i4.nextReviewAtMs)
         assertTrue(i1.nextReviewAtMs < i2.nextReviewAtMs && i2.nextReviewAtMs < i3.nextReviewAtMs)
+        assertTrue(i3.nextReviewAtMs < i4.nextReviewAtMs)
+
+        // The 5th consecutive correct retires it instead of scheduling another interval.
+        val mastered = ReviewScheduler.onReview(QuestionLearnState.NEEDS_REVISION, 4, true, now)
+        assertEquals(QuestionLearnState.MASTERED, mastered.state)
     }
 
     @Test

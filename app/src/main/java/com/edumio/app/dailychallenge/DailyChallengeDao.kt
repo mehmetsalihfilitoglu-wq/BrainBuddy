@@ -72,6 +72,27 @@ interface DailyChallengeDao {
     @Query("SELECT * FROM user_question_state WHERE userId = :userId AND state IN (:states)")
     suspend fun getStatesByStatesAllExams(userId: String, states: List<String>): List<UserQuestionStateEntity>
 
+    /**
+     * ALL scheduled reviews that are DUE now, oldest first, for one exam.
+     *
+     * Deliberately NOT limited here. Injection can only use a review whose section has a matching slot
+     * in today's five, and that is not knowable in SQL. Capping the query at two would let two
+     * ineligible-but-older reviews (e.g. Geometry on a day with no Geometry slot) hide a third, eligible
+     * one and inject nothing. The cap belongs where eligibility is evaluated — see
+     * DailyChallengeSelection.injectDueReviews — so the caller walks this list oldest-first and stops
+     * once it has actually placed its maximum.
+     *
+     * Bounded in practice by the number of questions a student has answered incorrectly in one exam.
+     * Read-only — no schema change.
+     */
+    @Query(
+        "SELECT * FROM user_question_state " +
+            "WHERE userId = :userId AND examType = :examType " +
+            "AND state = 'NEEDS_REVISION' AND nextReviewAt <= :nowMs " +
+            "ORDER BY nextReviewAt ASC"
+    )
+    suspend fun getDueReviews(userId: String, examType: String, nowMs: Long): List<UserQuestionStateEntity>
+
     /** The user's most recent recorded answer for one question (their chosen option for the solution view). */
     @Query("SELECT * FROM challenge_answer WHERE userId = :userId AND questionId = :questionId ORDER BY answeredAt DESC LIMIT 1")
     suspend fun getLatestAnswerForQuestion(userId: String, questionId: String): ChallengeAnswerEntity?

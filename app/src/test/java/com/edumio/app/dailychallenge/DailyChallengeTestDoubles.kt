@@ -78,6 +78,20 @@ class InMemoryDailyChallengeDao : DailyChallengeDao {
     override suspend fun getStatesByStatesAllExams(userId: String, states: List<String>): List<UserQuestionStateEntity> =
         synchronized(lock) { this.states.values.filter { it.userId == userId && it.state in states } }
 
+    /** Mirrors the SQL exactly: same exam, NEEDS_REVISION, due at [nowMs], oldest first, UNCAPPED. */
+    override suspend fun getDueReviews(
+        userId: String,
+        examType: String,
+        nowMs: Long,
+    ): List<UserQuestionStateEntity> = synchronized(lock) {
+        this.states.values
+            .filter {
+                it.userId == userId && it.examType == examType &&
+                    it.state == QuestionLearnState.NEEDS_REVISION.name && it.nextReviewAt <= nowMs
+            }
+            .sortedBy { it.nextReviewAt }
+    }
+
     override suspend fun getLatestAnswerForQuestion(userId: String, questionId: String): ChallengeAnswerEntity? =
         synchronized(lock) {
             answers.values.filter { it.userId == userId && it.questionId == questionId }.maxByOrNull { it.answeredAt }

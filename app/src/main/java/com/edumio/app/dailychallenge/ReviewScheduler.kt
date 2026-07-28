@@ -17,8 +17,19 @@ object ReviewScheduler {
 
     const val DAY_MS = 86_400_000L
 
-    /** Spaced-repetition intervals (days) applied after the Nth consecutive correct review. */
-    val intervalDays = intArrayOf(1, 3, 7, 16, 35)
+    /**
+     * Spaced-repetition intervals (days) applied after the Nth consecutive correct review:
+     * 1st correct -> 7d, 2nd -> 14d, 3rd -> 30d, 4th -> 60d. The 5th ([MASTERY_STREAK]) retires the
+     * question to MASTERED before this array is indexed, so four entries cover every scheduled step.
+     *
+     * Changing this ladder is safe for existing users: nextReviewAt is persisted as an ABSOLUTE
+     * timestamp, so rows already scheduled keep their dates and only future scheduling uses the new
+     * intervals. No database migration is involved.
+     */
+    val intervalDays = intArrayOf(7, 14, 30, 60)
+
+    /** A review answered incorrectly comes back the next day, independent of the mastery ladder. */
+    const val RETRY_AFTER_MISS_DAYS = 1
 
     /** Consecutive correct reviews required to retire a question to MASTERED. */
     const val MASTERY_STREAK = 5
@@ -45,8 +56,11 @@ object ReviewScheduler {
         dayMs: Long = DAY_MS,
     ): Outcome {
         if (!isCorrect) {
-            // A miss during review sends the question back to the front of the incorrect queue.
-            return Outcome(QuestionLearnState.INCORRECT_MULTIPLE, 0, nowMs + intervalDays[0] * dayMs, 0L)
+            // A miss during review sends the question back to the front of the incorrect queue —
+            // requeued for TOMORROW, deliberately not intervalDays[0]. The two were the same while the
+            // ladder started at 1 day; now that it starts at 7, reusing it would push a freshly missed
+            // question a week away instead of straight back into practice.
+            return Outcome(QuestionLearnState.INCORRECT_MULTIPLE, 0, nowMs + RETRY_AFTER_MISS_DAYS * dayMs, 0L)
         }
         val streak = prevConsecutiveCorrect + 1
         if (streak >= MASTERY_STREAK) {

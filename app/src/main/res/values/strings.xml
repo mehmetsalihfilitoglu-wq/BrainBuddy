@@ -742,6 +742,9 @@
     <string name="wp_status_resolved">Çözüldü</string>
     <string name="wp_empty">Aktif yanlış sorun yok. Böyle devam!</string>
     <string name="wp_retry_success">Doğru! Bu soru aktif yanlış havuzundan çıktı.</string>
+    <!-- Shown instead of wp_retry_success when the answer was correct but the review could not be
+         saved. The app must never claim the pool changed when nothing was persisted. -->
+    <string name="wp_retry_save_failed">Cevabın doğru ama kaydedilemedi. Lütfen tekrar dene.</string>
     <string name="wp_locked_body">Yanlış sorularını sınırsız tekrar et, her birinin tam çözümünü gör.</string>
     <string name="dcr_wrong_title">Yanlışların</string>
     <string name="sol_locked_inline">Tam çözüm Premium\'da. Doğru cevabı yukarıda işaretledik.</string>

@@ -211,23 +211,46 @@ class DailyChallengeReviewActivity : AppCompatActivity() {
             )
         }
 
-        primary.isEnabled = true
-        if (singleQuestionId != null) {
-            // Retry mode: one question, then done. Wrong → "try later"; correct → finish with success.
-            if (isCorrect) {
-                Toast.makeText(this, R.string.wp_retry_success, Toast.LENGTH_SHORT).show()
-                primary.setText(R.string.dc_review_finish)
-            } else {
-                primary.setText(R.string.sol_retry_later)
-            }
-        } else {
+        if (singleQuestionId == null) {
+            primary.isEnabled = true
             primary.setText(
                 if (DailyChallengeReviewPresenter.step(true, pos, items.size) == DailyChallengeReviewPresenter.Step.FINISH)
                     R.string.dc_review_finish else R.string.dc_review_next
             )
         }
+
         lifecycleScope.launch {
-            try { controller.submitReview(userId, q.id, isCorrect) } catch (_: Throwable) { /* local write; ignore */ }
+            // The success message MUST follow persistence, never precede it. It used to fire on
+            // isCorrect alone, before this write was even launched, and the write's result and any
+            // exception were discarded — so the app promised "aktif yanlış havuzundan çıktı" even when
+            // nothing had been saved.
+            val newState: QuestionLearnState? = try {
+                controller.submitReview(userId, q.id, isCorrect)
+            } catch (c: kotlinx.coroutines.CancellationException) {
+                throw c // leaving the screen mid-write is a lifecycle event, not a failure
+            } catch (t: Throwable) {
+                // Report rather than swallow: loud in Crashlytics, quiet for the student.
+                com.edumio.app.observability.CrashReporterProvider
+                    .get(this@DailyChallengeReviewActivity).recordException(t)
+                null
+            }
+
+            if (singleQuestionId == null) return@launch
+
+            // Retry mode: one question, then done. Announce success only when the review was correct
+            // AND the write landed AND it produced a real state transition.
+            val persisted = newState != null
+            if (isCorrect && persisted) {
+                Toast.makeText(this@DailyChallengeReviewActivity, R.string.wp_retry_success, Toast.LENGTH_SHORT).show()
+                primary.setText(R.string.dc_review_finish)
+            } else if (isCorrect) {
+                // Correct, but nothing was saved. Never claim the pool changed; let the student retry.
+                Toast.makeText(this@DailyChallengeReviewActivity, R.string.wp_retry_save_failed, Toast.LENGTH_LONG).show()
+                primary.setText(R.string.sol_retry_later)
+            } else {
+                primary.setText(R.string.sol_retry_later)
+            }
+            primary.isEnabled = true
         }
     }
 
